@@ -1,7 +1,7 @@
 ---
 ms.assetid: 9ee8a6cb-7550-46e2-9c11-78d0545c3a97
-title: "动态访问控制概述"
-description: 
+title: 动态访问控制概述
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,124 +10,125 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 5cf74042c9b511abb1fbeb88224dea0c7f2c8706
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812048"
 ---
 # <a name="dynamic-access-control-overview"></a>动态访问控制概述
 
->适用于：Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2012 R2, Windows Server 2012
 
-IT 专业人员的此概述主题介绍了动态访问控制及其关联，Windows Server 2012 和 Windows 8 中引入了元素。  
+此主题面向 IT 专业人员，概要介绍了在 Windows Server 2012 和 Windows 8 中引入的动态访问控制及其关联元素。  
   
-基于域动态访问控制使管理员可以访问控制权限和基于可能包括资源，作业或的角色用户，以及用于访问这些资源设备的配置敏感度的清晰规则限制将应用。  
+基于域的动态访问控制允许管理员申请访问控制权限和基于定义良好的规则的限制，这些限制可能包括资源的敏感度、使用者的工作或角色和用于访问这些资源的设备的配置。  
   
-例如，用户可能具有不同的权限，当他们使用的是笔记本电脑计算机在虚拟专用网络资源访问从与他们 office 计算机时。 或者可能会允许设备的唯一如果满足定义的网络管理员的安全要求的访问。 动态访问控制使用时，用户的权限动态更改无需额外管理员参与用户的工作或角色变动（导致更改用户帐户中的属性广告 DS）。  
+例如，用户从办公室计算机访问资源，与通过虚拟专用网使用便携计算机进行访问时有着不同的权限。 或者，仅当设备满足由网络管理员定义的安全需求时，才允许访问。 当使用动态访问控制时，用户的权限更改动态而无需管理员额外介入如果用户的工作或角色发生更改 （从而导致发生更改 AD DS 中的用户的帐户属性）。  
   
-动态访问控制之前 Windows Server 2012 和 Windows 8 的 Windows 操作系统中不支持。 当动态访问控制配置支持和非受支持版本的 Windows 的环境中时，仅受支持的版本将实现所做的更改。  
+Windows Server 2012 和 Windows 8 之前的 Windows 操作系统不支持动态控制访问。 在运行受支持和不受支持的 Windows 版本的环境中配置动态访问控制时，仅受支持的版本将实施所做更改。  
   
-功能和概念，与动态访问控制包括：  
+与动态访问控制关联的功能与概念包括：  
   
--   [中央使用规则](#BKMK_Rules)  
+-   [中心访问规则](#BKMK_Rules)  
   
--   [中央访问策略](#BKMK_Policies)  
+-   [中心访问策略](#BKMK_Policies)  
   
--   [索赔](#BKMK_Claims)  
+-   [声明](#BKMK_Claims)  
   
--   [表情](#BKMK_Expressions2)  
+-   [表达式](#BKMK_Expressions2)  
   
--   [提出的权限](#BKMK_Permissions2)  
+-   [建议的权限](#BKMK_Permissions2)  
   
-### <a name="BKMK_Rules"></a>中央使用规则  
-中央访问规则是将授权规则可以包含一个或多个用户组、用户索赔，设备索赔和资源属性涉及的条件。 可以将多个中心访问规则合并到中心访问策略。  
+### <a name="BKMK_Rules"></a>中心访问规则  
+中心访问规则是一个关于授权规则的表达，这个规则可能包括一个或多个涉及用户组、用户声明、设备声明和资源属性的条件。 可以将多个中心访问规则合并为一个中心访问策略。  
   
-如果一个或多个中心访问规则已定义到某个域，文件共享管理员可以匹配特定规则与特定资源和业务需求。  
+如果给一个域定义了一条或多条中心访问规则，文件共享管理员将特定的规则匹配给特定的资源和业务要求。  
   
-### <a name="BKMK_Policies"></a>中央访问策略  
-中央访问策略是授权包含条件表情。 例如，假设的组织有业务要求限制访问的个人身份信息 (PII) 中对文件所有者和允许查看 PII 信息人工 (HR) 部成员文件。 这代表适用于 PII 文件中，它们位于文件服务器整个组织随时组织范围的策略。 若要实现此策略，需要将无法为组织：  
+### <a name="BKMK_Policies"></a>中心访问策略  
+中央访问策略是包含条件表达式的授权策略。 例如，假设组织具有仅文件所有者和人力资源 (HR) 部门的成员，他们有权查看 PII 信息的文件中的业务要求限制对个人身份信息 (PII) 的访问。 这表示组织范围的策略适用于整个组织内在文件服务器上的任意位置的 PII 文件。 要实施这个策略，组织必须能够：  
   
--   找出并标记包含 PII 的文件。  
+-   确定并标记包含 PII 的文件。  
   
--   标识小时成员可以查看 PII 信息的组。  
+-   确定允许查看 PII 信息的人力资源组成员。  
   
--   向中心访问规则中, 添加中心访问策略和将中心访问规则应用于所有文件包含 PII，位于何处十分文件服务器整个组织。  
+-   将此中心访问策略添加到中心访问规则，然后将此中心访问规则应用到整个组织内在任何文件服务器上的所有包含 PII 的文件。  
   
-中央访问策略作为组织适用于其服务器的安全 umbrellas。 这些策略于是（但不要替换）本地访问策略或随机访问控件列表 (Dacl) 应用的文件和文件夹。  
+中央访问策略可用作组织应用于其内部所有服务器的安全保护伞。 这些策略是应用于文件和文件夹的本地访问策略或自定义访问控制列表 (DACL) 的补充（并非替代）。  
   
-### <a name="BKMK_Claims"></a>索赔  
-声明是信息的一个唯一的一的用户、设备或已由域控制器发布的资源。 用户的标题、部门分类的文件或计算机的运行状况的有效的示例包括的索赔。 实体可能会涉及多个索赔，并可以使用的索赔任意组合授权的访问权限的资源。 以下类型的索赔是适用于受支持版本的 Windows:  
+### <a name="BKMK_Claims"></a>声明  
+声明是关于域控制器发布的用户、设备或资源的一则独特信息。 用户的职位、 文件或计算机的运行状况状态的部门分类是声明的有效示例。 一个实体可以涉及不止一个声明，而声明的任何组合都可以被用来授权对资源的访问。 在受支持的 Windows 版本中提供了下列类型的声明︰  
   
--   **用户索赔**与特定用户的 Active Directory 属性。  
+-   **用户声明**：与某一特定用户关联的 Active Directory 属性。  
   
--   **设备索赔**与特定计算机对象关联的 Active Directory 属性。  
+-   **设备声明**：与某一特定计算机对象关联的 Active Directory 属性。  
   
--   **资源属性**全局资源属性，标记为授权决定在使用 Active Directory 中发布。  
+-   **资源属性**：被标记用于授权决策并在 Active Directory 中发布的全球资源属性。  
   
-索赔使管理员进行准确的组织或企业版范围明细表有关用户、设备和即可合并的资源表情、规则和策略中。  
+声明使管理员能够作出准确的组织，或企业范围内，关于用户、设备和资源的声明，它们可被纳入表达式、规则和策略当中。  
   
-### <a name="BKMK_Expressions2"></a>表情  
-条件表情都增强到访问控制管理允许或拒绝访问资源仅在某些情况时，例如组成员、位置或设备的安全状态。 通过 ACL 编辑器或中央访问规则编辑器 Active Directory 管理中心 (ADAC) 中的高级安全设置对话框中，表情进行管理。  
+### <a name="BKMK_Expressions2"></a>表达式  
+条件表达式是访问控制管理的增强，它仅在特定条件满足的时候允许或拒绝对资源的访问，例如，组成员身份、位置或设备的安全性状态。 表达式通过 ACL 编辑器的高级安全设置对话框或 Active Directory 管理中心 (ADAC) 的中心访问规编辑器进行管理。  
   
-表情帮助管理访问灵活条件越来越复杂企业环境中的敏感资源的管理员。  
+表达式帮助管理员在日益复杂的公司环境中，使用灵活的条件管理对敏感性资源的访问。  
   
-### <a name="BKMK_Permissions2"></a>提出的权限  
-提出的权限启用管理员才能够得更加准确型号潜在的更改，而无需实际上更改它们访问控制设置的影响。  
+### <a name="BKMK_Permissions2"></a>建议的权限  
+计划权限允许管理员更精确地塑造访问控制设置潜在变化的影响，而无需实际改变它们。  
   
-预测对资源有效的访问，可帮助你计划，并在实现这些更改之前配置这些资源的权限。  
+预测对资源的有效访问有助于你在实施那些更改之前，为那些资源计划和配置权限。  
   
-## <a name="additional-changes"></a>其他更改  
-在受支持版本的 Windows 支持动态访问控制其他增强功能包括：  
+## <a name="additional-changes"></a>更多变化  
+受支持的 Windows 版本中支持动态访问控制的其他增强功能包括：  
   
-### <a name="support-in-the-kerberos-authentication-protocol-to-reliably-provide-user-claims-device-claims-and-device-groups"></a>Kerberos 验证协议用户索赔、设备索赔和设备组可靠提供支持。  
-默认情况下，设备运行的任何受支持版本的 Windows 可处理动态访问控制相关 Kerberos 票证，其中包括所需的复合身份验证数据。 域控制器都可以发出和响应 Kerberos 门票复合身份验证相关信息。 当某个域配置识别动态访问控制时，设备接收索赔域控制器期间的初始身份验证，并且提交服务票证请求时，他们会收到复合身份验证门票。 复合中包含的用户和设备上识别动态访问控制资源身份一个访问令牌身份验证结果。  
+### <a name="support-in-the-kerberos-authentication-protocol-to-reliably-provide-user-claims-device-claims-and-device-groups"></a>支持Kerberos 身份验证协议以可靠地提供用户声明、设备声明和设备组。  
+默认情况下，运行任何受支持 Windows 版本的设备都能够处理与动态访问控制关联的 Kerberos 票据，它包含有复合身份验证所需的数据。 域控制器能够以复合身份验证相关的信息发布和响应 Kerberos 票据。 当一个域被配置为识别动态访问控制时，设备在初始身份验证过程中从域控制器那里接收声明，并且它们在提交服务票证请求时，接收复合的身份验证票据。 复合身份验证会导致访问令牌包含有识别动态访问控制的资源上的用户和设备身份。  
   
-### <a name="support-for-using-the-key-distribution-center-kdc-group-policy-setting-to-enable-dynamic-access-control-for-a-domain"></a>使用到某个域中启用动态访问控制键 Distribution 中心 (KDC) 组策略设置支持。  
-每个域控制器需要具有位于同一管理模板策略设置**计算机配置 Templates\System\KDC\Support 动态访问控制和保护 Kerberos 作用**。  
+### <a name="support-for-using-the-key-distribution-center-kdc-group-policy-setting-to-enable-dynamic-access-control-for-a-domain"></a>支持使用密钥发行中心 (KDC) 组策略设置为域启用动态访问控制。  
+每个域控制器都需要有同样的管理模板策略设置，它位于**计算机配置\策略\管理模板\系统\KDC\支持动态访问控制和 Kerberos 保护**。  
   
-### <a name="support-for-using-the-key-distribution-center-kdc-group-policy-setting-to-enable-dynamic-access-control-for-a-domain"></a>使用到某个域中启用动态访问控制键 Distribution 中心 (KDC) 组策略设置支持。  
-每个域控制器需要具有位于同一管理模板策略设置**计算机配置 Templates\System\KDC\Support 动态访问控制和保护 Kerberos 作用**。  
+### <a name="support-for-using-the-key-distribution-center-kdc-group-policy-setting-to-enable-dynamic-access-control-for-a-domain"></a>支持使用密钥发行中心 (KDC) 组策略设置为域启用动态访问控制。  
+每个域控制器都需要有同样的管理模板策略设置，它位于**计算机配置\策略\管理模板\系统\KDC\支持动态访问控制和 Kerberos 保护**。  
   
-### <a name="support-in-active-directory-to-store-user-and-device-claims-resource-properties-and-central-access-policy-objects"></a>在存储用户和设备索赔，资源属性中心访问策略对象 Active Directory 的支持。  
+### <a name="support-in-active-directory-to-store-user-and-device-claims-resource-properties-and-central-access-policy-objects"></a>支持在 Active Directory 中存储用户和设备声明、资源属性和中心访问策略对象。  
   
-### <a name="support-for-using-group-policy-to-deploy-central-access-policy-objects"></a>使用组策略部署中心访问策略对象的支持。  
-下面的组策略设置使您能够部署到文件服务器，在你的组织的中央访问策略对象：**计算机 Configuration\Policies\ Windows \ 设置 \ 文件 System\Central 访问策略**。  
+### <a name="support-for-using-group-policy-to-deploy-central-access-policy-objects"></a>支持使用组策略部署中心访问策略对象。  
+以下组策略设置，可将中心访问策略对象部署到你的组织中的文件服务器：**计算机配置 Windows 设置 \ 安全设置 \ 中央访问策略**。  
   
-### <a name="support-for-claims-based-file-authorization-and-auditing-for-file-systems-by-using-group-policy-and-global-object-access-auditing"></a>基于索赔文件授权和文件系统的审核通过使用组策略全球对象访问审核支持  
-你必须启用分阶段中心访问策略审核审核中心访问策略有效访问使用提出的权限。 配置为在计算机此设置**高级审查策略配置**中**安全设置**组策略对象 (GPO)。 在 GPO 配置安全设置后，你可以在你的网络到计算机部署 GPO。  
+### <a name="support-for-claims-based-file-authorization-and-auditing-for-file-systems-by-using-group-policy-and-global-object-access-auditing"></a>支持通过使用组策略和全局对象访问审核对文件系统进行基于声明的文件授权和审核  
+你必须通过使用计划权限，允许阶段性的中心访问策略审核，审核对中心访问策略的有效访问。 在组策略对象 (GPO) 的“**安全设置**”中的“**高级审核策略配置**”下，为计算机配置这一设置。 在 GPO 中配置安全设置之后，可将 GPO 部署到网络中的计算机上。  
   
-### <a name="support-for-transforming-or-filtering-claim-policy-objects-that-traverse-active-directory-forest-trusts"></a>支持转换或筛选遍历 Active Directory 林信任的索赔策略对象  
-你可以筛选或转换传入和传出遍历森林信任的索赔。 有三个基本筛选和转变索赔的方案：  
+### <a name="support-for-transforming-or-filtering-claim-policy-objects-that-traverse-active-directory-forest-trusts"></a>支持转换或筛选遍历 Active Directory 林信任的声明策略对象  
+你可以筛选或转换传入或传出的遍历林信任的声明。 对于筛选或转换声明，有三种基本方案：  
   
--   **基于值筛选**筛选器可根据的值的索赔。 这允许受信任的森林，以防发送到信任林某些值的索赔。 域控制器在信任森林可用于值基于筛选抵御特权提升攻击通过过滤从受信任的森林传入索赔具有特定的值。  
+-   **基于值的筛选**：筛选器可建立在声明的值的基础上。 这允许受信任林阻止某些特定值的声明被发送到信任林。 信任林中的域控制器可使用基于值的筛选，通过用来自受信任林的特定值筛选收到的声明，防止权限提升攻击。  
   
--   **声称类型基于筛选**Filters 根据类型的索赔，而不是声明值。 你可以通过声明的名称识别索赔类型。 使用筛选在受信任的树林中，键入基于索赔，它会阻止 Windows 发送披露信任林信息的索赔。  
+-   **基于声明类型的筛选**：基于声明类型而不是声明值的筛选器。 通过声明的名称识别声明类型。 你可以使用受信任林中基于声明类型的筛选阻止 Windows 发送向信任林披露信息的声明。  
   
--   **声称类型基于转换**操作之前将其发送到所需目标索赔。 使用受信任的树林中索赔类型基于转换一般化已知的索赔包含的具体信息。 你可以使用转换一般化声明类型、该声明值，或两者都。  
+-   **基于声明类型的转换**：在将声明发送给预定目标之前对其进行操作。 使用受信任林中基于声明类型的转换，生成一个包含特定信息的已知声明。 你可以使用转换生成声明类型、声明值或同时生成两者。  
   
 ## <a name="software-requirements"></a>软件要求  
-由于索赔和动态访问控制复合身份验证需要 Kerberos 身份验证扩展，支持动态访问控制任何域必须运行 Windows，以支持动态访问控制感知 Kerberos 客户端的身份验证的受支持的版本足够域控制器。 默认情况下，必须设备使用域控制器中的其他站点。 是否提供此类的域控制器，身份验证也将失败。 因此，你必须支持下列情况之一：  
+由于动态访问控制的声明和复合身份验证要求有 Kerberos 身份验证扩展，因此，任何支持动态访问控制的域必须有足够的运行受支持 Windows 版本的域控制器，以支持来自动态访问控制感知的 Kerberos 客户端的身份验证。 默认情况下，设备必须使用其他站点中的域控制器。 如果这样的域控制器都不可用，身份验证将会失败。 因此，你必须支持下列情况中的一种：  
   
--   支持动态访问控制每个域必须具有足够域控制器在运行 Windows Server 支持从所有设备运行的 Windows 或 Windows Server 的受支持的版本的身份验证的受支持的版本。  
+-   支持动态访问控制的每个域必须有足够的运行受支持 Windows 版本的域控制器，以支持来自运行受支持 Windows 或 Windows Server 版本的所有设备的身份验证。  
   
--   运行的受支持的版本的 Windows 或该设备通过使用索赔或复合身份不保护资源，应禁用动态访问控制 Kerberos 协议支持。  
+-   运行受支持 Windows 版本的设备或没有通过使用声明或复合识别保护资源的设备，应当对动态访问控制禁用 Kerberos 协议支持。  
   
-对于支持用户声明的域，每个运行 Windows server 的受支持的版本的域控制器必须的相应的设置，以支持索赔和复合身份验证，并提供 Kerberos 程度配置。 在 KDC 管理模板策略配置设置，如下所示：  
+对支持用户声明的域，每个运行受支持 Windows Server 版本的域控制器必须用合适的设置进行配置，以支持声明和复合身份验证，并提供 Kerberos 防御。 像下面这样配置“KDC 管理模板”策略中的设置：  
   
--   **始终提供索赔**使用此设置，如果所有域控制器都运行的 Windows Server 的受支持的版本。 此外，设置域功能级别，对 Windows Server 2012 或更高版本。  
+-   **始终提供声明**：如果所有域控制器都运行受支持的 Windows Server 版本，请使用这一设置。 此外，需要将域功能级别设置为 Windows Server 2012 或更高版本。  
   
--   **受支持**当你使用此设置，监视器域控制器，以确保是足够数需要访问受动态访问控制资源的客户端计算机的运行 Windows Server 的受支持的版本的域控制器的数量。  
+-   **受支持**：当你使用这一设置时，请监视域控制器，以确保运行受支持 Windows Server 版本的域控制器数量，对于需要用来访问受“动态访问控制”保护的资源的客户端计算机的数量来说，是足够的。  
   
-如果用户域和文件服务器域不同森林，必须设置文件服务器的森林根中的所有域控制器在 Windows Server 2012 或更高版本的正常工作级别。  
+如果用户域和文件服务器域位于不同的林中，则必须在 Windows Server 2012 或更高版本的功能级别设置文件服务器的林根中的所有域控制器。  
   
-如果客户端无法识别动态访问控制，必须有双向信任关系两个林之间。  
+如果用户不能识别“动态访问控制”，那么在两个林之间应该有双向信任关系。  
   
-如果在离开森林时将其转换索赔，必须在 Windows Server 2012 或更高版本的正常工作级别设置所有用户的森林根域控制器。  
+如果声明进行转换，当他们离开林时，必须在 Windows Server 2012 或更高版本的功能级别设置用户的目录林根中的所有域控制器。  
   
-文件服务器，在运行 Windows Server 2012 或 Windows Server 2012 R2 必须组策略设置指出是否需要获取用户的用户令牌不带有索赔提起的索赔。 此设置已设置为默认**自动**，这会导致此组策略设置以打开**上**是否中央策略，其中包含该文件服务器的用户或设备的索赔。 如果文件服务器包含自由 Acl 包含用户索赔，你将需要此组策略设置为**上**以便服务器知道请求代表不提供索赔访问服务器时的用户的索赔。  
+运行 Windows Server 2012 或 Windows Server 2012 R2 的文件服务器必须具有组策略设置，指定是否需要为不携带声明的用户令牌获取用户声明。 这一设置默认设为“**自动**”，这会导致当存在包含该文件服务器的用户和/或设备声明的中心策略时，“组策略”设置被“**开启**”。 如果文件服务器包含了包括用户声明的自定义 ACL，则必须将这个“组策略”设置为“**开启**”，这样服务器就知道代表访问服务器时不提供声明的用户请求声明。  
   
-## <a name="additional-resource"></a>其他资源  
-有关实现解决方案根据该技术的信息，请参阅[动态访问控制：方案概述](Dynamic-Access-Control--Scenario-Overview.md)。  
+## <a name="additional-resource"></a>更多资源  
+有关实现基于此技术的解决方案的信息，请参阅[动态访问控制：方案概述](Dynamic-Access-Control--Scenario-Overview.md)。  
   
 
 

@@ -1,37 +1,30 @@
 ---
 ms.assetid: 533ce45c-67cc-4fbf-bb19-f364874e52c1
-title: "广告 DS 入门"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
-ms.date: 05/31/2017
+title: AD DS 入门
+description: ''
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 33b0af78acce581f79434cd387dd278786802c5a
-ms.sourcegitcommit: 556361fe7c73c75d6cdc46a67dc88679fbe89c61
+ms.openlocfilehash: 63dfec0298097c537e626ce81bac4139c4644c17
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59813558"
 ---
-# <a name="ad-ds-getting-started"></a>广告 DS 入门
+# <a name="ad-ds-getting-started"></a>AD DS 入门
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-Active Directory 存储在网络上的对象的信息，并使此信息的管理员和用户地查找和使用易于。 Active Directory 用作结构化的数据官方商城基础目录信息的逻辑，分层组织。  
+Active Directory 将对象的信息存储在网络上，并使此信息来查找和使用的管理员和用户可以更轻松。 Active Directory 使用的结构化的数据存储的基础逻辑、 分层组织的目录信息。  
   
-  
-主题  |描述    
----------|---------  
-   [Active Directory 域名服务概述](../ad-ds/get-started/virtual-dc/Active-Directory-Domain-Services-Overview.md) | 提供基本广告 DS 功能的信息。 包含 technical 概念，规划和部署的链接。     |         
-   [管理 active Directory 的中心](../ad-ds/get-started/adac/Active-Directory-Administrative-Center.md) |  提供关于 Active Directory 管理中心，其中包括增强的管理体验功能的信息。 这些功能辅助管理负担用于管理 Active Directory 域服务 (广告 DS)。      |    
-   [Active Directory 域服务虚拟化](../ad-ds/get-started/virtual-dc/Active-Directory-Domain-Services-Virtualization.md) |广告 DS 虚拟化提供概述和技术的信息。        |    
-   [Windows 时间服务](../../networking/windows-time-service/Windows-Time-Service.md) |提供怎么办的详细信息是 Windows 的时间服务、 时间协议的重要性和 Windows 时间服务的工作原理  
-   
-  
-    
-  
-  
-
-
+| 主题 | 描述 |
+| --------- | --------- |
+| [Active Directory 域服务概述](../ad-ds/get-started/virtual-dc/Active-Directory-Domain-Services-Overview.md) | 提供基本的 AD DS 功能的信息。 包括技术概念、 规划和部署的链接。|
+| [Active Directory 管理中心](../ad-ds/get-started/adac/Active-Directory-Administrative-Center.md) | 提供有关 Active Directory 管理中心包括增强的管理体验功能的信息。 这些功能简化了管理 Active Directory 域服务 (AD DS) 的管理负担。|
+| [Active Directory 域服务虚拟化](../ad-ds/get-started/virtual-dc/Active-Directory-Domain-Services-Virtualization.md) | 提供有关 AD DS 虚拟化的概述和技术信息。|
+| [Windows 时间服务](../../networking/windows-time-service/Windows-Time-Service.md) | 提供 Windows 时间服务、 时间协议的重要性和 Windows 时间服务的工作原理是在什么的详细信息。|

@@ -10,30 +10,30 @@ ms.date: 05/02/2018
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 9cf87597-b15d-4f43-8aa1-91e60367f011
-ms.openlocfilehash: c5cd8fbcf8424fa158ad31ca64e3eabe426240a6
-ms.sourcegitcommit: 8e2903c9b58646840eedd63b47a9bba6c6a06bf7
-ms.translationtype: HT
+ms.openlocfilehash: c0a4917d0fdb3e911204601d6137d8c8a296e57a
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "1859867"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812278"
 ---
 # <a name="introducing-windows-server-version-1803"></a>Windows Server 版本 1803 简介
 
 >适用于：Windows Server（半年频道）
 
-**Windows Server 版本 1803 是新半年频道的当前版本**
+**Windows Server 1803 的版本是当前版本中新的半年频道**
 
 
 ## <a name="what-the-semi-annual-channel-is--and-isnt"></a>有关半年频道的说明
 Windows Server 版本 1803 *不*是 Windows Server 2016 的“更新”或“服务包”。 而是版本频道中每年发布两次的服务器版本的最新版，该版本面向以“云节奏”移动的客户（如对快速开发周期有要求的客户）。 此频道非常适用于现代应用程序和创新方案，如容器和微服务。 每个在该频道中发布的版本都享受 18 个月的支持服务（自初始发布开始）。 若要详细了解半年频道并获取**有关决定加入哪个频道的提示**（或留在哪个频道的提示），请参阅[半年频道概述](semi-annual-channel-overview.md)。
 
 
-**Windows Server 2016 是最新的 Long-Term Servicing Channel (LTSC) 产品**。 如果你需要服务器操作系统具有长期稳定性和可预测性，以支持传统的工作负载和应用程序，则 LTSC 最适合。 如果你想坚持使用 LTSC，则应该安装（或继续使用）Windows Server 2016，该软件可在服务器核心模式下或在带桌面体验的服务器模式下安装。 有关详细信息，请参阅 [Windows Server 2016 入门](https://docs.microsoft.com/windows-server/get-started/server-basics)。
+**Windows Server 2016 是当前的长期服务频道 (LTSC) 产品。** 如果你需要服务器操作系统具有长期稳定性和可预测性，以支持传统的工作负载和应用程序，则 LTSC 最适合。 如果你想坚持使用 LTSC，则应该安装（或继续使用）Windows Server 2016，该软件可在服务器核心模式下或在带桌面体验的服务器模式下安装。 有关详细信息，请参阅 [Windows Server 2016 入门](https://docs.microsoft.com/windows-server/get-started/server-basics)。
 
 
 ## <a name="whats-different-about-windows-server-version-1803"></a>Windows Server 版本 1803 有何不同？
 
-Windows Server 版本 1803 在服务器核心模式下运行。 Windows Server Core 模式提供强大的优势，如硬件要求较低、攻击面更小并且减小了更新需求。 因为没有图形用户界面，Windows Server Core 模式最适合远程管理。 如果你未使用过服务器核心，则[管理服务器核心服务器](../administration/server-core/server-core-manage.md)可帮助你适应此环境。 [管理 Windows Server 2016](../administration/manage-windows-server.md) 介绍了用于远程管理服务器的各种选项。
+Windows Server 版本 1803 运行于服务器核心模式。 Windows Server Core 模式提供强大的优势，如硬件要求较低、攻击面更小并且减小了更新需求。 因为没有图形用户界面，Windows Server Core 模式最适合远程管理。 如果你未使用过服务器核心，则[管理服务器核心服务器](../administration/server-core/server-core-manage.md)可帮助你适应此环境。 [管理 Windows Server 2016](../administration/manage-windows-server.md) 介绍了用于远程管理服务器的各种选项。
 
 [Windows Server 版本 1803 中的新增功能](whats-new-in-windows-server-1803.md)介绍了 Windows Server 版本 1803 中添加的新特性和功能。
 
@@ -57,11 +57,11 @@ Nano Server 可用作容器操作系统。 有关详细信息，请参阅[在 Wi
 
 此版本应以干净安装的方式进行安装。
 
-- 批量许可服务中心 (VLSC)：享受[软件保障](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx)的批量许可客户可以转到[批量许可服务中心](https://www.microsoft.com/Licensing/servicecenter/default.aspx)并单击**登录**来获取此版本。 然后，单击**下载和密钥**并搜索此版本。 
+- 批量许可服务中心 (VLSC):具有批量许可客户[软件保障](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx)可以获取此版本通过转到[批量许可服务中心](https://www.microsoft.com/Licensing/servicecenter/default.aspx)，然后单击**登录**。 然后，单击**下载和密钥**并搜索此版本。 
 
 - [Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) 中也提供了 Windows Server 版本 1803。
 
-- Visual Studio 订阅：Visual Studio 订阅者可以通过从 [Visual Studio 订阅者下载页面](https://my.visualstudio.com/downloads?pid=2347)下载来获取 Windows Server 版本 1803。 如果你还不是订阅者，请转到 [Visual Studio 订阅](https://www.visualstudio.com/subscriptions/)进行注册，然后访问上方所述的 [Visual Studio 订阅者下载页面](https://my.visualstudio.com/downloads?pid=2347)。 通过 Visual Studio 订阅获得的版本仅用于开发和测试。
+- Visual Studio 订阅：Visual Studio 订阅者可以获得 Windows Server，通过从版本 1803年[Visual Studio 订阅者下载页](https://my.visualstudio.com/downloads?pid=2347)。 如果你还不是订阅者，请转到 [Visual Studio 订阅](https://www.visualstudio.com/subscriptions/)进行注册，然后访问上方所述的 [Visual Studio 订阅者下载页面](https://my.visualstudio.com/downloads?pid=2347)。 通过 Visual Studio 订阅获得的版本仅用于开发和测试。
 
 
 

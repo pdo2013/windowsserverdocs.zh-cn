@@ -1,7 +1,7 @@
 ---
 ms.assetid: 28f4a518-1341-4a10-8a4e-5f84625b314b
-title: "广告 FS 2016 要求"
-description: "安装 Active Directory 联合身份验证服务要求。"
+title: AD FS 2016 要求
+description: 安装 Active Directory 联合身份验证服务的要求。
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,25 +9,26 @@ ms.date: 03/06/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 81b51c751d5f54436b14450ef21bf49feb864290
-ms.sourcegitcommit: 556361fe7c73c75d6cdc46a67dc88679fbe89c61
+ms.openlocfilehash: 9a5155dd31b9f8f86fac532aa33cd9f7389d8a48
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59815118"
 ---
-# <a name="ad-fs-requirements"></a>广告 FS 要求
+# <a name="ad-fs-requirements"></a>AD FS 要求
 
 >适用于：Windows Server 2016
 
-以下是用于部署广告 FS 要求：  
+有关部署 AD FS 的要求如下：  
   
 -   [证书要求](ad-fs-requirements.md#BKMK_1)  
   
 -   [硬件要求](ad-fs-requirements.md#BKMK_2)  
   
--   [代理要求](ad-fs-requirements.md#BKMK_3)  
+-   [代理服务器要求](ad-fs-requirements.md#BKMK_3)  
   
--   [广告 DS 要求](ad-fs-requirements.md#BKMK_4)  
+-   [AD DS 要求](ad-fs-requirements.md#BKMK_4)  
   
 -   [配置数据库要求](ad-fs-requirements.md#BKMK_5)  
   
@@ -41,199 +42,203 @@ ms.lasthandoff: 03/08/2018
   
 ### <a name="ssl-certificates"></a>SSL 证书
 
-每个广告金融服务和 Web 应用程序代理服务器具有 SSL 证书服务 HTTPS 请求到联合身份验证服务。  Web 应用程序代理产生服务请求发布的应用到其他 SSL 证书。
+每个 AD FS 和 Web 应用程序代理服务器具有 SSL 证书，为服务联合身份验证服务的 HTTPS 请求。  Web 应用程序代理可以为发布的应用程序请求提供服务的其他 SSL 证书。
 
-**建议：**用于所有广告 FS 联合身份验证的服务器和 Web 应用程序代理 SSL 同一个证书。 
+**建议：** 所有 AD FS 联合身份验证服务器和 Web 应用程序代理都使用相同的 SSL 证书。 
 
 **要求：**
 
-SSL 服务器联合身份验证的证书必须满足以下要求
-- 证书为公开受信任（用于生产部署）
-- 证书含有服务器身份验证增强密钥使用量 (EKU) 值
-- 证书包含联合身份验证服务名称，如"fs.contoso.com"主题或主题替代名称 (SAN)
-- 对于用户端口 443 上证书身份验证，证书含有"certauth。\ < 联合身份验证服务 name\ >"，如"certauth.fs.contoso.com"SAN
-- 对于设备注册或现代的身份验证本地资源使用预的 Windows 10 客户端，圣必须包含"enterpriseregistration。\ < upn suffix\ >"的每个 UPN 职务在使用你的组织中。
+联合身份验证服务器上的 SSL 证书必须满足以下要求
+- 证书是公开的受信任 （适用于生产部署）
+- 证书包含服务器身份验证增强型密钥用法 (EKU) 值
+- 证书包含联合身份验证服务名称，例如"fs.contoso.com"中的使用者或使用者可选名称 (SAN)
+- 端口 443 上的用户证书身份验证，证书包含"certauth。\<联合身份验证服务名称\>"，如 SAN 中的"certauth.fs.contoso.com"
+- SAN 设备注册或使用 windows 10 之前的客户端的本地资源到新式身份验证，必须包含"enterpriseregistration。\<upn 后缀\>"为你的组织中使用每个 UPN 后缀。
 
-在 Web 应用程序代理 SSL 证书必须满足以下要求
-- 如果该代理使用到使用 Windows 集成验证的代理 SSL 证书的代理广告 FS 请求必须相同（使用同一个键）联合身份验证的服务器 SSL 证书
-- 如果广告 FS 属性"ExtendedProtectionTokenCheck"已启用（设置中广告 FS 默认），代理 SSL 证书必须相同（使用同一个键）联合身份验证的服务器 SSL 证书
-- 否则，代理 SSL 证书要求都相同的联合身份验证的服务器 SSL 证书
+在 Web 应用程序代理服务器上的 SSL 证书必须满足以下要求
+- 如果为使用的代理使用 Windows 集成身份验证，代理 SSL 证书的 AD FS 代理请求必须相同 （使用相同的密钥） 与联合身份验证服务器 SSL 证书
+- 如果 AD FS 属性"ExtendedProtectionTokenCheck"是启用 （默认设置中的 AD FS），代理 SSL 证书必须相同 （使用相同的密钥） 与联合身份验证服务器 SSL 证书
+- 否则，代理 SSL 证书的要求将相同的联合身份验证服务器 SSL 证书
 
 ### <a name="service-communication-certificate"></a>服务通信证书
-不需要大多数广告 FS 方案包括 Azure AD 和 Office 365 该证书。 默认情况下，广告 FS 配置为服务通信证书初始配置时提供 SSL 证书。
+此证书不需要用于大多数 AD FS 方案，包括 Azure AD 和 Office 365。 默认情况下，AD FS 配置在初始配置与服务通信证书时提供的 SSL 证书。
 
 **建议：**
-- 当你使用用于 SSL，则使用同一个证书。  
+- 使用相同的证书，如使用的 SSL。  
 
 ### <a name="token-signing-certificate"></a>令牌签名证书
-该证书是常用的符号颁发标记信赖方，因此信赖的方应用必须识别的证书及其关联作为已知的且受信任的键。 当令牌签名证书更改，例如当到期时，并且你配置了一个新的证书时，必须先更新所有信赖的合作伙伴。
+使用此证书进行签名的信赖方颁发的令牌，以便信赖方应用程序必须能够识别证书及其关联的密钥作为已知和受信任。 当令牌签名证书更改，例如当它过期时和在配置新的证书时，必须更新所有信赖方。
 
-**建议：**使用广告 FS 默认情况下，内部生成、自签名的令牌签名证书。  
-
-**要求：**
-- 如果你的组织需要用于令牌签名证书企业 PKI 从，这可以使用的 Install-AdfsFarm cmdlet SigningCertificateThumbprint 参数。
-- 使用默认内部生成证书还是外部已注册的证书，更改令牌签名证书后你必须确保所有信赖的合作伙伴的更新的新证书信息。  否则，将无法登录到任何依赖方不会更新。
-
-### <a name="token-encryptingdecrypting-certificate"></a>标记加密解密证书
-索赔提供商加密标记颁发给广告 FS 使用该证书。
-
-**建议：**使用广告 FS 默认情况下，内部生成、自签名的令牌解密证书。  
+**建议：** 使用 AD FS 默认情况下在内部生成的自签名令牌签名证书。  
 
 **要求：**
-- 如果你的组织需要用于令牌签名证书企业 PKI 从，这可以使用的 Install-AdfsFarm cmdlet DecryptingCertificateThumbprint 参数。
-- 使用默认内部生成证书还是外部已注册的证书，当解密证书令牌更改你必须确保所有索赔提供程序的都更新的新证书信息。  否则，将无法登录时使用任何索赔不更新的提供商。
+- 如果你的组织需要从企业 PKI 的证书可用于令牌签名，这可以使用 Install-adfsfarm cmdlet 的 SigningCertificateThumbprint 参数。
+- 使用在内部生成的默认证书还是外部已注册的证书，当您更改令牌签名证书时必须确保使用新的证书信息更新所有信赖方。  否则，不会更新任何依赖方的登录将失败。
+
+### <a name="token-encryptingdecrypting-certificate"></a>令牌加密/解密证书
+由加密令牌颁发给 AD FS 声明提供程序使用此证书。
+
+**建议：** 使用 AD FS 默认情况下在内部生成的自签名令牌解密证书。  
+
+**要求：**
+- 如果你的组织需要从企业 PKI 的证书可用于令牌签名，这可以使用 Install-adfsfarm cmdlet 的 DecryptingCertificateThumbprint 参数。
+- 使用在内部生成的默认证书还是外部已注册的证书，当您更改令牌解密证书时必须确保使用新的证书信息更新所有声明提供程序。  否则，登录使用任何声明提供程序不会更新将失败。
   
 > [!CAUTION]  
-> 用于 token\ 签名和加密 token\ decrypting\/证书至关重要联合身份验证服务的稳定性。 管理自己 token\ 签名和加密 token\ decrypting\/证书客户应确保这些证书备份好并处于空闲状态独立恢复事件。  
+> 用于令牌的证书\-签名和令牌\-解密\/加密对联合身份验证服务的稳定性至关重要。 管理他们自己的令牌的客户\-签名和令牌\-解密\/加密证书应确保这些证书进行备份，并且可独立恢复事件期间。  
 
 ### <a name="user-certificates"></a>用户证书
-- 当使用的 x509 与广告 FS，所有用户证书用户证书身份验证必须链接到受信任的广告金融服务和 Web 应用程序代理服务器根证书颁发机构。
+- 当使用的 x509 用户证书身份验证使用 AD FS 时，所有用户证书必须链接到受 AD FS 和 Web 应用程序代理服务器的根证书颁发机构。
 
 ## <a name="BKMK_2"></a>硬件要求  
-广告金融服务和 Web 应用程序代理服务器硬件要求（物理或虚拟）上 CPU、网关，因此你应大小用于处理容量你电场的日落。  
-- 使用[广告 FS 2016 容量规划电子表格](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx)以确定广告金融服务和 Web 应用程序代理服务器，你将需要的数量。
+AD FS 和 Web 应用程序代理硬件要求 （物理或虚拟） 上 CPU、 网关，因此你应该调整你的处理能力的场的大小。  
+- 使用[AD FS 2016 容量规划电子表格](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx)来确定你将需要的 AD FS 和 Web 应用程序代理服务器的数目。
 
-广告 FS 的内存和磁盘要求相当固定，请参阅下表：
+适用于 AD FS 的内存和磁盘要求是相当静态的请参阅下表：
 
 
-|**硬件要求**|**最低要求。**|**推荐的要求**|
+|**硬件要求**|**最低要求**|**建议的要求**|
 |----- | ----- |-----|
 |RAM|2 GB|4 GB |
-|磁盘空间|为 32 GB|100 GB |
+|磁盘空间|32 GB|100 GB |
 
-**SQL Server 硬件要求**
+**SQL Server 的硬件要求**
 
-如果使用的为您的广告 FS 配置数据库的 SQL Server、SQL Server 的最基本的 SQL Server 建议根据的大小。  广告 FS 数据库大小很小，并且广告 FS 不会将重要的处理加载的数据库实例。  广告 FS，但是，在连接到数据库多次身份验证，因此应强大的网络连接。  遗憾的是，SQL Azure 不支持广告 FS 配置数据库中。
+如果将 SQL Server 用于你的 AD FS 配置数据库，大小的最基本的 SQL Server 建议根据 SQL Server。  AD FS 数据库大小为非常小，并且 AD FS 不会将数据库实例上的大量的处理负载。  AD FS，但是，在连接到数据库多次身份验证，因此应可靠的网络连接。  遗憾的是，SQL Azure 不支持 AD FS 配置数据库。
   
-## <a name="BKMK_3"></a>代理要求  
+## <a name="BKMK_3"></a>代理服务器要求  
   
--   必须将 Web 应用程序代理角色服务部署外部网络的访问，\-远程访问服务器角色的一部分。 
+-   必须将 Web 应用程序代理角色服务部署为 extranet 访问\-远程访问服务器角色的一部分。 
 
--   第三方代理必须支持[MS ADFSPIP 协议](https://msdn.microsoft.com/en-us/library/dn392811.aspx)作为广告 FS 代理支持。  有关第三方的列表供应商看到[常见问题](AD-FS-FAQ.md#what-third-party-proxies-are-available-for-ad-fs-that-support-ms-adfspip)。
+-   第三方代理必须支持[MS ADFSPIP 协议](https://msdn.microsoft.com/en-us/library/dn392811.aspx)作为 AD FS 代理支持。  列表的第三方供应商请参阅[常见问题解答](AD-FS-FAQ.md#what-third-party-proxies-are-available-for-ad-fs-that-support-ms-adfspip)。
 
--   广告 FS 2016 需要在 Windows Server 2016 的 Web 应用程序代理服务器。  无法运行的 2016 年场行为级别广告 FS 2016 场配置下层代理。
+-   AD FS 2016 要求 Windows Server 2016 上的 Web 应用程序代理服务器。  下层代理不能配置为在 2016年场行为级别运行的 AD FS 2016 场。
   
--   无法在同一台计算机上安装的联合身份验证的服务器和 Web 应用程序代理角色服务。  
+-   不能在同一台计算机上安装联合身份验证服务器和 Web 应用程序代理角色服务。  
   
-## <a name="BKMK_4"></a>广告 DS 要求  
+## <a name="BKMK_4"></a>AD DS 要求  
 **域控制器要求**  
   
-- 广告 FS 需要运行 Windows Server 2008 或更高版本的域控制器。
+- AD FS 要求运行 Windows Server 2008 或更高版本的域控制器。
 
-- 在至少有一个 Windows Server 2016 域控制器，才能进行 Microsoft Passport 的工作。
+- Microsoft Passport for Work 需要至少一个 Windows Server 2016 域控制器。
   
 > [!NOTE]  
-> 环境与 Windows Server 2003 该域控制器的所有支持已都结束。 访问[本页](https://support.microsoft.com/lifecycle/search/default.aspx?sort=PN&alpha=Windows+Server+2003&Filter=FilterNO)以获取有关 Microsoft 支持生命周期。  
+> 使用 Windows Server 2003 域控制器的环境的所有支持已都结束。 请访问[本页](https://support.microsoft.com/lifecycle/search/default.aspx?sort=PN&alpha=Windows+Server+2003&Filter=FilterNO)有关 Microsoft 支持生命周期的其他信息。  
   
-**域 functional\ 级别要求**  
+**域功能\-要求**  
   
- - 在 Windows Server 2003 或更高版本的功能域级别必须运行域中的所有用户帐户和广告 FS 服务器加入的域。  
+ - 所有用户帐户域和 AD FS 服务器所加入的域必须运行在域功能级别的 Windows Server 2003 或更高版本。  
   
- - Windows Server 2008 域功能级别或更高版本时所必需的客户端证书身份验证证书明确映射到一个用户帐户在广告 DS。  
+ - Windows Server 2008 域功能级别或更高版本才需要客户端证书身份验证的证书显式映射到用户的帐户在 AD DS 中。  
   
-**方案要求**  
+**架构要求**  
   
--   新安装的广告 FS 2016 需要 Active Directory 2016 架构（最低版本 85）。
+-   AD FS 2016 的全新安装需要 Active Directory 2016 架构 （最低版本 85）。
 
--   提升到 2016 年级别的广告 FS 电场的日落行为级别 (FBL) 需要 Active Directory 2016 架构（最低版本 85）。  
+-   到 2016年级别提高 AD FS 场行为级别 (FBL) 需要 Active Directory 2016 架构 （最低版本 85）。  
 
   
 **服务帐户要求**  
   
--   任何标准域帐户可用作广告 FS 服务帐户。 组托管服务帐户也会受支持。 配置广告 FS 时，将自动添加所需在运行时的权限。
+-   任何标准的域帐户可以用作 AD FS 服务帐户。 此外支持组托管服务帐户。 配置 AD FS 时，将自动添加在运行时所需的权限。
 
--   组托管服务帐户需要运行 Windows Server 2012 的域控制器在至少有一个或更高版本。  GMSA 必须 live 下默认值 CN = 托管服务帐户的容器。  
+-   用户权限分配所需的 AD 服务帐户是作为服务登录
 
--   对于 Kerberos 身份验证，service 主要名称`HOST/<adfs\_service\_name>`' 必须广告 FS 服务帐户上注册。 默认情况下，广告 FS 将配置此创建一个新的广告 FS 场时。  如果无法正常工作，如就而言冲突或者没有足够的权限，你将看到一条警告，你应手动添加。  
+-   NT Service\adfssrv 和 NT Service\drs 所需的用户权限分配为生成安全审核和作为服务登录。
+
+-   组托管服务帐户需要至少一个域控制器运行 Windows Server 2012 或更高版本。  GMSA 必须 live 下默认值 CN = 托管服务帐户的容器。  
+
+-   对于 Kerberos 身份验证，服务主体名称`HOST/<adfs\_service\_name>`必须在 AD FS 服务帐户上注册。 默认情况下，AD FS 时将要配置这创建新的 AD FS 场。  如果此操作失败，如对于冲突或没有足够的权限，您将看到一条警告，并应将其手动添加。  
    
 **域要求**  
   
--   所有广告 FS 服务器必须都是加入广告 DS 域。  
+-   所有 AD FS 服务器都必须加入到 AD DS 域。  
   
--   必须在同一域部署电场的日落中的所有广告 FS 服务器。  
+-   必须在同一个域中部署所有 AD FS 服务器场中。  
    
-**多森林要求**  
+**多林要求**  
   
--   广告 FS 服务器加入的域必须信任每域或森林包含用户身份验证广告 FS 服务。  
+-   AD FS 服务器所加入的域必须信任每个域或林中包含对 AD FS 服务进行身份验证的用户。  
 
--   林中广告 FS 服务帐户的成员，必须信任所有用户登录森林。 
+-   AD FS 服务帐户是的成员的林必须信任所有用户登录林状结构。 
   
--   广告 FS 服务帐户必须具有权限阅读包含用户身份验证广告 FS 服务每域中的用户属性。  
+-   AD FS 服务帐户必须有权读取每个域都包含对 AD FS 服务的用户进行身份验证中的用户属性。  
   
 ## <a name="BKMK_5"></a>配置数据库要求  
-本部分介绍要求和限制用作分别 Windows 内部数据库 (WID) 或 SQL Server 数据库的广告 FS 场：  
+本部分介绍的要求和 AD FS 场，分别使用 Windows 内部数据库 (WID) 或 SQL Server 作为数据库的限制：  
   
 **WID**  
   
--   在 WID 电场的日落，不支持 SAML 2.0 的项目分辨率配置文件。    
+-   WID 场中不支持 SAML 2.0 的项目解析配置文件。    
 
--   标记重播检测不受支持 WID 场。 （此功能仅用仅在其中广告是充当联盟提供商和对消耗安全令牌来自外部索赔提供商的方案。）  
+-   令牌重放检测是不受支持的 WID 场。 （此功能仅用于仅在 AD FS 作为联合身份验证提供程序并且使用的安全令牌的外部声明提供程序的情况下。）  
   
-下表提供了多少广告 FS 服务器摘要 WID vs SQL Server 农场里的支持。    
+下表提供了多少个 AD FS 服务器的摘要在 WID vs 中支持的 SQL Server 场。    
   
   
-|| 1-100 依赖方 (RP) 信任配置广告 FS 在 | 超过 100 RP 信任配置  |
+|| 1-100 的信赖方 (RP) 信任 AD FS 配置 | 超过 100 个 RP 信任配置  |
 | --- |--- | --- |
-|广告 1-30 FS 服务器|受支持的 WID|不支持使用 WID-所需的 SQL Server |
-|超过 30 年广告 FS 服务器|不支持使用 WID-所需的 SQL Server|不支持使用 WID-所需的 SQL Server  
+|1-30年个 AD FS 服务器|WID 支持|不支持使用 WID 的所需的 SQL Server |
+|30 个以上 AD FS 服务器|不支持使用 WID 的所需的 SQL Server|不支持使用 WID 的所需的 SQL Server  
   
 **SQL Server**  
   
-- 对于在 Windows Server 2016 的广告 FS，支持 SQL Server 2008 和更高版本。
+- 对于 Windows Server 2016 中的 AD FS，支持 SQL Server 2008 和更高版本。
 
-- SQL Server 场支持 SAML 项目分辨率和令牌重播检测。  
+- 在 SQL Server 场中支持 SAML 项目解析和令牌重放检测。  
   
 ## <a name="BKMK_6"></a>浏览器要求  
-通过浏览器或浏览器控件执行广告 FS 身份验证，当你的浏览器必须遵守以下要求：  
+通过浏览器或浏览器控件执行 AD FS 身份验证时，你的浏览器必须符合以下要求：  
   
--   JavaScript 必须为启用状态  
+-   必须启用 JavaScript  
   
--   对于单一登录，必须配置客户端浏览器允许 cookie  
+-   对于单一登录，必须配置客户端浏览器为允许 cookie  
   
--   必须支持服务器名称指示 \(SNI\)  
+-   服务器名称指示\(SNI\)必须支持  
   
--   对于用户证书和设备证书身份验证，浏览器必须支持 SSL 客户证书身份验证  
+-   对于用户证书和设备证书身份验证，在浏览器必须支持 SSL 客户端证书身份验证  
 
--   为在使用 Windows 的集成身份验证的无缝符号，必须在本地 intranet 或受信任的站点区域配置联合身份验证服务名称（例如 https:\/\/fs.contoso.com)。
+-   以进行无缝登录使用 Windows 集成身份验证，联合身份验证服务名称 (例如 https:\/\/fs.contoso.com) 必须在本地 intranet 区域或受信任的站点区域中配置。
 ## <a name="BKMK_7"></a>网络要求  
  
 **防火墙要求**  
   
-必须 TCP 端口 443 启用了防火墙位于 Web 应用程序代理和联合身份验证的服务器场之间和客户端和 Web 应用程序代理之间防火墙站。  
+这两个防火墙位于 Web 应用程序代理和联合服务器场和客户端和 Web 应用程序代理之间的防火墙之间必须具有 TCP 端口 443 启用入站。  
   
-此外，如果客户端用户证书身份验证 \ (clientTLS 身份验证使用 X509 用户 certificates\)，才能和不启用上端口 443 certauth 端点、广告 FS 2016 要求启用 TCP 端口 49443 客户端和 Web 应用程序代理之间防火墙上的入站。 这不是需要的 Web 应用程序代理和联盟 servers\ 之间防火墙）。 
+此外，如果客户端用户证书身份验证\(进行 clientTLS 身份验证使用 X509 用户证书\)是必需的和未启用端口 443 上的 certauth 终结点，AD FS 2016 要求启用 TCP 端口 49443在客户端和 Web 应用程序代理之间的防火墙上的入站。 这不需要 Web 应用程序代理和联合身份验证服务器之间的防火墙上\)。 
 
-有关其他信息混合端口要求，请参阅[混合身份端口和协议](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports)。 
+有关其他信息混合端口要求，请参阅[混合标识端口和协议](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports)。 
 
-有关其他信息，请参阅[的最佳做法保护 Active Directory 联合身份验证服务](..\deployment\Best-Practices-Securing-AD-FS.md)
+有关其他信息，请参阅[保护 Active Directory 联合身份验证服务的最佳做法](..\deployment\Best-Practices-Securing-AD-FS.md)
   
 **DNS 要求**  
   
--   Intranet 访问所有客户访问公司内部网络 \(intranet\) 内的广告 FS 服务都必须无法解析为负载平衡广告 FS 服务器或广告 FS 服务器的广告 FS 服务名称。  
+-   对于 intranet 访问，所有客户端访问 AD FS 服务内部企业网络中\(intranet\)必须能够解析 AD FS 服务名称为 AD FS 服务器或 AD FS 服务器的负载均衡器。  
   
--   外部网络的访问，所有客户访问广告 FS 服务的企业网络 \(extranet\/Internet\) 之外都必须无法解决的 Web 应用程序代理服务器或的 Web 应用程序代理服务器负载平衡广告 FS 服务名称。  
+-   为 extranet 访问，所有客户端访问 AD FS 服务从公司网络外部\(extranet\/internet\)必须能够解析 AD FS 服务名称为 Web 应用程序代理服务器的负载均衡器或Web 应用程序代理服务器。  
   
--   每个 DMZ 中的 Web 应用程序代理服务器必须是能够解决负载平衡广告 FS 服务器或广告 FS 服务器广告 FS 服务的名称。 这可以实现在 DMZ 网络或通过更改使用该主机文件的本地服务器分辨率使用备用 DNS 服务器。  
+-   外围网络中的每个 Web 应用程序代理服务器必须能够解析 AD FS 服务名称为 AD FS 服务器或 AD FS 服务器的负载均衡器。 这可以实现使用备用 DNS 服务器在外围网络中或通过更改使用的主机文件的本地服务器解析。  
   
--   有关 Windows 的集成身份验证，你必须使用联合身份验证服务名称 DNS A 记录 \(not CNAME\)。  
+-   对于 Windows 集成身份验证，必须使用一条 DNS A 记录\(不是 CNAME\)联合身份验证服务名称。  
 
--   用户在端口 443 证书身份验证，必须在 DNS 解决联合身份验证的服务器或 web 应用程序代理配置"certauth。\ < 联合身份验证服务 name\ >"。
+-   在端口 443，"certauth 用户证书身份验证。\<联合身份验证服务名称\>"必须在 DNS 中解析为联合身份验证服务器或 web 应用程序代理配置。
 
--   对于设备注册或现代的身份验证本地资源使用预的 Windows 10 客户端，必须配置"enterpriseregistration。\ < upn suffix\ >"，为你的组织中使用的每个 UPN 职务解析为联合身份验证的服务器或 web 应用程序代理。
+-   为设备注册或为进行新式验证到本地资源使用 windows 10 之前的客户端，"enterpriseregistration。\<upn 后缀\>"，必须配置你的组织中正在使用的每个 UPN 后缀将解析为联合身份验证服务器或 web 应用程序代理。
 
-**负载平衡要求**
-- 不必须负载平衡终止 SSL。 广告 FS 支持多个证书身份验证，这将时终止 SSL 中断的用例。 任何用例不支持在负载平衡终止 SSL。 
-- 建议使用支持 SNI 负载平衡。 在事件不是，请在你的广告 FS 上使用 0.0.0.0 回退绑定 / Web 应用程序代理服务器应提供一种解决方法。
-- 建议使用 HTTP (而不是 HTTPS) 健康探测端点执行负载平衡健康检查路由交通。 这将避免相关 SNI 的任何问题。 这些探测端点响应 HTTP 200 确定，并且不具有依赖后端服务与本地提供服务。 可以通过使用路径 '/ adfs/探测' HTTP 访问 HTTP 探测
-    - http://&lt;Web 应用程序代理名称&gt;/adfs/探测
-    - http://&lt;ADFS 服务器名称&gt;/adfs/探测
-    - http://&lt;Web 应用程序代理 IP 地址&gt;/adfs/探测
-    - http://&lt;ADFS IP 地址&gt;/adfs/探测
-- 不建议使用 DNS 循环作为加载余额的方法。 使用负载平衡这种不提供自动化的方式使用健康探测负载平衡中删除节点。 
-- 不建议使用基于 IP 会话关联或便笺会话到负载平衡内的广告 FS 身份验证交通。 使用传统的身份验证的邮件客户端的协议连接到 Office 365 邮件服务 (Exchange Online) 时，这可能导致重载某些节点。 
+**负载均衡器要求**
+- 负载均衡器都不能终止 SSL。 AD FS 支持使用证书身份验证，这将中断时终止 SSL 的多个用例。 任何用例不支持在负载平衡器处终止 SSL。 
+- 建议使用负载均衡器支持 SNI。 在事件不是，请使用回退中的 AD FS 上的绑定 0.0.0.0 / Web 应用程序代理服务器应提供一种解决方法。
+- 建议使用 HTTP (不是 HTTPS) 运行状况探测终结点来路由流量执行负载均衡器运行状况检查。 这样可以避免与 SNI 相关的任何问题。 对这些探测终结点的响应为 HTTP 200 正常和不依赖于后端服务与本地提供服务。 可以通过使用路径 / adfs/探测的 HTTP 访问 HTTP 探测
+    - http://&lt;Web 应用程序代理名称 &gt; /adfs/探测
+    - http://&lt;ADFS 服务器名称 &gt; /adfs/探测
+    - http://&lt;Web 应用程序代理 IP 地址 &gt; /adfs/探测
+    - http://&lt;ADFS IP 地址 &gt; /adfs/探测
+- 不建议使用 DNS 轮循机制作为一种方式进行负载平衡。 使用此类型的负载平衡不提供自动化的方式来从负载均衡器使用运行状况探测中删除节点。 
+- 建议不要对负载均衡器中的 AD fs 身份验证流量使用基于 IP 会话相关性或粘性会话。 使用传统的身份验证协议的邮件客户端连接到 Office 365 邮件服务 (Exchange Online）) 时，这可能会导致某些节点的重载。 
 
 ## <a name="BKMK_13"></a>权限要求  
-安装和广告 FS 初始配置执行管理员必须具有广告 FS 服务器上的本地管理员权限。  如果本地管理员没有创建 Active Directory 对象的权限，它们首次必须具有域管理员创建所需的广告对象，然后使用 AdminConfiguration 参数广告 FS 场配置。  
+执行安装和初始配置的 AD FS 管理员必须在 AD FS 服务器上具有本地管理员权限。  如果本地管理员不具有在 Active Directory 中创建对象的权限，他们首先必须具有域管理员创建所需的 AD 对象，然后配置 AD FS 场使用 AdminConfiguration 参数。  
   
   
 

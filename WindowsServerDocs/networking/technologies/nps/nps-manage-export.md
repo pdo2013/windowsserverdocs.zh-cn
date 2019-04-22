@@ -1,6 +1,6 @@
 ---
-title: 要导入其他服务器上的导出 NPS 服务器配置
-description: 你可以使用本主题以了解如何导出网络策略服务器配置 Windows Server 2016 中。
+title: 将 NPS 配置的另一台服务器上的导入导出
+description: 可以使用本主题，了解如何导出 Windows Server 2016 中的网络策略服务器配置。
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -8,97 +8,98 @@ ms.topic: article
 ms.assetid: d268dc57-78f8-47ba-9a7a-a607e8b9225c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 141a99e930672d8403315cb6804290d184ef3007
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: a5f28c317f1d58fd1889fb55d345463dc8a62999
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59816418"
 ---
-# <a name="export-an-nps-server-configuration-for-import-on-another-server"></a>要导入其他服务器上的导出 NPS 服务器配置
+# <a name="export-an-nps-configuration-for-import-on-another-server"></a>将 NPS 配置的另一台服务器上的导入导出
 
 适用于：Windows Server 2016
 
-你可以将导出整个 NPS 配置，包括 RADIUS 客户端和服务器、 网络策略、 连接请求策略、 注册表以及配置日志记录，从另一台 NPS 服务器导入一个 NPS 服务器。 
+可以导出整个 NPS 配置 — 包括 RADIUS 客户端和服务器、 网络策略、 连接请求策略、 注册表和日志记录配置 — 从另一个 NPS 上导入一个 NPS。 
 
 使用以下工具之一导出 NPS 配置：
 
-- Windows Server 2016、 Windows Server 2012 R2 和 Windows Server 2012，在你可以使用 Netsh，，或者你可以使用 Windows PowerShell。
-- 在 Windows Server 2008 R2 和 Windows Server 2008，使用 Netsh。
+- 在 Windows Server 2016、 Windows Server 2012 R2 和 Windows Server 2012 中，你可以使用 Netsh，或可以使用 Windows PowerShell。
+- 在 Windows Server 2008 R2 和 Windows Server 2008 中，使用 Netsh。
 
 >[!IMPORTANT]
->如果源 NPS 数据库有比目标 NPS 数据库的版本号较高版本号，不要使用此过程。 你可以查看 NPS 数据库中显示的版本号**netsh nps 显示配置**命令。
+>如果源 NPS 数据库具有更高版本的版本号高于目标 NPS 数据库的版本号，则不使用此过程。 您可以查看从显示的 NPS 数据库的版本号**netsh nps 显示配置**命令。
 
-因为 NPS server 配置没有加密中导出 XML 文件中，发送它通过网络可能引起安全风险，因此从源服务器的 XML 文件移动到目的地的服务器时采取预防措施。 例如，将文件添加到加密，密码受保护的存档文件前将文件移动。 此外，在安全位置的用于阻止恶意用户访问它存储文件。
+由于 NPS 配置未加密在导出的 XML 文件中，通过网络发送可能会带来安全风险，因此将 XML 文件从源服务器移到目标服务器时采取预防措施。 例如，将文件添加到加密的密码受保护的存档文件移动文件之前。 此外，将文件存储在安全位置，以防止恶意用户对其进行访问。
 
 >[!NOTE]
->如果 SQL Server 日志记录配置源 NPS 服务器上，不会 SQL Server 记录设置导出到 XML 文件。 导入其他 NPS 服务器上的文件后，你必须手动配置 SQL Server 日志记录。
+>如果在源 NPS 上配置 SQL Server 日志记录，SQL Server 日志记录设置都不会导出到 XML 文件。 导入另一个 NPS 上的文件后，必须手动配置 SQL Server 日志记录。
 
-## <a name="export-and-import-the-nps-configuration-by-using-windows-powershell"></a>导出和导入使用 Windows PowerShell NPS 配置
+## <a name="export-and-import-the-nps-configuration-by-using-windows-powershell"></a>导出和导入 NPS 配置使用 Windows PowerShell
 
-有关 Windows Server 2012 和更高版本操作系统版本，你可以将使用 Windows PowerShell NPS 配置导出。
+对于 Windows Server 2012 及更高版本的操作系统版本，您可以导出 NPS 配置使用 Windows PowerShell。
 
-命令语法导出 NPS 配置如下所示。 
+导出 NPS 配置的命令语法如下所示。 
 
     Export-NpsConfiguration -Path <filename>
 
-下表列出了参数**导出 NpsConfiguration**中的 Windows PowerShell cmdlet。 参数粗体是必需的。
+下表列出了参数**导出 NpsConfiguration**在 Windows PowerShell cmdlet。 以粗体显示的参数是必需的。
 
 |参数|描述|
 |---------|-----------|
-|路径|指定的名称和你想要导出 NPS 服务器配置 XML 文件的位置。|
+|路径|指定的名称和你想要导出 NPS 配置 XML 文件的位置。|
 
 **管理凭据**
 
-若要完成此过程，必须是管理员组中的成员。
+若要完成此过程，必须是 Administrators 组的成员。
 
 ### <a name="export-example"></a>导出示例 
 
-在以下示例中，NPS 配置导出到本地驱动器上 XML 文件。 运行此命令，源 NPS 服务器上以管理员身份运行的 Windows PowerShell、 键入以下命令，并按 Enter。
+在以下示例中，NPS 配置导出到 XML 文件位于本地驱动器上。 若要运行此命令，在源 NPS 上以管理员身份运行 Windows PowerShell 中，键入以下命令，然后按 Enter。
 
 `Export-NpsConfiguration –Path c:\config.xml` 
 
 有关详细信息，请参阅[导出 NpsConfiguration](https://technet.microsoft.com/library/jj872749.aspx)。
 
-你已将导出 NPS 配置后，复制到目标服务器 XML 文件。
+你已导出 NPS 配置后，将 XML 文件复制到目标服务器。
 
-导入 NPS 配置目标服务器上的 command 语法如下所示。
+导入目标服务器上的 NPS 配置的命令语法如下所示。
 
     Import-NpsConfiguration [-Path] <String> [ <CommonParameters>]
 
 ### <a name="import-example"></a>导入示例
 
-以下命令将设置从 C:\Npsconfig.xml NPS 到指定文件导入。 若要运行以下命令，在目标 NPS 服务器上以管理员身份运行的 Windows PowerShell、 键入以下命令，，按 Enter。
+以下命令从名为 C:\Npsconfig.xml 到 NPS 的文件导入设置。 若要运行此命令，目标 NPS 上以管理员身份运行 Windows PowerShell 中，键入以下命令，然后按 Enter。
 
     PS C:\> Import-NpsConfiguration -Path "C:\Npsconfig.xml"
 
 有关详细信息，请参阅[导入 NpsConfiguration](https://technet.microsoft.com/library/jj872750.aspx)。
 
-## <a name="export-and-import-the-nps-configuration-by-using-netsh"></a>导出和导入使用 Netsh 的 NPS 配置
+## <a name="export-and-import-the-nps-configuration-by-using-netsh"></a>导出和导入 NPS 配置使用 Netsh
 
-你可以使用网络 Shell \(Netsh\) 使用导出 NPS 服务器配置**netsh nps 导出**命令。
+可以使用网络 Shell \(Netsh\)若要使用导出 NPS 配置**netsh nps 导出**命令。
 
-当**netsh nps 导入**运行命令、 NPS 系统更新的配置设置将自动刷新。 不需要在目标计算机运行停止 NPS **netsh nps 导入**命令，但是如果 NPS 控制台或 NPS mmc 贴靠打开配置导入期间，服务器配置更改才会可见刷新视图。 
+当**netsh nps 导入**运行命令时，NPS 将自动刷新与更新的配置设置。 不需要在要运行的目标计算机上停止 NPS **netsh nps 导入**命令，但是如果在 NPS 控制台或 NPS MMC 管理单元中打开配置导入过程中，更改服务器配置为不可见之前刷新视图。 
 
 >[!NOTE]
->当你使用**netsh nps 导出**命令时，你必须提供命令参数**exportPSK**使用值**是**。 此参数和明确说明，了解你要导出 NPS 服务器配置中，并将导出的 XML 文件包含解密 RADIUS 客户端和远程 RADIUS 服务器组成员共享的机密信息。
+>当你使用**netsh nps 导出**命令时，需要提供的命令参数**exportPSK**的值**是**。 此参数和值显式声明了解要导出 NPS 配置，以及导出的 XML 文件包含未共享的机密加密 RADIUS 客户端和远程 RADIUS 服务器组的成员。
 
 **管理凭据**
 
-若要完成此过程，必须是管理员组中的成员。
+若要完成此过程，必须是 Administrators 组的成员。
 
-### <a name="to-copy-an-nps-server-configuration-to-another-nps-server-using-netsh-commands"></a>若要将 NPS 服务器配置复制到另一台 NPS 服务器使用 Netsh 命令
+### <a name="to-copy-an-nps-configuration-to-another-nps-using-netsh-commands"></a>若要将 NPS 配置复制到另一个 NPS 使用 Netsh 命令
 
-1. 在源 NPS 服务器上，打开**权限的命令提示符**，类型**netsh**，然后按 Enter。
+1. 在源 NPS 上，打开**命令提示符**，类型**netsh**，然后按 Enter。
 
-2. 在**netsh**提示中，键入**nps**，然后按 Enter。 
+2. 在**netsh**提示符下，键入**nps**，然后按 Enter。 
 
-3. 在**netsh nps**提示中，键入**导出 filename =**"*path\file.xml*" **exportPSK = 是**，其中*路径*是你想要保存 NPS 服务器配置文件的文件夹位置和*文件*是你想要保存的 XML 文件的名称。 按 Enter。 
+3. 在**netsh nps**提示符下，键入**导出 filename =**"*path\file.xml*" **exportPSK = YES**，其中*路径*是你想要保存 NPS 配置文件的文件夹位置并*文件*是你想要保存的 XML 文件的名称。 按 Enter。 
 
-这会存储配置设置 \(including registry settings\) XML 文件中。 路径可以相对或绝对，也可以是通用命名约定 \(UNC\) 路径。 按 enter 键后，将显示一条消息，指示是否成功导出到一个文件。
+此存储配置设置\(包括注册表设置\)XML 文件中。 路径可以是相对或绝对的也可以是通用命名约定\(UNC\)路径。 按 enter 键后，会显示一条消息，指示是否已成功导出到文件。
 
-4. 将你创建的文件复制到目标 NPS 服务器。
+4. 将你创建的文件复制到目标 NPS。
 
-5. 在命令提示符目标 NPS 服务器上，键入**netsh nps 导入 filename =**"*path\file.xml*"，然后按 Enter。 显示一条消息，指示是否已成功导入从 XML 文件。
+5. 在目标 NPS 上的命令提示符，键入**netsh nps 导入 filename =**"*path\file.xml*"，然后按 Enter。 出现一条消息，指示是否已成功从 XML 文件导入。
 
-Netsh 有关详细信息，请参阅[网络 Shell (Netsh)](../netsh/netsh.md)。
+有关 netsh 详细信息，请参阅[Network Shell (Netsh)](../netsh/netsh.md)。
 

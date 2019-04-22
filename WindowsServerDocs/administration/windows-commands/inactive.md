@@ -1,0 +1,51 @@
+---
+title: 非活动状态
+description: 'Windows 命令主题 * * *- '
+ms.custom: na
+ms.prod: windows-server-threshold
+ms.reviewer: na
+ms.suite: na
+ms.technology: manage-windows-commands
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.assetid: f4fb4695-4e66-4166-b4ab-2c86a4605580
+author: coreyp-at-msft
+ms.author: coreyp
+manager: dongill
+ms.date: 10/16/2017
+ms.openlocfilehash: 6642288385571b00c3fd0094dcd6cc4237aa492e
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812918"
+---
+# <a name="inactive"></a>非活动状态
+
+
+
+在基本主启动记录 (MBR) 磁盘上将系统分区或启动分区为非活动状态的选中标记。
+
+## <a name="syntax"></a>语法
+
+```
+inactive
+```
+
+## <a name="remarks"></a>备注
+
+> [!CAUTION]
+> 没有活动分区，您的计算机可能不会启动。 除非您是经验丰富的用户有深入了解的 Windows 操作系统系列，不要将标记为非活动状态的系统或启动分区。</br>> 如果您不能标记为非活动状态的系统或启动分区后启动你的计算机，Windows 安装程序 CD 插入 CD-ROM 驱动器，重新启动计算机，并修复分区使用**fixmbr** 和**fixboot**恢复控制台中的命令。
+-   标记的系统分区或启动分区为非活动状态后，计算机可启动从 BIOS，如 CD-ROM 驱动器或预启动执行环境 (PXE) 中指定的下一个选项。
+-   若要成功执行此操作，必须选择活动的系统或启动分区。 使用**选择分区**命令选择活动分区，并将焦点移到它。
+
+## <a name="BKMK_examples"></a>示例
+
+```
+inactive
+```
+
+#### <a name="additional-references"></a>其他参考
+
+[命令行语法解答](command-line-syntax-key.md)
+

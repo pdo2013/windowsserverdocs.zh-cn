@@ -1,42 +1,42 @@
 ---
 ms.assetid: 64142026-07b5-4601-840a-c8dcf6ab9814
-title: "创建网站链接大桥设计"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
-ms.date: 05/31/2017
+title: 创建站点链接桥设计
+description: ''
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 58dda7c1f56fa3799b902ab5458e71323047ec73
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 4a194aa2fe2594c518d310cd86549945487d101e
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59813988"
 ---
-# <a name="creating-a-site-link-bridge-design"></a>创建网站链接大桥设计
+# <a name="creating-a-site-link-bridge-design"></a>创建站点链接桥设计
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-网站的链接大桥连接两个或多个站点链接并可以让传递之间网站的链接。 大桥的每个站点链接必须某个站点与这座大桥的其他站点链接。 知识一致性检查 (KCC) 在各个网站的链接上使用的信息，来计算的一个网站链接中的站点和站点中的其他站点链接这座大桥之间复制成本。 如果没有常见的站点之间网站的链接，KCC 也无法建立直接域控制器在同一站点链接大桥通过连接的站点之间的连接。  
+站点链接桥连接两个或多个站点链接，并使站点链接之间的传递性。 每个站点链接桥中的必须具有与另一个站点链接桥中相同的站点。 知识一致性检查器 (KCC) 使用每个站点链接上的信息来计算中的其他站点链接桥的站点和站点链接中的站点之间的复制成本。 如果没有公共站点站点链接之间，KCC 还无法建立由相同的站点链接桥连接的站点中的域控制器之间的直接连接。  
   
-默认情况下，所有站点链接都可传递。 我们建议你继续通过未更改默认值的启用了传递**桥所有站点链接**（默认情况下启用）。 但是，你将需要禁用**桥所有站点链接**并完成站点链接都大桥设计，如果：  
-  
--   不完全路由 IP 网络。 当你禁用**桥所有站点链接**算是非传递，所有站点链接，你可以创建和配置站点链接都大桥对象进行建模实际路由你的网络的行为。  
-  
--   你需要控制复制流 Active Directory 域服务 (广告 DS) 中所做的更改。 通过禁用显示器的**桥所有站点链接**站点链接 IP 传输和配置网站链接都大桥，网站链接都大桥成为相当于断开连接的网络。 网站的链接大桥内的所有站点链接可以都路由间接，但它们不会在站点链接大桥之外将都发送。  
-  
-有关如何使用 Active Directory 的站点和服务管理单元中禁用**桥所有站点链接**设置，请参阅启用或禁用网站链接桥 ([https://go.microsoft.com/fwlink/?LinkId=107073](https://go.microsoft.com/fwlink/?LinkId=107073))。  
-  
-## <a name="controlling-ad-ds-replication-flow"></a>控制广告 DS 复制流  
-两个应用场景中，您需要站点链接大桥设计控制复制流包括控制复制故障转移和控制通过防火墙进行复制。  
-  
-### <a name="controlling-replication-failover"></a>控制复制故障转移  
-如果你的组织有中心分支网络拓扑，你通常不希望卫星站点创建复制连接到其他卫星站点如果中心站点中的所有域控制器都失败。 在这种情况下，你必须禁用**桥所有站点链接**并创建网站链接桥以便卫星站点和是只需一两次跳跃安装离开卫星网站的另一个中心网站之间创建复制连接。  
-  
-### <a name="controlling-replication-through-a-firewall"></a>控制复制通过防火墙  
-如果明确允许表示相同域两种不同的站点中的两个域控制器彼此仅通过防火墙进行通信，您可以禁用**桥所有站点链接**并创建一侧相同的防火墙站点链接桥的站点。 因此，如果你的网络隔开防火墙，我们建议你禁用传递性的站点链接并创建一侧的防火墙站点链接桥该网络。 有关管理通过防火墙复制信息，请参阅分段由防火墙网络中的 Active Directory ([https://go.microsoft.com/fwlink/?LinkId=107074](https://go.microsoft.com/fwlink/?LinkId=107074))。  
-  
+默认情况下，所有站点链接都是传递的。 我们建议保持传递性情况下不会更改的默认值启用**桥接所有站点链接**（默认情况下启用）。 但是，你将需要禁用**桥接所有站点链接**，如果完成站点链接都桥设计：  
 
+- IP 网络没有完全路由。 当禁用**桥接所有站点链接**，将所有站点链接都视为不可传递，并且可以创建和配置站点链接都桥对象进行建模您的网络的实际路由行为。  
+- 需要控制复制的 Active Directory 域服务 (AD DS) 中所做的更改。 通过禁用**桥接所有站点链接**站点链接 IP 传输和配置站点链接都桥，站点链接都桥变得不相互连接的网络的等效项。 站点链接桥中的所有站点链接可以间接地，都路由，但不是会都路由之外的站点链接桥。  
 
+详细了解如何使用 Active Directory 站点和服务管理单元中禁用**所有站点链接都搭桥**设置，请参阅文章[启用或禁用站点链接桥](https://go.microsoft.com/fwlink/?LinkId=107073)。  
+  
+## <a name="controlling-ad-ds-replication-flow"></a>控制 AD DS 复制流
+
+两个方案中，您需要控制复制流的站点链接桥设计包括控制复制故障转移以及控制通过防火墙复制。  
+  
+### <a name="controlling-replication-failover"></a>控制复制故障转移
+
+如果你的组织具有的中心辐射型网络拓扑，您通常不希望附属站点以创建与其他附属站点的复制连接，如果在中心站点中的所有域控制器都失败。 在这种情况下，您必须禁用**桥接所有站点链接**并创建站点链接桥，以便在附属站点和另一个是远离附属站点只是一个或两个跃点的中心站点之间创建复制连接。  
+  
+### <a name="controlling-replication-through-a-firewall"></a>控制通过防火墙复制
+
+如果专门允许表示两个不同站点中的相同域的两个域控制器来相互通信只能通过防火墙，则可以禁用**桥接所有站点链接**和创建的站点链接桥防火墙的同一端的站点。 因此，如果你的网络被防火墙分开的我们建议你禁用站点链接的可传递性和防火墙的一侧创建的网络站点链接桥。 有关管理复制通过防火墙的信息，请参阅文章[防火墙分段的网络中的 Active Directory](https://go.microsoft.com/fwlink/?LinkId=107074)。

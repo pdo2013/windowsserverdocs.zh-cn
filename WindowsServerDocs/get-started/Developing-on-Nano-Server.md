@@ -13,11 +13,11 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: bc1930b681621d4d34c85414dbc2f97df257af20
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2081888"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59817158"
 ---
 # <a name="developing-for-nano-server"></a>针对 Nano Server 进行开发
 
@@ -28,14 +28,14 @@ ms.locfileid: "2081888"
 
 这些主题说明了 Nano Server 上 PowerShell 的重要差异，还提供了开发自己的 PowerShell cmdlet 以用于 Nano Server 的相关指导。
 
-- [Nano Server 上的 PowerShell](PowerShell-on-Nano-Server.md)
-- [开发 Nano Server 的 PowerShell Cmdlet](Developing-PowerShell-Cmdlets-for-Nano-Server.md)
+- [在 Nano Server 上的 PowerShell](PowerShell-on-Nano-Server.md)
+- [开发适用于 Nano Server 的 PowerShell Cmdlet](Developing-PowerShell-Cmdlets-for-Nano-Server.md)
 
 ## <a name="using-windows-powershell-remoting"></a>使用 Windows PowerShell 远程控制  
 若要使用 Windows PowerShell 远程控制管理 Nano Server，则需要将 Nano Server 的 IP 地址添加到受信任主机的管理计算机列表，将所使用的帐户添加到 Nano Server 的管理员，并启用 CredSSP（如果计划使用该功能）。  
 
  >[!NOTE]  
-    > 如果目标 Nano Server 和管理计算机处于相同的 AD DS 林中（或处于具有信任关系的林中），则不应将 Nano Server 添加到受信任的主机列表中 - 可以通过使用其完全限定的域名（例如：PS C:\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)）连接到 Nano Server
+    > 如果目标 Nano Server 和管理计算机是同一 AD DS 林中 （或在具有信任关系的林中），您不应将 Nano Server 添加到受信任的主机列表中-你可以连接到 Nano Server 通过使用其完全限定的域名例如：PS C:\>Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
   
   
 若要将 Nano Server 添加到受信任的主机列表，请在提升的 Windows PowerShell 提示符下运行此命令：  
@@ -55,9 +55,9 @@ Enter-PSSession -ComputerName $ip -Credential $user
 现在可以在 Nano Server 上正常运行 Windows PowerShell 命令。  
   
 > [!NOTE]  
-> 并非所有的 Windows PowerShell 命令都在此版本的 Nano Server 中可用。 若要查看可用的命令，请运行 `Get-Command -CommandType Cmdlet`  
+> 并非所有的 Windows PowerShell 命令都在此版本的 Nano Server 中可用。 若要查看其可用，请运行 `Get-Command -CommandType Cmdlet`  
   
-使用此命令停止远程会话 `Exit-PSSession`  
+停止远程会话使用命令 `Exit-PSSession`  
   
 ## <a name="using-windows-powershell-cim-sessions-over-winrm"></a>通过 WinRM 使用 Windows PowerShell CIM 会话  
 可以在 Windows PowerShell 中使用 CIM 会话和实例通过 Windows 远程管理 (WinRM) 来运行 WMI 命令。  

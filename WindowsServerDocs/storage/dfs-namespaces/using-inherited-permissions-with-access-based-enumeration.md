@@ -1,6 +1,6 @@
 ---
-title: "使用继承的权限执行基于访问的枚举"
-description: "本文介绍如何使用继承的权限执行基于访问的枚举"
+title: 使用继承的权限执行基于访问的枚举
+description: 本文介绍如何使用继承的权限执行基于访问的枚举
 ms.date: 6/5/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -8,17 +8,18 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e8210a6abede3a8ee5317e5b6b2a90bd17013fc4
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: e6bd7a018a7f3a245581b5a9c63494048c7187a2
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812128"
 ---
 # <a name="using-inherited-permissions-with-access-based-enumeration"></a>使用继承的权限执行基于访问的枚举
 
-> 适用于：Windows Server（半年频道）、Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2、Windows Server 2008
+> 适用于：Windows Server 2019，Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2、 Windows Server 2008
 
-默认情况下，用于 DFS 文件夹的权限从命名空间服务器的本地文件系统继承。 这些权限从系统驱动器的根目录继承，并授予 DOMAIN\\Users 组读取权限。 因此，即使在启用基于访问的枚举后，命名空间中的所有文件夹仍对所有域用户可见。
+默认情况下，用于 DFS 文件夹的权限从命名空间服务器的本地文件系统继承。 权限继承自系统驱动器的根目录，并授予域\\用户组读取权限。 因此，即使在启用基于访问的枚举后，命名空间中的所有文件夹仍对所有域用户可见。
 
 ## <a name="advantages-and-limitations-of-inherited-permissions"></a>继承的权限的优点和限制
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 10/17/2017
 
 若要限制哪些用户可以查看 DFS 文件夹，你必须执行以下任务之一：
 
--   **对文件夹设置显式权限，同时禁用继承。** 若要使用 DFS 管理或 **Dfsutil** 命令对包含目标（链接）的文件夹设置显式权限，请参阅[对命名空间启用基于访问的枚举](enable-access-based-enumeration-on-a-namespace.md)。
+-   **设置文件夹中，禁用继承的显式权限。** 若要使用 DFS 管理或 **Dfsutil** 命令对包含目标（链接）的文件夹设置显式权限，请参阅[对命名空间启用基于访问的枚举](enable-access-based-enumeration-on-a-namespace.md)。
 -   **修改本地文件系统中的父项的继承权限**。 若要修改由包含目标的文件夹继承的权限，如果你已对该文件夹设置显式权限，请从显式权限切换到继承的权限，如以下过程所述。 然后，使用 Windows 资源管理器或 **Icacls** 命令，以修改包含目标的文件夹从其中继承权限的文件夹的权限。
 
 > [!NOTE]
@@ -51,12 +52,12 @@ ms.lasthandoff: 10/17/2017
 
 1.  在控制台树中的**命名空间**节点下，找到要控制其可见性的文件夹（包含目标），并右键单击该文件夹，然后单击**属性**。
 
-2.  单击**高级**选项卡。
+2.  单击“高级”选项卡。
 
 3.  单击**使用从本地文件系统继承的权限**，然后在**确认使用继承的权限**对话框中单击**确定**。 执行此操作时将删除对此文件夹显式设置的所有权限，同时从命名空间服务器的本地文件系统中还原继承的 NTFS 权限。
 
 4.  若要更改 DFS 命名空间中的文件夹或命名空间根目录的继承的权限，请使用 Windows 资源管理器或 **ICacls** 命令。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
--   [创建 DFS 命名空间](create-a-dfs-namespace.md)
+-   [创建 DFS Namespace](create-a-dfs-namespace.md)

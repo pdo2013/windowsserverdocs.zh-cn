@@ -1,6 +1,6 @@
 ---
-title: Core 网络助手指南
-description: 本主题提供 Windows Server 2016 Core 网络指南助手指南的概述
+title: 核心网络助理指南
+description: 本主题提供 Windows Server 2016 核心网络指南的助理指南的概述
 manager: brianlic
 ms.technology: networking
 ms.prod: windows-server-threshold
@@ -8,60 +8,61 @@ ms.topic: article
 ms.assetid: d57af0bd-9301-4f62-9888-f528cd10451d
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3c272c51cc69017b75e50e79e58186c0ea7c6391
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: b757e1914ee263a041f39e9767d3cb8af38403dc
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59816798"
 ---
-# <a name="core-network-companion-guides"></a>Core 网络助手指南
+# <a name="core-network-companion-guidance"></a>核心网络助理指南
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-Windows Server 2016 的同时[Core 网络指南](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide)提供有关如何部署新的 Active Directory 的说明进行操作&reg;森林具有一个新根域和支持的网络基础结构，助手指南将为你提供添加到你的网络的功能的能力。
+尽管 Windows Server 2016[核心网络指南](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide)说明了如何部署新的 Active Directory&reg;具有新的根级域和支持的网络基础结构，助理指南林提供能够将功能添加到你的网络。
 
-每个助手指南允许你部署核心网络后，请完成特定目标。 在某些情况下，有多个助手指导，部署在一起并按照正确的顺序时，您可以实现很复杂目标测量、 成本效益、 合理的方式。
+在你部署完核心网络之后，每个助理指南都允许你完成一个具体的目标。 有些情况下，有多个助理指南，当它们一起部署并且顺序正确的时候，你可以用量化、合算、合理的方式实现非常复杂的目标。
 
-如果你遇到 Core 网络指南之前部署 Active Directory 域和 core 网络，你仍然可以使用助手指南添加到你的网络功能。 只需 Core 网络指南用作先决条件的列表，然后知道，部署助手指南与其他功能，你的网络必须满足所提供的核心网络指南先决条件。
+如果你在见到“核心网络指南”之前部署你的 Active Directory 域和核心网络，你仍然可以使用“助理指南”向网络添加功能。 简单地使用“核心网络指南”作为先决条件列表，并且知道，要使用“助理指南”部署附加功能，你的网络必须满足“核心网络指南”提供的先决条件。
 
-## <a name="core-network-companion-guide-deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>部署服务器 802.1 X 有线和无线部署的证书，core 网络助手指南： 
+## <a name="core-network-companion-guide-deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>核心网络助理指南：为 802.1X 有线和无线部署部署服务器证书 
 
-此助手指南介绍了如何通过部署的计算机运行的网络策略服务器 \(NPS\) 和 / 或远程访问服务 \(RAS\) 服务器证书构建 core 网络。
+此助理指南解释了如何构建在核心网络时通过部署用于运行网络策略服务器的计算机的服务器证书\(NPS\)，远程访问服务\(RAS\)，和 / 或。
 
-部署可扩展身份验证协议 \(EAP\) 和保护 EAP \(PEAP\) 网络的访问权限身份验证的证书基于身份验证方法时，都需要 server 证书。 部署使用 Active Directory 证书服务服务器证书 \(AD CS\) EAP 和 PEAP 证书基于身份验证方法为提供以下优势：
+部署基于证书的身份验证方法使用可扩展身份验证协议时，服务器证书所需\(EAP\)和受保护的 EAP \(PEAP\)进行网络访问身份验证。 部署与 Active Directory 证书服务的服务器证书\(AD CS\) EAP 和 PEAP 的基于证书的身份验证方法提供以下优势：
 
-- 绑定到私密盘 NPS 或 RAS 服务器的身份
-- 自动注册域成员 NPS 和 RAS 服务器对证书成本高效和安全的方法
-- 用于管理证书和证书颁发机构有效的方法
-- 提供的证书基于身份验证的安全
-- 能够展开用于其他用途证书的使用
+- 绑定到私钥的 NPS 或 RAS 服务器的标识
+- 自动注册证书向域成员 NPS 和 RAS 服务器经济高效且安全的方法
+- 是管理证书和证书颁发机构的有效方法
+- 基于证书的身份验证所提供的安全性
+- 为其他目的扩展证书用途的功能
   
-有关如何部署证书服务器上的说明进行操作，请参阅[802.1 X 有线和无线部署部署服务器证书](server-certs/Deploy-Server-Certificates-for-802.1X-Wired-and-Wireless-Deployments.md)。  
-## <a name="core-network-companion-guide-deploy-password-based-8021x-authenticated-wireless-access"></a>Core 网络助手指南： 部署密码基于的 802.1 X 身份验证的无线接入
+有关如何部署服务器证书的说明，请参阅[802.1x 有线和无线部署部署服务器证书](server-certs/Deploy-Server-Certificates-for-802.1X-Wired-and-Wireless-Deployments.md)。  
+## <a name="core-network-companion-guide-deploy-password-based-8021x-authenticated-wireless-access"></a>核心网络助理指南：部署基于密码的 802.1X 身份验证无线访问
 
-此助手指南介绍了如何版本核心网络时，通过提供有关如何部署电气和电子工程师 \(IEEE\) 802.1X\ 的说明进行操作-通过 IEEE 802.11 使用保护可扩展身份验证 Protocol\-Microsoft 挑战握手身份验证协议版本 2 的无线接入身份验证 \ (PEAP\ MS\ CHAP v2\)。
+此助理指南解释了如何构建在核心网络时通过提供有关如何部署电气和电子工程师协会说明\(IEEE\) 802.1x\-经过身份验证 IEEE 802.11 无线访问使用受保护的可扩展身份验证 Protocol\-Microsoft 质询握手身份验证协议版本 2 \(PEAP\-MS\-CHAP v2\)。
 
-身份验证方法 PEAP\ MS\ CHAP v2 要求，身份验证的服务器用向客户端证明 NPS 服务器身份一个服务器证书运行网络策略服务器 \(NPS\) 存在无线客户端，不过用户身份验证不由使用证书-相反，用户提供了域用户名和密码。
+身份验证方法 PEAP\-MS\-CHAP v2 需要该进行身份验证服务器运行网络策略服务器\(NPS\)无线客户端提供服务器证书来证明该 NPS 身份与客户端，但不进行用户身份验证使用的证书-相反，用户提供其域用户名和密码。
 
-因为 PEAP\ MS\ CHAP v2 所需的用户身份验证过程中，提供基于密码的凭据，而不是一个证书，则通常变得轻松又成本较低比 EAP\ TLS 或 PEAP\ TLS 部署。
+因为 PEAP\-MS\-CHAP v2 要求用户提供基于密码的凭据，而不是证书提供身份验证过程，通常更容易且成本更低比 EAP 部署\-TLS 或 PEAP\-TLS。
 
-使用本指南部署 PEAP\ MS\ CHAP v2 身份验证方法与无线接入之前，你必须执行以下操作：
+然后使用本指南以部署无线访问与 PEAP\-MS\-CHAP v2 身份验证方法，必须执行以下操作：
 
-1. 按照说明 Core 网络指南中的部署 core 网络基础结构，或已已经提到该部署到你的网络上的指南中的技术。
-2. 按照 802.1 X 有线和无线部署 Core 网络助手指南部署服务器证书中的说明或已已经提到该部署到你的网络上的指南中的技术。
+1. 按照在核心网络指南中的说明部署核心网络基础结构，或已具有提到在网络上部署该指南中的技术。
+2. 按照的核心网络助理指南部署服务器证书中的说明为 802.1x 有线和无线部署，或已具有提到在网络上部署该指南中的技术。
 
-有关如何部署 PEAP\ MS\ CHAP v2 与无线接入说明，请参阅[基于部署密码 802.1 X 身份验证无线访问](wireless/a-deploy-8021X-wireless-access.md)。
+有关说明如何部署无线访问与 PEAP\-MS\-CHAP v2，请参阅[部署基于密码的 802.1 X 身份验证无线访问](wireless/a-deploy-8021X-wireless-access.md)。
 
-## <a name="core-network-companion-guide-deploy-branchcache-hosted-cache-mode"></a>Core 网络助手指南： 部署分支缓存托管的缓存模式
+## <a name="core-network-companion-guide-deploy-branchcache-hosted-cache-mode"></a>核心网络助理指南：部署 BranchCache 托管缓存模式
 
-此助手指南介绍了如何部署分支缓存型托管缓存中一个或多个分支机构。
+此助理指南解释了如何部署一个或多个分支机构中托管缓存模式中的 BranchCache。
 
-分支缓存是一种宽的区域网络 (WAN) 带宽优化技术，包含在某些版本的 Windows Server 2016 和 Windows 10 操作系统，以及在较早版本的 Windows 和 Windows Server。
+BranchCache 是广域网 (WAN) 带宽优化技术，在某些版本的 Windows Server 2016 和 Windows 10 操作系统，以及在 Windows 和 Windows Server 的早期版本中所包含。
 
-分支缓存托管的缓存型部署时，某个上托管内容缓存分支机构或称为的更多服务器计算机托管缓存的服务器。 托管的缓存服务器可以运行工作负载除了举办缓存，这允许你为 branch 办公室中的多个目的使用服务器。
+当你在托管缓存模式中部署 BranchCache 时，分支机构的内容缓存会托管在一个或多个称为托管缓存服务器的服务器计算机上。 托管的缓存服务器可以运行除托管缓存，以便您可以为分支机构中的多个目的使用服务器工作负荷。
 
-分支缓存托管缓存模式增加缓存效率，即使最初请求和缓存的数据的客户端处于脱机状态，因为内容提供。 因为托管的缓存 server 始终可用，缓存更多内容提供更大 WAN 带宽流量节省类型，并提高效率分支缓存。
+BranchCache 托管缓存模式提高缓存效率，因为即使最初请求和缓存数据的客户端处于脱机状态，内容也可用。 由于托管缓存服务器始终可用，更多内容得到缓存，从而节省更多 WAN 带宽，并提高 BranchCache 效率。
 
-部署托管的缓存模式时，多子网 branch 办公室中的所有客户可以都访问存储在托管的缓存服务器上，即使这些客户端是不同子网单个缓存。
+当您部署托管的缓存模式下时，多子网分支机构中的所有客户端可以访问存储在托管的缓存服务器上，即使客户端位于不同子网的单个缓存。
 
-有关如何部署型托管缓存分支缓存的说明，请参阅[托管缓存模式部署分支缓存](bc-hcm/1-Deploy-Bc-Hcm.md)。
+有关如何部署 BranchCache 托管缓存模式中的说明，请参阅[部署 BranchCache 托管缓存模式](bc-hcm/1-Deploy-Bc-Hcm.md)。

@@ -12,11 +12,11 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 8a19082121e2d859bc4694fd3f7332e9d0d0b3b9
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2081881"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812258"
 ---
 # <a name="powershell-on-nano-server"></a>Nano Server 上的 PowerShell
 
@@ -29,8 +29,8 @@ ms.locfileid: "2081881"
   
 从 5.1 版本开始，PowerShell 在具有不同功能集和平台兼容性的不同版本中可用。  
   
-- **桌面版：** 基于 .NET Framework 而构建，兼容面向在 Windows 完整占用空间版本（例如，Server Core 和 Windows Desktop）上运行的 PowerShell 版本的脚本和模块。  
-- **核心版：** 基于 .NET Core 而构建，兼容面向在 Windows 占用空间减小版本（例如，Nano Server 和 Windows IoT）上运行的 PowerShell 版本的脚本和模块。  
+- **桌面版：**.NET Framework 上构建，并提供与面向新版的 Server Core 等的 Windows 和 Windows 桌面的完整占用空间减小版本上运行的 PowerShell 脚本和模块的兼容性。  
+- **核心版：**.NET Core 上生成，并提供与面向版本的 Nano Server 等的 Windows 和 Windows IoT 的占用空间减少的版本上运行的 PowerShell 脚本和模块的兼容性。  
   
 当前运行的 PowerShell 版本显示在 $PSVersionTable 的 PSEdition 属性中。  
 ```powershell  
@@ -102,7 +102,7 @@ At line:1 char:1
 默认情况下，Nano Server 在所有 Nano Server 安装中都包括 PowerShell Core。 PowerShell Core 是基于 .NET Core 构建的 PowerShell 占用空间减小版本，且在占用空间减小版本的 Windows（例如，Nano Server 和 Windows IoT Core）上运行。 PowerShell Core 与其他 PowerShell 版本（例如 Windows Server 2016 上运行的 Windows PowerShell）运行方式相同。 然而，Nano Server 占用空间减少意味着不是所有 Windows Server 2016 中的 PowerShell 功能都在 Nano Server 上的 PowerShell Core 中可用。  
   
   
-**Nano Server 中不可用的 Windows PowerShell 功能**  
+**在 Nano Server 中不可用的 Windows PowerShell 功能**  
 * ADSI、ADO 以及 WMI 类型适配器   
 * Enable-PSRemoting、Disable-PSRemoting（默认启用 PowerShell 远程处理；请参阅[安装 Nano Server](Getting-Started-with-Nano-Server.md) 的“使用Windows PowerShell 远程处理”部分）。  
 * 计划作业和 PSScheduledJob 模块   
@@ -123,7 +123,7 @@ At line:1 char:1
 * PowerShell 工作流基础结构、模块和 cmdlet   
 * Out-printer   
 * Update-List   
-* WMI v1 cmdlet：Get-WmiObject、Invoke-WmiMethod、Register-WmiEvent、Remove-WmiObject、Set-WmiInstance（改用 CimCmdlet 模块。）   
+* WMI v1 cmdlet:Get-wmiobject、 Invoke-wmimethod、 Register-wmievent、 Remove-wmiobject、 Set-wmiinstance （改用 Cimcmdlet 模块。）   
   
 ## <a name="using-windows-powershell-desired-state-configuration-with-nano-server"></a>结合使用 Windows PowerShell Desired State Configuration 与 Nano Server  
   

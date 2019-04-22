@@ -1,7 +1,7 @@
 ---
 ms.assetid: 1b21b0a9-1fe6-4fd1-8a25-92e578d774ed
-title: "部署联合身份验证的服务器代理服务器"
-description: 
+title: 部署联合服务器代理
+description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -10,26 +10,27 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
 ms.openlocfilehash: b914141a0445febd3961b688aadc2f444b2eee7b
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59816258"
 ---
-# <a name="deploying-federation-server-proxies"></a>部署联合身份验证的服务器代理服务器
+# <a name="deploying-federation-server-proxies"></a>部署联合服务器代理
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-部署中 Active Directory 联合身份验证服务 \(AD FS\) 联合 server 代理，完成每个在任务[清单：设置向上联盟服务器代理](Checklist--Setting-Up-a-Federation-Server-Proxy.md)。  
+若要部署 Active Directory 联合身份验证服务中的联合服务器代理\(AD FS\)，完成每个中的任务[核对清单：设置联合服务器代理](Checklist--Setting-Up-a-Federation-Server-Proxy.md)。  
   
 > [!NOTE]  
-> 当你使用此清单时，我们建议你先阅读联合身份验证的服务器代理计划中的指南参考[广告 FS 设计指南 Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx)之前开始配置服务器的过程。 按照清单服务器代理提供联合身份验证的设计和部署过程更好地理解。  
+> 当使用此清单时，我们建议您先阅读规划指南中的联合服务器代理的引用[Windows Server 2012 中 AD FS 设计指南](https://technet.microsoft.com/library/dd807036.aspx)开始配置服务器的过程之前。 以下清单提供了联合身份验证的设计和部署过程的更好地了解服务器代理。  
   
-## <a name="about-federation-server-proxies"></a>有关联合身份验证的服务器代理服务器  
-联合身份验证的服务器代理是运行 Windows Server 的计算机® 2012 年广告 FS 可和软件已手动配置代理角色中采取措施。 可以使用在你的组织的服务器联合身份验证的代理提供之间 Internet 客户和企业网络上的防火墙是联合服务器中间服务。  
+## <a name="about-federation-server-proxies"></a>有关联合服务器代理  
+联合服务器代理是运行 Windows Server® 2012年和 AD FS 软件已被手动配置为充当代理角色的计算机。 你可以在组织中使用联合服务器来提供企业网络上防火墙后的 Internet 客户端和联合服务器之间的中介服务。  
   
 > [!NOTE]  
-> 虽然无法同一台计算机上安装的联合身份验证的服务器和联合身份验证的服务器代理角色，联合服务器可以执行联盟服务器代理功能。 有关详细信息，请参阅[何时创建联盟服务器](https://technet.microsoft.com/library/dd807101.aspx)。  
+> 尽管不能在同一台计算机上安装联合身份验证服务器和联合服务器代理角色，联合身份验证服务器可以执行联合身份验证服务器代理功能。 有关详细信息，请参阅 [When to Create a Federation Server](https://technet.microsoft.com/library/dd807101.aspx)。  
   
-安装在 Windows Server 广告 FS 软件法案® 2012 年计算机并将其配置为在代理角色提供使该计算机联合身份验证的服务器代理。  
+在 Windows Server® 2012年计算机上安装 AD FS 软件并将其用于代理角色配置的操作将使该计算机的联合身份验证服务器代理。  
   
 

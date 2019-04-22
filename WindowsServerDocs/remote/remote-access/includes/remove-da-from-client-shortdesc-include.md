@@ -1,0 +1,1 @@
+**从客户端删除的 DirectAccess 配置。** 对于成功的 VPN 配置部署监视 Microsoft System Center Configuration Manager 或 Microsoft Intune。 然后，使用报告来确定设备分配信息并发现哪台设备属于每个用户。 用户迁移成功时，他们的设备从组中删除 DirectAccess 安全，以便您可以删除环境中的 DirectAccess。

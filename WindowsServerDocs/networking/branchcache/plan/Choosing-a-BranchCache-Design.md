@@ -1,6 +1,6 @@
 ---
-title: 选择分支缓存设计
-description: 本主题介绍 Windows Server 2016，其中演示如何在分布式托管的缓存模式优化分支机构中 WAN 带宽使用量部署分支缓存分支缓存部署指南中
+title: 选择一个 BranchCache 设计
+description: 本主题是 BranchCache 部署指南为 Windows Server 2016 中，该示例演示了如何部署 BranchCache 在分布式和托管缓存模式下以优化分支机构中的 WAN 带宽使用情况的一部分
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-bc
@@ -8,31 +8,32 @@ ms.topic: get-started-article
 ms.assetid: 86c1ccad-2aa4-40fe-84c1-f77c49eb1216
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4fe40b3d9ece771a46af8ecc70297b8713d65875
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 330dcbee26f52ff69cd85ef8dc78d2e161b943d1
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59811908"
 ---
-# <a name="choosing-a-branchcache-design"></a>选择分支缓存设计
+# <a name="choosing-a-branchcache-design"></a>选择一个 BranchCache 设计
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-若要了解有关分支缓存模式并选择最佳的部署模式，你可以使用本主题。  
+若要了解有关 BranchCache 模式并选择你的部署的最佳模式，你可以使用本主题。  
   
-可以使用本指南中的以下模式和模式组合部署分支缓存。  
+可以使用本指南中的以下模式和组合模式下部署 BranchCache。  
   
--   适用于分布式的缓存模式配置所有分支机构。  
+-   所有分支机构都配置为使用分布式的缓存模式。  
   
--   所有分公司配置为托管的缓存模式，并且具有站点上托管的缓存服务器。  
+-   所有分支机构配置为托管的缓存模式，并且站点上有一个托管的缓存服务器。  
   
--   某些分支机构配置分布式的缓存模式和一些分支机构具有站点上托管的缓存服务器，并且配置为托管的缓存模式。  
+-   某些分支办事处配置为使用分布式的缓存模式和某些分支机构站点上有一个托管的缓存服务器，并且配置为使用托管的缓存模式。  
   
-下图配置为分布式的缓存模式一个分支机构和配置为托管的缓存模式一个分支机构演示模式双安装。  
+下图演示双模式安装中，使用配置为使用分布式的缓存模式的一个分支机构和一个分支机构配置为托管的缓存模式。  
   
-![选择分支缓存设计](../../media/Choosing-a-BranchCache-Design/bc_new_modes.jpg)  
+![选择一种 BranchCache 设计](../../media/Choosing-a-BranchCache-Design/bc_new_modes.jpg)  
   
-部署分支缓存之前，请选择你喜欢的每个分支机构在你的组织的模式。  
+部署 BranchCache 之前，请选择您喜欢的每个分支机构在组织中的模式。  
   
 
 
