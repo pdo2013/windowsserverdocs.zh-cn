@@ -1,6 +1,6 @@
 ---
-title: "与广告 FS 身份委派方案"
-description: "此项 scenario 描述需要在访问需要执行访问控制检查身份委派链的后端资源的应用。"
+title: 标识委派方案中使用 AD FS
+description: 此方案中描述的应用程序需要访问后端资源的标识委派链执行访问控制检查。
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,83 +9,84 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: b82d5fd749ac874d09bc54123727aaf902c4d778
-ms.sourcegitcommit: c16a2bf1b8a48ff267e71ff29f18b5e5cda003e8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59819848"
 ---
-# <a name="identity-delegation-scenario-with-ad-fs"></a>与广告 FS 身份委派方案
+# <a name="identity-delegation-scenario-with-ad-fs"></a>标识委派方案中使用 AD FS
 
 
-[从.NET Framework 4.5 开始，Windows 身份基础 (WIF) 已完全集成到.NET Framework。 通过本主题中，WIF 3.5 解决 WIF 的版本中不再支持和仅用于当针对.NET Framework 3.5 SP1 或.NET Framework 4 开发。 有关详细信息 WIF.NET Framework 4.5，也称为 WIF 4.5，在看到.NET Framework 4.5 Development 指南中的 Windows 的身份基础文档。] 
+[从.NET Framework 4.5 开始，Windows Identity Foundation (WIF) 已完全集成到.NET Framework。 版本的 WIF 所处理的本主题中，WIF 3.5 中，已弃用，仅用于针对.NET Framework 3.5 SP1 或.NET Framework 4 进行开发时。 有关在.NET Framework 4.5 中，也称为 WIF 4.5 中，WIF 的详细信息请参阅.NET Framework 4.5 开发指南中的 Windows Identity Foundation 文档。] 
 
-此项 scenario 描述需要在访问需要执行访问控制检查身份委派链的后端资源的应用。 简单身份委派链通常包含初始呼叫和直接调用方的身份的信息。
+此方案中描述的应用程序需要访问后端资源的标识委派链执行访问控制检查。 简单的标识委派链通常包含初始调用方和直接调用方的标识的信息。
 
-与 Windows 平台今天上 Kerberos 委派模型的后端资源具有访问仅次于直接调用方的身份，而不的初始呼叫。 此模型通常称为受信任的子系统模型。 WIF 维护初始呼叫以及在使用演员属性委派链直接调用方的身份。
+目前在 Windows 平台上的 Kerberos 委派模型，使用后端资源可以访问仅直接调用方的标识而不属于的初始调用方。 此模型通常称为受信任的子系统模型。 WIF 维护的初始调用方，以及委派链使用执行组件属性中的直接调用方的标识。
 
-下图说明典型身份委派方案中 Fabrikam 员工访问公开 Contoso.com 应用程序中的资源。
+下图说明了典型的标识委派方案中的 Fabrikam 员工可访问 Contoso.com 应用程序中公开的资源。
 
-![身份](media/ad-fs-identity-delegation/id1.png)
+![标识](media/ad-fs-identity-delegation/id1.png)
 
-是虚构参与此项 scenario 的用户：
+在此方案中参与的虚构用户是：
 
-- Frank: Fabrikam 员工想要访问 Contoso 资源。
-- 王：Contoso 应用程序开发人员实现应用程序中的所需的更改。
-- Adam: Contoso IT 管理员。
+- Frank:Fabrikam 员工想要访问 Contoso 资源。
+- Daniel:Contoso 应用程序开发人员在应用程序中实现必要的更改。
+- Adam:Contoso IT 管理员。
 
-都参与此项 scenario 组件：
+在此方案中所涉及的组件包括：
 
-- web1：需要初始呼叫委派的身份的后端资源的链接 Web 应用。 此应用程序与 ASP.NET 基础上生成。
-- 访问 SQL Server，这要求委派的身份初始调用方，以及，直接调用方的 Web 服务。 使用 WCF 构建此服务。
-- sts1: STS 处于索赔提供商，角色并发出应应用程序 (web1) 的索赔。 它已建立信任还与 Fabrikam.com 和应用程序。
-- sts2: STS 处于身份提供商的 Fabrikam.com 角色并提供 Fabrikam 员工用来验证身份一个终止点。 它建立与 Contoso.com 信任，以便允许 Fabrikam 员工访问 Contoso.com 上的资源。
+- web1:使用 Web 应用程序链接到要求进行初始调用方的委派的标识的后端资源。 此应用程序是使用 ASP.NET 构建的。
+- Web 服务访问 SQL Server，这要求初始调用方，以及直接调用方的委派的标识。 使用 WCF 构建此服务。
+- sts1:STS 角色的声明提供程序，并发出声明所需的应用程序 (web1)。 它已建立信任 Fabrikam.com 和与应用程序。
+- sts2:STS 是 Fabrikam.com 的标识提供程序的角色中并提供 Fabrikam 员工使用进行身份验证终结点。 它建立与 Contoso.com 信任关系，以便允许 Fabrikam 员工访问 Contoso.com 上的资源。
 
 >[!NOTE] 
->术语"ActAs 令牌"，它通常在使用此方案，是指由 STS 并包含的用户身份一个标记。 参与者属性包含 STS 的身份。
+>术语"ActAs 令牌"，它通常在这种情况下，是指由 STS 颁发并包含用户的标识的令牌。 执行组件属性包含 STS 的标识。
 
-在上图中显示，请在此情况下流时：
+上图中所示，在此方案中的流是：
 
 
-1. 配置 Contoso 应用程序以获取包含 Fabrikam 员工身份和演员属性中的直接调用方身份一个 ActAs 标记。 王已实施这些更改向应用程序。
-2. 配置 Contoso 应用程序向后端服务传递 ActAs 标记。 王已实施这些更改向应用程序。
-3. 通过调用 sts1 验证 ActAs 令牌配置 Contoso Web 服务。 Adam 已启用 sts1 处理委派请求。
-4. Fabrikam 用户 Frank 访问 Contoso 应用程序，并向后端资源授予访问权限。
+1. Contoso 应用程序配置为获取一个包含 Fabrikam 员工的标识和执行组件属性中的直接调用方的标识的 ActAs 令牌。 Daniel 已实现这些更改应用程序。
+2. Contoso 应用程序配置为将 ActAs 令牌传递到后端服务。 Daniel 已实现这些更改应用程序。
+3. Contoso Web 服务配置为通过调用 sts1 验证 ActAs 令牌。 Adam 具有启用 sts1 来处理委派请求。
+4. Fabrikam 用户 Frank 访问 Contoso 应用程序，并对后端资源授予访问权限。
 
-## <a name="set-up-the-identity-provider-ip"></a>设置身份提供商 (IP)
+## <a name="set-up-the-identity-provider-ip"></a>设置标识提供者 (IP)
 
 有三个选项可用于 Fabrikam.com 管理员，Frank:
 
 
-1. 购买并安装 STS 产品，如 Active Directory® 联合身份验证服务 (广告 FS)。
-2. 订阅云 STS 产品，如 LiveID STS。
-3. 生成的自定义 STS 使用 WIF。
+1. 购买并安装一个 STS 产品，如 Active Directory® 联合身份验证服务 (AD FS)。
+2. 订阅 LiveID STS 之类的云 STS 产品。
+3. 生成自定义 STS 使用 WIF。
 
-此示例情况下，我们假定 Frank 选择选项 1，并且会在广告 FS 安装 IP STS。 他还配置终止点，名为 \windowsauth 用户进行身份验证。 引用的广告 FS 产品文档和交谈 Adam，Contoso IT 管理员，通过 Frank 建立信任与 Contoso.com 域。
+对于此示例方案中，我们假定 Frank 选择选项 1，并将 AD FS 安装为的 IP-STS。 他还配置一个终结点，名为 \windowsauth，用户进行身份验证。 通过引用 AD FS 产品文档并与 Adam，Contoso IT 管理员，Frank 建立信任关系的 Contoso.com 域。
 
-## <a name="set-up-the-claims-provider"></a>设置索赔提供程序
+## <a name="set-up-the-claims-provider"></a>设置声明提供程序
 
-选项可用于 Contoso.com 管理员，Adam，都相同前面所述的身份提供商。 此示例情况下，我们假定 Adam 选择选项 1，并且会在广告 FS 2.0 安装 RP STS。
+选项适用于 Contoso.com 管理员，Adam，是与标识提供程序的以前所述相同。 对于此示例方案中，我们假定 Adam 选择选项 1，并将 AD FS 2.0 安装为 RP-STS。
 
-## <a name="set-up-trust-with-the-ip-and-application"></a>信任 IP 和应用程序设置
+## <a name="set-up-trust-with-the-ip-and-application"></a>设置信任的 IP 和应用程序
 
-通过参考广告 FS 文档，Adam 建立信任 Fabrikam.com 和应用程序。
+通过引用 AD FS 文档，Adam 建立 Fabrikam.com 和应用程序之间的信任。
 
 ## <a name="set-up-delegation"></a>设置委派
 
-广告 FS 提供委派处理。 通过参考广告 FS 文档，Adam 使 ActAs 标记处理。
+AD FS 提供委派处理。 通过引用 AD FS 文档，Adam 可以 ActAs 令牌的处理。
 
-## <a name="application-specific-changes"></a>更改特定应用程序
+## <a name="application-specific-changes"></a>特定于应用程序的更改
 
-必须进行以下更改将对身份委派支持添加到现有的应用程序。 王使用 WIF 进行这些更改。
+必须进行以下更改以将标识委托支持添加到现有应用程序。 Daniel 使用 WIF 来进行这些更改。
 
 
-- 缓存引导令牌收到来自 sts1 该 web1。
-- 使用使用已颁发令牌 CreateChannelActingAs 创建的后端 Web 服务的频道。
-- 呼叫后端服务的方法。
+- 缓存的启动令牌从 sts1 收到该 web1。
+- 使用与颁发的令牌 CreateChannelActingAs 创建后端 Web 服务的通道。
+- 调用后端服务的方法。
 
-## <a name="cache-the-bootstrap-token"></a>缓存的引导标记
+## <a name="cache-the-bootstrap-token"></a>缓存引导标记
 
-引导令牌颁发 STS 的初始标记，并且应用程序，提取索赔。 在此示例情况下，为用户 Frank sts1 发出此令牌和应用程序缓存它。 下面的示例代码说明如何检索引导 ASP.NET 应用中标记：
+启动令牌是由 STS 颁发的初始令牌和应用程序从其提取声明。 在此示例方案中，此令牌颁发由 sts1 Frank 的用户和应用程序对其进行缓存。 下面的代码示例演示如何检索引导令牌中的 ASP.NET 应用程序：
 
 ```
 // Get the Bootstrap Token
@@ -98,9 +99,9 @@ if ( claimsPrincipal != null )
     bootstrapToken = claimsIdentity.BootstrapToken;
 }
 ```
-WIF 提供一种方法，[CreateChannelActingAs](https://msdn.microsoft.com/library/ee733863.aspx)，用于创建扩大与指定的安全标记为 ActAs 元素令牌发放请求指定类型的频道。 可以将引导标记传递到此方法并返回信道对必要服务方法。 在此示例情况下，具有 Frank 的身份[演员](https://msdn.microsoft.com/library/microsoft.identitymodel.claims.iclaimsidentity.actor.aspx)属性设置为 web1 的身份。
+WIF 提供了一种方法， [CreateChannelActingAs](https://msdn.microsoft.com/library/ee733863.aspx)，创建增加与为 ActAs 元素指定的安全令牌的令牌颁发请求的内容的指定类型的通道。 您可以将启动令牌传递给此方法，然后返回通道上调用必要的服务方法。 在此示例方案中，Frank 的标识具有[Actor](https://msdn.microsoft.com/library/microsoft.identitymodel.claims.iclaimsidentity.actor.aspx)属性设置为 web1 的标识。
 
-下面的代码片段演示如何对通过 Web 服务调用[CreateChannelActingAs](https://msdn.microsoft.com/library/ee733863.aspx)，然后返回的频道上调用 ComputeResponse，该服务的方法之一：
+下面的代码段演示如何使用 Web 服务调用[CreateChannelActingAs](https://msdn.microsoft.com/library/ee733863.aspx) ，然后对返回的通道调用服务的方法，ComputeResponse，之一：
 
 ```
 // Get the channel factory to the backend service from the application state
@@ -133,11 +134,11 @@ try
 }
 
 ```
-## <a name="web-service-specific-changes"></a>Web 特定于服务的更改
+## <a name="web-service-specific-changes"></a>Web 服务相关的更改
 
-由于 Web 服务 WCF 生成，并且启用 WIF，绑定配置 IssuedSecurityTokenParameters 使用了正确的发行商地址后，将自动通过 WIF 进行处理 ActAs 验证。 
+由于 Web 服务是使用 WCF 构建，并且已启用 wif，绑定使用正确的颁发者地址与 IssuedSecurityTokenParameters 进行配置后，自动由 WIF 处理的 ActAs 验证。 
 
-Web 服务公开特定所需的应用程序的方法。 有任何特定的代码更改，需要在服务上。 下面的示例代码显示与 IssuedSecurityTokenParameters Web 服务的配置：
+Web 服务公开的应用程序所需的特定方法。 没有需要在服务上的特定代码更改。 下面的代码示例显示了具有 IssuedSecurityTokenParameters 的 Web 服务的配置：
 
 ```
 // Configure the issued token parameters with the correct settings
@@ -182,4 +183,4 @@ using ( ServiceHost host = new ServiceHost( typeof( Service2 ), new Uri( "http:/
 ```
 
 ## <a name="next-steps"></a>后续步骤
-[广告 FS 开发](../../ad-fs/AD-FS-Development.md)  
+[AD FS 开发](../../ad-fs/AD-FS-Development.md)  

@@ -1,7 +1,7 @@
 ---
 ms.assetid: 5c8c6cc0-0d22-4f27-a111-0aa90db7d6c8
-title: "计划你的广告 FS 部署拓扑"
-description: 
+title: 规划 AD FS 部署拓扑
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,73 +10,74 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 7e41f7728c42912ec6ce680e1ed0c6a906a33392
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59821708"
 ---
-# <a name="plan-your-ad-fs-deployment-topology"></a>计划你的广告 FS 部署拓扑
+# <a name="plan-your-ad-fs-deployment-topology"></a>规划 AD FS 部署拓扑
 
->适用于：Windows Server 2016，Windows Server 2012 R2
+>适用于：Windows Server 2016, Windows Server 2012 R2
 
-在规划的 Active Directory 联合身份验证服务 \(AD FS\) 部署的第一步是组织的确定右部署拓扑以满足你的需求。  
+规划 Active Directory 联合身份验证服务的部署的第一步\(AD FS\)是确定正确的部署拓扑，以满足你的组织的需求。  
   
-阅读本主题之前，查看存储和复制到其他联盟服务器联合身份验证的服务器场中广告 FS 数据的方式，并确保你了解的用途以及可以用于存储在数据库中广告 FS 配置的基本数据的复制方法。  
+在阅读本主题之前，查看如何存储和复制到联合服务器场中其他联合服务器 AD FS 数据并确保你了解的用途以及可用于存储在 AD FS 中的基础数据的复制方法 con配置数据库。  
   
-你可以使用存储广告 FS 配置数据的两种数据库类型：Windows 内部数据库 \(WID\) 和 Microsoft SQL Server。 有关详细信息，请参阅[广告 FS 配置数据库中的角色](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)。 查看的各种优缺点与广告 FS 配置数据库中，以及各种应用程序方案他们支持，然后选择使用 WID 或 SQL Server 相关联。  
+有两种可用来存储 AD FS 配置数据的数据库类型：Windows 内部数据库\(WID\)和 Microsoft SQL Server。 有关详细信息，请参阅 [AD FS 配置数据库的角色](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)。 查看各种优势和限制，与使用 WID 或 SQL Server 作为 AD FS 配置数据库，以及它们支持，然后进行选择的各种应用程序方案相关联。  
   
 > [!IMPORTANT]  
-> 若要实现基本冗余、负载平衡和缩放联合身份验证服务 \(if required\) 的选项，我们建议你部署至少两个联盟服务器每联合身份验证的服务器场所有生产环境，无论哪种类型的数据库，您将使用。  
+> 若要实现基本冗余、 负载平衡，以及用于缩放联合身份验证服务的选项\(必要\)，我们建议你部署每个联合服务器场的所有生产环境中的至少两个联合服务器而不考虑你将使用的数据库的类型。  
   
-## <a name="determining-which-type-of-ad-fs-configuration-database-to-use"></a>确定哪种类型的广告 FS 配置数据库使用  
-广告 FS 使用数据库以存储配置和 — 在某些情况下，事务数据与联合身份验证服务。 你可以使用该广告 FS 软件选择 built\ 在 Windows 内部数据库 \(WID\) 或 Microsoft SQL Server 2008 或更高版本中联合身份验证服务存储的数据。  
+## <a name="determining-which-type-of-adfs-configuration-database-to-use"></a>确定要使用哪种类型的 AD FS 配置数据库  
+AD FS 使用数据库来存储配置和 — 在某些情况下，与联合身份验证服务相关的事务数据。 您可以使用 AD FS 软件选择内置\-在 Windows 内部数据库中\(WID\)或 Microsoft SQL Server 2008 或更高版本在联合身份验证服务中存储数据。  
   
-大多数情况下，两个数据库类型都相对相同。 但是，有一些差异开始阅读更多有关可以与广告 FS 使用各种部署拓扑之前需要注意。 下表介绍了 WID 数据库 SQL Server 数据库区别中受支持的功能。  
+大多数情况下，这两个数据库类型是相对等效的。 但是，有在开始阅读有关可以与 AD FS 配合使用的各种部署拓扑的详细信息之前需要注意的一些差异。 下表描述了在受支持的功能中，WID 数据库和 SQL Server 数据库之间的差异。  
   
-||功能|受支持 WID？|受支持 SQL Server？
+||功能|WID 支持吗？|SQL Server 支持吗？
 | --- | --- | --- |--- |
-|广告 FS 功能|联合身份验证的服务器电场的日落部署|是的。 如果你有 100 或更少信赖的方信任，WID 场具有最多 30 联合身份验证的服务器。</br></br>WID 场不支持令牌重播检测或项目分辨率（安全声明标记语言 (SAML) 协议的一部分）。 |是的。 您可以在单个场部署的联合服务器多种没有强制限制  
-|广告 FS 功能|SAML 项目分辨率 </br></br>**注意：**此功能并不需要 Microsoft Online 服务、Microsoft Office 365、Microsoft Exchange 或 Microsoft Office SharePoint 方案。|不|是的  
-|广告 FS 功能|SAML\/WS\-联盟令牌重播检测|不|是的  
-|数据库功能|使用拉复制，其中一个或多个服务器举办仅 read\ 数据库请求更改所做的源服务器上的副本，承载数据库 read\/写入副本基本数据库冗余|是的|不 
-|数据库功能|使用 high\ 可用性解决方案，如故障转移群集或镜像数据库冗余 \（在数据库层 only\)**注意：**所有广告 FS 部署拓扑都支持在广告 FS 服务层群集。|不|是的  
+|AD FS 功能|联合服务器场部署|是。 如果有 100 个或更少的信赖方信任，则 WID 场有 30 个联合身份验证服务器的限制。</br></br>WID 场不支持令牌重放检测或项目解析 （安全断言标记语言 (SAML) 协议的一部分）。 |是。 对可以在单个服务器场中部署的联合服务器数目没有强制限制  
+|AD FS 功能|SAML 项目解析 </br></br>**注意：** 此功能并不是 Microsoft 联机服务、Microsoft Office 365、Microsoft Exchange 或 Microsoft Office SharePoint 方案所必需的。|否|是  
+|AD FS 功能|SAML\/WS\-联合身份验证令牌重放检测|否|是  
+|数据库功能|基本数据库冗余使用请求复制一个或多个服务器承载读取\-的数据库请求更改承载读取的源服务器上所做的唯一副本\/写入数据库的副本|是|否 
+|数据库功能|使用高数据库冗余\-可用性解决方案，如故障转移群集或镜像\(在数据库层仅\)**注意：** 所有 AD FS 部署拓扑结构都支持聚类分析在 AD FS 服务层。|否|是  
 
   
 ## <a name="sql-server-considerations"></a>SQL Server 注意事项  
-如果你选择与配置数据库广告 FS 部署的 SQL Server，您应该考虑以下部署事实。  
+如果你选择 SQL Server 作为用于 AD FS 部署的配置数据库，你应该考虑以下部署事实。  
   
--   **SAML 功能和数据库大小和增长其影响**。 SAML 项目分辨率或 SAML 令牌重播检测功能启用时，广告 FS 会将信息存储在每个发出的广告 FS 标记 SQL Server 配置数据库中。 由于此活动的 SQL Server 数据库增长未被认为是很重要，以及它取决于配置令牌重播保留期间。 每个项目记录有大约有 30 千字节 \(KB\) 的大小。  
+-   **SAML 功能以及它们对数据库大小和增长的影响**。 当启用 SAML 项目解析或 SAML 令牌重放检测功能时，AD FS 将在 SQL Server 配置数据库中存储发出的每个 AD FS 令牌的信息。 并不会特别重视此活动所带来的 SQL Server 数据库的增长，并且它取决于已配置的令牌重播保留期。 每个项目记录具有大约 30 千字节为单位的大小\(KB\)。  
   
--   **多个所需的部署服务器**。 你将需要添加至少一个其他服务器 \（到所需部署广告 FS infrastructure\ 服务器总数），将充当专用主机的 SQL Server 实例。 如果您计划使用故障转移群集或镜像 SQL Server 配置数据库提供故障功能，并可扩展性，最少的两个 SQL server 是必需的。  
+-   **部署所需的服务器数目**。 将需要添加至少一个其他服务器\(部署在 AD FS 基础结构所需服务器总数\)作为 SQL Server 实例的专用主机。 如果你打算使用故障转移群集或镜像为 SQL Server 配置数据库提供容错和可伸缩性，则需要至少两个 SQL 服务器。  
   
-## <a name="how-the-configuration-database-type-you-select-may-impact-hardware-resources"></a>如何配置数据库类型你选择可能影响的硬件资源  
-不重要对部署在使用相较于部署在使用 SQL Server 数据库场联合服务器 WID 场联盟服务器上的硬件资源的影响。 但是，它是重要的考虑时 WID 用于电场的日落，, 该电场的日落中的每个联盟服务器必须存储、管理和维护复制更改为广告 FS 配置数据库其本地副本还继续提供联合身份验证服务所需的正常运行时。  
+## <a name="how-the-configuration-database-type-you-select-may-impact-hardware-resources"></a>你选择的配置数据库类型可能会影响硬件资源的方式  
+对在使用 WID 服务器场中部署的联合服务器（而不是在使用 SQL Server 数据库的服务器场中部署的联合服务器）上的硬件资源的影响并不重要。 但重要的是，当你为服务器场使用 WID 时，在该场中的每个联合服务器必须存储、管理和维护其 AD FS 配置数据库的本地副本的复制更改，同时还要继续提供此联合身份验证服务所需的正常操作。  
   
-相比，在使用 SQL Server 数据库场程序部署的联合服务器不一定包含广告 FS 配置数据库一个本地实例。 因此，它们可要求略有较低的硬件资源。  
+比较而言，在使用 SQL Server 数据库的服务器场中部署的联合服务器不一定包含 AD FS 配置数据库的本地实例。 因此，它们可能会对硬件资源提出略少的要求。  
   
-## <a name="BKMK_1"></a>放置联合服务器的位置  
-作为安全性最佳实践，位置放防火墙广告 FS 联盟服务器，将其连接到你的企业网络，以防止曝光度从 Internet。 由于联合身份验证的服务器具有完整授权，以使具有安全标记，这很重要。 因此，这些应有域控制器为相同的保护。 联合服务器受到威胁后，如果恶意用户将具有能够向所有 Web 应用程序以及受广告 FS 的联合身份验证的服务器发送标记的完全访问权限。  
-  
-> [!NOTE]  
-> 有价证券作为最佳做法，避免在 Internet 上有直接访问您联合身份验证的服务器。 请考虑设置的测试实验环境向上或你的组织中没有外围网络时，仅提供联盟服务器直接 Internet 访问。  
-  
-对于典型公司的网络，intranet\ 面向防火墙建立外围网络，公司网络之间，并且通常外围网络和 Internet 之间建立 Internet \-facing 防火墙。 在此情况下，联合身份验证的服务器内的公司的网络，且不 Internet 客户端直接访问。  
+## <a name="BKMK_1"></a>联合身份验证服务器的放置位置  
+作为安全性最佳做法、 将 AD FS 联合身份验证服务器的防火墙的前面放置和连接到企业网络以防止从 Internet 暴露。 这非常重要，因为联合身份验证服务器具有完整授权，可授予安全令牌。 因此，它们应具有与域控制器相同的保护。 如果联合身份验证服务器受到攻击，恶意用户能够为所有 Web 应用程序和受 AD FS 的联合服务器颁发完全访问令牌。  
   
 > [!NOTE]  
-> 连接到公司的网络的客户端计算机可以直接与 Windows 的集成身份验证通过联盟服务器通信。  
+> 作为安全性最佳做法，请避免直接访问联合身份验证服务器在 Internet 上。 请考虑仅在设置了一个测试实验室环境或你的组织没有外围网络时为你的联合身份验证服务器提供直接 Internet 访问权限。  
   
-联合身份验证的服务器代理应位于外围网络配置为使用你防火墙服务器与广告 FS 之前。  
+对于典型企业网络，intranet\-面向防火墙企业网络和外围网络和 Internet 之间建立\-外围网络之间则通常设有面向防火墙和Internet。 在此情况下，联合身份验证服务器位于公司网络，并不直接访问 Internet 的客户端。  
   
-## <a name="supported-deployment-topologies"></a>受支持的部署拓扑  
-以下主题描述你可以与广告 FS 使用各种部署拓扑。 他们还描述好处和限制，以便你可以选择最适合拓扑针对特定的企业需要与每个部署拓扑相关联。  
+> [!NOTE]  
+> 连接到公司网络的客户端计算机可以直接使用通过 Windows 集成身份验证的联合身份验证服务器进行通信。  
   
--   [使用 WID 联合身份验证的服务器场](Federation-Server-Farm-Using-WID.md)  
+与 AD FS 配置为使用防火墙服务器之前，应在外围网络中放置联合服务器代理。  
   
--   [联合 Server 场使用 WID 和代理服务器](Federation-Server-Farm-Using-WID-and-Proxies.md)  
+## <a name="supported-deployment-topologies"></a>支持的部署拓扑  
+以下主题介绍可以与 AD FS 配合使用的各种部署拓扑。 这些主题还描述了与每个部署拓扑相关联的优势和限制，以便你可以为特定的业务需求选择最合适的拓扑。  
   
--   [联合 Server 场使用 SQL Server](Federation-Server-Farm-Using-SQL-Server.md)  
+-   [使用 WID 的联合服务器场](Federation-Server-Farm-Using-WID.md)  
+  
+-   [联合服务器场使用 WID 和代理](Federation-Server-Farm-Using-WID-and-Proxies.md)  
+  
+-   [使用 SQL Server 的联合服务器场](Federation-Server-Farm-Using-SQL-Server.md)  
   
 ## <a name="see-also"></a>请参阅  
-[在 Windows Server 2012 R2 指导广告 FS 设计](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
+[Windows Server 2012 R2 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   
 

@@ -10,24 +10,24 @@ author: cosmosdarwin
 ms.date: 01/23/2017
 ms.localizationpriority: medium
 ms.openlocfilehash: 51f58ec23c55a6cb1664d800d6f4a75dae545899
-ms.sourcegitcommit: dfd25348ea3587e09ea8c2224237a3e8078422ae
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "4678646"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59824968"
 ---
-# 扩展存储空间直通中的卷
-> 适用于： Windows Server 2019、 Windows Server 2016
+# <a name="extending-volumes-in-storage-spaces-direct"></a>扩展存储空间直通中的卷
+> 适用于：Windows Server 2019、Windows Server 2016
 
 本主题提供关于在[存储空间直通](storage-spaces-direct-overview.md)中调整卷大小的说明。
 
-## 必备条件
+## <a name="prerequisites"></a>先决条件
 
-### 存储池中的容量
+### <a name="capacity-in-the-storage-pool"></a>存储池中的容量
 
 在调整卷大小之前，请确保存储池中有足够的容量，以容纳其新的更大占用空间。 例如，将三向镜像卷的大小从 1 TB 调整为 2 TB 时，其占用空间将从 3 TB 增长到 6 TB。 要成功调整大小，存储池中将至少需要 (6 - 3) = 3 TB 的可用容量。
 
-### 熟悉存储空间中的卷
+### <a name="familiarity-with-volumes-in-storage-spaces"></a>熟悉存储空间中的卷
 
 在存储空间直通中，每个卷都由一些堆叠对象组成：群集共享卷 (CSV)（这是一个卷）、分区、磁盘（这是一个虚拟磁盘）以及一个或多个存储层（如果适用）。 若要调整卷的大小，你将需要调整其中一些对象的大小。
 
@@ -49,7 +49,7 @@ Get-VirtualDisk
 Get-VirtualDisk <FriendlyName> | Get-Disk | Get-Partition | Get-Volume 
 ```
 
-## 第 1 步 - 调整虚拟磁盘的大小
+## <a name="step-1--resize-the-virtual-disk"></a>第 1 步 - 调整虚拟磁盘的大小
 
 虚拟磁盘可以使用或者不使用存储层，具体取决于它的创建方式。
 
@@ -61,7 +61,7 @@ Get-VirtualDisk <FriendlyName> | Get-StorageTier
 
 如果此 cmdlet 未返回任何内容，则虚拟磁盘未使用存储层。
 
-### 无存储层
+### <a name="no-storage-tiers"></a>无存储层
 
 如果虚拟磁盘没有存储层，你可以直接使用 **Resize-VirtualDisk** cmdlet 调整虚拟磁盘的大小。
 
@@ -75,7 +75,7 @@ Get-VirtualDisk <FriendlyName> | Resize-VirtualDisk -Size <Size>
 
 ![Resize-VirtualDisk](media/resize-volumes/Resize-VirtualDisk.gif)
 
-### 具有存储层
+### <a name="with-storage-tiers"></a>具有存储层
 
 如果虚拟磁盘使用存储层，你可以使用 **Resize-StorageTier** cmdlet 分别调整每一层的大小。
 
@@ -98,7 +98,7 @@ Get-StorageTier <FriendlyName> | Resize-StorageTier -Size <Size>
 
 ![Resize-StorageTier](media/resize-volumes/Resize-StorageTier.gif)
 
-## 第 2 步 - 调整分区大小
+## <a name="step-2--resize-the-partition"></a>第 2 步 - 调整分区大小
 
 接下来，使用 **Resize-Partition**cmdlet 调整分区大小。 虚拟磁盘应该有两个分区：第一个分区应该保留而不应修改；你需要调整大小的分区具有 **PartitionNumber = 2** 和 **Type = Basic**。
 
@@ -124,8 +124,8 @@ $Partition | Resize-Partition -Size ($Partition | Get-PartitionSupportedSize).Si
 > [!TIP]
 > 你可以运行 **Get-Volume** 来验证卷是否具有新的大小。
 
-## 另请参阅
+## <a name="see-also"></a>请参阅
 
 - [Windows Server 2016 中的存储空间直通](storage-spaces-direct-overview.md)
-- [规划存储空间直通中的卷](plan-volumes.md)
+- [存储空间直通中规划卷](plan-volumes.md)
 - [在存储空间直通中创建卷](create-volumes.md)

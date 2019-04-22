@@ -1,6 +1,6 @@
 ---
-title: "设置地理冗余的 SQL Server 复制"
-description: 
+title: 使用 SQL Server 复制设置地理冗余
+description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,166 +9,167 @@ ms.prod: windows-server-threshold
 ms.technology: active-directory-federation-services
 ms.author: billmath
 ms.assetId: 7b9f9a4f-888c-4358-bacd-3237661b1935
-ms.openlocfilehash: a9f29c1eb19a8241eac5afb5c87581e6c988c3c8
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 0ab10e61135a26b62605ed8e0a76ab6e53fdc82c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59824288"
 ---
-# <a name="setup-geographic-redundancy-with-sql-server-replication"></a>设置地理冗余的 SQL Server 复制
+# <a name="setup-geographic-redundancy-with-sql-server-replication"></a>使用 SQL Server 复制设置地理冗余
 
->适用于：Windows Server 2016，Windows Server 2012 R2
+>适用于：Windows Server 2016, Windows Server 2012 R2
 
 > [!IMPORTANT]  
-> 如果你想要创建广告 FS 电场的日落，使用 SQL Server 存储配置数据，您可以使用 SQL Server 2008 或更高版本。
+> 如果你想要创建的 AD FS 场并使用 SQL Server 来存储配置数据，可以使用 SQL Server 2008 或更高版本。
   
-如果使用的与你的广告 FS 配置数据库的 SQL Server，你可以使用 SQL Server 复制广告 FS 场设置 geo\ 冗余。 Geo\ 冗余复制两个遥远站点之间数据，以便应用从一个网站可以切换到另一种。 这样一来，出现故障的一个网站，你仍可以提供的所有配置数据第二个地点。 有关详细信息，在中看到"SQL Server 地理冗余部分"[联盟服务器电场的日落使用 SQL Server](../design/Federation-Server-Farm-Using-SQL-Server.md)。  
+如果使用的作为你的 AD FS 配置数据库的 SQL Server，则可以设置异地\-冗余，以便使用 SQL Server 复制 AD FS 场。 异地\-冗余在以便应用程序可以从一个站点切换到另一个地理位置相距遥远的两个站点之间复制数据。 这样一来，如果出现一个站点的故障，你仍可以让所有可用的配置数据的第二个站点上。 详细信息，请参阅"SQL Server 的地理冗余部分"中[联合服务器场使用 SQL Server](../design/Federation-Server-Farm-Using-SQL-Server.md)。  
   
-## <a name="prerequisites"></a>先决条件  
-安装和配置 SQL server 场。 有关详细信息，请参阅[https://technet.microsoft.com/evalcenter/hh225126.aspx](https://technet.microsoft.com/evalcenter/hh225126.aspx)。 在初始 SQL Server，确保 SQL Server 代理服务正在运行，并设置为自动启动。  
+## <a name="prerequisites"></a>系统必备  
+安装和配置 SQL server 场。 有关详细信息，请参阅[ https://technet.microsoft.com/evalcenter/hh225126.aspx ](https://technet.microsoft.com/evalcenter/hh225126.aspx)。 在初始的 SQL Server，请确保正在运行的 SQL Server 代理服务并设置为自动启动。  
   
-## <a name="create-the-second-replica-sql-server-for-geo-redundancy"></a>创建用于 geo\ 冗余第二个 \(replica\) SQL Server  
+## <a name="create-the-second-replica-sql-server-for-geo-redundancy"></a>创建第二个\(副本\)异地的 SQL Server\-冗余  
   
-1.  安装 SQL Server \ (有关详细信息，请参阅[https://technet.microsoft.com/evalcenter/hh225126.aspx](https://technet.microsoft.com/evalcenter/hh225126.aspx)。 复制到副本 SQL server 生成的 CreateDB.sql 和 SetPermissions.sql 脚本文件。  
+1.  安装 SQL Server\(的详细信息，请参阅[ https://technet.microsoft.com/evalcenter/hh225126.aspx ](https://technet.microsoft.com/evalcenter/hh225126.aspx)。 将生成的 CreateDB.sql 和 SetPermissions.sql 脚本文件复制到副本的 SQL server。  
   
-2.  确保 SQL Server 代理服务正在运行，并将设置为自动启动  
+2.  请确保 SQL Server 代理服务正在运行，并将设置为自动启动  
   
-3.  运行**Export\ AdfsDeploymentSQLScript**主广告 FS 节点以创建 CreateDB.sql 和 SetPermissions.sql 文件上。  例如：`PS:\>Export-AdfsDeploymentSQLScript -DestinationFolder . –ServiceAccountName CONTOSO\gmsa1$`。  
+3.  运行**导出\-AdfsDeploymentSQLScript**创建 CreateDB.sql 和 SetPermissions.sql 文件在主 AD FS 节点上。  例如：`PS:\>Export-AdfsDeploymentSQLScript -DestinationFolder . –ServiceAccountName CONTOSO\gmsa1$`。  
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql2.png)
   
-4.  将这些脚本复制到第二服务器。  打开中的 CreateDB.sql 脚本**SQL 管理 Studio**单击**执行**。
+4.  将脚本复制到辅助服务器。  打开中的 CreateDB.sql 脚本**SQL Management Studio**然后单击**Execute**。
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql4.png)
 
-5. 打开的中 SetPermissions.sql 脚本**SQL 管理 Studio**单击**执行**。
+5. 打开中的 SetPermissions.sql 脚本**SQL Management Studio**然后单击**Execute**。
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql6.png) 
 
    
 
 >[!NOTE]
->你还可以使用以下命令行中。 
+>此外可以使用以下命令行中。 
 >
 >    `c:\>sqlcmd –i CreateDB.sql`  
 >  
 >    `c:\>sqlcmd –i SetPermissions.sql` 
 > 
-## <a name="create-publisher-settings-on-the-initial-sql-server"></a>在初始 SQL Server 上创建发布设置  
+## <a name="create-publisher-settings-on-the-initial-sql-server"></a>初始的 SQL Server 上创建发布服务器设置  
   
-1.  SQL Server 管理 studio 中，从下**复制**，右键单击**本地发布**选择**新发布 …**
+1.  从 SQL Server Management studio 下**复制**，右键单击**本地发布**，然后选择**新发布...** 
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql7.png) </br>  
 
-2.  在新发布的向导屏幕上，单击**下一步**。</br>
+2.  在新建发布向导屏幕上单击**下一步**。</br>
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql8.png) </br> 
   
-3.  在**分销商**页上，选择与分销商本地服务器，请单击**下一步**。  
+3.  上**分发服务器上**页上，选择本地服务器作为分发服务器上，单击**下一步**。  
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql9.png) </br>   
 
-4.  在**快照**文件夹页中，输入 \\\SQL1\repldata 来替代默认文件夹。 \ (请注意： 你可能需要创建此共享 yourself\)。  
+4.  上**快照**文件夹页面上，输入\\\SQL1\repldata 代替默认文件夹。 \(注意：可能需要自行创建此共享\)。  
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql10.png) </br>   
   
-5.  选择**AdfsConfigurationV3**作为发布数据库单击**下一步**。  
+5.  选择**AdfsConfigurationV3**作为发布数据库，然后单击**下一步**。  
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql11.png) </br>
   
-6.  在**发布类型**，选择**合并发布**单击**下一步**。  
+6.  上**发布类型**，选择**合并发布**然后单击**下一步**。  
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql12.png) </br>
   
-7.  在**订户类型**，选择**SQL Server 2008 或更高版本**单击**下一步**。  
+7.  上**订阅服务器类型**，选择**SQL Server 2008 或更高版本**然后单击**下一步**。  
  ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql13.png) </br> 
 
-8.  在**文章**页面上选择**表格**节点以选择所有表格，然后依次都选择**un\ 检查 SyncProperties**表 \ （这一不应 replicated\）</br>
+8.  上**文章**页上，选择**表**节点以选择所有表，然后**取消\-检查 SyncProperties**表\(这个不应为复制\)</br>
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql14.png) </br>    
   
-9.  在**文章**页上，选择**用户定义的函数**节点以选择所有用户定义的函数，然后单击**下一步**..  
+9.  上**文章**页上，选择**用户定义函数**节点以选择所有用户定义函数，然后单击**下一步**...  
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql15.png) </br>    
 
-10. 在**文章问题**页面单击**下一步**。  
+10. 上**项目问题**页上，单击**下一步**。  
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql16.png) </br>   
 
-11. 在**筛选器表格行**页上，单击**下一步**。  
+11. 上**筛选表行**页上，单击**下一步**。  
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql17.png) </br>   
-12. 在**快照代理**页上，选择默认值的即时和 14 天后，单击**下一步**。  
+12. 上**快照代理**页上，选择即时和 14 天的默认值，单击**下一步**。  
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql18.png) </br>   
-你可能需要为 SQL 代理创建域帐户。 使用中的步骤[域帐户 CONTOSO\\sqlagent 配置 SQL 登录](Set-up-Geographic-Redundancy-with-SQL-Server-Replication.md#sqlagent)创建 SQL 此新广告用户登录并分配特定的权限。  
+您可能需要为 SQL 代理创建的域帐户。 使用中的步骤[CONTOSO 的域帐户配置 SQL 登录名\\sqlagent](Set-up-Geographic-Redundancy-with-SQL-Server-Replication.md#sqlagent)若要创建此新的 AD 用户的 SQL 登录名并分配特定权限。  
   
-13. 在**代理安全**页上，单击**安全设置**输入域帐户 username\/密码 \ (不 GMSA\) 创建 SQL 代理和单击**确定**。  单击**下一步**。  
+13. 上**代理安全性**页上，单击**安全设置**并输入用户名\/域帐户的密码\(不 GMSA\)创建 SQL 代理和单击**确定**。  单击“下一步” 。  
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql19.png) </br>  
 
-14. 在**向导操作**页上，单击**下一步**。   
+14. 上**向导操作**页上，单击**下一步**。   
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql20.png) </br>
 
-15. 在**完成向导**页上，输入你发布的名称，请单击**完成**。 
+15. 上**完成该向导**页上，输入你发布的名称，单击**完成**。 
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql21.png) </br>  
 
-16. 创建发布后，你应该看到成功状态。  单击**关闭**。
+16. 创建发布后，应看到成功的状态。  单击 **“关闭”**。
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql22.png) </br>  
 
-17. 重新在 SQL Server 管理 Studio 中，右键单击新的发布，然后单击**启动复制监视器**。  
+17. 返回在 SQL Server Management Studio 中，右键单击新发布，然后单击**启动复制监视器**。  
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql23.png) </br> 
   
-## <a name="create-subscription-settings-on-the-replica-sql-server"></a>副本 SQL Server 上创建的订阅设置  
-请确保你创建的发布者设置与初始的 SQL Server 上如上所述，然后完成以下过程：  
+## <a name="create-subscription-settings-on-the-replica-sql-server"></a>SQL Server 副本上创建订阅设置  
+请确保您创建的发布服务器设置初始的 SQL Server 上按上文所述，然后完成以下过程：  
   
-1.  上的副本 SQL Server、SQL Server 管理 studio 中，从下**复制**，右键单击**本地订阅**，然后选择**新订阅…**.![地理冗余设置](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql24.png) </br>  
+1.  从 SQL Server Management studio 的 SQL Server 副本上下**复制**，右键单击**本地订阅**，然后选择**新订阅...**.![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql24.png) </br>  
 
-2.  在**新订阅向导**页上，单击**下一步**。
+2.  上**新建订阅向导**页上，单击**下一步**。
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql25.png) </br>   
   
-3.  在**发布**页上，从下拉列表中选择发布者。  展开**AdfsConfigurationV3**和选择发布创建上方的名称，然后单击**下一步**。  
+3.  上**发布**页上，从下拉列表中选择发布服务器。  展开**AdfsConfigurationV3**并选择上面创建的发布的名称，然后单击**下一步**。  
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql26.png) </br> 
   
-4.  在**合并代理位置**页上，选择**在其订户 \(pull subscriptions\) 运行每个代理**\(the default\) 单击**下一步**。  
-![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql27.png) </br> 此操作，请在下面，订阅键入以及确定冲突分辨率逻辑。 \ (有关详细信息，请参阅[检测并解决合并复制冲突](https://technet.microsoft.com/library/ms151191.aspx)。 </br>
+4.  上**合并代理位置**页上，选择**在其订阅服务器上运行每个代理\(请求订阅\)** \(默认\)单击**下一步**。  
+![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql27.png) </br> 此操作，请订阅类型，以及确定冲突解决逻辑。 \(有关详细信息，请参阅[检测和解决合并复制冲突](https://technet.microsoft.com/library/ms151191.aspx)。 </br>
  
-5.  在**订户**页上，选择**AdfsConfigurationV3**作为订户数据库单击**下一步**。  
+5.  上**订户**页上，选择**AdfsConfigurationV3**作为订阅服务器数据库，然后单击**下一步**。  
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql28.png) </br> 
   
-6.  在**合并代理安全**页上，单击**…** ，输入用户名和密码的是域帐户 \ (不 GMSA\) 为 SQL 代理创建使用省略号框并单击**下一步**。
+6.  上**合并代理安全性**页上，单击 **...** 并输入用户名和域帐户的密码\(不 GMSA\)使用省略号框，然后单击创建的 SQL 代理**下一步**。
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql30.png) </br> 
   
-7.  在**同步计划**，选择**运行持续**单击**下一步**。 
+7.  上**同步计划**，选择**连续运行**然后单击**下一步**。 
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql31.png) </br> 
  
-8.  在**初始化订阅**，单击**下一步**。  
+8.  上**初始化订阅**，单击**下一步**。  
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql32.png) </br> 
   
-9.  在**订阅类型**，选择**客户端**单击**下一步**。  
+9.  上**订阅类型**，选择**客户端**然后单击**下一步**。  
   
-    记录含义[此处](https://technet.microsoft.com/library/ms151191.aspx)和[此处](https://technet.microsoft.com/library/ms151170.aspx)。  本质上是，我们需要简单"发布 wins 到第一个"冲突分辨率，并且我们不需要重新发布到其他订户。  
+    记录此含义[这里](https://technet.microsoft.com/library/ms151191.aspx)并[此处](https://technet.microsoft.com/library/ms151170.aspx)。  从根本上讲，我们需要简单的"第一个到发布服务器入选"冲突解决和我们无需重新发布到其他订阅服务器。  
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql33.png) </br>
    
-10. 在**向导操作**页上，确保**创建该订阅**进行检查并单击**下一步**。 
+10. 上**向导操作**页上，确保**创建订阅**检查，并单击**下一步**。 
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql34.png) </br>
 
-11. 在**完成向导**页上，单击**完成**。 
+11. 上**完成该向导**页上，单击**完成**。 
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql35.png) </br>
 
-12. 完成该订阅已创建过程，你应该看到成功。 单击**关闭**。 
+12. 在创建过程完成订阅后，应会看到成功。 单击 **“关闭”**。 
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql36.png) </br>
   
-## <a name="verify-the-process-of-initialization-and-replication"></a>验证过程初始化和复制  
+## <a name="verify-the-process-of-initialization-and-replication"></a>验证初始化和复制的过程  
   
-1.  主要的 SQL server、 上 right\ 单击**复制**节点，然后单击**启动复制监视器**。  
+1.  在主 SQL 服务器上，右键\-单击**复制**节点，然后单击**启动复制监视器**。  
   
-2.  在**复制监视器**，单击发布。  
+2.  在中**复制监视器**，单击发布。  
   
-3.  在**所有订阅**选项卡上，右键单击和**查看详细信息**。  
+3.  上**的所有订阅**选项卡上，右键单击并**查看详细信息**。  
   
-    你应该能够看到下的很多项**操作**初始复制。  
+    您应该能够看到下的许多条目**操作**用于初始复制。  
   
-4.  此外，你可以查看下**SQL Server Agent\\Jobs**节点以查看 job\(s\) 安排执行 publication\ 订阅的操作。  仅显示本地作业，因此请确保疑难解答检查发布者和订阅。  Right\ 单击一个作业和选择**查看历史记录**查看的执行历史记录和结果。  
+4.  此外，你可以查看下**SQL Server 代理\\作业**节点以查看作业\(s\)计划执行的操作的发布的\/订阅。  仅显示本地作业，因此请务必检查发布服务器和订阅服务器上进行故障排除。  右\-单击一个作业，然后选择**查看历史记录**查看执行历史记录和结果。  
   
-## <a name="sqlagent"></a>配置域帐户 CONTOSO\\sqlagent SQL 登录  
+## <a name="sqlagent"></a>配置 CONTOSO 的域帐户的 SQL 登录名\\sqlagent  
   
-1.  创建新的登录，主要和副本称为 CONTOSO\\sqlagent SQL Server \ (创建新的域用户的名称，并上配置**代理安全**上方的过程中的页面。 \)  
+1.  在主和副本名为 CONTOSO 的 SQL Server 上创建新的登录名\\sqlagent\(创建新的域用户的名称，并在配置**代理安全性**上述过程中的页。\)  
   
-2.  SQL Server、 right\ 单击登录你创建的并且在下，依次选择属性中**用户映射**选项卡上，映射到此登录**AdfsConfiguration**和**AdfsArtifact**具有公众和 db\_genevaservice 角色数据库。 此外将映射到分发数据库此登录，并添加分发和 adfsconfiguration 表格 db\_owner 角色。  （如果适用），主要和副本 SQL server 上执行此操作。 有关详细信息，请参阅[复制代理安全模型](https://technet.microsoft.com/library/ms151868.aspx)。  
+2.  在 SQL Server 中，右键\-单击你创建的登录名，然后选择属性，然后在**用户映射**选项卡上，将映射到此登录名**AdfsConfiguration**和**AdfsArtifact**通过公共和 db 数据库\_genevaservice 角色。 此外将此登录名映射到分发数据库并添加 db\_分发和 adfsconfiguration 表的所有者角色。  根据主和副本的 SQL server 上执行此操作。 有关详细信息，请参阅[Replication Agent Security Model](https://technet.microsoft.com/library/ms151868.aspx)。  
   
-3.  提供相应域帐户读取和写入上配置为分销商的共享权限。  请确保你设置读取和写入同时上的共享权限和的本地文件权限的权限。  
+3.  授予相应的域帐户读取和写入共享配置为分发服务器上的权限。  请确保您设置读取和写入权限的共享权限和本地文件权限。  
   
-## <a name="configure-ad-fs-nodes-to-point-to-the-sql-server-replica-farm"></a>配置广告 FS node\(s\) 指向 SQL Server 副本电场的日落  
-现在，你已设置了地理冗余，可配置广告 FS 电场的日落节点以指向你副本 SQL Server 场使用标准广告 FS"加入"电场的日落功能，可以从广告 FS 配置向导 UI 或使用 Windows PowerShell。  
+## <a name="configure-ad-fs-nodes-to-point-to-the-sql-server-replica-farm"></a>配置 AD FS 节点\(s\)为指向 SQL Server 副本场  
+现在，已设置了异地冗余，可以配置 AD FS 场节点为点到副本的 SQL Server 场使用的标准 AD FS"联接"场功能，从 AD FS 配置向导用户界面或使用 Windows PowerShell。  
   
-如果你使用的广告 FS 配置向导 UI，请选择**添加到联合身份验证的服务器场联合服务器**。 **未起效的**选择**联合身份验证的服务器场中创建的第一个联盟服务器**。  
+如果使用 AD FS 配置向导用户界面，选择**将联合身份验证服务器添加到联合服务器场**。 **不这样做**选择**在联合服务器场中创建第一个联合身份验证服务器**。  
   
-如果你使用 Windows PowerShell，运行**Add\ AdfsFarmNode**。 **未起效的**运行**Install\ AdfsFarm**。  
+如果使用 Windows PowerShell，运行**外\-AdfsFarmNode**。 **不这样做**运行**安装\-AdfsFarm**。  
   
-看到提示后，当提供副本 SQL Server 主机和实例名称**不**初始 SQL server。  
+出现提示时，提供副本 SQL Server 的主机和实例名称**不**初始的 SQL server。  

@@ -1,31 +1,20 @@
-## Microsoft Open Source Code of Conduct
+## <a name="microsoft-open-source-code-of-conduct"></a>Microsoft 开放源代码行为准则
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+此项目已采用[Microsoft 开放源代码行为准则](https://opensource.microsoft.com/codeofconduct/)。
+有关详细信息请参阅[代码的行为准则常见问题解答](https://opensource.microsoft.com/codeofconduct/faq/)或联系[ opencode@microsoft.com ](mailto:opencode@microsoft.com)与任何其他问题或意见。
 
-# WindowsServerDocs-pr
+# <a name="windowsserverdocs-pr"></a>WindowsServerDocs-pr
 
-This repo is accesible only to internal Microsoft employees, vendors, and contractors. It's actively managed and includes the source for three content sets published to the TechNet technical library:
+此存储库主动管理并包括 Windows Server (docs.microsoft.com) 发布的内容源 [https://docs.microsoft.com]:
 
--  [Windows Server 2016](https://technet.microsoft.com/windows-server-docs/get-started/windows-server-2016)
--  [Essentials Server 2016]()
--  [Microsoft Hyper-V Server 2016](https://technet.microsoft.com/hyper-v-server-docs/Hyper-V-Server-2016)
+- [Windows Server 2019](https://docs.microsoft.com/en-us/windows-server/get-started-19/get-started-19)
+- [Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/get-started/server-basics)
+- [Essentials Server 2016 和 Essentials 服务器 2019](https://docs.microsoft.com/en-us/windows-server-essentials/get-started/get-started)
+- [Microsoft Hyper-V Server 2016](https://docs.microsoft.com/en-us/windows-server/get-started/server-basics)
 
-Writers and engineering partners share responsibility for technical accuracy, within specific technology areas. **The writer for an assigned area reviews and approves all pull requests to add, update, or delete articles or art.** For Windows Server 2016 content, these writers are: 
 
-Windows Server 2016 Area|Owner|Github Alias
----|---|---
-Compute|Kathy Davies|KBDAzure
-General, server-wide content|Jaime Ondrusek|jaimeo
-Networking|Jim McIllece|jamesmci
-Remote Desktop Services|Liza Poggemeyer|lizap
-Security|Corey Plett|coreyp-at-msft
-Storage|Jason Gerend|JasonGerend
+若要使小更新，只需编辑文件，并提交拉取请求。 请查看[编辑现有的 Windows 专业人员文档](https://docs.microsoft.com/en-us/windows/whats-new/contribute-to-a-topic)的更多详细信息。
 
-Corey Plett is the writer and approver for Essentials Server. Kathy Davies is the writer and approver for Microsoft Hyper-V.
-
-To make a small update, simply edit the file and submit a pull request. For substantive changes, new articles, and deletions, consult with the area owner before spending any significant time. It's the writer's responsibility to manage their area as a content set within the larger content portfolio. This helps us avoid duplication, identify content gaps, and consider how the various articles fit together.
-
-Info on how to add or update content, minimum quality standards, formatting help and more is available in the [Contributor's Guide](../Contributor-guide/Contributor-index), in this repo.
+对于内部，Microsoft 参与者-若要了解如何添加或更新内容，最小值的质量标准，帮助等格式设置现已推出[供稿人指南](https://aka.ms/windowsauthoring)。
 
 

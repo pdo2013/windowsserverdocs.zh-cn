@@ -1,6 +1,6 @@
 ---
 title: 网络相关的性能计数器
-description: 本主题介绍 Windows Server 2016 的网络子系统性能优化指南的一部分。
+description: 本主题是适用于 Windows Server 2016 的网络子系统性能优化指南的一部分。
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -8,128 +8,129 @@ ms.assetid: 7ebaa271-2557-4c24-a679-c3d863e6bf9e
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 33551dfd4f76bc13ba69863b782ddae279e0ad16
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: e5e8abbc19482bcd0dd5670065cde59d5be3169a
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59824348"
 ---
 # <a name="network-related-performance-counters"></a>网络相关的性能计数器
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-本主题中列出的计数器相关管理网络性能，并包含以下部分。  
+本主题列出了与管理网络性能，包括以下几节的计数器。  
   
--   [资源使用状况](#bkmk_ru)  
+-   [资源利用率](#bkmk_ru)  
   
--   [潜在网络问题](#bkmk_np)  
+-   [潜在的网络问题](#bkmk_np)  
   
--   [收到一侧合并 (RSC) 性能](#bkmk_rsc)  
+-   [接收方合并 (RSC) 性能](#bkmk_rsc)  
   
-##  <a name="bkmk_ru"></a>资源使用状况  
+##  <a name="bkmk_ru"></a> 资源利用率  
 
-下面的性能计数器将相关与网络资源使用状况。  
+以下性能计数器是与网络资源利用率。  
   
--   IPv4，请 IPv6  
+-   IPv4, IPv6  
   
-    -   每秒收到报  
+    -   每秒接收数据报  
   
-    -   发送报/秒  
+    -   每秒发送的数据报  
   
--   TCPv4 TCPv6  
+-   TCPv4, TCPv6  
   
-    -   每秒已接收线段分别  
+    -   Segments Received/sec  
   
-    -   段发送秒  
+    -   发送的段数/秒  
   
-    -   每秒传线段分别  
+    -   Segments Retransmitted/sec  
   
--   网络 Interface(*)、网络 Adapter(\*)  
+-   网络 Interface(*)，网络适配器 (\*)  
   
-    -   字节收到/秒  
+    -   Bytes Received/sec  
   
-    -   发送字节/秒  
+    -   发送的字节数/秒  
   
-    -   收到数据包/秒  
+    -   Packets Received/sec  
   
-    -   发送数据包/秒  
+    -   发送的数据包数/秒  
   
     -   输出队列长度  
   
-     此计数器是输出数据包队列 \(in packets\) 长度。 如果这是长于 2，会发生延迟。 应查找瓶颈，并将它，如果你知道如何操作。 NDIS 排队请求，因为此长度始终应该为 0。  
+     此计数器是输出数据包队列的长度\(数据包中\)。 如果这是时间超过 2，则会发生延迟。 应查找瓶颈和如果可以消除它。 NDIS 队列请求，因为此长度应始终为 0。  
   
 -   处理器信息  
   
-    -   时间百分比处理器  
+    -   % Processor Time  
   
-    -   中断每秒  
+    -   Interrupts/sec  
   
-    -   每秒排入队列 Dpc  
+    -   DPCs Queued/sec  
   
-     此计数器是 Dpc 已添加到逻辑处理器 DPC 队列平均速率。 每个逻辑处理器都有它自己 DPC 队列。 此计数器测量 Dpc 添加队列，不是数 Dpc 队列中的速率。 它将显示在两次的取样除以采样间隔观察到的值之间的区别。  
+     此计数器是 dpc 进行标记添加到逻辑处理器的 DPC 队列的平均速率。 每个逻辑处理器都有其自身的 DPC 队列。 此计数器测量 dpc 进行标记添加到队列，而不是数字的 Dpc 队列中的速率。 它将显示在最后两个示例中，使其除以示例间隔期间观察到的值之间的差异。  
   
-##  <a name="bkmk_np"></a>潜在网络问题  
+##  <a name="bkmk_np"></a> 潜在的网络问题  
 
-下面的性能计数器将相关潜在网络问题。  
+以下性能计数器都与潜在网络问题相关。  
   
--   网络 Interface(*)、网络 Adapter(\*)  
+-   网络 Interface(*)，网络适配器 (\*)  
   
-    -   数据包收到丢弃  
+    -   接收丢弃数据包  
   
-    -   数据包收到错误  
+    -   接收的数据包错误  
   
-    -   被丢弃数据包站  
+    -   出站放弃数据包  
   
-    -   数据包站错误  
+    -   出站数据包错误  
   
--   WFPv4 WFPv6  
+-   WFPv4, WFPv6  
   
-    -   废弃的数据包/秒
+    -   丢弃的数据包数/秒
 
--   UDPv4 UDPv6
+-   UDPv4, UDPv6
 
-    -   报收到错误  
+    -   数据报接收到的错误  
   
--   TCPv4 TCPv6  
+-   TCPv4, TCPv6  
   
-    -   连接失败情况  
+    -   连接失败  
   
     -   连接重置  
   
 -   网络 QoS 策略  
   
-    -   漏译的数据包  
+    -   丢弃的数据包数  
   
-    -   漏译的数据包/秒  
+    -   丢弃的数据包数/秒  
   
 -   每个处理器网络接口卡活动  
   
-    -   低资源收到指示每秒  
+    -   资源不足接收指示/秒  
   
-    -   低资源收到秒数据包  
+    -   资源不足收到数据包数/秒  
   
--   MicrosoftWinsock BSP  
+-   Microsoft Winsock BSP  
   
-    -   放置的报  
+    -   已删除的数据报  
   
-    -   丢失的报秒  
+    -   已删除的数据报/秒  
   
-    -   已拒绝的连接  
+    -   拒绝的连接  
   
-    -   已拒绝的连接秒  
+    -   已拒绝的连接数/秒  
   
-##  <a name="bkmk_rsc"></a>收到一侧合并 (RSC) 性能  
+##  <a name="bkmk_rsc"></a> 接收方合并 (RSC) 性能  
 
-下面的性能计数器是相关的 RSC 性能。  
+以下性能计数器都与 RSC 性能相关。  
   
 -   网络 Adapter(*)  
   
-    -   活动 RSC 的 TCP 连接  
+    -   TCP Active RSC 连接  
   
-    -   TCP RSC 平均的数据包大小  
+    -   TCP RSC 平均数据包大小  
   
-    -   TCP RSC 合并秒数据包  
+    -   TCP RSC 合并数据包数/秒  
   
-    -   TCP RSC 例外/秒
+    -   TCP RSC Exceptions/sec
 
-本指南中的所有主题的链接，请参阅[网络子系统性能优化](net-sub-performance-top.md)。
+本指南中的所有主题的链接，请参阅[网络子系统性能调整](net-sub-performance-top.md)。

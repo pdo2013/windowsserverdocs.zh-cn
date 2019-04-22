@@ -9,11 +9,11 @@ ms.author: greg-lindsay
 ms.localizationpriority: high
 ms.date: 05/07/2018
 ms.openlocfilehash: c4f80b668b91e65b6c8bc528e14f52a1d117a3c9
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2061467"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59823088"
 ---
 # <a name="whats-new-in-windows-server-version-1803"></a>Windows Server 版本 1803 中的新增功能
 
@@ -54,8 +54,8 @@ Windows Server 版本 1709 作为半年频道中的第一版于 2017 年 9 月�
     - 从 Windows Server 版本 1709 开始，Server Core 基本容器映像减少了 30%。 
     - 应用程序兼容性也有所提升以帮助实现传统应用程序的容器化。
     - 借助各种修复和优化，容器启动性能和运行时性能也有所提升。
-- 容器网络：Localhost 和 http 代理支持已添加，并改进了容器的可扩展性和启动时间。
-- 工具：针对 Curl.exe、Tar.exe 和 SSH 的支持已增强，以完善用于构建和调试方案的 PowerShell。
+- 容器网络：添加了本地主机和 http 代理服务器支持，并提高容器的可伸缩性和启动时间。
+- 工具：支持 Curl.exe、 Tar.exe 和 SSH 已得到增强，以补充 PowerShell 用于生成和调试方案。
 
 ### <a name="server-core-container-image"></a>Server Core 容器映像
 
@@ -75,9 +75,9 @@ WSL 使服务器管理员可以使用 Linux on Windows Server 中的现有工具
 Kubernetes（通常称作 K8s）是用于自动部署、扩展和管理在 [Cloud Native Computing Foundation](https://www.cncf.io) 管理下开发的容器化应用程序的开源系统。 
 
 使用 Windows Server 版本 1709，用户就能利用 Windows 上的 Kubernetes 网络功能，包括：
-- 共享 Pod 分区：基础架构和工作线程 Pod 现在共享一个网络分区（类似于 Linux 命名空间）。
-- 终结点优化：由于分区共享，容器服务需要跟踪至少半数的终结点。
-- 数据路径优化：虚拟筛选平台和主机网络服务的改进实现了基于内核的负载平衡。
+- 共享的隔离舱 pod:基础结构和辅助 pod 现在共享网络隔离舱 （类似于 Linux 命名空间）。
+- 终结点优化：衷心感谢隔离舱共享、 容器服务需要跟踪至少一半的任意多个终结点。
+- 数据路径优化：对虚拟筛选平台和主机网络服务的改进使基于内核的负载平衡。
 
 伴随着 Windows Server 版本 1803 的发布，更多功能会出现在即将发布的 Kubernetes 里： 
 - 针对 Kubernetes 协调的 Windows 容器的[存储插件](https://github.com/Microsoft/K8s-Storage-Plugins)。
@@ -108,7 +108,7 @@ Windows 部署服务 (WDS) 角色中的传输服务器角色已添加到 Server 
 Install-WindowsFeature -Name WDS
 ```
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [Windows Server 版本信息](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)<br>
-[Windows 10 版本 1803 IT 专业人员内容中的新增功能](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1803)
+[什么是 Windows 10，版本 1803 IT 专业人员内容中的新增功能](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1803)

@@ -1,7 +1,7 @@
 ---
 title: 管理租户工作负载
-description: 本主题介绍的软件定义网络指南如何管理租户工作负载和 Windows Server 2016 中的虚拟网络的一部分。
-manager: brianlic
+description: 本主题是软件定义的网络指南如何管理租户工作负荷和 Windows Server 2016 中的虚拟网络的一部分。
+manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,23 +12,25 @@ ms.topic: article
 ms.assetid: 16359b15-a0e4-4f42-9d70-6ef0d851d219
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 95c4112c515ee3f2f6ec49129c11a57c2d24e45e
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 08/26/2018
+ms.openlocfilehash: 8db9e15a349dfe2b378d2fcbde6756209b79d664
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59823808"
 ---
 # <a name="manage-tenant-workloads"></a>管理租户工作负载
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-本主题包含链接，以便你可以通过添加租户虚拟机 (Vm) 管理租户工作负载的文档，使用网络虚拟装置、 配置软件负载平衡和的详细信息。
+本主题包含链接到文档中，您可以通过添加租户虚拟机 (Vm) 来管理租户工作负荷，使用网络虚拟设备、 配置软件负载平衡和的详细信息。
 
-此部分中包括以下主题。
+本部分包括以下主题。
 
-- [创建 VM 和网络或 VLAN 连接到虚拟租户](Create-a-Tenant-VM.md)
-- [配置租户 VM 网络适配器的质量的服务 (QoS)](Configure-QoS-for-Tenant-VM-Network-Adapter.md)
-- [配置数据中心防火墙访问 Acl)](Configure-Datacenter-Firewall-ACLs.md)
-- [对于负载平衡配置软件负载平衡和网络地址翻译 (NAT)](Configure-SLB-and-NAT.md)
-- [使用网络虚拟装置虚拟网络](Use-Network-Virtual-Appliances-on-a-VN.md)
-- [在虚拟网络群集的访客](guest-clustering.md)
+- [创建 VM 并连接到租户虚拟网络或 VLAN](Create-a-Tenant-VM.md)
+- [为租户 VM 网络适配器配置服务的质量 (QoS)](Configure-QoS-for-Tenant-VM-Network-Adapter.md)
+- [配置数据中心防火墙访问控制列表 (Acl)](Configure-Datacenter-Firewall-ACLs.md)
+- [为负载平衡配置软件负载均衡器和网络地址转换 (NAT)](Configure-SLB-and-NAT.md)
+- [在虚拟网络上使用网络虚拟设备](Use-Network-Virtual-Appliances-on-a-VN.md)
+- [虚拟网络中的来宾群集](guest-clustering.md)

@@ -1,6 +1,6 @@
 ---
-title: "在广告 FS 设备身份验证控件"
-description: "本文介绍了如何启用 Windows Server 2016 和 2012 R2 的设备中广告 FS 的身份验证"
+title: 设备控制 AD FS 中的身份验证
+description: 本文档介绍如何启用 Windows Server 2016 和 2012 R2 的 AD FS 中的设备身份验证
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,18 +9,19 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: d66cfde20060229844c34abeea85dd83b802ddad
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
-ms.translationtype: MT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59822818"
 ---
-# <a name="device-authentication-controls-in-ad-fs"></a>在广告 FS 设备身份验证控件
-下面的文档显示如何启用 Windows Server 2016 和 2012 R2 的设备身份验证控件。
+# <a name="device-authentication-controls-in-ad-fs"></a>设备控制 AD FS 中的身份验证
+以下文档介绍如何启用 Windows Server 2016 和 2012 R2 中的设备身份验证控件。
 
-## <a name="device-authentication-controls-in-ad-fs-2012-r2"></a>设备广告 FS 2012 R2 的身份验证控件
-最初在广告 FS 2012 R2 时一个名为全球的身份验证属性`DeviceAuthenticationEnabled`控制的设备身份验证。
+## <a name="device-authentication-controls-in-ad-fs-2012-r2"></a>设备控制 AD FS 2012 R2 中的身份验证
+最初在 AD FS 2012 R2 时另一个全局身份验证属性名为`DeviceAuthenticationEnabled`受控的设备身份验证。
 
-若要配置设置，请`Set-AdfsGlobalAuthenticationPolicy`cmdlet 使用下方所示：
+若要配置设置， `Set-AdfsGlobalAuthenticationPolicy` cmdlet 已使用，如下所示：
 
 
 ``` powershell
@@ -29,51 +30,51 @@ PS:\>Set-AdfsGlobalAuthenticationPolicy –DeviceAuthenticationEnabled $true
 
 
 
-若要禁用的设备身份验证，相同 cmdlet 用于将设置为 $false。
+若要禁用设备身份验证，已使用同一 cmdlet 将值设置为 $false。
 
-## <a name="device-authentication-controls-in-ad-fs-2016"></a>广告 FS 2016 中的设备身份验证控件
-仅在 2012 R2 中受支持的设备身份验证的类型是 clientTLS。  在广告 FS 2016 中，除了 clientTLS 有两种新的设备用于现代设备身份验证的身份验证。  如下所示：
+## <a name="device-authentication-controls-in-ad-fs-2016"></a>设备控制 AD FS 2016 中的身份验证
+2012 R2 中支持的设备身份验证的唯一类型是进行 clientTLS。  在 AD FS 2016 中，除了进行 clientTLS 有两种新类型的新式设备身份验证的设备身份验证。  这些是：
 - PKeyAuth
-- PRT 的参照
+- PRT
 
-若要控制新行为，`DeviceAuthenticationEnabled`结合使用与新属性称为属性`DeviceAuthenticationMethod`。  
+若要控制的新行为`DeviceAuthenticationEnabled`属性结合起来使用一个名为的新属性与`DeviceAuthenticationMethod`。  
 
-设备身份验证方法确定设备将完成的身份验证类型：prt 的参照、PKeyAuth，clientTLS，或某些组合。
+设备身份验证方法确定将完成的设备身份验证的类型：PRT、 PKeyAuth、 进行 clientTLS 或某种组合。
 它具有以下值：
- - 仅 prt 的 SignedToken：参照
- - PKeyAuth: prt 的参照 + PKeyAuth
- - ClientTLS: prt 的参照 + clientTLS 
- - 所有：上述所有
+ - SignedToken:仅 PRT
+ - PKeyAuth:PRT + PKeyAuth
+ - 进行 ClientTLS:PRT + 进行 clientTLS 
+ - 所有：上述全部
 
-如你所见，prt 的参照是所有设备身份验证方法、的一部分使其生效始终默认方法时启用`DeviceAuthenticationEnabled`设置为`$true`。
+如您所见，PRT 属于的所有设备身份验证方法，使之成为中效果始终是默认方法启用何时`DeviceAuthenticationEnabled`设置为`$true`。
 
-示例：若要配置方法，请使用 DeviceAuthenticationEnabled cmdlet 作为上方，以及新属性：
+例如：若要配置的方法，使用 DeviceAuthenticationEnabled cmdlet 为更高版本，以及新的属性：
 
 ``` powershell
 PS:\>Set-AdfsGlobalAuthenticationPolicy –DeviceAuthenticationEnabled $true
 ```
 >[!NOTE]
-> 启用设备身份验证 (设置`DeviceAuthenticationEnabled`到`$true`) 意味着`DeviceAuthenticationMethod`隐式设置为`SignedToken`，这相当于**prt 的参照**。
+> 启用设备身份验证 (设置`DeviceAuthenticationEnabled`到`$true`) 意味着`DeviceAuthenticationMethod`隐式设置为`SignedToken`，其相当于**PRT**。
 
 
 ``` powershell
 PS:\>Set-AdfsGlobalAuthenticationPolicy –DeviceAuthenticationMethod All
 ```
 >[!NOTE]
->默认设备身份验证方法是`SignedToken`。  其他值都是**PKeyAuth，*** ClientTLS，**和**所有**。
+>默认设备身份验证方法是`SignedToken`。  其他值都**PKeyAuth，* * * 进行 ClientTLS，** 并**所有**。
 
-含义`DeviceAuthenticationMethod`值已更改略有自发布广告 FS 2016。  请参阅下表中每个值，具体取决于更新级别的含义：
+含义`DeviceAuthenticationMethod`值已略有更改，因为 AD FS 2016 已发布。  请参阅下表中的每个值，具体取决于更新级别的含义：
 
 
-|广告 FS 版本|DeviceAuthenticationMethod 值|意味着|
+|AD FS 版本|DeviceAuthenticationMethod 值|方法|
 | ----- | ----- | ----- |
-|2016 RTM|SignedToken|Prt 的参照 + PkeyAuth|
+|2016 RTM|SignedToken|PRT + PkeyAuth|
 ||clientTLS|clientTLS|
-||所有|Prt 的参照 + PkeyAuth + clientTLS|
-|2016 RTM + 保持最新的 Windows 更新|SignedToken（更改含义）|Prt 的参照（仅提供英文版）|
-||PkeyAuth（新）|Prt 的参照 + PkeyAuth|
-||clientTLS|Prt 的参照 + clientTLS|
-||所有|Prt 的参照 + PkeyAuth + clientTLS|
+||全部|PRT + PkeyAuth + 进行 clientTLS|
+|2016 RTM + 为最新状态与 Windows 更新|SignedToken （即数据已更改）|PRT （仅限）|
+||PkeyAuth （新）|PRT + PkeyAuth|
+||clientTLS|PRT + 进行 clientTLS|
+||全部|PRT + PkeyAuth + 进行 clientTLS|
 
 ## <a name="see-also"></a>请参阅
-[广告 FS 操作](../../ad-fs/AD-FS-2016-Operations.md)
+[AD FS 操作](../../ad-fs/AD-FS-2016-Operations.md)

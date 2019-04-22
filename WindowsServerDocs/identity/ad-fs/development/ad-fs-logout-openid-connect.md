@@ -1,6 +1,6 @@
 ---
-title: "对于 OpenID 联系广告 FS 单个登出"
-description: 
+title: 使用 AD FS 的 OpenID Connect 单个注销
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,19 +9,20 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 3af10ec139edbc72e75bf80f544ac5b4f1cf9222
-ms.sourcegitcommit: c16a2bf1b8a48ff267e71ff29f18b5e5cda003e8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59825768"
 ---
-#  <a name="single-log-out-for-openid-connect-with-ad-fs"></a>对于 OpenID 联系广告 FS 单个登出
+#  <a name="single-log-out-for-openid-connect-with-ad-fs"></a>使用 AD FS 的 OpenID Connect 单个注销
 
 ## <a name="overview"></a>概述
-在 Windows Server 2012 R2 的广告 FS 初始 Oauth 支持上生成，广告 FS 2016 引入 OpenId 连接登录的支持。 与[KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)，广告 FS 2016 现在支持 OpenId 连接的情况下的单个注销。 这篇文章 OpenId 连接情景中提供的单个登出概述，并提供有关如何使用它购买你 OpenId 连接中的应用程序广告 FS 指南。
+基于 Windows Server 2012 R2 中的 AD FS 中的初始 Oauth 支持，AD FS 2016 引入了对 OpenId Connect 登录支持。 与[KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)，AD FS 2016 现在支持单一注销的 OpenId Connect 方案。 这篇文章 OpenId Connect 方案提供单一注销的概述，并提供有关如何使用 OpenId Connect 应用程序中的 AD FS 的指南。
 
 
 ## <a name="discovery-doc"></a>发现文档
-OpenID 连接使用称为"发现文档"JSON 文档提供配置的详细信息。  这包括 Uri 身份验证、标记、用户信息，以及公众端点。  以下是一种发现文档。
+OpenID Connect 使用名为"发现文档"的 JSON 文档提供有关配置详细信息。  这包括身份验证、 令牌、 userinfo 和公共终结点的 Uri。  下面是发现文档的示例。
 
 ```
 {
@@ -56,28 +57,28 @@ OpenID 连接使用称为"发现文档"JSON 文档提供配置的详细信息。
 
 
 
-以下额外值中可发现文档，以指示前置信道注销的支持：
+以下的其他值将为发现文档，用于指示对前端通道注销的支持中提供：
 
-- frontchannel_logout_supported：值将真
-- frontchannel_logout_session_supported：将真的值。
-- end_session_endpoint：这是第 OAuth 注销 URI，可使用客户端初始化注销服务器上的。
+- frontchannel_logout_supported： 值将为 'true'
+- frontchannel_logout_session_supported： 值将为 'true'。
+- end_session_endpoint： 这是 OAuth 注销客户端可以使用启动注销的服务器上的 URI。
 
 
-## <a name="ad-fs-server-configuration"></a>广告 FS 服务器配置
-广告 FS 属性 EnableOAuthLogout 将默认启用。  此属性与 SID 启动注销客户端上的告诉广告 FS 服务器浏览的 URL (LogoutURI)。 如果你没有[KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)已安装，你可以使用下面的 PowerShell 命令：
+## <a name="ad-fs-server-configuration"></a>AD FS 服务器配置
+默认情况下，将启用 AD FS 属性 EnableOAuthLogout。  此属性告知使用 SID 来启动客户端上的注销的 AD FS 服务器，若要浏览的 URL (LogoutURI)。 如果还没有[KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)安装可以使用以下 PowerShell 命令：
 
 ```PowerShell
 Set-ADFSProperties -EnableOAuthLogout $true
 ```
 
 >[!NOTE]
-> `EnableOAuthLogout` 参数将标记为已过时安装后[KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)。 `EnableOAUthLogout` 将始终如此，并且会产生任何影响注销功能。
+> `EnableOAuthLogout` 参数将标记为过时安装后[KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)。 `EnableOAUthLogout` 始终为 true，将不会影响对注销功能。
 
 >[!NOTE]
->受支持 frontchannel_logout**仅**安装后[KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)
+>支持 frontchannel_logout**仅**的安装后[KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)
 
 ## <a name="client-configuration"></a>客户端配置
-客户需要实现注销已登录的用户的 url。 管理员可以使用下面的 PowerShell cmdlet 客户配置中配置 LogoutUri。 
+客户端必须实现注销已登录用户的 url。 管理员可以使用以下 PowerShell cmdlet 在客户端配置来配置 LogoutUri。 
 
 
 - `(Add | Set)-AdfsNativeApplication`
@@ -88,26 +89,26 @@ Set-ADFSProperties -EnableOAuthLogout $true
 Set-AdfsClient -LogoutUri <url>
 ```
 
-`LogoutUri`是 AF FS 用于"注销"用户的 url。 实现`LogoutUri`的客户需求，确保它将清除应用程序中的用户身份验证状态、放身份验证，如令牌具有。 广告 FS 将浏览到该 URL 与 SID 为查询参数，信号依赖方 / 应用程序用户注销。 
+`LogoutUri`是 AF FS 用于""将用户登录的 url。 用于实现`LogoutUri`，以确保它的客户端需要清除应用程序中的用户的身份验证状态，例如，删除身份验证令牌，它有。 AD FS 将浏览到该 URL，与作为查询参数发出信号的信赖方的 SID / 应用程序中注销用户。 
 
 ![](media/ad-fs-logout-openid-connect/adfs_single_logout2.png)
 
 
-1.  **会话 id OAuth 令牌**：广告 FS 包括 id 会话中的 OAuth 标记 id_token 令牌发放次。 这将用于稍后 AD fs 识别来清理对于用户的相关 SSO cookie。
-2.  **用户启动上 App1 注销**：用户都可以启动一次注销从任何已登录的应用程序。 在此示例情况下，用户启动一次从 App1 注销。
-3.  **应用程序向广告 FS 发送注销请求**：用户启动注销后，应用程序会向的广告 FS end_session_endpoint 发送获取请求。 作为此请求的参数，应用程序（可选）可以包含 id_token_hint。 如果存在 id_token_hint，广告 FS 将使用它结合会话 ID 图出哪些 URI 客户端应后重定向到注销 (post_logout_redirect_uri)。  Post_logout_redirect_uri 应有效 uri 与广告 FS 使用 RedirectUris 参数注册。
-4.  **将退出广告 FS 发送给记录客户端**: 会话标识符值，以查找相关的客户端用户登录到的广告 FS 使用。 识别信息的客户端上与广告 FS 启动一次在客户端注销注册 LogoutUri 发送请求。
+1.  **使用会话 ID 的 OAuth 令牌**:AD FS 时的 id_token 令牌颁发 OAuth 令牌中包含会话 id。 这将用于更高版本的 AD FS 标识相关的 SSO cookie，若要清理的用户。
+2.  **用户启动在 App1 上的注销**:用户可以启动从任何已登录的应用程序注销。 在此示例方案中，用户启动从 App1 注销。
+3.  **应用程序将注销请求发送到 AD FS**:用户启动注销后，应用程序将 GET 请求发送到的 AD FS end_session_endpoint。 应用程序可以选择性地包含 id_token_hint，作为此请求的参数。 如果 id_token_hint 存在，AD FS 将中使用它与会话 ID 一起使用来找出哪些 URI 客户端应重定向到后注销 (post_logout_redirect_uri)。  Post_logout_redirect_uri 应是有效的 uri 注册到 AD FS 使用 RedirectUris 参数。
+4.  **向登录的客户端注销的 AD FS 发送**:AD FS 使用的会话标识符值以查找用户登录到的相关客户端。 标识客户端上注册到 AD FS 以启动客户端上的注销 LogoutUri 发送请求。
 
 ## <a name="faqs"></a>常见问题
-**问：**看不到发现文档的 frontchannel_logout_supported 和 frontchannel_logout_session_supported 参数。</br>
-**答：**确保你拥有[KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)安装所有广告 FS 服务器上。 请参阅与 Server 2016 中的单个登出[KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)。
+**问：** 看不到在发现文档中的 frontchannel_logout_supported 和 frontchannel_logout_session_supported 参数。</br>
+**答：** 请确保已[KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)所有 AD FS 服务器上安装。 单一注销与 Server 2016 中是指[KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)。
 
-**问：**我已经配置单个注销按照，但用户保持登录其他客户端上。</br>
-**答：**确保`LogoutUri`已设置为所有客户端用户所在登录。 此外，广告 FS 无法发送注销请求上的已注册的最佳状况尝试`LogoutUri`。 客户端，必须实现处理请求和采取行动注销从应用程序用户的逻辑。</br>
+**问：** 我已配置了单一注销的指引，但用户保持登录的其他客户端上。</br>
+**答：** 确保`LogoutUri`设置的所有客户端登录的用户所在。 AD FS 还，执行发送注销请求的已注册的最有利情况下尝试`LogoutUri`。 客户端必须实现逻辑以处理请求并从应用程序将用户转到注销的操作。</br>
 
-**问：**如果注销后，一个客户端回退到具有有效的刷新标记广告 FS，将会广告 FS 发出访问令牌？</br>
-**答：**是。 负责后收到注销请求断开所有经过身份验证的项目的客户端应用程序在注册`LogoutUri`。
+**问：** 如果注销之后，客户端之一可回溯到具有有效的刷新令牌的 AD FS，将 AD FS 可以颁发访问令牌？</br>
+**答：** 是。 要接收的注销请求后将删除所有经过身份验证的项目的客户端应用程序负责在已注册`LogoutUri`。
 
 
 ## <a name="next-steps"></a>后续步骤
-[广告 FS 开发](../../ad-fs/AD-FS-Development.md)  
+[AD FS 开发](../../ad-fs/AD-FS-Development.md)  

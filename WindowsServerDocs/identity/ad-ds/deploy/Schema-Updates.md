@@ -1,25 +1,30 @@
 ---
 ms.assetid: abf69b09-6528-42e0-b164-813c7c2c78e7
-title: "方案更新"
-description: 
+title: Windows Server 中的架构更新
+description: Adprep 所做的操作系统版本的架构更改
 author: MicrosoftGuyJFlo
 ms.author: joflore
-manager: femila
-ms.date: 11/27/2017
+manager: mtillman
+ms.date: 11/30/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 1604910ed3c3a1db2d5e23fa34cce0798138579b
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 41b9837ab73dc12f134dcdba8b9f2b02a0a86b65
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59822658"
 ---
-# <a name="schema-updates"></a>方案更新
+# <a name="windows-server-active-directory-schema-updates"></a>Windows Server Active Directory 架构更新
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server
 
-本主题中列出 LDF 文件包含 Adprep.exe 所做的更改。  
+本主题列出了包括 Adprep.exe 进行的更改的 LDF 文件。  
+
+这是包含在 Windows Server 2019 的 LDF 文件：
+
+-   [Sch88.ldf](#BKMK_Sch88)
 
 以下是 Windows Server 2016 中包含的 LDF 文件：
 
@@ -83,7 +88,7 @@ ms.lasthandoff: 12/12/2017
 
 -   [Sch87.ldf](#BKMK_Sch87)
 
-以下是包含在 Windows Server 2012 R2 LDF 文件：  
+以下是 Windows Server 2012 R2 中包含的 LDF 文件：  
   
 -   [Sch57.ldf](#BKMK_Sch57)  
   
@@ -111,7 +116,7 @@ ms.lasthandoff: 12/12/2017
   
 -   [Sch69.ldf](#BKMK_Sch69)  
   
-以下是 LDF 文件包含在 Windows Server 2012:  
+以下是 Windows Server 2012 中包含的 LDF 文件：  
   
 -   [Sch48.ldf](#BKMK_Sch48)  
   
@@ -131,9 +136,70 @@ ms.lasthandoff: 12/12/2017
   
 -   [Sch56.ldf](#BKMK_Sch56)  
 
-## <a name="schema-updates-in-windows-server-2016"></a>在 Windows Server 2016 的方案更新  
+## <a name="schema-update-in-windows-server-2019"></a>Windows Server 2019 中的架构更新
   
-### <a name="BKMK_Sch58"></a>Sch58.ldf  
+### <a name="BKMK_Sch88"></a>Sch88.ldf
+
+```
+dn: CN=ms-DS-Preferred-Data-Location,CN=schema,CN=configuration,DC=X
+changetype: ntdsSchemaAdd
+objectClass: attributeSchema
+attributeID: 1.2.840.113556.1.4.2366
+attributeSyntax: 2.5.5.12
+adminDisplayName: ms-DS-Preferred-Data-Location
+adminDescription: ms-DS-Preferred-Data-Location
+oMSyntax: 64
+lDAPDisplayName: msDS-preferredDataLocation
+isSingleValued: TRUE
+schemaIDGUID:: 3ooM+pRMEEa6zhgO/e4hQA==
+searchFlags: 0
+showInAdvancedViewOnly: FALSE
+systemFlags: 16
+systemOnly: FALSE
+rangeLower: 1
+rangeUpper: 10
+isMemberOfPartialAttributeSet: TRUE
+
+dn:
+changetype: modify
+add: schemaUpdateNow
+schemaUpdateNow: 1
+-
+
+dn: CN=User,CN=Schema,CN=Configuration,DC=X
+changetype: ntdsSchemaModify
+add: systemMayContain
+systemMayContain: 1.2.840.113556.1.4.2366
+-
+
+dn: CN=Contact,CN=Schema,CN=Configuration,DC=X
+changetype: ntdsSchemaModify
+add: systemMayContain
+systemMayContain: 1.2.840.113556.1.4.2366
+-
+
+dn: CN=Group,CN=Schema,CN=Configuration,DC=X
+changetype: ntdsSchemaModify
+add: systemMayContain
+systemMayContain: 1.2.840.113556.1.4.2366
+-
+
+dn: CN=Schema,CN=Configuration,DC=X
+changeType: ntdsSchemaModify
+replace: objectVersion
+objectVersion: 88
+-
+
+dn:
+changetype: modify
+add: schemaUpdateNow
+schemaUpdateNow: 1
+-
+```
+
+## <a name="schema-updates-in-windows-server-2016"></a>Windows Server 2016 中的架构更新
+  
+### <a name="BKMK_Sch58"></a>Sch58.ldf
 
 ```
 dn: CN=ms-DS-Resource-Property-List,CN=Schema,CN=Configuration,DC=X
@@ -2812,7 +2878,7 @@ schemaUpdateNow: 1
 
 ```
 
-## <a name="BKMK_SchemaUpdates2012R2"></a>在 Windows Server 2012 R2 的方案更新  
+## <a name="BKMK_SchemaUpdates2012R2"></a>Windows Server 2012 R2 中的架构更新  
   
 ### <a name="BKMK_Sch57"></a>Sch57.ldf  
   
@@ -4467,7 +4533,7 @@ schemaUpdateNow: 1
 -  
 ```  
   
-## <a name="BKMK_SchemaUpdates2012"></a>在 Windows Server 2012 的方案更新  
+## <a name="BKMK_SchemaUpdates2012"></a>Windows Server 2012 中的架构更新  
   
 ### <a name="BKMK_Sch48"></a>Sch48.ldf  
   
