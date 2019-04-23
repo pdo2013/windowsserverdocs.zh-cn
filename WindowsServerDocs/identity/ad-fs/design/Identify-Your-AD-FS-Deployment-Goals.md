@@ -1,7 +1,7 @@
 ---
 ms.assetid: c81b8291-fba5-4b30-a43d-7feb2f4b66be
-title: "在 Windows Server 2012 R2 指导广告 FS 设计"
-description: 
+title: Windows Server 2012 R2 中的 AD FS 设计指南
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,88 +10,89 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: f618add4c4803142b3bd7278908834a412f30999
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59862568"
 ---
-# <a name="identify-your-ad-fs-deployment-goals"></a>确定您的广告 FS 部署目标
+# <a name="identify-your-ad-fs-deployment-goals"></a>标识 AD FS 部署目标
 
->适用于：Windows Server 2016，Windows Server 2012 R2
+>适用于：Windows Server 2016, Windows Server 2012 R2
 
-正确识别您的 Active Directory 联合身份验证服务 \(AD FS\) 部署目标至关重要的广告 FS 设计项目成功。 优先考虑并，可能是，结合部署目标，以便你可以设计并将其部署广告 FS 使用迭代的方法。 你随时可以充分利用现有、 记录，并且预定义的开发工作解决方案您的具体情况，相关的广告 FS 设计广告 FS 部署目标。  
+正确识别 Active Directory 联合身份验证服务\(AD FS\)部署目标对于 AD FS 设计项目的成功至关重要。 确定优先级，并可能是，合并部署目标，以便您可以设计和部署 AD FS 通过使用一种迭代方法。 您可以充分利用现有的、 已记录在案、 和预定义的与 AD FS 设计和开发工作解决方案适合您情况的 AD FS 部署目标。  
   
-以前版本的广告 FS 最常部署实现以下：  
+以前版本的 AD FS 所最常部署的用于实现以下目标：  
   
--   提供你的员工或客户 web\ 基于，SSO 体验时访问 claims\ 基于你的企业中的应用程序。  
+-   员工或客户提供与 web\-基于，SSO 在访问时遇到声明\-基于你的企业中的应用程序。  
   
--   你的员工或客户提供访问资源任何联盟合作伙伴组织中基于 web\ SSO 体验。  
+-   员工或客户提供与 web\-基于访问任何联合身份验证伙伴组织中的资源的 SSO 体验。  
   
--   提供你的员工或客户 Web\ 基于，远程访问内部托管网站或服务时遇到 SSO。  
+-   员工或客户提供与 Web\-远程访问内部托管网站或服务时，SSO 体验。  
   
--   为你的员工或客户提供基于 web\ SSO 体验访问资源或在云中的服务时。  
+-   员工或客户提供与 web\-访问资源或云中的服务时，SSO 体验。  
   
-除了这些内容，在 Windows Server® 2012 R2 的广告 FS 添加功能，可帮助你获得以下：  
+除此之外，Windows Server® 2012 R2 中的 AD FS 添加功能，有助于您实现以下目标：  
   
--   设备 SSO 和无缝秒的工作区加入因素身份验证。 这使公司允许用户的个人设备的访问权限，并管理存在风险时提供此访问权限。  
+-   SSO 设备工作区加入和无缝第二重身份验证。 这使组织能够允许从用户的个人设备访问，并提供此访问权限时管理风险。  
   
--   管理 multi\ 因素访问控制性风险。 广告 FS 提供授权丰富级别的控制可以访问哪些应用程序。 这可以根据用户属性 \ (UPN，电子邮件、 安全组成员、 身份验证强度等 \)，设备属性 \ （无论设备是工作区 joined\） 或请求属性 \ （网络位置、 IP 地址或用户 agent\）。  
+-   管理风险的多\-因素访问控制。 AD FS 提供控制谁能够访问什么应用程序的丰富授权级别。 这可以基于用户属性\(UPN、 电子邮件、 安全组成员身份、 身份验证强度等\)，设备属性\(设备是否已加入工作区\)或请求属性\(网络位置、 IP 地址或用户代理\)。  
   
--   管理其他 multi\ 双因素身份验证的敏感应用程序的风险。 广告 FS 允许你控制策略全球或基于每个应用程序可能需要 multi\ 强双因素身份。 此外，广告 FS 提供了扩展点集成深安全、 无缝 multi\ 因素体验为最终用户任何 multi\ 因素供应商。  
+-   管理风险的其他多\-敏感应用程序的身份验证。 AD FS 使您可以控制策略，可能要求多\-全局或基于每个应用程序重身份验证。 此外，AD FS 提供扩展点的任何多\-身份验证供应商以进行安全、 无缝多深度集成\-考虑最终用户体验。  
   
--   提供访问 web 资源从网受 Web 应用程序代理身份验证和授权的功能。  
+-   提供用于访问来自 extranet 的 web 资源，Web 应用程序代理的受保护的身份验证和授权功能。  
   
-总结，在 Windows Server 2012 R2 的广告 FS 可以部署实现以下目标，在你的组织中：  
+总之，可以部署 Windows Server 2012 R2 中的 AD FS 以实现你的组织中的以下目标：  
   
-### <a name="enable-your-users-to-access-resources-on-their-personal-devices-from-anywhere"></a>使你的用户可以从任何地方访问他们的个人设备上的资源  
+### <a name="enable-your-users-to-access-resources-on-their-personal-devices-from-anywhere"></a>让用户从任何位置访问其个人设备上的资源  
   
--   使用户可以到公司的 Active Directory 加入他们的个人设备，并因此获得访问和体验无缝访问公司资源从这些设备时的工作区加入。  
+-   工作区加入使用户能够将个人设备加入企业 Active Directory，因此，他们在从这些设备访问企业资源时能够获得访问权限和无缝体验。  
   
--   Pre\ 身份验证的企业网络，受保护的 Web 应用程序代理通过从 internet 访问内的资源。  
+-   Pre\-内部公司网络中保护的 Web 应用程序代理并从 internet 访问的资源进行身份验证。  
   
--   更改密码，以使用户可以从任何工作区更改密码已加入他们的密码，以便他们可以继续访问资源到期时的设备。  
+-   密码更改使用户能够在密码过期时从任何加入工作区的设备更改密码，以便他们能够继续访问资源。  
   
-### <a name="enhance-your-access-control-risk-management-tools"></a>增强你访问控制风险管理工具  
-管理风险是一个重要方面的管辖和合规性每个 IT 部门。 有许多访问控制风险管理增强功能在 Windows Server® 2012 R2 的广告 FS 中包括以下：  
+### <a name="enhance-your-access-control-risk-management-tools"></a>增强你的访问控制风险管理工具  
+在每个 IT 组织中，管理风险都是管理和合规的一个重要方面。 有大量访问控制风险管理增强功能在 Windows Server® 2012 R2 中 AD FS 中的包括以下：  
   
--   根据来控制如何用户验证来访问广告 FS\ 保护应用程序的网络位置灵活的控件。  
+-   灵活控制，根据网络位置来管理如何用户进行身份验证访问 AD FS\-保护的应用程序。  
   
--   若要确定是否需要执行根据用户的数据、 设备数据和网络位置 multi\ 强双因素身份一个用户的灵活策略。  
+-   灵活的策略来确定用户是否需要执行多\-身份验证基于用户的数据、 设备数据和网络位置。  
   
--   Per\ 应用程序控件忽略 SSO 和强制用户提供每次访问敏感应用时的凭据。  
+-   每个\-应用程序控制，可忽略 SSO 并强制用户在每次访问敏感应用程序提供的凭据。  
   
--   灵活 per\ 应用程序访问策略基于用户数据、 设备数据或网络位置。  
+-   每个灵活\-基于用户数据、 设备数据或网络位置上的应用程序访问策略。  
   
--   广告 FS 联网锁定，这使管理员以防止暴力攻击从 internet 上的 Active Directory 的帐户。  
+-   AD FS Extranet 锁定，使管理员能够保护 Active Directory 帐户免受来自 Internet 的暴力攻击。  
   
--   对于任何工作区访问吊销加入禁用或删除 Active Directory 中的设备。  
+-   访问吊销，可用于 Active Directory 中禁用或删除的任何加入工作区的设备。  
   
-### <a name="use-ad-fs-to-enhance-the-sign-in-experience"></a>使用广告 FS 增强 sign\ 中的体验  
-以下是在 Windows Server® 2012 R2 启用管理员联系以自定义和增强的 sign\ 体验的新广告 FS 功能：  
+### <a name="use-ad-fs-to-enhance-the-sign-in-experience"></a>使用 AD FS 来增强符号\-体验中  
+以下是 Windows Server® 2012 R2 中启用管理员联系，以自定义和增强登录的新 AD FS 功能\-体验：  
   
--   统一自定义的广告 FS 服务，其中一次做出并自动传播到其他广告 FS 联盟服务器给定场中所做的更改。  
+-   统一自定义 AD FS 服务，进行一次更改后，更改随后会自动传播到给定场中的剩余 AD FS 联合服务器。  
   
--   已更新的 sign\ 中的页面，通过查看现代自动适应不同外形规格。  
+-   更新登录\-页中的外观更现代和自动适应不同的外形因素。  
   
--   自动回退到的设备未加入域企业，但仍用于 forms\ 基于身份验证的支持生成企业网络 \(intranet\) 内的访问权限的请求。  
+-   支持自动回退到窗体\-基于设备的未加入企业域但仍使用生成从公司网络中的访问请求的身份验证\(intranet\)。  
   
--   若要自定义公司徽标图图像，IT 支持主页、 隐私、 等标准链接的简单控件。  
+-   简单控制，可自定义公司徽标、插图图像、IT 支持标准链接、主页、隐私等。  
   
--   自定义的 sign\ 在网页中的描述消息。  
+-   签名中的说明自定义消息\-页中。  
   
--   自定义的 web 主题。  
+-   自定义 Web 主题。  
   
--   家庭领域发现 \(HRD\) 基于组织职务的用户提供增强的公司的合作伙伴的隐私。  
+-   主领域发现\(HRD\)根据增强公司的合作伙伴的隐私的用户的组织后缀。  
   
--   HRD per\ 应用程序的基础上筛选自动选择的应用程序的领域。  
+-   HRD 筛选每个\-按应用程序以自动选取领域基于应用程序。  
   
--   One\ 单击的错误报告变得更容易 IT 疑难解答。  
+-   一个\-单击错误报告变得更容易 IT 故障排除。  
   
--   自定义的错误消息。  
+-   可自定义错误消息。  
   
--   当多个身份验证的提供商可用时的用户身份验证选择。  
+-   多个身份验证提供程序可用时，提供用户身份验证选择。  
   
 ## <a name="see-also"></a>请参阅  
-[在 Windows Server 2012 R2 指导广告 FS 设计](../../ad-fs/design/AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
+[Windows Server 2012 R2 中的 AD FS 设计指南](../../ad-fs/design/AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   
 

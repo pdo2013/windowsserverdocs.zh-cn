@@ -1,59 +1,61 @@
 ---
-title: 广告森林恢复-单个域多域森林中的恢复
+title: AD 林恢复-恢复单个域中的多域林
 description: ''
-author: billmath
-ms.author: billmath
-manager: femila
-ms.date: 07/07/2017
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 267541be-2ea7-4af6-ab34-8b5a3fedee2d
-ms.technology: identity-adfs
-ms.openlocfilehash: 3a1c9d0671a732eee83aa707e061afdbbf106fa5
-ms.sourcegitcommit: f26d2668f57624a3865ca4ffd36a698eea7b503e
+ms.technology: identity-adds
+ms.openlocfilehash: fae2cc40af0b43dd38d72c2622720a6bb17b0a66
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59863468"
 ---
-# <a name="ad-forest-recovery---recovering-a-single-domain-in-a-multidomain-forest"></a>广告森林恢复-单个域多域森林中的恢复
+# <a name="ad-forest-recovery---recovering-a-single-domain-in-a-multidomain-forest"></a>AD 林恢复-恢复单个域中的多域林
 
->适用于：Windows Server 2016、Windows Server 2012 和 2012 R2、Windows Server 2008 和 2008 R2
+>适用于：Windows Server 2016 中，Windows Server 2012 和 2012 R2 中，Windows Server 2008 和 2008 R2
 
-可以使用它是恢复单个域具有多个域，而不是完全森林恢复树林中的所需的时间。 本主题介绍注意事项恢复单个域，可能用于恢复的策略。  
+可能有必要恢复单个域的林中的具有多个域，而不是完整林恢复时的时间。 本主题介绍有关恢复单个域和恢复的可能策略注意事项。  
   
- 一个域恢复提供的全球目录 (GC) 服务器重新生成一个唯一的难题。 例如，如果域的第一个域控制器 (DC) 还原的备份中创建的一周更早版本，然后森林中的所有其他 Gc 从将有更多最新比还原直流该域数据。 若要重新建立 GC 数据一致性，有以下几个选项：  
+单个域恢复颇具挑战性的重新生成全局编录 (GC) 服务器。 例如，如果从已创建此前，一周的备份，然后在林中的所有其他 Gc 还原域的第一个域控制器 (DC) 必须为该域比已还原的 DC 的更多最新的数据。 若要重新建立 GC 数据一致性，有几个选项：  
   
--   Unhost，然后同时 rehost 从除恢复的域中的树林中的所有 Gc 域恢复的分区。  
+- Unhost，然后重新恢复的域分区中的林，除了那些已恢复的域中的所有 Gc 从托管在同一时间。  
+- 执行林恢复过程，恢复在域中，然后从其他域中的 Gc 移除延迟对象。  
   
--   按照森林恢复过程恢复域中，并从 Gc 其他域中删除延迟对象。  
+以下部分提供每个选项的一般注意事项。 针对不同的 Active Directory 环境而异的整套需要执行恢复的步骤。  
   
- 下面提供了每个选项常规事项。 一整套需要进行恢复的步骤会有所不同针对不同的 Active Directory 环境。  
-  
-## <a name="rehost-all-gcs"></a>Rehost 所有 Gc  
+## <a name="rehost-all-gcs"></a>重新托管所有 Gc  
 
 > [!WARNING]
->  问题阻止访问 GC 用于登录的情况下，则必须是可供使用的所有域管理员帐户的密码。  
+> 在成为 GC 以供登录到的问题会阻止访问的情况下，所有域的域管理员帐户的密码必须是供使用。  
 
- 完成变换主机的所有 Gc 使用 repadmin//unhost 和 repadmin /rehost 命令 (repadmin 的一部分 /experthelp)。 你将在每次 GC 没有恢复每个域中运行 repadmin 命令。 它需要确保，所有 Gc 不再都按一份恢复的域。 为此，unhost 域分区首先从所有域控制器所有无恢复的以至森林第一次。 所有 Gc 再不都包含分区后，你可以 rehost 它。 当变换主机，请考虑站点-和复制-结构之你森林，例如，完成的站点之前变换主机其他 Dc 该网站的每一个直流 rehost。  
+完成重新承载所有 Gc 使用 repadmin / unhost 和 repadmin /rehost 命令 （repadmin /experthelp 的一部分）。 在每次 GC 未恢复每个域中，将运行 repadmin 命令。 它需要确保，所有的 Gc 不不再包含已恢复的域的副本。 若要实现此目的，unhost 域分区首先来自所有域控制器的林中的所有无恢复域范围内第一次。 所有的 Gc 不不再包含分区后，您可以将其重新托管。 重新承载时，站点和复制的结构的你的林，为例，完成每个站点在重新承载该站点的其他 Dc 前一个 DC 的 rehost。  
   
- 此选项非常适用于小型组织具有仅少数域控制器，以便每个域。 所有 Gc 可能会重新组装在周五晚，并在必要情况下在星期一早晨之前分区，所有只读域完整复制。 但是，如果你需要恢复涵盖站点在全球范围内的大型域，变换主机的所有 Gc 只读域分区对于其他域可以显著影响操作，并且可能需要向下时间。  
+此选项可以是小型组织中具有几个域控制器为每个域具有明显的优势。 所有 Gc 可以重新生成在星期五夜间上，并且如有必要，在星期一早上之前分区的所有只读的域的完整复制。 但如果你需要恢复站点涵盖在全球范围内的大型域，重新承载所有 Gc 上的只读的域分区的其他域可显著影响操作，可能需要停机。  
   
-## <a name="remove-lingering-objects"></a>删除延迟对象  
- 类似于森林恢复过程，一个 DC 从备份中还原需要恢复、执行其余 Dc 的元数据清理并重新安装广告 DS 出域生成的域中。 森林中的所有其他域 Gc，在你删除恢复的域只读分区延迟的对象。  
-  
- 延迟的对象清理对于源必须 DC 恢复的域中。 若要某些源 DC 没有任何域分区任何延迟对象，你可以删除全球目录 GC 时。  
-  
- 删除延迟对象是适用于无法风险与其他选项的关机时间的大型企业。  
-  
- 有关详细信息，请参阅[使用 Repadmin 去延迟对象](https://technet.microsoft.com/library/cc785298.aspx)。
+## <a name="remove-lingering-objects"></a>移除延迟对象
+
+类似于林恢复过程，一个 DC 从备份还原需要恢复、 执行剩余的 Dc 的元数据清理和重新安装 AD DS 以构建出域的域中。 在所有林中其他域的 Gc，删除已恢复的域的只读分区延迟对象。  
+
+延迟对象清理的源必须是已恢复的域的 DC。 为特定源 DC 不具有任何域分区的任何延迟对象，可以删除全局编录，如果它是一个 GC。  
+
+移除延迟对象是有好处的大型组织，不能与其他选项相关联的停机时间的风险。  
+
+有关详细信息，请参阅[使用 Repadmin 删除延迟对象](https://technet.microsoft.com/library/cc785298.aspx)。
 
 ## <a name="next-steps"></a>后续步骤
--   [广告森林恢复-先决条件](AD-Forest-Recovery-Prerequisties.md)  
--   [广告森林恢复-在寻找自定义森林恢复套餐](AD-Forest-Recovery-Devising-a-Plan.md)  
--   [广告森林恢复-找出问题](AD-Forest-Recovery-Identify-the-Problem.md)
--   [广告森林恢复-确定如何恢复](AD-Forest-Recovery-Determine-how-to-Recover.md)
--   [广告森林恢复-执行初始恢复](AD-Forest-Recovery-Perform-initial-recovery.md)  
--   [广告森林恢复-过程](AD-Forest-Recovery-Procedures.md)  
--   [广告森林恢复-常见问题](AD-Forest-Recovery-FAQ.md)  
--   [广告森林恢复-恢复单个域中多域森林](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
--   [广告森林恢复-森林恢复与 Windows Server 2003 该域控制器](AD-Forest-Recovery-Windows-Server-2003.md)  
+
+- [AD 林恢复的系统必备组件](AD-Forest-Recovery-Prerequisties.md)  
+- [AD 林恢复-设计出一个自定义林恢复计划](AD-Forest-Recovery-Devising-a-Plan.md)  
+- [AD 林恢复-识别问题](AD-Forest-Recovery-Identify-the-Problem.md)
+- [AD 林恢复-确定如何恢复](AD-Forest-Recovery-Determine-how-to-Recover.md)
+- [AD 林恢复-执行初始恢复](AD-Forest-Recovery-Perform-initial-recovery.md)  
+- [AD 林恢复的过程](AD-Forest-Recovery-Procedures.md)  
+- [AD 林恢复-方面的常见问题](AD-Forest-Recovery-FAQ.md)  
+- [AD 林恢复-恢复单个的多域林中域](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
+- [AD 林恢复-与 Windows Server 2003 域控制器的林恢复](AD-Forest-Recovery-Windows-Server-2003.md)  

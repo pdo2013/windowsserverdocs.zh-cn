@@ -2,37 +2,36 @@
 title: Windows Server 中的新增功能
 description: 计算、标识、管理、自动化、网络、安全性、存储方面的新增功能。
 ms.prod: windows-server
-ms.date: 04/10/2019
+ms.date: 10/17/2017
 ms.technology: server-general
 ms.topic: article
-author: jasongerend
-ms.author: jgerend
+author: greg-lindsay
+ms.author: greg-lindsay
 ms.localizationpriority: medium
-ms.openlocfilehash: ca29140946136ca2d48e4935820857b529a28e11
-ms.sourcegitcommit: d3f73936160505a40633ad8dd5931ac5fe3eccdb
-ms.translationtype: MT
+ms.openlocfilehash: 98da95e8ee01e9f59b06a2b609727cb68ce9f386
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "9297237"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59861938"
 ---
-# 什么是 Windows Server 中的新增功能
+# <a name="whats-new-in-windows-server"></a>Windows Server 中的新增功能
 
->适用于： Windows Server （半年频道）、 Windows Server 2019、 Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-你可以为每个这些 Windows Server 版本中找到的新功能。  
+您可以为每个这些 Windows Server 2016 发现一些新功能和 Windows Server （半年频道） 释放。  
+   
+<br>
+<br>
+<br>
+<br>
+[什么是 Windows Server 版本 1803年中的新增功能](whats-new-in-windows-server-1803.md)
+<br>
+[什么是 Windows Server 版本 1709年中的新增功能](whats-new-in-windows-server-1709.md)<BR>
+[什么是 Windows Server 2016 中的新增功能](whats-new-in-windows-server-2016.md)
 
-Long-Term Servicing Channel (LTSC) 版本：
 
-- [什么是 Windows Server 2019 中的新增功能](../get-started-19/whats-new-19.md)
-- [Windows Server 2016 中的新增功能](whats-new-in-windows-server-2016.md)
 
-半年频道版本：
+## <a name="see-also"></a>请参阅  
+-   [发行说明：Windows Server 2016 中的重要问题](Windows-Server-2016-GA-Release-Notes.md)  
 
-- [Windows Server 版本 1809 中的新增功能](whats-new-in-windows-server-1809.md)
-- [Windows Server 版本 1803 中的新增功能](whats-new-in-windows-server-1803.md)
-- [Windows Server 版本 1709 中的新增功能](whats-new-in-windows-server-1709.md)
-
-## 另请参阅
-
-- [发行说明：Windows Server 2019 中的重要问题](../get-started-19/rel-notes-19.md)
-- [发行说明：WindowsServer 2016 中的重要问题](Windows-Server-2016-GA-Release-Notes.md)

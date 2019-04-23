@@ -1,6 +1,6 @@
 ---
-title: 管理证书与 NPS 一起使用
-description: 本主题提供了有关与 Windows Server 2016 中的网络策略服务器使用 server 证书的信息。
+title: 管理与 NPS 配合使用的证书
+description: 本主题提供有关使用 Windows Server 2016 中的网络策略服务器使用服务器证书的信息。
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -8,123 +8,124 @@ ms.topic: article
 ms.assetid: 204a4ef4-9d78-4a62-9940-43cc0e1c39d0
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2044cf30cc90c1673e05a1948ac9196d05940d1f
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 73f3d6a1e9dc6ae1520b1d685b6b05b5f3aed601
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59864228"
 ---
-# <a name="manage-certificates-used-with-nps"></a>管理证书与 NPS 一起使用
+# <a name="manage-certificates-used-with-nps"></a>管理与 NPS 配合使用的证书
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-如果你将其部署证书基于身份验证方法，如可扩展身份验证 Protocol\ 传输层安全性 \(EAP\-TLS\)、保护可扩展身份验证 Protocol\ 传输层安全性 \(PEAP\-TLS\) 和 PEAP\ Microsoft 质询握手身份验证协议版本 2 \ (MS\ CHAP v2\)，必须对所有 NPS 服务器都登记服务器证书。 必须服务器证书：
+如果部署基于证书的身份验证方法，如可扩展身份验证协议\-传输层安全性\(EAP\-TLS\)，受保护的可扩展身份验证协议\-传输层安全性\(PEAP\-TLS\)，和 PEAP\-Microsoft 质询握手身份验证协议版本 2 \(MS\-CHAP v2\)，必须对所有你 NPSs 注册服务器证书。 服务器证书必须：
 
-- 满足最低服务器证书要求，述[配置 PEAP 和 EAP 要求的证书模板](nps-manage-cert-requirements.md)
+- 满足最小服务器证书要求，如中所述[为 PEAP 和 EAP 要求配置证书模板](nps-manage-cert-requirements.md)
 
-- 向证书颁发机构颁发 \(CA\) 受信任的客户端计算机。 当它证书存在当前用户，本机的受信任的根证书颁发机构证书应用商店中，CA 是受信任。
+- 由证书颁发机构颁发\(CA\)受信任的客户端计算机。 在当前用户和本地计算机的受信任的根证书颁发机构证书存储中存在其证书时，CA 是受信任。
 
-以下说明进行操作帮助管理 NPS server 证书部署所在的位置根受信任的第三方 CA，如 Verisign，或者是你已将其部署公钥基础结构的 CA 在使用 Active Directory 证书服务 \(AD CS\) \(PKI\)。
+以下说明帮助管理 NPS 中部署受信任的根 CA 其中是第三方 CA，如 Verisign，或已部署的公钥基础结构是 ca 的证书\(PKI\)使用处于活动状态Directory 证书服务\(AD CS\)。
 
 ## <a name="change-the-cached-tls-handle-expiry"></a>更改缓存的 TLS 句柄到期
 
-在适用于 EAP\ TLS、PEAP\ TLS 和 PEAP\ MS\ CHAP v2 初始身份验证过程中，NPS 服务器缓存连接的客户端 TLS 连接属性的一部分。 客户端还缓存 NPS 服务器 TLS 连接属性的一部分。
+在 EAP 的初始身份验证进程期间\-TLS、 PEAP\-TLS 和 PEAP\-MS\-CHAP v2，NPS 将缓存连接的客户端的 TLS 连接属性的一部分。 客户端还会缓存 NPS 的 TLS 连接属性的一部分。
 
-这些 TLS 连接属性每个单独集锦称为 TLS 句柄。
+这些 TLS 连接属性的每个单个集合称为 TLS 句柄。
 
-尽管 NPS 服务器可以缓存的许多客户端计算机 TLS 手柄客户端计算机可以缓存多个身份 TLS 手柄。
+NPSs 可以缓存的许多客户端计算机的 TLS 句柄时，客户端计算机可以为多个身份验证器，缓存 TLS 句柄。
 
-客户端和服务器上的缓存的 TLS 手柄允许更快地出现重新进行身份验证过程。 例如，当无线计算机 reauthenticates NPS 服务器，NPS 服务器 TLS 句柄检查无线客户端，并快速确定客户端连接为重新连接。 NPS 服务器连接授权无需执行完整身份验证。
+在客户端和服务器上的缓存的 TLS 句柄允许重新进行身份验证过程更快速地发生。 例如，当 nps reauthenticates 无线计算机，NPS 可以实现无线客户端检查 TLS 句柄，并可以快速确定客户端连接为重新连接。 NPS 连接授权而不执行完全身份验证。
 
-相应地，的客户端检查 NPS 服务器 TLS 句柄，确定为重新连接，并且无需执行服务器身份验证。
+相应地，客户端检查 NPS 的 TLS 句柄，确定它为重新连接，并不需要进行服务器身份验证。
 
-在运行 Windows 10 和 Windows Server 2016 的计算机，默认 TLS 句柄到期位于 10 小时。
+在计算机上运行 Windows 10 和 Windows Server 2016，默认 TLS 句柄到期日期在 10 小时。
 
-在某些情况下，你可能想要加快或减慢 TLS 句柄的过期时间。
+在某些情况下，你可能想要增加或减少的 TLS 句柄到期时间。
 
-例如，你可能想要降低在其中的用户已被吊销管理员，证书已过期的情况下 TLS 句柄过期时间。 在此情况下，用户仍然可以连接到该网络 NPS 服务器是否未到期的缓存的 TLS 句柄。 减少 TLS 句柄到期可能有助于防止吊销证书具有此类用户重新连接。
+例如，你可能想要减少在其中用户的证书吊销由管理员和证书已过期的情况下的 TLS 句柄到期时间。 在此方案中，用户可以仍连接到网络 NPS 是否未过期的缓存的 TLS 句柄。 减少了 TLS 句柄到期可能有助于阻止此类具有吊销的证书的用户重新连接。
 
 >[!NOTE]
->此项 scenario 最佳解决方法是要禁用的用户帐户在 Active Directory，或删除 Active Directory 组被授予权限，连接到网络策略中的网络的用户帐户。 这些更改所有域控制器传播可能还会遭遇延迟，但是，由于复制延迟。 
+>此方案的最佳解决方案是若要禁用 Active Directory 中的用户帐户或从被授予连接到网络策略中的网络权限的 Active Directory 组中删除用户帐户。 这些更改传播到所有域控制器可能还会延迟，但是，由于复制延迟。 
 
-## <a name="configure-the-tls-handle-expiry-time-on-client-computers"></a>在客户端计算机上配置 TLS 句柄的过期时间
+## <a name="configure-the-tls-handle-expiry-time-on-client-computers"></a>在客户端计算机上配置 TLS 句柄到期时间
 
-你可以使用此过程若要更改的客户端计算机缓存的 NPS 服务器 TLS 句柄的时间。 后成功进行身份验证 NPS 服务器的客户端计算机作为 TLS 句柄缓存 NPS 服务器 TLS 连接属性。 TLS 句柄有 10 个小时 \(36,000,000 milliseconds\) 默认持续时间。 你可以增加或减少 TLS 句柄的过期时间使用下面的过程。
+可以使用此过程更改客户端计算机缓存 NPS 为 TLS 句柄的时间量。 身份验证成功后 NPS，客户端计算机缓存 TLS 句柄作为 NPS 的 TLS 连接属性。 TLS 句柄具有默认持续时间为 10 小时\(36,000,000 毫秒\)。 可以增加或减少的 TLS 句柄到期时间，方法是使用以下过程。
 
-在会员**管理员**，或等效的最低要求完成此过程。
-
->[!IMPORTANT]
->必须 NPS 在服务器上，不在客户端计算机上执行此过程。
-
-### <a name="to-configure-the-tls-handle-expiry-time-on-client-computers"></a>若要配置 TLS 处理客户端计算机上的过期时间
-
-1. 在 NPS 服务器上，打开注册表编辑器中。
-
-2. 浏览到的注册表项**HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL**
-
-3. 在**编辑**菜单上，单击**新建**，然后单击**键**。
-
-4. 键入**ClientCacheTime**，然后按 ENTER。
-
-5. 右键单击**ClientCacheTime**，单击**新建**，然后单击**DWORD（32 位）值**。
-
-6. 键入你想要后首次成功身份验证尝试通过 NPS 服务器缓存的 NPS 服务器 TLS 句柄的客户端计算机毫秒为单位一段时间。
-
-## <a name="configure-the-tls-handle-expiry-time-on-nps-servers"></a>配置 TLS 句柄的过期时间 NPS 服务器
-
-使用此过程，若要更改的时间 NPS 服务器缓存的客户端计算机 TLS 句柄。 后成功进行身份验证的访问权限的客户端，服务器 NPS 缓存作为 TLS 句柄 TLS 连接属性的客户端计算机。 TLS 句柄有 10 个小时 \(36,000,000 milliseconds\) 默认持续时间。 你可以增加或减少 TLS 句柄的过期时间使用下面的过程。
-
-在会员**管理员**，或等效的最低要求完成此过程。
+中的成员身份**管理员**，或等效身份是完成此过程所需的最小。
 
 >[!IMPORTANT]
->必须 NPS 在服务器上，不在客户端计算机上执行此过程。
+>必须在 NPS 中，不在客户端计算机上执行此过程。
 
-### <a name="to-configure-the-tls-handle-expiry-time-on-nps-servers"></a>若要配置 TLS 处理 NPS 服务器上的过期时间
+### <a name="to-configure-the-tls-handle-expiry-time-on-client-computers"></a>若要配置 TLS 处理客户端计算机上的到期时间
 
-1. 在 NPS 服务器上，打开注册表编辑器中。
+1. 在 NPS 上打开注册表编辑器。
 
-2. 浏览到的注册表项**HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL**
+2. 浏览到注册表项**HKEY\_本地\_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL**
 
-3. 在**编辑**菜单上，单击**新建**，然后单击**键**。
+3. 上**编辑**菜单上，单击**新建**，然后单击**密钥**。
 
-4. 键入**ServerCacheTime**，然后按 ENTER。
+4. 类型**ClientCacheTime**，然后按 ENTER。
 
-5. 右键单击**ServerCacheTime**，单击**新建**，然后单击**DWORD（32 位）值**。
+5. 右键单击**ClientCacheTime**，单击**新建**，然后单击**DWORD （32 位） 值**。
 
-6. 键入的时间，，以毫秒为单位，要 NPS 缓存的客户端计算机 TLS 句柄后客户端尝试首次成功身份验证的服务器。
+6. 键入的时间，以毫秒为单位，您想要客户端计算机后由 NPS 尝试的第一个成功的身份验证缓存 TLS 句柄的 NPS。
 
-## <a name="obtain-the-sha-1-hash-of-a-trusted-root-ca-certificate"></a>获取受信任的根 CA 证书的希 SHA-1
+## <a name="configure-the-tls-handle-expiry-time-on-npss"></a>在 NPSs 配置 TLS 句柄到期时间
 
-使用此过程从本地计算机安装的证书获取安全哈希算法 (sha-1) 的的受信任的根证书颁发机构（加拿大）希。 在某些情况下，如部署组策略，时需指定由使用证书 SHA-1 哈希证书。
+使用此过程更改 NPSs 缓存客户端计算机的 TLS 句柄的时间量。 身份验证成功后访问客户端，NPSs TLS 句柄作为缓存客户端计算机的 TLS 连接属性。 TLS 句柄具有默认持续时间为 10 小时\(36,000,000 毫秒\)。 可以增加或减少的 TLS 句柄到期时间，方法是使用以下过程。
 
-当使用组策略，你可以指定以进行 NPS 服务器身份验证 EAP 或 PEAP 相互身份验证过程的客户端必须使用的一个或多个受信任的根加拿大证书。 若要指定客户必须用来验证的服务器证书受信任的根加拿大证书，你可以输入证书 SHA-1 哈希。
+中的成员身份**管理员**，或等效身份是完成此过程所需的最小。
 
-此过程演示如何获取的受信任的根 SHA-1 希由使用证书 Microsoft 管理控制台 (MMC) 管理单元。 
+>[!IMPORTANT]
+>必须在 NPS 中，不在客户端计算机上执行此过程。
 
-若要完成此过程，你必须**用户**组本地计算机上。
+### <a name="to-configure-the-tls-handle-expiry-time-on-npss"></a>若要配置 TLS 处理 NPSs 到期时间
 
-### <a name="to-obtain-the-sha-1-hash-of-a-trusted-root-ca-certificate"></a>若要获取的受信任的根证书希 SHA-1
+1. 在 NPS 上打开注册表编辑器。
 
-1. 在运行对话框或 Windows PowerShell 中，键入**mmc**，然后按 ENTER。 打开 Microsoft 管理控制台 \(MMC\)。 在 MMC 中，单击**文件**，然后单击**添加/删除 Snap\in**。 **添加或删除管理单元**对话框中打开。
+2. 浏览到注册表项**HKEY\_本地\_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL**
 
-2. 在**添加或删除管理单元**中**可用管理单元**，双击**证书**。 证书贴靠向导将打开。 单击**计算机帐户**，然后单击**下一步**。
+3. 上**编辑**菜单上，单击**新建**，然后单击**密钥**。
 
-3. 在**选择计算机**，确保**本地计算机（此控制台运行的计算机）**是处于选中状态，单击**完成**，然后单击**确定**。
+4. 类型**ServerCacheTime**，然后按 ENTER。
 
-4. 在左侧窗格中，双击**证书（本地计算机）**，然后双击**信任根证书颁发机构**文件夹。
+5. 右键单击**ServerCacheTime**，单击**新建**，然后单击**DWORD （32 位） 值**。
 
-5. **证书**文件夹是子文件夹的**信任根证书颁发机构**文件夹。 单击**证书**文件夹。
+6. 键入的时间，以毫秒为单位，你想 NPSs 后首次成功身份验证尝试的客户端缓存的客户端计算机的 TLS 句柄。
 
-6. 在详细信息窗格中，浏览到你信任根证书。 双击该证书。 **证书**对话框中打开。
+## <a name="obtain-the-sha-1-hash-of-a-trusted-root-ca-certificate"></a>获取受信任的根 CA 证书的 sha-1 哈希
 
-7. 在**证书**对话框中，单击**详细信息**选项卡。
+使用此过程以从本地计算机安装的证书获取安全哈希算法 (sha-1) 的受信任的根证书颁发机构 (CA) 的哈希。 在某些情况下，例如部署组策略时，必须使用证书的 sha-1 哈希指定证书。
 
-8. 在列表中的字段，向滚动并选择**指纹**。
+使用组策略，可以指定一个或多个客户端必须使用以在使用 EAP 或 PEAP 的相互身份验证的过程中执行身份验证 NPS 的受信任的根 CA 证书。 若要指定客户端必须用于验证服务器证书的受信任的根 CA 证书，可以输入证书的 sha-1 哈希。
 
-9. 在较低窗格中，将显示为你证书的 SHA-1 哈希十六进制字符串。 选择 SHA-1 希并按 Windows 键盘快捷方式副本命令 \(CTRL\+C\) 将哈希复制到剪贴板 Windows。
+此过程说明如何通过使用证书 Microsoft 管理控制台 (MMC) 管理单元中获取 sha-1 的受信任的根 CA 证书的哈希值。 
 
-10. 打开该位置的命令 \(CTRL\+V\) 到要粘贴 SHA-1 哈希、正确地找到光标和粘贴按 Windows 键盘快捷方式。 
+若要完成此过程，您必须**用户**组在本地计算机上。
 
-有关证书和 NPS 的详细信息，请参阅[配置 PEAP 和 EAP 要求的证书模板](nps-manage-cert-requirements.md)。
+### <a name="to-obtain-the-sha-1-hash-of-a-trusted-root-ca-certificate"></a>若要获取的受信任的根 CA 证书哈希的 SHA-1
 
-有关 NPS 的详细信息，请参阅[网络策略 Server (NPS)](nps-top.md)。
+1. 在运行对话框或 Windows PowerShell 中，键入**mmc**，然后按 ENTER。 Microsoft 管理控制台\(MMC\)随即打开。 在 MMC 中，单击**文件**，然后单击**添加/删除 Snap\in**。 **添加或删除管理单元**对话框随即打开。
+
+2. 在中**添加或删除管理单元**，在**可用的管理单元**，双击**证书**。 证书管理单元中向导随即打开。 单击**计算机帐户**，然后单击**下一步**。
+
+3. 中**选择计算机**，，请确保**本地计算机 （运行此控制台的计算机）** 为选中状态，单击**完成**，然后单击**确定**.
+
+4. 在左窗格中，双击**证书 （本地计算机）**，然后双击**受信任的根证书颁发机构**文件夹。
+
+5. **证书**文件夹是子文件夹的**受信任的根证书颁发机构**文件夹。 单击**证书**文件夹。
+
+6. 在细节窗格中，浏览到受信任的根 CA 的证书。 双击该证书。 **证书**对话框随即打开。
+
+7. 在中**证书**对话框中，单击**详细信息**选项卡。
+
+8. 在字段列表中，向下滚动到并选择**指纹**。
+
+9. 在下部窗格中，显示你的证书的 sha-1 哈希的十六进制字符串。 选择 sha-1 哈希，，然后复制命令按 Windows 键盘快捷方式\(CTRL\+C\)将哈希值复制到 Windows 剪贴板。
+
+10. 打开你想要粘贴的 sha-1 哈希，正确定位光标，，然后按的粘贴命令的 Windows 键盘快捷方式的位置\(CTRL\+V\)。 
+
+有关证书和 NPS 的详细信息，请参阅[为 PEAP 和 EAP 要求配置证书模板](nps-manage-cert-requirements.md)。
+
+有关 NPS 的详细信息，请参阅[网络策略服务器 (NPS)](nps-top.md)。

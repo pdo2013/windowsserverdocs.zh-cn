@@ -1,6 +1,6 @@
 ---
 title: 安装证书颁发机构
-description: 本主题介绍指南部署服务器证书 802.1 X 有线和无线部署部分
+description: 本主题是指南为 802.1x 有线和无线部署部署服务器证书的一部分
 manager: brianlic
 ms.topic: article
 ms.assetid: 4acdc3ad-078e-45cc-b54c-e9456e0c90f5
@@ -8,73 +8,77 @@ ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 17a887ab32570b739d5ca99611ee0d496a966d1b
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 84e4b2fe0b59820b9e51229335f3539bcbeeec90
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59860738"
 ---
 # <a name="install-the-certification-authority"></a>安装证书颁发机构
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-你可以使用此过程，以便你可以注册网络策略 Server (NPS)、路由并远程访问服务 (RRAS) 或两者正在运行的服务器证书安装 Active Directory 证书服务（广告客户服务）。  
+此过程可用于安装 Active Directory 证书服务 (AD CS)，以便你可以注册到运行网络策略服务器 (NPS)、 路由和远程访问服务 (RRAS) 或两者的服务器的服务器证书。  
   
 > [!IMPORTANT]  
-> -   安装 Active Directory 证书服务之前，必须命名计算机，配置计算机的静态 IP 地址，并加入域的计算机。 有关如何来完成这些任务的详细信息，请参阅 Windows Server 2016 [Core 网络指南](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide)。  
-> -   若要执行此步骤，必须到某个域的 Active Directory 域服务 (广告 DS) 装有加入安装广告客户服务的计算机。  
+> -   在安装 Active Directory 证书服务之前，必须命名计算机，将计算机配置具有静态 IP 地址，并将计算机加入到域。 有关如何完成这些任务的详细信息，请参阅 Windows Server 2016[核心网络指南](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide)。  
+> -   若要执行此过程，在其安装 AD CS 的计算机必须加入到 Active Directory 域服务 (AD DS) 安装的域。  
   
-在这两会员**企业管理员**和根域**域管理员**组是的最低要求才能完成此过程。  
+在这种成员资格**Enterprise Admins**和根域**Domain Admins**组是完成此过程所需的最低。  
   
 > [!NOTE]  
-> 若要执行此过程，方法是使用 Windows PowerShell，打开 Windows PowerShell 和键入以下命令，然后按 ENTER。   
+> 若要使用 Windows PowerShell 执行此过程，打开 Windows PowerShell 并键入以下命令，然后按 ENTER。   
 >   
 > `Add-WindowsFeature Adcs-Cert-Authority -IncludeManagementTools`  
 >   
-> 广告 C 安装后，键入以下命令，然后按 ENTER。  
+> 安装 AD CS 后，键入以下命令，然后按 ENTER。  
 >   
 > `Install-AdcsCertificationAuthority -CAType EnterpriseRootCA`  
   
-### <a name="to-install-active-directory-certificate-services"></a>若要安装的 Active Directory 证书服务  
+### <a name="to-install-active-directory-certificate-services"></a>若要安装 Active Directory 证书服务  
+
+>[!TIP]
+>如果你想要使用 Windows PowerShell 来安装 Active Directory 证书服务，请参阅[Install-adcscertificationauthority](https://docs.microsoft.com/powershell/module/adcsdeployment/install-adcscertificationauthority?view=win10-ps) cmdlet 和可选参数。
   
-1.  作为企业管理员组和根域域管理员组成员进行登录。  
+1.  以 Enterprise Admins 组和根域的 Domain Admins 组的成员身份登录。  
   
-2.  在服务器管理器中，单击**管理**，然后单击**添加角色和功能**。 添加角色和功能向导将打开。  
+2.  在“服务器管理器”中，单击“管理”，然后单击“添加角色和功能”。 将打开“添加角色和功能向导”。  
   
-3.  在**开始之前**，单击**下一步**。  
+3.  在“开始之前”中单击“下一步”。  
   
     > [!NOTE]  
-    > **开始之前**添加角色和功能向导中的页面未显示如果你之前已选择**默认情况下跳过此页**运行添加角色并功能向导。  
+    > 如果以前运行“添加角色和功能向导”时选择了 **“默认跳过此页”**，则“添加角色和功能向导”的 **“开始之前”** 页不会显示。  
   
-4.  在**选择安装类型**，确保**角色基于或功能的安装**选中，则，然后单击**下一步**。  
+4.  在 **“选择安装类型”** 中，确保选中 **“基于角色或基于功能的安装”**，然后单击 **“下一步”**。  
   
-5.  在**选择目标服务器**，确保**从服务器池选择服务器**选择。 在**服务器池**，确保在本地计算机处于选中状态。 单击**下一步**。  
+5.  在 **“选择目标服务器”** 中，确保选中 **“从服务器池中选择一个服务器”**。 在 **“服务器池”** 中，确保选中了本地计算机。 单击“下一步” 。  
   
-6.  在**选择服务器角色**中**角色**、选择**Active Directory 证书服务**。 当提示你添加所需的功能时，请单击**添加功能**，然后单击**下一步**。  
+6.  在中**选择服务器角色**，在**角色**，选择**Active Directory 证书服务**。 当系统提示添加必需的功能时，单击**添加功能**，然后单击**下一步**。  
   
-7.  在**选择功能**，单击**下一步**。  
+7.  在中**选择的功能**，单击**下一步**。  
   
-8.  在**Active Directory 证书服务**、阅读所提供的信息，然后单击**下一步**。  
+8.  在中**Active Directory 证书服务**，阅读提供的信息，然后单击**下一步**。  
   
-9. 在**确认安装选择**，单击**安装**。 在安装过程中不要关闭向导。 安装完成后，单击**配置 Active Directory 证书服务目标服务器上**。 打开广告客户服务配置向导。 阅读凭据信息，并根据需要提供的凭据组成员的企业管理员帐户。 单击**下一步**。  
+9. 在 **“确认安装选择”** 中，单击 **“安装”**。 不要在安装过程中关闭该向导。 安装完成后，单击**配置 Active Directory 证书服务在目标服务器上**。 AD CS 配置向导将打开。 读取凭据信息和必要时，该帐户是 Enterprise Admins 组的成员提供的凭据。 单击“下一步” 。  
   
-10. 在**角色服务**，单击**证书颁发机构**，然后单击**下一步**。  
+10. 在中**角色服务**，单击**证书颁发机构**，然后单击**下一步**。  
   
-11. 在**安装类型**页上，检查**企业 CA**选中，则，然后单击**下一步**。  
+11. 上**安装类型**页上，确认**企业 CA**已选择，然后单击**下一步**。  
   
-12. 在**指定的一种 CA**页上，检查**根 CA**选中，则，然后单击**下一步**。  
+12. 上**指定的 CA 的类型**页上，确认**根 CA**已选择，然后单击**下一步**。  
   
-13. 在**指定专用密钥种**页上，检查**创建新的专用密钥**选中，则，然后单击**下一步**。  
+13. 上**指定的类型的私匙**页上，确认**创建新的私钥**已选择，然后单击**下一步**。  
   
-14. 在**CA 的加密**页上，继续为 CSP 默认设置 (**RSA # Microsoft 软件键存储提供商**) 和哈希算法 (**SHA1**)，并确定你部署的最佳键字符长度。 较大的关键字符长度提供最佳的安全;但是，他们可能会影响性能服务器，并且可能无法与传统应用程序兼容。 建议你保留 2048 年的默认设置。 单击**下一步**。  
+14. 上**为 CA 加密**页上，保留默认设置用于 CSP (**RSA #Microsoft Software Key Storage Provider**) 和哈希算法 (**SHA2**)，并确定最佳你的部署的的密钥字符长度。 大型密钥字符长度提供最佳安全性;但是，它们可能会影响服务器性能并且可能不是与旧版应用程序兼容。 建议您保留默认设置为 2048年。 单击“下一步” 。  
   
-15. 在**CA 名称**页面上，继续 CA 建议常见名称或更改你的要求根据名称。 确保您已某些 CA 名称是兼容命名惯例和目的，因为你无法安装广告客户服务后更改 CA 名称。 单击**下一步**。  
+15. 上**CA 名称**页上，保留 CA 的建议公用名或根据您的需求将名称更改。 请确保您已确定 CA 名称是符合命名约定和目的，因为不能在安装了 AD CS 之后更改 CA 名称。 单击“下一步” 。  
   
-16. 在**有效期内**页上，在**指定有效期内**键入数字，选择一个时间值（年、月、周或天）。 建议五年的默认设置。 单击**下一步**。  
+16. 上**有效期**页上，在**指定的有效期**，键入数并选择时间值 （年、 月、 周或天）。 建议的五年的默认设置。 单击“下一步” 。  
   
-17. 在**CA 数据库**页上，在**指定数据库位置**，指定证书数据库和证书数据库日志的文件夹位置。 如果指定位置以外的默认位置，请确保与阻止访问 CA 数据库和日志文件未经授权的用户或计算机的访问控制列表 (Acl) 来保护文件夹。 单击**下一步**。  
+17. 上**CA 数据库**页上，在**指定的数据库位置**，指定证书数据库和证书数据库日志的文件夹位置。 如果指定的默认位置以外的位置，请确保使用阻止未经授权的用户或计算机访问 CA 数据库和日志文件的访问控制列表 (Acl) 进行保护的文件夹。 单击“下一步” 。  
   
-18. 在**确认**，单击**配置**应用您的选择，然后单击**关闭**。  
+18. 在中**确认**，单击**配置**以应用你的选择，然后单击**关闭**。  
   
 
 

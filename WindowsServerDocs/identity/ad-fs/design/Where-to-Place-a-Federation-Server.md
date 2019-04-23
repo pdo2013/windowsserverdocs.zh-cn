@@ -1,7 +1,7 @@
 ---
 ms.assetid: 935ea7c2-4678-4033-b50f-2036a0359c5d
-title: "放置联合服务器的位置"
-description: 
+title: 联合服务器的放置位置
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,33 +10,34 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 376cec7f3a4fb1f988ac5d458b05220c7b9de970
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59857688"
 ---
-# <a name="where-to-place-a-federation-server"></a>放置联合服务器的位置
+# <a name="where-to-place-a-federation-server"></a>联合服务器的放置位置
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-作为安全性最佳实践，位置放防火墙 Active Directory 联合身份验证服务 \(AD FS\) 联盟服务器，将其连接到你的企业网络，以防止曝光度从 Internet。 由于联合身份验证的服务器具有完整授权，以使具有安全标记，这很重要。 因此，这些应有域控制器为相同的保护。 联合服务器受到威胁后，如果恶意用户将具有能够向所有 Web 应用程序以及受 Active Directory 联合身份验证服务 \(AD FS\) 所有资源合作伙伴组织中的联合服务器发送标记的完全访问权限。  
+作为安全性最佳实践，Active Directory 联合身份验证服务的位置\(AD FS\)联合身份验证服务器位于防火墙前面并连接到企业网络以防止从 Internet 暴露。 这非常重要，因为联合身份验证服务器具有完整授权，可授予安全令牌。 因此，它们应具有与域控制器相同的保护。 如果联合身份验证服务器受到攻击，恶意用户能够为所有 Web 应用程序和受 Active Directory 联合身份验证服务的联合服务器颁发完全访问令牌\(AD FS\)中所有资源合作伙伴组织。  
   
 > [!NOTE]  
-> 有价证券作为最佳做法，避免在 Internet 上有直接访问您联合身份验证的服务器。 请考虑设置的测试实验环境向上或你的组织中没有外围网络时，仅提供联盟服务器直接 Internet 访问。  
+> 作为安全性最佳做法，请避免直接访问联合身份验证服务器在 Internet 上。 请考虑仅在设置了一个测试实验室环境或你的组织没有外围网络时为你的联合身份验证服务器提供直接 Internet 访问权限。  
   
-对于典型公司的网络，intranet\ 面向防火墙建立外围网络，公司网络之间，并且通常外围网络和 Internet 之间建立 Internet \-facing 防火墙。 在此情况下，联合身份验证的服务器内的公司的网络，且不 Internet 客户端直接访问。  
+对于典型企业网络，intranet\-面向防火墙企业网络和外围网络和 Internet 之间建立\-外围网络之间则通常设有面向防火墙和Internet。 在此情况下，联合身份验证服务器位于公司网络，并不直接访问 Internet 的客户端。  
   
 > [!NOTE]  
-> 连接到公司的网络的客户端计算机可以直接与 Windows 的集成身份验证通过联盟服务器通信。  
+> 连接到公司网络的客户端计算机可以直接使用通过 Windows 集成身份验证的联合身份验证服务器进行通信。  
   
-联合身份验证的服务器代理应位于外围网络配置为使用你防火墙服务器与广告 FS 之前。 有关详细信息，请参阅[放置联合身份验证的服务器代理](Where-to-Place-a-Federation-Server-Proxy.md)。  
+与 AD FS 配置为使用防火墙服务器之前，应在外围网络中放置联合服务器代理。 有关详细信息，请参阅 [Where to Place a Federation Server Proxy](Where-to-Place-a-Federation-Server-Proxy.md)。  
   
-## <a name="configuring-your-firewall-servers-for-a-federation-server"></a>配置防火墙服务器联盟服务器  
-以便联合身份验证的服务器可以直接与联合身份验证的服务器代理通信，必须配置 intranet 防火墙服务器以允许安全超文本传输协议 \(HTTPS\) 交通从联合身份验证的服务器代理联合身份验证的服务器。 这是一个要求，因为防火墙 intranet 服务器必须发布联盟服务器，以便在外围网络联合 server 代理可以访问联盟服务器使用 443 端口。  
+## <a name="configuring-your-firewall-servers-for-a-federation-server"></a>为联合服务器配置防火墙服务器  
+以便联合身份验证服务器可以直接与联合服务器代理进行通信，intranet 防火墙服务器必须配置为允许安全超文本传输协议\(HTTPS\)来自到联合服务器代理的流量联合身份验证服务器中。 这是一项要求，因为 intranet 防火墙服务器必须发布，以便外围网络中的联合身份验证服务器代理可以访问联合身份验证服务器使用端口 443 的联合身份验证服务器。  
   
-此外，intranet\ 面向防火墙服务器上，如 Internet 安全和加速运行的服务器 \(ISA\) 服务器，用于此过程称为服务器发布分发到相应部门联合身份验证的服务器 Internet 客户端请求。 这意味着您必须手动创建服务器发布规则运行发布聚集的联盟服务器的 URL，例如，http:///\/fs.fabrikam.com ISA 服务器的 intranet 服务器上。  
+此外，在 intranet\-面向防火墙服务器，如运行 Internet Security and Acceleration server \(ISA\)服务器，使用该过程称为服务器发布，分发到的 Internet 客户端请求相应公司的联合身份验证服务器。 这意味着，必须手动运行发布聚集联合身份验证服务器的 URL，例如，http 的 ISA 服务器的 intranet 服务器上创建服务器发布规则：\/\/fs.fabrikam.com。  
   
-有关如何配置服务器发布外围网络中的详细信息，请参阅[放置联合身份验证的服务器代理](Where-to-Place-a-Federation-Server-Proxy.md)。 有关如何配置 ISA 服务器发布服务器信息，请参阅[创建安全的 Web 发布规则](https://go.microsoft.com/fwlink/?LinkId=75182)。  
+有关如何在外围网络中配置服务器发布的详细信息，请参阅 [Where to Place a Federation Server Proxy](Where-to-Place-a-Federation-Server-Proxy.md)。 有关如何配置 ISA 服务器以发布服务器的信息，请参阅[创建安全的 Web 发布规则](https://go.microsoft.com/fwlink/?LinkId=75182)。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 指导广告 FS 设计](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

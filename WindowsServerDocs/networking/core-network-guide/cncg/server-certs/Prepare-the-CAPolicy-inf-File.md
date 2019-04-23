@@ -1,6 +1,6 @@
 ---
 title: 准备 CAPolicy.inf 文件
-description: CAPolicy.inf 包含用于安装 Active Directory 认证服务（广告客户服务）时，或时续订 CA 的各种设置证书。
+description: CAPolicy.inf 包含安装 Active Directory 证书服务 (AD CS) 时或续订 CA 证书时使用的各种设置。
 manager: alanth
 ms.topic: article
 ms.assetid: 65b36794-bb09-4c1b-a2e7-8fc780893d97
@@ -8,59 +8,60 @@ ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 9618d4abe512b487f4f22ffde85a052c1c52ef22
-ms.sourcegitcommit: fb4e2ace2e0a29e0f6b028f1cb945cab6aa6ee2c
+ms.openlocfilehash: 80c7155224502379e2e9618ceb38709c5051a6b7
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59857838"
 ---
 # <a name="capolicyinf-syntax"></a>CAPolicy.inf 语法
->   适用于：Windows Server（半年通道），Windows Server 2016
+>   适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-CAPolicy.inf 是定义扩展、约束和应用与根 CA 证书颁发的根所有证书的其他配置设置配置文件。 在安装例程根 CA 开始之前主服务器上必须安装 CAPolicy.inf 文件。 当进行修改根 CA 安全限制，请必须续订根证书，并续订进程开始之前必须服务器上安装更新后的 CAPolicy.inf 文件。
+CAPolicy.inf 是定义扩展插件、 约束和其他配置设置应用于根 CA 证书和根 CA 颁发的所有证书配置文件。 必须安装例程的根 CA 开始进行之前主机服务器上安装的 CAPolicy.inf 文件。 当要修改的根 CA 的安全限制时，必须续订根证书和续订过程开始之前必须在服务器上安装更新的 CAPolicy.inf 文件。
 
 CAPolicy.inf 是：
 
--   创建和手动由管理员
+-   创建并由管理员手动定义
 
--   根和附属 CA 证书的创建过程中使用
+-   根和从属 CA 证书的创建过程中使用
 
--   定义上签名 CA 您登录并发出证书 (不 CA 允许请求时)
+-   在其中对签名并颁发的证书 (不允许请求时的 CA) 签名的 CA 上定义
 
-创建 CAPolicy.inf 文件后，你必须将其复制到**%系统根 %**服务器安装 ADCS 或续订 CA 证书之前的文件夹。
+创建 CAPolicy.inf 文件后，你必须将它复制到 **%systemroot%** 服务器之前安装 ADCS 或续订 CA 证书的文件夹。
 
-CAPolicy.inf 使得可能指定和配置各种 CA 特性和选项。 以下部分介绍所有选项可创建符合你的特定需求的.inf 文件。
+CAPolicy.inf 使可能指定并配置各种 CA 属性和选项。 以下部分介绍为您创建特定需求来定制的.inf 文件的所有选项。
 
 ## <a name="capolicyinf-file-structure"></a>CAPolicy.inf 文件结构
 
-使用以下术语描述.inf 文件结构：
+使用以下术语来描述的.inf 文件结构：
 
--   _部分_–是涵盖键的逻辑组中的文件的区域。 部分中.inf 文件的名称显示在支架中进行标识。 许多，而不是所有部分用于配置证书扩展。
+-   _部分_– 是包含密钥的逻辑组的文件的区域。 .Inf 文件中的部分名称进行标识出现在括号中。 很多，但并非所有的部分用于配置证书扩展。
 
--   _键_-是一项的名称和出现等于号左侧。
+-   _密钥_– 是一个条目的名称，将显示在等号左侧。
 
--   _值_-是的参数和等于号右侧显示。
+-   _值_– 是参数，将出现在等号右侧。
 
-在以下示例中，**版本**是部分中，**签名**键，并**"\ $ Windows NT \ $"**的值。
+在以下示例中， **[Version]** 是部分中，**签名**键，并 **"\$Windows NT\$"** 的值。
 
-示例：
+例如：
 
 ```PowerShell
 [Version]                     #section
 Signature="$Windows NT$"      #key=value
 ```
 
-###  <a name="version"></a>版本
+###  <a name="version"></a>Version
 
-将该文件识别为.inf 文件。 版本是唯一要求部分和必须 CAPolicy.inf 文件的开头。
+标识为.inf 文件的文件。 版本是唯一所需部分并且必须在 CAPolicy.inf 文件开头。
 
 ###  <a name="policystatementextension"></a>PolicyStatementExtension
 
-列出已由组织机构的策略和是可选的还是强制它们。 多个策略用逗号分隔。 名称具有特定的部署，或检查存在这些策略的自定义应用程序针对上下文中的含义。
+列出已由组织定义的策略以及它们是否可选或必需。 由逗号分隔多个策略。 名称的特定部署，或与检查存在这些策略的自定义应用程序相关的上下文中具有的含义。
 
-对于每个定义的策略，必须定义特定策略设置的部分。 对于每个策略中，您需要提供用户定义的对象标识符 (OID)，并任一你希望文本显示为策略声明或策略声明的 URL 链接。 以下形式出现：HTTP、FTP 或 LDAP URL 可以是 URL。
+对于每个定义的策略，必须定义为该特定策略设置的部分。 对于每个策略，你需要提供用户定义的对象标识符 (OID) 和文本想要显示为策略语句或策略语句的 URL 链接。 URL 可以是 HTTP、 FTP 或 LDAP URL 的形式。
 
-如果你打算策略声明中有描述性短信，然后 CAPolicy.inf 接下来的三行如下所示：
+如果要在策略语句中有描述性文本，然后 CAPolicy.inf 的接下来的三行如下所示：
 
 ```
 [InternalPolicy]
@@ -68,79 +69,86 @@ OID=1.1.1.1.1.1.1
 Notice=”Legal policy statement text”
 ```
 
-如果你要使用 URL 承载 CA 策略隐私声明，然后下一步三行改用如下所示：
+如果要使用的 URL 来承载 CA 策略语句，然后接下来的三行改为如下所示：
 
 ```
 [InternalPolicy]
 OID=1.1.1.1.1.1.2
-URL=http://pki.wingtiptoys.com/policies/legalpolicy.asp
+URL=https://pki.wingtiptoys.com/policies/legalpolicy.asp
 ```
 
-另外：
+此外：
 
--   受支持多个 URL，请注意的键。
+-   支持多个 URL，请注意，密钥。
 
--   受支持的相同的策略部分中的通知和 URL 键。
+-   支持通知和 URL 相同的策略部分中的密钥。
 
--   使用空间的 Url 或包含空格短信，必须用名言。 这适用于**URL**键，则无论是否为显示在其中的部分。
+-   带空格的 Url 或带有空格的文本必须用引号引起来。 这适用于**URL**键，而不考虑它在其中出现的部分。
 
-多个通知和策略节中的 Url 的示例如下所示：
+多个通知和策略部分中的 Url 的示例所示：
 
 ```
 [InternalPolicy]
 OID=1.1.1.1.1.1.1
-URL=http://pki.wingtiptoys.com/policies/legalpolicy.asp
+URL=https://pki.wingtiptoys.com/policies/legalpolicy.asp
 URL=ftp://ftp.wingtiptoys.com/pki/policies/legalpolicy.asp
 Notice=”Legal policy statement text”
 ```
 
 ### <a name="crldistributionpoint"></a>CRLDistributionPoint
 
-你可以在 CAPolicy.inf CA 根证书指定 CRL Distribution 点 (Cdp)。 在安装 CA 之后可以配置 CA 包含在每个证书颁发 CDP Url。 在此部分中的 CAPolicy.inf 文件指定的 Url 包含在根证书本身。
+在 CAPolicy.inf 中的根 CA 证书，可以指定 CRL 分发点 (Cdp)。  安装 CA 之后, 您可以配置 CA 颁发的每个证书中包括 CDP Url。 根 CA 证书显示在 CAPolicy.inf 文件的此部分中指定的 Url。 
 
 ```
 [CRLDistributionPoint]
 URL=http://pki.wingtiptoys.com/cdp/WingtipToysRootCA.crl
 ```
 
-有关此部分中的一些其他信息：
+一些有关本部分中的其他信息：
+-   支持：
+    - HTTP 
+    - 文件 Url
+    - LDAP Url 
+    - 多个 Url
+   
+    >[!IMPORTANT]
+    >不支持 HTTPS Url。
 
--   多个 Url 受支持。
+-   引号必须用空格括起来的 Url。
 
--   HTTP、FTP 和 LDAP Url 受支持。 HTTPS Url 均不支持。
+-   如果没有指定了 Url – 也就是说，如果 **[CRLDistributionPoint]** 部分文件中存在但为空-颁发机构信息访问扩展省略的根 CA 证书。 设置根 CA 时，这是通常更可取。 Windows 不会执行吊销检查根 CA 证书，因此 CDP 扩展是多余的根 CA 证书中。
 
--   如果要设置根 CA 或续订根仅使用本部分。 附属 CA CDP 扩展取决于 CA 它附属 CA 证书的问题。
+-    CA 可以将发布到文件的 UNC，例如，表示客户端通过 HTTP 将检索其中的网站文件夹的共享。
 
--   使用空间的 Url 必须包围引号。
-
--   如果没有 Url 指定–，即如果**[CRLDistributionPoint]**–部分存在于该文件，但是否为空 CRL Distribution 点扩展省略从根证书。 设置根 CA 时，这是通常最好。 Windows 不执行吊销根加拿大证书，以便 CDP 扩展是多余在根加拿大证书检查。
+-   仅使用本部分中，如果您要设置的根 CA 或续订根 CA 证书。 CA 确定从属 CA CDP 扩展。
+   
 
 ### <a name="authorityinformationaccess"></a>AuthorityInformationAccess
 
-你可以指定 CAPolicy.inf CA 根证书颁发机构信息接入点。
+在 CAPolicy.inf 中的根 CA 证书，可以指定的颁发机构信息访问点。
 
 ```
 [AuthorityInformationAccess]
 URL=http://pki.wingtiptoys.com/Public/myCA.crt
 ```
 
-在颁发机构信息一些其他说明来访问部分：
+颁发机构信息访问部分的一些其他注意事项：
 
--   多个 Url 受支持。
+-   支持多个 Url。
 
--   HTTP、FTP、LDAP 和文件 Url 受支持。 HTTPS Url 均不支持。
+-   支持 HTTP、 FTP、 LDAP 和文件的 Url。 不支持 HTTPS Url。
 
--   如果要设置根加拿大或续订根仅使用本部分。 附属 CA AIA 扩展取决于 CA 其发出附属 CA 证书。
+-   如果您要设置根 CA，或续订根 CA 证书，仅使用此部分。 从属 CA AIA 扩展取决于 CA 颁发从属 CA 的证书。
 
--   使用空间的 Url 必须包围引号。
+-   带空格的 Url 必须用引号引起来。
 
--   如果没有 Url 指定–，即如果**[AuthorityInformationAccess]**–部分存在于该文件，但是否为空 CRL Distribution 点扩展省略从根证书。 同样，会首选就根 CA 证书而言设置没有颁发机构高于根需要通过其证书链接引用的 CA 原样。
+-   如果没有指定了 Url – 也就是说，如果 **[AuthorityInformationAccess]** 部分文件中存在但为空-CRL 分发点扩展省略的根 CA 证书。 同样，这将是在根 CA 证书的情况下的首选的设置，因为高于根 CA，需要引用的链接到其证书没有颁发机构。
 
 ### <a name="certsrvserver"></a>certsrv_Server
 
-另一个可选 CAPolicy.inf 部分介绍 [certsrv_server]，用于指定续订密钥长度、续订有效期内，以及证书吊销 (CRL) 列表有效期为是 CA 正在续订或安装。 在此部分中键都需要。 这些设置的许多有足够的大多数需求，并只是可以从 CAPolicy.inf 文件省略的默认值。 或者，这些设置的许多可以更改后在安装 CA。
+CAPolicy.inf 的另一个可选部分是 [certsrv_server] 用于指定续订密钥长度、 续订有效期内和证书吊销列表 (CRL) 有效期的 ca，正在安装或续订。 在本部分中密钥都是必需的。 有许多这些设置的默认值足以满足大多数需求，只是可以省略了从 CAPolicy.inf 文件。 此外，许多这些设置可以更改安装 CA 之后。
 
-一个示例如下所示：
+一个示例所示：
 
 ```
 [certsrv_server]
@@ -158,17 +166,17 @@ ForceUTF8=0
 EnableKeyCounting=0
 ```
 
-**RenewalKeyLength**设置仅续订的关键大小。 在加拿大证书续订生成新的关键配对时才使用此选项。 安装后 CA 设置的初始 CA 证书关键大小。
+**RenewalKeyLength**设置仅续订的密钥大小。 CA 证书续订期间生成新的密钥对时才使用此选项。 安装 CA 时设置初始的 CA 证书的密钥大小。
 
-当续订使用新的关键配对 CA 证书，关键长度可以或者增加或减少。 例如，如果你已经设置了根 4096 字节或更高版本，CA 关键大小，然后发现，你有 Java 应用或可能仅支持的 2048 字节密钥大小的网络设备。 无论你增加或减少大小，你必须重新由该 CA 颁发所有证书。
+当续订 CA 证书与新的密钥对，密钥长度可增加或减少。 例如，如果已设置的根 CA 密钥大小为 4096 个字节或更高版本，并发现，则必须 Java 应用程序或仅支持 2048 个字节的密钥大小的网络设备。 是否增加或减小大小，必须重新颁发由该 CA 颁发的所有证书。
 
-**RenewalValidityPeriod**和**RenewalValidityPeriodUnits**建立时续订旧根证书的整个使用期限内的新根证书。 它仅适用于根 CA。 证书整个使用期限内的附属 CA 由其卓越的决定。 RenewalValidityPeriod 有以下值：小时，日、周、月和年。
+**RenewalValidityPeriod**并**RenewalValidityPeriodUnits**续订旧的根 CA 证书时建立新的根 CA 证书的生存期。 它仅适用于根 CA。 从属 CA 证书生存期由其上级确定。 RenewalValidityPeriod 可以具有以下值：小时、 天、 周、 月和年。
 
-**CRLPeriod**和**CRLPeriodUnits**基本 crl 建立有效期。 **CRLPeriod**有以下值：小时，日、周、月和年。
+**CRLPeriod**并**CRLPeriodUnits**建立基本 crl 的有效期。 **CRLPeriod**可以具有以下值：小时、 天、 周、 月和年。
 
-**CRLDeltaPeriod**和**CRLDeltaPeriodUnits**建立增量 CRL 有效期。 **CRLDeltaPeriod**有以下值：小时，日、周、月和年。
+**CRLDeltaPeriod**并**CRLDeltaPeriodUnits**建立增量 CRL 的有效期。 **CRLDeltaPeriod**可以具有以下值：小时、 天、 周、 月和年。
 
-CA 安装后，可配置每个设置：
+安装 CA 后，可以配置每个设置：
 
 ```
 Certutil -setreg CACRLPeriod Weeks
@@ -177,32 +185,32 @@ Certutil -setreg CACRLDeltaPeriod Days
 Certutil -setreg CACRLDeltaPeriodUnits 1
 ```
 
-请记住重新启动的 Active Directory 证书服务的任何更改生效。
+请记得重新启动 Active Directory 证书服务的任何更改才会生效。
 
-**LoadDefaultTemplates**仅适用于企业 CA 安装期间。 此设置，或者真或 False（或 1 或 0），规定是否通过任何默认模板配置 CA。
+**LoadDefaultTemplates**仅企业 CA 安装的过程适用。 此设置是 True 或 False （或 1 或 0），指示是否 CA 配置有任何默认模板。
 
-在加拿大的默认安装的默认证书模板子集添加到中证书颁发机构贴靠证书模板文件夹中。 这意味着，一旦广告客户服务服务启动之后，在安装了角色用户或计算机具有足够的权限可以立即注册证书。
+在默认安装中的 ca，默认证书模板的子集添加到证书颁发机构管理单元中的证书模板文件夹中。 这意味着，只要 AD CS 服务启动后安装了角色的用户或计算机具有足够的权限可以立即注册证书。
 
-你不希望任何证书颁发立即后已安装了 CA，以便你可以使用 LoadDefaultTemplates 设置阻止默认模板添加到企业版 CA。 如果没有模板配置 CA 上，它可以发出没有证书。
+您可能不希望因此可以使用 LoadDefaultTemplates 设置来防止默认模板添加到企业 CA 颁发任何证书已安装 CA 之后立即。 如果没有在 CA 上配置模板，它可以颁发任何证书。
 
-**AlternateSignatureAlgorithm**配置 CA 支持 PKCS\ #1 2.1 版签名格式 CA 证书和证书请求。 当设置为在根 1 CA CA 证书包括 PKCS\ #1 2.1 版签名格式。 如果在从上设置 CA、附属 CA 将创建证书请求，包括 PKCS\ #1 2.1 版签名格式。
+**内容： AlternateSignatureAlgorithm**配置 CA 以支持 PKCS\#1 V2.1 签名格式的 CA 证书和证书请求。 如果设置为 1 上的根 CA 的 CA 证书将包含 PKCS\#1 V2.1 签名格式。 当在从属 CA 上设置时，从属 CA 将创建证书申请包括 PKCS\#1 V2.1 签名格式。
 
-**ForceUTF8**更改默认值的主题和发行商中的相关辨别名服务器编码分辨接为的名称。 只有这些 RDNs 支持 utf-8，例如被定义为目录字符串类型 RFC，通过会受到影响。 例如，RDN 域组件 (DC) 的支持时 Country RDN (C) 仅支持编码作为可打印字符串 IA5 或 utf-8，编码。 ForceUTF8 指令因此将影响 DC RDN，但不是会影响 C RDN。
+**ForceUTF8**更改默认值编码使用者和颁发者中的相对可分辨名称 (Rdn) 的可分辨名称为 utf-8。 仅这些 Rdn 支持 utf-8，例如那些被定义为目录字符串类型由 rfc 验证，会受到影响。 例如，RDN 的域组件 (DC) 支持编码为 IA5 或 UTF-8，而 Country RDN (C) 只支持与可打印字符串的编码。 ForceUTF8 指令将因此会影响 DC RDN，但不是会影响 C RDN。
 
-**EnableKeyCounting**配置 CA 增加计数器每次使用 CA 签名该键。 未启用此设置，除非你有硬件安全模块 (HSM) 和关联加密支持服务提供商 (CSP) 键计数。 不使用 Microsoft 强 CSP 或 Microsoft 软件键存储提供商 (KSP) 支持关键计数。
+**EnableKeyCounting**配置 CA 以递增计数器，每次使用 CA 的签名密钥。 如果您没有硬件安全模块 (HSM) 和关联的加密服务提供程序 (CSP) 的支持密钥计数，则不要启用此设置。 不使用 Microsoft 强 CSP 或 Microsoft 软件密钥存储提供程序 (KSP) 的支持密钥计数。
 
 
 ## <a name="create-the-capolicyinf-file"></a>创建 CAPolicy.inf 文件
 
-安装广告客户服务之前，你配置 CAPolicy.inf 文件的特定设置为你部署。
+安装 AD CS 之前，您配置 CAPolicy.inf 文件使用特定的设置为你的部署。
 
-**先决条件：**你必须是管理员组中的成员。
+**先决条件：** 必须是 Administrators 组的成员。
 
-1.  打算安装广告的客户服务、打开 Windows PowerShell，计算机上键入**记事本 c:.inf**并按 ENTER。
+1.  在您打算安装 AD CS，打开 Windows PowerShell，在计算机上键入**记事本 c:\CAPolicy.inf**然后按 ENTER。
 
-2.  当提示你创建一个新文件，请单击**是**。
+2.  系统提示创建新文件时，单击 **“是”**。
 
-3.  输入以下命令以该文件的内容：
+3.  输入以下内容作为文件的内容：
    ```
    [Version]  
     Signature="$Windows NT$"  
@@ -211,7 +219,7 @@ Certutil -setreg CACRLDeltaPeriodUnits 1
     [InternalPolicy]  
     OID=1.2.3.4.1455.67.89.5  
     Notice="Legal Policy Statement"  
-    URL=http://pki.corp.contoso.com/pki/cps.txt  
+    URL=https://pki.corp.contoso.com/pki/cps.txt  
     [Certsrv_Server]  
     RenewalKeyLength=2048  
     RenewalValidityPeriod=Years  
@@ -225,26 +233,26 @@ Certutil -setreg CACRLDeltaPeriodUnits 1
    ```
 1.  单击**文件**，然后单击**另存为**。
 
-2.  导航到 %系统根 %文件夹。
+2.  导航到 %systemroot%文件夹。
 
-3.  确保：
+3.  确保以下信息：
 
-    -   **文件名**设置为**CAPolicy.inf**
+    -   将“文件名”设置为“CAPolicy.inf”
 
-    -   **将另存为类型**设置为**所有文件**
+    -   **“保存类型”** 设置为“CAPolicy.inf” **“所有文件”**
 
-    -   **编码**是**ANSI**
+    -   **编码**是 **ANSI**
 
-4.  单击**保存**。
+4.  单击“保存” 。
 
-5.  当提示你覆盖文件时，请单击**是**。
+5.  提示你覆盖文件时，单击 **“是”**。
 
-    ![将另存为 CAPolicy.inf 文件的位置](../../../media/Prepare-the-CAPolicy-inf-File/001-SaveCAPolicyORCA1.gif)
+    ![CAPolicy.inf 文件另存为位置](../../../media/Prepare-the-CAPolicy-inf-File/001-SaveCAPolicyORCA1.gif)
 
     >   [!CAUTION]  
-    >   请确保保存 CAPolicy.inf 用 inf 扩展。 如果不专门键入**.inf**在的文件的名称和选择的选项，述结束时，文件将另存为文本文件和将不会在加拿大安装期间使用。
+    >   确保以 inf 扩展名保存 CAPolicy.inf。 如果不在文件名末尾特意键入“.inf”并按描述选择各个选项，文件将另存为文本文件，并在 CA 安装期间不得使用。
 
 6.  关闭记事本。
 
 >   [!IMPORTANT]  
->   在 CAPolicy.inf，您可以看到有是指定的 URL 行http://pki.corp.contoso.com/pki/cps.txt。 只需显示为指定证书练习声明 (CPS) 中的位置的方式的一个示例 CAPolicy.inf 内部策略部分。 本指南中，在你未被要求创建证书练习语句 (CPS)。
+>   在 CAPolicy.inf 中，您可以看到有一行指定 URL https://pki.corp.contoso.com/pki/cps.txt。 CAPolicy.inf 的“内部策略”部分只会作为你会如何指定证书实行声明 (CPS) 的位置的示例出现。 在本指南中，您不被指示创建证书实行声明 (CPS)。

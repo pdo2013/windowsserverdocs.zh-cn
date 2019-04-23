@@ -1,6 +1,6 @@
 ---
 ms.assetid: 01c8cece-66ce-4a83-a81e-aa6cc98e51fc
-title: "高级重复数据删除设置"
+title: 高级重复数据删除设置
 ms.prod: windows-server-threshold
 ms.technology: storage-deduplication
 ms.topic: article
@@ -9,10 +9,11 @@ manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
 ms.openlocfilehash: 15cfc054810a2cab85aae9a04d6195c3ae6fe0b9
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59861208"
 ---
 # <a name="advanced-data-deduplication-settings"></a>高级重复数据删除设置
 
@@ -25,10 +26,10 @@ ms.lasthandoff: 10/17/2017
 
 ### <a id="modifying-job-schedules-change-schedule"></a>更改重复数据删除计划
 重复数据删除作业通过 Windows 任务计划程序进行计划，且可以在路径 Microsoft\Windows\Deduplication 下查看并编辑。 重复数据删除包括可轻松执行计划的几个 cmdlet。
-* [`Get-DedupSchedule`](https://technet.microsoft.com/library/hh848446.aspx) 显示当前的计划作业。
-* [`New-DedupSchedule`](https://technet.microsoft.com/library/hh848445.aspx) 创建新的计划作业。
-* [`Set-DedupSchedule`](https://technet.microsoft.com/library/hh848447.aspx) 修改现有的计划作业。
-* [`Remove-DedupSchedule`](https://technet.microsoft.com/library/hh848451.aspx) 删除计划作业。
+* [`Get-DedupSchedule`](https://technet.microsoft.com/library/hh848446.aspx) 显示当前的计划的作业。
+* [`New-DedupSchedule`](https://technet.microsoft.com/library/hh848445.aspx) 创建新的计划的作业。
+* [`Set-DedupSchedule`](https://technet.microsoft.com/library/hh848447.aspx) 修改现有的计划的作业。
+* [`Remove-DedupSchedule`](https://technet.microsoft.com/library/hh848451.aspx) 删除计划的作业。
 
 在重复数据删除作业运行时对其进行更改的最常见的原因是确保作业在空闲时间运行。 以下分步示例演示如何为*晴天*方案（在周末和工作日晚上 7:00 以后空闲的超聚合 Hyper-V 主机）修改重复数据删除计划。 若要更改计划，在管理员上下文中运行以下 PowerShell cmdlet。
 
@@ -75,24 +76,24 @@ ms.lasthandoff: 10/17/2017
     </thead>
     <tbody>
         <tr>
-            <td>类型</td>
+            <td>在任务栏的搜索框中键入</td>
             <td>应计划的作业类型</td>
             <td>
                 <ul>
                     <li>优化</li>
                     <li>GarbageCollection</li>
-                    <li>清理</li>
+                    <li>推移</li>
                 </ul>
             </td>
             <td>需要该值，因为它是你想要计划的作业类型。 任务计划后，该值无法更改。</td>
         </tr>
         <tr>
-            <td>优先级</td>
+            <td>Priority</td>
             <td>计划作业的系统优先级</td>
             <td>
                 <ul>
                     <li>高</li>
-                    <li>中</li>
+                    <li>中等</li>
                     <li>低</li>
                 </ul>
             </td>
@@ -125,13 +126,13 @@ ms.lasthandoff: 10/17/2017
             <td>若要防止作业在工作负荷的非空闲时间运行</td>
         </tr>
         <tr>
-            <td>启用</td>
+            <td>Enabled</td>
             <td>作业是否将运行</td>
             <td>True/false</td>
             <td>在不删除作业的情况下将其禁用</td>
         </tr>
         <tr>
-            <td>完整</td>
+            <td>完全</td>
             <td>用于计划完整的垃圾回收作业</td>
             <td>开关 (true/false)</td>
             <td>默认情况下，每个第四个作业为完整的垃圾回收作业。 使用此开关可以计划完整的垃圾回收以更频繁地运行。</td>
@@ -161,7 +162,7 @@ ms.lasthandoff: 10/17/2017
             <td>你想要手动还原位于坏的磁盘区域的文件。</td>
         </tr>
         <tr>
-            <td>以管理员身份启动</td>
+            <td>开始时间</td>
             <td>指定作业应开始的时间</td>
             <td>`System.DateTime`</td>
             <td>为*开始*提供的 `System.Datetime` 的*日期*部分不相关（只要它处于过去），但*时间*部分指定作业应该启动的时间。</td>
@@ -245,7 +246,7 @@ ms.lasthandoff: 10/17/2017
             <td>NoCompress</td>
             <td>将区块置入区块存储前是否需要压缩</td>
             <td>True/False</td>
-            <td>某些类型的文件，尤其是多媒体文件和已被压缩的文件类型，其压缩效果可能不好。 此设置允许你关闭卷上对所有文件的压缩。 如果你正在优化包含许多已压缩的文件的数据集，则此设置是理想之选。</td>
+            <td>某些类型的文件，尤其是多媒体文件和已压缩的文件类型，其压缩效果可能不好。 此设置允许你关闭卷上对所有文件的压缩。 如果你正在优化包含许多已压缩的文件的数据集，则此设置是理想之选。</td>
         </tr>
         <tr>
             <td>NoCompressionFileType</td>
@@ -309,7 +310,7 @@ ms.lasthandoff: 10/17/2017
         </tr>
         <tr>
             <td>DeepGCInterval</td>
-            <td>此设置配置常规垃圾回收作业变为[完整垃圾回收作业](advanced-settings.md#faq-full-v-regular-gc)的时间间隔。 如果设置为 n，则意味着每第 n<sup></sup> 个作业均为完整的垃圾回收作业。 请注意，对于具有[备份用途类型](understand.md#usage-type-backup)的卷，完整的垃圾回收始终处于禁用状态（与注册表值无关）。 `Start-DedupJob -Type GarbageCollection -Full` 如果备份卷上需要完整的垃圾回收，则可以使用。</td>
+            <td>此设置配置常规垃圾回收作业变为[完整垃圾回收作业](advanced-settings.md#faq-full-v-regular-gc)的时间间隔。 如果设置为 n，则意味着每 n<sup></sup> 个作业均为完整的垃圾回收作业。 请注意，对于具有[备份用途类型](understand.md#usage-type-backup)的卷，完整的垃圾回收始终处于禁用状态（与注册表值无关）。 `Start-DedupJob -Type GarbageCollection -Full` 如果备份卷上需要完整的垃圾回收，则可以使用。</td>
             <td>整数（-1 表示禁用）</td>
             <td>请参阅[此常见问题](advanced-settings.md#faq-why-disable-full-gc)</td>
         </tr>
@@ -317,10 +318,10 @@ ms.lasthandoff: 10/17/2017
 </table>
 
 ## <a id="faq"></a>常见问题
-<a id="faq-use-responsibly"></a>**我更改了重复数据删除设置，现在作业缓慢或无法完成，或者我的工作负荷性能已降低。为什么？**  
+<a id="faq-use-responsibly"></a>**我更改了重复数据删除设置，并且现在作业缓慢或无法完成，或我的工作负荷性能已降低。为什么?**  
 这些设置为你提供了控制重复数据删除如何运行的许多权限。 负责任地使用它们，并[监视性能](run.md#monitoring-dedup)。
 
-<a id="faq-running-dedup-jobs-manually"></a>**我现在想要运行重复数据删除作业，但是我不想创建新计划 - 我可以这样做吗？**  
+<a id="faq-running-dedup-jobs-manually"></a>**我想要运行重复数据删除作业，但我不想创建新计划-我可以这样做？**  
 可以，[所有作业都可手动运行](run.md#running-dedup-jobs-manually)。
 
 <a id="faq-full-v-regular-gc"></a>**完整和常规垃圾回收之间的区别是什么？**  
@@ -329,6 +330,6 @@ ms.lasthandoff: 10/17/2017
 - *常规垃圾回收*使用统计算法查找符合某个条件的大型未引用的区块（内存和 IOP 较低）。 常规垃圾回收仅在引用区块的百分比未达到最小值时才对区块存储容器进行压缩。 与完整垃圾回收相比，该类型的垃圾回收运行更快且占用更少资源。 常规垃圾回收作业的默认计划是一周运行一次。
 - *完整垃圾回收*可以更全面的查找未引用的区块并释放更多的磁盘空间。 完整垃圾回收压缩每个容器，即使容器中仅有一个区块未引用。 完整垃圾回收也会释放已在使用的空间（如果在优化作业期间出现崩溃或电源故障）。 完整垃圾回收作业将恢复 100% 的可用空间（该空间可在删除了重复数据的卷上恢复），与常规垃圾回收作业相比，该作业需要更多的时间和系统资源。 与常规垃圾回收作业相比，完整垃圾回收作业通常将找到并释放超过 5% 的未引用数据。 完整垃圾回收作业的默认计划是在每第四次垃圾回收时运行。
 
-<a id="faq-why-disable-full-gc"></a>**我为什么想要禁用完整垃圾回收？**  
+<a id="faq-why-disable-full-gc"></a>**我为什么要禁用完整垃圾回收？**  
 - 垃圾回收可能会对卷的生命周期卷影副本和增量备份的大小具有负面影响。 使用完整垃圾回收作业，高改动或 I/O 密集型工作负荷可能会出现性能下降。           
 - 你可以从 PowerShell 手动运行完整垃圾回收作业以清理泄漏（如果你知道系统已崩溃）。

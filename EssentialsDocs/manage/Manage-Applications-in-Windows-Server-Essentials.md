@@ -1,6 +1,6 @@
 ---
-title: "管理 Windows Server Essentials 中的应用程序"
-description: "介绍了如何使用 Windows Server Essentials"
+title: 管理 Windows Server Essentials 中的应用程序
+description: 介绍如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,89 +13,90 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: e98d661ac71697bc0e38b6a25fe2f9d2b0b7254f
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59860168"
 ---
 # <a name="manage-applications-in-windows-server-essentials"></a>管理 Windows Server Essentials 中的应用程序
 
 >适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
  
- 服务器仪表板中的 Windows Server Essentials 和 Windows Server 2012 R2 安装了 Windows Server Essentials 体验角色使得可能执行常见的管理任务。 若要执行这些任务，请参阅以下：  
+ 服务器在 Windows Server Essentials 中的仪表板和 Windows Server 2012 R2 安装了 Windows Server Essentials 体验角色使可能执行常见管理任务。 若要执行这些任务，请参阅以下内容：  
   
--   [应用程序仪表板中的管理任务](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_1)  
+-   [在仪表板中的应用程序管理任务](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_1)  
   
 -   [安装或删除加载项使用仪表板](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_2)  
   
-##  <a name="BKMK_1"></a>应用程序仪表板中的管理任务  
- **应用程序**仪表板管理页面提供：  
+##  <a name="BKMK_1"></a> 在仪表板中的应用程序管理任务  
+ 仪表板的“应用程序”  管理页面提供以下内容：  
   
--   安装加载项列表，其中显示：  
+-   已安装的加载项列表，它显示如下内容：  
   
-    -   联机服务或外接程序的名称  
+    -   联机服务或加载项的名称  
   
-    -   更新状态的外接程序  
+    -   加载项的更新状态  
   
-    -   订阅状态的外接程序  
+    -   加载项的订阅状态  
   
-    -   正外接程序使提供的发布者的公司的名称  
+    -   提供加载项的公司或发布者的名称  
   
--   包含一组任务的所选的加载项管理任务窗格  
+-   一个任务窗格，它包括一组用于管理选定加载项的任务  
   
--   这，可从 Microsoft Pinpoint 下载并安装的加载项列表  
+-   可从 Microsoft Pinpoint 下载并安装的加载项列表  
   
- 下表介绍了各种服务器仪表板中提供的管理外接程序任务。 任务一些外接程序详细信息，这样仅可见时，在列表中选择外接程序。  
+ 下表描述了服务器仪表板中可用的各种加载项管理任务。 某些任务特定于加载项，因此仅在你选择列表中的某个加载项时，这些任务才可见。  
   
 |任务名称|描述|  
 |---------------|-----------------|  
-|删除外接程序|从服务器和网络中的其他计算机中删除所选的加载项。|  
-|网络计算机上安装外接程序|可帮助您安排安装，网络中的所有其他计算机所选加载项。|  
-|获取帮助外接程序|打开你的 Internet 浏览器到某个网站，你可以搜索问题的解决方案并了解有关的所选的加载项的详细信息。|  
-|更新外接程序|可帮助你下载并安装加载项服务器和网络的计算机上安装的更新。|  
-|续订订阅外接程序|打开你的 Internet 浏览器，你可以从中续订你的外接程序订阅网站。|  
-|阅读隐私声明中的有关外接程序|打开你的 Internet 浏览器，你可以从中查看隐私声明中的网站。|  
-|如何安装或删除的加载项？|打开你的 Internet 浏览器到显示主题帮助主题的网页。|  
+|删除加载项|将选定加载项从网络中的服务器和所有其他计算机中删除。|  
+|在网络计算机上安装加载项|可帮助你计划在网络中所有其他计算机上安装选定的加载项。|  
+|获取有关加载项的帮助|打开 Internet 浏览器，然后浏览到可从中搜索问题解决方案并详细了解选定加载项的网站。|  
+|更新加载项|可帮助你下载并安装在服务器和网络计算机上安装的加载项的更新。|  
+|续订加载项订阅|打开 Internet 浏览器，然后浏览到可从中续订加载项订阅的网站。|  
+|阅读加载项的隐私声明|打开 Internet 浏览器，然后浏览到可从其中查看隐私声明的网站。|  
+|如何安装或删除加载项？|打开 Internet 浏览器，然后浏览到显示“帮助”主题的网页。|  
   
-##  <a name="BKMK_2"></a>安装或删除加载项使用仪表板  
- 外接程序是为你服务器提供更多特性和功能的软件应用。 越来越多的加载项都可从 Microsoft 和其他独立软件供应商 (Isv)。  
+##  <a name="BKMK_2"></a> 安装或删除加载项使用仪表板  
+ 加载项是一种软件应用程序，它为服务器提供其他特性和功能。 从 Microsoft 和其他独立软件供应商 (ISV) 可获得越来越多的加载项。  
   
- 你可以充分利用扩展功能，之前外接程序提供，必须首先安装外接程序在服务器上。  
+ 在可以利用某个加载项提供的扩展功能之前，必须先在服务器上安装该加载项。  
   
-#### <a name="to-install-an-add-in-from-microsoft-pinpoint"></a>若要从 Microsoft Pinpoint 中安装外接程序  
+#### <a name="to-install-an-add-in-from-microsoft-pinpoint"></a>从 Microsoft Pinpoint 安装加载项  
   
-1.  在服务器仪表板上，单击**应用程序**，然后单击**Microsoft Pinpoint**选项卡。  显示在可用的加载项的列表。  
+1.  在服务器仪表板中，单击“应用程序” ，然后单击“Microsoft Pinpoint”  选项卡。显示可用的加载项列表。  
   
-2.  单击你想要安装的外接程序。 显示外接程序的信息页面。  
+2.  单击要安装的加载项。 将显示该加载项的信息页。  
   
-3.  在添加以信息页面上，单击下载，并按照屏幕上的说明下载和安装外接程序。  
+3.  在该加载项信息页上，单击“下载”，然后按照屏幕上的说明下载并安装该加载项。  
   
-4.  按照向导中的说明以安装加载项。  
+4.  按照向导中的说明来安装该加载项。  
   
-5.  完成安装后，重新启动仪表板中，打开**应用程序**仪表板服务器的页面，然后确认外接程序显示在列表视图中。  
+5.  安装完成后，重新启动仪表板，打开服务器仪表板的“应用程序”  页，并验证该加载项是否显示在列表视图中。  
   
-#### <a name="to-install-an-add-in-from-another-provider"></a>若要从其他提供商安装外接程序  
+#### <a name="to-install-an-add-in-from-another-provider"></a>通过其他提供程序安装加载项  
   
-1.  打开 Windows 资源管理器，然后浏览到的外接程序安装文件的位置。  
+1.  打开 Windows 资源管理器，然后浏览到加载项安装文件的位置。  
   
-2.  双击文件即可运行安装向导。  
+2.  双击该文件以运行安装向导。  
   
-3.  按照向导中的说明以安装加载项。  
+3.  按照向导中的说明来安装该加载项。  
   
-4.  安装完成后，重新启动仪表板中，打开**应用程序**页面，然后确认外接程序出现在列表视图中。  
+4.  安装完成后，重新启动仪表板，打开“应用程序”  页，并验证该加载项是否显示在列表视图中。  
   
-#### <a name="to-remove-an-add-in"></a>若要删除的加载项  
+#### <a name="to-remove-an-add-in"></a>删除加载项  
   
 1.  打开服务器仪表板。  
   
-2.  单击**应用程序**选项卡。  
+2.  单击“应用程序”选项卡。  
   
-3.  在**外接程序**选项卡上，选择你想要删除，然后单击的外接程序**删除外接程序**。  
+3.  在“加载项”  选项卡上，选择要删除的加载项，然后单击“删除该加载项” 。  
   
-4.  在**删除加载项**窗口中，单击**删除**。  
+4.  在“删除加载项”窗口中单击“删除”。  
   
     > [!NOTE]
-    >  你可能需要重启仪表板外接程序完全删除。  
+    >  可能需要重新启动仪表板以完全删除该加载项。  
   
 ## <a name="see-also"></a>请参阅  
   
