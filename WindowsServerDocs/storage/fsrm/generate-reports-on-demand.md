@@ -1,6 +1,6 @@
 ---
-title: "根据需要生成报告"
-description: "本文介绍了如何根据需要生成报告以分析服务器上的磁盘使用情况"
+title: 按需生成报告
+description: 本文介绍了如何根据需要生成报告以分析服务器上的磁盘使用情况
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: e91bfbc306d1d2712f7b35ec48114b3a8a84ec83
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59890988"
 ---
-# <a name="generate-reports-on-demand"></a>根据需要生成报告
+# <a name="generate-reports-on-demand"></a>按需生成报告
 
-> 适用于：Windows Server（半年频道）、Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2
+> 适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
 
 在日常操作中，可以根据需要使用**立即生成报告**选项生成一个或多个报告。 借助这些报告，可以分析服务器上当前磁盘使用情况的各个方面。 收集当前数据以生成报告。
 
@@ -65,7 +66,7 @@ ms.lasthandoff: 10/17/2017
 
     这两个选项都会保存报告，如果已启用通过电子邮件发送报告，则报告会以你所选的格式发送给管理员。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 -   [存储报告管理](storage-reports-management.md)
 -   [设置文件服务器资源管理器选项](setting-file-server-resource-manager-options.md)

@@ -1,7 +1,7 @@
 ---
 ms.assetid: ceb9ce18-5a94-4166-9edd-2685b81fc15f
-title: "森林跨部署索赔"
-description: 
+title: 跨林部署声明
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,51 +10,52 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 7d78258d8f1db9889b6d2db8c497780940ed35a1
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59890648"
 ---
-# <a name="deploy-claims-across-forests"></a>森林跨部署索赔
+# <a name="deploy-claims-across-forests"></a>跨林部署声明
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-在 Windows Server 2012，声明类型是肯定关于，它有与之关联的对象。 每个林 Active Directory 中定义索赔类型。 有很多情况下，可能需要遍历信任边界访问信任的森林中的资源主体的安全。 在 Windows Server 2012 跨森林索赔转换使您能够转换进出遍历森林，以便索赔识别，并且接受信任和受信任的森林中的索赔。 一些的索赔转换真实的方案：  
+在 Windows Server 2012 中，声明类型是与它关联的对象有关的断言。 声明类型在 Active Directory 中根据林来定义。 在许多方案中，安全主体可能需要遍历信任边界以访问受信任林中的资源。 Windows Server 2012 中的跨林声明转换使你转换遍历林，以便声明是能够识别并接受在相互信任和受信任林中的出口和入口声明。 声明转换的一些实际应用场景包括：  
   
--   信任林可用作索赔转换抵御特权提升通过筛选与特定值传入的索赔。  
+-   信任林可以使用声明转换，通过筛选具有特定值的传入声明来防止权限提升。  
   
-    信任森林还可以颁发主体即将信任边界通过，如果不是受信任的森林支持或发出任何索赔提起的索赔。  
+    如果受信任林不支持或发出任何声明，信任林还可以为越过信任边界的主体发出声明。  
   
--   森林受信任可以使用索赔转换阻止某些索赔类型和使用某些值从要发布到信任林的索赔。  
+-   受信任林可以使用声明转换来防止特定声明类型和具有特定值的声明流入信任林。  
   
--   你还可以使用转换到地图不同声称之间信任和受信任林类型的索赔。 这可用于一般化声明类型、该声明值，或两者都。 无需此，你需要标准化林之前，你可以使用索赔之间数据。 使通用信任和受信任的林之间的索赔减少 IT 成本。  
+-   此外，还可以使用声明转换在信任林和受信任林之间映射不同的声明类型。 声明转换可用于对声明类型和/或声明值执行通用化。 如果没有声明转换，你需要先对林之间的数据执行标准化，然后才能使用声明。 对信任林和受信任林之间的声明执行通用化可以减少 IT 成本。  
   
-## <a name="claim-transformation-rules"></a>声称转换规则  
-转换规则语言语法将分为两个主要部分的单个规则：一系列条件明细表和问题声明。 每个条件声明有两个子组件：索赔标识符和条件。 包含问题声明的关键字、分隔符和问题 expression。 （可选）开头索赔标识符变量，这表示此匹配输入的声明条件声明。 检查 expression 条件。 如果输入的声明不符合条件，转换引擎将忽略问题声明，并且在计算转换规则针对下一步输入的声明。 如果所有条件都匹配输入的索赔，该进程问题声明。  
+## <a name="claim-transformation-rules"></a>声明转换规则  
+转换规则语言语法将一项规则分为两个主要部分：一系列条件语句和一个发出语句。 每个条件语句都有两个子组件：声明标识符和条件。 发出语句包含关键字、分隔符和发出表达式。 条件语句可以声明标识符变量开头，表示匹配的输入声明。 条件用于检查表达式。 如果输入声明与条件不匹配，转换引擎将忽略发出语句并根据转换规则评估下一个输入声明。 如果所有条件都与输入声明匹配，它将处理发出语句。  
   
-索赔规则语言的详细信息，请参阅[索赔转换规则语言](Claims-Transformation-Rules-Language.md)。  
+有关声明规则语言的详细信息，请参阅 [Claims Transformation Rules Language](Claims-Transformation-Rules-Language.md)。  
   
-## <a name="linking-claim-transformation-policies-to-forests"></a>森林链接索赔转换策略  
-有两个组件索赔转换策略设置过程中涉及：声称转换策略对象和转换链接。 策略对象 live 配置命名林中上下文中，并且包含的索赔映射信息。 该链接指定的信任和森林受信任的地图适用于。  
+## <a name="linking-claim-transformation-policies-to-forests"></a>将声明转换策略链接到林  
+设置声明转换策略时需用到两个组件：声明转换策略对象和转换链接。 策略对象位于林中的配置命名上下文中，并包含声明的映射信息。 链接指定映射应用到的信任林和受信任林。  
   
-请务必了解森林是否信任或受信任的森林，因为这很基础链接转换策略对象。 例如，受信任的森林是森林包含需要访问权限的用户帐户。 信任林是林包含你想要为用户的访问权限的资源。 主要的要求访问安全的方向相同旅行索赔。 例如，如果到 adatum.com 森林单向从 contoso.com 森林信任，索赔将从流 adatum.com 到 contoso.com，从而允许用户从 adatum.com 访问 contoso.com 中的资源。  
+请务必了解林是信任林还是受信任林，因为这是链接转换策略对象的基础。 例如，受信任林是包含需要访问权限的用户帐户的林。 信任林是包含想要允许用户访问的资源的林。 声明的传输方向与需要访问权限的安全主体的方向相同。 例如，如果从 contoso.com 林到 adatum.com 林存在单向信任，声明将从 adatum.com contoso.com 流向 contoso.com，从而允许用户从 adatum.com 访问 contoso.com 中的资源。  
   
-默认情况下，受信任的森林允许通过，所有传出索赔，并信任林丢弃接收到的所有传入的索赔。  
+默认情况下，受信任林允许所有传出声明通过，而信任林将删除它收到的所有传入声明。  
   
-## <a name="in-this-scenario"></a>在此情况下  
-以下指南也适用于这种情况：  
+## <a name="in-this-scenario"></a>本方案内容  
+本方案可使用以下指南：  
   
--   [森林 #40; 演示步骤 & #41; 跨部署索赔](Deploy-Claims-Across-Forests--Demonstration-Steps-.md)  
+-   [跨林部署声明&#40;演示步骤&#41;](Deploy-Claims-Across-Forests--Demonstration-Steps-.md)  
   
--   [索赔转换规则语言](Claims-Transformation-Rules-Language.md)  
+-   [声明转换规则语言](Claims-Transformation-Rules-Language.md)  
   
-## <a name="BKMK_NEW"></a>负责并此方案中所含功能  
-下表列出的角色和属于这种情况下的功能，并介绍了如何支持。  
+## <a name="BKMK_NEW"></a>在此方案中包括角色和功能  
+下表列出了作为本方案组成部分的角色和功能，并描述了它们如何为本方案提供支持。  
   
-|角色/功能|它如何支持此方案|  
+|角色/功能|如何支持本方案|  
 |-----------------|---------------------------------|  
-|Active Directory 域服务|在此情况下，你必须具有双向信任的两个 Active Directory 林设置。 您可以在两个林有索赔。 你还上信任林资源所在的位置设置中央访问策略。|  
-|文件和存储服务的作用|在此情况下，数据分类应用到文件服务器上的资源。 中央访问策略应用到所需授予用户访问权限的文件夹。 转换后的索赔授予根据中心访问策略应用到文件服务器上的文件夹的用户访问。|  
+|Active Directory 域服务|在本方案中，你需要设置具有双向信任的两个 Active Directory 林。 两个林中都有声明。 另外在资源所在的信任林上设置中心访问策略。|  
+|“文件和存储服务”角色|在本方案中，对文件服务器上的资源应用数据分类。 对想要允许用户访问的文件夹应用中心访问策略。 在转换后，声明基于应用于文件服务器上文件夹的中心访问策略向用户授予对资源的访问权限。|  
   
 
 

@@ -1,5 +1,5 @@
 ---
-title: 管理
+title: Management
 description: 了解关于 Windows Server 管理的工具、建议和指南
 ms.prod: windows-server-threshold
 layout: LandingPage
@@ -9,17 +9,17 @@ author: lizap
 ms.author: elizapo
 ms.localizationpriority: high
 ms.openlocfilehash: e6a5357e3e33b3d3318a3e281bbb5c80be842155
-ms.sourcegitcommit: 9ed4c9fe04ebf3ef488170503c9a354c992b6fde
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "4339275"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59890508"
 ---
-# 管理
+# <a name="management"></a>Management
 
 
 >[!TIP]
-> 要查找有关较旧版 Windows Server 的信息？ 在 docs.microsoft.com 上查看我们的其他 [Windows Server 库](/previous-versions/windows/)。 你还可以[搜索此站点](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions)了解具体信息。
+> 要查找有关较旧版 Windows Server 的信息？ 在 docs.microsoft.com 上查看我们的其他 [Windows Server 库](/previous-versions/windows/)。 也可以[搜索此站点](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions)了解具体信息。
 
 <hr />
 
@@ -54,13 +54,13 @@ ms.locfileid: "4339275"
                     <div class="cardText">
                     <h3>管理 Windows Server 系统和环境</h3>
 <HR />
-                        <p><h3><a href="../manage/windows-admin-center/overview.md">使用 Windows Admin Center 管理本地系统、远程系统和没有 UI 的系统</a></h3>一款基于浏览器的管理应用，可用于在本地管理 Windows Server，而无需依赖 Azure 或云。 借助 Windows Admin Center（以前称为“Project Honolulu”），你可以完全控制服务器基础结构的各个方面，对于在未连接到 Internet 的专用网络上进行管理特别有用。 你可以在 Windows 10 或网关服务器上安装 Windows Admin Center，也可以在要管理的 Windows Server 系统上直接安装。</p>
+                        <p><h3><a href="../manage/windows-admin-center/overview.md">管理在本地系统、 远程系统和不含 UI 与 Windows Admin Center 的系统</a></h3>一款基于浏览器的管理应用，可用于在本地管理 Windows Server，而无需依赖 Azure 或云。 借助 Windows Admin Center（以前称为“Project Honolulu”），你可以完全控制服务器基础结构的各个方面，对于在未连接到 Internet 的专用网络上进行管理特别有用。 你可以在 Windows 10 或网关服务器上安装 Windows Admin Center，也可以在要管理的 Windows Server 系统上直接安装。</p>
 <HR />
-                        <p><h3><a href="server-manager/server-manager.md">使用服务器管理器管理本地系统</a></h3>包含在 Windows Server 的完全安装中的管理控制台。 （它不适用于没有 UI 的安装 - 服务器核心不包括服务器管理器。）使用服务器管理器可以安装和删除服务器角色，添加和删除远程服务器，启动和停止服务，以及查看收集的环境相关数据。</p>
+                        <p><h3><a href="server-manager/server-manager.md">管理在本地系统使用服务器管理器</a></h3>包含在 Windows Server 的完全安装中的管理控制台。 （不适用于不具有 UI 的安装-服务器核心不包括服务器管理器）。使用服务器管理器来安装和删除服务器角色添加和删除远程服务器、 开始和停止服务和查看数据收集的有关您的环境。</p>
 <HR />
-                        <p><h3><a href="../remote/remote-server-administration-tools.md">使用远程服务器管理工具 (RSAT)，无需 UI 即可管理远程系统和系统</a></h3>如果你的环境中包括安装服务器核心或远程服务器（本地或虚拟机），你可以使用 RSAT 管理这些系统。 RSAT 包括服务器管理器，以便于你可以使用它来管理所有服务器。 请注意，RSAT 可在 Windows 10 上运行。 你不能在 Windows Server 核心上安装 RSAT。 你还可以从命令行管理服务器核心安装。 请参阅<a href="server-core/server-core-administer.md">服务器核心中的基本管理任务</a>
+                        <p><h3><a href="../remote/remote-server-administration-tools.md">管理远程系统和不含 UI 与远程服务器管理工具 (RSAT) 的系统</a></h3>如果你的环境中包括安装服务器核心或远程服务器（本地或虚拟机），你可以使用 RSAT 管理这些系统。 RSAT 包括服务器管理器，以便于你可以使用它来管理所有服务器。 请注意，RSAT 可在 Windows 10 上运行。 你不能在 Windows Server 核心上安装 RSAT。 你还可以从命令行管理服务器核心安装。 请参阅<a href="server-core/server-core-administer.md">Server Core 中的基本管理任务</a>
 <HR />
-                        <p><h3><a href="windows-server-update-services/get-started/windows-server-update-services-wsus.md">管理对 Windows Server 系统的更新</a></h3>使用 Windows Server Update Services (WSUS) 管理和部署对 Windows Server 环境中的系统的更新。</p>
+                        <p><h3><a href="windows-server-update-services/get-started/windows-server-update-services-wsus.md">管理更新部署到 Windows Server 系统</a></h3>使用 Windows Server Update Services (WSUS) 管理和部署对 Windows Server 环境中的系统的更新。</p>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@ ms.locfileid: "4339275"
 <HR />
                         <p><h3><a href="get-started-with-setup-and-boot-event-collection.md">安装和启动事件收集</a></h3>使用安装和启动事件收集，你可以指定“收集器”计算机，该计算机可以收集在启动或执行安装过程时在其他计算机上发生的各种重要事件。 然后，你可以使用事件查看器、消息分析器、Wevtutil 或 Windows PowerShell cmdlet 分析收集的事件。 </p>
 <HR />
-                        <p><h3><a href="software-inventory-logging/get-started-with-software-inventory-logging.md">软件清单日志记录 (SIL)</a></h3>Windows Server 中的软件清单日志记录功能包含一组简单的 PowerShell cmdlet，可帮助服务器管理员检索其服务器上安装的 Microsoft 软件的列表。 它还提供了使用 HTTPS 协议通过网络定期收集此数据并将其转发到目标 Web 服务器进行聚合的功能。 对该功能（主要是按小时进行收集和转发）的管理也可以通过 PowerShell 命令完成。</p>
+                        <p><h3><a href="software-inventory-logging/get-started-with-software-inventory-logging.md">软件清单日志记录 (SIL)</a></h3>Windows Server 中软件清单日志记录功能包含一组简单的 PowerShell cmdlet，可帮助服务器管理员检索其服务器上安装的 Microsoft 软件的列表。 它还提供了使用 HTTPS 协议通过网络定期收集数据并将此数据转发到目标 Web 服务器进行聚合的功能。 对该功能（主要是按小时进行收集和转发）的管理也可以通过 PowerShell 命令完成。</p>
 <HR />
                         <p><h3><a href="user-access-logging/get-started-with-user-access-logging.md">用户访问日志记录 (UAL)</a></h3>用户访问日志记录用于聚合在运行 Windows Server 2016、Windows Server 2012 R2 或 Windows Server 2012 的计算机上记录到本地数据库的唯一客户端设备和用户请求事件。 然后，这些记录可用于（通过服务器管理员执行的查询）按服务器角色、用户、设备、本地服务器和日期检索数目和实例。 此外，UAL 还允许非 Microsoft 软件开发人员检测要聚合的 UAL 事件。 </a>
                     </div>
@@ -140,7 +140,7 @@ ms.locfileid: "4339275"
                     <div class="cardText">
                     <h3>自动管理 Windows Server</h3>
 <HR />
-                        <p><h3><a href="..\manage\system-insights\overview.md">系统见解</h3></a>本机预测分析可在本地分析 Windows Server 系统数据，例如性能计数器和 ETW 事件，并帮助 IT 管理员主动检测和解决部署中的问题行为。</p>
+                        <p><h3><a href="..\manage\system-insights\overview.md">系统见解</h3></a>本机的预测分析本地分析 Windows Server 系统数据，例如性能计数器和 ETW 事件，主动帮助 IT 管理员检测和解决在部署中有问题的行为。</p>
                     </div>
                 </div>
             </div>

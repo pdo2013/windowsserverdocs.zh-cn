@@ -6,75 +6,75 @@ ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 09/07/2018
-Keywords: Storage Spaces Direct
+Keywords: 存储空间直通
 ms.localizationpriority: medium
 ms.openlocfilehash: f8072ab5fc853248f2eedd26019956ec864a891d
-ms.sourcegitcommit: d31e266130b3b082372f7af4024e6089cb347d74
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "4239214"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59890868"
 ---
-# 为虚拟机的性能历史记录
+# <a name="performance-history-for-virtual-machines"></a>为虚拟机的性能历史记录
 
-> 适用于： Windows Server Insider Preview
+> 适用于：Windows Server Insider Preview
 
-为虚拟机 (VM) 的性能历史记录收集的详细介绍了[为存储空间直通的性能历史记录](performance-history.md)此子主题。 性能历史记录仅适用于每个运行时，群集的 VM。
+此子主题[的存储空间直通的性能历史记录](performance-history.md)详细地介绍了为虚拟机 (VM) 收集的性能历史记录。 性能历史记录是可用于每个运行，群集的 VM。
 
    > [!NOTE]
-   > 它可能需要几分钟时间开始新创建的或重命名的 Vm 的集合。
+   > 可能需要几分钟时间集合以开始为新创建的或已重命名的 Vm。
 
-## 系列名称和单位
+## <a name="series-names-and-units"></a>序列名称和单位
 
-这些系列将收集有关每个符合条件的虚拟机：
+这些系列将收集有关每个符合条件的 VM:
 
 | 系列                            | 单位             |
 |-----------------------------------|------------------|
 | `vm.cpu.usage`                    | %          |
-| `vm.memory.assigned`              | 字节            |
-| `vm.memory.available`             | 字节            |
-| `vm.memory.maximum`               | 字节            |
-| `vm.memory.minimum`               | 字节            |
+| `vm.memory.assigned`              | 字节数            |
+| `vm.memory.available`             | 字节数            |
+| `vm.memory.maximum`               | 字节数            |
+| `vm.memory.minimum`               | 字节数            |
 | `vm.memory.pressure`              | -                |
-| `vm.memory.startup`               | 字节            |
-| `vm.memory.total`                 | 字节            |
-| `vmnetworkadapter.bandwidth.inbound`  | 每秒的速度的位 |
-| `vmnetworkadapter.bandwidth.outbound` | 每秒的速度的位 |
-| `vmnetworkadapter.bandwidth.total`    | 每秒的速度的位 |
+| `vm.memory.startup`               | 字节数            |
+| `vm.memory.total`                 | 字节数            |
+| `vmnetworkadapter.bandwidth.inbound`  | 每秒位数 |
+| `vmnetworkadapter.bandwidth.outbound` | 每秒位数 |
+| `vmnetworkadapter.bandwidth.total`    | 每秒位数 |
 
-此外，所有虚拟硬盘 (VHD) 系列，如`vhd.iops.total`，对于每个 VHD 连接到虚拟机进行聚合。
+此外，虚拟硬盘 (VHD) 的所有序列，如`vhd.iops.total`，每个 VHD 附加到 VM 的聚合。
 
-## 如何解释
+## <a name="how-to-interpret"></a>如何解释
 
 
 | 系列                            | 描述                                                                                                  |
 |-----------------------------------|--------------------------------------------------------------------------------------------------------------|
-| `vm.cpu.usage`                    | 百分比虚拟机其主机服务器的处理器的使用。                                   |
-| `vm.memory.assigned`              | 内存分配到虚拟机的数量。                                                      |
-| `vm.memory.available`             | 始终可用，金额分配的内存的数量。                                       |
-| `vm.memory.maximum`               | 如果使用动态内存，这是内存的可以分配给虚拟机的最大数量。 |
-| `vm.memory.minimum`               | 如果使用动态内存，这是内存的可以分配给虚拟机的最小数量。 |
-| `vm.memory.pressure`              | 通过内存分配给虚拟机的虚拟机所需的内存的比率。            |
-| `vm.memory.startup`               | 为虚拟机启动所需的内存数量。                                            |
+| `vm.cpu.usage`                    | 百分比虚拟机正在使用的主机服务器的处理器。                                   |
+| `vm.memory.assigned`              | 分配给虚拟机的内存数量。                                                      |
+| `vm.memory.available`             | 保持可用，分配量的内存的数量。                                       |
+| `vm.memory.maximum`               | 如果使用动态内存，这是内存的最大数量的可能分配给虚拟机。 |
+| `vm.memory.minimum`               | 如果使用动态内存，这是内存的最小数量的可能分配给虚拟机。 |
+| `vm.memory.pressure`              | 通过分配给虚拟机的内存所要求的虚拟机的内存的比率。            |
+| `vm.memory.startup`               | 要启动的虚拟机所需内存的数量。                                            |
 | `vm.memory.total`                 | 总内存。 |
-| `vmnetworkadapter.bandwidth.inbound`  | 所有其虚拟网络适配器的虚拟机收到的数据的速率。                        |
-| `vmnetworkadapter.bandwidth.outbound` | 跨所有其虚拟网络适配器的虚拟机发送的数据的速率。                            |
-| `vmnetworkadapter.bandwidth.total`    | 数据的总速率接收或跨所有其虚拟网络适配器发送的虚拟机。          |
+| `vmnetworkadapter.bandwidth.inbound`  | 跨其所有虚拟网络适配器收到的虚拟机的数据的速率。                        |
+| `vmnetworkadapter.bandwidth.outbound` | 虚拟机在其所有虚拟网络适配器之间发送的数据的速率。                            |
+| `vmnetworkadapter.bandwidth.total`    | 数据的总速率接收或在其所有虚拟网络适配器之间发送的虚拟机。          |
 
    > [!NOTE]
-   > 计数器测量通过不采样的整个间隔。 例如，如果 VM 为 9 秒，但峰值截至第二个，用于 50%的主机 CPU 空闲其`vm.cpu.usage`将记录为 5%平均此 10 秒间隔。 这将确保其性能历史捕获所有活动并就可以防止噪音。
+   > 计数器来度量在整个间隔内，不会被取样。 例如，如果 VM 处于空闲状态 9 秒但在 10 秒，使用 50%的主机 CPU 峰值其`vm.cpu.usage`记录为 5%平均此 10 秒间隔内。 这可确保其性能历史记录捕获所有活动也很可靠到干扰。
 
-## 在 PowerShell 中的使用情况
+## <a name="usage-in-powershell"></a>在 PowerShell 中的用法
 
-使用[虚拟机 Get](https://docs.microsoft.com/powershell/module/hyper-v/get-vm) cmdlet:
+使用[GET-VM](https://docs.microsoft.com/powershell/module/hyper-v/get-vm) cmdlet:
 
 ```PowerShell
 Get-VM <Name> | Get-ClusterPerf
 ```
 
    > [!NOTE]
-   > 获取虚拟机 cmdlet 只返回虚拟机在本地 （或指定） 服务器上，不是跨群集。
+   > GET-VM cmdlet 仅返回虚拟机上的本地 （或指定） 的服务器，不能跨群集。
 
-## 另请参阅
+## <a name="see-also"></a>请参阅
 
-- [存储空间直通的性能历史记录](performance-history.md)
+- [有关存储空间直通的性能历史记录](performance-history.md)
