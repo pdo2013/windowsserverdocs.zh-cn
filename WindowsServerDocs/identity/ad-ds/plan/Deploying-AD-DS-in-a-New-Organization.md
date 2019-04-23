@@ -1,31 +1,32 @@
 ---
 ms.assetid: a589dda6-e05b-4b44-ae3e-b15dd3877617
-title: "部署新的组织中的广告 DS"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: 在新组织中部署 AD DS
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 03963e8cc0a9be916d695975f4b966a1aca07703
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: 9f502addbd214abad12bb9a2d6ab3bef8882209d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59842708"
 ---
-# <a name="deploying-ad-ds-in-a-new-organization"></a>部署新的组织中的广告 DS
+# <a name="deploying-ad-ds-in-a-new-organization"></a>在新组织中部署 AD DS
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-彻底准备 Active Directory 域服务 (广告 DS) 设计至关重要成本效益部署。 如果没有目录服务正在运行网络环境，完成你的广告 DS 逻辑结构全面的设计部署广告 DS 之前。 然后，你可以部署新林根域，并根据你的设计部署域结构的其余部分。  
+周密的 Active Directory 域服务 (AD DS) 设计是必要的部署具有成本效益。 如果不使用目录服务正在运行您的网络环境，在部署 AD DS 之前完成您的 AD DS 逻辑结构的全面设计。 然后，可以部署新林根级域，并根据您的设计部署您的域结构的其余部分。  
   
-下图显示的部署 Windows Server 2008 广告 DS 不目录服务正在运行的网络环境中的步骤。  
+下图演示了在不使用目录服务正在运行的网络环境中部署 Windows Server 2008 AD DS 的步骤。  
   
-![在新组织部署](media/Deploying-AD-DS-in-a-New-Organization/daa38971-86f2-4033-9442-0cdff9ecc48f.gif)  
+![在新的组织中部署](media/Deploying-AD-DS-in-a-New-Organization/daa38971-86f2-4033-9442-0cdff9ecc48f.gif)  
   
-你可以使用计划和部署新的组织中的广告 DS 的详细的任务列表，请参阅[清单：部署新的组织中的广告 DS](https://technet.microsoft.com/library/cc725897.aspx)。  
+有关可用于规划和部署新的组织中的 AD DS 的详细任务的列表，请参阅[核对清单：新的组织中部署 AD DS](https://technet.microsoft.com/library/cc725897.aspx)。  
   
 
 

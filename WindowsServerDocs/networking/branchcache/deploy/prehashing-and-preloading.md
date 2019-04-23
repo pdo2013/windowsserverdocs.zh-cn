@@ -1,6 +1,6 @@
 ---
-title: Prehashing 和预加载内容上托管的缓存服务器（可选）
-description: 本主题介绍分支缓存部署指南为 Windows Server 2016，其中演示如何在分布式托管的缓存模式优化分支机构中的 WAN 带宽使用量部署分支缓存的一部分。
+title: 在托管的缓存服务器上预哈希和预加载内容（可选）
+description: 本主题是 BranchCache 部署指南为 Windows Server 2016 中，该示例演示了如何部署 BranchCache 在分布式和托管缓存模式下以优化分支机构中的 WAN 带宽使用情况的一部分。
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-bc
@@ -8,30 +8,31 @@ ms.topic: get-started-article
 ms.assetid: 5a09d9f1-1049-447f-a9bf-74adf779af27
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c3d1ed62c6dca5b1de0ff560fde0a2e43ed0d080
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: b421132a44240520e3e3ba294623584c36b18ab4
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59866998"
 ---
-# <a name="prehashing-and-preloading-content-on-hosted-cache-servers-optional"></a>Prehashing 和预加载内容上托管的缓存服务器（可选）
+# <a name="prehashing-and-preloading-content-on-hosted-cache-servers-optional"></a>在托管的缓存服务器上预哈希和预加载内容（可选）
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-你可以使用此过程强制的内容的信息的也称为分支缓存启用网站和文件服务器的哈希-创建。 你可以将传输到远程托管的缓存服务器的程序包到文件和 web 服务器上收集的数据。  这为您提供预加载远程托管的缓存服务器上的内容，以便适用于第一次的客户端访问数据的能力。  
+此过程可用于强制内容信息-也称为哈希-启用了 BranchCache 的 Web 和文件服务器上的创建。 此外可以为可以传输到远程的托管的缓存服务器的包文件和 web 服务器上收集数据。  这提供了功能，以便可用于在首次客户端访问的数据预加载远程托管的缓存服务器上的内容。  
   
-你必须成员**管理员**，或相当要执行此过程。  
+您必须是属于**管理员**，或相当于执行此过程。  
   
-### <a name="to-prehash-content-and-preload-the-content-on-hosted-cache-servers"></a>若要 prehash 内容以及预装托管的缓存服务器上的内容  
+### <a name="to-prehash-content-and-preload-the-content-on-hosted-cache-servers"></a>若要对内容和预加载的托管的缓存服务器上的内容  
   
-1.  登录到的文件或 Web 服务器，其中包含你希望预加载的数据，并找出的文件夹和你希望加载的一个或多个远程托管的缓存服务器的文件。  
+1.  登录到文件或包含你想要预加载，数据的 Web 服务器并确定的文件夹和想要加载一个或多个远程托管的缓存服务器的文件。  
   
-2.  以管理员身份运行的 Windows PowerShell。 对于每个文件夹和文件，或者运行`Publish-BCFileContent`命令或`Publish-BCWebContent`命令，具体取决于的内容服务器上，触发哈希代和添加到数据包的数据类型。  
+2.  以管理员身份运行 Windows PowerShell。 对于每个文件夹和文件，请运行`Publish-BCFileContent`命令或`Publish-BCWebContent`命令，具体取决于内容服务器，以触发哈希生成，并将数据添加到数据包类型。  
   
-3.  已添加到数据包的所有数据后，将其导出使用`Export-BCCachePackage`命令来繁衍数据包文件。  
+3.  所有数据已都添加到数据包后，导出使用`Export-BCCachePackage`命令以生成数据的包文件。  
   
-4.  使用你选择的文件传输技术，将数据包文件移动到远程托管的缓存服务器上。  FTP、SMB、HTTP、DVD 以及便携硬盘是所有可行传输。  
+4.  使用所选的文件传输技术将数据包文件移动到远程的托管的缓存服务器。  FTP、 SMB、 HTTP、 DVD 和便携式硬盘是所有可行的传输。  
   
-5.  通过使用导入远程托管的缓存服务器上的数据包文件`Import-BCCachePackage`命令。  
+5.  使用导入远程托管的缓存服务器上的数据包文件`Import-BCCachePackage`命令。  
   
 

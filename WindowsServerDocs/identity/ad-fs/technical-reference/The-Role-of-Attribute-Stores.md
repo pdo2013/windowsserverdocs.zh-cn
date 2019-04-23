@@ -1,7 +1,7 @@
 ---
 ms.assetid: 4ddb927d-d65e-491d-840a-16049c083d13
-title: "特性官方商城的作用"
-description: 
+title: 属性存储的角色
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,36 +10,37 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 730411ed7efbb9cf0db3d7e94a486cec4c363849
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59860408"
 ---
- >适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+ >适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-# <a name="the-role-of-attribute-stores"></a>特性官方商城的作用
-Active Directory 联合身份验证服务使用术语"应用商店属性"指目录或组织用于保存它的用户帐户和及其关联的特性值的数据库。 广告金融服务身份提供商组织中配置后，从应用商店中检索这些属性值，和创建索赔，根据该信息，以便的 Web 应用程序或在信赖方组织托管的服务可以使适当的授权决策，只要联盟用户 \（其帐户中的身份提供商 organization\ 存储的用户）尝试访问的应用程序或服务。  
+# <a name="the-role-of-attribute-stores"></a>属性存储的角色
+Active Directory 联合身份验证服务使用术语"特性存储"来指代的目录或组织用于存储其用户帐户及其关联的属性值的数据库。 AD FS 配置的标识提供程序组织中后，从存储中检索这些属性值和创建基于该信息，以便 Web 应用程序或信赖方组织中托管的服务可以进行适当的声明只要联合用户，授权决策\(其帐户存储在标识提供程序组织中的用户\)尝试访问应用程序或服务。  
   
-有关索赔如何生成的详细信息，请参阅[索赔角色](The-Role-of-Claims.md)。  
+有关如何生成声明的详细信息，请参阅 [The Role of Claims](The-Role-of-Claims.md)。  
   
-## <a name="how-attribute-stores-fit-in-with-your-ad-fs-deployment-goals"></a>如何特性存储适应您的广告 FS 部署目标  
-用户特性官方商城的位置和位置用户身份验证确定设计广告 FS 支持的用户身份的方式。 根据特性官方商城的位置，以及用户访问的应用程序 \ (intranet 或 Internet 上 \)，你可以使用下面的部署目标之一：  
+## <a name="how-attribute-stores-fit-in-with-your-ad-fs-deployment-goals"></a>属性存储如何符合 AD FS 部署目标  
+用户属性存储的位置和用户身份验证的位置决定了如何设计 AD FS 以支持用户标识。 具体取决于属性存储所在的位置和用户访问应用程序\(在 intranet 或 Internet 上\)，可以使用以下部署目标之一：  
   
--   [你的 Active Directory 用户提供访问您的索赔识别应用程序和服务](https://technet.microsoft.com/library/dd807071.aspx)— 这一目标，在你的组织中的用户访问广告保护 FS-应用程序或服务 \（自己应用程序或服务或合作伙伴的应用程序或 service\）时的用户登录到 Active Directory 在公司的 intranet。  
+-   [为您声明感知应用程序和服务提供您 Active Directory 用户访问](https://technet.microsoft.com/library/dd807071.aspx)— 在这一目标，你的组织中的用户访问的 AD FS 保护的应用程序或服务\(您自己的应用程序或服务或合作伙伴的应用程序或服务\)当用户登录到 Active Directory 企业 intranet 中。  
   
--   [提供您 Active Directory 用户的访问权限的应用程序和服务的其他机构](https://technet.microsoft.com/library/dd807123.aspx)— 这一目标，在你的组织中的用户访问广告保护 FS-应用程序或服务 \（自己应用程序或服务或合作伙伴的应用程序或 service\）时的用户登录到公司的 intranet 和在登录时远程 Internet 从属性应用商店。  
+-   [向应用程序和服务的其他组织提供您 Active Directory 用户访问](https://technet.microsoft.com/library/dd807123.aspx)— 在这一目标，你的组织中的用户访问的 AD FS 保护的应用程序或服务\(您自己的应用程序或服务或合作伙伴的应用程序或服务\)当用户登录到企业 intranet 中和从 Internet 远程登录的属性存储。  
   
--   [提供给你的索赔识别应用程序和服务中的用户另一个组织访问](https://technet.microsoft.com/library/dd807099.aspx)，在这一目标，在另一个组织都位于上组织的公司的 intranet 属性应用商店中的用户帐户必须访问广告 FS – 保护你的组织中的应用程序。 位于你的组织外围网络属性官方商城的基于 consumer\ 的用户帐户必须具有访问提供给广告 FS – 保护你的组织中的应用程序时，这一目标也适用。  
+-   [为您声明感知应用程序和服务提供另一个组织 Access 中的用户](https://technet.microsoft.com/library/dd807099.aspx)— 在这一目标，必须访问另一组织中的用户帐户，该组织企业 intranet 上属性存储中的 AD FS –在你的组织中的受保护应用程序。 此目标也适用时使用者\-位于组织的外围网络中的属性存储的基于的用户帐户必须具有访问权限提供给 AD FS 保护你的组织中的应用程序。  
   
-根据我们特性官方商城位置和您的组织的其他要求，可以结合这些部署目标，以完成广告 FS 部署设计的几个。  
+根据属性存储放置和组织的其他要求，你可以组合多个这些部署目标，以完成 AD FS 部署的设计。  
   
-## <a name="attribute-stores-that-are-supported-by-ad-fs"></a>特性受广告 FS 的官方商城  
-广告 FS 支持了种类丰富的目录，并数据库存储可用于解压缩 administrator\ 定义特性值和填充与这些值的索赔。 广告 FS 支持特性官方商城的以下目录或数据库任何：  
+## <a name="attribute-stores-that-are-supported-by-ad-fs"></a>AD FS 支持的属性存储  
+AD FS 支持范围广泛的目录和数据库存储，你可将用于提取管理员\-定义属性值并使用这些值填充声明。 AD FS 支持任何以下目录或数据库作为属性存储：  
   
--   Windows Server 2003，在 Windows Server 2008、广告 DS 在 Windows Server 2012 和 2012 R2 和 Windows Server 2016 的 Active Directory 域服务 \(AD DS\) Active Directory。 
+-   Windows Server 2003 Active Directory 域服务中的 active Directory \(AD DS\) Windows Server 2012 和 2012 R2 中的 Windows Server 2008 中，AD DS 和 Windows Server 2016 中。 
   
--   2005 的 Microsoft SQL Server、SQL Server 2008、SQL Server 2012、SQL Server 2014 年和 SQL Server 2016 的所有版本  
+-   所有版本的 Microsoft SQL Server 2005、 SQL Server 2008、 SQL Server 2012、 SQL Server 2014 和 SQL Server 2016  
   
--   自定义特性官方商城  
+-   自定义属性存储  
   
 

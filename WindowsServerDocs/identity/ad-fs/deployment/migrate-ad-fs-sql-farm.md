@@ -1,6 +1,6 @@
 ---
-title: "迁移广告 FS 2.0 联盟服务器 SQL 电场的日落"
-description: "将广告 FS 2.0 服务器 SQL 电场的日落迁移到 Windows Server 2012 上提供信息"
+title: 迁移 AD FS 2.0 联合服务器 SQL 场
+description: 提供有关将 AD FS 2.0 服务器 SQL 场迁移到 Windows Server 2012 的信息
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,48 +9,49 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 8433219850793aa34b646a3bf14cba42d3de4988
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59843568"
 ---
-# <a name="migrate-an-ad-fs-20-wid-farm"></a>迁移广告 FS 2.0 WID 电场的日落  
-本文将广告 FS 2.0 SQL 场迁移到 Windows Server 2012 上提供详细的信息。
+# <a name="migrate-an-ad-fs-20-wid-farm"></a>迁移 AD FS 2.0 WID 场  
+本文档提供了将 AD FS 2.0 SQL 场迁移到 Windows Server 2012 的详细的信息。
 
 
-## <a name="migrate-a-sql-server-farm"></a>迁移 SQL Server 电场的日落  
- 若要迁移到 Windows Server 2012 SQL Server 电场的日落，请执行以下步骤：  
+## <a name="migrate-a-sql-server-farm"></a>迁移 SQL Server 场  
+ 若要将 SQL Server 场迁移到 Windows Server 2012 中，执行以下过程：  
   
-1.  对于每个服务器你 SQL Server 电场的日落，查看并执行中的步骤[迁移 SQL Server 场](prepare-to-migrate-a-sql-server-farm.md)。  
+1.  为 SQL Server 场中每个服务器，查看并执行中的过程[迁移 SQL Server 场](prepare-to-migrate-a-sql-server-farm.md)。  
   
-2.  SQL Server 场中删除负载平衡任何服务器。  
+2.  从负载均衡器中删除你的 SQL Server 场中的任何服务器。  
   
-3.  从 Windows Server 2008 R2 或 Windows Server 2008 的 SQL Server 场中此服务器操作系统升级到 Windows Server 2012。 有关详细信息，请参阅[安装 Windows Server 2012](https://technet.microsoft.com/library/jj134246.aspx)。  
+3.  SQL Server 场中此服务器上的操作系统从 Windows Server 2008 R2 或 Windows Server 2008 升级到 Windows Server 2012。 有关详细信息，请参阅[安装 Windows Server 2012](https://technet.microsoft.com/library/jj134246.aspx)。  
   
 > [!IMPORTANT]
->  作为操作系统升级的结果，此服务器上的广告 FS 配置失去并且删除广告 FS 2.0 server 角色。 而是安装了 Windows Server 2012 广告 FS server 角色，但它未配置。 必须手动创建原始广告 FS 配置并还原剩余的广告 FS 设置，以完成联盟 server 迁移。  
+>  作为操作系统升级的结果，在此服务器上的 AD FS 配置将丢失并且 AD FS 2.0 的服务器角色会被删除。 相反，安装 Windows Server 2012 AD FS 服务器角色，但未配置。 你必须手动创建原始 AD FS 配置并还原剩余的 AD FS 设置，以完成联合服务器迁移。  
   
-4.  通过广告 FS Windows PowerShell cmdlet 添加到现有场服务器，在此服务器 SQL Server 场中创建原始广告 FS 配置。  
+4.  在你的 SQL Server 场中的此服务器上创建原始 AD FS 配置，通过使用 AD FS Windows PowerShell cmdlet 将服务器添加到现有的场。  
   
 > [!IMPORTANT]
->  你必须使用 Windows PowerShell 创建原始广告 FS 配置，如果你使用 SQL Server 来存储您的广告 FS 配置数据库。  
+>  如果使用 SQL Server 来存储你的 AD FS 配置数据库，则必须使用 Windows PowerShell 创建原始 AD FS 配置。  
 
-  - 打开 Windows PowerShell 和运行以下命令：`$fscredential = Get-Credential`。  
-  - 输入姓名和时迁移准备 SQL Server 场记录服务帐户的密码。  
-  - 运行以下命令：`Add-AdfsFarmNode -ServiceAccountCredential $fscredential -SQLConnectionString "Data Source=<Data Source>;Integrated Security=True"`，其中`Data Source`策略官方商城连接字符串值，以下文件中的数据来源值：`%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config`。  
+  - 打开 Windows PowerShell，并运行如下命令： `$fscredential = Get-Credential`。  
+  - 输入你在为迁移准备 SQL Server 场时所记录的服务帐户的名称和密码。  
+  - 运行以下命令： `Add-AdfsFarmNode -ServiceAccountCredential $fscredential -SQLConnectionString "Data Source=<Data Source>;Integrated Security=True"`，其中 `Data Source` 是以下文件 `%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config`的策略存储连接字符串值中的数据源值。  
   
-5.  添加你只需到负载平衡升级到 Windows Server 2012 的服务器。  
+5.  添加你刚升级到 Windows Server 2012 到负载均衡器的服务器。  
   
-6.  重复步骤 2 到 6 SQL Server 场中的其余节点。  
+6.  对于你的 SQL Server 场中的剩余节点，重复步骤 2 到 6。  
   
-7.  当中的所有服务器 SQL Server 场升级到 Windows Server 2012、还原任何剩余广告 FS 自定义设置，如自定义特性官方商城。  
+7.  所有 SQL Server 场中的服务器升级到 Windows Server 2012，还原任何剩余 AD FS 自定义项，如自定义属性存储。  
 
 ## <a name="next-steps"></a>后续步骤
- [准备迁移广告 FS 2.0 联盟服务器](prepare-to-migrate-ad-fs-fed-server.md)   
- [准备迁移广告 FS 2.0 联盟服务器代理服务器](prepare-to-migrate-ad-fs-fed-proxy.md)   
- [迁移广告 FS 2.0 联盟服务器](migrate-the-ad-fs-fed-server.md)   
- [迁移广告 FS 2.0 联盟服务器代理服务器](migrate-the-ad-fs-2-fed-server-proxy.md)   
- [迁移广告 FS 1.1 Web 代理](migrate-the-ad-fs-web-agent.md)
+ [准备迁移 AD FS 2.0 联合服务器](prepare-to-migrate-ad-fs-fed-server.md)   
+ [准备迁移 AD FS 2.0 联合服务器代理](prepare-to-migrate-ad-fs-fed-proxy.md)   
+ [迁移 AD FS 2.0 联合服务器](migrate-the-ad-fs-fed-server.md)   
+ [迁移 AD FS 2.0 联合服务器代理](migrate-the-ad-fs-2-fed-server-proxy.md)   
+ [迁移 AD FS 1.1 Web 代理](migrate-the-ad-fs-web-agent.md)
 
 
 

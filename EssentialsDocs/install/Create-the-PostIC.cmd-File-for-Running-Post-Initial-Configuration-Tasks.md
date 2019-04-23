@@ -1,6 +1,6 @@
 ---
-title: "创建正在运行的文章初始配置任务 PostIC.cmd 文件"
-description: "介绍了如何使用 Windows Server Essentials"
+title: 创建用于运行后初始配置任务的 PostIC.cmd 文件
+description: 介绍如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,49 +13,50 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: f5042204cd189e3101f5e0126fd98e786a49032d
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59844118"
 ---
-# <a name="create-the-posticcmd-file-for-running-post-initial-configuration-tasks"></a>创建正在运行的文章初始配置任务 PostIC.cmd 文件
+# <a name="create-the-posticcmd-file-for-running-post-initial-configuration-tasks"></a>创建用于运行后初始配置任务的 PostIC.cmd 文件
 
 >适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
 
-你可以通过书写自己的代码，并从一个名为 PostIC.cmd 的脚本文件调用该代码添加后初始配置自定义项。 使用 PostIC.cmd 文件时，你必须遵循以下指南：  
+可以通过编写自己的代码，然后从名为 PostIC.cmd 的脚本文件调用代码来添加后初始配置自定义。 使用 PostIC.cmd 文件时，必须遵循以下指导原则：  
   
--   自定义代码必须静默运行（无法显示用户界面）。  
+-   必须以静默方式运行自定义代码（它不能显示用户界面）。  
   
--   自定义代码不能启动服务器的重新启动。 在初始配置将重新启动服务器作为最后一项任务。  
+-   自定义代码无法启动重新启动服务器的操作。 初始配置将重新启动服务器，并将此作为最后一项任务。  
   
--   自定义代码必须运行三分钟在或更短。  
+-   必须在三分钟之内运行你的自定义代码。  
   
- 定义 PostIC.cmd 文件如果成功运行该代码返回为 0。 如果返回任何其他值，名为的文件查找操作系统[SetupFailure.cmd](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md#BKMK_SetupFailure)，其中包含如果未成功运行 PostIC.cmd 文件中的代码，应运行的代码。 PostIC.cmd 文件和 SetupFailure.cmd 文件必须 C:\Windows\Setup\Scripts 所在的位置。  
+ 将 PostIC.cmd 文件定义为当代码运行成功时返回 0。 如果返回任何其他值，操作系统将查找名为 [SetupFailure.cmd](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md#BKMK_SetupFailure)的文件，该文件包含当 PostIC.cmd 文件中的代码未成功运行时应该运行的代码。 PostIC.cmd 文件和 SetupFailure.cmd 文件必须位于 C:\Windows\Setup\Scripts。  
   
-#### <a name="to-define-post-initial-configuration-customizations"></a>若要定义后初始配置自定义项  
+#### <a name="to-define-post-initial-configuration-customizations"></a>定义后初始配置自定义  
   
 1.  编写从 PostIC.cmd 脚本调用的代码。  
   
-2.  使用记事本，创建一个名 PostIC.cmd 文件并将通话添加到您在第 1 步中创建的代码。 确保你的代码返回成功值。  
+2.  使用记事本创建名为 PostIC.cmd 的文件，并添加对步骤 1 中创建的代码的调用。 确保代码返回成功值。  
   
-3.  在 C:\Windows\Setup\Scripts 保存 PostIC.cmd。  
+3.  将 PostIC.cmd 保存在 C:\Windows\Setup\Scripts 中。  
   
-4.  （可选）创建一个 SetupFailure.cmd 文件，其中如果 PostIC.cmd 返回任何 0 之外运行的代码。  
+4.  （可选）创建 SetupFailure.cmd 文件，该文件在 PostIC.cmd 返回 0 以外的任何值时运行代码。  
   
-###  <a name="BKMK_SetupFailure"></a>SetupFailure.cmd  
- 你可以通过使用 SetupFailure.cmd 提供通知在初始配置的问题。 SetupFailure.cmd 文件包含你想要出现问题，则运行的代码。 SetupFailure.cmd 文件位于 C:\Windows\Setup\Scripts 并且任一出现问题时，安装程序任务或 PostIC.cmd 文件返回一个值以外 0 运行。  
+###  <a name="BKMK_SetupFailure"></a> SetupFailure.cmd  
+ 可以使用 SetupFailure.cmd 提供有关初始配置问题的通知。 SetupFailure.cmd 文件包含出现问题时要运行的代码。 SetupFailure.cmd 文件位于 C:\Windows\Setup\Scripts，当执行安装任务过程中出现问题或当 PostIC.cmd 文件返回 0 以外的值时会运行该文件。  
   
-##### <a name="to-define-notifications"></a>若要定义通知  
+##### <a name="to-define-notifications"></a>定义通知  
   
 1.  编写从 SetupFailure.cmd 脚本调用的代码。  
   
-2.  使用记事本，创建一个名 SetupFailure.cmd 文件并将通话添加到您在第 1 步中创建的代码。 确保你的代码返回成功值。  
+2.  使用记事本创建名为 SetupFailure.cmd 的文件，并添加对步骤 1 中创建的代码的调用。 确保代码返回成功值。  
   
-3.  在 C:\Windows\Setup\Scripts 保存 SetupFailure.cmd。  
+3.  将 SetupFailure.cmd 保存在 C:\Windows\Setup\Scripts 目录中。  
   
 ## <a name="see-also"></a>请参阅  
  [Windows Server Essentials ADK 入门](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [创建和自定义映像](Creating-and-Customizing-the-Image.md)   
  [其他自定义设置](Additional-Customizations.md)   
- [准备部署该映像](Preparing-the-Image-for-Deployment.md)   
+ [部署准备的映像](Preparing-the-Image-for-Deployment.md)   
  [测试客户体验](Testing-the-Customer-Experience.md)

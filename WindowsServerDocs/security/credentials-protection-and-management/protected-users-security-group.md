@@ -1,6 +1,6 @@
 ---
-title: "受保护的用户安全组"
-description: "Windows Server 安全"
+title: 受保护的用户安全组
+description: Windows Server 安全
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,124 +14,125 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: bd6b53c0febdfb2d344136097a9654c981405568
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59862358"
 ---
 # <a name="protected-users-security-group"></a>受保护的用户安全组
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-此主题以供 IT 专业人员描述 Active Directory 安全组受保护的用户，并解释它的工作原理。 Windows Server 2012 R2 域控制器在引入了此组。
+本主题面向 IT 专业人员介绍 Active Directory 安全组受保护用户，并说明工作原理。 Windows Server 2012 R2 的域控制器中引入了此组。
 
 ## <a name="BKMK_ProtectedUsers"></a>概述
 
-安全该组作为策略的一部分旨在管理凭据暴露在企业中。 此组成员自动具有非配置保护措施应用到他们的帐户。 保护用户组中的成员旨在严格和默认情况下主动保护。 修改这些保护帐户的唯一方法是删除帐户安全组中。
+此安全组设计为策略的一部分来管理企业中的凭据公开。 此组的成员将自动具有应用于其帐户的非可配置保护。 在默认情况下，受保护的用户组中的成员身份意味着受到限制并主动保护。 修改这些帐户保护的唯一方法是从安全组中删除该帐户。
 
 > [!WARNING]
-> 帐户的服务和计算机绝不应保护用户组中的成员。 此组会提供仍不完整的保护，由于密码或证书始终在主机上可用。 身份验证将失败并错误 \"the 用户名和密码 incorrect\"的任何服务或添加到保护用户组中的计算机。
+> 服务和计算机帐户不应是受保护用户组的成员。 此组仍将提供不完整的保护，因为密码或证书始终在主机上可用。 身份验证将失败并出现错误\"用户名或密码不正确\"任何服务或计算机添加到受保护用户组。
 
-此域相关、全球组与运行 Windows Server 2012 R2 的主域控制器触发非配置保护设备和主计算机运行的 Windows Server 2012 R2 和 Windows 8.1 或更高版本的域中的用户。 当用户登录到计算机与这些保护，这大大减少对默认内存占用量造成的凭据。
+此域相关的全局组主域控制器运行 Windows Server 2012 R2 将触发不可配置的保护设备和主机计算机运行 Windows Server 2012 R2 和 Windows 8.1 或更高版本的域中的用户。 这极大地减少了凭据的默认内存占用，当用户登录到具有这些保护的计算机。
 
-有关详细信息，请参阅[保护用户如何组适用](#BKMK_HowItWorks)本主题中。
+有关详细信息，请参阅[如何受保护用户组的工作原理](#BKMK_HowItWorks)本主题中。
 
 
 
-## <a name="BKMK_Requirements"></a>受保护的用户组要求
-要求提供保护用户组成员的设备提供保护包括：
+## <a name="BKMK_Requirements"></a>受保护的用户组的要求
+若要提供受保护用户组的成员的设备保护的要求包括：
 
-- 保护用户全球安全组复制到域帐户中的所有域控制器上。
+- 受保护用户全局安全组被复制到帐户域中的所有域控制器。
 
-- Windows 8.1 和 Windows Server 2012 R2 默认添加的支持。 [Microsoft 安全公告 2871997](https://technet.microsoft.com/library/security/2871997)将支持添加到 Windows 7、Windows Server 2008 R2 和 Windows Server 2012。
+- Windows 8.1 和 Windows Server 2012 R2 默认情况下添加支持。 [Microsoft 安全公告 2871997](https://technet.microsoft.com/library/security/2871997)向 Windows 7、 Windows Server 2008 R2 和 Windows Server 2012 的支持。
 
-要求提供的保护用户组成员的域控制器保护包括：
+为受保护用户组的成员提供域控制器保护的要求包括：
 
-- 用户必须是 Windows Server 2012 R2 或更高版本的域功能级别域中。
+- 用户必须是 Windows Server 2012 R2 或更高版本的域功能级别的域中。
 
-### <a name="adding-protected-user-global-security-group-to-down-level-domains"></a>向低级别域添加保护用户全局安全组
+### <a name="adding-protected-user-global-security-group-to-down-level-domains"></a>将受保护用户全局安全组添加到下层域
 
-运行操作系统早于 Windows Server 2012 R2 域控制器可支持添加到新的受保护的用户安全组的成员。 这使用户域升级前享受设备提供保护。 
+运行的操作系统早于 Windows Server 2012 R2 的域控制器可支持添加到新的受保护用户安全组的成员。 这样用户就可以升级域之前从设备保护功能中受益。 
 
 > [!Note]
-> 域控制器中将不支持域保护措施。 
+> 域控制器将不支持域保护。 
 
-可通过创建受保护的用户组[传输主域控制器 (PDC) 模拟器角色](https://technet.microsoft.com/library/cc816944(v=ws.10).aspx)到运行 Windows Server 2012 R2 域控制器。 该组对象复制到其他域控制器后，可以运行较早版本的 Windows Server 的域控制器上托管 PDC 模拟器角色。
+可以通过创建受保护的用户组[主域控制器 (PDC) 模拟器角色传输](https://technet.microsoft.com/library/cc816944(v=ws.10).aspx)到运行 Windows Server 2012 R2 的域控制器。 将该组对象复制到其他域控制器后，PDC 模拟器角色可以托管在运行较早版本的 Windows Server 的域控制器上。
 
-### <a name="BKMK_ADgroup"></a>受保护的用户组广告属性
+### <a name="BKMK_ADgroup"></a>受保护的用户组 AD 属性
 
-下表指定保护用户组的属性。
+下表指定受保护的用户组的属性。
 
-|属性|值|
+|特性|ReplTest1|
 |-------|-----|
-|已知的 SID RID|S-1-5 个 21-<domain>-525|
-|键入|全球域|
-|默认容器|CN = 用户，直流 =<domain>，直流 =|
+|已知 SID/RID|S-1-5-21-<domain>-525|
+|在任务栏的搜索框中键入|域全局|
+|默认容器|CN=Users，DC=<domain>，DC=|
 |默认成员|无|
 |默认成员|无|
-|通过 ADMINSDHOLDER 是否受到保护？|不|
-|若要退出默认容器移动安全？|是的|
-|若要管理该组到非服务管理员委托安全？|不|
-|默认用户权限|没有默认用户权限|
+|通过 ADMINSDHOLDER 受保护吗？|否|
+|移出默认容器是否安全？|是|
+|将此组的管理委派给非服务管理员是否安全？|否|
+|默认用户权限|没有默认的用户权限|
 
-## <a name="BKMK_HowItWorks"></a>保护用户组的工作原理
-此部分中介绍了如何保护用户组工作时：
+## <a name="BKMK_HowItWorks"></a>受保护用户组的工作原理
+本部分介绍在以下情况下受保护的用户组的工作原理：
 
--   在 Windows 设备上登录
+-   在 Windows 设备的登录
 
 -   用户帐户域是在 Windows Server 2012 R2 或更高版本的域功能级别
 
-### <a name="device-protections-for-signed-in-protected-users"></a>在受保护的用户登录的设备提供保护
-保护用户组成员的用户在登录时以下保护措施应用：
+### <a name="device-protections-for-signed-in-protected-users"></a>在受保护的用户的登录针对的设备保护
+如果已登录用户是受保护用户组的成员会应用以下保护：
 
--   凭据委派 (CredSSP) 将无法缓存的用户纯文本凭据即使**允许委派默认凭据**组策略设置。
+-   凭据委派 (CredSSP) 将缓存用户的纯文本凭据，即使**允许委派默认凭据**启用组策略设置。
 
--   开始使用 Windows 8.1 和 Windows Server 2012 R2、Windows 摘要将不缓存的用户纯文本的凭据 Windows 摘要处于启用状态，即使。
+-   从 Windows 8.1 和 Windows Server 2012 R2 开始，Windows 摘要不会缓存用户的纯文本凭据即使在启用了 Windows Digest。
 
 > [!Note]
-> 安装之后[Microsoft 安全公告 2871997](https://technet.microsoft.com/library/security/2871997) Windows 摘要将继续缓存凭据直到配置注册表项。 请参阅[Microsoft 安全公告：更新以改进都凭据保护和管理：2014 年 5 月 13 日](https://support.microsoft.com/en-us/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a)的说明进行操作。
+> 安装后[Microsoft 安全公告 2871997](https://technet.microsoft.com/library/security/2871997) Windows 摘要将继续到缓存的凭据，直到配置注册表项。 请参阅[Microsoft 安全公告：更新后改进凭据保护和管理：2014 年 5 月 13，](https://support.microsoft.com/en-us/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a)有关的说明。
 
--   NTLM 将缓存用户纯文本凭据或 NT 单向函数 (NTOWF)。
+-   NTLM 不会缓存用户的纯文本凭据或 NT 单向函数 (NTOWF)。
 
--   Kerberos 将不会再创建 DES 或 RC4 键。 此外它不会初始 TGT 获取之后中缓存用户纯文本凭据或长期键。
+-   Kerberos 将无法再创建 DES 或 RC4 密钥。 此外它不会获得初始 TGT 后中缓存用户的纯文本凭据或长期密钥。
 
--   缓存的验证程序不会在登录且创建或解锁，因此不会再支持离线状态下登录。
+-   缓存验证程序不会创建在登录或解锁，因此不再支持脱机登录。
 
-用户帐户将添加到保护用户组后，用户登录到设备时，会开始保护。
+用户帐户添加到受保护用户组后，当用户登录到设备时，将开始保护。
 
-### <a name="domain-controller-protections-for-protected-users"></a>对于受保护的用户域控制器保护
-找不到所的组成员的受保护的用户，对 Windows Server 2012 R2 域进行身份验证的客户：
+### <a name="domain-controller-protections-for-protected-users"></a>为受保护用户的域控制器保护
+向 Windows Server 2012 R2 域进行身份验证的受保护用户组成员的帐户不能为：
 
--   与 NTLM 身份验证，验证身份。
+-   使用 NTLM 身份验证进行验证。
 
--   使用预 Kerberos 的身份验证 DES 或 RC4 加密类型。
+-   在 Kerberos 预身份验证中使用 DES 或 RC4 加密类型。
 
--   使用不受约束或受限制委派委派。
+-   使用不受约束或约束的委派进行委派。
 
--   续订 Kerberos Tgt 之外的初始四小时生命周期。
+-   在超出最初的四小时生存期后续订 Kerberos TGT。
 
-为 Tgt 过期非配置设置为每个帐户建立保护用户组中。 通常，域控制器设置 Tgt 生命周期内和续订，根据域的策略，**票证用户最长寿命**和**最长用户票证续订寿命**。 对于受保护的用户组中，600 分钟这些域策略设置。
+在受保护的用户组中为每个帐户建立 TGT 到期的非可配置设置。 通常，域控制器基于域策略、“用户票证最长生存期”和“用户票证续订的最长生存期”设置 TGT 生存期和续订。 对于受保护的用户组，为这些域策略设置为 600 分钟。
 
-有关详细信息，请参阅[如何配置保护帐户](how-to-configure-protected-accounts.md)。
+有关详细信息，请参阅[如何配置受保护的帐户](how-to-configure-protected-accounts.md)。
 
-## <a name="troubleshooting"></a>故障排除
-两个操作管理日志，可帮助解决事件相关的受保护的用户。 这些新日志位于事件查看器中默认情况下，已禁用和位于下**应用程序和服务 Logs\ Microsoft \Windows\ Microsoft \Authentication**。
+## <a name="troubleshooting"></a>疑难解答
+提供两个操作管理日志，以帮助对受保护用户的相关事件进行疑难解答。 这些新的日志位于事件查看器中，在默认情况下已禁用，并且位于“Applications and Services Logs\Microsoft\Windows\Microsoft\Authentication” 下。
 
-|事件 ID，并登录|描述|
+|事件 ID 和日志|描述|
 |----------|--------|
-|104<br /><br />**ProtectedUser 客户端**|原因：安全程序包客户端上的不包含的凭据。<br /><br />保护用户安全组成员的帐户时，将在客户端计算机记录错误。 此事件表示安全包不缓存需要为服务器身份验证的凭据。<br /><br />显示程序包名称、用户的名称、域名称和服务器的名称。|
-|304<br /><br />**ProtectedUser 客户端**|原因：安全包不会存储受保护的用户的凭据。<br /><br />信息的事件将记录在客户端，以指示安全包不缓存用户的登录凭据。 预计，摘要 (WDigest)、委派凭据 (CredSSP)，以及 NTLM 无法已登录凭据的受保护的用户。 如果这些提示输入凭据，仍可以成功的应用程序。<br /><br />显示包姓名、用户名和域名。|
-|100<br /><br />**ProtectedUserFailures 域控制器**|原因：NTLM 登录失败时发生保护用户安全组中的帐户。<br /><br />错误已登录的域控制器，以指示 NTLM 身份验证失败，因为该帐户已受到保护用户安全组成员。<br /><br />显示的帐户名称和设备名称。|
-|104<br /><br />**ProtectedUserFailures 域控制器**|原因：DES 或 RC4 加密类型用于 Kerberos 身份验证，并保护用户安全组中的用户出现登录失败。<br /><br />Kerberos 预身份验证失败，因为保护用户安全组成员的帐户时，不能使用 DES 和 RC4 加密的类型。<br /><br />（AES 是可接受。）|
-|303<br /><br />**ProtectedUserSuccesses 域控制器**|原因：的保护用户组成员成功发出 Kerberos-授权-票证 (TGT)。|
+|104<br /><br />“受保护用户客户端”|原因：客户端上的安全程序包不包含这些凭据。<br /><br />当该帐户是受保护的用户安全组的成员时，将在客户端计算机中记录错误。 此事件指示安全程序包不会缓存在对服务器进行身份验证时所需的凭据。<br /><br />显示程序包名称、用户名、域名和服务器名称。|
+|304<br /><br />“受保护用户客户端”|原因：安全程序包不会存储受保护用户的凭据。<br /><br />信息事件记录在客户端来指示安全程序包不会缓存用户的登录凭据。 预期结果是 Digest (WDigest)、凭据委派 (CredSSP) 和 NTLM 无法具有受保护用户的登录凭据。 如果提示输入凭据，则仍然能够成功执行应用程序。<br /><br />显示程序包名称、用户名和域名。|
+|100<br /><br />**ProtectedUserFailures-DomainController**|原因：对于在受保护的用户安全组中的帐户，发生 NTLM 登录失败。<br /><br />在域控制器中记录错误，以指示 NTLM 身份验证失败，因为该帐户已是受保护用户安全组的成员。<br /><br />显示帐户名称和设备名称。|
+|104<br /><br />**ProtectedUserFailures-DomainController**|原因：DES 或 RC4 加密类型用于进行 Kerberos 身份验证，以及对于受保护用户安全组中的用户，发生登录故障。<br /><br />Kerberos 预身份验证失败，因为当该帐户是受保护用户安全组的成员时，不能使用 DES 和 RC4 加密类型。<br /><br />（AES 是可接受的。）|
+|303<br /><br />**ProtectedUserSuccesses-DomainController**|原因：对于受保护用户组的成员，已成功进行 Kerberos 票证授予票证 (TGT)。|
 
 
 
-## <a name="additional-resources"></a>更多资源
+## <a name="additional-resources"></a>其他资源
 
 -   [凭据保护和管理](credentials-protection-and-management.md)
 
--   [身份验证的策略和身份验证策略思](authentication-policies-and-authentication-policy-silos.md)
+-   [身份验证策略和身份验证策略接收器](authentication-policies-and-authentication-policy-silos.md)
 
 -   [如何配置受保护的帐户](how-to-configure-protected-accounts.md)
 

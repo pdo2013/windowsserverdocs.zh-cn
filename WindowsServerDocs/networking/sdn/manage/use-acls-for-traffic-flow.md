@@ -1,7 +1,7 @@
 ---
-title: 用于管理数据中心网络流量访问 Acl)
-description: 本主题介绍的软件定义网络指南如何管理租户工作负载和 Windows Server 2016 中的虚拟网络的一部分。
-manager: brianlic
+title: 使用访问控制列表 (Acl) 来管理数据中心网络流量流
+description: 在本主题中，您学习如何配置访问控制列表 (Acl) 来管理在虚拟子网中使用数据中心防火墙和 Acl 的数据流量流。 启用并配置数据中心防火墙通过创建获取应用于虚拟子网或网络接口的 Acl。
+manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,47 +12,44 @@ ms.topic: article
 ms.assetid: 6a7ac5af-85e9-4440-a631-6a3a38e9015d
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 64b7e1abf1ddb8132a8c6692fe82521c589f32df
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 08/27/2018
+ms.openlocfilehash: 1364261f7ab1e732ac77b7c90d49c245aa8cbc25
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59861418"
 ---
-# <a name="use-access-control-lists-acls-to-manage-datacenter-network-traffic-flow"></a>用于管理数据中心网络流量访问 Acl)
+# <a name="use-access-control-lists-acls-to-manage-datacenter-network-traffic-flow"></a>使用访问控制列表 (Acl) 来管理数据中心网络流量流
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-你可以使用本主题以了解如何配置访问控制列表管理虚拟子网使用 Datacenter 防火墙和 Acl 数据流量。  
+在本主题中，您学习如何配置访问控制列表 (Acl) 来管理在虚拟子网中使用数据中心防火墙和 Acl 的数据流量流。 启用并配置数据中心防火墙通过创建获取应用于虚拟子网或网络接口的 Acl。   
   
-你可以启用并创建应用到虚拟子网或网络接口 Acl 配置 Datacenter 防火墙。  
+本主题中的以下示例演示如何使用 Windows PowerShell 来创建这些 Acl。  
   
-下面示例展示如何使用 Windows PowerShell 创建这些 Acl。  
+## <a name="configure-datacenter-firewall-to-allow-all-traffic"></a>配置数据中心防火墙以允许所有流量  
   
-## <a name="configure-datacenter-firewall-to-allow-all-traffic"></a>配置数据中心防火墙，以允许所有通信  
+一旦部署 SDN，应在新环境中测试的基本网络连接。  若要实现此目的，创建允许所有网络流量，不受限制的数据中心防火墙规则。   
   
-后部署 SDN，建议你在新环境测试基本网络连接。  
+使用下表中的条目创建一组允许所有入站和出站网络流量的规则。
   
-为此，你可以允许无限制的所有网络通信的数据中心防火墙创建为规则。   
+|源 IP|目标 IP|协议|源端口|目标端口|Direction|操作|Priority |   
+|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+|*    |   *      |   全部      |    *     |      *   |     入站    |   允许      |   100  |      
+|*    |     *    |     全部    |     *    |     *    |   出站      |  允许       |  110  |
+---       
   
-可以使用下表中的条目创建一套允许所有传入和传出网络通信的规则。  
+### <a name="example-create-an-acl"></a>例如：创建一个 ACL 
+在此示例中，使用两个规则创建一个 ACL:
   
+1. **AllowAll_Inbound** -允许所有网络流量进入其中配置此 ACL 的网络接口。    
+2. **AllowAllOutbound** -允许所有流量从网络接口传递。 此 ACL，由"AllowAll-1"的资源 id 标识现在已准备好虚拟子网和网络接口中使用。  
   
-  
-源 IP|目标 IP|协议|源端口|目标端口|方向|操作|优先级   
----------|---------|---------|---------|---------|---------|---------|---------  
-*    |   *      |   所有      |    *     |      *   |     归巢的    |   允许      |   100        
-*    |     *    |     所有    |     *    |     *    |   站      |  允许       |  110         
-  
-  
-包含两个规则 ACL 创建了此示例脚本：    
-- 第一个规则"AllowAll_Inbound"允许所有网络通信将传递到网络接口此 ACL 配置的位置。    
-- 该第二个规则"AllowAllOutbound"允许通过网络接口退出所有通信。  
-此 ACL，具体由资源 id"AllowAll 1"现在就可以用于虚拟子网和网络接口中。  
-  
-下面的示例脚本使用 Windows PowerShell 命令导出从**NetworkController**模块创建此 ACL。  
+下面的示例脚本使用 Windows PowerShell 命令从导出**NetworkController**模块来创建此 ACL。  
   
   
-```  
+```PowerShell
 $ruleproperties = new-object Microsoft.Windows.NetworkController.AclRuleProperties  
 $ruleproperties.Protocol = "All"  
 $ruleproperties.SourcePortRange = "0-65535"  
@@ -85,29 +82,27 @@ New-NetworkControllerAccessControlList -ResourceId "AllowAll" -Properties $aclli
 ```  
   
 >[!NOTE]  
->网络控制器 Windows PowerShell 命令参考位于主题[网络控制器 Cmdlet](https://technet.microsoft.com/library/mt576401.aspx)。  
+>网络控制器的 Windows PowerShell 命令参考位于主题[网络控制器 Cmdlet](https://technet.microsoft.com/library/mt576401.aspx)。  
   
-## <a name="use-acls-to-limit-traffic-on-a-subnet"></a>使用 Acl 限制子网上通信  
-  
-你可以使用此示例中创建阻止虚拟机 (Vm) ACL 192.168.0.0/24 子网从彼此通信内。   
-  
-这种类型的 ACL 可用于限制攻击能够子网内, 横向传播同时仍然允许 Vm 接收来自请求之外子网，以及与其他服务其他子网进行通信。  
+## <a name="use-acls-to-limit-traffic-on-a-subnet"></a>使用 Acl 来限制子网的流量  
+在此示例中，创建阻止 Vm 192.168.0.0/24 子网内相互进行通信的 ACL。 此类型的 ACL 可用于限制攻击者能够在子网内横向分布同时仍允许 Vm 接收来自子网外部的请求，以及与其他子网上的其他服务进行通信。   
   
   
-源 IP|目标 IP|协议|源端口|目标端口|方向|操作|优先级   
----------|---------|---------|---------|---------|---------|---------|---------  
-192.168.0.1    | * | 所有 | * | * | 归巢的|   允许      |   100        
-* |192.168.0.1 | 所有 | * | * | 站|  允许       |  101         
-192.168.0.0/24 | * | 所有 | * | * | 归巢的| 阻止 | 102  
-* | 192.168.0.0/24 |所有| * | * | 站 | 阻止 |103  
-* | *  |所有| * | * | 归巢的 | 允许 |104  
-* | *  |所有| * | * | 站 | 允许 |105  
+|源 IP|目标 IP|协议|源端口|目标端口|Direction|操作|Priority |  
+|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|  
+|192.168.0.1    | * | 全部 | * | * | 入站|   允许      |   100        |
+|* |192.168.0.1 | 全部 | * | * | 出站|  允许       |  101         |
+|192.168.0.0/24 | * | 全部 | * | * | 入站| 阻止 | 102  |
+|* | 192.168.0.0/24 |全部| * | * | 出站 | 阻止 |103  |
+|* | *  |全部| * | * | 入站 | 允许 |104  |
+|* | *  |全部| * | * | 出站 | 允许 |105  |
+--- 
+
+下面的示例脚本按资源 id 标识创建的 ACL**子网-192-168-0-0**，现在可以应用到使用"192.168.0.0/24"子网地址的虚拟网络子网。  任何网络接口附加到该虚拟网络子网自动获取应用的更高版本的 ACL 规则。  
   
-示例脚本下方，具体由资源 id 创建的 ACL**子网-192-168-0-0**，现在可以将应用到使用"192.168.0.0/24"子网地址虚拟网。  自动连接到该虚拟子网任何网络接口获取上述 ACL 规则应用。  
+下面是使用 Windows Powershell 命令来创建使用网络控制器 REST API 此 ACL 的示例脚本：  
   
-以下是使用 Windows Powershell 命令创建使用网络控制器 REST API 此 ACL 一个示例脚本：  
-  
-```  
+```PowerShell  
 import-module networkcontroller  
 $ncURI = "https://mync.contoso.local"  
 $aclrules = @()  

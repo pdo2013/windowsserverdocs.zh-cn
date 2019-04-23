@@ -1,7 +1,7 @@
 ---
 ms.assetid: 604c771b-efae-4d0c-84a1-693e1f96d705
-title: "确定您的广告 FS 部署目标"
-description: 
+title: 标识 AD FS 部署目标
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,26 +10,27 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 83383d3e1c75c7a6e6c8b42c010a17ceebf51e88
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59848108"
 ---
-# <a name="identifying-your-ad-fs-deployment-goals"></a>确定您的广告 FS 部署目标
+# <a name="identifying-your-ad-fs-deployment-goals"></a>标识 AD FS 部署目标
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-正确识别您的 Active Directory 联合身份验证服务 \(AD FS\) 部署目标至关重要的广告 FS 设计项目成功。 根据你的组织和你想要为信息技术 \(IT\) 人员在任何合作伙伴组织中，可以清晰地确定 real\ 世界部署问题影像声明中的项目团队形式提供的参与级别的大小。 请确保在此团队的成员，了解你部署项目必须移动才能访问你的广告 FS 部署目标方向。  
+正确识别 Active Directory 联合身份验证服务\(AD FS\)部署目标对于 AD FS 设计项目的成功至关重要。 具体取决于你的组织和您想要提供的信息技术的参与程度的大小\(IT\)任何伙伴组织中的员工、 组建项目团队可以清楚地阐明实际\-远景声明中的全球部署问题。 请确保此团队的成员了解你的部署项目前进的为了实现 AD FS 部署目标的方向。  
   
-当编写影像声明时，识别、 阐明和优化部署目标。 优先考虑并，可能是，结合部署目标，以便你可以设计并将其部署广告 FS 使用迭代的方法。 你随时可以充分利用现有、 记录，并且预定义的开发工作解决方案您的具体情况，相关的广告 FS 设计广告 FS 部署目标。  
+当你编写愿景陈述时，请标识、阐明和优化部署目标。 确定优先级，并可能是，合并部署目标，以便您可以设计和部署 AD FS 通过使用一种迭代方法。 您可以充分利用现有的、 已记录在案、 和预定义的与 AD FS 设计和开发工作解决方案适合您情况的 AD FS 部署目标。  
   
-下表列出了阐述、 优化，以及记录广告 FS 部署目标的任务。  
+下表列出了用于阐明、 优化和记录您的 AD FS 部署目标的任务。  
   
-|任务|引用的链接|  
+|任务|参考链接|  
 |--------|-------------------|  
-|评估预定义的广告 FS 部署目标，在此部分中的指南，提供，它们将联系你的组织目标的一个或多个目标|-   [为你识别索赔应用程序和服务提供你 Active Directory 用户访问](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)<br />-   [提供您 Active Directory 用户的访问权限的应用程序和其他公司的服务](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)<br />-   [提供您的索赔识别的应用程序和服务中的用户另一个组织访问](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)|  
-|一个目标或预定义的广告 FS 部署目标的任意组合映射到现有广告 FS 设计|-   [广告 FS 设计映射部署目标](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md)|  
+|评估本指南的本部分中提供并合并一个或多个目标以达成你的组织目标的预定义的 AD FS 部署目标|-   [对声明感知应用程序和服务提供 Active Directory 用户访问权限](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)<br />-   [向应用程序和服务的其他组织提供 Active Directory 用户访问权限](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)<br />-   [另一个组织 Access 中的用户提供对声明感知应用程序和服务](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)|  
+|将一个目标或任意预定义的 AD FS 部署目标组合映射到现有 AD FS 设计|-   [将部署目标映射到 AD FS 设计](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md)|  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 指导广告 FS 设计](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
 

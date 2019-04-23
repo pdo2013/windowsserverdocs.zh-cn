@@ -1,0 +1,1 @@
+**[了解有关 Always On VPN 和 DirectAccess 的功能比较](../vpn/vpn-map-da.md)。** 与 DirectAccess 相似，Always On VPN 有很多安全、 连接、 身份验证和其他选项。

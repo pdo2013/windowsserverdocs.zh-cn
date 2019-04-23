@@ -1,6 +1,6 @@
 ---
 title: 安装网络控制器服务器角色使用服务器管理器
-description: 本主题提供有关如何使用 Windows Server 2016 中服务器管理器中安装了网络控制器服务器角色说明进行操作。
+description: 本主题将说明了如何在 Windows Server 2016 中使用服务器管理器安装网络控制器服务器角色。
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-sdn
@@ -9,56 +9,57 @@ ms.topic: get-started-article
 ms.assetid: 3a6e4352-ff62-4290-b8a4-5c83740070fc
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 15cb1ef3bad7038cc97784504807b44b4920def6
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 699e2ca5c4ec33099d0ad948523b6f587ad118e4
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59859058"
 ---
 # <a name="install-the-network-controller-server-role-using-server-manager"></a>安装网络控制器服务器角色使用服务器管理器
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-本主题提供有关如何安装网络控制器服务器角色使用服务器管理器的说明进行操作。
+本主题将说明了如何使用服务器管理器安装网络控制器服务器角色。
 
 >[!IMPORTANT]
->不要部署物理主机上的了网络控制器服务器角色。 若要部署网络控制器，必须安装网络控制器服务器角色 Hyper-V 虚拟机上 \(VM\) Hyper-V 主机上安装。 通过添加到网络控制器使用 Windows PowerShell 命令主机上安装了网络控制器在虚拟机上三个不同的 Hyper\ V 主机后，必须启用软件定义网络 \(SDN\) Hyper\ V 主机**新建 NetworkControllerServer**。 通过执行此操作，你启用 SDN 软件负载平衡函数。 有关详细信息，请参阅[新建 NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver)。
+>不要部署物理主机上的网络控制器服务器角色。 若要部署网络控制器，必须安装网络控制器服务器角色上的 HYPER-V 虚拟机\(VM\)安装在 HYPER-V 主机上。 在三个不同超上的 Vm 上安装网络控制器后\-V 主机，必须启用超\-V 软件定义的网络的主机\(SDN\)通过添加到网络控制器使用的主机Windows PowerShell 命令**新建 NetworkControllerServer**。 这样，要启用 SDN 软件负载均衡器函数。 有关详细信息，请参阅[新建 NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver)。
   
-安装网络控制器后，你必须使用其他网络控制器配置的 Windows PowerShell 命令。 有关详细信息，请参阅[部署网络控制器使用 Windows PowerShell](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)。  
+安装网络控制器后，必须额外的网络控制器配置为使用 Windows PowerShell 命令。 有关详细信息，请参阅[使用 Windows PowerShell 部署网络控制器](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)。  
   
 ### <a name="to-install-network-controller"></a>若要安装网络控制器  
   
-1.  在服务器管理器中，单击**管理**，然后单击**添加角色和功能**。 添加角色和功能向导将打开。 单击**下一步**。  
+1.  在“服务器管理器”中，单击“管理”，然后单击“添加角色和功能”。 添加角色和功能向导将打开。 单击“下一步” 。  
   
-2.  在**选择安装类型**保持默认设置，请单击**下一步**。  
+2.  在中**选择安装类型**，保留默认设置，然后单击**下一步**。  
   
-3.  在**选择目标服务器**，选择要安装网络控制器，然后单击的服务器**下一步**。  
+3.  在中**选择目标服务器**，选择你想要安装网络控制器，然后单击的服务器**下一步**。  
   
-4.  在**选择服务器角色**中**角色**，单击**网络控制器**。  
+4.  在中**选择服务器角色**，在**角色**，单击**网络控制器**。  
   
     ![网络控制器服务器角色](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_07.jpg)  
   
-5.  **添加所需的网络控制器的功能**对话框中打开。 单击**添加功能**。  
+5.  **添加所需的网络控制器功能**对话框随即打开。 单击**将功能添加**。  
   
-    ![网络控制器添加功能](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_06.jpg)  
+    ![为网络控制器中添加功能](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_06.jpg)  
   
-6.  在**选择服务器角色**，单击**下一步**。  
+6.  在中**选择服务器角色**，单击**下一步**。  
   
-    ![单击下一页](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_07.jpg)  
+    ![单击“下一步”](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_07.jpg)  
   
-7.  在**选择功能**，单击**下一步**。  
+7.  在中**选择功能**，单击**下一步**。  
   
-8.  在**网络控制器**单击**下一步**。  
+8.  在中**网络控制器**单击**下一步**。  
   
-9. 在**确认安装选择**，查看你的选择。 安装网络控制器要求向导将运行后重启计算机。 出于此原因，请单击**必要时自动重新启动目标服务器**。 **添加角色和功能向导**对话框中打开。 单击**是**。  
+9. 在中**确认安装选择**，查看你的选择。 安装网络控制器需要运行该向导后重新启动计算机。 正因为如此，单击**如果需要自动重新启动目标服务器**。 **添加角色和功能向导**对话框随即打开。 单击 **“是”**。  
   
-    ![添加角色和功能向导](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_11.jpg)  
+    ![“添加角色和功能”向导](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_11.jpg)  
   
-10. 在**确认安装选择**，单击**安装**。  
+10. 在 **“确认安装选择”** 中，单击 **“安装”**。  
   
-11. 目标服务器，在安装了网络控制器服务器角色，然后重新启动该服务器。  
+11. 网络控制器服务器角色安装在目标服务器上，然后在服务器的重新启动。  
   
-12. 计算机重新启动后，登录到计算机并验证网络控制器安装通过查看服务器管理器。  
+12. 在计算机重新启动后，登录到计算机上，并通过服务器管理器中查看验证网络控制器的安装。  
   
     ![服务器管理器](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/nc_013.jpg)  
   

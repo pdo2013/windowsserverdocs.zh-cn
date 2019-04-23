@@ -1,7 +1,7 @@
 ---
-title: 在虚拟网络群集的访客
-description: 本主题介绍的软件定义网络指南如何管理租户工作负载和 Windows Server 2016 中的虚拟网络的一部分。
-manager: brianlic
+title: 虚拟网络中的来宾群集
+description: 连接到虚拟网络的虚拟机只被允许使用网络控制器分配为在网络上通信的 IP 地址。  聚类分析技术需要浮动 IP 地址，如 Microsoft 故障转移群集，需要一些额外步骤才能正常工作。
+manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,165 +12,176 @@ ms.topic: article
 ms.assetid: 8e9e5c81-aa61-479e-abaf-64c5e95f90dc
 ms.author: grcusanz
 author: shortpatti
-ms.openlocfilehash: 5cab7e7c0ca0af848b4b58362388701cc4357860
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 08/26/2018
+ms.openlocfilehash: fcd37ebb3739f1d7118ce41dfc61764486c920d3
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59844958"
 ---
-# <a name="guest-clustering-in-a-virtual-network"></a>在虚拟网络群集的访客
+# <a name="guest-clustering-in-a-virtual-network"></a>虚拟网络中的来宾群集
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-连接到虚拟网络的虚拟机获准仅用于网络控制器具备以便通信网络上的 IP 地址。  这意味着群集技术，需要浮动 IP 地址，如 Microsoft 故障转移群集需要一些额外的步骤才能正常工作。
+连接到虚拟网络的虚拟机只被允许使用网络控制器分配为在网络上通信的 IP 地址。  聚类分析技术需要浮动 IP 地址，如 Microsoft 故障转移群集，需要一些额外步骤才能正常工作。
 
-对进行浮动 IP 到达方法是使用软件负载平衡 \(SLB\) 虚拟 IP \(VIP\)。  必须配置端口该 IP 上健康探测软件负载平衡以便 SLB 将定向到当前已该 IP 该计算机的交通。
+从而浮动 IP 可访问的方法是使用软件负载均衡器\(SLB\)虚拟 IP \(VIP\)。  必须使用运行状况探测端口上的 IP 配置软件负载均衡器，以便 SLB 将流量定向到当前具有该 IP 的计算机。
 
-## <a name="example-load-balancer-configuration"></a>示例： 负载平衡配置
 
-此示例中假定已已经创建了虚拟机的功能，这将变得群集节点，连接到虚拟网络它们。  有关指南，请参阅[创建 VM 和连接到租户虚拟网络或 VLAN](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create-a-tenant-vm)。  
+## <a name="example-load-balancer-configuration"></a>例如：负载均衡器配置
 
-在此示例中，你将创建虚拟 IP 地址 (192.168.2.100) 代表群集的浮动 IP 地址和配置健康探测监控 TCP 端口 59999 以确定哪个节点处于活动状态一。
+此示例假定，您已创建的将成为群集节点，并附加到虚拟网络的 Vm。  有关指南，请参阅[创建 VM 和连接到租户虚拟网络或 VLAN](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create-a-tenant-vm)。  
 
-### <a name="step-1-select-the-vip"></a>第 1 步： 选择 VIP
-准备通过分配 VIP IP 地址。  此地址可以相同子网群集节点中的任何未使用或保留地址。  VIP 必须匹配群集浮动地址。
+在此示例将创建一个虚拟 IP 地址 (192.168.2.100) 来表示浮动 IP 地址的群集，并配置运行状况探测来监视 TCP 端口 59999，以确定哪一节点是活动。
 
-    $VIP = "192.168.2.100"
-    $subnet = "Subnet2"
-    $VirtualNetwork = "MyNetwork"
-    $ResourceId = "MyNetwork_InternalVIP"
+1. 选择 VIP。<p>准备通过分配一个 VIP IP 地址，这可以是群集节点位于同一子网中的任何未使用或保留地址。  VIP 必须与群集的浮动地址匹配。
 
-### <a name="step-2-create-the-load-balancer-properties-object"></a>第 2 步： 创建负载平衡属性对象
+   ```PowerShell
+   $VIP = "192.168.2.100"
+   $subnet = "Subnet2"
+   $VirtualNetwork = "MyNetwork"
+   $ResourceId = "MyNetwork_InternalVIP"
+   ```
 
-可以使用下面的示例命令来创建负载平衡属性对象。
+2. 创建负载均衡器的属性对象。
 
-    $LoadBalancerProperties = new-object Microsoft.Windows.NetworkController.LoadBalancerProperties
+   ```PowerShell
+   $LoadBalancerProperties = new-object Microsoft.Windows.NetworkController.LoadBalancerProperties
+   ```
 
-### <a name="step-3-create-a-front-end-ip-address"></a>第 3 步： 创建 front\ 最终 IP 地址
+3. 创建 front\-结束 IP 地址。
 
-可以使用下面的示例命令创建 front\ 最终 IP 地址。
+   ```PowerShell
+   $LoadBalancerProperties.frontendipconfigurations += $FrontEnd = new-object Microsoft.Windows.NetworkController.LoadBalancerFrontendIpConfiguration
+   $FrontEnd.properties = new-object Microsoft.Windows.NetworkController.LoadBalancerFrontendIpConfigurationProperties
+   $FrontEnd.resourceId = "Frontend1"
+   $FrontEnd.resourceRef = "/loadBalancers/$ResourceId/frontendIPConfigurations/$($FrontEnd.resourceId)"
+   $FrontEnd.properties.subnet = new-object Microsoft.Windows.NetworkController.Subnet
+   $FrontEnd.properties.subnet.ResourceRef = "/VirtualNetworks/MyNetwork/Subnets/Subnet2"
+   $FrontEnd.properties.privateIPAddress = $VIP
+   $FrontEnd.properties.privateIPAllocationMethod = "Static"
+   ```
 
-    $LoadBalancerProperties.frontendipconfigurations += $FrontEnd = new-object Microsoft.Windows.NetworkController.LoadBalancerFrontendIpConfiguration
-    $FrontEnd.properties = new-object Microsoft.Windows.NetworkController.LoadBalancerFrontendIpConfigurationProperties
-    $FrontEnd.resourceId = "Frontend1"
-    $FrontEnd.resourceRef = "/loadBalancers/$ResourceId/frontendIPConfigurations/$($FrontEnd.resourceId)"
-    $FrontEnd.properties.subnet = new-object Microsoft.Windows.NetworkController.Subnet
-    $FrontEnd.properties.subnet.ResourceRef = "/VirtualNetworks/MyNetwork/Subnets/Subnet2"
-    $FrontEnd.properties.privateIPAddress = $VIP
-    $FrontEnd.properties.privateIPAllocationMethod = "Static"
+4. 创建备份\-端包含在群集节点的池。
 
-### <a name="step-4-create-a-back-end-pool-to-contain-the-cluster-nodes"></a>第 4 步： 创建包含群集节点 back\ 结束池
+   ```PowerShell
+   $BackEnd = new-object Microsoft.Windows.NetworkController.LoadBalancerBackendAddressPool
+   $BackEnd.properties = new-object Microsoft.Windows.NetworkController.LoadBalancerBackendAddressPoolProperties
+   $BackEnd.resourceId = "Backend1"
+   $BackEnd.resourceRef = "/loadBalancers/$ResourceId/backendAddressPools/$($BackEnd.resourceId)"
+   $LoadBalancerProperties.backendAddressPools += $BackEnd
+   ```
 
-你可以使用下面的示例命令创建 back\ 结束池
+5. 添加探测来检测浮动地址当前处于活动状态上的群集节点。 
 
-    $BackEnd = new-object Microsoft.Windows.NetworkController.LoadBalancerBackendAddressPool
-    $BackEnd.properties = new-object Microsoft.Windows.NetworkController.LoadBalancerBackendAddressPoolProperties
-    $BackEnd.resourceId = "Backend1"
-    $BackEnd.resourceRef = "/loadBalancers/$ResourceId/backendAddressPools/$($BackEnd.resourceId)"
-    $LoadBalancerProperties.backendAddressPools += $BackEnd
+   >[!NOTE]
+   >针对 VM 的永久在下面定义的端口地址的探测查询。  端口必须只能响应的活动节点上。 
 
-### <a name="step-5-add-a-probe"></a>第 5 步： 添加探测
-探测有必要检测浮动地址当前处于活动状态的群集节点。
+   ```PowerShell
+   $LoadBalancerProperties.probes += $lbprobe = new-object Microsoft.Windows.NetworkController.LoadBalancerProbe
+   $lbprobe.properties = new-object Microsoft.Windows.NetworkController.LoadBalancerProbeProperties
 
->[!NOTE]
->在下面的定义端口 VM 永久地址探测查询。  端口必须仅活动节点上的响应。 
+   $lbprobe.ResourceId = "Probe1"
+   $lbprobe.resourceRef = "/loadBalancers/$ResourceId/Probes/$($lbprobe.resourceId)"
+   $lbprobe.properties.protocol = "TCP"
+   $lbprobe.properties.port = "59999"
+   $lbprobe.properties.IntervalInSeconds = 5
+   $lbprobe.properties.NumberOfProbes = 11
+   ```
 
-    $LoadBalancerProperties.probes += $lbprobe = new-object Microsoft.Windows.NetworkController.LoadBalancerProbe
-    $lbprobe.properties = new-object Microsoft.Windows.NetworkController.LoadBalancerProbeProperties
+6. 添加负载均衡规则的 TCP 端口 1433年。<p>您可以修改协议和端口根据需要。  您可以多次重复此步骤，为其他端口和此 VIP 上的 protcols。  务必 EnableFloatingIP 属性设置为 $true 因为这将告知负载均衡器将数据包发送到与原始 VIP 就地节点。
 
-    $lbprobe.ResourceId = "Probe1"
-    $lbprobe.resourceRef = "/loadBalancers/$ResourceId/Probes/$($lbprobe.resourceId)"
-    $lbprobe.properties.protocol = "TCP"
-    $lbprobe.properties.port = "59999"
-    $lbprobe.properties.IntervalInSeconds = 5
-    $lbprobe.properties.NumberOfProbes = 11
+   ```PowerShell
+   $LoadBalancerProperties.loadbalancingRules += $lbrule = new-object Microsoft.Windows.NetworkController.LoadBalancingRule
+   $lbrule.properties = new-object Microsoft.Windows.NetworkController.LoadBalancingRuleProperties
+   $lbrule.ResourceId = "Rules1"
 
-### <a name="step-5-add-the-load-balancing-rules"></a>第 5 步： 添加负载平衡规则
-此步骤创建负载平衡 TCP 端口 1433年规则。  你可以修改协议并根据需要端口。  你也可以重复此步骤多次的其他端口，此 VIP 上的 protcols。  很重要，因为这会告知负载平衡发送给就地原始 VIP 节点数据包 $true 到设置 EnableFloatingIP。
+   $lbrule.properties.frontendipconfigurations += $FrontEnd
+   $lbrule.properties.backendaddresspool = $BackEnd 
+   $lbrule.properties.protocol = "TCP"
+   $lbrule.properties.frontendPort = $lbrule.properties.backendPort = 1433 
+   $lbrule.properties.IdleTimeoutInMinutes = 4
+   $lbrule.properties.EnableFloatingIP = $true
+   $lbrule.properties.Probe = $lbprobe
+   ```
 
-    $LoadBalancerProperties.loadbalancingRules += $lbrule = new-object Microsoft.Windows.NetworkController.LoadBalancingRule
-    $lbrule.properties = new-object Microsoft.Windows.NetworkController.LoadBalancingRuleProperties
-    $lbrule.ResourceId = "Rules1"
+7. 在网络控制器中创建负载均衡器。
 
-    $lbrule.properties.frontendipconfigurations += $FrontEnd
-    $lbrule.properties.backendaddresspool = $BackEnd 
-    $lbrule.properties.protocol = "TCP"
-    $lbrule.properties.frontendPort = $lbrule.properties.backendPort = 1433 
-    $lbrule.properties.IdleTimeoutInMinutes = 4
-    $lbrule.properties.EnableFloatingIP = $true
-    $lbrule.properties.Probe = $lbprobe
+   ```PowerShell
+   $lb = New-NetworkControllerLoadBalancer -ConnectionUri $URI -ResourceId $ResourceId -Properties $LoadBalancerProperties -Force
+   ```
 
-### <a name="step-5-create-the-load-balancer-in-network-controller"></a>步骤 5： 创建负载平衡网络控制器
+8. 将群集节点添加到后端池。<p>您可以添加任意多个节点到池根据需要为群集。
 
-你可以使用下面的示例命令创建负载平衡。
+   ```PowerShell
+   # Cluster Node 1
 
-    $lb = New-NetworkControllerLoadBalancer -ConnectionUri $URI -ResourceId $ResourceId -Properties $LoadBalancerProperties -Force
-
-### <a name="step-6-add-the-cluster-nodes-to-the-backend-pool"></a>第 6 步： 添加到的后端池的群集节点
-
-此示例显示添加两个池成员，但你可以添加多个节点池根据需要为群集。
-
-    # Cluster Node 1
-
-    $nic = get-networkcontrollernetworkinterface  -connectionuri $uri -resourceid "ClusterNode1_Network-Adapter"
-    $nic.properties.IpConfigurations[0].properties.LoadBalancerBackendAddressPools += $lb.properties.backendaddresspools[0]
-    $nic = new-networkcontrollernetworkinterface  -connectionuri $uri -resourceid $nic.resourceid -properties $nic.properties -force
+   $nic = get-networkcontrollernetworkinterface  -connectionuri $uri -resourceid "ClusterNode1_Network-Adapter"
+   $nic.properties.IpConfigurations[0].properties.LoadBalancerBackendAddressPools += $lb.properties.backendaddresspools[0]
+   $nic = new-networkcontrollernetworkinterface  -connectionuri $uri -resourceid $nic.resourceid -properties $nic.properties -force
 
     # Cluster Node 2
 
-    $nic = get-networkcontrollernetworkinterface  -connectionuri $uri -resourceid "ClusterNode2_Network-Adapter"
-    $nic.properties.IpConfigurations[0].properties.LoadBalancerBackendAddressPools += $lb.properties.backendaddresspools[0]
-    $nic = new-networkcontrollernetworkinterface  -connectionuri $uri -resourceid $nic.resourceid -properties $nic.properties -force
+   $nic = get-networkcontrollernetworkinterface  -connectionuri $uri -resourceid "ClusterNode2_Network-Adapter"
+   $nic.properties.IpConfigurations[0].properties.LoadBalancerBackendAddressPools += $lb.properties.backendaddresspools[0]
+   $nic = new-networkcontrollernetworkinterface  -connectionuri $uri -resourceid $nic.resourceid -properties $nic.properties -force
+   ```
 
-你已创建负载平衡并后端池中添加网络接口后，你就可以配置群集。  如果你使用的 Microsoft 故障转移群集你可以继续下一个示例。 
+   一旦创建负载均衡器并添加到后端池的网络接口后，你现可配置群集。  
 
-## <a name="example-2-configuring-a-microsoft-failover-cluster"></a>示例 2 部分： 配置 Microsoft 故障转移群集
+9. （可选）如果使用 Microsoft 故障转移群集，继续进行下一个示例。 
 
-你可以使用下面的步骤配置故障转移群集。
+## <a name="example-2-configuring-a-microsoft-failover-cluster"></a>示例 2：配置 Microsoft 故障转移群集
 
-### <a name="step-1-install-failover-clustering"></a>第 1 步： 安装故障转移群集
+可以使用以下步骤来配置故障转移群集。
 
-可以使用下面的示例命令来安装和配置为故障转移群集属性。
+1. 安装和配置故障转移群集的属性。
 
-    add-windowsfeature failover-clustering -IncludeManagementTools
-    Import-module failoverclusters
+   ```PowerShell
+   add-windowsfeature failover-clustering -IncludeManagementTools
+   Import-module failoverclusters
 
-    $ClusterName = "MyCluster"
-   
-    $ClusterNetworkName = "Cluster Network 1"
-    $IPResourceName =  
-    $ILBIP = “192.168.2.100” 
+   $ClusterName = "MyCluster"
+   
+   $ClusterNetworkName = "Cluster Network 1"
+   $IPResourceName =  
+   $ILBIP = “192.168.2.100” 
 
-    $nodes = @("DB1", "DB2")
+   $nodes = @("DB1", "DB2")
+   ```
 
-### <a name="step-2-create-the-cluster-on-one-node"></a>第 2 步： 创建一个节点上的群集
+2. 一个节点上创建群集。
 
-你可以使用下面的示例命令创建节点上的群集。
+   ```PowerShell
+   New-Cluster -Name $ClusterName -NoStorage -Node $nodes[0]
+   ```
 
-    New-Cluster -Name $ClusterName -NoStorage -Node $nodes[0]
+3. 停止群集资源。
 
-### <a name="step-3-stop-the-cluster-resource"></a>第 3 步： 停止群集资源
+   ```PowerShell
+   Stop-ClusterResource "Cluster Name" 
+   ```
 
-你可以使用下面的示例命令停止群集资源。
+4. 将群集设置 IP 和探测端口。<p>IP 地址必须匹配在上一示例中，使用的前端 ip 地址和探测端口必须与上一示例中的探测端口匹配。
 
-    Stop-ClusterResource "Cluster Name" 
+   ```PowerShell
+   Get-ClusterResource "Cluster IP Address" | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+   ```
 
-### <a name="step-4-set-the-cluster-ip-and-probe-port"></a>第 4 步： 将群集设置 IP 和探测端口
-IP 地址必须匹配在之前的示例中，使用前端 ip 地址，而探测端口必须匹配上例中的探测端口。
+5. 启动群集资源。
 
-    Get-ClusterResource "Cluster IP Address" | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+   ```PowerShell
+    Start-ClusterResource "Cluster IP Address"  -Wait 60 
+    Start-ClusterResource "Cluster Name"  -Wait 60 
+   ```
 
-### <a name="step-5-start-the-cluster-resources"></a>第 5 步： 启动群集资源
+6. 添加剩余的节点。
 
-可以使用下面的示例命令以启动群集资源。
+   ```PowerShell
+   Add-ClusterNode $nodes[1]
+   ```
 
-    Start-ClusterResource "Cluster IP Address"  -Wait 60 
-    Start-ClusterResource "Cluster Name"  -Wait 60 
+_**群集处于活动状态。**_ 指定的端口上转到 VIP 的流量定向到活动节点。
 
-### <a name="step-6-add-the-remaining-nodes"></a>第 6 步： 添加其余节点
-
-你可以使用下面的示例命令添加群集节点。
-
-    Add-ClusterNode $nodes[1]
-
-完成后的最后一步，群集处于活动状态。 将在活动节点引导指定端口上转到 VIP 交通。
+---

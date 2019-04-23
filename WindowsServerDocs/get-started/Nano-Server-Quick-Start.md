@@ -12,11 +12,11 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 488d0bed661cf2078d20e491a8c68b2a29a42b73
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2081894"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59859518"
 ---
 # <a name="nano-server-quick-start"></a>Nano Server 快速入门
 
@@ -37,7 +37,7 @@ ms.locfileid: "2081894"
   
 1.  将 *NanoServerImageGenerator* 文件夹从 Windows Server 2016 ISO 中 \NanoServer 文件夹复制到你硬盘上的文件夹。  
   
-2.  以管理员身份启动 Windows PowerShell，将目录更改为 NanoServerImageGenerator 文件夹所在的文件夹，然后导入模块，其方法为 `Import-Module .\NanoServerImageGenerator -Verbose`  
+2.  作为管理员，将目录更改为的文件夹，其中 NanoServerImageGenerator 文件夹的文件夹，然后导入的模块启动 Windows PowerShell `Import-Module .\NanoServerImageGenerator -Verbose`  
 >[!NOTE]  
 >可能必须调整 Windows PowerShell 执行策略。 `Set-ExecutionPolicy RemoteSigned` 应能正常工作。  
   
@@ -45,7 +45,7 @@ ms.locfileid: "2081894"
   
     `New-NanoServerImage -Edition Standard -DeploymentType Guest -MediaPath <path to root of media> -BasePath .\Base -TargetPath .\NanoServerVM\NanoServerVM.vhd -ComputerName <computer name>` 其中  
   
-    -   **-MediaPath <path to root of media\>** 指定 Windows Server 2016 ISO 内容位置的根路径。 例如，如果已将该 ISO 的内容复制到 d:\TP5ISO，则将使用该路径。  
+    -   **-MediaPath <媒体的根路径\>** 指定指向 Windows Server 2016 ISO 内容的根路径。 例如，如果已将该 ISO 的内容复制到 d:\TP5ISO，则将使用该路径。  
   
     -   **-BasePath**（可选）指定要创建的用于将 Nano Server WIM 和包复制到其中的文件夹。  
   
@@ -53,9 +53,9 @@ ms.locfileid: "2081894"
   
     -   **Computer_name** 指定正在创建的 Nano Server 虚拟机的计算机名称。  
   
-    **例如：** `New-NanoServerImage -Edition Standard -DeploymentType Guest -MediaPath f:\ -BasePath .\Base -TargetPath .\Nano1\Nano.vhd -ComputerName Nano1`  
+    **示例：** `New-NanoServerImage -Edition Standard -DeploymentType Guest -MediaPath f:\ -BasePath .\Base -TargetPath .\Nano1\Nano.vhd -ComputerName Nano1`  
   
-    此示例将从装载为 f: 的 ISO 创建一个 VHD。 在创建 VHD 时，它将使用在其中运行 New-NanoServerImage 的同一目录中一个名为 Base 的文件夹；它会将 VHD（称为 Nano.vhd）放置于从其中运行此命令的名为 Nano1 的文件夹中。 计算机名称将是 Nano1。 生成的 VHD 将包含 Windows Server 2016 Standard，并将适用于 Hyper-V 虚拟机部署。 如果需要第 1 代虚拟机，可以通过为 -TargetPath 指定一个 **.vhd** 扩展名来创建 VHD 映像。 如果需要第 2 代虚拟机，可以通过为 -TargetPath 指定 **.vhdx** 扩展名来创建 VHDX 映像。 还可以通过为 -TargetPath 指定 **.wim** 扩展名直接生成 WIM 文件。  
+    此示例将从装载为 f:\\ 的 ISO 创建一个 VHD。 在创建 VHD 时，它将使用在其中运行 New-NanoServerImage 的同一目录中一个名为 Base 的文件夹；它会将 VHD（称为 Nano.vhd）放置于从其中运行此命令的名为 Nano1 的文件夹中。 计算机名称将是 Nano1。 生成的 VHD 将包含 Windows Server 2016 Standard，并将适用于 Hyper-V 虚拟机部署。 如果需要第 1 代虚拟机，可以通过为 -TargetPath 指定一个 **.vhd** 扩展名来创建 VHD 映像。 如果需要第 2 代虚拟机，可以通过为 -TargetPath 指定 **.vhdx** 扩展名来创建 VHDX 映像。 还可以通过为 -TargetPath 指定 **.wim** 扩展名直接生成 WIM 文件。  
   
     > [!NOTE]  
     > Windows 8.1、Windows 10、Windows Server 2012 R2 和 Windows Server 2016 均支持 New-NanoServerImage。  
@@ -78,7 +78,7 @@ ms.locfileid: "2081894"
   
 1.  将 *NanoServerImageGenerator* 文件夹从 Windows Server 2016 ISO 中 \NanoServer 文件夹复制到你硬盘上的文件夹。  
   
-2.  以管理员身份启动 Windows PowerShell，将目录更改为 NanoServerImageGenerator 文件夹所在的文件夹，然后导入模块，其方法为 `Import-Module .\NanoServerImageGenerator -Verbose`  
+2.  作为管理员，将目录更改为的文件夹，其中 NanoServerImageGenerator 文件夹的文件夹，然后导入的模块启动 Windows PowerShell `Import-Module .\NanoServerImageGenerator -Verbose`  
   
 >[!NOTE]  
 >可能必须调整 Windows PowerShell 执行策略。 `Set-ExecutionPolicy RemoteSigned` 应能正常工作。  
@@ -87,7 +87,7 @@ ms.locfileid: "2081894"
   
     `New-NanoServerImage -Edition Standard -DeploymentType Host -MediaPath <path to root of media> -BasePath .\Base -TargetPath .\NanoServerPhysical\NanoServer.vhd -ComputerName <computer name> -OEMDrivers -Compute -Clustering` 其中  
   
-    -   **-MediaPath <path to root of media\>** 指定 Windows Server 2016 ISO 内容位置的根路径。 例如，如果已将该 ISO 的内容复制到 d:\TP5ISO，则将使用该路径。  
+    -   **-MediaPath <媒体的根路径\>** 指定指向 Windows Server 2016 ISO 内容的根路径。 例如，如果已将该 ISO 的内容复制到 d:\TP5ISO，则将使用该路径。  
   
     -   **BasePath** 指定要创建用于将 Nano Server WIM 和包复制到其中的文件夹。 （该参数为可选参数。）  
   
@@ -95,7 +95,7 @@ ms.locfileid: "2081894"
   
     -   **Computer_name** 是正在创建的 Nano Server 的计算机名称。  
   
-    **例如：**`New-NanoServerImage -Edition Standard -DeploymentType Host -MediaPath F:\ -BasePath .\Base -TargetPath .\Nano1\NanoServer.vhd -ComputerName Nano-srv1 -OEMDrivers -Compute -Clustering`  
+    **示例：**`New-NanoServerImage -Edition Standard -DeploymentType Host -MediaPath F:\ -BasePath .\Base -TargetPath .\Nano1\NanoServer.vhd -ComputerName Nano-srv1 -OEMDrivers -Compute -Clustering`  
   
     此示例将从装载为 f:\\ 的 ISO 创建一个 VHD。 在创建 VHD 时，它将使用在其中运行 New-NanoServerImage 的同一目录中一个名为 Base 的文件夹；它会将 VHD 放置于从其中运行此命令的名为 Nano1 的文件夹中。 计算机名称为 Nano srv1，将为大多数普通硬件安装 OEM 驱动程序并启用 Hyper-V 角色和群集功能。 已使用标准 Nano 版本。  
   
@@ -103,7 +103,7 @@ ms.locfileid: "2081894"
   
 5.  将此脚本创建的 VHD 复制到物理计算机并将其配置为从此新的 VHD 启动。 要完成该操作，请执行以下步骤：  
   
-    1.  装载生成的 VHD。 在此示例中，它将安装在 D:\ 下。  
+    1.  装载生成的 VHD。 在此示例中，它将安装在 D:\\ 下。  
   
     2.  运行 **bcdboot d:\windows**。  
   

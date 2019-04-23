@@ -1,6 +1,6 @@
 ---
-title: Windows Server 的核心网络指南
-description: 本主题提供核心网络指南，这允许你计划，并将其部署所需的完全正常网络域和新 Active Directory 新林中与 Windows Server 2016 的核心组件的概述
+title: 适用于 Windows Server 的核心网络指南
+description: 本主题提供了核心网络指南，可用于规划和部署完全正常运行的网络和新的 Active Directory 域中具有 Windows Server 2016 的新林所需的核心组件的概述
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -9,61 +9,62 @@ ms.date: ''
 ms.assetid: 9b3ef3eb-4246-4e0e-8bf1-53224ca5f2f9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 63e4cf8c5bf56ef5131e835163a5fcb5dfd98b55
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: a905fd0c11237edd3a408998f8f71aa25a054328
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59847898"
 ---
-# <a name="core-network-guide-for-windows-server"></a>Windows Server 的核心网络指南
+# <a name="core-network-guidance-for-windows-server"></a>适用于 Windows Server 的核心网络指南
 
->适用于：Windows Server、Windows Server 2016
+>适用于：Windows Server、 Windows Server 2016
 
-本主题提供的核心网络指南为 Windows Server 概述&reg;2016，并包含以下部分。  
+本主题概述了适用于 Windows Server 核心网络指南&reg;2016，并包含以下各节。  
   
 -   [Windows Server 核心网络简介](#bkmk_intro)  
   
--   [Windows Server 的核心网络指南](#bkmk_core)  
+-   [适用于 Windows Server 核心网络指南](#bkmk_core)  
   
 ## <a name="bkmk_intro"></a>Windows Server 核心网络简介
 
-核心网络集锦网络硬件、 设备，并且需要提供一些基本服务，为你的组织的信息的技术 (IT) 的软件。
+核心网络是一个为满足组织的信息技术 (IT) 需要提供基础服务的网络硬件、设备和软件的集合。
 
-Windows Server 核心网络为您提供了很多权益，其中包括以下。
+Windows Server 核心网络提供了包括以下各项在内的多个优点。
 
-- 在计算机和其他传输控件协议/Internet 协议 (TCP/IP) 的兼容设备之间的网络连接的核心协议。 TCP/IP 是一套连接计算机和生成网络标准协议。 TCP/IP 是使用 Microsoft 提供的网络协议软件&reg;Windows&reg;实现，并支持 TCP/IP 操作系统协议套件。
+- 用于计算机和其他与传输控制协议/Internet 协议 (TCP/IP) 兼容设备之间进行网络连接的核心协议。 TCP/IP 是一套用于连接计算机和构建网络的标准协议。 TCP/IP 是随 Microsoft 提供的网络协议软件&reg;Windows&reg;操作系统的实现，并支持 TCP/IP 协议套件。
 
-- 动态主机配置协议 (DHCP) 服务器自动 IP 地址。 手动配置你的网络上的所有计算机上的 IP 地址是耗时较低比动态提供计算机和其他设备 IP 地址租赁从 DHCP 服务器灵活。
+- 动态主机配置协议 (DHCP) 服务器自动 IP 寻址。 与从 DHCP 服务器为计算机和其他设备动态提供 IP 地址租约相比，在网络上的所有计算机上手动配置 IP 地址非常耗时且不太灵活。
 
-- 域名系统 (DNS) 分辨率服务。 DNS 允许用户、 的计算机、 应用和服务使用完全限定域名计算机或设备在网络上查找计算机和设备的 IP 地址。
+- 域名系统 (DNS) 名称解析服务。 DNS 允许用户、计算机、应用程序和服务使用计算机或设备的完全限定的域名在网络上查找计算机和设备的 IP 地址。
 
-- 森林，这是一个或多个共享相同类和属性定义 （架构）、 网站和复制信息 （配置），并树林搜索功能 （全球目录） 的 Active Directory 域。
+- 林，是共享相同类和属性定义（架构）、站点和复制信息（配置）以及全林性搜索功能（全局编录）的一个或多个 Active Directory 域。
 
-- 森林根域，这是第一个域创建新树林中。 企业管理员和方案管理员组，了树林管理组，都位于森林根域。 此外，森林根域中，使用其他域，是集合的计算机、 用户和组对象程序定义的 Active Directory 域服务 (广告 DS) 中的管理员。 这些对象共享常见的目录数据库和安全策略。 如果你的组织随着添加域，它们也可以与其他域共享安全关系。 目录服务还会存储目录数据，并允许授权的计算机、 应用程序和用户访问数据。
+- 目录林根级域，它是在新林中创建的第一个域。 Enterprise Admins 组和 Schema Admins 组是位于目录林根级域中的全林性管理组。 此外，目录林根级域也与其他域一样，是在 Active Directory 域服务 (AD DS) 中由管理员定义的计算机、用户和组对象的集合。 这些对象共享公用目录数据库和安全策略。 如果你随着组织的发展添加了域，它们还可以共享与其他域之间的安全关系。 目录服务还存储目录数据，并允许已授权的计算机、应用程序和用户访问数据。
 
-- 用户和计算机的帐户数据库。 目录服务提供允许您创建个人和获得授权，可连接到你的网络和访问网络资源，如应用、 数据库、 共享的文件和文件夹以及打印机的计算机用户和计算机帐户集中的用户帐户数据库。
+- 用户和计算机帐户数据库。 目录服务提供了集中的用户帐户数据库，它允许你为被授权连接到网络并访问网络资源（例如应用程序、数据库、共享的文件和文件夹以及打印机）的人员和计算机创建用户和计算机帐户。
 
-核心网络还允许您您的组织成长和 IT 要求更改随着你的网络。 例如，使用 core 网络可以添加域、 IP 子网、 远程访问服务、 无线服务和其他功能和服务器角色由 Windows Server 2016。
+核心网络还允许随着组织的发展和 IT 需要的变化缩放网络。 例如，通过核心网络可以添加域、 IP 子网、 远程访问服务、 无线服务和其他功能和提供的 Windows Server 2016 的服务器角色。
 
-## <a name="bkmk_core"></a>Windows Server 的核心网络指南
+## <a name="bkmk_core"></a>适用于 Windows Server 核心网络指南
 
-Windows Server 2016 Core 网络指南提供有关如何计划，并将其部署核心组件完全正常网络和新的 Active Directory 所需的说明进行操作&reg;新建森林中的域。 使用本指南，你可以将部署 Windows 以下服务器组件的配置计算机：
+Windows Server 2016 核心网络指南说明了如何规划和部署完全正常运行的网络和新的 Active Directory 所需的核心组件&reg;在新林中的域。 使用此指南，可以部署使用以下 Windows 服务器组件配置的计算机：
 
-- Active Directory 域服务 (广告 DS) 服务器角色
+- Active Directory 域服务 (AD DS) 服务器角色
 
 - 域名系统 (DNS) 服务器角色
 
 - 动态主机配置协议 (DHCP) 服务器角色
 
-- 网络策略和服务的访问权限的服务器角色网络策略 Server (NPS) 角色服务
+- 网络策略和访问服务服务器角色的网络策略服务器 (NPS) 角色服务
 
 - Web 服务器 (IIS) 服务器角色
 
-- 传输控件协议/Internet 协议版本 4 (TCP/IP) 各个服务器上的连接
+- 单个服务器上的传输控制协议/Internet 协议版本 4 (TCP/IP) 连接
 
-本指南可以在以下位置。
+本指南则可以从以下位置。
 
-- [核心网络指南](../core-network-guide/Core-Network-Guide.md)Windows Server 2016 Technical 库中。
+- [核心网络指南](../core-network-guide/Core-Network-Guide.md)Windows Server 2016 技术库中。
   
 
 
