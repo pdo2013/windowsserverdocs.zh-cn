@@ -1,7 +1,7 @@
 ---
 ms.assetid: e33673ff-ea1c-4476-a549-3bf5899a47dd
-title: "安装联合身份验证服务角色服务"
-description: 
+title: 安装联合身份验证服务角色服务
+description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -10,56 +10,57 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
 ms.openlocfilehash: c520cbe22739f2bde263e133c7feb681d824d251
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59883708"
 ---
 # <a name="install-the-federation-service-role-service"></a>安装联合身份验证服务角色服务
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-现在，你的先决条件应用程序和证书正确配置计算机，你就可以安装的 Active Directory 联合身份验证服务 \(AD FS\) 角色服务的联合身份验证服务。 当你在计算机上安装了联合身份验证服务时，该计算机变得联合身份验证的服务器。  
+现在，已正确配置一台计算机为必备的应用程序和证书，已准备好安装 Active Directory 联合身份验证服务的联合身份验证服务角色服务\(AD FS\)。 在计算机上安装联合身份验证服务时，该计算机将成为联合服务器。  
   
 > [!NOTE]  
-> 联合 Web Single\-Sign\-On \(SSO\) 设计，你必须至少一个联盟服务器帐户合作伙伴组织中的和资源合作伙伴组织中的至少一个联盟服务器。 有关详细信息，请参阅[放置联合服务器](https://technet.microsoft.com/library/dd807127.aspx)。  
+> 对于联合 Web 单一\-符号\-上\(SSO\)设计中，您必须在帐户伙伴组织中的至少一台联合服务器和资源伙伴组织中的至少一台联合服务器. 有关详细信息，请参阅 [Where to Place a Federation Server](https://technet.microsoft.com/library/dd807127.aspx)。  
   
-你可以使用下面的过程中对计算机进行将成为第一个联合服务器或将变的现有联盟服务器场联合服务器的计算机上安装广告 FS 联合身份验证服务角色服务。  
+可以使用以下过程将成为第一个联合身份验证服务器的计算机上或在将成为一个现有的联合服务器场的联合身份验证服务器的计算机上安装的 AD FS 的联合身份验证服务角色服务。  
   
 ## <a name="prerequisites"></a>先决条件  
-验证与专用键 SSL 证书，已安装或导入本地证书官方商城 \(Personal store\)，然后再开始此过程。 如果你使用的 token\ 签名证书颁发的认证颁发机构 \(CA\)，验证与专用键 token\ 签名证书，已安装或导入本地证书官方商城 \(Personal store\)，然后再开始此过程。 或者，你可以创建 self\ 登录、token\ 签名证书使用添加负责向导中，在此过程中所述。 有关 token\ 签名证书的详细信息，请参阅[服务器联合身份验证的证书要求](https://technet.microsoft.com/library/dd807040.aspx)。  
+验证带有私钥的 SSL 证书的已安装或导入到本地证书存储区\(个人存储区\)在开始此过程之前。 如果你将使用令牌\-签名的证书颁发机构颁发的证书\(CA\)，确认令牌\-使用私钥签名证书已安装或导入到本地证书存储区\(个人存储区\)在开始此过程之前。 或者，可以创建自\-已签名，令牌\-签名证书，证书使用添加角色向导，在此过程中所述。 有关令牌的详细信息\-签名证书，请参阅[联合身份验证服务器的证书要求](https://technet.microsoft.com/library/dd807040.aspx)。  
   
-在会员**管理员**，或等效，在本地计算机上的最低要求完成此过程。  查看有关使用相应的帐户的详细信息，并进行分组在会员身份[本地和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477)\ (http:///\/ go.microsoft.com\/fwlink\ /？LinkId\ = 83477\)。   
+本地计算机上的 **Administrators** 中的成员身份或等效身份是完成这些过程所需的最低要求。  查看详细了解如何使用适当帐户和组成员身份[本地和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.microsoft.com\/fwlink\/？LinkId\=83477\)。   
   
-#### <a name="to-install-the-federation-service-role-service"></a>若要安装联合身份验证服务角色服务  
+#### <a name="to-install-the-federation-service-role-service"></a>安装联合身份验证服务角色服务  
   
-1.  在**开始**屏幕上，键入**服务器管理器**，然后按 ENTER。  
+1.  上**启动**屏幕上，键入**服务器管理器**，然后按 ENTER。  
   
-2.  单击**管理**，然后单击**添加角色和功能**以开始添加角色并功能向导。  
+2.  单击**管理**，然后单击**添加角色和功能**以启动添加角色和功能向导。  
   
-3.  在**在开始之前**页上，单击**下一步**。  
+3.  在“开始之前”  页上，单击“下一步” 。  
   
-4.  上**选择安装类型**页上，单击**Role\ 基于或者基于 Feature\ 安装**，然后单击**下一步**。  
+4.  上**选择安装类型**页上，单击**角色\-基于或功能\-基于安装**，然后单击**下一步**。  
   
-5.  在**选择目标服务器**页上，单击**从服务器池选择服务器**，确认目标计算机突出显示时，然后单击**下一步**。  
+5.  上**选择目标服务器**页上，单击**从服务器池中选择服务器**，验证目标计算机已突出显示，然后单击**下一步**。  
   
-6.  上**选择服务器角色**页上，单击**Active Directory 联合身份验证服务**，然后单击旁边。  
+6.  上**选择服务器角色**页上，单击**Active Directory 联合身份验证服务**，然后单击下一步。  
   
     > [!NOTE]  
-    > 如果提示你安装额外的.NET Framework 或 Windows 的过程激活服务功能，请单击**添加功能**安装它们。  
+    > 如果系统提示您安装其他.NET Framework 或 Windows 进程激活服务功能，请单击**添加功能**安装它们。  
   
-7.  在**选择功能**页上，验证功能设置，然后单击**下一步**。  
+7.  上**选择的功能**页上，验证功能设置，然后单击**下一步**。  
   
-8.  在**Active Directory 联合身份验证服务 \(AD FS\)**页上，单击**下一步**。  
+8.  上**Active Directory 联合身份验证服务\(AD FS\)** 页上，单击**下一步**。  
   
-9. 在**选择角色服务**页上，选择**联合身份验证服务**复选框，然后依次单击**下一步**。  
+9. 上**选择角色服务**页上，选择**联合身份验证服务**复选框，然后依次**下一步**。  
   
-10. 在**Web 服务器角色 \(IIS\)**页上，单击**下一步**。  
+10. 上**Web 服务器角色\(IIS\)** 页上，单击**下一步**。  
   
-11. 在**选择角色服务**页上，单击**下一步**。  
+11. 在**选择角色服务**页上，单击“**下一步**”。  
   
-12. 请验证信息，请在后**确认安装选择**页上，选择**必要时自动重新启动目标服务器**复选框，然后依次单击**安装**。  
+12. 在验证“确认安装选择”  页面上的信息后，选中“必要时自动重新启动目标服务器”  复选框，然后单击“安装” 。  
   
-13. 在**安装进度**页面，验证一切正常，安装，然后单击**关闭**。  
+13. 在“安装进度”页面上，验证所有内容是否正确安装，然后单击“关闭”。  
   
 

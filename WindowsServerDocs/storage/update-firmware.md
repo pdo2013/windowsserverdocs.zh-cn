@@ -1,6 +1,6 @@
 ---
 ms.assetid: e5945bae-4a33-487c-a019-92a69db8cf6c
-title: "在 Windows Server 2016 中更新驱动器固件"
+title: 在 Windows Server 2016 中更新驱动器固件
 ms.prod: windows-server-threshold
 ms.author: toklima
 ms.manager: dmoss
@@ -8,14 +8,15 @@ ms.technology: storage-spaces
 ms.topic: article
 author: toklima
 ms.date: 10/04/2016
-ms.openlocfilehash: 90019ed8425d72d30059be5d47458785cac34c73
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 50291bd4da05d9c2736c84443b444b9a43f46344
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884778"
 ---
 # <a name="updating-drive-firmware-in-windows-server-2016"></a>在 Windows Server 2016 中更新驱动器固件
->适用于：Windows 10、Windows Server（半年频道）、Windows Server 2016
+>适用于：Windows 10，Windows Server （半年频道），Windows Server 2016
 
 更新驱动器固件历来是一项可能需要停机的繁重任务，这正是我们要对存储空间、Windows Server 以及 Windows 10 版本 1703 和更高版本进行改进的原因。 如果你有支持 Windows 中包含的新固件更新机制的驱动器，则可以在无需停机的情况下更新生产中驱动器的驱动器固件。 但是，如果你打算更新生产驱动器的固件，请确保阅读我们的关于如何在使用此强大的新功能时最大限度减少风险的提示。
 
@@ -29,11 +30,11 @@ ms.lasthandoff: 10/17/2017
 有关你的硬件是否支持 Windows 更新驱动器固件的信息，请联系你的解决方案供应商。
 以下是指向各种要求的链接：
 
--   SATA：[Device.Storage.Hd.Sata](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsata) - 在**[如果已实施\]固件下载和激活**部分
+-   SATA:[Device.Storage.Hd.Sata](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsata) -在 **[如果实现\]固件下载和激活**部分
     
--   SAS：[Device.Storage.Hd.Sas](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsas) - 在**[如果已实施\] 固件下载和激活**部分
+-   SAS:[Device.Storage.Hd.Sas](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsas) -在 **[如果实现\]固件下载和激活**部分
 
--   NVMe：[Device.Storage.ControllerDrive.NVMe](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragecontrollerdrivenvme) - 在部分 **5.7** 和 **5.8**。
+-   NVMe:[Device.Storage.ControllerDrive.NVMe](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragecontrollerdrivenvme) -在部分**5.7**并**5.8**。
 
 ## <a name="powershell-cmdlets"></a>PowerShell cmdlet
 
@@ -42,7 +43,7 @@ ms.lasthandoff: 10/17/2017
 -   Get-StorageFirmwareInformation
 -   Update-StorageFirmware
 
-第一个 cmdlet 为你提供有关设备的功能、固件映像和修订的详细信息。 在这种情况下，计算机仅包含单个带 1 个固件插槽的 SATA SSD。 下面是一个示例：
+第一个 cmdlet 为你提供有关设备的功能、固件映像和修订的详细信息。 在这种情况下，计算机仅包含单个带 1 个固件插槽的 SATA SSD。 以下是一个示例：
 
    ```powershell
    Get-PhysicalDisk | Get-StorageFirmwareInformation
@@ -104,7 +105,7 @@ Measure-Command {$pd | Update-StorageFirmware -ImagePath C:\\Firmware\\J3E16101.
 
 1. 查看固件发行说明并确认更新是否解决了可能会影响环境的问题，而且固件不包含任何对你造成负面影响的已知问题。
 
-2. 在实验室中具有相同驱动器（包括驱动器的修订版本，如果同一驱动器有多个修订版本）的服务器上安装固件，并使用新固件测试负载下的驱动器。 有关执行综合负载测试的信息，请参阅[使用综合工作负载测试存储空间性能](https://technet.microsoft.com/en-us/library/dn894707.aspx)。
+2. 在实验室中具有相同驱动器（包括驱动器的修订版本，如果同一驱动器有多个修订版本）的服务器上安装固件，并使用新固件测试负载下的驱动器。 有关执行综合负载测试的信息，请参阅[使用综合工作负载测试存储空间性能](https://technet.microsoft.com/library/dn894707.aspx)。
 
 ## <a name="automated-firmware-updates-with-storage-spaces-direct"></a>使用存储空间直通自动更新固件
 
@@ -150,7 +151,7 @@ Windows Server 2016 包括存储空间直通的运行状况服务部署（包括
 ```powershell
 $SpacesDirect = Get-StorageSubSystem Clus*
 
-$CurrentDoc = $SpacesDirect | Get-StorageHealtHealth Service etting -Name "System.Storage.SupportedComponents.Document"
+$CurrentDoc = $SpacesDirect | Get-StorageHealthSetting -Name "System.Storage.SupportedComponents.Document"
 
 $CurrentDoc.Value | Out-File <Path>
 ```
@@ -163,9 +164,9 @@ $NewDoc = Get-Content <Path> | Out-String
 $SpacesDirect | Set-StorageHealthSetting -Name "System.Storage.SupportedComponents.Document" -Value $NewDoc
 ```
 
-若要查看运行中的运行状况服务和了解有关其推出机制的详细信息，请观看此视频：https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct
+如果你想要看到操作中的运行状况服务，并学习有关其推出机制的详细信息，我们来看看此视频： https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct
 
-## <a name="frequently-asked-questions"></a>常见问题
+## <a name="frequently-asked-questions"></a>常见问题解答
 
 另请参阅[驱动器固件更新疑难解答](troubleshoot-firmware-update.md)。
 
@@ -194,7 +195,7 @@ cmdlet 也可以在群集驱动器上执行其功能，但请记住，运行状�
 
 ### <a name="what-happens-if-the-update-fails"></a>更新失败怎么办
 
-更新失败可能是各种原因导致的，其中一些是：1) 驱动器不支持 Windows 用于更新其固件的正确命令。 在这种情况下，新的固件映像永远不会激活并且驱动器继续使用旧映像运行。 2) 无法将映像下载到或应用于此驱动器（版本不匹配、映像损坏...）。 在这种情况下，激活命令无法激活驱动器。 同样地，旧的固件映像将继续运行。
+更新失败可能是由于各种原因，其中一些是：1） 驱动器不支持 Windows 用于更新其固件的正确命令。 在这种情况下，新的固件映像永远不会激活并且驱动器继续使用旧映像运行。 2) 无法将映像下载到或应用于此驱动器（版本不匹配、映像损坏...）。 在这种情况下，激活命令无法激活驱动器。 同样地，旧的固件映像将继续运行。
 
 如果固件更新后驱动器根本没有响应，你很可能是遇到了驱动器固件本身的 bug。 在投入生产之前，请在实验室环境中测试所有固件更新。 唯一的补救措施可能是更换驱动器。
 

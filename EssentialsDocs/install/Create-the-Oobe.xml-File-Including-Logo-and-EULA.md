@@ -1,6 +1,6 @@
 ---
-title: "创建包括徽标和 EULA Oobe.xml 文件"
-description: "介绍了如何使用 Windows Server Essentials"
+title: 创建包含徽标和 EULA 的 Oobe.xml 文件
+description: 介绍如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,30 +13,31 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: f8f99a2051e114b3c890f1cdac23aebf58689980
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884648"
 ---
-# <a name="create-the-oobexml-file-including-logo-and-eula"></a>创建包括徽标和 EULA Oobe.xml 文件
+# <a name="create-the-oobexml-file-including-logo-and-eula"></a>创建包含徽标和 EULA 的 Oobe.xml 文件
 
 >适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
 
-通过使用 Oobe.xml 文件，可以将你自己的最终用户许可协议 (EULA) 添加到初始配置。 Oobe.xml 是用于初始配置、欢迎使用 Windows 和其他页面提供给最终用户提供文字和图像的文件。 你可以添加多个 Oobe.xml 文件以自定义内容基于语言和国家 / 地区的最终用户选项。 有关详细信息，请参阅[Windows 评估和部署工具包 Windows 8](https://go.microsoft.com/fwlink/?LinkId=248694)文档。  
+你可以通过使用 Oobe.xml 文件将你自己的最终用户许可协议 (EULA) 添加到“初始配置”中。 Oobe.xml 文件用于为呈现给最终用户的“初始配置”、“欢迎使用 Windows”和其他页面提供文本和图像。 可以添加多个 Oobe.xml 文件，以根据最终用户选择的语言和国家/地区自定义内容。 有关详细信息，请参阅 [Windows 8 的 Windows 评估和部署工具包](https://go.microsoft.com/fwlink/?LinkId=248694) 文档。  
   
- 除了 Microsoft EULA 显示有关你的公司 EULA。 Microsoft EULA 将会显示在初始配置最终用户体验的第一个 EULA，然后将显示你 EULA 将。 在服务器上任意位置放你最终用户许可协议，并指定 Oobe.xml 文件中的位置。  
+ 除 Microsoft EULA 之外，还显示你公司的 EULA。 在初始配置最终用户体验的过程中，首先显示的 EULA 是 Microsoft EULA，然后显示你的 EULA。 可以将你的 EULA 放置在服务器上的任何位置，你可以在 Oobe.xml 文件中指定该位置。  
   
-#### <a name="to-add-your-company-eula-and-logo"></a>添加你的公司 EULA 和徽标  
+#### <a name="to-add-your-company-eula-and-logo"></a>添加你公司的 EULA 和徽标  
   
-1.  在文本编辑器，如记事本中打开 Oobe.xml 文件。  
+1.  在文本编辑器（例如记事本）中打开 Oobe.xml 文件。  
   
-2.  < Logopath\ >< 内 / logopath\ > 标签中，输入你徽标文件绝对的路径。 此文件应该包含 240x100 像素的是 32 位可移植网络图形 (.png) 文件。  
+2.  在 < logopath\>< / logopath\>标记中，输入徽标文件的绝对路径。 此文件应包含一个 240 x 100 像素的 32 位可移植网络图形 (.png) 文件。  
   
-3.  < Eulafilename\ >< 内 / eulafilename\ > 标签，请输入绝对 EULA 文件路径。 必须为 EULA 文件格式 (.rtf) 文件。  
+3.  在 < eulafilename\>< / eulafilename\>标记中，输入 EULA 文件的绝对路径。 EULA 文件必须为 RTF 格式 (.rtf) 文件。  
   
-4.  < Name\ >< 内 / name\ > 标签中，输入你的公司名称。  
+4.  在 < 名称\>< / 名称\>标记中，输入你的公司名称。  
   
-     下面的示例显示了标记 Oobe.xml 文件中：  
+     以下示例显示 Oobe.xml 文件中的标记：  
   
     ```  
   
@@ -52,43 +53,43 @@ ms.lasthandoff: 12/12/2017
   
     ```  
   
-5.  保存文件。  
+5.  保存该文件。  
   
-6.  在以下位置位置 Oobe.xml 文件：  
+6.  将 Oobe.xml 文件置于下列任一位置：  
   
-    |Oobe.xml 位置|确定位置的状况|  
+    |Oobe.xml 位置|用于确定位置的条件|  
     |-----------------------|----------------------------------------|  
-    |%windir%\system32\oobe\info\|在一个国家/地区和语言的单个系统交付服务器。|  
-    |%windir%\system32\oobe\info\default\\ < language\ >|在一个国家/地区和多语言系统交付服务器。|  
-    |%windir%\system32\oobe\info\\ < 国家/地区 > \ 和 %windir%\system32\oobe\info\\ < 国家/地区 > \\ < language\ > \|服务器发货到多个国家/地区，并设置要求基于每个国家/地区，每个人都带一种语言的自定义设置。 < 国家/地区 > 所在的国家或地区，其中部署服务器时，且 < language\ > 小数点版本的区域设置标识符 (LCID) 的地理位置标识符 (GeoID) 小数点版本。|  
+    |%windir%\system32\oobe\info\|服务器将在一个国家/地区和单语言版系统中进行发布。|  
+    |%windir%\system32\oobe\info\default\\<language\>|服务器将在一个国家/地区并采用多种语言系统进行发布。|  
+    |%windir%\system32\oobe\info\\< 国家/地区 > \ 和 %windir%\system32\oobe\info\\< 国家/地区 >\\< 语言\>\|服务器发布到多个国家/地区 /区域和设置需要在每个国家/地区/区域模式中，每个都有一种语言的自定义项。 其中，< 国家/地区 > 是十进制版地理位置标识符 (GeoID) 的国家/地区或区域的部署服务器，并 < 语言\>是十进制版区域设置标识符 (LCID)。|  
   
- 如果你有备用公司徽标白条短信时，它可以显示设置流由于蓝色的背景中更好。  （可选）可以通过设置的注册表项和值此徽标。  
+ 如果你有包含白色文本的备用公司徽标，由于背景是蓝色的，所以在设置流程中的显示效果可能更佳。  你可以通过设置注册表项和值来选择性地指定此徽标。  
   
-#### <a name="to-specify-a-company-logo-by-setting-the-oem-registry-key"></a>若要指定公司徽标通过设置 OEM 注册表项  
+#### <a name="to-specify-a-company-logo-by-setting-the-oem-registry-key"></a>通过设置 OEM 注册表项来指定公司徽标  
   
-1.  在服务器上，将鼠标移动到屏幕的右上角，然后单击**搜索**。  
+1.  在服务器上，将鼠标移动到屏幕右上角，然后单击 **“搜索”**。  
   
-2.  在搜索框中，键入**regedit**，然后单击 Regedit 应用程序。  
+2.  在搜索框中，键入 **regedit**，然后单击“Regedit”应用程序。  
   
-3.  在导航窗格中，导航到**HKEY_LOCAL_MACHINE**，展开**软件**，展开**Microsoft**，展开**Windows Server**。 如果不存在 OEM 键，创建键，如下所示：  
+3.  在导航窗格中，导航至  **“HKEY_LOCAL_MACHINE”**，展开 **“SOFTWARE”**，展开 **“Microsoft”**，展开 **“Windows Server”**。 如果 OEM 注册表项不存在，请按照如下步骤创建该注册表项：  
   
-    1.  右键单击**Windows Server**，单击**新建**，然后单击**键**。  
+    1.  右键单击 **“Windows Server”**，单击 **“新建”**，然后单击 **“项”**。  
   
-    2.  键名称，请键入**OEM**。  
+    2.  对于项名称，键入 **OEM**。  
   
-4.  （可选）如果你要创建一个徽标条目，你可以创建其他键以区分徽标的语言版本。 例如，如果你有英文和德语版本的徽标时，你可以创建短-我们键和 de de 密钥。 由于的所有徽标文件存储在同一文件夹中，你必须为徽标图像文件的情况下提供每种语言一个唯一的名称。 例如，可以创建一个名为 LogoWithWhiteText_en.png 和 LogoWithWhiteText_de.png 文件。  
+4.  （可选）如果要为徽标创建项，则可以创建不同的项以区分徽标的不同语言版本。 例如，如果你已拥有英语版和德语版的徽标，则可以为它们分别创建 en-us 项和 de-de 项。 由于所有徽标文件存储在同一文件夹中，因此提供徽标图像文件的实例时必须加上每种语言的唯一名称。 例如，可以创建名为 LogoWithWhiteText_en.png 和 LogoWithWhiteText_de.png 的文件。  
   
-5.  不论采取何右键单击**OEM**或右键单击相应的语言键，请单击**新建**，然后单击**字符串值**。  
+5.  右键单击 **“OEM”** 或右键单击相应的语言项，指向 **“新建”**，然后单击 **“字符串值”**。  
   
-6.  输入 LogoWithWhiteText 作为字符串进行搜索，，然后按 ENTER。  
+6.  输入字符串 LogoWithWhiteText，然后按 Enter 键。  
   
-7.  新的字符串，右键单击，然后单击**修改**。  
+7.  右键单击新字符串，然后单击 **“修改”**。  
   
-8.  输入包含徽标的图像的路径，然后单击确定。  
+8.  输入包含徽标图像的路径，然后单击“确定”。  
   
 ## <a name="see-also"></a>请参阅  
  [Windows Server Essentials ADK 入门](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [创建和自定义映像](Creating-and-Customizing-the-Image.md)   
  [其他自定义设置](Additional-Customizations.md)   
- [准备部署该映像](Preparing-the-Image-for-Deployment.md)   
+ [部署准备的映像](Preparing-the-Image-for-Deployment.md)   
  [测试客户体验](Testing-the-Customer-Experience.md)

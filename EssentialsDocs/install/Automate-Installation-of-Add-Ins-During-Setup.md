@@ -1,6 +1,6 @@
 ---
-title: "自动在安装过程中安装的加载项"
-description: "介绍了如何使用 Windows Server Essentials"
+title: 在安装过程中自动安装加载项
+description: 介绍如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,30 +13,31 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: d4c547c2fec8e2b11e5c1d9bde46e55e91c9d6fa
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884618"
 ---
-# <a name="automate-installation-of-add-ins-during-setup"></a>自动在安装过程中安装的加载项
+# <a name="automate-installation-of-add-ins-during-setup"></a>在安装过程中自动安装加载项
 
 >适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
 
-##  <a name="BKMK_AddIns"></a>在设置期间自动安装的加载项  
- 若要在安装过程中安装的加载项，请使用 PostIC.cmd 方法，述[创建运行文章初始配置任务 PostIC.cmd 文件](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md)本文档部分。  
+##  <a name="BKMK_AddIns"></a> 在安装过程中自动安装加载项  
+ 若要在设置期间安装加载项，请使用在本文档的 [Create the PostIC.cmd File for Running Post Initial Configuration Tasks](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) 部分中介绍的 PostIC.cmd 方法。  
   
- 添加到你 PostIC.cmd 以下项：  
+ 将以下项添加到你的 PostIC.cmd：  
   
 ```  
 C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q  
 ```  
   
- 外接程序，现在支持预安装的和自定义卸载步骤。  
+ 加载项现在支持预安装和自定义卸载步骤。  
   
- 安装所有之前运行预安装步骤**.msi** addin.xml 中指定的文件。 以交互模式运行，进度对话框将显示，但而无需更改进度。 在预安装阶段，已禁用取消按钮。 若要实现预安装步骤，添加 （直接下包） addin.xml 以下内容：  
+ 预安装步骤在安装 addin.xml 中指定的所有 **.msi** 文件之前运行。 在交互模式下运行时，会显示进度对话框，但不会更改进度。 取消按钮在预安装阶段中会禁用。 若要实现预安装步骤，请在 addin.xml 中添加以下内容（直接位于软件包下）：  
   
 > [!NOTE]
->  Xml 方案需要是完全遵循以下所示：  
+>  xml 架构需要与以下一个架构完全匹配：  
   
 ```  
 <Package xmlns="https://schemas.microsoft.com/WindowsServerSolutions/2010/03/Addins" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">  
@@ -64,17 +65,17 @@ C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q
 <¦>  
 ```  
   
- Wherein **exefile**是可执行文件中外接程序包执行预安装步骤中，并且必须指定。 **NormalArgs**指定使用命令行时交互式型传递到 exefile 参数。 在此模式中，exefile 可以弹出窗口的用户交互某些对话框。 **SilentArgs**指定使用命令行，当静默型传递到 exefile 参数 (的 q 指定调用 installaddin.exe 时)。 Exefile 应不弹出在此模式中的任何 windows。 如果**IgnoreExitCode**预安装的步骤始终被认为是成功，否则为退出音 0 指示成功、 1 表示取消，和其他值表示故障与 true，指定。 标记**NormalArgs**， **SilentArgs**，并**IgnoreExitCode**都是可选的。  
+ 其中 **exefile** 是加载项软件包中用于执行预安装步骤的可执行文件，必须指定。 **NormalArgs** 指定当使用交互模式时要在命令行中传递给 exefile 的参数。 在此模式中，exefile 可以弹出一些对话框用于用户交互。 **SilentArgs** 指定当使用静默模式时要在命令行中传递给 exefile 的参数（调用 installaddin.exe 时指定 -q）。 exefile 文件在此模式下不应弹出任何窗口。 如果将 **IgnoreExitCode** 指定为 true，则会始终将预安装步骤视为成功，否则退出代码 0 指示成功，1 指示取消，其他值指示失败。 标记 **NormalArgs**、 **SilentArgs**和 **IgnoreExitCode** 都是可选的。  
   
- 自定义的卸载步骤可用于以下任一操作：  
+ 自定义的卸载步骤可用于以下任一项：  
   
--   更换内置确认对话框。  
+-   替换内置确认对话框。  
   
--   填充自定义之前卸载的对话框。  
+-   在卸载之前填充自定义对话框。  
   
--   执行某些在卸载之前的任务。  
+-   在卸载之前执行特定任务。  
   
- 若要实现卸载步骤，添加 （直接下包） addin.xml 以下内容：  
+ 若要实现卸载步骤，请在 addin.xml 中添加以下内容（直接位于软件包下）：  
   
 ```  
 <Package xmlns="https://schemas.microsoft.com/WindowsServerSolutions/2010/03/Addins" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">  
@@ -98,26 +99,26 @@ C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q
 </Package>  
 ```  
   
- Wherein**全屏 exefile 路径**指定 exefile 系统上已安装。 **参数**是可选的并指定 exefile 的命令行参数。 之前内置卸载确认调用 exefile 对话框弹出。  
+ 其中 **full-path-to-exefile** 指定已安装在系统中的 exefile。 **Arguments** 可选，为 exefile 指定命令行参数。 在弹出内置卸载确认对话框之前调用 exefile。  
   
- Exefile 可以执行下列在此阶段任务：  
+ exefile 可在此阶段执行以下任务：  
   
--   弹出用户交互的某些对话框。  
+-   弹出一些对话框用于用户交互。  
   
 -   执行一些后台任务。  
   
- 此 exe 文件退出代码确定卸载过程向前移动的方式：  
+ 此 exe 文件的退出代码确定卸载过程如何继续：  
   
--   0: 卸载过程在继续进行而又不想内置确认对话框中，用户是否已确认一样。 （这种方法可用于替换内置确认对话框）;  
+-   0：卸载过程继续进行，而不填充内置确认对话框，正如用户已确认一样。 （此方法可以用于替换内置确认对话框）；  
   
--   1： 取消卸载进程，并为最后向用户显示已取消的消息。 所有内容将保持不变。  
+-   1：取消卸载过程，最后会向用户显示已取消消息。 所有内容都保持不变；  
   
--   其他： 卸载过程继续内置确认对话框中，就像自定义的卸载步骤不存在。  
+-   其他：卸载过程继续进行，会出现内置确认对话框，正如不存在自定义卸载步骤一样。  
   
- 调用 exefile 任何故障会导致相同的行为，因为 exefile 返回 0 或 1 以外的代码。  
+ 调用 exefile 时出现的任何故障都会产生与 exefile 返回非 0 和 1 的代码相同的行为。  
   
 ## <a name="see-also"></a>请参阅  
  [创建和自定义映像](Creating-and-Customizing-the-Image.md)   
  [其他自定义设置](Additional-Customizations.md)   
- [准备部署该映像](Preparing-the-Image-for-Deployment.md)   
+ [部署准备的映像](Preparing-the-Image-for-Deployment.md)   
  [测试客户体验](Testing-the-Customer-Experience.md)

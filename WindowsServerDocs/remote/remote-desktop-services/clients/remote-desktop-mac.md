@@ -1,6 +1,6 @@
 ---
-title: 要开始使用 Mac 上的远程桌面
-description: 了解如何设置 Mac 远程桌面客户端
+title: 开始使用 Mac 上的远程桌面
+description: 了解如何设置 Mac 的远程桌面客户端
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -15,163 +15,163 @@ ms.author: elizapo
 ms.date: 10/09/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: e8c5da1960d0e3129b5520e65c2d5ecf45eef778
-ms.sourcegitcommit: 6dc14d4315793132488494b5543ee83e3f562f09
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "4555714"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59886948"
 ---
-# 要开始使用 Mac 上的远程桌面
+# <a name="get-started-with-remote-desktop-on-mac"></a>开始使用 Mac 上的远程桌面
 
->适用于：Windows 10、Windows 8.1、Windows Server 2012 R2、Windows Server 2016
+>适用于：Windows 10，Windows 8.1，Windows Server 2012 R2 和 Windows Server 2016
 
-可以使用 Mac 远程桌面客户端使用 Windows 应用、 资源和桌面从 Mac 计算机。 使用以下信息入门和查看[常见问题解答](remote-desktop-client-faq.md)，如果你有问题。
+可以使用 Mac 的远程桌面客户端能够从 Mac 计算机使用 Windows 应用程序、 资源和台式计算机。 使用以下信息来开始的请查看[常见问题解答](remote-desktop-client-faq.md)如果有问题。
 
 >[!Note]
-> - 好奇 macOS 客户端在新版本？ 请查看[在 Mac 上的远程桌面的新增功能？](mac-whatsnew.md)
-> - Mac 客户端运行 macOS 10.10 和更高版本的计算机上运行。
-> - 本文中的信息主要适用于 Mac 客户端的 Mac 应用中可用的版本的完整版。 通过下载我们的预览应用测试新功能： [beta 版客户端发行说明](https://go.microsoft.com/fwlink/?LinkID=619698&clcid=0x409)。
+> - 想了解 macOS 客户端的新版本？ 请查看[What's new for Mac 上的远程桌面？](mac-whatsnew.md)
+> - Mac 客户端在运行 macOS 10.10 及更高版本的计算机上运行。
+> - 在本文中的信息适用于 Mac 客户端的 Mac 应用商店中可用的版本的完整版本主要。 通过下载我们的预览版应用试用新功能：[测试版客户端发行说明](https://go.microsoft.com/fwlink/?LinkID=619698&clcid=0x409)。
 
-## 获取远程桌面客户端
-请按照以下步骤开始使用远程桌面在 Mac 上：
+## <a name="get-the-remote-desktop-client"></a>获取远程桌面客户端
+请执行以下步骤，若要开始使用你的 Mac 上的远程桌面：
 
-1. [Mac 应用应用商店](https://itunes.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12)中下载 Microsoft 远程桌面客户端。
-2. [设置为接受远程连接的电脑](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop)。 （如果你跳过此步骤中，你无法连接到你的电脑。）
-3. 添加远程桌面连接或远程资源。 使用连接直接连接到 Windows 电脑和远程资源使用 RemoteApp 程序、 基于会话的桌面或虚拟桌面发布在本地使用 RemoteApp 和桌面连接。 此功能在企业环境中通常可用。
+1. 下载中的 Microsoft 远程桌面客户端[Mac App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12)。
+2. [将您的 PC 设置为接受远程连接](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop)。 （如果您跳过此步骤中，您无法连接到您的电脑。）
+3. 添加远程桌面连接或远程资源。 使用连接来直接连接到 Windows PC 和远程资源，若要使用的 RemoteApp 程序、 基于会话的桌面或虚拟桌面发布在本地使用 RemoteApp 和桌面连接。 此功能是通常在企业环境中可用。
 
-## Mac beta 版客户端呢？
-我们在上 HockeyApp 我们预览通道上测试新功能。 想要查看它？ 转到[Microsoft 远程桌面的 Mac](https://go.microsoft.com/fwlink/?LinkID=619698)并单击**下载**。 你无需创建帐户或登录到 HockeyApp 下载 beta 版客户端。
+## <a name="what-about-the-mac-beta-client"></a>Mac beta 客户端如何呢？
+我们要测试新功能在 HockeyApp 上我们预览通道上。 想要将其签出？ 转到[适用于 Mac 的 Microsoft 远程桌面](https://go.microsoft.com/fwlink/?LinkID=619698)然后单击**下载**。 不需要创建帐户或登录到 HockeyApp 下载 beta 版客户端。
 
-如果你已经有了客户端，你可以检查更新，确保你有最新版本。 在 beta 版客户端，在顶部，单击**Microsoft 远程桌面 beta 版**，然后单击**检查更新**。 
+如果已有客户端，您可以检查更新，以确保拥有最新版本。 在 beta 版客户端，单击**Microsoft 远程桌面 Beta**顶部，并单击**检查更新**。 
 
-## 添加远程桌面连接
-若要创建远程桌面连接：
+## <a name="add-a-remote-desktop-connection"></a>添加远程桌面连接
+若要创建的远程桌面连接：
 
 1. 在连接中心中，单击**+**，然后单击**桌面**。
 2. 输入以下信息：
    - **电脑名称**-计算机的名称。
-      - 这可以是 （在**系统**设置中找到） 的 Windows 计算机名称、 域名或 IP 地址。
-      - 你还可以添加到此名称，如*MyDesktop:3389*末尾的端口信息。
-   - **用户帐户**-添加你用来访问远程电脑的用户帐户。
-      - 对于计算机或本地帐户，已加入 Active Directory (AD)，使用以下格式之一：*用户名*、*用户名*或*user_name@domain.com*。
-      - 对于 Azure Active Directory (AAD) 加入的计算机，使用以下格式之一： *AzureAD\user_name*或*AzureAD\ user_name@domain.com*。
-      - 你还可以选择是否要求输入密码。
-      - 当管理具有相同的用户名称的多个用户帐户，设置区分帐户的友好名称。
-      - 你保存中管理用户帐户的应用的首选项。 
+      - 这可以是 Windows 计算机名称 (在中找到**系统**设置)，域名或 IP 地址。
+      - 您还可以添加端口信息到末尾的此名称，如*MyDesktop:3389*。
+   - **用户帐户**-添加用于访问远程 PC 的用户帐户。
+      - 对于加入 Active Directory (AD) 的计算机或本地帐户，使用以下格式之一： *user_name*， *domain\user_name*，或*user_name@domain.com*。
+      - 有关 Azure Active Directory (AAD) 加入的计算机，使用以下格式之一：*AzureAD\user_name*或*AzureAD\user_name@domain.com*。
+      - 此外可以选择是否需要密码。
+      - 在管理多个具有相同的用户名称的用户帐户时，设置一个友好名称以区分帐户。
+      - 管理应用程序的首选项中保存的用户帐户。 
 
-3. 你还可以设置用于连接这些可选设置：
-   - 设置一个友好名称 
+3. 此外可以设置连接的这些可选设置：
+   - 设置的友好名称 
    - 添加网关
-   - 设置声音输出
+   - 将声音输出设置
    - 交换鼠标按钮
    - 启用管理员模式
    - 将本地文件夹重定向到远程会话
-   - 向前本地打印机
-   - 向前智能卡
-4. 单击**保存**。
+   - 正向本地打印机
+   - 正向智能卡
+4. 单击“保存” 。
 
 若要启动连接，只需双击它。 同样适用于远程资源。
 
-### 导出和导入连接
-你可以导出远程桌面连接定义，并在另一台设备上使用。 远程桌面将保存在不同。RDP 文件。
+### <a name="export-and-import-connections"></a>导出和导入连接
+您可以导出的远程桌面连接定义和在不同的设备上使用它。 在单独保存远程桌面。RDP 文件。
 
 1. 在连接中心中，右键单击远程桌面。
 2. 单击**导出**。
-3. 浏览到你想要保存的远程桌面的位置。RDP 文件。
-4. 单击**确定**。
+3. 浏览到要保存远程桌面的位置。RDP 文件。
+4. 单击 **“确定”**。
 
 使用以下步骤导入远程桌面。RDP 文件。
 
-1. 在菜单栏上，单击**文件 > 导入**。
+1. 在菜单栏中，单击**文件 > 导入**。
 2. 浏览到。RDP 文件。
-3. 单击**打开**。
+3. 单击“打开” 。
 
-## 添加远程资源
-远程资源是 RemoteApp 程序、 基于会话的台式机和发布 RemoteApp 和桌面连接使用的虚拟机。
+## <a name="add-a-remote-resource"></a>添加远程资源
+远程资源是 RemoteApp 程序、 基于会话的桌面和使用 RemoteApp 和桌面连接发布的虚拟桌面。
 
-- URL 显示链接到 RD Web 访问服务器，使你能够访问 RemoteApp 和桌面连接。
-- 列出配置 RemoteApp 和桌面连接。
+- 将显示链接到 RD Web 访问服务器，您可以访问 RemoteApp 和桌面连接到该 URL。
+- 列出已配置 RemoteApp 和桌面连接。
 
 若要添加的远程资源：
 
-1. 在连接中心中单击**+**，然后单击**添加远程资源**。 
+1. 在连接中心中，单击**+**，然后单击**添加远程资源**。 
 2. 输入远程资源的信息：
-   - **源的 URL** -RD Web 访问服务器的 URL。 这将告知客户端搜索与你的电子邮件地址关联的 RD Web 访问服务器还可以在此字段 – 中输入你的公司电子邮件帐户。
-   - **用户名**-要用于你连接到 RD Web 访问服务器的用户名称。
-   - **密码**-RD Web 访问服务器你连接到使用的密码。
-3. 单击**保存**。
+   - **源 URL** -RD Web 访问服务器的 URL。 这会告知客户端要搜索与你的电子邮件地址关联的 RD Web 访问服务器还可以在此字段 – 中输入你的公司电子邮件帐户。
+   - **用户名称**-要用于连接到 RD Web 访问服务器的用户名。
+   - **密码**-要用于连接到 RD Web 访问服务器的密码。
+3. 单击“保存” 。
 
 
 将在连接中心中显示的远程资源。
 
 
-## 连接到远程桌面网关访问内部资源
+## <a name="connect-to-an-rd-gateway-to-access-internal-assets"></a>连接到 RD 网关访问内部资源
 
-远程桌面网关 （RD 网关），可以从任何位置连接到公司网络上的远程计算机在 Internet 上。 你可以创建和管理你的应用或设置新的桌面连接时的首选项中的网关。
+远程桌面网关 （RD 网关），可以从任何位置连接到公司网络上的远程计算机在 Internet 上。 可以创建和管理中的首选项或设置新的桌面连接时的应用程序网关。
 
 若要设置首选项中的新网关：
 
 1. 在连接中心中，单击**首选项 > 网关**。 
-2. 单击**+** 按钮底部的表输入以下信息：
-  - **服务器名称**– 你想要用作网关计算机的名称。 这可以是 Windows 计算机名称、 Internet 域名或 IP 地址。 你还可以添加端口信息的服务器名称 (例如： **RDGateway:443**或**10.0.0.1:443**)。
-  - **用户名**-的用户名和密码用于连接到远程桌面网关。 你还可以选择**使用连接凭据**与用于远程桌面连接使用的相同的用户名和密码。
+2. 单击**+** 输入以下信息的表底部的按钮：
+  - **服务器名称**– 你想要用作网关的计算机的名称。 这可以是 Windows 计算机名称、 Internet 域名或 IP 地址。 此外可以添加端口信息的服务器名称 (例如：**RDGateway:443**或**10.0.0.1:443**)。
+  - **用户名称**-用户名和密码以用于连接到的远程桌面网关。 您还可以选择**使用连接凭据**与用于远程桌面连接使用相同的用户名和密码。
 
 
-## 管理你的用户帐户
+## <a name="manage-your-user-accounts"></a>管理用户帐户
 
-当你连接到桌面或远程资源时，可以保存从再次选择的用户帐户。 你可以通过使用远程桌面客户端管理用户帐户。
+当连接到桌面或远程资源时，您可以保存要再次通过选择的用户帐户。 可以通过使用远程桌面客户端来管理你的用户帐户。
 
 若要创建新的用户帐户：
 
 1. 在连接中心中，单击**设置** > **帐户**。
-2. 单击**添加用户帐户**。
+2. 单击**将用户帐户添加**。
 3. 输入以下信息：
-   - **用户名**-用户保存与远程连接一起使用的名称。 你可以使用以下格式的任何输入的用户名： 用户名，域 \ 用户名，或 user_name@domain.com。
-   - **密码**-你指定的用户的密码。 你想要保存进行远程连接使用每个用户帐户需要有与之关联的密码。
-   - **友好名称**-如果你使用不同的密码，使用相同的用户帐户设置区分这些用户帐户的友好名称。
-4. 点击**保存**、，然后点击**设置**。
+   - **用户名称**-要保存以用于远程连接的用户的名称。 可以在任何以下格式输入用户名： 域 \ 用户名，user_name 或user_name@domain.com。
+   - **密码**-您指定的用户的密码。 要用于保存要用于远程连接每个用户帐户需要具有与之关联的密码。
+   - **友好名称**-如果你使用不同的密码，使用相同的用户帐户设置一个用于区分这些用户帐户的友好名称。
+4. 点击**保存**，然后点击**设置**。
 
-## 自定义显示分辨率
-为远程桌面会话，你可以指定显示分辨率。
+## <a name="customize-your-display-resolution"></a>自定义显示分辨率
+可以为远程桌面会话指定的显示分辨率。
 
 1. 在连接中心中，单击**首选项**。
-2. 单击**分辨率**。 
+2. 单击**解析**。 
 3. 单击**+**。
-4. 输入分辨率高度和宽度，然后单击**确定。**
+4. 输入分辨率高度和宽度，并单击**确定。**
 
-若要删除分辨率，选择它，然后单击**-**。
+若要删除分辨率，请选择它，然后依次**-**。
 
-**显示具有单独的空格**如果你运行的 Mac OS X 10.9 并禁用中 Mavericks**显示具有单独的空间**(**系统首选项 > 任务控件**)，你需要在使用相同的选项的远程桌面客户端中配置此设置。
+**显示具有单独的空格**如果正在运行 Mac OS X 10.9 和禁用**显示包含单独的空格**Mavericks 中 (**系统首选项 > 的任务控制**)，您需要配置使用相同的选项的远程桌面客户端中的此设置。
 
-### 远程资源的驱动器重定向
-驱动器重定向支持远程资源，以便你可以将文件保存创建与远程应用程序本地到你 mac。 重定向的文件夹始终是主目录远程会话中显示为网络驱动器。
+### <a name="drive-redirection-for-remote-resources"></a>远程资源的驱动器重定向
+驱动器重定向被支持远程资源，以便您可以保存使用本地到 mac 的远程应用程序创建的文件 重定向的文件夹始终是主目录在远程会话中显示为网络驱动器。
 
 > [!NOTE]
-> 若要使用此功能，管理员将需要在服务器上设置相应的设置。
+> 若要使用此功能，管理员需要在服务器上设置适当的设置。
 
 
-## 在远程会话中使用键盘
+## <a name="use-a-keyboard-in-a-remote-session"></a>在远程会话中使用键盘
 
 Mac 键盘布局不同于 Windows 键盘布局。 
 
-- Mac 键盘的命令键等于 Windows 键。
-- 若要执行在 Mac 使用命令按钮的操作，你将需要在 Windows 中使用的控件按钮 (例如： 复制 = Ctrl + C)。
-- 功能键可以在会话中激活通过此外按下键 (例如： FN + F1)。
-- Mac 键盘上的空间栏的右侧 Alt 键等于 Windows 中的 Alt Gr/向右 Alt 键。
+- Mac 键盘上的命令键等于 Windows 键。
+- 若要执行在 Mac 使用的命令按钮的操作，你将需要在 Windows 中使用的控制按钮 (例如：复制 = Ctrl + C)。
+- 可以通过此外按下键在会话中激活功能键 (例如：FN + F1）。
+- Mac 键盘上的空格键右侧的 Alt 键等于 Windows 中的 Alt Gr/右 Alt 键。
 
-默认情况下，远程会话将作为正在运行客户端操作系统使用相同的键盘区域设置。 (如果你 Mac 运行的 en-我们操作系统、 用于远程会话。 如果未使用的操作系统键盘区域设置，则检查键盘的远程电脑上设置，并更改设置手动。 请参阅有关键盘和区域设置的详细信息的[远程桌面客户端常见问题解答](remote-desktop-client-faq.md)。
+默认情况下，远程会话将作为操作系统运行客户端使用相同的键盘区域设置。 (如果你的 Mac 运行的英语-我们 OS 中，将用于远程会话。 如果未使用的 OS 键盘区域设置，检查在远程 PC 上设置和更改该设置键盘手动。 请参阅[远程桌面客户端常见问题](remote-desktop-client-faq.md)有关键盘和区域设置的详细信息。
 
 
-## 支持远程桌面网关可插入身份验证和授权
+## <a name="support-for-remote-desktop-gateway-pluggable-authentication-and-authorization"></a>支持远程桌面网关可插入身份验证和授权
 
-Windows Server 2012 R2 中引入新身份验证方法、 远程桌面网关可插入身份验证和授权，为更大的灵活性的自定义的身份验证例程提供的支持。 你可以使用 Mac 客户端的现在此身份验证模型。 
+Windows Server 2012 R2 引入了对新身份验证方法、 远程桌面网关可插入身份验证和授权，这为更大的灵活性的自定义身份验证例程提供支持。 你可以使用 Mac 客户端的现在此身份验证模式。 
 
 > [!IMPORTANT]
-> 自定义身份验证和授权模型之前不支持 Windows 8.1，尽管上述文章讨论了它们。
+> 不支持 Windows 8.1 之前的自定义身份验证和授权模型，尽管上述文章讨论了它们。
 
-若要了解有关此功能的详细信息，请查看[http://aka.ms/paa-sample](http://aka.ms/paa-sample)。
+若要了解有关此功能的详细信息，请查看[ http://aka.ms/paa-sample ](http://aka.ms/paa-sample)。
 
 
 > [!TIP]
-> 问题和意见都欢迎。 但是，请不要不发布有关疑难解答帮助本文末尾使用注释功能的请求。 相反，请转到[远程桌面客户端论坛](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc)和启动新线程。 有功能建议？ 在[客户端用户语音论坛](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android)告知我们。
+> 问题和提出的意见始终是受欢迎的。 但是，请执行操作，无法发布的请求通过使用注释功能在本文末尾的故障排除帮助。 相反，请转到[远程桌面客户端论坛](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc)并启动新线程。 有功能建议？ 告诉我们[客户端 user voice 论坛](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android)。
 

@@ -1,7 +1,7 @@
 ---
 ms.assetid: 10d6723e-c857-43da-9d2d-acb5641d3da8
-title: "计算机到某个域加入"
-description: 
+title: 将计算机加入到域
+description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,39 +9,40 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 641a1541143206d06973a6a0f11c689390abea21
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 811f5296143637974cf82e59d57665f8a96f1c8c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884108"
 ---
-# <a name="join-a-computer-to-a-domain"></a>计算机到某个域加入
+# <a name="join-a-computer-to-a-domain"></a>将计算机加入到域
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-为到函数 Active Directory 联合身份验证服务 \(AD FS\)，必须到某个域加入充当联盟服务器每台计算机。 联合身份验证的服务器代理服务器可能加入域，但这不是要求。  
+Active Directory 联合身份验证服务\(AD FS\)正常工作，每台计算机，其功能的联合身份验证服务器必须加入到域。 联合服务器代理可能会加入到域，但这不是必需。  
   
-你无需到某个域加入 Web 服务器，如果的 Web 服务器托管 claims\ 意识的应用。  
+无需将 Web 服务器加入到域中，如果 Web 服务器承载声明\-识别应用程序。  
   
-在会员**管理员**，或等效，在本地计算机上的最低要求完成此过程。  查看有关使用相应的帐户的详细信息，并进行分组在会员身份[本地和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477)。   
+本地计算机上的 **Administrators** 中的成员身份或等效身份是完成这些过程所需的最低要求。  可在[本地默认组和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477)中查看有关使用适合的帐户和组成员身份的详细信息。   
   
-### <a name="to-join-a-computer-to-a-domain"></a>若要将计算机连接到域  
+### <a name="to-join-a-computer-to-a-domain"></a>若要将计算机加入到域  
   
-1.  在**开始**屏幕上，键入**“控制面板”**，然后按 ENTER。  
+1.  上**启动**屏幕上，键入**控制面板**，然后按 ENTER。  
   
 2.  导航到**系统和安全**，然后单击**系统**。  
   
-3.  下**计算机名称、域和工作组设置**，单击**更改设置**。  
+3.  在“计算机名、域和工作组设置” 下，单击“更改设置” 。  
   
-4.  在**计算机名称**选项卡上，单击**更改**。  
+4.  在“计算机名”  选项卡上，单击“更改” 。  
   
-5.  下**的成员**，单击**域**，键入，这台计算机将加入，然后单击域名**确定**。  
+5.  下**的成员**，单击**域**，键入你想要加入，然后单击此计算机的域的名称**确定**。  
   
-6.  单击**确定**，然后重新启动计算机。  
+6.  单击“确定”，然后重新启动计算机。  
   
 ## <a name="additional-references"></a>其他参考  
-[清单：联合服务器设置](Checklist--Setting-Up-a-Federation-Server.md)  
+[清单：设置联合身份验证服务器](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[清单：联合身份验证的服务器代理服务器设置](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[清单：设置联合服务器代理](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 

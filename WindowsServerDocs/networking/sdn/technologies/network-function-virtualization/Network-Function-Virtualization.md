@@ -1,6 +1,6 @@
 ---
-title: 网络函数虚拟化
-description: 你可以使用本主题以了解网络函数虚拟化，这允许你部署虚拟网络设备，如 Datacenter 防火墙、租户 RAS 关和软件负载平衡 (SLB) 在 Windows Server 2016。
+title: 网络功能虚拟化
+description: 可以使用本主题以了解有关网络功能虚拟化，可用于部署数据中心防火墙、 多租户 RAS 网关和软件负载平衡 (SLB) 在 Windows Server 2016 中的虚拟网络设备。
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -12,123 +12,124 @@ ms.topic: article
 ms.assetid: 79df3bbe-48fd-4eff-8df6-35f6317566f3
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7caa9eef42cb7ab95a13d64c1dcd3639b1132eb3
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 59474a13d1cbce6a607f025caf3f6c1b839c7eed
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884548"
 ---
-# <a name="network-function-virtualization"></a>网络函数虚拟化
+# <a name="network-function-virtualization"></a>网络功能虚拟化
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-你可以使用本主题以了解网络函数虚拟化，这允许你部署虚拟网络设备，如 Datacenter 防火墙 multitenant RAS 关和软件负载平衡 \(SLB\) 集线器 \(MUX\)。
+你可以使用本主题以了解有关网络功能虚拟化，可用于部署虚拟网络设备，例如数据中心防火墙、 多租户 RAS 网关和软件负载平衡\(SLB\)多路复用器\(MUX\)。
   
 >[!NOTE]  
->本主题中，除了以下网络函数虚拟化文档才可用。  
-> - [Datacenter 防火墙概述](../../../sdn/technologies/network-function-virtualization/../../../sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md)  
-> - [SDN RAS 网关](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-for-SDN.md)  
-> - [软件负载平衡 SDN (SLB)](../../../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md)  
+>除了本主题提供了以下网络功能虚拟化文档。  
+> - [数据中心防火墙概述](../../../sdn/technologies/network-function-virtualization/../../../sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md)  
+> - [用于 SDN 的 RAS 网关](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-for-SDN.md)  
+> - [软件负载平衡 (SLB) 实现 SDN](../../../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md)  
   
-在当今的软件定义的数据中心，由硬件设备（如负载平衡防火墙、路由器，开关，以及等）的网络功能已越来越正在虚拟化为虚拟装置。 此"网络函数虚拟化"是的自然而然服务器虚拟化和网络虚拟化。 虚拟装置快速等新兴，并创建一个新市场中。 它们不断生成兴趣获得动力在这两个虚拟化平台和云服务。  
+在当今的软件定义的数据中心，由硬件设备 （如负载均衡器、 防火墙、 路由器、 交换机等） 正在执行的网络功能是越来越多地被虚拟化作为虚拟设备。 服务器虚拟化和网络虚拟化自然而然地形成了这种“网络功能虚拟化”。 虚拟设备快速按新出现的和创建新的市场。 它们继续生成感兴趣和获取这两个虚拟化平台中的动量和云服务。  
   
-Microsoft 为虚拟装置开始与 Windows Server 2012 R2 包含独立网关。 有关详细信息，请参阅[Windows Server 网关](https://technet.microsoft.com/library/dn313101.aspx)。 现在与 Windows Server 2016 Microsoft 会继续展开和在网络函数虚拟化市场投资。  
+Microsoft 从 Windows Server 2012 R2 的虚拟设备作为包含独立网关。 有关详细信息，请参阅 [Windows Server 网关](https://technet.microsoft.com/library/dn313101.aspx)。 现在使用 Windows Server 2016 Microsoft 继续展开和网络功能虚拟化市场上投资。  
   
-## <a name="virtual-appliance-benefits"></a>虚拟装置权益  
-虚拟装置就动态轻松更改，因为它是一个预先生成的自定义虚拟机。 它可以是一个或多个虚拟机打包、更新及作为一个整体保留。 一起的方式使用软件定义的网络 (SDN)，你获取的灵活性和需要当今的基于云的基础结构的灵活性。 例如：  
+## <a name="virtual-appliance-benefits"></a>虚拟设备的好处  
+虚拟设备是动态且易于更改，因为它是预建的自定义虚拟机。 它可以是一个或多个虚拟机一起打包，更新，并作为一个单元进行维护。 一起使用软件定义的网络 (SDN)，则会获得敏捷性和今天的基于云的基础结构中所需的灵活性。 例如：  
   
--   SDN 作为共用和动态资源提供该网络。  
+-   SDN 提供网络为共用和动态资源。  
   
 -   SDN 便于租户隔离。  
   
--   SDN 最大化比例和性能。  
+-   可最大化 SDN，规模和性能。  
   
--   虚拟装置启用无缝容量扩展和工作负载移动。  
+-   虚拟设备启用无缝容量扩展和工作负荷移动性。  
   
--   虚拟装置最小化操作复杂性。  
+-   虚拟设备最大程度减少操作复杂性。  
   
--   虚拟装置让客户轻松地获取、部署和管理预集成的解决方案。  
+-   虚拟设备让客户轻松地获取、 部署和管理预集成的解决方案。  
   
-    -   客户可以轻松地将移动虚拟装置任意在云中。  
+    -   客户可以轻松移动虚拟设备任意位置在云中。  
   
-    -   客户可以虚拟装置或规模下动态基于需求。  
+    -   客户可以扩展虚拟设备或向下动态根据需求。  
   
-有关 Microsoft SDN 的详细信息，请参阅[软件定义网络](https://technet.microsoft.com/windows-server-docs/networking/sdn/software-defined-networking--sdn-)。  
+有关 Microsoft SDN 的详细信息请参阅[软件定义的网络](https://technet.microsoft.com/windows-server-docs/networking/sdn/software-defined-networking--sdn-)。  
   
-### <a name="what-network-functions-are-being-virtualized"></a>哪些网络功能已被虚拟化？  
-对于虚拟化的网络函数商城增长迅速。 下面的网络功能已被虚拟化：  
+### <a name="what-network-functions-are-being-virtualized"></a>哪些网络功能是被虚拟化？  
+面向虚拟化的网络功能的市场正在快速增长。 以下网络功能是被虚拟化：  
   
--   **安全**  
+-   **安全性**  
   
     -   防火墙  
   
-    -   防病毒软件  
+    -   防病毒  
   
-    -   DDoS（分布式拒绝服务）  
+    -   DDoS （分布式拒绝服务）  
   
-    -   IPS/ID（入侵防护/的侵扰检测系统）  
+    -   IPS/IDS （入侵防护系统/入侵检测系统）  
   
--   **应用程序/WAN 优化程序**  
+-   **应用程序/WAN 优化器**  
   
 -   **Edge**  
   
-    -   向站点网关  
+    -   站点到站点网关  
   
     -   L3 网关  
   
     -   路由器  
   
-    -   切换  
+    -   开关  
   
     -   NAT  
   
-    -   负载平衡（不一定是在 edge 中)  
+    -   负载均衡器 （不一定是在边缘）  
   
-    -   HTTP 代理服务器  
+    -   HTTP 代理  
   
-## <a name="why-microsoft-is-a-great-platform-for-virtual-appliances"></a>为什么 Microsoft 是一个出色的平台，虚拟装置  
+## <a name="why-microsoft-is-a-great-platform-for-virtual-appliances"></a>Microsoft 为什么是虚拟设备的强大平台  
 ![虚拟网络堆栈](../../../media/Network-Function-Virtualization/Microsoft-Network-Function-Virtualization.png)  
   
-Microsoft 平台已经设计是一个出色的平台，生成并部署虚拟装置。 下面介绍了原因：  
+Microsoft 平台就被设计为一个优秀的平台来构建和部署虚拟设备。 原因是：  
   
--   Microsoft 提供与 Windows Server 2016 的关键虚拟化的网络功能。  
+-   Microsoft 提供了与 Windows Server 2016 关键虚拟化的网络功能。  
   
--   你可以将你选择的供应商提供的虚拟装置部署。  
+-   你可以部署所选的虚拟设备供应商。  
   
--   你可以部署、配置，并管理你虚拟设备与它附带 Windows Server 2016 Microsoft 网络控制器。 有关网络控制器的详细信息，请参阅[网络控制器](../../../sdn/technologies/network-controller/Network-Controller.md)。  
+-   你可以部署、 配置和管理你与 Microsoft 网络控制器，其中随附了 Windows Server 2016 的虚拟设备。 有关网络控制器的详细信息，请参阅[网络控制器](../../../sdn/technologies/network-controller/Network-Controller.md)。  
   
--   Hyper-V 可以主机你需要顶部的来宾操作系统。  
+-   HYPER-V 可以主机上的来宾操作系统所需的。  
   
 ## <a name="network-function-virtualization-in-windows-server-2016"></a>Windows Server 2016 中的网络功能虚拟化  
   
-### <a name="virtual-appliances-functions-provided-by-microsoft"></a>由 Microsoft 提供的虚拟装置函数  
-Windows Server 2016 将提供下列虚拟装置：  
+### <a name="virtual-appliances-functions-provided-by-microsoft"></a>由 Microsoft 提供的虚拟设备函数  
+Windows Server 2016 提供了以下虚拟设备：  
   
-**软件负载平衡**  
+**软件负载均衡器**  
   
-4 层负载平衡 datacenter 比例在操作。 这是已在比例 Azure 环境中部署的 Azure 的负载平衡类似版本。 有关 Microsoft 软件负载平衡的详细信息，请参阅[软件负载平衡 (SLB) 的 SDN](https://technet.microsoft.com/library/mt632286.aspx)。 有关 Microsoft Azure 负载平衡服务的详细信息，请参阅[Microsoft Azure 负载平衡服务](https://azure.microsoft.com/blog/2014/04/08/microsoft-azure-load-balancing-services/)。  
+第 4 层负载均衡器在数据中心大规模运行。 这是 Azure 的负载均衡器已在 Azure 环境中大规模部署的类似版本。 有关 Microsoft 软件负载均衡器的详细信息，请参阅[软件负载平衡 (SLB) 用于 SDN](https://technet.microsoft.com/library/mt632286.aspx)。 有关 Microsoft Azure 负载均衡服务的详细信息，请参阅[Microsoft Azure 负载均衡服务](https://azure.microsoft.com/blog/2014/04/08/microsoft-azure-load-balancing-services/)。  
   
-**网关**。 RAS 网关提供以下网关功能的所有组合。  
+**网关**。 RAS 网关提供以下网关函数的所有组合。  
   
--   **向站点网关**  
+-   **站点到站点网关**  
   
-    RAS 网关提供边框网关协议 (BGP) 的支持、租户网关，这允许你租户访问，以及通过从远程的站点的站点的 VPN 连接管理他们的资源并允许之间的云和租户物理网络资源虚拟网络流量。 有关 RAS 网关的详细信息，请参阅[RAS 网关高可用性](https://technet.microsoft.com/library/mt631692.aspx)和[RAS 网关](https://technet.microsoft.com/library/mt626650.aspx)。  
+    RAS 网关提供了边界网关协议 (BGP) 的支持、 多租户网关，允许租户在访问和管理其资源通过站点到站点 VPN 连接从远程站点，这将允许虚拟资源之间的网络流量流中的云和租户的物理网络。 有关 RAS 网关的详细信息，请参阅[RAS 网关高可用性](https://technet.microsoft.com/library/mt631692.aspx)并[RAS 网关](https://technet.microsoft.com/library/mt626650.aspx)。  
   
--   **转移网关**  
+-   **转发网关**  
   
-    RAS 网关路线虚拟网络宿主的提供商物理网络之间的交通。 例如，如果租户创建一个或多个虚拟网络，并且需要对共享资源宿主的提供商处物理网络上的访问权限，转移网关可以路由虚拟网络之间的物理网络提供的工作，虚拟网络提供所需的服务上的用户的通信。 有关详细信息，请参阅[RAS 网关高可用性](https://technet.microsoft.com/library/mt631692.aspx)和[RAS 网关](https://technet.microsoft.com/library/mt626650.aspx)。  
+    RAS 网关的虚拟网络和托管提供商物理网络之间路由流量。 例如，如果租户创建一个或多个虚拟网络，并且需要在托管提供商在物理网络上的共享资源的访问权限，转发网关可以路由虚拟网络与物理网络来提供工作的用户之间的流量具有所需的服务的虚拟网络。 有关详细信息，请参阅[RAS 网关高可用性](https://technet.microsoft.com/library/mt631692.aspx)并[RAS 网关](https://technet.microsoft.com/library/mt626650.aspx)。  
   
 -   **GRE 隧道网关**  
   
-    GRE 基于隧道启用租户虚拟网络和外部网络之间的连接。 由于 GRE 协议轻型和支持 GRE 是适用于大多数网络设备，它将成为的适合隧道不需要数据加密。 GRE 支持站点 (S2S) 隧道解决租户虚拟网络和租户外部网络使用多租户网关之间的转移的问题。 有关 GRE 隧道的详细信息，请参阅[GRE 隧道在 Windows Server 2016](https://technet.microsoft.com/library/dn765485.aspx)。  
+    基于 GRE 的隧道可在租户虚拟网络与外部网络之间实现连接。 由于 GRE 协议是轻型和支持 GRE 是大多数网络设备上可用，它将成为不需要的数据加密的隧道的理想之选。 站点到站点 (S2S) 隧道中的 GRE 支持可解决租户虚拟网络与使用多租户网关的租户外部网络之间的转发问题。 GRE 隧道的详细信息，请参阅[Windows Server 2016 中的 GRE 隧道](https://technet.microsoft.com/library/dn765485.aspx)。  
   
-**与 BGP 路由控制平面**  
+**使用 BGP 路由控制平面**  
   
-Hyper-V 网络虚拟化 (HNV) 路由控制是逻辑、集中实体控制平面，这将继续提供的所有客户地址平面路线和动态了解然后更新中的虚拟网络分布式的 RAS 网关路由器中。 有关详细信息，请参阅[RAS 网关高可用性](https://technet.microsoft.com/library/mt631692.aspx)和[RAS 网关](https://technet.microsoft.com/library/mt626650.aspx)。  
+HYPER-V 网络虚拟化 (HNV) 路由控件是控制平面，其中包含所有客户地址平面路由和动态了解到，然后更新虚拟网络中的分布式的 RAS 网关路由器中的逻辑、 集中式实体。 有关详细信息，请参阅[RAS 网关高可用性](https://technet.microsoft.com/library/mt631692.aspx)并[RAS 网关](https://technet.microsoft.com/library/mt626650.aspx)。  
   
 **分布式多租户防火墙**  
   
-防火墙保护的网络层虚拟网络。 在每个租户 VM SDN vSwitch 端口强制策略。 还可以防止所有通信流：东西和北美南。 通过租户门户推送策略和网络控制器的所有主机适用于分发它们。 分布式多租户防火墙有关详细信息，请参阅[Datacenter 防火墙概述](../../../sdn/technologies/network-function-virtualization/../../../sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md)。  
+防火墙保护的网络层的虚拟网络。 在每个租户 VM 的 SDN vSwitch 端口强制实施策略。 它可以保护所有通信流： 东-西和北-南。 通过租户门户推送策略和网络控制器将将其分发到所有可用主机。 有关分布式的多租户防火墙的详细信息，请参阅[数据中心防火墙概述](../../../sdn/technologies/network-function-virtualization/../../../sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md)。  
   
 
 

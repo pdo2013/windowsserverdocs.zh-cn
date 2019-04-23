@@ -1,6 +1,6 @@
 ---
 ms.assetid: 13210461-1e92-48a1-91a2-c251957ba256
-title: "驱动器固件更新疑难解答"
+title: 驱动器固件更新疑难解答
 ms.prod: windows-server-threshold
 ms.author: toklima
 ms.manager: masriniv
@@ -9,21 +9,22 @@ ms.topic: article
 author: toklima
 ms.date: 04/18/2017
 ms.openlocfilehash: 7ee5c57839f32d71053e983fc14f76c481236779
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884158"
 ---
 # <a name="troubleshooting-drive-firmware-updates"></a>驱动器固件更新疑难解答
 
->适用于：Windows 10、Windows Server（半年频道）
+>适用于：Windows 10、windows Server （半年频道）
 
 Windows 10 版本 1703 和更高版本以及 Windows Server（半年频道）能够更新已使用固件可升级 AQ（其他限定符）通过 PowerShell 认证的 HDD 和 SSD 的固件。
 
 你可以在此处找到有关此功能的详细信息：
 
-- [在 Windows Server 2016 中更新驱动器固件](update-firmware.md)
-- [在不停机的情况下在存储空间直通中更新驱动器固件](https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct)
+- [Windows Server 2016 中更新驱动器固件](update-firmware.md)
+- [直接更新无需停机即可在存储空间的驱动器固件](https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct)
 
 固件更新可能会因各种原因而失败。 这篇文章旨在帮助进行高级疑难解答。
 
@@ -63,7 +64,7 @@ FirmwareVersionInSlot : {0013}
 
 要验证 SAS 设备是否支持所需的命令集，有两个选择：
 1.  使用相应的固件映像通过 Update-StorageFirmware cmdlet 试一下，或者
-2.  请查看 Windows Server 目录，确定哪些 SAS 设备已成功获得了固件更新 AQ (https://www.windowsservercatalog.com/)
+2.  请查阅 Windows Server 目录来识别哪些 SAS 设备已成功获取固件更新 AQ （ https://www.windowsservercatalog.com/)
 
 ### <a name="remediation-options"></a>修正选项
 如果你正在测试的给定设备不支持相应的命令集，则询问你的供应商，了解是否可获得提供所需命令集的已更新固件，或者查看 Windows Server 目录，确定用于获得源的可实现相应命令集的设备。
@@ -141,7 +142,7 @@ NumberOfRetriesDone 0
 
 要收集这些高级日志条目，则启用该日志，重现固件更新失败，然后保存诊断日志。
 
-下面是 SATA 设备上的固件更新因将下载的映像无效（事件 ID：258）而失败的示例：
+下面是在 SATA 设备失败，固件更新的示例，因为要下载的图像无效 (事件 ID:258):
 
 ``` 
 EventData
@@ -173,11 +174,11 @@ Parameter8Value 0
 ```
 
 上述事件在参数值 2 至 6 中包含详细的设备信息。 在这里，我们将查看各个 ATA 注册值。 可使用 ATA ACS 规范来解码针对下载微代码命令失败的以下值：
-- 返回代码：0 (0000 0000)（不适用 - 由于未转移任何负载，因此没有意义）
-- 功能：15 (0000 1111)（位 1 已设置为“1”，并且指示“中止”）
-- SectorCount：0 (0000 0000)（不适用）
-- DriveHead：160 (1010 0000)（不适用 – 仅设置了过时位）
-- 命令：146 (1001 0010)（位 1 设置为“1”，指示感知数据的可用性）
+- 返回代码：0 (0000 0000) （不适用-没有意义，因为没有有效负载已传输）
+- 功能：15 (0000 1111) （位 1 设置为"1"，并指示"中止"）
+- SectorCount:0 (0000 0000) （不可用）
+- DriveHead:160 (1010 0000) （不适用 – 仅过时位将设置）
+- 命令：146 (1001 0010) （位 1 设置为"1"，该值指示检测数据的可用性）
 
 这告诉我们，设备终止了固件更新操作。
 

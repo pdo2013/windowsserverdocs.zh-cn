@@ -9,13 +9,13 @@ author: lizap
 ms.author: elizapo
 ms.date: 05/10/2018
 ms.openlocfilehash: c80738fe7ceda43a1a73adb0a8b1061bbb24319f
-ms.sourcegitcommit: 4b9b21ca1f366388a78ead7413cb581f2b23d4c6
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "2712222"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59886198"
 ---
-# 从 Windows Server 版本 1803 开始删除或计划替换的功能
+# <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1803"></a>从 Windows Server 版本 1803 开始删除或计划替换的功能
 
 > 适用于：Windows Server 版本 1803
 
@@ -25,9 +25,9 @@ Windows Server 的每一次发布都增加了新的特性和功能；我们偶�
 > - 你可以通过加入 [Windows 预览体验计划](https://insider.windows.com)来提前使用 Windows Server 版本 - 这是测试功能变动的好方法。
 > - 对其他版本有疑问？ 了解 [Windows Server 2016](deprecated-features.md) 和 [Windows Server 版本 1709](removed-features-1709.md) 的信息。
 
-**本列表可能会更改，可能未全部包括每个受影响的特性或功能。** 
+**列表可能会发生更改，可能不包括每个受影响的功能。** 
 
-## 已在此版本中删除的功能
+## <a name="features-we-removed-in-this-release"></a>已在此版本中删除的功能
 
 我们已从 Windows Server 版本 1803 安装的产品映像中删除了以下特性和功能。 除非你使用了替代方法，否则依赖于这些功能的应用程序或代码都将无法工作。   
 
@@ -36,7 +36,7 @@ Windows Server 的每一次发布都增加了新的特性和功能；我们偶�
 |[文件复制服务](https://support.microsoft.com/en-us/help/4025991/windows-server-version-1709-no-longer-supports-frs)|Windows Server 2003 R2 中引入的文件复制服务已替换为 DFS 复制。 你需要[将使用 FRS 的任何域控制器全部迁移到使用 SYSVOL 的 DFS 复制](https://blogs.technet.microsoft.com/filecab/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol/)。|
 |Hyper-V 网络虚拟化 (HNV)|[网络虚拟化](../networking/sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md)现在作为[软件定义的网络](../networking/sdn/software-defined-networking.md) (SDN) 解决方案的一部分包含在 Windows Server 中，其中还包括网络控制器、软件负载平衡、用户定义的路由和访问控制列表。|
 
-## 不再开发的功能
+## <a name="features-were-no-longer-developing"></a>不再开发的功能
 
 我们不再积极开发这些功能，并有可能在未来更新中将其删除。 部分功能已被替换为其他特性或功能，另外一些现在从其他提供源提供。 
 
@@ -55,5 +55,5 @@ Windows Server 的每一次发布都增加了新的特性和功能；我们偶�
 |[RemoteFX vGPU](../remote/remote-desktop-services/rds-remotefx-vgpu.md)|我们正在开发用于虚拟化环境的新图形加速选项。 你还可以使用[离散设备分配 (DDA)](../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md) 作为备选。|
 |组策略中的[软件限制策略](../identity/software-restriction-policies/software-restriction-policies.md)|不是通过组策略使用软件限制策略，你可以使用 [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/applocker/applocker-overview) 或 [Windows Defender 应用程序控制](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control)来控制哪些应用用户可以访问内核，以及哪个代码可以在内核中运行。|
 |使用 SAS 结构的共享配置的存储空间|改为部署[存储空间直通](../storage/storage-spaces/storage-spaces-direct-overview.md)。 存储空间直通支持使用 HLK 认证的 SAS 机箱，但是在非共享配置中，如[存储空间直通的硬件要求](../storage/storage-spaces/storage-spaces-direct-hardware-requirements.md)中所述。|
-|Windows Server Essentials 体验|我们不再为 Windows Server Standard 或 Windows Server Datacenter SKU 开发 Essentials 体验角色。 如果你需要面向中小型企业的易于使用的服务器解决方案，请查看我们的新 [Microsoft 365 商业版](https://www.microsoft.com/microsoft-365/business)解决方案，或使用 [Windows Server 2016 Essentials](https://docs.microsoft.com/windows-server-essentials/get-started/get-started)。|
+|Windows Server Essentials 体验|我们不再为 Windows Server Standard 或 Windows Server Datacenter SKU 开发 Essentials 体验角色。 如果你需要面向中小型企业的易于使用的服务器解决方案，请查看我们的新 [Microsoft 365 商业版](https://www.microsoft.com/microsoft-365/business)解决方案，或使用 [Windows Server 2016 Essentials](https://docs.microsoft.com/windows-server-essentials/get-started/get-started)。|
 

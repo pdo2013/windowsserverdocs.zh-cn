@@ -13,11 +13,11 @@ ms.author: jaimeo
 ms.date: 09/06/2017
 ms.localizationpriority: medium
 ms.openlocfilehash: 4c669db414c4f12b6145a26a75b83449f43e8918
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2081919"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59887678"
 ---
 # <a name="developing-powershell-cmdlets-for-nano-server"></a>开发 Nano Server 的 PowerShell Cmdlet
 
@@ -36,8 +36,8 @@ ms.locfileid: "2081919"
   
 从 5.1 版本开始，PowerShell 在具有不同功能集和平台兼容性的不同版本中可用。  
   
-- **桌面版：** 基于 .NET Framework 而构建，兼容面向在 Windows 完整占用空间版本（例如，Server Core 和 Windows Desktop）上运行的 PowerShell 版本的脚本和模块。  
-- **核心版：** 基于 .NET Core 而构建，兼容面向在 Windows 占用空间减小版本（例如，Nano Server 和 Windows IoT）上运行的 PowerShell 版本的脚本和模块。  
+- **桌面版：**.NET Framework 上构建，并提供与面向新版的 Server Core 等的 Windows 和 Windows 桌面的完整占用空间减小版本上运行的 PowerShell 脚本和模块的兼容性。  
+- **核心版：**.NET Core 上生成，并提供与面向版本的 Nano Server 等的 Windows 和 Windows IoT 的占用空间减少的版本上运行的 PowerShell 脚本和模块的兼容性。  
   
 当前运行的 PowerShell 版本显示在 $PSVersionTable 的 PSEdition 属性中。  
 ```powershell  
@@ -125,7 +125,7 @@ PowerShell 支持多种 cmdlet 实现类型，你使用的类型决定其创建�
 * %windir%\system32\WindowsPowerShell\v1.0\Modules   
 * %ProgramFiles%\WindowsPowerShell\Modules   
 * %UserProfile%\Documents\WindowsPowerShell\Modules   
-* \<产品安装位置>   
+* \<产品安装位置 >   
     
  检查这些位置以获取详细信息：  
  * CIM cmdlet 具有.cdxml 文件扩展名。  
@@ -160,11 +160,11 @@ PowerShell Core SDK 模块需要 Visual Studio 2015 Update 2。 如未安装 Vis
 使用此 SDK 模块之前请检查 Visual Studio 安装，以确保满足这些先决条件。 安装 Visual Studio 过程中，请务必选择安装上述功能，或修改现有 Visual Studio 2015 安装以进行安装。  
   
 PowerShell Core SDK 模块包括以下 cmdlet：  
-- New-NanoCSharpProject：创建新的 Visual Studio C# 项目，该项目面向 Nano Server 的 Windows Server 2016 版本中包含的 CoreCLR 和 PowerShell Core。  
-- Show-SdkSetupReadMe：在文件资源管理器中打开 SDK 根文件夹并打开用于手动设置的 README.txt 文件。  
-- Install-RemoteDebugger：在 Nano Server 计算机上安装和配置 Visual Studio 远程调试程序。  
-- Start-RemoteDebugger：在运行 Nano Server 的远程计算机上启动远程调试程序。  
-- Stop-RemoteDebuggerr：在运行 Nano Server 的远程计算机上停止远程调试程序。  
+- New-NanoCSharpProject:创建新的 Visual StudioC#项目面向 CoreCLR 和 PowerShell Core 包含在 Windows Server 2016 版本的 Nano Server。  
+- Show-SdkSetupReadMe:在文件资源管理器中打开 SDK 根文件夹并打开用于手动设置的 README.txt 文件。  
+- Install-remotedebugger:安装和配置 Nano Server 计算机上的 Visual Studio 远程调试器。  
+- Start-remotedebugger:在运行 Nano Server 的远程计算机上启动远程调试器。  
+- 停止 RemoteDebugger:在运行 Nano Server 的远程计算机上停止远程调试器。  
   
 有关如何使用这些 cmdlet 的详细信息，请在安装和导入该模块后，在每个 cmdlet 上运行 Get-Help，如下所示：  
   
@@ -182,7 +182,7 @@ PowerShell Core SDK 模块包括以下 cmdlet：
   
 ### <a name="building-c-for-nano-server"></a>生成适用于 Nano Server 的 C#  
   
-通过使用 `New-NanoCSharpProject` 在 Visual Studio 2015 中创建 C# 项目后，只需单击**生成**菜单并选择**生成项目**或**生成解决方案**便可生成项目。 生成的程序集将面向 Nano Server 中正确的 CoreCLR 和 PowerShell Core，只需将这些程序集复制到运行 Nano Server 的计算机便可使用。  
+通过使用 `New-NanoCSharpProject` 在 Visual Studio 2015 中创建 C# 项目后，只需单击“生成”菜单并选择“生成项目”或“生成解决方案”便可生成项目。 生成的程序集将面向 Nano Server 中正确的 CoreCLR 和 PowerShell Core，只需将这些程序集复制到运行 Nano Server 的计算机便可使用。  
   
 ### <a name="building-managed-c-cppcli-for-nano-server"></a>生成适用于 Nano Server 的托管 C++ (CPP/CLI)  
 托管 C++ 不支持 CoreCLR。 移植到 CoreCLR 后，使用 C# 重新编写托管 C++ 代码，并通过 PInvoke 进行所有的本机调用。  
@@ -242,7 +242,7 @@ $result.RemoteAddress = 1.1.1.1
   
 ### <a name="migrating-from-wmi-net-to-mi-net"></a>从 WMI .NET 迁移到 MI .NET  
   
-由于不支持 [WMI .NET](https://msdn.microsoft.com/library/mt481551(v=vs.110).aspx)，因此必须将所有使用旧版 API 的 cmdlet 迁移到受支持的 WMI API: [MI.NET](https://msdn.microsoft.com/library/dn387184(v=vs.85).aspx) 中。 可通过 C# 或 CimCmdlets 模块中的 cmdlet 直接访问 MI .NET。   
+[WMI.NET](https://msdn.microsoft.com/library/mt481551(v=vs.110).aspx)不支持，因此，使用旧 API 的所有 cmdlet 必须在都迁移到受支持的 WMI API:[MI。NET](https://msdn.microsoft.com/library/dn387184(v=vs.85).aspx) 中。 可通过 C# 或 CimCmdlets 模块中的 cmdlet 直接访问 MI .NET。   
   
 ### <a name="cimcmdlets-module"></a>CimCmdlets 模块  
   

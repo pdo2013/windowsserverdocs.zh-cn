@@ -1,0 +1,76 @@
+---
+title: Servermanagercmd
+description: 'Windows 命令主题 * * *- '
+ms.custom: na
+ms.prod: windows-server-threshold
+ms.reviewer: na
+ms.suite: na
+ms.technology: manage-windows-commands
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.assetid: 507c4b87-8e13-4872-8b34-0c7508eecbc1
+author: coreyp-at-msft
+ms.author: coreyp
+manager: dongill
+ms.date: 07/11/2018
+ms.openlocfilehash: ba0b85814d942323b12e1874b852fcf28b8ac068
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59883238"
+---
+# <a name="servermanagercmd"></a>Servermanagercmd
+
+>适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+
+> [!IMPORTANT]
+> 此命令为仅在运行 Windows Server 2008 的服务器或 Windows Server 2008 R2 上可用。 **Servermanagercmd.exe**已被弃用，并在 Windows Server 2012 中不可用。 有关如何安装或删除角色、 角色服务和功能在 Windows Server 2012 中的信息，请参阅[安装或卸载角色、 角色服务和功能](https://go.microsoft.com/fwlink/?LinkID=239563)Microsoft TechNet 上。
+
+安装和删除角色、 角色服务和功能。 此外显示所有角色、 角色服务和可用功能的列表，并显示在此计算机上安装了哪些。 有关角色、 角色服务和功能，可以指定通过使用此工具的其他信息，请参阅[服务器管理器帮助](https://go.microsoft.com/fwlink/?LinkID=137387)。 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
+
+## <a name="syntax"></a>语法
+```
+servermanagercmd -query [[[<Drive>:]<path>]<query.xml>] [-logpath   [[<Drive>:]<path>]<log.txt>]
+servermanagercmd -inputpath  [[<Drive>:]<path>]<answer.xml> [-resultpath <result.xml> [-restart] | -whatif] [-logpath [[<Drive>:]<path>]<log.txt>]
+servermanagercmd -install <Id> [-allSubFeatures] [-resultpath   [[<Drive>:]<path>]<result.xml> [-restart] | -whatif] [-logpath   [[<Drive>:]<path>]<log.txt>]
+servermanagercmd -remove <Id> [-resultpath    <result.xml> [-restart] | -whatif] [-logpath  [[<Drive>:]<path>]<log.txt>]
+servermanagercmd [-help | -?]
+servermanagercmd -version
+```
+
+## <a name="parameters"></a>Parameters
+|参数|描述|
+|-------|--------|
+|-query [[[\<Drive>:]\<path>]\<*query.xml*>]|显示服务器上的所有角色、 角色服务和已安装并且可供安装的功能列表。 此外可以使用此参数的缩写形式 **-q**。 如果你想将查询结果保存到 XML 文件，指定一个 XML 文件来替换*query.xml*。|
+|-inputpath  <[[\<Drive>:]\<path>]*answer.xml*>|安装或删除角色、 角色服务和功能所表示的 XML 答案文件中指定*answer.xml*。 此外可以使用此参数的缩写形式 **-p。**|
+|-安装\< *Id*>|安装角色、 角色服务或功能通过指定*Id*。标识符不区分大小写。 必须由空格分隔多个角色、 角色服务和功能。 与使用以下可选参数 **-安装**参数。<br /><br />-   **-设置** \< *SettingName*>=\<*SettingValue*> 安装所需的指定设置。<br />-   **-allSubFeatures**指定的所有从属服务和功能，此外还父角色、 角色服务或功能在名为安装*Id*值。 **注意：**    一些角色容器没有允许安装所有角色服务的命令行标识符。 不能在服务器管理器命令的相同实例中安装角色服务时，这是这种情况。 例如，不能使用相同的服务器管理器命令实例安装的 active directory 联合身份验证服务和联合身份验证服务代理角色服务的联合身份验证服务角色服务。<br />-   **-resultpath** \< *result.xml > 将安装结果保存到 XML 文件所表示*result.xml*。此外可以使用此参数的缩写形式 **-r**。**注意：**   不能运行**servermanagercmd**两个 **-resultpath**参数并 **-whatif**指定的参数。<br />-    **-重新启动**（如果的角色或功能安装需要重新启动） 完成安装后自动重新启动计算机。<br />-    **-whatif**显示有关指定的任何操作 **-安装**参数。此外可以使用的缩写形式 **-whatif**参数， **-w**。不能运行**servermanagercmd**两个 **-resultpath**参数并 **-whatif**指定的参数。<br />-    **-logpath** \<[[\<驱动器 >:]\<路径 >]* log.txt* > 指定的名称和日志文件，而不使用默认位置 **%windir%\temp\servermanager.log**。|
+|-删除\< *Id*>|删除角色、 角色服务或功能通过指定*Id*。标识符不区分大小写。 必须由空格分隔多个角色、 角色服务和功能。 与使用以下可选参数 **-删除**参数。<br /><br />-   **-resultpath** \<[[\<驱动器 >:]\<路径 >]*result.xml*> 将删除结果保存到 XML 文件所表示*result.xml*。 此外可以使用此参数的缩写形式 **-r**。 **注意：**    不能运行**servermanagercmd**两个 **-resultpath**参数并 **-whatif**指定的参数。<br />-   **-重新启动**（如果剩余角色或功能的情况下，需要重新启动） 完成删除时自动重新启动计算机。<br />-   **-whatif**显示有关指定的任何操作 **-删除**参数。 此外可以使用的缩写形式 **-whatif**参数， **-w**。 不能运行**servermanagercmd**两个 **-resultpath**参数并 **-whatif**指定的参数。<br />-   **-logpath**\<[[\<驱动器 >:]\<路径 >]*log.txt*> 指定的名称和日志文件，而不使用默认位置 **%windir%\temp\servermanager.log**。|
+|-help|在命令提示符窗口中显示帮助。 此外可以使用缩写形式 **-？**。|
+|-version|显示服务器管理器的版本号。 此外可以使用缩写形式 **-v**。|
+
+## <a name="remarks"></a>备注
+**Servermanagercmd**已弃用，并且不能保证在将来版本的 Windows 支持。 我们建议，如果在运行 Windows Server 2008 R2 的计算机上正在运行服务器管理器，则使用服务器管理器提供的 Windows PowerShell cmdlet。 有关详细信息，请参阅[服务器管理器 cmdlet](https://go.microsoft.com/fwlink/?LinkID=137653)。
+在服务器的本地驱动器上，可以从任何目录运行 Servermanagercmd。 必须是你想要安装或删除软件的服务器上的管理员组的成员。
+
+> [!IMPORTANT]
+> 由于 Windows Server 2008 R2 中的用户帐户控制施加的安全限制，您必须运行**Servermanagercmd**在命令提示符窗口中打开使用提升的权限。 若要执行此操作，右键单击命令提示符可执行文件，或**命令提示符**对象上**启动**菜单，并单击**以管理员身份运行**。
+
+## <a name="BKMK_examples"></a>示例
+下面的示例演示如何使用**servermanagercmd**以显示计算机上安装的所有角色、 角色服务和可用功能列表的角色、 角色服务和功能。
+```
+servermanagercmd -query
+```
+下面的示例演示如何使用**servermanagercmd**安装 Web 服务器 (IIS) 角色，并将安装结果保存到 XML 文件所表示*installResult.xml*。
+```
+servermanagercmd -install Web-Server -resultpath installResult.xml
+```
+下面的示例演示如何使用 * * whatif * * 参数**servermanagercmd**根据说明来显示有关角色、 角色服务和功能将安装或删除，详细的信息，所表示的 XML 答案文件中指定*install.xml*。
+```
+servermanagercmd -inputpath install.xml -whatif
+```
+
+#### <a name="additional-references"></a>其他参考
+-   有关可以指定有关角色、 角色服务或功能标识符的完整列表*Id*参数或有关使用 XML 答案文件和详细信息**Servermanagercmd**，请参阅[服务器管理器帮助](https://go.microsoft.com/fwlink/?LinkID=137387)。 (https://go.microsoft.com/fwlink/?LinkID=137387).
+-   请参阅[服务器管理器 cmdlet](https://go.microsoft.com/fwlink/?LinkID=137653)有关服务器管理器提供的 Windows PowerShell cmdlet 的列表。
+-   [命令行语法解答](command-line-syntax-key.md)

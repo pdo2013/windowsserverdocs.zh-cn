@@ -1,6 +1,6 @@
 ---
-title: "从以前版本迁移到 Windows Server Essentials 或 Windows Server Essentials 体验"
-description: "介绍了如何使用 Windows Server Essentials"
+title: 从早期版本迁移到 Windows Server Essentials 或 Windows Server Essentials 体验
+description: 介绍如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/20116
 ms.prod: windows-server-2016-essentials
@@ -13,67 +13,68 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 213ee4304d9d4ebdb7580f7f78fdaca78aa454c9
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59883868"
 ---
-# <a name="migrate-from-previous-versions-to-windows-server-essentials-or-windows-server-essentials-experience"></a>从以前版本迁移到 Windows Server Essentials 或 Windows Server Essentials 体验
+# <a name="migrate-from-previous-versions-to-windows-server-essentials-or-windows-server-essentials-experience"></a>从早期版本迁移到 Windows Server Essentials 或 Windows Server Essentials 体验
 
 >适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
 
-本指南介绍了如何将迁移从以前版本的 Windows 小型企业服务器和 Windows Server Essentials（包括 Windows Server Essentials、Windows 小型企业服务器 2011 年标准、Windows 小型企业服务器 2011 年软件包、小型企业的 Windows Server 2008 和 Windows 小型企业 Server 2003）Windows Server Essentials 或 Windows Server 2012 R2 安装了 Windows Server Essentials 体验角色。  
+本指南介绍了如何从 Windows Small Business Server 和 Windows Server Essentials （包括 Windows Server Essentials、 Windows Small Business Server 2011 Standard、 Windows Small Business Server 2011 Essentials、 Windows 的早期版本迁移Small Business Server 2008 和 Windows Small Business Server 2003） 到 Windows Server Essentials 或 Windows Server 2012 R2 安装了 Windows Server Essentials 体验角色。  
   
- **为 25 个最多用户和 50 设备环境**，你可以按照本指南将从以前版本的 Windows SBS 迁移到 Windows Server Essentials 中的步骤。  
+ **对于具有最多 25 个用户和 50 台设备的环境**，可以按照本指南，以从早期版本的 Windows SBS 迁移到 Windows Server Essentials 中的步骤。  
   
- **对于达 100 用户和 200 设备环境**，您可以按照相同的指南安装了 Windows Server Essentials 体验角色迁移到 Windows Server 2012 R2 标准或 Datacenter edition。  
+ **对于具有最多 100 个用户和 200 台设备的环境**，可以按照相同的指南将安装了 Windows Server Essentials 体验角色迁移到 Windows Server 2012 R2 Standard 或 Datacenter 版本。  
   
 > [!NOTE]
->  若要避免在迁移问题，Windows Server Essentials 产品开发团队强烈建议你阅读本文档，然后再开始迁移。  
+>  为了避免迁移过程中出现问题，Windows Server Essentials 产品开发团队强烈建议你在开始迁移之前先阅读本文档。  
   
-## <a name="terms-and-definitions"></a>条款和定义  
- **源服务器**现有服务器从中迁移你的设置和数据。  
+## <a name="terms-and-definitions"></a>术语和定义  
+ **源服务器** 作为迁移设置和数据的来源的现有服务器。  
   
- **目标服务器**新服务器正在迁移你的设置和数据。  
+ **目标服务器** 作为迁移设置和数据的目标的新服务器。  
   
-## <a name="migration-process-summary"></a>迁移进程的摘要  
- 此迁移指南包含以下步骤：  
+## <a name="migration-process-summary"></a>迁移过程摘要  
+ 此迁移指南包括下列步骤：  
   
-1.  [第 1 步：准备 Windows Server Essentials 迁移源服务器](Step-1--Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md)。  你必须确保你的源 Server 和网络都准备好进行迁移。 本部分将指导您完成备份源服务器、评估源服务器系统运行状况、安装最新的 service pack 和修复程序，并验证网络配置。  
+1.  [步骤 1：源服务器以进行 Windows Server Essentials 迁移准备](Step-1--Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md)。  必须确保源服务器和网络已准备好执行迁移操作。 本节指导你完成下列操作：备份源服务器，评估源服务器系统的运行状况，安装最新的 Service Pack 和修补程序，以及验证网络配置。  
   
-2.  [第 2 步：安装 Windows Server Essentials 为新的副本域控制器](Step-2--Install-Windows-Server-Essentials-as-a-new-replica-domain-controller.md)。 作为域控制器，此部分中介绍了如何安装 Windows Server Essentials 或 Windows Server 2012 R2 Standard（具有 Windows Server Essentials 体验角色已启用）。  
+2.  [步骤 2：Windows Server Essentials 安装为新副本域控制器](Step-2--Install-Windows-Server-Essentials-as-a-new-replica-domain-controller.md)。 本部分介绍如何使用来安装 Windows Server Essentials 或 Windows Server 2012 R2 Standard （已启用 Windows Server Essentials 体验角色） 作为域控制器。  
   
-3.  [第 3 步：到新的 Windows Server Essentials 服务器加入计算机](Step-3--Join-computers-to-the-new-Windows-Server-Essentials-server.md)。  此部分中介绍了如何加入客户端计算机运行的 Windows Server Essentials 和更新组策略设置新的服务器。  
+3.  [步骤 3：将计算机加入到新的 Windows Server Essentials 服务器](Step-3--Join-computers-to-the-new-Windows-Server-Essentials-server.md)。  本部分介绍如何将客户端计算机加入到新的服务器运行 Windows Server Essentials 并更新组策略设置。  
   
-4.  [第 4 步：将设置和数据移动到用于 Windows Server Essentials 迁移的目标服务器](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md)。  此部分中提供源服务器有关迁移数据和设置的信息。  
+4.  [步骤 4：将设置和数据移到目标服务器以进行 Windows Server Essentials 迁移](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md)。  本节提供从源服务器迁移数据和设置的相关信息。  
   
-5.  [第 5 步：启用 Windows Server Essentials 迁移目标服务器上的文件夹重定向](Step-5--Enable-folder-redirection-on-the-Destination-Server-for-Windows-Server-Essentials-migration.md)。  如果源服务器上启用了文件夹重定向，你可以启用目的地服务器上的文件夹重定向和然后再删除旧的文件夹重定向组策略设置。  
+5.  [步骤 5：启用在目标服务器以进行 Windows Server Essentials 迁移的文件夹重定向](Step-5--Enable-folder-redirection-on-the-Destination-Server-for-Windows-Server-Essentials-migration.md)。  如果在源服务器上启用了文件夹重定向，则可以在目标服务器上也启用同样功能，然后删除旧的“文件夹重定向组策略”设置。  
   
-6.  [第 6 步：将降级，从新的 Windows Server Essentials 网络删除源服务器](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md)。  删除从网络来源服务器之前, 你必须强制组策略更新并降级源服务器。  
+6.  [步骤 6：降级和删除源服务器从新的 Windows Server Essentials 网络](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md)。  从网络中删除源服务器之前，必须强制执行组策略更新并将源服务器降级。  
   
-7.  [第 7 步：为 Windows Server Essentials 迁移执行后的迁移任务](Step-7--Perform-post-migration-tasks-for-the-Windows-Server-Essentials-migration.md)。  你完成所有设置和数据都迁移于 Windows Server Essentials 后，你可能想要将允许的计算机与用户帐户。  
+7.  [步骤 7：为 Windows Server Essentials 迁移执行迁移后任务](Step-7--Perform-post-migration-tasks-for-the-Windows-Server-Essentials-migration.md)。  在完成所有设置和数据都迁移到 Windows Server Essentials 后，您可能希望将获得允许的计算机映射到用户帐户。  
   
-8.  [第 8 步：运行 Windows Server Essentials 最佳实践分析](Step-8--Run-the-Windows-Server-Essentials-Best-Practices-Analyzer.md)。  你完成迁移的设置和 Windows Server essentials 数据后，你应该运行 Windows Server Essentials 最佳做法分析器 (BPA)。  
+8.  [步骤 8：运行 Windows Server Essentials 最佳做法分析器](Step-8--Run-the-Windows-Server-Essentials-Best-Practices-Analyzer.md)。  在完成设置和迁移到 Windows Server Essentials 的数据后，应运行 Windows Server Essentials 最佳做法分析器 (BPA)。  
   
- 某些迁移过程需要你打开 Command Prompt 窗口以管理员身份登录。 以下过程介绍如何执行此操作。  
+ 某些迁移过程需要以管理员身份打开命令提示符窗口。 以下过程介绍如何执行此操作。  
   
-###  <a name="BKMK_OpenACommandPromptAsAdmin"></a>若要以管理员身份打开源服务器上的 Command Prompt 窗口  
+###  <a name="BKMK_OpenACommandPromptAsAdmin"></a> 若要以管理员身份打开命令提示符窗口，在源服务器上  
   
-1.  单击**开始**。  
+1.  单击“开始” 。  
   
-2.  在搜索框中，键入**cmd**。  
+2.  在搜索框中，键入“cmd”。  
   
-3.  在结果列表中，右键单击**cmd**，然后单击**以管理员身份运行**。  
+3.  在结果列表中，右键单击“cmd”，然后单击“以管理员身份运行”。  
   
-#### <a name="to-open-a-command-prompt-window-on-the-destination-server-as-an-administrator"></a>若要以管理员身份打开目的地服务器上的 Command Prompt 窗口  
+#### <a name="to-open-a-command-prompt-window-on-the-destination-server-as-an-administrator"></a>在目标服务器上以管理员身份打开命令提示符窗口的步骤  
   
-1.  在**开始**屏幕上的，在搜索框中，键入**cmd**。  
+1.  在“开始”屏幕的搜索框中，键入 **cmd**。  
   
-2.  在结果列表中，右键单击**cmd**，然后单击**以管理员身份运行**。  
+2.  在结果列表中，右键单击“cmd”，然后单击“以管理员身份运行”。  
   
 ## <a name="see-also"></a>请参阅  
   
--   [Windows Server Essentials 到迁移服务器数据](Migrate-Server-Data-to-Windows-Server-Essentials.md)
+-   [将服务器数据迁移到 Windows Server Essentials](Migrate-Server-Data-to-Windows-Server-Essentials.md)
 
--   [Windows Server Essentials 到迁移服务器数据](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)
+-   [将服务器数据迁移到 Windows Server Essentials](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)
 

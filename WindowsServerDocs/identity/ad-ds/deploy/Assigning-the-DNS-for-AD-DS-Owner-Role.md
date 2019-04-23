@@ -1,29 +1,30 @@
 ---
 ms.assetid: 4163cf03-3bff-426c-9844-4cc2d7897d52
-title: "广告 DS 负责人的角色指定 DNS"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: 为 AD DS 所有者角色分配 DNS
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: e393cbf32aa5a13ff22044eabb8c575508baaf79
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: dde9ed6035b30ba5b5b96b7132d25a1f8a1c0b8c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884018"
 ---
-# <a name="assigning-the-dns-for-ad-ds-owner-role"></a>广告 DS 负责人的角色指定 DNS
+# <a name="assigning-the-dns-for-ad-ds-owner-role"></a>为 AD DS 所有者角色分配 DNS
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-森林所有者分配域名系统 (DNS) 林 Active Directory 域服务 (广告 DS) 所有者。 广告 DS 所有者的森林 DNS 是人员 （或一组人员） 负责监督 DNS 的部署广告 DS 基础结构对和确保 （如有必要） 域名注册正确 Internet 机构。  
+林所有者将分配域名系统 (DNS) 林的 Active Directory 域服务 (AD DS) 所有者。 AD DS 所有者的林 DNS 是人员 （或用户组） 由谁来负责监督 DNS 部署 AD DS 基础结构和确保 （如有必要） 与正确的 Internet 颁发机构注册域名称。  
   
-广告 DS 所有者 DNS 负责林广告 DS 设计 DNS。 如果你的组织正在运行 DNS 服务器服务，现有的 DNS 服务器服务 DNS 设计器将适用于广告 DS 所有者委派对 DNS 服务器域控制器上运行的森林根 DNS 名称 DNS 中。  
+AD DS 所有者的 DNS 负责在林中的 AD DS 设计的 DNS。 如果你的组织当前运行的 DNS 服务器服务，现有的 DNS 服务器服务的 DNS 设计器适用于 AD DS 所有者委派到域控制器上运行的 DNS 服务器的林根 DNS 名称的 DNS。  
   
-林广告 DS 所有者 DNS 还维护 DNS 该组，组织的动态主机配置协议 (DHCP) 组与联系人，并与这些组坐标每个域森林中的个别 DNS 所有者的套餐 （如果有）。 森林中的 DNS 所有者确保，以便每组已 DNS 设计计划的了解，并提供输入提前 DHCP 和 DNS 组涉及中有关广告 DS 设计过程 DNS。  
+在林中的 AD DS 所有者的 DNS 还与动态主机配置协议 (DHCP) 组和组织的 DNS 组维护联系人，并协调与这些组的计划在林中每个域的单个 DNS 所有者 （如果有）。 林 DNS 所有者可确保 DHCP 和 DNS 组所涉及的 AD DS 设计过程在 DNS 中，以便每个组已意识到 DNS 的设计规划，并且可以提前提供输入。  
   
 
 

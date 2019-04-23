@@ -1,8 +1,8 @@
 ---
-title: "创建 USB 可启动 Flash 驱动器"
-description: "介绍了如何使用 Windows Server Essentials"
+title: 创建可启动的 U 盘
+description: 介绍如何使用 Windows Server Essentials
 ms.custom: na
-ms.date: 10/03/2016
+ms.date: 05/04/2018
 ms.prod: windows-server-2016-essentials
 ms.reviewer: na
 ms.suite: na
@@ -12,65 +12,71 @@ ms.assetid: 2fe8e35c-69f9-40b3-a270-22e2402510d8
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 9d587329e1141040b2511e1574649f1844dcec90
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 2716ffb7ce8f74d7c729565064de91e0598d0753
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884678"
 ---
-# <a name="create-a-bootable-usb-flash-drive"></a>创建 USB 可启动 Flash 驱动器
+# <a name="create-a-bootable-usb-flash-drive"></a>创建可启动的 U 盘
 
 >适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
 
-你可以创建可启动 U 盘以部署 Windows Server Essentials 使用。 第一步是通过使用 DiskPart，它命令行实用工具准备 U 盘。 有关 DiskPart 的信息，请参阅[DiskPart 命令行选项](https://go.microsoft.com/fwlink/?LinkId=207073)。  
+可以创建可启动 USB 闪存驱动器以用于部署 Windows Server Essentials。 第一步是使用命令行实用程序 DiskPart 准备 U 盘。 有关 DiskPart 的信息，请参阅 [DiskPart 命令行选项](https://go.microsoft.com/fwlink/?LinkId=207073)。  
+
+
+> [!TIP]
+> 若要在恢复或在 PC 而不是服务器上重新安装 Windows 中创建用于可启动 USB 闪存驱动器，请参阅[创建恢复驱动器](https://support.microsoft.com/help/4026852/windows-create-a-recovery-drive)。
   
- 其他情况下，你可能想要创建或使用可启动 U 盘，请参阅以下主题：  
+ 有关你可能希望创建或使用可启动 U 盘的其他方案，请参阅以下主题：  
   
--   [从现有的客户端计算机备份中还原完整系统](https://technet.microsoft.com/library/jj713539.aspx#BKMK_CreateBootable)  
+-   [从现有客户端计算机备份还原完整系统](../manage/restore-a-full-system-from-an-existing-client-computer-backup.md)  
   
--   [还原或修复你运行的 Windows Server Essentials 服务器](https://technet.microsoft.com/library/jj593197.aspx#BKMK_Restore_2)  
+-   [还原或修复运行 Windows Server Essentials 的服务器](../manage/restore-or-repair-your-server-running-windows-server-essentials.md)  
+
   
-### <a name="to-create-a-bootable-usb-flash-drive"></a>若要创建可启动 U 盘  
+### <a name="to-create-a-bootable-usb-flash-drive"></a>创建可启动的 U 盘  
   
-1.  正在运行的计算机中插入 U 盘。  
+1.  将 U 盘插入正在运行的计算机。  
   
-2.  以 administrator 身份打开一个 Command Prompt 窗口。  
+2.  以管理员身份打开“命令提示符”窗口。  
   
-3.  键入`diskpart`。  
+3.  键入 `diskpart`。  
   
-4.  在新的命令行窗口中打开，以确定 USB 刷写的驱动器号或驱动器号，在命令提示符下，键入`list disk`，然后单击 enter 键。 `list disk`命令显示所有磁盘计算机上。 请注意的驱动器号或 U 盘驱动器号。  
+4.  在新打开的命令行窗口中，要确定 USB 闪存驱动器编号或驱动器号，请在命令提示符处键入 `list disk`，然后单击 ENTER。 `list disk` 命令将显示计算机上的所有磁盘。 请记住 U 盘的驱动器编号或驱动器号。  
   
-5.  在命令提示符下，键入`select disk <X>`、 了 X 是驱动器号或 USB 驱动器号刷写的驱动器，然后单击 enter 键。  
+5.  在命令提示符下，键入 `select disk <X>`，其中 X 是 USB 闪存驱动器的驱动器编号或驱动器号，然后单击 Enter。  
   
-6.  键入`clean`，然后单击 enter 键。 此命令从 U 盘中删除的所有数据。  
+6.  键入 `clean`，然后单击 Enter。 此命令会删除 U 盘中的所有数据。  
   
-7.  若要创建一个新的主分区，在 U 盘上，键入`create part pri`，然后单击 enter 键。  
+7.  若要在 USB 闪存驱动器上创建新的主分区，请键入 `create part pri`，然后单击 Enter。  
   
-8.  若要选择刚刚创建分区，请键入`select part 1`，然后单击 enter 键。  
+8.  若要选择刚创建的分区，请键入 `select part 1`，然后单击 Enter。  
   
-9. 若要格式化分区中，键入`format fs=ntfs quick`，然后单击 enter 键。  
+9. 若要对分区进行格式化，请键入 `format fs=ntfs quick`，然后单击 Enter。  
   
     > [!IMPORTANT]
-    >  如果 server 平台支持统一可扩展固件接口 (UEFI)，你应为 FAT32 而非 NTFS 格式 U 盘。 要格式化为 FAT32 分区，请键入`format fs=fat32 quick`，然后单击 enter 键。  
+    >  如果你的服务器平台支持统一可扩展固件接口 (UEFI)，则应将 U 盘格式化为 FAT32，而非 NTFS。 若要将分区格式化为 FAT32，请键入 `format fs=fat32 quick`，然后单击 Enter。  
   
-10. 键入`active`，然后单击 enter 键。  
+10. 键入 `active`，然后单击 Enter。  
   
-11. 键入`exit`，然后单击 enter 键。  
+11. 键入 `exit`，然后单击 Enter。  
   
-12. 准备您的自定义映像完毕后，请将其保存到 U 盘根。  
+12. 完成自定义映像的准备后，将其保存到 U 盘的根目录。  
   
 ## <a name="see-also"></a>请参阅  
 
  [Windows Server Essentials ADK 入门](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [创建和自定义映像](Creating-and-Customizing-the-Image.md)   
  [其他自定义设置](Additional-Customizations.md)   
- [准备部署该映像](Preparing-the-Image-for-Deployment.md)   
+ [部署准备的映像](Preparing-the-Image-for-Deployment.md)   
  [测试客户体验](Testing-the-Customer-Experience.md)   
 
  [Windows Server Essentials ADK 入门](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [创建和自定义映像](../install/Creating-and-Customizing-the-Image.md)   
  [其他自定义设置](../install/Additional-Customizations.md)   
- [准备部署该映像](../install/Preparing-the-Image-for-Deployment.md)   
+ [部署准备的映像](../install/Preparing-the-Image-for-Deployment.md)   
  [测试客户体验](../install/Testing-the-Customer-Experience.md)   
 
  [我们如何帮助你？](https://windows.microsoft.com/windows/support)

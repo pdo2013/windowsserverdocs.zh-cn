@@ -9,17 +9,17 @@ author: greg-lindsay
 ms.author: greg-lindsay
 ms.localizationpriority: high
 ms.openlocfilehash: 62821abc6c9eec660fa6af832bb1aba151708021
-ms.sourcegitcommit: 3883eebbba70bfea0221e510863ee1a724a5f926
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "5783669"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884078"
 ---
-# 适用于 Windows Server 的 Azure 混合权益
+# <a name="azure-hybrid-benefit-for-windows-server"></a>适用于 Windows Server 的 Azure 混合权益
 
 >适用于：Windows Server
 
-## 权益的描述、规则和用例
+## <a name="benefit-description-rules-and-use-cases"></a>权益的描述、规则和用例
 
 通过适用于 Windows Server 的 Azure 混合权益，你可以利用包含软件保障的本地 Windows Server 许可证，在 Azure 中的 Windows Server VM 上实现高达 40% 的节约。  凭借此权益，客户只需要为虚拟机的基础结构成本付费，因为软件保障权益涵盖 Windows Server 的许可。  该权益适用于标准版和数据中心版的 Windows Server 2008R2、2012、2012R2 和 2016。  此权益在所有地区和自主云中提供。
 
@@ -37,7 +37,7 @@ ms.locfileid: "5783669"
 
 利用 Azure 混合权益的 VM 只能在 SA/订阅期内在 Azure 中运行。 在 SA/订阅即将到期时，客户可以选择续订其 SA/订阅，为该 VM 关闭混合权益功能，或使用混合权益取消预配 VM。 
 
-### 节省示例 
+### <a name="savings-examples"></a>节省示例 
 
 ![图像 2](media/ahb02.png)
  
@@ -51,13 +51,13 @@ Windows Server，包含 SA 要求参考表：
 
 几个许可位置的示例配置：
 
-![图像 4](media/ahb04.png)
+![图 4](media/ahb04.png)
 ![图像 5](media/ahb05.png)
 
  
 如果你希望了解有关适用于 Windows Server 的 Azure 混合权益的详细信息，请转到 Azure 混合权益网站。
 
-## 如何保持合规性
+## <a name="how-to-maintain-compliance"></a>如何保持合规性
 
 客户如果希望将 Azure 混合权益应用于其 Windows Server VM，则需要在激活此权益前验证合格的许可证数，以及其 SA/订阅的相应覆盖期，并应用上述指南以使用该权益部署正确数量的 VM。 如果你已使用 Azure 混合权益运行 VM，则将需要清点你正在运行的装置数量，并查看你拥有的有效 SA 许可证。  请联系你的 Microsoft 企业协议许可专家，以验证你的 SA 许可位置。
 若要查看使用订阅中适用于 Windows Server 的 Azure 混合权益部署的所有虚拟机并计算其数量，你可以执行以下操作之一：
@@ -92,14 +92,14 @@ Windows Server，包含 SA 要求参考表：
 
 Windows Server 软件保障和/或订阅可通过以下 Microsoft 许可频道组合之一进行购买：
 
-| 频道                      | Open     | OVS      | Select/Select Plus  | MPSA       | EA/EAS   |
+| 通道                      | 打开     | OVS      | Select/Select Plus  | MPSA       | EA/EAS   |
 |------------------------------|----------|----------|-----------------------|-----------|----------|
 | 典型大小（设备数）  | 5-250    | 5-250    | >250                  | >250      | >500     |
 | SA/订阅            | 可选 | 已包含 | 可选              | 可选  | 已包含 |
 
 Microsoft 保留随时审核最终客户以验证 Azure 混合权益资格的权利。 
 
-## 部署指南 
+## <a name="deployment-guidance"></a>部署指南 
 
 我们已对拥有合格许可证的所有客户启用预建库图像可用性（与他们购买这些许可证的位置无关），以及使合作伙伴能够代表客户执行部署。 
 
