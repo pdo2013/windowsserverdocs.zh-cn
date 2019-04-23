@@ -1,6 +1,6 @@
 ---
-title: "将 Active Directory 联合身份验证服务角色服务迁移到 Windows Server 2012 R2"
-description: "提供迁移到 Windows Server 2012 R2 的广告 FS 服务的说明进行操作。"
+title: 将 Active Directory 联合身份验证服务角色服务迁移到 Windows Server 2012 R2
+description: 提供了迁移到 Windows Server 2012 R2 AD FS 服务的说明。
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,60 +9,61 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 478729a7b6560beba5f04a1a15ad035561ad31f0
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59847948"
 ---
 # <a name="migrate-active-directory-federation-services-role-services-to-windows-server-2012-r2"></a>将 Active Directory 联合身份验证服务角色服务迁移到 Windows Server 2012 R2
- 本文介绍了如何将以下角色服务迁移到已安装了 Windows Server 2012 R2 的 Active Directory 联合身份验证服务 (AD FS):  
+ 本文档介绍如何将以下角色服务迁移到 Active Directory 联合身份验证服务 (AD FS) 与 Windows Server 2012 R2 一起安装：  
   
--   广告 FS 2.0 联盟服务器安装在 Windows Server 2008 或 Windows Server 2008 R2  
+-   在 Windows Server 2008 或 Windows Server 2008 R2 上安装的 AD FS 2.0 联合身份验证服务器  
   
--   在 Windows Server 2012 上安装的广告 FS 联盟服务器  
+-   Windows Server 2012 上安装的 AD FS 联合身份验证服务器  
   
-## <a name="supported-migration-scenarios"></a>受支持的迁移方案  
- 本指南中的迁移说明包含以下任务：  
+## <a name="supported-migration-scenarios"></a>支持的迁移方案  
+ 本指南中的迁移说明包括以下任务：  
   
--   导出广告 FS 2.0 配置数据来自您运行的 Windows Server 2008 的服务器、Windows Server 2008 R2 或 Windows Server 2012  
+-   从运行 Windows Server 2008、 Windows Server 2008 R2 或 Windows Server 2012 的服务器导出 AD FS 2.0 配置数据  
   
--   Windows Server 2008、Windows Server 2008 R2 或 Windows Server 2012 对 Windows Server 2012 R2 从中执行此服务器操作系统就地升级。 
+-   执行就地升级此服务器的操作系统从 Windows Server 2008、 Windows Server 2008 R2 或 Windows Server 2012 到 Windows Server 2012 R2。 
   
--   重新创建原始广告 FS 配置和还原剩余广告 FS 服务正在运行的随 Windows Server 2012 R2 安装广告 FS 服务器角色此服务器上的设置。  
+-   重新创建原始 AD FS 配置并还原剩余的 AD FS 服务在此服务器，现在正在运行随 Windows Server 2012 R2 一起安装的 AD FS 服务器角色的设置。  
   
- 本指南中不包括说明迁移的服务器上运行的多个角色。 如果服务器正在运行多个角色，我们建议你设计的自定义迁移进程特定到服务器环境中，根据其他角色迁移指南中提供的信息。 上还有其他角色迁移指南[Windows Server 迁移门户](https://go.microsoft.com/fwlink/?LinkId=247608)。  
+ 本指南不包括迁移运行多个角色的服务器的相关说明。 如果你的服务器正在运行多个角色，则建议你根据其他角色迁移指南中提供的信息，设计一个特定于你的服务器环境的自定义迁移过程。 如需有关其他角色的迁移指南，请参阅 [Windows Server 迁移端口](https://go.microsoft.com/fwlink/?LinkId=247608)。  
   
 ### <a name="supported-operating-systems"></a>受支持的操作系统  
- 服务器操作系统时目标：  
+ 目标服务器操作系统：  
   
- Windows Server 2012R2（服务器 Core 和完全安装选项）  
+ Windows Server 2012 R2 （服务器核心和完全安装选项）  
   
- 目标 server 处理器：  
+ 目标服务器处理器：  
   
- 基于 x64 的  
+ 基于 x64  
   
-|源 server 处理器|源服务器操作系统|  
+|源服务器处理器|源服务器操作系统|  
 |-----------------------------|------------------------------------|  
-|x86-或 x64-基于| Windows Server 2008、满并且服务器 Core 安装选项|  
-|基于 x64 的|Windows Server 2008 R2|  
-|基于 x64 的|Windows Server 2008 R2 的服务器 Core 安装选项|  
-|基于 x64 的|服务器 Core 和 Windows Server 2012 的完全安装选项|  
+|基于 x86 或基于 x64| Windows Server 2008 中，完全安装选项和服务器核心安装选项|  
+|基于 x64|Windows Server 2008 R2|  
+|基于 x64|Windows Server 2008 R2 的服务器核心安装选项|  
+|基于 x64|服务器核心和 Windows Server 2012 的完全安装选项|  
   
 > [!NOTE]
->  -   在上的表列出版本是操作系统的操作系统和支持的 service pack 的古老组合。  
-> -   Windows Server 操作系统基础、标准、企业版和 Datacenter edition 作为源或目标服务器的支持。  
-> -   支持之间的物理操作系统和虚拟操作系统的迁移。  
+>  -   上表中列出的操作系统版本是所支持的操作系统和 Service Pack 的最旧组合。  
+> -   作为源或目标服务器支持的 Windows Server 操作系统将 Foundation、 Standard、 Enterprise 和 Datacenter 版本。  
+> -   支持在物理操作系统和虚拟操作系统之间迁移。  
   
-### <a name="supported-ad-fs-role-services-and-features"></a>受支持的广告 FS 角色服务和功能  
- 下表介绍了迁移广告 FS 角色服务和他们各自的设置本指南中所述的方案。  
+### <a name="supported-ad-fs-role-services-and-features"></a>支持的 AD FS 角色服务和功能  
+ 下表描述了 AD FS 角色服务和及其相关的设置，本指南中介绍的迁移方案。  
   
-|从|广告 FS 与 Windows Server 2012 R2 安装到|  
+|从|到随 Windows Server 2012 R2 一起安装的 AD FS|  
 |----------|----------------------------------------------------------------------------------------------|  
-|广告 FS 2.0 联盟服务器安装在 Windows Server 2008 或 Windows Server 2008 R2|相同的服务器上的迁移受支持。 有关详细信息，请参阅：<br /><br /> [准备迁移广告 FS 联盟服务器](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [迁移广告 FS 联盟服务器](migrate-ad-fs-fed-server-r2.md)|  
-|在 Windows Server 2012 上安装的广告 FS 联盟服务器|相同的服务器上的迁移受支持。  有关详细信息，请参阅：<br /><br /> [准备迁移广告 FS 联盟服务器](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [迁移广告 FS 联盟服务器](migrate-ad-fs-fed-server-r2.md)|  
+|在 Windows Server 2008 或 Windows Server 2008 R2 上安装的 AD FS 2.0 联合身份验证服务器|支持在同一台服务器上迁移。 有关详细信息，请参阅：<br /><br /> [准备迁移 AD FS 联合身份验证服务器](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [迁移 AD FS 联合身份验证服务器](migrate-ad-fs-fed-server-r2.md)|  
+|Windows Server 2012 上安装的 AD FS 联合身份验证服务器|支持在同一台服务器上迁移。  有关详细信息，请参阅：<br /><br /> [准备迁移 AD FS 联合身份验证服务器](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [迁移 AD FS 联合身份验证服务器](migrate-ad-fs-fed-server-r2.md)|  
   
 ## <a name="next-steps"></a>后续步骤
- [准备迁移广告 FS 联盟服务器](prepare-migrate-ad-fs-server-r2.md)   
- [迁移广告 FS 联盟服务器](migrate-ad-fs-fed-server-r2.md)   
- [迁移广告 FS 联合身份验证的服务器代理](migrate-fed-server-proxy-r2.md)   
- [验证广告 FS 迁移到 Windows Server 2012 R2](verify-ad-fs-migration.md)
+ [准备迁移 AD FS 联合身份验证服务器](prepare-migrate-ad-fs-server-r2.md)   
+ [迁移 AD FS 联合身份验证服务器](migrate-ad-fs-fed-server-r2.md)   
+ [迁移 AD FS 联合服务器代理](migrate-fed-server-proxy-r2.md)   
+ [验证 AD FS 迁移到 Windows Server 2012 R2](verify-ad-fs-migration.md)

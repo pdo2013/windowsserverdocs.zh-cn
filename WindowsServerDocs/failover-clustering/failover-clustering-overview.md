@@ -11,22 +11,22 @@ ms.technology: storage-failover-clustering
 ms.date: 03/08/2019
 ms.localizationpriority: high
 ms.openlocfilehash: 445de065ff5b68b83481ee5bd83ebf18fdd180a7
-ms.sourcegitcommit: b0fece76b871da3fa9d6a996798a5008756f486b
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "9178598"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59848648"
 ---
-# Windows Server 中的故障转移群集
+# <a name="failover-clustering-in-windows-server"></a>Windows Server 中的故障转移群集
 
-> 适用范围： Windows Server 2019、Windows Server 2016、Windows Server（半年频道）
+> 适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
 
 >[!TIP]
-> 需要有关较旧版本的 Windows Server 的信息？ 在 docs.microsoft.com 上查看我们的其他 [Windows Server 库](/previous-versions/windows/)。 你还可以[搜索此网站](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions)查找特定信息。
+> 要查找有关较旧版 Windows Server 的信息？ 在 docs.microsoft.com 上查看我们的其他 [Windows Server 库](/previous-versions/windows/)。 也可以[搜索此站点](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions)了解具体信息。
 
 <hr />
 
-故障转移群集是一组独立的计算机，这些计算机相互协作以提高群集角色（之前称为应用程序和服务）的可用性和可伸缩性。 群集服务器（称为节点）通过物理电缆和软件连接。 如果一个或多个群集节点出现故障，其他节点就会开始提供服务（该过程称为故障转移）。 此外，会主动监视群集角色，以验证它们是否正常工作。 如果不工作，则会重启这些角色或将其移动到其他节点。
+故障转移群集是一组独立的计算机，这些计算机相互协作以提高群集角色（之前称为应用程序和服务）的可用性和可伸缩性。 多台群集服务器（称为节点）通过物理电缆和软件连接。 如果一个或多个群集节点出现故障，其他节点就会开始提供服务（该过程称为故障转移）。 此外，群集角色会得到主动监视以验证它们是否正常工作。 如果不工作，则会重新启动这些角色或将其移动到其他节点。
 
 故障转移群集还提供群集共享卷 (CSV) 功能，该功能提供一致的分布式命名空间，群集角色可以使用这样的命名空间，从所有的节点访问共享存储。 借助故障转移群集功能，用户将会在服务中体验到最低程度的中断。
 
@@ -47,7 +47,7 @@ ms.locfileid: "9178598"
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h2><a href="whats-new-in-failover-clustering.md">故障转移群集中的新增功能</a></h2>
+                                        <h2><a href="whats-new-in-failover-clustering.md">什么是故障转移群集中的新增功能</a></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -75,15 +75,15 @@ ms.locfileid: "9178598"
 <HR />
                                         <p><a href="../storage/storage-spaces/understand-quorum.md">群集和池仲裁</a></p>
 <HR />
-                                        <p><a href="fault-domains.md">故障域感知</a></p>
+                                        <p><a href="fault-domains.md">容错域感知</a></p>
 <HR />
-                                        <p><a href="smb-multichannel.md">简化 SMB 多通道和多 NIC 群集网络</a></p>
+                                        <p><a href="smb-multichannel.md">简化的 SMB 多通道和多 NIC 群集网络</a></p>
 <HR />
-                                        <p><a href="vm-load-balancing-overview.md">VM 负载均衡</a></p>
+                                        <p><a href="vm-load-balancing-overview.md">VM 负载平衡</a></p>
 <HR />
-                                        <p><a href="../storage/storage-spaces/cluster-sets.md">群集集</a></p>
+                                        <p><a href="../storage/storage-spaces/cluster-sets.md">群集设置</a></p>
 <HR />
-                                        <p><a href="cluster-affinity.md">群集相关性</a></p>
+                                        <p><a href="cluster-affinity.md">群集关联</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -105,9 +105,9 @@ ms.locfileid: "9178598"
 <HR />
                                         <p><a href="clustering-requirements.md">故障转移群集硬件要求和存储选项</a></p>
 <HR />
-                                        <p><a href="failover-cluster-csvs.md">使用群集共享卷 (CSV)</a></p>               
+                                        <p><a href="failover-cluster-csvs.md">使用群集共享卷 (Csv)</a></p>               
 <HR />
-                                        <p><a href="../storage/storage-spaces/storage-spaces-direct-in-vm.md">使用带存储空间直通的来宾虚拟机群集</a></p>
+                                        <p><a href="../storage/storage-spaces/storage-spaces-direct-in-vm.md">使用存储空间直通使用来宾虚拟机群集</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -126,17 +126,17 @@ ms.locfileid: "9178598"
                                         <div class="cardText">
                                         <h3>部署</a></h3> 
 <HR />
-                                        <p><a href="prestage-cluster-adds.md">在 Active Directory 域服务中预留群集计算机对象</a></p>
+                                        <p><a href="prestage-cluster-adds.md">预安排群集计算机对象在 Active Directory 域服务</a></p>
 <HR />
                                         <p><a href="create-failover-cluster.md">创建故障转移群集</a></p> 
 <HR />
                                         <p><a href="deploy-two-node-clustered-file-server.md">部署双节点文件服务器</a></p> 
 <HR />
-                                        <p><a href="manage-cluster-quorum.md">管理仲裁和见证</a></p> 
+                                        <p><a href="manage-cluster-quorum.md">管理仲裁和见证服务器</a></p> 
 <HR />
                                         <p><a href="deploy-cloud-witness.md">部署云见证</a></p>
 <HR />
-                                        <p><a href="file-share-witness.md">部署文件共享见证</a></p>
+                                        <p><a href="file-share-witness.md">部署的文件共享见证</a></p>
 <HR />
                                         <p><a href="cluster-operating-system-rolling-upgrade.md">群集操作系统滚动升级</a></p> 
 <HR />
@@ -170,7 +170,7 @@ ms.locfileid: "9178598"
 <HR />
                                         <p><a href="cluster-domain-migration.md">群集域迁移</a></p>
 <HR />
-                                        <p><a href="troubleshooting-using-wer-reports.md">使用 Windows 错误报告进行疑难解答</a></p> 
+                                        <p><a href="troubleshooting-using-wer-reports.md">使用 Windows 错误报告进行故障排除</a></p> 
                                         </div>
                                     </div>
                                 </div>
@@ -191,7 +191,7 @@ ms.locfileid: "9178598"
 <HR />
                                         <p><a href="https://docs.microsoft.com/powershell/module/failoverclusters/?view=win10-ps">故障转移群集 PowerShell Cmdlet</a></p> 
 <HR />
-                                        <p><a href="https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps">群集感知更新 PowerShell Cmdlet</a></p> 
+                                        <p><a href="https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps">群集感知更新的 PowerShell Cmdlet</a></p> 
                                         </div>
                                     </div>
                                 </div>
@@ -212,7 +212,7 @@ ms.locfileid: "9178598"
 <HR />
                                         <p><a href="https://go.microsoft.com/fwlink/p/?LinkId=230641">高可用性（群集）论坛</a></p> 
 <HR />
-                                        <p><a href="http://blogs.msdn.com/b/clustering/">故障转移群集和网络负载均衡团队博客</a></p> 
+                                        <p><a href="http://blogs.msdn.com/b/clustering/">故障转移群集和网络负载平衡团队博客</a></p> 
                                         </div>
                                     </div>
                                 </div>

@@ -1,6 +1,6 @@
 ---
-title: "解决了在 Windows Server Essentials 防火墙"
-description: "介绍了如何使用 Windows Server Essentials"
+title: 使用 Windows Server Essentials 排除防火墙故障
+description: 介绍如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,42 +13,43 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 3c48d2abb7fd8431f40f76f8eece5c4142be4c75
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59846548"
 ---
-# <a name="troubleshoot-your-firewall-in-windows-server-essentials"></a>解决了在 Windows Server Essentials 防火墙
+# <a name="troubleshoot-your-firewall-in-windows-server-essentials"></a>使用 Windows Server Essentials 排除防火墙故障
  
 >适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
   
- 如果你遇到问题远程访问，运行修复任何地方访问向导。  
+ 如果遇到远程访问问题，请运行修复随处访问向导。  
   
-### <a name="to-run-the-repair-anywhere-access-wizard"></a>若要运行修复任何地方访问向导  
+### <a name="to-run-the-repair-anywhere-access-wizard"></a>运行修复随处访问向导  
   
-1.  打开的面板。  
+1.  打开“仪表板”。  
   
-2.  单击**设置**，单击**任何地方访问**选项卡，然后单击**修复**。  
+2.  单击“设置” 、单击“随处访问”  选项卡，然后单击“修复” 。  
   
-3.  按照修复任何地方访问向导中的说明进行操作。  
+3.  按照“修复随处访问向导”中的说明操作。  
   
- 如果你使用的高级的网络设置，或使用非 Microsoft 防火墙，你可能需要打开其他防火墙端口。 下表中的端口注册与 Internet 分配数字机构 (IANA)。  
+ 如果你使用的是高级网络设置或非 Microsoft 防火墙，则可能需要打开防火墙上的其他端口。 下表中的端口通过 Internet 编号分配机构 (IANA) 进行注册。  
   
 |端口号|描述|  
 |-----------------|-----------------|  
-|65500|证书 web 服务|  
+|65500|证书 Web 服务|  
 |65510 和 65515|客户端计算机部署网站|  
-|65520|Mac 客户端计算机的 web 服务|  
-|65532|提供商的服务器回送通信的框架|  
-|6602|提供商的服务器和客户端计算机之间进行通信的框架|  
+|65520|适用于 Mac 客户端计算机的 Web 服务|  
+|65532|用于服务器环回通信的提供程序框架|  
+|6602|用于服务器和客户端计算机间通信的提供程序框架|  
   
 ## <a name="see-also"></a>请参阅  
   
 -   [使用远程 Web 访问](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
--   [管理 Web 远程访问](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [管理远程 Web 访问](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
--   [管理任意位置的访问权限](../manage/Manage-Anywhere-Access-in-Windows-Server-Essentials.md)  
+-   [管理随处访问](../manage/Manage-Anywhere-Access-in-Windows-Server-Essentials.md)  
   
 -   [管理 Windows Server Essentials](../manage/Manage-Windows-Server-Essentials.md)  
   

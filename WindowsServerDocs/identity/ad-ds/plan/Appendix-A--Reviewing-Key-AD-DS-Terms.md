@@ -1,65 +1,66 @@
 ---
 ms.assetid: 87196b65-a356-409f-9af0-b5950797d668
-title: "附录 A-查看关键广告 DS 条款"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: 附录 A-查看关键的 AD DS 条款
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: ce7c0b639ded498b15200dfd594b3f34d6492dce
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: 5434db4124c471c613f159dec28e27dee70e7086
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59852018"
 ---
-# <a name="appendix-a-reviewing-key-ad-ds-terms"></a>附录 a： 查看关键广告 DS 条款
+# <a name="appendix-a-reviewing-key-ad-ds-terms"></a>附录 A：查看关键的 AD DS 条款
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-以下条款将与 Windows Server 2008 Active Directory 域服务 (广告 DS) 的部署过程相关。  
+以下术语都与 Windows Server 2008 Active Directory 域服务 (AD DS) 的部署过程相关。  
   
-## <a name="active-directory-domain"></a>域的 Active Directory  
-为方便起见管理，进行分组几个功能，包括以下的计算机网络中管理单元：  
+## <a name="active-directory-domain"></a>Active Directory 域  
+为便于进行管理，组包括以下几个功能的计算机网络中管理单元：  
   
--   **网络范围内用户身份**。 在域中，可以创建一次，然后引用已加入域所在森林中的任何计算机上用户的身份。 域控制器构成域安全地存储用户帐户和用户的凭据，例如密码或证书。  
+-   **整个网络的用户标识**。 在域中，可以创建一次，然后引用加入到域所在的林的任何计算机上的用户标识。 组成域的域控制器安全地存储用户帐户和用户凭据，如密码或证书。  
   
--   **身份验证**。 域控制器提供用户身份验证的服务。 他们还提供其他授权数据，如用户组成员。 管理员可以使用这些服务来控制访问权限的网络上的资源。  
+-   **身份验证**。 域控制器提供用户的身份验证服务。 它们还提供其他授权数据，例如用户组成员身份。 管理员可以使用这些服务来控制对网络上的资源的访问。  
   
--   **信任关系**。 通过自动双向信任域覆盖自己森林中的其他域中的用户身份验证服务。 域还会在其他森林中的域中向用户的身份验证服务通过林信任或手动创建外部信任扩展。  
+-   **信任关系**。 域通过自动双向信任将身份验证服务扩展到其自己林中其他域中的用户。 域还会向其他林中的域中的用户的身份验证服务通过林信任或手动创建外部信任扩展。  
   
--   **策略管理**。 域是范围的管理策略，如密码复杂性和密码重复使用规则。  
+-   **策略管理**。 域是管理策略的作用域，如密码复杂性和密码重用规则。  
   
--   **复制**。 域定义提供了足够提供所需的服务并且，域控制器之间复制的数据的目录树分区。 这种方式，所有域控制器同事在域中，并且不作为一个整体进行管理。  
+-   **复制**。 域定义的分区提供的数据足以提供所需的服务和域控制器之间的复制的目录树。 这样一来，所有域控制器都是在域中，对等节点和它们作为一个单元都进行管理。  
   
-## <a name="active-directory-forest"></a>Active Directory 森林  
-一个或多个共享常见的逻辑结构、 目录架构网络配置，以及自动、 双向、 传递信任与您的关系的 Active Directory 域集合。 每个森林是一份目录，并定义安全边界。  
+## <a name="active-directory-forest"></a>Active Directory 林  
+一个或多个共享公用逻辑结构、 目录架构和网络配置，以及自动的双向可传递信任关系的 Active Directory 域的集合。 每个林的目录中，单个实例，它定义了安全边界。  
   
 ## <a name="active-directory-functional-level"></a>Active Directory 功能级别  
-设置的广告 DS 使高级的域范围内使用或森林范围内的广告 DS 功能。  
+设置 AD DS 启用高级的全域性或全林性 AD DS 功能。  
   
 ## <a name="migration"></a>迁移  
-同时保留或修改的对象以使其在新的域中访问特征对象从源域移动到目标域，则的过程。  
+将对象从源域移动到目标域，同时保留或修改要对其进行访问新的域中的对象的特征的过程。  
   
-## <a name="domain-restructure"></a>域重构  
-涉及更改森林域结构迁移过程。 域重构可能会涉及整合或添加的域中，并在森林林之间或，才能进行。  
+## <a name="domain-restructure"></a>域重组  
+迁移过程，涉及更改林的域结构。 域重组可以包括合并或域中，添加，并且它可以是林之间或林内部的。  
   
 ## <a name="domain-consolidation"></a>域合并  
-涉及消除通过合并的其他域的内容与其内容的广告 DS 域改组过程。  
+涉及合并其内容与其他域的内容通过消除 AD DS 域的重组过程。  
   
-## <a name="domain-upgrade"></a>域进行升级  
-升级到较新版本的目录服务目录服务的域的进程。 这包括升级所有域控制器上的操作系统和 （如果适用） 提升广告 DS 功能级别。  
+## <a name="domain-upgrade"></a>域升级  
+升级到更高版本的目录服务的域的目录服务的过程。 这包括升级所有域控制器上的操作系统和引发的 AD DS 功能级别 （如果适用）。  
   
-## <a name="in-place-domain-upgrade"></a>位置域进行升级  
-例如升级给定的域中的所有域控制器的操作系统、 升级到 Windows Server 2008、 Windows Server 2003 和同时保持就地域对象，用户和组，例如如果适用，请提升功能级别的域中，进程。  
+## <a name="in-place-domain-upgrade"></a>原位域升级  
+例如升级操作系统的给定域中的所有域控制器、 将 Windows Server 2003 升级到 Windows Server 2008 和保留域对象，例如用户时才适用，增加在域中的功能级别的过程和组，在位置。  
   
-## <a name="forest-root-domain"></a>森林根域  
-第一个域的 Active Directory 树林中创建。 此域自动被指森林根域。 它为奠定 Active Directory 森林基础结构。  
+## <a name="forest-root-domain"></a>目录林根域  
+在 Active Directory 林中创建第一个域。 此域自动指定为目录林根域。 为 Active Directory 林基础结构，它提供了基础。  
   
-## <a name="regional-domain"></a>区域域  
-地理区域优化复制交通在创建孩子域。  
+## <a name="regional-domain"></a>地区域  
+在要优化复制流量的地理区域中创建的子域。  
   
 
 

@@ -1,86 +1,95 @@
 ---
 ms.assetid: 882abec8-0189-4f73-99c5-792987168080
-title: "高级自定义的广告 FS 登录页面"
-description: 
+title: AD FS 登录页的高级自定义
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
-ms.date: 06/13/2017
+ms.date: 01/16/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ea01d0ff2a38c4fef2f68091608d777d8412e91b
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: ef30df61c28eb8302c94cf756ba8c8a7b5849520
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59850768"
 ---
-# <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>高级自定义的广告 FS 登录页面
+# <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>AD FS 登录页的高级自定义
 
->适用于：Windows Server 2016，Windows Server 2012 R2
+>适用于：Windows Server 2016, Windows Server 2012 R2
   
-## <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>高级自定义的广告 FS Sign\ 中页面  
-在 Windows Server 2012 R2 的广告 FS 提供 built\ 中支持自定义 sign\ 中的体验。 对于大多数这些方案中，在 built\ Windows PowerShell cmdlet 是所需的所有。  建议你使用 built\ 中的 Windows PowerShell 命令自定义为广告 FS sign\ 中体验尽可能标准元素。  请参阅[登录自定义的广告 FS 用户](AD-FS-user-sign-in-customization.md)详细信息。  
+## <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>AD FS 登录的高级自定义\-页中  
+Windows Server 2012 R2 中的 AD FS 提供了构建\-中支持自定义登录\-体验中。 对于这些情况下，内置的大多数\-在 Windows PowerShell cmdlet 所需要的所有。  建议你使用内置\-在 Windows PowerShell 命令来为 AD FS 自定义的标准元素中登录\-尽可能的经验。  请参阅[登录自定义 AD FS 用户](AD-FS-user-sign-in-customization.md)有关详细信息。  
   
-在某些情况下，可能需要提供额外 sign\ 中的体验，无法通过发货 in\ 包装盒广告 FS 现有 PowerShell 命令广告 FS 管理员。 在某些情况下，它是可行 \ （内提供指南 below\) 适用于管理员，要自定义 sign\ 中体验进一步通过添加到的其他逻辑**onload.js**的由广告 FS 并将所有广告 FS 页上执行。  
+在某些情况下，AD FS 管理员可能想要提供其他登录\-体验的不是可以通过现有的 PowerShell 命令中发售的\-与 AD FS 的框。 在某些情况下，它是可行\(在下面提供的指导原则\)的管理员可以自定义登录\-体验中进一步通过将添加到其他逻辑**onload.js** ，由 AD FS 提供，将所有 AD FS 页上执行。  
   
-## <a name="things-to-know-before-you-start"></a>在开始之前的注意事项  
+## <a name="things-to-know-before-you-start"></a>在开始前需知事项  
   
--   不支持影响重定向流或修改协议参数广告 FS 适用于任何更改。
+-   不支持任何更改会影响重定向流或修改 AD FS 配合的协议参数。
   
--   原始 onload.js，一个附带的默认 web 主题，包含处理页面呈现的不同外形规格的代码。 建议不应修改原始 onload.js 内容，而只附加处理自定义的逻辑现有 onload.js 你的代码。  
+-   原始 onload.js，一个附带的默认 web 主题，包含用于处理针对不同外形因素的页面呈现代码。 建议不应修改原始 onload.js 内容而仅将你的代码追加到现有 onload.js 处理自定义逻辑。  
   
--   广告 FS 附带称为默认 built\ 在 web 主题。 你无法修改默认 web 主题的 onload.js。 若要更新 onload.js，您需要创建和自定义 web 主题用于广告 FS sign\ 中的页面。  请参阅[登录自定义的广告 FS 用户](AD-FS-user-sign-in-customization.md)有关如何创建自定义 web 主题的信息。  
+-   AD FS 附带的内置\-中称为默认 web 主题。 不能修改默认 web 主题的 onload.js。 若要更新 onload.js，您必须创建并使用自定义 web 主题进行 AD FS 登录\-页中。  请参阅[登录自定义 AD FS 用户](AD-FS-user-sign-in-customization.md)有关如何创建自定义 web 主题的信息。  
   
--   相同 onload.js 将上所有 ADFS 页面 \(ex.执行 基于 form\ 登录页，家庭领域发现页面等。 \)。 你需要确保在你脚本仅获取执行代码为它设计，并且未意外执行。  
+-   将在所有 ADFS 页上执行相同 onload.js \(ex。 窗体\-基于登录页上，主领域发现页面和等\)。 您需要确保您的脚本中的代码只能获取执行设计并不会执行意外。  
   
--   当引用任何 HTML 元素，确保始终检查存在元素上作用之前元素。 这会提供了可靠性，并确保在不包含这元素页上中自定义的逻辑将不会执行。 你只需可以广告 FS sign\ 在页面上查看现有元素查看 HTML 源。  
+-   当引用的任何 HTML 元素，请确保始终检查之前对该元素的元素存在。 这提供了可靠性，并可确保在自定义逻辑将不执行不包含此元素的页上。 只可以查看 HTML 源上的 AD FS 登录\-页可以查看现有元素中。  
   
--   强烈建议来验证你的备用环境中的自定义和推出你们到生产广告 FS 服务器之前对其进行测试。 这减少了之前验证这些自定义项打包到公开最终用户的机会。  
+-   强烈建议验证你的备用环境中的自定义和滚动一下到生产 AD FS 服务器之前对其进行测试。 这将减少暴露给之前验证这些自定义的最终用户的可能性。  
   
-## <a name="customizing-the-ad-fs-sign-in-experience-by-using-onloadjs"></a>使用 onload.js 自定义的广告 FS sign\ 中体验  
-自定义广告 FS 服务 onload.js 时，请使用以下步骤。  
+## <a name="customizing-the-ad-fs-sign-in-experience-by-using-onloadjs"></a>自定义 AD FS 登录\-使用 onload.js 体验中  
+自定义 AD FS 服务 onload.js 时，请使用以下步骤。  
   
-#### <a name="customizing-onloadjs-for-the-ad-fs-service"></a>自定义 onload.js 广告 FS 服务  
+#### <a name="customizing-onloadjs-for-the-ad-fs-service"></a>自定义 AD FS 服务 onload.js  
   
-1.  若要添加到 onload.js 你自定义的逻辑，你需要先创建自定义 web 主题。 已发货的 out\ of\ the\-瓜主题称为默认值。 你可以导出的默认主题和，以便你可以快速开始使用它。 以下 cmdlet 创建重复默认 web 主题一个自定义 web 主题：  
+1.  若要将自定义逻辑添加到 onload.js，需要先创建自定义 web 主题。 寄出的主题\-的\-\-框称为默认值。 可以导出并使用该默认主题，以便可以快速启动。 以下 cmdlet 创建自定义 web 主题，复制默认 web 主题：  
   
     ```  
     New-AdfsWebTheme –Name custom –SourceName default  
   
     ```  
   
-2.  然后，你可以导出自定义或默认 web 主题，以获取 onload.js 文件。 若要导出 web 主题，请使用以下 cmdlet:  
+2.  然后可以导出自定义或默认 web 主题获取 onload.js 文件。 若要导出 web 主题，请使用以下 cmdlet:  
   
     ```  
     Export-AdfsWebTheme –Name default –DirectoryPath c:\theme  
   
     ```  
   
-    你将找到 onload.js 下脚本文件夹目录中你指定中导出 cmdlet 上述和自定义逻辑添加到脚本 \ (请参阅中示例部分 below\ 的用例)。  
+    您会发现 onload.js 脚本文件夹下的目录中指定导出 cmdlet 更高版本中，然后在脚本中添加自定义逻辑\(请参阅下面的示例部分中的用例\)。  
   
-3.  请必要修改以自定义 onload.js 根据你的需求。  
+3.  进行必要的修改，以自定义 onload.js 根据你的需求。  
   
-4.  使用修改 onload.js 更新主题。 使用以下 cmdlet 应用更新 onload.js 到自定义 web 主题：  
-  
+4.  使用修改后的 onload.js 更新主题。 使用以下 cmdlet 将更新 onload.js 应用于自定义 web 主题：  
+
+     对于 Windows Server 2012 R2 上的 AD FS:  
+
     ```  
     Set-AdfsWebTheme -TargetName custom -AdditionalFileResource @{Uri=’/adfs/portal/script/onload.js’;path="c:\theme\script\onload.js"}  
   
     ```  
+    对于 Windows Server 2016 上的 AD FS:
+
+     ```  
+    Set-AdfsWebTheme -TargetName custom -OnLoadScriptPath "c:\ADFStheme\script\onload.js"   
   
-5.  若要自定义 web 主题广告 FS 应用，使用以下 cmdlet:  
+    ```  
+  
+5.  若要将自定义 web 主题应用到的 AD FS，使用以下 cmdlet:  
   
     ```  
     Set-AdfsWebConfig -ActiveThemeName custom  
     ```  
   
-## <a name="additional-customization-examples"></a>自定义的其他示例。  
-以下是代码的添加到不同的 fine\ 曲调供 onload.js 自定义的示例。 添加时自定义的代码，请始终附加自定义代码 onload.js 底部。  
+## <a name="additional-customization-examples"></a>其他自定义示例  
+下面的示例的自定义代码添加到不同的细的 onload.js\-优化目的。 在添加自定义代码时，请始终追加在自定义代码到 onload.js 底部。  
   
-### <a name="example-1-change-sign-in-with-organizational-account-string"></a>"使用组织帐户登录"字符串更改的示例 1:  
-默认广告 FS form\ 基于 sign\ 中页具有"使用你的组织帐户的登录"的标题上方用户输入的框。  
+### <a name="example-1-change-sign-in-with-organizational-account-string"></a>示例 1： 更改"使用组织帐户登录"的字符串  
+默认 AD FS 窗体\-基于登录\-页中具有用户输入框上方的"使用你的组织帐户登录"标题。  
   
-如果你想要这一串替换自己的字符串，你可以到 onload.js 添加以下的代码。  
+如果你想要此字符串替换为你自己的字符串，您可以将以下代码添加到 onload.js。  
   
 ```  
 // Sample code to change “Sign in with organizational account” string.  
@@ -95,40 +104,40 @@ if (loginMessage)
   
 ```  
   
-### <a name="example-2-accept-sam-account-name-as-a-login-format-on-an-ad-fs-form-based-sign-in-page"></a>示例 2： 为广告 FS form\ 基于 sign\ 在页面上的登录格式接受 SAM\ 帐户名称  
-默认广告 FS form\ 基于 sign\ 中页面支持登录格式用户主要名称 \(UPNs\) \(for example, ** johndoe@contoso.com **\) 或域限定 sam\ 帐户名 \ (**contoso\\johndoe**或**contoso.com\\johndoe**\)。 在您的所有用户来自同一个域，他们只能知道 sam\ 帐户名的情况下您可能想要在使用它们仅 sam\ 帐户名称支持用户可以在登录的方案。 你可以向 onload.js 支持此方案，只需将域"contoso.com"在此示例中的下方替换你想要使用的域中添加以下代码。  
+### <a name="example-2-accept-sam-account-name-as-a-login-format-on-an-ad-fs-form-based-sign-in-page"></a>示例 2： 接受 SAM\-AD FS 窗体上的登录名格式作为帐户名\-基于登录\-页中  
+默认 AD FS 窗体\-基于登录\-页中支持的用户主体名称的登录名格式\(Upn\) \(等**johndoe@contoso.com** \)或域限定 sam\-帐户名\( **contoso\\johndoe**或**contoso.com\\johndoe**\)。 所有用户均来自同一个域，并且它们只知道 sam\-帐户名称，可能想要支持用户可以登录，其中的方案中使用它们 sam\-帐户仅名称。 您可以将以下代码添加到 onload.js 以支持这种情况下，只需替换你想要使用的域的域"contoso.com"中的示例如下。  
   
 ```  
 if (typeof Login != 'undefined'){  
-    Login.submitLoginRequest = function () {   
-    var u = new InputUtil();  
-    var e = new LoginErrors();  
-    var userName = document.getElementById(Login.userNameInput);  
-    var password = document.getElementById(Login.passwordInput);  
-    if (userName.value && !userName.value.match('[@\\\\]'))   
-    {  
-        var userNameValue = 'contoso.com\\' + userName.value;  
-        document.forms['loginForm'].UserName.value = userNameValue;  
-    }  
+    Login.submitLoginRequest = function () {   
+    var u = new InputUtil();  
+    var e = new LoginErrors();  
+    var userName = document.getElementById(Login.userNameInput);  
+    var password = document.getElementById(Login.passwordInput);  
+    if (userName.value && !userName.value.match('[@\\\\]'))   
+    {  
+        var userNameValue = 'contoso.com\\' + userName.value;  
+        document.forms['loginForm'].UserName.value = userNameValue;  
+    }  
   
-    if (!userName.value) {  
-       u.setError(userName, e.userNameFormatError);  
-       return false;  
-    }  
+    if (!userName.value) {  
+       u.setError(userName, e.userNameFormatError);  
+       return false;  
+    }  
   
-    if (!password.value)   
-    {  
-        u.setError(password, e.passwordEmpty);  
-        return false;  
-    }  
-    document.forms['loginForm'].submit();  
-    return false;  
+    if (!password.value)   
+    {  
+        u.setError(password, e.passwordEmpty);  
+        return false;  
+    }  
+    document.forms['loginForm'].submit();  
+    return false;  
 };  
 }  
   
 ```  
   
 ## <a name="additional-references"></a>其他参考 
-[广告 FS 用户登录自定义](AD-FS-user-sign-in-customization.md)  
+[AD FS 用户登录自定义](AD-FS-user-sign-in-customization.md)  
   
 
