@@ -1,7 +1,7 @@
 ---
 ms.assetid: cf32926a-2083-408b-a264-2cad179ed18a
-title: "使用组策略分发给客户端计算机证书"
-description: 
+title: 通过使用组策略分发到客户端计算机的证书
+description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -10,36 +10,37 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
 ms.openlocfilehash: d3a7e05e4d16565b17b69de254e353df749bbc3a
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59839228"
 ---
-# <a name="distribute-certificates-to-client-computers-by-using-group-policy"></a>使用组策略分发给客户端计算机证书
+# <a name="distribute-certificates-to-client-computers-by-using-group-policy"></a>通过使用组策略分发到客户端计算机的证书
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 
-你可以使用下面的过程推送合适的安全套接字层 \(SSL\) 证书 \（或等效的证书链为受信任的 root\）的帐户联合身份验证的服务器、资源联合身份验证的服务器，并为每个客户端计算机使用组策略帐户合作伙伴森林中的 Web 服务器。  
+可以使用以下过程来推送适当的安全套接字层\(SSL\)证书\(等效项链接到受信任的根证书或\)帐户联合身份验证服务器资源联合身份验证服务器，并通过使用组策略的帐户伙伴林中每个客户端计算机的 Web 服务器。  
   
-在会员**域管理员**或**企业管理员**，或、 Active Directory 域服务中的等效 \(AD DS\) 的最低要求完成此过程。  查看有关使用相应的帐户的详细信息，并进行分组在会员身份[本地和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477)\ (http:///\/ go.microsoft.com\/fwlink\ /？LinkId\ = 83477\)。   
+中的成员身份**Domain Admins**或**Enterprise Admins**，或，Active Directory 域服务中的等效\(AD DS\)身份是完成此过程所需的最低。  查看详细了解如何使用适当帐户和组成员身份[本地和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.microsoft.com\/fwlink\/？LinkId\=83477\)。   
   
-### <a name="to-distribute-certificates-to-client-computers-by-using-group-policy"></a>若要向客户端计算机证书分发使用组策略  
+### <a name="to-distribute-certificates-to-client-computers-by-using-group-policy"></a>将证书分发到客户端计算机通过使用组策略  
   
-1.  在帐户合作伙伴公司的森林中的域控制器，开始**组策略管理**snap\ 中。  
+1.  在帐户伙伴组织的林中的域控制器上, 启动**组策略管理**对齐\-中。  
   
-2.  查找现有的组策略对象 \(GPO\) 或创建一个新的 GPO 包含证书设置。 确保 GPO 与域、网站或单位 \(OU\) 适当的用户和计算机帐户所在的位置。  
+2.  找不到现有的组策略对象\(GPO\)或创建新的 GPO 以便包含证书设置。 确保 GPO 与域、 站点或组织单位相关联\(OU\)适当的用户和计算机帐户所在的位置。  
   
-3.  Right\ 单击 GPO，然后单击**编辑**。  
+3.  右\-单击该 GPO，然后单击**编辑**。  
   
-4.  控制台树中，在打开**计算机 Configuration\\Policies\\Windows Settings\\Security Settings\\Public 键策略**，right\ 单击**信任根证书颁发机构**，然后单击**导入**。  
+4.  在控制台树中，打开**计算机配置\\策略\\Windows 设置\\安全设置\\公钥策略**，右键\-单击**受信任的根证书颁发机构**，然后单击**导入**。  
   
-5.  在**欢迎证书导入向导**页上，单击**下一步**。  
+5.  上**欢迎使用证书导入向导**页上，单击**下一步**。  
   
-6.  在**文件导入到**页上，键入相应证书文件路径 \ (例如，\\\fs1\\c$\\fs1.cer\)，然后单击**下一步**。  
+6.  上**导入的文件**页上，键入相应的证书文件的路径\(等\\ \\fs1\\c$\\fs1.cer\)，然后单击**下一步**。  
   
-7.  在**证书官方商城**页上，单击**放置在以下应用商店中的所有证书**，然后单击**下一步**。  
+7.  上**证书存储区**页上，单击**将所有证书都放入下列存储**，然后单击**下一步**。  
   
-8.  在**完成证书导入向导**页上，你所提供的信息不准确，验证，然后单击**完成**。  
+8.  上**正在完成证书导入向导**页上，验证你提供的信息是准确的，然后单击**完成**。  
   
-9. 重复执行步骤 2 到 6 添加其他证书的每一场中联合身份验证的服务器。  
+9. 重复步骤 2 到 6 来为每个联合服务器场中添加额外的证书。  

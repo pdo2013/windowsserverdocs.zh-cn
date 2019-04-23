@@ -1,6 +1,6 @@
 ---
-title: 网络策略 Server 最佳做法
-description: 本主题提供部署和管理网络策略服务器，在 Windows Server 2016 的最佳的实践。
+title: 网络策略服务器最佳做法
+description: 本主题提供用于部署和管理 Windows Server 2016 中的网络策略服务器的最佳实践。
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -8,105 +8,106 @@ ms.topic: article
 ms.assetid: 90e544bd-e826-4093-8c3b-6a6fc2dfd1d6
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5a9a68965d0d19504352ad67f7ab268b3d344fb2
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 6cbd606edec06a80767ee997ef6a1397b66b7843
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59834228"
 ---
-# <a name="network-policy-server-best-practices"></a>网络策略 Server 最佳做法
+# <a name="network-policy-server-best-practices"></a>网络策略服务器最佳做法
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-你可以使用本主题以了解有关部署和管理网络策略服务器 \(NPS\) 的最佳实践。
+你可以使用本主题以了解有关用于部署和管理网络策略服务器的最佳做法\(NPS\)。
 
-以下部分提供最佳实践 NPS 部署的各个方面。
+以下部分提供将 NPS 部署的不同方面的最佳做法。
 
 ## <a name="accounting"></a>记帐
 
 以下是 NPS 日志记录的最佳实践。
 
-有两种类型的记帐，或登录 NPS:
+有两种类型的记帐或日志记录，在 NPS 中：
 
-- NPS 的事件日志记录。 在系统和安全事件日志中，你可以使用 NPS 事件记录的事件日志记录。 这是主要用于审核和疑难解答尝试连接。
+- Nps 事件日志记录。 在系统和安全事件日志中，可以使用事件日志记录记录 NPS 事件。 这是主要用于审核和故障排除的连接尝试。
 
-- 日志记录用户身份验证和记帐请求。 你可以用户身份验证和帐户请求登录格式或数据库格式的文件或登录您可以到存储在数据库中 SQL Server 2000 过程。 请求记录主要用于连接分析和帐单目的，而且还有用安全调查工具，从而为您提供的攻击跟踪的活动的方法。
+- 用户身份验证和记帐请求记录。 你可以记录用户身份验证和记帐请求以文本格式或数据库格式日志文件，或可以记录到 SQL Server 2000 数据库中的存储过程。 请求日志记录主要用于连接分析和计费目的，并且仍可用作安全调查工具，使您拥有的攻击者跟踪活动的方法。
 
-若要使 NPS 日志记录的最有效使用：
+若要使 NPS 日志记录最有效地使用：
 
-- 启用日志记录 \(initially\) 身份验证和会计记录。 之后你已确定什么是适合您的环境进行修改这些选项。
+- 启用日志记录\(最初\)进行身份验证和记帐记录。 你确定哪种适合于您的环境后，请修改这些选择。
 
-- 确保事件日志记录配置的容量不足，无法维护你的日志。
+- 确保事件日志记录配置足以维护日志的容量。
 
-- 备份定期所有日志文件，因为它们损坏或已删除它们时无法重新创建。
+- 备份定期的所有日志文件，因为它们已损坏或删除时不能重新创建。
 
-- 使用 RADIUS 类特性同时跟踪的使用量，并简化来收取使用哪些商业部或用户的身份。 虽然自动生成的类特性唯一的每个请求时，重复记录可能存在情况下访问服务器回复失去并且重新发送该请求。 你可能需要从你准确跟踪的使用情况的日志中删除重复请求。
+- 使用 RADIUS Class 属性以跟踪使用情况并简化要负责管理使用情况的部门或用户的标识。 虽然自动生成的类属性是唯一的每个请求，但可能会丢失访问服务器的回复和重新发送请求中存在重复的记录。 您可能需要删除重复的请求从您的日志，准确地跟踪使用情况。
 
-- 如果你的网络访问权限服务器和 RADIUS 代理服务器定期虚构连接请求消息发送给 NPS 验证 NPS 服务器处于联机状态，请使用**ping 用户名**注册表设置。 此设置可配置 NPS 自动拒绝这些 false 连接请求，而不会处理它们。 此外，NPS 不交易涉及虚构用户名在任何日志文件中，从而使更轻松地解释事件日志记录。
+- 如果你的网络访问服务器和 RADIUS 代理服务器定期将虚构的连接请求消息发送到 NPS 验证 NPS 处于联机状态，请使用**用户名称进行 ping 操作**注册表设置。 此设置配置 NPS 自动拒绝这些虚假的连接请求而不处理它们。 此外，NPS 不会记录涉及虚构用户名中的任何日志文件，因此可以轻松地解释事件日志的事务。
 
-- 禁用 NAS 通知转移。 您可以禁用开始转发并远程 RADIUS 服务器中的成员停止从网络的访问权限服务器 (Nas) 的消息进行分组配置 NPS 在该是。 有关详细信息，请参阅[禁用 NAS 通知转发](nps-disable-nas-notifications.md)。
+- 禁用 NAS 通知转发。 您可以禁用转发的开始和停止消息从网络访问服务器 (Nas) 到远程 RADIUS 服务器的成员组在 NPS 中配置该 IS。 有关详细信息，请参阅[禁用 NAS 通知转发](nps-disable-nas-notifications.md)。
 
 有关详细信息，请参阅[配置网络策略服务器记帐](nps-accounting-configure.md)。
 
-- SQL Server 日志记录与提供故障转移和冗余，放置运行不同的子网 SQL Server 两台计算机。 使用 SQL Server**创建发布向导**数据库复制两个服务器设置。 有关详细信息，请参阅[SQL Server Technical 文档](https://msdn.microsoft.com/library/ms130214.aspx)和[SQL Server 复制](https://msdn.microsoft.com/library/ms151198.aspx)。
+- 若要使用 SQL Server 日志记录提供故障转移和冗余，将放置在不同子网上运行 SQL Server 的两台计算机。 使用 SQL Server**创建发布向导**设置两个服务器之间的数据库复制。 有关详细信息，请参阅[SQL Server 技术文档](https://msdn.microsoft.com/library/ms130214.aspx)并[SQL Server 复制](https://msdn.microsoft.com/library/ms151198.aspx)。
 
 ## <a name="authentication"></a>身份验证
 
-以下是身份验证的最佳实践。
+以下是用于身份验证的最佳实践。
 
-- 用于强大的身份验证证书基于身份验证方法保护可扩展身份验证协议 \(PEAP\) 和可扩展身份验证协议 \(EAP\) 等。 不要使用仅密码的身份验证方法，因为它们易受攻击各种并且不安全。 对于安全无线身份验证，使用 PEAP\ MS\ CHAP v2 建议，因为 NPS 服务器通过服务器证书，用户证明自己的身份的用户名和密码与无线客户端向证明自己的身份。  有关在无线部署 NPS 时使用的详细信息，请参阅[基于部署密码 802.1 X 身份验证无线访问](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/wireless/a-deploy-8021x-wireless-access)。
-- 部署证书颁发机构 \(CA\) 使用 Active Directory&reg;证书服务 \(AD CS\) 当您使用强证书基于身份验证方法，如 PEAP 和 EAP，需要 NPS 服务器上的服务器证书的使用。 你还可以使用你 CA 计算机证书和用户证书的注册。 有关部署到 NPS 和远程访问服务器服务器证书的详细信息，请参阅[802.1 X 有线和无线部署部署服务器证书](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments)。
+- 使用基于证书的身份验证方法，如受保护的可扩展身份验证协议\(PEAP\)和可扩展身份验证协议\(EAP\)进行强身份验证。 不要使用的仅密码身份验证方法，因为它们容易受到各种攻击，是不安全的。 对于安全的无线身份验证，使用 PEAP\-MS\-建议 CHAP v2，因为 NPS 证明其身份为无线客户端使用服务器证书，而用户证明自己的身份使用其用户名和密码。  有关在无线部署中使用 NPS 的详细信息，请参阅[部署基于密码的 802.1 X 身份验证无线访问](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/wireless/a-deploy-8021x-wireless-access)。
+- 部署您自己的证书颁发机构\(CA\)与 Active Directory&reg;证书服务\(AD CS\)时可使用强大的基于证书的身份验证方法，如 PEAP 和 EAP 的需要使用 NPSs 上的服务器证书。 此外可以使用 CA 来注册计算机证书和用户证书。 将服务器证书部署到 NPS 和远程访问服务器的详细信息，请参阅[802.1x 有线和无线部署部署服务器证书](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments)。
 
 ## <a name="client-computer-configuration"></a>客户端计算机配置
 
 以下是客户端计算机配置的最佳实践。
 
-- 自动将所有你域成员 802.1 X 的客户端计算机配置使用组策略中。 有关详细信息，请参阅部分主题中的"配置的无线网络 (IEEE 802.11) 策略"[无线访问部署](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/wireless/e-wireless-access-deployment#bkmk_policies)。
+- 自动配置所有域成员 802.1x 客户端计算机通过使用组策略。 有关详细信息，请参阅主题中的"配置的无线网络 (IEEE 802.11) 策略"一节[无线访问部署](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/wireless/e-wireless-access-deployment#bkmk_policies)。
 
 ## <a name="installation-suggestions"></a>安装建议
 
 以下是安装 NPS 的最佳实践。
 
-- 安装 NPS 之前, 安装，并且每次都之前将其配置为在 NPS RADIUS 客户端使用本地身份验证方法网络的访问权限服务器的测试。
+- 安装 NPS 之前, 安装和测试每个网络访问服务器之前将它们配置为 NPS 中的 RADIUS 客户端使用本地身份验证方法。
 
-- 安装和配置 NPS 后，通过使用 Windows PowerShell 命令保存配置[导出 NpsConfiguration](https://technet.microsoft.com/en-us/library/jj872749.aspx)。 与每次你重新启动 NPS 此命令保存 NPS 配置。
+- 安装和配置 NPS 后，保存配置使用 Windows PowerShell 命令[导出 NpsConfiguration](https://technet.microsoft.com/library/jj872749.aspx)。 使用以下命令，每次你重新配置 NPS 保存 NPS 配置。
 
 >[!CAUTION]
->- 导出的 NPS 配置文件包含 RADIUS 客户端和远程 RADIUS 服务器组成员加密共享机密信息。 出于此原因，确保将文件保存到某个安全的位置。
->- 导出过程不包括导出文件中的 Microsoft SQL Server 记录设置。 如果将导出的文件导入到另一台 NPS 服务器，你必须手动配置日志记录 SQL Server 新的服务器上。
+>- 导出的 NPS 配置文件包含 RADIUS 客户端和远程 RADIUS 服务器组成员的未加密的共享的机密。 由于此操作，请确保将该文件保存到安全位置。
+>- 导出过程中不包括导出的文件中的 Microsoft SQL Server 日志记录设置。 如果导出的文件导入到另一个 NPS 中，则必须手动配置 SQL Server 日志记录在新服务器上。
 
-## <a name="performance-tuning-nps"></a>调优 NPS 性能
+## <a name="performance-tuning-nps"></a>性能优化 NPS
 
-以下是调优 NPS 性能的最佳实践。
+以下是性能优化 NPS 最佳实践。
 
-- 优化 NPS 身份验证和授权响应时间和最小化网络通信，域控制器上安装 NPS。
+- 若要优化 NPS 身份验证和授权响应时间和网络流量降到最低，请在域控制器上安装 NPS。
 
-- 使用通用主要名称 \(UPNs\) 或 Windows Server 2008 和 Windows Server 2003 域，NPS 使用全球目录用户进行身份验证。 最小的时间来执行此操作，可在全球目录服务器或与全球目录服务器相同子网服务器上安装 NPS。
+- 当通用主体名称\(Upn\)或 Windows Server 2008 和 Windows Server 2003 域，则 NPS 使用全局编录对用户进行身份验证。 为了尽量减少所要执行此操作的时间，请在全局编录服务器或全局编录服务器位于同一子网中的服务器上安装 NPS。
 
-- 当你有配置远程 RADIUS 服务器组并且，NPS 连接请求策略，在你清除**录制以下远程 RADIUS 服务器组中记帐的服务器上的信息**复选框，这些组仍发送网络的访问权限服务器 \(NAS\) 启动和停止通知消息。 这将创建不必要的网络流量。 若要消除该通信，通过清除禁用每个远程 RADIUS 服务器组中的个别服务器的 NAS 通知转移**网络启动和停止对此服务器通知转发**复选框。
+- 如果配置的远程 RADIUS 服务器组，并且，在 NPS 连接请求策略，则清除**以下远程 RADIUS 服务器组中记录记帐信息的服务器上**复选框，这些组是仍发送网络访问服务器\(NAS\)启动和停止通知消息。 这将创建不必要的网络流量。 若要消除此流量，禁用每个远程 RADIUS 服务器组中的各个服务器 NAS 通知转发，通过清除**网络启动和停止通知发送到此服务器转发**复选框。
 
-## <a name="using-nps-in-large-organizations"></a>大型公司中使用 NPS
+## <a name="using-nps-in-large-organizations"></a>在大型组织中使用 NPS
 
-以下是使用 NPS 大型公司中的最佳实践。
+以下是在大型组织中使用 NPS 的最佳实践。
 
-- 如果你使用的网络策略来限制对所有，但某些组创建一个通用组为所有用户为其你想要允许访问权限，，然后创建一个网络策略授予访问此通用组。 不要将您的所有用户直接插入通用组中，尤其是，如果你有大量的这些网络上。 不过，创建单独的组成员通用组中，并添加到这些组的用户。
+- 如果使用网络策略来限制对所有而不是特定组创建想要允许访问，其用户的所有通用组，然后创建一个网络策略，授予访问权限为此通用组。 不要将你的所有用户直接置于通用组中，尤其是有大量这些网络上。 相反，创建单独的组的成员的通用组，并将用户添加到这些组。
 
-- 使用用户名主体尽可能的用户，请参考。 用户可具有相同无论域会员用户主要的名称。 这种做法提供可扩展性，可能需要在组织中极大的域。
+- 使用用户主体名称来引用用户只要有可能。 用户可以不考虑域成员身份的相同用户主体名称。 这种做法提供了可能需要在具有大量域的组织中的可伸缩性。
 
-- 如果域控制器之外的计算机上安装网络策略服务器 \(NPS\) NPS 服务器接收大量每秒进行身份验证请求，你可以通过增加并行身份验证之间 NPS 服务器和域控制器允许的数量来提高 NPS 性能。 有关详细信息，请参阅 
+- 如果已安装网络策略服务器\(NPS\)域之外的计算机上控制器和 NPS 正在接收大量的每秒的身份验证请求，您可以通过增加的数量提高 NPS 性能NPS 和域控制器之间允许的并发身份验证。 有关详细信息，请参阅 
 
 ## <a name="security-issues"></a>安全问题
 
-下面是减少安全问题的最佳实践。
+以下是减少安全问题的最佳实践。
 
-在远程管理 NPS 服务器时，不要通过纯文本该网络发送敏感或机密的数据（例如，共享的机密或密码）。 有两个远程服务器的管理 NPS 推荐的方法：
+在远程管理 NPS 时，不要以纯文本形式在网络上发送敏感或机密数据 （例如，共享的机密或密码）。 有两个推荐的方法 NPSs 进行远程管理：
 
-- 使用远程桌面服务访问 NPS 服务器。 当你使用远程桌面服务时，数据不会发送之间客户端和服务器。 （例如，桌面操作系统和 NPS 控制台图像）服务器的用户界面发送远程桌面服务客户端，名为 Windows 中的远程桌面连接到&reg;10。 客户端发送键盘和鼠标输入，由已启用的远程桌面服务服务器本地处理。 当远程桌面服务用户在登录时，他们可以查看仅其单独的客户端会话，其中由服务器管理和独立于彼此。 此外，远程桌面连接提供之间客户端和服务器 128 位加密。
+- 使用远程桌面服务来访问 NPS。 当你使用远程桌面服务时，数据不会发送客户端和服务器之间。 服务器 （例如，操作系统桌面和 NPS 控制台映像） 的用户界面发送到远程桌面服务客户端，其名称为在 Windows 中的远程桌面连接&reg;10。 客户端发送键盘和鼠标输入，这由已启用远程桌面服务服务器在本地处理。 当远程桌面服务用户在登录时，他们可以查看仅其单个客户端会话，这些会话由服务器管理，并且是相互独立。 此外，远程桌面连接提供了客户端和服务器之间的 128 位加密。
 
-- 使用 Internet 协议安全加密机密的数据。 你可以使用 IPsec 加密 NPS 服务器和您使用管理 NPS 远程客户端计算机之间进行通信。 若要远程管理服务器，你可以安装[远程服务器管理工具适用于 Windows 10](https://www.microsoft.com/download/details.aspx?id=45520)客户端计算机上。 安装完成后，使用 Microsoft 管理控制台 (MMC) 添加 NPS 服务器管理单元到主机。
+- 使用 Internet 协议安全 (IPsec) 来加密机密数据。 可以使用 IPsec 对 NPS 和用来管理 NPS 的远程客户端计算机之间的通信进行加密。 若要远程管理服务器，可以安装[远程服务器管理工具适用于 Windows 10](https://www.microsoft.com/download/details.aspx?id=45520)客户端计算机上。 安装完成后，使用 Microsoft 管理控制台 (MMC) 将 NPS 管理单元中添加到控制台。
 
 >[!IMPORTANT]
->仅在 Windows 10 专业版或 Windows 10 企业版的完整版本上，你可以安装远程服务器管理工具适用于 Windows 10。
+>您可以仅在完整版本的 Windows 10 专业版或 Windows 10 企业版上安装远程服务器管理工具适用于 Windows 10。
 
-有关 NPS 的详细信息，请参阅[网络策略 Server (NPS)](nps-top.md)。
+有关 NPS 的详细信息，请参阅[网络策略服务器 (NPS)](nps-top.md)。
 

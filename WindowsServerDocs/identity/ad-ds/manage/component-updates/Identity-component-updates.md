@@ -1,49 +1,50 @@
 ---
 ms.assetid: 7e87ce2b-062e-479f-bcf2-585b6c42026a
-title: "标识构件更新。"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: 标识组件更新
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 827acc3073b09ebb9fbbf649145442f5cf609526
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: 1d975fa32f19facfdee7a31e58293006fc5859ff
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59834478"
 ---
-# <a name="identity-component-updates"></a>标识构件更新。
+# <a name="identity-component-updates"></a>标识组件更新
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
   
-## <a name="lesson-1-identity-component-updates"></a>第 1 部分课： 身份组件的更新  
-此课介绍在 Windows Server 2012 R2 的身份组件更新。  
+## <a name="lesson-1-identity-component-updates"></a>第 1 课：标识组件更新  
+本课程介绍了 Windows Server 2012 R2 中的标识组件更新。  
   
-### <a name="what-you-will-learn"></a>您将学会  
-完成此课中之后, 你将可以：  
+### <a name="what-you-will-learn"></a>你将学习的内容  
+学完本课后，你将能够：  
   
--   请描述以下更改：  
+-   介绍了以下更改：  
   
-    -   [SPN 并 UPN 唯一](../../../ad-ds/manage/component-updates/SPN-and-UPN-uniqueness.md)  
+    -   [SPN 和 UPN 唯一性](../../../ad-ds/manage/component-updates/SPN-and-UPN-uniqueness.md)  
   
-    -   [Winlogon 自动重启登录 & #40;ARSO & #41;](../../../ad-ds/manage/component-updates/Winlogon-Automatic-Restart-Sign-On--ARSO-.md)  
+    -   [Winlogon 自动重新启动登录&#40;ARSO&#41;](../../../ad-ds/manage/component-updates/Winlogon-Automatic-Restart-Sign-On--ARSO-.md)  
   
-    -   [TPM 关键审计](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md)  
+    -   [TPM 密钥证明](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md)  
   
-    -   [加拿大备份和还原 Windows PowerShell cmdlet](../../../ad-ds/manage/component-updates/CA-Backup-and-Restore-Windows-PowerShell-cmdlets.md)  
+    -   [CA 备份和还原 Windows PowerShell cmdlet](../../../ad-ds/manage/component-updates/CA-Backup-and-Restore-Windows-PowerShell-cmdlets.md)  
   
     -   [命令行进程审核](../../../ad-ds/manage/component-updates/Command-line-process-auditing.md)  
   
     -   [凭据保护和管理](https://technet.microsoft.com/library/dn408190.aspx)  
   
-**作者**：与 Windows 组索旋转器高级支持升级工程师  
+**作者**:与 Windows 组的 Justin Turner，高级支持呈报工程师  
   
 > [!NOTE]  
-> 内容由 Microsoft 客户支持工程师和适用于经验丰富的管理员系统师寻找更深入 technical 说明功能和 Windows Server 2012 R2 的解决方案不是通常提供 TechNet 上的主题。 但是，它不经历了同一编辑通行证，因此一些语言可能看起来比通常 TechNet 上找到内容小于优化。  
+> 本内容由 Microsoft 客户支持工程师编写，适用于正在查找比 TechNet 主题通常提供的内容更深入的有关 Windows Server 2012 R2 中的功能和解决方案的技术说明的有经验管理员和系统架构师。 但是，它未经过相同的编辑审批，因此某些语言可能看起来不如通常在 TechNet 上找到的内容那么精练。  
   
 
 

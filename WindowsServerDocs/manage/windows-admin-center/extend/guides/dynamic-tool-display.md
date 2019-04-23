@@ -1,6 +1,6 @@
 ---
 title: 控制在解决方案中的工具的可见性
-description: 控制在 Windows Admin Center SDK (Project Honolulu) 解决方案中的工具的可见性
+description: 控制解决方案 Windows Admin Center SDK (项目 Honolulu) 中的工具的可见性
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -9,29 +9,29 @@ ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: f3f34b4c86854bfc55cf4b1b57a0fd3c2baf2ffc
-ms.sourcegitcommit: be0144eb59daf3269bebea93cb1c467d67e2d2f1
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "4080964"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59839248"
 ---
-# 控制在解决方案中的工具的可见性 #
+# <a name="control-your-tools-visibility-in-a-solution"></a>控制在解决方案中的工具的可见性 #
 
->适用于：Windows Admin Center、Windows Admin Center 预览版
+>适用于：Windows Admin Center，Windows Admin Center 预览版
 
-有时可能想要排除 （或隐藏） 你的扩展或从可用的工具列表中的工具。 例如，如果你的工具面向仅 Windows Server 2016 （不较早版本），你可能不希望连接到 Windows Server 2012 R2 服务器以查看你的工具在所有的用户。 (假设用户体验-它们单击它，等待加载，仅以获取其功能并非适用于其连接一条消息的工具。)你可以定义何时显示 （或隐藏） 你工具的 manifest.json 文件中的功能。
+可能您想要排除 （或隐藏） 扩展或从可用工具列表中的工具。 例如，如果您的工具面向仅 Windows Server 2016 （不较旧版本），您可能不希望连接到 Windows Server 2012 R2 的服务器以查看所需的工具在所有的用户。 (假设用户体验-他们单击它，请等待加载，仅将收到一条消息，其功能不适用于其连接的工具。)您可以定义何时显示 （或隐藏） 该工具的 manifest.json 文件中你的功能。
 
-## 用于确定何时显示工具的选项 ##
+## <a name="options-for-deciding-when-to-show-a-tool"></a>用于确定何时显示一个工具选项 ##
 
-有三种不同的选项可用于确定是否在工具应显示，并可用于特定服务器或群集连接。
+有三个不同的选项可用于确定是否显示，可为特定服务器或群集连接应为所需的工具。
 
-* 本地主机
-* 清单 （数组的属性）
-* 脚本
+* localhost
+* 清单 （一个属性的数组）
+* 脚本 (script)
 
-### 本地主机 ###
+### <a name="localhost"></a>LocalHost ###
 
-条件对象的本地主机属性或不包含一个布尔值，可以通过计算推断如果连接节点是本地主机 （同一台计算机上安装 Windows Admin Center）。 通过将值传递给该属性，指示何时 （条件） 来显示该工具。 例如，如果你仅希望该工具来显示用户实际上连接到本地主机，将其设置所示：
+条件对象的 localHost 属性或不包含一个布尔值，可以计算来推断如果连接的节点是本地主机 （Windows Admin Center 安装在同一计算机）。 通过将值传递给该属性，指示何时 （条件） 若要显示的工具。 例如，如果你只想用户实际上正在连接到本地主机时要显示的工具，设置如下：
 
 ``` json
 "conditions": [
@@ -40,7 +40,7 @@ ms.locfileid: "4080964"
 }]
 ```
 
-或者，如果你仅希望你的工具时要显示连接节点*不是*本地主机：
+或者，如果你只想您的工具时要显示的连接节点*不是*localhost:
 
 ``` json
 "conditions": [
@@ -49,7 +49,7 @@ ms.locfileid: "4080964"
 }]
 ```
 
-下面是什么的配置设置如下所示到仅显示工具时的连接节点不是本地主机：
+此处是什么的配置设置的示例只显示一个工具时连接的节点不是 localhost:
 
 ``` json
 "entryPoints": [
@@ -79,23 +79,23 @@ ms.locfileid: "4080964"
 }
 ```
 
-### 库存属性 ###
+### <a name="inventory-properties"></a>清单属性 ###
 
-SDK 包含一组预特选的库存属性可用于生成条件来确定当你的工具应或不提供。 在清单数组中有 9 个不同的属性：
+SDK 包含一组预先特选的清单属性可用来生成条件以决定时所需的工具应可用。 库存数组中有九个不同的属性：
 
-| 属性名称 | 所需值类型 |
+| 属性名 | 预期值类型 |
 | ------------- | ------------------- |
-| computerManufacturer | 字符串 |
+| computerManufacturer | string |
 | operatingSystemSKU | 数字 |
-| operatingSystemVersion | version_string (例如:"10.1。 *") |
+| operatingSystemVersion | version_string (例如："10.1.*") |
 | productType | 数字 |
-| clusterFqdn | 字符串 |
-| isHyperVRoleInstalled | 布尔型 |
-| isHyperVPowershellInstalled | 布尔型 |
-| isManagementToolsAvailable | 布尔型 |
-| isWmfInstalled | 布尔型 |
+| clusterFqdn | string |
+| isHyperVRoleInstalled | 布尔值 |
+| isHyperVPowershellInstalled | 布尔值 |
+| isManagementToolsAvailable | 布尔值 |
+| isWmfInstalled | 布尔值 |
 
-库存数组中的每个对象必须符合以下 json 结构：
+清单数组中的每个对象必须符合以下 json 结构：
 
 ``` json
 "<property name>": {
@@ -105,7 +105,7 @@ SDK 包含一组预特选的库存属性可用于生成条件来确定当你的�
 }
 ```
 
-#### 运算符值 ####
+#### <a name="operator-values"></a>运算符值 ####
 
 | 运算符 | 描述 |
 | -------- | ----------- |
@@ -115,31 +115,31 @@ SDK 包含一组预特选的库存属性可用于生成条件来确定当你的�
 | le | 小于或等于 |
 | eq | 等于 |
 | ne | 不等于 |
-| 为 | 检查是否值为 true |
-| 不 | 如果值为 false 检查 |
-| 包含 | 在字符串中存在的项 |
+| 为 | 检查一个值，是否为 true |
+| 非 | 检查一个值为 false |
+| 包含 | 一个字符串中存在的项 |
 | notContains | 一个字符串中不存在项 |
 
-#### 数据类型 ####
+#### <a name="data-types"></a>数据类型 ####
 
-对于类型属性的可用选项：
+Type 属性的可用选项包括：
 
-| 类型 | 说明 |
+| 在任务栏的搜索框中键入 | 描述 |
 | ---- | ----------- |
-| version | 版本号 (例如： 10.1。 *) |
+| version | 版本号 (例如：10.1.*) |
 | 数字 | 数字值 |
-| 字符串 | 字符串值 |
-| 布尔型 | true 或 false |
+| string | 一个字符串值 |
+| 布尔值 | true 或 false |
 
-#### 值类型 ####
+#### <a name="value-types"></a>值类型 ####
 
-值属性接受这些类型：
+Value 属性接受这些类型：
 
-* 字符串
+* string
 * 数字
-* 布尔型
+* 布尔值
 
-格式正确的库存条件集如下所示：
+格式正确的清单条件集如下所示：
 
 ``` json
 "entryPoints": [
@@ -180,9 +180,9 @@ SDK 包含一组预特选的库存属性可用于生成条件来确定当你的�
 }
 ```
 
-### 脚本 ###
+### <a name="script"></a>脚本 ###
 
-最后，你可以运行自定义 PowerShell 脚本来标识的可用性和节点的状态。 所有脚本必须都返回的对象具有以下结构：
+最后，您可以运行自定义 PowerShell 脚本，用于识别的可用性和节点的状态。 所有脚本都必须都返回具有以下结构的对象：
 
 ``` ps
 @{
@@ -193,14 +193,14 @@ SDK 包含一组预特选的库存属性可用于生成条件来确定当你的�
         @{Name='Prop2'; Value = 12345678; Type='number'; };
 }
 ```
-状态属性是重要的值将控制要显示或隐藏你在工具列表中的扩展的决定。  允许的值为：
-| 值 | 说明 |
+State 属性是将控制决策以显示或隐藏您的扩展工具列表中的重要值。  允许的值包括：
+| 值 | 描述 |
 | ---- | ----------- |
-| 可用 | 扩展应显示在工具列表。 |
-| NotSupported | 扩展不应显示在工具列表。 |
-| NotConfigured | 这是将来将提示用户输入其他配置，然后再将该工具提供的工作的占位符值。  当前此值将导致显示该工具，并且是在功能上的等同于可用。 |
+| 可用 | 该扩展应显示在工具列表。 |
+| NotSupported | 不应在工具列表中显示该扩展。 |
+| NotConfigured | 这是为将来的工作，将提示用户输入其他配置，然后再将该工具提供一个占位符值。  当前此值将导致显示的工具和功能等效于 'Available'。 |
 
-例如，如果我们希望加载只有远程服务器具有 BitLocker 安装工具，该脚本如下所示：
+例如，如果我们想要用于加载仅当远程服务器已安装的 BitLocker 的工具，该脚本如下所示：
 
 ``` ps
 $response = @{
@@ -267,11 +267,11 @@ $response
 }
 ```
 
-## 支持多个要求集 ##
+## <a name="supporting-multiple-requirement-sets"></a>支持多个要求集 ##
 
-你可以使用多个组的要求来确定何时通过定义多个"要求"块中显示你的工具。
+可以使用多个组要求来确定何时通过定义多个"要求"块中显示所需的工具。
 
-例如，若要显示你的工具，如果"方案 A"或者"方案 B"为 true 时，定义两个要求块;如果任何一种情况 （即，要求块内的所有条件都满足时），该工具会显示。
+例如，若要显示所需的工具，如果"情况 A"或者"方案 B"为 true 时，定义两个要求块;如果有任一项，则返回 true （也就是说，满足所有条件要求块中的），该工具将显示。
 
 ``` json
 "entryPoints": [
@@ -304,13 +304,13 @@ $response
 
 ```
 
-## 支持的条件范围 ##
+## <a name="supporting-condition-ranges"></a>支持条件范围 ##
 
-你还可以通过定义多个"条件"块具有相同的属性，但具有不同的运算符定义条件的范围。
+此外可以通过定义多个具有相同的属性，但使用不同运算符的"条件"块来定义范围的条件。
 
-当与不同的运营商定义了相同的属性时，该工具将显示为值之间的两个条件。
+时相同的属性定义的不同的运算符，该工具会显示，前提是两个条件之间的值。
 
-例如，只要操作系统 6.3.0 和 10.0.0 之间的版本，将显示此工具：
+例如，此工具将显示操作系统为 6.3.0 和 10.0.0 之间的版本：
 
 ``` json
 "entryPoints": [

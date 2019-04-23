@@ -12,25 +12,25 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 7f74b35e93d4ddbe39b955daf7f78c4ef693aa9a
-ms.sourcegitcommit: 07ac08dea2b8f2763c2614a999dc7967018aa0b4
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "6121466"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59835178"
 ---
-# 更新 Nano Server
+# <a name="updating-nano-server"></a>更新 Nano Server
 
 > [!IMPORTANT]
 > 自 Windows Server 版本 1709 开始，Nano Server 将仅用作[容器基本操作系统映像](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image)。 查看[对 Nano Server 进行的更改](nano-in-semi-annual-channel.md)以了解这意味着什么。 
 
-Nano Server 提供各种保持最新的方法。 与其他的 WindowsServer 安装选项相比，Nano Server 遵循与 Windows10 维护模型类似的更积极的维护模型。 这些定期版本称为 **Current Branch for Business (CBB)** 版本。 此方法支持想要更快地创新并以快速开发生命周期的云节奏前进的客户。 有关 CBB 的详细信息可在 [WindowsServer 博客](https://blogs.technet.microsoft.com/windowsserver/2016/07/12/windows-server-2016-new-current-branch-for-business-servicing-option/)上找到。
+Nano Server 提供各种保持最新的方法。 与其他的 Windows Server 安装选项相比，Nano Server 遵循与 Windows 10 维护模型类似的更积极的维护模型。 这些定期版本称为 **Current Branch for Business (CBB)** 版本。 此方法支持想要更快地创新并以快速开发生命周期的云节奏前进的客户。 有关 CBB 的详细信息可在 [Windows Server 博客](https://blogs.technet.microsoft.com/windowsserver/2016/07/12/windows-server-2016-new-current-branch-for-business-servicing-option/)上找到。
 
-**在这些 CBB 版本之间**，Nano Server 通过一系列*累积更新*保持最新版本。 例如，Nano Server 的第一个累积更新发布于 2016 年 9 月 26 日与[KB4093120](https://support.microsoft.com/help/4093120/windows-10-update-kb4093120)。 由于发布此更新和后续累积更新的原因，我们提供在 Nano Server 上安装这些更新的各种选项。 在本文中，我们使用 KB3192366 更新作为示例，介绍如何获取累积更新并将它们应用到 Nano Server。 有关累积更新模型的详细信息，请参阅 [Microsoft 更新博客](https://blogs.technet.microsoft.com/mu/2016/10/25/patching-with-windows-server-2016/)。
+**在这些 CBB 版本之间**，Nano Server 通过一系列*累积更新*保持最新版本。 例如，2016 年 9 月 26，与发布适用于 Nano Server 的第一个累积更新[KB4093120](https://support.microsoft.com/help/4093120/windows-10-update-kb4093120)。 由于发布此更新和后续累积更新的原因，我们提供在 Nano Server 上安装这些更新的各种选项。 在本文中，我们使用 KB3192366 更新作为示例，介绍如何获取累积更新并将它们应用到 Nano Server。 有关累积更新模型的详细信息，请参阅 [Microsoft 更新博客](https://blogs.technet.microsoft.com/mu/2016/10/25/patching-with-windows-server-2016/)。
 
 > [!NOTE]
 > 如果从媒体或联机存储库安装可选 Nano Server 程序包，这将不包括最近的安全修补程序。 为避免可选程序包和基本操作系统之间的版本不匹配，应在安装任意可选程序包后立即安装最新的累计更新，**然后**再重启服务器。
 
-对于 Windows Server 2016 的累积更新：2016 年 9 月 26 日 ([KB3192366](https://support.microsoft.com/en-us/kb/3192366))，应先为 Windows 10 版本 1607：2016 年 8 月 23 日安装最新服务堆栈更新以作为先决条件 ([KB3176936](https://support.microsoft.com/en-us/kb/3176936))。 对于以下大多数选项，需要包含 .cab 更新程序包的 .msu 文件。 访问 Microsoft 更新目录，下载所有这些更新程序包：
+对于累积更新 Windows Server 2016 的：2016 年 9 月 26 日 ([KB3192366](https://support.microsoft.com/en-us/kb/3192366))，则应首先安装最新服务堆栈更新为 Windows 10 版本 1607年:2016 年 8 月 23 日的必备组件 ([KB3176936](https://support.microsoft.com/en-us/kb/3176936))。 对于以下大多数选项，需要包含 .cab 更新程序包的 .msu 文件。 访问 Microsoft 更新目录，下载所有这些更新程序包：
 - [https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB3192366](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB3192366)
 - [https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB3176936](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB3176936)
 
@@ -52,21 +52,21 @@ Nano Server 提供各种保持最新的方法。 与其他的 WindowsServer 安�
 > [!NOTE]
 > 使用 DISM 工具维护 Nano Server 时，必须使用与所维护的 Nano Server 版本相同或更高的 DISM 版本。 在匹配的 Windows 版本中运行 DISM、安装 [Windows 评估和部署工具包 (ADK)](https://developer.microsoft.com/en-us/windows/hardware/windows-assessment-deployment-kit) 或在 Nano Server 上运行 DISM，均可达到此目的。
 
-## 选项 1：将累计更新集成到新映像
+## <a name="option-1-integrate-a-cumulative-update-into-a-new-image"></a>选项 1：将累积更新集成到新的映像
 如果在生成新 Nano Server 映像，可将最新累积更新直接集成到映像，以便在第一次启动时即已完全修补。
 
 ```powershell
 New-NanoServerImage -ServicingPackagePath 'C:\ServicingPackages_cabs\Windows10.0-KB3176936-x64.cab', 'C:\ServicingPackages_cabs\Windows10.0-KB3192366-x64.cab' -<other parameters>
 ```
 
-## 选项 2：将累计更新集成到现有映像
+## <a name="option-2-integrate-a-cumulative-update-into-an-existing-image"></a>选项 2：将累积更新集成到现有的映像
 如果现在就拥有 Nano Server 映像，并用作创建 Nano Server 特定实例的基线，则可将最新累积更新直接集成到现有基线映像，以便使用该映像创建的计算机在第一次启动时即已完全修补。
 
 ```powershell
 Edit-NanoServerImage -ServicingPackagePath 'C:\ServicingPackages_cabs\Windows10.0-KB3176936-x64.cab', 'C:\ServicingPackages_cabs\Windows10.0-KB3192366-x64.cab' -TargetPath .\NanoServer.wim
 ```
 
-## 选项 3：将累积更新应用到现有的脱机 VHD 或 VHDX
+## <a name="option-3-apply-the-cumulative-update-to-an-existing-offline-vhd-or-vhdx"></a>选项 3：将累积更新应用到现有脱机 VHD 或 VHDX
 如果现在就拥有虚拟硬盘（VHD 或 VHDX），可使用 DISM 工具将该更新应用到虚拟硬盘。 需要确保磁盘没有在使用中，方法是使用磁盘关闭任何 VM 或卸载虚拟硬盘文件。
 
 - 使用 PowerShell
@@ -85,7 +85,7 @@ Edit-NanoServerImage -ServicingPackagePath 'C:\ServicingPackages_cabs\Windows10.
    dism.exe /Unmount-Image /MountDir:C:\MountDir /Commit
    ```
 
-## 选项 4：将累计更新应用到正在运行的 Nano Server
+## <a name="option-4-apply-the-cumulative-update-to-a-running-nano-server"></a>选项 4：将累积更新应用到正在运行的 Nano Server
 如果具有正在运行的 Nano Server VM 或物理主机，并已下载用于更新的 .cab 文件，可在操作系统联机的同时使用 DISM 工具应用更新。 需要在 Nano Server 上本地复制 .cab 文件，或将该文件复制到可访问的网络位置。 如果在应用服务堆栈更新，请确保在应用服务堆栈更新前重启服务器，然后应用其他更新。
 
 > [!NOTE]
@@ -125,7 +125,7 @@ Enter-PSSession $s
    Restart-Computer; exit
    ```
 
-## 选项 5：下载累积更新，并将其安装到正在运行的 Nano Server
+## <a name="option-5-download-and-install-the-cumulative-update-to-a-running-nano-server"></a>选项 5:下载并安装到正在运行的 Nano Server 累积更新
 
 如果具有正在运行的 Nano Server VM 或物理主机，可使用 Windows Update WMI 提供程序在操作系统联机时下载并安装更新。 使用此方法无需从 Microsoft 更新目录中单独下载 .msu 文件。 WMI 提供程序将同时检测、下载和安装所有可用更新。
 
@@ -154,8 +154,8 @@ Enter-PSSession -ComputerName (Read-Host "Enter Nano Server IP address") -Creden
    $result.Updates
    ```
    
-## 其他选项
-其他更新 Nano Server 的方法可能与上述选项重合或对其加以补充。 此类选项包括使用 WindowsServer Update Services (WSUS)、System Center Virtual Machine Manager (VMM)、任务计划程序或非 Microsoft 解决方案。
+## <a name="additional-options"></a>其他选项
+其他更新 Nano Server 的方法可能与上述选项重合或对其加以补充。 此类选项包括使用 Windows Server Update Services (WSUS)、System Center Virtual Machine Manager (VMM)、任务计划程序或非 Microsoft 解决方案。
 - 通过设置以下注册表项[配置 WSUS 的 Windows 更新](https://msdn.microsoft.com/en-us/library/dd939844(v=ws.10).aspx)：
   - WUServer
   - WUStatusServer（通常使用与 WUServer 相同的值）

@@ -1,0 +1,1 @@
+**[了解有关 Always On VPN 技术](../vpn/always-on-vpn/always-on-vpn-technology-overview.md)。** 为此部署中，您必须安装新的远程访问服务器正在运行 Windows Server 2016 中，以及修改某些现有的基础结构的部署。

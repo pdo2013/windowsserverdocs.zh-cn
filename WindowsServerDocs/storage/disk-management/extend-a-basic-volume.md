@@ -1,6 +1,6 @@
 ---
-title: "扩展基本卷"
-description: "本文介绍如何在主驱动器和逻辑驱动器上添加空间来扩展基本卷"
+title: 扩展基本卷
+description: 本文介绍如何在主驱动器和逻辑驱动器上添加空间来扩展基本卷
 ms.date: 10/12/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 29b7b61f7edc20edda7bc18b82db17447badc0f2
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59834248"
 ---
 # <a name="extend-a-basic-volume"></a>扩展基本卷
 
-> **适用于：**Windows 10、Windows 8.1、Windows Server（半年频道）、Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
+> **适用于：** Windows 10、 Windows 8.1、 Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
 
 通过将现有主分区和逻辑驱动器扩展到相同磁盘上的相邻未分配空间，你可以向现有主分区和逻辑驱动器添加更多空间。 若要扩展基本卷，它必须是原始卷（未使用文件系统进行格式化）或使用 NTFS 文件系统进行了格式化。 你可以在包含逻辑驱动器的扩展分区中的连续可用空间内扩展该逻辑驱动器。 如果将逻辑驱动器扩展到扩展分区中提供的可用空间之外，则扩展分区将会扩大以包含该逻辑驱动器。
 
@@ -49,18 +50,18 @@ ms.lasthandoff: 10/17/2017
 
 <br />
 
-| 值 | 说明 |
+| ReplTest1 | 描述 |
 | --- | --- |
 | <p>**list volume**</p> | <p>显示所有磁盘上的基本卷和动态卷的列表。</p> |
-| <p>**select volume**</p> | <p>选择指定的卷（其中 <em>volumenumber</em> 是卷编号），并赋予其焦点。 如果未指定卷，则 **select** 命令会列出具有焦点的当前卷。 你可以通过编号、驱动器号或装入点路径来指定卷。 在基本磁盘上，如果选择卷，则还会赋予相应的分区焦点。</p> |
-| <p>**extend**</p> | <p><ul><li>将具有焦点的卷扩展到下一个连续的未分配空间。 对于基本卷，未分配的空间必须与具有焦点的分区在同一个磁盘上，并且必须在该分区之后（扇区偏移量高于该分区）。 动态简单卷或跨区卷可以扩展到任何动态磁盘上的任何空白空间。 你可以使用以下命令将现有的卷扩展到新创建的空间中。</p></li ><p><li>如果以前使用 NTFS 文件系统格式化了分区，则会自动扩展文件系统以占用较大的分区。 不会发生任何数据丢失。 如果以前使用除 NTFS 以外的任何其他文件系统格式对分区进行了格式化，则此命令将失效并且不会对分区进行任何更改。</p></li></ul>|
+| <p>**选择卷**</p> | <p>选择指定的卷（其中 <em>volumenumber</em> 是卷编号），并赋予其焦点。 如果未指定卷，则 **select** 命令会列出具有焦点的当前卷。 你可以通过编号、驱动器号或装入点路径来指定卷。 在基本磁盘上，如果选择卷，则还会赋予相应的分区焦点。</p> |
+| <p>**extend**</p> | <p><ul><li>将具有焦点的卷扩展到下一个连续的未分配空间。 对于基本卷，未分配的空间必须与具有焦点的分区在同一个磁盘上，并且必须在该分区之后（扇区偏移量高于该分区）。 动态简单卷或跨区卷可以扩展到任何动态磁盘上的任何空白空间。 你可以使用以下命令将现有的卷扩展到新创建的空间中。</p></li ><p><li>如果以前使用 NTFS 文件系统格式化了分区，则会自动扩展文件系统以占用较大的分区。 不会丢失任何数据。 如果以前使用除 NTFS 以外的任何其他文件系统格式对分区进行了格式化，则此命令将失效并且不会对分区进行任何更改。</p></li></ul>|
 | <p>**size=** <em>size</em></p> | <p>要添加到当前分区中的兆字节 (MB) 空间量。 如果你未指定大小，则磁盘会扩展，以占用所有未分配的连续空间。</p> |
 
 ## <a name="additional-considerations"></a>其他注意事项
 
 -   如果磁盘不包含启动分区或系统分区，则可以将卷扩展到其他非启动盘或非系统磁盘，但磁盘将转换为动态磁盘（如果磁盘可升级）。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 -   [命令行语法表示法](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)
 

@@ -1,6 +1,6 @@
 ---
 ms.assetid: 60fca6b2-f1c0-451f-858f-2f6ab350d220
-title: "重复数据删除互操作性"
+title: 重复数据删除互操作性
 ms.technology: storage-deduplication
 ms.prod: windows-server-threshold
 ms.topic: article
@@ -9,16 +9,17 @@ manager: klaasl
 ms.author: wgries
 ms.date: 09/16/2016
 ms.openlocfilehash: 2a28be1bdd22915182cbdbb2726ab9d37422e889
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59834428"
 ---
 # <a name="data-deduplication-interoperability"></a>重复数据删除互操作性
 
-> 适用于：Windows Server（半年频道）、Windows Server 2016
+> 适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-## <a id="supported"></a>受支持
+## <a id="supported"></a>支持
 
 ### <a id="supported-clusters"></a>故障转移群集
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 10/17/2017
 
 在已删除重复的卷上启用配额时，配额使用的是文件的逻辑大小，而非物理大小。 当文件由重复数据删除功能处理时，配额使用情况（包括任何配额阈值）不会发生更改。 使用删除重复时，其他所有配额功能（包括卷根目录软配额和子文件夹配额）都正常工作。
 
-### <a id="supported-windows-server-backup"></a>Windows Server Backup
+### <a id="supported-windows-server-backup"></a>Windows Server 备份
 Windows Server 备份能够“按原样”备份优化卷（即不删除已删除重复的数据）。 以下步骤说明如何备份卷，以及如何还原卷或卷中的选定文件。
 1. 安装 Windows Server 备份。  
     ```PowerShell
@@ -60,25 +61,25 @@ Windows Server 备份能够“按原样”备份优化卷（即不删除已删�
     wbadmin get versions
     ```
 
-    此输出版本 ID 将是日期和时间字符串，例如：08/18/2016-06:22。
+    此输出版本 ID 将是日期和时间字符串，例如：08/18/2016-06:22.
 
 4. 还原整个卷。
     ```PowerShell
     wbadmin start recovery –version:02/16/2012-06:22 -itemtype:Volume  -items:E: -recoveryTarget:E:
     ```
 
-    **-或者-**  
+    **--OR--**  
 
     还原特定文件夹（在此情况下为 E:\Docs 文件夹）：
     ```PowerShell
     wbadmin start recovery –version:02/16/2012-06:22 -itemtype:File  -items:E:\Docs  -recursive
     ```
 
-## <a id="unsupported"></a>不支持
+## <a id="unsupported"></a>不受支持
 ### <a id="unsupported-refs"></a>ReFS
 Windows Server 2016 不支持在 ReFS 格式卷上进行重复数据删除。 [在 Windows Server Storage UserVoice 上为针对 Windows Server vNext 的此项投票](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/7962813-support-deduplication-on-refs)。
 
-### <a id="unsupported-windows-client"></a>Windows 10（客户端操作系统）
+### <a id="unsupported-windows-client"></a>Windows 10 （客户端操作系统）
 在 Windows 10 上不支持重复数据删除。 Windows 社区中有多个广受欢迎的博客文章描述了如何从 Windows Server 2016 中移除二进制文件并在 Windows 10 上安装，但尚未作为重复数据删除开发的一部分对这种情况进行验证。 [在 Windows Server Storage UserVoice 上为针对 Windows 10 vNext 的此项投票](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/9011008-add-deduplication-support-to-client-os)。
 
 ### <a id="unsupported-windows-search"></a>Windows Search

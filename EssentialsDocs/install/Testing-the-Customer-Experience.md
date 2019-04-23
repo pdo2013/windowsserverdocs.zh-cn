@@ -1,6 +1,6 @@
 ---
-title: "测试客户体验"
-description: "介绍了如何使用 Windows Server Essentials"
+title: 测试客户体验
+description: 介绍如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,26 +13,27 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 223b0e1be3a53e9a7d198dc005fc8725e421db58
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59838688"
 ---
 # <a name="testing-the-customer-experience"></a>测试客户体验
 
 >适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
 
-若要验证的客户体验，并检查您的合作伙伴自定义，周日初始配置目标计算机。 我们被建议你完成在初始配置至少一次手动以指导客户体验。 如果 cobranded 仪表板必须完成初始配置，以验证品牌。 如果 cobranded 远程网站访问的站点，则必须访问 http://<servername\>若要验证品牌（< servername\ > 是服务器的名称）。 你可以使用 cfg.ini 文件的初始配置部分自动测试的客户体验。 有关创建 cfg.ini 文件在此部分中的详细信息，请参阅[创建 Cfg.ini 文件](Create-the-Cfg.ini-File.md)。  
+要检查客户体验并检查你的合作伙伴自定义情况，请对目标计算机运行初始配置。 建议你至少手动完成一次初始配置，以了解客户体验。 如果已为仪表板添加联合品牌，你必须完成初始配置以验证该品牌。 如果已为远程 Web 访问站点添加联合品牌，你必须访问 http://<servername\>以验证该品牌 (< 服务器名\>是服务器的名称)。 你可以使用 cfg.ini 文件的初始配置部分自动测试客户体验。 有关创建 cfg.ini 文件的此部分的详细信息，请参阅[创建 cfg.ini 文件](Create-the-Cfg.ini-File.md)。  
   
 > [!IMPORTANT]
->  必须运行 Sysprep.exe 命令准备部署该映像之前测试初始配置体验。 有关运行 Sysprep.exe 的详细信息，请参阅[准备部署该映像](Preparing-the-Image-for-Deployment.md)。  
+>  必须在测试初始配置体验前运行 Sysprep.exe 命令来准备要部署的映像。 有关运行 Sysprep.exe 的详细信息，请参阅 [Preparing the Image for Deployment](Preparing-the-Image-for-Deployment.md)。  
   
 > [!IMPORTANT]
->  测试在初始配置才能网络连接。 未配置 DHCP 或将其安装在服务器上，这可以让无干扰测试的网络。  
+>  若要测试初始配置，必须具有网络连接。 不要在服务器上配置或安装 DHCP，以便在没有干扰的情况下测试网络。  
   
- 若要验证仪表板中的合作伙伴支持信息，请单击帮助按钮旁边的向下箭头。  
+ 要验证合作伙伴支持信息，请在仪表板中单击“帮助”按钮旁边的向下箭头。  
   
 ## <a name="see-also"></a>请参阅  
  [创建和自定义映像](Creating-and-Customizing-the-Image.md)   
  [其他自定义设置](Additional-Customizations.md)   
- [准备部署该映像](Preparing-the-Image-for-Deployment.md)
+ [部署准备的映像](Preparing-the-Image-for-Deployment.md)

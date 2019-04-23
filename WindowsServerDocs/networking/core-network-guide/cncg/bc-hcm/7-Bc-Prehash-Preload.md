@@ -1,6 +1,6 @@
 ---
-title: Prehash 以及预装 （可选） 托管的缓存服务器上的内容
-description: 本指南提供了有关运行 Windows Server 2016 和 Windows 10 的计算机上托管的缓存型部署分支缓存的说明进行操作
+title: 在托管缓存服务器上预哈希和预加载内容（可选）
+description: 本指南说明了在运行 Windows Server 2016 和 Windows 10 的计算机上的托管的缓存模式下部署 BranchCache
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-bc
@@ -8,27 +8,28 @@ ms.topic: article
 ms.assetid: 7e79c66a-8555-4d8e-8691-d6c37377aab4
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0e7ffaac4e427222d5539195ecef91768f61c4a3
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: b60a1f24b8988d6e394df0faf678467021e0c882
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59839388"
 ---
-# <a name="prehash-and-preload-content-on-the-hosted-cache-server-optional"></a>Prehash 和预上托管内容缓存服务器 \(Optional\)
+# <a name="prehash-and-preload-content-on-the-hosted-cache-server-optional"></a>对，并预加载托管的缓存服务器上的内容\(可选\)
 
->适用于：Windows Server（半年通道），Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-可以使用在此部分中过程 prehash 内容服务器上的内容、 到数据包添加的内容和然后预托管的缓存服务器上的内容。 
+可以使用在本部分中的过程在内容服务器上对内容，将内容添加到数据的包，然后在托管的缓存服务器上预加载内容。 
 
-这些步骤是可选的因为你无需均为 prehash 和预先加载的内容上托管的缓存服务器。 
+这些过程是可选的因为您并不需要 prehash 和预加载内容托管的缓存服务器上。 
 
-如果你未执行预加载的内容，数据将自动添加到托管缓存通过 WAN 连接的客户端下载它。
+如果不执行预加载内容，数据是自动添加到托管缓存的客户端下载其通过 WAN 连接。
 
 >[!IMPORTANT]
->尽管这些过程统称可选的如果你决定 prehash 和预先加载内容托管的缓存的服务器，在执行这两个步骤是必需的。
+>虽然这些过程是统称为可选的如果你决定 prehash 和预加载内容托管的缓存服务器上执行这两个过程是必需的。
 
-- [创建用于 Web 和文件内容 & #40; 内容服务器数据包可选 & #41;](8-Bc-Data-Packages.md)
+- [创建 Web 内容服务器数据包和文件内容&#40;可选&#41;](8-Bc-Data-Packages.md)
   
-- [导入上托管的缓存服务器 & #40; 数据包可选 & #41;](9-Bc-Import-Data.md)
+- [托管的缓存服务器上的数据程序包导入&#40;可选&#41;](9-Bc-Import-Data.md)
 
-若要继续使用本指南，请参阅[创建内容服务器数据包用于 Web 和文件内容 #40; 可选 & #41;](8-Bc-Data-Packages.md).
+若要继续使用本指南，请参阅[创建内容服务器数据的包适用于 Web 和文件内容&#40;可选&#41;](8-Bc-Data-Packages.md)。

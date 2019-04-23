@@ -1,7 +1,7 @@
 ---
-ms.assetid: 
-title: "客户端访问声称广告 FS 中类型"
-description: 
+ms.assetid: ''
+title: 客户端访问的声明类型中的 AD FS
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,88 +10,89 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 1e37aded450555d293806d1ed8903a51e3df9424
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59839138"
 ---
-#<a name="client-access-policy-claim-types-in-ad-fs"></a>客户端访问策略声称广告 FS 中类型
+#<a name="client-access-policy-claim-types-in-ad-fs"></a>客户端访问策略的声明类型中的 AD FS
 
-若要提供其他请求上下文信息，请客户端访问策略，请使用以下的索赔类型广告 FS 生成从处理请求标头信息。  有关详细信息，请参阅[的索赔引擎角色](../technical-reference/the-role-of-the-claims-engine.md)。
+若要提供额外的请求上下文信息，客户端访问策略，请使用 AD FS 生成从处理的请求标头信息的以下声明类型。  有关详细信息请参阅[声明引擎的角色](../technical-reference/the-role-of-the-claims-engine.md)。
 
-##<a name="x-ms-forwarded-client-ip"></a>X MS-转发的客户端-IP
+##<a name="x-ms-forwarded-client-ip"></a>X-MS-Forwarded-Client-IP
 
 声明类型： `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`
 
-此广告 FS 索赔表示"最佳企图"有助于确定发出请求用户（例如，Outlook 客户端）的 IP 地址。 此声明可能包含多个 IP 地址，其中包括每个请求转发的代理服务器的地址。  此声明填充当前 HTTP 标题只能通过 Exchange Online，它对广告 FS 传递验证请求时填充标题设置。 声明值可以是以下情况之一：
+此 AD FS 声明所表示的次认定发出请求的 IP 地址的用户 （例如，Outlook 客户端） 的"最佳尝试"。 此声明可以包含多个 IP 地址，包括每个代理将请求转发地址。  此声明填充从当前的 HTTP 标头只能通过 Exchange Online，填充标头将身份验证请求传递给 AD FS 时设置。 声明的值可以是以下值之一：
 
 
-- 一个 IP 地址-直接连接到联机更换费用的客户端路由器的 IP 地址
+- 单个 IP 地址-直接连接到 Exchange Online 的客户端的 IP 地址
 
-    >![注意]公司的网络上的客户端的 IP 地址将显示为组织的站代理或网关的外部界面 IP 地址。
+    >![注意]企业网络上的客户端的 IP 地址将显示为组织的出站代理服务器或网关的外部接口 IP 地址。
 
 - 一个或多个 IP 地址
-    - 如果无法确定 Exchange Online 连接的客户端的 IP 地址，它将设置基于 x-转发-有关标头的值纳入 HTTP 基于非标准标题请求和支持的许多客户端、负载平衡和代理服务器市场上的值。
-    - 多个 IP 地址，表明客户 IP 地址和每个传递请求的代理服务器的地址会用逗号分隔。
+    - 如果无法确定 Exchange Online 的连接的客户端的 IP 地址，它会设置值的基础 x 转发的标头，可以包含在基于 HTTP 的非标准标头请求和支持的多个客户端，负载均衡器的值和市场上的代理。
+    - 将由逗号分隔多个 IP 地址，该值指示客户端 IP 地址和每个传递请求的代理服务器的地址。
 
-    >![注意]不会出现在列表中与相关的 Exchange Online 基础结构的 IP 地址。
-
-
->![警告]当前支持的只 IPV4 地址; Exchange Online 它不支持 IPV6 地址。 
+    >![注意]Exchange Online 基础结构相关的 IP 地址不会出现在列表中。
 
 
-## <a name="x-ms-client-application"></a>X MS 的客户端应用程序
+>![警告]Exchange Online 目前支持仅的 IPV4 地址。它不支持 IPV6 地址。 
+
+
+## <a name="x-ms-client-application"></a>X-MS-Client-Application
 
 声明类型： `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`
 
-此广告 FS 索赔表示协议终止的客户端，它松对应正在使用的应用程序使用。  此声明填充当前 HTTP 标题只能通过 Exchange Online，它对广告 FS 传递验证请求时填充标题设置。 具体取决于该应用程序，将为此声明的值下列情况之一：
+此 AD FS 声明表示对应于正在使用的应用程序的松散的最终客户端使用的协议。  此声明填充从当前的 HTTP 标头只能通过 Exchange Online，填充标头将身份验证请求传递给 AD FS 时设置。 根据应用程序，此声明的值将是以下之一：
 
 
 
-- 对于使用 Exchange 活动同步的设备，值为 Microsoft.Exchange.ActiveSync。 
-- Microsoft Outlook 客户端的使用可能会导致的任何以下值：
+- 对于使用 Exchange Active Sync 的设备，则值为 Microsoft.Exchange.ActiveSync。 
+- 使用 Microsoft Outlook 客户端可能会导致任何以下值：
     - Microsoft.Exchange.Autodiscover
     - Microsoft.Exchange.OfflineAddressBook
     - Microsoft.Exchange.RPC
     - Microsoft.Exchange.WebServices
     - Microsoft.Exchange.Mapi
-- 其他可能值的此标头如下：
+- 此标头的其他可能值包括：
     - Microsoft.Exchange.Powershell
     - Microsoft.Exchange.SMTP
     - Microsoft.Exchange.PopImap
     - Microsoft.Exchange.Pop
     - Microsoft.Exchange.Imap
 
-## <a name="x-ms-client-user-agent"></a>X-MS 的客户端的用户代理
+## <a name="x-ms-client-user-agent"></a>X-MS-Client-User-Agent
 
 声明类型： `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`
 
-此广告 FS 索赔提供字符串代表客户端使用访问该服务的设备类型。 当客户想要阻止访问的某些设备（如特定类型的智能手机一样），可以使用此。  此声明填充当前 HTTP 标题只能通过 Exchange Online，它对广告 FS 传递验证请求时填充标题设置。 此声明的示例值包括（但不是限于）以下值。
->![注意]下面是示例 x ms 用户代理值可能包含的客户端其 x-ms 的客户端应用程序是"Microsoft.Exchange.ActiveSync"
+此 AD FS 声明提供表示客户端正在使用以访问服务的设备类型的字符串。 这可用来在客户想要阻止某些设备 （例如，特定类型的智能手机） 的访问权限时。  此声明填充从当前的 HTTP 标头只能通过 Exchange Online，填充标头将身份验证请求传递给 AD FS 时设置。 此声明的示例值包括 （但不限于） 以下值。
+>![注意]下面是示例的 x ms 用户代理值可能包含其 x-ms-客户端应用程序是"Microsoft.Exchange.ActiveSync"为客户端
 
-- 涡流/1.0
+- 顶点/1.0
 - Apple-iPad1C1/812.1
 - Apple-iPhone3C1/811.2
 - Apple-iPhone/704.11
 - Moto-DROID2/4.5.1
 - SAMSUNGSPHD700/100.202
-- Android / 0.3
+- Android/0.3
 
 >![注意]还有可能此值为空。
 
 
-## <a name="x-ms-proxy"></a>X MS 代理
+## <a name="x-ms-proxy"></a>X-MS-Proxy
 
 声明类型： `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`
 
-此广告 FS 索赔表示请求已通过联合身份验证的服务器代理。  此声明填充由后端联合身份验证服务传递验证请求时填充标题联盟服务器代理服务器。 广告 FS 然后将其转换为索赔。 
+此 AD FS 声明指示请求了通过联合身份验证服务器代理。  此声明由联合服务器代理，填充标头将身份验证请求传递到后端联合身份验证服务时填充。 AD FS 然后将其转换为声明。 
 
-声明值是传递请求联合服务器代理 DNS 名称。
+声明的值是传递请求的联合身份验证服务器代理的 DNS 名称。
 
-## <a name="x-ms-endpoint-absolute-path-active-vs-passive"></a>X-MS-端点-绝对路径 (活动 vs 被动)
+## <a name="x-ms-endpoint-absolute-path-active-vs-passive"></a>X-MS-终结点的绝对路径 （活动与被动）
 
 声明类型： `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`
 
-此声明类型可用于确定源自而不是"无源"（web 浏览器基于）客户端的"活动"（丰富）客户端的请求。 这使外部请求从如 Outlook Web Access、SharePoint Online 或 Office 365 门户时，将阻止来自丰富的客户端，如 Microsoft Outlook 请求允许浏览器基于应用程序。
+此声明类型可以用于确定从与"被动"（web 浏览器基于的） 客户端的"活动"（丰富） 客户端发出的请求。 这使从基于浏览器的应用程序如 Outlook Web Access、 SharePoint Online，或 Office 365 门户会阻止来自如 Microsoft Outlook 的丰富客户端的请求而允许的外部请求。
 
-此声明的值为收到此请求广告 FS 服务的名称。
+声明的值是接收请求的 AD FS 服务的名称。

@@ -1,7 +1,7 @@
 ---
 ms.assetid: 03c82f43-ae2d-4038-b286-ae3858aed35a
-title: "配置广告 FS 发送密码到期索赔"
-description: 
+title: 配置 AD FS 以发送密码过期声明
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,30 +9,32 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 386a5ac921ba609c371121b8657351667628951b
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 080e8cc81949df3bf74ae846eee7f32c5e145f53
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59834358"
 ---
-# <a name="configure-ad-fs-to-send-password-expiry-claims"></a>配置广告 FS 发送密码到期索赔
+# <a name="configure-ad-fs-to-send-password-expiry-claims"></a>配置 AD FS 以发送密码过期声明
 
->适用于：Windows Server 2016，Windows Server 2012 R2
+>适用于：Windows Server 2016, Windows Server 2012 R2
 
-您可以配置了 Active Directory 联合身份验证服务 (AD FS) 发送到信赖的方信任（应用）中受 ADFS 密码到期索赔。 这些声明的使用方式取决于应用程序。 例如，与作为你依赖方 Office 365、更新已经实现了对通知的其很快到-会-已过期密码联合的用户的 Exchange and Outlook。
+可以配置 Active Directory 联合身份验证服务 (AD FS) 将发送到受 ADFS 信赖方信任 （应用程序） 的密码过期声明。 如何使用这些声明取决于应用程序。 例如，与 Office 365 作为信赖方，更新了对 Exchange 和 Outlook 以通知他们即将-到--已过期的密码的联合的用户。
 
-配置广告 FS 发送密码到期声明与信赖的方信任，你必须添加以下索赔规则此信赖的方信任：
+若要配置 AD FS 以发送密码到期声明与信赖方信任，你必须添加以下声明规则到此信赖方信任：
 
 ```
-c1:[Type == "https://schemas.microsoft.com/ws/2012/01/passwordexpirationtime"]
-=> issue(store = "_PasswordExpiryStore", types = ("https://schemas.microsoft.com/ws/2012/01/passwordexpirationtime", "https://schemas.microsoft.com/ws/2012/01/passwordexpirationdays", "https://schemas.microsoft.com/ws/2012/01/passwordchangeurl"), query = "{0};", param = c1.Value);
+@RuleName = "Issue Password Expiry Claims"
+c1:[Type == "http://schemas.microsoft.com/ws/2012/01/passwordexpirationtime"]
+ => issue(store = "_PasswordExpiryStore", types = ("http://schemas.microsoft.com/ws/2012/01/passwordexpirationtime", "http://schemas.microsoft.com/ws/2012/01/passwordexpirationdays", "http://schemas.microsoft.com/ws/2012/01/passwordchangeurl"), query = "{0};", param = c1.Value);
 ```
 
 > [!NOTE]
-> 密码到期索赔它们仅适用于用户名、密码和 Microsoft Passport 的工作身份验证类型。  如果用户可验证使用 Windows 的集成身份验证和 Passport 未配置索赔将不可用，用户不会看到密码到期通知。
+> 密码过期声明才可用于用户名和密码与 Microsoft Passport 的工作身份验证类型。  如果用户进行身份验证使用 Windows 集成身份验证和 Passport 未配置，声明将不可用并且用户不会看到密码过期通知。
 
 > [!NOTE]
-> 没有 14 天后窗口将仅填充发送的索赔，如果密码将在 14 天内过期，因此。
+> 存在是 14 天窗口，因此如果密码即将在 14 天内到期，才会填充已发送的声明。
 
 ## <a name="see-also"></a>请参阅
-[广告 FS 操作](../../ad-fs/AD-FS-2016-Operations.md)
+[AD FS 操作](../../ad-fs/AD-FS-2016-Operations.md)

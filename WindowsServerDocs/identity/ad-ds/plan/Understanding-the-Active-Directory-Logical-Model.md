@@ -1,44 +1,45 @@
 ---
 ms.assetid: 62708b2e-4090-4cf7-8ae6-a557f31f561f
-title: "了解 Active Directory 逻辑模型"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: 了解 Active Directory 逻辑模型
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 0f8cdc4789d1b3008f3b53104e5517d4ef1e65b9
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: 0e909d4e9c1fb26aa0f7cb97a7dc06192db5cc21
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59834268"
 ---
 # <a name="understanding-the-active-directory-logical-model"></a>了解 Active Directory 逻辑模型
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-为 Active Directory 域服务 (广告 DS) 设计你逻辑结构涉及定义之间目录中容器关系。 这些关系可能会根据管理的要求，如委派颁发机构，或运行的要求，如需控制复制可能定义。  
+为 Active Directory 域服务 (AD DS) 设计逻辑结构包括定义你的目录中的容器之间的关系。 这些关系可能会基于管理要求，如授权的委派，或者它们可能定义的操作要求，例如需要控制复制。  
   
-设计你 Active Directory 逻辑结构之前，请务必了解 Active Directory 逻辑模型。 广告 DS 是存储，并管理目录启用应用程序从网络资源，以及应用程序相关数据信息分布式的数据库。 广告 DS 到分层包容结构允许管理员整理元素网络（如用户、计算机和设备）。 顶级容器是森林。 森林在域中，以及在域中部门（华丽绚烂）。 这称为逻辑模型因为它不依赖于物理方面的部署，如需在每个域和网络拓扑域控制器的数量。  
+设计 Active Directory 逻辑结构之前，务必了解 Active Directory 逻辑模型。 AD DS 是一个分布式的数据库，将存储和管理网络资源，以及特定于应用程序的数据有关的信息已启用目录的应用程序中。 AD DS 允许管理员 （如用户、 计算机和设备） 的网络元素组织到层次内嵌结构。 顶级容器是林。 在林的域，且在域中组织单位 (Ou)。 因为它是独立于部署，例如每个域和网络拓扑中所需的域控制器的数量的物理方面，这称为逻辑模型。  
   
-## <a name="active-directory-forest"></a>Active Directory 森林  
-森林是一个或多个共享常见的逻辑结构的 Active Directory 域的集合目录架构（类和属性定义）、目录配置（站点并复制信息）和全球目录（树林搜索功能）。 自动与双向可传递信任关系链接相同的树林中的域。  
+## <a name="active-directory-forest"></a>Active Directory 林  
+林是共享公用的逻辑结构的一个或多个 Active Directory 域的集合目录架构 （类和属性定义）、 目录配置 （站点和复制信息） 和全局编录 （全林性搜索功能）。 相同林中的域具有双向可传递信任关系自动链接。  
   
-## <a name="active-directory-domain"></a>域的 Active Directory  
-域是 Active Directory 森林中的分区。 分区数据使组织复制仅向需要它的数据。 这种方式，directory 可以通过提供带宽有限网络全球缩放。 此外，域支持数量的其他核心功能与管理，包括：  
+## <a name="active-directory-domain"></a>Active Directory 域  
+域是在 Active Directory 林中的分区。 对数据进行分区使组织仅对需要它的位置复制数据。 这种方式，该目录即可全局缩放，通过网络可用带宽有限。 此外，域支持的其他核心数与管理相关的函数包括：  
   
--   整个网络的用户的身份。 域允许用户身份要创建一次和引用连接到域所在的林任何计算机上。 域组成的域控制器用于安全地存储用户帐户和用户凭据（如密码或证书）。  
+-   整个网络的用户标识。 域可让用户标识来创建一次并将其加入到域所在的林的任何计算机上的引用。 组成域的域控制器用于安全地存储用户帐户和用户凭据 （如密码或证书）。  
   
--   身份验证。 域控制器提供的用户身份验证服务，并提供其他授权数据，如用户组成员资格，它可以用来控制访问权限的网络上的资源。  
+-   身份验证。 域控制器提供用户的身份验证服务，并提供其他授权数据，例如用户组成员身份，这可用于控制对网络上的资源的访问。  
   
--   信任与您的关系。 域可通过信任可以延伸到域自己森林之外的用户身份验证服务。  
+-   信任关系。 域信任关系通过，实现将身份验证服务扩展到超出其自己林中的域中的用户。  
   
--   复制。 域定义分区包含足够的数据来提供服务域，然后将它复制域控制器之间的目录。 这种方式，所有的域控制器同级某个域中，并作为一个整体进行管理。  
+-   复制。 域定义包含足够的数据来提供域服务，然后将其复制域控制器之间的目录分区。 这样一来，所有域控制器是域中的对等的并作为一个单元进行管理。  
   
-## <a name="active-directory-organizational-units"></a>Active Directory 单位  
-华丽绚烂可用于在某个域中形成容器的层次。 用于管理用途，例如的组策略应用程序或授权委派对象组合使用华丽绚烂。 （OU 和控制其中对象）由和 OU 中对象 OU 上访问控制列表 (Acl)。 为了便于大量对象管理，广告 DS 支持授权委派的概念。 委派，通过所有者可以将全部或有限管理控制对象转移到其他用户或组。 委派很重要，因为它有助于分布受信任的执行管理任务人数大量对象的管理。  
+## <a name="active-directory-organizational-units"></a>Active Directory 组织单位  
+Ou 可以用于在一个域中形成的层次结构的容器。 Ou 出于管理目的，如组策略的应用程序或授权的委派用于到组对象。 （对一个 OU 和其中的对象） 控制由在 OU 中和在 OU 中对象的访问控制列表 (Acl)。 为了便于管理大量对象，AD DS 支持授权的委派的概念。 通过委派，所有者可将对对象的完全或有限管理控制传输到其他用户或组。 委派非常重要，因为它有助于跨多个被信任执行管理任务的人员分配的管理大量对象。  
   
 
 
