@@ -1,6 +1,6 @@
 ---
-title: "传输层安全性 (TLS) 注册表设置"
-description: "Windows Server 安全"
+title: 传输层安全性 (TLS) 注册表设置
+description: Windows Server 安全
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -11,188 +11,216 @@ ms.topic: article
 author: justinha
 ms.author: justinha
 manager: brianlic-msft
-ms.date: 08/07/2017
-ms.openlocfilehash: 8ccfacc367a5d32438bebf22798479a07f6cbdfc
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
+ms.date: 02/28/2019
+ms.openlocfilehash: 0d618d465ee45245e98fbc6aa58b32b974be08e8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59880878"
 ---
 # <a name="transport-layer-security-tls-registry-settings"></a>传输层安全性 (TLS) 注册表设置
 
->适用于：Windows Server（半年通道），Windows Server 2016，Windows Server 2008R2、Windows Server 2008、Windows 10，Windows 8.1、Windows 8、Windows 7、WindowsVista
+>适用于：Windows Server （半年频道） 2019，Windows Server 2016 中，Windows 10 的 Windows 服务器
 
-IT 专业人员的此参考主题包含传输层安全性 (TLS) 协议和安全套接字层 (SSL) 协议通过 Schannel 安全支持提供商 (SSP) 的 Windows 中执行的受支持的注册表设置信息。 注册表子项和条目中本主题帮助你管理并解决相应 Schannel SSP，述专门 TLS 和 SSL 协议。 
+本参考主题面向 IT 专业人员包含传输层安全性 (TLS) 协议和通过 Schannel 安全支持安全套接字层 (SSL) 协议的 Windows 实现的受支持的注册表设置的信息提供程序 (SSP)。 注册表子项和此主题帮助你管理和疑难解答 Schannel SSP 中涉及的项专门的 TLS 和 SSL 协议。 
 
 >[!Caution]
->作为参照，以使用疑难解答或验证所需的设置将应用时提供的此信息。 我们建议你执行不直接编辑注册表除非没有没有其他选择。
->对注册表进行修改不验证注册表编辑器或由 Windows 操作系统之前它们的应用。 因此，可以存储错误值，，这可能会导致无法恢复错误系统中。 如果可能，而不是通过直接，编辑注册表使用组策略或其他 Windows 工具如 Microsoft 管理控制台 (MMC) 来完成任务。 如果你必须编辑注册表，使用格外小心。 
+>在排除故障或验证是否应用了必需的设置时，可参考本信息。 除非万不得已，否则建议不要直接编辑注册表。
+>在应用对注册表的修改之前，注册表编辑器或 Windows 操作系统不会对这些修改进行验证。 因此，可能会存储不正确的值，从而可能导致系统出现不可恢复的错误。 如有可能，请使用组策略或其他 Windows 工具（如 Microsoft 管理控制台 (MMC)）来完成任务，而不是直接编辑注册表。 如果必须编辑注册表，请格外小心。 
 
 ## <a name="certificatemappingmethods"></a>CertificateMappingMethods 
 
-此项中不存在注册表默认情况。 默认值为受支持，下面列出的所有四个证书地图方法。
+默认情况下，注册表中不存在此项。 其默认值为支持下面列出的四种证书映射方法。
 
-当服务器应用程序需要客户端身份验证时、Schannel 会自动尝试地图提供的客户端计算机给用户帐户的证书。 可通过创建映射，它将证书信息对 Windows 的用户帐户相关联的身份客户端证书登录的用户进行身份验证。 创建并启用证书映射后，客户端出示客户端证书，每次你服务器应用程序会自动将关联该用户使用合适的 Windows 的用户帐户。
+当服务器应用程序需要客户端身份验证时，Schannel 会自动尝试将客户端计算机提供的证书映射到用户帐户。 通过创建将证书信息与 Windows 用户帐户关联的映射，你可以对使用客户端证书登录的用户进行身份验证。 创建并启用证书映射后，客户端每次出示客户端证书时，服务器应用程序都会自动将该用户与相应的 Windows 用户帐户关联。
 
-在大多数情况下，证书映射到一个用户帐户在两种方式之一： 
+在大多数情况下，证书通过以下两种方式之一映射到用户帐户： 
 
-- 一个证书映射到一个用户帐户（一映射）中。
-- 多个证书映射到一个用户帐户（许多到一个映射）。
+- 单个证书映射到单个用户帐户（一对一映射）。
+- 多个证书映射到一个用户帐户（多对一映射）。
 
-默认情况下，Schannel 提供商还将使用优先顺序中列出的以下四个证书映射方法：
+默认情况下，Schannel 提供程序将使用以下四种证书映射方法（按优先顺序列出）：
 
-1. Kerberos 服务的用户 (S4U) 证书地图
-2. 用户名主要映射
-3. 一映射（也称为主题/发行商映射）
-4. 许多到一个地图
+1. Kerberos service-for-user (S4U) 证书映射
+2. 用户主体名称映射
+3. 一对一映射关系（也称为使用者/颁发者映射）
+4. 多对一映射
 
-适用的版本：当中指定**适用于**开头的本主题介绍的列表。
+适用的版本：本主题开头的“适用于”列表中指定的版本。
 
 注册表路径：HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
-## <a name="ciphers"></a>密码
+## <a name="ciphers"></a>Ciphers
 
-应通过配置密码套件订单控制 TLS 月 SSL 密码。 有关详细信息，请参阅[配置 TLS 密码 Suite 订单](manage-tls.md#configuring-tls-cipher-suite-order)。
+TLS/SSL 密码应由配置密码套件顺序控制。 有关详细信息，请参阅[配置 TLS 密码套件顺序](manage-tls.md#configuring-tls-cipher-suite-order)。
 
-有关 Schannel SSP 所使用的默认密码套件顺序的信息，请参阅[TLS 月 SSL (Schannel SSP) 中的密码套件](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx)。 
+有关 Schannel SSP 所用的默认密码套件顺序的信息，请参阅[TLS/SSL (Schannel SSP) 中的密码套件](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx)。 
 
-##<a name="ciphersuites"></a>密码组
+##<a name="ciphersuites"></a>CipherSuites
 
-应完成配置 TLS 月 SSL 密码套件使用组策略、MDM 或 PowerShell，请参阅[配置 TLS 密码 Suite 订单](manage-tls.md#configuring-tls-cipher-suite-order)有关详细信息。
+应完成的配置 TLS/SSL 密码套件使用组策略、 MDM 或 PowerShell，请参阅[配置 TLS 密码套件顺序](manage-tls.md#configuring-tls-cipher-suite-order)有关详细信息。
 
-有关 Schannel SSP 所使用的默认密码套件顺序的信息，请参阅[TLS 月 SSL (Schannel SSP) 中的密码套件](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx)。 
+有关 Schannel SSP 所用的默认密码套件顺序的信息，请参阅[TLS/SSL (Schannel SSP) 中的密码套件](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx)。 
 
 
 ## <a name="clientcachetime"></a>ClientCacheTime
 
-此项控制的操作系统以毫秒为单位到期客户端的缓存条目的时间。 安全连接缓存关闭值为 0。 此项中不存在注册表默认情况。 
+此项控制操作系统终止客户端缓存条目所需的时间（以毫秒为单位）。 值 0 表示关闭安全连接缓存。 默认情况下，注册表中不存在此项。 
 
-首次连接到通过 Schannel SSP，完整服务器的客户端 TLS 月 SSL 握手执行。 完成后，主要机密、密码套件和证书存储在会话缓存各自的客户端和服务器上。
+客户端第一次通过 Schannel SSP 连接到服务器时，将执行完整的 TLS/SSL 握手。 完成握手后，主密钥、密码套件和证书将存储在各自的客户端和服务器上的会话缓存中。
 
-开始与 Windows Server 2008 和 Windows Vista，默认的客户端缓存时间是 10 小时。
+从 Windows Server 2008 和 Windows Vista 开始，默认客户端缓存时间为 10 小时。
 
 注册表路径：HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
 默认客户端缓存时间
 
+## <a name="enableocspstaplingforsni"></a>EnableOcspStaplingForSni
+
+联机证书状态协议 (OCSP) 装订使 web 服务器，如 Internet 信息服务 (IIS)，以在 TLS 握手过程向客户端发送的服务器证书时提供当前服务器证书的吊销状态。 此功能可减少 OCSP 服务器上的负载，因为 web 服务器可以缓存服务器证书的当前 OCSP 状态并将其发送到多个 web 客户端。 如果没有此功能，每个 web 客户端会尝试从 OCSP 服务器检索服务器证书的当前 OCSP 状态。 这将生成该 OCSP 服务器上的高负载。 
+
+除了 IIS 中，通过 http.sys 的 web 服务可以是有益的此设置，包括 Active Directory 联合身份验证服务 (AD FS) 和 Web 应用程序代理 (WAP)。 
+
+默认情况下，对于具有简单的安全 (SSL/TLS) 绑定的 IIS 网站启用 OCSP 支持。 但是，默认情况下如果 IIS 网站使用一个或两个以下类型的安全 (SSL/TLS) 绑定未启用此支持：
+- 需要服务器名称指示
+- 使用集中式证书存储
+
+在这种情况下，服务器你好响应在 TLS 握手期间将不在默认情况下包含 OCSP 装订状态。 此行为可以提高性能：Windows OCSP 装订实现可以扩展到数百个服务器证书。 因为 SNI 和 CCS 使 IIS 能够扩展到数千个可能有成千上万个服务器证书的网站，设置默认情况下启用此行为可能导致性能问题。
+
+适用的版本：从 Windows Server 2012 和 Windows 8 的所有版本。 
+
+注册表路径: [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL]
+
+添加以下项：
+
+"EnableOcspStaplingForSni"=dword:00000001
+
+若要禁用，设置为 0 的 DWORD 值：
+
+"EnableOcspStaplingForSni"=dword:00000000
+
+>[!NOTE] 
+>启用此注册表项会产生潜在的性能影响。
+
 ## <a name="fipsalgorithmpolicy"></a>FIPSAlgorithmPolicy
 
-此项控制遵从美国联邦信息处理 (FIPS)。 默认设置为 0。
+此项控制美国联邦信息处理 (FIPS) 合规性。 默认值为 0。
 
-适用的版本：当中指定**适用于**开头的本主题介绍的列表。 
+适用的版本：从 Windows Server 2012 和 Windows 8 的所有版本。 
 
 注册表路径：HKLM SYSTEM\CurrentControlSet\Control\LSA
 
-Windows ServerFIPS 密码套件：查看[Schannel SSP 协议和支持密码套件](https://technet.microsoft.com/library/dn786419.aspx)。
+Windows Server FIPS 密码套件：请参阅[Schannel SSP 中支持的密码套件和协议](https://technet.microsoft.com/library/dn786419.aspx)。
 
-## <a name="hashes"></a>哈希
+## <a name="hashes"></a>Hashes
 
-应受 TLS 月 SSL 哈希算法配置密码套件订单。 请参阅[配置 TLS 密码 Suite 订单](manage-tls.md#configuring-tls-cipher-suite-order)有关详细信息。
+TLS/SSL 哈希算法应由配置密码套件顺序控制。 请参阅[配置 TLS 密码套件顺序](manage-tls.md#configuring-tls-cipher-suite-order)有关详细信息。
 
 ## <a name="issuercachesize"></a>IssuerCacheSize
 
-此项控制的发行商缓存中，大小，并使用与发行商映射。 尝试映射所有客户端的证书链中颁发 Schannel SSP-不仅直接发行商客户证书。 当颁发不映射到一个帐户，这是典型种情况，服务器可能尝试地图相同发行商重复，命名时间每秒数百。 
+此项控制颁发者缓存的大小，它与颁发者映射一起使用。 Schannel SSP 将尝试映射客户端证书链中的所有颁发者 — 而不只是客户端证书的直接颁发者。 如果颁发者未映射到帐户（这种情况很常见），服务器可能会尝试以每秒数百次的频率重复映射相同的颁发者名称。 
 
-为了防止这种情况，服务器有底片缓存中，因此如果发行商名称没有映射到一个帐户，它将添加到缓存，并且 Schannel SSP 不会尝试地图才能再次的发行商名称过期的缓存条目。 此注册表项指定缓存大小。 此项中不存在注册表默认情况。 默认值为 100。 
+为防止这种情况，服务器有一个负缓存，因此，如果某个颁发者名称未映射到帐户，会将它添加到负缓存中，在该缓存条目到期之前，Schannel SSP 不会尝试再次映射该颁发者名称。 此注册表项指定缓存大小。 默认情况下，注册表中不存在此项。 默认值为 100。 
 
-适用的版本：当中指定**适用于**开头的本主题介绍的列表。
+适用的版本：从 Windows Server 2008 和 Windows Vista 开始的所有版本。
 
 注册表路径：HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
 ## <a name="issuercachetime"></a>IssuerCacheTime
 
-此项控制缓存超时以毫秒为单位的时间间隔的长度。 尝试映射所有客户端的证书链中颁发 Schannel SSP-不仅直接发行商客户证书。 这种情况，位置颁发不映射到一个帐户，这是典型种情况，服务器可能会试图相同的地图发行商重复，命名时间每秒数百。
+此项控制缓存超时间隔时长（以毫秒为单位）。 Schannel SSP 将尝试映射客户端证书链中的所有颁发者 — 而不只是客户端证书的直接颁发者。 如果颁发者未映射到帐户（这种情况很常见），服务器可能会尝试以每秒数百次的频率重复映射相同的颁发者名称。
 
-为了防止这种情况，服务器有底片缓存中，因此如果发行商名称没有映射到一个帐户，它将添加到缓存，并且 Schannel SSP 不会尝试地图才能再次的发行商名称过期的缓存条目。 此缓存保持为了提高性能，以便系统不会继续尝试相同颁发的地图。 此项中不存在注册表默认情况。 默认值为 10 分钟。
+为防止这种情况，服务器有一个负缓存，因此，如果某个颁发者名称未映射到帐户，会将它添加到负缓存中，在该缓存条目到期之前，Schannel SSP 不会尝试再次映射该颁发者名称。 出于性能方面的考虑，将保留此缓存，以便系统不继续尝试映射相同的颁发者。 默认情况下，注册表中不存在此项。 默认值为 10 分钟。
 
-适用的版本：当中指定**适用于**开头的本主题介绍的列表。
+适用的版本：从 Windows Server 2008 和 Windows Vista 开始的所有版本。
 
 注册表路径：HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
-## <a name="keyexchangealgorithm---client-rsa-key-sizes"></a>KeyExchangeAlgorithm 的客户端 RSA 键大小
+## <a name="keyexchangealgorithm---client-rsa-key-sizes"></a>KeyExchangeAlgorithm-客户端 RSA 密钥大小
 
-此项控制的客户端 RSA 密钥大小。 
+此项控制客户端的 RSA 密钥大小。 
 
-使用的关键 exchange 算法应该受配置密码套件订单。
+应由配置密码套件顺序控制使用的密钥交换算法。
 
-在 Windows 10 版本 1507 年和 Windows Server 2016 添加。
+添加 Windows 10 版本 1507年和 Windows Server 2016。
 
 注册表路径：HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\PKCS
 
-若要指定 TLS 客户端 RSA 最低受支持的范围关键位长度，创建**ClientMinKeyBitLength**条目。 此项中不存在注册表默认情况。 你已创建条目后，将 DWORD 值更改所需的位长。 如果没有配置，1024 位将最少。 
+若要指定 RSA 最小支持的范围密钥位长度的 TLS 客户端，创建**ClientMinKeyBitLength**条目。 默认情况下，注册表中不存在此项。 创建该项后，请将 DWORD 值更改为所需的位长度。 如果未配置，1024 位将最小值。 
 
-若要指定 TLS 客户端 RSA 最大受支持的范围关键位长度，创建**ClientMaxKeyBitLength**条目。 此项中不存在注册表默认情况。 你已创建条目后，将 DWORD 值更改所需的位长。 如果没有配置，将不会强制最多。
+若要指定 RSA 最大受支持的范围密钥位长度的 TLS 客户端，创建**ClientMaxKeyBitLength**条目。 默认情况下，注册表中不存在此项。 创建该项后，请将 DWORD 值更改为所需的位长度。 如果未配置，将不会强制最大值。
 
-## <a name="keyexchangealgorithm---diffie-hellman-key-sizes"></a>KeyExchangeAlgorithm-Diffie-hellman 关键大小
+## <a name="keyexchangealgorithm---diffie-hellman-key-sizes"></a>KeyExchangeAlgorithm-Diffie-hellman 密钥大小
 
-此项控制 Diffie-hellman 关键大小。 
+此项控制的 Diffie-hellman 密钥大小。 
 
-使用的关键 exchange 算法应该受配置密码套件订单。
+应由配置密码套件顺序控制使用的密钥交换算法。
 
-在 Windows 10 版本 1507 年和 Windows Server 2016 添加。
+添加 Windows 10 版本 1507年和 Windows Server 2016。
 
-注册表路径：HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\Diffie Hellman
+注册表路径：HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\Diffie-Hellman
 
-若要指定 TLS 客户端最低受支持范围的用量-Helman 关键位长度，创建**ClientMinKeyBitLength**条目。 此项中不存在注册表默认情况。 你已创建条目后，将 DWORD 值更改所需的位长。 如果没有配置，1024 位将最少。 
+若要指定最小支持范围的 Diffie-Helman 密钥位长度的 TLS 客户端，创建**ClientMinKeyBitLength**条目。 默认情况下，注册表中不存在此项。 创建该项后，请将 DWORD 值更改为所需的位长度。 如果未配置，1024 位将最小值。 
  
-若要指定 TLS 客户端最大受支持范围的用量-Helman 关键位长度，创建**ClientMaxKeyBitLength**条目。 此项中不存在注册表默认情况。 你已创建条目后，将 DWORD 值更改所需的位长。 如果没有配置，将不会强制最多。 
+若要指定最大受支持范围的 Diffie-Helman 密钥位长度的 TLS 客户端，创建**ClientMaxKeyBitLength**条目。 默认情况下，注册表中不存在此项。 创建该项后，请将 DWORD 值更改为所需的位长度。 如果未配置，将不会强制最大值。 
  
-若要指定 TLS 服务器默认用量 Helman 关键位长度，创建**ServerMinKeyBitLength**条目。 此项中不存在注册表默认情况。 你已创建条目后，将 DWORD 值更改所需的位长。 如果没有配置，2048 位将默认设置。 
+若要指定 TLS 服务器默认值的 Diffie Helman 密钥位长度，创建**ServerMinKeyBitLength**条目。 默认情况下，注册表中不存在此项。 创建该项后，请将 DWORD 值更改为所需的位长度。 如果未配置，则将默认为 2048 位。 
 
 ## <a name="maximumcachesize"></a>MaximumCacheSize
 
-此项控件的最大的缓存元素数。 设置为 0 MaximumCacheSize 禁用服务器端会话缓存，并阻止重新连接。 上方的默认值增加 MaximumCacheSize 导致 Lsass.exe 消耗更多内存。 每个会话缓存元素通常需要 2 到 4 KB 的内存。 此项中不存在注册表默认情况。 默认值为 20000 元素。 
+此项控制缓存元素的最大数目。 如果将 MaximumCacheSize 设置为 0，将禁用服务器端会话缓存并阻止重新连接。 将 MaximumCacheSize 增大到超过默认值后，会导致 Lsass.exe 占用额外的内存。 每个会话缓存元素通常需要 2 到 4 KB 的内存。 默认情况下，注册表中不存在此项。 默认值为 20,000 个元素。 
 
-适用的版本：当中指定**适用于**开头的本主题介绍的列表。
+适用的版本：从 Windows Server 2008 和 Windows Vista 开始的所有版本。
 
 注册表路径：HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
-## <a name="messaging--fragment-parsing"></a>消息 – 片段分析
+## <a name="messaging--fragment-parsing"></a>消息传送 – 片段分析
 
 ________________________________________
-此项控制允许大小将接受的零碎 TLS 握手消息的最大。 将不接受允许大小大于的邮件，并且 TLS 握手将失败。 以下项中不存在注册表默认情况。 
+此项控制允许的分片将接受的 TLS 握手消息大小的最大。 将不接受大于允许的大小的消息，并且在 TLS 握手将失败。 这些条目不存在在注册表中默认情况下。 
 
-当你设置的值为 0x0 时，零碎的消息不处理，并将导致 TLS 握手失败。 这使得 TLS 客户端或服务器当前的计算机上使用 TLS Rfc 不兼容。 
+当您将值设置为 0x0 时，分片的消息不会处理，将导致在 TLS 握手失败。 这使得 TLS 客户端或服务器在当前计算机上符合 TLS Rfc 不符合。 
 
-最大大小可以增加最多 2 ^24 1 字节。 允许客户端或服务器阅读和存储大量从网络的未验证数据不是一个好主意，并且会消耗额外的每个安全上下文内存。 
+允许的最大大小可以增大最大 2 ^24-1 个字节。 允许读取和存储大量的网络中的未验证数据的客户端或服务器不是一个不错的主意，将会占用额外内存为每个安全上下文。 
 
-在 Windows 7 和 Windows Server 2008 R2 添加。
-有可用更新，可使 Internet Explorer Windows XP、Windows Vista 或 Windows Server 2008 分析零碎的 TLS 月 SSL 握手消息。
+添加到 Windows 7 和 Windows Server 2008 R2 中。
+有可用的更新，使 Internet 资源管理器在 Windows XP、 Windows Vista 或 Windows Server 2008 分析分片的 TLS/SSL 握手消息。
 
 注册表路径：HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Messaging
 
-若要指定允许最大大小的零碎 TLS 握手邮件接受 TLS 客户端将创建**MessageLimitClient**条目。 你已创建条目后，将 DWORD 值更改所需的位长。 如果没有配置，默认值将 0x8000 字节。 
+若要指定允许的 TLS 客户端将接受的碎片化 TLS 握手消息大小最大值，创建**MessageLimitClient**条目。 创建该项后，请将 DWORD 值更改为所需的位长度。 如果未配置，默认值将是 0x8000 字节。 
 
-若要指定允许最大大小的任何客户端身份验证时，将接受 TLS 服务器的零碎 TLS 握手邮件、创建**MessageLimitServer**条目。 你已创建条目后，将 DWORD 值更改所需的位长。 如果没有配置，默认值将 0x4000 字节。 
+若要指定允许的 TLS 服务器将接受任何客户端身份验证时的分片的 TLS 握手消息大小最大值，创建**MessageLimitServer**条目。 创建该项后，请将 DWORD 值更改为所需的位长度。 如果未配置，默认值将是 0x4000 字节。 
 
-若要指定允许最大大小的 TLS 服务器会接受客户身份验证时的零碎 TLS 握手邮件、创建**MessageLimitServerClientAuth**条目。 你已创建条目后，将 DWORD 值更改所需的位长。 如果没有配置，默认值将 0x8000 字节。 
+若要指定允许的 TLS 服务器将接受客户端身份验证时的分片的 TLS 握手消息大小最大值，创建**MessageLimitServerClientAuth**条目。 创建该项后，请将 DWORD 值更改为所需的位长度。 如果未配置，默认值将是 0x8000 字节。 
 
 ## <a name="sendtrustedissuerlist"></a>SendTrustedIssuerList
 
-此项控件时发送列表中签发受信任的人使用的标记。 对于信任的客户端身份验证的证书颁发机构数百的服务器，有太多颁发的服务器，以便能够向他们发送所有向客户端计算机在客户端身份验证的请求。 在此情况下，可以设置此注册表项，并而非发送部分列表，Schannel SSP 将未发送任何列表中向客户端。
+此项控制发送可信颁发者列表时所用的标志。 如果服务器针对客户端身份验证信任数百个证书颁发机构，那么，对服务器而言，颁发者太多，无法在客户端计算机请求客户端身份验证时将这些颁发者全部发送到客户端计算机。 在这种情况下，可以设置此注册表项，Schannel SSP 将不向客户端发送任何列表，而不是发送部分列表。
 
-不发送的受信任的发行商列表，则可能会影响客户端发送时索要客户端证书。 例如，当 Internet Explorer 收到的客户端身份验证请求时，它仅显示链达之一服务器发送的证书颁发机构的客户端证书。 如果该服务器未发送的列表中，Internet Explorer 显示所有客户端安装的客户端证书。 
+不发送可信颁发者列表可能会影响要求客户端提供客户端证书时客户端所发送的内容。 例如，当 Internet Explorer 收到客户端身份验证请求时，它仅显示与服务器发送的最多一个证书颁发机构链接的客户端证书。 如果服务器未发送列表，Internet Explorer 将显示客户端上安装的所有客户端证书。 
 
-此问题可能是所需的。 例如，当 PKI 环境中包括交叉证书的客户端和服务器证书将不能同一根 CA;因此，Internet Explorer 无法选择了某个证书存在链接达服务器 Ca 之一。 通过配置服务器发送一个受信任的发行商列表，Internet Explorer 会发送其所有证书。
+某些情况下，此行为是可取的。 例如，当 PKI 环境包含交叉证书时，客户端证书和服务器证书不会有相同的根 CA；因此，Internet Explorer 不能选择与服务器的最多一个 CA 链接的证书。 通过将服务器配置为不发送可信颁发者列表，Internet Explorer 将发送其所有证书。
 
-此项中不存在注册表默认情况。
+默认情况下，注册表中不存在此项。
 
-默认发送受信任的发行商列表行为
+默认发送受信任的颁发者列表行为
 
 | Windows 版本 | 时间 |
 |-----------------|------|
-| Windows Server 2012 和 Windows 8 或更高版本 | 假 |
-| Windows Server 2008 R2 和 Windows 7 及更早版本 | 如此 |
+| Windows Server 2012 和 Windows 8 及更高版本 | FALSE |
+| Windows Server 2008 R2 和 Windows 7 及更早版本 | TRUE |
 
-适用的版本：当中指定**适用于**开头的本主题介绍的列表。
+适用的版本：从 Windows Server 2008 和 Windows Vista 开始的所有版本。
 
 注册表路径：HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
 ## <a name="servercachetime"></a>ServerCacheTime
 
-此项控制的以毫秒为单位过期服务器端缓存条目在操作系统所花费的时间。 值为 0 禁用服务器端会话缓存，并阻止重新连接。 上方的默认值增加 ServerCacheTime 导致 Lsass.exe 消耗更多内存。 每个会话缓存元素通常需要 2 到 4 KB 的内存。 此项中不存在注册表默认情况。 
+此项控制操作系统终止服务器端缓存条目所需的时间（以毫秒为单位）。 值 0 表示禁用服务器端会话缓存并阻止重新连接。 将 ServerCacheTime 增大到超过默认值后，会导致 Lsass.exe 占用额外的内存。 每个会话缓存元素通常需要 2 到 4 KB 的内存。 默认情况下，注册表中不存在此项。 
 
-适用的版本：当中指定**适用于**开头的本主题介绍的列表。
+适用的版本：从 Windows Server 2008 和 Windows Vista 开始的所有版本。
 
 注册表路径：HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
@@ -200,134 +228,187 @@ ________________________________________
 
 ## <a name="ssl-20"></a>SSL 2.0
 
-此子项控制 SSL 2.0 的使用。
+此子项控制使用 SSL 2.0。
 
-从 Windows 10 版本 1607 年和 Windows Server 2016 开始，SSL 2.0 已删除，并且不再受支持。
-SSL 2.0 默认设置，请参阅[TLS 月 SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx)。 
+从 Windows 10，版本 1607年和 Windows Server 2016 开始，SSL 2.0 已删除，不再受支持。
+SSL 2.0 默认设置，请参阅[TLS/SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx)。 
 
 注册表路径：HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
-若要启用 SSL 2.0 协议，创建**启用**相应子项中的条目。 此项中不存在注册表默认情况。 创建项后，请为 1 更改 DWORD 值。 若要禁用的协议，请将为 0 DWORD 值。
+若要启用 SSL 2.0 协议，创建**已启用**中的客户端或服务器子项下, 表中所述的条目。 默认情况下，注册表中不存在此项。 创建该项后，请将 DWORD 值更改为 1。 
 
 SSL 2.0 子项表
 
 | 子项 | 描述 |
 |--------|-------------|
-| 客户端 | 控制 SSL 2.0 SSL 客户端上的使用。 |
-| 服务器 | 控制 SSL 2.0 SSL 服务器上的使用。 |
-| DisabledByDefault | 默认情况下禁用 SSL 2.0 此标记。 |
+| 客户端 | 控制 SSL 客户端上的使用 SSL 2.0。 |
+| Server | 控制 SSL 服务器上的使用 SSL 2.0。 |
+
+若要为客户端或服务器禁用 SSL 2.0，请将 DWORD 值更改为 0。 如果 SSPI 应用请求时使用 SSL 2.0，它将被拒绝。 
+
+若要禁用 SSL 2.0 默认情况下，创建**DisabledByDefault**条目和更改 DWORD 值为 1。 如果 SSPI 应用显式请求时使用 SSL 2.0，它可能进行协商。 
+
+下面的示例演示在注册表中禁用 SSL 2.0:
+
+![禁用 SSL 2.0](images/ssl-2-registry-setting.png)
+
 
 ## <a name="ssl-30"></a>SSL 3.0
 
-此子项控制 SSL 3.0 使用。
+此子项控制使用 SSL 3.0。
 
-从 Windows 10 版本 1607 年和 Windows Server 2016 开始，SSL 3.0 已禁用默认情况。 SSL 3.0 默认设置，请参阅[TLS 月 SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx)。 
+从 Windows 10，版本 1607年和 Windows Server 2016 开始，SSL 3.0 已禁用默认情况下。 SSL 3.0 默认设置，请参阅[TLS/SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx)。 
 
 注册表路径：HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
-若要启用 SSL 3.0 协议，相应的一个创建启用条目。 此项中不存在注册表默认情况。 创建项后，请为 1 更改 DWORD 值。 若要禁用的协议，请将为 0 DWORD 值。
+若要启用 SSL 3.0 协议，创建**已启用**中的客户端或服务器子项下, 表中所述的条目。  
+默认情况下，注册表中不存在此项。 创建该项后，请将 DWORD 值更改为 1。 
 
 SSL 3.0 子项表
 
 | 子项 | 描述 |
 |--------|-------------|
-| 客户端 | 控制 SSL 3.0 SSL 客户端上的使用。 |
-| 服务器 | 控制 SSL 3.0 SSL 服务器上的使用。 |
-| DisabledByDefault | 默认情况下禁用 SSL 3.0 此标记。 |
+| 客户端 | 控制 SSL 客户端上的使用 SSL 3.0。 |
+| Server | 控制 SSL 服务器上的使用 SSL 3.0。 |
+
+若要为客户端或服务器禁用 SSL 3.0，请将 DWORD 值更改为 0。
+如果 SSPI 应用请求时使用的 SSL 3.0，它将被拒绝。 
+
+若要禁用 SSL 3.0，默认情况下，创建**DisabledByDefault**条目和更改 DWORD 值为 1。 如果 SSPI 应用显式请求时要使用 SSL 3.0，它可能进行协商。 
+
+下面的示例演示在注册表中禁用 SSL 3.0:
+
+![禁用 SSL 3.0](images/ssl-3-registry-setting.png)
 
 ## <a name="tls-10"></a>TLS 1.0
 
-此子项控制 TLS 1.0 的使用。
+此子项控制使用 TLS 1.0。
 
-TLS 1.0 默认设置，请参阅看到[TLS 月 SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx)。
+TLS 1.0 默认设置，请参阅[TLS/SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx)。
 
 注册表路径：HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
-若要禁用 TLS 1.0 协议，创建**启用**相应子项中的条目。 此项中不存在注册表默认情况。 创建项后，将 DWORD 值为 0。 若要启用的协议，请为 1 更改 DWORD 值。
+若要启用 TLS 1.0 协议，创建**已启用**下表中所述的客户端或服务器子项中的条目。 默认情况下，注册表中不存在此项。 创建该项后，请将 DWORD 值更改为 1。 
 
 TLS 1.0 子项表
 
 | 子项 | 描述 |
 |--------|-------------|
-| 客户端 | 控制 TLS 1.0 TLS 客户端上的使用。 |
-| 服务器 | 控制 TLS 1.0 TLS 服务器上的使用。 |
-| DisabledByDefault | 默认情况下禁用 TLS 1.0 此标记。 |
+| 客户端 | 控制 TLS 客户端上的使用 TLS 1.0。 |
+| Server | 控制 TLS 服务器上的使用 TLS 1.0。 |
 
-## <a name="tls-11"></a>1.1 TLS
+若要禁用 TLS 1.0 客户端或服务器，请将 DWORD 值更改为 0。
+如果 SSPI 应用请求时使用 TLS 1.0，它将被拒绝。 
 
-此子项控制 TLS 1.1 的使用。
+若要禁用 TLS 1.0，默认情况下，创建**DisabledByDefault**条目和更改 DWORD 值为 1。 如果 SSPI 应用显式请求时要使用 TLS 1.0，它可能进行协商。 
 
-第 1.1 TLS 默认设置，请参阅[TLS 月 SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx)。
+下面的示例演示在注册表中禁用 TLS 1.0:
 
->[!Note] 
->对于 TLS 1.1 来处于启用状态并协商在运行 Windows Server 2008 R2 的服务器上，你必须创建**DisabledByDefault**相应子项（客户端，服务器）中的项目并将它设置为"0"。 在注册表中不会看到项目，并且默认设置为"1"。
+![禁用 TLS 1.0](images/tls-registry-setting.png)
+
+## <a name="tls-11"></a>TLS 1.1
+
+此子项控制使用 TLS 1.1。
+
+TLS 1.1 默认设置，请参阅[TLS/SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx)。
 
 注册表路径：HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
-若要禁用 TLS 1.1 协议，创建**启用**相应子项中的条目。 此项中不存在注册表默认情况。 创建项后，将 DWORD 值为 0。 若要启用的协议，请为 1 更改 DWORD 值。
+若要启用 TLS 1.1 协议，创建**已启用**下表中所述的客户端或服务器子项中的条目。 默认情况下，注册表中不存在此项。 创建该项后，请将 DWORD 值更改为 1。 
 
-第 1.1 TLS 子项表
+TLS 1.1 子项表
 
 | 子项 | 描述 |
 |--------|-------------|
-| 客户端 | 控制 TLS 1.1 TLS 客户端上的使用。 |
-| 服务器 | 控制 TLS 1.1 TLS 服务器上的使用。 |
-| DisabledByDefault | 默认情况下禁用 TLS 1.1 此标记。 |
+| 客户端 | 控制 TLS 客户端上的使用 TLS 1.1。 |
+| Server | 控制 TLS 服务器上的使用 TLS 1.1。 |
+
+若要禁用 TLS 1.1 的客户端或服务器，请将 DWORD 值更改为 0。
+如果 SSPI 应用请求为使用 TLS 1.1，它将被拒绝。 
+
+若要禁用 TLS 1.1，默认情况下，创建**DisabledByDefault**条目和更改 DWORD 值为 1。 如果 SSPI 应用显式请求为使用 TLS 1.1，它可能进行协商。 
+
+下面的示例演示在注册表中禁用 TLS 1.1:
+
+![禁用 TLS 1.1](images/tls-11-registry-setting.png)
 
 ## <a name="tls-12"></a>TLS 1.2
 
-此子项控制 TLS 1.2 的使用。
+此子项控制使用 TLS 1.2。
 
-第 1.2 TLS 默认设置，请参阅[TLS 月 SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx)。
-
->[!Note] 
->对于 TLS 1.2 处于启用状态并协商在运行 Windows Server 2008 R2 的服务器上，你必须创建**DisabledByDefault**相应子项（客户端，服务器）中的项目并将它设置为"0"。 在注册表中不会看到项目，并且默认设置为"1"。
+TLS 1.2 默认设置，请参阅[TLS/SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx)。
 
 注册表路径：HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
-若要禁用 TLS 1.2 协议，创建**启用**相应子项中的条目。 此项中不存在注册表默认情况。 创建项后，将 DWORD 值为 0。 若要启用的协议，请为 1 更改 DWORD 值。
+若要启用 TLS 1.2 协议，创建**已启用**下表中所述的客户端或服务器子项中的条目。 默认情况下，注册表中不存在此项。 创建该项后，请将 DWORD 值更改为 1。 
 
-第 1.2 TLS 子项表
+TLS 1.2 子项表
 
 | 子项 | 描述 |
 |--------|-------------|
-| 客户端 | 控制 TLS 1.2 TLS 客户端上的使用。 |
-| 服务器 | 控制 TLS 1.2 TLS 服务器上的使用。 |
-| DisabledByDefault | 默认情况下禁用 TLS 1.2 此标记。 |
+| 客户端 | 控制 TLS 客户端上的使用 TLS 1.2。 |
+| Server | 控制 TLS 服务器上的使用 TLS 1.2。 |
+
+若要禁用 TLS 1.2 客户端或服务器，请将 DWORD 值更改为 0。
+如果 SSPI 应用请求为使用 TLS 1.2，它将被拒绝。 
+
+若要禁用 TLS 1.2，默认情况下，创建**DisabledByDefault**条目和更改 DWORD 值为 1。 如果显式请求为使用 TLS 1.2 的 SSPI 应用，它可能进行协商。 
+
+下面的示例演示在注册表中禁用 TLS 1.2:
+
+![禁用 TLS 1.2](images/tls-12-registry-setting.png)
 
 ## <a name="dtls-10"></a>DTLS 1.0
 
-此子项控制 DTLS 1.0 的使用。
+此子项控制使用 DTLS 1.0。
 
-DTLS 1.0 默认设置，请参阅[TLS 月 SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx)。
+DTLS 1.0 默认设置，请参阅[TLS/SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx)。
 
 注册表路径：HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
-若要禁用 DTLS 1.0 协议，创建**启用**相应子项中的条目。 此项中不存在注册表默认情况。 创建项后，将 DWORD 值为 0。 若要启用的协议，请为 1 更改 DWORD 值。
+若要启用 DTLS 1.0 协议，创建**已启用**下表中所述的客户端或服务器子项中的条目。 默认情况下，注册表中不存在此项。 创建该项后，请将 DWORD 值更改为 1。 
 
 DTLS 1.0 子项表
 
 | 子项 | 描述 |
 |--------|-------------|
-| 客户端 | 控制 DTLS 1.0 DTLS 客户端上的使用。 |
-| 服务器 | 控制 DTLS 1.0 DTLS 服务器上的使用。 |
-| DisabledByDefault | 默认情况下禁用 DTLS 1.0 此标记。 |
+| 客户端 | 控制使用 DTLS 1.0 DTLS 客户端上。 |
+| Server | 控制使用 DTLS 1.0 DTLS 服务器上。 |
+
+若要禁用 DTLS 1.0 客户端或服务器，请将 DWORD 值更改为 0。
+如果 SSPI 应用请求使用 DTLS 1.0 时，它将被拒绝。 
+
+若要禁用 DTLS 1.0，默认情况下，创建**DisabledByDefault**条目和更改 DWORD 值为 1。 如果 SSPI 应用显式请求时要使用 DTLS 1.0，它可能进行协商。 
+
+下面的示例演示在注册表中禁用 DTLS 1.0:
+
+![DTLS 1.0 已禁用](images/dtls-10-registry-setting.png)
 
 ## <a name="dtls-12"></a>DTLS 1.2
 
-此子项控制 DTLS 1.2 的使用。
+此子项控制使用 DTLS 1.2。
 
-第 1.2 DTLS 默认设置，请参阅[TLS 月 SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx)。
+DTLS 1.2 默认设置，请参阅[TLS/SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx)。
 
 注册表路径：HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
-若要禁用 DTLS 1.2 协议，创建**启用**相应子项中的条目。 此项中不存在注册表默认情况。 创建项后，将 DWORD 值为 0。 若要启用的协议，请为 1 更改 DWORD 值。
+若要启用 DTLS 1.2 协议，创建**已启用**下表中所述的客户端或服务器子项中的条目。 默认情况下，注册表中不存在此项。 创建该项后，请将 DWORD 值更改为 1。 
 
-第 1.2 DTLS 子项表
+DTLS 1.2 子项表
 
 | 子项 | 描述 |
 |--------|-------------|
-| 客户端 | 控制 DTLS 1.2 DTLS 客户端上的使用。 |
-| 服务器 | 控制 DTLS 1.2 DTLS 服务器上的使用。 |
-| DisabledByDefault | 默认情况下禁用 DTLS 1.2 此标记。 |
+| 客户端 | 控制 DTLS 客户端上的使用 DTLS 1.2。 |
+| Server | 控制使用 DTLS 1.2 DTLS 服务器上。 |
+
+
+若要禁用 DTLS 1.2 客户端或服务器，请将 DWORD 值更改为 0。
+如果 SSPI 应用请求使用 DTLS 1.0 时，它将被拒绝。 
+
+若要禁用 DTLS 1.2，默认情况下，创建**DisabledByDefault**条目和更改 DWORD 值为 1。 如果 SSPI 应用显式请求使用 DTLS 1.2 时，它可能进行协商。 
+
+下面的示例演示在注册表中禁用 DTLS 1.1:
+
+![DTLS 1.1 已禁用](images/dtls-11-registry-setting.png)
+
 

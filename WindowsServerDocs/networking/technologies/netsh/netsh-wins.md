@@ -1,6 +1,6 @@
 ---
-title: 网络 Shell (Netsh) 的示例批量文件
-description: 你可以使用本主题以了解如何创建执行使用在 Windows Server 2016 Netsh 的多个任务的批量文件。
+title: Network Shell (Netsh) 示例批处理文件
+description: 可以使用本主题，了解如何创建多个任务在 Windows Server 2016 中使用 Netsh 执行一个批处理文件。
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -9,34 +9,35 @@ manager: brianlic
 ms.author: pashort
 author: shortpatti
 ms.openlocfilehash: b0528cfaef201ba30e00e30f56a763be39a6b828
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59880168"
 ---
-# <a name="network-shell-netsh-example-batch-file"></a>网络 Shell \(Netsh\) 示例批量文件
+# <a name="network-shell-netsh-example-batch-file"></a>网络外壳\(Netsh\)示例批处理文件
 
 适用于：Windows Server 2016
 
-你可以使用本主题以了解如何创建执行 Netsh 通过在 Windows Server 2016 的多个任务的批量文件。 在此示例批文件，**netsh wins**使用上下文。
+可以使用本主题，了解如何创建 Windows Server 2016 中使用 Netsh 执行多个任务的批处理文件。 在此示例批处理文件中， **netsh wins**使用上下文。
 
-## <a name="example-batch-file-overview"></a>示例批量文件概述
+## <a name="example-batch-file-overview"></a>示例批处理文件概述
 
-可以使用 Windows Internet 名称服务 \(WINS\) 批量文件中的和其他脚本 Netsh 命令自动执行任务。 下面的批量文件示例演示如何使用 Netsh WINS 的命令执行各种相关的任务。
+为 Windows Internet 名称服务，可以使用 Netsh 命令\(WINS\)在批处理文件和其他脚本来自动执行任务。 下面的批处理文件示例演示如何使用 WINS 的 Netsh 命令来执行各种相关任务。
 
-在此示例批文件，WINS\ A WINS 服务器 192.168.125.30 的 IP 地址，并且 WINS\ B WINS 服务器 192.168.0.189 的 IP 地址。
+在此示例批处理文件中，WINS\-A 是 WINS 服务器具有 IP 地址 192.168.125.30 和 WINS\-B 是 WINS 服务器的 IP 地址 192.168.0.189。
 
-示例批量文件来完成以下的任务。
+示例批处理文件来完成以下任务。
 
-- 添加一种具有 IP 地址 192.168.0.205 动态名称记录、MY\_RECORD \[04h\]，多 WINS\ A
-- 作为推拉/复制合作伙伴的 WINS\ A 设置 WINS\ B
-- 连接到 WINS\ B，然后将设置为推拉/复制伙伴 WINS\ B 的 WINS\ A
-- 启动从 WINS\ A 推送复制到 WINS\ B
-- 连接到 WINS\-B 以确认新的记录 MY\_RECORD，是否已成功复制
+- 添加动态名称记录 IP 地址为 192.168.0.205，MY\_记录\[04h\]，到 WINS\-A
+- 设置 WINS\-B 作为推/拉复制伙伴的 WINS\-A
+- 连接到 WINS\-B，然后设置 WINS\-WINS 的推/拉复制伙伴作为一个\-B
+- 启动从 WINS 推送复制\-A 到 WINS\-B
+- 连接到 WINS\-B 以验证新记录，MY\_记录，已成功复制
 
-## <a name="netsh-example-batch-file"></a>Netsh 示例批量文件
+## <a name="netsh-example-batch-file"></a>Netsh 示例批处理文件
 
-在下面的示例批量文件，包含评论行为标记前面以"rem，"。 Netsh 将忽略这些注释。
+在下面的示例批处理文件中包含注释的行前面通过"rem"，为标记。 Netsh 将忽略注释。
 
     rem: Begin example batch file.
     
@@ -68,14 +69,14 @@ ms.lasthandoff: 03/28/2018
     
     rem 6. End example batch file.
 
-## <a name="netsh-wins-commands-used-in-the-example-batch-file"></a>示例批量文件中使用 Netsh WINS 的命令
+## <a name="netsh-wins-commands-used-in-the-example-batch-file"></a>Netsh WINS 命令示例批处理文件中使用
 
-以下部分列表**netsh wins**在此示例过程中使用的命令。
+以下部分列出了**netsh wins** ，在此示例过程使用的命令。
 
-- **服务器**。 将当前 WINS command\ 行上下文切换到其名称或 IP 地址指定的服务器。
-- **添加名字**。 注册 WINS 服务器上的名称。
-- **添加合作伙伴**。 将复制合作伙伴添加 WINS 服务器上。
-- **初始化推送**。 启动并 WINS 服务器发送一个推送触发器。
-- **显示名称**。 显示 WINS server 数据库中的某一特定记录的详细的信息。  
+- **服务器**。 将当前的 WINS 命令\-到指定其名称或 IP 地址的服务器的行上下文。
+- **将名称添加**。 注册上的 WINS 服务器的名称。
+- **添加合作伙伴**。 WINS 服务器上添加复制伙伴。
+- **init 推送**。 启动触发器，并发送推送到 WINS 服务器。
+- **显示名称**。 显示详细的 WINS 服务器数据库中的特定记录的信息。  
 
-有关详细信息，请参阅[网络 Shell (Netsh)](netsh.md)。
+有关详细信息，请参阅[Network Shell (Netsh)](netsh.md)。

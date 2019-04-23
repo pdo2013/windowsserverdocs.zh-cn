@@ -1,6 +1,6 @@
 ---
 ms.assetid: d11acbc2-40c6-4ab2-9514-2bc3ad81499a
-title: "重复数据删除中的新增功能"
+title: 重复数据删除中的新增功能
 ms.technology: storage-deduplication
 ms.prod: windows-server-threshold
 ms.topic: article
@@ -9,26 +9,27 @@ manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
 ms.openlocfilehash: 4a69221548d9defff5a45413ccfe824f9788755a
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59876448"
 ---
 # <a name="whats-new-in-data-deduplication"></a>重复数据删除中的新增功能
 
-> 适用于：Windows Server（半年频道）、Windows Server 2016
+> 适用于：Windows 服务器 （半年频道），Windows Server 2016
 
 Windows Server 2016 中的[重复数据删除](overview.md)已进行了优化，在私有云范围内实现了高性能和灵活性，且易于管理。 若要详细了解 Windows Server 2016 中的软件定义存储堆栈，请参阅 [Windows Server 2016 中的存储的新增功能](../whats-new-in-storage.md)。
 
 Windows Server 2016 中的重复数据删除具有以下增强功能：
 
-| 功能 | 新功能或更新功能 | 说明 |
+| 功能 | 新功能或更新功能 | 描述 |
 |---------------|----------------|-------------|
 | [支持大型卷](whats-new.md#large-volume-support) | 已更新 | 在 Windows Server 2016 之前，必须专门调整卷的大小实现预期改动，大小超过 10 TB 的卷不适合进行重复数据删除。 在 Windows Server 2016 中，重复数据删除支持最大 64 TB 的卷。 |
 | [支持大型文件](whats-new.md#large-file-support) | 已更新 | 在 Windows Server 2016 之前，大小接近 1 TB 的文件不适合进行重复数据删除。 在 Windows Server 2016 中，完全支持高达 1 TB 的文件。 |
-| [支持 Nano Server](whats-new.md#nano-server-support) | “新建” | 重复数据删除在 Windows Server 2016 的新 Nano Server 部署选项中可用且完全受支持。 |
-| [简化的备份支持](whats-new.md#simple-backup-support) | “新建” | Windows Server 2012 R2 通过一系列手动配置步骤支持虚拟化备份应用程序，如 Microsoft 的 [Data Protection Manager](https://technet.microsoft.com/library/hh758173.aspx)。 Windows Server 2016 新增了默认的使用类型（即“备份”），用于无缝部署虚拟化备份应用程序的重复数据删除。|
-| [支持群集操作系统滚动升级](whats-new.md#cluster-upgrade-support) | “新建” | 重复数据删除完全支持 Windows Server 2016 的新功能[群集操作系统滚动升级](../..//failover-clustering/cluster-operating-system-rolling-upgrade.md)。 |
+| [Nano Server 的支持](whats-new.md#nano-server-support) | 新增 | 重复数据删除在 Windows Server 2016 的新 Nano Server 部署选项中可用且完全受支持。 |
+| [简化的备份支持](whats-new.md#simple-backup-support) | 新增 | Windows Server 2012 R2 通过一系列手动配置步骤支持虚拟化备份应用程序，如 Microsoft 的 [Data Protection Manager](https://technet.microsoft.com/library/hh758173.aspx)。 Windows Server 2016 新增了默认的使用类型（即“备份”），用于无缝部署虚拟化备份应用程序的重复数据删除。|
+| [支持群集操作系统滚动升级](whats-new.md#cluster-upgrade-support) | 新增 | 重复数据删除完全支持 Windows Server 2016 的新的[群集操作系统滚动升级](../..//failover-clustering/cluster-operating-system-rolling-upgrade.md)功能。 |
 
 ## <a name="large-volume-support"></a>支持大型卷
 
@@ -53,7 +54,7 @@ Windows Server 2016 中的重复数据删除具有以下增强功能：
 **工作原理的不同之处是什么？**  
 在 Windows Server 2016 中，重复数据删除可以利用新的流映射结构和其他“后台”改进来提高优化吞吐量和访问性能。 此外，重复数据删除处理管道现在还可以在故障转移后恢复文件的优化，无需重启。 这些更改使得对高达 1 TB 的文件的删除重复性能变得很高。
 
-## <a name="nano-server-support"></a>支持 Nano Server
+## <a name="nano-server-support"></a>Nano Server 的支持
 **这一更改增添了什么价值？**  
 Nano Server 是 Windows Server 2016 中新的无外设部署选项，与 Windows Server 内核部署选项相比，具有极小的系统资源占用、启动速度明显加快，并且需要更少的更新和重启。 Nano Server 上完全支持重复数据删除。 有关 Nano Server 的详细信息，请参阅 [Nano Server 入门](../../get-started/getting-started-with-nano-server.md)。
 

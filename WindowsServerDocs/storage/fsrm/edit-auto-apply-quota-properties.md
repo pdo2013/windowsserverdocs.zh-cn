@@ -1,6 +1,6 @@
 ---
-title: "编辑自动应用配额属性"
-description: "本文介绍了如何编辑自动应用配额属性"
+title: 编辑自动应用配额属性
+description: 本文介绍了如何编辑自动应用配额属性
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: aa2155268d42293ade925d53da5e29142d13aae4
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59878058"
 ---
 # <a name="edit-auto-apply-quota-properties"></a>编辑自动应用配额属性
 
-> 适用于：Windows Server（半年频道）、Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2
+> 适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
 
 更改自动应用配额时，可以选择将这些更改扩展至自动应用配额路径中的现有配额。 无论在创建配额后对配额进行了哪些修改，都可以选择仅修改仍与原始自动应用配额匹配的配额或修改自动应用配额路径中的所有配额。 此功能通过提供一个可进行所有更改的中心点，简化了更新从自动应用配额派生的配额的属性的过程。
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 10/17/2017
 
 3.  在**从此配额模板派生属性**下，选择希望应用的配额模板。 可以在摘要列表框中查看每个配额模板的属性。
 
-4.  单击**确定**。 此操作将打开**更新从自动应用配额派生的配额**对话框。
+4.  单击 **“确定”**。 此操作将打开**更新从自动应用配额派生的配额**对话框。
 
 5.  选择希望应用的更新类型：
 
@@ -39,9 +40,9 @@ ms.lasthandoff: 10/17/2017
     -   如果希望修改自动应用配额路径中的所有现有配额，请选择**将自动应用配额应用于所有派生配额**。
     -   如果希望保持现有配额不变，但修改自动应用配额路径中新子文件夹中的自动应用配额，请选择**不要将自动应用配额应用于派生配额**。
 
-6.  单击**确定**。
+6.  单击 **“确定”**。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 -   [配额管理](quota-management.md)
 -   [创建自动应用配额](create-auto-apply-quota.md)

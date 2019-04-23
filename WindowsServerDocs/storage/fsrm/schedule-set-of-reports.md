@@ -1,6 +1,6 @@
 ---
-title: "计划一组报告"
-description: "本文介绍了如何定期生成一组报告"
+title: 计划一组报告
+description: 本文介绍了如何定期生成一组报告
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 15b69e723af3a30375beae73782ab122c68f8880
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879718"
 ---
 # <a name="schedule-a-set-of-reports"></a>计划一组报告
 
-> 适用于：Windows Server（半年频道）、Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2
+> 适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
 
 若要定期生成一组报告，可以计划一项*报告任务*。 此项报告任务会指定生成的报告类型和所用的参数；进行报告的卷和文件夹；生成报告的频率及保存报告的文件格式。
 
@@ -46,7 +47,7 @@ ms.lasthandoff: 10/17/2017
     -   单击报告标签，然后单击**编辑参数**。
     -   在**报告参数**对话框中，根据需要编辑参数，然后单击**确定**。
 
-    -   若要查看所有已选报告的参数列表，请单击**查看所选报告**。 查看后单击**关闭**。
+    -   若要查看所有已选报告的参数列表，请单击**查看所选报告**。 然后单击 **“关闭”**。
 
 5.  若要指定报告保存的格式，请执行以下操作：
 
@@ -76,7 +77,7 @@ ms.lasthandoff: 10/17/2017
 
 此外，可查看报告的当前状态（无论报告是否正在运行）、上次运行时间和运行结果，及下次计划的运行时间。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 -   [存储报告管理](storage-reports-management.md)
 -   [设置文件服务器资源管理器选项](setting-file-server-resource-manager-options.md)

@@ -14,53 +14,53 @@ ms.technology: ''
 ms.localizationpriority:
 - high/medium/low
 ms.openlocfilehash: 4f885680426c0bfa55d5f73a7ef0c2143a8dd5a9
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2081869"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879558"
 ---
-# <a name="metadata-and-markdown-template"></a>元数据和减价模板
+# <a name="metadata-and-markdown-template"></a>元数据和 Markdown 模板
 
-此操作模板包含示例减价语法，以及设置元数据的指南。 若要充分利用它，您必须查看[原始减价](https://raw.githubusercontent.com/Microsoft/WindowsServerDocs-pr/master/Contributor-guide/ws-template.md?token=AG1vEhARRHNLtPgKXP35BGjNZGajKOArks5YLNIwwA%3D%3D)和[呈现视图](https://github.com/Microsoft/WindowsServerDocs-pr/blob/master/Contributor-guide/ws-template.md)。 （原始减价显示元数据块中，而呈现的视图不。）
+此操作模板包含 Markdown 语法，以及设置元数据的指南的示例。 若要充分利用它，您必须同时查看[原始 Markdown](https://raw.githubusercontent.com/Microsoft/WindowsServerDocs-pr/master/Contributor-guide/ws-template.md?token=AG1vEhARRHNLtPgKXP35BGjNZGajKOArks5YLNIwwA%3D%3D)并[呈现的视图](https://github.com/Microsoft/WindowsServerDocs-pr/blob/master/Contributor-guide/ws-template.md)。 （原始 Markdown 显示元数据块，而不呈现的视图。）
 
-创建减价文件时，应将此模板复制到新文件、 填写元数据，下面指定的设置为的文章，标题上方的 H1 标题和删除内容。 需要提醒您注意 CAPS 在方括号中的任何内容。
+创建 Markdown 文件时，应将此模板复制到新文件中，填写元数据，以下指定的设置的文章，标题上方的 H1 标题并删除的内容。 用方括号括起来的 CAPS 中的任何内容需要关注。
 
 
-## <a name="metadata"></a>Metadata 
+## <a name="metadata"></a>元数据 
 
-上面的完整的元数据块。 一些重要注意事项：
+完整元数据块如上所示。 一些关键注意事项：
 
-- 您**必须**具有一个冒号 （:） 和元数据元素的值之间的空格。
-- 值 （例如，标题） 中的冒号中断元数据分析程序。 在其位置中，使用的一个冒号的 HTML 编码`&#58;`(例如， `"title: Azure Rights Management&#58; the basics | Azure RMS"`)。
-- **标题**： 此标题将出现在搜索引擎的结果。 
-- **作者**: 作者域应包含作者，而不是其别名**GitHub 用户名**。
-- **ms.prod**、 **ms.technology**： 用于 ms.prod （或 w10 如果您使用此模板来创建内容的 Windows 10） 的"windows 服务器阈值"。 与 CX 联系人获取 ms.technology 值。
+- 您**必须**有冒号 （:） 之间留一个空格和元数据元素的值。
+- 值 (例如，title) 中的冒号会中断元数据解析器。 在其位置使用的冒号的 HTML 编码`&#58;`(例如， `"title: Azure Rights Management&#58; the basics | Azure RMS"`)。
+- **标题**:此标题将显示在搜索引擎结果中。 
+- **作者**:作者字段应包含**的 GitHub 用户名**的作者，而不是其别名。
+- **ms.prod**， **ms.technology**:使用"windows server 阈值"ms.prod （或 w10 如果使用此模板适用于 Windows 10 中创建的内容）。 若要获取 ms.technology 值你 CX 联系人与进行通信。
 
-## <a name="basic-markdown-gfm-and-special-characters"></a>基本减价、 GFM 和特殊字符
+## <a name="basic-markdown-gfm-and-special-characters"></a>基本 Markdown、 GFM 和特殊字符
 
-支持所有基本和 GitHub flavored 减价。 有关这些的详细信息，请参阅：
+支持所有基本和 GitHub 式 Markdown。 有关详细信息，请参阅：
 
-- [比较基准减价语法](https://daringfireball.net/projects/markdown/syntax)
-- [GitHub flavored 减价 (GFM) 文档](https://guides.github.com/features/mastering-markdown)
+- [基线 Markdown 语法](https://daringfireball.net/projects/markdown/syntax)
+- [GitHub 式 Markdown (GFM) 文档](https://guides.github.com/features/mastering-markdown)
 
-减价使用特殊字符，如 \ *，\，并 \ # 的格式。 如果您希望在您的内容中包含下列字符之一，您必须执行以下两项之一：
+Markdown 使用特殊字符如\*， \`，和\#格式设置。 如果你想要在内容中包含这些字符之一，必须执行两项操作之一：
 
-- Put 特殊字符""对其进行转义前的反斜杠 (例如，\\\ * 为 \ *)
-- [HTML 实体代码](http://www.ascii.cl/htmlcodes.htm)用于字符 (例如，\ & \#42\; & #42;)。
+- 加上反斜杠之前的特殊字符来"转义"它 (例如， \\ \*为\*)
+- 使用[HTML 实体代码](http://www.ascii.cl/htmlcodes.htm)的字符 (例如， \& \#42\;的&#42;)。
 
 ## <a name="headings"></a>标题
 
-应完成标题 atx 样式，即使用，1-6 哈希字符 （#） 行的开头以指示的标题，通过 H6 HTML 标题级别 H1 相对应。 第一个和第二层标头的示例使用上方。 
+标题使用 atx 样式，也就是说，使用 1 个哈希字符 （#） 在行的开头来表示标题，对应于 HTML 标题级别 H1 到 H6。 上面使用的是第一个和第二个级别标头的示例。 
 
-存在**必须只有一个第一级标题 (H1)，您将显示为页面上标题的主题**。  
+存在**必须**只有一个第一级别标题 (H1) 主题，其中将显示为页面上的标题中。  
 
-第二层标题将生成"这篇文章"部分中的页上标题下方显示的页上目录。
+第二级标题生成页标题下方的"在本文"部分中显示在页面内 TOC。
 
 ### <a name="third-level-heading"></a>第三级标题
 #### <a name="fourth-level-heading"></a>第四级标题
-##### <a name="fifth-level-heading"></a>第五个级别的标题
-###### <a name="sixth-level-heading"></a>第六个一级标题
+##### <a name="fifth-level-heading"></a>第五级标题
+###### <a name="sixth-level-heading"></a>六级标题
 
 ## <a name="text-styling"></a>文本样式
 
@@ -70,77 +70,77 @@ ms.locfileid: "2081869"
 
 ~~删除线~~
 
-## <a name="links"></a>Links
+## <a name="links"></a>链接
 
 ### <a name="internal-links"></a>内部链接
 
-要链接到同一个减价文件中的标头，查看已发布的文章的源、 查找标头的 ID (例如， `id="blockquote"`)，并使用 # + id 链接 (例如， `#blockquote`)。
+若要链接到同一 Markdown 文件的标头，查看已发布项目的源，查找头 ID (例如， `id="blockquote"`)，并使用 # + id 进行链接 (例如， `#blockquote`)。
 
-- 示例： [Blockquotes](#blockquote)
+- 例如：[引用标记](#blockquote)
 
-要链接到在同一 repo 减价文件，使用[相对链接](https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2)，包括文件名的末尾的".md"。
+若要链接到同一个存储库中的 Markdown 文件，请使用[相对链接](https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2)，包含在文件名末尾的".md"。
 
-- 示例：[提示和问题](tips-gotchas.md)
-- 示例：[工具和安装程序参与者 （英文）](../readme.md)
+- 例如：[提示与陷阱](tips-gotchas.md)
+- 例如：[工具和 contributors （参与者） 的安装程序](../readme.md)
 
-若要链接到在同一 repo 减价文件中的标头，请使用相对链接 + 井号链接。
+若要链接到同一个存储库中的 Markdown 文件的标头，使用相对链接和井号标签链接。
 
-- 示例：[删除文件](tips-gotchas.md#deleting-files)
+- 例如：[正在删除文件](tips-gotchas.md#deleting-files)
 
 ### <a name="external-links"></a>外部链接
 
-要链接到外部文件，请使用完整的 URL 作为的链接。
+若要链接到外部文件，请使用为链接的完整 URL。
 
-- 示例： [GitHub](http://www.github.com)
+- 例如：[GitHub](http://www.github.com)
 
-如果减价文件中显示的 URL，它将转换为可单击的链接。
+如果在 Markdown 文件中显示一个 URL，它将转换为可单击的链接。
 
-- 示例：http://www.github.com
+- 示例： http://www.github.com
 
 ## <a name="lists"></a>列表
 
-### <a name="ordered-lists"></a>已排序的列表
+### <a name="ordered-lists"></a>排序的列表
 
-1. 此  
+1. 此 
 1. 是
-1. 一个
+1. 一种是
 1. 排序
 1. 列表  
 
 
-#### <a name="ordered-list-with-an-embedded-list"></a>按顺序与嵌入列表的列表
+#### <a name="ordered-list-with-an-embedded-list"></a>经过排序的列表包含嵌套列表
 
 1. 此处
-1. 方面
+1. 出现
 1. 一个
 1. 嵌入
-    1. 未命中王兰
-    1. 教授梅
+    1. Scarlett 小姐
+    1. Plum 教授
 1. 排序
 1. 列表
 
 
-### <a name="unordered-lists"></a>无序的列表
+### <a name="unordered-lists"></a>未排序的列表
 
-- 此 
+- 此
 - 为
 - a
 - 项目符号
 - 列表
 
 
-##### <a name="unordered-list-with-an-embedded-list"></a>无序与嵌入列表的列表
+##### <a name="unordered-list-with-an-embedded-list"></a>包含嵌套列表的未排序的列表
 
-- 此  
+- 此 
 - 项目符号 
 - 列表
-    - 小姐孔雀开屏
-    - 尊敬绿色
+    - Peacock 夫人
+    - Green 先生
 - 包含  
 - 其他
-    1. Colonel Mustard
-    1. 小姐白皮书
-- 列表
+    1. Mustard 上校
+    1. White 夫人
+- 列出了
 
 
 ## <a name="horizontal-rule"></a>水平标尺
@@ -149,20 +149,20 @@ ms.locfileid: "2081869"
 
 ## <a name="tables"></a>表
 
-在几乎每个实例中，使用 MD 表格格式。 虽然 HTML 表格提供更大的灵活性我们不可以在我们的内容中使用它们。 如果已在您的文章中的 HTML 表，我们不会合并的文章。
+在几乎每个实例中，使用 MD 表的格式设置。 HTML 表提供了更大的灵活性虽然我们不使用它们在我们的内容。 如果您的文章中有一个 HTML 表，我们不会合并该文章。
 
-| 表        | 是           | 冷却  |
+| 表        | 是           | 太棒了  |
 | ------------- |:-------------:| -----:|
-| col 3 是      | 右对齐 | $ 1600 |
-| col 2 是      | 居中      |   12 美元 |
-| col 1 是默认按钮 | 左对齐     |    $ 1 |
+| 第 3 列是      | 右对齐 | $1600 |
+| 第 2 列是      | 居中      |   12 美元 |
+| 第 1 列是默认值 | left-aligned     |    $1 |
 
 
 ## <a name="code"></a>代码
 
 ### <a name="generic-codeblock"></a>泛型 codeblock
 
-缩进泛型 codeblock 编码代码四倍。
+缩进泛型 codeblock 编写代码代码四个的空格。
 
     function fancyAlert(arg) {
       if(arg) {
@@ -171,11 +171,11 @@ ms.locfileid: "2081869"
     }
 
 
-### <a name="codeblocks-with-language-identifier"></a>Codeblocks 与语言标识符
+### <a name="codeblocks-with-language-identifier"></a>Codeblocks 具有语言标识符
 
-使用三个 backticks (& #96; #96; & #96;) + 语言 ID 应用特定语言的颜色编码的代码块。  下面是[GitHub Flavored 减价 (GFM) 语言 Id](https://github.com/jmm/gfm-lang-ids/wiki/GitHub-Flavored-Markdown-(GFM)-language-IDs)的完整列表。
+使用三个反撇号 (&#96;&#96;&#96;) + 语言 ID，将应用特定于语言的颜色编码到代码块。  下面是整个列表[GitHub Flavored Markdown (GFM) 语言 Id](https://github.com/jmm/gfm-lang-ids/wiki/GitHub-Flavored-Markdown-(GFM)-language-IDs)。
 
-##### <a name="c9839"></a>C = #9839;
+##### <a name="c9839"></a>C&#9839;
 
 ```c#
 using System;
@@ -210,15 +210,15 @@ $Files = Get-Childitem $Directory -recurse -Include *.log `
 -ErrorAction SilentlyContinue
 ```
 
-### <a name="inline-code"></a>内嵌代码
+### <a name="inline-code"></a>内联代码
 
-使用 backticks (& #96;) 的`inline code`。
+使用反撇号 (&#96;) 对于`inline code`。
 
-## <a name="blockquotes"></a>Blockquotes
+## <a name="blockquotes"></a>引用标记
 
-> Drought 具有万个十年来，现在持续和的严重蜥蜴年号长此后已经结束。 此处赤道，在其中将作为非洲、 已知一天洲上成功了具有达到 ferocity，新 climax，victor 尚未未始终可见。 在此 barren 和 desiccated 园地，仅小型或 swift 或激烈无法花边，或者甚至希望忞眦。
+> 干旱持续一千万年和统治的可怕的蜥蜴早已已经结束。 此处在将一天是一种非洲，在大洲在赤道的大战的凶残已达到新的大陆，高潮和 victor 尚未建立直通连接。 在此对单调和干燥的土地仅的小或 swift 或敏捷无法壮大，或甚至希望生存。
 
-## <a name="images"></a>Images
+## <a name="images"></a>映像
 
 ### <a name="static-image"></a>静态图像
 
@@ -226,14 +226,14 @@ $Files = Get-Childitem $Directory -recurse -Include *.log `
 
 ### <a name="linked-image"></a>链接的图像
 
-[![a链接的图像的 lt 文本](../windowsserverdocs/get-started/nano.png)](../windowsserverdocs/get-started/getting-started-with-nano-server.md) 
+[![链接图像的替换文字](../windowsserverdocs/get-started/nano.png)](../windowsserverdocs/get-started/getting-started-with-nano-server.md) 
 
 ## <a name="alerts"></a>警报
 
 ### <a name="note"></a>注意
 
 > [!NOTE]
-> 这是注释
+> 这是注意
 
 ### <a name="warning"></a>警告
 
@@ -248,5 +248,5 @@ $Files = Get-Childitem $Directory -recurse -Include *.log `
 ### <a name="important"></a>重要
 
 > [!IMPORTANT]
-> 这是重要说明
+> 这是重要事项
 

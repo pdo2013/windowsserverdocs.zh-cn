@@ -1,7 +1,7 @@
 ---
 ms.assetid: 1a443181-7ded-4912-8e40-5aa447faf00c
-title: "广告 FS 2016 单一登录设置"
-description: 
+title: AD FS 2016 单一登录设置
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,133 +9,202 @@ ms.date: 08/17/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e8c24399949efc1b8d0b1782e299593c02374c62
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 0b0d4d085a94631b70df81fd53bff974d8425611
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59877758"
 ---
-# <a name="ad-fs-single-sign-on-settings"></a>广告 FS 单一登录设置
+# <a name="ad-fs-single-sign-on-settings"></a>AD FS 单一登录设置
 
->适用于：Windows Server 2016，Windows Server 2012 R2
+>适用于：Windows Server 2016, Windows Server 2012 R2
 
-单一登录 (SSO) 可用于验证一次，并且不会提示输入其他凭据的情况下访问多个资源。  本文介绍了 SSO，允许你自定义此行为配置设置为默认 FS 广告的行为。  
+单一登录 (SSO) 允许用户一次身份验证并不会提示输入其他凭据访问多个资源。  本文描述了 SSO，以及可用于自定义此行为的配置设置的默认 AD FS 行为。  
 
 ## <a name="supported-types-of-single-sign-on"></a>支持的类型的单一登录
 
-广告 FS 支持几种类型的单一登录体验：  
+AD FS 支持几种类型的单一登录体验：  
   
--   **会话 SSO**  
+-   **SSO 会话**  
   
-     会话 SSO cookie 是面向消除了更多提示，用户特定会话期间切换应用程序时身份验证的用户。 但是，如果特定会话结束时，用户将提示您输入凭据再次。  
+     为经过身份验证的用户，从而消除了进一步的提示，当用户在特定会话期间切换应用程序所编写的 SSO 会话 cookie。 但是，如果特定会话结束时，用户将会再次提示输入其凭据。  
   
-     广告 FS 将会话 SSO cookie 默认设置如果尚未注册用户的设备。 如果在浏览会话结束后，重启此会话 cookie 将删除，并不任何更有效。  
+     AD FS 将会话的 SSO cookie 的默认设置未注册用户的设备。 如果浏览器会话已结束，并且重新启动时，此会话 cookie 被删除，且不任何更有效。  
   
--   **永久性 SSO**  
+-   **持续的 SSO**  
   
-     为进一步消除提示，用户切换应用程序的只要永久性 SSO cookie 的有效时身份验证的用户写入持久 SSO cookie。 永久性 SSO 和会话 SSO 之间的区别是永久性 SSO 可以会保留，跨不同的会话。  
+     持久性 SSO cookie 专为身份验证的用户而不进一步提示，当用户切换适用于应用程序，前提是持久的 SSO cookie 有效。 永久性 SSO 以及 SSO 会话之间的区别是，可在不同会话中维护持续的 SSO。  
   
-     如果已注册设备，广告 FS 将设置永久性 SSO cookie。 广告 FS 用户选中"保留我登录"选项，还将设置永久性 SSO cookie。 如果永久性 SSO cookie 更加不正确，它将拒绝，删除。  
+     如果设备已注册，AD FS 将设置永久 SSO cookie。 如果用户选择"使我保持登录"选项，AD FS 还将设置持久性的 SSO cookie。 如果持久性的 SSO cookie 不再有效，它将拒绝并删除。  
   
--   **应用程序特定 SSO**  
+-   **应用程序特定的 SSO**  
   
-     在 OAuth 方案中，刷新令牌用于维护 SSO 状态特定应用程序的范围内的用户。  
+     在 OAuth 方案中，刷新令牌用于维护特定应用程序范围内的用户的 SSO 状态。  
   
-     如果已注册设备，广告 FS 将设置基于永久性 SSO cookie 整个使用期限内已注册设备，这是 7 天，默认情况下一个刷新标记的过期时间。 刷新标记的过期时间用户选中"保留我登录"选项，如果等于永久性 SSO cookie 整个使用期限内的"保留我登录"这是默认情况下与最多个 7 天 1 天。 否则，刷新令牌生存期等会话 SSO cookie 的生命周期是默认的 8 小时  
-  
- 如上所述，已注册设备上的用户将始终获得永久性 SSO 除非永久性 SSO 被禁用。 对于未注册的设备，可以通过启用"保留我登录"实现永久性 SSO (KMSI) 功能。 
- 
- 对于 Windows Server 2012 R2 启用 PSSO"保留我登录"方案中，你需要安装该版本[修补程序](https://support.microsoft.com/en-us/kb/2958298/)这也是的一部分的[2014 年 8 月更新汇总用于 Windows RT 8.1、Windows 8.1 和 Windows Server 2012 R2](https://support.microsoft.com/en-us/kb/2975719)。   
- 
-  
-## <a name="single-sign-on-and-authenticated-devices"></a>单一登录并验证的设备  
-在首次让凭据，默认情况下使用已注册设备的用户获取单一登录 90 天内，最长前提是他们使用设备来访问至少运行一次每个 14 天内的广告 FS 资源。  如果他们等待 15 天后提供的凭据，用户将会提示您输入凭据再次。  
+     如果在注册设备时，AD FS 将基于为 7 天默认情况下为 AD FS 2012R2 和最大为使用 AD FS 2016 的 90 天，如果用户使用其设备的已注册设备的持久 SSO cookie 生存期的刷新令牌的过期时间访问 AD FS 的 14 天时间段内的资源。 
 
-默认情况下，启用永久性 SSO。 如果它已禁用，将写入没有 PSSO cookie。|  
+如果未注册设备，但用户选择"使我保持登录"选项，刷新令牌的过期时间将等于"使我保持登录"的持久性 SSO cookie 生存期这是默认情况下，最多为 7 天的 1 天。 否则，刷新令牌生存期等于会话 SSO cookie 生存期这是默认为 8 小时  
+  
+ 如上所述，已注册的设备上的用户将始终会获得持续的 SSO，除非禁用持续的 SSO。 对于取消注册设备，可以通过启用"使我保持登录"来持续的 SSO (状态 KMSI) 功能。 
+ 
+ 对于 Windows Server 2012 R2，若要启用 PSSO"使我保持登录"方案中，需要安装此客户端[修补程序](https://support.microsoft.com/en-us/kb/2958298/)这也是属于的[2014 年 8 月 Windows RT 8.1、 Windows 8.1 和 Windows Server 2012 更新汇总R2](https://support.microsoft.com/en-us/kb/2975719)。   
+
+任务 | PowerShell | 描述
+------------ | ------------- | -------------
+启用/禁用持续的 SSO | ```` Set-AdfsProperties –EnablePersistentSso <Boolean> ````| 默认情况下启用持续的 SSO。 如果已禁用，将不写入任何 PSSO cookie。
+"启用/禁用"使我保持登录" | ```` Set-AdfsProperties –EnableKmsi <Boolean> ```` | 默认情况下，"使我保持登录"功能处于禁用状态。 如果启用，最终用户将 AD FS 登录页上看到"使我保持登录"选项
+
+
+
+## <a name="ad-fs-2016---single-sign-on-and-authenticated-devices"></a>AD FS 2016 的单一登录和经过身份验证的设备
+请求者增加到最大的 90 天，但需要在 14 天内 （设备使用情况窗口） authenticvation 已经注册的设备进行身份验证时，AD FS 2016 更改 PSSO。
+提供凭据后第一次，默认情况下具有已注册的设备的用户获得单一登录最大时间段的 90 天，前提是它们使用设备来访问每 14 天至少一次的 AD FS 资源。  如果它们等待 15 天提供凭据后，用户将会再次提示输入凭据。  
+
+默认情况下启用持续的 SSO。 如果已禁用，将写入任何 PSSO cookie。 |  
 
 ``` powershell
 Set-AdfsProperties –EnablePersistentSso <Boolean\>
 ```     
   
-设备使用情况窗口（默认情况下 14 天后）由广告 FS 属性**DeviceUsageWindowInDays**。
+设备使用情况窗口 （默认为 14 天） 受 AD FS 属性**DeviceUsageWindowInDays**。
 
 ``` powershell
 Set-AdfsProperties -DeviceUsageWindowInDays
 ```   
-最大单一登录时间（默认情况下 90 天内）由广告 FS 属性**PersistentSsoLifetimeMins**。
+最大单一登录期间 （默认为 90 天） 受 AD FS 属性**PersistentSsoLifetimeMins**。
 
 ``` powershell
 Set-AdfsProperties -PersistentSsoLifetimeMins
 ```    
 
-## <a name="keep-me-signed-in-for-unauthenticated-devices"></a>保留我的身份验证的设备上登录 
-对于非注册的设备单个登录句点由**保持我记录中 (KMSI)**功能设置。  KMSI 默认处于禁用状态，并且可通过广告 FS 属性 KmsiEnabled 设置为 True。
+## <a name="keep-me-signed-in-for-unauthenticated-devices"></a>保留我的登录的未经身份验证的设备 
+对于非注册设备，由单个登录句点**保持我签名中状态 (KMSI)** 功能设置。  KMSI 默认处于禁用状态，并且可以启用 AD FS 属性 KmsiEnabled 设置为 True。
 
 ``` powershell
 Set-AdfsProperties -EnableKmsi $true  
 ```    
 
-禁用 KMSI，使用默认单一登录周期是 8 小时。  可使用属性 SsoLifetime 配置此。  因此其默认值 480 几分钟内测量属性。  
+禁用 KMSI，与默认单一登录期限为 8 小时。  这可以配置使用 SsoLifetime 的属性。  因此其默认值为 480，以分钟为单位为单位属性。  
 
 ``` powershell
 Set-AdfsProperties –SsoLifetime <Int32\> 
 ```   
 
-启用 KMSI，使用默认单一登录时段为 24 小时。  可使用属性 KmsiLifetimeMins 配置此。  使其默认值为 1440 年几分钟内测量属性。
+启用 KMSI，与默认单一登录周期为 24 小时。  这可以配置使用 KmsiLifetimeMins 的属性。  使其默认值为 1440年，以分钟为单位为单位属性。
 
 ``` powershell
 Set-AdfsProperties –KmsiLifetimeMins <Int32\> 
 ```   
 
 ## <a name="multi-factor-authentication-mfa-behavior"></a>多重身份验证 (MFA) 行为  
-请务必注意，尽管提供较长一段单一登录、广告 FS 将提示进行额外的身份验证（多因素身份验证）以前登录基于主要凭据和不 MFA，但当前登录时要求 MFA。  这是无论 SSO 配置。 广告 FS，当接收身份验证请求，首先确定是否有 SSO 上下文（如 cookie)，然后，是否需要 MFA (如如果请求即将推出的功能从之外) 它还将评估是否 SSO 上下文包含 MFA。  如果没有，MFA 提示。  
+务必要注意，同时提供相对较长的单一登录，AD FS 将提示进行其他身份验证 （多重身份验证） 时在上一个登录已基于主要凭据和不 MFA，但当前登录需要进行 MFA。  这是而不考虑 SSO 配置。 AD FS 中，当它收到的身份验证请求，首先确定是否有 SSO 上下文 （如 cookie)，然后，如果需要进行 MFA 的 (例如，如果请求来自外部) 它将评估是否 SSO 上下文包含 MFA。  如果没有，MFA 提示。  
 
 
   
 ## <a name="psso-revocation"></a>PSSO 吊销  
- 为了保护安全，广告 FS 将拒绝之前颁发满足以下条件时任何永久性 SSO cookie。 这将需要提供他们的凭据即可验证与广告 FS 再次用户。 
+ 若要保护安全，AD FS 将拒绝以前当满足以下条件时，发出任何持久性 SSO cookie。 这将要求用户提供其凭据才能再次使用 AD FS 身份验证。 
   
--   用户的更改密码  
+-   用户更改密码  
   
--   广告 FS 中禁用永久性 SSO 设置  
+-   在 AD FS 中禁用了持久性 SSO 设置  
   
--   设备已丢失或被盗以防万一管理员禁用  
+-   设备已由管理员在丢失或被盗的情况下被禁用  
   
--   广告 FS 接收是为其发出注册的用户但用户永久性 SSO cookie 或再未注册设备  
+-   AD FS 接收持续的 SSO cookie 颁发的已注册的用户，但用户或设备未注册不再  
   
--   广告 FS 接收注册用户永久性 SSO cookie，但用户重新注册  
+-   AD FS 收到的已注册用户的持久性 SSO cookie，但用户重新进行注册  
   
--   广告 FS 接收永久性 SSO cookie 定"保留我登录"，但"保留我登录"颁发广告 FS 中禁用设置  
+-   AD FS 接收因"使我保持登录"，但"使我保持登录"而发出的持久 SSO cookie 设置处于禁用状态的 AD fs  
   
--   广告 FS 接收颁发的注册用户永久性 SSO cookie，但设备证书身份验证过程已丢失或更改  
+-   AD FS 接收持久性的 SSO cookie，这针对已注册的用户发出的但设备证书缺失或更改身份验证过程  
   
--   广告 FS 管理员已设置为永久性 SSO 的截断的时间。 当此配置时，广告 FS 将拒绝此之前颁发任何永久性 SSO cookie  
+-   AD FS 管理员已设置为持续的 SSO 的截止时间。 当此配置时，AD FS 将拒绝此时间之前发出任何持久性 SSO cookie  
   
- 若要设置截断的时间，运行以下 PowerShell cmdlet:  
+ 若要设置截止时间，请运行以下 PowerShell cmdlet:  
   
 
 ``` powershell
 Set-AdfsProperties -PersistentSsoCutoffTime <DateTime>
 ```
   
-## <a name="enable-psso-for-office-365-users-to-access-sharepoint-online"></a>启用 PSSO Office 365 用户访问 SharePoint Online  
- 后 PSSO 启用，并且在广告 FS 配置，广告 FS 将写入持久的 cookie 后用户身份验证。 下一次用户就可以发挥作用，永久性 cookie 仍然有效，如果用户不必不提供再次进行身份验证的凭据。 也可以通过在广告 FS 配置以下两种索赔规则，以在 Microsoft Azure AD 和 SharePoint Online 触发器保持避免额外的身份验证的 Office 365 和 SharePoint Online 用户提示。  若要启用的 Office 365 用户联机访问 SharePoint PSSO，你需要安装该版本[修补程序](https://support.microsoft.com/en-us/kb/2958298/)这也是的一部分的[2014 年 8 月更新汇总用于 Windows RT 8.1、Windows 8.1 和 Windows Server 2012 R2](https://support.microsoft.com/en-us/kb/2975719)。  
+## <a name="enable-psso-for-office-365-users-to-access-sharepoint-online"></a>启用 Office 365 用户可以访问 SharePoint Online PSSO  
+ 一旦 PSSO 已启用并配置 AD FS 中，AD FS 将写入持久性 cookie 后用户已通过身份验证。 下次用户进入时，如果持久性 cookie 仍然有效，用户不必提供凭据再次进行身份验证。 此外可以避免额外的身份验证提示适用于 Office 365 和 SharePoint Online 用户通过配置以下两个声明规则在 AD FS 与 Microsoft Azure AD 和 SharePoint Online 触发器持久性。  若要启用 Office 365 用户访问 SharePoint online PSSO，需要安装此客户端[修补程序](https://support.microsoft.com/en-us/kb/2958298/)这也是属于的[2014 年 8 月更新汇总适用于 Windows RT 8.1、 Windows 8.1 和 Windows Server 2012 R2](https://support.microsoft.com/en-us/kb/2975719).  
   
- 若要通过 InsideCorporateNetwork 索赔颁发转换规则  
+ 要通过 InsideCorporateNetwork 声明的颁发转换规则  
   
 ```  
 @RuleTemplate = "PassThroughClaims"  
 @RuleName = "Pass through claim - InsideCorporateNetwork"  
-c:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"]  
+c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"]  
 => issue(claim = c);   
 A custom Issuance Transform rule to pass through the persistent SSO claim  
 @RuleName = "Pass Through Claim - Psso"  
-c:[Type == "https://schemas.microsoft.com/2014/03/psso"]  
+c:[Type == "http://schemas.microsoft.com/2014/03/psso"]  
 => issue(claim = c);  
   
 ```
   
-  
-    
+下面汇总方式：
+<table>
+  <tr>
+    <th colspan="1">单一登录体验</th>
+    <th colspan="3">ADFS 2012 R2 <br> 注册设备？</th>
+        <th colspan="1"></th>
+    <th colspan="3">ADFS 2016 <br> 注册设备？</th>
+  </tr>
 
+  <tr align="center">
+    <th></th>
+    <th>否</th>
+    <th>但 KMSI 否</th>
+    <th>是</th>
+    <th></th>
+    <th>否</th>
+    <th>但 KMSI 否</th>
+    <th>是</th>
+  </tr>
+ <tr align="center">
+    <td>SSO=>set Refresh Token=></td>
+    <td>8 小时</td>
+    <td>不可用</td>
+    <td>不可用</td>
+    <th></th>
+    <td>8 小时</td>
+    <td>不可用</td>
+    <td>不可用</td>
+  </tr>
 
+ <tr align="center">
+    <td>PSSO=>set Refresh Token=></td>
+    <td>不可用</td>
+    <td>24 小时</td>
+    <td>7 天</td>
+    <th></th>
+    <td>不可用</td>
+    <td>24 小时</td>
+    <td>最大 90 天，14 天窗口</td>
+  </tr>
+
+ <tr align="center">
+    <td>令牌生存期</td>
+    <td>1 小时</td>
+    <td>1 小时</td>
+    <td>1 小时</td>
+    <th></th>
+    <td>1 小时</td>
+    <td>1 小时</td>
+    <td>1 小时</td>
+  </tr>
+</table>
+
+**已注册的设备？** 获取 PSSO / 持续的 SSO <br>
+**未注册设备？** 获取一个 SSO <br>
+**未注册设备，但 KMSI？** 获取 PSSO / 持续的 SSO <p>
+如果：
+ - [x] 管理员已启用 KMSI 功能 [AND]
+ - [x] 用户单击窗体登录页上的 KMSI 复选框
+ 
+**最好能了解：** <br>
+联合用户不具有**LastPasswordChangeTimestamp**属性同步会话 cookie 和刷新令牌具有颁发**12 个小时的最大期限值**。<br>
+这是因为 Azure AD 无法确定何时吊销旧凭据 （如已更改密码） 相关的令牌。 因此，Azure AD 必须更频繁地检查以确保用户和关联的令牌是仍在处于正常状态。

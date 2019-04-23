@@ -1,7 +1,7 @@
 ---
 ms.assetid: e2ad9e80-a036-4bac-a4fb-afa83756aa1f
-title: "Windows Server 2012 广告 FS 部署指导"
-description: 
+title: Windows Server 2012 AD FS 部署指南
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,69 +10,70 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 3e555d1003878e12320cb8557bd205ac24e1bbb3
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59882438"
 ---
-# <a name="windows-server-2012-ad-fs-deployment-guide"></a>Windows Server 2012 广告 FS 部署指导
+# <a name="windows-server-2012-ad-fs-deployment-guide"></a>Windows Server 2012 AD FS 部署指南
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-你可以使用 Active Directory® 与 Windows Server 的联合身份验证服务 \(AD FS\)® 2012年操作系统版本组织和平台跨扩展到 Web\ 基于应用程序分布式的识别，身份验证和授权的服务联合的身份管理解决方案。 通过部署广告 FS，可以扩展你的组织的现有身份管理能力到 Internet。  
+可以使用 Active Directory® 联合身份验证服务\(AD FS\)与 Windows Server® 2012年操作系统来构建一个联合的标识管理解决方案，扩展了分布式的标识、 身份验证，并授权服务添加到 Web\-基于跨越组织和平台边界的应用程序。 通过部署 AD FS，可将组织现有的标识管理功能扩展到 Internet。  
   
-你可以将部署到广告 FS:  
+部署 AD FS 可以：  
   
--   为你的员工或客户提供 Web\ 基于、 single\-上 sign\ \(SSO\) 体验时，他们需要远程内部托管网站或服务访问。  
+-   你的员工或客户提供与 Web\-基于，单一\-符号\-上\(SSO\)体验时它们需要远程访问内部托管网站或服务。  
   
--   为你的员工或客户提供基于 Web\ SSO 体验时他们访问 cross\ 组织网站或在你的网络的防火墙服务。  
+-   你的员工或客户提供与 Web\-基于，SSO 体验跨访问时\-组织的网站或服务从你的网络的防火墙内。  
   
--   为你的员工或客户而无需员工或客户多次登录无缝访问 Web\ 基于资源，在 Internet 上的任何联盟合作伙伴公司提供。  
+-   向 Web 提供的无缝访问你的员工或客户\-基于在 Internet 上任何联合身份验证伙伴组织中的资源，而无需为员工或客户多次登录。  
   
--   保留完全控制你的员工或客户身份，而无需使用其他 sign\ 上提供 \ （Windows Live ID，自由联盟 others\）。  
+-   不需使用其他登录保持对你的员工或客户身份的完全控制\-上提供程序\(Windows Live ID、 Liberty Alliance 和其他\)。  
   
-## <a name="about-this-guide"></a>有关此指南  
-本指南介绍由系统管理员和系统工程师供使用。 它提供了详细的指导用于部署已由你或你的组织基础结构专员或系统设计师已事先选择广告 FS 设计。  
+## <a name="about-this-guide"></a>关于本指南  
+本指南旨在供系统管理员和系统工程师使用。 它提供了用于部署由你或你的组织中的基础结构专家或系统架构师预先的 AD FS 设计的详细的指导。  
   
-如果设计未被选中，我们建议你等到遵循直到本指南中的说明进行操作后，你有审查设计选项中的[广告 FS 设计指南 Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx)并已针对你的组织中选择最适合的设计。 使用本指南已选择的设计的详细信息，请参阅[实现广告 FS 设计计划](Implementing-Your-AD-FS-Design-Plan.md)。  
+如果尚未选择设计，我们建议您等待要遵循本指南中的说明进行操作后已经查看了中的设计选项[Windows Server 2012 中 AD FS 设计指南](https://technet.microsoft.com/library/dd807036.aspx)和最多选择适合你的组织的设计。 本指南中使用的已选择的设计的详细信息，请参阅[实现 AD FS 设计规划](Implementing-Your-AD-FS-Design-Plan.md)。  
   
-从设计指南中选择你的设计，并收集有关索赔、 标记类型、 特性存储和其他项目的所需的信息后，你可以使用本指南生产环境中部署广告 FS 设计。 本指南提供用于部署下面的主要广告 FS 设计任一步骤：  
+从设计指南中选择您的设计并收集有关声明、 令牌类型、 属性存储和其他项所需的信息后，可以使用本指南以在生产环境中部署 AD FS 设计。 本指南提供了用于部署以下主 AD FS 设计任一步骤：  
   
 -   Web SSO  
   
--   联盟的 Web SSO  
+-   联合 Web SSO  
   
-使用中的清单[实现广告 FS 设计计划](Implementing-Your-AD-FS-Design-Plan.md)来确定如何最佳采用本指南中的说明进行操作部署你特定设计。 有关部署广告 FS 硬件和软件要求的信息，请参阅[附录 a： 查看广告 FS 要求](https://technet.microsoft.com/library/ff678034.aspx)广告 FS 设计指南中。  
+使用中的清单[实现 AD FS 设计规划](Implementing-Your-AD-FS-Design-Plan.md)来确定如何最大程度地使用本指南中的说明部署特定设计。 有关部署 AD FS 的硬件和软件要求的信息，请参阅[附录 a:查看 AD FS 要求](https://technet.microsoft.com/library/ff678034.aspx)中 AD FS 设计指南。  
   
-### <a name="what-this-guide-does-not-provide"></a>本指南不提供的内容  
-不提供此指南：  
+### <a name="what-this-guide-does-not-provide"></a>本指南未提供的内容  
+本指南未提供：  
   
--   有关何时以及在你现有的网络基础结构放置联合身份验证的服务器、 联合身份验证的服务器代理或 Web 服务器的位置的指南。 此信息，请参阅[规划联合身份验证的服务器放置](https://technet.microsoft.com/library/dd807069.aspx)和[规划联盟服务器代理放置](https://technet.microsoft.com/library/dd807130.aspx)广告 FS 设计指南中。  
+-   有关时间和位置将联合身份验证服务器、 联合服务器代理或 Web 服务器放在现有网络基础结构的指南。 此信息，请参阅[规划联合服务器的位置](https://technet.microsoft.com/library/dd807069.aspx)并[规划联合服务器代理位置](https://technet.microsoft.com/library/dd807130.aspx)AD FS 设计指南中。  
   
--   用于使用证书颁发机构 \(CAs\) 广告 FS 设置指南  
+-   使用证书颁发机构的指导\(CAs\)来设置 AD FS  
   
--   设置，或配置 Web\ 基于特定应用程序的指南  
+-   设置或配置特定 Web 指导\-基于应用程序  
   
--   设置适用于设置测试实验环境的说明进行操作。  
+-   特定于设置测试实验室环境的设置说明。  
   
--   了解如何自定义联盟的登录屏幕、 web.config 文件或配置数据库。  
+-   有关如何自定义联合登录屏幕、web.config 文件或配置数据库的信息。  
   
-## <a name="in-this-guide"></a>本指南中  
+## <a name="in-this-guide"></a>本指南包含的内容  
   
--   [计划部署广告 FS](Planning-to-Deploy-AD-FS.md)  
+-   [规划部署 AD FS](Planning-to-Deploy-AD-FS.md)  
   
--   [实现广告 FS 设计套餐](Implementing-Your-AD-FS-Design-Plan.md)  
+-   [实现中的 AD FS 设计计划](Implementing-Your-AD-FS-Design-Plan.md)  
   
--   [清单：实施 Web SSO 设计](Checklist--Implementing-a-Web-SSO-Design.md)  
+-   [清单：实现 Web SSO 设计](Checklist--Implementing-a-Web-SSO-Design.md)  
   
--   [清单：实施联盟的 Web SSO 设计](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
+-   [清单：实现联合的 Web SSO 设计](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
   
--   [配置合作伙伴公司](Configuring-Partner-Organizations.md)  
+-   [配置伙伴组织](Configuring-Partner-Organizations.md)  
   
--   [配置索赔规则](Configuring-Claim-Rules.md)  
+-   [配置声明规则](Configuring-Claim-Rules.md)  
   
--   [部署联盟服务器](Deploying-Federation-Servers.md)  
+-   [部署联合服务器](Deploying-Federation-Servers.md)  
   
--   [部署联合身份验证的服务器代理服务器](Deploying-Federation-Server-Proxies.md)  
+-   [部署联合服务器代理](Deploying-Federation-Server-Proxies.md)  
   
--   [可以与广告 FS 互操作 1.x](Interoperating-with-AD-FS-1.x.md)  
+-   [Interoperating with AD FS 1.x](Interoperating-with-AD-FS-1.x.md)  

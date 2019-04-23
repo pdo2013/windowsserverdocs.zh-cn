@@ -1,6 +1,6 @@
 ---
-title: "Active Directory 联合身份验证服务和证书键规范属性信息"
-description: 
+title: Active Directory 联合身份验证服务和证书密钥规范属性信息
+description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -10,21 +10,22 @@ ms.assetid: a5307da5-02ff-4c31-80f0-47cb17a87272
 ms.technology: identity-adfs
 ms.author: billmath
 ms.openlocfilehash: db58fcce054f34c4b0a3f6725456badae9fd0468
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879308"
 ---
-# <a name="ad-fs-and-certificate-keyspec-property-information"></a>广告金融服务和证书 KeySpec 属性信息
-键规格 ("KeySpec") 是属性证书和码关联。 它指定是否关联的证书专用键可用于登录、加密或两者都。   
+# <a name="ad-fs-and-certificate-keyspec-property-information"></a>AD FS 和证书 KeySpec 属性信息
+密钥规范 ("KeySpec") 是与证书和密钥关联的属性。 它指定是否可以签名、 加密和 / 或使用与证书关联的私钥。   
 
-不正确的 KeySpec 值如可能会导致广告金融服务和 Web 应用程序代理错误：
+例如，KeySpec 值不正确可能导致 AD FS 和 Web 应用程序代理错误：
 
 
-- 但无法与记录（尽管可能记录 SChannel 36888 和 36874 事件）的任何广告 FS 事件建立 SSL 月 TLS 连接到 FS 广告或者 Web 应用程序代理，
-- 但无法登录的广告 FS 或 WAP 任何页面上显示的错误消息形成根据身份验证页面。
+- 无法建立与 AD FS 或 Web 应用程序代理的 SSL/TLS 连接与记录 （尽管可能记录 SChannel 36888 和 36874 事件） 的任何 AD FS 事件
+- 与 AD FS 或 WAP 上的登录名失败窗体的页上显示任何错误消息的基于的身份验证页。
 
-你可能会看到以下事件日志中：
+您可能会看到事件日志中：
 
     Log Name:      AD FS Tracing/Debug
     Source:        AD FS Tracing
@@ -38,78 +39,78 @@ ms.lasthandoff: 07/03/2017
     Description:
     Ignore corrupted SSO cookie.
 
-## <a name="what-causes-the-problem"></a>导致该问题的原因
-KeySpec 属性标识如何使用检索由 Microsoft CryptoAPI (CAPI)，从 Microsoft 旧版加密存储提供商 (CSP)，或生成一个键。
+## <a name="what-causes-the-problem"></a>哪些因素会导致问题
+KeySpec 属性标识的密钥生成或检索由 Microsoft CryptoAPI (CAPI)，从 Microsoft 旧加密存储提供程序 (CSP)，可以使用方式。
 
-KeySpec 值为**1**，或**AT_KEYEXCHANGE**，可用于签名和加密。  值**2**，或**AT_SIGNATURE**，仅用于登录。
+KeySpec 值**1**，或**AT_KEYEXCHANGE**，可以用于签名和加密。  值为**2**，或**AT_SIGNATURE**，只用于签名。
 
-最常见的 KeySpec 错误配置的令牌签名证书以外的证书使用值 2。  
+最常见的 KeySpec 错误配置的证书以外的令牌签名证书的证书使用值为 2。  
 
-对于使用加密技术下一代 (CNG) 提供商生成其键证书，没有密钥规范的概念并且 KeySpec 值始终会为零。
+对于使用 Cryptography Next Generation (CNG) 提供程序生成其密钥的证书，没有密钥规范的概念和 KeySpec 值将始终为零。
 
-了解如何检查以下有效 KeySpec 值。 
+了解如何以检查有效 KeySpec 值以下。 
 
 ### <a name="example"></a>示例
-旧版 CSP 的一个示例是 Microsoft 增强加密提供。 
+旧 CSP 的一个示例是 Microsoft Enhanced Cryptographic Provider。 
 
-MicrosoftRSA CSP 关键斑点格式包含算法标识符，或者**CALG_RSA_KEYX**或**CALG_RSA_SIGN**，分别为可以请求提供服务 ** AT_KEYEXCHANGE ** 或**AT_SIGNATURE**键。
+Microsoft RSA CSP 密钥 blob 格式包括算法标识符，或者**CALG_RSA_KEYX**或**CALG_RSA_SIGN**分别为请求提供服务 * * AT_KEYEXCHANGE * * 或**AT_签名**密钥。
   
-RSA 密钥算法标识符，如下所示映射到 KeySpec 值
+RSA 密钥算法标识符映射到 KeySpec 值，如下所示
 
-| 受支持的提供商算法| 键指标值 CAPI 呼叫 |
+| 提供程序支持算法| CAPI 调用密钥规范值 |
 | --- | --- |
-|可用于登录和解密 CALG_RSA_KEYX: RSA 键| AT_KEYEXCHANGE (或 KeySpec = 1)|
-仅关键 CALG_RSA_SIGN: RSA 签名 |AT_SIGNATURE (或 KeySpec = 2)|
+|CALG_RSA_KEYX:可用于签名和解密的 RSA 密钥| AT_KEYEXCHANGE (或 KeySpec = 1)|
+CALG_RSA_SIGN:RSA 签名密钥 |AT_SIGNATURE (或 KeySpec = 2)|
 
 ## <a name="keyspec-values-and-associated-meanings"></a>KeySpec 值和关联的含义
-以下是在各个 KeySpec 值的含义：
+以下是各种 KeySpec 值的含义：
 
-|Keyspec 值|意味着|推荐的广告 FS 使用|
+|Keyspec 值|方法|建议的用法，AD FS|
 | --- | --- | --- |
-|0|证书已 CNG 证书|仅 SSL 证书|
-|1|有关旧版的 CAPI (非 CNG) 证书，该密钥可用于登录和解密|    SSL，令牌签名，令牌进行解密，服务通信证书|
-|2|有关旧版的 CAPI (非 CNG) 证书，键可以仅用于登录|不建议这样做|
+|0|该证书是 CNG 证书|仅 SSL 证书|
+|1|旧的 CAPI (非 CNG) 证书，该密钥可用于签名和解密|    SSL，令牌签名、 令牌解密，服务通信证书|
+|2|旧 CAPI (非 CNG) 证书，该密钥可以是仅用于签名|不建议这样做|
 
-## <a name="how-to-check-the-keyspec-value-for-your-certificates--keys"></a>如何为你的证书检查 KeySpec / 键
-若要查看你可以使用证书值**certutil**命令行工具。  
+## <a name="how-to-check-the-keyspec-value-for-your-certificates--keys"></a>如何检查 KeySpec 值以查找您的证书 / 密钥
+若要查看可以使用的证书值**certutil**命令行工具。  
 
-以下是一个示例：**certutil-v – 存储我**。  这将转储到屏幕的证书信息。
+以下是一个示例： **certutil – v – 存储我**。  这将转储到屏幕的证书信息。
 
 ![Keyspec 证书](media/AD-FS-and-KeySpec-Property/keyspec1.png)
 
-下 CERT_KEY_PROV_INFO_PROP_ID 查找两项操作：
+下 CERT_KEY_PROV_INFO_PROP_ID 寻找两件事：
 
 
-1. **提供程序类型：**这表示证书使用传统的加密存储提供商 (CSP)，还是键存储提供商基于在较新证书下一代 (CNG) Api。  任何非零值表示旧版提供商。
-2.  **KeySpec:**以下是有关广告 FS 证书有效 KeySpec 值：
+1. **提供程序类型：** 这表示是否将证书使用旧的加密存储提供程序 (CSP) 或密钥存储提供程序基于上较新证书 Next Generation (CNG) Api。  任何非零值指示旧的提供程序。
+2.  **KeySpec:** 以下是有效的 AD FS 证书 KeySpec 值：
 
-    旧版 CSP 提供商（不等于 0 提供程序类型）：
+    旧 CSP 提供程序 （不等于 0 提供程序类型）：
     
-    |广告 FS 证书目的|有效的 KeySpec 值|
+    |AD FS 证书用途|有效 KeySpec 值|
     | --- | --- |
     |服务通信|1|
-    |标记解密|1|
+    |令牌解密|1|
     |令牌签名|1 和 2|
     |SSL|1|
 
-    CNG 提供商 (提供程序类型 = 0):
-    |广告 FS 证书目的|有效的 KeySpec 值|
+    CNG 提供程序 (提供程序类型 = 0):
+    |AD FS 证书用途|有效 KeySpec 值|
     | --- | --- |   
     |SSL|0|
 
-## <a name="how-to-change-the-keyspec-for-your-certificate-to-a-supported-value"></a>如何更改你的证书 keyspec 到受支持的值
-更改 KeySpec 值不需要的证书，才能重新证书颁发机构颁发或重新生成。  可以更改 KeySpec 重新导入使用下面的步骤证书官方商城的完整证书和 PFX 文件中的专用密钥：
+## <a name="how-to-change-the-keyspec-for-your-certificate-to-a-supported-value"></a>如何为支持的值更改为证书 keyspec
+更改 KeySpec 值不需要重新生成或重新颁发的证书颁发机构的证书。  可以通过重新导入完整的证书和私钥的 PFX 文件中使用以下步骤在证书存储区更改 KeySpec:
 
 
-1. 首先，检查并录制现有证书上的专用关键权限，以便他们可以重新配置如有必要后重新导入。
-2. 导出证书包括专用关键 PFX 文件。
-3. 对于每个广告金融服务和 WAP 服务器执行以下步骤
-    1. 删除证书 (从广告 FS / WAP 服务器)
-    2. 打开提升了权限的命令提示符 PowerShell 和导入的每个广告金融服务和 WAP 服务器使用下面的 cmdlet 语法、指定 AT_KEYEXCHANGE 值（这适用于所有广告 FS 证书目的）上 PFX 文件：
-        1. C:\ > certutil-importpfx certfile.pfx AT_KEYEXCHANGE
+1. 首先，查看并记录现有证书的专用密钥权限，以便可以将其重新配置如有必要重新导入之后。
+2. 导出证书包括私钥的 PFX 文件。
+3. 执行以下步骤为每个 AD FS 和 WAP 服务器
+    1. 删除证书 (从 AD FS / WAP 服务器)
+    2. 打开提升的 PowerShell 命令提示符并使用以下 cmdlet 语法，AT_KEYEXCHANGE 值 （这适用于所有 AD FS 证书目的） 指定每个 AD FS 和 WAP 服务器上的将 PFX 文件导入：
+        1. C:\>certutil-importpfx certfile.pfx AT_KEYEXCHANGE
         2. 输入 PFX 密码
     3. 上述完成后，请执行以下
-        1. 检查专用项的权限
+        1. 检查私有密钥权限
         2. 重新启动 adfs 或 wap 服务
 
 

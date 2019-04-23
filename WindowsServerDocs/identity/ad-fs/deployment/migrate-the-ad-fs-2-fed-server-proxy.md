@@ -1,6 +1,6 @@
 ---
-title: "迁移广告 FS 2.0 联盟服务器代理服务器"
-description: "将广告 FS 联合身份验证的服务器代理迁移到 Windows Server 2012 上提供信息。"
+title: 迁移 AD FS 2.0 联合服务器代理
+description: 提供有关将 AD FS 联合服务器代理迁移到 Windows Server 2012 的信息。
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,47 +9,48 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 98e28c9be808f63ed39a3ac24dd95014b388d001
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59881018"
 ---
-# <a name="migrate-the-ad-fs-20-federation-server-proxy"></a>迁移广告 FS 2.0 联盟服务器代理服务器
-本文将广告 FS 2.0 联合身份验证的代理服务器迁移到 Windows Server 2012 上提供详细的信息。
+# <a name="migrate-the-ad-fs-20-federation-server-proxy"></a>迁移 AD FS 2.0 联合服务器代理
+本文档提供了详细的信息的 AD FS 2.0 联合身份验证代理服务器迁移到 Windows Server 2012。
 
-## <a name="migrate-the-proxy"></a>迁移代理服务器
+## <a name="migrate-the-proxy"></a>迁移代理
 
-若要将广告 FS 2.0 联盟服务器代理迁移到 Windows Server 2012，请执行以下步骤：  
+若要将 AD FS 2.0 联合服务器代理迁移到 Windows Server 2012 中，执行以下过程：  
   
-1.  为你计划迁移到 Windows Server 2012 每联盟服务器代理服务器，查看并执行中的步骤[到迁移广告 FS 准备 2.0 联合身份验证的服务器代理](prepare-to-migrate-ad-fs-fed-proxy.md)。  
+1.  每个计划将迁移到 Windows Server 2012 的联合身份验证服务器代理，查看并执行中的过程[Prepare to Migrate the AD FS 2.0 联合服务器代理](prepare-to-migrate-ad-fs-fed-proxy.md)。  
   
-2.  删除负载平衡联合身份验证的服务器代理。  
+2.  从负载平衡器中删除联合服务器代理。  
   
-3.  执行此从 Windows Server 2008 R2 或 Windows Server 2008 于 Windows Server 2012 的服务器上的操作系统的就地升级。 有关详细信息，请参阅[安装 Windows Server 2012](https://technet.microsoft.com/library/jj134246.aspx)。  
+3.  在此服务器从 Windows Server 2008 R2 或 Windows Server 2008 到 Windows Server 2012 中执行的操作系统的就地升级。 有关详细信息，请参阅[安装 Windows Server 2012](https://technet.microsoft.com/library/jj134246.aspx)。  
   
 > [!IMPORTANT]
->  作为操作系统升级的结果，此服务器上的广告 FS 代理配置失去并且删除广告 FS 2.0 server 角色。 而是安装了 Windows Server 2012 广告 FS server 角色，但它未配置。 必须手动创建原始广告 FS 代理配置并还原剩余广告 FS 代理服务器设置，以完成联合身份验证的服务器代理迁移。  
+>  作为操作系统升级的结果，此服务器上的 AD FS 代理配置将丢失并且 AD FS 2.0 的服务器角色会被删除。 相反，安装 Windows Server 2012 AD FS 服务器角色，但未配置。 你必须手动创建原始 AD FS 代理配置并还原剩余的 AD FS 代理设置，以完成联合服务器代理迁移。  
   
-4.  通过创建原始广告 FS 代理配置**广告 FS 联盟服务器的代理配置向导**。 有关详细信息，请参阅[将计算机配置为联合身份验证的服务器代理角色](configure-a-computer-for-the-federation-server-proxy-role.md)。 当你执行该向导，请使用收集的信息您准备中迁移广告 FS 到 2.0 联合身份验证的服务器代理，如下所示：  
+4.  通过使用“AD FS 联合服务器代理配置向导” 创建原始 AD FS 代理配置。 有关详细信息，请参阅 [Configure a Computer for the Federation Server Proxy Role](configure-a-computer-for-the-federation-server-proxy-role.md)。 执行该向导时，请按如下所示使用在“准备迁移 AD FS 2.0 联合服务器代理”中收集的信息：  
   
  
-|**联合身份验证的代理服务器向导输入的选项**|**使用以下值**|
+|**联合服务器代理向导输入选项**|**使用以下值**|
 |-----|-----|  
-|**联合身份验证服务名称**|从 proxyproperties.txt 文件输入 BaseHostName 值|  
-|**发送到此联盟请求时，使用 HTTP 代理服务器**服务的复选框|如果你 proxyproperties.txt 文件中包含的值 ForwardProxyUrl 属性，请选中该框|  
-|**HTTP 的代理服务器地址**|从 proxyproperties.txt 文件输入 ForwardProxyUrl 值|  
-|凭据提示|输入凭据的广告 FS 联盟服务器任一管理员帐户或广告 FS 联合身份验证服务所运行的服务帐户。|  
+|**联合身份验证服务名称**|输入 proxyproperties.txt 文件中的 BaseHostName 值|  
+|“将请求发送到此联合身份验证服务时使用 HTTP 代理服务器”复选框|如果 proxyproperties.txt 文件包含 ForwardProxyUrl 属性的值，则选中此框|  
+|**HTTP 代理服务器地址**|输入 proxyproperties.txt 文件中的 ForwardProxyUrl 值|  
+|凭据提示|输入某个帐户的凭据，该帐户要么是 AD FS 联合服务器的管理员，要么是 AD FS 联合身份验证服务运行所使用的服务帐户。|  
   
-5.  更新你的广告 FS 网页此服务器上。 如果准备迁移您联合身份验证的代理服务器服务器时备份你的自定义广告 FS 代理网页，使用你的备份数据覆盖默认广告 FS 网页中的默认情况下创建的**%systemdrive%\inetpub\adfs\ls**目录导致在 Windows Server 2012 的广告 FS 代理配置。  
+5.  更新你在此服务器上的 AD FS 网页。 如果联合服务器代理准备迁移时备份你的自定义 AD FS 代理网页，使用你的备份数据来覆盖默认 AD FS 网页在默认情况下创建 **%systemdrive%\inetpub\adfs\ls** Windows Server 2012 中的 AD FS 代理配置结果目录。  
   
-6.  返回到负载平衡添加该服务器。  
+6.  将此服务器添加回负载均衡器。  
   
-7.  如果你拥有其他广告 FS 2.0 联合身份验证的服务器代理迁移，请重复步骤 2 到 6 其余联合身份验证的服务器代理计算机的。  
+7.  如果有其他要迁移的 AD FS 2.0 联合服务器代理，请对剩下的联合服务器代理计算机重复步骤 2 到 6。  
   
   
 ## <a name="next-steps"></a>后续步骤
- [准备迁移广告 FS 2.0 联盟服务器](prepare-to-migrate-ad-fs-fed-server.md)   
- [准备迁移广告 FS 2.0 联盟服务器代理服务器](prepare-to-migrate-ad-fs-fed-proxy.md)   
- [迁移广告 FS 2.0 联盟服务器](migrate-the-ad-fs-fed-server.md)   
- [迁移广告 FS 2.0 联盟服务器代理服务器](migrate-the-ad-fs-2-fed-server-proxy.md)   
- [迁移广告 FS 1.1 Web 代理](migrate-the-ad-fs-web-agent.md)
+ [准备迁移 AD FS 2.0 联合服务器](prepare-to-migrate-ad-fs-fed-server.md)   
+ [准备迁移 AD FS 2.0 联合服务器代理](prepare-to-migrate-ad-fs-fed-proxy.md)   
+ [迁移 AD FS 2.0 联合服务器](migrate-the-ad-fs-fed-server.md)   
+ [迁移 AD FS 2.0 联合服务器代理](migrate-the-ad-fs-2-fed-server-proxy.md)   
+ [迁移 AD FS 1.1 Web 代理](migrate-the-ad-fs-web-agent.md)

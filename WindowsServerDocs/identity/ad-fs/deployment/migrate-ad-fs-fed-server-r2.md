@@ -1,6 +1,6 @@
 ---
-title: "迁移广告 FS 2.0 联盟服务器"
-description: "在迁移到 Windows Server 2012 R2 的广告 FS 服务器上提供的信息。"
+title: 迁移 AD FS 2.0 联合服务器
+description: 提供有关迁移到 Windows Server 2012 R2 的 AD FS 服务器信息。
 author: billmath
 ms.author: billmath
 manager: femila
@@ -8,219 +8,220 @@ ms.date: 07/10/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: bef24f79cfa92dfeca1846501f14ebf6d8231f0d
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 6bc680d9a0de8946d6f39a5529a297138ee5e262
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59876058"
 ---
-# <a name="migrate-the-ad-fs-20-federation-server-to-ad-fs-on-windows-server-2012-r2"></a>将广告 FS 2.0 联盟 server 迁移到在 Windows Server 2012 R2 上广告 FS
+# <a name="migrate-the-ad-fs-20-federation-server-to-ad-fs-on-windows-server-2012-r2"></a>将 AD FS 2.0 联合服务器迁移到 Windows Server 2012 R2 上的 AD FS
 
-若要迁移属于单节点广告 FS 电场的日落，WIF 电场的日落或对 Windows Server 2012 R2 的 SQL Server 场广告 FS 联盟服务器，必须执行以下任务：  
+若要迁移属于单节点 AD FS 场、 WIF 场或 SQL Server 场到 Windows Server 2012 R2 的 AD FS 联合身份验证服务器，必须执行以下任务：  
   
-1.  [导出和备份广告 FS 配置数据](migrate-ad-fs-fed-server-r2.md#export-and-backup-the-ad-fs-configuration-data)  
+1.  [导出并备份 AD FS 配置数据](migrate-ad-fs-fed-server-r2.md#export-and-backup-the-ad-fs-configuration-data)  
   
-2.  [创建 Windows Server 2012 R2 联盟服务器电场的日落](migrate-ad-fs-fed-server-r2.md#create-a-windows-server-2012-r2-federation-server-farm)  
+2.  [创建 Windows Server 2012 R2 联合服务器场](migrate-ad-fs-fed-server-r2.md#create-a-windows-server-2012-r2-federation-server-farm)  
   
-3.  [将配置数据原始导入到 Windows Server 2012 R2 广告 FS 电场的日落](migrate-ad-fs-fed-server-r2.md#import-the-original-configuration-data-into-the-windows-server-2012-r2-ad-fs-farm)  
+3.  [原始配置数据导入 Windows Server 2012 R2 AD FS 场](migrate-ad-fs-fed-server-r2.md#import-the-original-configuration-data-into-the-windows-server-2012-r2-ad-fs-farm)  
   
-##  <a name="export-and-backup-the-ad-fs-configuration-data"></a>导出和备份广告 FS 配置数据  
- 若要导出的广告 FS 配置设置，请执行以下步骤：  
+##  <a name="export-and-backup-the-ad-fs-configuration-data"></a>导出并备份 AD FS 配置数据  
+ 若要导出 AD FS 配置设置，请执行以下过程：  
   
-###  <a name="to-export-service-settings"></a>若要导出服务设置  
+###  <a name="to-export-service-settings"></a>导出服务设置  
   
-1.  确保你具有访问以下证书和他们专用键.pfx 文件中：  
+1.  确保你有权访问 .pfx 文件中的以下证书及其私钥：  
   
-    -   由你想要迁移联合服务器场 SSL 证书  
+    -   要迁移的联合服务器场使用的 SSL 证书  
   
-    -   （如果它是 SSL 证书）的服务通信证书由你想要迁移联合 server 场  
+    -   要迁移的联合服务器场使用的服务通信证书（如果该证书不同于 SSL 证书）  
   
-    -   所有第三方合作伙伴令牌签名或/解密加密令牌证书可由你想要迁移联合 server 场  
+    -   要迁移的联合服务器场使用的所有第三方令牌签名或令牌加密/解密证书  
   
-若要查找 SSL 证书，请打开 Internet 信息服务 (IIS) 管理控制台中，选择**默认网站**在左侧窗格中，单击**绑定…** 在**操作**窗格中，查找并选择 https 绑定、单击**编辑**，然后单击**视图**。  
+若要查找 SSL 证书，请打开 Internet 信息服务 (IIS) 管理控制台中，选择**Default Web Site**的左窗格中单击**绑定...** 在中**操作**窗格中，找到并选择 https 绑定中，单击**编辑**，然后单击**视图**。  
   
-你必须导出 SSL 证书联合身份验证服务和.pfx 文件其专用关键使用。 有关详细信息，请参阅[导出服务器身份验证证书专用键一部分](export-the-private-key-portion-of-a-server-authentication-certificate.md)。  
+必须将联合身份验证服务使用的 SSL 证书及其私钥导出到 .pfx 文件。 有关详细信息，请参阅 [导出服务器身份验证证书的私钥部分](export-the-private-key-portion-of-a-server-authentication-certificate.md)。  
   
 > [!NOTE]
->  如果你计划部署 Windows Server 2012 R2 中运行广告 FS 作为设备注册服务，您必须获取新的 SSL 证书。有关详细信息，请参阅[注册广告 FS SSL 证书](enroll-an-ssl-certificate-for-ad-fs.md)和[与设备注册服务配置联合服务器](configure-a-federation-server-with-device-registration-service.md)。  
+>  如果你打算部署 Device Registration Service 作为运行 Windows Server 2012 R2 中 AD FS 的一部分，你必须获取新的 SSL 证书。有关详细信息，请参阅 [Enroll an SSL Certificate for AD FS](enroll-an-ssl-certificate-for-ad-fs.md) 和 [Configure a federation server with Device Registration Service](configure-a-federation-server-with-device-registration-service.md)。  
   
-若要查看令牌签名、令牌解密和服务使用的通信证书，运行以下 Windows PowerShell 命令创建文件中使用的所有证书列表：  
+若要查看使用的令牌签名、令牌解密和服务通信证书，请运行以下 Windows PowerShell 命令，以便在文件中创建使用的所有证书的列表：  
   
 ``` powershell
 Get-ADFSCertificate | Out-File “.\certificates.txt”  
  ```  
   
-2.  将广告 FS 联合身份验证服务属性，如联合身份验证服务名称、联合身份验证服务的显示名称、和联合身份验证的服务器标识符导出到一个文件。  
+2.  将 AD FS 联合身份验证服务属性（例如联合身份验证服务名称、联合身份验证服务显示名称和联合服务器标识符）导出到文件中。  
   
-若要导出联合身份验证服务属性，请打开 Windows PowerShell 和运行以下命令： 
+若要导出联合身份验证服务属性，请打开 Windows PowerShell 并运行以下命令： 
 
 ``` powershell
 Get-ADFSProperties | Out-File “.\properties.txt”`.  
 ``` 
 
-输出文件包含以下重要配置值：  
+输出文件将包含以下重要配置值：  
  
-|**联合身份验证服务属性名称 Get-ADFSProperties 由报告**|**广告 FS 管理控制台在联合身份验证服务属性名称**|
+|**Get-adfsproperties 报告的联合身份验证服务属性名称**|**AD FS 管理控制台中的联合身份验证服务属性名称**|
 |-----|-----|  
-|主机|联合身份验证服务名称|  
-|标识符|联合身份验证服务的标识符|  
-|显示名称|联合身份验证服务显示名称|  
+|HostName|联合身份验证服务名称|  
+|标识符|联合身份验证服务标识符|  
+|DisplayName|联合身份验证服务显示名称|  
   
-3.  备份应用程序的配置文件。 其他设置，此文件包含策略数据库连接字符串。  
+3.  备份应用程序配置文件。 除了其他设置以外，此文件还包含策略数据库连接字符串。  
   
-若要备份应用程序的配置文件，则必须手动复制`%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config`为备份的服务器上的安全位置的文件。  
+若要备份应用程序配置文件，必须手动将 `%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config` 文件复制到备份服务器上的安全位置。  
   
 > [!NOTE]
->  在此文件，请记下的数据库连接字符串后立即位于"policystore 连接 ="。 如果连接字符串指定 SQL Server 数据库，在还原原始联合身份验证的服务器上的广告 FS 配置时需要值。  
+>  记下此文件中紧接在“policystore connectionstring=”后面的数据库连接字符串。 如果该连接字符串指定了 SQL Server 数据库，则在联合服务器上还原原始 AD FS 配置时需要使用该值。  
 >   
->  以下是 WID 连接字符串的一个示例：`“Data Source=\\.\pipe\mssql$microsoft##ssee\sql\query;Initial Catalog=AdfsConfiguration;Integrated Security=True"`。 下面是它的 SQL Server 连接字符串一个示例：`"Data Source=databasehostname;Integrated Security=True"`。  
+>  以下是 WID 连接字符串的示例：`“Data Source=\\.\pipe\mssql$microsoft##ssee\sql\query;Initial Catalog=AdfsConfiguration;Integrated Security=True"`。 以下是 SQL Server 连接字符串的示例：`"Data Source=databasehostname;Integrated Security=True"`。  
   
-4.  录制广告 FS 联合身份验证服务帐户的身份，并且此帐户的密码。  
+4.  记录 AD FS 联合身份验证服务帐户的标识以及此帐户的密码。  
   
-若要查找的身份值，检查**登录为**列**广告 FS 2.0 Windows 服务**中**服务**控制台和手动录制此值。  
+若要查找标识值，请在“服务”  控制台中查看“AD FS 2.0 Windows 服务”  的“登录为”  列并手动记录此值。  
   
 > [!NOTE]
->  独立联合身份验证服务、使用内置的网络服务帐户。  在此情况下，你不需要有一个密码。  
+>  对于独立的联合身份验证服务，将使用内置的 NETWORK SERVICE 帐户。  在此情况下，你不需要使用密码。  
   
-5.  导出到一个文件的列表中启用广告 FS 端点。  
+5.  将已启用的 AD FS 终结点列表导出到文件中。  
   
-若要执行此操作，请打开 Windows PowerShell 和运行以下命令： 
+为此，请打开 Windows PowerShell 并运行以下命令： 
 
 ``` powershell
 Get-ADFSEndpoint | Out-File “.\endpoints.txt”`.  
 ``` 
 
-6.  将任何自定义声明说明导出到一个文件。  
+6.  将所有自定义声明说明导出到文件中。  
   
-若要执行此操作，请打开 Windows PowerShell 和运行以下命令： 
+为此，请打开 Windows PowerShell 并运行以下命令： 
 
 ``` powershell
 Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.  
  ```
 
-7.  如果你有如 useRelayStateForIdpInitiatedSignOn 配置 web.config 文件中的自定义设置，请确保备份 web.config 文件以供参考。 你可以将文件复制从映射到虚拟路径目录**"月 adfs 月 1！"** IIS 中。 默认情况下，它处于**%systemdrive%\inetpub\adfs\ls**目录。  
+7.  如果你在 web.config 中配置了 useRelayStateForIdpInitiatedSignOn 等自定义设置，请确保备份 web.config 文件以供参考。 在 IIS 中，你可以复制映射到虚拟路径 **“/adfs/ls”** 的目录中的文件。 默认情况下，它位于 **%systemdrive%\inetpub\adfs\ls** 目录中。  
   
-###  <a name="to-export-claims-provider-trusts-and-relying-party-trusts"></a>若要导出索赔提供商信任和信赖的方信任  
+###  <a name="to-export-claims-provider-trusts-and-relying-party-trusts"></a>导出声明提供程序信任和信赖方信任  
   
-1.  导出广告 FS 索赔提供商的信任和依赖方信任，你必须以管理员身份登录 (但是，不域管理员作为) 你联盟到服务器，并运行以下 Windows PowerShell 脚本，它是位于**媒体/server_support/adfs** Windows Server 2012 R2 安装光盘的文件夹：`export-federationconfiguration.ps1`。  
+1.  若要导出 AD FS 声明提供方信任和信赖方信任，你必须以管理员身份登录 (但是，不能作为域管理员身份) 登录联合服务器，并运行以下 Windows PowerShell 脚本，它是位于**媒体 /server_support/adfs** Windows Server 2012 R2 安装 cd 的文件夹： `export-federationconfiguration.ps1`。  
   
 > [!IMPORTANT]
->  导出脚本参数如下：  
+>  导出脚本使用以下参数：  
 >   
->  -   Export-FederationConfiguration.ps1-路径 < string\ > [-ComputerName < string\ >] [-凭据 < pscredential\ >] [-强制] [-CertificatePassword < securestring\ >]  
-> -   Export-FederationConfiguration.ps1-路径 < string\ > [-ComputerName < string\ >] [-凭据 < pscredential\ >] [-强制] [-CertificatePassword < securestring\ >] [-RelyingPartyTrustIdentifier < 字符串 [>] [-ClaimsProviderTrustIdentifier < 字符串 [>]  
-> -   Export-FederationConfiguration.ps1-路径 < string\ > [-ComputerName < string\ >] [-凭据 < pscredential\ >] [-强制] [-CertificatePassword < securestring\ >] [-RelyingPartyTrustName < 字符串 [>] [-ClaimsProviderTrustName < 字符串 [>]  
+>  -   Export-FederationConfiguration.ps1 -Path <string\> [-ComputerName <string\>] [-Credential <pscredential\>] [-Force] [-CertificatePassword <securestring\>]  
+> -   导出 FederationConfiguration.ps1-路径 < 字符串\>[-ComputerName < 字符串\>] [-Credential < pscredential\>] [-Force] [-CertificatePassword < securestring\>] [-RelyingPartyTrustIdentifier < 字符串 [] >] [-ClaimsProviderTrustIdentifier < 字符串 [] >]  
+> -   导出 FederationConfiguration.ps1-路径 < 字符串\>[-ComputerName < 字符串\>] [-Credential < pscredential\>] [-Force] [-CertificatePassword < securestring\>] [-RelyingPartyTrustName < 字符串 [] >] [-ClaimsProviderTrustName < 字符串 [] >]  
 >   
->  **-RelyingPartyTrustIdentifier < 字符串 [>** -cmdlet 仅导出依赖方信任字符串深刻中指定的标识符。 默认设置为导出无信赖的方信任。 如果没有 RelyingPartyTrustIdentifier、ClaimsProviderTrustIdentifier、RelyingPartyTrustName，以及 ClaimsProviderTrustName 指定，脚本将导出所有依赖方信任和索赔信任提供商。  
+>  **-RelyingPartyTrustIdentifier <string[]>** — cmdlet 只会导出字符串数组中已指定了标识符的信赖方信任。 默认设置为不导出任何信赖方信任。 如果 RelyingPartyTrustIdentifier、ClaimsProviderTrustIdentifier、RelyingPartyTrustName 和 ClaimsProviderTrustName 都未指定，则脚本将导出所有信赖方信任和声明提供程序信任。  
 >   
->  **-ClaimsProviderTrustIdentifier < 字符串 [>** -cmdlet 仅导出索赔提供商信任字符串深刻中指定的标识符。 默认设置为导出无索赔提供商信任。  
+>  **-ClaimsProviderTrustIdentifier <string[]>** — cmdlet 只会导出字符串数组中已指定了标识符的声明提供程序信任。 默认设置为不导出任何声明提供程序信任。  
 >   
->  **-RelyingPartyTrustName < 字符串 [>** -cmdlet 仅导出依赖方信任字符串深刻中指定的名称。 默认设置为导出无信赖的方信任。  
+>  **-RelyingPartyTrustName <string[]>** — cmdlet 只会导出字符串数组中已指定了名称的信赖方信任。 默认设置为不导出任何信赖方信任。  
 >   
->  **-ClaimsProviderTrustName < 字符串 [>** -cmdlet 仅导出索赔提供商信任字符串深刻中指定的名称。 默认设置为导出无索赔提供商信任。  
+>  **-ClaimsProviderTrustName <string[]>** — cmdlet 只会导出字符串数组中已指定了名称的声明提供程序信任。 默认设置为不导出任何声明提供程序信任。  
 >   
->  **-路径 < string\ >** -通往将包含的已导出的文件的文件夹。  
+>  **-Path < 字符串\>** -将包含所导出的文件的文件夹的路径。  
 >   
->  **-ComputerName < string\ >** -指定 STS 服务器主机名称。 默认设置为在本地计算机。 如果要在 Windows Server 2012 R2 的广告 FS 到迁移广告 FS 2.0 或在 Windows Server 2012 的广告 F，这是主机旧版广告 FS 服务器的名称。  
+>  **-ComputerName < 字符串\>** -指定 STS 服务器主机名。 默认值为本地计算机。 如果要将 Windows Server 2012 中的 AD FS 2.0 或 AD FS 迁移到 Windows Server 2012 R2 中的 AD FS，则为原有 AD FS 服务器的主机名。  
 >   
->  **-凭据 < PSCredential\ >** -指定具有执行此操作的权限的用户帐户。 默认值为当前用户。  
+>  **-Credential < PSCredential\>**  -指定有权执行此操作的用户帐户。 默认为当前用户。  
 >   
->  **-强制**– 指定到无法提示用户进行确认。  
+>  **-Force** – 指定不提示用户进行确认。  
 >   
->  **-CertificatePassword < SecureString\ >** -指定导出广告 FS 证书专用键的密码。 如果未指定，脚本会提示输入密码，如果需要导出专用密钥与广告 FS 证书。  
+>  **-CertificatePassword < SecureString\>**  -指定用于导出 AD FS 证书私钥的密码。 如果不指定此项，则需要导出带有私钥的 AD FS 证书时，脚本将提示用户提供密码。  
 >   
->  **输入**： 无  
+>  **Inputs**：无  
 >   
->  **输出**： 字符串-此 cmdlet 返回导出文件夹路径。 你可以管道返回到导入 FederationConfiguration 的对象。  
+>  **Outputs**：字符串 - 此 cmdlet 将返回导出文件夹路径。 可以通过管道将返回的对象传递给 Import-FederationConfiguration。  
   
-###  <a name="to-back-up-custom-attribute-stores"></a>若要备份自定义特性官方商城  
+###  <a name="to-back-up-custom-attribute-stores"></a>备份自定义特性存储  
   
-1.  你必须手动导出你想要保留在你在 Windows Server 2012 R2 的新广告 FS 农场里的所有自定义特性官方商城。  
+1.  您必须手动导出你想要保留在 Windows Server 2012 R2 中新的 AD FS 场中的所有自定义属性存储。  
   
 > [!NOTE]
->  在 Windows Server 2012 R2，广告 FS 要求基于.NET Framework 4.0 或上方的自定义特性官方商城。 按照说明进行操作，并在[Microsoft.NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)自行安装和设置.Net Framework 4.5。  
+>  在 Windows Server 2012 R2 中，AD FS 需要基于.NET Framework 4.0 或更高版本的自定义属性存储。 按照 [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653) 中的说明安装和设置 .Net Framework 4.5。  
   
-通过运行以下 Windows PowerShell 命令，可以被广告 FS 使用找到有关自定义特性官方商城的信息： 
+可以通过运行以下 Windows PowerShell 命令来查找 AD FS 所用的自定义特性存储的相关信息： 
 
 ``` powershell
 Get-ADFSAttributeStore
 ```  
 
-升级或迁移自定义特性官方商城的步骤会有所不同。  
+升级或迁移自定义特性存储的步骤将有所不同。  
   
-2.  您必须手动导出你想要保留在你在 Windows Server 2012 R2 的新广告 FS 农场里的自定义特性存储的所有.dll 文件。 升级或迁移.dll 文件的自定义特性官方商城的步骤会有所不同。  
+2.  您必须手动导出你想要保留在 Windows Server 2012 R2 中新的 AD FS 场中的自定义属性存储所有.dll 文件。 升级或迁移自定义特性存储的 .dll 文件的步骤将有所不同。  
   
-##  <a name="create-a-windows-server-2012-r2-federation-server-farm"></a>创建 Windows Server 2012 R2 联盟服务器电场的日落  
+##  <a name="create-a-windows-server-2012-r2-federation-server-farm"></a>创建 Windows Server 2012 R2 联合服务器场  
   
-1.  在你想要用作联合身份验证的服务器，然后添加广告 FS server 角色计算机上安装 Windows Server 2012 R2 的操作系统。 有关详细信息，请参阅[安装广告 FS 角色服务](install-the-ad-fs-role-service.md)。 然后配置了 Active Directory 联合身份验证服务配置向导通过或通过 Windows PowerShell 你新联合身份验证服务。 详细信息，请参阅"在新的联合 server 场配置的第一个联盟服务器"中[配置联盟服务器](configure-a-federation-server.md)。  
+1.  你想要用作联合身份验证服务器，然后添加 AD FS 服务器角色的计算机上安装 Windows Server 2012 R2 操作系统。 有关详细信息，请参阅 [Install the AD FS Role Service](install-the-ad-fs-role-service.md)。 然后，通过 Active Directory 联合身份验证服务配置向导或 Windows PowerShell 配置新的联合身份验证服务。 有关详细信息，请参阅[配置联合服务器](configure-a-federation-server.md)中的“配置新的联合服务器场中的第一个联合服务器”。  
 
-在完成此步骤，必须遵循以下说明进行操作：  
+在完成此步骤时，必须遵照以下说明：  
   
--   你必须域管理员权限才能配置联合身份验证服务。  
+-   只有具有域管理员权限才能配置联合身份验证服务。  
   
--   使用该广告 FS 2.0 或在 Windows Server 2012 的广告 F，必须使用相同的联合身份验证服务名称 （电场的日落名称）。 如果你不使用的相同的联合身份验证服务的名称，你备份的证书将无法在你尝试配置 Windows Server 2012 R2 联合身份验证服务。  
+-   使用的联合身份验证服务名称（场名称）必须与 Windows Server 2012 中的 AD FS 2.0 或 AD FS 内使用的名称相同。 如果不使用相同的联合身份验证服务名称，您备份的证书将无法在你尝试配置 Windows Server 2012 R2 联合身份验证服务。  
   
--   指定是否 WID 或 SQL Server 联合 server 场。 如果是 SQL 电场的日落，指定的 SQL Server 数据库位置和实例名称。  
+-   请指定这是 WID 还是 SQL Server 联合服务器场。 如果是 SQL 场，请指定 SQL Server 数据库位置和实例名称。  
   
--   你必须提供 pfx 文件包含备份作为准备广告 FS 迁移过程的一部分 SSL 服务器的身份验证证书。  
+-   必须提供一个 pfx 文件，其中包含你在准备 AD FS 迁移的过程中备份的 SSL 服务器身份验证证书。  
   
--   你必须指定广告 FS 2.0 或 Windows Server 2012 电场的日落中的广告 F 中使用的相同服务帐户标识。  
+-   指定的服务帐户标识必须与 Windows Server 2012 场中的 AD FS 2.0 或 AD FS 内使用的标识相同。  
   
-2.  初始节点配置后，你可以向你的新场添加更多个节点。 详细信息，请参阅"添加到现有联盟服务器场联合服务器"中[配置联盟服务器](configure-a-federation-server.md)。  
+2.  配置初始节点后，可以将更多节点添加到新场中。 有关详细信息，请参阅[配置联合服务器](configure-a-federation-server.md)中的“向现有的联合服务器场中添加联合服务器”。  
   
-##  <a name="import-the-original-configuration-data-into-the-windows-server-2012-r2-ad-fs-farm"></a>将配置数据原始导入到 Windows Server 2012 R2 广告 FS 电场的日落  
- 现在，你有运行 Windows Server 2012 R2 广告 FS 联盟服务器场，你可以导入的原始广告 FS 配置数据。  
+##  <a name="import-the-original-configuration-data-into-the-windows-server-2012-r2-ad-fs-farm"></a>将原始配置数据导入 Windows Server 2012 R2 AD FS 场  
+ 现在，已在 Windows Server 2012 R2 中运行的 AD FS 联合服务器场，你可以将原始 AD FS 配置数据导入它。  
   
-1.  导入和配置其他自定义的广告 FS 证书，包括外部登记令牌签名和加密的标记-解密/证书和服务通信证书是否不同于 SSL 证书。  
+1.  导入并配置其他自定义 AD FS 证书，包括外部注册的令牌签名和令牌解密/加密证书，以及服务通信证书（如果不同于 SSL 证书）。  
   
-在广告 FS 管理控制台中，选择**证书**。 检查每个对时准备迁移到 certificates.txt 文件导出这些值，以验证服务通信，令牌-加密月解密和令牌签名证书。  
+在 AD FS 管理控制台中选择“证书”。 验证服务通信、令牌加密/解密和令牌签名证书，方法是根据你在准备迁移时导出到 certificates.txt 文件中的值检查每个证书。  
   
-若要更改外部证书从默认自签名证书的标记解密或令牌签名证书，必须先禁用默认启用自动证书翻转功能。 若要执行此操作，你可以使用下面的 Windows PowerShell 命令：  
+若要将令牌解密或令牌签名证书从默认的自签名证书更改为外部证书，必须先禁用按默认启用的自动证书滚动功能。 为此，可以使用以下 Windows PowerShell 命令：  
   
 ``` powershell 
 Set-ADFSProperties –AutoCertificateRollover $false  
 ```  
   
-2.  配置使用一组 AdfsProperties cmdlet AutoCertificateRollover 或 SSO 生存期如任何自定义广告 FS 服务设置。  
+2.  使用 Set-AdfsProperties cmdlet 来配置任何自定义 AD FS 服务设置，例如 AutoCertificateRollover 或 SSO 生存期。  
   
-3.  若要导入广告 FS 信赖方信任和索赔提供商信任，您必须登录以管理员身份 (但是，不域管理员作为) 你联盟到服务器，并运行以下 Windows PowerShell 脚本，它是位于 \support\adfs 文件夹中的 Windows Server 2012 R2 安装光盘：  
+3.  若要导入 AD FS 信赖方信任和声明提供方信任，你必须登录以管理员身份 (但是，不能作为域管理员身份) 登录联合服务器，并运行以下 Windows PowerShell 脚本，它是位于的 \support\adfs 文件夹中Windows Server 2012 R2 安装 CD:  
   
 ``` powershell 
 import-federationconfiguration.ps1  
 ```  
   
 > [!IMPORTANT]
->  导入脚本参数如下：  
+>  导入脚本使用以下参数：  
 >   
->  -  导入 FederationConfiguration.ps1-路径 < string\ > [-ComputerName < string\ >] [-凭据 < pscredential\ >] [-强制] [-LogPath < string\ >] [-CertificatePassword < securestring\ >]  
-> -   导入 FederationConfiguration.ps1-路径 < string\ > [-ComputerName < string\ >] [-凭据 < pscredential\ >] [-强制] [-LogPath < string\ >] [-CertificatePassword < securestring\ >] [-RelyingPartyTrustIdentifier < 字符串 [>] [-ClaimsProviderTrustIdentifier < 字符串 [>  
-> -   导入 FederationConfiguration.ps1-路径 < string\ > [-ComputerName < string\ >] [-凭据 < pscredential\ >] [-强制] [-LogPath < string\ >] [-CertificatePassword < securestring\ >] [-RelyingPartyTrustName < 字符串 [>] [-ClaimsProviderTrustName < 字符串 [>]  
+>  -  Import-FederationConfiguration.ps1 -Path <string\> [-ComputerName <string\>] [-Credential <pscredential\>] [-Force] [-LogPath <string\>] [-CertificatePassword <securestring\>]  
+> -   导入 FederationConfiguration.ps1-路径 < 字符串\>[-ComputerName < 字符串\>] [-Credential < pscredential\>] [-Force] [-LogPath < 字符串\>] [-CertificatePassword < securestring\>] [-RelyingPartyTrustIdentifier < 字符串 [] >] [-ClaimsProviderTrustIdentifier < 字符串 [] >  
+> -   导入 FederationConfiguration.ps1-路径 < 字符串\>[-ComputerName < 字符串\>] [-Credential < pscredential\>] [-Force] [-LogPath < 字符串\>] [-CertificatePassword < securestring\>] [-RelyingPartyTrustName < 字符串 [] >] [-ClaimsProviderTrustName < 字符串 [] >]  
 >   
->  **-RelyingPartyTrustIdentifier < 字符串 [>** -cmdlet 仅导入依赖方信任字符串深刻中指定的标识符。 导入任何依赖方信任是默认值。 如果没有 RelyingPartyTrustIdentifier、 ClaimsProviderTrustIdentifier、 RelyingPartyTrustName，以及 ClaimsProviderTrustName 指定，脚本将导入所有依赖方信任和索赔信任提供商。  
+>  **-RelyingPartyTrustIdentifier <string[]>** — cmdlet 只会导入字符串数组中已指定了标识符的信赖方信任。 默认设置为不导入任何信赖方信任。 如果 RelyingPartyTrustIdentifier、ClaimsProviderTrustIdentifier、RelyingPartyTrustName 和 ClaimsProviderTrustName 都未指定，则脚本将导入所有信赖方信任和声明提供程序信任。  
 >   
->  **-ClaimsProviderTrustIdentifier < 字符串 [>** -cmdlet 只导入的索赔提供商信任字符串深刻中指定的标识符。 默认值为导入无索赔提供商信任。  
+>  **-ClaimsProviderTrustIdentifier <string[]>** — cmdlet 只会导入字符串数组中已指定了标识符的声明提供程序信任。 默认设置为不导入任何声明提供程序信任。  
 >   
->  **-RelyingPartyTrustName < 字符串 [>** -cmdlet 仅导入依赖方信任字符串深刻中指定的名称。 导入任何依赖方信任是默认值。  
+>  **-RelyingPartyTrustName <string[]>** — cmdlet 只会导入字符串数组中已指定了名称的信赖方信任。 默认设置为不导入任何信赖方信任。  
 >   
->  **-ClaimsProviderTrustName < 字符串 [>** -cmdlet 只导入的索赔提供商信任字符串深刻中指定的名称。 默认值为导入无索赔提供商信任。  
+>  **-ClaimsProviderTrustName <string[]>** — cmdlet 只会导入字符串数组中已指定了名称的声明提供程序信任。 默认设置为不导入任何声明提供程序信任。  
 >   
->  **-路径 < string\ >** -包含要导入的配置文件的文件夹中的路径。  
+>  **-Path < 字符串\>** -包含要导入的配置文件的文件夹的路径。  
 >   
->  **-LogPath < string\ >** -通往将包含导入日志文件的文件夹。 在此文件夹中，将创建一个名为"import.log"的日志文件。  
+>  **-LogPath < 字符串\>** -将包含导入日志文件的文件夹的路径。 将在此文件夹中创建名为“import.log”的日志文件。  
 >   
->  **-ComputerName < string\ >** -指定主机 STS 服务器名称。 默认设置为在本地计算机。 如果要在 Windows Server 2012 R2 的广告 FS 到迁移广告 FS 2.0 或在 Windows Server 2012 的广告 F，此参数应该设置为旧版广告 FS 服务器的主机。  
+>  **-ComputerName < 字符串\>** -指定 STS 服务器主机名。 默认值为本地计算机。 如果要将 Windows Server 2012 中的 AD FS 2.0 或 AD FS 迁移到 Windows Server 2012 R2 中的 AD FS，应将此参数设置为原有 AD FS 服务器的主机名。  
 >   
->  **-凭据 < PSCredential\ >**-指定具有执行此操作的权限的用户帐户。 默认值为当前用户。  
+>  **-Credential < PSCredential\>**-指定有权执行此操作的用户帐户。 默认为当前用户。  
 >   
->  **-强制**– 指定到无法提示用户进行确认。  
+>  **-Force** – 指定不提示用户进行确认。  
 >   
->  **-CertificatePassword < SecureString\ >** -指定导入广告 FS 证书专用键的密码。 如果未指定，脚本会提示输入密码，如果使用专用密钥广告 FS 证书需要导入。  
+>  **-CertificatePassword < SecureString\>**  -指定用于导入 AD FS 证书私钥的密码。 如果不指定此项，则需要导入带有私钥的 AD FS 证书时，脚本将提示用户提供密码。  
 >   
->  **输入：**字符串-此命令采用作为输入导入文件夹路径。 你可以对此命令管道导出 FederationConfiguration。  
+>  **Inputs：** 字符串 - 此命令使用导入文件夹路径作为输入。 可以通过管道将 Export-FederationConfiguration 传递到此命令。  
 >   
->  **输出：**无。  
+>  **输出：** 无。  
   
-在信赖的方信任 WSFedEndpoint 任何尾随空格可能会导致导入到错误脚本。 在此情况下，从之前的文件导入手动删除空间。 例如，这些条目导致错误：  
+在信赖方信任的 WSFedEndpoint 属性中使用任何尾随空格都可能会导致导入脚本出错。 对于这种情况，请在导入之前从文件中手动删除这些空格。 例如，下列条目会导致错误：  
   
     ```  
     <URI N="WSFedEndpoint">https://127.0.0.1:444 /</URI>  
@@ -240,36 +241,36 @@ import-federationconfiguration.ps1
     <URI N="WSFedEndpoint">https://myapp.cloudapp.net:83/</URI>  
     ```  
 > [!IMPORTANT]
->  如果你有 Active Directory 的索赔提供商信任来源系统上的任何自定义声明规则 （以外的广告 FS 默认规则），这些将不会通过这些脚本迁移。 这是因为 Windows Server 2012 R2 的新的默认值。 必须通过手动添加到新的 Windows Server 2012 R2 场中 Active Directory 索赔提供商信任合并任何自定义规则。  
+>  如果针对源系统中的 Active Directory 声明提供程序信任使用了任何自定义声明规则（除 AD FS 默认规则以外的规则），脚本将不会迁移这些规则。 这是因为 Windows Server 2012 R2 具有新的默认值。 必须通过手动将它们添加到 Active Directory 声明提供方信任新的 Windows Server 2012 R2 场中合并所有自定义规则。  
   
-4.  配置所有自定义的广告 FS 端点设置。 在广告 FS 管理控制台中，选择**端点**。 检查启用的广告 FS 端点根据启用广告 FS 端点准备广告 FS 迁移时导出到一个文件的列表。  
+4.  配置所有自定义 AD FS 终结点设置。 在 AD FS 管理控制台中选择“终结点”。 根据你在准备 AD FS 迁移时导出到文件中的已启用 AD FS 终结点列表检查已启用的 AD FS 终结点。  
   
-     \ 且的  
+     \- And -  
   
-     配置任何自定义声明说明。 在广告 FS 管理控制台中，选择**索赔说明**。 检查广告 FS 索赔说明根据列表索赔描述准备广告 FS 迁移时导出到一个文件的列表。 添加任何包含在你的文件，但不是包括在广告 FS 默认列表中的自定义声明说明。 请注意到文件中 ClaimType 都地图中管理主机的索赔标识符。  
+     配置所有自定义声明说明。 在 AD FS 管理控制台中选择“声明说明” 。 针对你在准备 AD FS 迁移时导出到文件中的声明说明列表，检查 AD FS 声明说明的列表。 在 AD FS 中添加包含在文件中，但未包含在默认列表中的所有自定义声明说明。 请注意，管理控制台中的 Claim 标识符将映射到文件中的 ClaimType。  
   
-5.  安装和配置所有备份自定义特性官方商城。 以 administrator 身份，确保任何自定义特性官方商城二进制文件的广告 FS 配置指向它们在更新之前将升级到.NET Framework 4.0 或更高版本。  
+5.  安装并配置所有已备份的自定义特性存储。 在更新 AD FS 配置之前，管理员应确保将所有自定义特性存储二进制文件升级到 .NET Framework 4.0 或更高版本，这样才能指向这些二进制文件。  
   
-6.  配置将映射到传统 web.config 文件参数的服务属性。  
+6.  配置要映射到原有 web.config 文件参数的服务属性。  
   
-    -   如果**useRelayStateForIdpInitiatedSignOn**已添加到**web.config**必须在你在 Windows Server 2012 R2 农场里的广告 FS 配置以下服务的属性，然后在你的广告 FS 2.0 或在 Windows 服务器 2012年电场的日落的广告 F 文件：  
+    -   如果**useRelayStateForIdpInitiatedSignOn**已添加到**web.config**文件中的 AD FS 2.0 或 Windows Server 2012 场中的 AD FS，则必须在 AD FS 内配置以下服务属性Windows Server 2012 R2 场：  
   
-        -   在 Windows Server 2012 R2 的广告 FS 包括**%systemroot%\ADFS\Microsoft.IdentityServer.Servicehost.exe.config**文件。 使用相同的语法作为创建元素**web.config**文件元素： `<useRelayStateForIdpInitiatedSignOn enabled="true" />`。 作为的一部分包含此元素**< microsoft.identityserver.web >**部分**Microsoft.IdentityServer.Servicehost.exe.config**文件。  
+        -   Windows Server 2012 R2 中的 AD FS 包括 **%systemroot%\ADFS\Microsoft.IdentityServer.Servicehost.exe.config**文件。 与相同的语法创建一个元素**web.config** file 元素： `<useRelayStateForIdpInitiatedSignOn enabled="true" />`。 包含此元素作为的一部分 **< microsoft.identityserver.web >** 一部分**Microsoft.IdentityServer.Servicehost.exe.config**文件。  
   
-    -   如果**< persistIdentityProviderInformation 启用 ="真 & #124; false"lifetimeInDays ="90"enablewhrPersistence ="真 & #124; false"/ \ >**已添加到**web.config**你必须配置 Windows Server 2012 R2 场中你的广告 FS 中以下服务的属性，然后在你的广告 FS 2.0 或在 Windows 服务器 2012年电场的日落的广告 F 文件：  
+    -   如果 **< persistIdentityProviderInformation 启用 ="true&#124;false"lifetimeInDays ="90"enablewhrPersistence ="true&#124;false"/\>** 已添加到**web.config**文件中的 AD FS 2.0 或 AD FS 在 Windows Server 2012 场中，则必须在 Windows Server 2012 R2 场中的 AD FS 内配置以下服务属性：  
   
-        1.  在 Windows Server 2012 R2 的广告 FS，运行以下 Windows PowerShell 命令： `Set-AdfsWebConfig –HRDCookieEnabled –HRDCookieLifetime`。  
+        1.  在 Windows Server 2012 R2 中 AD FS 中，运行以下 Windows PowerShell 命令： `Set-AdfsWebConfig –HRDCookieEnabled –HRDCookieLifetime`。  
   
-    -   如果**< singleSignOn 启用 ="真 & #124; false"/ \ >**已添加到**web.config**文件在你的广告 FS 2.0 或 Windows 服务器 2012年场中的广告 F 中，你不需要在 Windows Server 2012 R2 电场的日落设置广告 FS 中的任何其他服务属性。 默认情况下在 Windows Server 2012 R2 场中广告 FS 单一登录已启用。  
+    -   如果 **< 单一登录启用 ="true&#124;false"/\>** 已添加到**web.config**文件中的 AD FS 2.0 或 Windows Server 2012 场中的 AD FS，不需要设置任何其他服务在 Windows Server 2012 R2 场中的 AD FS 内的属性。 单一登录是 Windows Server 2012 R2 场中的 AD FS 中的默认情况下启用的。  
   
-    -   如果 localAuthenticationTypes 设置添加了**web.config**必须在你在 Windows Server 2012 R2 农场里的广告 FS 配置以下服务的属性，然后在你的广告 FS 2.0 或在 Windows 服务器 2012年电场的日落的广告 F 文件：  
+    -   如果已将 localAuthenticationTypes 设置添加到**web.config**文件中的 AD FS 2.0 或 Windows Server 2012 场中的 AD FS，则必须在 Windows Server 2012 R2 场中的 AD FS 内配置以下服务属性：  
   
-        -   集成，表单、 TlsClient，基本转换到等效广告 FS 在 Windows Server 2012 R2 的列表中的全局身份验证策略设置支持两种联合身份验证服务和代理身份验证类型。 这些设置可以配置中管理中贴靠下广告 FS**认证策略**。  
+        -   集成在一起，窗体、 TlsClient，Windows Server 2012 R2 中的等效 AD fs 的基本转换列表包含全局身份验证策略设置，用于支持联合身份验证服务和代理身份验证类型。 可以在“身份验证策略” 下的“管理”管理单元中的 AD FS 内配置这些设置。  
   
- 导入的原始配置数据后，你可以根据需要自定义对广告 FS 登录页面。 有关详细信息，请参阅[自定义的广告 FS 登录页面](../operations/AD-FS-Customization-in-Windows-Server-2016.md)。  
+ 导入原始配置数据后，可以根据需要自定义 AD FS 登录页。 有关详细信息，请参阅 [Customizing the AD FS Sign-in Pages](../operations/AD-FS-Customization-in-Windows-Server-2016.md)。  
   
 ## <a name="next-steps"></a>后续步骤
  [将 Active Directory 联合身份验证服务角色服务迁移到 Windows Server 2012 R2](migrate-ad-fs-service-role-to-windows-server-r2.md)   
- [准备迁移广告 FS 联盟服务器](prepare-migrate-ad-fs-server-r2.md)   
- [迁移广告 FS 联合身份验证的服务器代理](migrate-fed-server-proxy-r2.md)   
- [验证广告 FS 迁移到 Windows Server 2012 R2](verify-ad-fs-migration.md)
+ [准备迁移 AD FS 联合身份验证服务器](prepare-migrate-ad-fs-server-r2.md)   
+ [迁移 AD FS 联合服务器代理](migrate-fed-server-proxy-r2.md)   
+ [验证 AD FS 迁移到 Windows Server 2012 R2](verify-ad-fs-migration.md)

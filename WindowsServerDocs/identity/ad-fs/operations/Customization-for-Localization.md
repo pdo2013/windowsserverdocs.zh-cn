@@ -1,7 +1,7 @@
 ---
 ms.assetid: 38bbc002-a8fa-4211-9328-4ef67fca0acf
-title: "自定义进行本地化"
-description: 
+title: 用于本地化的自定义
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,20 +10,21 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: ac206d5aa8af970b65a014955ac66a8cf2835eb6
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59882028"
 ---
-# <a name="customization-for-localization"></a>自定义进行本地化 
+# <a name="customization-for-localization"></a>用于本地化的自定义 
 
->适用于：Windows Server 2016，Windows Server 2012 R2
+>适用于：Windows Server 2016, Windows Server 2012 R2
 
-可能会本地化 web 内容时为英语以外的语言。 当你本地化会注意以下事项。  
+可以将 Web 内容本地化为英语以外的语言。 当你在本地化时，请注意以下事项。  
   
-自定义的内容后，自定义优先;因此，你应该自定义你想要支持的所有语言版本。 自定义的所有内容都采用区域设置参数。 配置本地化的内容时，它了 country\ 较少的区域设置首先配置，例如，"短"之前，如配置国家/地区和 region\ 特定区域设置"en\-我们"。  
+自定义内容后，将优先该自定义；因此，你应该为你想要支持的所有语言进行自定义。 所有自定义的内容都使用区域设置参数。 在配置本地化的内容时，配置不带有国家/地区\-更少的区域设置第一个，例如，"en"，然后再配置国家/地区和区域\-特定的区域设置，例如"en\-我们"。  
   
-下图显示一些其他代码示例。  
+下面显示了一些其他代码示例。  
   
     
     Set-AdfsWebTheme -TargetName default -Logo @{Locale="";Path="c:\contoso.png"}  
@@ -31,7 +32,7 @@ ms.lasthandoff: 12/12/2017
     Set-AdfsWebTheme -TargetName default -Illustration @{Locale="";Path="c:\illustration.png"}  
 
   
-下图显示一些其他代码示例。  
+下面显示了一些其他代码示例。  
   
  
     Set-AdfsGlobalWebContent -ErrorPageDescriptionText "This is Contoso's error page description" –locale "en"  
@@ -41,7 +42,7 @@ ms.lasthandoff: 12/12/2017
     Set-AdfsGlobalWebContent -ErrorPageDescriptionText "Il s'agit de description de page erreur de Contoso" –locale "fr"  
  
   
-如果你希望自定义以外英语 Unicode 输入所需的语言的 web 内容时，我们建议你使用的 Windows PowerShell ISE。 有关其他信息，请参阅[引入 Windows PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx)。  
+如果你想要自定义 web 内容为英语之外的需要 Unicode 输入的其他语言，我们建议使用 Windows PowerShell ISE。 有关其他信息，请参阅 [Windows PowerShell ISE 简介](https://technet.microsoft.com/library/dd315244.aspx)。  
 
 ## <a name="additional-references"></a>其他参考 
-[广告 FS 用户登录自定义](AD-FS-user-sign-in-customization.md) 
+[AD FS 用户登录自定义](AD-FS-user-sign-in-customization.md) 

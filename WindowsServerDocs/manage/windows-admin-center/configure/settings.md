@@ -1,61 +1,61 @@
 ---
 title: 设置
-description: 了解 Windows Admin Center (Project Honolulu) 中的设置。 用户设置允许用户更改其语言/地区和其他首选项。 网关设置让管理员配置网关。
+description: 了解 Windows Admin Center (项目 Honolulu) 中的设置。 用户设置允许用户更改其语言/区域和其他首选项。 网关设置可让管理员配置网关。
 ms.technology: manage
 ms.topic: article
 author: haley-rowland
 ms.author: harowl
-ms.date: 04/12/2018
+ms.date: 09/19/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: d67a2c743900792353141186112cd09dbf780309
-ms.sourcegitcommit: f1edfc6525e09dd116b106293f9260123a94de0c
-ms.translationtype: MT
+ms.openlocfilehash: 1e1231500733f70ddfcbd4f8a847047b73f24a00
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "9296619"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59882378"
 ---
-# Windows Admin Center 设置
+# <a name="settings"></a>设置
 
-> 适用于： Windows Admin Center
+> 适用于：Windows Admin Center
 
-Windows Admin Center 设置包含用户级别和网关级别设置。 对用户级别设置的更改仅影响当前用户的配置文件，而对网关级别设置的更改将影响上的 Windows Admin Center 网关的所有用户。
+Windows Admin Center 设置包含用户级别和网关级别设置。 对用户级别设置的更改仅影响当前用户的配置文件，而对网关级别设置的更改会影响网关的 Windows Admin Center 上的所有用户。
 
-## 用户设置
+## <a name="user-settings"></a>用户设置
 
-用户级别设置由以下部分组成：
+用户级设置包括以下各节：
 
 - 帐户
-- 个性化
 - 语言/区域
 - 建议
-- 高级
 
-在**帐户**选项卡，用户可以查看他们已用于进行身份验证到 Windows Admin Center 的凭据。 如果 Azure AD 配置为可标识提供程序，用户可以注销此选项卡上从其 Azure AD 帐户。
+在中**帐户**选项卡上，用户可以查看他们有用于进行身份验证到 Windows Admin Center 的凭据。 如果 Azure AD 配置为标识提供程序，用户可以注销 Azure AD 帐户在此选项卡。
 
-在**个性化**选项卡上，用户可以切换到深色 UI 主题。
+在中**语言/区域**选项卡上，用户可以更改 Windows Admin Center 所显示的语言和区域格式。
 
-在**语言/地区**选项卡，用户可以更改由 Windows Admin Center 显示的语言和区域格式。
+在中**建议**选项卡上，用户可以切换有关 Azure 服务和新功能的建议。
 
-在**建议**选项卡，用户可以切换有关 Azure 服务和新功能的建议。
+### <a name="dark-theme"></a>深色主题
 
-**高级**选项卡为 Windows Admin Center 扩展开发人员提供了其他功能。
+> 适用于：Windows Admin Center 预览版
 
-## 网关设置
+在 Windows Admin Center 预览版中，可以解锁额外**个性化设置**部分中，其中包含以切换到深色 UI 主题的选项。 若要启用**个性化**部分中，输入```msft.sme.shell.personalization```作为试验的密钥。
 
-网关级别的设置由以下部分组成：
+>[!IMPORTANT]
+> 深色主题是正在进行的工作，这一次，请执行不报告错误。
 
-- 扩展
-- Access
+## <a name="gateway-settings"></a>网关设置
+
+网关级别的设置包括以下各节：
+
+- Extensions
+- 访问
 - Azure
-- 共享的连接
 
-只有网关管理员将能够查看和更改这些设置。 这些设置的更改更改的网关的配置，并且会影响 Windows Admin Center 网关的所有用户。
+仅网关管理员将能够查看和更改这些设置。 更改这些设置更改网关的配置，并且会影响 Windows Admin Center 网关的所有用户。
 
-在**扩展**选项卡中，管理员可以安装、 卸载或更新网关扩展。 [了解有关扩展的详细信息。](using-extensions.md)
+在中**扩展**选项卡上，管理员可以安装、 卸载或更新网关扩展。 [了解有关扩展的详细信息。](using-extensions.md)
 
-**的访问权限**选项卡使管理员可以配置谁可以访问 Windows Admin Center 网关，以及用于对用户进行身份验证的标识提供程序。 [了解有关控制访问网关。](user-access-control.md)
+**访问**选项卡允许管理员配置谁可以访问 Windows Admin Center 网关，以及用于对用户进行身份验证的标识提供程序。 [详细了解如何控制对网关的访问。](user-access-control.md)
 
-从**Azure**选项卡，管理员可以注册与 Azure 启用[Azure 集成功能](azure-integration.md)在 Windows Admin Center 网关。
-
-使用**共享连接**选项卡，管理员可以配置连接的 Windows Admin Center 网关的所有用户之间共享单个列表。 [了解有关配置网关连接一次为所有用户。](shared-connections.md)
+从**Azure**选项卡上，管理员可以向注册网关使 Azure [Azure 集成功能](azure-integration.md)Windows Admin Center 中。

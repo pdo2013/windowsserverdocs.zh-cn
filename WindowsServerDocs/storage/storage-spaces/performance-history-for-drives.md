@@ -1,32 +1,32 @@
 ---
-title: 驱动器性能历史记录
+title: 对驱动器的性能历史记录
 ms.author: cosdar
 ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 02/02/2018
-Keywords: Storage Spaces Direct
+Keywords: 存储空间直通
 ms.localizationpriority: medium
 ms.openlocfilehash: d162275a885dac79e7efe749328ebdca471fcad1
-ms.sourcegitcommit: 1533d994a6ddea54ac189ceb316b7d3c074307db
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "1589749"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879188"
 ---
-# <a name="performance-history-for-drives"></a>驱动器性能历史记录
+# <a name="performance-history-for-drives"></a>对驱动器的性能历史记录
 
-> 应用于： Windows Server 内幕预览
+> 适用于：Windows Server Insider Preview
 
-[性能历史记录存储空格直接](performance-history.md)此子主题介绍为驱动器收集的性能历史记录的详细信息。 性能历史记录了可供群集存储子系统，无论总线中每个驱动器或媒体类型。 但是，不适用于 OS 启动驱动器。
+此子主题[的存储空间直通的性能历史记录](performance-history.md)详细地介绍了为驱动器收集的性能历史记录。 性能历史记录可用于每个驱动器在群集存储子系统中，而不考虑总线或媒体类型。 但是，不用于 OS 启动驱动器。
 
    > [!NOTE]
-   > 无法为已关闭的服务器中的驱动器收集性能历史记录。 当服务器重新启动后，集合将自动恢复。
+   > 不能为驱动器已关闭的服务器中收集性能历史记录。 当服务器重新启动后，集合将自动恢复。
 
-## <a name="series-names-and-units"></a>系列名称和单位
+## <a name="series-names-and-units"></a>序列名称和单位
 
-为每个符合条件的驱动器收集这些系列：
+这些系列将收集有关每个符合条件的驱动器：
 
 | 系列                          | 单位             |
 |---------------------------------|------------------|
@@ -46,21 +46,21 @@ ms.locfileid: "1589749"
 
 | 系列                          | 如何解释                                                            |
 |---------------------------------|-----------------------------------------------------------------------------|
-| `physicaldisk.iops.read`        | 每秒由驱动器已完成的读取操作的数量。                |
-| `physicaldisk.iops.write`       | 每秒由驱动器已完成的写操作的数量。               |
-| `physicaldisk.iops.total`       | 读取或写入每秒由驱动器已完成的操作的总数。 |
-| `physicaldisk.throughput.read`  | 从每秒的驱动器读取的数据的数量。                            |
-| `physicaldisk.throughput.write` | 写入每秒的驱动器的数据的数量。                           |
-| `physicaldisk.throughput.total` | 读取或写入每秒的驱动器的数据的总量。        |
-| `physicaldisk.latency.read`     | 从驱动器的读取操作的平均延迟。                          |
-| `physicaldisk.latency.write`    | 到驱动器写入操作的平均延迟。                           |
-| `physicaldisk.latency.average`  | 所有操作或从驱动器的平均延迟。                     |
+| `physicaldisk.iops.read`        | 每秒完成的驱动器的读取操作的次数。                |
+| `physicaldisk.iops.write`       | 每秒完成的驱动器的写入操作数目。               |
+| `physicaldisk.iops.total`       | 总数的读取或写入操作每秒完成的驱动器。 |
+| `physicaldisk.throughput.read`  | 从驱动器每秒读取的数据的数量。                            |
+| `physicaldisk.throughput.write` | 数据写入到每秒的驱动器数量。                           |
+| `physicaldisk.throughput.total` | 数据读取或写入到每秒的驱动器的总数量。        |
+| `physicaldisk.latency.read`     | 从驱动器读取操作的平均延迟。                          |
+| `physicaldisk.latency.write`    | 对驱动器进行写入操作的平均延迟。                           |
+| `physicaldisk.latency.average`  | 到或从驱动器的所有操作的平均延迟。                     |
 | `physicaldisk.size.total`       | 驱动器的总存储容量。                                    |
-| `physicaldisk.size.used`        | 驱动器的使用的存储容量。                                     |
+| `physicaldisk.size.used`        | 驱动器已用存储空间容量。                                     |
 
-## <a name="where-they-come-from"></a>它们来自
+## <a name="where-they-come-from"></a>这些来自
 
-`iops.*`， `throughput.*`，和`latency.*`系列收集从`Physical Disk`服务器上设置连接驱动器的位置的性能计数器，每个驱动器的一个实例。 这些计数器的衡量`partmgr.sys`，不包括多个 Windows 软件堆栈也任何网络跃点数。 它们是代表设备硬件性能。
+`iops.*`， `throughput.*`，并`latency.*`系列收集从`Physical Disk`在服务器上设置该驱动器已连接的性能计数器，每个驱动器的一个实例。 这些计数器测量由`partmgr.sys`，但不包括的 Windows 软件堆栈和任何网络跃点。 它们是代表设备硬件性能。
 
 | 系列                          | 源计数器           |
 |---------------------------------|--------------------------|
@@ -75,7 +75,7 @@ ms.locfileid: "1589749"
 | `physicaldisk.latency.average`  | `Avg. Disk sec/Transfer` |
 
    > [!NOTE]
-   > 计数器通过整个间隔，不会被取样开始算起。 例如，如果驱动器为空闲 9 秒但完成 30 IOs 在 10 秒，其`physicaldisk.iops.total`将记录为 3 IOs 每秒平均此 10 秒间隔内。 这样可确保其性能历史记录捕获所有活动和可靠到干扰。
+   > 计数器来度量在整个间隔内，不会被取样。 例如，如果在驱动器处于空闲状态 9 秒但在完成时 30 IOs 10，10 秒，其`physicaldisk.iops.total`记录为 3 个 IOs 每秒平均此 10 秒间隔内。 这可确保其性能历史记录捕获所有活动也很可靠到干扰。
 
 `size.*`系列收集从`MSFT_PhysicalDisk`类在 WMI 中，每个驱动器的一个实例。
 
@@ -84,14 +84,14 @@ ms.locfileid: "1589749"
 | `physicaldisk.size.total`       | `Size`                 |
 | `physicaldisk.size.used`        | `VirtualDiskFootprint` |
 
-## <a name="usage-in-powershell"></a>在 PowerShell 中的使用情况
+## <a name="usage-in-powershell"></a>在 PowerShell 中的用法
 
-使用[Get-PhysicalDisk](https://docs.microsoft.com/powershell/module/storage/get-physicaldisk) cmdlet:
+使用[Get-physicaldisk](https://docs.microsoft.com/powershell/module/storage/get-physicaldisk) cmdlet:
 
 ```PowerShell
 Get-PhysicalDisk -SerialNumber <SerialNumber> | Get-ClusterPerf
 ```
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
-- [性能的存储空间直接的历史记录](performance-history.md)
+- [有关存储空间直通的性能历史记录](performance-history.md)

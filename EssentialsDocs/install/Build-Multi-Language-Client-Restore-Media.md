@@ -1,6 +1,6 @@
 ---
-title: "使用多语言客户端恢复媒体"
-description: "介绍了如何使用 Windows Server Essentials"
+title: 生成多语言客户端还原介质
+description: 介绍如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,48 +13,49 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 1ad934d297c3092050bd6adbb6bb0f50d1ec6f36
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879868"
 ---
-# <a name="build-multi-language-client-restore-media"></a>使用多语言客户端恢复媒体
+# <a name="build-multi-language-client-restore-media"></a>生成多语言客户端还原介质
 
 >适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
 
 > [!NOTE]
->  你必须先创建多语言的 Windows 映像中所述[演练： 多语言的 Windows 映像创建](https://technet.microsoft.com/library/jj126995)添加到 install.wim Windows Server Essentials langauage pack 之前。  
+>  必须先创建多语 Windows 映像中所述[演练：多语言 Windows 映像创建](https://technet.microsoft.com/library/jj126995)添加到 install.wim 的 Windows Server Essentials 语言包之前。  
   
- 在生成多语言服务器安装 DVD 时，将为服务器 install.wim 安装语言包。 将语言包的一部分安装还原向导本地化的资源。  
+ 生成多语言服务器安装 DVD 时，会为服务器 install.wim 安装语言包。 还原向导的本地化资源会作为语言包的一部分进行安装。  
   
-### <a name="to-build-a-multi-language-client-restore-media"></a>若要使用多语言客户端恢复媒体  
+### <a name="to-build-a-multi-language-client-restore-media"></a>生成多语言客户端还原介质  
   
-1.  装载 install.wim c:\mount，在我们 c:\mount\Program Files\Windows Server\bin\ClientRestore 文件夹作为调用的客户端恢复媒体根: [RestoreMediaRoot] 下方：  
+1.  在 c:\mount 处装载 install.wim，我们将 c:\mount\Program Files\Windows Server\bin\ClientRestore 文件夹称为客户端还原介质的根文件夹：下面的 [RestoreMediaRoot]：  
   
     ```  
     dism /mount-wim /wimfile:install.wim /index:1 /mountdir:c:\mount  
     ```  
   
-2.  装载客户端还原 WIM 文件在 [RestoreMediaRoot]\Sources\Boot.wim （相同步骤需要执行的 boot_x86.wim 太）。 命令行是：  
+2.  在 [RestoreMediaRoot]\Sources\Boot.wim 处装载客户端还原 WIM 文件（还需要对 boot_x86.wim 执行相同步骤）。 命令行为：  
   
     ```  
     dism /mount-wim /wimfile:boot.wim /index:1 /mountdir:c:\mountRestore  
     ```  
   
-3.  将 WinPE Setup.cab 包添加到还原媒体中，通过运行：  
+3.  通过运行以下内容将 WinPE-Setup.cab 软件包添加到还原介质：  
   
     ```  
     dism /image:c:\mountRestore /add-package /packagepath:WinPE-Setup.cab  
     ```  
   
-4.  使用记事本编辑 c:\mountRestore\windows\system32\winpeshl.ini、 填充与以下内容：  
+4.  使用记事本编辑 c:\mountRestore\windows\system32\winpeshl.ini，使用以下内容填充：  
   
     ```  
     [LaunchApp]  
     AppPath = %SYSTEMDRIVE%\sources\SelectLanguage.exe  
     ```  
   
-5.  将语言包添加到还原媒体。 可以通过运行以下命令添加语言包：  
+5.  将语言包添加到还原介质。 可以通过运行以下命令来添加语言包：  
   
     ```  
     dism /image:c:\mountRestore /add-package /packagepath:[language pack path]  
@@ -64,25 +65,25 @@ ms.lasthandoff: 12/12/2017
   
     1.  WinPE 语言包 (lp.cab)  
   
-    2.  WinPE 安装语言包 (例如，是 us.cab Setup_en WinPE WinPE Setup_ [语言].cab)  
+    2.  WinPE-Setup 语言包 (WinPE-Setup_[lang].cab，例如 WinPE-Setup_en-us.cab）  
   
-    3.  对于亚洲字体，包括中文 cn、 中文细、 中文香港特别行政区、 ko kr、 ja-jp 需要安装额外的字体包 (winpe-fontsupport-[语言].cab，例如，winpe fontsupport 中文 cn.cab)  
+    3.  对于亚洲字体，包括 zh-cn、zh-tw、zh-hk、ko-kr 和 ja-jp，需要安装附加字体库（winpe-fontsupport-[语言].cab，例如 winpe-fontsupport-zh-cn.cab)  
   
-6.  通过运行生成新的 Lang.ini 文件：  
+6.  通过运行以下内容生成新 Lang.ini 文件：  
   
     ```  
     dism /image:c:\mountRestore /Gen-LangINI /distribution:mount  
     ```  
   
-7.  提交，并通过运行卸载映像:  
+7.  通过运行以下内容确认并卸载映像：  
   
     ```  
     dism /unmount-wim /mountdir:c:\mountRestore /commit  
     ```  
   
-8.  重复第 7 步为第 2 步 [RestoreMediaroot]\Sources\Boot_x86.wim。  
+8.  对 [RestoreMediaroot]\Sources\Boot_x86.wim 重复步骤 2 到步骤 7。  
   
-9. 提交，并通过运行卸载映像:  
+9. 通过运行以下内容确认并卸载映像：  
   
     ```  
     dism /unmount-wim /mountdir:c:\mount /commit  
@@ -92,11 +93,11 @@ ms.lasthandoff: 12/12/2017
 
  [创建和自定义映像](Creating-and-Customizing-the-Image.md)   
  [其他自定义设置](Additional-Customizations.md)   
- [准备部署该映像](Preparing-the-Image-for-Deployment.md)   
+ [部署准备的映像](Preparing-the-Image-for-Deployment.md)   
  [测试客户体验](Testing-the-Customer-Experience.md)
 
  [创建和自定义映像](../install/Creating-and-Customizing-the-Image.md)   
  [其他自定义设置](../install/Additional-Customizations.md)   
- [准备部署该映像](../install/Preparing-the-Image-for-Deployment.md)   
+ [部署准备的映像](../install/Preparing-the-Image-for-Deployment.md)   
  [测试客户体验](../install/Testing-the-Customer-Experience.md)
 

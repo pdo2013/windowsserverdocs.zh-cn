@@ -1,6 +1,6 @@
 ---
-title: 什么是 IPAM 中的新增功能
-description: 本主题介绍了新的或更改在 Windows Server 2016 的 IP 地址管理 (IPAM) 功能。
+title: IPAM 中的新增功能
+description: 本主题介绍了新增或更改 Windows Server 2016 中的 IP 地址管理 (IPAM) 功能。
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,106 +13,107 @@ ms.topic: get-started-article
 ms.assetid: f2f2f1a5-ac2f-41b7-a495-98ad0e2a9b20
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b90cd1ab223e38cbf5933b58a594b32d5e3d4858
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 1305f889339fb4ca6815912924ba2232cfaf4cab
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59880748"
 ---
-# <a name="whats-new-in-ipam"></a>什么是 IPAM 中的新增功能
+# <a name="whats-new-in-ipam"></a>IPAM 中的新增功能
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-本主题介绍了新的或更改在 Windows Server 2016 的 IP 地址管理 (IPAM) 功能。  
+本主题介绍了新增或更改 Windows Server 2016 中的 IP 地址管理 (IPAM) 功能。  
   
-IPAM 企业或云服务提供商 (CSP) 的网络上提供高度自定义管理和监控的 IP 地址和 DNS 基础结构的功能。 你可以监视、 审核，并管理动态主机配置协议 (DHCP) 和域名系统 (DNS) 运行，方法是使用 IPAM 服务器。  
+IPAM 提供了企业版或云服务提供商 (CSP) 网络上的 IP 地址和 DNS 基础结构的高度可自定义管理和监视能力。 可以监视、 审核和管理使用 IPAM 运行动态主机配置协议 (DHCP) 和域名系统 (DNS) 服务器。  
   
-## <a name="BKMK_IPAM2012R2"></a>在服务器 IPAM 的更新  
-以下是在 Windows Server 2016 IPAM 新的和改进功能。  
+## <a name="BKMK_IPAM2012R2"></a>中 IPAM 服务器的更新  
+以下是 Windows Server 2016 中的 IPAM 的新增和改进功能。  
   
-|功能中的功能|新的或改进|描述|  
+|特性/功能|新功能或改进功能|描述|  
 |--------------------------|-------------------|---------------|  
-|[增强的 IP 地址管理](../../technologies/ipam/../../technologies/ipam/../../technologies/ipam/What-s-New-in-IPAM.md#EIP)|改进了|如处理 IPv4/32 和 IPv6 /128 子网和 IP 地址块中查找 IP 地址的免费网和范围方案 IPAM 功能得到改进。|  
-|[增强的 DNS 点点](../../technologies/ipam/../../technologies/ipam/../../technologies/ipam/What-s-New-in-IPAM.md#EDNS)|新增功能|IPAM 支持两个已加入域的 Active Directory 集成和文件备份 DNS 服务器的资源 DNS 记录、 条件转发器，并 DNS 区域管理。|  
-|[集成 DNS、 DHCP 和 IP 地址 (DDI) 管理](../../technologies/ipam/../../technologies/ipam/../../technologies/ipam/What-s-New-in-IPAM.md#DDI)|改进了|启用操作，如直观显示所有 DNS 资源记录属于 IP 地址，几个新的体验和集成生命周期管理自动 IP 地址基于 DNS 资源的记录，以及对 DNS 和 DHCP 操作的 IP 地址生命周期管理的清单。|  
-|[多个主动目录森林支持](#bkmk_ad)|新增功能|IPAM 可用于装有 IPAM 森林和每个远程林双向信任关系时管理多个 Active Directory 林 DHCP 和 DNS 服务器。|  
-|[清除利用率数据](#bkmk_purge)|新增功能|你现在可以通过清除早于你所指定的日期的 IP 地址利用率数据降低 IPAM 数据库大小。|  
-|[Windows PowerShell 角色基于访问控制支持](#bkmk_ps)|新增功能|你可以使用 Windows PowerShell 设置 IPAM 对象访问范围。|  
+|[增强的 IP 地址管理](../../technologies/ipam/../../technologies/ipam/../../technologies/ipam/What-s-New-in-IPAM.md#EIP)|改进功能|IPAM 功能被改进的方案，例如处理/32 IPv4 和 IPv6 为/128 子网和 IP 地址块中查找可用的 IP 地址子网和范围。|  
+|[增强的 DNS 服务管理](../../technologies/ipam/../../technologies/ipam/../../technologies/ipam/What-s-New-in-IPAM.md#EDNS)|新增|IPAM 支持 DNS 资源记录、 条件转发器和 DNS 区域管理这两个已加入域的 Active Directory 集成和支持文件的 DNS 服务器。|  
+|[集成的 DNS、 DHCP 和 IP 地址 (DDI) 管理](../../technologies/ipam/../../technologies/ipam/../../technologies/ipam/What-s-New-in-IPAM.md#DDI)|改进功能|多个新体验和已启用集成的生命周期管理操作，例如可视化所有 DNS 资源记录适用于 IP 地址，基于 DNS 资源记录和 IP 地址生命周期管理的 IP 地址的自动化的清单有关 DNS 和 DHCP 的操作。|  
+|[多个 Active Directory 林支持](#bkmk_ad)|新增|IPAM 可用于管理多个 Active Directory 林的 DNS 和 DHCP 服务器时安装 IPAM 的林和每个远程林之间具有双向信任关系。|  
+|[清除利用率数据](#bkmk_purge)|新增|你现在可以通过清除早于指定日期的 IP 地址利用率数据减少 IPAM 数据库大小。|  
+|[基于角色的访问控制的 Windows PowerShell 支持](#bkmk_ps)|新增|可以使用 Windows PowerShell IPAM 对象上设置访问作用域。|  
   
 ### <a name="EIP"></a>增强的 IP 地址管理  
-以下功能改进 IPAM 地址管理功能。  
+以下功能来提高 IPAM 地址管理功能。  
 >[!NOTE]
->请 IPAM Windows PowerShell 命令参考[IP 地址管理 (IPAM) 服务器 Cmdlet 的 Windows PowerShell](https://technet.microsoft.com/library/jj553807.aspx)。  
+>有关 IPAM 的 Windows PowerShell 命令参考，请参阅[Windows PowerShell 中的 IP 地址管理 (IPAM) 服务器 Cmdlet](https://technet.microsoft.com/library/jj553807.aspx)。  
   
-#### <a name="support-for-31-32-and-128-subnets"></a>支持 /31、 / 32，以及 /128 子网  
-在 Windows Server 2016 现在支持 /31、 / 32，以及 /128 子网 IPAM。 例如，两个地址子网 (月 31 IPv4) 可能需要点到点链接之间切换。 此外，某些开关可能需要一个回送地址 (/ 32 ipv4，/128 ipv6)。  
+#### <a name="support-for-31-32-and-128-subnets"></a>支持/31、 / 32，以及为/128 子网  
+Windows Server 2016 现在支持/31、 / 32 和为/128 子网中的 IPAM。 例如，两个地址子网 (/ 31 IPv4) 可能要求的交换机之间的点对点链路。 此外，某些开关可能需要单个环回地址 (/ 32 ipv4，对 IPv6 为/128)。  
   
-#### **<a name="find-free-subnets-with-find-ipamfreesubnet"></a>查找 IpamFreeSubnet 与的免费网**  
+#### <a name="find-free-subnets-with-find-ipamfreesubnet"></a>**查找免费的子网，具有查找 IpamFreeSubnet**  
   
-此命令返回子网所提供的分配，给定 IP 阻止、 前缀长度和大量请求个子网。   
+此命令返回的子网，可用于分配，给定一个 ip 地址块、 前缀长度和所请求的子网数。   
   
-如果可用子网小于请求子网的数量，可用子网返回的警告，指出提供的号码小于请求编号。  
+如果可用子网数小于所请求的子网数，可用子网将返回一个警告，指示可用的编号小于请求的数目。  
   
 >[!NOTE]
->此函数不会实际上分配子网，它仅报告这些应用。 但是，cmdlet 输出可以传送到**添加 IpamSubnet**创建网的命令。  
+>此函数不会实际分配子网，它只报告其可用性。 但是，cmdlet 输出可以输送到**添加 IpamSubnet**命令以创建子网。  
   
 有关详细信息，请参阅[查找 IpamFreeSubnet](https://technet.microsoft.com/library/mt712782.aspx)。  
   
-#### **<a name="find-free-address-ranges-with-find-ipamfreerange"></a>发现免费的地址与查找 IpamFreeRange 的范围**  
+#### <a name="find-free-address-ranges-with-find-ipamfreerange"></a>**查找可用的地址范围和查找 IpamFreeRange**  
   
-此新命令退货可用 ip 地址给定 IP 子网、 所需区域中的地址数和区域请求的数量。   
+此新命令返回可用 IP 地址范围在给定的 IP 子网、 在范围内，所需的地址数和所请求的范围数。   
   
-搜索未分配的 IP 地址相匹配的请求地址数连续系列该命令。 重复该过程，直到找到范围请求的数，则或地址的直到不再可用范围可用。  
+此命令搜索的一系列连续的未分配的 IP 地址相匹配的请求的地址数。 重复该过程，直到找到请求的范围数，或直到再没有更多可用地址范围可用。  
   
 > [!NOTE]
-> 此函数实际上未分配的区域，则只会报告这些应用。 但是，cmdlet 输出可以传送到**添加 IpamRange**创建范围的命令。  
+> 此函数不会实际分配的范围，它只报告其可用性。 但是，cmdlet 输出可以输送到**添加 IpamRange**命令以创建该范围。  
   
 有关详细信息，请参阅[查找 IpamFreeRange](https://technet.microsoft.com/library/mt712772.aspx)。  
   
-### <a name="EDNS"></a>增强的 DNS 点点  
-在 Windows Server 2016 IPAM 现在支持 IPAM 正在运行 Active Directory 森林中的发现基于文件、 已加入域的 DNS 服务器。  
+### <a name="EDNS"></a>增强的 DNS 服务管理  
+Windows Server 2016 中的 IPAM 现在支持在其中运行 IPAM 的 Active Directory 林发现的基于文件的、 已加入域的 DNS 服务器。  
   
-此外，已添加以下 DNS 功能：  
+此外，已添加了以下 DNS 函数：  
   
--   区域和资源会记录从运行 Windows Server 2008 或更高版本的 DNS 服务器 （而不是那些属于 DNSSEC） 的集锦。  
+-   DNS 区域和资源记录 （而不是 dnssec 相关的那些） 的集合从运行 Windows Server 2008 或更高版本的 DNS 服务器。  
   
--   配置 （创建、 修改和删除） 属性并打开所有类型的资源记录 （而不是那些属于 DNSSEC） 的操作。  
+-   配置 （创建、 修改和删除） 的属性和对所有类型 （而不是 dnssec 相关的那些） 资源记录的操作。  
   
--   配置 （创建、 修改、 删除） 属性并打开所有类型的 DNS 区域，包括主辅助和桩模块区域的操作)。  
+-   配置 （创建、 修改、 删除） 的属性和操作对所有类型的 DNS 区域包括主辅助和存根区域)。  
   
--   如果将它们转发或反向查找区域来访触发辅助上的任务和桩模块区域。 例如，如任务**从主服务器传输**或**传输从主区域的新副本**。  
+-   如果正向或反向查找区域而不考虑触发辅助数据库上的任务和存根区域。 例如，如任务**从主区域传输**或**从主区域传输的区域的新副本**。  
   
--   基于角色访问控制 （DNS 记录和 DNS 区域） 的支持 DNS 配置。  
+-   受支持的 DNS 配置 （DNS 记录和 DNS 区域） 的基于角色的访问控制。  
   
--   条件转发器收集和配置创建、 删除 (编辑）。  
+-   条件转发器集合和配置 （创建、 删除、 编辑）。  
   
-### <a name="DDI"></a>集成 DNS、 DHCP 和 IP 地址 (DDI) 管理  
-当你查看的 IP 地址库存的 IP 地址时，你将可以选择在详细信息视图中查看所有 DNS 资源记录与 IP 地址相关联。  
+### <a name="DDI"></a>集成的 DNS、 DHCP 和 IP 地址 (DDI) 管理  
+当 IP 地址清单中查看 IP 地址时，您可以在详细信息视图以查看与 IP 地址相关联的所有 DNS 资源记录。  
   
-作为一部分 DNS 资源录制集锦 IPAM 收集 PTR 记录 DNS 反向查找区域。 对于所有反向查找区域映射到任何 IP 地址范围，IPAM 创建属于该区域相应映射 IP 地址范围内的所有 PTR 记录 IP 地址记录。 如果已经存在的 IP 地址，PTR 记录是只需该 IP 地址相关联。 不会自动创建的 IP 地址，如果反向查找区域没有映射到任何 IP 地址范围。  
+DNS 资源记录集合的一部分，IPAM 会收集 DNS 反向查找区域的 PTR 记录。 对于所有反向查找区域映射到的任何 IP 地址范围，IPAM 将创建属于该区域的相应映射的 IP 地址范围中的 PTR 记录的 IP 地址记录。 如果已存在该 IP 地址，是只需与该 IP 地址相关联的 PTR 记录。 如果反向查找区域未映射到的任何 IP 地址范围的 IP 地址不会自动创建。  
   
-通过 IPAM 了反向查找区域中创建 PTR 记录时，如上所述方式相同更新 IP 地址库存。 在后续集锦，由于系统中已经存在的 IP 地址，将 PTR 录制将只需映射与这 IP 地址。  
+IPAM 通过反向查找区域中创建 PTR 记录后，按上文所述相同的方式更新 IP 地址清单。 在后续回收期间由于在系统中，已存在的 IP 地址的 PTR 记录将只需映射与该 IP 地址。  
   
-### <a name="bkmk_ad"></a>多个主动目录森林支持  
-在 Windows Server 2012 R2 IPAM 是能够发现和管理属于 IPAM 服务器同一个 Active Directory 林中 DHCP 和 DNS 服务器。 现在，你可以管理 DNS 服务器和 DHCP 服务器属于不同的广告森林时，它有与装有 IPAM 服务器森林双向信任关系。 你可以转到**配置服务器发现**对话框框中，并添加你想要管理的森林受信任从其他。 发现服务器管理体验后，与属于装有 IPAM 相同林服务器相同。  
+### <a name="bkmk_ad"></a>多个 Active Directory 林支持  
+在 Windows Server 2012 R2 中，IPAM 就能够发现和管理属于与 IPAM 服务器相同的 Active Directory 林的 DNS 和 DHCP 服务器。 现在你可以管理 DNS 和 DHCP 服务器属于不同的 AD 林具有双向信任关系的林中安装 IPAM 服务器时。 你可以转到**配置服务器发现**对话框框中，添加来自其他受你想要管理的林。 发现服务器后，管理体验是属于同一林安装 IPAM 的服务器相同。  
   
-有关详细信息，请参阅[管理资源多主动目录森林](../../technologies/ipam/Manage-Resources-in-Multiple-Active-Directory-Forests.md)  
+有关详细信息，请参阅[管理多个 Active Directory 林中的资源](../../technologies/ipam/Manage-Resources-in-Multiple-Active-Directory-Forests.md)  
   
 ### <a name="bkmk_purge"></a>清除利用率数据  
-清除利用率数据可以通过删除旧的 IP 地址利用率数据减小 IPAM 数据库大小。 执行删除数据，你可以指定日期，然后 IPAM 删除所有数据库条目早于或提供等于日期。   
+清除利用率数据，可通过删除旧的 IP 地址利用率数据来减小 IPAM 数据库的大小。 若要执行删除数据后，你指定的日期，和 IPAM 中删除早于的所有数据库条目或提供的日期。   
   
 有关详细信息，请参阅[清除利用率数据](../../technologies/ipam/Purge-Utilization-Data.md)。  
   
-### <a name="bkmk_ps"></a>Windows PowerShell 角色基于访问控制支持  
-你现在可以使用 Windows PowerShell 配置角色基于访问控制。 可以使用 Windows PowerShell 命令检索 IPAM 中的 DNS 和 DHCP 对象并更改其访问权限的范围。 出于此原因，你还可以编写访问范围赋予以下对象 Windows PowerShell 脚本。  
+### <a name="bkmk_ps"></a>基于角色的访问控制的 Windows PowerShell 支持  
+现在可以使用 Windows PowerShell 来配置基于角色的访问控制。 可以使用 Windows PowerShell 命令来检索在 IPAM 中的 DNS 和 DHCP 对象并更改其访问作用域。 因此，可以编写 Windows PowerShell 脚本来将访问作用域分配给以下对象。  
   
 -   IP 地址空间  
   
--   IP 地址阻止  
+-   IP 地址块  
   
 -   IP 地址子网  
   
--   Ip 地址  
+-   IP 地址范围  
   
 -   DNS 服务器  
   
@@ -124,9 +125,9 @@ IPAM 企业或云服务提供商 (CSP) 的网络上提供高度自定义管理�
   
 -   DHCP 服务器  
   
--   DHCP 超级  
+-   DHCP 超级作用域  
   
--   DHCP 范围  
+-   DHCP 作用域  
   
-有关详细信息，请参阅[管理角色基于访问控制与 Windows PowerShell](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md)和[IP 地址管理 (IPAM) 服务器 Cmdlet 的 Windows PowerShell](https://technet.microsoft.com/library/jj553807.aspx)。  
+有关详细信息，请参阅[管理基于角色的访问控制使用 Windows PowerShell](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md)并[Windows PowerShell 中的 IP 地址管理 (IPAM) 服务器 Cmdlet](https://technet.microsoft.com/library/jj553807.aspx)。  
 

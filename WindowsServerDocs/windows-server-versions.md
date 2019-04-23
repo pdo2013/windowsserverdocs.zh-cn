@@ -15,11 +15,11 @@ ms.author: elizapo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 8d14ccf734d5242301030bbb6e3c2489e1a0266a
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2081912"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59876348"
 ---
 # <a name="windows-server---it-administrator-content-for-current-and-previous-releases"></a>Windows Server - 当前版本和以前版本的 IT 管理员内容
 
@@ -57,7 +57,7 @@ Windows Server 是一个平台，用于构建连接的应用程序、网络和 W
 
 ## <a name="product-evaluations"></a>产品评估
 
-[下载 Windows Server 2016 评估](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016?i=1) 
+[下载 Windows Server 2016 评估版](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016?i=1) 
 
 [下载 Windows Server 2012 R2 试用版](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2) 
 

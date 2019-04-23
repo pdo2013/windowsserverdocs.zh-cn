@@ -1,7 +1,7 @@
 ---
 ms.assetid: 4d002764-58b4-4137-9c86-1e55b02e07ce
-title: "配置合作伙伴公司"
-description: 
+title: 配置伙伴组织
+description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -10,30 +10,31 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
 ms.openlocfilehash: 5494f3bd8d012bf1ecc240439ff880d1bb52c280
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59875178"
 ---
-# <a name="configuring-partner-organizations"></a>配置合作伙伴公司
+# <a name="configuring-partner-organizations"></a>配置伙伴组织
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-部署新的合作伙伴组织中 Active Directory 联合身份验证服务 \(AD FS\)，完成的任务在上述[清单： 配置资源合作伙伴公司](Checklist--Configuring-the-Resource-Partner-Organization.md)或[清单： 配置的帐户的合作伙伴公司](Checklist--Configuring-the-Account-Partner-Organization.md)，这取决于你的广告 FS 设计。  
+若要部署 Active Directory 联合身份验证服务中新的合作伙伴组织\(AD FS\)，完成中的任务[核对清单：配置资源伙伴组织](Checklist--Configuring-the-Resource-Partner-Organization.md)或[核对清单：配置帐户伙伴组织](Checklist--Configuring-the-Account-Partner-Organization.md)，取决于你的 AD FS 设计。  
   
 > [!NOTE]  
-> 当您使用这些清单任一时，我们强烈建议你先阅读帐户合作伙伴或规划指南中的资源合作伙伴参考[广告 FS 设计指南 Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx)之前致力于适用于设置新的合作伙伴公司的过程。 按照以这种方式清单将帮助您提供更好地了解帐户合作伙伴或资源合作伙伴公司完整广告 FS 设计和部署故事。  
+> 当你使用其中某个清单时，我们强烈建议您先阅读对帐户伙伴或资源伙伴规划指南中的引用[Windows Server 2012 中 AD FS 设计指南](https://technet.microsoft.com/library/dd807036.aspx)然后继续执行用于设置新的合作伙伴组织的过程。 按照这种方式中的检查表将帮助提供更好地了解在帐户伙伴或资源伙伴组织完整 AD FS 设计和部署案例。  
   
-## <a name="about-account-partner-organizations"></a>有关帐户的合作伙伴公司  
-帐户合作伙伴是联盟信任关系物理存储在广告支持 FS – 特性应用商店中的用户帐户中的组织。 帐户合作伙伴负责收集和验证用户的凭据，该用户的索赔构建和打包为安全标记的索赔。 然后可以通过启用访问位于资源合作伙伴组织中基于 Web\ 资源联盟信任提供这些标记。  
+## <a name="about-account-partner-organizations"></a>有关帐户伙伴组织  
+帐户伙伴是联合身份验证信任关系的 AD FS – 支持属性存储中以物理方式存储用户帐户中的组织。 帐户伙伴负责收集和进行身份验证用户的凭据、 累积该用户的声明和将声明封装到安全令牌。 然后可通过联合身份验证信任，以便启用对 Web 提供这些令牌\-基于位于资源伙伴组织中的资源。  
   
-换言之，帐户合作伙伴代表其用户 account\ 侧联合身份验证的服务器问题安全令牌组织。 帐户合作伙伴公司中的联合服务器身份验证本地用户，然后安全令牌资源合作伙伴使用在创建授权决策。  
+换而言之，帐户伙伴代表其用户的组织帐户\-端联合身份验证服务器会颁发安全令牌。 帐户伙伴组织中的联合身份验证服务器进行身份验证本地用户，并在做出授权决定创建资源合作伙伴所使用的安全令牌。  
   
-在应用商店属性，方面广告 FS 帐户合作伙伴等于概念单个 Active Directory 林其帐户需要访问物理位于其他森林中的资源。 仅在外部信任或森林信任两个林之间存在关系和的资源的用户尝试访问已设置正确授权权限时，这片森林中的帐户可以访问资源森林中的资源。  
+有关属性存储在 AD FS 帐户伙伴是概念上等同于单个 Active Directory 林的帐户需要在物理上位于另一个林中的资源的访问权限。 仅当外部信任或林信任两个林之间存在关系，并向其用户尝试访问的资源设置了适当的授权时，在此林中的帐户可以访问资源林中的资源权限。  
   
-## <a name="about-resource-partner-organizations"></a>有关资源合作伙伴公司  
-资源合作伙伴是在广告 FS 部署组织 Web 服务器的位置。 资源合作伙伴信任帐户伙伴用户进行身份验证。 因此，以使授权决定，资源合作伙伴消耗打包在来自用户帐户伙伴中的安全令牌索赔。  
+## <a name="about-resource-partner-organizations"></a>有关资源伙伴组织  
+资源伙伴是组织中的 AD FS 部署 Web 服务器的位置。 资源伙伴信任帐户伙伴用户进行身份验证。 因此，要做出授权决策，资源伙伴将使用来自帐户伙伴中用户的安全令牌中打包的声明。  
   
-换言之，资源合作伙伴表示的组织的 Web 服务器受 resource\ 侧联合身份验证的服务器。 联合服务器资源合作伙伴在使用所产生的帐户合作伙伴以的 Web 服务器的身份验证决定资源伙伴中的安全标记。  
+换而言之，资源伙伴代表其 Web 服务器保护的资源的组织\-端联合身份验证服务器。 在资源伙伴联合身份验证服务器使用由帐户伙伴进行的 Web 服务器的授权决策资源伙伴中的安全令牌。  
   
-能够按广告 FS 资源，资源合作伙伴公司中的 Web 服务器都必须 Windows 身份基础 \(WIF\) 安装或安装了 Active Directory 联合身份验证服务 \(AD FS\) 1.x Claims\ 意识到 Web 代理角色服务。 广告 FS 资源可以主机 Web\ browser\ 基于或者基于 Web\ service\ 应用程序可正常的 web 服务器。  
+若要充当 AD FS 资源，资源伙伴组织中的 Web 服务器必须具有 Windows Identity Foundation \(WIF\)安装或具有 Active Directory 联合身份验证服务\(AD FS\) 1.x声明\-感知 Web 代理角色服务安装。 Web 服务器的 AD FS 资源可以承载任一 Web 发挥\-浏览器\-基于或 Web\-服务\-基于应用程序。  

@@ -1,6 +1,6 @@
 ---
-title: "在 Windows Server Essentials 仪表板中的概览"
-description: "介绍了如何使用 Windows Server Essentials"
+title: Windows Server Essentials 仪表板概述
+description: 介绍如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,168 +13,169 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: c2cc603f5e0303ada245956a524151393c538b27
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59881568"
 ---
-# <a name="overview-of-the-dashboard-in-windows-server-essentials"></a>在 Windows Server Essentials 仪表板中的概览
+# <a name="overview-of-the-dashboard-in-windows-server-essentials"></a>Windows Server Essentials 仪表板概述
 
 >适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
  
- Windows Server 软件包和 Windows Server 2012 R2 标准启用 Windows Server Essentials 体验角色包括简化了执行管理你的 Windows Server Essentials 网络和 server 任务管理仪表板。 通过使用 Windows Server Essentials 仪表板，你可以：  
+ 已启用 Windows Server Essentials 体验角色的 Windows Server Essentials 和 Windows Server 2012 R2 Standard 包括管理仪表板，它可以简化管理 Windows Server Essentials 网络和服务器时所执行的任务。 通过使用 Windows Server Essentials 仪表板，你可以：  
   
--   完成服务器设置  
+-   完成服务器的设置  
   
--   访问和执行常见的管理任务  
+-   访问并执行常见的管理任务  
   
--   查看服务器警报和对它们执行操作  
+-   查看服务器警报，并对其采取操作  
   
--   设置，并更改服务器设置  
+-   设置并更改服务器设置  
   
--   访问或搜索 web 上的帮助主题  
+-   访问或搜索 Web 上的帮助主题  
   
--   在 web 上的访问社区资源  
+-   访问 Web 上的社区资源  
   
 -   管理用户帐户  
   
--   管理设备与备份  
+-   管理设备和备份  
   
--   管理访问和 server 文件夹和硬盘驱动器设置  
+-   管理服务器文件夹和硬盘驱动器的访问权限和设置  
   
--   查看和管理外接程序中的应用程序  
+-   查看并管理加载项应用程序  
   
--   集成与 Microsoft 的在线服务  
+-   与 Microsoft Online Services 集成  
   
- 本主题包括：  
+ 本主题包括以下内容：  
   
--   [基本功能仪表板](#BKMK_Design)  
+-   [仪表板的基本功能](#BKMK_Design)  
   
--   [主页仪表板上的功能](#BKMK_Home)  
+-   [仪表板主页上的功能](#BKMK_Home)  
   
--   [管理的各部分的仪表板](#BKMK_Features)  
+-   [在仪表板的管理部分](#BKMK_Features)  
   
 -   [访问 Windows Server Essentials 仪表板](#BKMK_AccessDb)  
   
 -   [使用安全模式](#BKMK_UseSafeMode)  
   
-##  <a name="BKMK_Design"></a>基本功能仪表板  
- Windows Server Essentials 仪表板，可帮助你快速访问主要的信息和管理功能的服务器。 仪表板中包含几个部分。 下表介绍了部分。  
+##  <a name="BKMK_Design"></a> 仪表板的基本功能  
+ Windows Server Essentials 仪表板可帮助你快速访问关键信息和服务器的管理功能。 该仪表板包含多个部分。 下表说明了各个部分。  
   
  
   
-|项目|功能仪表板|描述|  
+|项目|仪表板功能|描述|  
 |----------|-----------------------|-----------------|  
-|1|导航栏|单击要访问的信息和与该部分关联的任务的导航栏上的某个部分。 打开仪表板中，每次**家庭**页面显示时，默认情况。|  
-|2|子节的选项卡|子节的选项卡中提供对 Windows Server Essentials 管理任务第二层的访问权限。|  
-|3|列表窗格|列表视图显示你可以管理，并包含有关每个对象基本信息的对象。|  
-|4|详细信息窗格中|详细信息窗格显示有关你在列表视图中选择的对象的其他信息。|  
-|5|任务窗格|任务窗格包含链接到工具和信息可帮助你管理属性任一特定（如的用户帐户或计算机）对象或全球设置对象类别。 任务窗格分为以下两个部分：<br /><br /> **对象任务**œ 包含指向工具和信息可帮助你管理列表视图（如的用户帐户或计算机）中选择的对象属性。<br /><br /> **全球任务**œ 包含指向工具和信息可帮助你管理功能区全球任务。 全球任务包含要添加新的对象、策略，设置等任务。|  
-|6|信息和设置|此部分中提供给服务器设置，以及关于您正在查看的仪表板页面的信息的帮助链接直接访问。|  
-|7|警报状态|警报状态提供快速可视显示有关健康服务器。 单击以查看关键和重要警报通知的图像。<br /><br /> **注意：**警报状态是适用于 Windows Server Essentials 和 Windows Server 2012 R2 标准安装了 Windows Server Essentials 体验角色，**信息和设置**选项卡。|  
-|8|状态栏|状态栏显示在列表视图中显示的对象数。 Add-in 应用程序也可能会显示其他状态。|  
+|1|导航栏|在导航栏上单击某个部分，以访问与该部分相关联的信息和任务。 每次打开仪表板时，默认情况下将显示“主页”。|  
+|2|子部分选项卡|子部分选项卡提供对第二层 Windows Server Essentials 管理任务的访问。|  
+|3|“列表”窗格|列表视图显示可管理的对象，并包含每个对象的基本信息。|  
+|4|“详细信息”窗格|“详细信息”窗格显示有关在列表视图中选择的对象的其他信息。|  
+|5|“任务”窗格|“任务”窗格包含指向工具和信息的链接，它们可帮助你管理特定对象（例如用户帐户或计算机）的属性，或者管理用于对象类别的全局设置。 “任务”窗格分成以下两个部分：<br /><br /> **对象任务**œ 包含指向工具和信息，可帮助你管理 （例如用户帐户或计算机） 列表视图中选择的对象的属性。<br /><br /> **全局任务**œ 包含指向工具和信息，帮助您管理功能区域的全局任务。 全局任务包括添加新对象、设置策略的任务等。|  
+|6|信息和设置|本部分提供对服务器设置的直接访问，以及指向你所查看的仪表板页面相关信息的“帮助”链接。|  
+|7|警报状态|警报状态提供有关服务器运行状况的快速视觉指示。 单击警报图像以查看关键和重要警报。<br /><br /> **注意：** 在 Windows Server Essentials 和 Windows Server 2012 R2 Standard 安装了 Windows Server Essentials 体验角色，警报状态已接入**信息和设置**选项卡。|  
+|8|状态栏|状态栏会显示列表视图中出现的对象数。 加载项应用程序还可能会显示其他状态。|  
   
-##  <a name="BKMK_Home"></a>主页仪表板上的功能  
- 当你打开仪表板**家庭**页面显示时，默认情况下使用**设置**显示的类别。 **家庭**页 Windows Server Essentials 仪表板提供了快速访问任务，并帮助您自定义你的服务器和配置主要功能的信息。 在主页上组成四种功能的区域，公开对于你选择的选项的信息和配置任务。 下表介绍了这些功能。  
+##  <a name="BKMK_Home"></a> 仪表板主页上的功能  
+ 在打开仪表板时，默认情况下，将显示“主页”，并显示“设置”类别。 Windows Server Essentials 仪表板的“主页”提供了对可帮助自定义服务器和配置关键功能的任务和信息的快速访问。 “主页”页面包括四个功能区域，它们将显示你选择的选项的信息和配置任务。 下表介绍的功能。  
   
 |项目|功能|描述|  
 |----------|-------------|-----------------|  
-|1|导航栏|单击要访问的信息和与该部分关联的任务的导航栏上的某个部分。 打开仪表板中，每次**家庭**显示默认情况下的页面。|  
-|2|类别窗格|此窗格显示提供快速访问信息的功能区的配置工具，可帮助你设置并自定义的服务器。 单击某个类别即可显示任务和与该类别相关联的资源。|  
-|3|任务窗格|此窗格显示指向任务和所选的类别到应用的信息。 单击某个任务或某资源以显示其他信息。|  
-|4|操作窗格|此窗格中的某一功能或任务，简要说明，并提供打开配置向导和信息页面的链接。 单击链接以进一步采取措施。|  
+|1|导航栏|在导航栏上单击某个部分，以访问与该部分相关联的信息和任务。 每次打开仪表板时，默认情况下都将显示“主页”  。|  
+|2|“类别”窗格|此窗格将显示功能区域，这些功能区域提供对有助于设置和自定义服务器的信息和配置工具的快速访问。 单击某个类别以显示与该类别关联的任务和资源。|  
+|3|“任务”窗格|此窗格将显示指向选定类别的相关任务和信息的链接。 单击某个任务或资源以显示其他信息。|  
+|4|“操作”窗格|此窗格提供了某个功能或任务的简短说明，并提供用于打开配置向导和信息页面的链接。 单击某个链接以采取进一步的操作。|  
   
-##  <a name="BKMK_Features"></a>管理的各部分的仪表板  
- Windows Server Essentials 仪表板组织到功能区的网络的信息和管理任务。 每个功能区中的管理页面提供有关该区域，例如关联的对象的信息**用户**，或**设备**。 管理页面还包括来查看或更改设置，或运行程序，自动执行任务需要多个步骤，你可以使用的任务。  
+##  <a name="BKMK_Features"></a> 在仪表板的管理部分  
+ Windows Server Essentials 仪表板将网络信息和管理任务组织到功能区域。 每个功能区域的管理页面都提供了与该区域关联的对象（例如“用户”或“设备”）的相关信息。 管理页面所包括的任务还可用于查看或更改设置，或者用于运行可自动执需要多个步骤的任务的程序。  
   
- 下表介绍了仪表板有默认情况下安装完成后的管理各部分。 此外列出了每个部分中提供的任务。  
+ 下表介绍了仪表板的管理部分，这些部分在安装后默认为可用。 该表还列出了每个部分中可用的任务。  
   
 |部分|描述|  
 |-------------|-----------------|  
-|家庭版|**家庭**页面显示时默认每次你打开的面板。 其中包括以下类别中的任务和信息：<br /><br /> **设置**œ 完成首次配置服务器此类别中的任务。 有关这些任务的信息，请参阅[安装和配置 Windows Server Essentials](../install/Install-and-Configure-Windows-Server-Essentials.md)。<br /><br /> **电子邮件**œ 集成到服务器的电子邮件服务此类别中选择一个选项。<br /><br /> **注意：**仅适用于 Windows Server Essentials 此类别。<br /><br /> **服务**œ 与服务器集成 Microsoft 的联机服务此类别中选择一项任务。<br /><br /> **注意：**此类别是仅适用于 Windows Server Essentials 和 Windows Server 2012 R2 Standard 与 Windows Server Essentials 体验角色启用。<br /><br /> **加载项**œ 单击此类别以安装适用于你的企业的加载项有价值。<br /><br /> **快速状态**œ 显示高级服务器状态。 单击以查看该功能的信息和配置选项状态。 如果你完成所有设置类别中的任务，类别窗格的顶部将显示此类别。<br /><br /> **帮助**œ 使用搜索框中搜索 Web 上的帮助。 单击的链接访问该网站的所选的支持选项。|  
-|用户|若要访问 Windows Server Essentials 提供的资源的用户，你需要使用 Windows Server Essentials 仪表板中创建用户帐户。 创建用户帐户后, 中，您可以管理的帐户通过使用可在任务**用户**仪表板中的页面。 你可以在此页面执行的任务包括：<br /><br /> -查看用户帐户的列表。<br /><br /> -查看和管理用户帐户属性。<br /><br /> -启动或关闭用户帐户。<br /><br /> 添加或删除的用户帐户。<br /><br /> -如果你服务器与 Office 365 集成，则将本地网络帐户分配给 Microsoft 的联机服务的帐户中。<br /><br /> -更改用户帐户的密码，并管理密码的策略。<br /><br /> 管理用户帐户有关的信息，请参阅[管理用户帐户](Manage-User-Accounts-in-Windows-Server-Essentials.md)。|  
-|用户组|**注意：**与 Windows Server Essentials 体验角色启用此功能处于仅适用于 Windows Server Essentials 和 Windows Server 2012 R2 标准。<br /><br /> 你可以在此页面执行的任务包括：<br /><br /> -查看用户组列表。<br /><br /> -查看和管理用户组。<br /><br /> 添加或删除用户组。|  
-|Distribution 组|**注意：**与 Windows Server Essentials 体验角色启用此功能处于仅适用于 Windows Server Essentials 和 Windows Server 2012 R2 标准。 仅显示此选项卡时与 Office 365 集成 Windows Server Essentials。<br /><br /> 你可以在此页面执行的任务包括：<br /><br /> -查看 distribution 组列表。<br /><br /> 添加或删除 distribution 组。|  
-|设备|你对 Windows Server Essentials 网络连接的计算机后，你可以管理从计算机**设备**仪表板中的页面。 你可以在此页面执行的任务包括：<br /><br /> -查看加入你的网络的计算机列表。<br /><br /> 通过利用 Office 365 移动版设备管理功能管理移动设备。<br /><br /> **注意：**此功能将仅适用于 Windows Server Essentials 和 Windows Server 2012 R2 Standard 与 Windows Server Essentials 体验角色启用。<br /><br /> -查看电脑属性并为每台计算机的运行状况警报。<br /><br /> -设置并管理计算机备份。<br /><br /> -于计算机中还原的文件和文件夹。<br /><br /> -建立远程桌面连接到计算机<br /><br /> -自定义计算机备份和文件历史记录设置<br /><br /> 有关管理计算机和备份的信息，请参阅[管理设备](Manage-Devices-in-Windows-Server-Essentials.md)。|  
-|存储|根据你运行的，Windows Server Essentials 版本**存储**仪表板部分默认包含以下部分。<br /><br /> -**服务器文件夹**子节包括帮助你的任务查看和管理服务器文件夹属性。 页面还包括任务，以打开并添加了服务器的文件夹。<br /><br /> -**硬盘驱动器**页面包含可以帮助您视图和检查的驱动器的连接到服务器的运行状况的任务。<br /><br /> Windows Server Essentials 和 Windows Server 2012 R2 标准启用，Windows Server Essentials 体验角色**SharePoint 库**页面包括任务，帮助你管理 Office 365 服务中的 SharePoint 库。<br /><br /> 有关管理 server 文件夹的信息，请参阅[管理服务器文件夹](Manage-Server-Folders-in-Windows-Server-Essentials.md)。<br /><br /> 有关管理硬盘驱动器的信息，请参阅[管理服务器存储](Manage-Server-Storage-in-Windows-Server-Essentials.md)。|  
-|应用程序|-**应用程序**Windows Server Essentials 仪表板部分默认包含两个小节。<br /><br /> 有关管理外接程序中的应用程序的信息，请参阅[管理应用程序](Manage-Applications-in-Windows-Server-Essentials.md)。<br /><br /> -**外接程序**子节显示已安装加载项的列表，并提供使你可以删除外接程序，以及访问有关所选的加载项的其他信息的任务。<br /><br /> - **Microsoft Pinpoint**子节显示 Microsoft Pinpoint 中可用的应用程序的列表。|  
-|Office 365|**Office 365**选项卡显示仅时使用 Microsoft Office 365 集成 Windows Server Essentials 是。 此部分中包含的 Office 365 订阅和管理员帐户信息。|  
+|主页|默认情况下，“主页”将在每次打开仪表板时显示。 它包括以下类别的任务和信息：<br /><br /> **安装程序**œ 完成此类别以对服务器进行首次配置中的任务。 有关这些任务的信息，请参阅[安装和配置 Windows Server Essentials](../install/Install-and-Configure-Windows-Server-Essentials.md)。<br /><br /> **电子邮件**œ 以与服务器集成的电子邮件服务此类别中选择一个选项。<br /><br /> **注意：** 此类别是仅在 Windows Server Essentials 中可用。<br /><br /> **服务**œ 此类别可将 Microsoft online services 集成到服务器中选择一项任务。<br /><br /> **注意：** 此类别是仅在 Windows Server Essentials 和 Windows Server 2012 R2 Standard 中可用已启用 Windows Server Essentials 体验角色。<br /><br /> **外接程序**œ 单击此类别以安装对你的业务的加载项有价值。<br /><br /> **快速状态**œ 显示高级服务器状态。 单击某个状态以查看有关该功能的信息和配置选项。 如果完成“设置”类别中的所有任务，则此类别将显示在“类别”窗格的顶部。<br /><br /> **帮助**œ 使用搜索框中搜索有关在 Web 上找到的帮助。 单击某个链接以访问用于选定的支持选项的网站。|  
+|用户|对于需要访问 Windows Server Essentials 提供的资源的用户，你需要使用 Windows Server Essentials 仪表板来创建用户帐户。 在创建用户帐户后，可以使用仪表板的“用户”页面上提供的任务来管理帐户。 可在此页面上执行的任务包括：<br /><br /> -查看用户帐户的列表。<br /><br /> -查看和管理用户帐户属性。<br /><br /> -激活或停用用户帐户。<br /><br /> -添加或删除用户帐户。<br /><br /> -如果你的服务器与 Office 365 集成，则将本地网络帐户分配给 Microsoft online services 帐户中。<br /><br /> -更改用户帐户密码并管理密码策略。<br /><br /> 有关管理用户帐户的信息，请参阅[Manage User Accounts](Manage-User-Accounts-in-Windows-Server-Essentials.md)。|  
+|用户组|**注意：** 此功能是已启用 Windows Server Essentials 体验角色仅在 Windows Server Essentials 和 Windows Server 2012 R2 Standard 中可用。<br /><br /> 可在此页面上执行的任务包括：<br /><br /> -查看用户组的列表。<br /><br /> -查看和管理用户组。<br /><br /> -添加或删除用户组。|  
+|通讯组|**注意：** 此功能是已启用 Windows Server Essentials 体验角色仅在 Windows Server Essentials 和 Windows Server 2012 R2 Standard 中可用。 此选项卡仅在 Windows Server Essentials 与 Office 365 集成时才显示。<br /><br /> 可在此页面上执行的任务包括：<br /><br /> -查看通讯组列表。<br /><br /> -添加或删除通讯组。|  
+|设备|在将计算机连接到 Windows Server Essentials 网络后，你可以通过仪表板的“设备”  页面管理计算机。 可在此页面上执行的任务包括：<br /><br /> -查看加入到网络的计算机的列表。<br /><br /> -通过利用 Office 365 移动设备管理功能管理移动设备。<br /><br /> **注意：** 与 Windows Server Essentials 体验角色启用此功能才在 Windows Server Essentials 和 Windows Server 2012 R2 Standard 中可用。<br /><br /> -查看计算机属性和每台计算机的运行状况警报。<br /><br /> -设置和管理计算机备份。<br /><br /> -将文件和文件夹还原到计算机。<br /><br /> -建立远程桌面连接到计算机<br /><br /> -自定义计算机备份和文件历史记录设置<br /><br /> 有关管理计算机和备份的信息，请参阅[管理设备](Manage-Devices-in-Windows-Server-Essentials.md)。|  
+|存储|默认情况下，仪表板的“存储”  部分包含以下部分，具体取决于你所运行的 Windows Server Essentials 版本。<br /><br /> -**服务器文件夹**子节包括任务，帮助你查看和管理服务器文件夹的属性。 该页面还包括用于打开和添加服务器文件夹的任务。<br /><br /> -**硬盘驱动器**页面包含的任务，可帮助您查看和检查附加到服务器的驱动器的运行状况。<br /><br /> -在 Windows Server Essentials 和 Windows Server 2012 R2 Standard 已启用，Windows Server Essentials 体验角色**SharePoint 库**页面包含的任务，可帮助你管理 Office 365 中的 SharePoint 库服务。<br /><br /> 有关管理服务器文件夹的信息，请参阅[管理服务器文件夹](Manage-Server-Folders-in-Windows-Server-Essentials.md)。<br /><br /> 有关管理硬盘驱动器的信息，请参阅[管理服务器存储](Manage-Server-Storage-in-Windows-Server-Essentials.md)。|  
+|应用程序|-**应用程序**部分中的 Windows Server Essentials 仪表板默认情况下包含两个子部分。<br /><br /> 有关管理外接程序应用程序的信息，请参阅[管理应用程序](Manage-Applications-in-Windows-Server-Essentials.md)。<br /><br /> -**外接程序**子部分显示已安装加载项的列表，并提供使您可以删除外接程序，并访问所选外接程序有关的其他信息的任务。<br /><br /> - **Microsoft Pinpoint**子部分显示应用程序可从 Microsoft Pinpoint 获得的列表。|  
+|Office 365|“Office 365”  选项卡仅在 Windows Server Essentials 与 Microsoft Office 365 集成时才显示。 本部分包含 Office 365 订阅和管理员帐户信息。|  
   
 > [!NOTE]
->  如果你安装的 Windows Server Essentials 仪表板外接程序外, 接程序可能创建其他管理员部分。 主要导航栏中，打开或子节选项卡上，可能会出现以下各部分。  
+>  如果为 Windows Server Essentials 仪表板安装一个加载项，则该加载项将可能创建其他管理部分。 这些部分可能会显示在主导航栏或子部分选项卡上。  
   
-##  <a name="BKMK_AccessDb"></a>访问 Windows Server Essentials 仪表板  
- 你可以通过以下方法之一访问仪表板。 选择哪种方法取决于是否访问仪表板从服务器、已连接到网络时，Windows Server Essentials 计算机或远程计算机。  
+##  <a name="BKMK_AccessDb"></a> 访问 Windows Server Essentials 仪表板  
+ 可以使用以下方法之一来访问仪表板。 具体选择哪种方法取决于你是从服务器、从连接到 Windows Server Essentials 网络的计算机，还是从远程计算机访问仪表板。  
   
- 若要帮助维持安全网络，只使用管理权限的用户可以访问 Windows Server Essentials 仪表板。 此外，你无法使用内置的管理员帐户启动栏从登录到 Windows Server Essentials 仪表板。  
+ 若要帮助维护安全网络，则只有具有管理权限的用户才可以访问 Windows Server Essentials 仪表板。 此外，不能使用内置管理员帐户从快速启动板登录到 Windows Server Essentials 仪表板。  
   
-###  <a name="BKMK_Server"></a>访问仪表板中服务器  
- 当你安装了 Windows Server Essentials 时，在设置过程上创建的快捷方式仪表板**开始**屏幕上，并且还会在桌面上。 如果从这些位置缺少快捷方式，你可以使用**搜索**窗格中，查找和运行仪表板计划。  
+###  <a name="BKMK_Server"></a> 从服务器访问仪表板  
+ 在安装 Windows Server Essentials 后，设置过程将在“开始”  屏幕以及桌面上创建仪表板的快捷方式。 如果这些位置中缺少该快捷方式，则可以使用“搜索”窗格来查看并运行仪表板程序。  
   
-##### <a name="to-access-the-dashboard-from-the-server"></a>若要访问仪表板中服务器  
+##### <a name="to-access-the-dashboard-from-the-server"></a>从服务器访问仪表板  
   
--   登录到以 administrator 身份，server，然后执行以下任一操作：  
+-   以管理员身份登录到服务器，然后执行以下任何操作：  
   
-    -   在**开始**屏幕上，单击**仪表板**。  
+    -   在“开始”  屏幕上，单击“仪表板” 。  
   
-    -   在桌面上，双击**仪表板**。  
+    -   在桌面上，双击“仪表板” 。  
   
-    -   在**搜索**窗格中，键入**仪表板**，然后单击**仪表板**搜索结果中。  
+    -   在中**搜索**窗格中，键入**仪表板**，然后单击**仪表板**在搜索结果中。  
   
-###  <a name="BKMK_Network"></a>从计算机连接到该网络的访问仪表板  
- 在 Windows Server Essentials 之后再将计算机连接到网络，管理员可以使用启动栏访问服务器仪表板从计算机。  
+###  <a name="BKMK_Network"></a> 从连接到网络的计算机访问仪表板  
+ 在 Windows Server Essentials 中，在将计算机加入到网络后，管理员可以使用快速启动板从该计算机访问服务器仪表板。  
   
 > [!WARNING]
->  在 Windows Server Essentials 来自客户端计算机连接到仪表板，右键单击任务栏图标，，然后从上下文菜单中打开仪表板。  
+>  在 Windows Server Essentials 中，要从客户端计算机连接到仪表板，右键单击任务栏图标，并从上下文菜单打开仪表板。  
   
-##### <a name="to-access-the-dashboard-by-using-the-launchpad"></a>若要使用启动栏访问仪表板  
+##### <a name="to-access-the-dashboard-by-using-the-launchpad"></a>使用快速启动板访问仪表板  
   
-1.  从计算机中加入该网络，打开**启动栏**。  
+1.  从加入到网络的计算机打开“快速启动板” 。  
   
-2.  在启动栏菜单中，单击**仪表板**。  
+2.  在快速启动板菜单上，单击“仪表板”。  
   
-3.  仪表板上**登录**页上，键入你的网络管理员凭据，然后按 ENTER。  
+3.  在仪表板“登录”页面  上，键入你的网络管理员凭据，然后按 Enter 键。  
   
-     打开了对 Windows Server Essentials 仪表板远程连接。  
+     此时将打开到 Windows Server Essentials 仪表板的远程连接。  
   
-###  <a name="BKMK_Remote"></a>远程计算机的访问仪表板  
- 你正在处理远程计算机中，可通过使用远程网站访问的站点 Windows Server Essentials 仪表板。  
+###  <a name="BKMK_Remote"></a> 从远程计算机访问仪表板  
+ 当您正在从远程计算机时，可以通过使用远程 Web 访问站点来访问 Windows Server Essentials 仪表板。  
   
-##### <a name="to-access-the-dashboard-by-using-remote-web-access"></a>使用远程 Web 访问访问仪表板  
+##### <a name="to-access-the-dashboard-by-using-remote-web-access"></a>使用远程 Web 访问来访问仪表板  
   
-1.  从远程计算机上，打开 Internet 浏览器中的，如 Internet Explorer。  
+1.  从远程计算机打开 Internet 浏览器，如 Internet Explorer。  
   
-2.  在 Internet 浏览器的地址栏中，键入以下命令：**https://<DomainName\>/remote**，其中*域名*是你的组织（如 contoso.com) 的外部域名称。  
+2.  在 Internet 浏览器地址栏中，键入以下内容：**https://<DomainName\>/远程**，其中*DomainName*是你的组织 （如 contoso.com) 的外部域名。  
   
-3.  键入你的用户名和密码登录到远程网站访问的站点。  
+3.  键入用户名和密码登录到远程 Web 访问站点。  
   
-4.  在**计算机**远程 Web 访问部分**家庭**页;找到你服务器，并单击**连接**。  
+4.  在中**计算机**部分中的远程 Web 访问**主页**页上，找到你的服务器，然后单击**Connect**。  
   
-     打开远程连接到仪表板。  
+     此时将打开到仪表板的远程连接。  
   
     > [!NOTE]
-    >  如果未显示在你服务器**计算机**部分的家庭页面上，单击**连接到更多的计算机**，在列表中，找到您服务器，然后单击连接到它的服务器。  
+    >  如果你的服务器未在“主页”页面的“计算机”  部分中显示，请单击“连接到多台计算机” ，在列表中查找你的服务器，然后单击该服务器以进行连接。  
     >   
-    >  若要为用户访问仪表板进行远程网站的访问权限，打开的用户帐户的属性页，然后选择**服务器仪表板**选项卡上**任何地方访问**选项卡。  
+    >  若要授予用户的权限从远程 Web 访问访问仪表板，打开属性页的用户帐户，并选择**Server 仪表板**选项卡上**随处访问**选项卡。  
   
-##  <a name="BKMK_UseSafeMode"></a>使用安全模式  
- 安全模式功能的 Windows Server Essentials 会监视服务器上安装的加载项。 如果仪表板变得不稳定或没有反应，安全模式检测到并隔离外接程序，可能会导致该问题，并将它们显示在**安全模式设置**页面的下次打开仪表板。 从**安全模式设置**页上，你可以禁用并启用加载项--逐个以确定哪些外接程序造成该问题。 你可以选择它来为将来的启动停用的外接程序离开或可以卸载外接程序。  
+##  <a name="BKMK_UseSafeMode"></a> 使用安全模式  
+ Windows Server Essentials 的安全模式功能将监视安装在服务器上的加载项。 如果仪表板变得不稳定或无响应，则安全模式将检测出可能导致此问题的加载项并将其隔离，在你下次打开仪表板时，这些加载项将显示在“安全模式设置”  页面上。 在“安全模式设置”  页面中，你可以逐个禁用和启用加载项，以确定导致问题的加载项。 然后，可以选择在未来启动时禁用该加载项，或者可以卸载该加载项。  
   
- 你可以查看所有加载项，可随时在服务器上安装的列表。 你还可以在安全模式下将禁用所有的非 Microsoft 加载项会自动打开仪表板。 Windows Server 软件包还允许你访问在安全模式下对仪表板中网络上的另一台计算机。  
+ 你随时可以查看服务器上安装的所有加载项列表。 你还可以在安全模式下打开仪表板，这会自动禁用所有非 Microsoft 加载项。Windows Server Essentials 还允许你通过网络上的其他计算机在安全模式下访问仪表板。  
   
-#### <a name="to-view-a-list-of-installed-add-ins"></a>若要查看列表中的安装的加载项  
+#### <a name="to-view-a-list-of-installed-add-ins"></a>查看已安装的加载项列表  
   
--   从仪表板中，单击**帮助**，然后单击**安全模式设置**。  
+-   从仪表板单击“帮助” ，然后单击“安全模式设置” 。  
   
-#### <a name="to-open-the-dashboard-in-safe-mode"></a>若要在安全模式下打开仪表板  
+#### <a name="to-open-the-dashboard-in-safe-mode"></a>在安全模式下打开仪表板  
   
--   在**搜索**窗格中，键入**安全**，然后单击**仪表板（安全模式）**搜索结果中。  
+-   在“搜索”  窗格中，键入 **safe**，然后在搜索结果中单击“仪表板(安全模式)”  。  
   
-#### <a name="to-open-the-dashboard-in-safe-mode-from-another-computer-on-the-network"></a>若要在安全模式下，从另一台计算机在网络上打开仪表板  
+#### <a name="to-open-the-dashboard-in-safe-mode-from-another-computer-on-the-network"></a>通过网络上的其他计算机在安全模式下打开仪表板  
   
-1.  从计算机的连接到网络上，打开 Windows Server Essentials 启动栏中，，然后单击**仪表板**。  
+1.  通过连接到网络的计算机打开 Windows Server Essentials 快速启动板，然后单击“仪表板” 。  
   
-2.  在仪表板中登录页面上，键入用户名和密码有权登录到服务器上，选择帐户**允许我选择的外接程序可加载**复选框，，然后单击的箭头即可登录。  
+2.  在仪表板登录页面上，键入有权登录服务器的帐户的用户名及密码，选中“允许我选择要加载的加载项”复选框，然后单击箭头以进行登录。  
   
 ## <a name="see-also"></a>请参阅  
   

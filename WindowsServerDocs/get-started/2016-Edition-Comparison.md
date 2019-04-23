@@ -15,18 +15,18 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 2c26d6d0c4c4465b5f9073dbcac951fc0adce1d5
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "1534003"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59882048"
 ---
 # <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2016"></a>Windows Server 2016 Standard 和 Datacenter 版本的比较
 
 > 适用于：Windows Server 2016
   
 ## <a name="locks-and-limits"></a>锁定和限制
-|锁定和限制|WindowsServer 2016 Standard|WindowsServer 2016 Datacenter|  
+|锁定和限制|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
 |-------------------|----------|---------------------------|  
 |最大用户数|基于 CAL|基于 CAL|
 |最大 SMB 连接数|16777216|16777216|
@@ -40,10 +40,10 @@ ms.locfileid: "1534003"
 |服务器可以加入域|是|是|
 |边缘网络保护/防火墙|否|否|
 |DirectAccess|是|是|
-|DLNA 解码器和 Web 媒体流|是，但前提是安装为具有桌面体验的服务器|是，但前提是安装为具有桌面体验的服务器|
+|DLNA 解码器和 Web 媒体流|是，如果安装为具有桌面体验的服务器|是，如果安装为具有桌面体验的服务器|
 
 ## <a name="server-roles"></a>服务器角色
-|可用的 Windows Server 角色|角色服务|WindowsServer 2016 Standard|WindowsServer 2016 Datacenter|  
+|可用的 Windows Server 角色|角色服务|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
 |-------------------|----------|----------|---------------------------|  
 |Active Directory 证书服务| |是|是|
 |Active Directory 域服务| |是|是|
@@ -77,12 +77,12 @@ ms.locfileid: "1534003"
 |批量激活服务| |是|是|
 |Web 服务 (IIS)| |是|是|
 |Windows 部署服务| |是，在安装为具有桌面体验的服务器时|是，在安装为具有桌面体验的服务器时|
-|WindowsServer Essentials 体验| |是|是|
-|WindowsServer 更新服务| |是|是|
+|Windows Server Essentials 体验| |是|是|
+|Windows Server 更新服务| |是|是|
 
 ## <a name="features"></a>功能
 
-|Windows Server 功能可以使用服务器管理器（或 PowerShell）安装|WindowsServer 2016 Standard|WindowsServer 2016 Datacenter|  
+|Windows Server 功能可以使用服务器管理器（或 PowerShell）安装|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
 |-------------------|----------|---------------------------|  
 |.NET Framework 3.5|是|是|
 |.NET Framework 4.6|是|是|
@@ -146,7 +146,7 @@ ms.locfileid: "1534003"
 |WoW64 支持|已安装|已安装|
 |XPS 查看器|是，在安装为具有桌面体验的服务器时|是，在安装为具有桌面体验的服务器时|
 
-|通常可用的功能|WindowsServer 2016 Standard|WindowsServer 2016 Datacenter|  
+|通常可用的功能|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
 |-------------------|----------|---------------------------|  
 |最佳做法分析器|是|是|
 |直接访问|是|是|
@@ -166,7 +166,7 @@ ms.locfileid: "1534003"
 |存储空间直通|否|是|
 |批量激活服务|是|是|
 |VSS（卷影复制服务）集成|是|是|
-|WindowsServer 更新服务|是|是|
+|Windows Server 更新服务|是|是|
 |Windows 系统资源管理器|是|是|
 |服务器许可证日志记录|是|是|
 |继承激活|托管于数据中心时作为来宾|可以是主机或来宾|

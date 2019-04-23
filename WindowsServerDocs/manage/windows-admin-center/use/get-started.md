@@ -1,6 +1,6 @@
 ---
-title: 开始使用 Windows Admin Center
-description: 开始使用 Windows Admin Center
+title: Get started with Windows Admin Center 入门
+description: Get started with Windows Admin Center 入门
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -8,101 +8,89 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 02/15/2019
-ms.openlocfilehash: f4fd9f69e75ed80bbdb345b4041c2337c65ec2e6
-ms.sourcegitcommit: f1edfc6525e09dd116b106293f9260123a94de0c
-ms.translationtype: MT
+ms.openlocfilehash: 61fdd70e53a49b704e11f71f0e5eb3176c31c378
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "9296649"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59876008"
 ---
-# 开始使用 Windows Admin Center
+# <a name="get-started-with-windows-admin-center"></a>Get started with Windows Admin Center 入门
 
->适用于：Windows Admin Center、Windows Admin Center 预览版
+>适用于：Windows Admin Center，Windows Admin Center 预览版
 
 > [!Tip]
 > 不熟悉 Windows Admin Center？
 > [了解有关 Windows Admin Center 的更多信息](../understand/windows-admin-center.md)或[立即下载](https://aka.ms/windowsadmincenter)。
 
-## Windows 10 上安装 Windows Admin Center
+## <a name="windows-admin-center-installed-on-windows-10"></a>Windows 10 上安装 Windows Admin Center
 
 > [!IMPORTANT]
-> 你必须是 Windows 10 上使用 Windows Admin Center 的本地管理员组的成员
+> 必须是要在 Windows 10 上使用 Windows Admin Center 的本地管理员组的成员
 
-### 选择客户端证书
+### <a name="selecting-a-client-certificate"></a>选择客户端证书
 
-首次打开 Windows 10 上的 Windows Admin Center 确保选择 （否则你将收到 HTTP 403 错误消息指出"无法访问此页"） 的*Windows Admin Center 客户端*证书。
+首次打开 Windows Admin Center 在 Windows 10 中，请务必选择*Windows Admin Center 客户端*（否则将收到 HTTP 403 错误消息"无法获取到此页"） 的证书。
 
-在 Microsoft Edge 中，此对话框出现的提示：
+在 Microsoft Edge 中，出现此对话框的提示：
  
-1. 单击**更多选项**
+1. 单击**更多选择**
 
     ![](../media/launch-cert-1.png)
 
-2. 选择标记为**Windows Admin Center 客户端**证书，并单击**确定**
+2. 选择标记的证书**Windows Admin Center 客户端**单击**确定**
 
     ![](../media/launch-cert-2.png)
 
-3. 请确保选中**始终允许访问**并单击**允许**
+3. 请确保**始终允许访问**处于选中状态，并单击**允许**
 
     ![](../media/launch-cert-3.png)
 
-## 连接到托管的节点和群集
+## <a name="connecting-to-managed-nodes-and-clusters"></a>连接到托管的节点和群集
 
-完成了 Windows Admin Center 安装后，你可以添加服务器或群集管理在主概述页中。
+完成 Windows Admin Center 安装后，可以添加服务器或群集来管理从主概述页。
 
- **作为托管节点添加单个服务器或群集**
+ **将一台服务器或群集添加为被管理节点**
 
- 1. 单击下**的所有连接**的 **+ 添加**。
+ 1. 单击 **+ 添加**下**的所有连接**。
 
     ![](../media/launch/addserver0.png)
 
- 2. 选择要添加服务器、 故障转移群集或超融合群集连接：
+ 2. 选择要添加的服务器、 故障转移群集或 Hyper-Converged 群集连接：
     
     ![](../media/launch/addserver1.png)
 
- 3. 键入服务器或群集管理并单击**提交**的名称。 服务器或群集将添加到你在概述页面上的连接列表。
+ 3. 键入的服务器或群集管理和单击名称**提交**。 服务器或群集将添加到您在概述页上的连接列表。
 
     ![](../media/launch/addserver2.png)
 
-   **-- 或者 --**
+   **-- OR --**  
 
-**批量导入多个服务器**
+**大容量导入多台服务器**
 
- 1. 在**添加服务器连接**页面上选择**导入的服务器**选项卡。
+ 1. 上**添加服务器连接**页上，选择**导入服务器**选项卡。
 
     ![](../media/launch/import-servers.png)
 
- 2. 单击**浏览**并选择包含逗号或换行符分隔，你想要添加的服务器的 Fqdn 列表的文本文件。
+ 2. 单击**浏览**并选择一个文本文件，其中包含一个逗号，或新行分隔的你想要添加的服务器的 Fqdn 列表。
 
-    **-- 或者 --**
+## <a name="authenticate-with-the-managed-node"></a>使用托管的节点进行身份验证 ##
 
-**通过搜索 Active Directory 添加服务器**
-
- 1. 在**添加服务器连接**页面上选择**搜索 Active Directory**选项卡。
-
-    ![](../media/launch/search-ad.png)
-
- 2. 输入搜索条件并单击**搜索**。 支持通配符 （*）。
-
- 3. 搜索完成后的选择一个或多个结果、 （可选） 添加标记，并单击**添加**。
-
-## 使用托管节点进行身份验证 ##
-
-Windows Admin Center 支持几种机制，用于托管节点中进行身份验证。 单一登录是默认设置。
+Windows Admin Center 支持多种机制进行身份验证与托管节点。 单一登录是默认值。
 
 **单一登录**
 
-你当前的 Windows 凭据可用于使用托管节点进行身份验证。 这是默认设置，并添加服务器时，Windows Admin Center 尝试登录。 
+可以使用你当前的 Windows 凭据进行身份验证与托管节点。 这是默认值，并添加服务器时，Windows Admin Center 尝试登录。 
 
-**单一登录时作为 Windows Server 上的服务部署**
+**单一登录时作为 Windows 服务器上的服务部署**
 
-如果你已在 Windows Server 上安装 Windows Admin Center，不需要的单一登录其他配置。  [配置你的环境进行委派](..\configure\user-access-control.md)
+如果已在 Windows Server 上安装 Windows Admin Center，则为实现单一登录所需额外配置。  [配置委派的环境](..\configure\user-access-control.md)
 
-**-- 或者 --**
+**-- OR --**
 
 **使用*管理方式*指定凭据**
 
-在**所有连接**，从列表中选择服务器和选择**管理方式**来指定将用于到托管节点进行身份验证的凭据：
+下**的所有连接**，从列表中选择一台服务器，然后选择**管理方式**来指定将用于对被管理的节点进行身份验证的凭据：
 
 ![](../media/launch-use-6.png)
 
@@ -110,49 +98,52 @@ Windows Admin Center 支持几种机制，用于托管节点中进行身份验�
 
 ![](../media/launch-use-7.png)
 
-你可能适用于所有连接，这将为该特定浏览器会话缓存它们的凭据。 如果你重新加载浏览器，你必须重新输入你**管理方式**的凭据。
+可能会将凭据应用到所有连接，请将其缓存为该特定浏览器会话。 如果你重新加载您的浏览器，必须重新输入您**管理方式**凭据。
 
-**本地管理员密码解决方案 (使用 LAPS)**
+**本地管理员密码解决方案 (LAPS)**
 
-如果你的环境使用[LAPS](https://technet.microsoft.com/mt227395.aspx)，可以使用 LAPS 凭据进行身份验证的托管的节点。 **如果你使用此方案中，请**[提供反馈](http://aka.ms/WACFeedback)。
+如果您的环境使用[LAPS](https://technet.microsoft.com/mt227395.aspx)，可以使用 LAPS 凭据进行身份验证与托管节点。 **如果使用这种情况下，请**[提供的反馈](http://aka.ms/WACFeedback)。
 
-## 使用标记组织你连接
+## <a name="using-tags-to-organize-your-connections"></a>使用标记来组织您的连接
 
-你可以使用标记来识别和筛选相关的服务器连接列表中。  这样，你可以查看你的服务器连接列表中的一个子集。  这是特别有用，如果你有多个连接。
+可以使用标记来标识和连接列表中筛选相关的服务器。  这样，您可以查看连接列表中的服务器的子集。  这是特别有用，如果有多个连接。
 
-### 编辑标记
+### <a name="edit-tags"></a>编辑标记
 
-* 所有的连接列表中选择一台或多个服务器
-* 在**所有连接**下，单击**编辑标记**
+* 所有连接列表中选择一台或多个服务器
+* 下**的所有连接**，单击**编辑标记**
 
 ![](../media/launch/tags-5.png)
 
-**编辑连接标记**窗格可以修改、 添加或删除从你选择的连接的标记：
+**编辑连接标记**窗格允许您修改、 添加或删除标记从你选择的连接：
 
-* 若要将新的标记添加到你选择的连接，选择**添加标记**，并输入你想要使用的标记名称。
+* 若要将新标记添加到你选择的连接，请选择**将标记添加**并输入你想要使用的标记名称。
 
-* 若要标记现有的标记名称与所选的连接，请检查你想要应用的标记名称旁边的框。
+* 若要标记的现有标记名称与所选的连接，检查你想要应用的标记名称旁边的框。
 
-* 若要从所有选定连接删除标记，请取消选中你想要删除的标记旁边的框。
+* 若要从所有选定的连接中删除一个标记，请取消选中你想要删除的标记旁边的框。
 
-* 如果某个标记应用于所选的连接的子集，是处于中间状态显示复选框。 你可以单击该框，以检查它，并将标记应用到所有选定的连接，或再次单击以取消选中它并删除所有选定的连接的标记。
+* 如果标记应用于所选的连接的子集，该复选框会显示的中间状态。 可以单击相应的框以检查它，并将标记应用到所选的所有连接，或再次单击以取消选中它并从所有选定的连接中删除该标记。
 
 ![](../media/launch/tags-6.png)
 
-### 通过标记筛选器连接
+### <a name="filter-connections-by-tag"></a>按标记筛选连接
 
-标记添加到一个或多个服务器连接后，可以在连接列表中，查看标记并按标记筛选连接列表。
+后标记已添加到一个或多个服务器连接，可以在连接列表中，查看的标记，并按标记筛选连接列表。
 
-* 若要按标记筛选，选择搜索框旁边的筛选器图标。
+* 若要按标记进行筛选，选择搜索框旁边的筛选器图标。
 ![](../media/launch/tags-7.png)
-* 你可以选择"，"和"或"不"来修改选定的标记的筛选器行为。
+* 可以选择"，"和"或"not"以修改所选标记的筛选器行为。
 ![](../media/launch/tags-8.png)
 
-## 使用 PowerShell 来导入或导出你连接 （通过标记）
+## <a name="use-powershell-to-import-or-export-your-connections-with-tags"></a>使用 PowerShell 导入或导出您的连接 （使用标记）
 
-> 适用于： Windows Admin Center 预览版
+> 适用于：Windows Admin Center 预览版
 
-Windows Admin Center 预览版包括的 PowerShell 模块导入或导出你的连接列表。
+Windows Admin Center 预览版包括一个 PowerShell 模块导入或导出连接列表。
+
+>[!IMPORTANT]
+>作为 Windows 服务器上的网关服务部署到 Windows Admin Center 仅支持导入和导出与 PowerShell 模块的连接。
 
 ```powershell
 # Load the module
@@ -165,42 +156,40 @@ Export-Connection "https://wac.contoso.com" -fileName "WAC-connections.csv"
 Import-Connection "https://wac.contoso.com" -fileName "WAC-connections.csv"
 ```
 
-### 导入连接的 CSV 文件格式
+### <a name="csv-file-format-for-importing-connections"></a>CSV 文件格式导入连接
 
-CSV 文件的格式开头四个标题```"name","type","tags","groupId"```后, 跟的新行上每个连接。
+CSV 文件的格式开头的三个标题：```"name","type","tags"```后, 跟新行上的每个连接。
 
 **名称**是连接的 FQDN
 
-**类型**是连接类型。 对于使用 Windows Admin Center 包含默认连接，你将使用以下值之一：
+**类型**是连接类型。 针对 Windows Admin Center 中包含的默认连接，将使用以下项之一：
 
 | 连接类型 | 连接字符串 |
 |------|-------------------------------|
-| Windows Server | msft.sme.connection type.server |
-| Windows 10 电脑 | msft.sme.connection type.windows 的客户端 |
-| 故障转移群集 | msft.sme.connection type.cluster |
-| 超融合群集 | msft.sme.connection 端 type.hyper 聚合的群集 |
+| Windows Server | msft.sme.connection-type.server |
+| Windows 10 电脑 | msft.sme.connection-type.windows-client |
+| 故障转移群集 | msft.sme.connection-type.cluster |
+| 超聚合群集 | msft.sme.connection-type.hyper-converged-cluster |
 
-**标记**为管道分隔。
+**标记**是竖线分隔。
 
-**groupId**用于共享的连接。 使用值```global```若要将此共享的连接此列中。
-
-### 用于导入连接的示例 CSV 文件
+### <a name="example-csv-file-for-importing-connections"></a>导入连接的示例 CSV 文件
 
 ```
-"name","type","tags","groupId"
+"name","type","tags"
 "myServer.contoso.com","msft.sme.connection-type.server","hyperv"
 "myDesktop.contoso.com","msft.sme.connection-type.windows-client","hyperv"
-"teamcluster.contoso.com","msft.sme.connection-type.cluster","legacyCluster|WS2016","global"
+"mycluster.contoso.com","msft.sme.connection-type.cluster","legacyCluster|WS2016"
 "myHCIcluster.contoso.com,"msft.sme.connection-type.hyper-converged-cluster","myHCIcluster|hyperv|JIT|WS2019"
-"teamclusterNode.contoso.com","msft.sme.connection-type.server","legacyCluster|WS2016","global"
+"myclusterNode.contoso.com","msft.sme.connection-type.server","legacyCluster|WS2016"
 "myHCIclusterNode.contoso.com","msft.sme.connection-type.server","myHCIcluster|hyperv|JIT|WS2019"
 ```
 
-## 导入 RDCman 连接
+## <a name="import-rdcman-connections"></a>导入 RDCman 连接
 
-下面的脚本用于导出到文件中[RDCman](https://blogs.technet.microsoft.com/rmilne/2014/11/19/remote-desktop-connection-manager-download-rdcman-2-7/)已保存的连接。 你可以然后文件导入到 Windows Admin Center，维护使用标记你 RDCMan 分组层次结构。 尝试一下 ！
+使用下面的脚本导出中的已保存的连接[RDCman](https://blogs.technet.microsoft.com/rmilne/2014/11/19/remote-desktop-connection-manager-download-rdcman-2-7/)到文件。 你可以然后将文件导入 Windows Admin Center 维护 RDCMan 分组层次结构使用标记。 试试看 ！
 
-1. 复制并粘贴到你的 PowerShell 会话中的以下代码：
+1. 复制并粘贴到 PowerShell 会话的以下代码：
 
    ```powershell
    #Helper function for RdgToWacCsv
@@ -275,16 +264,16 @@ CSV 文件的格式开头四个标题```"name","type","tags","groupId"```后, �
    }
    ```
 
-2. 若要创建。CSV 文件，请运行以下命令：
+2. 若要创建。CSV 文件中，运行以下命令：
 
    ```powershell
    RdgToWacCsv -RDGfilepath "path\to\myRDCManfile.rdg"
    ```
 
-3. 导入生成。Windows Admin center 中的 CSV 文件，并且所有 RDCMan 分组层次结构中将由连接列表中的标记表示。 有关详细信息，请参阅[使用 PowerShell 导入或导出你连接 （通过标记）](#use-powershell-to-import-or-export-your-connections-with-tags)。
+3. 导入生成。连接列表中的标记将表示为 Windows Admin Center 中的 CSV 文件和所有 RDCMan 分组层次结构。 有关详细信息，请参阅[使用 PowerShell 导入或导出 （加上标记） 连接](#use-powershell-to-import-or-export-your-connections-(with-tags))。
 
-## 查看使用 Windows Admin Center 中的 PowerShell 脚本
+## <a name="view-powershell-scripts-used-in-windows-admin-center"></a>查看 Windows Admin Center 中使用的 PowerShell 脚本
 
-一旦你已连接到服务器、 群集或电脑，你可以查看 PowerShell 脚本的电源可用的 UI 操作 Windows Admin Center 中。 从内工具中，单击顶部的应用程序栏中的 PowerShell 图标。 从下拉列表中导航到相应的 PowerShell 脚本选择感兴趣的命令。
+连接到服务器、 群集或 PC 后，可以查看 PowerShell 脚本这一功能可用的 UI 操作 Windows Admin Center 中。 从在工具中，单击顶部的应用程序栏中的 PowerShell 图标。 从下拉列表中，导航到相应的 PowerShell 脚本中选择所需的命令。
 
 ![](../media/launch/showscript.png)
