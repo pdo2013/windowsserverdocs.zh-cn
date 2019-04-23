@@ -10,25 +10,25 @@ author: cosmosdarwin
 ms.date: 07/18/2017
 ms.localizationpriority: medium
 ms.openlocfilehash: 62fa33d08af25c424c786c10191fe6ae2b3d02bc
-ms.sourcegitcommit: dfd25348ea3587e09ea8c2224237a3e8078422ae
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "4678616"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59855508"
 ---
-# 了解存储空间直通中的缓存
+# <a name="understanding-the-cache-in-storage-spaces-direct"></a>了解存储空间直通中的缓存
 
->适用于： Windows Server 2019、 Windows Server 2016
+>适用于：Windows Server 2019、Windows Server 2016
 
 [存储空间直通](storage-spaces-direct-overview.md)具有内置服务器端缓存，以最大限度地提高存储性能。 这是一个大型、持久且实时的读取*和*写入缓存。 启用存储空间直通时将自动配置缓存。 在大多数情况下，无需任何手动管理。
 缓存的工作原理取决于已有的驱动器类型。
 
 以下视频将详细介绍缓存如何用于存储空间直通，及其他设计注意事项。
 
-<strong>存储空间直通设计注意事项</strong><br>（20 分钟）<br>
+<strong>存储空间直通的设计注意事项</strong><br>（20 分钟）<br>
 <iframe src="https://channel9.msdn.com/Blogs/windowsserver/Design-Considerations-for-Storage-Spaces-Direct/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-## 驱动器类型和部署选项
+## <a name="drive-types-and-deployment-options"></a>驱动器类型和部署选项
 
 存储空间直通目前适用于三种类型的存储设备：
 
@@ -61,19 +61,19 @@ ms.locfileid: "4678616"
 
 有六种组合方式，可以归为两个类别：“全闪存”和“混合”。
 
-### 全闪存部署可能性
+### <a name="all-flash-deployment-possibilities"></a>全闪存部署可能性
 
 全闪存部署旨在最大限度地提高存储性能，并且不包含旋转硬盘驱动器 (HDD)。
 
 ![All-Flash-Deployment-Possibilities](media/understand-the-cache/All-Flash-Deployment-Possibilities.png)
 
-### 混合部署可能性
+### <a name="hybrid-deployment-possibilities"></a>混合部署可能性
 
 混合部署旨在平衡性能和容量需求或最大限度地提高容量，并且不包含旋转硬盘驱动器 (HDD)。
 
 ![Hybrid-Deployment-Possibilities](media/understand-the-cache/Hybrid-Deployment-Possibilities.png)
 
-## 自动选择缓存驱动器
+## <a name="cache-drives-are-selected-automatically"></a>自动选择缓存驱动器
 
 在具有多个驱动器类型的部署中，存储空间直通自动将所有“最快”类型的驱动器用于缓存。 剩余的驱动器用作容量空间。
 
@@ -93,13 +93,13 @@ ms.locfileid: "4678616"
    >[!TIP]
    > 在全 NVMe 或全 SSD 部署中（特别是在规模非常小的部署中），不将任何驱动器“耗费”在缓存上可以极大地提高存储效率。
 
-## 自动设置缓存行为
+## <a name="cache-behavior-is-set-automatically"></a>自动设置缓存行为
 
 根据要为其提供缓存的驱动器类型自动确定缓存行为。 为固态硬盘提供缓存（例如，NVMe 为 SSD 提供缓存）时，只能缓存写入。 为硬盘驱动器提供缓存（例如，SSD 为 HDD 提供缓存）时，可以缓存读取和写入。
 
 ![Cache-Read-Write-Behavior](media/understand-the-cache/Cache-Read-Write-Behavior.png)
 
-### 适用于全闪存部署的只写缓存
+### <a name="write-only-caching-for-all-flash-deployments"></a>适用于全闪存部署的只写缓存
 
 为固态硬盘（NVMe 或 SSD）提供缓存时，只能缓存写入。 由于许多写入和重新写入可以在缓存中合并，然后仅根据需要取消暂存，因此可以降低容量驱动器的磨损，从而降低容量驱动器的累计流量并延长其生命周期。 因此，我们建议选择[耐用性较高、优化写入](http://whatis.techtarget.com/definition/DWPD-device-drive-writes-per-day)的驱动器用于缓存。 容量驱动器可合理地采用较低的写入耐用性。
 
@@ -107,17 +107,17 @@ ms.locfileid: "4678616"
 
 这就导致写入特性（例如，写入延迟）由缓存驱动器规定，而读取特性由容量驱动器规定。 两者一致、可预测并且统一。
 
-### 混合部署的读取/写入缓存
+### <a name="readwrite-caching-for-hybrid-deployments"></a>混合部署的读取/写入缓存
 
-为硬盘驱动器 (HDD) 提供缓存时可以缓存读取*和*写入，为两者提供了类似闪存的低延迟（速度通常高出 ~10 倍）。 读取缓存存储最近和常用的读取数据以进行快速访问，可最大限度地减少 HDD 的随机流量。 （由于寻找和旋转延迟，对 HDD 的随机访问导致产生了大量的延迟和丢失的时间。）对写入进行缓存以吸收突发流量，并且如前所述，合并写入和重新写入，并最大限度地减少容量驱动器的累计流量。
+为硬盘驱动器 (HDD) 提供缓存时可以缓存读取*和*写入，为两者提供了类似闪存的低延迟（速度通常高出 ~10 倍）。 读取缓存存储最近和常用的读取数据以进行快速访问，可最大限度地减少 HDD 的随机流量。 （由于定位和旋转的延迟，延迟和丢失的时所产生的 HDD 的随机访问至关重要。）将写入缓存以消减量激增并且，与之前一样，可联合写入和重写，并尽量减少对容量驱动器的累积流量。
 
 存储空间直通实现了一种算法，即在取消暂存之前取消随机的写入以模拟磁盘的 IO 模式，即使在来自工作负荷（例如虚拟机）的实际 IO 是随机的情况下，这种模式也似乎是序列化的， 这可以实现 IOPS 和 HDD 吞吐量的最大化。
 
-### 在部署中使用所有三种类型的驱动器进行缓存
+### <a name="caching-in-deployments-with-drives-of-all-three-types"></a>在部署中使用所有三种类型的驱动器进行缓存
 
 当存在所有三种类型的驱动器时，NVMe 驱动器为 SSD 和 HDD 提供缓存。 缓存行为如上所述：只可为 SSD 缓存写入，可为 HDD 缓存读取和写入。 为 HDD 提供缓存的负担均衡分布在缓存驱动器中。 
 
-## 摘要
+## <a name="summary"></a>总结
 
 此表总结了哪些驱动器用于缓存、哪些驱动器用作容量空间，以及每个部署可能性对应于哪些缓存行为。
 
@@ -130,7 +130,7 @@ ms.locfileid: "4678616"
 | SSD + HDD        | SSD                                 | HDD             | 读取 + 写入                              |
 | NVMe + SSD + HDD | NVMe                                | SSD + HDD       | HDD 为读取 + 写入，SSD 为只写  |
 
-## 服务器端体系结构
+## <a name="server-side-architecture"></a>服务器端体系结构
 
 在驱动器级别实现缓存：一台服务器中的单独缓存驱动器被绑定至相同服务器中的一个或多个容量驱动器。
 
@@ -142,7 +142,7 @@ ms.locfileid: "4678616"
 
 例如，使用三向镜像时，任何数据的三个副本都被写入到不同的服务器中，它们将在服务器中进入缓存。 无论它们稍后是否取消暂存，三个副本将始终存在。
 
-## 驱动器绑定是动态的
+## <a name="drive-bindings-are-dynamic"></a>驱动器绑定是动态的
 
 缓存驱动器和容量驱动器之间的绑定比率可以是从 1:1 到 1:12 及更高的任意比率。 无论是添加还是删除驱动器（例如，纵向扩展或失败后），比率都会自动调节。 这意味着，你随时可以独立添加缓存驱动器或容量驱动器。
 
@@ -150,7 +150,7 @@ ms.locfileid: "4678616"
 
 为了对称，我们建议将容量驱动器的数量设置为缓存驱动器数量的倍数。 例如，如果你有 4 个缓存驱动器，则使用 8 个容量驱动器（1:2 的比率），这样一来，你所能体验到的性能将比使用 7 个或 9 个容量驱动器都要高。
 
-## 处理缓存驱动器故障
+## <a name="handling-cache-drive-failures"></a>处理缓存驱动器故障
 
 当缓存驱动器发生故障时，*本地服务器*将丢失任何尚未取消暂存的写入，这意味着它们只存在于其他副本（位于其他服务器）中。 和其他任何驱动器发生故障后一样，存储空间能够通过咨询正常运行的副本自动恢复。
 
@@ -165,7 +165,7 @@ ms.locfileid: "4678616"
    >[!NOTE]
    > 你可能需要关闭电源才能安全更换外接卡 (AIC) 或 M.2 外形规格的 NVMe。
 
-## 与其他缓存之间的关系
+## <a name="relationship-to-other-caches"></a>与其他缓存之间的关系
 
 Windows 软件定义存储堆栈中有多个其他无关的缓存。 示例包括存储空间回写缓存和群集共享卷 (CSV) 内存中读取缓存。
 
@@ -177,7 +177,7 @@ Windows 软件定义存储堆栈中有多个其他无关的缓存。 示例包�
 
 大多数部署无需进行手动配置。 如果你需要手动配置，请继续阅读！
 
-### 指定缓存驱动器模型
+### <a name="specify-cache-drive-model"></a>指定缓存驱动器模型
 
 在所有驱动器类型相同的部署（例如，全 NVMe 或全 SSD 部署）中不会配置缓存，这是因为在相同类型的驱动器中，Windows 无法自动区分写入耐用性等特性。
 
@@ -186,7 +186,7 @@ Windows 软件定义存储堆栈中有多个其他无关的缓存。 示例包�
    >[!TIP]
    > 请务必与 **Get-PhysicalDisk** 输出中显示的模型字符串完全匹配。
 
-####  示例
+####  <a name="example"></a>示例
 
 ```
 PS C:\> Get-PhysicalDisk | Group Model -NoElement
@@ -201,13 +201,13 @@ PS C:\> Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
 
 通过在 PowerShell 中运行 **Get-PhysicalDisk** 并验证其 **Usage** 属性是否显示 **"Journal"**，你可以验证预期的驱动器是否用于缓存。
 
-### 手动部署可能性
+### <a name="manual-deployment-possibilities"></a>手动部署可能性
 
 手动配置可以实现以下部署可能性：
 
 ![Exotic-Deployment-Possibilities](media/understand-the-cache/Exotic-Deployment-Possibilities.png)
 
-### 设置缓存行为
+### <a name="set-cache-behavior"></a>设置缓存行为
 
 可以替代默认缓存行为。 例如，即使在全闪存部署中，你也可以将默认缓存行为设置为缓存读取。 除非确定默认缓存行为不适用于你的工作负荷，否则我们不鼓励修改默认行为。
 
@@ -215,7 +215,7 @@ PS C:\> Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
 
 你可以使用 **Get-ClusterS2D** 验证是否设置行为。
 
-#### 示例
+#### <a name="example"></a>示例
 
 ```
 PS C:\> Get-ClusterS2D
@@ -233,7 +233,7 @@ CacheModeSSD : ReadWrite
 ...
 ```
 
-## 调整缓存大小
+## <a name="sizing-the-cache"></a>调整缓存大小
 
 应调整缓存大小以适应应用程序和工作负荷的工作集（在任何给定时间主动读取或写入的数据）。
 
@@ -247,8 +247,8 @@ CacheModeSSD : ReadWrite
 
 虽然没有通用的法则，但是，如果遗漏缓存的读取过多可能会使容量大小不足，你应考虑添加缓存驱动器以扩展缓存。 你随时可以独立添加缓存驱动器或容量驱动器。
 
-## 另请参阅
+## <a name="see-also"></a>请参阅
 
 - [选择驱动器和复原类型](choosing-drives.md)
-- [容错和存储效率](storage-spaces-fault-tolerance.md)
+- [故障容错和存储效率](storage-spaces-fault-tolerance.md)
 - [存储空间直通的硬件要求](storage-spaces-direct-hardware-requirements.md)

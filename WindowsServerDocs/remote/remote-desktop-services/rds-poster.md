@@ -15,15 +15,15 @@ ms.topic: article
 ms.assetid: a8c6d5fa-399b-4823-8f10-affec1bbfe65
 ms.localizationpriority: medium
 ms.openlocfilehash: 601261780f64a779d0aa43ea8d14f58fdcb5f502
-ms.sourcegitcommit: 3883eebbba70bfea0221e510863ee1a724a5f926
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "5783629"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59874138"
 ---
-# 远程桌面服务 - 规划海报
+# <a name="remote-desktop-services---planning-poster"></a>远程桌面服务 - 规划海报
 
-## Windows Server 中的远程桌面服务
+## <a name="remote-desktop-services-in-windows-server"></a>Windows Server 中的远程桌面服务
 
 远程桌面服务团队制作了海报，帮助你规划、构建并运行 RDS 环境。
 
@@ -31,12 +31,12 @@ ms.locfileid: "5783629"
 
 若要获取海报副本，你可以右键单击该图像，将其保存到你的本地系统。
 
-请查看以下主题以了解有关规划的详细信息：
+请查看以下主题，了解有关规划的详细信息：
 
-- [规划和设计你的 RDS 部署](rds-plan-and-design.md)
-- [构建和部署 RDS](rds-build-and-deploy.md)
+- [规划和设计自己的 RDS 部署](rds-plan-and-design.md)
+- [生成和部署 RDS](rds-build-and-deploy.md)
 - [运行和调整 RDS 环境](rds-run-and-tune.md)
 
-## Windows 虚拟桌面
+## <a name="windows-virtual-desktop"></a>Windows 虚拟桌面
 
-你可能有听到我们讨论的新"现代基础结构"远程桌面。 也许你反馈，反映了我们使用短语"RDmi"。 你需要知道的短语是"Windows 虚拟桌面版"。 了解有关[Microsoft 365 添加在 Azure 上的现代桌面](https://azure.microsoft.com/blog/microsoft-365-adds-modern-desktop-on-azure/)和[Windows 虚拟桌面版上的 Ignite 2018 演示文稿](https://www.youtube.com/watch?v=_7G37PFYVe4)我们中提供此新虚拟化。 Windows 虚拟桌面目前处于特邀预览。
+你可能听说过我们谈一谈的新"现代基础结构"远程桌面。 也许您只是听我们使用短语"RDmi。" 您需要知道该短语是"Windows 虚拟桌面"。 了解此产品/服务中的新虚拟化[Microsoft 365 添加在 Azure 上的最新的台式机](https://azure.microsoft.com/blog/microsoft-365-adds-modern-desktop-on-azure/)和我们[Windows 虚拟桌面的 ignite 大会 2018年演示](https://www.youtube.com/watch?v=_7G37PFYVe4)。 Windows 虚拟桌面目前处于特邀预览阶段。

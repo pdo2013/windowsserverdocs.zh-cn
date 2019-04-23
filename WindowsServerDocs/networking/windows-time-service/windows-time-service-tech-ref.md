@@ -1,66 +1,71 @@
 ---
 ms.assetid: e34622ff-b2d0-4f81-8d00-dacd5d6c215e
 title: Windows 时间服务技术参考
-description: ''
+description: W32Time 服务提供网络而无需大量的配置的计算机的时钟同步。 W32Time 服务来说是必需的 Kerberos V5 身份验证成功的操作，则因此，对 AD DS 基于身份验证。
 author: shortpatti
-ms.author: pashort
-manager: brianlic
-ms.date: 02/01/2018
+ms.author: dacuo
+ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: 916ac654aeb1ca56e0283f9a18e011ef67734776
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 904a53797d22d2e06e0cd2f7572b99fc386dae16
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59845118"
 ---
 # <a name="windows-time-service-technical-reference"></a>Windows 时间服务技术参考
-W32Time service 提供计算机，而无需广泛的配置网络时钟的同步。 成功 Kerberos 第 V5 身份验证的操作，进而对广告基于 DS 的身份验证，则 W32Time 服务至关重要。 任何 Kerberos 注意到的应用程序，包括大多数安全服务，依赖参与身份验证请求计算机之间同步的时间。 广告 DS 域控制器必须还同步时钟，以帮助确保复制准确的数据。
+>适用于：Windows Server 2016 中，Windows Server 2012 R2，Windows Server 2012 中，Windows 10 或更高版本
+
+W32Time 服务提供网络而无需大量的配置的计算机的时钟同步。 W32Time 服务来说是必需的 Kerberos V5 身份验证成功的操作，则因此，对 AD DS 基于身份验证。 任何 Kerberos 感知的应用程序，包括大多数安全服务，依赖于身份验证请求中包含的计算机之间的时间同步。 AD DS 域控制器也必须具有同步时钟，以帮助确保精确的数据复制。
 
 > [!NOTE]  
-> 在 Windows Server 2003，Microsoft Windows 2000 Server 目录服务名为 Active Directory 目录服务。 在 Windows Server 2008 R2 和 Windows Server 2008、 Active Directory 域服务 (广告 DS) 命名目录服务。 本主题中的其余部分指广告 DS，但也适用于 Windows Server 2016 中的 Active Directory 域服务信息。
+> 在 Windows Server 2003 和 Microsoft Windows 2000 Server 中，目录服务名为 Active Directory 目录服务。 在 Windows Server 2008 R2 和 Windows Server 2008 中，目录服务名为 Active Directory 域服务 (AD DS)。 本主题的其余部分引用了 AD DS，但信息也适用于 Windows Server 2016 中的 Active Directory 域服务。
 
-在一个名为 W32Time.dll，默认情况下，在安装了其中的动态链接库中实现 W32Time 服务**%Systemroot%\System32**。 W32Time.dll 最初针对 Windows 2000 Server 支持规格中所需的网络，若要同步的时钟 Kerberos 第 V5 身份验证协议开发。 开始与 Windows Server 2003，W32Time.dll 提供对 Windows Server 2000 操作系统中网络时钟同步增加的准确性。 此外，在 Windows Server 2003，W32Time.dll 支持各种硬件设备使用时间提供商的网络时协议。
+W32Time 服务的实现位于一个名为 W32Time.dll，在默认情况下安装的动态链接库 **%Systemroot%\System32**。 W32Time.dll 最初为 Windows 2000 Server 以支持一种规范中所需同步的网络上的时钟的 Kerberos V5 身份验证协议开发。 从 Windows Server 2003 开始，W32Time.dll 提供通过 Windows Server 2000 操作系统中网络时钟同步提高的准确性。 此外，在 Windows Server 2003 W32Time.dll 支持各种硬件设备和网络时间协议使用时间提供程序。
 
-许多当前应用程序尽管最初旨在提供 Kerberos 身份验证的时钟同步，使用时间戳确保事务一致性，记录的重要事件和其他关键业务，时间时间敏感型信息。  这些应用程序受益于由 Windows 时间 service 提供的计算机之间同步的时间。
+虽然最初设计用于提供进行 Kerberos 身份验证的时钟同步，但许多当前应用程序使用时间戳来确保事务一致性，记录的时间的重要事件和其他业务关键型，时间敏感型信息。  这些应用程序受益于提供的 Windows 时间服务的计算机之间的时间同步。
 
 ## <a name="importance-of-time-protocols"></a>时间协议的重要性
-两台计算机若要交换时间信息，然后使用该信息同步他们时钟之间进行通信时间协议。 使用 Windows 时服务时间协议，的客户端从服务器请求时间信息，并使其时钟根据所收到的信息同步。
+时间协议来交换时间信息，然后使用该信息以使其时钟同步的两台计算机之间进行通信。 使用 Windows 时间服务时间协议，客户端从服务器请求时间的信息，并使其根据收到的信息的时钟同步。
   
-Windows 时间服务使用 NTP 帮助同步网络上的时间。 NTP 是包含不必同步时钟专业算法 Internet 时间协议。 NTP 是更精确的时间协议比简单网络时间协议 (SNTP)，可在某些版本的 Windows。但是，W32Time 仍支持 SNTP 启用与计算机运行 SNTP 基于时间的服务，如 Windows 2000 的后向兼容性。
+Windows 时间服务使用 NTP 来帮助跨网络同步时间。 NTP 是一个 Internet 时间协议，包括同步时钟所需的专业算法。 NTP 是更准确的时间协议比简单网络时间协议 (SNTP)，可在某些版本的 Windows;但是，W32Time 继续支持 SNTP 若要启用与运行 SNTP 基于时服务，例如 Windows 2000 的计算机的向后兼容性。
 <!-- maybe this should be its own topic under the Tech Ref section -->
-## <a name="BKMK_Config"></a>在哪里可以找到 Windows 时间配置相关服务的信息  
-本指南无法**不**讨论配置 Windows 时间服务。 有几个不同的主题 Microsoft TechNet 上和 Microsoft 知识库中执行说明配置 Windows 时间服务的过程。 如果你需要配置信息，以下主题应该帮助你找到相应的信息。  
+## <a name="where-to-find-windows-time-service-configuration-related-information"></a>在哪里可以找到 Windows 时间服务与配置相关信息  
+本指南 does**不**讨论配置 Windows 时间服务。 有几个不同 Microsoft TechNet 上和 Microsoft 知识库中执行操作说明主题配置 Windows 时间服务的过程。 如果您需要配置信息，以下主题有助于你找到相应的信息。  
 <!-- should this be an if/then table -->
--   若要配置森林根主域控制器 (PDC) 仿真器的 Windows 时间服务，请参阅：  
+-   若要配置林根主域控制器 (PDC) 仿真器的 Windows 时间服务，请参阅：  
   
-    -   [配置 Windows 时间服务上 PDC 模拟器森林根域中](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29) 
+    -   [在目录林根域中的 PDC 仿真器上配置 Windows 时间服务](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29) 
   
-    -   [配置林时间源](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc794823%28v%3dws.10%29) 
+    -   [配置林的时间源](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc794823%28v%3dws.10%29) 
   
-    -   Microsoft 知识库文章 816042，[如何在 Windows Server 配置时间权威服务器](https://go.microsoft.com/fwlink/?LinkID=60402)，其中介绍配置设置为计算机运行 Windows Server 2008 R2、Windows Server 2008、Windows Server 2003，并 Windows Server 2003 R2。  
+    -   Microsoft 知识库文章 816042，[如何在 Windows Server 中配置权威时间服务器](https://go.microsoft.com/fwlink/?LinkID=60402)，其中介绍了运行 Windows Server 2008 R2，Windows Server 2008 中，Windows Server 的计算机的配置设置2003、 和 Windows Server 2003 R2。  
   
--   若要任何域成员客户端或服务器或未配置为森林根 PDC 模拟器甚至该域控制器上配置 Windows 时间服务，请参阅[客户端将计算机配置为自动域时间同步](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816884%28v%3dws.10%29)。  
+-   若要在任何域成员客户端或服务器或未配置为目录林根 PDC 仿真器的甚至域控制器上配置 Windows 时间服务，请参阅[配置客户端计算机进行自动域时间同步](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816884%28v%3dws.10%29).  
   
     > [!WARNING]  
-    > 某些应用程序可能需要他们的计算机具有高准确性时服务。 如果是这种情况，你可以选择配置手动时间源，但是请注意，并非设计 Windows 时间服务为精准时间源的功能。 确保你了解有关高准确性时间环境，述 Microsoft 知识库文章 939322，支持限制[配置的 Windows 时间服务的支持边界高准确性环境](https://go.microsoft.com/fwlink/?LinkID=179459)。  
+    > 某些应用程序可能需要他们的计算机能够具有高准确性时服务。 如果是这样，您可以选择配置手动时间源，但请注意，Windows 时间服务不旨在作为非常准确的时间源。 确保您已了解支持限制为高准确性时环境中 Microsoft 知识库文章所述文章 939322，[支持边界来配置 Windows 时间服务对于高准确性环境](support-boundary.md).  
   
--   在任何基于 Windows 的客户端或服务器配置计算机在工作组中的成员而不是域成员查看配置 Windows 时间服务[配置手动时间为所选的客户端计算机源](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816656%28v%3dws.10%29)。  
+-   若要配置 Windows 时间服务，任何基于 Windows 的客户端或服务器计算机上，配置为工作组成员而不是域成员查看[配置为所选客户端计算机手动时间源](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816656%28v%3dws.10%29)。  
   
--   配置了运行虚拟环境主计算机上的 Windows 时间服务，请参阅 Microsoft 知识库文章 816042，[如何配置中的时间权威服务器 Windows Server](https://go.microsoft.com/fwlink/?LinkID=60402). 如果你正在使用非 Microsoft 虚拟产品，请确保该产品，请参阅供应商的文档。  
+-   若要在运行虚拟环境的主机计算机上配置 Windows 时间服务，请参阅 Microsoft 知识库文章 816042，[如何在 Windows Server 中配置权威时间服务器](https://go.microsoft.com/fwlink/?LinkID=60402)。 如果您正在使用非 Microsoft 虚拟化产品，请务必参考针对该产品的供应商的文档。  
   
--   若要在虚拟机上运行的域控制器上配置 Windows 时间服务，建议你部分禁用在主机系统和来宾操作系统作为域控制器之间同步的时间。 这使你的访客域控制器要同步的域层次的时间，但防止它时遇到扭曲如果地进行还原从保存状态的时间。 有关详细信息，请参阅 Microsoft 知识库文章 976924，[接收 24 29 日，38 Windows Server 2008 年基于承载服务器提供 Hyper-V](https://go.microsoft.com/fwlink/?LinkID=192236)和[部署注意事项虚拟化域控制器](https://go.microsoft.com/fwlink/?LinkID=192235)。  
+-   若要在虚拟机中运行的域控制器上配置 Windows 时间服务，建议您部分禁用主机系统和来宾操作系统用作域控制器之间的时间同步。 这使来宾域控制器同步时间对于域层次结构，但防止它存在时间倾斜如果从已保存状态还原。 有关详细信息，请参阅 Microsoft 知识库文章 976924，[接收 Windows 时间服务事件 Id 24、 29%和 38 HYPER-V 的基于 Windows Server 2008 的主机服务器运行的虚拟化的域控制器上](https://go.microsoft.com/fwlink/?LinkID=192236)并[的虚拟化的域控制器部署考虑事项](https://go.microsoft.com/fwlink/?LinkID=192235)。  
   
--   要作为还在虚拟的电脑运行的森林根 PDC 模拟器域控制器上配置 Windows 时间服务，请按照相同说明物理计算机中所述[上 PDC 配置 Windows 时间服务森林根域中的模拟器](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29)。  
+-   若要在虚拟计算机中还运行在林根 PDC 仿真器作为域控制器上配置 Windows 时间服务，按照物理计算机的相同的说明中所述[上配置 Windows 时间服务目录林根域中的 PDC 仿真器](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29)。  
   
--   若要配置为虚拟电脑运行的成员服务器上的 Windows 时间服务，使用域时间层次中所述 ([客户端将计算机配置为自动域时间同步](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816884%28v%3dws.10%29)。
+-   若要运行的虚拟计算机的成员服务器上配置 Windows 时间服务，请使用域时间层次结构中所述[配置自动域时间同步的客户端计算机](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816884%28v%3dws.10%29)。
 
 
 > [!IMPORTANT]  
-> Windows Server 2016 中之前, W32Time 服务并非设计以满足时间敏感型应用程序需要。  但是，对 Windows Server 2016 更新现在允许你实施的 1ms 解决方案域中的准确性。  请参阅[Windows 2016 精确的时间](accurate-time.md)和[配置 Windows 时间为高准确性环境服务的支持边界](https://go.microsoft.com/fwlink/?LinkID=179459)详细信息。
+> 在 Windows Server 2016 之前 W32Time 服务未旨在满足时间敏感的应用程序的需求。  但是，更新到 Windows Server 2016 现在，您可以实现用于 1 毫秒的解决方案在你的域中的准确性。  有关详细信息，请参阅[Windows 2016 精确时间](accurate-time.md)并[支持边界来配置 Windows 时间服务对于高准确性环境](support-boundary.md)有关详细信息。
 
-## <a name="related-topics"></a>相关的主题  
-[Windows 时间服务的工作原理](How-the-Windows-Time-Service-Works.md)  
-[Windows 时服务工具和设置](Windows-Time-Service-Tools-and-Settings.md)  
-[Microsoft 知识库文章 902229](https://go.microsoft.com/fwlink/?LinkId=186066)
+## <a name="related-topics"></a>相关主题
+- [Windows 2016 准确的时间](accurate-time.md)
+- [适用于 Windows Server 2016 的时间准确性改进](windows-server-2016-improvements.md)  
+- [Windows 时间服务的工作原理](How-the-Windows-Time-Service-Works.md)  
+- [Windows 时间服务工具和设置](Windows-Time-Service-Tools-and-Settings.md)  
+- [支持边界来配置高准确性环境的 Windows 时间服务](support-boundary.md)
+- [Microsoft 知识库文章 902229](https://go.microsoft.com/fwlink/?LinkId=186066)

@@ -8,37 +8,37 @@ author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: high
 ms.openlocfilehash: 4c454fc397b662e313d5cfb7ed02a83dc7059207
-ms.sourcegitcommit: e73fbe1046a8bd2bf4f24ccffc11465ad8dfab1d
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "8992540"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59871838"
 ---
-# Windows Server 2019 中的新增功能
+# <a name="whats-new-in-windows-server-2019"></a>Windows Server 2019 中的新增功能
 
-本主题将介绍 Windows Server 2019 中的一些新增功能。 Windows Server 2019 在 Windows Server 2016 的坚实基础上构建，围绕以下四个关键主题实现了很多创新：混合云、安全性、应用程序平台和超融合基础设施 (HCI)。 若要了解 Windows Server 版本 1809 中的新增功能，请参阅 [Windows Server 版本 1809 中的新增功能](../get-started/whats-new-in-windows-server-1809.md)。
+本主题将介绍 Windows Server 2019 中的一些新增功能。 Windows Server 2019 强大的 Windows Server 2016 基础上构建，并大量创新上四个关键主题：混合云、 安全、 应用程序平台和超聚合基础结构 (HCI)。 若要了解 Windows Server 版本 1809 中的新增功能，请参阅 [Windows Server 版本 1809 中的新增功能](../get-started/whats-new-in-windows-server-1809.md)。
 
-## 概要
+## <a name="general"></a>常规
 
-### 桌面体验
+### <a name="desktop-experience"></a>桌面体验
 
-Windows Server 2019 是长期服务频道 (LTSC) 版本，因此它包含<b>桌面体验</b>。 （它不包含在 Windows Server 版本 1709、Windows Server 版本 1803 或 Windows Server 版本 1809 中，因为半年频道 (SAC) 版本不包含桌面体验；严格地说，这些版本属于服务器核心和 Nano Server 容器映像版本。）与 Windows Server 2016 相同，你可以在安装操作系统时选择服务器核心安装或带桌面体验的服务器安装。
+Windows Server 2019 是长期服务频道 (LTSC) 版本，因此它包含<b>桌面体验</b>。 (它不包含在 Windows Server、 版本 1709年、 Windows Server、 版本 1803，或 Windows Server 版本 1809，因为半年频道\(SAC\)版本不包含桌面体验的设计，因为它们是严格服务器Core 和 Nano Server 容器映像版本。）与 Windows Server 2016 中，在操作系统安装过程中您可以选择服务器核心安装或服务器带桌面体验安装。
 
-### 系统见解
+### <a name="system-insights"></a>系统见解
 
 系统见解是 Windows Server 2019 中提供的一项新功能，以本机方式为 Windows Server 带来了本地预测分析功能。 这些预测功能中的每种功能都受机器学习模型支持，可在本地分析 Windows Server 系统数据（例如性能计数器和事件），提供你的服务器功能的见解，并帮助减少与被动管理 Windows Server 部署中的问题相关的操作支出。
 
-## 混合云
+## <a name="hybrid-cloud"></a>混合云
 
-### 服务器核心应用兼容性按需功能
+### <a name="server-core-app-compatibility-feature-on-demand"></a>服务器核心应用兼容性按需功能
 
 [服务器核心应用兼容性按需功能 (FOD)](https://docs.microsoft.com/windows-server/get-started-19/install-fod-19)通过包含 Windows Server 中的二进制文件和组件子集与桌面体验而无需添加 Windows Server 桌面体验图形环境，显著提高了 Windows Server 核心安装选项的应用兼容性。  此举可增加服务器核心的功能和兼容性，同时尽可能保持精简。  
 
 此可选按需功能适用于单独的 ISO，并且可使用 DISM 仅添加到 Windows Server Core 安装和映像中。 
 
-## 安全性
+## <a name="security"></a>安全性
 
-### Windows Defender 高级威胁防护 (ATP)
+### <a name="windows-defender-advanced-threat-protection-atp"></a>Windows Defender 高级威胁防护 (ATP)
 
 ATP 的深度平台传感器和响应操作可暴露内存和内核级别攻击，并通过抑制恶意文件和终止恶意进程进行响应。
 
@@ -62,7 +62,7 @@ ATP 的深度平台传感器和响应操作可暴露内存和内核级别攻击�
 客户反馈表明，这个概念虽好，但却难以实施。
 为了解决此问题，我们构建了默认 CI 策略，允许所有 Windows 内置文件和 Microsoft 应用程序（如 SQL Server），同时阻止可以绕过 CI 的已知可执行文件。 
 
-### 软件定义的网络 (SDN) 的安全性
+### <a name="security-with-software-defined-networking-sdn"></a>软件定义的网络 (SDN) 的安全性
 
 [SDN 的安全性](https://docs.microsoft.com/windows-server/networking/sdn/security/sdn-security-top)提供多种功能来增强客户在本地或作为云中的服务提供商运行工作负载的信心。 
 
@@ -70,7 +70,7 @@ ATP 的深度平台传感器和响应操作可暴露内存和内核级别攻击�
 
 有关 SDN 中新增功能的完整列表，请参阅 [Windows Server 2019 的 SDN 中的新增功能](https://docs.microsoft.com/windows-server/networking/sdn/sdn-whats-new)。
 
-### 受防护的虚拟机改进
+### <a name="shielded-virtual-machines-improvements"></a>受防护的虚拟机改进
 
 - **分支机构改进**
 
@@ -78,7 +78,7 @@ ATP 的深度平台传感器和响应操作可暴露内存和内核级别攻击�
 
     即使不能访问 HGS，脱机模式也允许你继续启动受防护的虚拟机，只要虚拟机成功启动一次并且主机的安全配置并未更改即可。
 
-- **疑难解答改进**
+- **疑难解答改进功能**
 
     我们还通过启用对 VMConnect 增强会话模式和 PowerShell Direct 的支持简化了[受防护虚拟机的故障排除](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-troubleshoot-shielded-vms)。 这些工具尤其适用于到 VM 的网络连接已断开，需要更新其配置才能恢复访问的情况。 
 
@@ -88,7 +88,7 @@ ATP 的深度平台传感器和响应操作可暴露内存和内核级别攻击�
 
     如果你运行混合操作系统环境，Windows Server 2019 现在支持在受防护的虚拟机内运行 Ubuntu、Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server。
 
-### HTTP/2 实现更快、更安全的 Web
+### <a name="http2-for-a-faster-and-safer-web"></a>HTTP/2 实现更快、更安全的 Web
 
 - 改进了连接合并，可提供不间断且正确加密的浏览体验。
 
@@ -96,30 +96,30 @@ ATP 的深度平台传感器和响应操作可暴露内存和内核级别攻击�
 
 - 已将默认 TCP 拥塞提供程序更改为 Cubic，以为你提供更大的吞吐量！
 
-## 存储
+## <a name="storage"></a>存储
 
 下面是我们已对 Windows Server 2019 中的存储做出的一些更改。 有关详细信息，请参阅[存储中的新增功能](../storage/whats-new-in-storage.md)。
 
-### 存储迁移服务
+### <a name="storage-migration-service"></a>存储迁移服务
 
 存储迁移服务是一种新技术，可以更轻松地将服务器迁移到更新版本的 Windows Server。 它提供一个图形工具，可清查服务器上的数据、将该数据和配置传输到更新的服务器，然后可以选择将旧服务器的标识移动到新服务器，以便应用和用户不必做出任何更改。 有关详细信息，请参阅[存储迁移服务](../storage/storage-migration-service/overview.md)。
 
-### 存储空间直通
+### <a name="storage-spaces-direct"></a>存储空间直通
 
 下面是存储空间直通中的新增功能的列表。 有关详细信息，请参阅[存储空间直通中的新增功能](../storage/whats-new-in-storage.md#storage-spaces-direct)。
 
-- **用于 ReFS 卷的重复数据删除和压缩**
-- **持久性内存的本机支持**
-- **边缘处双节点超融合基础设施的嵌套复原**
-- **使用 U 盘作为见证的双服务器群集**
+- **重复数据删除和 ReFS 卷的压缩**
+- **对永久性内存的本机支持**
+- **两个节点在边缘超聚合基础结构的嵌套复原能力**
+- **两个服务器群集使用 USB 闪存驱动器作为见证服务器**
 - **Windows Admin Center 支持**
 - **性能历史记录**
-- **扩展到每个群集 4 PB**
-- **镜像加速奇偶校验速度提高了 2 倍**
-- **驱动器延迟异常检测**
-- **手动分隔卷的分配以提高容错能力**
+- **缩放最高支持每个群集 PB**
+- **镜像加速奇偶校验更快地为 2 X**
+- **驱动器延迟离群值检测**
+- **手动分隔卷，以提高容错能力的分配**
 
-### 存储副本
+### <a name="storage-replica"></a>存储副本
 
 下面是存储副本中的新增功能。 有关详细信息，请参阅[存储副本中的新增功能](../storage/whats-new-in-storage.md#storage-replica)。
 
@@ -128,27 +128,27 @@ ATP 的深度平台传感器和响应操作可暴露内存和内核级别攻击�
 - 存储副本记录性能改进
 - Windows Admin Center 支持
 
-## 故障转移群集
+## <a name="failover-clustering"></a>故障转移群集
 
 以下是故障转移群集中的一系列新增功能。 有关详细信息，请参阅[故障转移群集中的新增功能](../failover-clustering/whats-new-in-failover-clustering.md)。
 
-- **群集集**
+- **群集设置**
 - **Azure 感知群集**
-- **跨域群集迁移**
-- **USB 见证**
+- **跨域的群集迁移**
+- **USB 见证服务器**
 - **群集基础结构改进**
 - **群集感知更新支持存储空间直通**
-- **文件共享见证增强**
+- **文件共享见证服务器增强功能**
 - **群集强化**
 - **故障转移群集不再使用 NTLM 身份验证**
 
-## 应用程序平台
+## <a name="application-platform"></a>应用程序平台
 
-### Windows 上的 Linux 容器
+### <a name="linux-containers-on-windows"></a>Windows 上的 Linux 容器
 
 现在可以使用相同的 Docker 守护程序在同一容器主机上运行基于 Windows 和 Linux 的容器。 这使你能够具有异构容器主机环境，同时向应用程序开发人员提供灵活性。
 
-### 建立针对 Kubernetes 的支持
+### <a name="building-support-for-kubernetes"></a>建立针对 Kubernetes 的支持
 
 Windows Server 2019 通过推出半年频道版本不断改进计算、联网和存储功能，以支持 Kubernetes 在 Windows 上运行。 即将推出的 Kubernetes 版本中将提供更多详细信息。
 
@@ -156,29 +156,29 @@ Windows Server 2019 通过推出半年频道版本不断改进计算、联网和
 
 - 在 Kubernetes 上部署的工作负载将能够利用网络安全性来保护使用嵌入式工具的 Linux 和 Windows 服务。
 
-### 容器改进
+### <a name="container-improvements"></a>容器改进
     
-- **改进了集成身份**
+- **改进了集成的身份**
 
     我们简化了容器中的集成 Windows 身份验证并提高了其可靠性，并解决了早期 Windows Server 版本中的几个限制。
 
-- **提高了应用程序兼容性**
+- **更好的应用程序兼容性**
 
-    实现基于 Windows 的应用程序的容器化变得更加简单：增加了现有 *windowsservercore* 映像的应用兼容性。 对于具有其他 API 依赖项的应用程序，现在还增加了第三个基本映像：*windows*。
+    只需将容器基于 Windows 的应用程序更加简单：对现有应用程序兼容性*windowsservercore*映像已增加。 对于具有其他 API 依赖项的应用程序，现在还增加了第三个基本映像：*windows*。
 
-- **占用空间更小，性能更高**
+- **减少的大小和更高的性能**
 
     基本容器映像的下载大小、磁盘大小和启动时间都得到了改善。 这可以加快容器工作流
 
-- **使用 Windows Admin Center（预览）的管理体验**
+- **使用 Windows Admin Center 的管理体验\(预览\)**
 
     现在，使用 Windows Admin Center 的新扩展，用户可以比以往更轻松地查看计算机上正在运行哪些容器并管理各个容器。 查找 [Windows Admin Center 公共源](https://docs.microsoft.com/windows-server/manage/windows-admin-center/configure/using-extensions)中的“容器”扩展。
 
-### 加密网络
+### <a name="encrypted-networks"></a>加密网络
 
 [加密网络](https://docs.microsoft.com/windows-server/networking/sdn/sdn-whats-new) - 虚拟网络加密允许对在标记为**启用加密**的子网内相互通信的虚拟机之间的虚拟网络流量进行加密。 它还利用虚拟子网上的数据报传输层安全性 (DTLS) 来加密数据包。 DTLS 可以防止能够访问物理网络的任何人进行窃听、篡改和伪造。
 
-### 虚拟工作负载的网络性能提升
+### <a name="network-performance-improvements-for-virtual-workloads"></a>虚拟工作负载的网络性能提升
 
 [虚拟工作负载的网络性能提升](https://docs.microsoft.com/windows-server/networking/technologies/hpn/hpn-insider-preview)可最大程度地提升到虚拟机的网络吞吐量，且无需不断地调整或过度预配你的主机。 这降低了操作和维护成本，同时提高了主机的可用密度。 这些新功能包括：
 
@@ -186,26 +186,26 @@ Windows Server 2019 通过推出半年频道版本不断改进计算、联网和
 
 * 动态虚拟机多队列 (d.VMMQ)
 
-### 低额外延迟后台传输
+### <a name="low-extra-delay-background-transport"></a>低额外延迟后台传输
 
 低额外延迟后台传输 (LEDBAT) 是一款针对延迟进行优化的网络拥塞控制提供程序，旨在自动产生为用户和应用程序分配的带宽，同时在网络未使用时使用整个可用带宽。   
 此技术用于在整个 IT 环境中部署较大的关键更新，而不会影响面向客户的服务和关联带宽。
 
-### Windows 时间服务
+### <a name="windows-time-service"></a>Windows 时间服务
 
 [Windows 时间服务](https://docs.microsoft.com/windows-server/networking/windows-time-service/insider-preview)包括符合 UTC 标准的闰秒级支持、称为精确时间协议的新时间协议和端到端可追溯性。
 
 
-### 高性能 SDN 网关
+### <a name="high-performance-sdn-gateways"></a>高性能 SDN 网关
 
 Windows Server 2019 中的[高性能 SDN 网关](https://docs.microsoft.com/windows-server/networking/sdn/gateway-performance)极大地提高了 IPsec 和 GRE 连接的性能，在显著降低 CPU 使用率的同时可提供超高性能吞吐量。
 <br/>
 
-### 用于 SDN 的新部署 UI 和 Windows Admin Center 扩展
+### <a name="new-deployment-ui-and-windows-admin-center-extension-for-sdn"></a>用于 SDN 的新部署 UI 和 Windows Admin Center 扩展
 
 现在，借助 Windows Server 2019，人们可以通过有助于充分利用 SDN 的新部署 UI 和 Windows Admin Center 扩展轻松实现部署和管理。 
 
-### Hyper-V VM 的持久性内存支持
+### <a name="persistent-memory-support-for-hyper-v-vms"></a>Hyper-V VM 的持久性内存支持
 
 为了在虚拟机中充分利用持久性内存（也称为 存储类内存）的高吞吐量和低延迟，它现在可以直接投影到虚拟机。 这有助于大大减少数据库事务延迟或减少出现故障时低延迟内存中数据库的恢复时间。
 

@@ -13,11 +13,11 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 1461f3e3266d77d2510aba37208347253a8f78e7
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2081918"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59851618"
 ---
 # <a name="iis-on-nano-server"></a>Nano Server 上的 IIS
 
@@ -32,7 +32,7 @@ ms.locfileid: "2081918"
 
 |功能|默认情况下启用|  
 |-----------|----------------------|  
-|**常用 HTTP 功能**||  
+|**常见 HTTP 功能**||  
 |默认文档|x|  
 |目录浏览|x|  
 |HTTP 错误|x|  
@@ -46,7 +46,7 @@ ms.locfileid: "2081918"
 |**性能**||  
 |静态内容压缩|x|  
 |动态内容压缩||  
-|**安全**||  
+|**安全性**||  
 |请求筛选|x|  
 |基本身份验证||  
 |客户端证书映射身份验证||  
@@ -65,7 +65,7 @@ ms.locfileid: "2081918"
 |**管理工具**||  
 |Windows PowerShell 的 IISAdministration 模块|x|  
 
-一系列文章的其他配置 IIS （如使用 ASP.NET、 PHP 和 Java），以及其他相关内容发布在[http://iis.net/learn](http://iis.net/learn)。  
+一系列的文章其他配置上的 IIS （例如，使用 ASP.NET、 PHP 和 Java），以及其他相关内容发布在[ http://iis.net/learn ](http://iis.net/learn)。  
 
 ## <a name="installing-iis-on-nano-server"></a>在 Nano Server 上安装 IIS  
 可以脱机（Nano Server 断开时）或联机（Nano Server 运行时）安装此服务器角色；脱机安装是推荐选项。  
@@ -129,12 +129,12 @@ ms.locfileid: "2081918"
 
     **dism /online /get-packages**  
 
-    应该会看到“包标识：Microsoft-NanoServer-IIS-Package~31bf3856ad364e35~amd64~~10.0.14393.1000”两次列出，一次用于发布类型：语言包，一次用于发布类型：功能包。  
+    应会看到"包标识：Microsoft NanoServer IIS 包 ~ 31bf3856ad364e35 ~ amd64 ~ ~ 10.0.14393.1000"两次列出，一次用于发布类型：语言包和一次用于发布类型：功能包。  
 
 6.  使用 **net start w3svc** 或通过重新启动 Nano Server 启动 W3SVC 服务。  
 
 ## <a name="starting-iis"></a>启动 IIS  
-安装 IIS 后并且运行时，它已准备好为 Web 请求提供服务。 通过浏览默认的 IIS 网页（网址：http://<IP address of Nano Server>）验证 IIS 是否在运行。 在物理计算机上，可以通过使用恢复控制台确定 IP 地址。 在虚拟计算机上，通过使用 Windows PowerShell 提示符和运行以下各项可获得 IP 地址：  
+安装 IIS 后并且运行时，它已准备好为 Web 请求提供服务。 通过浏览默认的 IIS 网页（网址： http://\<IP address of Nano Server> 验证 IIS 是否在运行。 在物理计算机上，可以通过使用恢复控制台确定 IP 地址。 在虚拟计算机上，通过使用 Windows PowerShell 提示符和运行以下各项可获得 IP 地址：  
 
 `Get-VM -name <VM name> | Select -ExpandProperty networkadapters | select IPAddresses`  
 
@@ -185,7 +185,7 @@ IIS 的每个功能作为一组配置元素存在。 例如，Windows 身份验�
 
 然后可以运行 `Get-IISSite` 以验证该站点的状态（返回网站名称、ID、状态、物理路径和绑定）。  
 
-**删除网站**  
+**正在删除网站**  
 
 运行 `Remove-IISSite -Name TestSite -Confirm:$false`。  
 
@@ -242,9 +242,9 @@ PS C:\> $sm.ApplicationPools.Add("DemoAppPool")
     $sm.CommitChanges()  
     ```  
 
-    还可以使用此语法结合使用服务器名称指示 (SNI) 和特定主机名称： `$sm.Sites["Default Web Site"].Bindings.Add("*:443:www.foo.bar.com", $hash, "My", "Sni".`  
+    此外可以使用此语法与特定主机名使用服务器名称指示 (SNI): `$sm.Sites["Default Web Site"].Bindings.Add("*:443:www.foo.bar.com", $hash, "My", "Sni".`  
 
-## <a name="appendix-1-list-of-iis-sub-features"></a>附录 1：IIS 子功能列表
+## <a name="appendix-1-list-of-iis-sub-features"></a>附录 1：IIS 子功能的列表
 
 - IIS-WebServer
 - IIS-CommonHttpFeatures
@@ -293,7 +293,7 @@ IIS 的每个功能作为一组配置元素存在。 本附录列出了此版本
 |`<handlers>`|`<add name="StaticFile" path="*" verb="*" modules="DefaultDocumentModule" resourceType="EiSecther" requireAccess="Read" />`|  
 |`<defaultDocument>`|`<defaultDocument enabled="true"><br /><files><br /> <add value="Default.htm" /><br />        <add value="Default.asp" /><br />        <add value="index.htm" /><br />        <add value="index.html" /><br />        <add value="iisstart.htm" /><br />    </files><br /></defaultDocument>`|  
 
-`StaticFile <handlers>` 条目可能已经存在；如果是这样，只需将“DefaultDocumentModule”添加到 <modules> 属性中，用逗号隔开。  
+`StaticFile <handlers>` 条目可能已经存在；如果是这样，只需将“DefaultDocumentModule”添加到 \<modules> 属性中，用逗号隔开。  
 
 **目录浏览**  
 
@@ -303,7 +303,7 @@ IIS 的每个功能作为一组配置元素存在。 本附录列出了此版本
 |`<modules>`|`<add name="DirectoryListingModule" lockItem="true" />`|  
 |`<handlers>`|`<add name="StaticFile" path="*" verb="*" modules="DirectoryListingModule" resourceType="Either" requireAccess="Read" />`|  
 
-`StaticFile <handlers>` 条目可能已经存在；如果是这样，只需将“DirectoryListingModule”添加到 <modules> 属性中，用逗号隔开。  
+`StaticFile <handlers>` 条目可能已经存在；如果是这样，只需将“DirectoryListingModule”添加到 \<modules> 属性中，用逗号隔开。  
 
 **HTTP 错误**  
 
@@ -321,7 +321,7 @@ IIS 的每个功能作为一组配置元素存在。 本附录列出了此版本
 |`<modules>`|`<add name="StaticFileModule" lockItem="true" />`|  
 |`<handlers>`|`<add name="StaticFile" path="*" verb="*" modules="StaticFileModule" resourceType="Either" requireAccess="Read" />`|  
 
-`StaticFile \<handlers>` 条目可能已经存在；如果是这样，只需将“StaticFileModule”添加到 <modules> 属性中，用逗号隔开。  
+`StaticFile \<handlers>` 条目可能已经存在；如果是这样，只需将“StaticFileModule”添加到 \<modules> 属性中，用逗号隔开。  
 
 **HTTP 重定向**  
 
@@ -378,7 +378,7 @@ IIS 的每个功能作为一组配置元素存在。 本附录列出了此版本
 |`<modules>`|`<add name="DynamicCompressionModule" lockItem="true" />`|  
 |`<httpCompression>`|`<httpCompression directory\="%SystemDrive%\inetpub\temp\IIS Temporary Compressed Files"><br />    <scheme name="gzip" dll="%Windir%\system32\inetsrv\gzip.dll" \/><br />    \<dynamicTypes><br />        <add mimeType="text/*" enabled="true" \/><br />        <add mimeType="message/*" enabled="true" /><br />        <add mimeType="application/x-javascript" enabled="true" /><br />        <add mimeType="application/javascript" enabled="true" /><br />        <add mimeType="*/*" enabled="false" /><br />    <\/dynamicTypes><br /></httpCompression>`|  
 
-### <a name="security"></a>安全  
+### <a name="security"></a>安全性  
 **请求筛选**  
 
 |部分|配置元素|  

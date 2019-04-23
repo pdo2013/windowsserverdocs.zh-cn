@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: a270334d-42a7-46ff-8eed-d8656a276544
 ms.openlocfilehash: 7e68d292c32ce58c786a3242203330fcae985913
-ms.sourcegitcommit: 4b9b21ca1f366388a78ead7413cb581f2b23d4c6
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "2711952"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59847768"
 ---
-# Windows Server 半年频道中对 Nano Server 所做的更改
+# <a name="changes-to-nano-server-in-windows-server-semi-annual-channel"></a>Windows Server 半年频道中对 Nano Server 所做的更改
 
 >适用于：Windows Server 半年频道
 
@@ -35,5 +35,5 @@ ms.locfileid: "2711952"
 - 可以通过使用 Docker 对新的 Nano 容器进行故障排查。
 - 现在，可以在 IoT 核心版上运行 Nano 容器。
 
-## 相关主题
+## <a name="related-topics"></a>相关主题
 如果启动预览体验计划，可在 [Windows 容器文档](http://aka.ms/windowscontainers)中查找详细信息。

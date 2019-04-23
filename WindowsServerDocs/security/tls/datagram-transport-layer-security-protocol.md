@@ -1,6 +1,6 @@
 ---
-title: "数据报传输层安全性协议"
-description: "Windows Server 安全"
+title: 数据报传输层安全协议
+description: Windows Server 安全
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,27 +12,28 @@ ms.assetid: 57b8873a-ad9c-4f2c-93e0-a2af352c6965
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
-ms.date: 10/12/2016
-ms.openlocfilehash: 31c1cf1f3218c0511a4407b560be30d0c6f86233
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
+ms.date: 05/16/2018
+ms.openlocfilehash: b32ebafff5e41d5c3140f008f6f391852f2f3474
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59870788"
 ---
-# 数据报传输层安全性协议
+# <a name="datagram-transport-layer-security-protocol"></a>数据报传输层安全协议
 
->适用于：Windows Server（半年通道），Windows Server 2016
+Windows Server （半年频道），Windows Server 2016 中，Windows 10
 
-IT 专业人员的此参考主题介绍了数据报传输层安全性 (DTLS) 协议，它是一部分 Schannel 安全支持提供商 (SSP)。
+本参考主题面向 IT 专业人员介绍数据报传输层安全性 (DTLS) 协议，它是 Schannel 安全支持提供程序 (SSP) 的一部分。
 
 ## <a name="BKMK_DTLS"></a>
-DTLS 协议 Schannel SSP 在 Windows Server 2012 和 Windows 8 中引入了，提供通信的数据报协议的隐私。 有关哪些 DTLS 支持版本的 Windows 版本中的信息，请参阅[TLS 月 SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/en-us/library/windows/desktop/mt808159(v=vs.85).aspx)。 协议允许客户端和服务器应用程序进行通信，专门用于阻止窃取、被篡改、或消息伪造的方式。 DTLS 协议基于传输层安全性 (TLS) 协议，并提供等效的安全保障，减少了需要使用 IPsec 或设计的自定义应用程序的一层安全性协议。
+DTLS 协议在 Schannel SSP 在 Windows Server 2012 和 Windows 8 中引入，提供有关数据报协议的通信隐私。 有关哪些 DTLS 版本支持 Windows 版本中的信息，请参阅[TLS/SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/en-us/library/windows/desktop/mt808159(v=vs.85).aspx)。 此协议让客户端和服务器应用程序可采用旨在防止窃听、篡改或消息伪造的方式进行通信。 DTLS 协议基于传输层安全 (TLS) 协议并提供等效的安全保证，从而减少使用 IPsec 或设计自定义应用程序层安全协议的需求。
 
-报共有流媒体，例如游戏或安全进行视频会议中。 开发人员可以开发应用程序使用 Windows 身份验证的安全支持提供程序接口 (SSPI) 模型上下文中的 DTLS 协议安全之间客户端和服务器的通信。 在顶部用户数据报协议 (UDP) 中内置 DTLS 协议。 DTLS 设计为尽可能相似 TLS 尽可能，以最小化新的安全发明和最大的代码和基础结构重新使用。
+数据报是常见的流媒体，如游戏或受保护视频会议。 开发人员可以开发应用程序可以使用 Windows 身份验证安全支持提供程序接口 (SSPI) 模型的上下文中的 DTLS 协议，保护客户端和服务器之间的通信。 DTLS 协议是构建的基于用户数据报协议 (UDP)。 DTLS 旨在尽可能新安全发明降至最低并最大限度地重用代码和基础结构量是类似于 TLS。
 
-可供配置的密码套件被模仿这些可以为 TLS 配置。 不允许 RC4。 Schannel 继续使用加密技术下一代 (CNG)。 这利用 FIPS 140 认证、Windows Vista 中引入了。
+可用于配置的密码套件可以实现模式化后的可以为 TLS 配置。 不允许使用 RC4。 Schannel 继续使用 Cryptography Next Generation (CNG)。 这可利用的在 Windows Vista 中引入的 FIPS 140 认证。
 
-## 请参阅
+## <a name="see-also"></a>请参阅
 
 [IETF RFC 4347 数据报传输层安全性](http://tools.ietf.org/html/rfc4347)
 
