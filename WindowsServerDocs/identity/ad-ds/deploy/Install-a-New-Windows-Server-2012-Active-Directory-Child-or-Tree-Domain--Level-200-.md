@@ -1,69 +1,70 @@
 ---
 ms.assetid: e3d55565-ad45-4504-ad73-8103d1a92170
-title: "安装新的 Windows Server 2012 的 Active Directory 孩子或树域 (级别 200)"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: 安装新的 Windows Server 2012 Active Directory 子域或树域（级别 200）
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: fc0eecc44bbc5f7459f22aceb5ebe41cd61948b6
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 7292f76155c2bcb47b6c632b969f54f3afb93d50
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59853698"
 ---
-# <a name="install-a-new-windows-server-2012-active-directory-child-or-tree-domain-level-200"></a>安装新的 Windows Server 2012 的 Active Directory 孩子或树域 (级别 200)
+# <a name="install-a-new-windows-server-2012-active-directory-child-or-tree-domain-level-200"></a>安装新的 Windows Server 2012 Active Directory 子域或树域（级别 200）
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-本主题介绍了如何使用服务器管理器或 Windows PowerShell 现有的 Windows Server 2012 树林中添加孩子和树域。  
+本主题介绍如何使用服务器管理器或 Windows PowerShell 将子域和树域添加到现有 Windows Server 2012 林。  
   
--   [孩子和树域工作流](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_Workflow)  
+-   [子域和树域工作流](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_Workflow)  
   
--   [孩子和树域 Windows PowerShell](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_PS)  
+-   [子域和树域 Windows PowerShell](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_PS)  
   
 -   [部署](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_Deployment)  
   
-## <a name="BKMK_Workflow"></a>孩子和树域工作流  
-下图说明 Active Directory 域服务配置过程，当你之前安装的广告 DS 角色，并且已经开始使用服务器管理器在现有的树林中创建新的域的 Active Directory 域服务配置向导。  
+## <a name="BKMK_Workflow"></a>子域和树域工作流  
+当你之前已安装 AD DS 角色，并且已使用服务器管理器启动 Active Directory 域服务配置向导以在现有林中创建新域时，下图说明了此情况下的 Active Directory 域服务配置过程。  
   
-![安装新的广告孩子](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/adds_childtreedeploy_beta1.png)  
+![安装新的 AD 子级](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/adds_childtreedeploy_beta1.png)  
   
-## <a name="BKMK_PS"></a>孩子和树域 Windows PowerShell  
+## <a name="BKMK_PS"></a>子域和树域 Windows PowerShell  
   
 |||  
 |-|-|  
-|**ADDSDeployment Cmdlet**|参数 (**加粗**参数是必需的。 *斜体*可以通过使用 Windows PowerShell 或广告 DS 配置向导指定参数。)|  
-|**Install-AddsDomain**|-SkipPreChecks<br /><br />***-NewDomainName***<br /><br />***-ParentDomainName***<br /><br />***-SafeModeAdministratorPassword***<br /><br />*-ADPrepCredential*<br /><br />-AllowDomainReinstall<br /><br />-确认<br /><br />*-CreateDNSDelegation*<br /><br />***-凭据***<br /><br />*-DatabasePath*<br /><br />*-DNSDelegationCredential*<br /><br />-NoDNSOnNetwork<br /><br />*-DomainMode*<br /><br />***-DomainType***<br /><br />-强制<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />*-NewDomainNetBIOSName*<br /><br />*-NoGlobalCatalog*<br /><br />-NoNorebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />*-站点名*<br /><br />-SkipAutoConfigureDNS<br /><br />*-SYSVOLPath*<br /><br />*-Whatif*|  
+|**ADDSDeployment Cmdlet**|参数（需要**加粗**参数。 *斜体*参数可以通过使用 Windows PowerShell 或 AD DS 配置向导来指定。）|  
+|**Install-AddsDomain**|-SkipPreChecks<br /><br />***-NewDomainName***<br /><br />***-ParentDomainName***<br /><br />***-SafeModeAdministratorPassword***<br /><br />*-ADPrepCredential*<br /><br />-AllowDomainReinstall<br /><br />-Confirm<br /><br />*-CreateDNSDelegation*<br /><br />***-Credential***<br /><br />*-DatabasePath*<br /><br />*-DNSDelegationCredential*<br /><br />-NoDNSOnNetwork<br /><br />*-DomainMode*<br /><br />***-DomainType***<br /><br />-Force<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />*-NewDomainNetBIOSName*<br /><br />*-NoGlobalCatalog*<br /><br />-NoNorebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />*-SiteName*<br /><br />-SkipAutoConfigureDNS<br /><br />*-SYSVOLPath*<br /><br />*-Whatif*|  
   
 > [!NOTE]  
-> **-凭据**参数才需要不当前登录时作为企业管理员 group.The **-NewDomainNetBIOSName**参数是必需的如果你想要更改基于 DNS 域名称前缀自动生成的 15 个字符的名称，或者如果名称超出了 15 个字符。  
+> 仅在当前未作为 Enterprise Admins 组成员登录时需要 **-credential** 参数。如果你希望更改根据 DNS 域名前缀自动生成的 15 个字符的名称，或者名称超过 15 个字符，则需要 **-NewDomainNetBIOSName** 参数。  
   
 ## <a name="BKMK_Deployment"></a>部署  
   
 ### <a name="deployment-configuration"></a>部署配置  
-下面的屏幕截图显示了添加孩子域的选项：  
+下面的屏幕截图显示了用于添加子域的选项：  
   
-![安装新的广告孩子](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildDeployConfig.png)  
+![安装新的 AD 子级](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildDeployConfig.png)  
   
-下面的屏幕截图显示了添加树域的选项：  
+下面的屏幕截图显示了用于添加树域的选项：  
   
-![安装新的广告孩子](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_TreeDeployConfig.png)  
+![安装新的 AD 子级](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_TreeDeployConfig.png)  
   
-服务器管理器开始与每域控制器升级**部署配置**页面。 其他选项和必填的字段在此页和后续页面，具体取决于哪个部署操作你选择的更改。  
+服务器管理器从“部署配置”  页开始进行每个域控制器升级。 其余选项和必填字段在此页面和后续页面上会有所变化，这视所选部署操作而定。  
   
-本主题将两个独立的操作：孩子的域升级和树域升级。 两种操作的唯一区别是你选择创建的域类型。 所有的其他步骤都相同之间的两个操作。  
+本主题结合了两个独立的操作：字域升级和树域升级。 两种操作唯一的区别是你选择创建的域类型。 两种操作的所有其他步骤都相同。  
   
--   若要创建新的孩子域，请单击**现有的树林中添加域**选择**孩子域**。 对于**父域名**中，键入或选择家长域的名称。 然后键入名称中的新域**新域名**框。 提供有效的、单标签孩子域名;该名称必须使用 DNS 域名称要求。  
+-   要创建新子域，单击“将域添加到现有林”并选择“子域”。 对于“父域名称” ，键入或选择父域的名称。 然后在“新域名”框中键入新域的名称。 提供有效的、单标签子域名；该名称必须使用 DNS 域名要求。  
   
--   若要创建现有林中树域，请单击**现有的树林中添加域**选择**树域**。 键入森林根域的名称，然后键入新的域的名称。 提供有效的完整根域名;该名称将不能单标记，并且必须使用 DNS 域名称要求。  
+-   要在现有林内创建树域，单击“将域添加到现有林”并选择“树域”。 键入目录林根级域的名称，然后键入新域的名称。 提供有效的完全限定的根域名；该名称不能是单标记，必须使用 DNS 域名要求。  
   
-有关 DNS 名称的详细信息，请参阅[的计算机、域、网站和华丽绚烂命名 Active Directory 中的约定](https://support.microsoft.com/kb/909264)。  
+有关 DNS 名称的详细信息，请参阅 [Active Directory 中用于计算机、域、站点和 OU 的命名约定](https://support.microsoft.com/kb/909264)。  
   
-服务器管理器 Active Directory 域服务配置向导会提示您输入凭据域如果你当前的凭据无法从域。 单击**更改**提供域凭据升级操作。  
+如果你当前的凭据不是来自该域，服务器管理器 Active Directory 域服务配置向导将提示你提供域凭据。 单击“更改”为升级操作提供域凭据。  
   
 部署配置 ADDSDeployment cmdlet 和参数是：  
   
@@ -76,20 +77,20 @@ Install-AddsDomain
 ```  
   
 ### <a name="domain-controller-options"></a>域控制器选项  
-![安装新的广告孩子](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_DCOptions_Child.gif)  
+![安装新的 AD 子级](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_DCOptions_Child.gif)  
   
-**域控制器选项**页上指定的新的域控制器域控制器选项。 配置域控制器选项包括**DNS 服务器**和**全球目录**;你无法将仅阅读域控制器配置为新的域中的第一个域控制器。  
+“域控制器选项”  页指定新域控制器的域控制器选项。 可配置的域控制器选项包括 **“DNS 服务器”** 和 **“全局目录”**；你不能将只读域控制器配置为新域的第一个域控制器。  
   
-Microsoft 建议所有域控制器都提供高可用性分布式环境中的 DNS 和 GC 服务。 GC 默认始终处于选中状态，并 DNS 选择默认情况下，如果当前域托管的基于 Start-of-Authority 查询，其域控制器上的已 DNS。 您还必须指定**域功能级别**。 默认功能级别 Windows Server 2012，并且你可以选择其他任何等于或大于当前森林功能级别的值。  
+Microsoft 建议所有域控制器提供 DNS 和 GC 服务以实现分布式环境中的高可用性。 始终默认选中 GC；如果当前域托管的 DNS 已在其 DC 上（基于起始授权机构查询），则默认选中 DNS。 你还必须指定“域功能级别” 。 默认功能级别是 Windows Server 2012，而且你可以选择等于或大于当前林功能级别的任何值。  
   
-**域控制器选项**页面，还可以选择相应的 Active Directory 逻辑**站点名称**从森林配置。 默认情况下，选择最正确子网与该站点。 如果只有一个网站，它将自动选中。  
+“域控制器选项”页还让你可以从林配置中选择相应的 Active Directory 逻辑“站点名称”。 默认情况下，选择带有最合适的子网的站点。 如果仅有一个站点，则自动选择它。  
   
 > [!IMPORTANT]  
-> 如果该服务器不属于 Active Directory 网，并且多个 Active Directory 站点，选中任何和**下一步**按钮不可用，直到你选择站点从列表。  
+> 如果该服务器不属于 Active Directory 子网，并且有多个 Active Directory 站点，则不选择任何内容且“下一步”按钮不可用，直到你从列表选择一个站点。  
   
-指定**目录服务还原模式密码**必须遵守密码策略应用到服务器。 始终可以选择复杂的强密码或最好，密码。  
+指定的“目录服务还原模式密码”必须遵守应用到服务器的密码策略。 总是选择复杂强密码或首选密码。  
   
-**域控制器选项**ADDSDeployment cmdlet 参数均是：  
+“域控制器选项”ADDSDeployment cmdlet 参数是：  
   
 ```  
 -InstallDNS <{$false | $true}>  
@@ -101,23 +102,23 @@ Microsoft 建议所有域控制器都提供高可用性分布式环境中的 DNS
 ```  
   
 > [!IMPORTANT]  
-> 网站的名称必须已经存在，当提供作为到值**站点名**参数。 **安装 AddsDomainController** cmdlet 不会创建网站的名称。 你可以使用**新 adreplicationsite** cmdlet 创建新的站点。  
+> 当站点名称作为值提供到 **sitename** 参数时，该名称必须已经存在。 **install-AddsDomainController** cmdlet 不创建站点名称。 你可以使用 **new-adreplicationsite** cmdlet 创建新站点。  
   
-**安装 ADDSDomainController** cmdlet 参数如果没有，请按照相同的默认值为服务器管理器。  
+**Install-ADDSDomainController** cmdlet 参数使用与服务器管理器相同的默认值（如果未指定）。  
   
-**SafeModeAdministratorPassword**特别是参数的操作：  
+**SafeModeAdministratorPassword** 参数的操作是特殊操作：  
   
--   如果*未指定*作为参数，cmdlet 提示你输入并确认屏蔽的密码。 运行 cmdlet 交互时，这是首选的使用量。  
+-   如果 *未指定* 为参数，cmdlet 将提示你输入并确认掩蔽密码。 以交互方式运行 cmdlet 时，这是首选用法。  
   
-    例如，若要创建新的孩子域名为北美 Contoso.com 森林中的和会提示你输入并确认屏蔽的密码：  
+    例如，要在 Contoso.com 林中创建名为 NorthAmerica 的新子域，并且收到输入并确认掩蔽密码的提示。  
   
     ```  
     Install-ADDSDomain "NewDomainName NorthAmerica "ParentDomainName Contoso.com "DomainType Child  
     ```  
   
--   如果指定*值*的值必须安全字符串。 运行 cmdlet 交互时，这不是首选的使用量。  
+-   如果指定*值*，则该值必须是安全字符串。 以交互方式运行 cmdlet 时，这不是首选用法。  
   
-例如，你可以手动提示输入密码使用**读取主机**cmdlet 安全字符串用户提示：  
+例如，可通过使用 **Read-Host** cmdlet 提示用户提供安全字符串来手动提示输入密码：  
   
 ```  
 -safemodeadministratorpassword (read-host -prompt "Password:" -assecurestring)  
@@ -125,16 +126,16 @@ Microsoft 建议所有域控制器都提供高可用性分布式环境中的 DNS
 ```  
   
 > [!WARNING]  
-> 上一个选项没有确认密码，如使用格外小心：的密码不可见。  
+> 由于上个选项未确认密码，请务必十分谨慎：密码不可见。  
   
-虽然这是强烈建议不要，你还可以为转换清除文本变量，提供安全的字符串。  
+你还可以提供安全字符串作为转换的明文变量，尽管强烈不建议这样做。  
   
 ```  
 -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force)  
   
 ```  
   
-最后，无法将模糊的密码存储在某个文件，然后重用它更高版本，而清晰的文本密码会显示。 例如：  
+最后，可以将模糊的密码存储在文件中，然后在以后重复使用它，而不会出现明文密码。 例如：  
   
 ```  
 $file = "c:\pw.txt"  
@@ -146,9 +147,9 @@ $pw | ConvertFrom-SecureString | Set-Content $file
 ```  
   
 > [!WARNING]  
-> 不建议提供或存储清除或模糊短的密码。 脚本中运行此命令或查找通过您的任何人都知道 DSRM 域控制器的密码。  有权访问文件的任何人都可以反转该模糊的密码。 与该知识，他们可以登录到 DC DSRM 以启动并最终模拟域控制器本身提升最大程度广告森林中的权限。 步骤，使用另一组**System.Security.Cryptography**文本的文件进行加密数据是建议，但利用范围。 最佳做法是完全避免密码存储。  
+> 不建议提供或存储清晰或模糊的文本密码。 任何在脚本中运行此命令或看到的人员都知道该域控制器的 DSRM 密码。  任何有权限访问该文件的人都可反转该模糊密码。 知道密码后，他们可以登录到以 DSRM 模式启动的 DC 并最终模拟域控制器本身，从而将他们的权限提升到 AD 林中的最高级。 使用 **System.Security.Cryptography** 加密文本文件数据的一组其他步骤是可取的，但不在范围内。 最佳实践是完全避免密码存储。  
   
-ADDSDeployment 模块提供跳过自动配置 DNS 客户端设置、转发器，以及根提示其他选项。 使用服务器管理器时，这是不配置。 此参数很重要，仅当你已经安装了之前配置域控制器 DNS 服务器服务：  
+ADDSDeployment 模块提供其他选项以跳过 DNS 客户端设置、转发器和根提示的自动配置。 这不可在使用服务器管理器时进行配置。 仅当你已在配置域控制器之前安装 DNS 服务器服务时，此参数才十分重要：  
   
 ```  
 -SkipAutoConfigureDNS  
@@ -156,52 +157,52 @@ ADDSDeployment 模块提供跳过自动配置 DNS 客户端设置、转发器，
 ```  
   
 ### <a name="dns-options-and-dns-delegation-credentials"></a>DNS 选项和 DNS 委派凭据  
-![安装新的广告孩子](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildDNSOptions.png)  
+![安装新的 AD 子级](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildDNSOptions.png)  
   
-**DNS 选项**页面使您能够提供用于委派备用 DNS 管理员凭据。  
+“DNS 选项”  页使你可以提供备用 DNS 管理员凭据以用于委派。  
   
-当上选择 DNS 安装了现有的森林-在安装新的域**域控制器选项**页面-你不能配置任何的选项;委派将发生自动并不可挽回地。 你可以选择要提供权限才能更新该结构备用 DNS 管理凭据。  
+在现有林中（你已在其中在“域控制器选项”页上选择了 DNS 安装）安装新域时，你无法配置任何选项；委派将自动进行，且不可撤销。 你可以选择提供备用 DNS 管理凭据，这些凭据具有更新该结构的权限。  
   
-**DNS 选项**ADDSDeployment Windows PowerShell 参数均是：  
+“DNS 选项”  ADDSDeployment Windows PowerShell 参数是：  
   
 ```  
 -creatednsdelegation   
 -dnsdelegationcredential <pscredential>  
 ```  
   
-有关 DNS 委派的详细信息，请参阅[了解区域委派](https://technet.microsoft.com/library/cc771640.aspx)。  
+有关 DNS 委派的详细信息，请参阅 [了解区域委派](https://technet.microsoft.com/library/cc771640.aspx)。  
   
 ### <a name="additional-options"></a>其他选项  
-![安装新的广告孩子](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildAdditionalOptions.png)  
+![安装新的 AD 子级](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildAdditionalOptions.png)  
   
-**其他选项**页面显示的域 NetBIOS 名称，并使您可以将其重写。 默认情况下，NetBIOS 域名称匹配合法的域名上提供的最左端标签**部署配置**页面。 例如，如果提供 corp.contoso.com 合法的域名，默认 NetBIOS 域名是 CORP.  
+“其他选项”页显示该域的 NetBIOS 名称并使你可以重写它。 默认情况下，NetBIOS 域名与“部署配置”  页上提供的完全限定的域名最左边的标签相匹配。 例如，如果你提供了 corp.contoso.com 的完全限定的域名，则默认 NetBIOS 域名是 CORP。  
   
-如果名 15 字符或更少和不冲突用另一台 NetBIOS 名称、它是不变。 如果它会与其他 NetBIOS 名称有冲突，数字附加为的名称。 如果名多 15 字符，该向导将提供独特的、被截断的建议。 不论采取何种情况，该向导首先验证名称尚不在使用通过 WINS 查找和广播 NetBIOS。  
+如果名称是 15 个字符或更少且与另一个 NetBIOS 名称不冲突，则它保持不变。 如果它与另一个 NetBIOS 名称发生冲突，则将数字附加到该名称。 如果该名称多于 15 个字符，则向导提供一个唯一的截断的建议名称。 在任一情况下，向导首先将通过 WINS 查找和 NetBIOS 广播验证该名称尚未被使用。  
   
-有关 DNS 名称的详细信息，请参阅[的计算机、域、网站和华丽绚烂命名 Active Directory 中的约定](https://support.microsoft.com/kb/909264)。  
+有关 DNS 名称的详细信息，请参阅 [Active Directory 中用于计算机、域、站点和 OU 的命名约定](https://support.microsoft.com/kb/909264)。  
   
-**安装 AddsDomain**参数如果没有，请按照相同的默认值为服务器管理器。 **DomainNetBIOSName**是特殊的操作：  
+**Install-AddsDomain** 参数使用与服务器管理器相同的默认值（如果未指定）。 “DomainNetBIOSName”操作是特殊操作：  
   
-1.  如果**NewDomainNetBIOSName** NetBIOS 域名称和中的单标签前缀域名未指定参数**域名**参数 15 字符或更少，则推广继续自动生成的名称。  
+1.  如果未使用 NetBIOS 域名指定“NewDomainNetBIOSName”参数且“DomainName”参数中的单标签前缀域名等于或少于 15 个字符，则升级将使用自动生成的名称继续运行。  
   
-2.  如果**NewDomainNetBIOSName** NetBIOS 域名称和中的单标签前缀域名未指定参数**域名**参数为 16 个字符或的详细信息，然后升级失败。  
+2.  如果未使用 NetBIOS 域名指定 **NewDomainNetBIOSName** 参数且 **DomainName** 参数中的单标签前缀域名等于或多于 16 个字符，则升级失败。  
   
-3.  如果**NewDomainNetBIOSName**参数指定 NetBIOS 域名为 15 字符或更少，然后升级继续使用该指定的名称。  
+3.  如果使用等于或少于 15 个字符的 NetBIOS 域名指定 **NewDomainNetBIOSName** 参数，则升级将使用指定的名称继续运行。  
   
-4.  如果**NewDomainNetBIOSName**参数指定 16 个字符的 NetBIOS 域名称或的详细信息，然后升级失败。  
+4.  如果使用等于或多于 16 个字符的 NetBIOS 域名指定 **NewDomainNetBIOSName** 参数，则升级失败。  
   
-**其他选项**ADDSDeployment cmdlet 参数是：  
+“其他选项”  ADDSDeployment cmdlet 参数是：  
   
 ```  
 -newdomainnetbiosname <string>  
 ```  
   
 ### <a name="paths"></a>路径  
-![安装新的广告孩子](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_UpgradePaths.png)  
+![安装新的 AD 子级](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_UpgradePaths.png)  
   
-**路径**页使你可以覆盖默认文件夹位置的广告 DS 数据库数据基本事务日志，，SYSVOL 共享。 始终处于子目录 %系统根 %的默认位置。  
+“路径”  页使你可以覆盖 AD DS 数据库、数据库事务日志和 SYSVOL 共享的默认文件夹位置。 默认位置始终位于 %systemroot% 的子目录中。  
   
-**路径**ADDSDeployment cmdlet 参数均是：  
+**路径** ADDSDeployment cmdlet 参数是：  
   
 ```  
 -databasepath <string>  
@@ -209,12 +210,12 @@ ADDSDeployment 模块提供跳过自动配置 DNS 客户端设置、转发器，
 -sysvolpath <string>  
 ```  
   
-### <a name="review-options-and-view-script"></a>查看选项并查看脚本  
-![安装新的广告孩子](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildReviewOptions.png)  
+### <a name="review-options-and-view-script"></a>审查选项和查看脚本  
+![安装新的 AD 子级](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildReviewOptions.png)  
   
-**回顾选项**页面，可以让你以验证你的设置并确保它们符合你的要求，开始安装之前。 这不是最后一次机会停止安装时使用服务器管理器。 这是只需继续配置之前，请确认你的设置的选项  
+“审查选项”  页面使你可以在开始安装前验证设置并确保它们符合你的要求。 在使用服务器管理器时，这并不是停止安装的最后机会。 这只是一个在继续配置前确认设置的选项  
   
-**回顾选项**页面中服务器管理器中还提供了一个可选**查看脚本**按钮来创建 Unicode 文本文件包含当前 ADDSDeployment 配置为单个 Windows PowerShell 脚本。 这使你为 Windows PowerShell 部署 studio 使用服务器管理器图形界面。 使用 Active Directory 域服务配置向导配置选项中, 导出配置，然后取消向导。  此过程中创建进一步修改或直接使用有效和语法正确的示例。 例如：  
+服务器管理器中的“审查选项”  页还提供可选的“查看脚本”  按钮，可将包含当前 ADDSDeployment 配置的 Unicode 文本文件创建为一个 Windows PowerShell 脚本。 这样，你可以将服务器管理器图形界面用作 Windows PowerShell 部署工作台。 使用 Active Directory 域服务配置向导来配置选项、导出配置和取消向导。  此过程将创建有效且语法正确的示例，以便做进一步修改或直接使用。 例如：  
   
 ```  
 #  
@@ -242,63 +243,63 @@ Install-ADDSDomain `
 ```  
   
 > [!NOTE]  
-> 服务器管理器通常会填满所有参数与值时升级，不依赖于默认设置（如它们可能会更改之间将来版本的 Windows 或 service pack）中。 是一个例外**-safemodeadministratorpassword**参数（这有意省略脚本中）。 若要强制确认提示，请运行 cmdlet 交互时忽略值。  
+> 服务器管理器通常在升级时使用值填充所有参数，并且不依赖默认值（因为它们可能在 Windows 或服务包以后的版本之间发生更改）。 但该情况的一个例外是 **-safemodeadministratorpassword** 参数（有意从脚本中省略）。 若要强制执行确认提示，则在以交互方式运行 cmdlet 时省略该值。  
   
-使用可选**Whatif**具有参数**安装 ADDSForest** cmdlet 查看配置的信息。 这使你查看的参数 cmdlet 明确和隐式值。  
+将可选的 **Whatif** 参数与 **Install-ADDSForest** cmdlet 一起使用以查看配置信息。 这使你可以查看 cmdlet 的参数的显式和隐式值。  
   
-![安装新的广告孩子](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildWhatIf.png)  
+![安装新的 AD 子级](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildWhatIf.png)  
   
-### <a name="prerequisites-check"></a>先决条件复选  
-![安装新的广告孩子](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildPrereqCheck.png)  
+### <a name="prerequisites-check"></a>先决条件检查  
+![安装新的 AD 子级](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildPrereqCheck.png)  
   
-**先决条件检查**是广告 DS 域配置中的新增功能。 此新阶段验证的服务器配置能够支持新的广告 DS 域。  
+“先决条件检查”  是 AD DS 域配置中的新功能。 此新阶段验证服务配置是否能够支持新的 AD DS 域。  
   
-当安装新林根域，服务器管理器 Active Directory 域服务配置向导调用一系列序列化模块化测试。 这些测试向你发出警报建议的维修选项。 你可以根据需要多次运行测试。 域控制器过程所有先决条件测试才可继续通过。  
+在安装新目录林根级域时，服务器管理器 Active Directory 域服务配置向导将调用一系列序列化的模块化测试。 这些测试向你提出警告并提供建议的修复选项。 你可以根据需要多次运行测试。 域控制器进程在所有先决条件测试通过前无法继续。  
   
-**先决条件检查**还面，如会影响较旧操作系统的安全更新的相关信息。  
+“先决条件检查”还显示相关的信息，例如影响较早版本的操作系统的安全性更改。  
   
-特定的先决条件检查的详细信息，请参阅[先决条件检查](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking)。  
+有关特定先决条件检查的详细信息，请参阅 [Prerequisite Checking](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking)。  
   
-你无法跳过**先决条件检查**时使用服务器管理器中，但你可以跳过此过程时使用使用下面的参数广告 DS 部署 cmdlet:  
+使用服务器管理器时你无法绕过“先决条件检查”  ，但是你可以在使用 AD DS 部署 cmdlet 时使用以下参数跳过该进程：  
   
 ```  
 -skipprechecks  
 ```  
   
 > [!WARNING]  
-> Microsoft 不鼓励跳过先决条件检查，因为它可能会导致部分域控制器升级或损坏广告 DS 森林。  
+> Microsoft 不鼓励跳过先决条件检查，因为它可能导致部分域控制器升级或 AD DS 林损坏。  
   
-单击**安装**开始域控制器升级过程中。 这是最后一次机会取消安装。 一旦开始后，你无法取消升级过程中。 在升级，无论推广结果的末尾，计算机重新启动将自动。  
+单击“安装”以开始域控制器升级进程。 这是取消安装的最后机会。 一旦开始升级过程，你无法取消它。 无论升级结果如何，计算机将在升级结束时自动重新启动。  
   
 ### <a name="installation"></a>安装  
-![安装新的广告孩子](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildInstallation.png)  
+![安装新的 AD 子级](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildInstallation.png)  
   
-当**安装**页面显示时，域控制器配置开始，无法将停止或取消。 详细的操作显示在此页面上，并且写入日志：  
+当“安装”  页显示时，域控制器配置将开始，并且无法暂停或取消。 详细操作显示在此页面上并将写入日志：  
   
 -   %systemroot%\debug\dcpromo.log  
   
 -   %systemroot%\debug\dcpromoui.log  
   
-若要安装使用 ADDSDeployment 模块新 Active Directory 域，使用以下 cmdlet:  
+若要使用 ADDSDeployment 模块安装新的 Active Directory 域，请使用以下 cmdlet：  
   
 ```  
 Install-addsdomain  
 ```  
   
-请参阅[孩子和树域 Windows PowerShell](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_PS)必需和可选 arguments.The**安装 addsdomain** cmdlet 都仅有两个阶段（先决条件检查和安装）。 两个下图显示与的最低要求参数安装阶段**-domaintype**，**-newdomainname**，**-parentdomainname**，并**-凭据**。 注意如何操作，就像服务器管理器**安装 ADDSDomain**提醒你，升级将自动重新启动的服务器。  
+有关所需的参数和可选参数，请参阅[子域和树域 Windows PowerShell](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_PS)。**Install-addsdomain** cmdlet 仅有两个阶段（先决条件检查和安装）。 下面的两个图显示安装阶段，并带有最少的所需参数 **-domaintype**、**-newdomainname**、**-parentdomainname** 和 **-credential**。 请注意 **Install-ADDSDomain** 如何提醒你升级将自动重新启动服务器，就像服务器管理器一样。  
   
-![安装新的广告孩子](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_PSInstallADDSDomain.png)  
+![安装新的 AD 子级](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_PSInstallADDSDomain.png)  
   
-![安装新的广告孩子](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_PSInstallADDSDomainProgress.png)  
+![安装新的 AD 子级](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_PSInstallADDSDomainProgress.png)  
   
-若要自动接受重新引导提示，请使用**-强制**或**-确认：$false**与任何 ADDSDeployment Windows PowerShell cmdlet 参数。 若要防止服务器推广末尾自动重新启动，请使用**-norebootoncompletion**参数。  
+若要自动接受重新启动提示，请将 **-force** 或 **-confirm:$false** 参数与任何 ADDSDeployment Windows PowerShell cmdlet 一起使用。 若要防止服务器在升级结束时自动重新启动，请使用 **-norebootoncompletion** 参数。  
   
 > [!WARNING]  
-> 不建议重重新启动。 域控制器必须重新启动才能正常工作  
+> 不建议重写重新启动。 域控制器必须重新启动才能正常工作  
   
 ### <a name="results"></a>结果  
-![安装新的广告孩子](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ForestSignOff.png)  
+![安装新的 AD 子级](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ForestSignOff.png)  
   
-**结果**页面显示的成功或失败的升级和管理的任何重要信息。 10 秒钟后，域控制器将自动重新启动。  
+“结果”  页面显示升级是成功还是失败以及任何重要的管理信息。 域控制器将在 10 秒后自动重新启动。  
   
 

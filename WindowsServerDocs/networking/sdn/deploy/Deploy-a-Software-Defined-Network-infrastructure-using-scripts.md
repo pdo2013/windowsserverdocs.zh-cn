@@ -1,7 +1,7 @@
 ---
 title: 部署软件定义的网络基础结构使用脚本
-description: 本主题介绍如何部署 Windows Server 2016 中使用脚本 Microsoft 软件定义网络 (SDN) 基础结构。
-manager: brianlic
+description: 本主题介绍如何部署使用 Windows Server 2016 中的脚本的 Microsoft 软件定义网络 (SDN) 基础结构。
+manager: dougkim
 ms.prod: windows-server-threshold
 ms.service: virtual-network
 ms.technology: networking-sdn
@@ -9,162 +9,214 @@ ms.topic: get-started-article
 ms.assetid: 5ba5bb37-ece0-45cb-971b-f7149f658d19
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4428ad73ab8933510d5a759ec4fa7377ea222ebd
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 08/23/2018
+ms.openlocfilehash: dabfe3de4cc307723ff7e614fb73e3903e74aeb2
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59844618"
 ---
-# <a name="deploy-a-software-defined-network-infrastructure-using-scripts"></a>部署软件定义的网络基础结构使用脚本
+# <a name="deploy-a-software-defined-network-infrastructure-using-scripts"></a>使用脚本部署软件定义的网络基础结构
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-本主题介绍如何部署使用脚本 Microsoft 软件定义网络 (SDN) 基础结构。 基础结构包含高可用（高可用性）网络控制器、HA 软件负载平衡 (SLB) / 输入混合，虚拟网络，并且关联访问控制列表 (Acl)。 此外，另一个脚本部署供你验证你的 SDN 基础结构租户工作负载。  
+本主题中，将部署使用脚本的 Microsoft 软件定义网络 (SDN) 基础结构。 基础结构包括具有高可用性 (HA) 网络控制器，HA 软件负载均衡器 (SLB) / MUX、 虚拟网络和关联的访问控制列表 (Acl)。 此外，另一个脚本部署，以验证在 SDN 基础结构的租户工作负荷。  
   
-如果你希望你租户工作负载通信其虚拟网络之外时，你可以设置 SLB NAT 规则、站点的关隧道，或层 3 转发路由之间虚拟和物理工作负载。  
+如果你想租户工作负载以其虚拟网络外部进行通信，你可以设置 SLB NAT 规则、 站点到站点网关隧道或第 3 层转发以虚拟和物理工作负荷之间进行路由。  
   
-你还可以部署使用虚拟机管理器 (VMM) SDN 基础结构。 有关详细信息，请参阅[设置 VMM 结构中软件定义网络 (SDN) 基础结构](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-overview)。  
+您还可以部署 SDN 基础结构使用 Virtual Machine Manager (VMM)。 有关详细信息，请参阅[设置在 VMM 构造中软件定义网络 (SDN) 基础结构](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-overview)。  
+
   
 ## <a name="pre-deployment"></a>预先部署  
   
 > [!IMPORTANT]  
-> 开始部署之前，你必须计划，并配置您的主机和物理网络基础结构。 有关详细信息，请参阅[计划软件定义网络基础结构](../../sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md)。  
+> 在开始部署之前，必须规划和配置在主机和物理网络基础结构。 有关详细信息，请参阅[计划软件定义的网络基础结构](../../sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md)。  
   
-所有 Hyper-V 主机必须都具有安装了 Windows Server 2016。  
+所有的 HYPER-V 主机必须具有 Windows Server 2016 安装。  
   
 ## <a name="deployment-steps"></a>部署步骤  
-配置 Hyper-V 主机（物理服务器）Hyper-V 虚拟交换机用来和 IP 地址分配儿开始。 可以使用任何使用 Hyper-V，共享或当地兼容的存储类型。  
-### <a name="install-host-networking"></a>安装网络主机  
-1. 安装最新的网络驱动程序为 NIC 硬件。  
-2. 安装的所有主机上的 Hyper-V 角色 (有关详细信息，请参阅[入门 Hyper-V 在 Windows Server 2016](https://technet.microsoft.com/en-us/library/mt126159.aspx)。   
+开始配置的 HYPER-V 主机 （物理服务器） 的 HYPER-V 虚拟交换机和 IP 地址分配。 可以使用适用于 HYPER-V，共享或本地任何存储类型。  
+
+### <a name="install-host-networking"></a>安装主机网络  
+
+1. 安装适用于 NIC 硬件的最新网络驱动程序。  
+2. 在所有主机上安装 HYPER-V 角色 (有关详细信息，请参阅[开始使用 Windows Server 2016 上的 HYPER-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/Get-started-with-Hyper-V-on-Windows)。   
   
-   从提升了权限的 Windows PowerShellcommand 提示：  
-   ``Install-WindowsFeature -Name Hyper-V -ComputerName <computer_name> -IncludeManagementTools -Restart``  
+   ```PowerShell
+   Install-WindowsFeature -Name Hyper-V -ComputerName <computer_name> -IncludeManagementTools -Restart
+   ```  
     
-    。 创建 Hyper-V 虚拟交换机（使用相同的所有主机切换名称。 例如：**sdnSwitch**)。 配置至少一个网络适配器，或如果使用切换 Embedded 团队合作，配置在至少两个网络适配器。 使用两个 Nic 时，会出现最大的入站传播。  
- `` New-VMSwitch "<switch name>" -NetAdapterName "<NetAdapter1>" [, "<NetAdapter2>" -EnableEmbeddedTeaming $True] -AllowManagementOS $True``  
- 
- >[!NOTE] 
- >如果你拥有单独管理 Nic，你可以跳过步骤 3 和 4。
+3. 创建 HYPER-V 虚拟交换机。<p>例如，使用相同的交换机名称的所有主机**sdnSwitch**。 配置至少一个网络适配器，或者，如果使用的设置，配置至少两个网络适配器。 使用两个 Nic 时，会出现最大入站进行传播。  
 
-3. 计划主题，请参考 ([计划软件定义网络基础结构](../../sdn/plan/../../sdn/plan/../../sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md))，可以使用你的网络管理员联系以获得管理 VLAN VLAN ID。 连接到管理 VLAN 的新创建虚拟交换机用来管理 vNIC。 如果您的环境中不会使用 VLAN 标记，可以忽略此步骤。  
- `` Set-VMNetworkAdapterIsolation -ManagementOS -IsolationMode Vlan -DefaultIsolationID <Management VLAN> -AllowUntaggedTraffic $True``  
+   ```PowerShell
+   New-VMSwitch "<switch name>" -NetAdapterName "<NetAdapter1>" [, "<NetAdapter2>" -EnableEmbeddedTeaming $True] -AllowManagementOS $True
+   ```  
+   >[!TIP] 
+   >如果你有独立的管理 Nic，则可以跳过步骤 4 和 5。
+
+3. 请参阅规划主题 ([规划软件定义网络基础结构](../../sdn/plan/../../sdn/plan/../../sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md)) 和工作与网络管理员联系以获取管理 VLAN 的 VLAN ID。 将新创建的虚拟交换机管理 vNIC 连接到管理 VLAN。 如果你的环境不使用 VLAN 标记，则可以省略此步骤。  
+   
+   ```PowerShell
+   Set-VMNetworkAdapterIsolation -ManagementOS -IsolationMode Vlan -DefaultIsolationID <Management VLAN> -AllowUntaggedTraffic $True
+   ```  
  
-4. 计划主题，请参考 ([计划软件定义网络基础结构](../../sdn/plan/../../sdn/plan/../../sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md)) 和与你的网络管理员，要使用 DHCP 既或静态 IP 分配，若要指定 IP 地址的新创建 vSwitch 管理 vNIC 到工作。 下面的示例显示了如何创建的静态 IP 地址和为其指定到该 vSwitch 的管理 vNIC:  
- ``New-NetIPAddress -InterfaceAlias "vEthernet (<switch name>)" -IPAddress <IP> -DefaultGateway <Gateway IP> -AddressFamily IPv4 -PrefixLength <Length of Subnet Mask - for example: 24>``  
+4. 请参阅规划主题 ([规划软件定义网络基础结构](../../sdn/plan/../../sdn/plan/../../sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md)) 以及使用网络管理员联系，以使用是 DHCP 或静态 IP 分配，以将 IP 地址分配给新创建的管理 vNICvSwitch。 下面的示例演示如何创建静态 IP 地址并将其分配给管理 vSwitch 的 vNIC:  
+ 
+   ```PowerShell
+   New-NetIPAddress -InterfaceAlias "vEthernet (<switch name>)" -IPAddress <IP> -DefaultGateway <Gateway IP> -AddressFamily IPv4 -PrefixLength <Length of Subnet Mask - for example: 24>
+   ```  
       
-5. [可选]部署到主机 Active Directory 域服务虚拟机 ([安装 Active Directory 域服务 (级别 100)](https://technet.microsoft.com/library/hh472162.aspx)和 DNS 服务器。  
+5. [可选]将虚拟机部署到主机 Active Directory 域服务 ([安装 Active Directory 域服务 (级别 100)](https://technet.microsoft.com/library/hh472162.aspx)和 DNS 服务器。  
    
-    。 连接的 Active Directory / DNS 服务器虚拟机到管理 VLAN:
+    a. Active Directory/DNS 服务器虚拟机连接到管理 VLAN:
     
-            Set-VMNetworkAdapterIsolation -VMName "<VM Name>" -Access -VlanId <Management VLAN> -AllowUntaggedTraffic $True  
-   
-   b。 安装 Active Directory 域服务和 DNS。  
-      >[!NOTE]
-      >网络控制器身份验证的支持 Kerberos 和 X.509 证书。 本指南（尽管只有一个是需要），针对不同的用途使用这两种身份验证机制。  
-        
-6. 加入的域的所有 Hyper-V 主机。 确保已 IP 地址分配给可以解决域名 DNS 服务器管理网络点到该网络适配器 DNS 服务器条目。 例如：
+       ```PowerShell
+       Set-VMNetworkAdapterIsolation -VMName "<VM Name>" -Access -VlanId <Management VLAN> -AllowUntaggedTraffic $True  
+       ```   
 
-        Set-DnsClientServerAddress -InterfaceAlias "vEthernet (<switch name>)" -ServerAddresses <DNS Server IP>  
+   b. 安装 Active Directory 域服务和 DNS。  
+
+   >[!NOTE]
+   >网络控制器进行身份验证支持 Kerberos 和 X.509 证书。 （尽管只有一个是必需的），本指南针对不同目的使用这两种身份验证机制。  
+        
+6. 加入到域的所有 HYPER-V 主机。 请确保已分配到管理网络点到可解析的域名的 DNS 服务器的 IP 地址的网络适配器的 DNS 服务器条目。 
+
+   ```PowerShell   
+   Set-DnsClientServerAddress -InterfaceAlias "vEthernet (<switch name>)" -ServerAddresses <DNS Server IP>  
+   ```
    
-   。 右键单击**开始**，单击**系统**，然后单击**更改设置**。  
-   b。 单击**更改**。  
-   c。 单击**域**和指定的域名。  
-   d。 单击**确定**。  
-   e。 键入出现提示时的的用户名和密码凭据。  
-   f。 重新启动的服务器。  
+   a. 右键单击**启动**，单击**系统**，然后单击**更改设置**。  
+   b. 单击“更改”。  
+   c. 单击**域**和指定域的名称。  
+   d. 单击 **“确定”**。  
+   e. 键入用户名称和密码凭据出现提示时。  
+   f. 重新启动服务器。  
   
 ### <a name="validation"></a>验证  
-使用以下步骤来验证联网该主机正确设置了。  
-1. 确保成功创建 VM 切换：  
+使用以下步骤来验证该主机网络设置正确。  
+
+1. 请确保已成功创建虚拟机交换机：  
       
-    ``Get-VMSwitch "<switch name>"``  
-2. 验证，在 VM 切换管理 vNIC 已连接到管理 VLAN:  
-    >[!NOTE]
-    >仅当您管理和租户交通共享相同 NIC 相关    
+   ```PowerShell
+   Get-VMSwitch "<switch name>"
+   ```  
+
+2. 验证 VM 交换机上的管理 vNIC 连接到管理 VLAN:  
+
+   >[!NOTE]
+   >只适用于管理和租户通信共享同一 nic。    
       
-    ``Get-VMNetworkAdapterIsolation -ManagementOS``  
-3. 验证该所有 Hyper-V 主机 (和外部管理资源：DNS 服务器) 可以通过使用其管理 IP 地址和/或完全限定的域名 (FQDN) ping 访问。   
+   ```PowerShell
+   Get-VMNetworkAdapterIsolation -ManagementOS
+   ```
+
+3. 验证所有的 HYPER-V 主机和外部管理资源，例如，DNS 服务器。<p>请确保它们是可通过使用其管理 IP 地址和/或完全限定的域名 (FQDN) 的 ping 访问。   
       
    ``ping <Hyper-V Host IP>``  
    ``ping <Hyper-V Host FQDN>``  
-4. 运行以下命令部署主机上，并指定的每个 Hyper-V 主机，以确保所使用的 Kerberos 凭据 FQDN 提供访问权限的所有服务器。  
+
+4. 在部署主机上运行以下命令并指定每个 HYPER-V 主机以确保使用的 Kerberos 凭据的 FQDN 提供对所有服务器的访问。  
       
    ``winrm id -r:<Hyper-V Host FQDN>``  
       
-### <a name="nano-installation-requirements-and-notes"></a>Nano 安装要求和笔记  
-如果你为你 Hyper-V 主机（物理服务器）中使用 Nano 部署，以下是附加要求：  
-1. 所有 Nano 节点都需要具有安装了语言包 DSC 包：  
+### <a name="nano-installation-requirements-and-notes"></a>Nano 安装要求和说明  
+
+如果使用 Nano 作为 HYPER-V 主机 （物理服务器） 的部署，以下是其他要求：  
+
+1. 所有 Nano 节点都需要用该语言包已安装 DSC 包：  
    
-   * Microsoft-NanoServer-DSC-Package.cab  
-   * Microsoft-NanoServer-DSC-Package_en-us.cab
+    - Microsoft-NanoServer-DSC-Package.cab  
+    - Microsoft-NanoServer-DSC-Package_en-us.cab
    
-        ``dism /online /add-package /packagepath:<Path> /loglevel:4``  
-2. 从非 Nano 主机（Windows Server 核心或 Windows Server 带 GUI），必须运行 SDN Express 的脚本。 PowerShellNano 不支持其工作流程。  
-3.  会网络控制器 NorthBound API 调用使用 PowerShell 或（其中依赖 Invoke-WebRequest 和 Invoke-RestMethod）NC 其余包装必须从非 Nano 主机。  
+    ``dism /online /add-package /packagepath:<Path> /loglevel:4``  
+
+2. SDN Express 脚本必须从非 Nano 主机 （Windows Server Core 或带 GUI 的 Windows Server） 运行。 在 Nano 上不支持 PowerShell 工作流。  
+
+3.  网络控制器 NorthBound API 调用使用 PowerShell 或 NC REST 包装器 （后者又依赖于调用 WebRequest 和 Invoke-restmethod） 必须在完成从非 Nano 主机。  
    
          
-### <a name="run-sdn-express-scripts"></a>运行 SDN 快速脚本  
+### <a name="run-sdn-express-scripts"></a>运行 SDN Express 脚本  
   
-1.  安装文件位于 GitHub 上。 下载从 zip 文件[Microsoft SDN GitHub 存储库](https://github.com/Microsoft/SDN.git)。 在 Microsoft SDN 知识库页上，单击**或下载**，然后单击**下载压缩**。  
-  
-2.  为你部署的计算机指定一台计算机。  该计算机必须运行 Windows Server 2016。 展开压缩文件和副本**SDNExpress**用于部署的计算机文件夹`C:\`文件夹。  
-  
-3.  共享`C:\SDNExpress`与文件夹"**SDNExpress**"使用权限的**每个人都**到**读取/写入**。  
-  
-4.  导航到`C:\SDNExpress`文件夹。
+1. 转到[Microsoft SDN GitHub 存储库](https://github.com/Microsoft/SDN.git)的安装文件。
 
- 你将看到以下文件夹：  
+2. 从存储库将安装文件下载到指定的部署计算机。 单击**克隆或下载**，然后单击**下载 ZIP**。  
+ 
+   >[!NOTE]
+   >指定的部署计算机必须运行 Windows Server 2016 或更高版本。
+ 
+3. 展开 zip 文件并复制**SDNExpress**到部署计算机的文件夹`C:\`文件夹。  
+  
+4. 共享`C:\SDNExpress`的文件夹"**SDNExpress**"使用权限**每个人都**到**读/写**。  
+  
+5. 导航到`C:\SDNExpress`文件夹。<p>您将看到以下文件夹：  
 
-|文件夹名称|描述|  
-|---------------|---------------|  
-|AgentConf|保存 OVSDB 架构 SDN 主机代理计划网络策略为每个 Windows Server 2016 Hyper-V 主机上使用的最新副本。|  
-|证书|临时 NC 证书文件的共享的位置。|  
-|图像|清空、Windows Server 2016 vhdx 映像在此处|  
-|工具|实用疑难解答和调试程序。  复制到主机和虚拟机。  我们建议您将网络显示器或 Wireshark 此处所以在需要时。|  
-|脚本|部署脚本。<br /><br />-   **SDNExpress.ps1**<br />    部署和配置结构，包括虚拟机网络控制器、SLB 输入混合虚拟机、网关池和 HNV 网关虚拟机对应于池。<br />-   **FabricConfig.psd1**<br />    配置文件 SDNExpress 脚本模板。  您会将此自定义您的环境。<br />-   **SDNExpressTenant.ps1**<br />    部署负载平衡 VIP 的虚拟网络上示例租户工作负载。<br />    此外提供一个或多个网络连接（IPSec S2S VPN、GRE、L3）上的服务提供商 edge 网关其连接到之前创建的租户工作负载。 IPSec 和 GRE 网关可用于连接通过相应 VIP IP 地址，或者 L3 转移网关通过相应地址池。<br />    此脚本可用于还删除相应配置的撤消选项。<br />-   **TenantConfig.psd1**<br />    对租户工作负载和 S2S 网关配置模板配置文件。<br />-   **SDNExpressUndo.ps1**<br />    清理结构环境，并将其重置为起始状态。<br />-   **SDNExpressEnterpriseExample.ps1**<br />    提供了一个远程访问网关和每个站点（可选）个相应企业虚拟机的一个或多个企业站点环境。 IPSec 或 GRE 企业网关连接到相应的服务提供商网关建立 S2S 隧道 VIP IP 地址。 L3 转发网关连接通过相应等 IP 地址。 <br />            此脚本可用于还删除相应配置的撤消选项。<br />-   **EnterpriseConfig.psd1**<br />    企业站点的网关和客户端 VM 配置模板配置文件。|  
-|TenantApps|使用部署示例租户工作负载的文件。|  
+   |文件夹名|描述|  
+   |---------------|---------------|  
+   |AgentConf|保存到程序网络策略的每个 Windows Server 2016 HYPER-V 主机上的 SDN 主机代理所使用的 OVSDB 架构的最新副本。|  
+   |证书|NC 证书文件的临时共享的位置。|  
+   |映像|为空，将你的 Windows Server 2016 vhdx 映像放在此处|  
+   |工具|用于故障排除和调试实用工具。  复制到主机和虚拟机。  我们建议您将放在网络监视器或 Wireshark 此处这样才可以根据需要使用它。|  
+   |脚本|部署脚本。<br /><br />-   **SDNExpress.ps1**<br />    部署和配置构造，包括网络控制器虚拟机、 SLB Mux 虚拟机、 网关池和 HNV 网关虚拟机对应的池。<br />-   **FabricConfig.psd1**<br />    SDNExpress 脚本配置文件模板。  你会将此自定义您的环境。<br />-   **SDNExpressTenant.ps1**<br />    部署使用负载均衡 VIP 的虚拟网络上的示例租户工作负荷。<br />    此外将一个或多个网络连接 （IPSec S2S VPN，GRE，L3） 预配服务提供商边缘网关连接到以前创建的租户工作负荷上。 IPSec 和 GRE 网关都可以进行连接对相应的 VIP IP 地址和 L3 转发网关通过相应的地址池。<br />    此脚本可用于删除相应的配置，并可通过撤消选项。<br />-   **TenantConfig.psd1**<br />    用于租户工作负载和 S2S 网关配置的模板配置文件。<br />-   **SDNExpressUndo.ps1**<br />    清理 fabric 环境并将其重置为起始状态。<br />-   **SDNExpressEnterpriseExample.ps1**<br />    预配一个或多个企业站点环境中使用一个远程访问网关和每个站点 （可选） 一个相应的企业版虚拟机。 IPSec 和 GRE 企业网关连接到服务提供商网关建立 S2S 隧道的相应 VIP IP 地址。 L3 转发网关连接通过相应的对等 IP 地址。 <br />            此脚本可用于删除相应的配置，并可通过撤消选项。<br />-   **EnterpriseConfig.psd1**<br />    用于企业站点到站点网关和客户端 VM 配置的模板配置文件。|  
+   |TenantApps|若要部署的示例租户工作负荷所使用的文件。|  
+   ---
   
-5.  Windows Server 2016 VHDX 文件是在验证**图像**文件夹。  
+6. 验证 Windows Server 2016 VHDX 文件位于**映像**文件夹。  
   
-6. 通过更改来自定义 SDNExpress\scripts\FabricConfig.psd1 文件**<< 替换 >>**规划网络主题中列出标记的特定值适合你实验基础结构，包括主名称、域姓名、用户名和密码和网络的网络的信息。  
-7. 创建 NetworkControllerRestName (FQDN) 和 NetworkControllerRestIP DNS 主机 A 记录。  
-8. 运行使用管理员凭据的域的用户脚本：  
+7. 通过更改来自定义 SDNExpress\scripts\FabricConfig.psd1 文件 **<< 替换 >>** 标记具有特定值，以适合你的实验室基础结构包括主机名、 域名、 用户名和密码，并规划网络主题中列出的网络的网络信息。  
+
+8. NetworkControllerRestName (FQDN) 和 NetworkControllerRestIP 在 DNS 中创建的主机 A 记录。  
+
+9. 具有域管理员凭据的用户身份运行脚本：  
       
-    ``SDNExpress\scripts\SDNExpress.ps1 -ConfigurationDataFile FabricConfig.psd1 -Verbose``  
+   ``SDNExpress\scripts\SDNExpress.ps1 -ConfigurationDataFile FabricConfig.psd1 -Verbose``  
       
-9.  若要还原所有操作，请运行以下命令：  
+10. 若要撤消所有操作，请运行以下命令：  
       
     ``SDNExpress\scripts\SDNExpressUndo.ps1 -ConfigurationDataFile FabricConfig.psd1 -Verbose``  
       
 #### <a name="validation"></a>验证  
-假设 SDN Express 脚本完成到运行，并且不会报告的任何错误，你可以执行以下步骤，确保已正确部署结构资源，并且适用于租户部署。  
 
-- 使用[诊断工具](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack)以确保没有中有错误任何结构资源网络控制器。  
+假设 SDN Express 脚本已完成运行而不报告任何错误，可以执行以下步骤，以确保构造资源已正确部署，并且可供租户部署。  
+
+使用[诊断工具](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack)以确保没有任何错误上任何构造资源在网络控制器。  
       
-    ``Debug-NetworkControllerConfigurationState -NetworkController <FQDN of Network Controller Rest Name>``  
+   ``Debug-NetworkControllerConfigurationState -NetworkController <FQDN of Network Controller Rest Name>``  
         
    
-### <a name="deploy-a-sample-tenant-workload-with-the-software-load-balancer"></a>部署示例租户工作负载的软件负载平衡  
+### <a name="deploy-a-sample-tenant-workload-with-the-software-load-balancer"></a>部署具有软件负载均衡器的示例租户工作负荷  
     
-现在，已部署结构资源，你可以通过部署示例租户工作负载来验证你 SDN 部署端到端。 两个虚拟子网（web 层和数据库层）通过访问控制列表 (ACL) 规则使用 SDN 分发防火墙保护包括此租户工作负载。 Web 层虚拟子网是通过使用虚拟 IP (VIP) 地址/SLB 输入混合访问。 此脚本自动部署和两个服务 web 层虚拟机和一个数据库层虚拟机并连接到虚拟个子网。  
+现在，已部署构造资源，您可以通过部署示例租户工作负荷来验证你 SDN 部署端到端。 此租户工作负荷包含两个虚拟子网 （web 层和数据库层） 通过使用 SDN 分布式防火墙的访问控制列表 (ACL) 规则保护。 通过使用虚拟 IP (VIP) 地址在 SLB/MUX 可访问 web 层的虚拟子网。 该脚本自动部署两个 web 层虚拟机和一个数据库层虚拟机，并将连接到的虚拟子网。  
   
-1.  通过更改来自定义 SDNExpress\scripts\TenantConfig.psd1 文件**<< 替换 >>**标记的特定值 (例如：VHD 映像的名称、网络控制器其余部分名称、vSwitch 名称、FabricConfig.psd1 文件中，之前定义等)  
-2.  运行此脚本。 例如：  
-``SDNExpress\scripts\SDNExpressTenant.ps1 -ConfigurationDataFile TenantConfig.psd1 -Verbose``  
-3.  撤消该配置，运行带有的相同脚本**撤消**参数。 例如：  
-``SDNExpress\scripts\SDNExpressTenant.ps1 -Undo -ConfigurationDataFile TenantConfig.psd1 -Verbose``  
+1.  通过更改来自定义 SDNExpress\scripts\TenantConfig.psd1 文件 **<< 替换 >>** 具有特定值的标记 (例如：VHD 映像名称，网络控制器 REST 名称、 vSwitch 名称，如前面 FabricConfig.psd1 文件中定义的等）  
+
+2.  运行脚本。 例如：  
+
+    ``SDNExpress\scripts\SDNExpressTenant.ps1 -ConfigurationDataFile TenantConfig.psd1 -Verbose``  
+
+3.  若要撤消该配置，请运行与同一个脚本**撤消**参数。 例如：  
+
+    ``SDNExpress\scripts\SDNExpressTenant.ps1 -Undo -ConfigurationDataFile TenantConfig.psd1 -Verbose``  
 
 #### <a name="validation"></a>验证  
-若要验证租户部署成功，执行以下操作：
-1.  登录到数据库层虚拟机并尝试连接的一项 web 层虚拟机（确保中 web 层虚拟机关闭 Windows 防火墙）的 IP 地址。  
-2.  检查有错误的网络控制器租户资源。 运行以下命令从任何 Hyper-V 主机了一层 3 连接到网络控制器：  
-      
-    ``Debug-NetworkControllerConfigurationState -NetworkController <FQDN of Network Controller REST Name>``
-3. 若要验证负载平衡正确运行，从任何 Hyper-V 主机运行以下命令：
-    
-        wget <VIP IP address>/unique.htm -disablekeepalive -usebasicparsing
-   
-   其中`<VIP IP address>`是 web 层在 TenantConfig.psd1 文件配置 VIP IP 地址。 搜索`VIPIP`中 TenantConfig.psd1 变量。
 
-   运行此多情况下，若要查看负载平衡可用 Dip 之间进行切换。 你还可以观察使用 web 浏览器此问题。 浏览到`<VIP IP address>/unique.htm`。 关闭使用浏览器打开新实例，然后再次浏览。 你将看到蓝色页和备用，除在浏览器缓存页面缓存超时之前绿色的页面。
+若要验证租户部署成功，请执行以下操作：
+
+1. 登录到数据库层虚拟机，并尝试对其中一个 web 层虚拟机 （请确保 Windows 防火墙处于关闭状态在 web 层虚拟机） 的 IP 地址执行 ping 操作。  
+
+2. 检查有任何错误的网络控制器租户资源。 运行以下命令从任何 HYPER-V 主机与第 3 层连接到网络控制器：  
+      
+   ``Debug-NetworkControllerConfigurationState -NetworkController <FQDN of Network Controller REST Name>``
+
+3. 若要验证负载均衡器正常运行，从任何 HYPER-V 主机运行以下命令：
+    
+   ``wget <VIP IP address>/unique.htm -disablekeepalive -usebasicparsing``
+   
+   其中`<VIP IP address>`是 web 层 TenantConfig.psd1 文件中配置的 VIP IP 地址。 
+
+   >[!TIP]
+   >搜索`VIPIP`TenantConfig.psd1 中用户定义变量。
+
+   运行此多时间以查看负载均衡器可用 Dip 之间进行切换。 您可以观察此行为，使用 web 浏览器。 浏览到 `<VIP IP address>/unique.htm`。 关闭浏览器支持和打开的新实例，然后再次浏览。 你将看到蓝色页面和备用，除了当浏览器缓存该页面之前缓存超时绿色页。
+
+---

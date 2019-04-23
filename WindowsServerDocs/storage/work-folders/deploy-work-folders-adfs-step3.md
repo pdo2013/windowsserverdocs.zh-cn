@@ -1,5 +1,5 @@
 ---
-title: "使用 AD FS 和 Web 应用程序代理部署工作文件夹 - 步骤 3，设置工作文件夹"
+title: 使用 AD FS 和 Web 应用程序代理部署工作文件夹 - 步骤 3，设置工作文件夹
 ms.prod: windows-server-threshold
 ms.technology: storage-work-folders
 ms.topic: article
@@ -9,26 +9,27 @@ author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: 5a43b104-4d02-4d73-a385-da1cfb67e341
 ms.openlocfilehash: 81f30a7a4d50423a68719343fec3032cc6a1602e
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59854708"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤 3，设置工作文件夹
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>部署工作文件夹使用 AD FS 和 Web 应用程序代理：第 3 步： 设置工作文件夹
 
->适用于：Windows Server（半年频道）、Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-本主题介绍使用 Active Directory 联合身份验证服务 (AD FS) 和 Web 应用程序代理部署工作文件夹的第三个步骤。 你可以在这些主题中找到此过程中的其他步骤：  
+本主题介绍使用 Active Directory 联合身份验证服务 (AD FS) 和 Web 应用程序代理部署工作文件夹的第三个步骤。 你可以在这些主题中查找这一过程的其他步骤：  
   
--   [使用 AD FS 和 Web 应用程序代理部署工作文件夹：概述](deploy-work-folders-adfs-overview.md)  
+-   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：概述](deploy-work-folders-adfs-overview.md)  
   
--   [使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤 1，设置 AD FS](deploy-work-folders-adfs-step1.md)  
+-   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：第 1 步： 设置 AD FS](deploy-work-folders-adfs-step1.md)  
   
--   [使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤 2，AD FS 配置后工作](deploy-work-folders-adfs-step2.md)  
+-   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 2 中，AD FS 配置后工作](deploy-work-folders-adfs-step2.md)  
   
--   [使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤 4，设置 Web 应用程序代理](deploy-work-folders-adfs-step4.md)  
+-   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 4 中，设置 Web 应用程序代理](deploy-work-folders-adfs-step4.md)  
   
--   [使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤 5，设置客户端](deploy-work-folders-adfs-step5.md)  
+-   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 5 中，设置客户端](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
 >   本节中包含的说明适用于 Windows Server 2016 环境。 如果你使用的是 Windows Server 2012 R2，请遵循 [Windows Server 2012 R2 说明](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx)。
@@ -40,8 +41,8 @@ ms.lasthandoff: 10/17/2017
   
 对于测试示例，将运行工作文件夹的计算机加入到 Contoso 域，并按以下各节的描述设置网络接口。 
 
-### <a name="set-the-server-ip-address"></a>设置服务器 IP 地址  
-将服务器 IP 地址更改为静态 IP 地址。 对于测试示例，使用 IP 类 A，即 192.168.0.170 /子网掩码：255.255.0.0 /默认网关：192.168.0.1 /首选 DNS：192.168.0.150（域控制器的 IP 地址）。 
+### <a name="set-the-server-ip-address"></a>设置服务器的 IP 地址  
+将服务器的 IP 地址更改为静态 IP 地址。 测试示例中，使用 IP 类，该类是 192.168.0.170 / 子网掩码：255.255.0.0/默认网关：192.168.0.1/首选 DNS:192.168.0.150 （你的域控制器的 IP 地址）。 
   
 ### <a name="create-the-cname-record-for-work-folders"></a>为工作文件夹创建 CNAME 记录  
 要为工作文件夹创建 CNAME 记录，请遵循下列步骤：  
@@ -56,7 +57,7 @@ ms.lasthandoff: 10/17/2017
   
 5.  在**目标主机的完全限定的域名**字段中，输入工作文件夹服务器的 FQDN。 在测试示例中，FQDN 为 **2016-WF.contoso.com**。  
   
-6.  单击**确定**。  
+6.  单击 **“确定”**。  
   
 要通过 Windows PowerShell 完成相同的步骤，请使用以下命令。 该命令必须在域控制器上执行。  
   
@@ -67,19 +68,19 @@ Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name workfolders -CName  -
 ### <a name="install-the-ad-fs-certificate"></a>安装 AD FS 证书  
 使用以下步骤将 AD FS 设置期间创建的 AD FS 证书安装到本地计算机证书存储中：  
   
-1.  单击**开始**，然后单击**运行**。  
+1.  单击 **“开始”**，然后单击 **“运行”**。  
   
 2.  键入 **MMC**。  
   
-3.  在**文件**菜单上，单击**添加/删除管理单元**。  
+3.  在“文件”  菜单上，单击“添加/删除管理单元” 。  
   
 4.  在**可用的管理单元**列表中，单击**证书**，然后单击**添加**。 证书管理单元向导启动。  
   
-5.  选择**计算机帐户**，然后单击**下一步**。  
+5.  选择“计算机帐户”，然后单击“下一步”。  
   
 6.  选择**本地计算机：（运行此控制台的计算机）**，然后单击**完成**。  
   
-7.  单击 **OK**。  
+7.  单击 **“确定”**。  
   
 8.  展开文件夹**控制台根节点\证书\(本地计算机)\个人\证书**。  
   
@@ -106,7 +107,7 @@ Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name workfolders -CName  -
     PS C:\temp\scripts> Set-ExecutionPolicy -ExecutionPolicy Unrestricted   
     ```  
   
-4.  更改为复制脚本的目录。  
+4.  更改为从中复制脚本的目录。  
   
 5.  执行 makeCert 脚本：  
   
@@ -114,15 +115,15 @@ Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name workfolders -CName  -
     PS C:\temp\scripts> .\makecert.ps1  
     ```  
   
-6.  当系统提示你更改主题证书时，输入主题的新值。 在此示例中，该值为 **workfolders.contoso.com**。  
+6.  当提示更改主题证书时，请为主题输入新值。 在此示例中，该值为 **workfolders.contoso.com**。  
   
 7.  当系统提示你输入使用者可选名称 (SAN) 名称时，按 Y ，然后一次输入一个 SAN 名称。  
   
     对于此示例，键入 **workfolders.contoso.com**，然后按 Enter 键。 键入 **2016-WF.contoso.com**，然后按 Enter 键。  
   
-    当输入所有的 SAN 名称后，在空行上按 Enter 键。  
+    当所有 SAN 名称输入完毕后，请在空行上按 Enter。  
   
-8.  当系统提示你将证书安装到受信任的根证书颁发机构存储时，请按 Y。  
+8.  当提示将证书安装至受信任的根证书机构存储时，按 Y。  
   
 工作文件夹证书必须是具有以下值的 SAN 证书：  
   
@@ -130,7 +131,7 @@ Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name workfolders -CName  -
   
 -   **machine name**.**domain**  
   
-在测试示例中，值为：  
+在测试示例中，这些值为：  
   
 -   **workfolders.contoso.com**  
   
@@ -151,7 +152,7 @@ Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name workfolders -CName  -
   
 6.  在**功能**页上，单击**下一步**。  
   
-7.  在**确认**页上，单击**安装**。  
+7.  在“确认”页上，单击“安装”。  
   
 ## <a name="configure-work-folders"></a>配置工作文件夹  
 要配置工作文件夹，请遵循下列步骤：  
@@ -164,15 +165,15 @@ Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name workfolders -CName  -
   
 4.  在**服务器和路径**页上，选择要创建同步共享的服务器，输入存储工作文件夹数据的本地路径，然后单击**下一步**。  
   
-    如果路径不存在，系统将提示你创建该路径。 单击**确定**。  
+    如果路径不存在，系统将提示你创建该路径。 单击 **“确定”**。  
   
 5.  在**用户文件夹结构**页上，选择**用户别名**，然后单击**下一步**。  
   
-6.  在**同步共享名称**页中，输入同步共享的名称。 对于测试示例，名称为 **WorkFolders**。 单击**下一步**。  
+6.  在**同步共享名称**页中，输入同步共享的名称。 对于测试示例，名称为 **WorkFolders**。 单击“下一步” 。  
   
-7.  在**同步访问权限**页上，添加可以访问新同步共享的用户或组。 对于测试示例，授予对所有域用户的访问权限。 单击**下一步**。  
+7.  在**同步访问权限**页上，添加可以访问新同步共享的用户或组。 对于测试示例，授予对所有域用户的访问权限。 单击“下一步” 。  
   
-8.  在**电脑的安全策略**页上，选择**加密工作文件夹**和**自动锁定页面并需要密码**。 单击**下一步**。  
+8.  在**电脑的安全策略**页上，选择**加密工作文件夹**和**自动锁定页面并需要密码**。 单击“下一步” 。  
   
 9. 在**确认**页上，单击**创建**以完成配置过程。  
   
@@ -188,7 +189,7 @@ Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name workfolders -CName  -
 ### <a name="bind-the-certificate"></a>绑定证书  
 工作文件夹仅通过 SSL 进行通信，并且必须将先前创建的自签名证书（或你的证书颁发机构颁发的证书）绑定到端口。  
   
-可使用两种方法通过 Windows PowerShell 将证书绑定到端口：IIS cmdlet 和 netsh。  
+有两种方法可用于将证书绑定到通过 Windows PowerShell 的端口：IIS cmdlet 和 netsh。  
   
 #### <a name="bind-the-certificate-by-using-netsh"></a>使用 netsh 绑定证书  
 要在 Windows PowerShell 中使用 netsh 命令行脚本实用工具，必须通过管道将此命令传递给 netsh。 以下示例脚本查找具有 **workfolders.contoso.com** 主题的证书，并使用 netsh 将其绑定到端口 443：  
@@ -198,7 +199,7 @@ $subject = "workfolders.contoso.com"
 Try  
 {  
 #In case there are multiple certificates with the same subject, get the latest version   
-$cert = Get-ChildItem CERT:\LocalMachine\My |where {$_.Subject -match $subject} | sort $_.NotAfter -Descending | select -first 1    
+$cert = Get-ChildItem CERT:\LocalMachine\My |where {$_.Subject -match $subject} | sort $_.NotAfter -Descending | select -first 1    
 $thumbprint = $cert.Thumbprint  
 $Command = "http add sslcert ipport=0.0.0.0:443 certhash=$thumbprint appid={CE66697B-3AA0-49D1-BDBD-A25C8359FD5D} certstorename=MY"  
 $Command | netsh  
@@ -247,9 +248,9 @@ Exit
   
 3.  右键单击服务器名称，然后单击**工作文件夹设置**。  
   
-4.  在**工作文件夹设置**窗口中，选择**Active Directory 联合身份验证服务**，然后键入联合身份验证服务 URL。 单击**应用**。  
+4.  在**工作文件夹设置**窗口中，选择**Active Directory 联合身份验证服务**，然后键入联合身份验证服务 URL。 单击 **“应用”**。  
   
-    在测试示例中，URL 为 **https://blueadfs.contoso.com**。  
+    在测试的示例中，URL 是**https://blueadfs.contoso.com**。  
   
 通过 Windows PowerShell 完成相同任务的 cmdlet 是：  
   
@@ -270,11 +271,11 @@ Set-SyncServerSetting -ADFSUrl "https://blueadfs.contoso.com"
   
 -   未加入域的 Windows 客户端  
   
-要导出证书，请遵循与之前用于导出 AD FS 证书的相同步骤进行操作（如[使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤 2，AD FS 配置后工作](deploy-work-folders-adfs-step2.md)中所述）导出 AD FS 证书。  
+若要导出的证书，请按照用于导出 AD FS 证书更早版本，如中所述的相同步骤[使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤 2 中，AD FS 配置后工作](deploy-work-folders-adfs-step2.md)，导出 AD FS 证书。  
   
-下一步：[使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤 4，设置 Web 应用程序代理](deploy-work-folders-adfs-step4.md)  
+下一步：[部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 4 中，设置 Web 应用程序代理](deploy-work-folders-adfs-step4.md)  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>请参阅  
 [工作文件夹概述](Work-Folders-Overview.md)  
   
 

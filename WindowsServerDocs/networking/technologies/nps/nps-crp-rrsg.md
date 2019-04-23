@@ -1,6 +1,6 @@
 ---
 title: 远程 RADIUS 服务器组
-description: 本主题提供网络策略 Server 远程 RADIUS 服务器组在 Windows Server 2016 的概述。
+description: 本主题概述了网络策略服务器远程 RADIUS 服务器组在 Windows Server 2016 中。
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -8,37 +8,38 @@ ms.topic: article
 ms.assetid: d81678a7-be21-48f2-9b3f-5a75d6aef013
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 1f27b5e501f110a038264cd54d75c8b8f9566a64
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 9912927a7b75e4c9f04aa3d24eb7ed46c73a7dd2
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59855258"
 ---
 # <a name="remote-radius-server-groups"></a>远程 RADIUS 服务器组
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-作为远程身份验证拨入用户服务 (RADIUS) 代理配置网络策略 Server (NPS) 时，您将使用 NPS 转发给能够处理的连接请求，因为它们可以在用户或计算机的帐户的域中执行身份验证和授权的 RADIUS 服务器连接请求。 例如，如果你想要转发连接到不受信任的域中的一个或多个 RADIUS 服务器的请求，你可以为 RADIUS 代理转发到中不受信任的域远程 RADIUS 服务器请求配置 NPS。
+当你将网络策略服务器 (NPS) 配置为远程身份验证拨入用户服务 (RADIUS) 代理时，使用 NPS 将连接请求转发到 RADIUS 服务器能够处理连接请求，因为他们可以执行的身份验证和授权的用户或计算机帐户所在的域中。 例如，如果你想要连接请求转发到不受信任域中的一个或多个 RADIUS 服务器，您可以将 NPS 配置为 RADIUS 代理，以将请求转发到不受信任域中的远程 RADIUS 服务器。
 
 >[!NOTE]
->远程 RADIUS 服务器组是无关和保存在远离 Windows 组。
+>远程 RADIUS 服务器组是无关，且独立于 Windows 组。
 
-配置为 RADIUS 代理 NPS，必须创建一个包含所有所需的 NPS 评估哪些邮件转发和发送电子邮件的位置信息的连接请求策略。
+若要将 NPS 配置为 RADIUS 代理，必须创建包含所有所需的 NPS 评估转发哪些消息以及发送消息的位置信息的连接请求策略。
 
-当你在 NPS 配置远程 RADIUS 服务器组并以组配置连接请求策略时，你要指定向前连接请求 NPS 所在的位置。
+当在 NPS 中配置远程 RADIUS 服务器组和组配置连接请求策略时，指定 NPS 转发连接请求的位置。
 
-## <a name="configuring-radius-servers-for-a-group"></a>配置为组 RADIUS 服务器
+## <a name="configuring-radius-servers-for-a-group"></a>配置 RADIUS 服务器组
 
-远程 RADIUS 服务器组是组命名，其中包含一个或多个 RADIUS 服务器。 如果多个服务器配置，你可以指定负载平衡任一确定顺序代理使用服务器或 RADIUS 消息流分发以防止重载连接请求太多的一个或多个服务器组中的所有服务器设置。
+远程 RADIUS 服务器组是包含一个或多个 RADIUS 服务器的命名的组。 如果配置多台服务器，则可以指定负载平衡设置或者确定代理使用服务器的顺序或跨组以防止过载一个或多个服务器中的所有服务器分发 RADIUS 消息流具有过多连接请求。
 
-每个组中的服务器具有以下设置。
+组中的每个服务器都具有以下设置。
 
-- **名称或地址**。 每个组成员必须组中的一个唯一的名称。 该名称可以 IP 地址或为其 IP 地址可解决的名称。
+- **名称或地址**。 每个组成员必须具有在组中的唯一名称。 名称可以是 IP 地址或可解析为其 IP 地址的名称。
 
-- **身份验证和帐户**。 你可以将转发身份验证请求、记帐请求，或为每个远程 RADIUS 服务器组成员同时。
+- **身份验证和记帐**。 您可以将转发身份验证请求、 记帐请求和 / 或每个远程 RADIUS 服务器组成员。
 
-- **负载平衡**。 优先设置用于表明的组成员的主服务器（的优先级设置为 1）。 对于具有相同的优先级的组成员，重量设置用于计算频率 RADIUS 消息发送到每个服务器。 你可以使用其他设置配置 NPS 服务器检测组成员首先可用时不和它可用时后已确定不可用的方式。
+- **负载均衡**。 优先级设置用于指示组的哪些成员是主服务器 （优先级设置为 1）。 对于具有相同的优先级的组成员，使用权重设置用于计算频率 RADIUS 消息发送到每个服务器。 可以使用其他设置来配置 NPS 检测以及已确定其不可用之后变成可用时组成员首先变成不可用的方式。
 
-配置远程 RADIUS 服务器组后，你可以在身份验证和连接请求策略的记帐设置指定的组。 出于此原因，你可以首先配置远程 RADIUS 服务器组。 接下来，您可以配置连接请求策略使用新配置远程 RADIUS 服务器组。 或者，你可以使用新的连接要求策略向导创建连接请求策略时创建一个新远程 RADIUS 服务器组。
+配置远程 RADIUS 服务器组后，你可以在身份验证和连接请求策略记帐设置中指定的组。 因此，可以先配置远程 RADIUS 服务器组。 接下来，你可以配置连接请求策略，以使用新配置的远程 RADIUS 服务器组。 或者，可以使用新的连接请求策略向导在创建连接请求策略时创建新的远程 RADIUS 服务器组。
 
-有关 NPS 的详细信息，请参阅[网络策略 Server (NPS)](nps-top.md)。
+有关 NPS 的详细信息，请参阅[网络策略服务器 (NPS)](nps-top.md)。

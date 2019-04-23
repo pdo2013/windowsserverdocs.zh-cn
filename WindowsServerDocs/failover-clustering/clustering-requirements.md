@@ -1,5 +1,5 @@
 ---
-title: 故障转移群集的硬件要求和存储选项
+title: 故障转移群集硬件要求和存储选项
 description: 硬件要求和用于创建故障转移群集的存储选项。
 ms.prod: windows-server-threshold
 ms.topic: article
@@ -9,70 +9,70 @@ ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: 4706372b06d0554196b692c3ddcda145dee5bae5
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2081907"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59848168"
 ---
-# <a name="failover-clustering-hardware-requirements-and-storage-options"></a>故障转移群集的硬件要求和存储选项
+# <a name="failover-clustering-hardware-requirements-and-storage-options"></a>故障转移群集硬件要求和存储选项
 
-适用于： Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2016
+适用于：Windows Server 2012 R2、 Windows Server 2012 中，Windows Server 2016
 
-您需要创建故障转移群集的以下硬件。 必须由 Microsoft 支持，必须运行的的 Windows Server 的版本经过认证所有硬件，并完成故障转移群集解决方案必须通过验证配置向导中的所有测试。 有关验证故障转移群集的详细信息，请参阅[验证硬件故障转移群集](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v%3dws.11)>)。
+若要创建故障转移群集，你需要以下硬件。 若要获得 Microsoft 的支持，所有硬件必须针对正在运行的 Windows Server 的版本进行了认证，并且完整的故障转移群集解决方案必须通过“验证配置向导”中的所有测试。 有关验证故障转移群集的详细信息，请参阅[验证故障转移群集的硬件](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v%3dws.11)>)。
 
-- **服务器**： 建议使用一组的匹配包含相同或类似的与组件的计算机。
-- **网络适配器和电缆 （用于网络通信）**： 如果使用 iSCSI，应为每个网络适配器专用于网络通信或 iSCSI，而不是同时。
+- **服务器**：建议使用一组包含相同或相似组件的匹配计算机。
+- **网络适配器和电缆（用于网络通信）**：如果使用 iSCSI，则应将每个网络适配器专用于网络通信或 iSCSI，而不能同时用于这两者。
 
-    在将群集节点连接的网络基础结构，应避免使用单点故障。 例如，您可以通过多个连接群集节点不同网络。 或者，您可以与网络适配器组、 冗余交换机、 冗余路由器或类似删除单点故障的硬件与一个在构建的网络连接群集节点。
-
-    >[!NOTE]
-    >如果您使用单个网络连接群集节点，网络将验证配置向导中传递的冗余要求。 但是，从向导报告将包含网络不应包含单点故障的警告。
-
-- **设备控制器或适当的适配器，用于存储**：
-
-  - **串行附加 SCSI 或光纤通道**： 如果使用串行附加 SCSI 或光纤通道，在所有群集服务器，应相同存储堆栈中的所有元素。 需要多路径 I/O (MPIO) 软件是相同和设备特定模块 (DSM) 软件完全相同。 建议的大容量存储设备控制器 — 主机总线适配器 (HBA)、 HBA 驱动程序和 HBA 固件 — 附加到群集存储在相同。 如果您使用不同的 Hba，应验证存储供应商您遵循其支持的或建议的配置。
-  - **iSCSI**： 如果使用 iSCSI，每个群集的服务器应具有一个或多个网络适配器或专用于群集存储的 Hba。 使用 iSCSI 网络不应用于网络通信。 在所有群集服务器网络适配器用于连接到 iSCSI 存储目标应该是相同的并且我们建议使用千兆以太网或更高版本。
-- **存储**： 您必须使用[存储空格直接](../storage/storage-spaces/storage-spaces-direct-overview.md)或共享与 Windows Server 2012 R2 或 Windows Server 2012 兼容的存储。 您可以使用共享附加的存储和您还可以用作 SMB 3.0 文件共享共享存储运行 HYPER-V 在故障转移群集中配置的服务器。 有关详细信息，请参阅[部署 HYPER-V 通过 SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>)。
-
-    在大多数情况下，附加的存储应包含多个、 独立磁盘 （逻辑单元号或 Lun） 级别的硬件配置。 对于某些群集，一个磁盘作为磁盘见证 （在此子节的末尾所述）。 其他磁盘包含 （以前称为群集的服务或应用程序） 的群集角色所需的文件。 存储要求包括：
-
-  - 若要使用包含在故障转移群集的本机磁盘支持，请使用基本磁盘，不动态磁盘。
-  - 我们建议您格式化为 NTFS 分区。 如果您使用群集共享卷 (CSV)，其中每个分区必须 NTFS。
+    在连接群集节点的网络基础结构中，应避免出现单点故障。 例如，你可以通过多个不同的网络来连接群集节点。 或者，可以使用成组的网络适配器、 冗余交换机、 冗余路由器或类似硬件的单一故障点中删除与一个网络来连接群集节点。
 
     >[!NOTE]
-    >如果您有见证磁盘仲裁配置，您可以设置格式与 NTFS 或弹性文件系统 (ReFS) 磁盘。
+    >如果使用一个网络来连接群集节点，该网络将需要符合“验证配置向导”中的冗余要求。 但是，此向导生成的报告将包含一条有关该网络不应具有单点故障的警告。
 
-  - 对于磁盘分区样式，您可以使用主启动记录 (MBR) 或 GUID 分区表 (GPT)。
+- **用于存储的设备控制器或相应适配器**：
 
-    见证磁盘是群集存储的具有指定用于保存一份群集配置数据库中的磁盘。 仅当此值指定为仲裁配置的一部分，故障转移群集具有见证磁盘。 有关详细信息，请参阅[了解仲裁中存储空格直接](../storage/storage-spaces/understand-quorum.md)。
+  - **串行连接 SCSI 或光纤通道**：如果你在所有群集服务器中使用串行连接 SCSI 或光纤通道，则存储堆栈的所有组件都应相同。 它要求多路径 I/O (MPIO) 软件必须相同，并且设备特定模块 (DSM) 软件也相同。 我们建议的大容量存储设备控制器 — 主机总线适配器 (HBA)、 HBA 驱动程序以及 HBA 固件 — 附加到群集存储是完全相同。 如果使用不同的 HBA，则应向存储供应商验证你是否采用了其支持或推荐的配置。
+  - **iSCSI**：如果使用的是 iSCSI，则各群集服务器都应具有一个或多个专用于群集存储的网络适配器或 HBA。 不应将用于 iSCSI 的网络用于网络通信。 在所有群集服务器中，用于连接 iSCSI 存储目标的网络适配器都应相同，建议使用千兆或更高速度的以太网。
+- **存储**：必须使用[存储空间直通](../storage/storage-spaces/storage-spaces-direct-overview.md)或共享与 Windows Server 2012 R2 或 Windows Server 2012 兼容的存储。 可以使用共享的存储的连接，并可还用于 SMB 3.0 文件共享作为共享存储正在运行的 HYPER-V 故障转移群集中配置的服务器。 有关详细信息，请参阅 [部署基于 SMB 的 Hyper-V](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>)。
 
-## <a name="hardware-requirements-for-hyper-v"></a>针对 HYPER-V 的硬件要求
+    在大多数情况下，附加的存储应包含在硬件级别上配置的多个独立磁盘（逻辑单元号或 LUN）。 某些群集使用一个磁盘作为磁盘见证（在此子部分末尾进行介绍）。 其他磁盘包含群集角色（以前称为群集服务或应用程序）所需的文件。 存储要求如下：
 
-如果您正在创建包括群集的虚拟机的故障转移群集，群集服务器必须支持 HYPER-V 角色的硬件要求。 HYPER-V 要求 64 位处理器，其中包括：
+  - 若要使用故障转移群集中包含的本机磁盘支持，请使用基本磁盘（而非动态磁盘）。
+  - 建议使用 NTFS 格式化分区。 如果使用群集共享卷 (CSV)，则其中每个分区都必须采用 NTFS 格式。
 
-- 硬件辅助虚拟化。 这是包含虚拟化选项的处理器中提供，特别是具有 Intel 虚拟化技术 (Intel VT) 或 AMD 虚拟化 (AMD-V) 技术的处理器。
-- 硬件实施数据执行保护 (DEP) 必须提供并启用。 具体而言，必须启用位 Intel XD （执行禁用位） 或 AMD NX 位 （没有执行位）。
+    >[!NOTE]
+    >如果你有见证磁盘仲裁配置，可以使用 NTFS 或弹性文件系统 (ReFS) 格式化磁盘。
 
-有关 HYPER-V 角色的详细信息，请参阅[HYPER-V 概述](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831531(v%3dws.11)>)。
+  - 对于磁盘分区形式，可使用主启动记录 (MBR) 或 GUID 分区表 (GPT)。
 
-## <a name="deploying-storage-area-networks-with-failover-clusters"></a>部署与故障转移群集的存储区域网络
+    磁盘见证服务器是已指定用于保存群集配置数据库的副本的群集存储中的磁盘。 仅当它指定为仲裁配置的一部分时，故障转移群集才具有磁盘见证。 有关详细信息，请参阅[存储空间直通中了解仲裁](../storage/storage-spaces/understand-quorum.md)。
 
-在部署故障转移群集与存储区域网络 (SAN)，请遵循以下准则：
+## <a name="hardware-requirements-for-hyper-v"></a>Hyper-V 的硬件要求
 
-- **确认的存储空间的兼容性**： 与制造商和供应商的存储，包括驱动程序、 固件和存储，所使用的软件版本中的正在运行的 Windows Server 故障转移群集与兼容的确认。
-- **隔离存储设备，每个设备的一个群集**： 不同群集中的服务器必须能够访问相同的存储设备。 在大多数情况下，用于群集服务器的一组 LUN 应独立于通过 LUN 屏蔽或分区的所有其他服务器。
-- **考虑使用多路径 I/O 软件或搭配使用网络适配器**： 在高可用性存储结构中，您可以使用多路径 I/O 软件部署具有多个主机总线适配器的故障转移群集或网络适配器结合使用 （也称为负载平衡和故障转移或 LBFO）。 此提供冗余和可用性的最高的级别。 对于 Windows Server 2012 R2 或 Windows Server 2012，多路径解决方案必须基于 Microsoft 多路径 I/O (MPIO)。 尽管 Windows Server 操作系统的一部分包含一个或多个 DSMs，硬件供应商通常将提供您的硬件，MPIO 设备特定模块 (DSM)。
+如果要创建包括群集虚拟机的故障转移群集，则群集服务器必须支持 Hyper-V 角色的硬件要求。 Hyper-V 需要一个 64 位处理器，包括以下要求：
 
-    有关 LBFO 的详细信息，请参阅 Windows Server 技术库中的[NIC 结合使用概述 （英文)](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming) 。
+- 硬件协助的虚拟化。 在提供虚拟化选项的处理器上，可以进行硬件协助的虚拟化 — 特别是具有 Intel 虚拟化技术  (Intel VT) 或 AMD 虚拟化 (AMD-V) 技术的处理器。
+- 硬件强制实施的数据执行保护 (DEP) 必须可用且已启用。 具体地说就是，你必须启用 Intel XD 位（执行禁用位）或 AMD NX 位（无执行位）。
+
+有关 Hyper-V 的详细信息，请参阅 [Hyper-V 概述](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831531(v%3dws.11)>)。
+
+## <a name="deploying-storage-area-networks-with-failover-clusters"></a>使用故障转移群集部署存储区域网络
+
+使用故障转移群集部署存储区域网络 (SAN) 时，请遵循以下准则：
+
+- **确认存储的兼容性**：请与制造商和供应商确认存储（包括存储所使用的驱动程序、固件和软件）是否与运行的 Windows Server 版本中的故障转移群集兼容。
+- **隔离存储设备，每个设备一个群集**：来自不同群集的服务器不能访问同一存储设备。 多数情况下，用于一组群集服务器的一个 LUN 不应通过 LUN 屏蔽或分区而与所有其他服务器隔离。
+- **考虑使用多路径 I/O 软件或网络适配器组**：在高度可用的存储构造中，你可以使用多路径 I/O 软件或网络适配器组（也称为负载平衡和故障转移或 LBFO）部署具有多个主机总线适配器的故障转移群集。 这可以提供最高级别的冗余和可用性。 对于 Windows Server 2012 R2 或 Windows Server 2012，多路径解决方案必须基于 Microsoft 多路径 I/O (MPIO)。 虽然 Windows Server 包含一个或多个设备特定模块 (DSM) 作为操作系统的一部分，但你的硬件供应商通常会为你的硬件提供一个 MPIO DSM。
+
+    有关 LBFO 的详细信息，请参阅[NIC 组合概述](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming)Windows Server 技术库中。
 
     >[!IMPORTANT]
-    >主机总线适配器和多路径 I/O 软件可以版本十分敏感。 如果要为群集实现多路径解决方案，与硬件供应商，以选择正确的适配器、 固件和正在运行的 Windows Server 的版本的软件紧密合作。
+    >主机总线适配器和多路径 I/O 软件可能对版本非常敏感。 如果你要对群集实现一个多路径解决方案，则应同你的硬件供应商密切协作，以便为运行的 Windows Server 版本选择正确的适配器、固件和软件。
 
-- **考虑使用存储空间**： 如果您计划部署串行附加的 SCSI (SAS) 群集存储配置使用存储空间，请[部署群集的存储空间](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11)>)参阅要求。
+- **考虑使用存储空间**：如果你打算部署串行连接 SCSI (SAS) 群集存储配置为使用存储空间配置，请参阅[Deploy Clustered Storage Spaces](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11)>)的要求。
 
 ## <a name="more-information"></a>详细信息
 
 - [故障转移群集](failover-clustering.md)
 - [存储空间](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831739(v%3dws.11)>)
-- [使用来宾群集以实现高可用性](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn440540(v%3dws.11)>)
+- [使用来宾群集实现高可用性](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn440540(v%3dws.11)>)

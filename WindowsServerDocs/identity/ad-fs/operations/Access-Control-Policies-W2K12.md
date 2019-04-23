@@ -1,322 +1,323 @@
 ---
 ms.assetid: 5728847d-dcef-4694-9080-d63bfb1fe24b
-title: "广告 FS 中访问控制策略"
-description: 
+title: AD FS 中的访问控制策略
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
-ms.date: 05/31/2017
+ms.date: 06/05/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0b4549192bc4dab9edf3b2a10421325144ed0cd2
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 6e56c95bb3284615d8cc9487e70ca32abbb0f22b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59855558"
 ---
-# <a name="access-control-policies-in-windows-server-2012-r2-and-windows-server-2012-ad-fs"></a>在 Windows Server 2012 R2 和 Windows Server 2012 广告 FS 访问控制策略
+# <a name="access-control-policies-in-windows-server-2012-r2-and-windows-server-2012-ad-fs"></a>在 Windows Server 2012 R2 和 Windows Server 2012 AD FS 访问控制策略
 
->适用于： Windows Server 2012 R2 和 Windows Server 2012 
+>适用于：Windows Server 2012 R2 和 Windows Server 2012 
 
-这篇文章中所述的策略请使用两种类型的索赔  
+本文中所述的策略进行使用的两种类型的声明  
   
-1.  索赔广告 FS 创建根据广告金融服务和 Web 应用程序代理可以检查和验证，如 IP 地址的客户端直接连接到广告 FS 或 WAP 的信息。  
+1.  声明 AD FS 创建根据 AD FS 和 Web 应用程序代理可以检查和验证，如直接连接到 AD FS 或 WAP 客户端的 IP 地址的信息。  
   
-2.  索赔广告 FS 创建根据转发给广告 FS 客户端 HTTP 标题以信息  
+2.  AD FS 声明创建根据 HTTP 标头作为客户端转发到 AD FS 的信息  
   
->**重要**： 的策略，述下方将阻止 Windows 10 域加入和需要访问以下其他端点的方案上登录
+>**重要**:按如下所述的策略将阻止 Windows 10 域加入和登录过程需要访问以下额外的终结点的方案
 
-广告 FS 端点和所需的 Windows 10 域加入登录上
-- [联合身份验证服务的姓名] / adfs/服务/信任/2005年/windowstransport
-- [联合身份验证服务的姓名] / adfs/服务/信任月 13/windowstransport
-- [联合身份验证服务的姓名] / adfs/服务/信任/2005年/usernamemixed
-- [联合身份验证服务的姓名] / adfs/服务/信任月 13/usernamemixed 
-- [联合身份验证服务的姓名] / adfs/服务/信任/2005年/certificatemixed
-- [联合身份验证服务的姓名] / adfs/服务/信任月 13/certificatemixed
+AD FS 终结点上所需的 Windows 10 域加入和登录
+- [联合身份验证服务名称] / adfs/services/信任/2005年/windowstransport
+- [federation service name]/adfs/services/trust/13/windowstransport
+- [联合身份验证服务名称] / adfs/services/信任/2005年/usernamemixed
+- [联合身份验证服务名称] / adfs/services/信任/13/usernamemixed 
+- [联合身份验证服务名称] / adfs/services/信任/2005年/certificatemixed
+- [联合身份验证服务名称] / adfs/services/信任/13/certificatemixed
 
-若要解决，更新拒绝基于允许上述端点的例外端点索赔任何策略。
+若要解决，更新的任何策略拒绝基于终结点声明，以允许更高版本的终结点的异常。
 
-例如，规则下方：
+例如，以下规则：
 
-`c1:[Type == "https://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
 
 将更新为：
 
-`c1:[Type == "https://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "(/adfs/ls/)|(/adfs/services/trust/2005/windowstransport)|(/adfs/services/trust/13/windowstransport)|(/adfs/services/trust/2005/usernamemixed)|(/adfs/services/trust/13/usernamemixed)|(/adfs/services/trust/2005/certificatemixed)|(/adfs/services/trust/13/certificatemixed)"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "(/adfs/ls/)|(/adfs/services/trust/2005/windowstransport)|(/adfs/services/trust/13/windowstransport)|(/adfs/services/trust/2005/usernamemixed)|(/adfs/services/trust/13/usernamemixed)|(/adfs/services/trust/2005/certificatemixed)|(/adfs/services/trust/13/certificatemixed)"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`
 
 
 
 > [!NOTE]
->  此类别中的索赔应仅用于实施业务策略，而不是安全策略，以保护你的网络的访问权限。  它有可能未授权的客户端发送标题虚假信息的方法来访问。  
+>  此类别中的声明仅应该用于实现业务策略，而不是安全策略来保护对你的网络访问。  未经授权的客户端发送错误的信息的标头作为一种方法来访问它。  
   
-始终应与另一种身份验证方法，如用户名和密码或多个因素身份验证这篇文章中所述的策略。  
+本文中所述的策略始终应该用于另一种身份验证方法，如用户名和密码或多重身份验证。  
   
 ## <a name="client-access-policies-scenarios"></a>客户端访问策略方案  
   
-|**方案**|**描述**| 
+|**方案**|**说明**| 
 | --- | --- | 
-|方案 1： 阻止所有访问外部 Office 365|Office 365 访问允许从所有客户端内部公司的网络，但外部客户端的请求被拒绝根据外部客户端的 IP 地址。|  
-|方案 2： 阻止所有访问外部 Exchange ActiveSync 除的 Office 365|从所有客户端内部公司的网络，以及从任何客户端的外部设备，如智能手机，请使用的 Exchange ActiveSync 允许 office 365 访问。 阻止所有其他外部客户端，如使用 Outlook，这些。|  
-|方案 3： 阻止所有外部访问 Office 365 除基于浏览器的应用程序|阻止外部 Office 365、 对访问如 Outlook Web 访问或 SharePoint Online 被动 （基于浏览器） 的应用除外。|  
-|方案 4： 阻止所有外部访问 Office 365 除外指定 Active Directory 组|这种情况下用于测试和验证客户端访问策略部署。 它仅用于一个或多个 Active Directory 组成员可以阻止外部访问 Office 365。 此外可以用于提供的一组成员仅外部的访问。|  
+|方案 1：阻止对 Office 365 的所有外部访问|Office 365 访问权限允许从内部企业网络上的所有客户端，但从外部客户端的请求会被拒绝基于外部客户端的 IP 地址。|  
+|方案 2：阻止对 Exchange ActiveSync 以外的 Office 365 的所有外部访问|从内部企业网络上的所有客户端以及从任何外部的客户端设备，如智能手机，利用 Exchange ActiveSync 允许 office 365 访问权限。 所有其他外部客户端，例如那些使用 Outlook 时，会被阻止。|  
+|方案 3：阻止除基于浏览器的应用程序对 Office 365 的所有外部访问|阻止外部对 Office 365 访问 Outlook Web Access 或 SharePoint Online 等被动 （基于浏览器的） 应用程序除外。|  
+|方案 4:阻止指定的 Active Directory 组除了对 Office 365 的所有外部访问|此方案中用于测试和验证客户端访问策略部署。 它仅为一个或多个 Active Directory 组的成员会阻止对 Office 365 外部访问。 此外可以用于提供仅对组成员的外部访问。|  
   
 ## <a name="enabling-client-access-policy"></a>启用客户端访问策略  
- 若要使客户端访问策略，在 Windows Server 2012 R2 的广告 FS 中，您必须更新依赖方信任 Microsoft Office 365 身份平台。 选择其中一个示例方案下面配置上的索赔规则**Microsoft Office 365 身份平台**信赖方信任最适合你的组织的需求。  
+ 若要启用 Windows Server 2012 R2 中的 AD FS 中的客户端访问策略，则必须更新信赖方信任 Microsoft Office 365 标识平台。 选择以下配置上的声明规则的示例方案之一**Microsoft Office 365 标识平台**最符合组织的需求的信赖方信任。  
   
-###  <a name="scenario1"></a>方案 1： 阻止所有访问外部 Office 365  
- 此客户端访问策略方案允许从所有内部客户端和块访问所有外部的客户端基于外部客户端的 IP 地址。 可以使用下面的过程依赖为你的选择方案方信任 Office 365 添加正确的发行授权规则。  
+###  <a name="scenario1"></a> 方案 1:阻止对 Office 365 的所有外部访问  
+ 此客户端访问策略方案允许访问所有内部客户端和块从基于外部客户端的 IP 地址的所有外部客户端。 可以使用以下过程将正确的颁发授权规则添加到 Office 365 信赖方信任所选方案。  
   
-##### <a name="to-create-rules-to-block-all-external-access-to-office-365"></a>若要创建规则阻止所有访问外部 Office 365  
+##### <a name="to-create-rules-to-block-all-external-access-to-office-365"></a>若要创建规则以阻止对 Office 365 的所有外部访问  
   
-1.  从**服务器管理器**，单击**工具**，然后单击**广告 FS 管理**。  
+1.  从**服务器管理器**，单击**工具**，然后单击**AD FS 管理**。  
   
-2.  控制台树中，在下**广告 FS\Trust 关系**，单击**信赖方信任**，右键单击**Microsoft Office 365 身份平台**信任，，然后单击**编辑索赔规则**。  
+2.  在控制台树中下, **AD fs\ 信任关系**，单击**信赖方信任**，右键单击**Microsoft Office 365 标识平台**信任，并单击**编辑声明规则**。  
   
-3.  在**编辑索赔规则**对话框中，选择**颁发授权规则**选项卡，然后单击**添加规则**启动索赔规则向导。  
+3.  在中**编辑声明规则**对话框中，选择**颁发授权规则**选项卡，然后依次**添加规则**启动声明规则向导。  
   
-4.  上**选择规则模板**页面上下,**索赔规则模板**，选择**发送使用自定义规则索赔**，然后单击**下一步**。  
+4.  上**选择规则模板**页面上，在**声明规则模板**，选择**使用自定义规则发送声明**，然后单击**下一步**。  
   
-5.  在**配置规则**页面上下,**声明规则名称**，此规则，例如的显示名称"如果所需的范围之外的任何 IP 索赔拒绝"的类型。 下**自定义规则**、 键入或粘贴下面的索赔规则语言语法 （替换"x ms-转发的客户端-ip"有效的 IP expression 与上方的值）：  
-`c1:[Type == " https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");` </br>
-6.  单击**完成**。 验证该新规则列表中显示颁发授权规则之前为默认**允许所有用户访问**规则 （拒绝规则将优先即使早些时候在列表中显示）。  如果您没有允许访问规则默认值，你可以添加一个在你使用的索赔规则语言，如下所示的列表的末尾：  </br>
+5.  上**配置规则**页面上，在**声明规则名称**，此规则，例如显示名称"超出了所需的范围，任何 IP 声明是否拒绝"的类型。 下**自定义规则**，键入或粘贴以下声明规则语言语法 （替换上面的"x-ms-转发的客户端的 ip"是有效的 IP 表达式的值）：  
+`c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");` </br>
+6.  单击 **“完成”**。 验证新规则显示在颁发授权规则列表之前为默认值**允许访问所有用户**（拒绝规则将优先即使看起来列表中前面） 的规则。  如果没有默认值允许访问规则，可以添加一个，如下所示使用声明规则语言列表的末尾：  </br>
     
-    `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true"); ` 
+    `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true"); ` 
 
-7.  若要在保存新规则，**编辑索赔规则**对话框中，单击**确定**。 结果列表中应该如下所示。  
+7.  若要保存新规则，在**编辑声明规则**对话框中，单击**确定**。 结果列表应如以下所示。  
   
-     ![颁发 Auth 规则](media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1")  
+     ![颁发授权规则](media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1")  
   
-###  <a name="scenario2"></a>方案 2： 阻止所有访问外部 Exchange ActiveSync 除的 Office 365  
- 下面的示例允许所有 Office 365 应用程序，包括来自内部包括 Outlook 的客户端的 Exchange Online 访问。 由的客户端 IP 地址，如智能手机的 Exchange ActiveSync 客户端除外，它会阻止来自客户端驻留以外的公司的网络的访问权限。  
+###  <a name="scenario2"></a> 方案 2:阻止对 Exchange ActiveSync 以外的 Office 365 的所有外部访问  
+ 以下示例允许访问所有 Office 365 应用程序，包括 Exchange Online，从内部客户端包括 Outlook。 由客户端 IP 地址，如智能手机的 Exchange ActiveSync 客户端除外，它会阻止从客户端驻留在企业网络外部访问。  
   
-##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-exchange-activesync"></a>若要创建规则阻止所有访问外部 Exchange ActiveSync 除的 Office 365  
+##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-exchange-activesync"></a>若要创建规则以阻止对 Exchange ActiveSync 以外的 Office 365 的所有外部访问  
   
-1.  从**服务器管理器**，单击**工具**，然后单击**广告 FS 管理**。  
+1.  从**服务器管理器**，单击**工具**，然后单击**AD FS 管理**。  
   
-2.  控制台树中，在下**广告 FS\Trust 关系**，单击**信赖方信任**，右键单击**Microsoft Office 365 身份平台**信任，，然后单击**编辑索赔规则**。  
+2.  在控制台树中下, **AD fs\ 信任关系**，单击**信赖方信任**，右键单击**Microsoft Office 365 标识平台**信任，并单击**编辑声明规则**。  
   
-3.  在**编辑索赔规则**对话框中，选择**颁发授权规则**选项卡，然后单击**添加规则**启动索赔规则向导。  
+3.  在中**编辑声明规则**对话框中，选择**颁发授权规则**选项卡，然后依次**添加规则**启动声明规则向导。  
   
-4.  上**选择规则模板**页面上下,**索赔规则模板**，选择**发送使用自定义规则索赔**，然后单击**下一步**。  
+4.  上**选择规则模板**页面上，在**声明规则模板**，选择**使用自定义规则发送声明**，然后单击**下一步**。  
   
-5.  在**配置规则**页面上下,**声明规则名称**，键入的显示名称为此规则的示例"如果所需的范围之外的任何 IP 索赔发出 ipoutsiderange 索赔"。 下**自定义规则**、 键入或粘贴下面的索赔规则语言语法 （替换"x ms-转发的客户端-ip"有效的 IP expression 与上方的值）：  
+5.  上**配置规则**页面上，在**声明规则名称**，键入此规则的显示名称为示例"所需的范围之外的任何 IP 声明是否发出 ipoutsiderange 声明"。 下**自定义规则**，键入或粘贴以下声明规则语言语法 （替换上面的"x-ms-转发的客户端的 ip"是有效的 IP 表达式的值）：  
     
-    `c1:[Type == " https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
+    `c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
 
-6.  单击**完成**。 确认新规则中显示**颁发授权规则**列表。  
+6.  单击 **“完成”**。 验证新规则显示在**颁发授权规则**列表。  
   
-7.  接下来，在**编辑索赔规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**要重新开始索赔规则向导。  
+7.  接下来，在**编辑声明规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**再次启动声明规则向导。  
   
-8.  上**选择规则模板**页面上下,**索赔规则模板**，选择**发送使用自定义规则索赔**，然后单击**下一步**。  
+8.  上**选择规则模板**页面上，在**声明规则模板**，选择**使用自定义规则发送声明**，然后单击**下一步**。  
   
-9. 在**配置规则**页面上下,**声明规则名称**，此规则，例如的显示名称"如果 IP 所需的范围之外，并且没有非 EAS x ms 的客户端应用程序索赔，拒绝"的类型。 下**自定义规则**、 键入或粘贴以下索赔规则语言语法：  
+9. 上**配置规则**页面上，在**声明规则名称**，此规则，例如显示名称"所需的范围之外的 IP，并且没有非 EAS x ms-客户端应用程序声明，如果拒绝的类型"。 下**自定义规则**，键入或粘贴以下声明规则语言语法：  
   
 
-    `c1:[Type == "https://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value != "Microsoft.Exchange.ActiveSync"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
+    `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value != "Microsoft.Exchange.ActiveSync"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
   
-10. 单击**完成**。 确认新规则中显示**颁发授权规则**列表。  
+10. 单击 **“完成”**。 验证新规则显示在**颁发授权规则**列表。  
   
-11. 接下来，在**编辑索赔规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**要重新开始索赔规则向导。  
+11. 接下来，在**编辑声明规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**再次启动声明规则向导。  
   
-12. 上**选择规则模板**页面上下,**索赔规则模板，**选择**发送使用自定义规则索赔**，然后单击**下一步**。  
+12. 上**选择规则模板**页面上，在**声明规则模板**选择**使用自定义规则发送声明**，然后单击**下一步**。  
   
-13. 在**配置规则**页面上下,**声明规则名称**键入此规则的显示名称，例如"检查是否存在应用程序索赔"。 下**自定义规则**、 键入或粘贴以下索赔规则语言语法：  
+13. 上**配置规则**页面上，在**声明规则名称**中，键入此规则的显示名称，例如"检查是否存在应用程序声明"。 下**自定义规则**，键入或粘贴以下声明规则语言语法：  
   
     ```  
-    NOT EXISTS([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application"]) => add(Type = "http://custom/xmsapplication", Value = "fail");  
+    NOT EXISTS([Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application"]) => add(Type = "http://custom/xmsapplication", Value = "fail");  
     ```  
   
-14. 单击**完成**。 确认新规则中显示**颁发授权规则**列表。  
+14. 单击 **“完成”**。 验证新规则显示在**颁发授权规则**列表。  
   
-15. 接下来，在**编辑索赔规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**要重新开始索赔规则向导。  
+15. 接下来，在**编辑声明规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**再次启动声明规则向导。  
   
-16. 上**选择规则模板**页面上下,**索赔规则模板，**选择**发送使用自定义规则索赔**，然后单击**下一步**。  
+16. 上**选择规则模板**页面上，在**声明规则模板**选择**使用自定义规则发送声明**，然后单击**下一步**。  
   
-17. 在**配置规则**页面上下,**声明规则名称**，键入此规则的显示名称，例如"拒绝 ipoutsiderange true 和应用程序用户无法"。 下**自定义规则**、 键入或粘贴以下索赔规则语言语法：  
+17. 上**配置规则**页面上，在**声明规则名称**中，键入此规则的显示名称，例如"拒绝用户具有 ipoutsiderange true 和应用程序失败"。 下**自定义规则**，键入或粘贴以下声明规则语言语法：  
   
-`c1:[Type == "https://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://custom/xmsapplication", Value == "fail"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`</br>  
-18. 单击**完成**。 确认新规则下方以前规则立即显示，并且之前为默认允许所有用户访问规则颁发授权规则列表 （拒绝规则将优先即使早些时候在列表中显示） 中。  </br>如果您没有允许访问规则默认值，你可以添加一个在你使用的索赔规则语言，如下所示的列表的末尾：</br></br>      `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");`</br></br>
-19. 若要在保存新规则，**编辑索赔规则**对话框中，单击确定。 结果列表中应该如下所示。  
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/xmsapplication", Value == "fail"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`</br>  
+18. 单击 **“完成”**。 验证新规则紧下方上一个规则，然后之前为默认值允许访问所有用户中的规则 （拒绝规则将优先即使看起来列表中前面） 的颁发授权规则列表。  </br>如果没有默认值允许访问规则，可以添加一个，如下所示使用声明规则语言列表的末尾：</br></br>      `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`</br></br>
+19. 若要保存新规则，在**编辑声明规则**对话框框中，单击确定。 结果列表应如以下所示。  
   
      ![颁发授权规则](media/Access-Control-Policies-W2K12/clientaccess2.png )  
   
-###  <a name="scenario3"></a>方案 3： 阻止所有外部访问 Office 365 除基于浏览器的应用程序  
+###  <a name="scenario3"></a> 方案 3:阻止除基于浏览器的应用程序对 Office 365 的所有外部访问  
   
-##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-browser-based-applications"></a>若要创建规则阻止所有外部访问 Office 365 除基于浏览器的应用程序  
+##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-browser-based-applications"></a>若要创建规则以阻止除基于浏览器的应用程序对 Office 365 的所有外部访问  
   
-1.  从**服务器管理器**，单击**工具**，然后单击**广告 FS 管理**。  
+1.  从**服务器管理器**，单击**工具**，然后单击**AD FS 管理**。  
   
-2.  控制台树中，在下**广告 FS\Trust 关系**，单击**信赖方信任**，右键单击**Microsoft Office 365 身份平台**信任，，然后单击**编辑索赔规则**。  
+2.  在控制台树中下, **AD fs\ 信任关系**，单击**信赖方信任**，右键单击**Microsoft Office 365 标识平台**信任，并单击**编辑声明规则**。  
   
-3.  在**编辑索赔规则**对话框中，选择**颁发授权规则**选项卡，然后单击**添加规则**启动索赔规则向导。  
+3.  在中**编辑声明规则**对话框中，选择**颁发授权规则**选项卡，然后依次**添加规则**启动声明规则向导。  
   
-4.  上**选择规则模板**页面上下,**索赔规则模板**，选择**发送使用自定义规则索赔**，然后单击**下一步**。  
+4.  上**选择规则模板**页面上，在**声明规则模板**，选择**使用自定义规则发送声明**，然后单击**下一步**。  
   
-5.  在**配置规则**页面上下,**声明规则名称**，键入的显示名称为此规则的示例"如果所需的范围之外的任何 IP 索赔发出 ipoutsiderange 索赔"。 下**自定义规则**、 键入或粘贴下面的索赔规则语言语法 （替换"x ms-转发的客户端-ip"有效的 IP expression 与上方的值）：  </br>
-`c1:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`   
-6.  单击**完成**。 确认新规则中显示**颁发授权规则**列表。  
+5.  上**配置规则**页面上，在**声明规则名称**，键入此规则的显示名称为示例"所需的范围之外的任何 IP 声明是否发出 ipoutsiderange 声明"。 下**自定义规则**，键入或粘贴以下声明规则语言语法 （替换上面的"x-ms-转发的客户端的 ip"是有效的 IP 表达式的值）：  </br>
+`c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`   
+6.  单击 **“完成”**。 验证新规则显示在**颁发授权规则**列表。  
   
-7.  接下来，在**编辑索赔规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**要重新开始索赔规则向导。  
+7.  接下来，在**编辑声明规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**再次启动声明规则向导。  
   
-8.  上**选择规则模板**页面上下,**索赔规则模板，**选择**发送使用自定义规则索赔**，然后单击**下一步**。  
+8.  上**选择规则模板**页面上，在**声明规则模板**选择**使用自定义规则发送声明**，然后单击**下一步**。  
   
-9. 在**配置规则**页面上下,**声明规则名称**，此规则，例如的显示名称"如果所需的范围之外 IP 并且端点不可/adfs 月 1 拒绝"的类型。 下**自定义规则**、 键入或粘贴以下索赔规则语言语法：  
+9. 上**配置规则**页面上，在**声明规则名称**，此规则，例如显示名称"如果没有所需的范围之外的 IP 和终结点不是/adfs/ls，拒绝"的类型。 下**自定义规则**，键入或粘贴以下声明规则语言语法：  
   
  
-    `c1:[Type == "https://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
+    `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
   
-10. 单击**完成**。 验证该新规则列表中显示颁发授权规则之前为默认**允许所有用户访问**规则 （拒绝规则将优先即使早些时候在列表中显示）。  </br></br> 如果您没有允许访问规则默认值，你可以添加一个在你使用的索赔规则语言，如下所示的列表的末尾：  
+10. 单击 **“完成”**。 验证新规则显示在颁发授权规则列表之前为默认值**允许访问所有用户**（拒绝规则将优先即使看起来列表中前面） 的规则。  </br></br> 如果没有默认值允许访问规则，可以添加一个，如下所示使用声明规则语言列表的末尾：  
   
-    `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");`
+    `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`
   
-11. 若要在保存新规则，**编辑索赔规则**对话框中，单击**确定**。 结果列表中应该如下所示。  
+11. 若要保存新规则，在**编辑声明规则**对话框中，单击**确定**。 结果列表应如以下所示。  
   
      ![颁发](media/Access-Control-Policies-W2K12/clientaccess3.png)  
   
-###  <a name="scenario4"></a>方案 4： 阻止所有外部访问 Office 365 除外指定 Active Directory 组  
- 下面的示例中启用访问从内部基于 IP 地址的客户端。 它会阻止来自于驻留公司的网络之外，外部客户端 IP 地址的客户端的访问权限、 除外中指定的 Active Directory Group.Use 这些个人以下步骤来添加到正确的发行授权规则**Microsoft Office 365 身份平台**使用索赔规则向导信赖方信任：  
+###  <a name="scenario4"></a> 方案 4:阻止指定的 Active Directory 组除了对 Office 365 的所有外部访问  
+ 以下示例启用基于 IP 地址的内部客户端访问。 阻止来自客户端驻留在企业网络外部的外部客户端 IP 地址的访问，除了那些个人可以在指定的 Active Directory Group.Use 以下步骤来添加正确的颁发授权规则**Microsoft Office 365 标识平台**信赖方信任使用声明规则向导：  
   
-##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-for-designated-active-directory-groups"></a>若要创建规则除阻止 Office 365 中的所有外部访问命名 Active Directory 组  
+##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-for-designated-active-directory-groups"></a>若要创建规则以阻止对 Office 365 的所有外部访问除指定 Active Directory 组  
   
-1.  从**服务器管理器**，单击**工具**，然后单击**广告 FS 管理**。  
+1.  从**服务器管理器**，单击**工具**，然后单击**AD FS 管理**。  
   
-2.  控制台树中，在下**广告 FS\Trust 关系**，单击**信赖方信任**，右键单击**Microsoft Office 365 身份平台**信任，，然后单击**编辑索赔规则**。  
+2.  在控制台树中下, **AD fs\ 信任关系**，单击**信赖方信任**，右键单击**Microsoft Office 365 标识平台**信任，并单击**编辑声明规则**。  
   
-3.  在**编辑索赔规则**对话框中，选择**颁发授权规则**选项卡，然后单击**添加规则**启动索赔规则向导。  
+3.  在中**编辑声明规则**对话框中，选择**颁发授权规则**选项卡，然后依次**添加规则**启动声明规则向导。  
   
-4.  上**选择规则模板**页面上下,**索赔规则模板**，选择**发送使用自定义规则索赔**，然后单击**下一步**。  
+4.  上**选择规则模板**页面上，在**声明规则模板**，选择**使用自定义规则发送声明**，然后单击**下一步**。  
   
-5.  在**配置规则**页面上下,**声明规则名称**，键入的显示名称为此规则的示例"如果所需的范围之外的任何 IP 索赔发出 ipoutsiderange 索赔。" 下**自定义规则**、 键入或粘贴下面的索赔规则语言语法 （替换"x ms-转发的客户端-ip"有效的 IP expression 与上方的值）：  
+5.  上**配置规则**页面上，在**声明规则名称**，键入此规则的显示名称为示例"所需的范围之外的任何 IP 声明是否发出 ipoutsiderange 声明。" 下**自定义规则**，键入或粘贴以下声明规则语言语法 （替换上面的"x-ms-转发的客户端的 ip"是有效的 IP 表达式的值）：  
   
       
-    `c1:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] && c2:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
+    `c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] && c2:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
 
-6.  单击**完成**。 确认新规则中显示**颁发授权规则**列表。  
+6.  单击 **“完成”**。 验证新规则显示在**颁发授权规则**列表。  
   
-7.  接下来，在**编辑索赔规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**要重新开始索赔规则向导。  
+7.  接下来，在**编辑声明规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**再次启动声明规则向导。  
   
-8.  上**选择规则模板**页面上下,**索赔规则模板，**选择**发送使用自定义规则索赔**，然后单击**下一步**。  
+8.  上**选择规则模板**页面上，在**声明规则模板**选择**使用自定义规则发送声明**，然后单击**下一步**。  
   
-9. 在**配置规则**页面上下,**声明规则名称**键入此规则的显示名称，例如"组 SID 检查"。 下**自定义规则**、 键入或粘贴下面的索赔规则语言语法 (替换"groupsid"与你所使用的广告组实际 SID):  
+9. 上**配置规则**页面上，在**声明规则名称**中，键入此规则的显示名称，例如"检查组 SID"。 下**自定义规则**，键入或粘贴以下声明规则语言语法 (替换为"groupsid"与实际使用的 AD 组的 SID):  
    
-    `NOT EXISTS([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == "S-1-5-32-100"]) => add(Type = "http://custom/groupsid", Value = "fail");`  
+    `NOT EXISTS([Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == "S-1-5-32-100"]) => add(Type = "http://custom/groupsid", Value = "fail");`  
 
-10. 单击**完成**。 确认新规则中显示**颁发授权规则**列表。  
+10. 单击 **“完成”**。 验证新规则显示在**颁发授权规则**列表。  
   
-11. 接下来，在**编辑索赔规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**要重新开始索赔规则向导。  
+11. 接下来，在**编辑声明规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**再次启动声明规则向导。  
   
-12. 上**选择规则模板**页面上下,**索赔规则模板，**选择**发送使用自定义规则索赔**，然后单击**下一步**。  
+12. 上**选择规则模板**页面上，在**声明规则模板**选择**使用自定义规则发送声明**，然后单击**下一步**。  
   
-13. 在**配置规则**页面上下,**声明规则名称**，键入此规则的显示名称，例如"拒绝无法使用 ipoutsiderange true 且 groupsid 用户"。 下**自定义规则**、 键入或粘贴以下索赔规则语言语法：  
+13. 上**配置规则**页面上，在**声明规则名称**中，键入此规则的显示名称，例如"拒绝用户具有 ipoutsiderange true 和 groupsid 失败"。 下**自定义规则**，键入或粘贴以下声明规则语言语法：  
    
-    `c1:[Type == "https://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://custom/groupsid", Value == "fail"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
+    `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/groupsid", Value == "fail"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
 
-14. 单击**完成**。 确认新规则下方以前规则立即显示，并且之前为默认允许所有用户访问规则颁发授权规则列表 （拒绝规则将优先即使早些时候在列表中显示） 中。  </br></br>如果您没有允许访问规则默认值，你可以添加一个在你使用的索赔规则语言，如下所示的列表的末尾：  
+14. 单击 **“完成”**。 验证新规则紧下方上一个规则，然后之前为默认值允许访问所有用户中的规则 （拒绝规则将优先即使看起来列表中前面） 的颁发授权规则列表。  </br></br>如果没有默认值允许访问规则，可以添加一个，如下所示使用声明规则语言列表的末尾：  
    
-    `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");`  
+    `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`  
 
-15. 若要在保存新规则，**编辑索赔规则**对话框中，单击确定。 结果列表中应该如下所示。  
+15. 若要保存新规则，在**编辑声明规则**对话框框中，单击确定。 结果列表应如以下所示。  
   
      ![颁发](media/Access-Control-Policies-W2K12/clientaccess4.png)  
   
-##  <a name="buildingip"></a>生成 IP 地址范围 expression  
- 当前仅通过 Exchange Online，它对广告 FS 传递验证请求时填充标题设置 HTTP 标题填充 x ms-转发的客户端-ip 索赔。 声明值可能是以下情况之一：  
+##  <a name="buildingip"></a> 生成 IP 地址范围表达式  
+ X-ms-转发的客户端的 ip 声明填充从当前设置只能由 Exchange Online，它将身份验证请求传递给 AD FS 时填充该标头的 HTTP 标头。 声明的值可能是以下值之一：  
   
 > [!NOTE]
->  Exchange Online 当前支持的只 IPV4 和不 IPV6 地址。  
+>  Exchange Online 目前支持仅 IPV4 和不侦听 IPV6 地址。  
   
--   一个 IP 地址： 直接连接到联机更换费用的客户端路由器的 IP 地址  
-  
-> [!NOTE]
->  -   公司的网络上的客户端的 IP 地址将显示为组织的站代理或网关的外部界面 IP 地址。  
-> -   作为企业客户的内部或外部取决于 VPN 或 DA.配置的客户端，可能会通过 VPN，或通过 Microsoft DirectAccess (DA) 连接到公司的网络的客户端  
-  
--   一个或多个 IP 地址： 当 Exchange Online 无法确定连接的客户端的 IP 地址，它将设置基于 x-转发-有关标头值，可以包含在基于 HTTP 请求和支持的许多客户端、 负载平衡和代理服务器市场上的标准标头的值。  
+-   单个 IP 地址：直接连接到 Exchange Online 客户端的 IP 地址  
   
 > [!NOTE]
->  1.  多个 IP 地址，表明客户 IP 地址和传递请求，每个代理服务器的地址会用逗号分隔。  
-> 2.  在列表中并非将与相关的 Exchange Online 基础结构的 IP 地址。  
+>  -   企业网络上的客户端的 IP 地址将显示为组织的出站代理服务器或网关的外部接口 IP 地址。  
+> -   通过 VPN 或通过 Microsoft DirectAccess (DA) 连接到公司网络的客户端作为内部企业客户端或根据配置的 VPN 或 DA.的外部客户端可能会出现  
   
-### <a name="regular-expressions"></a>常规表情  
- 当你将需要匹配范围内的 IP 地址时，它有必要构建常规 expression 进行比较。 在下一系列中的步骤，我们将提供有关如何构建此类 expression 匹配下列地址范围 （请注意，你将需要更改这些示例匹配 IP 公共区域） 的示例：  
+-   一个或多个 IP 地址：在 Exchange Online 不能确定连接的客户端的 IP 地址，它将设置基于 x-转发-对于标头的值，可以包含在基于 HTTP 的请求和多个客户端，负载均衡器支持的非标准标头的值和市场上的代理。  
+  
+> [!NOTE]
+>  1.  将由逗号分隔多个 IP 地址，指示客户端 IP 地址和传递请求，每个代理的地址。  
+> 2.  Exchange Online 基础结构相关的 IP 地址将不在列表中。  
+  
+### <a name="regular-expressions"></a>正则表达式  
+ 如果必须以匹配的 IP 地址范围，有必要构造正则表达式进行比较。 在下一步的一系列步骤，我们将提供有关如何构造此类表达式以匹配以下地址范围 （请注意，您将需要更改这些示例，以便匹配你的公共 IP 范围） 的示例：  
   
 -   192.168.1.1 – 192.168.1.25  
   
 -   10.0.0.1 – 10.0.0.14  
   
- 首先，将匹配一个 IP 地址的基本模式如下所示： \b###\\.###\\.###\\.###\b  
+ 首先，将匹配单个 IP 地址的基本模式如下所示： \b###\\。 # # #\\。 # # #\\。 # # # \b  
   
- 将扩展这种情况，我们可以匹配或 expression 使用两种不同的 IP 地址，如下所示： \b###\\.###\\.###\\.###\b 和 #124;\b###\\.###\\.###\\.###\b  
+ 将此扩展，我们可以与匹配的 OR 表达式使用两个不同的 IP 地址，如下所示： \b###\\。 # # #\\。 # # #\\。 # # # \b&#124;\b###\\。 # # #\\。 # # #\\。 # # # \b  
   
- 因此，是一个示例要 （例如 192.168.1.1 或 10.0.0.1） 只是两个地址相匹配： \b192\\.168\\.1\\.1\b 和 #124;\b10\\.0\\.0\\.1\b  
+ 因此，是一个示例，只需两个地址 （例如 192.168.1.1 或 10.0.0.1） 相匹配： \b192\\.168\\.1\\。 1\b&#124;\b10\\.0\\.0\\。 1\b  
   
- 这将为你提供的技术，你可以通过它输入任意数量的地址。 其中的各种地址需要允许，例如 192.168.1.1 – 192.168.1.25，匹配必须完成按字符字符： \b192\\.168\\.1\\。([1 9] & #124; 1 [0 到 9] & #124; 2 [0 5]) \b  
+ 这样，您可以按其输入任意数量的地址的方法。 其中一个地址的范围需要允许，例如 192.168.1.1 – 192.168.1.25，匹配必须完成字符的字符： \b192\\.168\\.1\\。 ([1-9]&#124;1 [0-9]&#124;2 [0-5]) \b  
   
- 请注意以下问题：  
+ 请注意以下事项：  
   
--   IP 地址视为字符串并不是一个数字。  
+-   IP 地址被视为字符串并不是数字。  
   
--   此规则分别，如下所示： \b192\\.168\\.1\\。  
+-   该规则细分，如下所示： \b192\\.168\\.1\\。  
   
--   此匹配 192.168.1 任何值的开始。  
+-   此匹配任何以 192.168.1 开头的值。  
   
--   以下匹配最终小数点后地址部分所需区域：  
+-   以下匹配最终小数点后所需的地址部分的范围：  
   
-    -   （[1 9] 匹配以地址 1 9  
+    -   （[1-9] 匹配项以地址 1-9  
   
-    -   & #124; 1 [0 到 9] 匹配结束 10 19 中的地址  
+    -   &#124;1 [0-9] 匹配以 10-19 结尾的地址  
   
-    -   & #124;2[0-5]) 以 20 25 匹配地址  
+    -   &#124;以 20-25 2[0-5]) 匹配地址  
   
--   注意，圆括号必须正确放置于，以便在不启动匹配的 IP 地址的其他部分。  
+-   请注意，括号必须正确定位，以便不开始匹配的 IP 地址的其他部分。  
   
--   与好友 192 块，我们可以编写 10 块类似 expression: \b10\\.0\\.0\\。([1 9] & #124; 1 [0 4]) \b  
+-   与匹配 192 块，我们可以编写 10 个块的类似表达式： \b10\\.0\\.0\\。 ([1-9]&#124;1 [0-4]) \b  
   
--   搭配制定它们，以下 expression 应该"192.168.1.1~25"和"10.0.0.1~14"所有地址： \b192\\.168\\.1\\。([1 9] & #124; 1 [0 到 9] & #124; 2 [0 5]) \b & #124;\b10\\.0\\.0\\。([1 9] & #124; 1 [0 4]) \b  
+-   并将它们放在一起，下面的表达式应匹配"192.168.1.1~25"和"10.0.0.1~14"的所有地址： \b192\\.168\\.1\\。 ([1-9]&#124;1 [0-9]&#124;2 [0-5]) \b&#124;\b10\\.0\\.0\\。 ([1-9]&#124;1 [0-4]) \b  
   
-### <a name="testing-the-expression"></a>测试 Expression  
- Regex 表情会变得非常棘手，因此我们强烈建议使用 regex 验证工具。 如果您执行搜索"在线 regex expression builder"internet，你将找到将允许你试用示例数据针对你表情的多个好在线工具。  
+### <a name="testing-the-expression"></a>测试表达式  
+ 正则表达式的表达式可能会变得十分复杂，因此，我们强烈建议使用正则表达式验证工具。 如果执行"在线正则表达式表达式生成器"的 internet 搜索，您会发现多个良好的联机实用工具，您可以试用您针对示例数据的表达式。  
   
- 当测试 expression 时，很重要，了解如何希望必须匹配。 Exchange online 系统可能会发送许多 IP 地址，请用逗号分隔。 上面提供的表情将适用于此。 但是，请务必对此功能的看法测试 regex 表情时。 例如，用户可以使用下面的示例输入验证上方的示例：  
+ 测试表达式时，必须了解出现的情况必须匹配。 Exchange online 系统可能会发送多个 IP 地址，用逗号隔开。 在上面提供的表达式将适用于此。 但是，务必测试您正则表达式的表达式时，思考一下这个。 例如，一个可以使用下面的示例输入验证上面的示例：  
   
  192.168.1.1, 192.168.1.2, 192.169.1.1. 192.168.12.1, 192.168.1.10, 192.168.1.25, 192.168.1.26, 192.168.1.30, 1192.168.1.20  
   
  10.0.0.1, 10.0.0.5, 10.0.0.10, 10.0.1.0, 10.0.1.1, 110.0.0.1, 10.0.0.14, 10.0.0.15, 10.0.0.10, 10,0.0.1  
   
-## <a name="claim-types"></a>声称类型  
- 在 Windows Server 2012 R2 的广告 FS 提供信息请求上下文使用下面的索赔类型：  
+## <a name="claim-types"></a>声明类型  
+ Windows Server 2012 R2 中的 AD FS 提供了使用以下声明类型的请求上下文信息：  
   
-### <a name="x-ms-forwarded-client-ip"></a>X MS-转发的客户端-IP  
- 声明类型： `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`  
+### <a name="x-ms-forwarded-client-ip"></a>X-MS-Forwarded-Client-IP  
+ 声明类型： `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`  
   
- 此广告 FS 索赔表示"最佳企图"有助于确定发出请求用户（例如，Outlook 客户端）的 IP 地址。 此声明可能包含多个 IP 地址，其中包括每个请求转发的代理服务器的地址。  此声明填充 HTTP 从。 声明值可以是以下情况之一：  
+ 此 AD FS 声明所表示的次认定发出请求的 IP 地址的用户 （例如，Outlook 客户端） 的"最佳尝试"。 此声明可以包含多个 IP 地址，包括每个代理将请求转发地址。  通过 HTTP 填充此声明。 声明的值可以是以下值之一：  
   
--   一个 IP 地址-直接连接到联机更换费用的客户端路由器的 IP 地址  
+-   单个 IP 地址-直接连接到 Exchange Online 的客户端的 IP 地址  
   
 > [!NOTE]
->  公司的网络上的客户端的 IP 地址将显示为组织的站代理或网关的外部界面 IP 地址。  
+>  企业网络上的客户端的 IP 地址将显示为组织的出站代理服务器或网关的外部接口 IP 地址。  
   
 -   一个或多个 IP 地址  
   
-    -   如果无法确定 Exchange Online 连接的客户端的 IP 地址，它将设置基于 x-转发-有关标头的值纳入 HTTP 基于非标准标题请求和支持的许多客户端、负载平衡和代理服务器市场上的值。  
+    -   如果无法确定 Exchange Online 的连接的客户端的 IP 地址，它会设置值的基础 x 转发的标头，可以包含在基于 HTTP 的非标准标头请求和支持的多个客户端，负载均衡器的值和市场上的代理。  
   
-    -   多个 IP 地址，表明客户 IP 地址和每个传递请求的代理服务器的地址会用逗号分隔。  
+    -   将由逗号分隔多个 IP 地址，该值指示客户端 IP 地址和每个传递请求的代理服务器的地址。  
   
 > [!NOTE]
->  不会出现在列表中与相关的 Exchange Online 基础结构的 IP 地址。  
+>  Exchange Online 基础结构相关的 IP 地址不会出现在列表中。  
   
 > [!WARNING]
->  当前支持的只 IPV4 地址; Exchange Online它不支持 IPV6 地址。  
+>  Exchange Online 目前支持仅的 IPV4 地址。它不支持 IPV6 地址。  
   
-### <a name="x-ms-client-application"></a>X MS 的客户端应用程序  
- 声明类型： `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`  
+### <a name="x-ms-client-application"></a>X-MS-Client-Application  
+ 声明类型： `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`  
   
- 此广告 FS 索赔表示协议终止的客户端，它松对应正在使用的应用程序使用。  此声明填充当前 HTTP 标题只能通过 Exchange Online，它对广告 FS 传递验证请求时填充标题设置。 具体取决于该应用程序，将为此声明的值下列情况之一：  
+ 此 AD FS 声明表示对应于正在使用的应用程序的松散的最终客户端使用的协议。  此声明填充从当前的 HTTP 标头只能通过 Exchange Online，填充标头将身份验证请求传递给 AD FS 时设置。 根据应用程序，此声明的值将是以下之一：  
   
--   对于使用 Exchange 活动同步的设备，值为 Microsoft.Exchange.ActiveSync。  
+-   对于使用 Exchange Active Sync 的设备，则值为 Microsoft.Exchange.ActiveSync。  
   
--   Microsoft Outlook 客户端的使用可能会导致的任何以下值：  
+-   使用 Microsoft Outlook 客户端可能会导致任何以下值：  
   
     -   Microsoft.Exchange.Autodiscover  
   
@@ -326,7 +327,7 @@ ms.lasthandoff: 12/12/2017
   
     -   Microsoft.Exchange.RPCMicrosoft.Exchange.WebServices  
   
--   其他可能值的此标头如下：  
+-   此标头的其他可能值包括：  
   
     -   Microsoft.Exchange.Powershell  
   
@@ -336,14 +337,14 @@ ms.lasthandoff: 12/12/2017
   
     -   Microsoft.Exchange.Imap  
   
-### <a name="x-ms-client-user-agent"></a>X-MS 的客户端的用户代理  
- 声明类型： `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`  
+### <a name="x-ms-client-user-agent"></a>X-MS-Client-User-Agent  
+ 声明类型： `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`  
   
- 此广告 FS 索赔提供字符串代表客户端使用访问该服务的设备类型。 当客户想要阻止访问的某些设备（如特定类型的智能手机一样），可以使用此。  此声明的示例值包括（但不是限于）以下值。  
+ 此 AD FS 声明提供表示客户端正在使用以访问服务的设备类型的字符串。 这可用来在客户想要阻止某些设备 （例如，特定类型的智能手机） 的访问权限时。  此声明的示例值包括 （但不限于） 以下值。  
   
- 下面是示例 x ms 用户代理值可能包含的客户端其 x-ms 的客户端应用程序是"Microsoft.Exchange.ActiveSync"  
+ 下面是示例的 x ms 用户代理值可能包含其 x-ms-客户端应用程序是"Microsoft.Exchange.ActiveSync"为客户端  
   
--   涡流/1.0  
+-   顶点/1.0  
   
 -   Apple-iPad1C1/812.1  
   
@@ -355,28 +356,28 @@ ms.lasthandoff: 12/12/2017
   
 -   SAMSUNGSPHD700/100.202  
   
--   Android / 0.3  
+-   Android/0.3  
   
  还有可能此值为空。  
   
-### <a name="x-ms-proxy"></a>X MS 代理  
- 声明类型： `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`  
+### <a name="x-ms-proxy"></a>X-MS-Proxy  
+ 声明类型： `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`  
   
- 此广告 FS 索赔表示请求已通过 Web 应用程序代理。  此声明填充由后端联合身份验证服务传递验证请求时填充标头的 Web 应用程序代理。 广告 FS 然后将其转换为索赔。  
+ 此 AD FS 声明指示请求了通过 Web 应用程序代理。  此声明将身份验证请求传递到后端联合身份验证服务时将填充标头的 Web 应用程序代理由填充。 AD FS 然后将其转换为声明。  
   
- 声明值是传递请求的 Web 应用程序代理 DNS 名称。  
+ 声明的值是传递请求的 Web 应用程序代理的 DNS 名称。  
   
 ### <a name="insidecorporatenetwork"></a>InsideCorporateNetwork  
- 声明类型： `https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork`  
+ 声明类型： `http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork`  
   
- 上述 x-ms 代理类似声称类型，则此声明类型指示是否请求已通过 web 应用程序代理。 与 x ms 代理 insidecorporatenetwork 是使用真正的指示直接与从内部企业网络联合身份验证服务请求的布尔值。  
+ 类似于上述 x-ms 代理声明类型，此声明类型指示请求是否已通过 web 应用程序代理。 与 x ms 代理不同 insidecorporatenetwork 是一个布尔值 True 指示直接对从公司网络内部联合身份验证服务的请求。  
   
-### <a name="x-ms-endpoint-absolute-path-active-vs-passive"></a>X-MS-端点-绝对路径 (活动 vs 被动)  
- 声明类型： `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`  
+### <a name="x-ms-endpoint-absolute-path-active-vs-passive"></a>X-MS-终结点的绝对路径 （活动与被动）  
+ 声明类型： `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`  
   
- 此声明类型可用于确定源自而不是"无源"（web 浏览器基于）客户端的"活动"（丰富）客户端的请求。 这使外部请求从如 Outlook Web Access、SharePoint Online 或 Office 365 门户时，将阻止来自丰富的客户端，如 Microsoft Outlook 请求允许浏览器基于应用程序。  
+ 此声明类型可以用于确定从与"被动"（web 浏览器基于的） 客户端的"活动"（丰富） 客户端发出的请求。 这使从基于浏览器的应用程序如 Outlook Web Access、 SharePoint Online，或 Office 365 门户会阻止来自如 Microsoft Outlook 的丰富客户端的请求而允许的外部请求。  
   
- 此声明的值为收到此请求广告 FS 服务的名称。  
+ 声明的值是接收请求的 AD FS 服务的名称。  
   
 ## <a name="see-also"></a>请参阅  
- [广告 FS 操作](../../ad-fs/AD-FS-2016-Operations.md)
+ [AD FS 操作](../../ad-fs/AD-FS-2016-Operations.md)

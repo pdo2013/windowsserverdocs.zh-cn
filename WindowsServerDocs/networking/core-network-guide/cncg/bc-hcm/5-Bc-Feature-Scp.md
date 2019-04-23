@@ -1,6 +1,6 @@
 ---
-title: 安装分支缓存功能和配置托管的缓存服务器服务连接点
-description: 本指南提供了有关运行 Windows Server 2016 和 Windows 10 的计算机上托管的缓存型部署分支缓存的说明进行操作
+title: 通过服务连接点安装 BranchCache 功能并配置托管缓存服务器
+description: 本指南说明了在运行 Windows Server 2016 和 Windows 10 的计算机上的托管的缓存模式下部署 BranchCache
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-bc
@@ -8,55 +8,56 @@ ms.topic: article
 ms.assetid: 9adf420b-5a58-4e59-9906-71bd58f757fd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 854ff9f80a2221a857fab4e6ea7f7c8e6d51f1ef
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 6619b09df0d4c161148d22091337a5039c7ea3af
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59849648"
 ---
-# <a name="install-the-branchcache-feature-and-configure-the-hosted-cache-server-by-service-connection-point"></a>安装分支缓存功能和配置托管的缓存服务器服务连接点
+# <a name="install-the-branchcache-feature-and-configure-the-hosted-cache-server-by-service-connection-point"></a>通过服务连接点安装 BranchCache 功能并配置托管缓存服务器
 
->适用于：Windows Server（半年通道），Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-在你托管的缓存服务器上，HCS1，安装分支缓存功能并配置服务器注册服务连接点，你可以使用此过程中 Active Directory 域服务 \(AD DS\) \(SCP\)。
+您可以使用此过程，在托管的缓存服务器，HCS1 上, 安装 BranchCache 功能并配置服务器注册服务连接点\(SCP\) Active Directory 域服务中\(AD DS\).
 
-与广告 DS 中 SCP 注册托管的缓存服务器时，SCP 使客户端正确配置为自动 SCP 查询广告 DS 发现托管的缓存服务器的计算机。 更高版本中本指南提供了如何将配置客户端计算机上的说明进行操作，若要执行此操作。
+与 AD DS 中 SCP 注册托管的缓存服务器时，SCP 会允许客户端正确配置为自动发现通过查询 SCP AD DS 托管的缓存服务器的计算机。 在本指南后面提供了有关如何配置客户端计算机的说明执行此操作。
 
 >[!IMPORTANT]
->执行此过程之前，你必须加入域的计算机并将计算机配置的静态 IP 地址。
+>在执行此过程之前，必须将计算机加入到域，并将计算机配置具有静态 IP 地址。
 
-若要执行此步骤，必须是管理员组中的成员。
+若要执行该过程，你必须是 Administrators 组的成员。
 
-## <a name="to-install-the-branchcache-feature-and-configure-the-hosted-cache-server"></a>若要安装分支缓存功能和配置托管的缓存服务器  
+## <a name="to-install-the-branchcache-feature-and-configure-the-hosted-cache-server"></a>若要安装 BranchCache 功能和配置托管的缓存服务器  
 
-1. 以管理员身份运行 Windows PowerShell 服务器计算机。 键入以下命令，然后再次按 ENTER。
+1. 服务器计算机上以管理员身份运行 Windows PowerShell。 输入以下命令，然后按 ENTER。
 
     ``` 
     Install-WindowsFeature BranchCache
     ```
 
-2.  若要将计算机配置为托管的缓存服务器后安装分支缓存的功能，并在广告 DS 注册服务连接点，Windows PowerShell 中键入以下命令，然后按 ENTER。
+2.  若要将计算机配置为托管的缓存服务器之后安装 BranchCache 功能，并在 AD DS 中注册服务连接点，在 Windows PowerShell 中，键入以下命令，然后按 ENTER。
 
     ```  
     Enable-BCHostedServer -RegisterSCP
     ```  
 
-3. 若要验证托管的缓存服务器配置，请键入以下命令，然后按 ENTER。
+3. 若要验证托管的缓存服务器配置，请键入以下命令并按 ENTER。
 
     ```  
     Get-BCStatus  
     ```  
   
-    命令的结果中显示分支缓存安装的所有方面的状态。 以下是几个分支缓存设置和正确的值为每个项目：  
+    命令的结果显示 BranchCache 安装的所有方面的状态。 以下是几个 BranchCache 设置和正确的值为每个项：  
   
-    -   BranchCacheIsEnabled： 如此
+    -   BranchCacheIsEnabled:True
 
-    -   HostedCacheServerIsEnabled： 如此
+    -   HostedCacheServerIsEnabled:True
 
-    -   HostedCacheScpRegistrationEnabled： 如此
+    -   HostedCacheScpRegistrationEnabled:True
 
-4. 准备的步骤从你的内容服务器的数据包复制到托管的缓存服务器的这两识别现有的缓存托管的服务器上共享，或创建一个新文件夹和共享文件夹，以便它可以从你的内容服务器访问。 在你的内容服务器上创建你的数据程序包后，你将将数据包复制到此托管的缓存服务器上的共享文件夹中。
+4. 若要准备将您的数据的包从内容服务器复制到托管的缓存服务器的步骤，这两标识托管的缓存服务器上现有的共享，或创建一个新文件夹和共享文件夹，以便对其进行访问内容服务器中。 在内容服务器上创建您的数据的包后，你会将数据包复制到托管的缓存服务器上此共享文件夹。
   
-5. 如果你部署的多个托管的缓存服务器，请重复每个服务器上的此过程。
+5. 如果要部署多个托管的缓存服务器，重复此过程在每个服务器上。
 
-若要继续使用本指南，请参阅[移动和调整托管缓存 #40; 可选 & #41;](6-Bc-Move-Resize-Cache.md).
+若要继续使用本指南，请参阅[移动和调整托管缓存&#40;可选&#41;](6-Bc-Move-Resize-Cache.md)。

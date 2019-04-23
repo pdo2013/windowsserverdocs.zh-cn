@@ -1,7 +1,7 @@
 ---
-title: 故障排除 NIC 组合
-description: 本主题提供 NIC 组合 Windows Server 2016 中的疑难解答信息。
-manager: brianlic
+title: NIC 组合疑难解答
+description: 本主题提供有关 Windows Server 2016 中的 NIC 组合的疑难解答信息。
+manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,54 +13,54 @@ ms.topic: article
 ms.assetid: fdee02ec-3a7e-473e-9784-2889dc1b6dbb
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 634ec1a5eee0cd661ca89c2673e5b74abd458cd6
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 09/13/2018
+ms.openlocfilehash: d39dc6a4dcf5dca8186b0599fb479ed5ae684e0f
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59856248"
 ---
-# <a name="troubleshooting-nic-teaming"></a>故障排除 NIC 组合
+# <a name="troubleshooting-nic-teaming"></a>NIC 组合疑难解答
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-本主题介绍如何解决 NIC 组合，并包含以下部分中，其中介绍了可能导致 NIC 组合的问题的原因。  
+在本主题中，我们将讨论如何解决 NIC 组合，如硬件和物理交换机证券。  标准协议的硬件实现不符合规范，NIC 组合可能会影响性能。 此外，具体取决于配置中，NIC 组合可能会将数据包发送从具有使物理交换机上的安全功能的多个 MAC 地址相同的 IP 地址。
+
   
--   [硬件不符合规范](#bkmk_hardware)  
+## <a name="hardware-that-doesnt-conform-to-specification"></a>不符合规范的硬件  
   
--   [物理开关安全功能](#bkmk_switch)  
+正常操作期间，NIC 组合可能会发送数据包从相同的 IP 地址，但具有多个 MAC 地址。 根据协议标准，这些数据包的接收方必须解析为特定的 MAC 地址，而不是响应来自接收数据包的 MAC 地址的主机或 VM 的 IP 地址。  正确实现地址解析协议 （ARP 和 ndp 下） 的客户端发送具有正确的目标 MAC 地址的数据包，即，VM 或拥有该 IP 地址的主机的 MAC 地址。 
   
--   [禁用和与 Windows PowerShell 启用](#bkmk_ps)  
+一些嵌入式的硬件未正确实现地址解析协议和也可能不显式 IP 地址解析为使用 ARP 或 NDP 的 MAC 地址。  例如，可能会以这种方式执行存储区域网络 (SAN) 控制器。 非符合设备接收的数据包从复制的源 MAC 地址，然后将其用作中相应的传出数据包，从而导致发送到错误的目标 MAC 地址的数据包的目标 MAC 地址。 正因为如此，因为它们不匹配任何已知的目标数据包由 HYPER-V 虚拟交换机中删除。  
   
-## <a name="bkmk_hardware"></a>硬件不符合规范  
-当标准协议实现硬件不符合规格时，NIC 组合的性能可能会受到影响。  
+如果您是无故障连接到 SAN 控制器或其他嵌入硬件，你应采取数据包捕获，以确定 ARP 或 ndp 下，如果您的硬件正确实现并联系硬件供应商联系以获取支持。  
+
   
-在正常运行，期间 NIC 组合可能会发送数据包从同一 IP 地址，而又具有多个不同的源代码媒体访问控制 (MAC) 地址。 根据协议标准这些数据包接收器都必须到特定的 MAC 地址，而不会响应接收数据包的 MAC 地址解决主机或 VM 的 IP 地址。  正确实施的地址分辨率协议 IPv4 的地址分辨率协议 (ARP) 或 IPv6 的邻居发现协议 (NDP) 的客户端将发送具有正确的目标 MAC 地址（VM 或主机拥有该 IP 地址的 MAC 地址）数据包。  
+## <a name="physical-switch-security-features"></a>物理交换机安全功能  
+根据配置，NIC 组合可能会发送数据包从具有使物理交换机上的安全功能的多个源 MAC 地址相同的 IP 地址。 例如，动态 ARP 检查或 IP 源保护，尤其是如果物理切换不知道端口是一个团队，在切换独立模式下配置 NIC 组合时，会发生的一部分。 检查交换机日志，确定是否交换机安全功能导致连接问题。 
   
-但是，某些嵌入硬件不正确实现地址分辨率协议，并且还可能不显式解决 IP 地址为使用 ARP 或 NDP MAC 地址。  存储区域 (SAN) 网络控制器是这种方式可能执行设备的一个示例。 设备不符合中接收的包复制源包含的 MAC 地址，并将其用作目标相应传出数据包中的 MAC 地址。  
+## <a name="disabling-and-enabling-network-adapters-by-using-windows-powershell"></a>禁用和启用网络适配器使用 Windows PowerShell  
+
+NIC 组失败的常见原因是，禁用组接口，在许多情况下，意外时运行一系列命令。  此特定命令序列不会启用所有禁用，因为禁用所有 Nic 的基础物理成员中都删除 NIC 团队接口 NetAdapters。 
+
+在这种情况下，NIC 组接口不再显示在 Get-netadapter，并正因为如此，**启用 NetAdapter \*** 不会启用 NIC 组。 **启用 NetAdapter \*** 命令，但是，启用的成员的 Nic，然后 （后短时间） 重新创建组接口。 团队接口处于"已禁用"状态，直到重新启用，允许网络流量，以便开始流动。 
+
+以下 Windows PowerShell 命令序列可能会无意中禁用组接口：  
   
-这将导致包被发送到错误目标 MAC 地址。 出于此原因，因为它们不匹配任何已知的目的地数据包 Hyper-V 虚拟交换机用来通过中删除。  
-  
-如果你遇到时遇到问题连接到 SAN 控制器或其他嵌入硬件，你应获取数据包捕获并确定 ARP 或 NDP，，是否正确实现你的硬件并硬件供应商联系以获取支持。  
-  
-## <a name="bkmk_switch"></a>物理开关安全功能  
-根据配置，NIC 组合可能数据包从同一 IP 地址发送具有多个不同的源的 MAC 地址。  这可以触发了安全功能，如动态 ARP 检查或 IP 源物理交换机保护，尤其是在物理切换不知道的端口是团队的一部分。 如果您将配置 NIC 组合独立切换模式，发生这种。  你应该检查切换日志以确定是否切换安全功能会导致连接问题 NIC 组合。  
-  
-## <a name="bkmk_ps"></a>禁用和使用 Windows PowerShell 启用网络适配器  
-NIC 团队失败的一个常见原因是团队界面已禁用。 在许多情况下，界面已禁用无意中，运行以下命令 Windows PowerShell 序列时：  
-  
-```  
+```PowerShell 
 Disable-NetAdapter *  
 Enable-NetAdapter *  
 ```  
   
-这一系列命令不会启用它禁用 NetAdapters 所有。  
+
   
-这是因为禁用所有基础物理成员 Nic 导致删除并不会再显示在 Get-NetAdapter NIC 团队界面。 出于此原因，**启用 NetAdapter \ ***命令不会启用 NIC 团队中，由于适配器已删除。  
-  
-**启用 NetAdapter \ ***命令，但是，启用成员 Nic，从而然后（后短时间）导致的团队界面重新创建。 在此情况下，团队界面是仍处于"禁用"状态因为尚未重新启用。 启用团队界面之后重新创建它, 将使网络通信重新排列开始。  
-  
-## <a name="see-also"></a>请参阅  
-[NIC 组合](NIC-Teaming.md)  
+## <a name="related-topics"></a>相关主题  
+- [NIC 组合](NIC-Teaming.md):在本主题中，我们提供您的网络接口卡 (NIC) 合作概述 Windows Server 2016 中。 NIC 组合允许你将介于 1 和 32 之间分组到一个或多个基于软件的虚拟网络适配器的物理以太网网络适配器。 这些虚拟网络适配器可以提高性能，并在网络适配器发生故障时提供容错能力。   
+
+- [NIC 组合 MAC 地址的使用和管理](NIC-Teaming-MAC-Address-Use-and-Management.md):在 NIC 组配置为切换独立模式和地址哈希或动态负载分发时，该团队使用的媒体访问控制 (MAC) 地址的出站流量上的主 NIC 组成员。 主 NIC 团队成员是由操作系统来自团队成员的初始集选择的网络适配器。
+
+- [NIC 组合设置](nic-teaming-settings.md):在本主题中，我们为您提供的 NIC 组属性，如组合概述和负载平衡模式。 我们还会为您提供的备用适配器设置和主要组接口属性的详细信息。 如果 NIC 组中具有至少两个网络适配器，您不需要指定的容错能力的备用适配器。
   
 
 

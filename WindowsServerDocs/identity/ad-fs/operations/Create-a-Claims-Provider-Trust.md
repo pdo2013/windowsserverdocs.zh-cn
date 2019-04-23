@@ -1,7 +1,7 @@
 ---
 ms.assetid: a4f7842c-cfca-4d78-916e-023d12a9cdf0
-title: "创建索赔提供商信任"
-description: 
+title: 创建声明提供方信任
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,82 +9,83 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b4dc20713fdd137b019a072037e35e9219e02fa9
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: fbc8bb63435211a92cb7fc6aa05b1413aef939c6
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59854228"
 ---
-# <a name="create-a-claims-provider-trust"></a>创建索赔提供商信任
+# <a name="create-a-claims-provider-trust"></a>创建声明提供方信任
 
->适用于：Windows Server 2016，Windows Server 2012 R2
+>适用于：Windows Server 2016, Windows Server 2012 R2
 
-若要使用广告 FS 管理 snap\ 中添加新的索赔提供商信任并手动配置设置，请资源合作伙伴组织中资源合作伙伴联合身份验证的服务器上执行以下步骤。  
+若要添加新声明提供方信任使用 AD FS 管理管理单元\-并且手动配置设置，资源伙伴组织中的资源伙伴联合身份验证服务器上执行以下过程。  
   
-在会员**管理员**，或等效，在本地计算机上的已完成此过程的最低要求。  查看有关使用相应的帐户的详细信息，并进行分组在会员身份[本地和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477)。   
+中的成员身份**管理员**，或在本地计算机上等效身份是完成此过程的最低要求。  可在[本地默认组和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477)中查看有关使用适合的帐户和组成员身份的详细信息。   
   
-## <a name="to-create-a-claims-provider-trust-manually"></a>若要手动创建索赔提供商信任  
+## <a name="to-create-a-claims-provider-trust-manually"></a>手动创建声明提供方信任的步骤  
   
-1.  在服务器管理器中，单击**工具**，然后选择**广告 FS 管理**。  
+1.  在服务器管理器中，单击**工具**，然后选择**AD FS 管理**。  
   
-2.  下**操作**，单击**添加索赔提供商信任**。  
-![索赔提供商信任](media/Create-a-Claims-Provider-Trust/addclaim1.PNG)   
+2.  下**操作**，单击**添加声明提供方信任**。  
+![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim1.PNG)   
   
-3.  在**欢迎**页上，单击**开始**。 
-![索赔提供商信任](media/Create-a-Claims-Provider-Trust/addclaim2.PNG)    
+3.  在“欢迎使用”页面上，单击“启动”。 
+![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim2.PNG)    
   
-4.  上**选择数据源**页上，单击**Enter 声明提供商信任数据手动**，然后单击**下一步**。  
-![索赔提供商信任](media/Create-a-Claims-Provider-Trust/addclaim3.PNG)     
+4.  在“选择数据源”页面上，单击“手动输入声明提供方信任数据”，然后单击“下一步”。  
+![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim3.PNG)     
 
-5.  在**指定的显示名称**页上，键入**显示名称**下**笔记**，对此声明的提供商信任键入描述，然后单击**下一步**。  
-![索赔提供商信任](media/Create-a-Claims-Provider-Trust/addclaim4.PNG)     
+5.  在“指定显示名称”页面上键入一个显示名称，在“注释”下键入此声明提供方信任的描述，然后单击“下一步”。  
+![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim4.PNG)     
 
-6.  在**配置 URL**页面上，指定**WS 联盟被动 URL**如果适用，然后单击**下一步**。
-![索赔提供商信任](media/Create-a-Claims-Provider-Trust/addclaim5.PNG)     
+6.  上**配置 URL**页上，指定**WS 联合身份验证被动 URL**如果适用，单击**下一步**。
+![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim5.PNG)     
 
-8. 在**配置标识符**页面上下,**索赔提供商信任标识符**、 键入相应的标识符，然后单击**下一步**。  
-![索赔提供商信任](media/Create-a-Claims-Provider-Trust/addclaim6.PNG)    
+8. 在“配置标识符”页面上的“声明提供方信任标识符”下，键入相应的标识符，然后单击“下一步”。  
+![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim6.PNG)    
 
-9. 在**配置证书**页上，单击**添加**以找到证书文件并将其添加到列表中的证书，然后单击**下一步**。  
-![索赔提供商信任](media/Create-a-Claims-Provider-Trust/addclaim7.PNG)    
+9. 在“配置证书”页面上，单击“添加”找到证书文件并将它添加到证书列表，然后单击“下一步”。  
+![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim7.PNG)    
 
-10. 在**添加信任准备已就绪**页上，单击**下一步**保存你的索赔提供商信任信息。  
-![索赔提供商信任](media/Create-a-Claims-Provider-Trust/addclaim8.PNG)    
+10. 在“准备好添加信任”页面上，单击“下一步”保存声明提供方信任信息。  
+![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim8.PNG)    
 
-11. 在**完成**页上，单击**关闭**。 此操作将自动显示**编辑索赔规则**对话框。 有关如何继续添加详细信息声称本声明的提供商信任规则，请参阅下面的其他参考。  
-![索赔提供商信任](media/Create-a-Claims-Provider-Trust/addclaim9.PNG)
+11. 在“完成”页面上，单击“关闭”。 执行此操作会自动显示“编辑声明规则”对话框。 详细了解如何以继续添加声明规则，此声明提供方信任，请参阅以下其他引用。  
+![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim9.PNG)
 
-## <a name="to-create-a-claims-provider-trust-using-federation-metadata"></a>若要创建索赔提供商信任使用联盟元数据
-若要添加新的索赔提供商信任，使用广告 FS 管理贴靠中，通过从联盟元数据的合作伙伴已发布到本地网络或 Internet，自动导入的合作伙伴的配置数据资源合作伙伴组织中联盟服务器上执行以下步骤。
+## <a name="to-create-a-claims-provider-trust-using-federation-metadata"></a>若要创建声明提供程序信任使用联合身份验证元数据
+若要添加新声明提供方信任，请使用 AD FS 管理管理单元中，通过从伙伴已发布到本地网络或 Internet 的联合身份验证元数据自动导入有关伙伴的配置数据执行以下过程上资源伙伴组织中的联合身份验证服务器。
 
 >[!NOTE]
->它早已通常使用具有不合格的主机名称，如 https://myserver 证书，也是如此这些证书没有安全值，并且可以攻击者模拟发布联盟元数据联合身份验证服务。 因此，查询时联盟元数据，你应仅使用合法的域名 https://myserver.contoso.com 如。
+>尽管它很长时间以来常见的做法将证书与非限定的主机名如 https://myserver，这些证书没有安全价值，并可以让攻击者模拟正在发布联合元数据联合身份验证服务。 因此，当查询联合元数据，您应仅使用完全限定的域名如 https://myserver.contoso.com。
 
-1.  在服务器管理器中，单击**工具**，然后选择**广告 FS 管理**。  
+1.  在服务器管理器中，单击**工具**，然后选择**AD FS 管理**。  
   
-2.  下**操作**，单击**添加依赖方信任**。  
-![索赔提供商信任](media/Create-a-Claims-Provider-Trust/addclaim1.PNG)   
+2.  下**操作**，单击**添加声明提供方信任**。  
+![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim1.PNG)   
   
-3.  在**欢迎**页上，单击**开始**。 
-![索赔提供商信任](media/Create-a-Claims-Provider-Trust/addclaim2.PNG)    
+3.  在“欢迎使用”页面上，单击“启动”。 
+![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim2.PNG)    
   
-4.  在**选择数据源**页上，单击**导入的索赔提供有关的数据发布在线或本地网络上**。 在联盟元数据的地址 （主机名称或 URL），键入**联盟元数据 URL**或主机的合作伙伴公司名，然后单击**下一步**。
-![索赔提供商信任](media/Create-a-Claims-Provider-Trust/addclaim10.PNG)    
+4.  在“选择数据源”页面上，单击“导入有关在线或在本地网络上发布的声明提供方的数据”。 在联合身份验证元数据地址 （主机名或 URL），键入**联合身份验证元数据 URL**或主机名称对于合作伙伴，然后单击**下一步**。
+![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim10.PNG)    
 
-5.  上指定的显示名称页面类型**显示名称**，这索赔提供商信任的则在笔记下，键入描述，然后单击**下一步**。
+5.  指定显示名称在页上，键入**显示名称**，此声明提供方信任，则在说明下键入的描述，然后单击**下一步**。
 
-6.  在已准备好添加信任页面上，单击**下一步**保存你的索赔提供商信任信息。
+6.  在已准备好添加信任页上，单击**下一步**保存声明提供方信任信息。
 
-7.  在完成页上，单击**关闭**。 这将自动显示在编辑索赔规则对话框。 有关如何继续添加详细信息声称本声明的提供商信任规则，请参阅下面的更多参考部分。
+7.  在完成页上，单击**关闭**。 这将自动显示编辑声明规则对话框。 详细了解如何以继续添加声明规则，此声明提供方信任，请参阅下面的其他参考部分。
 
 
 
     
 ## <a name="additional-references"></a>其他参考  
-[清单： 配置资源合作伙伴公司](../../ad-fs/deployment/Checklist--Configuring-the-Resource-Partner-Organization.md)  
+[清单：配置资源伙伴组织](../../ad-fs/deployment/Checklist--Configuring-the-Resource-Partner-Organization.md)  
   
-[信任清单：创建索赔提供商的索赔规则](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Claims-Provider-Trust.md)  
+[清单：为声明提供程序创建声明规则信任](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Claims-Provider-Trust.md)  
   
 ## <a name="see-also"></a>请参阅  
-[广告 FS 操作](../../ad-fs/AD-FS-2016-Operations.md) 
+[AD FS 操作](../../ad-fs/AD-FS-2016-Operations.md) 
   

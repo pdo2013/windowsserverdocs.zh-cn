@@ -1,7 +1,7 @@
 ---
 ms.assetid: 7d230527-f4fe-4572-8838-0b354ee0b06b
-title: "添加索赔说明"
-description: 
+title: 添加声明说明
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,48 +10,49 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 0e388ef656d3b690da62b077cb9f9e678a771e64
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59851428"
 ---
-# <a name="add-a-claim-description"></a>添加索赔说明
+# <a name="add-a-claim-description"></a>添加声明说明
 
->适用于：Windows Server 2016，Windows Server 2012 R2
+>适用于：Windows Server 2016, Windows Server 2012 R2
 
-帐户合作伙伴组织中, 管理员创建的索赔代表组或角色中的用户的会员表示用户，例如，用户员工标识号有关的某些数据。
+在帐户伙伴组织中，管理员创建声明来表示用户的组或角色中的成员身份或以表示有关用户，例如，用户的雇员标识号的一些数据。
 
-在资源合作伙伴组织中，管理员创建相应的索赔表示组，可以被识别为资源用户的用户。 因为传出索赔帐户合作伙伴组织地图传入的索赔均在资源合作伙伴组织中，在资源的合作伙伴能够接受帐户合作伙伴提供了的凭据。 
+在资源伙伴组织中，管理员创建相应的声明来表示组和用户可以被识别为资源的用户。 因为传出声明在帐户伙伴组织映射到资源伙伴组织中的传入声明资源伙伴是可以接受帐户伙伴提供的凭据。 
 
-你可以使用下面的过程中添加索赔。
+可以使用以下过程来添加声明。
 
-在会员**管理员**，或等效，在本地计算机上的最低要求完成此过程。  查看有关使用相应的帐户的详细信息，并进行分组在会员身份[本地和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477)。
+本地计算机上的 **Administrators** 中的成员身份或等效身份是完成这些过程所需的最低要求。  可在[本地默认组和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477)中查看有关使用适合的帐户和组成员身份的详细信息。
 
-## <a name="to-add-a-claim-description"></a>若要添加的索赔说明
+## <a name="to-add-a-claim-description"></a>若要添加声明说明
 
-1. 在服务器管理器中，单击**工具**，然后选择**广告 FS 管理**。 
+1. 在服务器管理器中，单击**工具**，然后选择**AD FS 管理**。 
 
-2.  展开**服务**和右键单击上**添加索赔描述**。
-![添加索赔描述](media\Add-a-Claim-Description\claimdesc1.png)
+2.  展开**服务**并在右侧，单击**添加声明说明**。
+![添加声明说明](media\Add-a-Claim-Description\claimdesc1.png)
 
-3.  在添加声称描述对话框中，在**显示名称**，输入一个唯一的名称，表明的组或此声明的角色。
+3.  在添加声明说明对话框中，在**显示名称**，键入用于标识组或此声明的角色的唯一名称。
 
-4.  添加**简称**。
+4.  添加**简短名称**。
 
-5.  在**声称标识符**，键入程序与组或您将使用此声明的角色 URI。
+5.  在中**声明标识符**，键入与组或你将使用的声明的角色相关联的 URI。
 
-6.  下**描述**，键入文本最佳描述此声明的用途。
+6.  下**说明**，键入最适当地描述此声明的用途的文本。
 
-7.  根据你的组织的需求，根据需要，将发布到联盟元数据的此声明中选择任一以下复选框:
+7.  具体取决于你组织的需要，可以选择以下复选框，根据需要，若要为联合身份验证元数据中发布此声明：
 
 
-    - 若要将注意到此服务器可接受此声明的合作伙伴能够此声明的发布，请单击**作为索赔类型此联合身份验证服务可接受联盟元数据中发布此声明**。
-    - 若要将注意到此服务器可以发出此声明的合作伙伴能够此声明的发布，请单击**为此联合身份验证服务可发送的索赔类型联盟元数据中发布此声明**。
+    - 若要发布此声明以确保合作伙伴注意此服务器可以接受此声明，请单击**联合身份验证元数据中发布此声明，作为此联合身份验证服务可以接受的声明类型**。
+    - 若要发布此声明以确保合作伙伴注意此服务器可以颁发此声明，请单击**联合身份验证元数据中发布此声明，作为此联合身份验证服务可以发送的声明类型**。
 
-8.  单击**确定**。
+8.  单击 **“确定”**。
 
-![添加索赔描述](media\Add-a-Claim-Description\claimdesc2.png)
+![添加声明说明](media\Add-a-Claim-Description\claimdesc2.png)
 
   
 ## <a name="see-also"></a>请参阅  
-[广告 FS 操作](../../ad-fs/AD-FS-2016-Operations.md) 
+[AD FS 操作](../../ad-fs/AD-FS-2016-Operations.md) 

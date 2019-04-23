@@ -1,5 +1,5 @@
 ---
-title: Standard 和 Datacenter 版本的 Windows Server 2019 的比较
+title: Standard 和 Datacenter 版本的 Windows Server 2019 比较
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,19 +12,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: e94c88ab7fb4aede7554dd621843b613fa16b6dc
-ms.sourcegitcommit: 0b51cf8d0a1db31d6d2e2e45a145011311fbdf34
-ms.translationtype: MT
+ms.openlocfilehash: ba7487a7e063775219182645a273d49c473f52e2
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "9169931"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59854128"
 ---
-# Standard 和 Datacenter 版本的 Windows Server 2019 的比较
+# <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2019"></a>Standard 和 Datacenter 版本的 Windows Server 2019 比较
 
 > 适用于：Windows Server 2019
   
-## 锁定和限制
-|锁定和限制|Windows Server 2019 标准|Windows Server 2019 数据中心|  
+## <a name="locks-and-limits"></a>锁定和限制
+|锁定和限制|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
 |最大用户数|基于 CAL|基于 CAL|
 |最大 SMB 连接数|16777216|16777216|
@@ -38,10 +38,10 @@ ms.locfileid: "9169931"
 |服务器可以加入域|是|是|
 |边缘网络保护/防火墙|否|否|
 |DirectAccess|是|是|
-|DLNA 解码器和 Web 媒体流|是，但前提是安装为具有桌面体验的服务器|是，但前提是安装为具有桌面体验的服务器|
+|DLNA 解码器和 Web 媒体流|是，如果安装为具有桌面体验的服务器|是，如果安装为具有桌面体验的服务器|
 
-## 服务器角色
-|可用的 Windows Server 角色|角色服务|Windows Server 2019 标准|Windows Server 2019 数据中心|  
+## <a name="server-roles"></a>服务器角色
+|可用的 Windows Server 角色|角色服务|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|----------|---------------------------|  
 |Active Directory 证书服务| |是|是|
 |Active Directory 域服务| |是|是|
@@ -66,7 +66,8 @@ ms.locfileid: "9169931"
 |文件和存储服务|存储服务|是|是|
 |主机保护者服务| |是|是|
 |Hyper-V| |是|是；包括受防护的虚拟机|
-|网络控制器| |否|否|
+|MultiPoint 服务| |是|是|
+|网络控制器| |否|是|
 |网络策略和访问服务| |是，在安装为具有桌面体验的服务器时|是，在安装为具有桌面体验的服务器时|
 |打印和文档服务| |是|是|
 |远程访问| |是|是|
@@ -74,15 +75,15 @@ ms.locfileid: "9169931"
 |批量激活服务| |是|是|
 |Web 服务 (IIS)| |是|是|
 |Windows 部署服务| |是*|是*|
-|Windows Server Essentials 体验| |是|是|
-|WindowsServer 更新服务| |是|是|
+|Windows Server Essentials 体验| |是|是|
+|Windows Server 更新服务| |是|是|
 
-* WDS 传输服务器是新的 Windows Server 2019 中 （还会在从 Windows Server 版本 1803年开始半年频道） 的服务器核心安装
+* WDS 传输服务器是新的服务器核心安装在 Windows Server 2019 （也在使用 Windows Server，版本 1803年启动半年通道）
 
 
-## 功能
+## <a name="features"></a>功能
 
-|Windows Server 功能可以使用服务器管理器（或 PowerShell）安装|Windows Server 2019 标准|Windows Server 2019 数据中心|  
+|Windows Server 功能可以使用服务器管理器（或 PowerShell）安装|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
 |.NET Framework 3.5|是|是|
 |.NET Framework 4.6|是|是|
@@ -146,10 +147,10 @@ ms.locfileid: "9169931"
 |WoW64 支持|已安装|已安装|
 |XPS 查看器|是，在安装为具有桌面体验的服务器时|是，在安装为具有桌面体验的服务器时|
 
-|通常可用的功能|Windows Server 2019 标准|Windows Server 2019 数据中心|  
+|通常可用的功能|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
 |最佳做法分析器|是|是|
-|受限的存储副本|是的 （1 个合作关系和 1 资源组与单个 2 TB 的卷）|是，无限制|
+|受约束的存储副本|是的 （1 合作关系和 1 资源组与单个 2 TB 的卷）|是的不受限制|
 |直接访问|是|是|
 |动态内存（虚拟化）|是|是|
 |热添加/替换 RAM|是|是|
@@ -164,10 +165,10 @@ ms.locfileid: "9169931"
 |软件定义的网络|否|是|
 |存储管理服务|是|是|
 |存储空间|是|是|
-|存储空间直通|否|否|
+|存储空间直通|否|是|
 |批量激活服务|是|是|
 |VSS（卷影复制服务）集成|是|是|
-|WindowsServer 更新服务|是|是|
+|Windows Server 更新服务|是|是|
 |Windows 系统资源管理器|是|是|
 |服务器许可证日志记录|是|是|
 |继承激活|托管于数据中心时作为来宾|可以是主机或来宾|

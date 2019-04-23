@@ -1,6 +1,6 @@
 ---
-title: "将磁盘移到另一台计算机"
-description: "本文介绍了如何将磁盘移到另一台计算机"
+title: 将磁盘移到另一台计算机
+description: 本文介绍了如何将磁盘移到另一台计算机
 ms.date: 10/12/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 6b235ce8e5b936940629d5977a17bbc729efbe82
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59853998"
 ---
 # <a name="move-disks-to-another-computer"></a>将磁盘移到另一台计算机
 
-> **适用于：**Windows 10、Windows 8.1、Windows Server（半年频道）、Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
+> **适用于：** Windows 10、 Windows 8.1、 Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
 
 本部分介绍了将磁盘移到另一台计算机需要采取的步骤，及其关联时需注意的事项。 尝试将磁盘从一台计算机移到另一台计算机之前，你可能需要打印此过程或记下这些步骤。
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 10/17/2017
 
 使用设备管理器卸载你想要移动的磁盘。
 
-**卸载磁盘**
+**若要卸载磁盘**
 
 1.  在“计算机管理”中打开设备管理器。
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 10/17/2017
 
 3.  右键单击想要卸载的磁盘，然后单击**卸载**。
 
-4.  在**确认设备删除**对话框中，单击**确定**。
+4.  在“确认设备删除”对话框中，单击“确定”。
 
 ## <a name="remove-dynamic-disks"></a>删除动态磁盘
 

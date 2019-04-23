@@ -1,6 +1,6 @@
 ---
-title: 管理 NPS 服务器
-description: 本主题提供用于管理 NPS 服务器，在 Windows Server 2016 的过程的链接。
+title: 管理 NPS
+description: 本主题提供用于管理 Windows Server 2016 中的 NPSs 链接到的过程。
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -8,34 +8,35 @@ ms.topic: article
 ms.assetid: 6005dc27-f49e-427f-92f7-b0e558ffe3ff
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fd9732b95c1d500dfa66e9c12aadf5c351738ecc
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 0d8b32ddc6eb1dacff2fa70bbbe045b16805c42b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59855548"
 ---
-# <a name="manage-nps-servers"></a>管理 NPS 服务器
+# <a name="manage-npss"></a>管理 NPS
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-在此部分中，可以使用主题管理 NPS 服务器。
+您可以使用在本部分中主题管理 NPSs。
 
 >[!NOTE]
->有关其他网络策略服务器文档，你可以使用以下库部分。
->- [网络策略服务器入门](nps-getstart-top.md)
->- [部署策略服务器的网络](nps-deploy.md) 
+>有关网络策略服务器的其他文档，可以使用以下库部分。
+>- [开始使用网络策略服务器](nps-getstart-top.md)
+>- [部署网络策略服务器](nps-deploy.md) 
 
-此部分中包含以下主题。
+本部分包含以下主题。
 
-- [配置 NPS 多主计算机上](nps-multihomed-configure.md)
-- [配置 NPS UDP 端口的信息](nps-udp-ports-configure.md)
-- [禁用 NAS 通知转移](nps-disable-nas-notifications.md)
-- [要导入其他服务器上的导出 NPS 服务器配置](nps-manage-export.md)
-- [增加同时处理 nps 的身份验证](nps-concurrent-auth.md)
+- [多宿主计算机上配置 NPS](nps-multihomed-configure.md)
+- [配置 NPS UDP 端口信息](nps-udp-ports-configure.md)
+- [禁用 NAS 通知转发](nps-disable-nas-notifications.md)
+- [将 NPS 配置的另一台服务器上的导入导出](nps-manage-export.md)
+- [增加由 NPS 处理的并发身份验证](nps-concurrent-auth.md)
 - [安装网络策略服务器](nps-manage-install.md)
-- [NPS 的代理服务器负载平衡](nps-manage-proxy-lb.md)
-- [注册 Active Directory 域中 NPS 服务器](nps-manage-register.md)
-- [注销 NPS 服务器 Active Directory 域中](nps-manage-unregister.md)
-- [在 NPS 使用常规表情](nps-crp-reg-expressions.md)
-- [确认后 NPS 服务器更改的配置](nps-manage-verify.md)
+- [NPS 代理服务器负载平衡](nps-manage-proxy-lb.md)
+- [在 Active Directory 域中注册 NPS](nps-manage-register.md)
+- [取消注册 Active Directory 域中的 NPS](nps-manage-unregister.md)
+- [在 NPS 中使用正则表达式](nps-crp-reg-expressions.md)
+- [验证 NPS 更改后的配置](nps-manage-verify.md)
 

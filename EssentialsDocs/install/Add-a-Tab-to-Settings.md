@@ -1,6 +1,6 @@
 ---
-title: "添加到设置的选项卡"
-description: "介绍了如何使用 Windows Server Essentials"
+title: 向“设置”添加选项卡
+description: 介绍如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,53 +13,54 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 9eaa1aa5a9c5e8d4c2e36f2000e0adecc83245d9
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59854978"
 ---
-# <a name="add-a-tab-to-settings"></a>添加到设置的选项卡
+# <a name="add-a-tab-to-settings"></a>向“设置”添加选项卡
 
 >适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
 
-通过创建并安装代码装配，由操作系统中的设置管理器，你可以设置仪表板上添加一个选项卡。  
+你可以向仪表板中的“设置”添加选项卡，方法是创建并安装代码程序集，该程序集由操作系统中的“设置管理器”使用。  
   
-## <a name="add-a-tab-to-settings"></a>添加到设置的选项卡  
- 通过执行以下的任务将选项卡添加到设置：  
+## <a name="add-a-tab-to-settings"></a>向“设置”添加选项卡  
+ 你可以通过执行以下任务向“设置”添加选项卡：  
   
--   [添加到组件 ISettingsData 接口的实现](Add-a-Tab-to-Settings.md#BKMK_ISettingsData)。  
+-   [向程序集添加 ISettingsData 接口的实现](Add-a-Tab-to-Settings.md#BKMK_ISettingsData)。  
   
--   [登录的验证码签名装配](Add-a-Tab-to-Settings.md#BKMK_SignAssembly)。  
+-   [使用验证码签名对程序集签名](Add-a-Tab-to-Settings.md#BKMK_SignAssembly)。  
   
--   [在参考计算机上安装程序集](Add-a-Tab-to-Settings.md#BKMK_InstallAssembly)。  
+-   [在引用计算机上安装程序集](Add-a-Tab-to-Settings.md#BKMK_InstallAssembly)。  
   
-###  <a name="BKMK_ISettingsData"></a>添加到组件 ISettingsData 接口的实现  
- ISettingsData 界面包含 AdminCommon.dll 装配位于 \Program Files\ Windows Server \Bin 的 Microsoft.WindowsServerSolutions.Settings 命名空间中。  
+###  <a name="BKMK_ISettingsData"></a> 对程序集添加 ISettingsData 接口的实现  
+ ISettingsData 接口包含在 AdminCommon.dll 程序集的 Microsoft.WindowsServerSolutions.Settings 命名空间中，该程序集位于 \Program Files\Windows Server\Bin。  
   
-##### <a name="to-add-the-isettingsdata-code-to-the-assembly"></a>若要添加到组件 ISettingsData 代码  
+##### <a name="to-add-the-isettingsdata-code-to-the-assembly"></a>向程序集添加 ISettingsData 代码  
   
-1.  以 administrator 身份打开 Visual Studio 2010，方法是右键单击在计划**开始**菜单并选择**以管理员身份运行**。  
+1.  通过在 **“开始”** 菜单中右键单击 Visual Studio 2010 并选择 **“以管理员身份运行”**，以管理员身份打开该程序。  
   
-2.  单击**文件**，单击**新建**，然后单击**项目**。  
+2.  依次单击 **“文件”**、 **“新建”** 和 **“项目”**。  
   
-3.  在**新项目**对话框中，单击**C#**，单击**类库**，输入**DashboardSettingsPage**的名称，然后单击解决方案，以及**确定**。  
+3.  在 **“新建项目”** 对话框中，单击 **“Visual C#”** 和 **“类库”**，输入解决方案名称 **DashboardSettingsPage**，然后单击 **“确定”**。  
   
     > [!IMPORTANT]
-    >  在服务器上已安装的程序集必须命名 DashboardSettingsPage.dll，并到 %ProgramFiles%\ Windows Server \Bin\OEM 复制 dll。  
+    >  安装在服务器上的程序集必须命名为 DashboardSettingsPage.dll，然后将该 dll 复制到 %ProgramFiles%\Windows Server\Bin\OEM。  
   
-4.  创建你想要使用的选项卡中的控件。在此示例中设置控制 MySettingsControl 命名。  
+4.  创建希望在选项卡中使用的控件。在此示例中，设置控件被命名为 MySettingsControl。  
   
 5.  重命名 Class1.cs 文件。 例如，MySettingTab.cs。  
   
-6.  添加对 AdminCommon.dll 文件。  
+6.  添加对 AdminCommon.dll 文件的引用。  
   
-7.  添加以下使用声明：  
+7.  使用语句添加以下内容：  
   
     ```c#  
     using Microsoft.WindowsServerSolutions.Settings;  
     ```  
   
-8.  更改命名空间并类标头匹配下面的示例：  
+8.  根据以下示例更改命名空间和类头：  
   
     ```  
   
@@ -72,13 +73,13 @@ ms.lasthandoff: 12/12/2017
   
     ```  
   
-9. 实例化实例对于选项卡上创建的控件。例如：  
+9. 实例化为选项卡创建的控件实例。例如：  
   
     ```c#  
     private MySettingsControl tab;  
     ```  
   
-10. 添加构造类函数。 下面的示例代码显示构造函数：  
+10. 添加类的构造函数。 下面的代码示例演示了此构造函数：  
   
     ```  
   
@@ -88,7 +89,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-11. 添加提交方法，将设置更改提交。 下面的示例代码显示提交方法：  
+11. 添加用于提交设置更改的 Commit 方法。 下面的代码示例显示了 Commit 方法：  
   
     ```  
   
@@ -98,7 +99,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-12. 添加卡方法，标识该选项卡的控制。下面的示例代码显示卡方法：  
+12. 添加用于标识选项卡控件的 TabControl 方法。下面的代码示例显示了 TabControl 方法：  
   
     ```  
   
@@ -108,7 +109,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-13. 添加 TabId 方法，该选项卡中提供的唯一标识符。下面的示例代码显示 TabId 方法：  
+13. 添加用于为选项卡提供唯一标识符的 TabId 方法。下面的代码示例显示了 TabId 方法：  
   
     ```  
   
@@ -120,7 +121,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-14. 添加 TabOrder 方法，返回的选项卡上的顺序。下面的示例代码显示 TabOrder 方法：  
+14. 添加用于返回选项卡顺序的 TabOrder 方法。下面的代码示例显示了 TabOrder 方法：  
   
     ```  
   
@@ -131,9 +132,9 @@ ms.lasthandoff: 12/12/2017
     ```  
   
     > [!NOTE]
-    >  使用数字 0 开始定义的选项卡上的顺序。 第一次显示 Microsoft 内置设置选项卡，然后基于你所定义的选项卡上顺序显示你的选项卡。 例如，如果你有三种设置选项卡，你为 0、1 和 2 根据所需的选项卡，要显示的顺序指定的选项卡上的顺序。  
+    >  选项卡顺序使用从 0 开始的数字进行定义。 首先显示 Microsoft 内置设置选项卡，然后按你定义的选项卡顺序显示你的选项卡。 例如，如果有三个设置选项卡，则根据需要的选项卡显示顺序指定选项卡顺序 0、1 和 2。  
   
-15. 添加 TabTitle 方法，它可以提供的选项卡上标题。下面的示例代码显示 TabTitle 方法：  
+15. 添加用于提供选项卡标题的 TabTitle 方法。下面的代码示例显示了 TabTitle 方法：  
   
     ```  
   
@@ -144,20 +145,20 @@ ms.lasthandoff: 12/12/2017
     ```  
   
     > [!NOTE]
-    >  标题文本也可能来自要容纳需求本地化的资源文件。  
+    >  标题文本也可以来自资源文件，以适应本地化需求。  
   
-16. 保存和版本解决方案。  
+16. 保存并生成解决方案。  
   
-###  <a name="BKMK_SignAssembly"></a>登录验证码签名的装配  
- 你必须为其用于操作系统中的验证码登录集。 有关集签名的详细信息，请参阅[签名和的验证码检查代码](https://msdn.microsoft.com/library/ms537364\(VS.85\).aspx#SignCode)。  
+###  <a name="BKMK_SignAssembly"></a> 使用验证码签名程序集签名  
+ 你必须使用验证码签名进行程序集签名，因为该签名将在操作系统中使用。 有关对程序集签名的详细信息，请参阅 [Signing and Checking Code with Authenticode](https://msdn.microsoft.com/library/ms537364\(VS.85\).aspx#SignCode)（使用验证码对代码进行签名和检查）。  
   
-###  <a name="BKMK_InstallAssembly"></a>在参考计算机上安装程序集  
- 成功制订解决方案后，位置以下参考计算机上的文件夹中的一份 DashboardSettingsPage.dll 文件：  
+###  <a name="BKMK_InstallAssembly"></a> 在引用计算机上安装该程序集  
+ 成功生成解决方案后，请在引用计算机上的以下文件夹中放入 DashboardSettingsPage.dll 文件的副本：  
   
- **%Programfiles%\ Windows Server \Bin\OEM**  
+ **%Programfiles%\Windows Server\Bin\OEM**  
   
 ## <a name="see-also"></a>请参阅  
  [创建和自定义映像](Creating-and-Customizing-the-Image.md)   
  [其他自定义设置](Additional-Customizations.md)   
- [准备部署该映像](Preparing-the-Image-for-Deployment.md)   
+ [部署准备的映像](Preparing-the-Image-for-Deployment.md)   
  [测试客户体验](Testing-the-Customer-Experience.md)

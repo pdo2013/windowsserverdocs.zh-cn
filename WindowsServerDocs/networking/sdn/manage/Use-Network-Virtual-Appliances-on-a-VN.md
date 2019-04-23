@@ -1,7 +1,7 @@
 ---
-title: 使用网络虚拟装置虚拟网络
-description: 本主题介绍的软件定义网络指南如何管理租户工作负载和 Windows Server 2016 中的虚拟网络的一部分。
-manager: brianlic
+title: 在虚拟网络上使用网络虚拟设备
+description: 在本主题中，您将学习如何部署租户虚拟网络上的网络虚拟设备。 您可以将网络虚拟设备添加到执行用户定义的路由和端口镜像功能的网络。
+manager: dougkim
 ms.custom: na
 ms.reviewer: na
 ms.suite: na
@@ -12,77 +12,60 @@ ms.technology: networking-sdn
 ms.assetid: 3c361575-1050-46f4-ac94-fa42102f83c1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: db46189931263d230f013431f319eb2497589dee
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 08/30/2018
+ms.openlocfilehash: e715a782651a5b9867f3b45251fd6ea6e4a9e4f7
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59847368"
 ---
-# <a name="use-network-virtual-appliances-on-a-virtual-network"></a>使用网络虚拟装置虚拟网络
+# <a name="use-network-virtual-appliances-on-a-virtual-network"></a>在虚拟网络上使用网络虚拟设备
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-你可以使用此主题以了解如何将其租户虚拟网络上的网络虚拟装置部署。
+在本主题中，您将学习如何部署租户虚拟网络上的网络虚拟设备。 您可以将网络虚拟设备添加到执行用户定义的路由和端口镜像功能的网络。
 
-你可以将网络虚拟设备添加到执行用户定义路由和端口镜像功能的网络。
+## <a name="types-of-network-virtual-appliances"></a>类型的网络虚拟设备
 
-本主题包含以下部分。
+可以使用虚拟设备的两种类型之一：
 
-- [类型的网络虚拟装置](#bkmk_types)
-- [部署虚拟一网络的设备](#bkmk_deploy)
-- [示例： 用户定义的路由](#bkmk_routing)
-- [示例： 端口镜像](#bkmk_port)
+1. **用户定义的路由**-虚拟网络上的分布式的路由器替换为虚拟设备的路由功能。  使用用户定义路由时，虚拟设备获取用作虚拟网络上的虚拟子网之间的路由器。
 
-## <a name="bkmk_types"></a>类型的网络虚拟装置
+2. **端口镜像**-所有网络流量进入或离开受监视的端口是复制并发送到虚拟设备以进行分析。 
 
-有两种类型的虚拟虚拟网络可以使用的设备：
 
-1. **用户定义的路由**。 用户定义路由替换虚拟装置路由功能虚拟网络上的分布式的路由器。  使用用户定义路由，虚拟装置用作之间虚拟网络上的虚拟子网路由器。
-2. **端口镜像**。 使用镜像端口，所有网络通信输入或离开监视的端口是重复并发送到虚拟设备以供分析。 
-## <a name="bkmk_deploy"></a>部署虚拟一网络的设备
+## <a name="deploying-a-network-virtual-appliance"></a>部署网络虚拟设备
 
-部署虚拟设备，必须首先创建虚拟机 (VM)，其中包含设备，然后将 VM 连接到相应的虚拟网络个子网。
+若要部署网络虚拟设备，你必须先创建包含该设备的 VM，然后将 VM 连接到相应的虚拟网络子网。 有关更多详细信息，请参阅[创建租户 VM 和连接到租户虚拟网络或 VLAN](Create-a-Tenant-VM.md)。
 
->[!NOTE]
->有关详细信息，请参阅[创建租户 VM 和连接到租户虚拟网络或 VLAN](Create-a-Tenant-VM.md)
+某些设备需要多个虚拟网络适配器。 通常情况下，一个网络适配器专用于设备管理时其他适配器处理通信。  如果你的设备需要多个网络适配器，则必须在网络控制器中创建每个网络接口。 你还必须分配为每个位于不同的虚拟子网的其他适配器的每个主机上的接口 ID。
 
-某些设备需要多个虚拟网络适配器。 用于处理交通其他适配器时，通常是一个网络适配器致力于装置管理。 
+部署网络虚拟设备后，你可以定义路由，移植镜像和 / 或使用设备。 
 
-如果你的设备需要多个网络适配器，您必须在网络控制器创建每个网络接口。 
 
-您还必须分配接口 ID 为每个不同的虚拟子网上的其他适配器每台主机上。
+## <a name="example-user-defined-routing"></a>例如：用户定义的路由
 
-您已完成网络虚拟装置部署后，你可以使用设备用户定义路由、 端口镜像或两者的。
+对于大多数环境中，只需通过虚拟网络的分布式路由器已定义的系统路由。 但是，您可能需要创建一个路由表并在特定情况下，添加一个或多个路由，例如：
 
-##<a name="bkmk_routing"></a>示例： 用户定义的路由
+- 强制隧道连接到 Internet 的本地网络。
+- 使用您的环境中的虚拟设备。
 
-对于大多数环境你仅将需要已由虚拟网络分布式路由器系统路线。 但是，你可能需要创建路线表添加一个或多个路线在特定的情况下，如：
+对于这些方案，必须创建一个路由表并向表中添加用户定义的路由。 可以有多个路由表，并可以将关联到一个或多个子网的同一个路由表。 只能将关联到同一个路由表的每个子网。 子网中的所有 Vm 都使用路由表关联到子网。
 
-* 通过你的本地网络 internet 隧道强制。
-* 使用您的环境中的虚拟装置。
+子网依赖于系统路由，直到路由表获取到的子网相关联。 存在关联后，路由是基于完成上最长前缀匹配 (LPM) 在用户定义路由和系统路由之间。 如果有多个路由的 LPM 匹配情况相同，则用户定义的路由是在之前系统路由的第一次的选择。
+ 
+**过程：**
 
-对于这些方案中，你必须创建路线表，并添加到表的用户定义路线。 你有多个路线表，并相同的路线表可关联到一个或多个个子网。 
+1. 创建路由表属性，它包含所有用户定义的路由。<p>根据上面定义的规则仍适用系统路由。
 
-每个子网只能关联到单个路线表。 所有 Vm 子网中的都使用关联到该子网路线表。
-
-个子网依赖系统路线，直到路线表关联到子网。 存在关联后，路由完成基于上长前缀匹配 (LPM) 之间用户定义路线并系统路线。 
-
-如果多个使用相同的 LPM 匹配的路线，然后用户定义的路线首先选中-之前的系统路线。 
-
-###<a name="step-1-create-the-route-table-properties"></a>第 1 步： 创建路线表属性
-
-该表路线将包含所有用户定义的路线。  系统路线规则上面定义仍然适用。
-
-可以使用下面的示例命令创建路线表格属性。
-
+   ```PowerShell
     $routetableproperties = new-object Microsoft.Windows.NetworkController.RouteTableProperties
+   ```
 
-###<a name="step-2-add-a-route-to-the-route-table-properties"></a>第 2 步： 添加路由到路线表属性
+2. 将路由添加到路由表属性。<p>12.0.0.0/8 子网发往任何路由到虚拟设备在 192.168.1.10 路由。 设备必须具有与该 IP 分配给网络接口附加到虚拟网络的虚拟网络适配器。
 
-此升级方式显示 12.0.0.0/8 子网发送到任何通信应获取发送虚拟在 192.168.1.10 路由设备。  请务必设备已连接到虚拟网络分配给网络接口该 ip 虚拟网络适配器。
-
-可以使用下面的示例命令添加路由到路线表格属性。
-
+   ```PowerShell
     $route = new-object Microsoft.Windows.NetworkController.Route
     $route.ResourceID = "0_0_0_0_0"
     $route.properties = new-object Microsoft.Windows.NetworkController.RouteProperties
@@ -90,97 +73,101 @@ ms.lasthandoff: 03/28/2018
     $route.properties.nextHopType = "VirtualAppliance"
     $route.properties.nextHopIpAddress = "192.168.1.10"
     $routetableproperties.routes += $route
+   ```
+   >[!TIP]
+   >如果你想要添加更多的路由，重复此步骤为你想要定义每个路由。
 
-你可以通过为你想要定义每个路线的重复此步骤添加更多条路线。
-s
-###<a name="step-3-add-the-route-table-to-network-controller"></a>第 3 步： 将路线表添加到网络控制器
-可以使用下面的示例命令添加到网络控制器的路线的表。
+3. 将路由表添加到网络控制器。
 
+   ```PowerShell
     $routetable = New-NetworkControllerRouteTable -ConnectionUri $uri -ResourceId "Route1" -Properties $routetableproperties
+   ```
 
-###<a name="step-4-apply-the-route-table-to-the-virtual-subnet"></a>第 4 步： 将路线表应用到虚拟子网
- 
-当你到虚拟子网应用路线表时，Tenant1_Vnet1 网络中的第一个虚拟子网使用路线表。 可以根据需要为尽可能多个子网虚拟网络中的分配路线表。
+4. 适用于虚拟子网的路由表。<p>当将路由表应用到的虚拟子网时，Tenant1_Vnet1 网络中的第一个虚拟子网将使用的路由表。 根据需要，可以将路由表分配到尽可能多的虚拟网络中的子网。
 
-可以使用下面的示例命令将应用到虚拟子网路线表。
-
+   ```PowerShell
     $vnet = Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId "Tenant1_VNet1"
     $vnet.properties.subnets[0].properties.RouteTable = $routetable
     new-networkcontrollervirtualnetwork -connectionuri $uri -properties $vnet.properties -resourceId $vnet.resourceid
+   ```
 
-尽快向虚拟网络应用路线表的通信到虚拟装置。 你必须配置路由表虚拟装置转发的通信方式是适合您的环境中。
+只要将路由表应用到虚拟网络，流量转发到虚拟设备。 必须在虚拟设备转发的流量，以适合你的环境的方式来配置路由表。
 
-##<a name="bkmk_port"></a>示例： 端口镜像
+## <a name="example-port-mirroring"></a>例如：端口镜像
 
-此示例中允许你，以便交通镜像到 Appliance_Ethernet1 配置 MyVM_Ethernet1 的交通。
+在此示例中，您将流量配置为 MyVM_Ethernet1 到镜像 Appliance_Ethernet1。  我们假定您已经部署了两个 Vm，一个为该设备，作为 VM 要使用镜像监视另一个。 
 
-此示例中假定已已经部署了两个虚拟机的功能，其中一个作为设备和其中一个作为 VM 监控镜像。
+设备必须具有管理的第二个网络接口。 启用镜像作为 Appliciance_Ethernet1 上的目标后，它不会再收到流量去往存在配置的 IP 接口。
 
-请务必设备具有管理的第二个网络接口，因为镜像作为上 Appliance_Ethernet1 目标启用后，它将不再接收有配置 IP 接口发送到的交通。
 
-###<a name="step-1-get-the-virtual-network-on-which-your-vms-are-located"></a>第 1 步： 获取虚拟网络你 Vm 位于
-你可以使用下面的示例命令以获取虚拟网络。
+**过程：**
 
-    $vnet = Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId "Tenant1_VNet1"
+1. 获取 Vm 位于虚拟网络。
 
-###<a name="step-2-get-the-network-controller-network-interfaces-for-the-mirroring-source-and-destination"></a>第 2 步： 获取网络控制器网络接口镜像源代码和目的地
-可以使用下面的示例命令以获取网络控制器网络接口镜像源代码和目的地。
+   ```PowerShell
+   $vnet = Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId "Tenant1_VNet1"
+   ```
 
-    $dstNic = get-networkcontrollernetworkinterface -ConnectionUri $uri -ResourceId "Appliance_Ethernet1"
-    $srcNic = get-networkcontrollernetworkinterface -ConnectionUri $uri -ResourceId "MyVM_Ethernet1"
+2. 获取镜像的源和目标网络控制器网络接口。
 
-###<a name="step-3-create-a-serviceinsertionproperties-object-to-contain-the-port-mirroring-rules-and-the-element-which-represents-the-destination-interface"></a>第 3 步： 创建 serviceinsertionproperties 对象包含镜像规则和这表示目标接口元素端口
-下面示例命令用于创建目的地 serviceinsertionproperties 对象。
+   ```PowerShell
+   $dstNic = get-networkcontrollernetworkinterface -ConnectionUri $uri -ResourceId "Appliance_Ethernet1"
+   $srcNic = get-networkcontrollernetworkinterface -ConnectionUri $uri -ResourceId "MyVM_Ethernet1"
+   ```
 
-    $portmirror = [Microsoft.Windows.NetworkController.ServiceInsertionProperties]::new()
-    $portMirror.Priority = 1
+3. 创建 serviceinsertionproperties 对象，以包含端口镜像的规则和表示目标接口的元素。
 
-###<a name="step-4-create-a-serviceinsertionrules-object-to-contain-the-rules-that-must-be-matched-in-order-for-the-traffic-to-be-sent-to-the-appliance"></a>第 4 步： 创建 serviceinsertionrules 对象包含必须匹配会发送到设备的通信的顺序规则
+   ```PowerShell
+   $portmirror = [Microsoft.Windows.NetworkController.ServiceInsertionProperties]::new()
+   $portMirror.Priority = 1
+   ```
 
-规则定义如下匹配项所有通信，传入和传出，这表示传统镜像。  如果你感兴趣的特定端口或特定的源目的地镜像，你可以调整这些规则。
+4. 创建 serviceinsertionrules 对象，以包含必须按顺序发送到设备的流量匹配的规则。<p>匹配以下所有流量，入站和出站，它表示传统镜像都定义的规则。  如果您感兴趣的特定端口或特定的源/目标镜像，则可以调整这些规则。
 
-可以使用下面的示例命令创建 serviceinsertionproperties 对象。
+   ```PowerShell
+   $portmirror.ServiceInsertionRules = [Microsoft.Windows.NetworkController.ServiceInsertionRule[]]::new(1)
 
-    $portmirror.ServiceInsertionRules = [Microsoft.Windows.NetworkController.ServiceInsertionRule[]]::new(1)
+   $portmirror.ServiceInsertionRules[0] = [Microsoft.Windows.NetworkController.ServiceInsertionRule]::new()
+   $portmirror.ServiceInsertionRules[0].ResourceId = "Rule1"
+   $portmirror.ServiceInsertionRules[0].Properties = [Microsoft.Windows.NetworkController.ServiceInsertionRuleProperties]::new()
 
-    $portmirror.ServiceInsertionRules[0] = [Microsoft.Windows.NetworkController.ServiceInsertionRule]::new()
-    $portmirror.ServiceInsertionRules[0].ResourceId = "Rule1"
-    $portmirror.ServiceInsertionRules[0].Properties = [Microsoft.Windows.NetworkController.ServiceInsertionRuleProperties]::new()
+   $portmirror.ServiceInsertionRules[0].Properties.Description = "Port Mirror Rule"
+   $portmirror.ServiceInsertionRules[0].Properties.Protocol = "All"
+   $portmirror.ServiceInsertionRules[0].Properties.SourcePortRangeStart = "0"
+   $portmirror.ServiceInsertionRules[0].Properties.SourcePortRangeEnd = "65535"
+   $portmirror.ServiceInsertionRules[0].Properties.DestinationPortRangeStart = "0"
+   $portmirror.ServiceInsertionRules[0].Properties.DestinationPortRangeEnd = "65535"
+   $portmirror.ServiceInsertionRules[0].Properties.SourceSubnets = "*"
+   $portmirror.ServiceInsertionRules[0].Properties.DestinationSubnets = "*"
+   ```
 
-    $portmirror.ServiceInsertionRules[0].Properties.Description = "Port Mirror Rule"
-    $portmirror.ServiceInsertionRules[0].Properties.Protocol = "All"
-    $portmirror.ServiceInsertionRules[0].Properties.SourcePortRangeStart = "0"
-    $portmirror.ServiceInsertionRules[0].Properties.SourcePortRangeEnd = "65535"
-    $portmirror.ServiceInsertionRules[0].Properties.DestinationPortRangeStart = "0"
-    $portmirror.ServiceInsertionRules[0].Properties.DestinationPortRangeEnd = "65535"
-    $portmirror.ServiceInsertionRules[0].Properties.SourceSubnets = "*"
-    $portmirror.ServiceInsertionRules[0].Properties.DestinationSubnets = "*"
+5. 创建包含镜像的设备的网络接口的 serviceinsertionelements 对象。
 
-###<a name="step-5-create-a-serviceinsertionelements-object-to-contain-the-network-interface-of-the-appliance-you-are-mirroring-to"></a>步骤 5： 创建包含你镜像到设备的网络接口 serviceinsertionelements 对象
-可以使用下面的示例命令创建网络接口 serviceinsertionelements 对象。
+   ```PowerShell
+   $portmirror.ServiceInsertionElements = [Microsoft.Windows.NetworkController.ServiceInsertionElement[]]::new(1)
 
-    $portmirror.ServiceInsertionElements = [Microsoft.Windows.NetworkController.ServiceInsertionElement[]]::new(1)
+   $portmirror.ServiceInsertionElements[0] = [Microsoft.Windows.NetworkController.ServiceInsertionElement]::new()
+   $portmirror.ServiceInsertionElements[0].ResourceId = "Element1"
+   $portmirror.ServiceInsertionElements[0].Properties = [Microsoft.Windows.NetworkController.ServiceInsertionElementProperties]::new()
 
-    $portmirror.ServiceInsertionElements[0] = [Microsoft.Windows.NetworkController.ServiceInsertionElement]::new()
-    $portmirror.ServiceInsertionElements[0].ResourceId = "Element1"
-    $portmirror.ServiceInsertionElements[0].Properties = [Microsoft.Windows.NetworkController.ServiceInsertionElementProperties]::new()
+   $portmirror.ServiceInsertionElements[0].Properties.Description = "Port Mirror Element"
+   $portmirror.ServiceInsertionElements[0].Properties.NetworkInterface = $dstNic
+   $portmirror.ServiceInsertionElements[0].Properties.Order = 1
+   ```
 
-    $portmirror.ServiceInsertionElements[0].Properties.Description = "Port Mirror Element"
-    $portmirror.ServiceInsertionElements[0].Properties.NetworkInterface = $dstNic
-    $portmirror.ServiceInsertionElements[0].Properties.Order = 1
+6. 网络控制器中添加服务插入对象。<p>时发出此命令，到设备的所有流量的都网络接口指定在上一步骤会停止。
 
-###<a name="step-6-add-the-service-insertion-object-in-network-controller"></a>第 6 步： 添加到网络控制器的服务插入对象
-当你发出此命令时，将停止设备网络界面的上一步中指定的所有通信。
+   ```PowerShell
+   $portMirror = New-NetworkControllerServiceInsertion -ConnectionUri $uri -Properties $portmirror -ResourceId "MirrorAll"
+   ```
 
-可以使用下面的示例命令添加到网络控制器的服务插入对象。
+7. 更新源要镜像的网络接口。
 
-    $portMirror = New-NetworkControllerServiceInsertion -ConnectionUri $uri -Properties $portmirror -ResourceId "MirrorAll"
+   ```PowerShell
+   $srcNic.Properties.IpConfigurations[0].Properties.ServiceInsertion = $portMirror
+   $srcNic = New-NetworkControllerNetworkInterface -ConnectionUri $uri  -Properties $srcNic.Properties -ResourceId $srcNic.ResourceId
+   ```
 
-###<a name="step-7-update-the-network-interface-of-the-source-to-be-mirrored"></a>第 7 步： 更新网络接口镜像的源
-可以使用下面的示例命令以进行更新的网络接口。
-
-    $srcNic.Properties.IpConfigurations[0].Properties.ServiceInsertion = $portMirror
-    $srcNic = New-NetworkControllerNetworkInterface -ConnectionUri $uri  -Properties $srcNic.Properties -ResourceId $srcNic.ResourceId
-
-当你完成这些步骤后时，从 MyVM_Ethernet1 界面交通 Appliance_Ethernet1 接口镜像。
+完成这些步骤后，Appliance_Ethernet1 接口镜像 MyVM_Ethernet1 接口的流量。
  
+---
