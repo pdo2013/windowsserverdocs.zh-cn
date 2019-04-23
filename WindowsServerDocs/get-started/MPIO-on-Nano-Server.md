@@ -13,11 +13,11 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 15d9ebfe72744ed26239587ef297b06361233425
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2081893"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59874038"
 ---
 # <a name="mpio-on-nano-server"></a>Nano Server 上的 MPOI
 
@@ -26,7 +26,7 @@ ms.locfileid: "2081893"
 > [!IMPORTANT]
 > 自 Windows Server 版本 1709 开始，Nano Server 将仅用作[容器基本操作系统映像](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image)。 查看[对 Nano Server 进行的更改](nano-in-semi-annual-channel.md)以了解这意味着什么。 
 
-本主题介绍如何在 Windows Server 2016 的 Nano Server 安装中使用 MPIO。 有关 Windows Server 中 MPIO 的常规信息，请参阅 [多路径 I/O 概述](https://technet.microsoft.com/library/cc725907.aspx)。  
+本主题介绍了如果在 Windows Server 2016 的 Nano Server 安装中使用 MPIO。 有关 Windows Server 中 MPIO 的常规信息，请参阅 [多路径 I/O 概述](https://technet.microsoft.com/library/cc725907.aspx)。  
 
 ## <a name="using-mpio-on-nano-server"></a>使用 Nano Server 上的 MPIO  
 你可以在 Nano Server 上使用 MPIO，但存在以下不同之处：  

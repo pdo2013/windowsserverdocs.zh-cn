@@ -1,7 +1,7 @@
 ---
 ms.assetid: eb047a19-e5cb-43f4-a7bb-c4b7c8fc55a5
-title: "广告 FS 部署指导"
-description: 
+title: AD FS 部署指南
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,23 +10,24 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: b1ac5cee1c4ba404308fde6959016dd765ccc4af
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59872588"
 ---
-# <a name="ad-fs-2016-deployment-guide"></a>广告 FS 2016 部署指南
+# <a name="ad-fs-2016-deployment-guide"></a>AD FS 2016 部署指南
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-广告 FS 部署指南用于部署广告 FS 是一个完整的指南。  本指南由以下组成：
+AD FS 部署指南适用于部署 AD FS 的全面指南。  本指南由以下值：
 
   
-* [升级到 Windows Server 2016 中的广告 FS](Upgrading-to-AD-FS-in-Windows-Server-2016.md)  
+* [升级到 Windows Server 2016 中的 AD FS](Upgrading-to-AD-FS-in-Windows-Server-2016.md)  
 
 * [Windows Server 2016 和 2012 R2 部署指南](Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)
 
 * [Windows Server 2012 部署指南](Windows-Server-2012-AD-FS-Deployment-Guide.md)
 
-* [监视你本地身份基础结构和同步云中的服务](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health)
+* [监视本地标识基础结构和同步服务在云中](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health)
   

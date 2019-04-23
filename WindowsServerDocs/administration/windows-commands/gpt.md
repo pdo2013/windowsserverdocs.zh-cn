@@ -1,0 +1,47 @@
+---
+title: gpt
+description: 'Windows 命令主题 * * *- '
+ms.custom: na
+ms.prod: windows-server-threshold
+ms.reviewer: na
+ms.suite: na
+ms.technology: manage-windows-commands
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.assetid: 1d6f9029-807f-4420-a336-36669b5361bc
+author: coreyp-at-msft
+ms.author: coreyp
+manager: dongill
+ms.date: 10/16/2017
+ms.openlocfilehash: 753ad622456280f22e8c4c209452cb17af75ce24
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59873468"
+---
+# <a name="gpt"></a>gpt
+
+>适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+
+在基本 GUID 分区表 (gpt) 磁盘上，为具有焦点的分区分配 gpt 属性。  gpt 分区属性指定使用的分区的其他信息。 某些属性是特定于分区类型 GUID。
+
+> [!CAUTION]
+> 更改 gpt 属性可能会导致基本数据卷分配驱动器号，或若要防止装载文件系统失败。 除非您是原始设备制造商 (OEM) 或 IT 专业人员经验 gpt 磁盘，不应更改 gpt 属性。
+## <a name="syntax"></a>语法
+```
+gpt attributes=<n>
+```
+## <a name="parameters"></a>Parameters
+|参数|描述|
+|-------|--------|
+|attributes=<n>|指定你想要将应用于选中的分区的属性的值。 Gpt 属性字段是包含两个子的 64 位字段。 较大的字段是仅在分区 ID 的上下文中解释，而较小的字段是常用于所有分区 Id。 接受的值包括：<br /><br />-   **0x0000000000000001**。 指定分区需要计算机才能正常工作。<br />-   **0x8000000000000000**。 指定的分区时不会收到驱动器号默认情况下该磁盘移动到另一台计算机或磁盘是首次发现的计算机。<br />-   **0x4000000000000000**. 隐藏分区的卷。 也就是说，分区不会检测由计数管理器中。<br />-   **0x2000000000000000**。 指定分区是另一个分区的卷影副本。<br />-   **0x1000000000000000**。 指定分区是只读的。 此属性可防止写入到该卷。<br /><b />有关这些属性的详细信息，请参阅在属性部分[create_PARTITION_PARAMETERS 结构](https://go.microsoft.com/fwlink/?LinkId=203812)(https://go.microsoft.com/fwlink/?LinkId=203812)。|
+## <a name="remarks"></a>备注
+-   EFI 系统分区包含启动操作系统所需的那些二进制。 这便于 OEM 二进制文件或二进制文件特定于操作系统，放置在其他分区。
+-   若要成功执行此操作，必须选择基本 gpt 分区。 使用**选择分区**命令选择基本 gpt 分区，并将焦点移到它。
+## <a name="BKMK_examples"></a>示例
+如果您将 gpt 磁盘移动到新计算机，并且想要以防止该计算机会自动将驱动器号分配给具有焦点，类型的分区：
+```
+gpt attributes=0x8000000000000000
+```
+

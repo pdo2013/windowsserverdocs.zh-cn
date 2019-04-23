@@ -1,7 +1,7 @@
 ---
 ms.assetid: cea6011d-3753-4b95-aaa5-38d4e97d6e42
-title: "准备帐户合作伙伴在客户端计算机"
-description: 
+title: 在帐户伙伴中准备客户端计算机
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,27 +10,28 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 0c5bdcb0a80b15a1905109229ddd20ee642a8dd7
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59868518"
 ---
-# <a name="prepare-client-computers-in-the-account-partner"></a>准备帐户合作伙伴在客户端计算机
+# <a name="prepare-client-computers-in-the-account-partner"></a>在帐户伙伴中准备客户端计算机
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-准备的访问权限的 Active Directory 联合身份验证服务联合 \(AD FS\) 应用程序的客户端计算机管理员帐户合作伙伴组织中的最简单方法是使用组策略。 组策略，可以方便地为你推送特定证书和所需的联盟可用于访问联盟应用程序中的所有客户端计算机的设置。  
+管理员帐户中的最简单方法伙伴组织准备客户端计算机到 Active Directory 联合身份验证服务的访问\(AD FS\)联合应用程序是使用组策略。 组策略为你提供一种便捷的方法，可让你将联合所需的特定证书和设置推送到将用于访问联合应用程序的所有客户端计算机。  
   
-以便客户端计算机可以无缝访问不证书提示或受信任的站点相关提示联盟应用程序，我们建议先准备每个客户端计算机部署之前广告 FS 广泛地在你的组织。 请考虑使用组策略为自动：  
+以便客户端计算机可无缝访问联合应用程序而无需证书提示或受信任的站点的相关提示，我们建议你首先准备每台客户端计算机，在部署 AD FS 之前广泛在组织中。 请考虑使用组策略来自动：  
   
--   配置每个要信任帐户联盟服务器的客户端计算机上的 Internet Explorer。  
+-   每个客户端计算机信任的帐户联合身份验证服务器上配置 Internet Explorer。  
   
-    有关详细信息，请参阅[将配置客户端计算机信任帐户联盟服务器](../../ad-fs/deployment/Configure-Client-Computers-to-Trust-the-Account-Federation-Server.md)。  
+    有关详细信息，请参阅 [Configure Client Computers to Trust the Account Federation Server](../../ad-fs/deployment/Configure-Client-Computers-to-Trust-the-Account-Federation-Server.md)。  
   
--   安装相应帐户联盟服务器、资源联合身份验证的服务器和 Web 服务器的安全套接字层 \(SSL\) 证书 \（或等效的证书链为受信任的 root\）客户端中的每台计算机上。  
+-   安装相应的帐户联合身份验证服务器、 资源联合身份验证服务器和 Web 服务器安全套接字层\(SSL\)证书\(等效项链接到受信任的根证书或\)上每个客户端计算机。  
   
-    有关详细信息，请参阅[分发给客户端计算机使用组策略的证书](../../ad-fs/deployment/Distribute-Certificates-to-Client-Computers-by-Using-Group-Policy.md)。  
+    有关详细信息，请参阅[将证书分发到客户端计算机使用组策略](../../ad-fs/deployment/Distribute-Certificates-to-Client-Computers-by-Using-Group-Policy.md)。  
   
 
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 指导广告 FS 设计](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

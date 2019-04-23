@@ -7,19 +7,19 @@ ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 10/08/2018
-Keywords: Storage Spaces Direct, S2D, maintenance
+Keywords: 存储空间直通, S2D, 维护
 ms.assetid: 73dd8f9c-dcdb-4b25-8540-1d8707e9a148
 ms.localizationpriority: medium
 ms.openlocfilehash: 96ae0ad0d1def12ab68466f0a9ae60d0afcc2c17
-ms.sourcegitcommit: e73fbe1046a8bd2bf4f24ccffc11465ad8dfab1d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "8992520"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59871218"
 ---
-# 使存储空间直通服务器脱机以进行维护
+# <a name="taking-a-storage-spaces-direct-server-offline-for-maintenance"></a>使存储空间直通服务器脱机以进行维护
 
-> 适用于： Windows Server 2019、 Windows Server 2016
+> 适用于：Windows Server 2019、Windows Server 2016
 
 本主题提供有关如何正确重启或关闭带有[存储空间直通](storage-spaces-direct-overview.md)的服务器的指南。
 
@@ -30,7 +30,7 @@ ms.locfileid: "8992520"
    > [!IMPORTANT]
    > 要在存储空间直通群集上安装更新，请使用群集感知更新 (CAU)，它将自动执行本主题中的步骤，使你无需在安装更新时执行。 有关详细信息，请参阅[群集感知更新 (CAU)](https://technet.microsoft.com/library/hh831694.aspx)。
 
-## 验证使服务器脱机是否安全
+## <a name="verifying-its-safe-to-take-the-server-offline"></a>验证使服务器脱机是否安全
 
 使服务器脱机以进行维护之前，验证所有卷是否正常。
 
@@ -55,7 +55,7 @@ MyVolume3    Mirror                OK                Healthy      True          
 
 验证每个卷（虚拟磁盘）的**状态**列显示**联机**。
 
-## 暂停并清空服务器
+## <a name="pausing-and-draining-the-server"></a>暂停并清空服务器
 
 重启或关闭服务器之前，请暂停并清空（移除）任意角色（例如，在服务器上运行的虚拟机）。 这也为存储空间直通提供了顺利刷新并提交数据的机会，以确保关机对于任何在该服务器上运行的应用程序而言都是透明的。
 
@@ -79,11 +79,11 @@ Suspend-ClusterNode -Drain
 
 ![安全检查](media/maintain-servers/safety-check.png)
 
-## 正在关闭服务器
+## <a name="shutting-down-the-server"></a>正在关闭服务器
 
 服务器完成清空后，它将在故障转移群集管理器和 PowerShell 中显示为**暂停**。
 
-![暂停](media/maintain-servers/paused.png)
+![已暂停](media/maintain-servers/paused.png)
 
 现在，你可以像往常一样（例如，通过使用 Restart-Computer 或 Stop-Computer PowerShell cmdlet）安全重启或关机。
 
@@ -97,9 +97,9 @@ MyVolume2    Mirror                Incomplete        Warning      True          
 MyVolume3    Mirror                Incomplete        Warning      True           1 TB
 ```
 
-节点正在关闭或启动/停止群集节点上服务，以及应该不会导致问题时，不完整或对视频进行降级操作状态是正常情况。 你的所有卷都保持联机和可访问。
+不完整或降级操作状态是正常的节点要关闭或启动/停止群集服务在节点上并不应引起关注时。 你的所有卷都保持联机和可访问。
 
-## 恢复服务器
+## <a name="resuming-the-server"></a>恢复服务器
 
 当你准备好使服务器再次开始托管工作负载时，请恢复它。
 
@@ -119,9 +119,9 @@ Resume-ClusterNode –Failback Immediate
 
 ![故障回复角色](media/maintain-servers/resume-failback.png)
 
-## 等待要重新同步的存储
+## <a name="waiting-for-storage-to-resync"></a>等待要重新同步的存储
 
-服务器恢复时，需要重新同步发生在其不可用任何新写入。 此过程自动发生。 使用智能更改跟踪无需扫描或同步*所有*数据，只需扫描或同步更改。 此过程会受到限制，以缓解生产负载产生的影响。 这一过程可能需要数分钟才能完成，具体取决于服务器暂停的时间和写入的新数据量。
+当服务器重新开始时，新的写入操作发生在它处于不可用时需要重新同步。 此过程自动发生。 使用智能更改跟踪无需扫描或同步*所有*数据，只需扫描或同步更改。 此过程会受到限制，以缓解生产负载产生的影响。 这一过程可能需要数分钟才能完成，具体取决于服务器暂停的时间和写入的新数据量。
 
 你必须等待重新同步完成才能使群集中的任意其他服务器脱机。
 
@@ -167,24 +167,24 @@ MyVolume3    Mirror                OK                Healthy      True          
 
 现在可以安全地暂停和重启群集中的其他服务器。
 
-## 如何更新存储空间直通节点脱机
-快速使用以下步骤以路径存储空间直通系统。 它涉及到计划在维护窗口和修补停止系统。 如果你需要一个关键安全更新快速应用或您可能需要确保修补完成在维护窗口中，此方法可能是为你。 此过程导致存储空间直通群集、 修补程序，并且所有最多再次带来。 权衡做法是对托管资源的停机时间。
+## <a name="how-to-update-storage-spaces-direct-nodes-offline"></a>如何更新存储空间直通的节点脱机
+快速使用以下步骤为路径存储空间直通系统。 它涉及计划一个维护时段和关闭系统进行修补。 如果不迅速应用所需的关键安全更新，或者您可能需要确保修补的维护时段中完成，此方法可能会为您。 此过程会停止存储空间直通群集、 修补程序，并使其再次所有最多。 弊端是对托管资源的停机时间。
 
-1. 计划在维护窗口。
-2. 使虚拟磁盘脱机。
-3. 停止群集使存储池中脱机。 运行**停止群集**cmdlet 或使用故障转移群集管理器停止群集。
-4. 将群集服务设置为**已禁用**服务中每个节点上。 这可以防止群集服务启动时正在修补。
-5. 应用累积更新的 Windows 服务器和任何所需服务堆栈更新时的所有节点。 （你可以更新的所有节点在同一时间，无需等待，因为群集是向下）。  
-6. 重新启动的节点，并确保一切正常。
-7. 将群集服务回**自动**设置每个节点上。
-8. 开始菜单群集。 运行**开始菜单群集**cmdlet 或使用故障转移群集管理器。 
+1. 计划的维护时段。
+2. 使虚拟磁盘处于脱机状态。
+3. 停止群集使存储池脱机。 运行**停止群集**cmdlet 或使用故障转移群集管理器停止群集。
+4. 将群集服务设置为**禁用**中每个节点上的 Services.msc。 这会阻止群集服务启动时修补。
+5. 将 Windows Server 累积更新应用，并且任何必需的所有节点的维护服务堆栈更新。 （您可以更新所有节点在相同时，无需等待由于群集已关闭）。  
+6. 重新启动节点，并确保一切正常。
+7. 群集服务将重新的设置为**自动**每个节点上。
+8. 启动群集。 运行**开始群集**cmdlet 或使用故障转移群集管理器。 
 
-   为它提供几分钟。  请确保存储池中正常。
-9. 使虚拟磁盘恢复联机状态。
-10. 通过运行**获取卷**和**获取 VirtualDisk** cmdlet 来监视虚拟磁盘的状态。
+   等待几分钟。  请确保存储池处于正常状态。
+9. 将虚拟磁盘返回到联机状态。
+10. 通过运行来监视虚拟磁盘的状态**Get-volume**并**Get-virtualdisk** cmdlet。
 
 
-## 另请参阅
+## <a name="see-also"></a>请参阅
 
 - [存储空间直通概述](storage-spaces-direct-overview.md)
 - [群集感知更新 (CAU)](https://technet.microsoft.com/library/hh831694.aspx)

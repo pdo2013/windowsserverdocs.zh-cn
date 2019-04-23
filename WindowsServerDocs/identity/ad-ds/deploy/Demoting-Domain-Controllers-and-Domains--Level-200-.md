@@ -1,256 +1,243 @@
 ---
 ms.assetid: 65ed5956-6140-4e06-8d99-8771553637d1
-title: "降级域控制器和域 (级别 200)"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
-ms.date: 05/31/2017
+title: 降级域控制器和域（级别 200）
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
+ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: c254a01da5534c1ddc673bc1e60382c166ddeda7
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 9b3db1390e8191451ef270ce29a2a37463b1de3c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59869768"
 ---
-# <a name="demoting-domain-controllers-and-domains-level-200"></a>降级域控制器和域 (级别 200)
+# <a name="demoting-domain-controllers-and-domains"></a>降级域控制器和域
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server
 
-本主题介绍如何删除广告 DS，使用服务器管理器或 Windows PowerShell。  
+本主题介绍如何使用服务器管理器或 Windows PowerShell 删除 AD DS。
   
--   [广告 DS 删除流](../../ad-ds/deploy/Demoting-Domain-Controllers-and-Domains--Level-200-.md#BKMK_Workflow)  
-  
--   [降级和角色删除 Windows PowerShell](../../ad-ds/deploy/Demoting-Domain-Controllers-and-Domains--Level-200-.md#BKMK_PS)  
-  
--   [降级](../../ad-ds/deploy/Demoting-Domain-Controllers-and-Domains--Level-200-.md#BKMK_Demote)  
-  
-## <a name="BKMK_Workflow"></a>广告 DS 删除流  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/adds_demotedomainforest.png)  
-  
-> [!CAUTION]  
-> 升级到某个域控制器不支持，这将阻止服务器正常启动后，请删除 Dism.exe 或 DISM Windows PowerShell 模块的广告 DS 角色。  
->   
-> 像服务器管理器或 ADDSDeployment 为 Windows PowerShell 模块，DISM 是原始 servicing 系统具有广告 DS 没有本身知道或其配置。 不要使用 Dism.exe 或 DISM Windows PowerShell 模块除非服务器不再域控制器卸载广告 DS 角色。  
-  
-## <a name="BKMK_PS"></a>降级和角色删除 Windows PowerShell  
-  
+## <a name="ad-ds-removal-workflow"></a>AD DS 删除工作流
+
+![AD DS 删除工作流图表](media/Demoting-Domain-Controllers-and-Domains--Level-200-/adds_demotedomainforest.png)  
+
+> [!CAUTION]
+> 不支持在升级到域控制器后使用 Dism.exe 或 Windows PowerShell DISM 模块删除 AD DS 角色，并且将阻止服务器正常启动。
+>
+> 和服务器管理器或 Windows PowerShell 的 ADDSDeployment 模块不同，DISM 是本机服务系统，它没有继承关于 AD DS 或其配置的知识。 不要使用 Dism.exe 或 Windows PowerShell DISM 模块卸载 AD DS 角色，除非服务器不再是域控制器。
+
+## <a name="demotion-and-role-removal-with-powershell"></a>使用 PowerShell 降级和角色删除
+
 |||  
 |-|-|  
-|**ADDSDeployment 和 ServerManager Cmdlet**|参数 (**加粗**参数是必需的。 *斜体*可以通过使用 Windows PowerShell 或广告 DS 配置向导指定参数。)|  
-|Uninstall-AddsDomainController|-SkipPreChecks<br /><br />*-LocalAdministratorPassword*<br /><br />-确认<br /><br />***-凭据***<br /><br />-DemoteOperationMasterRole<br /><br />*-DNSDelegationRemovalCredential*<br /><br />-强制<br /><br />*-ForceRemoval*<br /><br />*-IgnoreLastDCInDomainMismatch*<br /><br />*-IgnoreLastDNSServerForZone*<br /><br />*-LastDomainControllerInDomain*<br /><br />-Norebootoncompletion<br /><br />*-RemoveApplicationPartitions*<br /><br />*-RemoveDNSDelegation*<br /><br />-RetainDCMetadata|  
-|卸载-WindowsFeature/删除-WindowsFeature|***-名称***<br /><br />***-IncludeManagementTools***<br /><br />*重启*<br /><br />-删除<br /><br />-强制<br /><br />-计算机名称<br /><br />-凭据<br /><br />-LogPath<br /><br />-Vhd|  
+|**ADDSDeployment 和 ServerManager Cmdlet**|参数（需要**加粗**参数。 *斜体*参数可以通过使用 Windows PowerShell 或 AD DS 配置向导来指定。）|  
+|Uninstall-AddsDomainController|-SkipPreChecks<br /><br />*-LocalAdministratorPassword*<br /><br />-Confirm<br /><br />***-Credential***<br /><br />-DemoteOperationMasterRole<br /><br />*-DNSDelegationRemovalCredential*<br /><br />-Force<br /><br />*-ForceRemoval*<br /><br />*-IgnoreLastDCInDomainMismatch*<br /><br />*-IgnoreLastDNSServerForZone*<br /><br />*-LastDomainControllerInDomain*<br /><br />-Norebootoncompletion<br /><br />*-RemoveApplicationPartitions*<br /><br />*-RemoveDNSDelegation*<br /><br />-RetainDCMetadata|  
+|Uninstall-WindowsFeature/Remove-WindowsFeature|***-Name***<br /><br />***-IncludeManagementTools***<br /><br />*-Restart*<br /><br />-Remove<br /><br />-Force<br /><br />-ComputerName<br /><br />-Credential<br /><br />-LogPath<br /><br />-Vhd|  
   
 > [!NOTE]  
-> **-凭据**参数为所需如果你未已登录作为企业管理员组（降级域中的最后一个 DC）的成员仅或域管理员组（降级副本 DC).The **-includemanagementtools**参数才需要你是否想要删除所有广告 DS 管理实用程序。  
+> 仅在你尚未作为 Enterprise Admins 组（降级域中的最后一个 DC）或 Domain Admins 组（降级副本 DC）的成员登录时，才需要 **-credential** 参数。仅在你希望删除所有 AD DS 管理实用程序时，才需要 **-includemanagementtools** 参数。  
   
-## <a name="BKMK_Demote"></a>降级  
+## <a name="demote"></a>降级  
   
-### <a name="remove-roles-and-features"></a>删除角色和功能  
-Server 管理器中将提供两个接口删除 Active Directory 域服务角色：  
+### <a name="remove-roles-and-features"></a>删除角色和功能
+
+服务器管理器提供两个接口以删除 Active Directory 域服务角色：  
   
--   **管理**菜单主要仪表板上的使用**删除角色和功能**  
+* 主仪表板上的“管理”  菜单，使用“删除角色和功能”   
+
+   ![服务器管理器-删除角色和功能](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Manage.png)  
+
+* 单击导航窗格上的“AD DS”或“所有服务器”。 向下滚动到“角色和功能”部分。 右键单击“角色和功能”列表中的“Active Directory 域服务”并单击“删除角色或功能”。 此接口跳过“服务器选择”页面。  
+
+   ![服务器管理器的所有服务器的删除角色和功能](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ServerSelection.png)  
+
+ServerManager cmdlet **Uninstall-windowsfeature**并**Remove-windowsfeature**将阻止你删除 AD DS 角色，直到你降级域控制器。
   
- ![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Manage.png)  
+### <a name="server-selection"></a>服务器选择
+
+![删除角色和功能向导选择目标服务器](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ServerSelection2.png)  
+
+“服务器选择”对话框使你可以从之前添加到池的服务器中选择一个（只要它可访问）。 运行服务器管理器的本地服务器始终自动可用。  
+
+### <a name="server-roles-and-features"></a>服务器角色和功能
+
+![删除角色和功能向导-选择要删除的角色](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ServerRoles.png)  
+
+如果服务器当前是域控制器，清除“Active Directory 域服务”复选框以降级域控制器，此操作不删除 AD DS 角色，而是切换到提供降级功能的“验证结果”对话框。 否则，它将和任何其他角色功能一样直接删除二进制文件。  
+
+* 如果你希望立即再次升级域控制器，不要删除任何其他 AD DS 相关的角色或功能（例如 DNS、GPMC 或 RSAT 工具）。 删除其他角色和功能将增加重新升级的时间，因为当你重新安装角色时，服务器管理器会重新安装这些功能。  
+* 如果你希望永久降级域控制器，根据你自己的判断删除不需要的 AD DS 角色和功能。 这需要清除这些角色和功能对应的复选框。  
+
+   AD DS 相关的角色和功能的完整列表包括：  
   
--   单击**广告 DS**或**所有服务器**导航窗格中。 向下滚动到**角色和功能**部分。 右键单击**Active Directory 域服务**中**角色和功能**列表，然后单击**删除角色或功能**。 跳过此接口**选择服务器**页面。  
+   * 用于 Windows PowerShell 功能的 Active Directory 模块  
+   * AD DS 和 AD LDS 工具功能  
+   * Active Directory 管理中心功能  
+   * AD DS 管理单元和命令行工具功能  
+   * DNS 服务器  
+   * 组策略管理控制台  
   
- ![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ServerSelection.png)  
+等效的 ADDSDeployment 和 ServerManager Windows PowerShell cmdlet 如下：  
   
-ServerManager cmdlet**卸载 WindowsFeature**和**删除 WindowsFeature**阻止你删除广告 DS 角色，直到降级域控制器。  
-  
-### <a name="server-selection"></a>选择服务器  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ServerSelection2.png)  
-  
-**选择服务器**对话框，您可以选择从一台服务器之前将其添加到池，只要它是访问。 本地服务器运行服务器管理器是始终自动可用。  
-  
-### <a name="server-roles-and-features"></a>服务器角色和功能  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ServerRoles.png)  
-  
-清除**Active Directory 域服务**复选框以降级域控制器;如果该服务器目前域控制器，这不会删除广告 DS 角色和改为切换到**验证结果**通过在优惠降级对话框。 否则，只需删除任何其他角色功能等二进制文件。  
-  
--   如果你想要立即再次推广域控制器，不要删除任何其他广告 DS 相关角色或功能-例如 DNS、GPMC，或者 RSAT 工具。 删除其他角色和功能随着时间重新提升，服务器管理器重新安装这些功能，当你重新安装角色。  
-  
--   如果你打算降级域控制器永久，删除不需要的广告 DS 角色和你自行决定的功能。 这要求清除这些的角色和功能所对应的复选框。  
-  
-    完整列表的广告 DS 相关的角色和功能包括：  
-  
-    -   Active DirectoryWindows PowerShell 功能的模块  
-  
-    -   广告 DS 和广告 LDS 工具功能  
-  
-    -   Active Directory 管理中心功能  
-  
-    -   广告 DS 单元和命令行工具功能  
-  
-    -   DNS 服务器  
-  
-    -   组策略管理控制台  
-  
-等效 ADDSDeployment 和 ServerManager Windows PowerShell cmdlet 是：  
-  
-```  
+```
 Uninstall-addsdomaincontroller  
 Uninstall-windowsfeature  
+```
+
+![删除角色和功能向导的确认对话框](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_RemoveFeatures.png)  
+
+![删除角色和功能向导的验证](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Demote.png)  
+
+### <a name="credentials"></a>凭据
+
+![Active Directory 域服务配置向导-凭据所选内容](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Credentials.png)  
+
+你可在“凭据”  页上配置降级选项。 从以下列表提供执行降级所需的凭据：  
+
+* 降级其他域控制器需要 Domain Admin 凭据。 选择**强制删除此域控制器**将降级域控制器，而不从 Active Directory 删除域控制器对象的元数据。  
+
+   > [!WARNING]  
+   > 如果域控制器可以联系其他域控制器，则不要选择此选项，而且*还没有任何合理的方法*可解决这种网络问题。 强制降级会将 Active Directory 中已丢弃的元数据保留在林中的其余域控制器上。 此外，该域控制器上所有未复制的更改（如密码或新用户帐户）都将永久丢失。 已丢弃的元数据是 AD DS、Exchange、SQL 和其他软件的大部分 Microsoft 客户支持案例的根本原因。  
+   >
+   > 如果强制降级域控制器，*必须*立即手动执行元数据清理。 有关步骤，请查看 [清理服务器元数据](https://technet.microsoft.com/library/cc816907(WS.10).aspx)。  
+
+   ![Active Directory 域服务配置向导-凭据强制删除](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ForceDemote.png)  
   
-```  
-  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_RemoveFeatures.png)  
-  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Demote.png)  
-  
-### <a name="credentials"></a>凭据  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Credentials.png)  
-  
-你在配置降级选项**凭据**页面。 提供以下列表中执行降级所需的凭据：  
-  
--   降级额外的域控制器要求域管理员凭据。 选择**强制中删除此域控制器**将域控制器降级而不删除 Active Directory 对象域控制器元数据。  
-  
-    > [!WARNING]  
-    > 不要选择此选项，除非域控制器无法联系其他域控制器，并且没有*合理无法*来解决该网络的问题。 强制的降级森林中的其余域控制器上保留 Active Directory 孤立元数据。 此外，所有已取消复制的更改在该域控制器，例如密码或新的用户帐户都将丢失永远停止营业。 孤立元数据是很大比例的 Microsoft 客户支持的情况下在广告 DS、 Exchange、 SQL，和其他软件的根本原因。  
-    >   
-    > 如果你强行降级域控制器，您*必须*手动立即执行清理元数据。 对于步骤，查看[干净向上服务器元数据](https://technet.microsoft.com/library/cc816907(WS.10).aspx)。  
-  
-   ![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ForceDemote.png)  
-  
--   降级域中的最后一个域控制器需要企业管理员组成员资格，因为这会删除域本身 (如果树林中的最后一个域，这将删除森林)。 服务器管理器会通知你是否当前的域控制器在域中的最后一个域控制器。 选择**域中的最后一个域控制器**复选框以确认域控制器是在域中的最后一个域控制器。  
-  
+* 降级域中的最后一个域控制器需要 Enterprise Admins 组的成员身份，因为这将删除域本身（如果是林中的最后一个域，这将删除林）。 服务器管理器将通知当前域控制器是否是域中的最后一个域控制器。 选中“域中最后一个域控制器”复选框以确认该域控制器是域中最后一个域控制器。  
+
 等效 ADDSDeployment Windows PowerShell 参数是：  
-  
-```  
+
+```
 -credential <pscredential>  
 -forceremoval <{ $true | false }>  
 -lastdomaincontrollerindomain <{ $true | false }>  
-  
-```  
-  
-### <a name="warnings"></a>警告  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Warnings.png)  
-  
-**警告**页面向你发送警报删除此域控制器可能出现的后果。 若要继续时，必须选择**继续删除**。  
-  
+```
+
+### <a name="warnings"></a>警告
+
+![Active Directory 域服务配置向导-凭据 FSMO 角色的影响](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Warnings.png)  
+
+“警告”  页面向你警示删除此域控制器可能出现的后果。 若要继续，则必须选中“继续删除” 。
+
 > [!WARNING]  
-> 如果你之前所选**强制中删除此域控制器**上**凭据**页面，然后**警告**页面显示托管由此域控制器的所有灵活单母版操作角色。 你*必须*捕获从另一个域控制器角色*立即*后降级此服务器。 占用域控制器上的详细信息，请参阅[占用操作母版角色](https://technet.microsoft.com/library/cc816779(WS.10).aspx)。  
-  
-此页上并没有等效 ADDSDeployment Windows PowerShell 参数。  
-  
-### <a name="removal-options"></a>删除选项  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ReviewOptions.png)  
-  
-**删除选项**页面显示时，具体取决于以前选择**域中的最后一个域控制器**上**凭据**页面。 此页面，可以配置可删除其他选项。 选择**忽略区域的最后一个 DNS 服务器**，**删除应用程序分区**，并**删除 DNS 委派**公开**下一步**按钮。  
-  
-如果适用于此域控制器，才会显示选项。 例如，如果该服务器未 DNS 委派然后该复选框不会显示。  
-  
-单击**更改**指定备用 DNS 管理的凭据。 单击**查看分区**以查看其他分区向导降级期间删除。 默认情况下，仅其他分区是域 DNS 和森林 DNS 区域。 其他所有分区都是非 Windows。  
-  
-等效 ADDSDeployment cmdlet 参数是：  
-  
-```  
+> 如果你之前选中了“凭据”  页面上的“强制删除此域控制器”  ，那么 **警告** 页面将显示此域控制器托管的所有灵活单主机操作角色。 你 *必须* 在降级此服务器后 *立即* 从另一个域控制器占用这些角色。 有关占用 FSMO 角色的详细信息，请参阅 [占用操作主机角色](https://technet.microsoft.com/library/cc816779(WS.10).aspx)。
+
+此页面没有等效的 ADDSDeployment Windows PowerShell 参数。
+
+### <a name="removal-options"></a>删除选项
+
+![Active Directory 域服务配置向导-凭据中删除 DNS 和应用程序分区](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ReviewOptions.png)  
+
+根据之前选择“凭据”页面上的“域中的最后一个域控制器”，将出现“删除选项”页。 此页面使你可以配置其他删除选项。 选择“忽略区域的最后一个 DNS 服务器” 、“删除应用程序分区” 和“删除 DNS 委派”  以显示“下一步”  按钮。
+
+该选项仅在适用于此域控制器时出现。 例如，如果此服务器没有 DNS 委派，则该复选框将不会显示。
+
+单击“更改”指定备用 DNS 管理凭据。 单击“查看分区”以查看向导在降级期间删除的其他分区。 默认情况下，仅有的其他分区是域 DNS 和林 DNS 区域。 所有其他分区都是非 Windows 分区。
+
+等效的 ADDSDeployment cmdlet 参数是：  
+
+```
 -ignorelastdnsserverforzone <{ $true | false }>  
 -removeapplicationpartitions <{ $true | false }>  
 -removednsdelegation <{ $true | false }>  
 -dnsdelegationremovalcredential <pscredential>  
-```  
-  
-### <a name="new-administrator-password"></a>新的管理员密码  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_NewAdminPwd.png)  
-  
-**新管理员密码**页面要求你提供密码内置本地计算机管理员帐户，降级完毕后计算机在某个域成员服务器或工作组计算机。  
-  
-**卸载 ADDSDomainController** cmdlet 和参数按照相同的默认值为服务器管理器中，如果未指定。  
-  
-**LocalAdministratorPassword**参数是特殊：  
-  
--   如果*未指定*作为参数，然后 cmdlet 提示你输入并确认屏蔽的密码。 运行 cmdlet 交互时，这是首选的使用情况  
-  
--   如果指定*值*，然后值必须安全字符串。 这不是运行 cmdlet 交互时首选的使用情况  
-  
-例如，你可以手动提示输入密码使用**读取主机**cmdlet 安全字符串用户提示  
-  
-```  
--localadministratorpassword (read-host -prompt "Password:" -assecurestring)  
-  
-```  
-  
-> [!WARNING]  
-> 以前的两个选项未确认密码，如使用格外小心：看不到密码  
-  
-虽然这是强烈建议不要，你还可以为转换清除文本变量，提供安全的字符串。 例如：  
-  
-```  
--localadministratorpassword (convertto-securestring "Password1" -asplaintext -force)  
-  
-```  
-  
-> [!WARNING]  
-> 不建议提供或存储清除短的密码。 脚本中运行此命令或查找通过您的任何人都知道该计算机的本地管理员密码。 与该知识，它们将有权访问其所有数据，并且可以模拟服务器本身。  
-  
-### <a name="confirmation"></a>确认  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Confirmation.png)  
-  
-**确认**页面显示计划的降级;页上未列出降级配置选项。 这是降级开始之前，将显示向导中的最后一页。 查看脚本按钮创建降级 Windows PowerShell 脚本。  
-  
-单击**降级**运行以下广告 DS 部署 cmdlet:  
-  
-```  
-Uninstall-DomainController  
-  
-```  
-  
-使用可选**Whatif**具有参数**卸载 ADDSDomainController**和 cmdlet 查看配置的信息。 这使你查看 cmdlet 参数明确和隐式值。  
-  
-例如：  
-  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstall.png)  
-  
-重启的提示是你要取消此操作，使用 ADDSDeployment Windows PowerShell 时的最后一次机会。 若要替代提示，请使用**-强制**或**确认：$false**参数。  
-  
-### <a name="demotion"></a>降级  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Demotion.png)  
-  
-当**降级**页面显示时，域控制器配置开始，无法将停止或取消。 详细的操作显示在此页面上，并且日志写入：  
-  
--   %systemroot%\debug\dcpromo.log  
-  
--   %systemroot%\debug\dcpromoui.log  
-  
-由于**卸载 AddsDomainController**和**卸载 WindowsFeature**仅有一项操作按、他们的最低要求参数了确认阶段此处显示。 按 enter 键启动不可撤销降级进程，并重新启动计算机。  
-  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallConfirm.png)  
-  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallWindowsFeature.png)  
-  
-若要自动接受重新引导提示，请使用**-强制**或**-确认：$false**与任何 ADDSDeployment Windows PowerShell cmdlet 参数。 若要防止服务器推广末尾自动重新启动，请使用**-norebootoncompletion: $false**参数。  
-  
-> [!WARNING]  
-> 不建议重重新启动。 成员服务器必须重新启动才能正常工作。  
-  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallFinished.png)  
-  
-下面是一种与其降至最低要求参数强行降级**-forceremoval**和**-demoteoperationmasterrole**。 **-凭据**参数不需要，因为作为企业管理员组成员的登录的用户：  
-  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallExampleForce.png)  
-  
-以下是删除与其降至最低要求参数域中的最后一个域控制器它的一个示例**-lastdomaincontrollerindomain**和**-removeapplicationpartitions**:  
-  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallExampleLastDC.png)  
-  
-如果你试图在降级服务器之前删除广告 DS 角色，Windows PowerShell 阻止有意错误：  
-  
-```  
-Uninstall-WindowsFeature : An uninstallation prerequisite step failed duringthe removal of AD-Domain-Services, and uninstallation cannot continue.1. The domain controller needs to be demoted before the Active DirectoryDomain Services Role can be uninstalled.  
-```  
-  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallError.png)  
-  
-> [!IMPORTANT]  
-> 你可以删除广告域服务角色二进制文件之前降级服务器后，必须重启计算机。  
-  
-### <a name="results"></a>结果  
-![降级 DC](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_DemoteSignoff.png)  
-  
-**结果**页面显示的成功或失败的升级和管理的任何重要信息。 10 秒钟后，域控制器将自动重新启动。  
-  
+```
 
+### <a name="new-administrator-password"></a>新建管理员密码
+
+![Active Directory 域服务配置向导-凭据新管理员密码](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_NewAdminPwd.png)  
+
+**新的管理员密码**页要求您降级完成且计算机成为域成员服务器或工作组计算机后，为内置本地计算机的管理员帐户提供密码。
+
+**Uninstall-ADDSDomainController** cmdlet 和参数遵循与服务器管理器相同的默认值（如果未指定）。
+
+**LocalAdministratorPassword** 参数是特殊参数：
+
+* 如果 *未指定* 为参数，则 cmdlet 将提示你输入并确认掩蔽的密码。 以交互方式运行 cmdlet 时，这是首选用法。
+* 如果 *已使用值*指定，那么该值必须是一个安全字符串。 以交互方式运行 cmdlet 时，这不是首选用法。
+
+例如，可手动提示输入密码通过使用**Read-host** cmdlet 来提示用户输入安全字符串。
+
+```
+-localadministratorpassword (read-host -prompt "Password:" -assecurestring)
+```
+
+> [!WARNING]
+> 由于前两个选项未确认密码，谨慎： 密码不可见。
+
+你还可以提供安全字符串作为转换的明文变量，尽管强烈不建议这样做。 例如：
+
+```
+-localadministratorpassword (convertto-securestring "Password1" -asplaintext -force)
+```
+
+> [!WARNING]
+> 不建议提供或存储明文密码。 任何在脚本中运行此命令或在你背后偷看的人都知道该计算机的本地管理员密码。 知道密码后，他们可以访问其所有数据并模拟服务器本身。
+
+### <a name="confirmation"></a>确认
+
+![Active Directory 域服务配置向导-查看选项](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Confirmation.png)
+
+“确认”  页面将显示计划的降级；该页面不会列出降级配置选项。 这是向导在降级开始前显示的最后一个页面。 “查看脚本”按钮将创建一个 Windows PowerShell 降级脚本。
+
+单击“降级”以运行以下 AD DS 部署 cmdlet：
+
+```
+Uninstall-DomainController
+```
+
+将可选 **Whatif** 参数与 **Uninstall-ADDSDomainController** 和 cmdlet 一起使用以查看配置信息。 这使你可以查看 cmdlet 的参数的显式值和隐式值。
+
+例如：
+
+![PowerShell Uninstall-addsdomaincontroller 示例](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstall.png)
+
+使用 ADDSDeployment Windows PowerShell 时，重新启动的提示是你取消此操作的最后机会。 若要覆盖该提示，请使用 **-force** 或 **confirm:$false** 参数。  
+
+### <a name="demotion"></a>降级
+
+![Active Directory 域服务配置向导-正在进行中的降级](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Demotion.png)  
+
+当“降级”页面显示时，域控制器配置将开始，且无法暂停或取消。 详细的操作在此页面上显示并将写入日志：  
+
+* %systemroot%\debug\dcpromo.log
+* %systemroot%\debug\dcpromoui.log
+
+由于 **Uninstall-AddsDomainController** 和 **Uninstall-WindowsFeature** 仅各有一个操作，因此在确认阶段中它们会在此处显示并带有最少的所需参数。 按 ENTER 将启动不可撤销的降级过程，并重新启动计算机。
+
+![PowerShell Uninstall-addsdomaincontroller 示例](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallConfirm.png)
+
+![PowerShell 卸载 WindowsFeature 示例](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallWindowsFeature.png)
+
+若要自动接受重新启动提示，请将 **-force** 或 **-confirm:$false** 参数与任何 ADDSDeployment Windows PowerShell cmdlet 一起使用。 若要防止在升级结束时自动重新启动，请使用 **-norebootoncompletion:$false** 参数。
+
+> [!WARNING]
+> 不建议重写重新启动。 成员服务器必须重新启动才能正常工作。
+
+![PowerShell Uninstall-addsdomaincontroller 强制示例](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallFinished.png)
+
+以下是在所需的 **-forceremoval** 和 **-demoteoperationmasterrole**参数最少的情况下强制降级的示例。 无需 **-credential** 参数，因为用户以 Enterprise Admins 组成员身份登录：
+
+![PowerShell Uninstall-addsdomaincontroller 示例](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallExampleForce.png)
+
+以下是删除域中最后一个域控制器的示例，并带有最少的所需参数“-lastdomaincontrollerindomain”  和“-removeapplicationpartitions” 。
+
+![PowerShell Uninstall-addsdomaincontroller-LastDomainControllerInDomain 示例](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallExampleLastDC.png)
+
+如果你尝试在降级服务器之前删除 AD DS 角色，Windows PowerShell 将阻止你出现错误：
+
+![卸载必备步骤期间的 AD 域服务删除失败，无法继续卸载。 1. 需要可以卸载 Active DirectoryDomain 服务角色之前降级域控制器。](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallError.png)
+
+> [!IMPORTANT]
+> 你必须在降级服务器之前重新启动计算机，然后才能删除 AD-Domain-Services 角色二进制文件。
+
+### <a name="results"></a>结果
+
+![若要使签核后删除 AD DS 的警告](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_DemoteSignoff.png)
+
+“结果”  页面显示升级是成功还是失败以及任何重要的管理信息。 域控制器将在 10 秒后自动重新启动。

@@ -1,6 +1,6 @@
 ---
-title: 连接到虚拟网络容器
-description: 本主题介绍的软件定义网络指南如何管理租户工作负载和 Windows Server 2016 中的虚拟网络的一部分。
+title: 将容器终结点连接到租户虚拟网络
+description: 此主题，我们介绍如何将容器终结点连接到通过 SDN 中创建的现有租户虚拟网络。 使用 l2 桥接 （而且还可以 l2tunnel） 可与适用于 Docker 的租户 VM 上创建容器网络的 Windows libnetwork 插件的网络驱动程序。
 manager: ravirao
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -12,55 +12,63 @@ ms.topic: article
 ms.assetid: f7af1eb6-d035-4f74-a25b-d4b7e4ea9329
 ms.author: pashort
 author: jmesser81
-ms.openlocfilehash: 801cf4b8f71935eb72d820d47e523a310fa64562
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 08/24/2018
+ms.openlocfilehash: 1968a4db9231459fe5858d9a0f3ba5e8f317ed1b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59872738"
 ---
-# <a name="connect-container-endpoints-to-a-tenant-virtual-network"></a>连接到租户虚拟网络容器端点
+# <a name="connect-container-endpoints-to-a-tenant-virtual-network"></a>将容器终结点连接到租户虚拟网络
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-本主题演示如何在 Microsoft 软件定义网络 (SDN) 堆栈创建现有租户虚拟网络连接容器端点。 我们将使用*l2bridge* (还可以选择*l2tunnel*) 适用于 Windows libnetwork 插件 Docker 容器主机 （租户） 虚拟机上创建容器网络有关的网络驱动程序。
+此主题，我们介绍如何将容器终结点连接到通过 SDN 中创建的现有租户虚拟网络。 您使用*l2 桥接*(并选择性地*l2tunnel*) 可与适用于 Docker 的租户 VM 上创建容器网络的 Windows libnetwork 插件的网络驱动程序。
 
-中所述[容器网络](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/management/container_networking)在 MSDN 上了解的主题，多个网络驱动程序都可以通过 Docker Windows 上。 最适合 SDN 驱动程序*l2bridge*和*l2tunnel*。 这两个驱动程序，每个容器端点处于容器主机 （租户） 虚拟机相同虚拟子网。 容器端点的 IP 地址是动态分配的主网络服务 (HNS) 通过专用云插件。 容器端点具有独特的 IP 地址，但共享由于第二层地址翻译容器主机 （租户） 虚拟机的相同的 MAC 地址。 网络策略 (例如： Acl、 封装和 QoS) 这些容器端点接收到网络控制器中的物理 HYPER-V 主机强制执行，并定义上层管理系统中。 没有略有差异*l2bridge*和*l2tunnel*如下所述的驱动程序。
+在中[容器网络驱动程序](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/network-drivers-topologies)主题中，我们讨论了多个网络驱动程序可通过在 Windows 上的 Docker。 对于 SDN 的信息，请使用*l2 桥接*并*l2tunnel*驱动程序。 对于这两个驱动程序，每个容器终结点是在容器主机 （租户） 虚拟机位于同一虚拟子网中。 
 
-- **L2 大桥**-容器端点位于同一容器主机虚拟机，用于在相同子网有桥 HYPER-V 虚拟交换机用来内的所有网络通信。 容器端点驻留在虚拟机的功能的其他容器主机上或这将在不同的子网将转发给物理 HYPER-V 主机其通信。 由于到物理主机不流之间容器在同一台主机和相同子网网络通信，实施没有网络策略。 仅适用于跨主机或交叉网容器网络通信策略。  
- 
-- **L2 隧道** - *所有*网络两个容器端点之间的通信到主机或子网无论物理 HYPER-V 主机。 交叉网和跨主机网络通信的情况下执行网络策略。   
+主机网络服务 (HNS)，通过私有云插件动态地将容器终结点的 IP 地址。 容器终结点具有唯一的 IP 地址，但共享由于第 2 层地址转换的容器主机 （租户） 虚拟机的相同的 MAC 地址。 
+
+这些容器终结点的网络策略 （Acl、 封装和 QoS） 是由网络控制器接收到在物理 HYPER-V 主机中强制实施和上层管理系统中定义。 
+
+之间的差异*l2 桥接*并*l2tunnel*驱动程序：
+
+| l2bridge | l2tunnel |
+| --- | --- |
+|驻留在的容器终结点： <ul><li>同一个容器托管虚拟机和同一子网上将桥接中的 HYPER-V 虚拟交换机的所有网络流量。 </li><li>不同的容器主机 Vm，或在不同子网上将其流量转发到物理 HYPER-V 主机。 </li></ul>网络策略不会不获取强制执行，因为在同一主机上和相同的子网中的容器之间的网络流量就不会流入物理主机。 网络策略将应用仅为跨主机或跨子网的容器网络流量。 | *所有*两个容器终结点之间的网络流量转发到物理 HYPER-V 主机而不考虑主机或子网。 网络策略适用于跨子网和跨主机的网络流量。 |
+---
 
 >[!NOTE]
->这些网络模式下对租户虚拟采用与网络公共的 Azure 云连接 windows 容器端点不起作用
+>这些网络模式不适用于在 Azure 公有云的租户虚拟网络的连接 windows 容器终结点。
 
-## <a name="prerequistes"></a>先决条件
- * 已部署 SDN 基础结构，与网络控制器
- * 创建了租户虚拟网络
- * 启用 Windows 容器功能、 Docker 安装和启用 HYPER-V 功能已部署租户虚拟机
+
+## <a name="prerequisites"></a>系统必备
+-  与网络控制器部署的 SDN 基础结构。
+-  已创建租户虚拟网络。
+-  部署的租户虚拟机使用 Windows 容器功能启用，Docker 安装，并启用 HYPER-V 功能。 需要安装多个二进制文件的 l2 桥接和 l2tunnel 网络的 HYPER-V 功能。
+
+   ```powershell
+   # To install HyperV feature without checks for nested virtualization
+   dism /Online /Enable-Feature /FeatureName:Microsoft-Hyper-V /All 
+   ```
 
 >[!Note]
->[嵌套虚拟化](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting)和公开虚拟化扩展不需要使用 HYPER-V 容器 HyperV 功能不需要安装 l2bridge 和 l2tunnel 网络的几个二进制文件
+>[嵌套虚拟化](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/nesting)和公开虚拟化扩展才不需要使用 HYPER-V 容器。 
 
-```powershell
-# To install HyperV feature without checks for nested virtualization
-dism /Online /Enable-Feature /FeatureName:Microsoft-Hyper-V /All 
-```
 
- 
+## <a name="workflow"></a>工作流
 
-## <a name="workflow"></a>流
-
-1. [将多个 IP 配置添加到现有 VM NIC 资源通过网络控制器](#Add)（HYPER-V 主机）
-2. [启用网络代理来容器端点分配 CA IP 地址的主机上](#Enable)（HYPER-V 主机） 
-3. [安装专用云中插件将 CA IP 地址分配给容器端点](#Install)(容器主机 VM) 
-4. [创建*l2bridge*或*l2tunnel*使用 docker 网络](#Create)(容器主机 VM) 
+[1.将多个 IP 配置添加到现有 VM NIC 资源通过网络控制器 （HYPER-V 主机）](#1-add-multiple-ip-configurations)
+[2。启用主机将 CA IP 地址分配的容器终结点 （HYPER-V 主机） 上的网络代理](#2-enable-the-network-proxy) 
+ [3。安装插件，以将 CA IP 地址分配给容器终结点 (容器主机 VM) 的私有云](#3-install-the-private-cloud-plug-in) 
+ [4。创建*l2 桥接*或*l2tunnel*使用 docker (容器主机 VM) 网络 ](#4-create-an-l2bridge-container-network)
  
 >[!NOTE]
->创建 System Center 虚拟机 Manager 通过 VM NIC 资源中不支持多个 IP 配置。 建议这些部署类型为你创建退出 band 使用网络控制器 PowerShell VM NIC 资源。
+>通过 System Center Virtual Machine Manager 中创建的 VM NIC 资源不支持多个 IP 配置。 建议为这些部署类型创建带外使用网络控制器 PowerShell VM NIC 资源。
 
-### <a name="Add"></a>1.添加多个 IP 配置
-
-例如，我们 192.168.1.0/24 IP 子网假定租户虚拟机的 VM NIC 已经有一个 IP 配置 IP 地址与 192.168.1.9 并已连接到的 VNet1' VNet 资源 ID 和 VM 'Subnet1 子网资源。 我们将从 192.168.1.101-添加容器 10 IP 地址 192.168.1.110。
+### <a name="1-add-multiple-ip-configurations"></a>1.添加多个 IP 配置
+在此步骤中，我们假定租户虚拟机的 VM NIC IP 地址的 192.168.1.9 的一个 IP 配置，并且已连接到 VNet 资源 ID 为 VNet1 和 Subnet1 的 VM 子网资源 192.168.1.0/24 IP 子网中。 我们添加用于容器的 10 个 IP 地址从 192.168.1.101-192.168.1.110。
 
 ```powershell
 Import-Module NetworkController
@@ -110,29 +118,27 @@ foreach ($i in 1..10)
 New-NetworkControllerNetworkInterface -ResourceId $vmnic.ResourceId -Properties $vmnic.Properties -ConnectionUri $uri
 ```
 
-### <a name="Enable"></a>2.启用网络代理服务器
+### <a name="2-enable-the-network-proxy"></a>2.启用的网络代理
+在此步骤中，启用要为容器主机虚拟机分配多个 IP 地址的网络代理。 
 
-[ConfigureMCNP.ps1](https://github.com/Microsoft/SDN/blob/master/Containers/ConfigureMCNP.ps1>)
-
-运行此脚本**HYPER-V 主机**这举办容器主机 （租户） 虚拟机启用网络代理分配容器主机虚拟机的多个 IP 地址。
+若要启用的网络代理，请运行[ConfigureMCNP.ps1](https://github.com/Microsoft/SDN/blob/master/Containers/ConfigureMCNP.ps1)上脚本**HYPER-V 主机**承载容器主机 （租户） 虚拟机。
 
 ```powershell
 PS C:\> ConfigureMCNP.ps1
 ```
 
-### <a name="Install"></a>3.安装专用云插件
+### <a name="3-install-the-private-cloud-plug-in"></a>3.安装插件的私有云
+在此步骤中，安装插件允许 HNS 与 HYPER-V 主机上的网络代理进行通信。
 
-[InstallPrivateCloudPlugin.ps1](https://github.com/Microsoft/SDN/blob/master/Containers/InstallPrivateCloudPlugin.ps1)
+若要安装该插件，请运行[InstallPrivateCloudPlugin.ps1](https://github.com/Microsoft/SDN/blob/master/Containers/InstallPrivateCloudPlugin.ps1)脚本内**容器主机 （租户） 虚拟机**。
 
-运行此脚本内部**容器主机 （租户） 虚拟机**允许主机网络服务 (HNS) 网络代理 HYPER-V 主机上与进行通信。
 
 ```powershell
 PS C:\> InstallPrivateCloudPlugin.ps1
 ```
 
-### <a name="Create"></a>4.创建*l2bridge*容器网络
-
-在**容器主机 （租户） 虚拟机**使用`docker network create`创建 l2bridge 网络命令
+### <a name="4-create-an-l2bridge-container-network"></a>4.创建*l2 桥接*容器网络
+在此步骤中，使用`docker network create`命令**容器主机 （租户） 虚拟机**创建 l2 桥接网络。 
 
 ```powershell
 # Create the container network
@@ -143,8 +149,8 @@ C:\> docker run -it --network=MyContainerOverlayNetwork <image> <cmd>
 ```
 
 >[!NOTE]
->使用不受支持静态 IP 分配*l2bridge*或*l2tunnel*容器网络时使用 Microsoft SDN 堆栈。
+>不支持静态 IP 分配*l2 桥接*或*l2tunnel*容器网络与 Microsoft SDN 堆栈一起使用时。
 
 ## <a name="more-information"></a>详细信息
-有关部署 SDN 基础结构的更多 infortation，请参阅[部署软件定义的网络结构](https://technet.microsoft.com/en-us/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure)。
+有关部署 SDN 基础结构的更多详细信息，请参阅[部署软件定义网络基础结构](https://docs.microsoft.com/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure)。
 

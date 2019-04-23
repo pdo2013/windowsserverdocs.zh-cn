@@ -1,110 +1,111 @@
 ---
 ms.assetid: 864ad4bc-8428-4a8b-8671-cb93b68b0c03
-title: "减少 Active Directory 攻击 Surface"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: 减少 Active Directory 攻击面
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: b2de254076b10a1a75d658f006c2245d523de6b7
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: d692641d316b5fe7206cc3f413bdcfc9b74675b9
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59874148"
 ---
-# <a name="reducing-the-active-directory-attack-surface"></a>减少 Active Directory 攻击 Surface
+# <a name="reducing-the-active-directory-attack-surface"></a>减少 Active Directory 攻击面
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-本部分着重于 technical 控件，以实现减少攻击的 Active Directory 安装。 部分包含以下信息：  
+本部分重点介绍技术控件，可实现以减少 Active Directory 安装的受攻击面。 部分包含以下信息：  
   
--   [实现最低权限管理模型](../../../ad-ds/plan/security-best-practices/../../../ad-ds/plan/security-best-practices/Implementing-Least-Privilege-Administrative-Models.md)重点日常管理高权限帐户的用于展示了，除了提供建议，以实现以减少特权帐户存在的风险的风险。  
+-   [实现最小特权的管理模型](../../../ad-ds/plan/security-best-practices/../../../ad-ds/plan/security-best-practices/Implementing-Least-Privilege-Administrative-Models.md)标识使用高特权级别的风险主要适用于帐户的日常管理提供时，除了提供建议，以实现以降低风险该特权帐户存在。  
   
--   [实现安全管理主机](../../../ad-ds/plan/security-best-practices/Implementing-Secure-Administrative-Hosts.md)有关部署的专用、安全管理系统，除了一些示例方法安全管理主机部署描述原则。  
+-   [实现安全管理主机](../../../ad-ds/plan/security-best-practices/Implementing-Secure-Administrative-Hosts.md)描述部署专用的安全管理系统，除了一些示例方法的安全管理主机部署的原则。  
   
--   [保护域控制器针对攻击](../../../ad-ds/plan/security-best-practices/Securing-Domain-Controllers-Against-Attack.md)讨论策略和设置，尽管类似于实现安全管理主机的推荐包含一些域控制器特定建议，以帮助确保充分的保护，域控制器和用于管理这些系统。  
+-   [保护域控制器对攻击](../../../ad-ds/plan/security-best-practices/Securing-Domain-Controllers-Against-Attack.md)讨论了策略和设置的尽管类似于实现的安全管理主机，建议包含某些域控制器特定于建议，以帮助确保域控制器和用来对其进行管理的系统足够安全。  
   
-## <a name="privileged-accounts-and-groups-in-active-directory"></a>特权的帐户和 Active Directory 中的组  
-此部分中提供了有关特权帐户的背景信息，组中的 Active Directory 适合说明共性和 Active Directory 中特权的帐户和组之间的区别。 通过了解这些区别，是否实现中的建议[实现最低权限管理模型](../../../ad-ds/plan/security-best-practices/../../../ad-ds/plan/security-best-practices/Implementing-Least-Privilege-Administrative-Models.md)逐字或选择要自定义这些针对你的组织，有的工具，你需要确保每个组中的安全和相应地帐户。  
+## <a name="privileged-accounts-and-groups-in-active-directory"></a>权限的帐户和 Active Directory 中的组  
+本部分提供有关权限的帐户的背景信息和 Active Directory 中的组旨在解释的通用性和 Active Directory 中的特权的帐户和组之间的差异。 通过了解这些区别，是否实现中的建议[实现最小特权的管理模型](../../../ad-ds/plan/security-best-practices/../../../ad-ds/plan/security-best-practices/Implementing-Least-Privilege-Administrative-Models.md)原义或选择要为你的组织自定义它们，具有到所需的工具适当地保护每个组和帐户。  
   
 ### <a name="built-in-privileged-accounts-and-groups"></a>内置特权帐户和组  
-Active Directory 促进管理委派，并支持最低权限原则中指定的权利和的权限。 "常规"用户帐户域中有是，默认情况下，无法读取大部分目录中存储的内容，但无法更改仅非常有限的目录中的数据集。 需要额外的权限的用户可以授予内置目录，以便他们可以执行与他们的角色相关的特定的任务，但无法执行的任务不是为其关税相关的各种"权限"组中的成员。 组织也可以创建针对特定的职责并获得精细的权利和允许执行日常管理功能，而无需授予权限和超过了有关这些功能所需的权限 IT 人员的权限的组。  
+Active Directory 简化委派管理和支持中分配权利和权限的最小特权原则。 在域中具有帐户的"常规"用户在默认情况下，能够读取大量的目录中存储的内容，但可以更改仅一组非常有限的目录中的数据。 需要额外权限的用户可以授予内置目录，以便它们可能执行与其角色相关的特定任务，但不能执行其职责与不相关的任务的各种"特权"组的成员身份。 组织还可以创建专门针对于特定的工作职责并被授予了具体的权限，允许 IT 人员，而无需授予超过什么的权限执行日常管理功能的权限的组需要这些函数。  
   
-三种内置组内的 Active Directory，是目录中的最高权限组：企业管理员、域管理和管理员。 以下部分介绍默认配置和功能的每个组：  
+Active Directory 中三个内置组是在目录中的最高特权组：企业管理员、 域管理员和管理员。 以下各节中介绍的默认配置和功能的每个组：  
   
-#### <a name="highest-privilege-groups-in-active-directory"></a>中 Active Directory 的最高权限组  
+#### <a name="highest-privilege-groups-in-active-directory"></a>Active Directory 中的最高权限组  
   
-##### <a name="enterprise-admins"></a>企业管理员  
-企业管理员 (EA) 是一组，仅存在于森林根域中，并且默认情况下，它是管理员组森林中的所有域中的成员。 森林根域中内置的管理员帐户是唯一默认的 EA 组成员。 EAs 被授予权限，使它们在更改生效树林（即影响更改森林中的所有域），如添加或删除域、建立森林信任，或者提高森林功能级别。 在正常设计和实施委派模式中，EA 会员，才能仅当首次连建造森林或进行某些树林更改，例如建立站森林信任时。 大部分的权利和授予 EA 组的权限可以委派给较小特权用户和组中。  
+##### <a name="enterprise-admins"></a>Enterprise Admins  
+Enterprise Admins (EA) 是仅在林根域中存在一个组，默认情况下，它是在林中所有域管理员组的成员。 目录林根域中的内置管理员帐户是 EA 组的唯一默认成员。 EAs 被授予权利和权限，以便实现全林性更改 （即，更改会影响到林中所有域），如添加或删除域、 建立林信任或提升林功能级别。 在正确设计和实施委派模型中，EA 成员身份是所需，仅当首次构造该林或进行某些全林性更改，例如建立出站林信任。 可以将大多数权限和 EA 组授予权限委派给各个权限较低的用户和组。  
   
-##### <a name="domain-admins"></a>域管理员  
+##### <a name="domain-admins"></a>Domain Admins  
 
-森林中的每个域都有它自己的域的管理员组成员且组成员的本地管理员已加入域的每台计算机上的域管理员 (DA) 组。 唯一的域的 DA 组默认成员是该域内置的管理员帐户。 虽然 EAs 树林特权，DAs 是"功能全面"在他们的域。 中正确设计和实现委派模型，域管理员会员的所需应仅在"中断玻璃"的情况（例如某些情况下，在其中所需帐户高级别权限的每台计算机在域中）。 尽管本机 Active Directory 委派机制允许的范围内就可能仅在紧急情况下使用 DA 帐户的委派，构建高效委派型号可能会很耗时，和许多组织利用第三方工具，以加快此过程。  
+在林中每个域都有其自己的域管理员组的成员和加入到域的每台计算机上的本地管理员组的成员的域管理员 (DA) 组。 DA 组为域的唯一默认成员是该域的内置管理员帐户。 DAs 是"功能全面"其领域内，而 EAs 具有全林性权限。 在正确设计和实施委派模型中，应仅在"不受限"（如需要具有高级别特权的域中的每台计算机上的帐户的情况下） 的情况下需要域管理员成员身份。 尽管本机 Active Directory 委派机制允许委派的范围内就可以仅在紧急情况下使用 DA 帐户，但构造有效的委派模型会耗费大量时间和很多组织利用要加快该过程的第三方工具。  
   
-##### <a name="administrators"></a>管理员  
-第三个组是内置的域本地管理员（栏）组 DAs 和 EAs 嵌套到其中。 此组授予许多直接的权利和目录中和域控制器上的权限。 但是，域该组有没有权限或工作站成员服务器上。 它是通过授予权限本地计算机的本地管理员组中的成员。  
+##### <a name="administrators"></a>Administrators  
+第三个组为 DAs 和 EAs 嵌套到其中的内置域本地管理员 (BA) 组。 将授予此组的许多直接权限和权限的目录中和域控制器上。 但是，域管理员组有没有权限在成员服务器或工作站上。 它是通过授予本地特权的计算机的本地管理员组成员身份。  
   
 > [!NOTE]  
-> 尽管这些这些特权组中的默认配置的三个组中的任何成员可操作的目录，以获得任何其他组中的成员。 在某些情况下，它能够轻而易举其他一个组中的会员而在其他人，它是更加困难，但从潜在特权的角度而言，这三组应该考虑相当有效。  
+> 尽管这些是这些特权组的默认配置，但任何三个组的成员可以操作的目录以获取任何其他组中的成员身份。 在某些情况下，很容易获取其他组的成员身份，而在其他人会更加困难，但从潜在的权限的角度来看，所有三个组应考虑实际上等同。  
   
-##### <a name="schema-admins"></a>方案管理员  
+##### <a name="schema-admins"></a>Schema Admins  
 
-第四个特权组中，方案管理员（索托），存在仅在森林根域中，并且作为默认成员，类似于企业管理员组已只有该域内置管理员帐户。 架构管理员组旨在填充仅暂时和有时（当修改的广告 DS 方案，则需要）。  
+第四个特权组中，架构管理员 (SA)，仅在目录林根域中存在并具有仅该域的内置管理员帐户作为默认成员，类似于 Enterprise Admins 组。 旨在仅暂时并偶尔 （当需要时修改 AD DS 架构） 填充 Schema Admins 组。  
   
-虽然索托组可以修改 Active Directory 模式（如对象和特性的目录基本数据结构该是）仅组，但索托组的权利和权限范围是更加受限比前面所述的组。 这也很常见查找因为不频繁通常需要组中的成员，并且仅对短期内，组织了开发相应实践索托组的会员管理。 EA、DA 和栏中的组 Active Directory，以及，从技术上讲如此，但不太常见，查找组织已实现类似实践至于索托组这些组。  
+尽管 SA 组是唯一的组，可以修改 Active Directory 架构 （即，该目录的基础数据结构，如对象和属性），但 SA 组的权限和权限的范围是比前面所述的限制更多组。 它也很常见查找组织具有开发的 SA 组的成员身份管理的相应方案，因为通常很少需要组的成员身份，并且仅对一段较短的时间。 从技术上讲的是这样的 EA、 DA 和 BA 组在 Active Directory 中，但目前不太常见，若要查找的组织已实现的 SA 组与这些组的类似方案。  
   
 #### <a name="protected-accounts-and-groups-in-active-directory"></a>受保护的帐户和 Active Directory 中的组  
-在 Active Directory 中，一组默认特权的帐户和组的名为"受保护的"帐户，并不同目录中的其他对象安全的组。 已经直接或传递会员（无论是否会员得出安全或 distribution 组）的任何保护组中的任何帐户继承此受限的安全。  
+Active Directory 中一组默认的特权的帐户和组名为"受保护"的帐户和组保护方式不同于目录中的其他对象。 任何帐户 （而不考虑是否从安全或通讯组的组派生的成员身份） 的任何受保护组中拥有直接或可传递的成员身份继承此受限制的安全。  
 
   
-例如，如果用户是 distribution 组成员的就是、依次的 Active Directory 中，该用户对象受保护的组成员标记为受保护的帐户。 当某个帐户被标记为受保护的帐户时，对象上 adminCount 属性的价值是设为 1。  
+例如，如果用户是分发组的成员，它是，反过来，在 Active Directory，该用户对象中的受保护组的成员将标记为受保护的帐户。 当帐户标记为受保护帐户时，在对象上 adminCount 属性的值设置为 1。  
   
 > [!NOTE]
-> 尽管传递受保护的组成员包括嵌套的 distribution 和嵌套的安全组，嵌套的 distribution 组成员的帐户不会在其访问令牌收到 SID 受保护的组。 但是，distribution 组可以转换为安全的 Active Directory，这正是受保护的组成员枚举包含 distribution 组中的组。 应受保护的嵌套的分发组有史以来转换为安全组，是前者 distribution 组成员随后将收到家长帐户保护中其访问令牌在下次登录的组 SID。  
+> 受保护组中的可传递成员身份包含嵌套的通讯组和嵌套的安全组，但嵌套的通讯组成员的帐户不会在其访问令牌中收到受保护的组的 SID。 但是，可以将分发组转换到 Active Directory，这正是分发组包含在受保护的组成员的枚举中的安全组。 以前分发组的成员都将随后收到父级的帐户应受保护的嵌套的分发组曾经将转换为安全组，保护其在下次登录时的访问令牌中组的 SID。  
   
-下表列出的受保护的默认帐户和 Active Directory 的操作系统版本和 service pack 级别中的组。  
+下表列出了默认受保护帐户和由操作系统版本和 service pack 级别的 Active Directory 中的组。  
   
-**默认保护帐户和 Active Directory 由操作系统和 Service Pack (SP) 版本中的组**  
+**受保护的帐户和按操作系统和 Service Pack (SP) 版本的 Active Directory 中组的默认值**  
   
 |||||  
 |-|-|-|-|  
-|**Windows 2000 < SP4**|**Windows 2000 SP4-Windows Server 2003**|**Windows Server 2003 SP1 +**|**Windows Server 2008-Windows Server 2012**|  
-|管理员|帐户运营商|帐户运营商|帐户运营商|  
+|**Windows 2000 <SP4**|**Windows 2000 SP4 -Windows Server 2003**|**Windows Server 2003 SP1+**|**Windows Server 2008 -Windows Server 2012**|  
+|Administrators|Account Operators|Account Operators|Account Operators|  
 ||管理员|管理员|管理员|  
-||管理员|管理员|管理员|  
-|域管理员|备份运营商|备份运营商|备份运营商|  
-||证书发布者|||  
-||域管理员|域管理员|域管理员|  
-|企业管理员|域控制器|域控制器|域控制器|  
-||企业管理员|企业管理员|企业管理员|  
+||Administrators|Administrators|Administrators|  
+|Domain Admins|Backup Operators|Backup Operators|Backup Operators|  
+||Cert Publishers|||  
+||Domain Admins|Domain Admins|Domain Admins|  
+|Enterprise Admins|域控制器|域控制器|域控制器|  
+||Enterprise Admins|Enterprise Admins|Enterprise Admins|  
 ||Krbtgt|Krbtgt|Krbtgt|  
-||打印运营商|打印运营商|打印运营商|  
-||||仅阅读域控制器|  
-||复制程序|复制程序|复制程序|  
-|方案管理员|方案管理员||方案管理员|  
+||打印操作员|打印操作员|打印操作员|  
+||||只读域控制器|  
+||Replicator|Replicator|Replicator|  
+|Schema Admins|Schema Admins||Schema Admins|  
   
 ##### <a name="adminsdholder-and-sdprop"></a>AdminSDHolder 和 SDProp  
-在每个 Active Directory 的域的系统容器，会自动创建称为 AdminSDHolder 的对象。 AdminSDHolder 对象的目的是确保您的权限保护的帐户和组始终强制，无论是在域中处的受保护的组和帐户的位置。  
+在每个 Active Directory 域的系统容器中，将自动创建一个名为 AdminSDHolder 对象。 AdminSDHolder 对象的用途是确保在受保护的帐户和用户组的权限一致地实施，而不考虑其中的受保护的组和帐户位于域中。  
 
-（默认）每隔 60 分钟拥有的域 PDC 模拟器角色域控制器上的此过程称为安全描述符传播程序 (SDProp) 运行。 SDProp 比较上的受保护的帐户和域中的组权限的域 AdminSDHolder 对象的权限。 如果不匹配的受保护的帐户和组任何权限 AdminSDHolder 对象的权限，受保护的帐户和组权限被重置匹配的域的 AdminSDHolder 对象。  
+（默认情况下，每隔 60 分钟保存域的 PDC 仿真器角色的域控制器上运行该过程称为安全描述符传播程序 (SDProp)。 SDProp 比较域的 AdminSDHolder 对象上的受保护的帐户和域中的组的权限的权限。 如果在任何受保护的帐户和组权限不匹配的 AdminSDHolder 对象上的权限，对受保护的帐户和组的权限会重置以匹配这些域的 AdminSDHolder 对象。  
   
-禁用了权限继承受保护的组和帐户，这意味着，即使帐户或组移到的目录中的其他位置时，它们执行操作不文件沿用文件权限从其新家长对象。 以便权限的更改为家长对象不要更改的 AdminSDHolder 权限 AdminSDHolder 对象还禁用继承。  
+禁用了权限继承对受保护的组和帐户，这意味着，即使帐户或组移到不同位置的目录中时，他们不继承权限从其新的父对象。 AdminSDHolder 对象上也被禁用继承，以便对父对象的权限更改不会更改 AdminSDHolder 的权限。  
   
 > [!NOTE]
-> 从受保护的组删除某个帐户后，不会再视为受保护的帐户，但如果未手动更改设置为 1 其 adminCount 特性保持。 此配置结果是由 SDProp，不会再更新的对象 Acl，但对象仍然不文件沿用文件权限其父对象。 因此，对象可能位于部门 (OU) 的已委派权限，但以前受保护的对象文件将无法沿用文件这些委派的权限。 可以在找到的脚本重置保护以前对象域中的，找到[Microsoft 支持文章 817433](https://support.microsoft.com/?id=817433)。  
+> 从受保护组删除帐户后，它不再被视为受保护的帐户，但其 adminCount 属性仍将设置为 1，如果未手动更改。 此配置的结果是，该对象的 Acl 将不再更新 SDProp，但对象仍未继承的权限从其父对象。 因此，该对象可以驻留在组织单位 (OU) 向其已委派权限，但以前受保护的对象将继承这些委派的权限。 若要查找和重置以前受保护的域中的对象的脚本可在[Microsoft 支持文章 817433](https://support.microsoft.com/?id=817433)。  
   
-###### <a name="adminsdholder-ownership"></a>AdminSDHolder 拥有  
-大多数 Active Directory 对象归的域栏组。 但是，AdminSDHolder 对象，默认情况下，由拥有的域 DA 组。 （这是情况下，在其中 DAs 不要派生其权限和通过管理员组域中的会员的权限）。  
+###### <a name="adminsdholder-ownership"></a>AdminSDHolder 所有权  
+由域的 BA 组拥有在 Active Directory 中的大多数对象。 但是，AdminSDHolder 对象，默认情况下，属于域的数据组。 （这是以下情况，在其中 DAs 不是派生其权限和通过域管理员组的成员身份的权限）。  
   
-在 Windows 以前的版本的 Windows Server 2008、处为物体的所有者可以更改权限的对象，包括授予自行他们最初没有的权限。 因此，在某个域 AdminSDHolder 对象的默认权限阻止栏或 EA 更改域 AdminSDHolder 对象的权限的组成员的用户。 但是，域管理员组成员可以拍摄对象的所有权和授予自行额外的权限，这意味着此保护非常重要，并且仅保护避免意外修改的不是在域中 DA 组成员的用户的对象。 此外，栏并 EA（如果适用）组有权更改地域（根域 EA）中 AdminSDHolder 对象属性。  
+在版本的 Windows 早于 Windows Server 2008，对象的所有者可更改的对象，包括最初未不具有的权限授予其自身的权限。 因此，对域的 AdminSDHolder 对象的默认权限阻止 BA 或 EA 更改域的 AdminSDHolder 对象的权限的组成员的用户。 但是，域管理员组的成员可以取得对象的所有权并向自己授予其他权限，这意味着这种保护还处于初级阶段，并仅保护针对的用户是被意外修改对象不在域中的数据组的成员。 此外，BA 和 EA （如果适用） 组有权更改本地域 （对 EA 根域） 中的 AdminSDHolder 对象的属性。  
   
 > [!NOTE]  
-> 对 AdminSDHolder 的对象林，属性允许有限自定义（移除）算是受保护的组并受 AdminSDHolder 和 SDProp 组。 此自定义应该仔细考虑如果实现，尽管有有效的情况下在 AdminSDHolder 林修改可。 可以在 Microsoft 支持文章中找到上 AdminSDHolder 对象修改林特性的详细信息[817433](https://support.microsoft.com/?id=817433)和[973840](https://support.microsoft.com/kb/973840)，并在[附录 c：保护帐户和 Active Directory 中的组](Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md)。  
+> AdminSDHolder 对象林，属性允许有限自定义 （删除） 将被视为受保护的组和 AdminSDHolder 和 SDProp 会影响的组。 此自定义应仔细考虑如果实现，尽管一些有效的林上 AdminSDHolder 修改可的情况。 可以在 Microsoft 支持文章中找到有关对林属性的修改 AdminSDHolder 对象上的详细信息[817433](https://support.microsoft.com/?id=817433)并[973840](https://support.microsoft.com/kb/973840)，然后在[附录 c:受保护帐户和 Active Directory 中的组](Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md)。  
   
-尽管中 Active Directory 的最特权的组此处所述，有大量的其他拥有的组提升了权限的级别。 有关所有内置组中的 Active Directory 和分配给每个用户权利以及默认值的详细信息，请参阅[附录 b：特权帐户和 Active Directory 中的组](../../../ad-ds/plan/security-best-practices/Appendix-B--Privileged-Accounts-and-Groups-in-Active-Directory.md)。  
+尽管 Active Directory 中的最高特权的组此处所述，有大量的其他组已被授予提升的特权级别。 有关的所有默认和 Active Directory 和分配给每个的用户权限中的内置组的详细信息，请参阅[附录 b:特权帐户和 Active Directory 中的组](../../../ad-ds/plan/security-best-practices/Appendix-B--Privileged-Accounts-and-Groups-in-Active-Directory.md)。  
   
 
 

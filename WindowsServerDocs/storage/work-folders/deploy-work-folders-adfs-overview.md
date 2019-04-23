@@ -1,5 +1,5 @@
 ---
-title: "使用 AD FS 和 Web 应用程序代理部署工作文件夹概述"
+title: 使用 AD FS 和 Web 应用程序代理部署工作文件夹概述
 ms.prod: windows-server-threshold
 ms.technology: storage-work-folders
 ms.topic: article
@@ -9,14 +9,15 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.openlocfilehash: 48c7d771c7ec75a4bc340608a96410ea388418e9
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59874618"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-overview"></a>使用 AD FS 和 Web 应用程序代理部署工作文件夹：概述
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-overview"></a>部署工作文件夹使用 AD FS 和 Web 应用程序代理：概述
 
->适用于：Windows Server（半年频道）、Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
 本节中的主题提供了使用 Active Directory 联合身份验证服务 (AD FS) 和 Web 应用程序代理部署工作文件夹的说明。 这些说明旨在帮助你使用准备好开始在本地或 Internet 上开始使用工作文件夹的客户端计算机创建一个功能齐全的工作文件夹设置。  
   
@@ -36,7 +37,7 @@ ms.lasthandoff: 10/17/2017
   
 -   在 Windows Server 2012 R2 中提供一个包含架构扩展的 Active Directory® 域服务林，以便在使用多个文件服务器时支持将电脑和设备自动定向到正确的文件服务器 最好在林中启用 DNS，但这不是必需的。  
   
--   域控制器：启用 AD DS 角色并配置了域（对于测试示例为 contoso.com）的服务器。  
+-   域控制器：已启用，AD DS 角色并配置了域的服务器 (用于测试的示例中，contoso.com)。  
   
     需要至少运行 Windows Server 2012 R2 的域控制器，以便支持 Workplace Join 的设备注册。 如果不想使用 Workplace Join，则可以在域控制器上运行 Windows Server 2012。  
   
@@ -50,7 +51,7 @@ ms.lasthandoff: 10/17/2017
   
 对于我们在本指南中介绍的测试环境，应该具有下图所示的拓扑。 这些计算机既可以是物理计算机也可以虚拟机 (VM)。 
   
-![显示 Internet、外围网络和 Contoso 网段的图表。 在 Internet 段中：Client2；在外围网络中：一个 WAP 服务器；在 Contoso 段中：工作文件夹控制器、域控制器、AD FS 服务器和 Client1](media/deploy-work-folders-adfs/WF_ADFS_WAP_Diagram.png)
+![显示 Internet、外围网络和 Contoso 网段的图表。 中的 Internet 段：Client2;外围网络中： 一个 WAP 服务器。在 Contoso 片段中：工作文件夹服务器、 域控制器、 AD FS 服务器和客户端 1](media/deploy-work-folders-adfs/WF_ADFS_WAP_Diagram.png)
 
 ## <a name="deployment-overview"></a>部署概述  
 在这一组主题中，你将在测试环境中演练设置 AD FS、Web 应用程序代理和工作文件夹的分步示例。 将按以下顺序设置组件：  
@@ -68,17 +69,17 @@ ms.lasthandoff: 10/17/2017
 ## <a name="deployment-steps"></a>部署步骤  
 要使用 Windows Server 用户界面执行部署，请按照以下主题中的步骤操作：  
   
--   [使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤 1，设置 AD FS](deploy-work-folders-adfs-step1.md)  
+-   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：第 1 步： 设置 AD FS](deploy-work-folders-adfs-step1.md)  
   
--   [使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤 2，AD FS 配置后工作](deploy-work-folders-adfs-step2.md)  
+-   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 2 中，AD FS 配置后工作](deploy-work-folders-adfs-step2.md)  
   
--   [使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤 3，设置工作文件夹](deploy-work-folders-adfs-step3.md)  
+-   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 3，设置了工作文件夹](deploy-work-folders-adfs-step3.md)  
   
--   [使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤 4，设置 Web 应用程序代理](deploy-work-folders-adfs-step4.md)  
+-   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 4 中，设置 Web 应用程序代理](deploy-work-folders-adfs-step4.md)  
   
--   [使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤 5，设置客户端](deploy-work-folders-adfs-step5.md)  
+-   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 5 中，设置客户端](deploy-work-folders-adfs-step5.md)  
 
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>请参阅  
 [工作文件夹概述](Work-Folders-Overview.md)  
 [设计工作文件夹实施方案](Plan-Work-Folders.md)  
 [部署工作文件夹](Deploy-Work-Folders.md)  

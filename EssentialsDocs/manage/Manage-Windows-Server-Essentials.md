@@ -1,6 +1,6 @@
 ---
-title: "管理 Windows Server Essentials"
-description: "介绍了如何使用 Windows Server Essentials"
+title: 管理 Windows Server Essentials
+description: 介绍如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,28 +13,29 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 59dc0073aa6fe5a7dd35c84b477acda8294e100c
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59873658"
 ---
 # <a name="manage-windows-server-essentials"></a>管理 Windows Server Essentials
 
 >适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
 
-以下主题提供关于 server 和 Windows Server Essentials 附带网络管理功能的信息：  
+下列主题提供了有关 Windows Server Essentials 中包含的服务器和网络管理功能的信息：  
   
 -   [仪表板概述](Overview-of-the-Dashboard-in-Windows-Server-Essentials.md)  
   
--   [启动栏概述](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md)  
+-   [快速启动板概述](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md)  
   
--   [管理任意位置的访问权限](Manage-Anywhere-Access-in-Windows-Server-Essentials.md)  
+-   [管理随处访问](Manage-Anywhere-Access-in-Windows-Server-Essentials.md)  
   
 -   [管理应用程序](Manage-Applications-in-Windows-Server-Essentials.md)  
   
 -   [管理备份和还原](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)  
   
--   [管理分支缓存](Manage-BranchCache-in-Windows-Server-Essentials.md)  
+-   [管理 BranchCache](Manage-BranchCache-in-Windows-Server-Essentials.md)  
   
 -   [管理设备](Manage-Devices-in-Windows-Server-Essentials.md)  
   
@@ -42,9 +43,9 @@ ms.lasthandoff: 12/12/2017
   
 -   [管理电子邮件服务集成](Manage-Email-Service-Integration-in-Windows-Server-Essentials.md)  
   
--   [管理 Microsoft Online Services](Manage-Microsoft-Online-Services-in-Windows-Server-Essentials.md)  
+-   [Manage Microsoft Online Services](Manage-Microsoft-Online-Services-in-Windows-Server-Essentials.md)  
   
--   [管理 Server 文件夹](Manage-Server-Folders-in-Windows-Server-Essentials.md)  
+-   [管理服务器文件夹](Manage-Server-Folders-in-Windows-Server-Essentials.md)  
   
 -   [管理服务器存储](Manage-Server-Storage-in-Windows-Server-Essentials.md)  
   
@@ -52,19 +53,19 @@ ms.lasthandoff: 12/12/2017
   
 -   [管理用户帐户](Manage-User-Accounts-in-Windows-Server-Essentials.md)  
   
-## <a name="end-to-end-solution-guides"></a>End-to-end 解决方案指南  
+## <a name="end-to-end-solution-guides"></a>端到端解决方案指南  
   
--    若要了解如何将存储数据集中，限制数据的访问权限，备份你的数据在本地并在云中进行构建，请参阅[提供中小型企业中的数据保护](https://technet.microsoft.com/library/dn582043.aspx)。  
+-    若要了解如何集中数据存储、限制数据访问权限并在本地和云中备份数据，请参阅[在中小型企业中提供数据保护](https://technet.microsoft.com/library/dn582043.aspx)。  
   
--    若要了解如何安全地从任何位置访问在任何连接了 Internet 的设备上的企业数据，请参阅[安全中中小型企业远程访问](https://technet.microsoft.com/library/dn629457.aspx)。  
+-    若要了解如何从任意位置通过任何已连接 Internet 的设备安全地访问业务数据，请参阅[中小型企业中的安全远程访问](https://technet.microsoft.com/library/dn629457.aspx)。  
   
--    若要了解如何安全供应商与合作伙伴协作，请参阅[改进中小型企业中的协作](https://technet.microsoft.com/library/dn747893.aspx)。  
+-    若要了解如何安全地与合作伙伴和供应商进行协作，请参阅[改进中小型企业中的协作](https://technet.microsoft.com/library/dn747893.aspx)。  
   
 ## <a name="see-also"></a>请参阅  
   
 -   [安装 Windows Server Essentials](../install/Install-Windows-Server-Essentials.md)  
   
--   [Windows Server Essentials 到迁移服务器数据](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)  
+-   [将服务器数据迁移到 Windows Server Essentials](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)  
   
 -   [使用 Windows Server Essentials](../use/Use-Windows-Server-Essentials.md)  
   

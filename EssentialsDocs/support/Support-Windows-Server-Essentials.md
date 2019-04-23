@@ -1,6 +1,6 @@
 ---
-title: "支持 Windows Server Essentials"
-description: "介绍了如何使用 Windows Server Essentials"
+title: 支持 Windows Server Essentials
+description: 介绍如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,123 +13,124 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 5bf4a6a28f5d5d211a846e4dc7862610bc12096b
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59872348"
 ---
 # <a name="support-windows-server-essentials"></a>支持 Windows Server Essentials
 
 >适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
 
-本主题提供支持，疑难解答 Windows Server essentials 选项。  
+本主题提供 Windows Server Essentials 支持和疑难解答选项。  
   
-##  <a name="BKMK_Top"></a>解决方案顶级支持和更新  
+##  <a name="BKMK_Top"></a> 热门支持解决方案和更新  
   
--   [Windows Server 2012 R2 和 Windows Server 2012 的顶级支持解决方案](http://blogs.technet.com/b/topsupportsolutions/archive/2014/02/04/top-support-solutions-for-microsoft-windows-server-2012.aspx)  
+-   [Windows Server 2012 R2 和 Windows Server 2012 热门支持解决方案](http://blogs.technet.com/b/topsupportsolutions/archive/2014/02/04/top-support-solutions-for-microsoft-windows-server-2012.aspx)  
   
--   [更新 Windows Server Essentials 迁移准备工具](https://support.microsoft.com/kb/2908176)(2013 12 月)  
+-   [适用于 Windows Server Essentials 迁移准备工具的更新](https://support.microsoft.com/kb/2908176)(2013 年 12 月)  
   
--   [Windows Server essentials 更新汇总 1](https://support.microsoft.com/kb/2887595) (11 月 2013)  
+-   [适用于 Windows Server Essentials 的更新汇总 1](https://support.microsoft.com/kb/2887595) (2013 年 11 月)  
   
--   [Windows Server essentials 更新汇总 3](https://support.microsoft.com/kb/2862551)（2013 年 10 月）  
+-   [适用于 Windows Server Essentials 更新汇总 3](https://support.microsoft.com/kb/2862551) (2013 年 10 月)  
   
--   [Windows Server essentials 更新汇总 2](https://support.microsoft.com/kb/2824160)（2013 年 6 月）  
+-   [适用于 Windows Server Essentials 更新汇总 2](https://support.microsoft.com/kb/2824160) (2013 年 6 月)  
   
--   [Windows Server essentials 更新汇总 1](https://support.microsoft.com/kb/2781267) (2 月 2013)  
+-   [适用于 Windows Server Essentials 的更新汇总 1](https://support.microsoft.com/kb/2781267) (2013 年 2 月)  
   
--   [修补程序：你不能启用 Windows Server Essentials 中的 Windows Server Update Services 角色](https://support.microsoft.com/kb/2762663)(2 月 2013)  
+-   [修补程序：无法启用 Windows Server Essentials 中的 Windows Server Update Services 角色](https://support.microsoft.com/kb/2762663)(2013 年 2 月)  
   
-## <a name="troubleshoot"></a>疑难解答  
- 此部分中提供的信息来帮助你解决使用 Windows Server Essentials 时，你可能遇到的常见问题。 主要产品功能对应的逻辑领域组织的疑难解答信息。  
+## <a name="troubleshoot"></a>故障排除  
+ 本部分提供的信息可帮助你解决使用 Windows Server Essentials 集成功能时可能遇到的常见问题。 疑难解答信息分为对应于关键产品功能的不同逻辑领域。  
   
 -   [Windows Server Essentials 最佳做法分析器 (BPA) 工具使用规则](../migrate/Rules-used-by-the-Windows-Server-Essentials-Best-Practices-Analyzer--BPA--Tool.md)  
   
 
--   [疑难解答任意位置的访问权限](Troubleshoot-Anywhere-Access-in-Windows-Server-Essentials.md)  
+-   [随处访问疑难解答](Troubleshoot-Anywhere-Access-in-Windows-Server-Essentials.md)  
   
--   [解决计算机备份和还原错误](Troubleshoot-computer-backup-and-restore-errors-in-Windows-Server-Essentials.md)  
+-   [计算机备份和还原错误疑难解答](Troubleshoot-computer-backup-and-restore-errors-in-Windows-Server-Essentials.md)  
   
 -   [计算机监视疑难解答](Troubleshoot-computer-monitoring-in-Windows-Server-Essentials.md)  
   
--   [解决了连接到服务器的计算机](Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md)  
+-   [将计算机连接到服务器疑难解答](Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md)  
   
--   [解决文件历史记录](Troubleshoot-File-History-in-Windows-Server-Essentials.md)  
+-   [解决文件历史记录问题](Troubleshoot-File-History-in-Windows-Server-Essentials.md)  
   
--   [解决了安装](Troubleshoot-Windows-Server-Essentials-installation.md)  
+-   [安装进行故障排除](Troubleshoot-Windows-Server-Essentials-installation.md)  
   
--   [解决了远程访问 Web 连接](Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
+-   [远程 Web 访问连接疑难解答](Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
   
--   [解决你的防火墙](Troubleshoot-your-firewall-in-Windows-Server-Essentials.md)  
+-   [对防火墙进行故障排除](Troubleshoot-your-firewall-in-Windows-Server-Essentials.md)  
   
--   [使用 Windows Server Essentials 日志收集](Use-the-Windows-Server-Essentials-Log-Collector.md)  
+-   [使用 Windows Server Essentials 日志收集器](Use-the-Windows-Server-Essentials-Log-Collector.md)  
 
--   [疑难解答任意位置的访问权限](../support/Troubleshoot-Anywhere-Access-in-Windows-Server-Essentials.md)  
+-   [随处访问疑难解答](../support/Troubleshoot-Anywhere-Access-in-Windows-Server-Essentials.md)  
   
--   [解决计算机备份和还原错误](../support/Troubleshoot-computer-backup-and-restore-errors-in-Windows-Server-Essentials.md)  
+-   [计算机备份和还原错误疑难解答](../support/Troubleshoot-computer-backup-and-restore-errors-in-Windows-Server-Essentials.md)  
   
 -   [计算机监视疑难解答](../support/Troubleshoot-computer-monitoring-in-Windows-Server-Essentials.md)  
   
--   [解决了连接到服务器的计算机](../support/Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md)  
+-   [将计算机连接到服务器疑难解答](../support/Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md)  
   
--   [解决文件历史记录](../support/Troubleshoot-File-History-in-Windows-Server-Essentials.md)  
+-   [解决文件历史记录问题](../support/Troubleshoot-File-History-in-Windows-Server-Essentials.md)  
   
--   [解决了安装](../support/Troubleshoot-Windows-Server-Essentials-installation.md)  
+-   [安装进行故障排除](../support/Troubleshoot-Windows-Server-Essentials-installation.md)  
   
--   [解决了远程访问 Web 连接](../support/Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
+-   [远程 Web 访问连接疑难解答](../support/Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
   
--   [解决你的防火墙](../support/Troubleshoot-your-firewall-in-Windows-Server-Essentials.md)  
+-   [对防火墙进行故障排除](../support/Troubleshoot-your-firewall-in-Windows-Server-Essentials.md)  
   
--   [使用 Windows Server Essentials 日志收集](../support/Use-the-Windows-Server-Essentials-Log-Collector.md)  
+-   [使用 Windows Server Essentials 日志收集器](../support/Use-the-Windows-Server-Essentials-Log-Collector.md)  
 
   
 ## <a name="ask-a-question-in-the-forums"></a>在论坛中提问  
   
--   [Windows Server 软件包常规](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserveressentials)  
+-   [Windows Server Essentials 常规](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserveressentials)  
   
--   [Windows 要](https://social.technet.microsoft.com/Forums/home?forum=smallbusinessserver2011essentials)  
+-   [Windows SBS 2011 Essentials](https://social.technet.microsoft.com/Forums/home?forum=smallbusinessserver2011essentials)  
   
--   [小型企业服务器](https://social.technet.microsoft.com/Forums/home?forum=smallbusinessserver)  
+-   [Small Business Server](https://social.technet.microsoft.com/Forums/home?forum=smallbusinessserver)  
   
 -   [Windows Server 论坛](https://social.technet.microsoft.com/Forums/windowsserver/home?category=windowsserver)  
   
-## <a name="get-additional-help"></a>获取更多帮助  
+## <a name="get-additional-help"></a>获取额外帮助  
   
--   [对 Windows 小型企业服务器的支持](https://support.microsoft.com/oas/default.aspx?gprid=1167&st=1&wfxredirect=1&sd=gn)  
+-   [对 Windows Small Business Server 的支持](https://support.microsoft.com/oas/default.aspx?gprid=1167&st=1&wfxredirect=1&sd=gn)  
   
--   [Microsoft 合作伙伴学习路径](https://mspartnerlp.mspartner.microsoft.com/LearningPath/LearningPath/DLPaths?trackId=559&rowId=1078&trackPathId=6605)  
+-   [Microsoft 合作伙伴学习途径](https://mspartnerlp.mspartner.microsoft.com/LearningPath/LearningPath/DLPaths?trackId=559&rowId=1078&trackPathId=6605)  
   
--   [Microsoft 网络合作伙伴的支持](https://mspartner.microsoft.com/en/us/Pages/Support/get-support.aspx)  
+-   [Microsoft 合作伙伴网络支持](https://mspartner.microsoft.com/en/us/Pages/Support/get-support.aspx)  
   
--   [Microsoft 企业中心](http://www.microsoftbusinesshub.com/Gigya/Insider)  
+-   [Microsoft Business Hub](http://www.microsoftbusinesshub.com/Gigya/Insider)  
   
--   [Microsoft 顶级支持服务](https://www.microsoft.com/microsoftservices/support.aspx)  
+-   [Microsoft 高级支持服务](https://www.microsoft.com/microsoftservices/support.aspx)  
   
 -   [美国以外的用户](https://support.microsoft.com/common/international.aspx?&sd=tech)  
   
--   [Microsoft 产品的支持生命周期](https://support.microsoft.com/lifecycle/)  
+-   [Microsoft 产品支持生命周期](https://support.microsoft.com/lifecycle/)  
   
--   [软件保障支持](https://support.microsoft.com/default.aspx?scid=fh;%5Bln%5D;SoftAssurance)  
+-   [Software 保障支持](https://support.microsoft.com/default.aspx?scid=fh;%5Bln%5D;SoftAssurance)  
   
 -   [Microsoft 技术中心](https://www.microsoft.com/mtc/default.aspx)  
   
--   [小型企业的支持](https://smallbusiness.support.microsoft.com/contact)  
+-   [对小型企业的支持](https://smallbusiness.support.microsoft.com/contact)  
   
--   [Windows Server 软件包和小型企业服务器博客](http://blogs.technet.com/b/sbs/)  
+-   [Windows Server Essentials 和 Small Business Server 博客](http://blogs.technet.com/b/sbs/)  
   
-## <a name="end-to-end-solution-guides"></a>End-to-end 解决方案指南  
+## <a name="end-to-end-solution-guides"></a>端到端解决方案指南  
   
--    若要了解如何将存储数据集中，限制数据的访问权限，备份你的数据在本地并在云中进行构建，请参阅[提供中小型企业中的数据保护](https://technet.microsoft.com/library/dn582043.aspx)。  
+-    若要了解如何集中数据存储、限制数据访问权限并在本地和云中备份数据，请参阅[在中小型企业中提供数据保护](https://technet.microsoft.com/library/dn582043.aspx)。  
   
--    若要了解如何安全地从任何位置访问在任何连接了 Internet 的设备上的企业数据，请参阅[安全中中小型企业远程访问](https://technet.microsoft.com/library/dn629457.aspx)。  
+-    若要了解如何从任意位置通过任何已连接 Internet 的设备安全地访问业务数据，请参阅[中小型企业中的安全远程访问](https://technet.microsoft.com/library/dn629457.aspx)。  
   
--    若要了解如何安全供应商与合作伙伴协作，请参阅[改进中小型企业中的协作](https://technet.microsoft.com/library/dn747893.aspx)。  
+-    若要了解如何安全地与合作伙伴和供应商进行协作，请参阅[改进中小型企业中的协作](https://technet.microsoft.com/library/dn747893.aspx)。  
   
 ## <a name="see-also"></a>请参阅  
   
 -   [安装 Windows Server Essentials](../install/Install-Windows-Server-Essentials.md)  
   
--   [Windows Server Essentials 到迁移服务器数据](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)  
+-   [将服务器数据迁移到 Windows Server Essentials](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)  
   
 -   [管理 Windows Server Essentials](../manage/Manage-Windows-Server-Essentials.md)  
   

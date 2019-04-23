@@ -1,22 +1,23 @@
 ---
-title: "ReFS 完整性流"
-description: 
+title: ReFS 完整性流
+description: ''
 author: gawatu
 ms.author: jgerend
 manager: dmoss
-ms.date: 11/14/2016
+ms.date: 10/16/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.assetid: 1f1215cd-404f-42f2-b55f-3888294d8a1f
-ms.openlocfilehash: d9e14e74591b341048316e9c2e69a312062c3304
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 11f0a696fb843f5cd8b4a7ff3318c28d6c1adeb8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59871338"
 ---
 # <a name="refs-integrity-streams"></a>ReFS 完整性流
->适用于：Windows Server（半年频道）、Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows 10
+>适用于：Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012，Windows Server （半年频道），Windows 10
 
 完整性流是 ReFS 中的可选功能，可使用校验和验证和维护数据完整性。 尽管 ReFS 始终将校验和用于元数据，但默认情况下，ReFS 不会生成或验证文件数据的校验和。 完整性流是一项可让用户将校验和用于文件数据的可选功能。 启用完整性流后，ReFS 可以清楚地确定数据有效还是已损坏。 此外，ReFS 和存储空间还可以一起自动更正损坏的元数据和数据。
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 10/17/2017
 
 启用完整性流后，ReFS 将在该文件的元数据中创建和保留针对指定文件的校验和。 此校验和支持 ReFS 在访问数据前验证它的完整性。 返回启用了完整性流的任何数据前，ReFS 将首先计算其校验和：
 
-<img src=media/compute-checksum.gif alt="Compute checksum for file data"/>
+![计算校验和文件数据](media/compute-checksum.gif)
 
 然后将此校验和与包含在文件元数据中的校验和进行比较。 如果校验和都匹配，则数据标记为有效并返回给用户。 如果校验和不匹配，则数据损坏。 卷的复原确定 ReFS 响应损坏的方式：
 
@@ -37,7 +38,7 @@ ms.lasthandoff: 10/17/2017
 
 ReFS 将在系统事件日志中记录所有损坏，并且日志将反映损坏是否已修复。 
 
-<img src=media/corrective-write.gif alt="Corrective write restores data integrity."/>
+![纠正写还原数据的完整性](media/corrective-write.gif)
 
 ## <a name="performance"></a>性能 
 
@@ -92,7 +93,7 @@ PS C:\> Set-FileIntegrity H:\ -Enable $True
 PS C:\> Set-FileIntegrity H:\Docs -Enable $True
 ```
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 -   [ReFS 概述](refs-overview.md)
 -   [ReFS 块克隆](block-cloning.md)

@@ -1,7 +1,7 @@
 ---
 ms.assetid: b7bf7579-ca53-49e3-a26a-6f9f8690762f
-title: "广告金融服务和 Web 应用程序代理服务器的安全的最佳实践"
-description: "本文档提供安全的规划和部署 Active Directory 联合身份验证服务 (广告 FS) 和 Web 应用程序代理服务器的最佳实践。"
+title: 保护 AD FS 和 Web 应用程序代理的最佳做法
+description: 本文档提供有关安全规划和部署 Active Directory 联合身份验证服务 (AD FS) 和 Web 应用程序代理的最佳实践。
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,79 +9,80 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6026246228b22fdea6001528ab7621a1704f1983
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: 38de2bca413ce7f8aeda2af4392f9a616641b189
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59873068"
 ---
-## <a name="best-practices-for-securing-active-directory-federation-services"></a>保护 Active Directory 联合身份验证服务的最佳实践
+## <a name="best-practices-for-securing-active-directory-federation-services"></a>保护 Active Directory 联合身份验证服务的最佳做法
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-本文档提供安全的规划和部署 Active Directory 联合身份验证服务 (广告 FS) 和 Web 应用程序代理服务器的最佳实践。  它包含有关默认行为的这些组件和建议特定的用例和安全要求的组织的其他安全配置的信息。
+本文档提供有关安全规划和部署 Active Directory 联合身份验证服务 (AD FS) 和 Web 应用程序代理的最佳实践。  它包含有关默认行为的这些组件和具有特定用例和安全要求的组织的其他安全配置建议的信息。
 
-本文适用于广告金融服务和 Windows Server 2012 R2 和 Windows Server 2016 （预览） 中的 WAP。  是否在打开的本地网络或例如 Microsoft Azure 云托管环境中部署基础结构，则可以使用这些建议。
+本文档适用于 AD FS 和 WAP 中 Windows Server 2012 R2 和 Windows Server 2016 （预览版）。  可以使用这些建议，无论是基础结构部署在本地网络中还是在 Microsoft Azure 等云托管环境中。
 
 ## <a name="standard-deployment-topology"></a>标准部署拓扑
-对于本地环境中部署，我们建议包含内部公司的网络，一个或多个广告 FS 服务器 DMZ 或外部网络中的一个或多个 Web 应用程序代理 (WAP) 服务器的标准部署拓扑。  每一层，广告金融服务和 WAP，硬件或软件负载平衡位于放服务器电场的日落，并处理路由交通。  防火墙位于放每个 （金融服务和代理） 场按需在前的负载平衡外部 IP 地址。
+对于部署在本地环境中，我们建议包含内部企业网络上一个或多个 AD FS 服务器与外围网络或 extranet 网络中的一个或多个 Web 应用程序代理 (WAP) 服务器的标准部署拓扑。  在每个层上，AD FS 和 WAP，硬件或软件负载均衡器放置在服务器场的前面，并处理流量路由。  防火墙位于每个 （FS 和代理） 场前面的负载均衡器的外部 IP 地址前所需的方式。
 
-![广告 FS 标准拓扑](media/Best-Practices-Securing-AD-FS/adfssec1.png)
+![AD FS 标准拓扑](media/Best-Practices-Securing-AD-FS/adfssec1.png)
 
 ## <a name="ports-required"></a>所需端口
-以下图表显示了必须为启用状态，以及之间十分广告金融服务和 WAP 部署的组件防火墙端口。  如果部署不包括 Azure AD / Office 365、 同步要求可以忽略。
+下图描绘了之间和在 AD FS 和 WAP 部署内的组件之间必须启用防火墙端口。  如果部署不包括 Azure AD / Office 365，同步要求可忽略。
 
->请注意，只是端口 49443 所需如果使用用户证书身份验证，它是可选的 Azure AD 和 Office 365。
+>请注意，端口 49443 才需要如果使用用户证书身份验证，是可选的 Azure ad 和 Office 365。
 
-![广告 FS 标准拓扑](media/Best-Practices-Securing-AD-FS/adfssec2.png)
+![AD FS 标准拓扑](media/Best-Practices-Securing-AD-FS/adfssec2.png)
 
-### <a name="azure-ad-connect-and-federation-serverswap"></a>Azure AD 连接和联合身份验证的服务器/WAP
-此表描述端口和所需的 Azure AD 连接服务器和联盟/WAP 服务器之间进行通信的协议。  
+### <a name="azure-ad-connect-and-federation-serverswap"></a>Azure AD Connect 和联合身份验证服务器 /WAP
+下表介绍的端口和协议所需的 Azure AD Connect 服务器和联合服务器 /WAP 服务器之间的通信。  
 
 协议 |端口 |描述
 --------- | --------- |---------
-HTTP|80 (TCP/UDP)|用于下载 Crl （证书吊销列表） 以验证 SSL 证书。
-HTTPS|443(TCP/UDP)|用于使用 Azure AD 同步。
-WinRM|5985| WinRM 的聆听者
+HTTP|80 (TCP/UDP)|用于下载 Crl （证书吊销列表） 来验证 SSL 证书。
+HTTPS|443(TCP/UDP)|用于与 Azure AD 同步。
+WinRM|5985| WinRM 侦听器
 
-### <a name="wap-and-federation-servers"></a>WAP 和联合身份验证的服务器
-此表描述端口和所需的联合身份验证的服务器和 WAP 服务器之间进行通信的协议。
+### <a name="wap-and-federation-servers"></a>WAP 和联合身份验证服务器
+下表介绍的端口和协议所需的联合身份验证服务器和 WAP 服务器之间的通信。
 
 协议 |端口 |描述
 --------- | --------- |---------
 HTTPS|443(TCP/UDP)|用于身份验证。
 
 ### <a name="wap-and-users"></a>WAP 和用户
-此表描述端口和所需的用户和 WAP 服务器之间进行通信的协议。
+下表介绍的端口和协议所需的用户与 WAP 服务器之间的通信。
 
 协议 |端口 |描述
 --------- | --------- |--------- |
 HTTPS|443(TCP/UDP)|用于设备身份验证。
-TCP|49443 (TCP)|用于证书身份验证。
+TCP|49443 (TCP)|使用证书身份验证。
 
-所需的端口和所需的混合部署看到该文档协议的其他信息[此处](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-ports/)。
+有关其他信息所需的端口和协议所需的混合部署，请参阅文档[此处](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-ports/)。
 
-有关详细信息端口和所需的 Azure AD 协议和 Office 365 部署，请参阅文档[此处](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US)。
+有关端口和协议所需的 Azure AD 的详细信息和 Office 365 部署，请参阅文档[此处](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US)。
 
-### <a name="endpoints-enabled"></a>端点启用
+### <a name="endpoints-enabled"></a>启用终结点
 
-安装广告金融服务和 WAP 时联合身份验证服务和代理服务器上，可启用一组默认的广告 FS 端点。  已基于最常所需常用的方案选择这些的默认值，并不需要进行更改。  
+安装 AD FS 和 WAP，联合身份验证服务和代理服务器上都启用一组默认的 AD FS 终结点。  已根据最常需要和已用的情况下选择这些默认值并不需要更改它们。  
 
-### <a name="optional-min-set-of-endpoints-proxy-enabled-for-azure-ad--office-365"></a>[可选]分钟套端点为 Azure AD 启用的代理 / Office 365
-仅针对 Azure AD 部署广告金融服务和 WAP 组织和 Office 365 方案可以限制进一步广告 FS 端点启用的代理服务器上，以实现更多最少的攻击 surface 的数量。
-下面是在这些方案中代理服务器，必须启用的端点的列表：
+### <a name="optional-min-set-of-endpoints-proxy-enabled-for-azure-ad--office-365"></a>[可选]最小值组的终结点代理服务器启用 Azure ad / Office 365
+组织仅为 Azure AD 中部署 AD FS 和 WAP 和 Office 365 方案可以限制甚至更多的 AD FS 终结点代理服务器上启用以实现更少的攻击面数。
+下面是必须在这些情况下在代理启用的终结点的列表：
 
-|端点|目的
+|终结点|用途
 |-----|-----
-|/ adfs 月 1 ！|基于浏览器的身份验证的版本流和当前版本的 Microsoft Office 用于 Azure AD 此端点和 Office 365 身份验证
-|/adfs/services/trust/2005/usernamemixed|用于 Exchange Online 与 Office 客户端早于 2015 Office 2013 年 5 月更新。  更高版本的客户端使用被动 \adfs\ls 端点。
-|/adfs/services/trust/13/usernamemixed|用于 Exchange Online 与 Office 客户端早于 2015 Office 2013 年 5 月更新。  更高版本的客户端使用被动 \adfs\ls 端点。
-|/ adfs/oauth2|使用此一个任何现代应用 （在本地或在云中） 你已经将配置直接向 （即不是通过 AAD) 的广告 FS 进行身份验证
-|/adfs/services/trust/mex|用于 Exchange Online 与 Office 客户端早于 2015 Office 2013 年 5 月更新。  更高版本的客户端使用被动 \adfs\ls 端点。
-|/adfs/ls/federationmetadata/2007-06/federationmetadata.xml |对于任何被动流; 要求和使用的 Office 365 / Azure AD 检查广告 FS 证书
+|/adfs/ls|基于浏览器的身份验证流和当前版本的 Microsoft Office 使用此终结点适用于 Azure AD 和 Office 365 身份验证
+|/adfs/services/trust/2005/usernamemixed|与 Office 客户端早于 Office 2013 2015 年 5 月更新一起使用为 Exchange Online。  更高版本的客户端使用被动 \adfs\ls 终结点。
+|/adfs/services/trust/13/usernamemixed|与 Office 客户端早于 Office 2013 2015 年 5 月更新一起使用为 Exchange Online。  更高版本的客户端使用被动 \adfs\ls 终结点。
+|/adfs/oauth2|使用此一个为任何新型应用程序 （在本地或云中），已配置为直接向 AD FS （即，不通过 AAD) 进行身份验证
+|/adfs/services/trust/mex|与 Office 客户端早于 Office 2013 2015 年 5 月更新一起使用为 Exchange Online。  更高版本的客户端使用被动 \adfs\ls 终结点。
+|/adfs/ls/federationmetadata/2007-06/federationmetadata.xml |必需的任何被动模式的过程;并由 Office 365 / Azure AD，检查 AD FS 证书
 
 
-使用以下 PowerShell cmdlet 代理服务器上，可以禁用广告 FS 端点：
+可以使用以下 PowerShell cmdlet 在代理上禁用 AD FS 终结点：
     
     PS:\>Set-AdfsEndpoint -TargetAddressPath <address path> -Proxy $false
 
@@ -90,72 +91,72 @@ TCP|49443 (TCP)|用于证书身份验证。
     PS:\>Set-AdfsEndpoint -TargetAddressPath /adfs/services/trust/13/certificatemixed -Proxy $false
     
 
-### <a name="extended-protection-for-authentication"></a>扩展的保护进行身份验证
-身份验证的扩展的保护是一项功能在中间 (MITM) 攻击的男子针对缓解了，默认情况下与广告 FS 处于启用状态。
+### <a name="extended-protection-for-authentication"></a>身份验证扩展的保护
+身份验证扩展的保护是一项功能，可针对中间人 (MITM) 攻击缓解并与 AD FS 默认情况下启用。
 
-#### <a name="to-verify-the-settings-you-can-do-the-following"></a>验证设置，请执行以下操作：
-可验证设置，使用以下 PowerShell commandlet。  
+#### <a name="to-verify-the-settings-you-can-do-the-following"></a>若要验证设置，请执行以下操作：
+可以验证设置，使用以下 PowerShell commandlet。  
     
    `PS:\>Get-ADFSProperties`
 
-属性`ExtendedProtectionTokenCheck`。  默认设置是允许，以便没有不支持的功能的浏览器的兼容性问题可以实现安全权益。  
+该属性是`ExtendedProtectionTokenCheck`。  默认设置是允许，以便可以实现而产生与不支持的功能的浏览器的兼容性问题的安全优势。  
 
-### <a name="congestion-control-to-protect-the-federation-service"></a>拥挤控制保护联合身份验证服务
-联合身份验证服务代理 （WAP 的一部分） 提供了大量的请求从保护广告 FS 服务的拥挤控制。  Web 应用程序代理将拒绝外部身份验证射如果检测到的 Web 应用程序代理和联盟服务器之间延迟重载联合身份验证的服务器。  默认情况下使用推荐的延迟 threshold 级别配置此功能。
+### <a name="congestion-control-to-protect-the-federation-service"></a>拥塞控制以保护联合身份验证服务
+联合身份验证服务代理 （WAP 的一部分） 提供了拥塞控制来保护从大量请求的 AD FS 服务。  如果检测到的 Web 应用程序代理与联合身份验证服务器之间的延迟重载函数的联合身份验证服务器，Web 应用程序代理将拒绝外部客户端身份验证请求。  此功能配置默认情况下建议的延迟阈值级别。
 
-#### <a name="to-verify-the-settings-you-can-do-the-following"></a>验证设置，请执行以下操作：
-1.  你 Web 应用程序代理计算机上，启动提升了权限的 command 窗口。
-2.  导航到 ADFS 目录 %windir%\adfs\config。
-3.  更改拥挤控制设置为其默认值即可从<congestionControl latencyThresholdInMSec="8000" minCongestionWindowSize="64" enabled="true" />。
+#### <a name="to-verify-the-settings-you-can-do-the-following"></a>若要验证设置，请执行以下操作：
+1.  您的 Web 应用程序代理计算机上启动提升的命令窗口。
+2.  导航到 ADFS 目录，请在 %windir%\adfs\config。
+3.  从其默认值来更改拥塞控制设置<congestionControl latencyThresholdInMSec="8000" minCongestionWindowSize="64" enabled="true" />。
 4.  保存并关闭该文件。
-5.  通过运行网络停止 adfssrv，然后按网络开始 adfssrv，重新启动广告 FS 服务。
-此功能的指南可以找到您，以供参考[此处](https://msdn.microsoft.com/en-us/library/azure/dn528859.aspx )。
+5.  通过运行 net stop adfssrv，然后 net start adfssrv 重新启动 AD FS 服务。
+可供你参考，找到此功能的指导[此处](https://msdn.microsoft.com/en-us/library/azure/dn528859.aspx )。
 
-### <a name="standard-http-request-checks-at-the-proxy"></a>在代理检查标准的 HTTP 请求。
-代理还执行以下标准检查防御的所有通信：
+### <a name="standard-http-request-checks-at-the-proxy"></a>在代理处检查标准 HTTP 请求
+代理还执行以下标准检查对所有流量：
 
-- 本身 FS P 向广告 FS 短期证书通过验证身份。  在可疑危害 dmz 服务器方案，广告 FS 可以"取消代理信任"，使其不再信任的任何传入请求潜在威胁代理服务器。 撤销代理信任吊销每个代理自己证书，以使其无法成功进行身份验证用于任何目的广告 FS 服务器
-- FS P 终止所有连接，然后在内部网络上创建新 HTTP 连接到广告 FS 服务。 这样，外部设备和广告 FS 服务之间的会话级别缓冲区。 外部设备永远不会直接连接到广告 FS 服务。
-- FS P 执行专门筛选出不需要的广告 FS 服务的 HTTP 标头的 HTTP 请求验证。
+- FS-P 本身的生存期短的证书通过 AD FS 进行身份验证。  在怀疑被泄露的外围网络服务器的方案中，AD FS 可以"撤销代理信任"，使其无法再信任来自的任何传入请求可能会泄露代理。 代理信任撤消后，每个代理的证书，以便它不能成功进行身份验证出于任何目的与 AD FS 服务器
+- FS-P 终止所有连接，并在内部网络上创建新的 HTTP 连接到 AD FS 服务。 这样，外部设备和 AD FS 服务之间的会话级别缓冲区。 外部设备永远不会直接连接到 AD FS 服务。
+- FS-P 执行专门筛选出不需要的 AD FS 服务的 HTTP 标头的 HTTP 请求验证。
 
 ## <a name="recommended-security-configurations"></a>推荐的安全配置
-确保所有广告 FS 和 WAP 服务器接收最新的更新您的广告 FS 基础结构的最重要的安全推荐是都确保你有一种方法来使你的广告金融服务和 WAP 服务器保持最新的所有安全更新，以及在此页面上的广告 fs 指定为重要这些可选更新。
+确保所有 AD FS 和 WAP 服务器都接收到最新的 AD FS 基础结构的最重要的安全建议是为了确保您有一种方式到位，以使你的 AD FS 和 WAP 服务器保持最新与所有安全更新，以及这些可选的更新为此页上的 AD FS 指定为重要的更新。
 
-Azure AD 客户能够监视和保持最新的推荐的方式他们的基础结构是通过 Azure AD 连接健康广告 fs，Azure AD 高级的一项功能。  Azure AD 连接健康包括监视器和警报触发如果广告 FS 或 WAP 计算机专为广告金融服务和 WAP 缺少重要的更新之一。
+用于 Azure AD 用户能够监视和保持最新的推荐方法是通过 Azure AD Connect Health AD fs，Azure AD Premium 的一项功能其基础结构。  Azure AD Connect Health 包括监视器和 AD FS 或 WAP 计算机专门为 AD FS 和 WAP 缺少其中一个重要的更新的情况下触发的警报。
 
-有关广告 FS 可以找到有关安装 Azure AD 连接健康信息[此处](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-health-agent-install/)。
+安装 Azure AD Connect Health AD FS 可以找到有关的信息[此处](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health-agent-install/)。
 
 ## <a name="additional-security-configurations"></a>其他安全配置
-以下附加功能可以或者配置提供其他对这些默认部署中提供的保护。
+可以根据需要配置以下附加功能，以提供到默认部署中提供额外的保护。
 
-### <a name="extranet-soft-lockout-protection-for-accounts"></a>帐户联网"柔软"锁定保护
-使用外部锁定功能在 Windows Server 2012 R2，广告 FS 管理员可以设置最大数目的身份验证失败的请求 (ExtranetLockoutThreshold) 和 ' 观察窗口的时段 (ExtranetObservationWindow)。 达到此最大数目 (ExtranetLockoutThreshold) 的身份验证请求后，广告 FS 停止尝试进行提供的帐户凭据针对广告 FS 身份验证的设置的时间 (ExtranetObservationWindow)。 此操作会将该帐户防止 AD 帐户锁定，换句话说，它可防止此帐户依靠广告 FS 的用户身份验证的企业资源失去访问权限。 这些设置适用于所有广告 FS 服务可以进行身份验证的域。
+### <a name="extranet-soft-lockout-protection-for-accounts"></a>对帐户的"soft"extranet 锁定保护
+使用 Windows Server 2012 R2 中的 extranet 锁定功能中，AD FS 管理员可以设置最大数目的失败的身份验证请求 (ExtranetLockoutThreshold) 和一个观察窗口的时间段 (ExtranetObservationWindow)。 当达到此最大数目 (ExtranetLockoutThreshold) 的身份验证请求时，就会停止 AD FS 尝试对针对 AD FS 对提供的帐户凭据进行身份验证设置的时间段内 (ExtranetObservationWindow)。 此操作从 AD 帐户锁定保护此帐户，换而言之，它可防止此帐户的公司资源的依赖于 AD FS 进行身份验证的用户会失去访问权限。 这些设置适用于 AD FS 服务可以进行身份验证的所有域。
 
-你可以使用下面的 Windows PowerShell 命令设置广告 FS 联网锁定 （如）： 
+可以使用以下 Windows PowerShell 命令来设置 AD FS extranet 锁定 （例如）： 
 
     PS:\>Set-AdfsProperties -EnableExtranetLockout $true -ExtranetLockoutThreshold 15 -ExtranetObservationWindow ( new-timespan -Minutes 30 )
 
-此功能的公用文档，以供参考是[此处](https://technet.microsoft.com/en-us/library/dn486806.aspx )。 
+有关参考，是此功能的公共文档[此处](https://technet.microsoft.com/library/dn486806.aspx )。 
 
-### <a name="differentiate-access-policies-for-intranet-and-extranet-access"></a>区分访问策略的 intranet 和外部网络的访问权限
-广告 FS 能够区分访问策略源自从 internet 通过代理推出的本地，公司网络 vs 请求中的请求。  这可以完成每个应用程序或全球。  对于高业务值应用程序或应用程序的敏感或个人身份的信息，请考虑需要多因素身份验证。  这可以通过广告 FS 管理单元。  
+### <a name="differentiate-access-policies-for-intranet-and-extranet-access"></a>区分 intranet 和 extranet 访问的访问策略
+AD FS 具有能够区分在本地的公司网络 vs 传来的请求，从 internet 通过代理发出的请求的访问策略。  这可以每个应用程序或全局范围内。  对于具有高业务价值的应用程序或应用程序对于敏感或个人身份信息，请考虑需要多因素身份验证。  这可以通过 AD FS 管理管理单元。  
 
-### <a name="require-multi-factor-authentication-mfa"></a>要求多因素身份验证 (MFA)
-广告 FS 可以配置为需要强的身份验证 （如多因素身份验证） 专门为通过代理传入请求、 个别应用程序和条件访问这两个 Azure AD / Office 365 和本地资源。  受支持的方法的 MFA 包括 Microsoft Azure MFA 和第三方提供商。  提示用户可以提供其他信息 (如包含一个短信短时间代码)，以及广告 FS 的工作方式的提供商特定插件，以允许访问。  
+### <a name="require-multi-factor-authentication-mfa"></a>需要多重身份验证 (MFA)
+可以配置 AD FS 为需要强身份验证 （例如多重身份验证），专用于通过代理传入请求、 单个应用程序，并对这两个 Azure AD 条件性访问 / Office 365 和本地资源。  MFA 的受支持的方法包括 Microsoft Azure MFA 和第三方提供程序。  系统会提示用户提供的其他信息 (如包含一个短信代码的时间)，AD FS 配合插件，以允许访问特定于提供程序。  
 
-受支持的外部 MFA 提供商包括中列出的这些[这](https://technet.microsoft.com/en-us/library/dn758113.aspx)页上，以及 HDI 全球。
+支持外部的 MFA 提供程序包括中列出的内容[这](https://technet.microsoft.com/library/dn758113.aspx)页上，以及全局 HDI。
 
 ### <a name="hardware-security-module-hsm"></a>硬件安全模块 (HSM)
-在其默认配置，键广告 FS 用来登录标记从未的 intranet 上保留联合身份验证的服务器。  它们是永远不会显示在 DMZ 或代理计算机上。  （可选） 若要提供额外的保护，这些键可以保护在附加到广告 FS 硬件安全模块。  Microsoft 不会产生 HSM 产品，但也有几个市场支持广告 FS 上。  为了实现该建议，请按照供应商指导，以便创建 X509 证书签名和加密，然后使用广告 FS 安装 powershell commandlets，指定你自定义的证书，如下所示：
+在默认配置中，密钥 AD FS 使用的令牌进行签名永远不会保留在 intranet 上联合身份验证服务器。  它们永远不会存在于外围网络或代理计算机上。  （可选） 若要提供额外的保护，这些密钥可以进行保护的硬件安全模块连接到 AD FS。  Microsoft 不会生成 HSM 产品，但有几个支持 AD FS 市场上。  若要实现此建议，请按照供应商的指南创建 X509 证书进行签名和加密，然后使用 AD FS 安装 powershell commandlet，指定自定义证书，如下所示：
 
     PS:\>Install-AdfsFarm -CertificateThumbprint <String> -DecryptionCertificateThumbprint <String> -FederationServiceName <String> -ServiceAccountCredential <PSCredential> -SigningCertificateThumbprint <String>
 
-位置：
+其中：
 
 
-- `CertificateThumbprint` 是 SSL 证书
-- `SigningCertificateThumbprint` 是你签名证书 （带有 HSM 保护键）
-- `DecryptionCertificateThumbprint` 是你的加密证书 （带有 HSM 保护键）
+- `CertificateThumbprint` 是你的 SSL 证书
+- `SigningCertificateThumbprint` 是 （使用受 HSM 保护密钥） 签名证书
+- `DecryptionCertificateThumbprint` 为您的加密证书 （带有受 HSM 保护密钥）
 
 
 

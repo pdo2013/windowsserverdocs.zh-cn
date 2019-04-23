@@ -10,21 +10,21 @@ ms.date: 12/5/2017
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 9cf87597-b15d-4f43-8aa1-91e60367f011
-ms.openlocfilehash: a2da7b8437a9dc7f44fc83837e3ebad93b7fe3ab
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
-ms.translationtype: HT
+ms.openlocfilehash: 96f098457b9bac4541421c7889aefb030e3d8804
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "1410394"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59868798"
 ---
 # <a name="introducing-windows-server-version-1709"></a>Windows Server 版本 1709 简介
 
 >适用于：Windows Server（半年频道）
 
-**Windows Server 版本 1709 是以新半年频道发布的第一个版本。** 
+**Windows Server 版本 1709年是新的半年频道中的第一个版本。** 
 
-## <a name="what-the-semi-annual-channel-is--and-isnt"></a>以半年频道发布的版本内容
-作为以此新频道发布的第一个版本，Windows Server 版本 1709 *不*是 Windows Server 2016 的“更新”或“Service Pack”， 而是**新版本频道**中每年发布两次的服务器版本的第一版，该版本面向以“云节奏”移动的客户（如对快速开发周期有要求的客户），或者紧跟最新 Hyper-V 投资的托管商。 每个以该频道发布的版本自初始版本开始享受 18 个月的支持服务。 有关半年频道的详细信息，以及**确定要加入哪个频道**（或保留在某个频道）的提示，请参阅[半年频道概述](semi-annual-channel-overview.md)。
+## <a name="what-the-semi-annual-channel-is--and-isnt"></a>有关半年频道的说明
+作为以此新频道发布的第一个版本，Windows Server 版本 1709 *不*是 Windows Server 2016 的“更新”或“Service Pack”， 而是**新版本频道**中每年发布两次的服务器版本的第一版，该版本面向以“云节奏”移动的客户（如对快速开发周期有要求的客户），或者紧跟最新 Hyper-V 投资的托管商。 每个在该频道中发布的版本都享受 18 个月的支持服务（自初始发布开始）。 若要详细了解半年频道并获取**有关决定加入哪个频道的提示**（或留在哪个频道的提示），请参阅[半年频道概述](semi-annual-channel-overview.md)。
 
 
 **当前 Long-Term Servicing Channel (LTSC) 产品是 Windows Server 2016**。 如果你需要服务器操作系统具有长期稳定性和可预测性，以支持传统的工作负载和应用程序，则 LTSC 最适合。 如果你想坚持使用 LTSC，则应该安装（或继续使用）Windows Server 2016，该软件可在服务器核心模式下或在带桌面体验的服务器模式下安装。 有关详细信息，请参阅 [Windows Server 2016 入门](https://docs.microsoft.com/windows-server/get-started/server-basics)。
@@ -56,11 +56,11 @@ Nano Server 可用作容器操作系统。 有关详细信息，请参阅[在 Wi
 
 此版本应以干净安装的方式进行安装。
 
-- VLSC：享受[软件保障](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx)的批量许可客户可以转到[批量许可服务中心](https://www.microsoft.com/Licensing/servicecenter/default.aspx)并单击**登录**来获取此版本。 然后，单击**下载和密钥**并搜索此版本。 
+- VLSC:具有批量许可客户[软件保障](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx)可以获取此版本通过转到[批量许可服务中心](https://www.microsoft.com/Licensing/servicecenter/default.aspx)，然后单击**登录**。 然后，单击**下载和密钥**并搜索此版本。 
 
 - [Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) 中也提供了 Windows Server 版本 1709。
 
-- **Visual Studio 订阅**参与者：如果你已参与 Visual Studio 订阅，则可以获取 Windows Server 版本 1709，方法是转到 [Visual Studio 订阅者下载页面](https://my.visualstudio.com/downloads?pid=2347)并在此处完成相关下载操作。 如果你还不是订阅者，请转到 [Visual Studio 订阅](https://www.visualstudio.com/subscriptions/)进行注册，然后访问上方所述的 [Visual Studio 订阅者下载页面](https://my.visualstudio.com/downloads?pid=2347)。 通过 Visual Studio 订阅获得的版本仅用于开发和测试。
+- 中的参与者**Visual Studio 订阅：** 如果您已参与 Visual Studio 订阅，则可以获取 Windows Server，通过转到版本 1709年[Visual Studio 订阅者下载页](https://my.visualstudio.com/downloads?pid=2347)和那里完成的下载可用。 如果你还不是订阅者，请转到 [Visual Studio 订阅](https://www.visualstudio.com/subscriptions/)进行注册，然后访问上方所述的 [Visual Studio 订阅者下载页面](https://my.visualstudio.com/downloads?pid=2347)。 通过 Visual Studio 订阅获得的版本仅用于开发和测试。
 
 
 

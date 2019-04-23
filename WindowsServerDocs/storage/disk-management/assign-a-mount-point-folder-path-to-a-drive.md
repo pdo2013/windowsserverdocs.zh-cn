@@ -1,7 +1,7 @@
 ---
-title: "*为驱动器分配装入点文件夹路径。"
-description: "本文介绍如何为驱动器分配装入点文件夹路径（而不是驱动器号）。"
-keywords: "虚拟化, 安全性, 恶意软件"
+title: '*为驱动器分配装入点文件夹路径。'
+description: 本文介绍如何为驱动器分配装入点文件夹路径（而不是驱动器号）。
+keywords: 虚拟化, 安全性, 恶意软件
 ms.date: 10/12/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,15 +9,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 01aaf73f694a6a7a9c516e4358f22dec0d1b4bc4
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: a25dac6e49d6e9aee2efa043999162262c5bb791
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59870868"
 ---
 # <a name="assign-a-mount-point-folder-path-to-a-drive"></a>为驱动器分配装入点文件夹路径
 
-> **适用于：**Windows 10、Windows 8.1、Windows Server（半年频道）、Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
+> **适用于：** Windows 10、 Windows 8.1、 Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
 
 你可以使用磁盘管理为驱动器分配装入点文件夹路径（而不是驱动器号）。 装入点文件夹路径仅适用于基本或动态 NTFS 卷上的空文件夹。
 
@@ -55,10 +56,10 @@ ms.lasthandoff: 10/17/2017
 
 <br />
 
-| 值 | 说明 |
+| 值 | 描述 |
 | --- | --- |
-| <p>**list volume**</p> | <p>显示所有磁盘上的基本和动态卷的列表。</p> |
-| <p>**select volume**</p>        | <p>选择指定的卷（其中 <em>volumenumber</em> 是卷编号），并赋予其焦点。 如果未指定卷，则 **select** 命令会列出具有焦点的当前卷。 你可以通过编号、驱动器号或装入点文件夹路径来指定卷。 在基本磁盘上，如果选择卷，则还会赋予相应的分区焦点。</p>|
+| <p>**list volume**</p> | <p>显示所有磁盘上的基本卷和动态卷的列表。</p> |
+| <p>**选择卷**</p>        | <p>选择指定的卷（其中 <em>volumenumber</em> 是卷编号），并赋予其焦点。 如果未指定卷，则 **select** 命令会列出具有焦点的当前卷。 你可以通过编号、驱动器号或装入点文件夹路径来指定卷。 在基本磁盘上，如果选择卷，则还会赋予相应的分区焦点。</p>|
 | <p>**assign**</p> | <p><ul><li> 将驱动器号或装入点文件夹路径分配给具有焦点的卷。 如果未指定驱动器号或装入点文件夹路径，则将分配下一个可用的驱动器号。 如果驱动器号或装入点文件夹路径已被占用，则会出错。</li> </p> <p><li>使用 **assign** 命令，你可以更改与可移动驱动器相关联的驱动器号。</li> </p><p><li> 你无法将驱动器号分配给引导卷或包含分页文件的卷。 此外，不能将驱动器号分配给原始设备制造商 (OEM) 分区、EFI 系统分区或基本数据分区以外的其他任何 GPT 分区。</p></li></ul> |
 | <p>**mount=** <em>path</em></p> | <p>指定安装的驱动器所位于的现有空 NTFS 文件夹。</p>  |
 
@@ -68,9 +69,9 @@ ms.lasthandoff: 10/17/2017
 -   装入点文件夹路径仅适用于基本或动态 NTFS 卷上的空文件夹。
 -   若要修改装入点文件夹路径，请删除它，然后使用新位置创建新文件夹路径。 你无法直接修改装入点文件夹路径。
 -   为驱动器分配装入点文件夹路径时，请使用**事件查看器**检查系统日志中指明装入点文件夹路径故障的任何群集服务错误或警告。 这些错误会在**源**列中列为 **ClusSvc**，在**类别**列中列为**物理磁盘资源**。
--   你还可以使用 [mountvol](http://go.microsoft.com/fwlink/?linkid=64111) 命令创建已装载的驱动器。
+-   你还可以使用 [mountvol](https://go.microsoft.com/fwlink/?linkid=64111) 命令创建已装载的驱动器。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 -   [命令行语法表示法](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)
 
 

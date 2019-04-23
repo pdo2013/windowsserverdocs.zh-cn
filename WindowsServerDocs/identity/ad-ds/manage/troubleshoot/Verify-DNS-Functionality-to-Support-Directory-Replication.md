@@ -1,131 +1,130 @@
 ---
 ms.assetid: 709353b0-b913-4367-8580-44745183e2bc
-title: "验证支持目录复制 DNS 功能"
+title: 验证 DNS 功能以支持目录复制
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
-ms.service: 
+ms.service: ''
 ms.suite: na
 ms.technology: identity-adds
-ms.author: billmath
+ms.author: joflore
 ms.date: 05/31/2017
 ms.tgt_pltfrm: na
 author: Femila
-ms.openlocfilehash: 49f2795e1042438a50850fcb7fd8224eff2cca37
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: a55b95ee516abda8bdbae6e9829a161ef060012e
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59871868"
 ---
-# <a name="verify-dns-functionality-to-support-directory-replication"></a>验证支持目录复制 DNS 功能
+# <a name="verify-dns-functionality-to-support-directory-replication"></a>验证 DNS 功能以支持目录复制
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
- To check Domain Name System (DNS) settings that might interfere with Active Directory replication, you can begin by running the basic test that ensures that DNS is operating properly for your domain. After you run the basic test, you can test other aspects of DNS functionality, including resource record registration and dynamic update.
+ 若要检查可能会影响需要与 Active Directory 复制的域名系统 (DNS) 设置，可以开始通过运行基本测试，以确保 DNS 正常操作为您的域。 运行基本测试后，可以测试 DNS 功能，包括资源记录注册和动态更新的其他方面。
 
-Although you can run this test of basic DNS functionality on any domain controller, typically you run this test on domain controllers that you think may be experiencing replication issues, for example, domain controllers that report Event IDs 1844, 1925, 2087, or 2088 in the Event Viewer Directory Service DNS log.
-
-
-
-## <a name="running-the-domain-controller-basic-dns-testtitle"></a>Running the domain controller basic DNS test</title>
-
-The basic DNS test checks the following aspects of DNS functionality:
+但您可以运行此测试的任何域控制器上，通常在您认为的域控制器上运行此测试的基本 DNS 功能可能会遇到复制问题，例如，报告事件 Id 1844，1925、 2087、 域控制器或2088 DNS 事件查看器目录服务日志中。
 
 
-- **Connectivity:** The test determines whether domain controllers are registered in DNS, can be contacted by the <system>ping</system> command, and have Lightweight Directory Access Protocol / remote procedure call (LDAP/RPC) connectivity. 如果连接测试失败域控制器上，针对该域控制器不运行任何其他测试。 The connectivity test is performed automatically before any other DNS test is run.
-- **Essential services:** The test confirms that the following services are running and available on the tested domain controller: DNS Client service, Net Logon service, Key Distribution Center (KDC) service, and DNS Server service (if DNS is installed on the domain controller).
-- **DNS client configuration:**  The test confirms that DNS servers on all network adapters of the DNS client computer are reachable.
-- **Resource record registrations:** The test confirms that the host (A) resource record of each domain controller is registered on at least one of the DNS servers that is configured on the client computer.
-- **Zone and start of authority (SOA):** If the domain controller is running the DNS Server service, the test confirms that the Active Directory domain zone and start of authority (SOA) resource record for the Active Directory domain zone are present.
-- **Root zone:** Checks whether the root (.) zone is present.
 
-Membership in Enterprise Admins, or equivalent, is the minimum required to complete these procedures.
+## <a name="running-the-domain-controller-basic-dns-testtitle"></a>运行域控制器的基本 DNS 测试</title>
 
-You can use the following procedure to verify basic DNS functionality.
+基本 DNS 测试检查 DNS 功能的以下方面：
+
+
+- **连接：** 测试确定是否可以通过联系的域控制器在 DNS 中注册<system>ping</system>命令，并具有轻型目录访问协议 / 远程过程调用 (LDAP/RPC) 连接。 如果连接测试失败的域控制器上，没有其他测试运行对该域控制器。 运行任何其他 DNS 测试之前，将自动执行连接测试。
+- **基本服务：** 测试确认以下服务正在运行并测试的域控制器上可用：DNS 客户端服务、 Net Logon 服务，密钥分发中心 (KDC) 服务和 DNS 服务器服务 （如果在域控制器上安装 DNS）。
+- **DNS 客户端配置：** 测试确认所有网络适配器的 DNS 客户端计算机上的 DNS 服务器都是可访问。
+- **资源记录注册：** 测试确认至少一个客户端计算机配置的 DNS 服务器上注册的每个域控制器的主机 (A) 资源记录。
+- **区域和颁发机构起始 (SOA):** 如果域控制器正在运行的 DNS 服务器服务，测试确认的 Active Directory 域区域和 Active Directory 域区域的授权 (SOA) 资源记录的开始都存在。
+- **根区域：** 检查是否存在根 （.） 区域。
+
+成员身份中 Enterprise Admins 或等效身份是完成这些过程所需的最小。
+
+可以使用以下过程来验证 DNS 的基本功能。
      
-### <a name="to-verify-basic-dns-functionality"></a>To verify basic DNS functionality:
+### <a name="to-verify-basic-dns-functionality"></a>若要验证基本 DNS 功能：
 
 
-1. On the domain controller that you want to test or on a domain member computer that has Active Directory Domain Services (AD DS) Tools installed, open a command prompt as an administrator. To open a command prompt as an administrator, click **Start**. 
-2. In Start Search, type Command Prompt. 
-3. At the top of the Start menu, right-click Command Prompt, and then click Run as administrator. If the User Account Control dialog box appears, confirm that the action it displays is what you want, and then click Continue.
-4. 在命令提示符下，键入以下命令，，然后按 ENTER: `dcdiag /test:dns /v /s: &lt;DCName&gt; /DnsBasic f:/dcdiagreport.txt`
-</br></br>Substitute the actual distinguished name, NetBIOS name, or DNS name of the domain controller for &lt;DCName&gt;. As an alternative, you can test all the domain controllers in the forest by typing /e: instead of /s:. The /f switch specifies a file name, which in the previous command is dcdiagreport.txt. If you want to place the file in a location other than the current working directory, you can specify a file path, such as /f:c:reportsdcdiagreport.txt.
+1. 在你想要测试的域控制器或 Active Directory 域服务 (AD DS) 安装了工具的域成员计算机上，以管理员身份打开命令提示符。 若要以管理员身份打开命令提示符，请单击“开始”。 
+2. 在“开始搜索”中，键入 ldp。 
+3. 在开始菜单的顶部，右键单击命令提示符，然后单击以管理员身份运行。 如果出现“用户帐户控制”对话框，请确认它显示的是所需操作，然后单击“继续”。
+4. 在命令提示符处，键入以下命令，然后按 ENTER: `dcdiag /test:dns /v /s:<DCName> /DnsBasic /f:dcdiagreport.txt`
+</br></br>替换为实际的可分辨的名称、 NetBIOS 名称或 DNS 名称的域控制器&lt;DCName&gt;。 或者，可以在林中测试的所有域控制器，通过键入而不是 /s: /e:。 /F 开关指定文件名，它在前一个命令为 dcdiagreport.txt。 如果你想要将文件放在当前工作目录之外的某个位置中，可以指定文件路径，例如 /f:c:reportsdcdiagreport.txt。
 
-5. Open the dcdiagreport.txt file in Notepad or a similar text editor. To open the file in Notepad, at the command prompt, type notepad dcdiagreport.txt, and then press ENTER. If you placed the file in a different working directory, include the path to the file. For example, if you placed the file in c:reports, type notepad c:reportsdcdiagreport.txt, and then press ENTER.
-6. Scroll to the Summary table near the bottom of the file. 
-</br></br>Note the names of all the domain controllers that report "Warn" or "Fail" status in the Summary table.  Try to determine if there is a problem domain controller by finding the detailed breakout section by searching for the string "DC: DCName," where DCName is the actual name of the domain controller.
+5. 在记事本或类似的文本编辑器中打开 dcdiagreport.txt 文件。 若要打开该文件在记事本中，在命令提示符处，键入记事本 dcdiagreport.txt，然后按 ENTER。 如果在不同的工作目录中放置该文件，包括文件的路径。 例如，如果该文件置于 c:reports，键入记事本 c:reportsdcdiagreport.txt，然后按 ENTER。
+6. 滚动到文件底部附近的摘要表。 
+</br></br>记下的所有域控制器名称该报表的摘要表中的"警告"失败"状态。  尝试确定是否没有问题域控制器的详细场专题部分查找的搜索字符串"DC:DCName，"DCName 所在的域控制器的实际名称。
 
-If you see obvious configuration changes that are required, make them, as appropriate. For example, if you notice that one of your domain controllers has an obviously incorrect IP address, you can correct it. Then, rerun the test.
+如果您看到所需的明显配置更改，使它们，根据需要。 例如，如果您注意到你的域控制器之一具有显然不正确的 IP 地址，则可以更正它。 然后，重新运行测试。
 
-To validate the configuration changes, rerun the Dcdiag /test:DNS /v command with the /e: or /s: switch, as appropriate. If you do not have IP version 6 (IPv6) enabled on the domain controller, you should expect the host (AAAA) validation portion of the test to fail, but if you are not using IPv6 on your network, these records are not necessary.
+若要验证的配置更改，重新运行了 /e： 或 /s： 开关，根据需要 Dcdiag /test:DNS /v 命令。 如果您不具备 IP 版本 6 (IPv6) 在域控制器上启用，则应该预料的主机 (AAAA) 验证一部分测试失败，但如果不在网络上使用 IPv6，这些记录不需要。
             
-## <a name="verifying-resource-record-registration"></a>Verifying resource record registration
+## <a name="verifying-resource-record-registration"></a>验证资源记录注册
     
-The destination domain controller uses the DNS alias (CNAME) resource record to locate its source domain controller replication partner. Although domain controllers running Windows Server (starting with Windows Server 2003 with Service Pack 1 (SP1)) can locate source replication partners by using fully qualified domain names (FQDNs)or, if that fails, NetBIOS namesthe presence of the alias (CNAME) resource record is expected and should be verified for proper DNS functioning. 
+目标域控制器使用的 DNS 别名 (CNAME) 资源记录来查找其源域控制器复制伙伴。 虽然运行 Windows Server （从 Windows Server 2003 Service Pack 1 (SP1) 开始） 的域控制器可以通过使用完全限定的域名 (Fqdn) 来查找源复制伙伴或如果失败，NetBIOS namesthe 是否存在别名 (CNAME)资源记录，但应为正常运行的正确 DNS 验证。 
       
-You can use the following procedure to verify resource record registration, including alias (CNAME) resource record registration.
+可以使用以下过程来验证资源记录注册，包括别名 (CNAME) 资源记录注册。
       
-### <a name="to-verify-resource-record-registrationtitle"></a>To verify resource record registration</title>
+### <a name="to-verify-resource-record-registrationtitle"></a>若要验证资源记录注册</title>
 
 
-1. Open a command prompt as an administrator. To open a command prompt as an administrator, click Start. In Start Search, type Command Prompt. 
-2. At the top of the Start menu, right-click Command Prompt, and then click Run as administrator. If the User Account Control dialog box appears, confirm that the action it displays is what you want, and then click Continue.  </br></br>You can use the Dcdiag tool to verify registration of all the resource records that are essential for domain controller location by running the `dcdiag /test:dns /DnsRecordRegistration` command.
+1. 以管理员身份打开命令提示符。 若要打开命令提示符下以管理员身份，请单击开始。 在“开始搜索”中，键入 ldp。 
+2. 在开始菜单的顶部，右键单击命令提示符，然后单击以管理员身份运行。 如果出现“用户帐户控制”对话框，请确认它显示的是所需操作，然后单击“继续”。  </br></br>可以使用 Dcdiag 工具来验证通过运行所必需的域控制器位置的所有资源记录的注册`dcdiag /test:dns /DnsRecordRegistration`命令。
 
-This command verifies registration of the following resource records in DNS:
+此命令验证已注册的 DNS 中的以下资源记录：
 
 
-- **alias (CNAME):** the globally unique identifier (GUID)-based resource record that locates a replication partner
-- **host (A):**  the host resource record that contains the IP address of the domain controller
-- **LDAP SRV:** the service (SRV) resource records that locate LDAP servers
-- **GC SRV**: the service (SRV) resource records that locate global catalog servers
-- **PDC SRV**: the service (SRV) resource records that locate primary domain controller (PDC) emulator operations masters
+- **别名 (CNAME):** 全局唯一标识符 (GUID) 的基于查找的复制伙伴的资源记录
+- **主机 (A):** 包含域控制器的 IP 地址的主机资源记录
+- **LDAP SRV:** 查找 LDAP 服务器的服务 (SRV) 资源记录
+- **GC SRV**： 服务 (SRV) 资源记录，找到全局编录服务器
+- **PDC SRV**： 找到主域控制器 (PDC) 模拟器操作主机的服务 (SRV) 资源记录
 
-You can use the following procedure to verify alias (CNAME) resource record registration alone.
+可以使用以下过程来验证别名 (CNAME) 资源记录注册单独。
 
-### <a name="to-verify-alias-cname-resource-record-registration"></a>To verify alias (CNAME) resource record registration
+### <a name="to-verify-alias-cname-resource-record-registration"></a>若要验证别名 (CNAME) 资源记录注册
 
-1. Open the DNS snap-in. To open DNS, click Start. In Start Search, type dnsmgmt.msc, and then press ENTER. If the User Account Control dialog box appears, confirm that it displays the action you want, and then click Continue.
-2. Use the DNS snap-in to locate any domain controller that is running the DNS Server service, where the server hosts the DNS zone with the same name as the Active Directory domain of the domain controller.
-3. In the console tree, click the zone that is named _msdcs.Dns_Domain_Name.
-4. In the details pane, verify that the following resource records are present: an alias (CNAME) resource record that is named Dsa_Guid._msdcs.<placeholder>Dns_Domain_Name</placeholder> and a corresponding host (A) resource record for the name of the DNS server.
+1. 打开 DNS 管理单元中。 若要打开 DNS，请单击开始。 在开始搜索中，键入 dnsmgmt.msc，，然后按 ENTER。 如果出现用户帐户控制对话框中，确认它显示的操作，并单击继续。
+2. 使用 DNS 管理单元中的域控制器正在运行的 DNS 服务器服务，其中服务器主持 Active Directory 域的域控制器与同名的 DNS 区域位置。
+3. 在控制台树中，单击名为的 _msdcs 区域。Dns_Domain_Name。
+4. 在细节窗格中，验证以下资源记录都存在： 名为 Dsa_Guid._msdcs 一个别名 (CNAME) 资源记录。<placeholder>Dns_Domain_Name</placeholder>和相应托管 DNS 服务器的名称 (A) 资源记录。
 
-If the alias (CNAME) resource record is not registered, verify that dynamic update is functioning properly. Use the test in the following section to verify dynamic update.
+如果未注册别名 (CNAME) 资源记录，请验证该动态更新工作正常。 下一节中使用测试验证动态更新。
     
-## <a name="verifying-dynamic-update"></a>Verifying dynamic update
+## <a name="verifying-dynamic-update"></a>验证动态更新
     
-If the basic DNS test shows that resource records do not exist in DNS, use the dynamic update test to determine why the Net Logon service did not register the resource records automatically. 若要验证 Active Directory 域区域配置接受安全的动态更新，并执行测试记录 (_dcdiag_test_record) 的注册，请使用下面的过程。 The test record is deleted automatically after the test.
+如果基本 DNS 测试显示资源记录在 DNS 中不存在，请使用动态更新测试来确定为何 Net Logon 服务未注册资源记录自动。 若要验证 Active Directory 域区域配置为接受安全动态更新并执行的测试记录 (_dcdiag_test_record) 注册，请使用以下过程。 测试记录测试后自动删除。
 
-### <a name="to-verify-dynamic-updatetitle"></a>To verify dynamic update</title>
-
-
-1. Open a command prompt as an administrator. To open a command prompt as an administrator, click Start. In Start Search, type Command Prompt. At the top of the Start menu, right-click Command Prompt, and then click Run as administrator. If the User Account Control dialog box appears, confirm that the action it displays is what you want, and then click Continue.
-2. 在命令提示符下，键入以下命令，，然后按 ENTER: 
-
-    dcdiag /test:dns /v /s:&lt;DCName&gt; /DnsDynamicUpdate
-</br></br>Substitute the distinguished name, NetBIOS name, or DNS name of the domain controller for &lt;DCName&gt;. As an alternative, you can test all the domain controllers in the forest by typing /e: instead of /s:. If you do not have IPv6 enabled on the domain controller, you should expect the host (AAAA) resource record portion of the test to fail, which is a normal condition when IPv6 is not enabled.
-
-If secure dynamic updates are not configured, you can use the following procedure to configure them.
-
-### <a name="to-enable-secure-dynamic-updates"></a>To enable secure dynamic updates
+### <a name="to-verify-dynamic-updatetitle"></a>若要验证动态更新</title>
 
 
-1. Open the DNS snap-in. To open DNS, click Start. 
-2. In Start Search, type dnsmgmt.msc, and then press ENTER. If the User Account Control dialog box appears, confirm that it displays the action you want and then click Continue.
-3. 控制台树中，右键单击相应的区域，然后单击属性。
-4. 在常规选项卡上，确认区域类型 Active Directory 集成。
-5. 在的动态更新，单击仅安全。
+1. 以管理员身份打开命令提示符。 若要打开命令提示符下以管理员身份，请单击开始。 在“开始搜索”中，键入 ldp。 在开始菜单的顶部，右键单击命令提示符，然后单击以管理员身份运行。 如果出现“用户帐户控制”对话框，请确认它显示的是所需操作，然后单击“继续”。
+2. 在命令提示符处，键入以下命令，然后按 ENTER: `dcdiag /test:dns /v /s:<DCName> /DnsDynamicUpdate`
+   </br></br>替换为可分辨的名称、 NetBIOS 名称或 DNS 名称的域控制器&lt;DCName&gt;。 或者，可以在林中测试的所有域控制器，通过键入而不是 /s: /e:。 如果您不具备在域控制器上启用了 IPv6，则应该预料的主机 (AAAA) 资源记录部分测试失败，这是正常情况时不启用 IPv6。
 
-## <a name="registering-dns-resource-records"></a>Registering DNS resource records
+如果未配置安全动态更新，可以使用以下过程来配置它们。
+
+### <a name="to-enable-secure-dynamic-updates"></a>若要启用安全动态更新
+
+
+1. 打开 DNS 管理单元中。 若要打开 DNS，请单击开始。 
+2. 在开始搜索中，键入 dnsmgmt.msc，，然后按 ENTER。 如果出现用户帐户控制对话框中，确认它显示你想，然后单击继续的操作。
+3. 在控制台树中，右键单击适用区域，然后单击属性。
+4. 在常规选项卡上，验证区域类型为 Active Directory 集成。
+5. 在动态更新中，单击仅安全。
+
+## <a name="registering-dns-resource-records"></a>注册 DNS 资源记录
     
-If DNS resource records do not appear in DNS for the source domain controller, you have verified dynamic updates, and you want to register DNS resource records immediately, you can force registration manually by using the following procedure. 域控制器上网络登录服务注册可位于网络上的域控制器，需要具备的 DNS 资源记录。 The DNS Client service registers the host (A) resource record that the alias (CNAME) record points to.
+如果 DNS 资源记录未显示在 DNS 中为源域控制器，你已验证的动态更新，和你想要立即注册 DNS 资源记录，您可以通过使用以下过程手动强制注册。 域控制器上的 Net Logon 服务注册所需的域控制器位于网络上的 DNS 资源记录。 DNS 客户端服务注册到的别名 (CNAME) 记录点的主机 (A) 资源记录。
 
-### <a name="to-register-dns-resource-records-manuallytitle"></a>To register DNS resource records manually</title>
+### <a name="to-register-dns-resource-records-manuallytitle"></a>若要手动注册 DNS 资源记录</title>
 
 
-1. Open a command prompt as an administrator. To open a command prompt as an administrator, click Start. 
-2. In Start Search, type Command Prompt. 
-3. At the top of the Start, right-click Command Prompt, and then click Run as administrator. If the User Account Control dialog box appears, confirm that the action it displays is what you want, and then click Continue.
-4. To initiate registration of domain controller locator resource records manually on the source domain controller, at the command prompt, type the following command, and then press ENTER: `net stop net logon &amp; net start net logon`
-5. To initiate registration of the host (A) resource record manually, at the command prompt, type the following command, and then press ENTER: `ipconfig /flushdns &amp; ipconfig /registerdns`
-6. 在命令提示符下，键入以下命令，然后按 ENTER: dcdiag//test: dns /v /s:&lt;DCName&gt; </br>,</br>Substitute the distinguished name, NetBIOS name, or DNS name of the domain controller for &lt;DCName&gt;. Review the output of the test to ensure that the DNS tests passed. If you do not have IPv6 enabled on the domain controller, you should expect the host (AAAA) resource record portion of the test to fail, which is a normal condition when IPv6 is not enabled.
+1. 以管理员身份打开命令提示符。 若要打开命令提示符下以管理员身份，请单击开始。 
+2. 在“开始搜索”中，键入 ldp。 
+3. 顶部开始，右键单击命令提示符，然后单击以管理员身份运行。 如果出现“用户帐户控制”对话框，请确认它显示的是所需操作，然后单击“继续”。
+4. 若要启动的域控制器定位程序资源的注册记录手动在源域控制器上，在命令提示符处，键入以下命令，然后按 ENTER: `net stop netlogon && net start netlogon`
+5. 若要启动注册主机 (A) 资源记录手动，在命令提示符处，键入以下命令，然后按 ENTER: `ipconfig /flushdns && ipconfig /registerdns`
+6. 在命令提示符处，键入以下命令，然后按 ENTER: `dcdiag /test:dns /v /s:<DCName>` </br></br>替换为可分辨的名称、 NetBIOS 名称或 DNS 名称的域控制器&lt;DCName&gt;。 查看要确保 DNS 测试均通过的测试的输出。 如果您不具备在域控制器上启用了 IPv6，则应该预料的主机 (AAAA) 资源记录部分测试失败，这是正常情况时不启用 IPv6。

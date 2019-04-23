@@ -1,6 +1,6 @@
 ---
-title: 配置 Windows Server Update Services (WSUS) 的内容服务器
-description: 本主题介绍分支缓存部署指南为 Windows Server 2016，其中演示如何在分布式托管的缓存模式优化分支机构中的 WAN 带宽使用量部署分支缓存的一部分。
+title: 配置 Windows Server Update Services (WSUS) 内容服务器
+description: 本主题是 BranchCache 部署指南为 Windows Server 2016 中，该示例演示了如何部署 BranchCache 在分布式和托管缓存模式下以优化分支机构中的 WAN 带宽使用情况的一部分。
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-bc
@@ -8,18 +8,19 @@ ms.topic: get-started-article
 ms.assetid: 9724aa8d-e4ae-404c-bee6-cef1534cd3ca
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 8200a0905f7bc5c403288a22faece5f84eac8af9
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: e8576282be92f02daf716da82ea75eddc755ee5c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59873838"
 ---
-# <a name="configure-windows-server-update-services-wsus-content-servers"></a>配置 Windows Server Update Services (WSUS) 的内容服务器
+# <a name="configure-windows-server-update-services-wsus-content-servers"></a>配置 Windows Server Update Services (WSUS) 内容服务器
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-安装分支缓存功能并后启动分支缓存服务，必须配置 WSUS 服务器存储在本地计算机上的更新文件。 
+安装 BranchCache 功能并启动 BranchCache 服务后, WSUS 服务器必须配置为存储在本地计算机上的更新文件。 
 
-配置 WSUS 服务器存储在本地计算机上的更新文件时，更新元数据，这些更新文件下载通过和存储时 WSUS 服务器直接。 这可以确保分支缓存的客户端接收 Microsoft 产品更新文件，这是从 WSUS 服务器，而不是直接从 Microsoft 更新网站。  
+在配置 WSUS 服务器存储在本地计算机上的更新文件时，都通过下载并存储 WSUS 服务器时直接更新元数据和更新文件。 这可确保 BranchCache 客户端计算机接收 Microsoft 产品更新文件，从 WSUS 服务器而不是直接从 Microsoft 更新网站。  
   
-有关 WSUS 同步的详细信息，请参阅[更新同步设置](https://technet.microsoft.com/en-us/library/mt612311.aspx)  
+有关 WSUS 同步的详细信息，请参阅[设置更新同步](https://technet.microsoft.com/library/mt612311.aspx)  

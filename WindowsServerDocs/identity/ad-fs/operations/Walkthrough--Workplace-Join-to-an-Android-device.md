@@ -1,7 +1,7 @@
 ---
 ms.assetid: a33bd54c-e6db-4b58-8264-c0f34bd8ba39
-title: "演练-到 Android 设备的工作区加入"
-description: 
+title: 演练-Android 设备的工作区加入
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,27 +10,28 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: cfe26947b6b0de28ea50367f82d52815fff8f323
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59873828"
 ---
-# <a name="walkthrough-workplace-join-to-an-android-device"></a>Android 设备到演练： 工作区加入
+# <a name="walkthrough-workplace-join-to-an-android-device"></a>操作实例：Android 设备的工作区加入
 
->适用于：Windows Server 2016，Windows Server 2012 R2
+>适用于：Windows Server 2016, Windows Server 2012 R2
 
 
-## <a name="join-your-device-with-workplace-join"></a>通过加入工作区加入你的设备
+## <a name="join-your-device-with-workplace-join"></a>使用“工作区加入”加入你的设备
 
 > [!NOTE]
-> Android 工作区加入需要 Azure Active Directory 设备注册服务。 为了加强条件的设备的策略本地，必须启用设备对象回写选项部署目录同步工具 （目录同步）。 目前，设备写回 Active Directory 从 Azure Active Directory 可能需要达 3 小时。 用户正因为如此，必须等待访问本地 web 应用程序，创建一个帐户，工作后的 3 小时。 有关部署 Azure Active Directory 设备注册的详细信息服务、 查看， [Azure Active Directory 设备注册服务概述](https://msdn.microsoft.com/library/azure/dn788908.aspx)
+> Android 工作区加入要求 Azure Active Directory 设备注册服务。 若要强制实施条件性策略本地设备，必须启用设备对象回写式选项部署目录同步工具 (DirSync)。 在存在时，设备回写到 Active Directory 从 Azure Active Directory 可能需要最多为 3 个小时。 在这种情况下，用户必须等待 3 小时才能在创建工作帐户后访问的本地 web 应用程序。 有关部署 Azure Active Directory 设备注册服务，请参阅， [Azure Active Directory 设备注册服务概述](https://msdn.microsoft.com/library/azure/dn788908.aspx)
 
-#### <a name="create-a-work-account-that-joins-your-device-with-workplace-join"></a>创建加入你的设备的工作区加入工作帐户
+#### <a name="create-a-work-account-that-joins-your-device-with-workplace-join"></a>创建联接 workplace Join 的设备的工作帐户
 
-1.  你将需要在你的设备创建工作帐户，通过加入工作区加入你的设备上安装 Azure 验证器应用程序。 以下 URL 具有如何 Android 设备上安装 Azure 验证器应用和添加工作帐户的说明进行操作。 工作帐户插入受信任的设备使你 Android 设备，并提供在设备上的应用程序单一登录 (SSO)。 按照你的 IT 管理员的建议，你可以使用访问 web 应用程序和现代业务线应用程序受信任的设备。 有关详细信息，请参阅[Azure Authenticator 于 Android](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to)。
+1.  您需要创建与工作区加入加入你的设备的工作帐户在设备上安装 Azure 验证器应用程序。 以下 URL 中说明了如何在 Android 设备上安装 Azure 验证器应用并添加工作帐户。 工作帐户使你的 Android 设备变成受信任的设备，并向设备上的应用程序提供单一登录 (SSO)。 按照你的 IT 管理员的建议，可以使用受信任的设备访问 web 应用程序和现代业务线应用程序。 有关详细信息，请参阅[适用于 Android 的 Azure 验证器](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to)。
 
 ## <a name="see-also"></a>请参阅
-[加入工作区从任何设备 SSO 和无缝第二个因素身份验证在公司应用程序](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
-[设置本地条件访问使用 Azure Active Directory 设备注册服务](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)
+[加入工作区以从任一设备实现 SSO 和无缝第二个身份 Authentication Across Company Applications](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
+[设置本地条件性访问使用 Azure Active Directory 设备注册服务](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)
 
 
