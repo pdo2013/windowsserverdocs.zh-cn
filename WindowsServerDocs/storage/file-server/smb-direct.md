@@ -1,6 +1,6 @@
 ---
-title: 提高性能的 SMB 直通的文件服务器
-description: 介绍了 Windows Server 2012 R2、 Windows Server 2012 和 Windows Server 2016 中的 SMB 直通功能。
+title: 提高使用 SMB 直通的文件服务器的性能
+description: 介绍 Windows Server 2012 R2、 Windows Server 2012 和 Windows Server 2016 中的 SMB 直通功能。
 ms.prod: windows-server-threshold
 ms.topic: article
 author: JasonGerend
@@ -9,120 +9,120 @@ ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: ed8fd5b4114fc9fd9c7dc278a98cea8cc67a8749
-ms.sourcegitcommit: d31e266130b3b082372f7af4024e6089cb347d74
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "4239224"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59826438"
 ---
-# SMB 直通
+# <a name="smb-direct"></a>SMB 直通
 
->适用于： Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2016
+>适用于：Windows Server 2012 R2、 Windows Server 2012 中，Windows Server 2016
 
-Windows Server 2012 R2、 Windows Server 2012 和 Windows Server 2016 包括称为 SMB 直通支持使用具有远程直接内存访问 (RDMA) 功能的网络适配器的功能。 具有 RDMA 的网络适配器才可以全速使用非常低的延迟，同时使用非常少 CPU。 对于 HYPER-V 或 Microsoft SQL Server 等工作负荷，这使远程文件服务器以类似于本地存储。 SMB 直通包括：
+Windows Server 2012 R2、 Windows Server 2012 和 Windows Server 2016 包含一个称为 SMB 直通，用来支持使用具有远程直接内存访问 (RDMA) 功能的网络适配器的功能。 使用 RDMA 的网络适配器能够全速运行， 延迟时间非常低，CPU 使用量非常少。 对于 Hyper-V 或 Microsoft SQL Server 等工作负载，这让远程文件服务器如同本地存储一样。 SMB 直通包括：
 
-- 增加了的吞吐量： 利用高速网络的网络适配器位置坐标的大量的行速度的数据传输的完整吞吐量。
-- 低延迟： 提供非常快速响应网络请求，并且结果是，使远程文件存储感觉像是直接附加的数据块存储。
-- 低 CPU 使用率： 使用更少 CPU 周期，当通过网络，离开的详细信息的传输数据电源适用于服务器应用程序。
+- 提高了吞吐量：利用高速网络的完整吞吐量，其中网络适配器以线速度协调大量数据的传输。
+- 低延迟时间：提供极其快速的网络请求响应功能，因此使远程文件存储如同直接连接的模块存储功能一样易于操作。
+- 低 CPU 使用率：在网络上传输数据时，占用较少 CPU 周期，从而为服务器应用程序保留更多空闲能量。
 
-SMB 直通自动配置的 Windows Server 2012 R2 和 Windows Server 2012。
+SMB 直通是由自动配置 Windows Server 2012 R2 和 Windows Server 2012。
 
-## SMB 多通道和 SMB 直通
+## <a name="smb-multichannel-and-smb-direct"></a>SMB 多通道和 SMB 直通
 
-SMB 多通道是负责检测网络适配器的 RDMA 功能，以启用 SMB 直通的功能。 如果 SMB 多通道，没有 SMB 使用支持 RDMA 的网络适配器 （所有网络适配器都提供新的 RDMA 堆栈以及的 TCP/IP 堆栈） 的常规 TCP/IP。
+SMB 多通道的功能是负责检测网络适配器 RDMA 功能以启用 SMB 直通。 如果未配置 SMB 多通道，则 SMB 使用常规 TCP/IP 与支持 RDMA 功能的网络适配器（所有网络适配器均提供 TCP/IP 堆栈和新的 RDMA 堆栈）。
 
-使用 SMB 多通道 SMB 检测到的网络适配器是否具有 RDMA 功能，然后为该单个会话 （每两个接口） 创建多个 RDMA 连接。 这样，SMB，以使用高吞吐量、 低延迟、 和提供支持 RDMA 的网络适配器的低 CPU 使用率。 如果你使用的多个 RDMA 接口，它还提供容错能力。
+SMB 使用 SMB 多通道检测网络适配器是否具有 RDMA 功能，然后为该单一会话创建多重 RDMA 连接（每个接口有两个）。 这允许 SMB 使用支持 RDMA-功能的网络适配器，从而提供高吞吐量、低延迟时间和较少 CPU 使用率这些功能。 此外，在使用多重 RDMA 接口时，它还具有容错功能。
 
 >[!NOTE]
->如果你打算使用的 RDMA 功能的网络适配器，不应团队支持 RDMA 的网络适配器。 当成组，网络适配器不会支持 RDMA。
->创建至少一个 RDMA 网络连接后，不会再使用用于原始协议协商 TCP/IP 连接。 但是，在 RDMA 网络连接失败的情况下，将保留 TCP/IP 连接。
+>如果您打算使用网络适配器 RDMA 功能，则不应组合支持 RDMA 功能的网络适配器。 组合时，网络适配器将不再支持 RDMA 功能。
+>至少创建一个 RDMA 网络连接，不再使用 TCP/IP 连接（用于原始协议协商）。 然而，在 RDMA 网络连接崩溃时，系统保持 TCP/IP 连接。
 
-## 要求
+## <a name="requirements"></a>要求
 
-SMB 直通有以下要求：
+SMB 直通要求如下：
 
-- 至少两台计算机运行 Windows Server 2012 R2 或 Windows Server 2012
-- RDMA 功能与一个或多个网络适配器。
+- 至少两台运行 Windows Server 2012 R2 或 Windows Server 2012 计算机
+- 一个或多个支持 RDMA 功能的网络适配器
 
-### 使用 SMB 直通时的注意事项
+### <a name="considerations-when-using-smb-direct"></a>使用 SMB 直通时的注意事项
 
-- 你可以使用 SMB 直通故障转移群集中;但是，你需要确保用于客户端访问的群集网络是足够用于 SMB 直通。 故障转移群集支持客户端访问使用多个网络，以及网络适配器，则 RSS （接收方缩放） 的支持和支持 RDMA 的。
-- 你可以使用 SMB 直通上的 HYPER-V 管理操作系统以支持基于 SMB，使用 HYPER-V 和提供存储到虚拟机使用 HYPER-V 存储堆栈。 但是，支持 RDMA 的网络适配器不直接向 HYPER-V 客户端公开。 如果将支持 RDMA 的网络适配器连接到虚拟交换机，不会支持 RDMA 的从交换机的虚拟网络适配器。
-- 如果你禁用 SMB 多通道，SMB 直通也会禁用。 由于 SMB 多通道检测网络适配器功能，并确定是否支持 RDMA 的网络适配器，SMB 直通无法由客户端如果使用 SMB 多通道处于禁用状态。
-- SMB 直通上不支持 Windows 直角 SMB 直通需要支持支持 RDMA 的网络适配器，这是仅适用于 Windows Server 2012 R2 和 Windows Server 2012。
-- 低级别版本的 Windows Server 上不受支持 SMB 直通。 它是仅在 Windows Server 2012 R2 和 Windows Server 2012 上受支持。
+- 可以在故障转移集群中使用 SMB 直通；然而，对于 SMB 直通而言，这需要确保用于客户端访问的集群网络的强大性。 故障转移集群支持使用多个网络进行客户端访问，同时使用支持 RSS（接收方扩展技术）和 RDMA 功能的网络适配器。
+- 在 Hyper-V 管理操作系统上，使用 SMB 直通来支持 Hyper-V 在 SMB 之上的使用，并在使用 Hyper-V 存储器堆栈的虚拟机上提供存储空间。 然而，支持 RDMA 功能的网络适配器却不能直接用于 Hyper-V 客户端。 如果将支持 RDMA 功能的网络适配器连接到虚拟交换机上，自交换机上的虚拟网络适配器将不再是支持 RDMA 功能的网络适配器。
+- 如果禁用 SMB 多通道，也将同时禁用 SMB 直通。 由于 SMB 多通道用于检测网络适配器的功能，并确定网络适配器是否支持 RDMA，禁用 SMB 多通道之后，客户端将无法使用 SMB 直通。
+- SMB 直通不支持 Windows rt。 SMB Direct 需要支持适用于支持 RDMA 的网络适配器，这是仅在 Windows Server 2012 R2 和 Windows Server 2012 上可用。
+- Windows Server 低端版本不支持 SMB 直通。 它是仅在 Windows Server 2012 R2 和 Windows Server 2012 上受支持。
 
-## 启用和禁用 SMB 直通
+## <a name="enabling-and-disabling-smb-direct"></a>启用和禁用 SMB 直通
 
-SMB 直通默认启用的安装 Windows Server 2012 R2 或 Windows Server 2012 时。 SMB 客户端自动检测并使用多个网络连接，如果适当配置进行标识。
+SMB 直通默认情况下安装时启用 Windows Server 2012 R2 或 Windows Server 2012。 SMB 客户端自动执行检测，并在确定相应配置后使用攀个网络连接。
 
-### 禁用 SMB Direct
+### <a name="disable-smb-direct"></a>禁用 SMB Direct
 
-通常，你不需要禁用 SMB 直通，但是，可以通过运行以下 Windows PowerShell 脚本之一禁用它。
+在通常情况下，无需禁用 SMB 直通，然而，在运行下面一种 Windows PowerShell 脚本时，可以将其禁用。
 
-若要为特定接口禁用 RDMA，请键入：
+要禁用特定接口的 RDMA，键入：
 
 ```PowerShell
 Disable-NetAdapterRdma <name>
 ```
 
-若要为所有接口禁用 RDMA，请键入：
+要禁用所有接口的 RDMA，键入：
 
 ```PowerShell
 Set-NetOffloadGlobalSetting -NetworkDirect Disabled
 ```
 
-客户端或服务器上禁用 RDMA 时，系统不能使用它。 *网络直接*是 Windows Server 2012 R2 和 Windows Server 2012 基本网络的支持 RDMA 的接口的内部名称。
+在客户端或服务器上禁用 RDMA 时，系统将无法使用该功能。 *Network Direct*是 RDMA 接口对 Windows Server 2012 R2 和 Windows Server 2012 的基本网络支持的内部名称。
 
-### 重新启用 SMB 直通
+### <a name="re-enable-smb-direct"></a>重新启用 SMB 直通
 
-RDMA 之后，你可以重新启用它通过运行以下 Windows PowerShell 脚本之一。
+禁用 RDMA 之后，可以通过运行下面一个 Windows PowerShell 脚本重新启用该功能。
 
-若要重新启用 RDMA，对于特定接口，键入：
+要重新启用特定接口的 RDMA，键入：
 
 ```PowerShell
 Enable-NetAdapterRDMA <name>
 ```
 
-若要重新启用 RDMA，对于所有接口，请键入：
+要重新启用所有接口的 RDMA，键入：
 
 ```PowerShell
 Set-NetOffloadGlobalSetting -NetworkDirect Enabled
 ```
 
-你需要客户端和服务器以再次使用开始菜单上启用 RDMA。
+RDMA 需要在客户端和服务器上同时启用后，方可再次使用。
 
-## 测试的 SMB 直通的性能
+## <a name="test-performance-of-smb-direct"></a>测试 SMB 直通的性能
 
-你可以测试性能通过使用以下过程之一的工作方式。
+通过使用下面一个程序，可以测试 SMB 直通的工作性能。
 
-### 带有和不使用 SMB 直通文件副本进行比较
+### <a name="compare-a-file-copy-with-and-without-using-smb-direct"></a>比较使用和不使用 SMB 直通进行的文件复制
 
-下面介绍了如何测量的 SMB 直通提高的吞吐量：
+下面介绍了如何测量 SMB 直通的更高的吞吐量：
 
 1. 配置 SMB 直通
-2. 测量的时间运行的大型文件副本使用 SMB 直通。
-3. 禁用 RDMA 网络适配器上，请参阅[启用和禁用 SMB 直通](#enabling-and-disabling-smb-direct)。
-4. 测量的时间，无需使用 SMB 直通运行较大的文件复制过程。
-5. 重新的网络适配器上启用 RDMA，比较两个结果。
-6. 若要避免的缓存的影响，应执行以下操作：
-    1. 复制大量数据 （内存是能够处理多个数据）。
-    2. 使用作为练习，然后计时的第二个副本的第一个副本两次，复制数据。
-    3. 重启服务器和客户端每个测试之前，以确保它们在类似的情况下运行。
+2. 测量使用 SMB 直通进行较大文件复制的时间量
+3. 在网络适配器上禁用 RDMA，请参阅 [Enabling and disabling SMB Direct](#enabling-and-disabling-smb-direct)。
+4. 测量不使用 SMB 直通进行较大文件复制的时间量
+5. 重新启用网络适配器上的 RDMA，然后比较两个结果。
+6. 为避免缓存影响，应执行下列操作：
+    1. 复制大量数据（处理超出内存量的大量数据的功能）。
+    2. 复制数据两次，第一次复制为操作，第二次复制为定时传输。
+    3. 进行每次测试前重启服务器和客户端，以便确保它们在相似条件下运行。
 
-### 使用 SMB 直通文件复制过程失败之一多个网络适配器
+### <a name="fail-one-of-multiple-network-adapters-during-a-file-copy-with-smb-direct"></a>使用 SMB 直通执行文件复制过程中，多个网络适配器中有一个发生故障
 
 下面介绍了如何确认 SMB 直通的故障转移功能：
 
-1. 确保的 SMB 直通正常运行在多个网络适配器配置。
-2. 运行较大的文件复制过程。 复制运行时，模拟网络路径之一的故障，通过断开连接电缆之一 （或通过禁用其中一个网络适配器）。
-3. 确认文件复制继续使用一个剩余的网络适配器，并且没有文件复制错误。
+1. 确保 SMB 直通在多个网络适配器配置环境下正确工作。
+2. 运行较大文件复制。 运行复制过程中，通过断开一条电缆（或通过禁用一个网络适配器）来模拟网络路径发生的故障。
+3. 确定使用其余一个网络适配器继续传输文件复制，而未发生任何文件复制错误。
 
 >[!NOTE]
->若要避免不使用 SMB 直通的工作负荷的失败，请确保不有使用断开连接的网络路径的任何其他工作负荷。
+>在不使用 SMB 直通的情况下，为避免工作负载失败，确保在网络路径中断后不再执行其他工作负载。
 
-## 详细信息
+## <a name="more-information"></a>详细信息
 
 - [服务器消息块概述](file-server-smb-overview.md)
-- [增加服务器、 存储和网络可用性： 方案概述](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831437(v%3dws.11)>)
-- [部署基于 SMB 的 Hyper-V](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>)
+- [增强服务器、 存储和网络可用性：方案概述](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831437(v%3dws.11)>)
+- [部署基于 SMB 的 HYPER-V](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>)

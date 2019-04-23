@@ -1,6 +1,6 @@
 ---
-title: "配置 Windows Server Essentials 目标服务器上的文件夹重定向"
-description: "介绍了如何使用 Windows Server Essentials"
+title: 在 Windows Server Essentials 目标服务器上配置文件夹重定向
+description: 介绍如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,43 +13,44 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 7cc1207f36d3a921b49cc3ecd02acf3fe4fa243c
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827368"
 ---
-# <a name="configure-folder-redirection-on-the-windows-server-essentials-destination-server"></a>配置 Windows Server Essentials 目标服务器上的文件夹重定向
+# <a name="configure-folder-redirection-on-the-windows-server-essentials-destination-server"></a>在 Windows Server Essentials 目标服务器上配置文件夹重定向
 
 >适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
 
-执行此任务，如果文件夹重定向的启用了源代码服务器上。  
+如果在源服务器上启用了文件夹重定向，则执行此任务。  
   
- 首先，删除旧的文件夹重定向组策略设置。 然后使用 Windows Server Essentials 仪表板启用文件夹重定向目的地服务器上。  
+ 首先，删除旧的文件夹重定向组策略设置。 然后使用 Windows Server Essentials 仪表板启用在目标服务器上的文件夹重定向。  
   
-### <a name="to-delete-the-old-folder-redirection-group-policy-setting"></a>若要删除旧的文件夹重定向组策略设置  
+### <a name="to-delete-the-old-folder-redirection-group-policy-setting"></a>删除旧的文件夹重定向组策略设置  
   
-1.  在目标服务器上，打开**组策略管理**管理工具。  
+1.  在目标服务器上，打开“组策略管理”管理工具。  
   
-2.  在**组策略管理**，展开**森林：***YourNetworkDomainName*，展开**域**，展开*YourNetworkDomainName*，然后展开**组策略对象**。  
+2.  在中**组策略管理**，展开 **林: * * * YourNetworkDomainName*，展开**域**，展开*YourNetworkDomainName*然后展开**组策略对象**。  
   
-3.  右键单击**SBS 组策略文件夹重定向**，然后单击**删除**。  
+3.  右键单击“SBS 组策略文件夹重定向” ，然后单击“删除” 。  
   
-4.  右键单击**SBS 组策略安全模板**，然后单击**删除**。  
+4.  右键单击“SBS 组策略安全模板”，然后单击“删除”。  
   
-5.  阅读警告，，然后单击**是**。  
+5.  阅读警告，然后单击“是” 。  
   
-6.  关闭**组策略管理**。  
+6.  关闭“组策略管理”。  
   
-### <a name="to-enable-folder-redirection-on-the-destination-server"></a>若要启用目标服务器上的文件夹重定向  
+### <a name="to-enable-folder-redirection-on-the-destination-server"></a>在目标服务器上启用文件夹重定向  
   
-1.  在目标服务器上，打开 Windows Server Essentials 仪表板。  
+1.  在目标服务器上打开 Windows Server Essentials 仪表板。  
   
-2.  在导航栏中，单击**设备**。  
+2.  在导航栏中，单击“设备” 。  
   
-3.  在**设备任务**窗格中，单击**实现组策略**。  
+3.  在“设备任务”窗格中，单击“实现组策略”。  
   
-4.  在**启用文件夹重定向组策略**页上，选择以重定向，然后单击文件夹**下一步**。  
+4.  在“启用文件夹重定向组策略”页上，选择要重定向的文件夹，然后单击“下一步”。  
   
-5.  在**启用安全策略设置**页上，单击**完成**。  
+5.  在“启用安全策略设置”  页上，单击“完成” 。  
   
- 若要适用于文件夹重定向的更改，网络用户必须注销计算机，，然后再重新登录。 这将确保将所有重定向的文件夹传送到目标服务器。
+ 若要将更改应用于文件夹重定向，则网络用户必须注销其计算机，然后再重新登录。 这可确保所有重定向的文件夹都传输到目标服务器。

@@ -13,11 +13,11 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 8973302fc8a0c6bdb5b19f9296e711dcc6465589
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2081923"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59826798"
 ---
 # <a name="manage-nano-server"></a>管理 Nano Server
 
@@ -40,7 +40,7 @@ Nano Server 进行远程管理。 其不具备本地登录功能，亦不支持�
 若要使用 Windows PowerShell 远程控制管理 Nano Server，则需要将 Nano Server 的 IP 地址添加到受信任主机的管理计算机列表，将所使用的帐户添加到 Nano Server 的管理员，并启用 CredSSP（如果计划使用该功能）。  
 
  >[!NOTE]  
-    > 如果目标 Nano Server 和管理计算机处于相同的 AD DS 林中（或处于具有信任关系的林中），则不应将 Nano Server 添加到受信任的主机列表中 - 可以通过使用其完全限定的域名（例如：PS C:\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)）连接到 Nano Server
+    > 如果目标 Nano Server 和管理计算机是同一 AD DS 林中 （或在具有信任关系的林中），您不应将 Nano Server 添加到受信任的主机列表中-你可以连接到 Nano Server 通过使用其完全限定的域名例如：PS C:\>Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
   
   
 若要将 Nano Server 添加到受信任的主机列表，请在提升的 Windows PowerShell 提示符下运行此命令：  
@@ -60,9 +60,9 @@ Enter-PSSession -ComputerName $ip -Credential $user
 现在可以在 Nano Server 上正常运行 Windows PowerShell 命令。  
   
 > [!NOTE]  
-> 并非所有的 Windows PowerShell 命令都在此版本的 Nano Server 中可用。 若要查看可用的命令，请运行 `Get-Command -CommandType Cmdlet`  
+> 并非所有的 Windows PowerShell 命令都在此版本的 Nano Server 中可用。 若要查看其可用，请运行 `Get-Command -CommandType Cmdlet`  
   
-使用此命令停止远程会话 `Exit-PSSession`  
+停止远程会话使用命令 `Exit-PSSession`  
   
 ## <a name="using-windows-powershell-cim-sessions-over-winrm"></a>通过 WinRM 使用 Windows PowerShell CIM 会话  
 可以在 Windows PowerShell 中使用 CIM 会话和实例通过 Windows 远程管理 (WinRM) 来运行 WMI 命令。  
@@ -91,13 +91,13 @@ Get-CimInstance -CimSession $Cim -Query "SELECT * from Win32_Process WHERE name 
   
 **winrm quickconfig**  
   
-**winrm set winrm/config/client @{TrustedHosts="&lt;ip address of Nano Server"}**  
+**winrm 设置 winrm/config/客户端 @{TrustedHosts ="< Nano 服务器的 ip 地址"}**  
   
 **chcp 65001**  
   
 现在可以在 Nano Server 上远程运行命令。 例如：  
   
-**winrs -r:<IP address of Nano Server> -u:Administrator -p:Nano Server administrator password> ipconfig**  
+**winrs-:\<Nano 服务器的 IP 地址 >-u： 管理员-p:\<Nano Server 管理员密码 > ipconfig**  
   
 有关 Windows 远程管理的详细信息，请参阅 [Windows 远程管理 (WinRM) 概述](https://technet.microsoft.com/library/dn265971.aspx)。  
    
@@ -127,21 +127,21 @@ Stop-NetEventSession [-Name]
 3.  打开 Windows PowerShell 控制台，然后使用 `Expand` 命令指定到服务包的 .msu 文件的路径，包括 `-f:*` 参数和将服务包提取到的路径。  例如：  `Expand "C:\ServicingPackages\Windows10.0-KB3157663-x64.msu" -f:* "C:\KB3157663_expanded"`  
   
     展开的文件应如下所示：  
-C:&gt;dir C:\\KB3157663_expanded   
+C:>dir C:\KB3157663_expanded   
 驱动器 C 中的卷是操作系统  
 卷序列号是 B05B-CC3D  
    
       C:\KB3157663_expanded 的目录  
    
-      04/19/2016  01:17 PM    \<DIR>          .  
-      04/19/2016  01:17 PM    \<DIR>          ..  
+      04/19/2016  01:17 PM    \<DIR>            
+      04/19/2016  01:17 PM    \<DIR>            
         04/17/2016  12:31 AM               517 Windows10.0-KB3157663-x64-pkgProperties.txt  
 04/17/2016  12:30 AM        93,886,347 Windows10.0-KB3157663-x64.cab  
 04/17/2016  12:31 AM               454 Windows10.0-KB3157663-x64.xml  
 04/17/2016  12:36 AM           185,818 WSUSSCAN.cab  
                4 个文件     94,073,136 字节  
                2 个目录  328,559,427,584 字节可用  
-4.  运行 `New-NanoServerImage` -ServicingPackagePath 参数指向此目录中的 .cab 文件，例如： `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath C:\KB3157663_expanded\Windows10.0-KB3157663-x64.cab`  
+4.  运行`New-NanoServerImage`使用-ServicingPackagePath 参数指向此目录中的.cab 文件为例： `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath C:\KB3157663_expanded\Windows10.0-KB3157663-x64.cab`  
 
 ## <a name="managing-updates-in-nano-server"></a>管理 Nano Server 中的更新
 
@@ -158,7 +158,7 @@ $sess = New-CimInstance -Namespace root/Microsoft/Windows/WindowsUpdate -ClassNa
 
 $scanResults = Invoke-CimMethod -InputObject $sess -MethodName ScanForUpdates -Arguments @{SearchCriteria="IsInstalled=0";OnlineScan=$true}  
 ```  
-**注意：**  
+**注意：**   
 如果没有更新可用，则此命令将返回以下错误：  
 ```  
 Invoke-CimMethod : A general error occurred that is not covered by a more specific error code.  
@@ -189,7 +189,7 @@ $scanResults = Invoke-CimMethod -InputObject $sess -MethodName ApplyApplicableUp
 
 Restart-Computer  
 ```  
-**注意：**  
+**注意：**   
 Windows Defender 将阻止安装更新。 若要解决此问题，卸载 Windows Defender、安装更新，然后重新安装 Windows Defender。 或者，可以在另一台计算机上下载更新，将更新复制到 Nano Server 上，然后使用 DISM.exe 应用更新。  
 
 
@@ -202,7 +202,7 @@ $sess = New-CimInstance -Namespace root/Microsoft/Windows/WindowsUpdate -ClassNa
 $scanResults = Invoke-CimMethod -InputObject $sess -MethodName ScanForUpdates -Arguments @{SearchCriteria="IsInstalled=1";OnlineScan=$true}  
 ```  
 
-**注意：**  
+**注意：**   
 这些命令将列出已安装的内容，但不会在输出中专门引用“安装”。 如果需要包括“安装”的输出，例如对于报表，则可以运行  
 ```  
 Get-WindowsPackage--Online  

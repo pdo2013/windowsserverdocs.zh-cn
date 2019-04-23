@@ -1,6 +1,6 @@
 ---
-title: "安装 Add-Ins"
-description: "介绍了如何使用 Windows Server Essentials"
+title: 安装加载项
+description: 介绍如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,34 +13,35 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: d00cb6886e812ee2b780ad79e1fba44442e279ad
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59833068"
 ---
-# <a name="install-add-ins"></a>安装 Add-Ins
+# <a name="install-add-ins"></a>安装加载项
 
 >适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
 
-你可以通过安装它们在创建映像之前包括所有服务器或的客户端计算机上的加载项。 随后将会加载项会自动包括复制使用该图像的所有计算机上。 你可以安装外接程序通过运行.wssx 文件，也可以通过遵循的指南中安装单独的加载项的文件[SDK 文档](https://go.microsoft.com/fwlink/?LinkID=248648)每种类型的加载项。 如果你安装通过.wssx 文件外, 接程序可以卸载通过 Add-In 管理器。 如果你安装的个别文件外, 接程序未管理从 Add-In 管理器。  
+可以在创建映像前，通过在所有服务器或客户端计算机上安装加载项来包括加载项。 之后，将在使用该映像复制的所有计算机上自动包括这些加载项。 你可以通过运行 .wssx 文件来安装加载项，也可以按照 [SDK 文档](https://go.microsoft.com/fwlink/?LinkID=248648)中关于各种加载项的指南来安装单独的加载项文件。 如果使用 .wssx 文件进行安装，则可以通过加载项管理器来卸载加载项。 如果安装单独的文件，则不能使用加载项管理器管理加载项。  
   
 > [!NOTE]
->  安装或下载（包括仪表板标签页和健康通知）服务器上的任何软件应该会有一个本地化的界面语言的服务器安装的操作系统相匹配。  
+>  任何安装到或下载到服务器上的软件（包括仪表板选项卡和运行状况通知）都应该具有与此服务器上安装的操作系统的语言相匹配的本地化界面。  
   
-#### <a name="to-install-an-add-in"></a>若要安装的加载项  
+#### <a name="to-install-an-add-in"></a>安装加载项  
   
-1.  （可选）如果你安装外接程序，方法是使用.wssx 文件，请完成以下步骤：  
+1.  （可选）如果通过使用 .wssx 文件安装加载项，请完成下列步骤：  
   
-    1.  保存 < AddinName\ >.wssx 文件参考计算机上。  
+    1.  保存 < 名称\>.wssx 文件引用计算机上的。  
   
-    2.  双击以打开 Add-in 安装向导.wssx 文件。  
+    2.  双击该 .wssx 文件打开“加载项安装向导”。  
   
-    3.  按照该向导中的说明完成安装。  
+    3.  按照向导中的说明完成安装。  
   
-2.  （可选）每种类型的加载项 SDK 中定义中适当的位置中安装个别外接程序文件。  
+2.  （可选）按照 SDK 中针对各种加载项的定义，在适当的位置安装各个加载项文件。  
   
 ## <a name="see-also"></a>请参阅  
  [创建和自定义映像](Creating-and-Customizing-the-Image.md)   
  [其他自定义设置](Additional-Customizations.md)   
- [准备部署该映像](Preparing-the-Image-for-Deployment.md)   
+ [部署准备的映像](Preparing-the-Image-for-Deployment.md)   
  [测试客户体验](Testing-the-Customer-Experience.md)

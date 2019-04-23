@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
 ms.openlocfilehash: af98a219a4a5aa708df9c648f1b245a21e95f016
-ms.sourcegitcommit: f7113ccc8b664494f664cd4b100dcac06eef5654
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "7012071"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827808"
 ---
-# 将 Windows Server 2008/2008 R2 专用映像上传至 Azure 
+# <a name="upload-a-windows-server-20082008-r2-specialized-image-to-azure"></a>将 Windows Server 2008/2008 R2 特殊化映像上传至 Azure 
 
 ![介绍 WS08 映像主题的横幅](media/WS08-image-banner-large.png)
 
 现在，可在云中使用 Azure 来运行 Windows Server 2008/2008 R2 虚拟机。 
 
-## 准备 Windows Server 2008/2008 R2 专用映像
+## <a name="prep-the-windows-server-20082008-r2-specialized-image"></a>准备 Windows Server 2008/2008 R2 专用映像
 需要先进行以下更改，然后才能上传映像：
 
 - 如果映像中尚未安装 Windows Server 2008 Service Pack 2 (SP2)，请下载并安装。
@@ -43,8 +43,8 @@ ms.locfileid: "7012071"
 - 配置 Windows 防火墙设置。   
    1. 在管理员模式下的命令提示符处，输入“**wf.msc**”以搜索 Windows 防火墙和高级安全设置。   
    2. 按**端口**对结果排序，选择**端口 3389**。   
-     ![Windows 防火墙设置的入站规则的屏幕截图。](media/3b_inboundrules.png)   
-   3. 为配置文件启用远程桌面 (TCP IN)：**域**、**专用**和**公用**（如上所示）。
+     ![屏幕截图的 WIndows 防火墙设置的入站的规则。](media/3b_inboundrules.png)   
+   3. 启用远程桌面 (TCP-IN) 的配置文件：**域**，**专用**，和**公共**（如上所示）。
 
 - 保存所有设置并关闭该映像。   
 - 如果你正在使用 Hyper-V，请确保将子 AVHD 合并到父 VHD 中，以持久保留更改。
@@ -58,7 +58,7 @@ ms.locfileid: "7012071"
 5. 选择**密码永不过期**，然后选择**确定**
 ![管理员属性的屏幕截图。](media/6_adminprops.png)
 
-## 上传映像 VHD
+## <a name="uploading-the-image-vhd"></a>上传映像 VHD
 可以使用下面的脚本来上传 VHD。 执行此操作之前，你需要发布 Azure 帐户的设置文件。 获取 [Azure 文件设置](https://azure.microsoft.com/downloads/)。
 
 下面是该脚本：
@@ -80,7 +80,7 @@ Login-AzureRmAccount
       $urlOfUploadedImageVhd = "<BlobUrl>/<NameForVHD>.vhd"
       Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd -LocalFilePath "<FilePath>"  
 ```
-## 在 Azure 中部署映像
+## <a name="deploy-the-image-in-azure"></a>在 Azure 中部署映像
 在本节中，将在 Azure 中部署映像 VHD。 
 
 > [!IMPORTANT]
@@ -95,8 +95,8 @@ Login-AzureRmAccount
      a. 转到“磁盘”，单击**添加**。  
      b. 输入磁盘的名称。 选择要使用的订阅，设置区域，然后选择帐户类型。   
      c. 对于“源类型”，选择存储。 浏览到使用脚本创建的 Blob VHD 的位置。  
-     d. 选择操作系统类型 Windows 和大小（默认值：1023）。   
-     e. 单击**创建**。   
+     d. 选择 Windows 的 OS 类型和大小 (默认值：1023).   
+     e. 单击“创建”。   
 
 7.  转到已创建的磁盘，单击**创建虚拟机**。   
      a. 对虚拟机命名。   
@@ -105,7 +105,7 @@ Login-AzureRmAccount
      d. 在设置页上选择一个网络接口。 确保该网络接口已指定以下规则：
  
         PORT:3389 Protocol: TCP Action: Allow Priority: 1000 Name: ‘RDP-Rule’.   
-     e. 单击**创建**。
+     e. 单击“创建”。
 
 
 

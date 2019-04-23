@@ -1,6 +1,6 @@
 ---
-title: 配置客户端自动托管的缓存发现服务连接点
-description: 本指南提供了有关运行 Windows Server 2016 和 Windows 10 的计算机上托管的缓存型部署分支缓存的说明进行操作
+title: 通过服务连接点配置客户端自动托管缓存发现
+description: 本指南说明了在运行 Windows Server 2016 和 Windows 10 的计算机上的托管的缓存模式下部署 BranchCache
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-bc
@@ -8,17 +8,18 @@ ms.topic: article
 ms.assetid: ea1c34fd-5a33-4228-9437-9bb3d44230eb
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b12fa6f9e11c8816d74c9013dd80b3fa38d0a478
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: bd77fc76a999517cb8372aec8dfad25b4dd5be3b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59829718"
 ---
-#  <a name="configure-client-automatic-hosted-cache-discovery-by-service-connection-point"></a>配置客户端自动托管的缓存发现服务连接点
+#  <a name="configure-client-automatic-hosted-cache-discovery-by-service-connection-point"></a>通过服务连接点配置客户端自动托管缓存发现
 
->适用于：Windows Server（半年通道），Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-此过程与你可以使用组策略启用并配置分支缓存托管缓存模式下运行以下 BranchCache\ 支持 Windows 操作系统的 domain\ 加入计算机上。
+使用此过程，可以使用组策略来启用和域上配置 BranchCache 托管缓存模式\-加入的计算机运行以下 BranchCache\-功能的 Windows 操作系统。
 
 - Windows 10 企业版
 - Windows 10 教育版
@@ -26,44 +27,44 @@ ms.lasthandoff: 03/28/2018
 - Windows 8 企业版
 
 > [!NOTE]  
-> 若要配置运行的 Windows Server 2008 R2 或 Windows 7 的已加入域的计算机，请参阅 Windows Server 2008 R2[分支缓存部署指南](https://technet.microsoft.com/library/ee649232.aspx)。
+> 若要配置在运行 Windows Server 2008 R2 或 Windows 7 的已加入域的计算机，请参阅 Windows Server 2008 R2 [BranchCache 部署指南](https://technet.microsoft.com/library/ee649232.aspx)。
 
-在会员**域管理员**，或等效的最低要求执行此过程。
+“Domain Admins”中的成员身份或同等身份是执行此过程的最低要求。
 
-### <a name="to-use-group-policy-to-configure-clients-for-hosted-cache-mode"></a>若要使用组策略配置客户端托管的缓存模式
+### <a name="to-use-group-policy-to-configure-clients-for-hosted-cache-mode"></a>若要使用组策略配置为托管的缓存模式客户端
 
-1. 在安装在其 Active Directory 域服务服务器角色计算机上，打开服务器管理器，依次选择本地服务器、 单击**工具**，然后单击**组策略管理**。 组策略管理控制台打开。
+1. 在其安装 Active Directory 域服务服务器角色的计算机，打开服务器管理器，选择本地服务器，单击**工具**，然后单击**组策略管理**。 将打开组策略管理控制台。
 
-2. 在组策略管理控制台中，展开以下路径：**森林：** *corp.contoso.com*，**域**， *corp.contoso.com*，**组策略对象**，其中*corp.contoso.com*是你想要配置分支缓存客户端计算机帐户所在的域的名称。
+2. 在组策略管理控制台中，展开以下路径：**林：** *corp.contoso.com*，**域**， *corp.contoso.com*，**组策略对象**，其中*corp.contoso.com*是你想要配置 BranchCache 客户端计算机帐户所在的域的名称。
 
-3. Right\ 单击**组策略对象**，然后单击**新建**。 **新 GPO**对话框中打开。 在**名称**，键入一个名称的新组策略对象 \(GPO\)。 例如，如果你想要名称的对象分支缓存客户端计算机中，键入**分支缓存客户端计算机**。 单击**确定**。
+3. 右\-单击**组策略对象**，然后单击**新建**。 **新的 GPO**对话框随即打开。 在中**名称**，键入新组策略对象的名称\(GPO\)。 例如，如果你想要命名的对象 BranchCache 客户端计算机，键入**BranchCache 客户端计算机**。 单击 **“确定”**。
 
-4. 在组策略管理控制台中，确保**组策略对象**处于选中状态，并在详细信息窗格 right\ 键单击刚刚 GPO 创建。 例如，如果名为 GPO 分支缓存客户端计算机 right\ 单击**分支缓存客户端计算机**。 单击**编辑**。 打开组策略编辑器中管理主机。
+4. 在组策略管理控制台中，确保**组策略对象**将被选中，并且在详细信息窗格右侧\-单击刚创建的 GPO。 例如，如果名为 GPO BranchCache 客户端计算机，右键\-单击**BranchCache 客户端计算机**。 单击**编辑**。 此时将打开组策略管理编辑器控制台。
 
-5. 在组策略编辑器中管理控制台中，展开以下路径：**计算机配置**，**策略**，**管理模板： 从本地计算机上策略的定义 \(ADMX files\) 检索**，**网络**，**分支缓存**。
+5. 在组策略管理编辑器控制台中，展开以下路径：**计算机配置**，**策略**，**管理模板：策略定义\(ADMX 文件\)从本地计算机上检索**，**网络**， **BranchCache**。
 
-6. 单击**分支缓存**，然后在详细信息窗格中，double\ 单击**打开分支缓存**。 **打开分支缓存**对话框中打开。
+6. 单击**BranchCache**，然后在详细信息窗格中，双击\-单击**打开 BranchCache**。 **打开 BranchCache**对话框随即打开。
   
-7.  在**打开分支缓存**对话框中，单击**启用**，然后单击**确定**。
+7.  在中**打开 BranchCache**对话框中，单击**已启用**，然后单击**确定**。
 
-8. 在组策略编辑器中管理控制台中，确保**分支缓存**仍处于选中状态，然后在详细信息窗格 double\ 单击**启用自动托管缓存发现服务连接点**。 打开策略的设置对话框。
+8. 在组策略管理编辑器控制台中，确保**BranchCache**是仍然处于选中状态，然后在详细信息窗格双\-单击**启用自动托管缓存发现通过服务连接点**。 将打开策略设置对话框。
 
-9. 在**启用自动托管缓存发现服务连接点**对话框中，单击**启用**，然后单击**确定**。
+9. 在中**启用自动托管缓存发现通过服务连接点**对话框中，单击**已启用**，然后单击**确定**。
 
-10. 若要使客户端计算机以下载和缓存内容从分支缓存的文件 server\ 基于内容服务器： 在组策略编辑器中管理控制台中，确保**分支缓存**仍处于选中状态，然后在详细信息窗格 double\ 单击**网络文件的分支缓存**。 **网络文件的配置分支缓存**对话框中打开。 
-11. 在**网络文件的配置分支缓存**对话框中，单击**启用**。 在**选项**，最大往返网络延迟时间，数值，以毫秒为单位，键入，然后单击**确定**。
+10. 若要启用 BranchCache 文件服务器客户端计算机下载和缓存内容\-基于内容的服务器：在组策略管理编辑器控制台中，确保**BranchCache**是仍然处于选中状态，然后在详细信息窗格双\-单击**网络文件 BranchCache**。 **配置网络文件 BranchCache**对话框随即打开。 
+11. 在中**配置网络文件 BranchCache**对话框中，单击**已启用**。 在中**选项**，键入数值，以毫秒为单位，最大往返网络延迟时间，，然后单击**确定**。
   
     > [!NOTE]
-    > 默认情况下的客户端计算机缓存从文件服务器的内容，如果往返网络延迟长于 80 毫秒。
+    > 默认情况下，客户端计算机时间超过 80 毫秒的往返网络延迟是否缓存文件服务器中的内容。
   
-12. 配置分配分支缓存缓存的每个客户端计算机上的硬盘空间量： 在组策略编辑器中管理控制台中，确保**分支缓存**仍处于选中状态，然后在详细信息窗格 double\ 单击**设置用于客户端计算机缓存的磁盘空间的百分比**。 **设置用于客户端计算机缓存的磁盘空间的百分比**对话框中打开。 单击**启用**，然后在**选项**键入数值表示硬盘空间每个客户端计算机上用于分支缓存缓存的百分比。 单击**确定**。
+12. 若要配置 BranchCache 缓存每个客户端计算机上分配的硬盘空间量：在组策略管理编辑器控制台中，确保**BranchCache**是仍然处于选中状态，然后在详细信息窗格双\-单击**设置用于客户端计算机缓存的磁盘空间的百分比**. **设置用于客户端计算机缓存的磁盘空间的百分比**对话框随即打开。 单击**已启用**，然后在**选项**键入一个数字值，表示每个客户端计算机上的 BranchCache 缓存使用的硬盘空间的百分比。 单击 **“确定”**。
 
-13. 指定默认年龄天后，其线段，分别均有效在客户端计算机上分支缓存数据缓存中： 在组策略编辑器中管理控制台中，确保**分支缓存**仍处于选中状态，然后在详细信息窗格 double\ 单击**数据缓存中设置线段，分别的年龄**。 **数据缓存中设置年龄时间段**对话框中打开。 单击**启用**，然后在的详细信息窗格中，键入的数天内你喜欢的。 单击**确定**。
+13. 若要指定的默认期限，以天为单位的段为有效的客户端计算机上的 BranchCache 数据缓存中：在组策略管理编辑器控制台中，确保**BranchCache**是仍然处于选中状态，然后在详细信息窗格双\-单击**数据缓存中的设置段的存在时间**。 **数据缓存中的设置段的存在时间**对话框随即打开。 单击**已启用**，然后在详细信息窗格中键入您喜欢的天数。 单击 **“确定”**。
 
-14. 根据你的部署配置客户端计算机上的其他分支缓存策略设置。
+14. 根据你的部署需要配置客户端计算机的其他 BranchCache 策略设置。
 
-15. 通过运行命令刷新 branch office 客户端计算机上的组策略**gpupdate /force**，或通过客户端计算机重启。
+15. 在分支机构的客户端计算机上刷新组策略，通过运行命令**gpupdate /force**，或通过重新启动客户端计算机。
 
-你的分支缓存托管缓存模式部署现已完成。
+BranchCache 托管缓存模式部署现已完成。
 
 本指南中的技术的其他信息，请参阅[其他资源](11-Bc-Hcm-additional-resources.md)。

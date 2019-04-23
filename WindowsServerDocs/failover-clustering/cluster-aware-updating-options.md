@@ -1,88 +1,89 @@
 ---
 ms.assetid: 2f4b6641-0ec2-4b1c-85fb-a1f1d16685c8
-title: "添彩注意到的高级选项的更新和更新运行配置文件"
+title: 群集感知更新高级选项和更新运行配置文件
 ms.topic: article
-ms.prod: storage-failover-clustering
+ms.prod: windows-server-threshold
 manager: dongill
 ms.author: jgerend
 author: JasonGerend
-ms.date: 6/7/2017
-description: "如何配置高级的选项和更新为群集的更新 (CAU) 运行配置文件"
-ms.openlocfilehash: 5b6f035791a946ff96ff6a95a1f753ef505d54b4
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
+ms.date: 08/06/2018
+description: 如何配置高级的选项和更新运行配置文件的群集感知更新 (CAU)
+ms.openlocfilehash: 5fac31ad35422e623b98caaabdd9eae183e2e5d8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59830548"
 ---
-# <a name="cluster-aware-updating-advanced-options-and-updating-run-profiles"></a>高级选项和更新运行配置文件的群集的更新
+# <a name="cluster-aware-updating-advanced-options-and-updating-run-profiles"></a>群集感知更新高级选项和更新运行配置文件
 
->适用于：Windows Server（半年通道）、Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-本主题介绍的可配置更新运行选项[群集的更新](cluster-aware-updating.md)更新运行 (CAU)。 当你使用 CAU UI 或 CAU Windows PowerShell cmdlet 才能将更新应用，或配置更新自行选项，可配置这些高级的选项。
+本主题介绍可以为配置的更新运行选项[群集感知更新](cluster-aware-updating.md)(CAU) 更新运行。 当你使用 CAU UI 或 CAU Windows PowerShell cmdlet 来应用更新或者配置自我更新选项时，可以配置这些高级的选项。
 
-可以保存大多数配置设置，XML 文件称为更新运行个人资料以及更高版本的更新运行重复使用。 由 CAU 运行更新选项的默认值还可在许多群集环境。
+大多数配置设置可以另存为称为“更新运行配置文件”的 XML 文件，以后执行更新运行时可以重复使用该文件。 还可以在许多群集环境中使用 CAU 提供的更新运行选项的默认值。
 
-有关其他选项，你可以为每个更新运行指定以及更新运行配置文件的信息，请参阅本主题后面以下部分：
+你可以为每个更新运行指定其他选项，此方面的信息以及更新运行配置文件的信息，请参阅以下部分（本主题后面提供）：
 
-您可以指定时你请求更新运行使用更新运行配置文件选项可设置在更新运行个人资料的选项
+指定当请求更新运行使用更新运行配置文件选项可以在更新运行配置文件中设置的选项
 
-下表列出了可设置在 CAU 更新运行个人资料的选项。 
+下表列出了你可以在 CAU 更新运行配置文件中设置的选项。 
 
 > [!NOTE] 
-> 若要设置的 PreUpdateScript 或 PostUpdateScript 选项，确保已安装了 Windows PowerShell 和.NET Framework 4.6 或 4.5 和每个中的群集节点上启用了 PowerShell 远程处理。 有关详细信息，请参阅配置远程管理节点[要求和最佳做法群集的更新](cluster-aware-updating-requirements.md)。
+> 若要设置 PreUpdateScript 或 PostUpdateScript 选项，请确保安装了 Windows PowerShell 和.NET Framework 4.6 或 4.5 和，在群集中每个节点上启用 PowerShell 远程处理。 有关详细信息，请参阅为中的远程管理配置节点[要求和群集感知更新的最佳做法](cluster-aware-updating-requirements.md)。
 
 
-|选项|默认值|详细信息|  
+|Option|默认值|详细信息|  
 |------------|-------------------|-------------|  
-|**StopAfter**|无限制的时间|在几分钟内后，更新运行将停止如果它尚未完成的时间。 **注意：**运行脚本并执行更新的整个过程指定预更新或 PowerShell 脚本更新后，如果必须完成内**StopAfter**时间限制。|  
-|**WarnAfter**|默认情况下，不会显示警告|之后，如果尚未完成更新（包括运行更新前脚本和更新后脚本，如果他们配置）将显示一个警告分钟时间。|  
-|**MaxRetriesPerNode**|3|最大数目将每个节点重试更新过程（包括预更新脚本和更新后脚本，如果他们配置）的时间。 最大是 64。|  
-|**MaxFailedNodes**|对于大多数群集，而是在大约 1-3 群集节点数表示|最大数目节点上的更新可能会失败，或者因为节点无法或群集服务停止运行。 如果一个多个节点失败，更新运行已停止。<br /><br /> 值的有效范围是从 0 到 1 小于群集节点数。|  
-|**RequireAllNodesOnline**|无|指定所有节点必须都处于联机状态，并且在更新之前可以访问开始。|  
-|**RebootTimeoutMinutes**|15|（如果需要重启）重启节点和开始所有自动启动的服务允许 CAU 分钟时间。 如果重启过程不在此时间内完成，更新运行该节点上标记为失败。|  
-|**PreUpdateScript**|无|开始更新前，并且之前节点放入维护模式每个节点上运行 PowerShell 脚本路径和名称。 文件扩展名必须**.ps1**，并且总路径与文件的长度不能超过 260 的字符。 作为最佳做法，脚本应位于磁盘群集存储中或在高度可用网络文件共享，以确保它已始终可以访问所有群集节点。 当此脚本位于网络文件共享，请确保将配置文件共享的阅读许可的每个人都分组，并限制写入访问权限，以防止未经授权的用户文件篡改。<br /><br /> 如果指定脚本更新前，请确保如时间设置限制 (例如，**StopAfter**) 配置允许脚本成功地运行。 这些限制跨整个运行脚本，安装更新，而不仅仅是安装更新的进程的进程。|  
-|**PostUpdateScript**|无|（节点离开维护模式）后，更新完成后运行 PowerShell 脚本路径和名称。 文件扩展名必须**.ps1**和总路径与文件的长度不能超过 260 的字符。 作为最佳做法，脚本应位于磁盘群集存储中或在高度可用网络文件共享，以确保它已始终可以访问所有群集节点。 当此脚本位于网络文件共享，请确保将配置文件共享的阅读许可的每个人都分组，并限制写入访问权限，以防止未经授权的用户文件篡改。<br /><br /> 如果指定脚本更新后，请确保如时间设置限制 (例如，**StopAfter**) 配置允许脚本成功地运行。 这些限制跨整个运行脚本，安装更新，而不仅仅是安装更新的进程的进程。|  
-|**配置名**|此设置仅起作用，如果你运行的脚本。<br /><br /> 如果你指定更新前脚本或更新后脚本，但不是指定**配置名**，PowerShell 默认会话配置 (Microsoft。PowerShell) 使用。|指定定义会话中的脚本 PowerShell 会话配置 (由**PreUpdateScript**和**PostUpdateScript**) 运行，并且可以限制可以运行命令。|  
-|**CauPluginName**|**Microsoft.WindowsUpdatePlugin**|插件，您将配置群集的更新可用于预览更新或执行更新运行。 有关详细信息，请参阅[如何群集的更新插件工作](cluster-aware-updating-plug-ins.md)。|  
-|**CauPluginArguments**|无|一套*名称 = 值*对（参数）的更新的插件，若要使用，例如：<br /><br /> **Domain=Domain.local**<br /><br /> 这些*名称 = 值*对必须对该插件有意义中指定的**CauPluginName**。<br /><br /> 若要指定参数使用 CAU UI，键入*名称*，按下 Tab 键，然后键入相应*值*。 按 Tab 键再次向下一个参数。 每个*名称*和*值*自动等于号（=）的分隔。 多个对自动分号的分隔。<br /><br /> 对于默认**Microsoft.WindowsUpdatePlugin**插件，不需要参数。 但是，你可以指定可选参数，例如，若要指定标准 Windows 更新代理查询字符串筛选的一套通过插件应用的更新。 对于*名称*，使用**查询字符串**，以及*值*，将完全查询放在引号。<br /><br /> 有关详细信息，请参阅[如何群集的更新插件工作](cluster-aware-updating-plug-ins.md)。|  
+|**StopAfter**|无时间限制|时间（分钟），该时间过后将停止未完成的更新运行。 **注意：** 如果指定更新前或更新后 PowerShell 脚本，运行脚本以及执行更新的整个过程必须在完成内**StopAfter**时间限制。|  
+|**WarnAfter**|默认情况下不显示警告|时间（分钟），如果更新运行（包括更新前脚本和更新后脚本（如果已配置））在该时间过后仍未完成，则将显示警告。|  
+|**MaxRetriesPerNode**|3|每个节点将重试更新过程（包括更新前脚本和更新后脚本（如果已配置））的最大次数。 最大值为 64。|  
+|**MaxFailedNodes**|对于大多数群集而言，它是一个大约为群集节点数三分之一的整数|更新可能会失败（原因是节点失败或者群集服务停止运行）的最大节点数。 如果多个节点失败，则停止更新运行。<br /><br /> 有效值范围为群集节点数减 0 到减 1。|  
+|**RequireAllNodesOnline**|无|指定更新开始之前所有节点都必须联机且可以访问。|  
+|**RebootTimeoutMinutes**|15|CAU 给重新启动节点（如果有必要重新启动）以及启动所有自动启动服务留出的时间（分钟）。 如果重新启动过程未在此时间内完成，该节点上更新运行标记为失败。|  
+|**PreUpdateScript**|无|要更新开始之前，以及节点进入维护模式之前，每个节点上运行的 PowerShell 脚本路径和文件名称。 文件扩展名必须为 **.ps1**，并且路径加上文件的总长度不得超过 260 个字符。 最佳做法是，应该将脚本放置在群集存储中的磁盘上，或者放置在可用性高的网络文件共享上，以确保所有群集节点始终都可以对该脚本进行访问。 如果将脚本放置在网络文件共享上，请确保为 Everyone 组配置对该文件共享的读取权限，并限制写入访问权限，以防止未经授权的用户篡改文件。<br /><br /> 如果指定更新前脚本，请确保配置诸如时间限制之类的设置（例如“StopAfter”），以便让脚本成功运行。 这些限制跨运行脚本和安装更新的整个过程，而不仅仅是安装更新的过程。|  
+|**PostUpdateScript**|无|要更新之后运行的 PowerShell 脚本的路径和文件名称完成 （节点退出维护模式后）。 文件扩展名必须为 **.ps1**并且路径加上文件的总长度不得超过 260 个字符。 最佳做法是，应该将脚本放置在群集存储中的磁盘上，或者放置在可用性高的网络文件共享上，以确保所有群集节点始终都可以对该脚本进行访问。 如果将脚本放置在网络文件共享上，请确保为 Everyone 组配置对该文件共享的读取权限，并限制写入访问权限，以防止未经授权的用户篡改文件。<br /><br /> 如果指定更新后脚本，则确保配置诸如时间限制之类的设置（例如“StopAfter”），以便让脚本成功运行。 这些限制跨运行脚本和安装更新的整个过程，而不仅仅是安装更新的过程。|  
+|**ConfigurationName**|仅当运行脚本时此设置才有效。<br /><br /> 如果指定更新前脚本或更新后脚本，但不是指定**ConfigurationName**、 使用 PowerShell (Microsoft.PowerShell) 配置的默认会话。|指定定义会话中的脚本的 PowerShell 会话配置 (由指定**PreUpdateScript**并**PostUpdateScript**) 运行，且能够限制可运行的命令。|  
+|**CauPluginName**|**Microsoft.WindowsUpdatePlugin**|配置群集感知更新以用于预览更新或执行更新运行的插件。 有关详细信息，请参阅[如何群集感知更新插件工作](cluster-aware-updating-plug-ins.md)。|  
+|**CauPluginArguments**|无|针对要使用的更新插件的一组 *name=value* 对（参数），例如：<br /><br /> **Domain=Domain.local**<br /><br /> 这些 *name=value* 对必须对在“CauPluginName”中指定的插件有意义。<br /><br /> 若要使用 CAU UI 指定参数，请键入 *name*，按 Tab 键，然后键入相应的 *value*。 再次按 Tab 键以提供下一个参数。 每个 *name* 和 *value* 都用一个等号 (=) 自动分隔。 多个对用分号自动分隔。<br /><br /> 默认情况下**Microsoft.WindowsUpdatePlugin**插件，则不需要任何参数。 但是，可以指定一个可选参数，例如，指定一个标准的 Windows 更新代理查询字符串，用于筛选插件应用的更新集。 有关*名称*，使用**QueryString**，并为*值*，完整查询用引号引起来。<br /><br /> 有关详细信息，请参阅[如何群集感知更新插件工作](cluster-aware-updating-plug-ins.md)。|  
   
-##  <a name="BKMK_runtime"></a>指定你请求更新运行时的选项  
- 下表列出了请求更新运行时，你可以指定的选项（而不是更新运行配置文件中的这些）。 有关可在更新运行个人资料设置选项的信息，请参阅上的表。  
+##  <a name="BKMK_runtime"></a> 指定当请求更新运行选项  
+ 下表列出了请求更新运行时可以指定的选项（不是更新运行配置文件中的选项）。 有关在更新运行配置文件中可以设置的选项的信息，请参阅上表。  
   
-|选项|默认值|详细信息|  
+|Option|默认值|详细信息|  
 |------------|-------------------|-------------|  
-|**群集名称**|无 <br>**注意：**仅当 CAU UI 无法运行上故障转移群集节点中，或你想要参考故障转移群集不同于运行 CAU UI 时，必须设置此选项。|对其执行更新运行群集 NetBIOS 名称。|  
-|**凭据**|当前帐户凭据|管理凭据目标群集上的更新运行将来执行。 你可能已经必要的凭据如果启动 CAU UI（或者如果你使用的 CAU PowerShell cmdlet 打开 PowerShell 会话，）从群集具有管理员权限的帐户。|  
-|**NodeOrder**|默认情况下，CAU 开头节点拥有小数聚集角色，然后前进到第二小数，依此类推具有节点。|姓名，应该会更新（如果可能）的顺序群集节点。|  
+|**ClusterName**|无 <br>**注意：** 仅当未在故障转移群集节点上运行 CAU UI，或者你想要引用一个未运行 CAU UI 的故障转移群集时，才需要设置此选项。|要在其上执行更新运行的群集的 NetBIOS 名称。|  
+|**凭据**|当前帐户凭据|将执行更新运行的目标群集的管理凭据。 您从可能已具有所需的凭据启动 CAU UI （或打开 PowerShell 会话中，如果你使用 CAU PowerShell cmdlet） 如果在群集具有管理员权利和权限的帐户。|  
+|**NodeOrder**|默认情况下，CAU 从拥有群集角色数量最少的节点开始，然后是数量第二少的节点，依此类推。|群集节点的名称，顺序为应对它们进行更新的顺序（如果可能）。|  
   
-##  <a name="BKMK_profile"></a>使用更新运行配置文件  
- 每个更新运行可能与特定更新运行个人资料。 更新运行配置文件存储在默认*%windir%\cluster*文件夹。 如果你使用的 CAU UI 远程更新过程中模式中，你可以指定你应用更新，次更新运行配置文件，也可以使用默认更新运行配置文件。 如果你使用的 CAU 自行更新模式中，你可以从导入设置指定更新运行个人资料时配置自行更新的选项。 在这两种情况下，你可以根据你的需求覆盖显示运行更新选项的值。 如果你希望，你可以将更新运行选项另存为更新运行配置文件与同名文件或不同的文件名。 下一次，你将更新应用，或配置自行更新的选项，CAU 自动选择更新运行个人资料以前选择。  
+##  <a name="BKMK_profile"></a> 使用更新运行配置文件  
+ 可将每个更新运行与特定的更新运行配置文件进行关联。 更新运行配置文件存储在默认 *%windir%\cluster*文件夹。 如果使用 CAU UI 中远程更新模式下，你可以在应用更新时指定更新运行配置文件，也可以使用的默认更新运行配置文件。 如果在自我更新模式使用 CAU，你可以从导入设置指定更新运行配置文件配置自我更新选项时。 在这两种情况下，都可以根据需要覆盖更新运行选项的显示值。 如果需要，可以使用相同或不同的文件名将更新运行选项另存为更新运行配置文件。 下一次当你应用更新或者配置自我更新选项时，CAU 将自动选择上次所选择的更新运行配置文件。  
   
- 你可以修改现有更新运行配置文件，或创建一个新通过选择**创建修改更新运行个人资料或**CAU 用户界面中。
+ 可以修改现有更新运行配置文件或通过选择创建新**创建或修改更新运行配置文件**CAU UI 中。
 
-下面是有关使用更新运行配置文件的一些重要说明：
+下面是有关使用更新运行配置文件的一些重要注意事项：
 
-* 更新运行配置文件不会存储如管理凭据群集特定信息。 如果你使用的 CAU 型自行更新，更新运行个人资料也不会存储自更新计划信息。 这样可以跨指定的类别中的所有故障转移群集共享更新运行配置文件。
-* 如果配置自行更新使用更新运行个人资料的选项，稍后修改的配置文件的不同运行更新选项的值自行更新配置不会自动更改。 若要将新的更新运行设置应用，必须再次配置自行更新选项。
-* 运行个人资料编辑器遗憾的是不支持包含空间，如的文件路径*C:\Program 文件*。 作为解决方法，存储你预，并在路径中不包括空间，或 PowerShell 专门用于管理运行的配置文件，掌握引号路径运行时的文章更新脚本**调用 CauRun**。
+* 更新运行配置文件不存储特定于群集的管理凭据等信息。 如果你要在自我更新模式使用 CAU，更新运行配置文件也不存储自我更新计划信息。 这样便可在指定类的所有故障转移群集之间共享更新运行配置文件。
+* 如果配置自我更新选项时使用更新运行配置文件和更高版本修改具有不同的值更新运行选项的配置文件，则自我更新配置不会自动更改。 若要应用新的更新运行设置，必须再次配置自我更新选项。
+* 运行配置文件编辑器遗憾的是不支持包括空格，如下所述的文件路径*C:\Program Files*。 解决方法是，存储你之前和在不包含空格，或以独占方式使用 PowerShell 管理运行配置文件，将运行时放在路径两边的引号的路径中发布的更新脚本**Invoke-caurun**。
 
 ### <a name="windows-powershell-equivalent-commands"></a>Windows PowerShell 等效命令
   
- 你可以从导入设置更新运行个人资料运行时**调用 CauRun**，**添加 CauClusterRole**，或**组 CauClusterRole** cmdlet。  
+ 您可以从导入设置更新运行配置文件在运行时**Invoke-caurun**， **Add-cauclusterrole**，或**Set-cauclusterrole** cmdlet。  
   
- 下面的示例执行扫描和完整更新上运行名为群集*CONTOSO FC1*，使用中指定的更新运行选项*C:\Windows\Cluster\DefaultParameters.xml*。 其余 cmdlet 参数的情况下使用默认值。  
+ 以下示例将使用 *C:\Windows\Cluster\DefaultParameters.xml* 中指定的更新运行选项，在名为 *CONTOSO-FC1* 的群集上执行扫描和完整的更新运行。 为剩余的 cmdlet 参数使用默认值。  
   
 ```powershell  
 $MyRunProfile = Import-Clixml C:\Windows\Cluster\DefaultParameters.xml  
 Invoke-CauRun –ClusterName CONTOSO-FC1 @MyRunProfile   
 ```  
   
- 通过使用更新运行个人资料，您可以使用一致设置的例外管理、时间界限和运营的其他参数更新中重复故障转移群集。 由于这些设置通常特定于的故障转移群集类，如"所有 Microsoft SQL Server 群集"或"我的关键业务群集"，你可能想要命名为每个更新运行配置文件与将使用它的故障转移群集类根据。 此外，你可能想要管理更新运行上的配置文件的故障转移群集特定类 IT 组织中的所有访问的文件共享。  
+ 通过更新运行配置文件，你可以使用异常管理、时间限制和其他操作参数的一致性设置反复更新某个故障转移群集。 由于这些设置通常特定于某一类故障转移群集 - 例如“所有 Microsoft SQL Server 群集”或“我的业务关键型群集”- 你可能需要根据每个更新运行配置文件可以与之配合使用的故障转移群集种类来命名该配置文件。 此外，你可能需要在可由 IT 组织中特定类的所有故障转移群集访问的文件共享上管理更新运行配置文件。  
   
   
   
 ## <a name="see-also"></a>请参阅
 
--   [群集的更新](cluster-aware-updating.md)
+-   [群集感知更新](cluster-aware-updating.md)
   
--   [在 Windows PowerShell 群集的更新 Cmdlet](https://technet.microsoft.com/itpro/powershell/windows/cluster-aware-updating)
+-   [在 Windows PowerShell 中的群集感知更新 Cmdlet](https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps)

@@ -1,7 +1,7 @@
 ---
 ms.assetid: 9831b421-8fb7-4e15-ac27-c013cbca6d05
-title: "服务器联合身份验证的证书要求"
-description: 
+title: 联合服务器的证书要求
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,48 +10,49 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 369c0e9e7ab1ef25baee1c35379cc66b886f20d8
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827098"
 ---
-# <a name="certificate-requirements-for-federation-servers"></a>服务器联合身份验证的证书要求
+# <a name="certificate-requirements-for-federation-servers"></a>联合服务器的证书要求
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-在任何 Active Directory 联合身份验证服务 \(AD FS\) 设计，必须使用不同的证书保护通信，便于实施 Internet 客户端和服务器联盟之间的用户身份验证。 它可以参与广告 FS 通信之前，必须服务通信证书和 token\ 签名证书每个联合身份验证的服务器。 下表介绍了联合身份验证的服务器与相关联的证书类型。  
+在任何 Active Directory 联合身份验证服务\(AD FS\)设计中，必须使用各种证书来保护通信和 Internet 客户端与联合身份验证服务器之间的用户身份验证提供便利。 每个联合身份验证服务器必须具有服务通信证书和令牌\-签名证书才可以参与 AD FS 通信。 下表介绍与联合身份验证服务器相关联的证书类型。  
   
 |证书类型|描述|  
 |--------------------|---------------|  
-|Token\ 签名证书|Token\ 签名证书是提供 X509 证书。 联合身份验证的服务器使用关联的 public\/专用关键对进行数字签名它们产生的所有安全标记。 这包括的已发布的联盟元数据和项目分辨率请求登录。<br /><br />你可以让配置 snap\ 中广告 FS 管理，以使证书翻转一个证书时靠近过期的通知在多个 token\ 签名证书。 默认情况下发布该列表中的所有证书，但只有主要 token\ 签名证书由广告 FS 用于实际上登录标记。 选择你的所有证书都必须对应的专用键。<br /><br />有关详细信息，请参阅[令牌签名证书](Token-Signing-Certificates.md)和[添加令牌签名证书](../../ad-fs/deployment/Add-a-Token-Signing-Certificate.md)。|  
-|服务通信证书|联合身份验证的服务器使用服务器身份验证证书，也称为服务通信为 Windows 通信基础 \(WCF\) 邮件安全。 默认情况下，这是，Internet 信息服务 \(IIS\) 中的安全套接字层 \(SSL\) 证书联合服务器它使用同一个证书。 **注意：**广告 FS 管理 snap\ 中指联盟服务器服务通信证书为服务器身份验证证书。<br /><br />有关详细信息，请参阅[服务通信证书](Service-Communications-Certificates.md)和[设置服务通信证书](../../ad-fs/deployment/Set-a-Service-Communications-Certificate.md)。<br /><br />因为在客户端计算机必须信任服务通信证书，我们建议你使用已签名的受信任的证书颁发机构证书 \(CA\)。 选择你的所有证书都必须对应的专用键。|  
-|安全套接字层 \(SSL\) 证书|联合身份验证的服务器使用 SSL 证书安全的 Web 客户端和服务器联合身份验证的代理 SSL 通信的 Web 服务交通。<br /><br />因为在客户端计算机必须信任 SSL 证书，我们建议你使用的受信任的 CA 由签名证书。 选择你的所有证书都必须对应的专用键。|  
-|Token\ 解密证书|此证书用于解密收到的此联盟服务器的标记。<br /><br />你可以有多个解密证书。 这样，能够解密标记新的证书设置为主要解密证书后，用较旧的证书颁发的资源联盟服务器。 所有的证书可用于解密，但只有主要 token\ 解密证书实际发布联盟元数据中。 选择你的所有证书都必须对应的专用键。<br /><br />有关详细信息，请参阅[添加令牌解密证书](../../ad-fs/deployment/Add-a-Token-Decrypting-Certificate.md)。|  
+|令牌\-签名证书|令牌\-签名证书是一个 X509 证书。 联合身份验证服务器使用关联的公共\/专用密钥对，它们生成的所有安全令牌进行数字签名。 这包括已发布的联合元数据和项目分辨率请求的签名。<br /><br />您可以有多个令牌\-签名证书配置 AD FS 管理管理单元\-以一个证书即将过期时允许证书滚动更新。 默认情况下，该列表中的所有证书都均，但只有主令牌\-签名证书由 AD FS 来进行实际签名令牌。 你选择的所有证书都必须具有相应的私钥。<br /><br />有关详细信息，请参阅 [Token-Signing Certificates](Token-Signing-Certificates.md) 和 [Add a Token-Signing Certificate](../../ad-fs/deployment/Add-a-Token-Signing-Certificate.md)。|  
+|服务通信证书|联合身份验证服务器使用服务器身份验证证书，也称为 Windows Communication Foundation 的服务通信\(WCF\)消息安全。 默认情况下，这是相同的证书的联合身份验证服务器用作安全套接字层\(SSL\)证书在 Internet Information Services \(IIS\)。 **注意：** 在 AD FS 管理管理单元\-中是指用作服务通信证书的联合身份验证服务器的服务器身份验证证书。<br /><br />有关详细信息，请参阅[服务通信证书](Service-Communications-Certificates.md)并[设置服务通信证书](../../ad-fs/deployment/Set-a-Service-Communications-Certificate.md)。<br /><br />由于服务通信证书必须受客户端计算机，我们建议使用受信任的证书颁发机构签名的证书\(CA\)。 你选择的所有证书都必须具有相应的私钥。|  
+|安全套接字层\(SSL\)证书|联合服务器使用 SSL 证书来保护与 Web 客户端以及与联合服务器代理的 SSL 通信的 Web 服务通信。<br /><br />由于 SSL 证书必须受客户端计算机信任，因此我们建议你使用由受信任的 CA 签名的证书。 你选择的所有证书都必须具有相应的私钥。|  
+|令牌\-解密证书|此证书用于解密此联合身份验证服务器接收的令牌。<br /><br />你可以有多个解密证书。 这使资源联合身份验证服务器以便能够解密后新的证书设置为主解密证书使用较旧的证书颁发的令牌。 所有证书可以都用于解密，但只有主令牌\-联合身份验证元数据中实际发布解密证书。 你选择的所有证书都必须具有相应的私钥。<br /><br />有关详细信息，请参阅[添加令牌解密证书](../../ad-fs/deployment/Add-a-Token-Decrypting-Certificate.md)。|  
   
-你可以请求，并通过申请通过 Microsoft 管理控制台 \(MMC\) snap\ 服务通信证书安装 SSL 证书或服务通信证书-在 iis。 有关使用 SSL 证书的详细信息，请参阅[IIS 7.0：配置中 IIS 7.0 安全套接字层](https://go.microsoft.com/fwlink/?LinkID=108544)和[IIS 7.0: IIS 7.0 配置服务器证书](https://go.microsoft.com/fwlink/?LinkID=108545)。  
+可以请求并通过请求服务通信证书通过 Microsoft 管理控制台来安装 SSL 证书或服务通信证书\(MMC\)对齐\-中的 IIS。 有关使用 SSL 证书的更多常规信息，请参阅 [IIS 7.0：配置安全套接字层在 IIS 7.0](https://go.microsoft.com/fwlink/?LinkID=108544)和[IIS 7.0:在 IIS 7.0 中配置服务器证书](https://go.microsoft.com/fwlink/?LinkID=108545)。  
   
 > [!NOTE]  
-> 广告 FS 中，你可以更改数字签名 SHA\ 1 或 SHA\ 256 \(more secure\) 使用安全哈希算法 \(SHA\) 级别。 广告 FSdoes 不与其他哈希方法，如 MD5 支持证书的使用 \（默认哈希算法，可与 Makecert.exe command\ 行 tool\）。 作为安全的最佳做法，我们建议你使用 SHA\ 256 \（这由设置 default\）所有签名。 仅在你必须交互不支持通信，例如的 non\ Microsoft 产品或广告 F 1 使用 SHA\ 256 在产品的情况下使用建议 SHA\ 1。 *x *.  
+> 在 AD FS 中，您可以更改安全哈希算法\(SHA\)用于任一 sha 的数字签名的级别\-1 或 SHA\-256\(更安全\)。 AD FSdoes 支持证书的使用与其他哈希方法，如 MD5\(与 Makecert.exe 命令一起使用的默认哈希算法\-行工具\)。 作为安全性最佳实践，我们建议使用 SHA\-256\(这默认情况下设置\)所有签名。 SHA\-我们建议仅在其中你必须与进行互操作不支持使用 SHA 通信的产品的方案中使用\-256，如非\-Microsoft 产品或 AD FS 1。 *x*。  
   
 ## <a name="determining-your-ca-strategy"></a>确定 CA 策略  
-广告 FS 不需要证书颁发由 CA。 但是，SSL 证书 \ 必须广告 FS 客户端信任（也用作默认情况下服务通信 certificate\ 证书）。 我们建议你不这些证书类型使用 self\ 签名证书。  
+AD FS 不需要由 CA 颁发证书。 但是，SSL 证书\(还用作默认情况下服务通信证书的证书\)必须受 AD FS 客户端。 我们建议您不要使用自助\-签名证书，对于这些证书类型。  
   
 > [!IMPORTANT]  
-> 使用 self\ 登录，SSL 生产环境中的证书可允许来控制联合身份验证的服务器在资源合作伙伴公司帐户合作伙伴公司恶意用户。 此安全风险存在由于 self\ 签名证书根证书。 必须将他们添加到另一台联合身份验证的服务器受信任的根应用商店 \ (例如，资源联盟 server\)，这可以保持该服务器易受攻击。  
+> 使用自助\-已签名，在生产环境中的 SSL 证书可以使恶意用户帐户伙伴组织控制资源伙伴组织中的联合身份验证服务器中。 由于存在此安全风险自\-签名的证书是根证书。 必须将它们添加到另一个联合身份验证服务器的受信任的根存储区\(例如，资源联合身份验证服务器\)，这样可以使该服务器容易受到攻击。  
   
-你收到证书从 CA 后，确保所有证书导都入到本地计算机个人证书应用商店。 你可以将证书导入到个人证书 MMC snap\ 在与应用商店。  
+从 CA 收到证书后，请确保将所有的证书导入到本地计算机的个人证书存储中。 可以证书导入到具有在证书 MMC 管理单元的个人存储区\-中。  
   
-或者使用 snap\ 中的证书，你可以导入 SSL 证书与次 IIS 管理器 snap\ 入将 SSL 证书分配到默认的网站。 有关详细信息，请参阅[将服务器身份验证证书导入默认网站](../../ad-fs/deployment/Import-a-Server-Authentication-Certificate-to-the-Default-Web-Site.md)。  
+除了使用证书管理单元\-中，您还可以导入具有在 IIS 管理器管理单元的 SSL 证书\-中时，将分配 SSL 证书的默认 Web 站点。 有关详细信息，请参阅[服务器身份验证证书导入到默认网站](../../ad-fs/deployment/Import-a-Server-Authentication-Certificate-to-the-Default-Web-Site.md)。  
   
 > [!NOTE]  
-> 将成为联盟服务器的计算机上安装广告 FS 软件之前，请确保在本地计算机个人证书应用商店中的两个证书并且 SSL 证书赋予默认网站。 有关的所需设置联盟服务器的任务订单详细信息，请参阅[清单：设置联合服务器](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md)。  
+> 在将成为联合身份验证服务器的计算机上安装 AD FS 软件之前，请确保在本地计算机个人证书存储区中的这两个证书和 SSL 证书分配给默认网站。 有关任务所需设置联合身份验证服务器的顺序的详细信息，请参阅[核对清单：设置联合身份验证服务器](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md)。  
   
-根据你的安全和 budget 要求，请仔细考虑 CA 或公司 CA 将通过公众获取该证书。 下图显示推荐的 CA 颁发给定的证书类型。 此建议反映关于安全性和成本 best\ 练习方法。  
+根据你的安全和预算需求，请仔细考虑哪些证书将由公共 CA 或企业 CA 来获得。 下图显示了关于给定证书类型的建议的 CA 颁发者。 此建议反映了最佳\-练习有关安全和成本的方法。  
   
 ![证书要求](media/adfs2_fedserver_certstory_1.png)  
   
 ## <a name="certificate-revocation-lists"></a>证书吊销列表  
-如果你使用的任何证书具有 Crl，配置证书服务器必须是能够联系分发 Crl 服务器。  
+如果你使用的任何证书具有 CRL，则具有配置证书的服务器必须能够联系分发 CRL 的服务器。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 指导广告 FS 设计](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

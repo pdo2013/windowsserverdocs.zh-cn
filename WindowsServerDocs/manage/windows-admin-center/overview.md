@@ -7,38 +7,38 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: d941e9884dced40ce750645b662d8df73503bc41
-ms.sourcegitcommit: 475292afc919c6d17569f05007a97bc6b92dd225
+ms.openlocfilehash: e23d02fd8da96392f44874ad6ea4d6c40e2be940
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "9267773"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59828198"
 ---
-# Windows Admin Center
+# <a name="windows-admin-center"></a>Windows Admin Center
 
->适用于：Windows Admin Center、Windows Admin Center 预览版
+>适用于：Windows Admin Center，Windows Admin Center 预览版
 
 欢迎使用 Windows Admin Center！
 
-**Windows Admin Center**（代号为 **Project Honolulu**）是 Windows Server“内部”管理工具的演进版；它是单一虚拟管理平台，整合了有关本地和远程服务器管理的各个方面。 作为一种本地部署、基于浏览器的管理体验，不需要 Internet 连接和 Azure。 利用 Windows Admin Center，你可以全面控制部署的各个方面，包括未连接到 Internet 的专用网络。
+**Windows Admin Center** (代码名为**项目 Honolulu**) 是一种演变，Windows Server 中框管理工具; 它是单一管理平台，包含本地和远程服务器管理的所有方面。 作为一种本地部署、基于浏览器的管理体验，不需要 Internet 连接和 Azure。 利用 Windows Admin Center，你可以全面控制部署的各个方面，包括未连接到 Internet 的专用网络。
 
-## 简介
+## <a name="introduction"></a>简介
 
 >[!VIDEO https://www.youtube.com/embed/PcQj6ZklmK0]
 
 ![Windows Admin Center 信息图](media/WAC1809Poster_thumb.PNG)
 
-[下载 PDF](https://github.com/MicrosoftDocs/windowsserverdocs/raw/master/WindowsServerDocs/manage/windows-admin-center/media/WindowsAdminCenter1809Poster.pdf)
+[下载 pdf 文件](https://github.com/MicrosoftDocs/windowsserverdocs/raw/master/WindowsServerDocs/manage/windows-admin-center/media/WindowsAdminCenter1809Poster.pdf)
 
-## 快速入门
+## <a name="quick-start"></a>快速入门
 
 你可以在几分钟内在你的环境中启动并运行 Windows Admin Center：
 
 1. [下载](https://aka.ms/windowsadmincenter)
 2. [安装](deploy/install.md)
-3. [入门](use/get-started.md)
+3. [开始行动](use/get-started.md)
 
-## 内容概览
+## <a name="contents-at-a-glance"></a>一眼的内容
 
 <table>
     <tr></tr>
@@ -47,18 +47,18 @@ ms.locfileid: "9267773"
             <h3>了解</h3>
             <ul>
             <li><a href="understand/what-is.md">什么是 Windows Admin Center？</a>
-            <li><a href="understand/faq.md">常见问题解答</a>
+            <li><a href="understand/faq.md">常见问题</a>
             <li><a href="understand/case-studies.md">案例研究</a>
-            <li><a href="understand/related-management.md">相关管理产品</a>
+            <li><a href="understand/related-management.md">相关的管理产品</a>
             <li><a href="understand/videos.md">视频</a>
             </ul>
         </td>
         <td style="vertical-align: top;">
-            <h3>计划</h3>
+            <h3>规划</h3>
             <ul>
-            <li><a href="plan/installation-options.md">哪种安装类型适合你？</a>
+            <li><a href="plan/installation-options.md">哪种类型是安装的最适合你？</a>
             <li><a href="plan/user-access-options.md">用户访问选项</a>
-            <li><a href="plan/azure-integration-options.md">存在哪些 Azure 集成选项？</a>
+            <li><a href="plan/azure-integration-options.md">Azure 集成选项有哪些？</a>
             <br>
             </ul>
         </td>
@@ -67,9 +67,9 @@ ms.locfileid: "9267773"
         <td style="vertical-align: top;">
             <h3>部署</h3>
             <ul>
-            <li><a href="deploy/prepare-environment.md">准备你的环境</a>
+            <li><a href="deploy/prepare-environment.md">准备环境</a>
             <li><a href="deploy/install.md">安装 Windows Admin Center</a>
-            <li><a href="deploy/high-availability.md">实现高可用性</a>
+            <li><a href="deploy/high-availability.md">启用高可用性</a>
          </ul>
         </td>
         <td style="vertical-align: top;">
@@ -77,23 +77,23 @@ ms.locfileid: "9267773"
             <ul>
             <li><a href="configure/settings.md">Windows Admin Center 设置</a>
             <li><a href="configure/user-access-control.md">用户访问控制和权限</a>
-            <li><a href="configure/using-extensions.md">扩展</a>
-            <li><a href="configure/azure-integration.md">与 Azure 集成</a>
-            <li><a href="configure/manage-azure-vms.md">通过 Windows Admin Center 管理 Azure 虚拟机</a>
+            <li><a href="configure/using-extensions.md">扩展插件</a>
+            <li><a href="configure/azure-integration.md">将与 Azure 集成</a>
+            <li><a href="configure/manage-azure-vms.md">管理 Windows Admin Center 使用的 Azure Vm</a>
             </ul>
         </td>
     </tr>
     <tr>
         <td style="vertical-align: top;">
-            <h3>用途</h3>
+            <h3>将</h3>
             <ul>
             <li><a href="use/get-started.md">启动和添加连接</a>
             <li><a href="use/manage-servers.md">管理服务器</a>
-            <li><a href="use/manage-hyper-converged.md">管理超级集成基础架构</a>
+            <li><a href="use/manage-hyper-converged.md">管理超聚合基础结构</a>
             <li><a href="use/manage-failover-clusters.md">管理故障转移群集</a>
             <li><a href="use/manage-virtual-machines.md">管理虚拟机</a>
             <li><a href="use/azure-services.md">利用 Azure 服务</a>
-            <li><a href="use/troubleshooting.md">常见疑难解答步骤</a>
+            <li><a href="use/troubleshooting.md">常见的疑难解答步骤</a>
             <li><a href="use/logging.md">日志记录</a>
             <li><a href="use/known-issues.md">已知问题</a>
             </ul>
@@ -104,7 +104,7 @@ ms.locfileid: "9267773"
             <li><a href="extend/extensibility-overview.md">扩展概述</a>
             <li><a href="extend/understand-extensions.md">了解扩展</a>
             <li><a href="extend/developing-extensions.md">开发扩展</a>
-            <li><a href="extend/publish-extensions.md">指南</a>
+            <li><a href="extend/publish-extensions.md">参考线</a>
             <li><a href="extend/publish-extensions.md">发布扩展</a>
             </ul>
         </td>
@@ -112,12 +112,11 @@ ms.locfileid: "9267773"
 
 </table>
 
-## 版本历史
+## <a name="release-history"></a>发布历史记录
 
 了解我们发布的最新功能：
 
-- 版本 [1903](https://aka.ms/wac1903) 可提供来自 Azure Monitor 的电子邮件通知、支持从 Active Directory 添加服务器或电脑连接，还具备用于管理 Active Directory、DHCP 和 DNS 的新工具。
-- 版本 [1902] (https://aka.ms/wac1902)将共享的连接列表和改进添加到了软件定义的网络 (SDN) 管理，包括管理 ACL 的新 SDN 工具、网关连接和逻辑网络。
+- 版本 [1902] (https://aka.ms/wac1902)添加到软件定义网络 (SDN) 管理，包括新的 SDN 工具来管理 Acl、 网关连接和逻辑网络的共享的连接列表和改进。
 - 版本 [1812](https://aka.ms/wac1812) 添加了深色主题（预览版）、电源配置设置、 BMC 信息以及 PowerShell 支持，以管理[扩展](./configure/using-extensions.md#manage-extensions-with-powershell)和[连接](./use/get-started.md#use-powershell-to-import-or-export-your-connections-with-tags)。
 - 版本 [1809.5](https://aka.ms/wac1809.5) 是 GA 累积更新，其中包含整个平台的各种质量提升、功能改进和 Bug 修复，以及超融合基础设施管理解决方案中的若干新功能。
 - 版本 [1809](https://cloudblogs.microsoft.com/windowsserver/2018/09/20/windows-admin-center-1809-and-sdk-now-generally-available/) 是以前的 GA 版本，在 GA 通道中提供之前的预览版功能。
@@ -132,8 +131,8 @@ ms.locfileid: "9267773"
 - 版本 [1711](https://cloudblogs.microsoft.com/windowsserver/2017/12/01/1711-update-to-project-honolulu-technical-preview-is-now-available/) 添加了备受期待的工具（远程桌面和 PowerShell）以及其他改进。
 - 版本 [1709](https://cloudblogs.microsoft.com/windowsserver/2017/09/22/project-honolulu-technical-preview-is-now-available-for-download/) 已作为我们的第一个公共预览版启动。
 
-## 不断更新
+## <a name="stay-updated"></a>保持更新状态
 
-<a target="_blank" class="mscom-link twitter-follow-link" title="在 Twitter 上关注我们" aria-label="Follow us on Twitter" data-info="Twitter" href="https://twitter.com/servermgmt"><picture><source srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR" media="(min-width:0)"><img srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR" alt="Follow us on Twitter" src="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR"></picture></a>
+<a target="_blank" class="mscom-link twitter-follow-link" title="Twitter 上关注我们" aria-label="Follow us on Twitter" data-info="Twitter" href="https://twitter.com/servermgmt"><picture><source srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR" media="(min-width:0)"><img srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR" alt="Follow us on Twitter" src="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR"></picture></a>
  | 
 <a target="_blank" class="mscom-link blogs-follow-link" title="阅读我们的博客" aria-label="Visit our Blogs" data-info="Blogs" href="https://blogs.technet.microsoft.com/servermanagement/"><picture><source srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw" media="(min-width:0)"><img srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw" alt="Follow us on Blogs" src="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw"></picture></a>

@@ -1,0 +1,86 @@
+---
+title: rpcping
+description: 'Windows 命令主题 * * *- '
+ms.custom: na
+ms.prod: windows-server-threshold
+ms.reviewer: na
+ms.suite: na
+ms.technology: manage-windows-commands
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.assetid: 7382aa0d-90fc-47c0-84b3-15f52dd656d0
+author: coreyp-at-msft
+ms.author: coreyp
+manager: dongill
+ms.date: 10/16/2017
+ms.openlocfilehash: cfa1d08c81f8b26507a5cae5f688923a7b226e1d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59829988"
+---
+# <a name="rpcping"></a>rpcping
+
+>适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+
+确认网络上运行 Microsoft Exchange Server 和任何受支持的 Microsoft Exchange 客户端工作站的计算机之间的 RPC 连接。 此实用工具可以用于检查从客户端工作站网络通过 Microsoft Exchange Server 服务是否响应 RPC 请求。 
+
+## <a name="syntax"></a>语法
+```
+rpcping [/t <protseq>] [/s <server_addr>] [/e <endpoint>
+        |/f <interface UUID>[,Majorver]] [/O <Interface Object UUID]
+        [/i <#_iterations>] [/u <security_package_id>] [/a <authn_level>]
+        [/N <server_princ_name>] [/I <auth_identity>] [/C <capabilities>]
+        [/T <identity_tracking>] [/M <impersonation_type>]
+        [/S <server_sid>] [/P <proxy_auth_identity>] [/F <RPCHTTP_flags>]
+        [/H <RPC/HTTP_authn_schemes>] [/o <binding_options>]
+        [/B <server_certificate_subject>] [/b] [/E] [/q] [/c]
+        [/A <http_proxy_auth_identity>] [/U <HTTP_proxy_authn_schemes>]
+        [/r <report_results_interval>] [/v <verbose_level>] [/d]
+```
+
+### <a name="parameters"></a>Parameters
+
+|参数|描述|
+|-------|--------|
+|/t \<protseq>|指定要使用的协议序列。 可以是一个标准的 RPC 协议序列，例如： ncacn_ip_tcp，ncacn_np，或 ncacn_http。<br /><br />如果未指定，默认值为 ncacn_ip_tcp。|
+|/s \<server_addr>|指定服务器地址。 如果未指定，本地计算机将进行 ping 操作。|
+|/e \<endpoint>|指定要成功进行 ping 操作的终结点。 如果未指定，则在目标计算机上的终结点映射器将执行 ping 操作。<br /><br />此选项是互斥独占使用接口 (**/f**) 选项。|
+|/o \<binding_options>|指定 RPC ping 操作的绑定选项。|
+|/f\<接口 UUID > [，Majorver]|指定的接口进行 ping 操作。 此选项是互斥的终结点选项。 接口被指定为 UUID。<br /><br />如果*Majorver*未指定，则会要求版本 1 的接口。<br /><br />当指定接口时， **rpcping**将查询终结点映射程序在目标计算机上，若要检索的指定接口的终结点。 终结点映射器将使用命令行中指定的选项进行查询。|
+|/O\<对象 UUID >|如果注册一个接口，则指定的对象 UUID。|
+|/i \<#_iterations>|指定用来进行调用的数量。 默认值为 1。 此选项可用于测量连接延迟，如果指定了多个迭代。|
+|/u \<security_package_id>|指定的安全包 （安全提供程序） 将使用 RPC 进行调用。 安全包被标识为一个数字或名称。 如果使用的数字是如 RpcBindingSetAuthInfoEx API 中所示相同的数量。 以下列表显示的名称和数字。 名称不区分大小写：<br /><br />-Negotiate / 9 或一个的 nego，snego 或协商<br />-NTLM / 10 或 NTLM<br />-SChannel / 14 或 SChannel<br />Kerberos / 16 或 Kerberos<br />内核 / 20 或内核<br />    如果指定此选项，则必须指定以外无身份验证级别。 没有此选项无默认值。 如果未指定，则 RPC 将不使用安全的 ping。|
+|/a \<authn_level>|指定要使用的身份验证级别。 可能的值为：<br /><br />-连接<br />-调用<br />-   pkt<br />-完整性<br />-隐私<br /><br />如果指定此选项，则安全包 ID (/ u)，还必须指定。 没有此选项无默认值。<br /><br />如果未指定此选项，则 RPC 将不使用安全的 ping。|
+|/N \<server_princ_name>|指定的服务器主体名称。<br /><br />可以使用此字段仅当选择身份验证级别和安全包。|
+|/I \<auth_identity>|可以指定要连接到服务器的备用标识。 标识是在窗体用户、 域、 密码。 如果用户名称、 域或密码的外壳程序能够解释的特殊字符，将标识括在双引号中。 您可以指定**\*** 而不是密码和 RPC 中将提示你输入的密码，而不在屏幕上回显。 如果未指定此字段，将使用已登录用户的标识。<br /><br />可以使用此字段仅当选择身份验证级别和安全包。|
+|/C \<capabilities>|指定标志的十六进制位掩码。 可以使用此字段仅当选择身份验证级别和安全包。|
+|/T \<identity_tracking>|指定静态或动态。 如果未指定，则动态是默认值。<br /><br />可以使用此字段仅当选择身份验证级别和安全包。|
+|/M \<impersonation_type>|指定匿名的标识、 模拟或委托。 默认值是模拟。<br /><br />可以使用此字段仅当选择身份验证级别和安全包。|
+|/S \<server_sid>|指定预期的服务器的 SID。<br /><br />可以使用此字段仅当选择身份验证级别和安全包。|
+|/P \<proxy_auth_identity>|指定的标识进行身份验证对 RPC/HTTP 代理。 具有相同的格式与 /I 选项。 必须指定安全包 (/ u)，身份验证级别 （/），和身份验证方案 (/ H) 若要使用此选项。|
+|/F \<RPCHTTP_flags>|指定要传递给 RPC/HTTP 前端身份验证的标志。 可以将标志指定为数字或当前已识别的标志的名称：<br /><br />-使用 SSL / 1 或 ssl 或 use_ssl<br />-使用第一个身份验证方案 / 2 或第一个键或 use_first<br /><br />必须指定安全包 (/ u) 和身份验证级别 （/） 若要使用此选项。|
+|/H \<RPC/HTTP_authn_schemes>|指定要用于 RPC/HTTP 前端身份验证的身份验证方案。 此选项是一系列数字值或以逗号分隔的名称。 例如：基本、 NTLM。 可识别的值为 （名称不区分大小写）：<br /><br />-基本 / 1 或基本<br />-NTLM / 2 或 NTLM<br />-证书 / 65536 或证书<br /><br />必须指定安全包 (/ u) 和身份验证级别 （/） 若要使用此选项。|
+|/B \<server_certificate_subject>|指定服务器证书使用者。 必须使用 SSL 对此选项才能工作。<br /><br />必须指定安全包 (/ u) 和身份验证级别 （/） 若要使用此选项。|
+|/b|检索服务器证书使用者从服务器发送的证书，并将它打印到屏幕或日志文件。 仅当代理回显 only 选项时有效 (/ E)，并指定使用 SSL 选项。<br /><br />必须指定安全包 (/ u) 和身份验证级别 （/） 若要使用此选项。|
+|/R|指定 HTTP 代理。 如果*none*，使用的 RPC 代理。 该值*默认*表示在客户端计算机中使用 IE 设置。 任何其他值将视为显式 HTTP 代理。 如果未指定此标志，假定默认值，也就是说，检查 IE 设置。 此标志是仅当 **/E**启用 （仅回显） 标志。|
+|/E|将 ping 操作限制为仅 RPC/HTTP 代理。 Ping 操作将不会访问服务器。 尝试建立 RPC/HTTP 代理是否可到达时很有用。 若要指定 HTTP 代理，请使用 /R 标志。 如果在 /o 标志指定 HTTP 代理，则将忽略此选项。<br /><br />必须指定安全包 (/ u) 和身份验证级别 （/） 若要使用此选项。|
+|/q|指定安静模式。 不会发出除密码外的任何提示。 假定*Y*响应所有查询。 谨慎使用此选项。|
+|/c|使用智能卡证书。 rpcping 将提示用户选择智能卡。|
+|/A|指定用来对 HTTP 代理进行身份验证的标识。 具有相同的格式与 /I 选项。<br /><br />必须指定身份验证方案 (/ U)，安全包 (/ u) 和身份验证级别 （/） 若要使用此选项。|
+|/U|指定要用于 HTTP 代理身份验证的身份验证方案。 此选项是一系列数字值或以逗号分隔的名称。 例如：基本、 NTLM。 可识别的值为 （名称不区分大小写）：<br /><br />-基本 / 1 或基本<br />-NTLM / 2 或 NTLM<br /><br />必须指定安全包 (/ u) 和身份验证级别 （/） 若要使用此选项。|
+|/r|如果指定了多个迭代，此选项将使**rpcping**当前的执行统计信息定期改为显示最后一个调用后。 以秒为单位指定报表时间间隔。 默认值为 15。|
+|/v|告知**rpcping**以使输出更详细程度。 默认值为 1。 2 和 3 提供详细输出**rpcping**。|
+|/d|启动 RPC 的网络诊断 UI。|
+|/p|指定为提示输入凭据，如果身份验证失败。|
+|/?|在命令提示符下显示帮助。|
+
+## <a name="BKMK_Examples"></a>示例
+若要查找您通过 RPC/HTTP 连接的 Exchange 服务器是否可访问，请键入：
+```
+rpcping /t ncacn_http /s exchange_server /o RpcProxy=front_end_proxy /P "username,domain,*" /H Basic /u NTLM /a connect /F 3
+```
+
+## <a name="additional-references"></a>其他参考
+-   [命令行语法解答](command-line-syntax-key.md)

@@ -1,99 +1,100 @@
 ---
 ms.assetid: 84754c23-f039-4de4-a378-853942e662df
-title: "简介"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: 简介
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: dc89afc47eb78a388238e8edf5059b0bec3006ad
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: 8e2717af6183944b26a71e55b36f31cef51cf2e7
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59831868"
 ---
 # <a name="introduction"></a>简介
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-只要有计算机存在计算基础结构，无论简单，也可以复杂的攻击。 但是，在过去十，越来越多的组织的世界上的所有部分中的大小，所有已攻击和威胁显著已更改威胁发展的方式。 录制的速度提高了网络战争犯罪。 "Hacktivism，"攻击通过 activist 持仓，在其中的促使已对大量的违规动机预期的公开组织的机密信息，以创建拒绝服务宣称甚至销毁基础结构。 针对目的是为了 exfiltrating 公开并专用机构攻击组织的知识属性 (IP) 越来越普遍。  
+只要计算机具有已存在于针对计算基础结构，无论是简单还是复杂的攻击。 但是，在过去十年中，世界上所有地区的所有规模的组织中有越来越多的组织受到攻击和破坏，这些攻击和破坏的方式显著改变了威胁态势。 网络战争和网络犯罪以创记录的速度在增长。 "黑客主义"在其中攻击推动了 activist 位置已声明为一个违规次数的动机，旨在公开组织的机密信息，以创建拒绝服务或甚至销毁基础结构。 公共和私有机构的目标是窃取对攻击组织的知识产权 (IP) 已成为普遍。  
   
-没有组织提供的信息 (IT) 技术基础结构是免受攻击，但如果相应策略、进程，并控制实现保护主要段组织的计算基础结构，升级到完全受损从穿透攻击的可能可以预防。 因为的数目和组织外部源自攻击的比例的已近年担忧预览体验成员威胁，本文档经常讨论外部攻击者，而不是不恰当使用的环境授权的用户。 不过，原则和本文中提供建议旨在帮助保护你免受外部攻击者和被误导或恶意预览体验成员的环境。  
+信息技术 (IT) 基础结构的任何组织不都会遭受攻击，但如果相应的策略、 流程和控件实现来保护组织的计算基础结构，受到攻击的升级的关键段渗透严重危害可以预防。 数字和小数位数源自组织外部的攻击大关内部威胁在最近几年中，因为本文档经常讨论外部攻击者而不是获得授权的用户环境的误用。 但是，原则和本文档中提供的建议旨在帮助保护环境防范外部攻击者以及受到误导或恶意内部人员。  
   
-信息和建议本文档中提供绘制从多个源中，并即派生自措施，旨在保护 Active Directory 安装免受威胁。 尽管不是可以阻止攻击，很可能降低 Active Directory 攻击 surface，而且实现控制，可以使受损更加困难的目录攻击。 本文档提供的最常见的我们所拥有的漏洞观察中受到威胁的环境和的最常见的建议，我们已对客户以提高其 Active Directory 安装的安全性。  
+信息和本文档中提供的建议是来自多个源并源自旨在保护 Active Directory 安装免遭破坏的做法。 尽管不能防止攻击，但有以减少 Active Directory 攻击面并实现控件，使攻击者要困难得多的目录的折衷。 本文档提供了最常见类型的漏洞，我们观察到在受破坏的环境和最常见建议我们进行到客户以改进其 Active Directory 安装的安全性。  
   
 ## <a name="account-and-group-naming-conventions"></a>帐户和组命名约定  
-下表中提供用于本文档中的组和帐户引用整个文档命名约定指南。 在表中包含是每个帐户月组，项目名称时，如何将这些帐户月组引用本文档中的位置。  
+下表提供了用于本文档中的组和帐户，本文通篇引用的命名约定的指南。 表中包含的是每个帐户/组、 名称和如何在本文档中引用这些帐户/组的位置。  
   
 
 
-|**帐户月组位置**|**帐户月组的名称**|**如何本文档中提到**|
+|**帐户/组位置**|**帐户/组的名称**|**本文档中的引用方式**|
 | --- | --- | --- |   
-|Active Directory 的每个域|管理员|内置的管理员帐户|  
-|Active Directory 的每个域|管理员|管理员（栏）的内置组|  
-|Active Directory 的每个域|域管理员|域管理员 (DA) 组|  
-|Active Directory-森林根域|企业管理员|企业管理员 (EA) 组|  
-|不可域控制器在运行 Windows Server 和工作站计算机上的本地计算机安全帐户管理器（三千）数据库。|管理员|本地管理员帐户|  
-|不可域控制器在运行 Windows Server 和工作站计算机上的本地计算机安全帐户管理器（三千）数据库。|管理员|本地|  
+|Active Directory-每个域|管理员|内置管理员帐户|  
+|Active Directory-每个域|Administrators|内置管理员 (BA) 组|  
+|Active Directory-每个域|Domain Admins|域管理员 (DA) 组|  
+|Active Directory 的目录林根域|Enterprise Admins|Enterprise Admins (EA) 组|  
+|在运行 Windows Server 和工作站的计算机上的本地计算机安全帐户管理器 (SAM) 数据库不是域控制器|管理员|本地管理员帐户|  
+|在运行 Windows Server 和工作站的计算机上的本地计算机安全帐户管理器 (SAM) 数据库不是域控制器|Administrators|本地管理员组|  
   
 ## <a name="about-this-document"></a>有关本文档  
-Microsoft 的信息安全和是一部分的 Microsoft 信息技术 (MSIT)，适用于内部业务设备、外部的客户和 industry 等收集的风险管理 (ISRM) 组织传播和定义策略、做法和控件。 Microsoft 和我们的客户可以使用此信息以增加安全性，并减少攻击 surface 其 IT 基础结构。 本文中提供的建议均基于大量的信息来源和做法 MSIT 和 ISRM 内使用。 以下各部分展示国度本文的详细信息。  
+Microsoft 信息安全和风险管理 (ISRM) 组织，是一部分的 Microsoft 信息技术 (MSIT)，适用于内部业务部门、 外部客户和业内同行来收集、 传播和定义策略，实践和控件。 由 Microsoft 和我们的客户可以使用此信息以提高安全性并减少其 IT 基础结构的受攻击面。 本文档中提供的建议基于大量的信息源和 MSIT 和 ISRM 内的做法。 以下各节提供本文档的详细信息的来源。  
   
-### <a name="microsoft-it-and-isrm"></a>MicrosoftIT 和 ISRM  
-已 MSIT 和 ISRM 来保护 Microsoft 广告 DS 林和域中开发许多惯例和控件。 这些控件都适用，在他们已集成到此文档。 安全 T（新兴的技术解决方案加权）是的 ISRM 其特许是找出新兴技术，并定义的安全要求和控件，以加快其 adoption 团队。  
+### <a name="microsoft-it-and-isrm"></a>Microsoft IT 和 ISRM  
+MSIT 和 ISRM 来保护 Microsoft AD DS 林和域中已开发的实践和控件数。 这些控件的广泛应用，它们已集成到本文档。 安全-T （新兴技术的解决方案加速器） 是中 ISRM 来识别新兴技术，并定义需要加速其采用的安全要求和控件是一个团队。  
   
-### <a name="active-directory-security-assessments"></a>Active Directory 安全评估  
-在 Microsoft ISRM，评估咨询，，工程 (ACE) 团队适用于内部 Microsoft business 单位和外部客户应用程序和基础结构安全评估并提供战略和战略指导提高组织的安全状态。 一个 ACE 服务提供是 Active Directory 安全评估 (ADSA)，这是从整体评估组织广告 DS 环境，评估人脉、进程和技术并生成特定于客户的建议。 客户提供了基于组织的唯一特征、做法和风险探索胃口的建议。 对于 Active Directory 的安装在 Microsoft 除客户进行了 ADSAs。 随着时间的推移大量建议找到要跨不同的大小和行业的客户适用。  
+### <a name="active-directory-security-assessments"></a>Active Directory 安全性评估  
+在与内部 Microsoft 业务部门和外部客户来评估应用程序和基础结构安全性并提供战术和战略指导以提高 Microsoft ISRM、 评估、 咨询和工程 (ACE) 团队的工作原理组织的安全状况。 一个 ACE 服务产品是活动的 Directory 安全性评估 (ADSA)，这是组织的 AD DS 环境的人员、 流程和技术评估，并生成特定于客户的建议的全面评估。 客户提供基于组织的独特特征、 做法和风险偏好的建议。 除了我们的客户在 Microsoft 的 Active Directory 安装进行了 ADSAs。 随着时间推移，具有已经发现了许多建议应用于不同大小和行业的客户。  
   
-### <a name="content-origin-and-organization"></a>内容的原始和组织  
-许多本文档中的内容被从 ADSA 和受损的客户和不遇到重大受损的客户执行其他 ACE 团队评估。 尽管个别客户数据不用于创建本文档，我们已收集了最常见的利用的漏洞，我们已标识在我们评估和建议我们已对客户以提高其广告 DS 安装的安全性。 并非所有漏洞都都适用于所有环境，也不都是推荐的所有可行要在每一个组织中实现。  
+### <a name="content-origin-and-organization"></a>内容来源和组织  
+本文档的内容大部分被派生自 ADSA 和为遭到入侵的客户和没遇到重大破坏的客户执行其他 ACE 团队评估。 尽管个人客户数据未用于创建此类文档，我们已收集通常利用我们已识别的漏洞在我们的评估和建议我们进行到客户以改进其 AD DS 的安全安装。 并非所有漏洞都适用于所有环境，也并非所有建议都可在每个组织中实现。  
   
-本文档按如下方式组织：  
+本文档的结构，如下所示：  
   
-## <a name="executive-summary"></a>摘要  
-行政摘要，其中可以读取作为独立的文档或结合完整的文档，提供了高级摘要本文档。 包含在行政摘要是最常见的攻击源我们已注意到用于危害客户环境，摘要保护 Active Directory 安装和基本目标安全于计划部署新的广告 DS 林现在，或者在以后的客户的建议。  
+## <a name="executive-summary"></a>执行摘要  
+执行摘要，可作为独立的文档或结合使用完整的文档中读取，提供本文档的高级摘要。 执行摘要包括最常见的攻击媒介，我们观察到从而危及客户环境，用于保护对于打算部署新的 AD DS 的客户的 Active Directory 安装和基本目标的摘要建议现在或将来的林。  
   
 ### <a name="introduction"></a>简介  
-这是你正在阅读的部分。  
+这是您正在阅读的部分。  
   
-### <a name="avenues-to-compromise"></a>危害的途径  
-此部分中提供了对某些最信息通常利用的漏洞我们发现了用于攻击者会危及客户的基础结构。 此部分中的漏洞中，如何它们使用最初穿透客户的基础结构，在更多系统传播危害和最终定向广告 DS 和域控制器，若要获取组织的林完全控制常规类别开头。  
+### <a name="avenues-to-compromise"></a>危及系统安全的途径  
+本部分提供有关的一些信息通常利用漏洞我们发现，要用于攻击者危及客户的基础结构。 本部分开头的漏洞和如何它们可用于最初入侵客户的基础结构，在其他系统之间传播泄漏和最终目标 AD DS 和域控制器，以获取完整的常规类别组织的林的控件。  
   
-此部分中不提供有关解决每种类型的漏洞，尤其是在的区域中的漏洞不能用来直接目标 Active Directory 详细的建议。 但是，为了每种类型的安全漏洞，我们提供可用于开发对策，并减少你的组织攻击 surface 的其他信息的链接。  
+本节不提供详细的建议如何解决每种类型的漏洞，尤其是在漏洞不在其中用于直接指向 Active Directory 的区域。 但是，对于每个类型的漏洞，我们提供了可用于开发对策和降低组织的攻击面上的其他信息的链接。  
   
-### <a name="reducing-the-active-directory-attack-surface"></a>减少 Active Directory 攻击 Surface  
-这一部分开始通过提供有关特权的帐户和 Active Directory 提供的信息，可帮助阐明保护和管理特权的组和帐户的后续建议的原因中的组背景信息。 然后，我们可以讨论的方法来降低需要日常管理，不需要的授予组如企业管理员 (EA)、域管理员 (DA) 和内置管理员（栏）组中的 Active Directory 的权限级别为使用帐户高权限。 接下来，我们提供指南保护特权的组和帐户和实现安全管理惯例和系统。  
+### <a name="reducing-the-active-directory-attack-surface"></a>减少 Active Directory 攻击面  
+本节首先提供了有关权限的帐户和 Active Directory 来提供帮助说明保护和管理特权的组的后续建议的原因的信息中的组的背景信息和帐户。 然后，我们介绍的方法来降低需要使用高特权的帐户进行日常的管理，不需要的如 Enterprise Admins (EA)、 域管理员 (DA) 和内置的组授予的权限级别Active Directory 中的管理员 (BA) 组。 接下来，我们提供指导，用于保护特权的组和帐户以及实现安全的管理做法和系统。  
   
-尽管此部分中提供了有关这些配置设置的详细的信息，我们也有包含附录为每个建议，提供了有关组织的需求配置的分步说明，可以使用"是"，也可以进行修改。 此部分中完成通过提供牢固部署和管理域控制器，应成为基础结构中严格最安全的系统的信息。  
+虽然本部分提供了有关这些配置设置的详细的信息，但我们还包括提供了分步配置说明，可以使用"按原样"也可以修改的每个建议的附录组织的需求。 本部分中完成，从而安全地部署和管理域控制器，应在基础结构中的最严格安全系统之间的信息。  
   
-### <a name="monitoring-active-directory-for-signs-of-compromise"></a>危害的迹象监视 Active Directory  
-是否已强大的安全信息和事件监视 (SIEM)，您的环境中实现，或使用其他机制监视器基础结构安全于，此部分中提供了可用于确定的则可能被攻击组织的 Windows 系统事件的信息。 我们讨论传统和高级审核策略，包括在 Windows 7 和 Windows Vista 操作系统中的有效的审核子类别中的配置。 此部分中包含的完整列表的对象和系统审核，并关联的附录列出的目标是检测危害尝试如果应监视器的事件。  
+### <a name="monitoring-active-directory-for-signs-of-compromise"></a>监视 Active Directory 遭到破坏的迹象  
+是否已实施了功能强大的安全信息和事件监视您的环境中 (SIEM) 或使用其他机制来监视基础结构的安全性，本部分提供可以用于标识 Windows 上的事件的信息可能表示组织受到攻击的系统。 我们将讨论传统和高级审核策略，包括在 Windows 7 和 Windows Vista 操作系统中的审核子类别的有效配置。 本部分包含的对象和要审核的系统的全面列表并关联的附录列出了应为其监视如果目标是检测入侵尝试的事件。  
   
-### <a name="planning-for-compromise"></a>对于危害计划  
-此部分中，首先"单步执行返回"从技术的详细信息，可重点关注原则和流程，这可以实现来识别用户、应用和系统的最重要仅次于 IT 基础结构，但的业务。 确定后是什么最重要的稳定性和你的组织的操作，你可以专注于分离和保护措施这些资产，它们是否知识财产发件人或系统。 在某些情况下，分离并保护资产可能执行你现有的广告 DS 环境中在其他情况下，你应该考虑执行小、单独"单元格"，允许你建立周围关键资产和监视器的安全边界这些资产严格比不太重要的组件。 讨论了一个名为"创意销毁，"这是一种可通过创建新的解决方案依据消除旧版应用和系统机制的概念，并部分结束有助于保持通过集中业务和 IT 构建详细的图片的正常操作的状态的信息更安全的环境的建议。 了解什么是正常现象组织，可以更轻松地识别可能指示攻击和危害的异常情况。  
+### <a name="planning-for-compromise"></a>规划泄露  
+本部分的"单步执行后"技术的详细信息，可以专注于原则和流程，可以通过实现来识别用户、 应用程序和系统的最关键的 IT 基础结构，不仅从一开始，但业务。 确定什么最重要的稳定性和组织的操作之后, 您可以集中精力分离和保护这些资产，无论它们是知识产权、 人员或系统。 在某些情况下，分离和保护资产可能会执行在现有 AD DS 环境中，在其他情况下，应考虑实现小型的单独"单元格"可用于建立各地关键资产的安全边界和监视这些资产不太重要的组件更严格地。 讨论名为"creative 析构，"这是一种机制，可以通过创建新的解决方案依据消除旧版应用程序和系统的概念，和部分结尾的可帮助维护更安全的环境的建议组合业务和 IT 信息来构造详细的描述什么是正常的操作状态。 通过了解什么正常的组织，可以更轻松地标识可能表示攻击和破坏的异常情况。  
   
-### <a name="summary-of-best-practice-recommendations"></a>最佳实践建议摘要  
-此部分中提供表，对汇总在本文中所做的建议，并通过相对优先级，除了提供文档和其附录可以找到有关每个建议的详细信息的链接进行排序。  
+### <a name="summary-of-best-practice-recommendations"></a>最佳做法建议的摘要  
+本部分提供了表总结了本文档中的建议，并进行排序的相对优先级，除了提供文档和其附录中可以找到有关每个建议的详细信息的链接。  
   
 ### <a name="appendices"></a>附录  
-附录纳入该文档，以增加文档正文中包含的信息。 附录和每个简短描述列表将包括下表。  
+附录会参与此文档来加强对文档正文中包含的信息。 附录和每个的简要说明的列表是包含下表。  
   
  
-|**附录**|**描述**|
+|**附录**|**说明**|
 | --- | --- | 
-|[附录 b：特权的帐户和 Active Directory 中的组](../../../ad-ds/plan/security-best-practices/Appendix-B--Privileged-Accounts-and-Groups-in-Active-Directory.md)|提供可帮助你找出的用户和组你应该以此为重点保护因为以供攻击者甚至销毁 Active Directory 安装和危害的背景信息。|  
-|[附录 c：受保护的帐户和 Active Directory 中的组](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md)|包含有关 Active Directory 中的组受保护的信息。 它还包含有限自定义 （移除） 算是受保护的组并受 AdminSDHolder 和 SDProp 组的信息。|  
-|[附录 d：保护 Active Directory 中的内置管理员帐户](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)|包含指南来帮助保护森林中的每个域中的管理员帐户。|  
-|[附录 e：保护企业管理员中的组 Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory.md)|包含来帮助保护企业管理员组森林中的指南。|  
-|[附录 f：保护域的 Active Directory 的管理员组](../../../ad-ds/plan/security-best-practices/Appendix-F--Securing-Domain-Admins-Groups-in-Active-Directory.md)|包含来帮助保护域管理员组森林中的每个域中的指南。|  
-|[附录 g：保护中 Active Directory 的管理员组](../../../ad-ds/plan/security-best-practices/Appendix-G--Securing-Administrators-Groups-in-Active-Directory.md)|包含帮助安全森林中的每个域中的内置管理员组指南。|  
-|[附录 h：保护措施的本地管理员帐户和组](../../../ad-ds/plan/security-best-practices/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups.md)|包含帮助安全的本地管理员帐户，管理员组已加入域的服务器和工作站上的指南。|  
-|[附录 i：创建管理帐户中的 Active Directory 的受保护的帐户和组](../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md)|提供信息创建帐户，仅受有限权限和可以来严格控制，但可用于需要临时提升时填充特权 Active Directory 中的组。|  
-|[附录 l：事件到监视器](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md)|列出在您的环境中应监视为其的事件。|  
-|[附录 m：文档链接，建议阅读](../../../ad-ds/manage/Appendix-M--Document-Links-and-Recommended-Reading.md)|包含推荐的阅读的列表。 此外包含一组链接到外部文档和它们的 Url，以便阅读器的硬盘副本本文可以访问此信息。|  
+|[附录 b:权限的帐户和 Active Directory 中的组](../../../ad-ds/plan/security-best-practices/Appendix-B--Privileged-Accounts-and-Groups-in-Active-Directory.md)|提供可帮助你标识的用户和组应重点保护因为便可供攻击者能够破坏，甚至会破坏您的 Active Directory 安装的背景信息。|  
+|[附录 c:受保护的帐户和 Active Directory 中的组](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md)|包含有关 Active Directory 中的受保护组的信息。 它还包含有限的自定义项 （删除） 将被视为受保护的组和 AdminSDHolder 和 SDProp 会影响的组的信息。|  
+|[附录 d:确保在 Active Directory 中的内置 Administrator 帐户的安全](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)|包含一些指导原则来帮助保护在林中每个域中的管理员帐户。|  
+|[附录 e:保护 Active Directory 中的 Enterprise Admins 组](../../../ad-ds/plan/security-best-practices/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory.md)|包含一些指导原则来帮助保护林中的 Enterprise Admins 组。|  
+|[附录 f:保护 Active Directory 中的 Domain Admins 组](../../../ad-ds/plan/security-best-practices/Appendix-F--Securing-Domain-Admins-Groups-in-Active-Directory.md)|包含一些指导原则来帮助保护在林中每个域中的 Domain Admins 组。|  
+|[附录 g:保护 Active Directory 中的管理员组](../../../ad-ds/plan/security-best-practices/Appendix-G--Securing-Administrators-Groups-in-Active-Directory.md)|包含一些指导原则来帮助保护林中每个域中的内置管理员组。|  
+|[附录 h:保护本地管理员帐户和组](../../../ad-ds/plan/security-best-practices/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups.md)|包含有助于安全的本地管理员帐户和已加入域的服务器和工作站上的管理员组的指导原则。|  
+|[附录 i:为受保护的帐户和组在 Active Directory 中的创建管理帐户](../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md)|提供用于创建具有有限的特权和可以进行严格控制，但可以用于需要临时提升时填充 Active Directory 中的特权的组的帐户信息。|  
+|[附录 l:监视的事件](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md)|列出了应为其监视您的环境中的事件。|  
+|[附录 m:文档链接和建议的读物](../../../ad-ds/manage/Appendix-M--Document-Links-and-Recommended-Reading.md)|包含一系列建议阅读。 此外包含指向外部文档的链接列表和其 Url，以便将硬拷贝本文档的读取器可以访问此信息。|  
   
 
 

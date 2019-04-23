@@ -15,11 +15,11 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 08a92188446d018edd36a638abb30745721bd601
-ms.sourcegitcommit: 1533d994a6ddea54ac189ceb316b7d3c074307db
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "1672458"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59831578"
 ---
 # <a name="recommendations-for-moving-to-windows-server-2016"></a>移动到 Windows Server 2016 的建议
 
@@ -53,7 +53,7 @@ ms.locfileid: "1672458"
 
 ## <a name="additional-resources"></a>其他资源
 
-- [Windows Server 2016 中已删除或弃用的功能](deprecated-features.md)
+- [删除或在 Windows Server 2016 中弃用的功能](deprecated-features.md)
 - 有关常规服务器升级和迁移选项，请访问 [Windows Server 2016 升级和转换选项](Supported-Upgrade-Paths.md)。
 - 有关产品生命周期和支持级别的详细信息，请参阅[支持生命周期策略常见问题](https://support.microsoft.com/help/17140/support-lifecycle-policy-faq)。
 

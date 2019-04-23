@@ -1,6 +1,6 @@
 ---
-title: 地理位置的使用 DNS 策略基于交通主服务器管理
-description: 本主题介绍 DNS 策略方案指南为 Windows Server 2016 的一部分
+title: 使用针对基于地理位置的流量管理和主服务器的 DNS 策略
+description: 本主题是 DNS 策略方案指南 Windows Server 2016 的一部分
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-dns
@@ -8,89 +8,90 @@ ms.topic: article
 ms.assetid: ef9828f8-c0ad-431d-ae52-e2065532e68f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bd72e13cd3d2d7f3ca886afcdcf97e824ef227f5
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 110014adf1e23be574f23efc01e8a4d69397e547
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59831978"
 ---
-# <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-servers"></a>地理位置的使用 DNS 策略基于交通主服务器管理
+# <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-servers"></a>使用针对基于地理位置的流量管理和主服务器的 DNS 策略
 
->适用于：Windows Server（半年通道），Windows Server 2016
+>适用于：Windows 服务器 （半年频道），Windows Server 2016
 
-可以使用本主题以了解如何配置 DNS 策略允许主 DNS 服务器响应 DNS 客户端查询基于地理位置的客户端和资源的客户端尝试连接时，客户端提供最近资源的 IP 地址。  
+你可以使用本主题，了解如何配置 DNS 策略以允许主 DNS 服务器响应 DNS 客户端查询客户端并向其客户端尝试连接，该资源的地理位置上基于客户端提供 IP address 的最近的资源。  
   
 >[!IMPORTANT]  
->此项 scenario 说明了如何部署基于地理位置交通管理 DNS 策略，当你使用的仅主 DNS 服务器。 当你有主要和辅助 DNS 服务器，还可以完成地理位置基于交通管理。 如果你有主要辅助部署，首先完成本主题中的步骤，然后完成提供主题中的步骤[使用与主要辅助部署的地理位置基于交通管理 DNS 策略](primary-secondary-geo-location.md)。
+>该方案演示了如何使用只有主 DNS 服务器时部署基于地理位置的流量管理的 DNS 策略。 已为主要和辅助 DNS 服务器时，还可以完成基于地理位置的流量管理。 如果您的主要和辅助部署，先完成本主题中的步骤，然后完成主题中提供的步骤[使用 DNS 策略的地理位置基于流量管理和主要-辅助部署](primary-secondary-geo-location.md).
 
-使用新 DNS 策略，则可以创建 DNS 策略允许客户端查询要求 IP 地址的 Web 服务器对反应 DNS 服务器。 Web server 实例可能位于不同的物理位置不同数据中心。 DNS 可以评估客户端和 Web 服务器的位置，然后通过向客户端提供 Web 服务器的 IP 地址的物理位置更接近于客户端的 Web 服务器响应客户端请求。  
+使用新的 DNS 策略，可以创建允许以响应客户端查询来查找 Web 服务器的 IP 地址的 DNS 服务器的 DNS 策略。 Web 服务器的实例可能位于不同物理位置的不同数据中心。 DNS 可以评估客户端和 Web 服务器位置，然后通过提供客户端与 Web 服务器的 IP 地址以物理方式靠近客户端的 Web 服务器为响应客户端请求。  
 
-你可以使用以下 DNS 策略参数控制 DNS 客户端查询到 DNS 服务器响应。 
+可以使用以下 DNS 策略参数来控制 DNS 服务器查询响应来自 DNS 客户端。 
 
-- **客户端子网**。 预定义的客户端子网名称。 用于验证查询已从其发送的子网。
-- **传输协议**。 传输用于查询的协议。 可能条目**UDP**和**TCP**。
-- **Internet 协议**。 网络用于查询的协议。 可能条目**IPv4**和**IPv6**。
-- **服务器界面 IP 地址**。 这收到 DNS 请求 DNS 服务器的网络接口的 IP 地址。
-- **FQDN**。 完全合格域 (FQDN) 中查询，记录使用通配符的可能性。
-- **查询类型**。 录制正在查询（A、SRV、文本等）的类型。
-- **一天时间**。 一天中收到查询的时间。 
+- **客户端子网**。 预定义的客户端子网的名称。 用于验证从其发送查询的子网。
+- **传输协议**。 传输协议在查询中使用。 可能的项都**UDP**并**TCP**。
+- **Internet 协议**。 在查询中使用的网络协议。 可能的项都**IPv4**并**IPv6**。
+- **服务器接口 IP 地址**。 收到 DNS 请求的 DNS 服务器的网络接口的 IP 地址。
+- **FQDN**。 完全限定域 (FQDN) 在查询中，记录的因为它使用通配符。
+- **查询类型**。 正在查询的记录 （A、 SRV、 TXT 等） 的类型。
+- **一天中的时间**。 接收到查询的时间。 
   
-你可以与逻辑运营商（和/或）以阐明策略表情组合以下条件。 当这些表情匹配时，应策略执行以下操作之一。
+使用逻辑运算符 （和/或） 制定策略表达式，可以结合以下条件。 当两个表达式匹配时，策略需要执行以下操作之一。
  
-- **忽略**。 DNS 服务器悄悄下降查询。          
-- **拒绝**。 DNS 服务器的响应该查询与失败响应。          
-- **允许**。 重新交通管理响应响应 DNS 服务器。          
+- **忽略**。 DNS 服务器以无提示方式会删除该查询。          
+- **拒绝**。 DNS 服务器做出响应失败响应与该查询。          
+- **允许**。 DNS 服务器返回使用流量管理响应进行响应。          
   
-##  <a name="bkmk_example"></a>地理位置基于交通管理示例
+##  <a name="bkmk_example"></a>基于地理位置的流量管理示例
 
-以下是一种方式使用 DNS 策略实现交通重定向基于执行 DNS 查询的客户端的物理位置。   
+下面是举例说明如何使用 DNS 策略以实现基于客户端执行 DNS 查询的物理位置的流量重定向。   
   
-此示例中使用两个虚构的公司 Contoso 云服务，该法案 web 和域举办解决方案;和 Woodgrove 食物服务，其中提供美食传递城市的多个全球和服务方面的优化调整网站命名 woodgrove.com。  
+此示例使用两个虚构的公司 Contoso 云服务，从而提供 web 应用和托管解决方案; 的域和 Woodgrove 食物服务，它在全球范围内提供多个城市中的食物传送服务，并且具有网站上名为 woodgrove.com。  
   
-Contoso 云服务都有一个在美国，另一个欧洲两个数据中心。 欧洲 datacenter 承载餐 portal 用于进行 woodgrove.com。   
+Contoso 云服务有两个数据中心，一个在美国，欧洲的另一个。 在欧洲数据中心承载餐 woodgrove.com 的门户。   
   
-若要确保 woodgrove.com 客户能够响应体验从其网站，Woodgrove 想定向到欧洲 datacenter 欧洲的客户端和定向到美国 datacenter 的美国客户端。 在世界位于其他位置的客户可以将定向到任一数据中心。   
+若要确保 woodgrove.com 客户从他们的网站获取一种响应体验，Woodgrove 想欧洲客户端定向到在欧洲数据中心和美国的客户端定向到美国数据中心。 可以将位于世界其他位置的客户定向到在数据中心之一。   
   
-下图显示了这种情况。  
+下图描绘了此方案。  
   
-![地理位置基于交通管理示例](../../media/DNS-Policy-Geo1/dns_policy_geo1.png)  
+![基于地理位置的流量管理示例](../../media/DNS-Policy-Geo1/dns_policy_geo1.png)  
   
-##  <a name="bkmk_works"></a>如何 DNS 名称分辨率进程的工作原理  
+##  <a name="bkmk_works"></a>如何的 DNS 名称解析过程工作原理  
   
-在名称分辨率过程中，用户将尝试连接到 www.woodgrove.com。这将导致 DNS 名称分辨率请求发送给用户的计算机上的网络连接属性中配置 DNS 服务器。 通常，这是提供的本地缓存的解析程序，作为 ISP DNS 服务器，并称为 LDNS。   
+在名称解析过程中，用户尝试连接到 www.woodgrove.com。 这会导致 DNS 名称解析请求发送到用户的计算机上的网络连接属性中配置的 DNS 服务器。 通常情况下，这是充当缓存解析程序，本地 ISP 提供的 DNS 服务器，并被称为 LDNS。   
   
-如果不存在于 LDNS 的本地缓存 DNS 名称，LDNS 服务器转发对 DNS 服务器的 woodgrove.com 授权查询。授权 DNS 服务器与该请求记录 (www.woodgrove.com) 响应 LDNS 服务器，反过来发送给用户的计算机之前本地缓存记录。  
+如果不存在 LDNS 在本地缓存中的 DNS 名称，LDNS 服务器将转发到 woodgrove.com 具有权威的 DNS 服务器查询。 权威 DNS 服务器响应与请求的记录 (www.woodgrove.com) LDNS 服务器，又将其发送给用户的计算机之前在本地缓存的记录。  
   
-Contoso 云服务使用 DNS 服务器策略，因为该主机 contoso.com 配置为返回地理位置授权 DNS 服务器基于交通管理响应。 这将导致欧洲的客户端方向欧洲 datacenter 和的方向美国客户端到美国数据中心中，如图所示。  
+由于 Contoso 云服务使用 DNS 服务器策略，承载 contoso.com 的权威 DNS 服务器配置来返回基于地理位置托管的流量响应。 这会导致欧洲客户端的方向欧洲数据中心与美国的客户端的方向到美国数据中心，如下图中所示。  
   
-这种情况下，在授权 DNS 服务器通常可以看到即将从 LDNS 服务器和，很少，用户的计算机名称分辨率请求。 出于此原因，在名称分辨率请求中所看到的授权 DNS 服务器源 IP 地址是 LDNS 服务器的并且不该用户的计算机。 因为用户在查询他本地 ISP 的 DNS 服务器，使用 LDNS 服务器的 IP 地址，当你在配置地理位置基于但是，查询响应提供安公平用户来说，该地理位置。  
+在此方案中，权威 DNS 服务器通常会看到来自 LDNS 服务器而，很少，来自用户的计算机的名称解析请求。 因此，看到的权威 DNS 服务器的名称解析请求中的源 IP 地址是计算机的 LDNS 服务器而不是计算机的用户。 但是，基于，使用 LDNS 服务器的 IP 地址配置的地理位置时响应提供了在用户的地理位置的合理估计的查询因为用户进行查询其本地 ISP 的 DNS 服务器。  
   
 >[!NOTE]  
->DNS 策略利用发件人 IP UDP TCP/数据包包含 DNS 查询中。 如果查询达到了多个解析程序/LDNS 跃点到主服务器，策略将考虑仅从中 DNS 服务器接收查询的最后一个解析程序 IP。  
+>DNS 策略使用 UDP/TCP 数据包包含 DNS 查询中的发件人 IP。 如果查询达到通过多个冲突解决程序/LDNS 跃点在主服务器，策略将考虑仅从其 DNS 服务器收到查询的最后一个冲突解决程序的 IP。  
   
-##  <a name="bkmk_config"></a>如何配置为的地理位置基于查询响应 DNS 策略  
-若要配置为的地理位置基于查询响应 DNS 策略，你必须执行以下步骤。  
+##  <a name="bkmk_config"></a>如何为基于地理位置的查询响应中配置 DNS 策略  
+若要配置基于地理位置的查询响应的 DNS 策略，必须执行以下步骤。  
   
 1. [创建 DNS 客户端子网](#bkmk_subnets)  
-2. [创建该区域的范围](#bkmk_scopes)  
-3. [添加到区域范围记录](#bkmk_records)  
+2. [创建区域的作用域](#bkmk_scopes)  
+3. [将记录添加到区域作用域](#bkmk_records)  
 4. [创建策略](#bkmk_policies)  
   
 >[!NOTE]  
->你必须在你想要配置区域的授权 DNS 服务器执行这些步骤。 在会员**DnsAdmins**，或等效，需要执行以下步骤。  
+>你想要配置的区域具有权威的 DNS 服务器上，必须执行这些步骤。 中的成员身份**DnsAdmins**，或等效身份所需执行以下过程。  
   
-以下部分提供了详细的配置说明进行操作。  
+以下部分提供详细的配置说明。  
   
 >[!IMPORTANT]  
->以下部分包括包含许多参数示例值的示例 Windows PowerShell 命令。 确保你在运行以下命令之前就提供适用于你的部署的值与替换示例值在这些命令。  
+>以下部分包含示例 Windows PowerShell 命令包含多个参数的示例值。 请确保将这些命令中的示例值替换之前运行这些命令适用于你的部署的值为。  
   
 ### <a name="bkmk_subnets"></a>创建 DNS 客户端子网  
   
-第一步是找出子网或 IP 地址的地区，你希望将通信重定向的空间。 例如，如果你想要将通信美国和欧洲重定向，你需要确定子网或 IP 地址空间的这些区域。  
+第一步是确定的子网或 IP 地址空间为你想要将流量重定向的区域。 例如，如果你想要将流量重定向针对美国和欧洲，需要确定的子网或这些区域的 IP 地址空间。  
   
-你可以从地理 IP 地图获取此信息。 基于这些地理 IP 分配，你必须创建"DNS 客户端个子网。" DNS 客户端子网是 IPv4 或 IPv6 个子网从中查询发送到 DNS 服务器的逻辑分组。  
+可以从地理 IP 映射获取此信息。 根据这些地理 IP 发行版，必须创建的"DNS 客户端子网。" DNS 客户端子网是从中查询发送到 DNS 服务器的 IPv4 或 IPv6 子网的逻辑分组。  
   
-以下 Windows PowerShell 命令用于创建 DNS 客户端个子网。  
+可以使用以下 Windows PowerShell 命令创建 DNS 客户端子网。  
   
       
     Add-DnsServerClientSubnet -Name "USSubnet" -IPv4Subnet "192.0.0.0/24"  
@@ -100,17 +101,17 @@ Contoso 云服务使用 DNS 服务器策略，因为该主机 contoso.com 配置
   
 有关详细信息，请参阅[添加 DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps)。  
   
-### <a name="bkmk_scopes"></a>创建区域范围  
-将配置客户端子网后，你必须分区区域你想要将重定向到了两种不同的区域范围，其流量一个范围有配置 DNS 客户端个子网。   
+### <a name="bkmk_scopes"></a>创建区域作用域  
+配置客户端子网后，必须分区区域你想要重定向到两个不同的区域作用域，其流量的每个已配置了 DNS 客户端子网一个作用域。   
   
-例如，如果你想要将重定向 DNS 名称 www.woodgrove.com 的通信，您必须在 woodgrove.com 区域、美国和欧洲创建两个不同的区域范围。  
+例如，如果你想要将 DNS 名称 www.woodgrove.com 的流量重定向，你必须创建两个不同的区域作用域中 woodgrove.com 区域、 美国和欧洲。  
   
-区域范围是唯一区域的实例。 DNS 区域有多个区域范围包含自己套 DNS 记录每个区域范围。 同一记录可能存在多个范围，使用不同的 IP 地址或同一 IP 地址。  
+区域作用域是该区域的唯一实例。 DNS 区域可以有多个区域作用域，包含其自己的 DNS 记录集的每个区域作用域。 同一条记录可出现在多个作用域，使用不同的 IP 地址或相同的 IP 地址。  
   
 >[!NOTE]  
->默认情况下，区域范围存在上 DNS 区域。 此区域范围作为区域具有相同的名称，并传统 DNS 运营处理此范围。   
+>默认情况下，区域作用域的 DNS 区域上存在。 此区域作用域为该区域具有相同的名称和旧的 DNS 操作适用于此作用域。   
   
-可以使用下面的 Windows PowerShell 命令来创建区域范围。  
+可以使用以下 Windows PowerShell 命令以创建区域作用域。  
   
       
     Add-DnsServerZoneScope -ZoneName "woodgrove.com" -Name "USZoneScope"  
@@ -119,12 +120,12 @@ Contoso 云服务使用 DNS 服务器策略，因为该主机 contoso.com 配置
 
 有关详细信息，请参阅[添加 DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)。  
   
-### <a name="bkmk_records"></a>添加到区域范围记录  
-现在，你必须添加到了两个区域范围表示 web 服务器主机的记录。   
+### <a name="bkmk_records"></a>将记录添加到区域作用域  
+现在，必须添加到了两个区域范围表示 web 服务器主机的记录。   
   
-例如，**USZoneScope**和**EuropeZoneScope**。 在 USZoneScope，你可以添加记录 www.woodgrove.com 192.0.0.1，居住在美国 datacenter; 的 IP 地址并在 EuropeZoneScope 可以与欧盟数据中心中的 IP 地址 141.1.0.1 添加同一记录 (www.woodgrove.com)。   
+例如， **USZoneScope**并**EuropeZoneScope**。 在 USZoneScope，可以添加的 IP 地址 192.0.0.1，它位于美国数据中心; 记录 www.woodgrove.com并在 EuropeZoneScope 可以在欧洲数据中心内的 IP 地址 141.1.0.1 添加同一条记录 (www.woodgrove.com)。   
   
-你可以使用 Windows PowerShell 以下命令添加到区域范围记录。  
+可以使用以下 Windows PowerShell 命令将记录添加到区域作用域。  
   
       
     Add-DnsServerResourceRecord -ZoneName "woodgrove.com" -A -Name "www" -IPv4Address "192.0.0.1" -ZoneScope "USZoneScope  
@@ -133,21 +134,21 @@ Contoso 云服务使用 DNS 服务器策略，因为该主机 contoso.com 配置
   
   
   
-在此示例中，您必须使用 Windows PowerShell 以下命令添加到默认的区域范围内，以确保在全世界其他人仍可以访问 woodgrove.com 任一两个数据中心中的 web 服务器记录。  
+在此示例中，您必须使用以下 Windows PowerShell 命令将记录添加到默认区域作用域，以确保世界上的其余部分仍可以从两个数据中心之一访问 woodgrove.com web 服务器。  
     
     Add-DnsServerResourceRecord -ZoneName "woodgrove.com" -A -Name "www" -IPv4Address "192.0.0.1"   
       
     Add-DnsServerResourceRecord -ZoneName "woodgrove.com" -A -Name "www" -IPv4Address "141.1.0.1"
       
  
-**区域范围区域**参数时将不包括在的默认范围添加记录。 这就是向标准 DNS 区域中添加记录相同。  
+**区域范围区域**默认作用域中添加一条记录时不包括参数。 这是与将记录添加到标准 DNS 区域相同。  
   
 有关详细信息，请参阅[添加 DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps)。  
   
 ### <a name="bkmk_policies"></a>创建策略  
-创建子网后，分区（区域范围），并且你已添加的记录，你必须创建子网和分区中，连接的策略，以便当查询来源之一 DNS 客户端子网，查询响应从正确的范围内的区域。 没有策略所需的映射默认区域范围。   
+创建子网后，分区 （区域作用域），并且您已将记录添加，则必须创建连接的子网和分区的策略，因此，如果查询来自 DNS 客户端子网之一中的源，从返回的查询响应区域的正确作用域。 没有策略所需的映射的默认区域作用域。   
   
-以下 Windows PowerShell 命令可用于创建 DNS 策略，该链接 DNS 客户端子网和区域范围。   
+可以使用以下 Windows PowerShell 命令创建 DNS 客户端子网链接和区域作用域的 DNS 策略。   
   
       
     Add-DnsServerQueryResolutionPolicy -Name "USPolicy" -Action ALLOW -ClientSubnet "eq,USSubnet" -ZoneScope "USZoneScope,1" -ZoneName "woodgrove.com"  
@@ -156,10 +157,10 @@ Contoso 云服务使用 DNS 服务器策略，因为该主机 contoso.com 配置
      
 有关详细信息，请参阅[添加 DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps)。  
   
-现在将重定向基于地理位置通信所需的 DNS 策略配置 DNS 服务器。  
+现在已具有所需的 DNS 策略基于地理位置的流量重定向配置 DNS 服务器。  
   
-当 DNS 服务器收到名称分辨率查询时，DNS 服务器评估配置 DNS 策略防御 DNS 请求中的字段。 名称分辨率请求中的源 IP 地址与匹配任何策略，如果关联的区域范围用于响应查询，并且用户定向到地理位置与他们最近的资源。   
+当 DNS 服务器收到名称解析查询时，DNS 服务器的计算结果中针对配置的 DNS 策略对 DNS 请求的字段。 如果名称解析请求中的源 IP 地址与匹配任何策略，关联的区域作用域用于响应查询，并将用户定向到地理上接近它们的资源。   
   
-你可以管理要求根据您的通信中创建数千 DNS 策略，并且无需重新启动 DNS 服务器，在传入查询动态-应用的所有新策略。  
+您可以管理要求，根据你的流量中创建数千个 DNS 策略且无需重新启动 DNS 服务器-在传入的查询上动态-应用所有新策略。  
   
   

@@ -1,39 +1,55 @@
 ---
 ms.assetid: 0f21951c-b1bf-43bb-a329-bbb40c58c876
-title: "有复制错误 1753 年有更多端点可从端点映射程序"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: 复制错误 1753：端点映射程序中没有更多可用的端点
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 0e7412f5edc6c206888551fdc250883b5c0ced3e
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: e429c87a2194ecfaf02c3d6c579eda75293250d4
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827508"
 ---
-# <a name="replication-error-1753-there-are-no-more-endpoints-available-from-the-endpoint-mapper"></a>有复制错误 1753 年有更多端点可从端点映射程序
+# <a name="replication-error-1753-there-are-no-more-endpoints-available-from-the-endpoint-mapper"></a>复制错误 1753：端点映射程序中没有更多可用的端点
 
->适用于：Windows Server 2016，Windows Server 2012 R2、Windows Server 2012
+>适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 
-<developerConceptualDocument xmlns="https://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="https://www.w3.org/1999/xlink" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://ddue.schemas.microsoft.com/authoring/2003/5 http://clixdevr3.blob.core.windows.net/ddueschema/developer.xsd">
-  <introduction>
-    <para>本主题介绍症状、的原因并解决 Active Directory 复制错误 8524 DSA 操作将无法继续由于 DNS 查询失败。</para>
+<developerConceptualDocument xmlns="https://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="https://www.w3.org/1999/xlink" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://ddue.schemas.microsoft.com/authoring/2003/5 http://clixdevr3.blob.core.windows.net/ddueschema/developer.xsd"> <introduction>
+    <para>本主题介绍症状、 原因以及如何解析 Active Directory 复制错误 8524 DSA 操作无法继续由于 DNS 查找失败。</para>
     <list class="bullet">
-      <listItem><para><link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Symptoms">症状</link></para></listItem><listItem><para><link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Cause">原因</link></para></listItem><listItem><para><link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Resolutions">分辨率</link></para></listItem><listItem><para><link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_MoreInfo">更多信息</link></para></listItem>
+      <listItem>
+        <para>
+          <link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Symptoms">症状</link>
+        </para>
+      </listItem> <listItem>
+        <para>
+          <link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Cause">原因</link>
+        </para>
+      </listItem> <listItem>
+        <para>
+          <link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Resolutions">解决方法</link>
+        </para>
+      </listItem> <listItem>
+        <para>
+          <link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_MoreInfo">详细信息</link>
+        </para>
+      </listItem>
     </list>
   </introduction>
   <section address="BKMK_Symptoms">
     <title>症状</title>
     <content>
-      <para>本指南介绍了症状，原因和分辨率步骤 Win32 错误 1753 年失败的 Active Directory 操作:"没有多个端点端点映射程序可用。"</para>
+      <para>本指南介绍了症状、 原因以及解决方法步骤失败，出现 Win32 错误 1753年的 Active Directory 操作："没有更多的终结点可从终结点映射程序。"</para>
       <list class="ordered">
         <listItem>
-          <para>连接测试、Active Directory 复制测试或 KnowsOfRoleHolders 测试失败，错误 1753 年的 DCDIAG 报告:"没有多个端点端点映射程序可用。"</para>
+          <para>连接测试、 Active Directory 复制测试或 KnowsOfRoleHolders 测试失败，出现错误 1753 DCDIAG 报表："没有更多的终结点可从终结点映射程序。"</para>
           <code>Testing server: &lt;site&gt;&lt;DC Name&gt;
 Starting test: Connectivity
 * Active Directory LDAP Services Check
@@ -69,7 +85,7 @@ of starting up or shutting down, and is not available.
 Verify machine is not hung during boot.
 </code>
         </listItem>
-<listItem><para>REPADMIN。EXE 报告该复制尝试与状态 1753 年失败。</para><para>通常告知 1753 年状态的 REPADMIN 命令包括但不是限于：</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><tbody><tr><TD><list class="bullet"><listItem><para>REPADMIN /REPLSUM</para></listItem><listItem><para>REPADMIN /SHOWREPL</para></listItem></list></TD><TD><list class="bullet"><listItem><para>REPADMIN /SHOWREPS</para></listItem><listItem><para>REPADMIN /SYNCALL</para></listItem></list></TD></tr></tbody></table><para>示例输出，从"REPADMIN /SHOWREPS"描述 CONTOSO DC2 从的入站的复制到 CONTOSO DC1 失败并显示"复制无法访问"错误如下所示：</para><code>Default-First-Site-NameCONTOSO-DC1
+<listItem><para>REPADMIN。EXE 报告该复制尝试失败，状态为 1753年。</para><para>REPADMIN 命令，通常涉及 1753年状态包括但不限于：</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><tbody><tr><TD><list class="bullet"><listItem><para>REPADMIN /REPLSUM</para></listItem><listItem><para>REPADMIN /SHOWREPL</para></listItem></list></TD><TD><list class="bullet"><listItem><para>REPADMIN /SHOWREPS</para></listItem><listItem><para>REPADMIN /SYNCALL</para></listItem></list></TD></tr></tbody></table><para>从"REPADMIN /SHOWREPS"进行描述从 CONTOSO DC2 到 CONTOSO-DC1 失败，"复制访问被拒绝"错误的入站的复制的示例输出如下所示：</para><code>Default-First-Site-NameCONTOSO-DC1
 DSA Options: IS_GC 
 Site Options: (none)
 DSA object GUID: b6dc8589-7e00-4a5d-b688-045aef63ec01
@@ -83,117 +99,118 @@ There are no more endpoints available from the endpoint mapper.</codeFeaturedEle
 &lt;#&gt; consecutive failure(s).
 Last success @ &lt;date&gt; &lt;time&gt;.
 
-</code></listItem><listItem><para><ui>检查复制拓扑</ui>Active Directory 的站点和服务中的命令返回"没有多个端点端点映射程序可用。"</para><para>来源 DC 连接对象右键单击并选择<ui>检查复制拓扑</ui>失败，"没有多个端点端点映射程序可用。"下方显示的错误消息是屏幕上：</para><para>对话框标题文本：检查复制拓扑</para><para>对话框消息的文本：</para><para>试图联系域控制器期间出现以下错误：有更多端点端点映射程序可用。</para></listItem><listItem><para><ui>立即复制</ui>Active Directory 的站点和服务中的命令返回"没有多个端点端点映射程序可用。"</para><para>来源 DC 连接对象右键单击并选择<ui>立即复制</ui>失败，"没有多个端点端点映射程序可用。"下方显示的错误消息是屏幕上：</para><para>对话框标题文本：复制现在</para><para>对话框消息的文本：尝试同步命名上下文期间出现以下错误&lt;%目录分区名称 %&gt;从域控制器&lt;源 DC&gt;到域控制器&lt;目标直流&gt;:</para><para>
+</code></listItem><listItem><para><ui>检查复制拓扑</ui>Active Directory 站点和服务中的命令将返回"有没有更多的终结点可从终结点映射程序。"</para><para>中的源 DC 的连接对象上右键单击并选择<ui>检查复制拓扑</ui>失败，出现"没有更多终结点可从终结点映射程序。" 错误消息如下所示的屏幕：</para><para>对话框标题文本：检查复制拓扑</para><para>对话框消息文本： </para><para>在尝试联系域控制器期间出现以下错误：端点映射程序中未提供更多端点。</para></listItem><listItem><para><ui>立即复制副本</ui>Active Directory 站点和服务中的命令将返回"有没有更多的终结点可从终结点映射程序。"</para><para>中的源 DC 的连接对象上右键单击并选择<ui>立即复制副本</ui>失败，出现"没有更多终结点可从终结点映射程序。" 错误消息如下所示的屏幕：</para><para>对话框标题文本：立即复制副本</para><para>对话框消息文本：尝试命名上下文进行同步期间出现以下错误&lt;%目录分区名称 %&gt;从域控制器&lt;源 DC&gt;到域控制器&lt;目标 DC&gt;:</para><para>
 
-没有可从端点映射的更多端点。</para><para>操作不会继续</para></listItem><listItem><para>NTDS KCC、NTDS 常规或 Microsoft-Windows ActiveDirectory_DomainService 事件-2146893022 状态登录事件查看器中的目录服务日志。</para><para>通常告知-2146893022 状态的 Active Directory 事件包括但不是限于：</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><thead><tr><TD><para>事件 ID</para></TD><TD><para>事件源</para></TD><TD><para>事件字符串</para></TD></tr></thead><tbody><tr><TD><para>1655</para></TD><TD><para>NTDS 常规</para></TD><TD><para>尝试使用以下全球目录通信，Active Directory 并尝试未成功。</para></TD></tr><tr><TD><para>1925</para></TD><TD><para>NTDS KCC</para></TD><TD><para>尝试建立复制链接的以下目录可写分区失败。</para></TD></tr><tr><TD><para>1265</para></TD><TD><para>NTDS KCC</para></TD><TD><para>若要添加的以下目录分区和源域控制器复制协议尝试知识一致性检查器 (KCC) 失败。</para></TD></tr></tbody></table></listItem>
+端点映射程序中未提供更多端点。</para><para>将继续操作</para></listItem><listItem><para>在事件查看器中的目录服务日志记录-2146893022： 状态 NTDS KCC、 NTDS 常规或 Microsoft Windows ActiveDirectory_DomainService 事件。</para><para>Active Directory 事件通常涉及-2146893022： 状态，包括但不限于：</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><thead><tr><TD><para>事件 ID</para></TD><TD><para>事件来源</para></TD><TD><para>事件字符串</para></TD></tr></thead><tbody><tr><TD><para>1655</para></TD><TD><para>NTDS 常规</para></TD><TD><para>Active Directory 尝试与以下全局编录进行通信，但尝试成功。</para></TD></tr><tr><TD><para>1925</para></TD><TD><para>NTDS KCC</para></TD><TD><para>尝试建立以下的可写目录分区的复制链接失败。</para></TD></tr><tr><TD><para>1265</para></TD><TD><para>NTDS KCC</para></TD><TD><para>尝试通过知识一致性检查器 (KCC) 将添加下列目录分区和源域控制器的复制协议失败。</para></TD></tr></tbody></table></listItem>
 </list>
     </content>
   </section>
   <section address="BKMK_Cause">
     <title>原因</title>
     <content>
-      <para>下图显示 RPC 工作流向客户端应用程序在步骤 7 RPC 客户端从数据传递到开始服务器应用程序与 RPC 端点映射程序（企业项目管理）在第 1 步中的注册。</para>
+      <para>下图显示 RPC 工作流从 RPC 客户端到步骤 7 中的客户端应用程序的数据传递到开始与服务器应用程序在步骤 1 中使用 RPC 终结点映射器 (EPM) 的注册。 </para>
       <para>&lt;ADDS_RPCWorkflow&gt;</para>
-      <para>步骤 1 到 7 映射到以下操作：</para>
+      <para>步骤 1 到步骤 7 映射到以下操作：</para>
       <list class="ordered">
         <listItem>
-          <para>服务器应用注册其端点与 RPC 端点映射程序（企业项目管理）</para>
+          <para>服务器应用程序注册其终结点与 RPC 终结点映射器 (EPM) </para>
         </listItem>
         <listItem>
-          <para>客户端进行 RPC 通话（代表用户、操作系统或应用程序启动操作）</para>
+          <para>客户端发出的 RPC 调用 （代表用户，OS 或应用程序启动的操作） </para>
         </listItem>
         <listItem>
-          <para>客户端侧面 RPC 联系人的目标计算机企业项目管理和寻求来完成客户端呼叫端点</para>
+          <para>客户端 RPC 联系目标计算机 EPM，并请求以完成客户端调用的终结点 </para>
         </listItem>
         <listItem>
-          <para>服务器计算机企业项目管理响应与端点</para>
+          <para>与终结点的服务器计算机的企业项目管理响应 </para>
         </listItem>
         <listItem>
-          <para>客户端 RPC 联系人服务器应用</para>
+          <para>客户端 RPC 联系服务器应用 </para>
         </listItem>
         <listItem>
-          <para>服务器应用执行调用为客户端 RPC 返回的结果</para>
+          <para>服务器应用程序执行调用，将结果返回到客户端 RPC </para>
         </listItem>
         <listItem>
-          <para>客户端 RPC 回客户端应用将结果</para>
+          <para>客户端 RPC 将结果传递回客户端应用程序</para>
         </listItem>
       </list>
-      <para>失败 1753 年生成的之间步骤 3 和 4 故障。具体来说，1753 年错误意味着 RPC 客户端（目标 DC）是能够端口 135 联系 RPC 服务器（源 DC），但企业 RPC 服务器（源 DC）上的项目管理找不到 RPC 应用程序的兴趣和返回服务器端错误 1753 年。显示 1753 年错误表明 RPC 客户端（目标 DC）收到从 RPC 服务器（广告复制来源 DC）服务器端错误响应通过该网络。</para>
-      <para>1753 年错误的特定的根本原因包括：</para>
+      <para>失败而导致 1753年生成通过失败步骤 #3 和 4 之间。 具体而言，错误 1753： 意味着 RPC 客户端 （目标 DC） 是能够通过端口 135 联系 RPC 服务器 （源 DC），但是 EPM RPC 服务器 （源 DC） 上的找不到感兴趣的 RPC 应用程序，并且返回了服务器端错误 1753年。 1753 错误存在指示，RPC 客户端 （目标 DC） 通过网络从 RPC 服务器 （AD 复制源 DC） 接收服务器端错误响应。 </para>
+      <para>1753 错误的特定根本原因包括： </para>
       <list class="ordered">
         <listItem>
-          <para>永远不会启动服务器应用（即永远不会尝试步骤 1 上方的"的详细信息"图）。</para>
+          <para>永远不会启动服务器应用 （即如果从未尝试在上方的"详细信息"关系图中的步骤 #1）。</para>
         </listItem>
         <listItem>
-          <para>服务器应用启动，但阻止它 RPC 端点映射程序（即第 1 步中"的详细信息"图是尝试而失败）进行注册的初始化期间发生某些失败。</para>
+          <para>服务器应用程序启动，但阻止其注册到 RPC 终点映射程序 （即在上面的"详细信息"关系图中的步骤 #1 已尝试但失败） 的初始化期间出现一些错误。</para>
         </listItem>
         <listItem>
-          <para>服务器应用启动，但随后死了。（即第 1 步中"的详细信息"图已成功完成，但已撤消稍后因为服务器死了）。</para>
+          <para>服务器应用程序启动，但随后死了。 （即在上面的"详细信息"关系图中的步骤 #1 已成功完成，但因为撤消更高版本服务器已停机）。</para>
         </listItem>
         <listItem>
-          <para>服务器应用手动注销其端点（类似于但有意 3 平板电脑。但不是可能包含的完整性。）</para>
+          <para>服务器应用手动注销其终结点 （类似于但有意 3。 不太可能，但包含出于完整性的考虑。）</para>
         </listItem>
         <listItem>
-          <para>联系到 IP 映射错误 DNS、WINS 或主机/Lmhosts 文件中的一个名称由于比预期不同 RPC 服务器时 RPC 客户端（目标 DC）。</para>
+          <para>RPC 客户端 （目标 DC） 联系其他 RPC 服务器与预期由于名称到 IP 在 DNS、 WINS 或主机/Lmhosts 文件中的映射错误。</para>
         </listItem>
       </list>
-      <para>错误 1753 年不由：</para>
+      <para>不被因错误 1753年: </para>
       <list class="bullet">
         <listItem>
-          <para>轻端口 135 RPC 客户端（目标 DC）和 RPC 服务器（源 DC）之间的网络连接缺乏</para>
+          <para>缺少的 RPC 客户端 （目标 DC） 和 RPC 服务器 （源 DC） 之间通过端口 135 的网络连接</para>
         </listItem>
         <listItem>
-          <para>缺乏 RPC 服务器（源 DC）之间的网络连接通过短暂端口中使用 135 端口和 RPC 客户端（目标 DC）。</para>
+          <para>缺少的 RPC 服务器 （源 DC） 之间的网络连接通过临时端口使用端口 135 和 RPC 客户端 （目标 DC）。 </para>
         </listItem>
         <listItem>
-          <para>密码不匹配或通过源 DC 导致无法解密 Kerberos 加密的数据包</para>
+          <para>密码不匹配或源 DC 无法解密 Kerberos 加密的数据包 </para>
         </listItem>
       </list>
-      <para></para>
+      <para> </para>
     </content>
   </section>
   <section address="BKMK_Resolutions">
-    <title>分辨率</title>
+    <title>解决方法</title>
     <content>
       <list class="ordered">
         <listItem>
           <para>
-            <embeddedLabel>验证注册端点映射程序与它服务该服务已经启动</embeddedLabel>
+            <embeddedLabel>验证注册其服务终结点映射程序服务已启动</embeddedLabel>
           </para>
-          <para>For Windows 2000 和 Windows Server 2003 Dc：确保插入正常模式下启动时 DC 的来源。</para>
-          <para> Windows Server 2008 或 Windows Server 2008 R2：从源 DC 主机，开始服务管理器 (services.msc)，并验证<embeddedLabel>Active Directory 域服务</embeddedLabel>服务正在运行。</para>
+          <para>对于 Windows 2000 和 Windows Server 2003 Dc： 请确保源 DC 将启动进入正常模式。 </para>
+          <para>
+对于 Windows Server 2008 或 Windows Server 2008 R2： 在源 DC 的控制台中，启动服务管理器 (services.msc) 并确认<embeddedLabel>Active Directory 域服务</embeddedLabel>服务是否正在运行。 </para>
         </listItem>
         <listItem>
           <para>
-            <embeddedLabel>验证 RPC 客户端（目标 DC）连接到预期 RPC 服务器（源 DC）</embeddedLabel>
+            <embeddedLabel>验证连接到预期的 RPC 服务器 （源 DC） 该 RPC 客户端 （目标 DC）</embeddedLabel>
           </para>
-          <para>常见 Active Directory 森林寄存器域控制器 CNAME 录制 _msdcs 中的所有 Dc。&lt;森林根域&gt;DNS 无论驻留内森林哪些域的区域。DC CNAME 记录派生自<embeddedLabel>objectGUID</embeddedLabel>各自的对象每个域控制器属性。</para>
-          <para>执行基于复制的操作时，目标 DC 查询源 Dc CNAME 记录 DNS。CNAME 记录包含用于派生源 Dc IP 地址的源 DC 完整的计算机名称通过 DNS 客户端的缓存查找主机 / LMHost 文件查阅，主机 A / DNS 或 WINS AAAA 录制。</para>
-          <para>过时各自的对象和 DNS、WINS、主机和 LMHOST 文件中的错误名称-TO-IP 映射可能导致连接到错误 RPC 服务器 (源 DC) RPC 客户端（目标 DC）。此外，TO-IP 映射错误名称-可能导致 RPC 客户端（目标 DC）连接到的计算机，即使没有 RPC 服务器应用的兴趣（在本例中的 Active Directory 角色）安装。(示例：DC2 过时主机记录包含 DC3 或成员计算机的 IP 地址)。</para>
-          <para>验证源目标 Dc 副本的 Active Directory 中存在的 DC objectGUID 匹配存储在源 Active Directory Dc 副本源 DC objectGUID。如果有差异，则使用 repadmin /showobjmeta ntds 设置对象查看哪一个对应于源直流的最后一个推广上 (提示：比较日期标记为各自的对象创建日期从 /showobjmeta 针对源 Dc dcpromo.log 文件中的最后一个推广日期。你可能需要使用的最后一个修改 / 创建 DCPROMO.LOG 文件本身。）对象 Guid 均不相同，如果目标 DC 可能有其 CNAME 记录指主机记录具有错误名称 IP 映射到一个过时源 DC 各自的对象。</para>
-          <para>DC 目标，在运行 IPCONFIG//ALL 确定哪一个 DNS 服务器目标 DC 使用的名称解析：</para>
+          <para>常见的 Active Directory 林中的所有域控制器在 _msdcs 中注册的域控制器的 CNAME 记录。&lt;林根级域&gt;而不考虑驻留在林中哪些域的 DNS 区域。 DC CNAME 记录派生自<embeddedLabel>objectGUID</embeddedLabel>的每个域控制器的 NTDS 设置对象的属性。 </para>
+          <para>执行基于复制的操作时，目标 DC 将 DNS 查询的源 Dc CNAME 记录。 该 CNAME 记录包含用于派生的源 Dc 的 IP 地址的源 DC 完全限定的计算机名称通过 DNS 客户端的缓存查找，托管 / LMHost 文件查找，主机 A / AAAA 记录在 DNS 或 WINS 中。 </para>
+          <para>过时的 NTDS 设置对象和 DNS、 WINS、 主机和 LMHOST 文件中的错误名称到 IP 映射可能会导致 RPC 客户端 （目标 DC） 连接到错误的 RPC 服务器 (源 DC)。 此外，不正确的名称到 IP 映射可能会导致 RPC 客户端 （目标 DC） 连接到的计算机，甚至没有 RPC 服务器应用程序感兴趣 （在本例中为 Active Directory 角色） 安装。 (示例： DC2 的过时主机记录包含 DC3 或成员计算机的 IP 地址)。 </para>
+          <para>验证存在于目标域控制器复制 Active Directory 的源 DC objectGUID 匹配源 DC objectGUID 存储在源域控制器复制 Active directory 中。 如果存在不一致，使用 repadmin /showobjmeta ntds 设置对象上以查看哪一个对应于源 DC 的最后一个促销 (提示： 比较日期戳的 NTDS 设置对象从 /showobjmeta 针对中的最后升级日期创建日期源 Dc dcpromo.log 文件。 您可能需要使用最后一个修改 / DCPROMO 的创建日期。日志文件本身）。 如果对象 Guid 不同，目标 DC 可能有其 CNAME 记录是指主机记录具有错误名称到 IP 映射的过时源 DC 的 NTDS 设置对象。 </para>
+          <para>目标 DC 上运行 IPCONFIG /ALL 来确定哪些 DNS 服务器进行名称解析使用 DC 的目标：</para>
           <code>c:&gt;ipconfig /all</code>
-          <para>对源 Dc 完全限定 DC CNAME 记录 DC 目标，在运行 NSLOOKUP:</para>
+          <para>目标 DC 上对源 Dc 完全限定的 DC CNAME 记录运行 NSLOOKUP:</para>
           <code>c:&gt;nslookup -type=cname &lt;fully qualified cname of source DC&gt; &lt;destination DCs primary DNS Server IP &gt;
 c:&gt;nslookup -type=cname &lt;fully qualified cname of source DC&gt; &lt;destination DCs secondary DNS Server IP&gt;</code>
-          <para>验证，NSLOOKUP 返回的 IP 地址"拥有"主机名 / 源直流安全身份：</para>
+          <para>验证是否返回 NSLOOKUP 的 IP 地址"拥有"的主机名 / 源 DC 的安全标识：</para>
 
           <code>C:&gt;NBTSTAT -A &lt;IP address returned by NSLOOKUP in the step above&gt;</code>
           <para>或</para>
-          <para>登录源 DC 主机从 CMD 提示符运行"IPCONFIG"，然后确认源 DC 拥有 NSLOOKUP 命令上述返回的 IP 地址</para>
-          <para>检查 DNS 中 IP 映射到过时 / 重复主机</para>
+          <para>登录到源 DC 的控制台，请在命令提示符处运行"IPCONFIG"并验证源 DC 拥有上述 NSLOOKUP 命令返回的 IP 地址</para>
+          <para>检查过时 / 重复主机 IP 在 DNS 中映射到</para>
           <code>NSLOOKUP -type=hostname &lt;single label hostname of source DC&gt; &lt;primary DNS Server IP on destination DC&gt;
 NSLOOKUP -type=hostname &lt;single label hostname of source DC&gt; &lt;secondary DNS Server IP on destination DC&gt;
 
 NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;primary DNS Server IP on destination DC&gt;
 NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;secondary DNS Server IP on dest. DC&gt;</code>
-<para>无效的 IP 地址存在，主机记录中，如果调查 DNS 清理已启用并正确配置。</para><para>如果上述测试或网络跟踪未显示名称查询退回无效的 IP 地址，请考虑在主机的文件、LMHOSTS 文件和 WINS 服务器过时条目。请注意，DNS 服务器可能也配置执行 WINS 回退名称分辨率。</para>
+<para>如果主机记录中存在无效的 IP 地址，请调查是否 DNS 清理已启用并正确配置。 </para><para>如果上面测试或网络跟踪不会显示返回无效的 IP 地址的名称查询，请考虑在主机文件、 LMHOSTS 文件和 WINS 服务器中的过时条目。 请注意，DNS 服务器可以还配置为执行 WINS 回退名称解析。</para>
 </listItem>
         <listItem>
           <para>
-            <embeddedLabel>服务器应用程序（Active Directory 等）具有注册端点映射程序 RPC 服务器（源 DC）上的验证</embeddedLabel>
+            <embeddedLabel>验证服务器应用程序 (Active Directory et al) 已向 RPC 服务器 （源 DC） 上的终结点映射器注册</embeddedLabel>
           </para>
-          <para>Active Directory 使用多种普遍且动态注册端口。下表列出了熟知端口和使用 Active Directory 域控制器的协议。</para>
+          <para>Active Directory 使用的已知和动态注册端口的组合。 此表列出了由 Active Directory 域控制器使用众所周知的端口和协议。</para>
           <table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11">
             <thead>
               <tr>
@@ -256,7 +273,7 @@ NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;s
               </tr>
               <tr>
                 <TD>
-                  <para>Microsoft DS</para>
+                  <para>Microsoft-DS</para>
                 </TD>
                 <TD>
                   <para>445</para>
@@ -284,7 +301,7 @@ NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;s
               </tr>
               <tr>
                 <TD>
-                  <para>全球目录服务器</para>
+                  <para>全局编录服务器</para>
                 </TD>
                 <TD>
                   <para>3268</para>
@@ -298,7 +315,7 @@ NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;s
               </tr>
               <tr>
                 <TD>
-                  <para>全球目录服务器</para>
+                  <para>全局编录服务器</para>
                 </TD>
                 <TD>
                   <para>3269</para>
@@ -312,12 +329,12 @@ NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;s
               </tr>
             </tbody>
           </table>
-          <para>端点映射程序与未注册已知端口。</para>
-          <para>Active Directory 和其他应用也注册接收动态分配的端口 RPC 暂时端口覆盖范围内的服务。此类 RPC 服务器应用程序动态分配 1024 年和 Windows 2000 和 Windows Server 2003 计算机上的 5000 之间 TCP 端口和 49152 与 65535 范围在 Windows Server 2008 和 Windows Server 2008 R2 计算机之间的端口。使用复制的 RPC 端口可能很难编码使用中记录步骤的注册表中<externalLink><linkText>知识库文章 224196</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink>。继续使用企业项目管理时配置为使用努力编码的端口注册 Active Directory。</para>
-          <para>验证 RPC 服务器应用程序感兴趣的已注册本身 RPC 端点映射程序 RPC 服务器（源直流就广告复制而言）上。</para>
-          <para>有多种方式来完成此任务中，但之一是，安装并源 DC 使用语法控制台上的管理员权限 CMD 提示符下运行 PORTQRY: </para>
+          <para>终结点映射程序未向注册已知端口。 </para>
+          <para>Active Directory 和其他应用程序也注册接收动态分配的端口的 RPC 临时端口范围的服务。 此类 RPC 服务器应用程序动态分配 1024年和 Windows 2000 和 Windows Server 2003 计算机上的 5000 之间的 TCP 端口以及 Windows Server 2008 和 Windows Server 2008 R2 计算机上的 49152 和 65535 范围之间的端口。 复制使用的 RPC 端口可以是硬编码在注册表中所述的步骤<externalLink><linkText>知识库文章 224196</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink>。 Active Directory 会继续向 EPM 配置为使用硬编码的端口注册。 </para>
+          <para>验证的 RPC 服务器应用程序所需的注册其自身的 RPC 端点映射程序 RPC 服务器 （源 DC 在 AD 复制的情况下） 上。 </para>
+          <para>有多种方法来完成此任务，但其中一个是安装并在控制台上的源 DC 使用语法从特权的管理员命令提示符处运行 PORTQRY: </para>
           <code>c:\&gt;portquery -n &lt;source DC&gt; -e 135 &gt;file.txt</code>
-          <para>portqry 输出中，注意的动态"MS NT 目录 DRS 接口"通过注册端口号 (UUID = 351...) 的<embeddedLabel>ncacn_ip_tcp 协议</embeddedLabel>。下方显示的示例 portquery 片段输出从 Windows Server 2008 R2 域控制器和 UUID / 协议配对特定使用 Active Directory 突出显示<embeddedLabel>改为粗体</embeddedLabel>: </para>
+          <para>在 portqry 输出中，请注意动态注册的"MS NT 目录 DRS 接口"的端口号 (UUID = 351...) 用于<embeddedLabel>ncacn_ip_tcp 协议</embeddedLabel>。 下面的代码段显示了从 Windows Server 2008 R2 DC 和 UUID 的示例是 portquery 输出 / 协议对，专门用于由 Active Directory 中突出显示<embeddedLabel>粗体</embeddedLabel>: </para>
           <code>UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
 ncacn_np:CONTOSO-DC01[\pipe\lsass] 
 UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
@@ -331,17 +348,17 @@ ncacn_http:CONTOSO-DC01[6004]</code>
           <para />
         </listItem>
         <listItem>
-          <para>可能的其他方法解决此错误：</para>
+          <para>若要解决此错误的其他可能方式：</para>
           <list class="ordered">
             <listItem>
-              <para>验证在正常模式下启动时源 DC 和源直流上的操作系统和直流角色已完全开始。</para>
+              <para>验证在正常模式下启动时源 DC 和源 DC 上的 OS 和 DC 角色已完全启动。</para>
             </listItem>
             <listItem>
-              <para>Active Directory 域服务正在运行的验证。如果当前停止或在没有配置启动的默认值服务，重置启动默认值，重新启动修改的直流，然后重试。</para>
+              <para>验证 Active Directory 域服务正在运行。 如果该服务当前已停止或未配置默认启动值，默认启动值重置，重新启动已修改的 DC，然后重试该操作。</para>
             </listItem>
             <listItem>
-              <para>验证启动价值和服务状态 RPC 服务和 RPC 定位器是否正确操作系统版本的客户端 RPC（目标 DC）和 RPC 服务器（源 DC）。如果当前停止或在没有配置启动的默认值服务，重置启动默认值，重新启动修改的直流，然后重试。</para>
-              <para>此外，请确保服务上下文匹配如下表中所列出的默认设置。</para>
+              <para>验证为 RPC 服务和 RPC Locator 的启动值和服务状态是正确的 OS 版本的 RPC 客户端 （目标 DC） 和 RPC 服务器 （源 DC）。 如果该服务当前已停止或未配置默认启动值，默认启动值重置，重新启动已修改的 DC，然后重试该操作。</para>
+              <para>此外，请确保服务上下文与下表中列出的默认设置相匹配。</para>
               <table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11">
                 <thead>
                   <tr>
@@ -349,10 +366,10 @@ ncacn_http:CONTOSO-DC01[6004]</code>
                       <para>服务</para>
                     </TD>
                     <TD>
-                      <para>Windows Server 2003 及更高版本中的默认状态（启动键入） </para>
+                      <para>默认状态 （启动类型） 在 Windows Server 2003 及更高版本 </para>
                     </TD>
                     <TD>
-                      <para>在 Windows Server 2000 默认状态（启动键入）</para>
+                      <para>在 Windows Server 2000 中的默认状态 （启动类型）</para>
                     </TD>
                   </tr>
                 </thead>
@@ -362,39 +379,39 @@ ncacn_http:CONTOSO-DC01[6004]</code>
                       <para>远程过程调用</para>
                     </TD>
                     <TD>
-                      <para>启动（自动）</para>
+                      <para>启动 （自动）</para>
                     </TD>
                     <TD>
-                      <para>启动（自动）</para>
+                      <para>启动 （自动）</para>
                     </TD>
                   </tr>
                   <tr>
                     <TD>
-                      <para>远程过程调用定位器</para>
+                      <para>远程过程调用定位符</para>
                     </TD>
                     <TD>
-                      <para>为空或停止（手动）</para>
+                      <para>Null 或停止 （手动）</para>
                     </TD>
                     <TD>
-                      <para>启动（自动）</para>
+                      <para>启动 （自动）</para>
                     </TD>
                   </tr>
                 </tbody>
               </table>
             </listItem>
             <listItem>
-              <para>验证动态端口区域的大小不已约束。Windows Server 2008 和 Windows Server 2008 R2 NETSH 语法枚举 RPC 端口范围如下所示：</para>
+              <para>验证动态端口范围的大小不具有已受约束。 若要枚举的 RPC 端口范围的 Windows Server 2008 和 Windows Server 2008 R2 NETSH 语法如下所示：</para>
               <code>&gt;netsh int ipv4 show dynamicport tcp
 &gt;netsh int ipv4 show dynamicport udp
 &gt;netsh int ipv6 show dynamicport tcp
 &gt;netsh int ipv6 show dynamicport udp</code>
             </listItem>
             <listItem>
-              <para>验证定义以 kb 为单位 224196 硬编码的端口定义在动态端口范围内，对于源 Dc 操作系统版本。</para>
-              <para>查看<externalLink><linkText>知识库文章 224196</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink>，并确保努力编码的端口瀑布暂时端口范围内，源 DC 的操作系统版本。</para>
+              <para>验证 KB 224196 中定义的硬编码的端口定义在动态端口范围内，对于源 Dc OS 版本。</para>
+              <para>审阅<externalLink><linkText>知识库文章 224196</linkText> <linkUri> https://support.microsoft.com/kb/224196 </linkUri> </externalLink> ，并确保硬编码的端口处于临时端口范围内，对于源 DC 的操作系统版本。</para>
             </listItem>
             <listItem>
-              <para>验证 ClientProtocols 密钥存在下 HKLM\Software\ Microsoft \Rpc，并且包含以下 5 默认值：</para>
+              <para>验证 ClientProtocols 密钥下 HKLM\Software\Microsoft\Rpc 存在并且包含以下 5 个默认值：</para>
               <code>ncacn_http REG_SZ rpcrt4.dll
 ncacn_ip_tcp REG_SZ rpcrt4.dll
 <codeFeaturedElement>ncacn_nb_tcp REG_SZ rpcrt4.dll</codeFeaturedElement>
@@ -410,9 +427,9 @@ ncacn_ip_udp REG_SZ rpcrt4.dll</code>
     <title>详细信息</title>
     <content>
       <para>
-        <embeddedLabel>到 IP 映射导致 RPC 错误 1753 年-2146893022 与坏名称的示例：不正确的目标主要名称</embeddedLabel>
+        <embeddedLabel>映射导致 RPC 错误 1753年-2146893022： 与 IP 名称不正确的示例： 目标主体名称不正确</embeddedLabel>
       </para>
-      <para>contoso.com 域包含 DC1 以及 DC2 ip 地址 x.x.1.1 和 x.x.1.2。主机"A"/"AAAA"记录 DC2 正确注册所有配置 DC1 DNS 服务器上。此外，在 DC1 主机文件包含映射到 IP 地址 x.x.1.2 DC2s 完全合格主机的项目。更高版本，DC2 的 IP 地址更改 X.X.1.2 从 X.X.1.3 和一台新成员电脑已加入域的 IP 地址 x.x.1.2。广告复制由触发尝试<ui>立即复制</ui>Active Directory 的站点和服务管理单元中的命令将失败，错误 1753 年，下面的跟踪中所示：</para>
+      <para>Contoso.com 域包含具有 IP 地址 x.x.1.1 和 x.x.1.2 的 DC1 和 DC2。 "A"的主机 / DC2 的"AAAA"记录正确注册所有针对 DC1 配置的 DNS 服务器上。 此外，在 DC1 上的主机文件包含将 dc2 完全限定的主机名映射到 IP 地址 x.x.1.2 的条目。 更高版本，DC2 的 IP 地址从变为 X.X.1.2 X.X.1.3 和新的成员计算机加入到与 IP 地址 x.x.1.2 域。 AD 复制由触发尝试<ui>立即复制副本</ui>在 Active Directory 站点和服务管理单元中的命令失败，出现错误 1753： 下面的跟踪中所示：</para>
       <code>F# SRC    DEST    Operation 
 1 x.x.1.1 x.x.1.2 ARP:Request, x.x.1.1 asks for x.x.1.2
 2 x.x.1.2 x.x.1.1 ARP:Response, x.x.1.2 at 00-13-72-28-C8-5E
@@ -426,23 +443,23 @@ ncacn_ip_udp REG_SZ rpcrt4.dll</code>
 <codeFeaturedElement>10</codeFeaturedElement> x.x.1.1 x.x.1.2 EPM:Request: ept_map: NDR, DRSR(DRSR) {E3514235-4B06-11D1-AB04-00C04FC2DCD2} [DCE endpoint resolution(135)]
 <codeFeaturedElement>11</codeFeaturedElement> x.x.1.2 x.x.1.1 EPM:Response: ept_map: 0x16C9A0D6 - EP_S_NOT_REGISTERED
 </code>
-      <para>在帧<embeddedLabel>10</embeddedLabel>，目标 DC 端口 135 Active Directory 复制服务类 UUID E351 查询源 Dc 终止点映射…</para>
-      <para>框架中<embeddedLabel>11</embeddedLabel>，源 DC，在此情况下，不能主动 DC 角色，因此尚未注册 E351 成员计算机…使用其当地的企业项目管理复制服务 UUID 响应符号错误 EP_S_NOT_REGISTERED 将映射到小数点错误 1753 年、十六进制错误 0x6d9 和友好错误"有可用的更多端点端点映射程序"。</para>
-      <para>成员计算机的 IP 地址 x.x.1.2 更高版本，获取作为 contoso.com 域中的"MayberryDC"副本进行升级。再次<ui>立即复制</ui>命令用于触发复制，但这一次失败，屏幕错误"目标主要名称是错误。"计算机它的网络适配器分配的 IP 地址 x.x.1.2<placeholder>是</placeholder>域控制器，当前正常模式启动，并且已注册 E351...复制服务 UUID 使用其当地的企业项目管理，但它不拥有 DC2 名称或安全身份，并且无法解密 DC1 Kerberos 请求，以便请求现在失败，错误"目标主要名称不对。"该错误映射到小数点错误-2146893022 / 十六进制 0x80090322 错误。</para>
-      <para>此类无效主机-TO-IP 映射可能导致过时中的项主机 / lmhost 文件主机 A / 中 DNS、WINS AAAA 登记。</para>
-      <para>摘要：本例失败，因为无效主机 TO-IP 映射（在本例中的主文件）导致目标 DC 解决到"源"没有 Active Directory 域服务的 DC 服务运行（或甚至是安装的问题）因此 SPN 未尚未注册的复制和 DC 返回错误 1753 年的来源。在第二个的情况下，无效主机 TO-IP 映射（再次主机文件）中的导致目标 DC 连接到已注册 E351...DC 复制 SPN，但该源比预期源 DC 了不同的主机名称和安全身份，因此尝试失败，错误-2146893022：目标主要名称不正确。</para>
+      <para>在帧<embeddedLabel>10</embeddedLabel>，目标 DC 通过端口 135 的 Active Directory 复制服务类 UUID E351 查询源 Dc 终结点映射程序... </para>
+      <para>在帧<embeddedLabel>11</embeddedLabel>，源 DC，在这种情况下不托管 DC 角色，因此尚未注册 E351 的成员计算机...复制服务使用其本地企业项目管理的 UUID 使用符号错误 EP_S_NOT_REGISTERED 映射到十进制错误 1753年、 十六进制错误 0x6d9 和友好的错误响应"没有更多终结点可从终结点映射程序"。</para>
+      <para>更高版本，具有 IP 地址 x.x.1.2 的成员计算机获取升级为 contoso.com 域中的"MayberryDC"的副本。 同样，<ui>立即复制副本</ui>命令用于触发复制，但这一次失败并且具有屏幕上错误"的目标主体名称不正确。" 计算机的网络适配器分配 IP 地址 x.x.1.2<placeholder>是</placeholder>是域控制器时，当前启动进入正常模式并注册了 E351...复制服务使用其本地企业项目管理，但它的 UUID 不拥有 DC2 的名称或安全标识，而且不能解密从 DC1 Kerberos 请求，因此请求现在会失败，错误"的目标主体名称不正确。" 错误映射到十进制错误-2146893022： 十六进制错误 0x80090322 /。 </para>
+      <para>此类无效的主机 IP 映射可能由主机中的过时条目 / lmhost 文件主机 A / AAAA DNS 或 WINS 中的注册。 </para>
+      <para>摘要：此示例中失败，因为 （在本例中为主机文件） 的无效主机 IP 映射导致目标 DC 来解析到"源"没有 Active Directory 域服务的 DC 服务正在运行 （或甚至安装就此而言） 因此复制不尚未注册 SPN，源 DC 返回错误 1753:。 在第二种情况下，（再次在主机文件中） 的无效主机 IP 映射导致目标 DC 连接到的 DC，必须注册 E351...复制 SPN，但该源有比预期的源 DC 不同的主机名和安全标识，因此这些尝试失败，出现错误-2146893022::目标主体名称不正确。</para>
     </content>
   </section>
   <relatedTopics>
     <externalLink>
-      <linkText>故障排除失败，错误 1753 年的 Active Directory 操作：没有可用端点映射程序的更多端点。</linkText>
-      <linkUri>https://support.microsoft.com/kb/2089874</linkUri>
-    </externalLink>
-<externalLink><linkText>知识库文章 839880 疑难解答 RPC 端点映射错误 Windows Server 2003 支持从使用工具产品 CD</linkText><linkUri>https://support.microsoft.com/kb/839880</linkUri></externalLink>
-<externalLink><linkText>知识库文章 832017 服务概述和网络端口 Windows Server 系统要求</linkText><linkUri>https://support.microsoft.com/kb/832017/</linkUri></externalLink>
-<externalLink><linkText>知识库文章 224196 限制 Active Directory 复制通信，客户端 RPC 通信到特定端口</linkText><linkUri>https://support.microsoft.com/kb/224196/</linkUri></externalLink>
-<externalLink><linkText>知识库文章 154596 如何配置一起 RPC 端口动态分配使用防火墙</linkText><linkUri>https://support.microsoft.com/kb/154596</linkUri></externalLink><externalLink><linkText>RPC 的工作原理</linkText><linkUri>https://msdn.microsoft.com/library/aa373935(VS.85).aspx</linkUri></externalLink><externalLink><linkText>如何服务器准备用于连接</linkText><linkUri>https://msdn.microsoft.com/library/aa373938(VS.85).aspx</linkUri></externalLink>
-<externalLink><linkText>如何客户端建立连接</linkText><linkUri>https://msdn.microsoft.com/library/aa373937(VS.85).aspx</linkUri></externalLink><externalLink><linkText>注册界面</linkText><linkUri>https://msdn.microsoft.com/library/aa375357(VS.85).aspx</linkUri></externalLink><externalLink><linkText>推出服务器网络上</linkText><linkUri>https://msdn.microsoft.com/library/aa373974(VS.85).aspx</linkUri></externalLink><externalLink><linkText>注册端点</linkText><linkUri>https://msdn.microsoft.com/library/aa375255(VS.85).aspx</linkUri></externalLink><externalLink><linkText>侦听客户端呼叫</linkText><linkUri>https://msdn.microsoft.com/library/aa373966(VS.85).aspx</linkUri></externalLink><externalLink><linkText>如何客户端建立连接</linkText><linkUri>https://msdn.microsoft.com/library/aa373937(VS.85).aspx</linkUri></externalLink><externalLink><linkText>限制 Active Directory 复制通信，客户端 RPC 通信到特定端口</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink><externalLink><linkText>目标 DC 广告 DS 中 SPN</linkText><linkUri>https://msdn.microsoft.com/library/dd207688(PROT.13).aspx</linkUri></externalLink></relatedTopics>
+      <linkText>故障排除 Active Directory 操作，因错误 1753年:提供的终结点映射程序没有更多的终结点。</linkText> 
+      <linkUri> https://support.microsoft.com/kb/2089874 </linkUri> 
+    </externalLink> 
+<externalLink> <linkText>KB 文章 839880 故障排除 RPC 端点映射程序错误，使用 Windows Server 2003 支持工具从产品 CD</linkText> <linkUri> https://support.microsoft.com/kb/839880 </linkUri> </externalLink> 
+<externalLink> <linkText>KB 文章 832017 服务概述和网络端口要求 Windows Server 系统</linkText><linkUri>https://support.microsoft.com/kb/832017/ </linkUri> </externalLink> 
+<externalLink> <linkText>KB 文章 224196 限制 Active Directory 复制流量和客户端 RPC 流量流向特定端口</linkText><linkUri> https://support.microsoft.com/kb/224196/ </linkUri> </externalLink> 
+<externalLink><linkText>知识库文章 154596 如何配置与防火墙一起使用的 RPC 动态端口分配</linkText><linkUri> https://support.microsoft.com/kb/154596 </linkUri> </externalLink> <externalLink> <linkText>RPC 的工作原理</linkText><linkUri>https://msdn.microsoft.com/library/aa373935(VS.85).aspx</linkUri></externalLink><externalLink><linkText>服务器用于为连接的准备</linkText><linkUri> https://msdn.microsoft.com/library/aa373938(VS.85).aspx </linkUri> </externalLink> 
+<externalLink><linkText>客户端如何建立的连接</linkText><linkUri> https://msdn.microsoft.com/library/aa373937(VS.85).aspx </linkUri> </externalLink><externalLink><linkText>注册界面</linkText><linkUri>https://msdn.microsoft.com/library/aa375357(VS.85).aspx</linkUri></externalLink><externalLink><linkText>从而使该服务器在网络上可用</linkText><linkUri>https://msdn.microsoft.com/library/aa373974(VS.85).aspx</linkUri></externalLink><externalLink><linkText>注册终结点</linkText><linkUri>https://msdn.microsoft.com/library/aa375255(VS.85).aspx </linkUri> </externalLink> <externalLink><linkText>侦听客户端调用</linkText><linkUri> https://msdn.microsoft.com/library/aa373966(VS.85).aspx </linkUri> </externalLink><externalLink><linkText>客户端如何建立的连接</linkText><linkUri>https://msdn.microsoft.com/library/aa373937(VS.85).aspx</linkUri></externalLink><externalLink><linkText>限制Active Directory 复制流量和客户端 RPC 流量到特定端口</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink><externalLink><linkText>对于在目标 DC 的 SPNAD DS</linkText><linkUri>https://msdn.microsoft.com/library/dd207688(PROT.13).aspx</linkUri></externalLink></relatedTopics>
 </developerConceptualDocument>
 
 

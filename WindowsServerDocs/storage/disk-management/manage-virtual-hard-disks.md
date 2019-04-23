@@ -1,6 +1,6 @@
 ---
-title: "管理虚拟硬盘 (VHD)"
-description: "本文介绍了如何管理虚拟硬盘"
+title: 管理虚拟硬盘 (VHD)
+description: 本文介绍了如何管理虚拟硬盘
 ms.date: 10/12/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 2e371710752d59ebc7a1f8aa2dad3d9189872c47
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827108"
 ---
 # <a name="manage-virtual-hard-disks-vhd"></a>管理虚拟硬盘 (VHD)
 
-> **适用于：**Windows 10、Windows 8.1、Windows Server（半年频道）、Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
+> **适用于：** Windows 10、 Windows 8.1、 Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
 
 本主题介绍了如何通过磁盘管理来创建、连接和断开虚拟硬盘。 虚拟硬盘 (VHD) 是虚拟化的硬盘文件，安装后，其外观和运行方式与物理硬盘大体相同。 它们最常与 Hyper-V 虚拟机配合使用。 
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 10/17/2017
 > [!NOTE]
 > 你至少必须是**备份操作员**或**管理员**组的成员才能完成这些步骤。
 
-**创建 VHD**
+**若要创建的 VHD**
 
 1.  在**操作**菜单上，选择**创建 VHD**。
 
@@ -45,11 +46,11 @@ ms.lasthandoff: 10/17/2017
 
 2. 使用完全限定的路径指定 VHD 的位置。
 
-若要断开 VHD 以使其不可用：请右键单击该磁盘，选择**断开 VHD**，然后单击**确定**。 断开 VHD 不会删除 VHD 或其中存储的任何数据。
+若要分离 VHD，使其不可用：右键单击该磁盘中，选择**分离 VHD**，然后单击**确定**。 断开 VHD 不会删除 VHD 或其中存储的任何数据。
 
 ## <a name="additional-considerations"></a>其他注意事项
 
--   用于指定 VHD 位置的路径必须是完全限定的路径，并且不能位于 \\Windows 目录中。
+-   为 VHD 必须完全限定，并且不能在指定位置的路径\\Windows 目录。
 -   VHD 的最小大小为 3 兆字节 (MB)。
 -   VHD 只能是基本磁盘。
 -   因为创建 VHD 时会初始化 VHD，所以创建大型固定大小的 VHD 可能需要一段时间。

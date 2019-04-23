@@ -1,6 +1,6 @@
 ---
-title: "委派 DFS 命名空间的管理权限"
-description: "本文介绍如何委派 DFS 命名空间的管理权限，以及哪些组可以默认执行命名空间任务"
+title: 委派 DFS 命名空间的管理权限
+description: 本文介绍如何委派 DFS 命名空间的管理权限，以及哪些组可以默认执行命名空间任务
 ms.date: 6/5/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -8,15 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e584b49639a83e4ab1da142a999741ae4ac7ff84
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 7895432ca16dd13c6425d966f99104fc03db100d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59829488"
 ---
 # <a name="delegate-management-permissions-for-dfs-namespaces"></a>委派 DFS 命名空间的管理权限
 
-> 适用于：Windows Server（半年频道）、Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2、Windows Server 2008
+> 适用于：Windows Server 2019，Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2、 Windows Server 2008
 
 下表介绍可以默认执行基本命名空间任务的组，以及委派能够执行这些任务的方法：
 
@@ -31,4 +32,4 @@ ms.lasthandoff: 10/17/2017
 
 <br />
 
-\*如果委派管理权限以管理独立命名空间，则用户无法使用**委派**选项卡查看和管理安全性，除非用户属于命名空间服务器上的本地管理员组。 之所以出现此问题，原因是 DFS 管理单元无法检索自定义访问控制列表 (DACL)，以从注册表中获得独立命名空间。 若要启用该管理单元以显示委派信息，必须按照 Microsoft<sup>®</sup> 知识库文章 [KB314837：如何管理对注册表的远程访问](http://go.microsoft.com/fwlink?linkid=46803)中的步骤操作
+\*委派管理权限以管理独立命名空间不会授予用户查看和管理通过使用安全的功能**委派**选项卡上，除非用户是本地 Administrators 组的成员上命名空间服务器。 之所以出现此问题，原因是 DFS 管理单元无法检索自定义访问控制列表 (DACL)，以从注册表中获得独立命名空间。 若要启用的管理单元以显示委派信息，必须按照 Microsoft 中的步骤<sup>®</sup>知识库文章：[KB314837:如何管理对注册表的远程访问](https://go.microsoft.com/fwlink?linkid=46803)
