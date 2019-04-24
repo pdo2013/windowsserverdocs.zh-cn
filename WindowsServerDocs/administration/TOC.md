@@ -13,9 +13,9 @@
 ### [使用服务器管理器管理本地系统](server-manager/server-manager.md)
 #### [管理本地服务器和服务器管理器控制台](server-manager/manage-the-local-server-and-the-server-manager-console.md)
 #### [在服务器管理器中配置远程管理](server-manager/configure-remote-management-in-server-manager.md)
-#### [Add Servers to Server Manager](server-manager/add-servers-to-server-manager.md)
+#### [将服务器添加到服务器管理器](server-manager/add-servers-to-server-manager.md)
 #### [安装或卸载角色、角色服务或功能](server-manager/install-or-uninstall-roles-role-services-or-features.md)
-##### [Configure Features on Demand in Windows Server](server-manager/configure-features-on-demand-in-windows-server.md)
+##### [配置 Windows Server 中的按需功能](server-manager/configure-features-on-demand-in-windows-server.md)
 #### [查看和配置性能、事件和服务数据](server-manager/view-and-configure-performance-event-and-service-data.md)
 #### [查看任务详细信息和通知](server-manager/view-task-details-and-notifications.md)
 #### [运行最佳做法分析器扫描并管理扫描结果](server-manager/run-best-practices-analyzer-scans-and-manage-scan-results.md)
@@ -63,9 +63,9 @@
 #### [管理用户访问日志记录](user-access-logging/manage-user-access-logging.md)
 
 ## 优化 Windows Server 性能
-### [PerformanceTuningGuidelines](performance-tuning/index.md) 
+### [性能优化指南](performance-tuning/index.md) 
 ### [Microsoft Server Performance Advisor](server-performance-advisor/microsoft-server-performance-advisor.md)
-#### [Server Performance Advisor 用户指南](server-performance-advisor/server-performance-advisor-users-guide.md)
+#### [erver Performance Advisor 用户指南](server-performance-advisor/server-performance-advisor-users-guide.md)
 #### [Server Performance Advisor 包开发指南](server-performance-advisor/server-performance-advisor-pack-development-guide.md)
 
 ## 自动管理 Windows Server

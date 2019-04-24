@@ -1,0 +1,50 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: 超融合基础设施文档
+metadata:
+  document_id: null
+  title: 超融合基础设施文档
+  description: 超融合基础设施文档
+  text: 将软件定义的计算、存储和网络资源合并到单个群集中来提供高性能、经济高效且易于缩放的虚拟化
+  keywords: 'Windows Server, Windows Server 2016, hyper-v, sdn, 存储空间直通, wssd'
+  ms.localizationpriority: high
+  author: coreyp-at-msft
+  ms.author: coreyp
+  ms.topic: article
+  ms.devlang: na
+sections:
+  - title: null
+  - items:
+      - type: markdown
+        text: 将软件定义的计算、存储和网络资源合并到单个群集中来提供高性能、经济高效且易于缩放的虚拟化。
+  - items:
+      - type: list
+        style: cards
+        className: cardsI
+        columns: 2
+        items:
+          - href: ../virtualization/hyper-v/index.md
+            html: <p>对服务器硬件进行虚拟化，使你能够在超融合群集中的服务器上运行虚拟机</p>
+            image:
+              src: ../media/i-virtualize.svg
+            title: Hyper-V
+          - href: ../storage/storage-spaces/storage-spaces-direct-overview.md
+            html: <p>对存储硬件进行虚拟化，使你能够基于超聚合群集中的服务器中分布的虚拟驱动器池创建卷。</p>
+            image:
+              src: ../media/i-store.svg
+            title: 存储空间直通
+          - href: ../failover-clustering/failover-clustering-overview.md
+            html: <p>将多个服务器组合在一起，以便工作负荷（例如虚拟机）可以在群集中的任何服务器上运行，实现负载均衡以及正常在服务器之间进行故障转移。</p>
+            image:
+              src: ../media/i-cluster.svg
+            title: 故障转移群集
+          - href: 'https://docs.microsoft.com/windows-server/networking/sdn/'
+            html: <p>对网络硬件进行虚拟化，使你能够动态创建和管理对来自基础物理网络的工作负荷进行抽象的网络和策略。</p>
+            image:
+              src: ../media/i-network.svg
+            title: 软件定义的网络
+          - href: 'https://www.microsoft.com/cloud-platform/software-defined-datacenter'
+            html: <p>将 Windows Server 虚拟化和群集技术与你选择的合作伙伴提供的经过验证的硬件解决方案进行配对，帮助你避免在对软件定义的数据中心进行调整时凭猜测行事。</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_data-collection.svg'
+            title: Windows Server 软件定义的 (WSSD)

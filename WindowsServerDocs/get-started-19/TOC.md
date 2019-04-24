@@ -9,7 +9,7 @@
 ## [Windows Server 2019 和 Microsoft 服务器应用程序兼容性](app-compat-19.md)
 ## [服务器核心应用兼容性按需功能 (FOD)](install-fod-19.md)
 ## [标准 | Datacenter Edition 比较](editions-comparison-19.md)
-## [从 Windows Server 2019 开始的删除或计划替换的功能](removed-features-19.md)
+## [从 Windows Server 2019 起已删除或计划替换的功能](removed-features-19.md)
 
 
 

@@ -3,7 +3,4 @@
 ## [存储空间直通](../storage/storage-spaces/storage-spaces-direct-overview.md)
 ## [故障转移群集](../failover-clustering/failover-clustering-overview.md)
 ## [软件定义的网络](https://docs.microsoft.com/windows-server/networking/sdn/)
-## [Windows Admin Center](../manage/windows-admin-center/overview.md)
-## [连接到 Azure](../azure-hybrid-services/index.md)
-## [Azure Stack HCI](../azure-stack-hci/index.md)
-## [Windows Server 软件定义 (WSSD)](https://www.microsoft.com/en-us/cloud-platform/software-defined-datacenter)
+## [Windows Server 软件定义的 (WSSD)](https://www.microsoft.com/en-us/cloud-platform/software-defined-datacenter)

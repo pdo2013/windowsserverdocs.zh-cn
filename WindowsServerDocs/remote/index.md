@@ -1,5 +1,5 @@
 ---
-title: 远程
+title: 遥控器
 description: 有关利用远程访问和服务器管理的指南
 ms.prod: windows-server-threshold
 layout: LandingPage
@@ -10,16 +10,16 @@ ms.author: coreyp
 manager: dougkim
 ms.localizationpriority: high
 ms.openlocfilehash: e714f7d296a85ee9b3aad71230e62ac2c1673138
-ms.sourcegitcommit: 23e0a68e21985d709e029e7771d3c52d6815bcb4
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "6507723"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59891448"
 ---
-# 远程
+# <a name="remote"></a>遥控器
 
 >[!TIP]
-> 要查找有关较旧版 Windows Server 的信息？ 在 docs.microsoft.com 上查看我们的其他 [Windows Server 库](/previous-versions/windows/)。 你还可以[搜索此站点](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions)了解具体信息。
+> 要查找有关较旧版 Windows Server 的信息？ 在 docs.microsoft.com 上查看我们的其他 [Windows Server 库](/previous-versions/windows/)。 也可以[搜索此站点](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions)了解具体信息。
 
 
 <hr />
@@ -38,7 +38,7 @@ ms.locfileid: "6507723"
                                         </div>
                                         <div class="cardText">
                                             <h3>远程桌面服务</h3><hr />
-                                            <p>使用远程桌面服务，用户可以访问安装在远程桌面会话主机（RDSession 主机）服务器上的基于 Windows 的程序，也可以访问完整的 Windows 桌面。 通过远程桌面服务，用户可以从企业网络内部或 Internet 访问 RDSession 主机服务器。</p>
+                                            <p>使用远程桌面服务，用户可以访问安装在远程桌面会话主机（RD 会话主机）服务器上的基于 Windows 的程序，也可以访问完整的 Windows 桌面。 通过远程桌面服务，用户可以从企业网络内部或 Internet 访问 RD 会话主机服务器。</p>
                                         </div>
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@ ms.locfileid: "6507723"
                                         </div>
                                         <div class="cardText">
                                             <h3>远程访问</h3><hr />
-                                            <p>远程访问服务器角色包括 DirectAccess 和虚拟专用网 (VPN)、局域网 (LAN) 路由以及 Web 应用程序代理。 RAS 允许你为远程员工提供网络连接，提供站点到站点的 VPN，用于通过 Internet 和 RAS 网关连接远程机构位置，该网关为企业和云服务提供商 (CSP) 提供多租户和边界网关协议 (BGP) 功能。</p>
+                                            <p>远程访问服务器角色包括 DirectAccess 和虚拟专用网络 (VPN)、局域网 (LAN) 路由，以及 Web 应用程序代理。 RAS 允许与远程员工进行网络连接，提供站点到站点的 VPN 用于通过 Internet 连接远程机构位置，为企业和云服务提供商 (CSP) 提供支持边界网关协议 (BGP) 的多租户 RAS 网关。</p>
                                         </div>
                                     </div>
                                 </div>
@@ -92,7 +92,7 @@ ms.locfileid: "6507723"
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Multipoint 服务</h3><hr />
+                                            <h3>MultiPoint 服务</h3><hr />
                                             <p>这篇博客文章讨论了如何使用 Microsoft 技术保护你的数据中心和云投资免受新兴威胁。  </p>
                                         </div>
                                     </div>
