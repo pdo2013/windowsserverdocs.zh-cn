@@ -11,7 +11,7 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: ed2ff7bfa0cc3b27506b1ca324e819860eef314c
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59890418"
@@ -76,7 +76,7 @@ ms.locfileid: "59890418"
 > 撰写本文时，Microsoft Security Compliance Manager 不包括设置特定于跳转服务器或其他安全管理主机，但 Security Compliance Manager (SCM) 仍可用于创建为你管理的初始基线主机的主机。 但是，若要正确保护的主机，应该应用其他安全设置适用于高度安全的工作站和服务器。  
   
 ### <a name="applocker"></a>AppLocker  
-使用脚本、 工具和应用程序白名单通过 AppLocker 或第三方应用程序限制软件配置管理主机和虚拟 machinesshould。 任何管理应用程序或实用程序，不符合保护设置应升级或替换为要遵循的安全开发和管理做法的工具。 当新的或其他工具需要管理的主机上时，应全面测试应用程序和实用程序，以及是否适用于管理主机上的部署工具，它可以添加到系统的白名单。  
+使用脚本、 工具和应用程序允许列表通过 AppLocker 或第三方应用程序限制软件配置管理主机和虚拟 machinesshould。 任何管理应用程序或实用程序，不符合保护设置应升级或替换为要遵循的安全开发和管理做法的工具。 当新的或其他工具需要管理的主机上时，应全面测试应用程序和实用程序，以及是否适用于管理主机上的部署工具，它可以添加到系统的允许列表。  
   
 ### <a name="rdp-restrictions"></a>RDP 限制  
 特定的配置将会有所不同，具体取决于管理系统的体系结构，但应包含的帐户和计算机可用于建立远程桌面协议 (RDP) 连接到托管系统的限制例如，使用远程桌面网关 （RD 网关） 跳转服务器来控制对域控制器的访问和经过授权的用户和系统中其他托管的系统。  

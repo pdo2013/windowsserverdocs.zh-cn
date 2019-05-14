@@ -9,7 +9,7 @@ ms.localizationpriority: medium
 ms.date: 02/20/2018
 ms.openlocfilehash: 08229e458d0aa0c8e8397f0f053f37a207a1aea5
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59885598"
@@ -71,7 +71,7 @@ ms.locfileid: "59885598"
 | 任务栏                            | 不可用   | 有空                      |
 | 任务栏通知              | 不可用   | 有空                      |
 | 任务管理器                            | 有空       | 有空                      |
-| Internet Explorer 或 Edge          | 不可用   | 有空                      |
+| Internet Explorer 或 Microsoft Edge          | 不可用   | 有空                      |
 | 内置帮助系统               | 不可用   | 有空                      |
 | Windows 10 Shell                   | 不可用   | 有空                      |
 | Windows Media Player               | 不可用   | 有空                      |

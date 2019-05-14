@@ -15,7 +15,7 @@ manager: dongill
 ms.author: elizapo
 ms.openlocfilehash: 07490e34517ec607070e2cb3014367d103b8d938
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59856028"
@@ -27,7 +27,7 @@ ms.locfileid: "59856028"
   
 1.  在工作站模式下打开 MultiPoint Manager，然后单击**主页**选项卡。  
   
-2.  下*计算机名***任务**，单击**添加或删除 MultiPoint server**。 **添加或删除 MultiPoint Server**屏幕启动并开始发现可以使用 MultiPoint 管理器管理的本地网络子网上的其他服务器。  
+2.  下*计算机名* **任务**，单击**添加或删除 MultiPoint server**。 **添加或删除 MultiPoint Server**屏幕启动并开始发现可以使用 MultiPoint 管理器管理的本地网络子网上的其他服务器。  
   
 3.  执行下列操作之一：  
   

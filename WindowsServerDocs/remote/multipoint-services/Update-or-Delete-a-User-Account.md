@@ -15,7 +15,7 @@ manager: dongill
 ms.author: elizapo
 ms.openlocfilehash: 4b8631af3278daaf1ee005616e7922ee7febeacf
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59857308"
@@ -27,7 +27,7 @@ ms.locfileid: "59857308"
   
 2.  在“用户”列中，单击要修改的帐户。  
   
-3.  下*用户名***任务**，单击相应的任务。  
+3.  下*用户名* **任务**，单击相应的任务。  
   
     |所选的项目任务|描述|  
     |----------------------|---------------|  

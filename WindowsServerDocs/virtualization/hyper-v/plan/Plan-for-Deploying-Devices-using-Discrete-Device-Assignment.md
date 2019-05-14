@@ -11,7 +11,7 @@ ms.author: chrihu
 ms.date: 02/06/2018
 ms.openlocfilehash: c64c2b75c00f97622278c3e590db46995e108218
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59840198"
@@ -99,7 +99,7 @@ Set-VM -HighMemoryMappedIoSpace 33280Mb -VMName $vm
 - 确保最新 GPU 供应商的驱动程序已安装并且未通过检查设备状态在设备管理器进行报告错误。
 - 请确保该设备具有足够[MMIO 空间](#mmio-space)VM 中为其分配。
 - 请确保你使用的供应商支持正在使用此配置中的 GPU。 例如，某些供应商阻止其使用者卡工作时向 VM 传递。
-- 请确保 VM 内运行的支持和 GPU 和其关联的驱动程序支持应用程序正在运行的应用程序。 某些应用程序具有 Gpu 和环境的白名单。
+- 请确保 VM 内运行的支持和 GPU 和其关联的驱动程序支持应用程序正在运行的应用程序。 某些应用程序具有 Gpu 和环境的允许列表。
 - 如果在来宾上使用远程桌面会话主机角色或 Windows Multipoint 服务，需要确保特定的组策略条目设置为允许使用 GPU 的默认值。 使用组策略对象应用于在来宾 （或本地组策略编辑器在来宾机器上），导航到以下组策略项：
    - “计算机配置”
    - 管理员模板

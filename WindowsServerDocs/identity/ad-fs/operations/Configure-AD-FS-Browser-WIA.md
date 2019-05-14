@@ -11,7 +11,7 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: f71680bb721635bd37197dca9d3ae4726099525f
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59845478"
@@ -20,7 +20,7 @@ ms.locfileid: "59845478"
 
 默认情况下，Active Directory 联合身份验证服务 (AD FS) 在 Windows Server 2012 R2 中的组织的内部网络 (intranet) 内发生的任何应用程序使用的身份验证请求中启用 Windows 集成身份验证 (WIA)其身份验证的浏览器。
 
-AD FS 2016 现在具有允许 Edge 浏览器也不还 （错误地） 捕获的 Windows Phone 的同时执行 WIA 的改进了的默认设置：
+AD FS 2016 现在具有允许 Microsoft Edge 浏览器也不还 （错误地） 捕获的 Windows Phone 的同时执行 WIA 的改进了的默认设置：
 
     =~Windows\s*NT.*Edge
 

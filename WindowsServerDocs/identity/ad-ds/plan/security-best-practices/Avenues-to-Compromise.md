@@ -11,7 +11,7 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 916bffd4f83e5c72816035542772342010e1a67c
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59874478"
@@ -46,7 +46,7 @@ IT 文档、 流程和过程的分析识别漏洞引入已利用的攻击者能�
 ## <a name="initial-breach-targets"></a>初始违反目标  
 没有人有意生成公开要破坏的组织的 IT 基础结构。 第一次构造的 Active Directory 林，通常是原始的和当前。 在年传递和获取新的操作系统和应用程序时，它们添加到该林。 识别的 Active Directory 提供了可管理性优势，因为越来越多的内容添加到目录、 更多的人将其计算机或应用程序集成与 AD DS 和域升级为支持提供的最新功能当前版本的 Windows 操作系统。 但是，什么也随着时间推移，恰好是，即使在添加新的基础结构，可能不好它们最初是维护基础结构的其他部分、 系统和应用程序运行正常并因此不会接收注意和组织开始忘记它们不消除了其旧的基础结构。 根据我们在评估遭到入侵的基础结构，显示较旧、 更大、 更复杂环境，更有可能是有大量实例通常可利用的漏洞。  
   
-而不考虑攻击者的动机，大多数信息安全漏洞一次启动一个或两个系统的危害。 这些初始事件或在网络中，入口点通常利用漏洞无法得到了修复，但不是。 [2012年数据违反调查报表 (DBIR)](http://www.verizonbusiness.com/resources/reports/rp_data-breach-investigations-report-2012_en_xg.pdf)，这是生成由 Verizon 风险团队在与许多国家安全机构和其他公司协作中的年度研究，指出"不是 96%的攻击难度高，"，并且"97%的漏洞已能够避免通过简单或中间的控制。" 这些结果可能会遵循通常可利用的漏洞的直接结果。  
+而不考虑攻击者的动机，大多数信息安全漏洞一次启动一个或两个系统的危害。 这些初始事件或在网络中，入口点通常利用漏洞无法得到了修复，但不是。 [2012年数据违反调查报表 (DBIR)](http://www.verizonbusiness.com/resources/reports/rp_data-breach-investigations-report-2012_en_xg.pdf)，这是生成由 Verizon 风险团队在与许多国家/地区安全机构和其他公司协作中的年度研究，指出"不是 96%的攻击难度高，"，并且"97%的漏洞已能够避免通过简单或中间的控制。" 这些结果可能会遵循通常可利用的漏洞的直接结果。  
   
 ### <a name="gaps-in-antivirus-and-antimalware-deployments"></a>在防病毒和反恶意软件部署中的缺口  
 *法律数字八个：过时的恶意软件扫描程序在所有才略微优于任何扫描程序。* - [十个永恒定律的安全 （版本 2.0）](https://technet.microsoft.com/security/hh278941.aspx)  
