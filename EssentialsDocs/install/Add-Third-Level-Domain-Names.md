@@ -14,7 +14,7 @@ ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 64bf24e45155fdd981e2061b3de7ebce1c53b36c
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59833318"
@@ -534,7 +534,7 @@ ms.locfileid: "59833318"
   
 3.  右键单击 **“Providers”**，指向 **“新建”**，然后单击 **“项”**。  
   
-4.  输入提供程序的标识符，用作该项的名称。 该标识符是你在 [Add an implementation of the IDomainSignupProvider interface to the assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainSignup)的步骤 8 中为提供程序定义的 GUID。  
+4.  输入提供程序的标识符，用作该项的名称。 该标识符是你在 [向程序集添加 IDomainSignupProvider 接口的实现](Add-Third-Level-Domain-Names.md#BKMK_DomainSignup)的步骤 8 中为提供程序定义的 GUID。  
   
 5.  右键单击刚刚创建的项，然后单击 **“字符串值”**。  
   

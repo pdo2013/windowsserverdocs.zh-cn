@@ -11,7 +11,7 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: e3b44dbc1c869680db91f5e9732a50504d80e7b8
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59877498"
@@ -27,7 +27,7 @@ ms.locfileid: "59877498"
   
 1. 验证目标服务器是否满足 [系统要求](https://technet.microsoft.com/library/dn303418.aspx)。  
 2. 验证 [Application compatibility](../../ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md#BKMK_AppCompat)。  
-3. 验证安全设置。 有关详细信息，请参阅 与 Windows Server 2012 中 AD DS 有关的弃用功能及行为变化 和 Secure default settings in Windows Server 2008 和 Windows Server 2008 R2。  
+3. 验证安全设置。 有关详细信息，请参阅 [与 Windows Server 2012 中 AD DS 有关的弃用功能及行为变化](../../ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md#BKMK_DeprecatedFeatures) 和 [Secure default settings in Windows Server 2008 和 Windows Server 2008 R2](https://technet.microsoft.com/library/upgrade-domain-controllers-to-windows-server-2008-r2(WS.10).aspx#BKMK_SecureDefault)。  
 4. 从计划运行安装的计算机上检查与目标服务器的连接性。  
 5. 检查所需操作主机角色的可用性：  
 
