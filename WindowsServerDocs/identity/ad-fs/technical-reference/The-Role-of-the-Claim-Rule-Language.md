@@ -11,7 +11,7 @@ ms.assetid: dda9d148-d72f-4bff-aa2a-f2249fa47e4c
 ms.technology: identity-adfs
 ms.openlocfilehash: 05728f04f6fb924cf3793bc843df3832c7c383f7
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59855688"
@@ -75,7 +75,7 @@ AD FS 还提供了一组预定义的声明发出和声明接受规则模板，�
   
 |条件说明|条件语法示例|  
 |-------------------------|----------------------------|  
-|此规则具有一个条件，用于检查两个输入声明，每个都具有指定的声明类型 ("http://test/name"和"http://test/email")。 如果两个匹配声明位于输入声明中，则规则会将名称声明复制到输出声明集。|``` c1: [type  == "http://test/name"] && c2: [type == "http://test/email"] => issue (claim  = c1 );```|  
+|此规则具有一个条件，用于检查两个输入声明，每个都具有指定的声明类型 ("http://test/name" 和 "http://test/email")。 如果两个匹配声明位于输入声明中，则规则会将名称声明复制到输出声明集。|``` c1: [type  == "http://test/name"] && c2: [type == "http://test/email"] => issue (claim  = c1 );```|  
   
 #### <a name="regular--condition-examples"></a>正则-条件示例  
 下表提供了正则，表达式的一个示例-基于条件。  

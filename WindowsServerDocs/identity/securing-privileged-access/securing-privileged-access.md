@@ -11,7 +11,7 @@ manager: daveba
 ms.reviewer: mas
 ms.openlocfilehash: 0d54a94d51a4d1e0a1d28f78ec39bf16bc3d9100
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59822008"
@@ -149,7 +149,7 @@ Microsoft 建议按照此路线图来保护特许访问权限免受顽固攻击�
 
 ### <a name="1-review-role-based-access-control"></a>1.查看基于角色的访问控制
 
-使用三个分层的模型一文所述[Active Directory 管理层模型](securing-privileged-access-reference-material.md)，查看并确保较低层管理员没有管理访问权限较高层资源 （组成员身份上的 Acl用户帐户，等等。...)。
+使用三个分层的模型一文所述[Active Directory 管理层模型](securing-privileged-access-reference-material.md)，查看并确保较低层管理员没有管理访问权限较高层资源 （组成员身份上的 Acl用户帐户，等等...)。
 
 ### <a name="2-reduce-attack-surfaces"></a>2.减少攻击面
 
