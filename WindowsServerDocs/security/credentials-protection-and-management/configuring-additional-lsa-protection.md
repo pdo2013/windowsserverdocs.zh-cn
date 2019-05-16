@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: bd5863a46f77fd4ac53c8559ff17279271dc5c46
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59849688"
@@ -73,7 +73,7 @@ LSA 包含本地安全机构服务器服务 (LSASS) 进程，可以验证用户�
 
 1.  打开注册表编辑器 (RegEdit.exe)，然后导航到位于以下位置的注册表项：HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LSASS.exe。
 
-2.  将该注册表项的值设置为 **AuditLevel=dword:00000008**.。
+2.  将该注册表项的值设置为 **AuditLevel=dword:00000008**。
 
 3.  重新启动计算机。
 
