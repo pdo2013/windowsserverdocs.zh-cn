@@ -12,7 +12,7 @@ author: KBDAzure
 ms.date: 8/16/2016
 ms.openlocfilehash: fbb1ef5283f6ccf8dfa355a09a86040be80f53e9
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59844228"
@@ -21,7 +21,7 @@ ms.locfileid: "59844228"
 
 >适用于：Windows Server 2016
 
-有关最佳实践和扫描的详细信息，请参阅 最佳实践分析程序。  
+有关最佳实践和扫描的详细信息，请参阅 [最佳实践分析程序](https://go.microsoft.com/fwlink/?LinkId=122786)。  
   
 |属性|详细信息|  
 |-|-|  

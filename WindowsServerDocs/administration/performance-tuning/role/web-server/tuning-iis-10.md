@@ -9,7 +9,7 @@ author: phstee
 ms.date: 10/16/2017
 ms.openlocfilehash: 16ea5c857d99e8a69f528e81178911236341dbb8
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59869848"
@@ -339,7 +339,7 @@ IIS 10.0 具有已分解为多个用户可扩展的模块以支持模块化结�
 |6|/ SourceSilverLight/Geosource.web/GeoSearchServer...¦.|11:50|1:27|
 |7|/rest/Services/CachedServices/Silverlight_load_la...¦|12:50|1:00|
 |8|/rest/Services/CachedServices/Silverlight_basemap...¦.|12:51|0:01|
-|9|/ rest/Services/DynamicService/Silverlight_basemap......。|12:59|0:08|
+|9|/ rest/Services/DynamicService/Silverlight_basemap...¦.|12:59|0:08|
 |10|/rest/Services/CachedServices/Ortho_2004_cache.as...|13:40|0:41|
 |11|/rest/Services/CachedServices/Ortho_2005_cache.js|13:40|0:00|
 |12|/rest/Services/CachedServices/OrthoBaseEngine.aspx|13:41|0:01|

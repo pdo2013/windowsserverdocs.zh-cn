@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 1f22578cc54a22464fe5d9208731fe681be30481
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59832978"
@@ -26,7 +26,7 @@ ms.locfileid: "59832978"
 
 在 Windows Server 中，服务器管理器可用于管理本地服务器 （如果您运行服务器管理器在 Windows 服务器上，而不是在基于 Windows 的客户端操作系统） 和运行 Windows Server 2008 和 Windows 的较新版本的远程服务器服务器操作系统。
 
-**本地服务器**页在服务器管理器将显示服务器属性、 事件、 服务和性能计数器数据，以及最佳做法分析器 (BPA) 结果针对本地服务器。 事件、服务、BPA 和性能磁贴的功能与它们在角色和服务器组页面的功能相同。 有关配置这些磁贴中显示的数据的详细信息，请参阅 [View 和 Configure Performance, Event, 和 Service Data 和 [Run Best Practices Analyzer Scans 和 Manage Scan Results。
+**本地服务器**页在服务器管理器将显示服务器属性、 事件、 服务和性能计数器数据，以及最佳做法分析器 (BPA) 结果针对本地服务器。 事件、服务、BPA 和性能磁贴的功能与它们在角色和服务器组页面的功能相同。 有关配置这些磁贴所显示数据的详细信息，请参阅[查看和配置性能、事件和服务数据](view-and-configure-performance-event-and-service-data.md)和[运行最佳做法分析器扫描并管理扫描结果](run-best-practices-analyzer-scans-and-manage-scan-results.md)。
 
 菜单命令和在服务器管理器控制台标题栏中的设置对服务器池中的所有服务器执行全局都应用，让你使用服务器管理器来管理整个服务器池。
 
@@ -104,7 +104,7 @@ ms.locfileid: "59832978"
 为远程桌面服务、 IP 地址管理以及文件和存储服务角色主页在服务器管理器中显示的数据不会自动刷新。 刷新数据显示在这些页中手动，通过按**F5**或单击**刷新**在服务器管理器控制台标题，而你位于这些页面上。
 
 ### <a name="add-or-remove-roles-or-features"></a>添加或删除角色或功能
-打开添加角色和功能向导和删除角色和功能向导，并让您中添加或删除角色、 角色服务和功能的服务器到服务器池的命令**管理**的服务器管理器菜单控制台中，并**任务**菜单**角色和功能**角色或组页上磁贴。 有关如何添加或删除角色或功能的详细信息，请参阅 [Install or Uninstall Roles, Role Services, or Features](install-or-uninstall-roles-role-services-or-features.md)。
+打开添加角色和功能向导和删除角色和功能向导，并让您中添加或删除角色、 角色服务和功能的服务器到服务器池的命令**管理**的服务器管理器菜单控制台中，并**任务**菜单**角色和功能**角色或组页上磁贴。 有关如何添加或删除角色或功能的详细信息，请参阅[安装或卸载角色、 角色服务或功能](install-or-uninstall-roles-role-services-or-features.md)。
 
 在服务器管理器中，角色和功能的数据显示在系统中，也称为系统默认 GUI 语言或在操作系统安装过程中选择的语言的基本语言。
 

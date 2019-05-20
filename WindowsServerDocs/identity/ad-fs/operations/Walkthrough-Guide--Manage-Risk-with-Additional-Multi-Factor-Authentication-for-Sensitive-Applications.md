@@ -11,7 +11,7 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 414f37e86f0072863e5fa2f107c39e5518e560ec
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59860858"
@@ -245,7 +245,7 @@ ms.locfileid: "59860858"
 
     如果为附加身份验证方法配置证书身份验证，则默认消息文本是**选择你想要用于身份验证的证书。如果取消该操作，请关闭浏览器，然后重试。**
 
-    如果已将 Windows Azure 多重身份验证配置为附加身份验证方法，则默认消息文本将是“将呼叫您的电话以完成您的身份验证。” 有关使用 Windows Azure Multi-Factor Authentication 登录及使用不同选项完成首选验证方法的详细信息，请参阅 Windows Azure Multi-Factor Authentication 概述。
+    如果已将 Windows Azure 多重身份验证配置为附加身份验证方法，则默认消息文本将是“将呼叫您的电话以完成您的身份验证。” 有关使用 Windows Azure Multi-Factor Authentication 登录及使用不同选项完成首选验证方法的详细信息，请参阅 [Windows Azure Multi-Factor Authentication 概述](https://technet.microsoft.com/library/dn249479.aspx)。
 
 ## <a name="see-also"></a>请参阅
 [管理敏感应用程序使用的附加多重身份验证的风险](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
