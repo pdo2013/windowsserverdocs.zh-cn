@@ -6,17 +6,17 @@ ms.technology: storage-failover-clustering
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 2fcc6047a0e85170754d8f05d10f728a4c529049
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 454783a13b834ef705bd896155195750de2b183c
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871958"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64772713"
 ---
 # <a name="configuring-cluster-accounts-in-active-directory"></a>在 Active Directory 中配置群集帐户
 
 
-适用于：Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2 和 Windows Server 2008
+适用于：Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2 和 Windows Server 2008
 
 在 Windows Server 中，在创建故障转移群集和配置群集的服务或应用程序，故障转移群集向导创建必要的 Active Directory 计算机帐户 （也称为计算机对象） 并为他们授予特定权限。 在向导创建的例外是 HYPER-V 虚拟机 （此帐户也称为群集名称对象或 CNO） 的计算机帐户用于群集自身和大多数类型的群集的服务和应用程序的计算机帐户。 通过故障转移群集向导自动设置这些帐户的权限。 如果权限更改，它们将需要更改回以满足群集要求。 此指南介绍了这些 Active Directory 帐户和权限、 提供有关背景，为什么很重要，并介绍了用于配置和管理帐户的步骤。
       
@@ -113,7 +113,7 @@ ms.locfileid: "59871958"
 
 ### <a name="planning-ahead-for-password-resets-and-other-account-maintenance"></a>提前规划重置密码和其他帐户维护
 
-故障转移群集的管理员有时可能需要重置群集名称帐户的密码。 此操作需要特定权限**重置密码**权限。 因此，它是最佳做法 （通过使用 Active Directory 用户和计算机管理单元中） 编辑群集名称帐户的权限以使群集的管理员**重置密码**群集的权限帐户名称。 有关详细信息，请参阅[名称帐户的步骤进行故障排除与群集的密码问题](#steps_for_troubleshooting_password_problems_with_the_cluster_name_account)，本指南中更高版本。
+故障转移群集的管理员有时可能需要重置群集名称帐户的密码。 此操作需要特定权限**重置密码**权限。 因此，它是最佳做法 （通过使用 Active Directory 用户和计算机管理单元中） 编辑群集名称帐户的权限以使群集的管理员**重置密码**群集的权限帐户名称。 有关详细信息，请参阅[名称帐户的步骤进行故障排除与群集的密码问题](#steps-for-troubleshooting-password-problems-with-the-cluster-name-account)，本指南中更高版本。
 
 ## <a name="steps-for-configuring-the-account-for-the-person-who-installs-the-cluster"></a>安装此群集的人员配置帐户的步骤
 

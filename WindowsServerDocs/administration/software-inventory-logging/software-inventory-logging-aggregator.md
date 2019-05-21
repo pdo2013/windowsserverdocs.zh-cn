@@ -262,7 +262,7 @@ SIL 和 SIL 聚合器依靠 SSL 证书进行经过身份验证的通信。 此�
         -   这将告知 Windows Server 中的 SIL 在何处发送清单数据以及使用哪个证书进行身份验证。
 
             > [!IMPORTANT]
-            > 请确保“https://”在 TargetUri 值中。
+            > 请确保 “https://” 在 TargetUri 值中。
 
         -   具有此指纹的企业客户端证书需要安装在 **\localmachine\MY** 中或使用 **certmgr.msc** 将证书安装在“本地计算机”->“个人”存储中。
 
