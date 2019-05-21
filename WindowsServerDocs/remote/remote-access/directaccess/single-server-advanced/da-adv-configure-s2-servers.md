@@ -15,7 +15,7 @@ ms.author: pashort
 author: shortpatti
 ms.openlocfilehash: 0d51ac71fa2fbe4d0bb7121a9ef511524c47f4f4
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59826608"
@@ -57,7 +57,7 @@ ms.locfileid: "59826608"
   
 6.  在“安装进度”页上，确认安装是否已成功，然后单击“关闭”。  
   
-![成功安装进度](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![成功安装进度](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)****Windows PowerShell 等效命令****  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   

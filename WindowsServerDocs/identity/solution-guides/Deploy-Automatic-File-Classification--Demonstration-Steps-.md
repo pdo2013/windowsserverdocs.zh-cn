@@ -11,7 +11,7 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 77fb8cc6e13cb82e4d07808c3ae77757a4b2de79
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59826778"
@@ -56,7 +56,7 @@ ms.locfileid: "59826778"
   
 5.  右键单击“个人身份信息”，然后单击“启用”。  
   
-![解决方案指南](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![解决方案指南](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)****Windows PowerShell 等效命令****  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -107,7 +107,7 @@ Set-ADResourceProperty '"Enabled:$true '"Identity:'CN=PII_MS,CN=Resource Propert
   
 13. 在“评估类型”选项卡上，选中“重新评估现有属性值”复选框，再单击“覆盖现有值”，然后单击“确定”。  
   
-![解决方案指南](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![解决方案指南](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)****Windows PowerShell 等效命令****  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -155,7 +155,7 @@ New-FSRMClassificationRule -Name 'Contoso Confidential' -Property "Impact_MS" -P
   
 12. 在“评估类型”选项卡上，选中“重新评估现有属性值”复选框，再单击“覆盖现有值”，然后单击“确定”。  
   
-![解决方案指南](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![解决方案指南](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)****Windows PowerShell 等效命令****  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   

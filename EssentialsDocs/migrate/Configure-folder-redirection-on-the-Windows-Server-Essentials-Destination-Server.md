@@ -14,7 +14,7 @@ ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 7cc1207f36d3a921b49cc3ecd02acf3fe4fa243c
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59827368"
@@ -31,7 +31,7 @@ ms.locfileid: "59827368"
   
 1.  在目标服务器上，打开“组策略管理”管理工具。  
   
-2.  在中**组策略管理**，展开 **林: * * * YourNetworkDomainName*，展开**域**，展开*YourNetworkDomainName*然后展开**组策略对象**。  
+2.  在中**组策略管理**，展开 **林:***YourNetworkDomainName*，展开 **域**，展开 *YourNetworkDomainName* 然后展开 **组策略对象** 。  
   
 3.  右键单击“SBS 组策略文件夹重定向” ，然后单击“删除” 。  
   

@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 5cd84269a5ac1a85d4b6cf359cc97f478a500c4f
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59825978"
@@ -32,7 +32,7 @@ arp [/a [<Inetaddr>] [/n <ifaceaddr>]] [/g [<Inetaddr>] [-n <ifaceaddr>]] [/d <I
 ### <a name="parameters"></a>Parameters
 |参数|描述|
 |-------|--------|
-|/a [<Inetaddr>] [/n <ifaceaddr>]|显示当前的 arp 缓存表的所有接口。 /N 参数是区分大小写。<br /><br />若要显示特定的 IP 地址的 arp 缓存项，请使用**arp/a**与*Inetaddr*参数，其中*Inetaddr*是 IP 地址。 如果*Inetaddr*未指定，则使用第一个适用的接口。<br /><br />若要显示的特定接口的 arp 缓存表，请使用 **/n * * * ifaceaddr*参数结合 **/a**参数其中*ifaceaddr*是 IP 地址分配给的接口。|
+|/a [<Inetaddr>] [/n <ifaceaddr>]|显示当前的 arp 缓存表的所有接口。 /N 参数是区分大小写。<br /><br />若要显示特定的 IP 地址的 arp 缓存项，请使用**arp/a**与*Inetaddr*参数，其中*Inetaddr*是 IP 地址。 如果*Inetaddr*未指定，则使用第一个适用的接口。<br /><br />若要显示的特定接口的 arp 缓存表，请使用 **/n***ifaceaddr*参数结合 **/a**参数其中*ifaceaddr*是 IP 地址分配给的接口。|
 |/g [<Inetaddr>] [/n <ifaceaddr>]|与相同 **/a**。|
 |[/d <Inetaddr> [<ifaceaddr>]|删除条目与特定的 IP 地址，其中*Inetaddr*是 IP 地址。<br /><br />若要删除特定接口的表中的条目，请使用*ifaceaddr*参数其中*ifaceaddr*是分配给的接口的 IP 地址。<br /><br />若要删除所有条目，请使用星号 (\*) 通配符来代替*Inetaddr*。|
 |/s <Inetaddr> <Etheraddr> [<ifaceaddr>]|将静态条目添加到 IP 地址解析 arp 缓存*Inetaddr*到物理地址*Etheraddr*。<br /><br />若要将静态 arp 缓存条目添加到特定的接口的表，请使用*ifaceaddr*参数其中*ifaceaddr*是分配给的接口的 IP 地址。|
