@@ -223,7 +223,7 @@ Update-SmbMultichannelConnection
 而应该*安装*源和目标服务器上重复数据删除 (请参阅[安装和启用重复数据删除](../data-deduplication/install-enable.md))，它不应对*启用*重复数据删除在目标服务器上。 存储副本允许将仅在源服务器上的写入。 因为重复数据删除可以写入到卷，则它应仅在源服务器上运行。 
 
 ## <a name="FAQ17"></a> 如何报告存储副本或本指南的问题？  
-如需存储副本的技术援助，可以通过 [Microsoft TechNet 论坛](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=WinServerPreview) 发布。 还可以将有关存储副本的疑问或本文档中出现的问题通过电子邮件发送至 srfeed@microsoft.com。 https://windowsserver.uservoice.com站点是设计更改请求的首选，因为它允许客户对你的想法提供支持和反馈。
+如需存储副本的技术援助，可以通过 [Microsoft TechNet 论坛](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=WinServerPreview) 发布。 还可以将有关存储副本的疑问或本文档中出现的问题通过电子邮件发送至 srfeed@microsoft.com。  https://windowsserver.uservoice.com 站点是设计更改请求的首选，因为它允许客户对你的想法提供支持和反馈。
 
 
 
