@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/16/2017
 ms.openlocfilehash: b55063c3c5ea41b43573e6322b5efb36d2dad90e
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59828328"
@@ -57,7 +57,7 @@ fsutil resource [stop] <RmRootPathname>
 |setavailable|指定事务性资源管理器将优先于一致性首选可用性。|
 |setconsistent|指定事务性资源管理器将首选的一致性，而可用性。|
 |setlog|更改特征的事务性资源管理器已在运行。|
-|增长|指定事务性资源管理器日志可以增长的量。<br /><br />可以按如下所示指定增长参数：<br /><br />-使用以下格式的容器数：*容器 ***容器**<br />-使用以下格式的百分比：*Percent***percent**|
+|增长|指定事务性资源管理器日志可以增长的量。<br /><br />可以按如下所示指定增长参数：<br /><br />-使用以下格式的容器数：*容器***容器**<br />-   使用以下格式的百分比：*Percent***percent**|
 |<containers>|指定使用由事务资源管理器的数据对象。|
 |maxextent|指定容器的最大数目为指定事务性资源管理器。|
 |minextent|指定容器的最小数目为指定事务性资源管理器。|

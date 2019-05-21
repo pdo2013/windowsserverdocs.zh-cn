@@ -15,7 +15,7 @@ manager: scottman
 ms.author: evas
 ms.openlocfilehash: 4449d2d6fb87f74496b7d482a7a7263f703c7822
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59831108"
@@ -79,7 +79,7 @@ MultiPoint 工作站组成直接连接到的服务器上，并且至少一个视
 用于连接到运行 MultiPoint 服务的计算机的用户终结点。 支持三个工作站类型： 直接视频连接、 通过 USB 零-客户端的连接和 RDP-over-LAN 连接工作站。 有关工作站的详细信息，请参阅[MultiPoint 工作站](MultiPoint-services-Stations.md)。  
   
 **工作站集线器**  
-已关联的监视器来创建 MultiPoint 工作站的 USB 集线器。 它将外围设备的 USB 设备连接到 MultiPoint 服务。 另请参阅：*USB 零客户端*并*USB 集线器*。  
+已关联的监视器来创建 MultiPoint 工作站的 USB 集线器。 它将外围设备的 USB 设备连接到 MultiPoint 服务。 另请参阅： *USB 零客户端* 并 *USB 集线器* 。  
   
 **工作站模式**  
 MultiPoint 服务的两种模式之一可以启动。 通常情况下，MultiPoint 服务系统是在工作站模式下。 在工作站模式下，MultiPoint 服务工作站行为就如同每个工作站是运行 Windows 操作系统，在单独的计算机和多个用户可以在同一时间使用系统。 另请参阅：*控制台模式*。  
