@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: f8d23cc1bb5739b47c755d90c927cbcf82b8da7f
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59825018"
@@ -44,7 +44,7 @@ color [[<B>]<F>]
 
 ## <a name="remarks"></a>备注
 
--   下表列出了可以使用的值的形式的有效十六进制数字*B*并*F*。  
+-   下表列出了可以使用的值的形式的有效十六进制数字*B*并*F*。   
     |ReplTest1|颜色|
     |-----|-----|
     |0|黑色|
