@@ -14,7 +14,7 @@ ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: f8cf1b12a8fffe2a6e3389aad518ac96bc136cc9
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59872168"
@@ -314,13 +314,13 @@ ms.locfileid: "59872168"
   
 ##### <a name="to-log-on-to-remote-web-access-from-a-mobile-device"></a>从移动设备登录到远程 Web 访问  
   
-1.  打开 Web 浏览器并键入**https://***< 你的域名\>***/远程**在地址栏中。  请确保在 https 中包含 s。  
+1.  打开 Web 浏览器并键入**https://***<你的域名\>***/远程**在地址栏中。  请确保在 https 中包含 s。  
   
 2.  在远程 Web 访问登录页上，在文本框中，键入你的用户名和密码，然后单击箭头。 你已登录到远程 Web 访问的移动版本。  
   
 ##### <a name="to-switch-to-the-desktop-version-of-remote-web-access"></a>切换到远程 Web 访问的桌面版  
   
-1.  打开 Web 浏览器并键入**https://***< 你的域名\>***/远程**在地址栏中。  请确保在 https 中包含 s。  
+1.  打开 Web 浏览器并键入**https://***<你的域名\>***/远程**在地址栏中。  请确保在 https 中包含 s。  
   
 2.  在远程 Web 访问登录页上，键入你的用户名和密码的文本框中，单击**查看桌面版本**，然后单击箭头。 你已登录到远程 Web 访问的桌面版本。  
   
@@ -328,7 +328,7 @@ ms.locfileid: "59872168"
   
 1.  注销。  
   
-2.  打开 Web 浏览器并键入**https://***< 你的域名\>***/远程/m**在地址栏中。 请确保在 https 中包含 s。  
+2.  打开 Web 浏览器并键入**https://***<你的域名\>***/远程/m**在地址栏中。 请确保在 https 中包含 s。  
   
 3.  显示远程 Web 访问的移动版本。 在远程 Web 访问登录页上，在文本框中，键入你的用户名和密码，然后单击箭头。 登录到远程 Web 访问的移动版本。  
   

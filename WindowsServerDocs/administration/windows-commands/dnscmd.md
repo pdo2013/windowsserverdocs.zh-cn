@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 39478e9b7dd8e8c69ed07f5d431486a7ed96b9cb
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59815498"
@@ -822,11 +822,11 @@ dnscmd [<ServerName>] /zoneadd <ZoneName> <Zonetype> [/dp <FQDN>|{/ 域 | / 企�
 创建文件备份的存根区域。  
 **/dsstub <MasterIPaddress> [<MasterIPaddress>...]**  
 创建 active directory 集成的存根区域。  
-* * / 转发器<MasterIPaddress>[<MasterIPaddress>].../ 文件 <FileName>**  
+**/ 转发器<MasterIPaddress>[<MasterIPaddress>].../ 文件 <FileName>**  
 指定创建的区域将转发到另一台 DNS 服务器未解析的查询。  
 **/dsforwarder**  
 指定创建的 active directory 集成的区域将转发到另一台 DNS 服务器未解析的查询。  
-* * /dp <FQDN> {/ 域 | /enterprise | / 旧} * *  
+**/dp <FQDN> {/ 域 | /enterprise | / 旧}**  
 指定存储区域所在的目录分区。  
 **<FQDN>**  
 指定的目录分区的 FQDN。  
@@ -869,14 +869,14 @@ dnscmd [<ServerName>] /zonedelete <ZoneName> [/dsdel] [/f] ```
 **/f**  
 运行该命令而不要求确认。 # # # 示例，请参见[示例 9： 删除区域的 DNS 服务器从](https://technet.microsoft.com/library/cc784399(v=ws.10).aspx)。  
 ### <a name="BKMK_25"></a>dnscmd /zoneexport  
-创建一个文本文件，其中列出了指定的区域的资源记录。 # # # 语法 dnscmd [<ServerName>] /zoneexport <ZoneName> <ZoneExportFile># # # 参数 * *<ServerName>**  
+创建一个文本文件，其中列出了指定的区域的资源记录。 # # # 语法 dnscmd [<ServerName>] /zoneexport <ZoneName> <ZoneExportFile># # # 参数 **<ServerName>**  
 指定 DNS 服务器来管理，由表示本地计算机语法、 IP 地址、 FQDN 或主机名。 如果省略此参数，则使用本地服务器。  
 **<ZoneName>**  
 指定的区域的名称。  
 **<ZoneExportFile>**  
 指定要创建的文件的名称。 # # # 注释- **zoneexport**操作可创建以进行故障排除 active directory 集成区域的资源记录的文件。 默认情况下，此命令将创建该文件位于 DNS 目录，这是默认情况下 %systemroot%/System32/Dns 目录中。 # # # 示例，请参见[示例 10:区域资源记录列表导出到文件](https://technet.microsoft.com/library/cc784399(v=ws.10).aspx)。  
 ### <a name="BKMK_26"></a>dnscmd /zoneinfo  
-显示所述的指定区域的注册表设置: * * HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNS\Parameters\Zones\\<ZoneName>* * # # # 语法```  
+显示所述的指定区域的注册表设置: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNS\Parameters\Zones\\<ZoneName>** # # # 语法```  
 dnscmd [<ServerName>] /zoneinfo <ZoneName> [<Setting>] ```  
 #### Parameters  
 **<ServerName>**  
@@ -884,7 +884,7 @@ dnscmd [<ServerName>] /zoneinfo <ZoneName> [<Setting>] ```
 **<ZoneName>**  
 指定的区域的名称。  
 **<Setting>**  
-可以单独指定任何设置**zoneinfo**命令返回。 如果不指定设置，则返回所有设置。 # # # 注释- **zoneinfo**命令将显示在 DNS 区域级别的注册表设置 * * HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNS\Parameters\Zones\\<ZoneName>* *。 -若要显示服务器级别的注册表设置，请使用[信息](#BKMK_12)命令。 -若要查看的设置，可以使用此命令显示的列表，请参阅[config](#BKMK_3)命令。 # # # 示例，请参见[示例 11:显示在注册表中设置的刷新间隔设置](https://technet.microsoft.com/library/cc784399(v=ws.10).aspx)或[示例 12:显示老化注册表中设置的设置](https://technet.microsoft.com/library/cc784399(v=ws.10).aspx)。  
+可以单独指定任何设置**zoneinfo**命令返回。 如果不指定设置，则返回所有设置。 # # # 注释- **zoneinfo**命令将显示在 DNS 区域级别的注册表设置 **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNS\Parameters\Zones\\<ZoneName>**。 -若要显示服务器级别的注册表设置，请使用[信息](#BKMK_12)命令。 -若要查看的设置，可以使用此命令显示的列表，请参阅[config](#BKMK_3)命令。 # # # 示例，请参见[示例 11:显示在注册表中设置的刷新间隔设置](https://technet.microsoft.com/library/cc784399(v=ws.10).aspx)或[示例 12:显示老化注册表中设置的设置](https://technet.microsoft.com/library/cc784399(v=ws.10).aspx)。  
 ### <a name="BKMK_27"></a>dnscmd /zonepause  
 暂停指定的区域，然后将忽略查询请求。 # # # 语法```  
 dnscmd [<ServerName>] /zonepause <ZoneName> ```  
@@ -961,7 +961,7 @@ dnscmd [<ServerName>] /zoneresetsecondaries <ZoneName> {/ noxfr | / 非安全 | 
 指定区域传送仅授予服务器的列表。 此参数必须跟一个 IP 地址或主服务器使用的地址。  
 **<SecurityIPaddresses>**  
 列出从主服务器接收区域传送的 IP 地址。 此参数仅用于 **/securelist**参数。  
-* * / nonotify |通知 / |/notifylist <NotifyIPaddresses>**  
+**/nonotify |通知 / |/notifylist <NotifyIPaddresses>**  
 指定仅对某些辅助服务器发送更改通知：  
 **/nonotify**  
 指定没有更改通知将发送到辅助服务器。  
@@ -993,7 +993,7 @@ dnscmd [<ServerName>] /zoneresettype <ZoneName> <Zonetype> [/ overwrite_mem | /o
 创建文件备份的存根区域。  
 **/dsstub <MasterIPaddress>[,<MasterIPaddress>...]**  
 创建 active directory 集成的存根区域。  
-* * / 转发器<MasterIPaddress[,<MasterIPaddress>].../ 文件<FileName>**  
+**/转发器<MasterIPaddress[,<MasterIPaddress>].../ 文件<FileName>**  
 指定创建的区域将转发到另一台 DNS 服务器未解析的查询。  
 **/dsforwarder**  
 指定创建的 active directory 集成的区域将转发到另一台 DNS 服务器未解析的查询。  

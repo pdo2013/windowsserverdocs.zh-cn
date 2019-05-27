@@ -14,7 +14,7 @@ ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: d2005b72adede72b718fa5b49b93435f5fbac1bd
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59882498"
@@ -66,7 +66,7 @@ ms.locfileid: "59882498"
   
 2.  以管理员身份打开 Windows PowerShell，然后运行如下命令。  
   
-     **dism /online /set-edition:ServerStandard /accepteula /productkey:***产品密钥*  
+     **dism /online /set-edition:ServerStandard /accepteula /productkey:** *产品密钥*  
   
      其中*产品密钥*是您的 Windows Server 2012 Standard 副本的产品密钥。  
   
