@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: 54697b1c967d3e21583977418383d5a372e6f5d4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5001e070b63fe88da50a5219f129855606e7a2e5
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859398"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192707"
 ---
 # <a name="xcopy"></a>xcopy
 
@@ -57,12 +57,12 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/k|将文件复制和上保留只读属性*目标*文件如果位于*源*文件。 默认情况下**xcopy**删除只读属性。|
 |/r|将只读的文件。|
 |/h|将文件复制与隐藏和系统文件属性。 默认情况下**xcopy**复制隐藏文件或系统文件|
-|/a|将仅复制*源*文件可以实现其存档的文件的属性集。 **/ a**不会修改源文件的存档文件属性。 有关如何使用设置的存档文件属性信息**attrib**，请参阅[其他参考](xcopy.md#BKMK_addref)。|
-|/m|副本*源*文件可以实现其存档的文件的属性集。 与不同 **/a**， **/m**关闭在源中指定的文件中的存档文件属性。 有关如何使用设置的存档文件属性信息**attrib**，请参阅[其他参考](xcopy.md#BKMK_addref)。|
+|/a|将仅复制*源*文件可以实现其存档的文件的属性集。 **/ a**不会修改源文件的存档文件属性。 有关如何使用设置的存档文件属性信息**attrib**，请参阅[其他参考](#additional-references)。|
+|/m|副本*源*文件可以实现其存档的文件的属性集。 与不同 **/a**， **/m**关闭在源中指定的文件中的存档文件属性。 有关如何使用设置的存档文件属性信息**attrib**，请参阅[其他参考](#additional-references)。|
 |/n|通过使用 NTFS 短文件名或目录名创建副本。 **/n**时将文件复制或需要从 NTFS 卷到 FAT 卷的目录或 FAT 文件系统命名约定 （即，8.3 个字符） 时是必需*目标*文件系统。 *目标*文件系统可以是 FAT 或 NTFS。|
 |/o|复制文件所有权和随机访问控制列表 (DACL) 信息。|
 |/x|复制文件的审核设置和系统访问控制列表 (SACL) 信息 (意味着 **/o**)。|
-|/exclude:FileName1[+[FileName2][+[FileName3]( \)]|指定的文件的列表。 必须指定至少一个文件。 每个文件将包含搜索字符串，其中每个单独的文件中的行上的字符串。</br>如果任何字符串匹配要复制的文件的绝对任何的路径部分，该文件将复制 excuded。 例如，指定字符串**obj**将排除目录下的所有文件**obj**或使用的所有文件 **.obj**扩展。|
+|/exclude:FileName1[+[FileName2][+[FileName3]( \)]|指定的文件的列表。 必须指定至少一个文件。 每个文件将包含搜索字符串，其中每个单独的文件中的行上的字符串。</br>时的任何字符串匹配要复制的文件的绝对任何的路径部分，将从复制中排除该文件。 例如，指定字符串**obj**将排除目录下的所有文件**obj**或使用的所有文件 **.obj**扩展。|
 |/y|禁止提示确认你想要覆盖现有目标文件。|
 |/-y|若要确认你想要覆盖现有目标文件的提示。|
 |/z|在可重新启动模式下在网络上的副本。|
@@ -98,13 +98,13 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
     您可以使用禁止显示此消息 **/i**命令行选项，这会导致**xcopy**假定目标是一个目录，如果源是多个文件或目录。
 -   使用**xcopy**命令设置存档特性*目标*文件
 
-    **Xcopy**命令创建的文件设置了存档属性指示是否在源文件中设置此属性。 有关文件属性的详细信息和**attrib**，请参阅[其他参考](xcopy.md#BKMK_addref)。
+    **Xcopy**命令创建的文件设置了存档属性指示是否在源文件中设置此属性。 有关文件属性的详细信息和**attrib**，请参阅[其他参考](#additional-references)。
 -   比较**xcopy**和**diskcopy**
 
     如果您有包含子目录中的文件的磁盘，并且你想要将其复制到磁盘具有不同的格式，请使用**xcopy**命令而不是**diskcopy**。 因为**diskcopy**命令将复制磁盘磁道地、 源和目标磁盘必须具有相同的格式。 **Xcopy**命令不具有此要求。 使用**xcopy**除非您需要完整的磁盘映像副本。
 -   退出代码**xcopy**
 
-    若要处理返回的退出代码**xcopy**，使用**ErrorLevel**上的参数**如果**命令行中的批处理程序。 有关进程退出代码使用的批处理程序示例**如果**，请参阅[其他参考](xcopy.md#BKMK_addref)。 下表列出了每个退出代码和说明。  
+    若要处理返回的退出代码**xcopy**，使用**ErrorLevel**上的参数**如果**命令行中的批处理程序。 有关进程退出代码使用的批处理程序示例**如果**，请参阅[其他参考](#additional-references)。 下表列出了每个退出代码和说明。  
     |退出代码|描述|
     |---------|-----------|
     |0|文件已复制不会出错。|
@@ -180,9 +180,9 @@ rem  .\d1\d12\toc.yml
 rem  .\d2\toc.yml
 rem  3 File(s) copied
 ```
-在前面的示例中，此特定的源参数值 **。\\toc\*.yml**复制相同的 3 个文件即使其两个路径字符 **。\\**已删除。 但是，任何文件都如果星号通配符已删除源参数，使其只需从复制 **。\\toc.yml**。
+在前面的示例中，此特定的源参数值 **。\\toc\*.yml**复制相同的 3 个文件即使其两个路径字符 **。\\** 已删除。 但是，任何文件都如果星号通配符已删除源参数，使其只需从复制 **。\\toc.yml**。
 
-#### <a name="BKMK_addref"></a>其他参考
+#### <a name="additional-references"></a>其他参考
 
 -   [复制](copy.md)
 -   [移动](move.md)
@@ -190,4 +190,4 @@ rem  3 File(s) copied
 -   [Attrib](attrib.md)
 -   [Diskcopy](diskcopy.md)
 -   [If](if.md)
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)

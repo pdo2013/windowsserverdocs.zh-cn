@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: e63aa5d53f01fbff3029c6896556d92c9c99aa50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4ede63ab08d204c29555b28ae3a73795291c321c
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857678"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222494"
 ---
 # <a name="managing-wsus-client-computers-and-wsus-computer-groups"></a>管理 WSUS 客户端计算机和 WSUS 计算机组
 
@@ -29,10 +29,10 @@ ms.locfileid: "59857678"
 ## <a name="managing-client-computers"></a>管理客户端计算机
 选择一个中的计算机组**计算机**节点下的**选项**该组，以显示详细信息窗格中会导致计算机。 如果向计算机分配到多个组，则会在这两个组的列表中。 如果在列表中选择一台计算机，可以看到其属性，其中包括有关计算机的更新，例如安装的状态或特定计算机的更新的检测状态的常规详细信息。 您可以按状态筛选给定的计算机组下的计算机的列表。 默认值将显示唯一计算机的所需更新或其已安装失败;但是，可以显示筛选的任何状态。 单击**刷新**后更改状态筛选器。
 
-此外可以管理计算机页面，其中包括创建组并向它们分配的计算机上的计算机组。 有关管理计算机组的详细信息，请参阅管理下一步的本指南中，部分和部分中的计算机组[1.5。计划 WSUS 计算机组](../plan/plan-your-wsus-deployment.md#BKMK_1.5)在步骤 1 中：为你的 WSUS 部署指南的 WSUS 部署做好准备。
+此外可以管理计算机页面，其中包括创建组并向它们分配的计算机上的计算机组。 有关管理计算机组的详细信息，请参阅管理下一步的本指南中，部分和部分中的计算机组[1.5。计划 WSUS 计算机组](../plan/plan-your-wsus-deployment.md#15-plan-wsus-computer-groups)在步骤 1 中：为你的 WSUS 部署指南的 WSUS 部署做好准备。
 
 > [!NOTE]
-> 必须先配置客户端计算机联系 WSUS 服务器，才能从该服务器管理。 执行此任务，直到你的 WSUS 服务器将无法识别客户端计算机和它们将不会显示在计算机页面上的列表。 有关设置客户端计算机的详细信息，请参阅[1.5。计划 WSUS 计算机组](../plan/plan-your-wsus-deployment.md#BKMK_1.5)的步骤 1:为你的 WSUS 部署做好准备和步骤 3:配置 WSUS，WSUS 部署指南中。
+> 必须先配置客户端计算机联系 WSUS 服务器，才能从该服务器管理。 执行此任务，直到你的 WSUS 服务器将无法识别客户端计算机和它们将不会显示在计算机页面上的列表。 有关设置客户端计算机的详细信息，请参阅[1.5。计划 WSUS 计算机组](../plan/plan-your-wsus-deployment.md#15-plan-wsus-computer-groups)的步骤 1:为你的 WSUS 部署做好准备和步骤 3:配置 WSUS，WSUS 部署指南中。
 
 ## <a name="controlling-when-wsus-client-computers-install-updates"></a>控制 WSUS 客户端计算机时安装更新
 WSUS 客户端计算机安装更新时，有两种方法可用于控制：
@@ -55,6 +55,6 @@ WSUS 可让你将各组客户端计算机作为更新目标，从而确保特定
 可以使用“指向服务器端”或“指向客户端”这两种方法之一将计算机分配到计算机组。 使用服务器端目标，则手动移动一个或多个客户端计算机到一台计算机组一次。 使用客户端目标，使用组策略或编辑客户端计算机上的注册表设置，以使那些计算机可以自动将其添加到以前创建的计算机组。 此过程可以编写脚本并立即部署到多台计算机。 必须指定目标所使用的方法将在 WSUS 服务器上通过选择上的两个选项之一**计算机**一部分**选项**页。
 
 > [!NOTE]
-> 如果 WSUS 服务器在副本模式下运行，则不能在该服务器上创建计算机组。 必须是 WSUS 服务器层次结构的根 WSUS 服务器上创建副本服务器的客户端所需的所有计算机组。 有关副本模式的详细信息，请参阅[运行 WSUS 副本模式](running-wsus-replica-mode.md); 有关服务器端和客户端目标设定的详细信息，请参阅部分[1.5。计划 WSUS 计算机组](../plan/plan-your-wsus-deployment.md#BKMK_1.5)的步骤 1:为你的 WSUS 部署做好准备 WSUS 部署指南中。
+> 如果 WSUS 服务器在副本模式下运行，则不能在该服务器上创建计算机组。 必须是 WSUS 服务器层次结构的根 WSUS 服务器上创建副本服务器的客户端所需的所有计算机组。 有关副本模式的详细信息，请参阅[运行 WSUS 副本模式](running-wsus-replica-mode.md); 有关服务器端和客户端目标设定的详细信息，请参阅部分[1.5。计划 WSUS 计算机组](../plan/plan-your-wsus-deployment.md#15-plan-wsus-computer-groups)的步骤 1:为你的 WSUS 部署做好准备 WSUS 部署指南中。
 
 

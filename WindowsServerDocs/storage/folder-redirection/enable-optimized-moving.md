@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 98fd5d50645ad454204dcf9dabf58e97c246ab1a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7bdf30a4f721568add4e7902245da2a803b72db1
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853988"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475869"
 ---
 # <a name="enable-optimized-moves-of-redirected-folders"></a>启用优化的移动的重定向的文件夹
 
->适用于：Windows 10、 Windows 8、 Windows 8.1、 Windows Server 2012、 Windows Server 2012 R2 和 Windows Server 2016
+>适用于：Windows 10 中，Windows 8、 Windows 8.1、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012 中，Windows Server （半年频道）
 
 本主题介绍如何执行重定向的文件夹 （文件夹重定向） 优化的移动到新的文件共享。 如果启用此策略设置，当管理员将移动托管重定向的文件夹的文件共享并更新组策略中的重定向文件夹的目标路径，而无需任何延迟在本地脱机文件缓存中将只需缓存的内容已重命名或用户的潜在数据丢失。
 
@@ -28,7 +28,7 @@ ms.locfileid: "59853988"
 优化的移动具有以下要求：
 
 - 文件夹重定向，必须先设置。 有关详细信息请参阅[部署脱机文件的文件夹重定向](deploy-folder-redirection.md)。
-- 客户端计算机必须运行 Windows 10、 Windows 8.1，Windows 8、 Windows Server 2016、 Windows Server 2012 R2 或 Windows Server 2012。
+- 客户端计算机必须运行 Windows 10、 Windows 8.1，Windows 8、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012 或 Windows Server （半年频道）。
 
 ## <a name="step-1-enable-optimized-move-in-group-policy"></a>第 1 步：启用组策略中的优化的移动
 

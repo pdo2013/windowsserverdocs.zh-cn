@@ -1,6 +1,6 @@
 ---
 title: 应用程序数据用横向扩展文件服务器概述
-description: Windows Server 201 R2、 Windows Server 2012 和 Windows Server 2016 的横向扩展文件服务器功能的概述。
+description: 适用于 Windows Server 201 R2 和 Windows Server 2012 的横向扩展文件服务器功能的概述。
 ms.prod: windows-server-threshold
 ms.topic: article
 author: JasonGerend
@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 04e25e9c69062611d9d14c220614f148ac5de770
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3e6d67eee496d19b216a4366af51ab5736229cf0
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884768"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476145"
 ---
 # <a name="scale-out-file-server-for-application-data-overview"></a>应用程序数据用横向扩展文件服务器概述
 
->适用于：Windows Server 2012 R2、 Windows Server 2012 中，Windows Server 2016
+>适用于：Windows Server 2012 R2, Windows Server 2012
 
 横向扩展文件服务器是一项设计用于提供横向扩展文件共享的功能，该类共享可供基于文件的服务器应用程序存储连续使用。 横向扩展文件共享允许从同一群集的多个节点上共享同一文件夹。 本方案重点介绍如何计划和部署横向扩展文件服务器。
 

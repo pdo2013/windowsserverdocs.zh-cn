@@ -10,190 +10,23 @@ ms.topic: landing-page
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5604edf201213f8758b697dc683717f312941e0f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a36a9a4dfbb26c24047a937c6cb0434ba724d649
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878328"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192596"
 ---
 # <a name="get-started-with-windows-server-2019"></a>Windows Server 2019 入门
 
 >适用于：Windows Server 2019
 
+|       |       |
+|   -   |   -   |
+| ![新增功能？](../media/i-whats-new.svg) | [**新增功能**<br>了解什么是 Windows Server 2019 中的新增功能](whats-new-19.md)|
 
-<hr />
-<ul class="cardsF panelContent">
-<li>
- <a href="whats-new-19.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage">
-                                                <img src="../media/i-whats-new.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>新增功能</h3>
-                                            <p>了解什么是 Windows Server 2019 中的新增功能</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                          </a>
-                        </li>
-</ul>
-<hr />
-<ul class="cardsF panelContent">
-<li>
-      <a href="servicing-channels-19.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../media/i-get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>服务渠道</h3>
-                        <p>更好地规划你的部署和了解我们的 Long Term Servicing 通道 (LTSB) 和半年频道 (SAC) 之间的区别版本的修补计划。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li><hr /><li>
-        <a href="install-upgrade-migrate-19.md">
-          <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                             <img src="../media/i-get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>安装 | 升级 | 迁移</h3>
-                        <p>您可以将移动到 Windows Server 2019 通过多种方式。 无论您是新安装、 升级，还是迁移应用程序和服务器角色，发现最好的方法。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-       </a>
-    </li><hr />
-<li>
-        <a href="rel-notes-19.md">
-          <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                             <img src="../media/i-get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>发行说明</h3>
-                        <p>如果你没有避免或解决问题，可能造成严重的后果。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-       </a>
-     </li><hr />
-<li>
-      <a href="sys-reqs-19.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                             <img src="../media/i-get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>系统要求</h3>
-                        <p>安装和运行 Windows Server 2019 的最低硬件要求。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-       </a>
-    </li><hr />
-<li>
-      <a href="activation-19.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                             <img src="../media/i-get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>激活</h3>
-                        <p>Windows Server 2019 本身，激活的基本信息和其他操作系统，通过使用 Windows Server 2019。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li><hr />
-<li>
-      <a href="app-compat-19.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                             <img src="../media/i-get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Windows Server 2019 和 Microsoft 服务器应用程序兼容性</h3>
-                        <p>需要获取 SQL 致力于 Windows Server 2019 或找到运行 exchange 的步骤吗？ 此主题链接到兼容的 Microsoft 应用程序的文档。</p>                    </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li><hr />
-<li>
-      <a href="install-fod-19.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                             <img src="../media/i-get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>按需功能</h3>
-                        <p>按需 (FODs) 功能是 Windows Server 功能包，可以随时添加。 </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li><hr />
-<li>
-      <a href="editions-comparison-19.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                             <img src="../media/i-get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>标准 | Datacenter Edition 比较</h3>
-                        <p>Windows Server Standard edition 和 Datacenter Edition 具有不同的功能。 找出需要哪一种。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li>
-</ul>
+|       |        |        |     |       |        |
+|   -   |   -    |   -    |  -  |  -    |   -    |
+| ![服务渠道](../media/i-get-started.svg)  | [**维护服务频道**<br>更好地规划部署和了解我们的 Long Term Servicing 通道 (LTSB) 和半年频道 (SAC) 之间的区别修补计划版本。](servicing-channels-19.md)  | ![安装升级迁移](../media/i-get-started.svg) | [**安装、 升级、 迁移**<br>可以转到 Windows Server 2019 通过多种方式。无论您是新安装、 升级，还是迁移应用程序和服务器角色，发现最好的方法。](install-upgrade-migrate-19.md)  | ![发行说明](../media/i-get-started.svg) |[**发行说明**<br>可能会导致严重问题，如果你没有避免或解决这些问题。](rel-notes-19.md)   |
+| ![系统要求](../media/i-get-started.svg) | [**系统要求**<br>安装和运行 Windows Server 2019 的最低硬件要求。](sys-reqs-19.md) |  ![激活](../media/i-get-started.svg)|[**激活**<br>上激活 Windows Server 2019 本身的基本信息和其他操作系统，通过使用 Windows Server 2019。](activation-19.md)  |  ![应用程序兼容性](../media/i-get-started.svg)|[**Windows Server 2019 和 Microsoft 服务器应用程序兼容性**<br>需要获取 SQL 致力于 Windows Server 2019 或找到运行 exchange 的步骤？此主题链接到兼容的 Microsoft 应用程序的文档。](app-compat-19.md) |
+| ![按需功能 <](../media/i-get-started.svg) | [**按需功能**<br>按需 (FODs) 功能是 Windows Server 功能包，可以随时添加。](install-fod-19.md) |  ![标准 / 数据中心版本比较](../media/i-get-started.svg) | [**标准 / 数据中心版比较**<br>Windows Server Standard edition 和 Datacenter Edition 具有不同的功能。找出需要哪一种。](editions-comparison-19.md) |

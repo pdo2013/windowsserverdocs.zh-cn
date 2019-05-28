@@ -12,18 +12,18 @@ ms.assetid: 12efe858-6b76-4e08-9f72-b9603aceb0fc
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 06/22/2018
+ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 79a6b264c38b4b843c2887c6a3eb6f236480243d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 0c10cf6c9355b5f7457a5f17babdfb44aaa679b2
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828958"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976789"
 ---
 # <a name="compare-the-client-apps"></a>比较客户端应用程序
 
->适用于：Windows 10，Windows 8.1，Windows Server 2012 R2 和 Windows Server 2016
+>适用于：Windows 10 中，Windows 8.1、 Windows Server 2019、 Windows Server 2016 中，Windows Server 2012 R2
 
 我们经常被问及不同的远程桌面客户端应用程序如何与其他进行比较。 它们都执行相同的操作执行操作？ 以下是这些问题的答案。
 
@@ -39,7 +39,7 @@ ms.locfileid: "59828958"
 |-------------|-------------------------------|-----------|---------|-----|-------|------------|
 | 键盘    | X                             | X         | X       | X   | X     | X          |
 | 鼠标       | X                             | X         | X       | X*    | X     | X          |
-| 触控       | X                             | X         | X       | X   |       |            |
+| 触控       | X                             | X         | X       | X   |       | X （Edge 和 IE 不使用支持） |
 | 其他       | 笔                           |           |         |     |       |            |
 * 查看[的远程桌面 iOS Beta 客户端支持的输入设备的列表](remote-desktop-ios.md#supported-input-devices)。
 
@@ -59,7 +59,7 @@ ms.locfileid: "59828958"
 | 重定向         | 远程桌面连接 | 通用   | Android | iOS         | macOS                                    | web 客户端    |
 |---------------------|---------------------------|-------------|---------|-------------|------------------------------------------|---------------|
 | 相机             | X                         |             |         |             |                                          |               |
-| 剪贴板           | X                         | 文本、 图像 | 文本    | 文本、 图像 | X                                        | 文本          |
+| 剪贴板           | X                         | 文本、 图像 | Text    | 文本、 图像 | X                                        | Text          |
 | 本地驱动器/存储 | X                         |             | X       |             | x                                        |               |
 | Location            | X                         |             |         |             |                                          |               |
 | 麦克风         | X                         |X            |         |             | X                                        |               |

@@ -13,12 +13,12 @@ ms.assetid: b9552054-4eb9-48db-a6ce-f36ae55addcd
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 6d31cde5252cd7f7e8d286d6f8886f779d17735d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b76019232be5091440c3e0cf5ad85569cbe0d4dc
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875808"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034481"
 ---
 # <a name="add-a-virtual-gateway-to-a-tenant-virtual-network"></a>将虚拟网关添加到租户虚拟网络 
 
@@ -100,7 +100,7 @@ Windows PowerShell 示例脚本和本主题中的命令演示如何将部署上�
 4. 使用 IPsec，GRE，创建站点到站点 VPN 连接或图层 3 (L3) 转发。  
 
    >[!TIP]
-   >（可选） 可以组合上述所有步骤，并使用所有三个连接选项配置租户虚拟网关。  有关更多详细信息，请参阅[与所有三个连接类型 (IPsec，GRE，L3) 配置网关和 BGP](#configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp)。
+   >（可选） 可以组合上述所有步骤，并使用所有三个连接选项配置租户虚拟网关。  有关更多详细信息，请参阅[与所有三个连接类型 (IPsec，GRE，L3) 配置网关和 BGP](#optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp)。
   
    **IPsec VPN 站点到站点网络连接**
   

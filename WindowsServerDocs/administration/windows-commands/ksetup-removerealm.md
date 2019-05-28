@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3f62208d6576890529be80b1c6cb3cc073a2b4e6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 579b0772e4642389b90aa370dad80a3eebea9d34
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853358"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564718"
 ---
 # <a name="ksetupremoverealm"></a>ksetup:removerealm
 
@@ -40,13 +40,13 @@ ksetup /removerealm <RealmName>
 
 ## <a name="remarks"></a>备注
 
-领域名称存储在注册表中的两个位置中：**HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001**并**\CurrentControlSet\Control\Lsa\Kerberos**。
+领域名称存储在注册表中的两个位置中：**HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001**并 **\CurrentControlSet\Control\Lsa\Kerberos**。
 
 无法从域控制器中删除的默认领域名称，因为这会重置其 DNS 信息，并将其删除可能会使域控制器不可用。
 
 ## <a name="BKMK_Examples"></a>示例
 
-错误地设置领域名称拼写错误"。COM？ CORP.到本地计算机上CONTOSO。CON
+错误地设置领域名称的拼写错误".COM"本地计算机上为 corp.CONTOSO。CON
 ```
 ksetup /setrealm CORP.CONTOSO.CON
 ```
@@ -60,4 +60,4 @@ ksetup /removerealm CORP.CONTOSO.CON
 
 -   [Ksetup](ksetup.md)
 -   [Ksetup:setrealm](ksetup-setrealm.md)
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)

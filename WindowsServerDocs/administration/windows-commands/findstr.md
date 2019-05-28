@@ -13,20 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 82ba51cdb49501492c1fa38c6c93933f4aee90d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ea306127be9497c21a5b8efa9fd3f0fa2433014c
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890458"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192667"
 ---
 # <a name="findstr"></a>findstr
 
-
-
 搜索模式的文件中的文本。
 
-有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
+有关如何使用此命令的示例，请参阅[示例](#examples)。
 
 ## <a name="syntax"></a>语法
 
@@ -88,7 +86,7 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
     b.*ing
     ```
 
-## <a name="BKMK_examples"></a>示例
+## <a name="examples"></a>示例
 
 使用空格来分隔多个搜索字符串，除非参数以前缀 **/c**。
 
@@ -127,4 +125,4 @@ findstr /s /i /m "\<comp.*" *.*
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

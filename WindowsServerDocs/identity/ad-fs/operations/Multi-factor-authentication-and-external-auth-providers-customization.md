@@ -9,16 +9,16 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 08724d45-9be4-4c56-a5f1-2cf40864e136
 ms.technology: identity-adfs
-ms.openlocfilehash: 6d06c017601003e3b93df32f5fa50190ce54541d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 347b4783e82a6561334f8757029b1fddec6a85a3
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864798"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189081"
 ---
 # <a name="multi-factor-authentication-and-external-authentication-providers-customization"></a>多重身份验证和外部身份验证提供程序自定义 
 
->适用于：Windows Server 2016, Windows Server 2012 R2
+
 
 提供多重身份验证支持是在 AD FS\-的\-\-框。 例如，可以配置 AD FS 使用构建\-中用作第二重身份验证的证书身份验证。 此外还可以使用外部身份验证提供程序。 这种方法可以使 AD FS 以与其他服务集成，如 Azure 多重身份验证，也可以开发自己的提供程序。 请参阅[解决方案指南：使用多管理风险\-因素访问控制](https://technet.microsoft.com/library/dn280937.aspx)详细了解如何通过使用 AD FS 注册外部身份验证提供程序。  
   

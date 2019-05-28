@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d3e0d38bdec11618561ee4acaa32ffdd06695fab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 0466bee0b357e896bd971152a56da57612472672
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868528"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564730"
 ---
 # <a name="ksetupaddkdc"></a>ksetup:addkdc
 
@@ -53,7 +53,7 @@ ksetup /addkdc <RealmName> [<KDCName>]
 ```
 ksetup /addkdc CORP.CONTOSO.COM mitkdc.contoso.com
 ```
-如前面的命令将本地计算机帐户密码设置为在同一台计算机的命令行处运行 Ksetup 工具"p@sswrd1%？。 然后重新启动计算机。
+如前面的命令将本地计算机帐户密码设置为在同一台计算机的命令行处运行 Ksetup 工具"p@sswrd1%"。 然后重新启动计算机。
 ```
 Ksetup /setcomputerpassword p@sswrd1%
 ```
@@ -62,4 +62,4 @@ Ksetup /setcomputerpassword p@sswrd1%
 
 -   [Ksetup](ksetup.md)
 -   [Ksetup:setcomputerpassword](ksetup-setcomputerpassword.md)
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)

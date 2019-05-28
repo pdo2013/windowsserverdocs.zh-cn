@@ -13,12 +13,12 @@ ms.assetid: 2448d381-55aa-4c14-997a-202c537c6727
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 31c1579dc840f6f4eb805ac4e10f51192a6b4c99
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d671d044896ae9e71edad8302f06f2a21fe50772
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816188"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034555"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>使用 Windows PowerShell 部署网络控制器
 
@@ -31,19 +31,19 @@ ms.locfileid: "59816188"
 
 本主题包含以下部分。
 
-- [安装网络控制器服务器角色](#bkmk_role)
+- [安装网络控制器服务器角色](#install-the-network-controller-server-role)
 
-- [配置网络控制器群集](#bkmk_configure)
+- [配置网络控制器群集](#configure-the-network-controller-cluster)
 
-- [配置网络控制器应用程序](#bkmk_app)
+- [配置网络控制器应用程序](#configure-the-network-controller-application)
 
-- [网络控制器部署验证](#bkmk_validation)
+- [网络控制器部署验证](#network-controller-deployment-validation)
 
-- [用于网络控制器的其他 Windows PowerShell 命令](#bkmk_ps)
+- [用于网络控制器的其他 Windows PowerShell 命令](#additional-windows-powershell-commands-for-network-controller)
 
-- [示例网络控制器配置脚本](#bkmk_script)
+- [示例网络控制器配置脚本](#sample-network-controller-configuration-script)
 
-- [对于非 Kerberos 的部署的部署后步骤](#bkmk_nonkerb)
+- [对于非 Kerberos 的部署的部署后步骤](#post-deployment-steps-for-non-kerberos-deployments)
 
 ## <a name="install-the-network-controller-server-role"></a>安装网络控制器服务器角色
 
@@ -52,7 +52,7 @@ ms.locfileid: "59816188"
 >[!IMPORTANT]
 >不要部署物理主机上的网络控制器服务器角色。 若要部署网络控制器，必须安装网络控制器服务器角色上的 HYPER-V 虚拟机\(VM\)安装在 HYPER-V 主机上。 在三个不同超上的 Vm 上安装网络控制器后\-V 主机，必须启用超\-V 软件定义的网络的主机\(SDN\)通过添加到网络控制器主机。 这样，要启用 SDN 软件负载均衡器函数。
 
-Administrators组成员或同等身份是执行此过程的最低要求。  
+Administrators  组成员或同等身份是执行此过程的最低要求。  
 
 >[!NOTE]
 >如果你想要使用服务器管理器而不是 Windows PowerShell 来安装网络控制器，请参阅[安装网络控制器服务器角色使用服务器管理器](https://technet.microsoft.com/library/mt403348.aspx)

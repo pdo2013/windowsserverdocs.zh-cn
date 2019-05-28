@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: fe99487d3a770547af36f69722b442d0e2cbb8b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 41a71ff49d211d294768c0e4a55692ced3f2d844
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828288"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192446"
 ---
 # <a name="checklist-configuring-ad-fs--to-consume-claims-from-ad-fs-1x"></a>清单：配置 AD FS 以使用声明从 AD FS 1.x
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
   
 ## <a name="checklist-configuring-ad-fs-to-consume-claims-from-adfs1x"></a>清单：配置 AD FS 以使用声明从 AD FS 1.x  
 此清单包括配置 Active Directory 联合身份验证服务所需的任务\(AD FS\) Windows Server 2012 使用由 AD FS 1 发送的声明中的联合身份验证服务。*x*联合身份验证服务。  

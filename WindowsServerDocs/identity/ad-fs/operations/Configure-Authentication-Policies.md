@@ -3,22 +3,20 @@ ms.assetid: 8e7015bc-c489-4ec7-8b6e-3ece90f72317
 title: 配置身份验证策略
 description: ''
 author: billmath
-ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7faffb7ccbb4b0ea3c65329d18f915d7dafcd46f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.author: billmath
+ms.openlocfilehash: 9345f995af2f256dddcbcbd7d05c4bf6170b563e
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861788"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189856"
 ---
 # <a name="configure-authentication-policies"></a>配置身份验证策略
-
->适用于：Windows Server 2012 R2
 
 在 AD FS 中，在 Windows Server 2012 R2 中，同时访问控制和身份验证机制已得到增强，包括用户、 设备、 位置和身份验证数据的多个因素。 这些增强功能，可以，通过用户界面或通过 Windows PowerShell，若要管理的访问权限授予 AD FS 的风险\-保护的应用程序中的通过多\-因素访问控制和多\-基于用户标识或组成员身份、 网络位置、 工作区的设备数据的身份验证\-加入和身份验证状态时多\-身份验证\(MFA\)执行。  
   
@@ -27,7 +25,7 @@ ms.locfileid: "59861788"
 
 -   [工作区从任何设备加入实现 SSO 和无缝第二重身份验证跨公司应用程序](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
 
--   [使用条件性访问控制管理风险](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md)
+-   [使用条件访问控制管理风险](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md)
 
 -   [使用针对敏感应用程序的附加多重身份验证管理风险](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 

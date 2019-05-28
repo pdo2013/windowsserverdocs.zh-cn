@@ -11,12 +11,12 @@ ms.assetid: fdc8063c-47ce-4448-b445-d7ff9894dc17
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: e7c43a1b9173d347a3b6d6e1f8bd9127c62bd081
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2668f9fa21c8efbad455d82c7e110ff89b729187
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880218"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222868"
 ---
 # <a name="create-a-virtual-switch-for-hyper-v-virtual-machines"></a>创建的虚拟交换机的 HYPER-V 虚拟机。
 
@@ -24,9 +24,9 @@ ms.locfileid: "59880218"
   
 虚拟交换机允许在与其他计算机进行通信的 HYPER-V 主机上创建的虚拟机。 首先在 Windows Server 上安装 HYPER-V 角色时，你可以创建虚拟交换机。 若要创建其他虚拟交换机，请使用 HYPER-V 管理器或 Windows PowerShell。 若要了解有关虚拟交换机的详细信息，请参阅[HYPER-V 虚拟交换机](../../hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md)。  
   
-虚拟机网络可以是一个复杂的主题。 并且有可能想要的方式使用的几个新的虚拟交换机功能[交换嵌入组合 (SET)](../../hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md#bkmk_sswitchembedded)。 但基本网络是相当轻松地完成。 本主题介绍刚好足够，以便可以在 HYPER-V 中创建为联网的虚拟机。 若要了解有关如何设置网络基础结构的详细信息，请查看[网络](../../../networking/Networking.md)文档。   
+虚拟机网络可以是一个复杂的主题。 并且有可能想要的方式使用的几个新的虚拟交换机功能[交换嵌入组合 (SET)](../../hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md#switch-embedded-teaming-set)。 但基本网络是相当轻松地完成。 本主题介绍刚好足够，以便可以在 HYPER-V 中创建为联网的虚拟机。 若要了解有关如何设置网络基础结构的详细信息，请查看[网络](../../../networking/Networking.md)文档。   
   
-## <a name="BKMK_HyperVMan"></a>通过使用 Hyper-v 管理器创建虚拟交换机  
+## <a name="create-a-virtual-switch-by-using-hyper-v-manager"></a>通过使用 Hyper-v 管理器创建虚拟交换机  
   
 1.  打开 HYPER-V 管理器中，选择 HYPER-V 主机计算机名称。  
   
@@ -59,13 +59,13 @@ ms.locfileid: "59880218"
   
     ![显示的 VLAN ID 选项的屏幕截图](../media/Hyper-V-NewSwitch-VLAN.png)  
   
-8.  单击 **“确定”**。  
+8.  单击 **“确定”** 。  
   
-9. 单击 **“是”**。  
+9. 单击 **“是”** 。  
   
     ![显示"挂起的更改可能会中断网络连接"消息的屏幕截图](../media/Hyper-V-NewVSwitch-DisruptNetwork.png)  
   
-## <a name="BKMK_WPS"></a>通过使用 Windows PowerShell 创建虚拟交换机  
+## <a name="create-a-virtual-switch-by-using-windows-powershell"></a>通过使用 Windows PowerShell 创建虚拟交换机  
   
 1.  在 Windows 桌面上，单击“开始”按钮并键入名称 **Windows PowerShell** 的任一部分。  
   
@@ -99,7 +99,7 @@ ms.locfileid: "59880218"
 
   
 ## <a name="next-step"></a>下一步  
-[在 HYPER-V 中创建的虚拟机](Create-a-virtual-machine-in-Hyper-V.md)  
+[在 Hyper-V 中创建虚拟机](Create-a-virtual-machine-in-Hyper-V.md)  
   
 
 

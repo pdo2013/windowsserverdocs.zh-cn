@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 38de2bca413ce7f8aeda2af4392f9a616641b189
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 958bf8455d03ddc04395fafe83e70a49c7659c96
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873068"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192441"
 ---
 ## <a name="best-practices-for-securing-active-directory-federation-services"></a>保护 Active Directory 联合身份验证服务的最佳做法
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 本文档提供有关安全规划和部署 Active Directory 联合身份验证服务 (AD FS) 和 Web 应用程序代理的最佳实践。  它包含有关默认行为的这些组件和具有特定用例和安全要求的组织的其他安全配置建议的信息。
 
@@ -39,7 +38,7 @@ ms.locfileid: "59873068"
 ### <a name="azure-ad-connect-and-federation-serverswap"></a>Azure AD Connect 和联合身份验证服务器 /WAP
 下表介绍的端口和协议所需的 Azure AD Connect 服务器和联合服务器 /WAP 服务器之间的通信。  
 
-协议 |端口 |描述
+Protocol |端口 |描述
 --------- | --------- |---------
 HTTP|80 (TCP/UDP)|用于下载 Crl （证书吊销列表） 来验证 SSL 证书。
 HTTPS|443(TCP/UDP)|用于与 Azure AD 同步。
@@ -48,14 +47,14 @@ WinRM|5985| WinRM 侦听器
 ### <a name="wap-and-federation-servers"></a>WAP 和联合身份验证服务器
 下表介绍的端口和协议所需的联合身份验证服务器和 WAP 服务器之间的通信。
 
-协议 |端口 |描述
+Protocol |端口 |描述
 --------- | --------- |---------
 HTTPS|443(TCP/UDP)|用于身份验证。
 
 ### <a name="wap-and-users"></a>WAP 和用户
 下表介绍的端口和协议所需的用户与 WAP 服务器之间的通信。
 
-协议 |端口 |描述
+Protocol |端口 |描述
 --------- | --------- |--------- |
 HTTPS|443(TCP/UDP)|用于设备身份验证。
 TCP|49443 (TCP)|使用证书身份验证。

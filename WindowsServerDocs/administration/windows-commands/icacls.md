@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: 20b2150b1135467cce43ae23bfdc275a5da22141
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2639b8bb913bcd604a7c79015545006a23e1d0f2
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852638"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222950"
 ---
 # <a name="icacls"></a>icacls
 
@@ -26,7 +26,7 @@ ms.locfileid: "59852638"
 
 显示或修改指定文件上的随机访问控制列表 (DACL)，并将存储的 DACL 应用于指定目录中的文件。
 
-有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
+有关如何使用此命令的示例，请参阅[示例](#examples)。
 
 ## <a name="syntax"></a>语法
 
@@ -121,15 +121,15 @@ icacls <Directory> [/substitute <SidOld> <SidNew> [...]] [/restore <ACLfile> [/c
         **WA** （写入属性）
 -   继承权限可能位于任一*Perm*窗体中，并且它们仅应用于目录：
 
-    **(OI)**： 对象继承
+    **(OI)** ： 对象继承
 
-    **(CI)**： 容器继承
+    **(CI)** ： 容器继承
 
-    **(IO)**： 仅继承
+    **(IO)** ： 仅继承
 
-    **(NP)**： 将不会传播继承
+    **(NP)** ： 将不会传播继承
 
-## <a name="BKMK_examples"></a>示例
+## <a name="examples"></a>示例
 
 若要保存的所有文件的 Dacl C:\Windows 目录及其子目录 ACLFile 文件中，请键入：
 ```
@@ -150,4 +150,4 @@ icacls test2 /grant *S-1-1-0:(d,wdac)
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

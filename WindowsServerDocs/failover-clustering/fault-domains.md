@@ -8,23 +8,41 @@ ms.technology: storage-failover-clustering
 ms.topic: article
 author: cosmosdarwin
 ms.date: 09/16/2016
-ms.openlocfilehash: f5c64bb8f8b7d4b8d13c76c4e94cfcf52ee32c30
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 18b7a932cc8a22c356fde89baa316c0532ebc374
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821468"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475994"
 ---
-# <a name="fault-domain-awareness-in-windows-server-2016"></a>Windows Server 2016 中的容错域感知
+# <a name="fault-domain-awareness"></a>故障域感知
 
-> 适用于：Windows Server 2016
+> 适用于：Windows Server 2019 和 Windows Server 2016
 
 故障转移群集允许多台服务器协同工作以提供高可用性，换句话说即提供节点容错能力。 但如今的企业需要从其基础结构越来越高的可用性。 要实现类似于云的正常运行时间，即使是极不可能发生的情况（例如底盘故障、机架中断或自然灾害等）也必须进行防护。 这就是为什么故障转移群集 Windows Server 2016 中引入了底盘、 机架和站点容错功能。
+
+## <a name="fault-domain-awareness"></a>故障域感知
 
 容错域和容错能力是密切相关的概念。 容错域是一组共享单一故障点的硬件组件。 要使容错能力达到某个级别，需要相应级别的多个容错域。 例如，要使机架具备容错能力，服务器和数据必须分布在多个机架。
 
 此短视频概述了 Windows Server 2016 中的容错域：  
 [![单击此图像可观看概述 Windows Server 2016 中的容错域](media/Fault-Domains-in-Windows-Server-2016/Part-1-Fault-Domains-Overview.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-1-Overview)
+
+### <a name="fault-domain-awareness-in-windows-server-2019"></a>在 Windows Server 2019 的容错域感知
+
+容错域感知现已推出 Windows Server 2019，但它默认处于禁用状态，必须通过 Windows 注册表启用。
+
+若要启用 Windows Server 2019 中的容错域感知，转到 Windows 注册表，并设置 （Get-群集）。AutoAssignNodeSite 注册表项设置为 1。
+
+```Registry
+    (Get-Cluster).AutoAssignNodeSite=1
+```
+
+若要禁用 Windows 2019 中的容错域感知，转到 Windows 注册表，并设置 （Get-群集）。AutoAssignNodeSite 注册表项设置为 0。
+
+```Registry
+    (Get-Cluster).AutoAssignNodeSite=0
+```
 
 ## <a name="benefits"></a>优势
 - **存储空间，包括存储空间直通，使用容错域来最大化数据安全性。**  
@@ -103,7 +121,7 @@ Remove-ClusterFaultDomain -Name "Rack A"
 ```
 
 ### <a name="defining-fault-domains-with-xml-markup"></a>使用 XML 标记定义容错域
-使用 XML 极具创意的语法来指定容错域。 我们建议使用你最喜欢的文本编辑器，如 Visual Studio Code（可从*[此处](https://code.visualstudio.com/)* 免费获取）或记事本，创建一个可以保存并重复使用的 XML 文档。  
+使用 XML 极具创意的语法来指定容错域。 我们建议使用你最喜欢的文本编辑器，如 Visual Studio Code（可从 *[此处](https://code.visualstudio.com/)* 免费获取）或记事本，创建一个可以保存并重复使用的 XML 文档。  
 
 此短视频演示了如何使用 XML 标记来指定容错域。
 
@@ -176,5 +194,6 @@ Set-ClusterFaultDomainXML -XML $xml
 [![单击可查看演示将位置描述符添加到容错域的值的简短视频](media/Fault-Domains-in-Windows-Server-2016/part-4-location-description.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-4-Location-Description)
 
 ## <a name="see-also"></a>请参阅  
--   [Windows Server 2016](../get-started/windows-server-2016.md)  
--   [Windows Server 2016 中的存储空间直通](../storage/storage-spaces/storage-spaces-direct-overview.md) 
+- [Windows Server 2019 入门](https://docs.microsoft.com/windows-server/get-started-19/get-started-19)  
+- [开始使用 Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/server-basics)  
+-   [存储空间直通概述](../storage/storage-spaces/storage-spaces-direct-overview.md) 

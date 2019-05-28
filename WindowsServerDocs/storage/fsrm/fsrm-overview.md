@@ -8,16 +8,16 @@ ms.topic: article
 author: jasongerend
 ms.date: 5/14/2018
 description: 文件服务器资源管理器 (FSRM) 是一种工具，使您能够管理和分类的 Windows Server 文件服务器上的数据。
-ms.openlocfilehash: 107d08f247fc56720ccc3d11a3db88c77377257c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8488c7418ac03be53db7164678fad353bc7c637d
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870718"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476128"
 ---
 # <a name="file-server-resource-manager-fsrm-overview"></a>文件服务器资源管理器 (FSRM) 概述
 
-> 适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
+> 适用于：Windows Server 2019，Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2 和 Windows Server （半年频道） 
 
 文件服务器资源管理器 (FSRM) 是 Windows Server 中的一项角色服务，可用于对文件服务器上存储的数据进行管理和分类。 文件服务器资源管理器可用于自动对文件进行分类、 执行任务基于这些分类、 设置文件夹的配额和创建报表监视存储使用情况。
 

@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 923710fac426f63d2c38d9b9a68c92427783abb1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 413cf51e5ceb1c4507b71fb77ee6005807a0ff13
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890008"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476180"
 ---
 # <a name="troubleshooting-file-server-resource-manager"></a>文件服务器资源管理器疑难解答
 
-> 适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
+> 适用于：Windows Server 2019，Windows Server 2016、 Windows 服务器 （半年频道）、 Windows Server 2012 R2 和 Windows Server 2012 中，Windows Server 2008 R2
 
 本部分列出了在使用文件服务器资源管理器时可能遇到的常见问题。
 

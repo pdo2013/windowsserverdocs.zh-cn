@@ -9,16 +9,15 @@ ms.date: 08/11/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fa96fbeed1445b1add2e5de3aad45ad369a6cafa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0df290248f049b3f8a823e902cefa860fa074091
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847218"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189850"
 ---
 # <a name="configure-on-premises-conditional-access-using-registered-devices"></a>使用已注册的设备配置的本地条件性访问
 
->适用于：Windows Server 2016, Windows Server 2012 R2  
 
 以下文档将指导你完成安装和使用已注册的设备配置的本地条件性访问。
 
@@ -155,7 +154,7 @@ Get-ADObject "cn=schema,cn=configuration,dc=domain,dc=local" -Property objectVer
 - “配置”-->“服务”-->“设备注册配置”下的设备注册服务容器和对象  
 
 ### <a name="enable-device-write-back-in-azure-ad-connect"></a>支持在 Azure AD Connect 中进行设备回写  
-如果你之前没有这样做，则在 Azure AD Connect 中启用设备回写，方法是二次运行向导，并选择 **“自定义同步选项”**，然后选中设备回写的框并选择你已在其中运行上述 cmdlet 的林  
+如果你之前没有这样做，则在 Azure AD Connect 中启用设备回写，方法是二次运行向导，并选择 **“自定义同步选项”** ，然后选中设备回写的框并选择你已在其中运行上述 cmdlet 的林  
 
 ### <a name="configure-device-authentication-in-ad-fs"></a>在 AD FS 中配置设备身份验证  
 使用提升的 PowerShell 命令窗口，通过执行以下命令配置 AD FS 策略  

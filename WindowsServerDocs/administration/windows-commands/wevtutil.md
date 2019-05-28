@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e6d57f95379fce80bec9cb5e8445b28f887123c8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 55a76d58ba7a473881dade55c4f00052c9764ae9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826728"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192700"
 ---
 # <a name="wevtutil"></a>wevtutil
 
@@ -49,8 +49,8 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 |{sl\|集日志} \<Logname > [/ e:\<已启用 >] [/ 实现：\<隔离 >] [/ lfn:\<Logpath >] [/ rt:\<保留 >] [/ ab:\<自动 >] [/ ms:\<最大大小 >] [/ l:\<级别 >] [/ k:\<关键字 >] [/ ca:\<通道 >] [/ c:\<配置 >]|修改指定的日志配置。|
 |{ep\|枚举发布者}|显示本地计算机上的事件发布者。|
 |{gp\|获取发布服务器} \<Publishername > [/ ge:\<元数据 >] [/ gm:\<消息 >] [/ f:\<格式 >]]|显示指定的事件发布服务器的配置信息。|
-|{im\|安装清单}\<清单 >|通过清单安装事件发布者和日志。 有关事件清单和使用此参数的详细信息，请参阅在 Microsoft 开发人员网络 (MSDN) 网站上的 Windows 事件日志 SDK ( https://msdn.microsoft.com)。|
-|{um\|卸载清单}\<清单 >|从清单中卸载所有发布服务器和日志。 有关事件清单和使用此参数的详细信息，请参阅在 Microsoft 开发人员网络 (MSDN) 网站上的 Windows 事件日志 SDK ( https://msdn.microsoft.com)。|
+|{im\|安装清单}\<清单 >|通过清单安装事件发布者和日志。 有关事件清单和使用此参数的详细信息，请参阅在 Microsoft 开发人员网络 (MSDN) 网站上的 Windows 事件日志 SDK ([https://msdn.microsoft.com](https://msdn.microsoft.com))。|
+|{um\|卸载清单}\<清单 >|从清单中卸载所有发布服务器和日志。 有关事件清单和使用此参数的详细信息，请参阅在 Microsoft 开发人员网络 (MSDN) 网站上的 Windows 事件日志 SDK ([https://msdn.microsoft.com](https://msdn.microsoft.com))。|
 |{qe\|查询事件}\<路径 > [/ lf:\<日志文件 >] [/ sq:\<Structquery >] [/ 问：\<查询 >] [/ bm:\<书签 >] [/ sbm:\<Savebm >] [/ rd:\<方向 >] [/ f:\<格式 >] [/ l:\<区域设置 >] [/ c:\<计数 >] [/ e:\<元素 >]|从事件日志，从日志文件，或使用结构化的查询读取事件。 默认情况下提供的日志名称\<路径 >。 但是，如果您使用 **/lf**选项，然后\<路径 > 必须为日志文件的路径。 如果您使用 **/sq**参数，\<路径 > 必须为包含结构化的查询的文件路径。|
 |{gli \| get loginfo} \<Logname > [/ lf:\<日志文件 >]|显示有关事件日志或日志文件的状态信息。 如果 **/lf**使用选项，则\<Logname > 是日志文件的路径。 你可以运行**wevtutil el**获取日志名称的列表。|
 |{epl\|导出日志}\<路径 > \<Exportfile > [/ lf:\<日志文件 >] [/ sq:\<Structquery >] [/ 问：\<查询 >] [/ ow:\<覆盖 >]|将事件导出从事件日志，从日志文件，或使用指定的文件的结构化的查询。 默认情况下提供的日志名称\<路径 >。 但是，如果您使用 **/lf**选项，然后\<路径 > 必须为日志文件的路径。 如果您使用 **/sq**选项，\<路径 > 必须为包含结构化的查询的文件路径。 \<Exportfile > 是指向将存储导出的事件的文件的路径。|
@@ -70,7 +70,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 |/ms:\<MaxSize>|以字节为单位设置日志的最大大小。 最小日志大小为 1048576 个字节 (1024 KB) 和日志文件始终是 64 KB 的倍数，因此输入的值将被舍入相应地。|
 |/l:\<级别 >|定义日志级别筛选的器。 \<级别 > 可以是任何有效的级别值。 此选项才适用于具有专用会话日志。 可以通过设置删除级别筛选器<Level>为 0。|
 |/k:\<关键字 >|指定的日志的关键字筛选器。 \<关键字 > 可以是任何有效的 64 位的关键字掩码。 此选项才适用于具有专用会话日志。|
-|/ca:\<通道 >|设置事件日志的访问权限。 \<通道 > 是使用安全描述符定义语言 (SDDL) 的安全描述符。 有关 SDDL 格式的详细信息，请参阅 Microsoft 开发人员网络 (MSDN) 网站 ( https://msdn.microsoft.com)。|
+|/ca:\<通道 >|设置事件日志的访问权限。 \<通道 > 是使用安全描述符定义语言 (SDDL) 的安全描述符。 有关 SDDL 格式的详细信息，请参阅 Microsoft 开发人员网络 (MSDN) 网站 ([https://msdn.microsoft.com](https://msdn.microsoft.com))。|
 |无\<配置 >|指定配置文件的路径。 此选项将导致日志属性从配置文件中定义要读取\<配置 >。 如果您使用此选项，您必须指定<Logname>参数。 将从配置文件读取的日志名称。|
 |/ge:\<元数据 >|获取此发布服务器可以引发的事件的元数据信息。 \<元数据 > 可以是 true 或 false。|
 |/gm:\<消息 >|显示实际的消息，而不是数字的消息 id。 \<消息 > 可以是 true 或 false。|
@@ -155,4 +155,4 @@ wevtutil cl Application /bu:C:\admin\backups\a10306.evtx
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

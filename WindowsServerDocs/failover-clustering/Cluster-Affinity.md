@@ -1,18 +1,18 @@
 ---
-title: 群集 AntiAffinity
+title: 群集关联
 ms.prod: windows-server-threshold
 ms.manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
 ms.date: 03/07/2019
-description: 本指南介绍了故障转移群集 AntiAffinity 级别
-ms.openlocfilehash: 0e7511aa4305e09a1e895a4f8f4ec120079733b7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+description: 本指南介绍了故障转移群集的相关性和 antiAffinity 级别
+ms.openlocfilehash: a38d53f6aed1ca634d41822f4486779f6d279ec0
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857198"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476054"
 ---
 # <a name="cluster-affinity"></a>群集关联
 

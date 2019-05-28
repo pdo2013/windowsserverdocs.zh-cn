@@ -13,16 +13,16 @@ author: haley-rowland
 ms.author: elizapo
 ms.date: 06/14/2017
 manager: dongill
-ms.openlocfilehash: 7d895b1098c4d8cdf162c77f35209b7308872d60
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 2d12062f302c28a8124e0aa49af7f441e77ffe33
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849958"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222795"
 ---
 # <a name="create-a-geo-redundant-multi-data-center-rds-deployment-for-disaster-recovery"></a>创建异地冗余的多个数据中心进行灾难恢复的 RDS 部署
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server （半年频道），Windows Server 2019，Windows Server 2016
 
 通过利用 Azure 中的多个数据中心，可以为远程桌面服务部署启用灾难恢复。 与标准的高可用性 RDS 部署不同 (如中所述[远程桌面服务体系结构](desktop-hosting-logical-architecture.md))，它在单个 Azure 区域 （例如，欧洲西部） 中使用的数据中心，多个数据中心部署使用数据在多个地理位置，从而提高部署的一个 Azure 数据中心的可用性中心可能不可用，但不太可能多个区域会停机一次。 通过部署异地冗余的 RDS 体系结构，您可以在整个区域发生灾难性故障的故障转移。
 
@@ -44,7 +44,7 @@ ms.locfileid: "59849958"
 
 ![使用多个 Azure 区域的 RDS 部署](media/rds-ha-multi-region.png)
 
-若要创建异地冗余部署的第二个 Azure 区域中复制整个 RDS 部署。 此体系结构使用主动-被动模型，其中只有一个 RDS 部署正在运行一次。 VNet 到 VNet 连接允许与彼此通信的两种环境。 RDS 部署基于单个 Active Directory 林/域，并在两个部署之间复制 AD 服务器、 含义用户可以登录到两个部署使用相同的凭据。 双节点群集存储空间直通 (S2D) 横向扩展文件服务器 (SOFS) 上存储用户设置和数据存储在用户配置文件磁盘 (UPD)。 第二个相同的 S2D 群集部署在第二个 （被动） 区域，并使用存储副本将从活动的用户配置文件复制到被动部署。 Azure 流量管理器用于将自动定向到任何部署的最终用户当前处于活动状态-从最终用户角度来看，它们访问部署使用一个 URL，并不知道最终用掉的哪个区域。
+若要创建异地冗余部署的第二个 Azure 区域中复制整个 RDS 部署。 此体系结构使用主动-被动模型，其中只有一个 RDS 部署正在运行一次。 VNet 到 VNet 连接允许与彼此通信的两种环境。 RDS 部署基于单个 Active Directory 林/域，并在两个部署之间复制 AD 服务器、 含义用户可以登录到两个部署使用相同的凭据。 双节点群集存储空间直通的横向扩展文件服务器 (SOFS) 上存储用户设置和数据存储在用户配置文件磁盘 (UPD)。 第二个相同的存储空间直通群集部署在第二个 （被动） 区域，并使用存储副本将从活动的用户配置文件复制到被动部署。 Azure 流量管理器用于将自动定向到任何部署的最终用户当前处于活动状态-从最终用户角度来看，它们访问部署使用一个 URL，并不知道最终用掉的哪个区域。
 
 
 您*无法*在每个区域中创建的非高度可用的 RDS 部署，但如果即使单个 VM 重新启动，在一个区域中，会发生故障转移，从而增加的故障转移发生的可能性关联的性能影响。
@@ -74,8 +74,8 @@ ms.locfileid: "59849958"
 
    > [!NOTE]
    > 可以预配存储手动 （而不是使用 PowerShell 脚本和模板）： 
-   >1. 部署[2 节点 S2D SOFS](rds-storage-spaces-direct-deployment.md) RG A 来存储你的用户配置文件磁盘 (Upd) 中。
-   >2. 部署 RG B 中的第二个、 相同 S2D SOFS-请确保在每个群集中使用相同的存储量。
+   >1. 部署[双节点存储空间直通 SOFS](rds-storage-spaces-direct-deployment.md) RG A 来存储你的用户配置文件磁盘 (Upd) 中。
+   >2. 将第二个、 相同存储空间直通 SOFS RG B 中进行部署-请确保在每个群集中使用相同的存储量。
    >3. 设置[与异步复制的存储副本](../../storage/storage-replica/cluster-to-cluster-storage-replication.md)两者之间。
 
 ### <a name="enable-upds"></a>启用 Upd
@@ -85,7 +85,7 @@ ms.locfileid: "59849958"
 
 若要启用对这两个部署的 Upd，请执行以下操作：
 
-1. 运行[集 RDSessionCollectionConfiguration cmdlet](https://technet.microsoft.com/itpro/powershell/windows/remote-desktop/set-rdsessioncollectionconfiguration)若要启用主 （活动） 部署的用户配置文件磁盘提供文件共享的路径 （它在步骤 7 中部署的步骤中创建） 在源卷上。
+1. 运行[集 RDSessionCollectionConfiguration cmdlet](https://docs.microsoft.com/powershell/module/remotedesktop/set-rdsessioncollectionconfiguration)若要启用主 （活动） 部署的用户配置文件磁盘提供文件共享的路径 （它在步骤 7 中部署的步骤中创建） 在源卷上。
 2. 反转存储副本方向，以便将目标卷将成为源卷 （这将卷装载，并使其可访问的辅助部署）。 你可以运行**Set-srpartnership** cmdlet 来执行此操作。 例如：
 
    ```powershell
@@ -105,10 +105,10 @@ ms.locfileid: "59849958"
 
 请注意，流量管理器需要终结点，以返回 200 OK 响应 GET 请求，以便将其标记为"正常运行。" RDS 的模板创建的 publicIP 对象将起作用，但不是添加路径附录。 相反，您可以最终向用户提供与流量管理器 URL"/ RDWeb"追加，例如： ```http://deployment.trafficmanager.net/RDWeb```
 
-通过将 Azure 流量管理器部署与优先级路由方法，则阻止最终用户访问被动部署功能的活动部署时。 如果最终用户访问被动部署，并且没有已存储副本方向切换为故障转移，用户登录方式挂起如部署尝试，并且无法进行访问被动 S2D 群集上的文件共享最终部署将放弃并提供用户的临时配置文件。  
+通过将 Azure 流量管理器部署与优先级路由方法，则阻止最终用户访问被动部署功能的活动部署时。 如果最终用户访问被动部署和存储副本方向尚未已切换为故障转移时，用户登录方式挂起如部署尝试，并且无法进行访问被动的存储空间直通群集的最终部署上的文件共享将放弃并为用户提供临时配置文件。  
 
 ### <a name="deallocate-vms-to-save-resources"></a>解除分配 Vm 以节省资源 
-配置这两个部署后，你可以根据需要关闭并解除分配辅助 RDS 基础结构和 RDSH 虚拟机以在这些虚拟机上节省成本。 S2D SOFS 和 AD 服务器 Vm 必须始终保持在要启用用户帐户和配置文件同步的辅助/被动部署中运行。  
+配置这两个部署后，你可以根据需要关闭并解除分配辅助 RDS 基础结构和 RDSH 虚拟机以在这些虚拟机上节省成本。 存储空间直通 SOFS 和 AD 服务器 Vm 必须始终保持在要启用用户帐户和配置文件同步的辅助/被动部署中运行。  
 
 故障转移时，你将需要启动已解除分配的 Vm。 此部署配置的优点在于，成本更低，但代价是故障转移时间。 如果在活动部署中发生灾难性故障，您必须手动启动被动部署，或你将需要的自动化脚本来检测故障并自动启动被动部署。 在任一情况下，可能需要几分钟才能收到被动部署运行并且可供用户进行登录，从而导致服务中断一段时间。 此停机时间取决于时间量它所需开始 RDS 基础结构和 RDSH 虚拟机 （通常 2-4 分钟，如果 Vm 的启动并行而不是按顺序），以及若要将被动群集联机 （具体取决于群集的大小的时间通常 2 到 4 分钟，每个节点的 2 个磁盘的 2 节点群集)。 
 
@@ -123,7 +123,7 @@ ms.locfileid: "59849958"
 
 ## <a name="failover"></a>故障转移
 
-在主动-被动部署的情况下故障转移需要您要启动的辅助部署 Vm。 可以手动或使用自动化脚本执行此操作。 在 S2D SOFS 的灾难性故障转移的情况下更改存储副本合作关系方向，使目标卷将成为源卷。 例如：
+在主动-被动部署的情况下故障转移需要您要启动的辅助部署 Vm。 可以手动或使用自动化脚本执行此操作。 在存储空间直通 SOFS 的灾难性故障转移的情况下更改存储副本合作关系方向，使目标卷将成为源卷。 例如：
 
    ```powershell
    Set-SRPartnership -NewSourceComputerName "cluster-b-s2d-c" -SourceRGName "cluster-b-s2d-c" -DestinationComputerName "cluster-a-s2d-c" -DestinationRGName "cluster-a-s2d-c"

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d7a55ddc3caea1002ab51ce4f992b36673ea312b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3229e6ccb07c925a900b298a8332c5e48cefefe7
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825638"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564665"
 ---
 # <a name="seceditgeneraterollback"></a>secedit:generaterollback
 
@@ -44,11 +44,11 @@ Secedit /generaterollback /db <database file name> /cfg <configuration file name
 
 ## <a name="remarks"></a>备注
 
-如果日志文件的路径未提供，默认日志文件 (*systemroot*\Users \*UserAccount*\My Documents\Security\Logs\*DatabaseName*.log) 使用。
+如果日志文件的路径未提供，默认日志文件 (*systemroot*\Users \*UserAccount *\My Documents\Security\Logs\*DatabaseName*.log) 使用。
 
 从 Windows Server 2008 开始`Secedit /refreshpolicy`已替换为`gpupdate`。 有关如何刷新的安全设置的信息，请参阅[Gpupdate](gpupdate.md)。
 
-成功运行此命令将状态"任务已成功完成。？ 和日志仅声明的安全模板和安全策略配置之间不匹配。 它列出了这些安全中的不匹配。
+成功运行此命令将状态"任务已成功完成。" 和日志仅声明的安全模板和安全策略配置之间不匹配。 它列出了这些安全中的不匹配。
 
 如果指定现有回滚模板，则此命令将覆盖它。 可以使用此命令创建新的回滚模板。 任何一种情况不需要任何其他参数。
 
@@ -62,4 +62,4 @@ Secedit /generaterollback /db C:\Security\FY11\SecDbContoso.sdb /cfg sectmplcont
 #### <a name="additional-references"></a>其他参考
 
 -   [Secedit](secedit.md)
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)

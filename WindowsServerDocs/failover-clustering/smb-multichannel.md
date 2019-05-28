@@ -7,18 +7,18 @@ ms.topic: article
 author: RobHindman
 ms.author: robhind
 ms.date: 09/15/2016
-ms.openlocfilehash: 45d8364adf9d3db24a8e6d8f7bc91178ce7d1551
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1b9271ceac99ac9b21cbfac902ba133d66815df4
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881128"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476118"
 ---
 # <a name="simplified-smb-multichannel-and-multi-nic-cluster-networks"></a>简化的 SMB 多通道和多 NIC 群集网络
 
-> 适用于：Windows 服务器 （半年频道），Windows Server 2016
+> 适用于：Windows Server 2019、Windows Server 2016
 
-简化的 SMB 多通道和多-<abbr title="网络接口卡">NIC</abbr>群集网络是允许使用多个 Nic 上的相同的群集网络子网，并自动启用 SMB 多通道的 Windows Server 2016 中的新功能。  
+简化的 SMB 多通道和多-<abbr title="网络接口卡">NIC</abbr>群集网络是一项功能，允许使用多个 Nic 上的相同的群集网络子网，并自动启用 SMB 多通道。
 
 简化的 SMB 多通道和多 NIC 群集网络提供以下优势：  
 - 故障转移群集会自动识别正在使用相同的交换机的节点上的所有 Nic / 相同子网-无需额外配置。  
@@ -31,7 +31,7 @@ ms.locfileid: "59881128"
 -   每个服务器，使用相同的交换机的多个 Nic / 子网。  
 
 ## <a name="how-to-take-advantage-of-multi-nic-clusters-networks-and-simplified-smb-multichannel"></a>如何充分利用多 NIC 群集网络和简化的 SMB 多通道  
-本部分介绍如何利用 Windows Server 2016 中的新的多 NIC 群集网络和简化的 SMB 多通道功能。  
+本部分介绍如何充分利用新的多 NIC 群集网络和简化的 SMB 多通道功能。  
 
 ### <a name="use-at-least-two-networks-for-failover-clustering"></a>使用故障转移群集的至少两个网络   
 虽然很少见，但可能会失败的网络交换机-它仍然最佳做法是使用至少两个网络故障转移群集。 找到的所有网络都用于群集检测信号。 避免使用故障转移群集的单个网络，以避免单点故障。 理想情况下，应该有多个物理通信路径在群集中的节点之间任何单点故障。  
@@ -58,7 +58,7 @@ ms.locfileid: "59881128"
 **图 4:自动 IPv6 链接本地 (fe80) 地址资源配置**  
 
 ## <a name="throughput-and-fault-tolerance"></a>吞吐量和容错能力  
-Windows Server 2016 会自动检测 NIC 功能，并将尝试使用最快的可能配置中的每个 NIC。 已成组 Nic，使用 RSS 的 Nic 和 Nic 具有 RDMA 功能都可用。 下表总结了权衡时使用这些技术。 使用支持的多个 RDMA Nic 时，才能够达到最大吞吐量。 有关详细信息，请参阅[SMB Mutlichannel 的基础知识](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/)。
+Windows Server 2016 和 Windows Server 2019 自动检测 NIC 功能，并将尝试使用最快的可能配置中的每个 NIC。 已成组 Nic，使用 RSS 的 Nic 和 Nic 具有 RDMA 功能都可用。 下表总结了权衡时使用这些技术。 使用支持的多个 RDMA Nic 时，才能够达到最大吞吐量。 有关详细信息，请参阅[SMB Mutlichannel 的基础知识](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/)。
 
 ![举例说明了各种 NIC 配置吞吐量和容错能力](media/Simplified-SMB-Multichannel-and-Multi-NIC-Cluster-Networks/Clustering_MulitNIC_Fig5.png)  
 **图 5:有关各种 NIC conifigurations 吞吐量和容错能力**   

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 8013764b88a1061cfcaa3a507466c111bfd59aad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7e61c734780baa1482670af3f24697c10345b292
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864808"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190586"
 ---
 # <a name="when-to-create-a-federation-server"></a>何时创建联合服务器
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 当你创建联合身份验证 serverin Active Directory 联合身份验证服务\(AD FS\)，提供你的组织可以通过其中一种方法：  
   
@@ -40,7 +38,7 @@ ms.locfileid: "59864808"
   
 -   [Web SSO 设计](Web-SSO-Design.md)  
   
--   [联合的 Web SSO 设计](Federated-Web-SSO-Design.md)  
+-   [联合 Web SSO 设计](Federated-Web-SSO-Design.md)  
   
 如有必要，部署联合 Web SSO 设计的组织可以配置单个联合身份验证服务器，以便它充当在帐户伙伴角色和资源伙伴角色中。 在这种情况下，联合身份验证服务器可能会产生安全断言标记语言\(SAML\)基于其自己的组织或将令牌请求重新路由到组织中的用户帐户的令牌基于用户的帐户所在的位置.  
   
@@ -79,5 +77,5 @@ ms.locfileid: "59864808"
 有关如何设置部署联合服务器所需的所有先决条件的详细信息，请参阅[核对清单：设置联合身份验证服务器](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md)。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
 

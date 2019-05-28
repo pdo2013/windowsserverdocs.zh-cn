@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: fb31cff44cac6bd66f9aa5b7234ff3fd3b215ccf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9b0d339df588c784f8fe46f7dd0e6ce2975d0c48
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876298"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034651"
 ---
 # <a name="network-file-system-overview"></a>网络文件系统概述
 
@@ -51,7 +51,7 @@ Windows 支持多个版本的 NFS 客户端和服务器，具体取决于操作�
 
 |特性/功能|新功能或更新功能|描述|
 |---|---|---|
-|[NFS 版本 4.1](#nfs-version-4.1)|新增|增强的安全性、 性能和互操作性相比 NFS 版本 3。|
+|[NFS 版本 4.1](#nfs-version-41)|新增|增强的安全性、 性能和互操作性相比 NFS 版本 3。|
 |[NFS 基础结构](#nfs-infrastructure)|已更新|改进了部署和可管理性，并可提高安全性。|
 |[NFS 版本 3 连续可用性](#nfs-version-3-continuous-availability)|已更新|改进了 NFS 版本 3 客户端上的连续可用性。|
 |[部署和可管理性方面的改进](#deployment-and-manageability-improvements)|已更新|可以轻松部署和管理 NFS 与新的 Windows PowerShell cmdlet 和新的 WMI 提供程序。|

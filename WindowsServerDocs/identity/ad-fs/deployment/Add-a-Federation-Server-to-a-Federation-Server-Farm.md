@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: d67f4c252ad25a05f11b88771f12fd01d13137d4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 040caf6395b7c70313de900d522241f97699a999
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880388"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192500"
 ---
 # <a name="add-a-federation-server-to-a-federation-server-farm"></a>将联合服务器添加到联合服务器场
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 在安装联合身份验证服务角色服务并在计算机上配置所需的证书后，你现可配置要成为联合身份验证服务器的计算机。 可以使用以下过程将计算机加入新的联合服务器场中。  
   
@@ -37,23 +36,23 @@ ms.locfileid: "59880388"
   
     -   安装向导已完成，请打开 Windows 资源管理器后，随时导航到**c:\\Windows\\ADFS**文件夹，并双击\-单击**FsConfigWizard.exe**.  
   
-2.  在“欢迎”页上，验证选择了“将联合服务器添加到现有联合身份验证服务”，然后单击“下一步”。  
+2.  在“欢迎”  页上，验证选择了“将联合服务器添加到现有联合身份验证服务”  ，然后单击“下一步”  。  
   
-3.  如果已选择的 AD FS 数据库存在，则**AD FS 配置数据库检测到现有**页将出现。 如果显示该页，则单击“删除数据库”，然后单击“下一步”。  
+3.  如果已选择的 AD FS 数据库存在，则**AD FS 配置数据库检测到现有**页将出现。 如果显示该页，则单击“删除数据库”  ，然后单击“下一步”  。  
   
     > [!CAUTION]  
     > 仅当你确信此 AD FS 数据库中的数据并不重要，或者它未使用生产联合服务器场中时，请选择此选项。  
   
-4.  在“指定主联合服务器和服务帐户”页的“主联合服务器名称”下，键入场中主联合服务器的计算机名，然后单击“浏览”。 在“浏览”对话框中，找到由现有联合服务器场中的所有其他联合服务器用作服务帐户的域帐户，然后单击“确定”。 键入的密码和确认，然后依次**下一步**:  
+4.  在“指定主联合服务器和服务帐户”  页的“主联合服务器名称”  下，键入场中主联合服务器的计算机名，然后单击“浏览”  。 在“浏览”  对话框中，找到由现有联合服务器场中的所有其他联合服务器用作服务帐户的域帐户，然后单击“确定”  。 键入的密码和确认，然后依次**下一步**:  
   
     > [!NOTE]  
     > 有关指定联合服务器场的服务帐户的详细信息，请参阅[手动配置联合服务器场服务帐户](Manually-Configure-a-Service-Account-for-a-Federation-Server-Farm.md)。 联合服务器场中的每个联合身份验证服务器必须指定可操作的服务器场的相同服务帐户。 例如，如果已创建的服务帐户为 contoso\\ADFS2SVC，您将配置为联合身份验证服务器角色以及将参与相同场每台计算机必须指定 contoso\\ADFS2SVC 在此步骤中的步骤联合身份验证服务器配置向导为场的可操作。  
   
-5.  在“已准备好应用设置”页上，查看详细信息。 如果设置正确，请单击**下一步**以开始使用这些设置配置 AD FS。  
+5.  在“已准备好应用设置”  页上，查看详细信息。 如果设置正确，请单击**下一步**以开始使用这些设置配置 AD FS。  
   
 6.  在“配置结果”  页上，查看结果。 完成所有配置步骤后，单击“关闭”   以退出向导。  
   
 ## <a name="additional-references"></a>其他参考  
-[清单：设置联合身份验证服务器](Checklist--Setting-Up-a-Federation-Server.md)  
+[清单：设置联合服务器](Checklist--Setting-Up-a-Federation-Server.md)  
   
 

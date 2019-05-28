@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4b06992bfb398b66988ad4882217a8a83738365e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e67c04c98a53f4f1db36e6586fa77bcf181a8d5a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876568"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188975"
 ---
 # <a name="update-password-customization"></a>更新密码自定义项 
 
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 在某些情况下，用户可能无法连接到企业网络来更改其帐户密码。 此因素可能会产生问题，尤其对于那些可能离最近的企业办公室都较远的远程员工。 对于这些特定情况，只有通过连接到 Internet 才能使用更新密码页面。  
   

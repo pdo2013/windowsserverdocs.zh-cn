@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 1d9e91ec8f4c998f34e324b5d551a387eba5a310
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5717fcc9e1732b6273620e633c140c6df58ec8b7
+ms.sourcegitcommit: 29ad32b9dea298a7fe81dcc33d2a42d383018e82
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823628"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65624652"
 ---
 # <a name="create-os-specialization-answer-file"></a>创建操作系统专用化答案文件
 
@@ -38,10 +38,8 @@ Install-Module GuardedFabricTools -Repository PSGallery -MinimumVersion 1.0.0
 - [基本 Windows 答案文件](#basic-windows-answer-file)
 - [Windows 答案文件与域加入](#windows-answer-file-with-domain-join)
 - [Windows 答案文件与静态 IPv4 地址](#windows-answer-file-with-static-ipv4-addresses)
-- [使用自定义区域设置的 Windows 答案文件](#windows-answer-file-with-custom-locale)
+- [使用自定义区域设置的 Windows 答案文件](#windows-answer-file-with-a-custom-locale)
 - [基本 Linux 答案文件](#basic-linux-answer-file)
-
-此外可以查看[函数参数](#function-parameters)，本主题中更高版本。
 
 ## <a name="basic-windows-answer-file"></a>基本 Windows 答案文件
 
@@ -51,7 +49,7 @@ VM 网络适配器将使用 DHCP 获取 IP 地址和 VM 将未加入到 Active D
 使用"Administrator"作为用户名，如果你想要配置的内置管理员帐户。
 
 ```powershell
-$adminCred = Get-Credential -Prompt "Local administrator account"
+$adminCred = Get-Credential -Message "Local administrator account"
 
 New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -AdminCredentials $adminCred
 ```
@@ -69,8 +67,8 @@ VM 网络适配器将使用 DHCP 获取 IP 地址。
 请务必更改的值"-DomainName"参数为你的 Active Directory 域的 FQDN。
 
 ```powershell
-$adminCred = Get-Credential -Prompt "Local administrator account"
-$domainCred = Get-Credential -Prompt "Domain join credentials"
+$adminCred = Get-Credential -Message "Local administrator account"
+$domainCred = Get-Credential -Message "Domain join credentials"
 
 New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -AdminCredentials $adminCred -DomainName 'my.contoso.com' -DomainJoinCredentials $domainCred
 ```
@@ -97,7 +95,7 @@ Virtual Machine Manager 使用的 IP 池提供静态 IP 地址的三个组件：
 然后，可以使用`-StaticIPPool`参数在答案文件中包含的静态 IP 元素。 参数`@IPAddr-1@`， `@NextHop-1-1@`，和`@DNSAddr-1-1@`在答案文件将替换为在部署时指定 Virtual Machine Manager 中的实际值。
 
 ```powershell
-$adminCred = Get-Credential -Prompt "Local administrator account"
+$adminCred = Get-Credential -Message "Local administrator account"
 
 New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -AdminCredentials $adminCred -StaticIPPool IPv4Address
 ```
@@ -110,8 +108,8 @@ New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -AdminCredentials
 使用"Administrator"作为用户名，如果你想要配置的内置管理员帐户。
 
 ```powershell
-$adminCred = Get-Credential -Prompt "Local administrator account"
-$domainCred = Get-Credential -Prompt "Domain join credentials"
+$adminCred = Get-Credential -Message "Local administrator account"
+$domainCred = Get-Credential -Message "Domain join credentials"
 
 New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -AdminCredentials $adminCred -Locale es-ES
 ```
@@ -132,5 +130,5 @@ New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -RootPassword $ro
 
 ## <a name="see-also"></a>请参阅
 
-- [部署受防护的 Vm](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
-- [受保护的构造和受防护的 Vm](guarded-fabric-and-shielded-vms-top-node.md)
+- [部署受防护的 VM](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
+- [受保护的结构和受防护的 VM](guarded-fabric-and-shielded-vms-top-node.md)

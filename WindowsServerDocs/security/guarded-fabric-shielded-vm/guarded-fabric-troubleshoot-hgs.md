@@ -7,12 +7,12 @@ ms.assetid: 424b8090-0692-49a6-9dc4-3c0e77d74b80
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 2dc9a612fa9760a6ca5f05efe1c287fd0872a1d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 05888ce57b5b922fc330d9deab430d329fede69b
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861248"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222531"
 ---
 # <a name="troubleshooting-the-host-guardian-service"></a>故障排除主机保护者服务
 
@@ -93,7 +93,7 @@ $cert.Acl = $cert.Acl | Add-AccessRule $gMSA Read Allow
 HSM 品牌/系列      | 建议
 ----------------------|-------------
 Gemalto SafeNet       | 请确保证书请求文件中的密钥使用情况属性设置为将允许使用的签名和加密的证书。 此外，你必须将 gMSA 帐户授予*读取*访问私钥使用本地证书管理器工具 （请参阅上述步骤）。
-Thales nShield        | 确保 HGS 的每个节点有权访问包含签名和加密密钥的安全体系。 不需要配置特定于 gMSA 的权限。
+nCipher nShield        | 确保 HGS 的每个节点有权访问包含签名和加密密钥的安全体系。 不需要配置特定于 gMSA 的权限。
 Utimaco CryptoServers | 请确保证书请求文件中的密钥使用情况属性设置为 0x13，允许使用的加密、 解密和签名的证书。
 
 ### <a name="certificate-requests"></a>证书请求

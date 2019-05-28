@@ -11,18 +11,34 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 02/22/2019
+ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2746127c15753ac8f4f6067eef068fe97b425829
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 15218af2f084e9c998d89250aace1d763d03b42a
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844548"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976330"
 ---
 # <a name="whats-new-for-the-remote-desktop-web-client"></a>新增的远程桌面 web 客户端？
 
 我们会定期更新[远程桌面 web 客户端](remote-desktop-web-client.md)、 添加新功能和修复问题。 请查看以下最新的更新。
+
+   >[!NOTE]
+    >我们已为 web 客户端更改版本控制系统。 从版本 1.0.18.0 开始，所有 web 客户端发布版本将都包含数值 （在"W.X.Y.Z"的格式）。 远程桌面 web 客户端的版本号将始终以 0 (例如，W.X.Y.0) 结尾。 每个 Windows 虚拟桌面 web 客户端版本将更改下一步的远程桌面 web 客户端版本 (例如，1.0.18.1) 之前的最后一位数。
+
+## <a name="updates-for-version-10180"></a>针对版本 1.0.18.0 的更新
+*发布的日期：5/14/2019*
+
+- 在设置选项卡，使用户能够在浏览器中打开资源，或下载.rdp 文件，以处理与另一个客户端中添加的资源启动方法配置。 此设置可能配置的管理员联系。有关管理员配置此功能可在详细信息[web 客户端安装程序文档](remote-desktop-web-client-admin.md)。
+- 在远程会话中的颜色呈现问题，启用更鲜艳的固定的色。
+- 与源的远程资源错误相关的已修改的错误消息。 
+- 添加了的对更多 office 快捷方式，例如特殊的粘贴 (Ctrl + Alt + V)。
+- 用户能够在远程会话 (Alt + F3) 中调用 Windows 键添加的键盘快捷方式
+- 尝试使用已过期的密码进行身份验证的用户的更新的错误消息。
+- 在所有资源页上刷新的源 UI。
+- 会话过程中出现的解决重叠经过重新连接。
+- 修复了远程资源图标大小调整资源任务栏中。 
 
 ## <a name="updates-for-version-1011"></a>针对版本 1.0.11 的更新
 *发布的日期：2/22/2019*

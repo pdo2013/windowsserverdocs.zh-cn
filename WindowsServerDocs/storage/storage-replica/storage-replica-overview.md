@@ -6,18 +6,18 @@ ms.author: nedpyle
 ms.technology: storage-replica
 ms.topic: get-started-article
 author: nedpyle
-ms.date: 3/29/2018
+ms.date: 4/26/2019
 ms.assetid: e9b18e14-e692-458a-a39f-d5b569ae76c5
-ms.openlocfilehash: a921701747c5e21a2c7f135826f7d754c8f7d773
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e8b437a1a4ba3e5c10d6709e23efb306a077a21b
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866708"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64773531"
 ---
 # <a name="storage-replica-overview"></a>存储副本概述
 
->适用于：Windows Server （半年频道），Windows Server 2019，Windows Server 2016
+>适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
 
 存储副本 (Storage Replica) 是一种 Windows Server 技术，它允许针对灾难恢复在服务器或群集之间进行卷的复制。 它还允许你创建跨越两个站点的拉伸故障转移群集，同时保持所有节点同步。
 
@@ -25,7 +25,6 @@ ms.locfileid: "59866708"
 
 * **同步复制**映射低延迟网络站点中的数据和在崩溃时保持一致的卷，以确保在故障发生过程中文件系统级别的数据损失为零。
 * **异步复制**通过较高延迟网络链接映射都市范围外的站点之间的数据，但不保证在出现故障时两个站点具有完全相同的数据副本。
-
 
 ## <a name="why-use-storage-replica"></a>为什么要使用存储副本？
 
@@ -39,7 +38,7 @@ ms.locfileid: "59866708"
 
 ## <a name="BKMK_SRSupportedScenarios"></a>支持的配置
 
-使用本指南和 Windows Server 2016 Datacenter Edition，可以在拉伸群集中、在群集到群集配置之间和服务器到服务器配置之间部署存储复制（请参见图 1-3）。
+你可以部署存储副本在拉伸群集，群集到群集之间和服务器到服务器配置 （请参阅图 1-3）。
 
 **拉伸群集**允许在单个群集中配置计算机和存储，其中某些节点共享一组非对称存储，而另一些节点共享另一组，然后通过站点感知进行同步或异步复制。 此方案可以利用具有共享的 SAS 存储的存储空间、连接了 SAN 和 iSCSI 的 LUN。 它通过 PowerShell 和故障转移群集管理器图形工具进行管理，并允许自动化工作负载故障转移。  
 
@@ -68,7 +67,7 @@ ms.locfileid: "59866708"
 
 * **简单部署和管理**。 存储副本具有易于使用的设计要求。 创建的两个服务器之间复制合作关系可以利用 Windows Admin Center。 拉伸群集的部署在熟悉的故障转移群集管理器工具中使用直观向导。   
 
-* **来宾和主机**。 存储副本的所有功能均将在基于虚拟化来宾和主机的部署中公开。 这意味着只要在来宾中使用 Windows Server 2016 Datacenter Edition，即使数据卷在非 Windows 虚拟化平台或在公有云中运行，来宾也可以复制其数据卷。  
+* **来宾和主机**。 存储副本的所有功能均将在基于虚拟化来宾和主机的部署中公开。 这意味着，来宾也可以复制其数据卷即使运行非 Windows 虚拟化平台上或在公有云中，只要在来宾操作系统中使用 Windows Server。  
 
 * **基于 SMB3**。 存储副本使用 SMB 3 这一公认的成熟技术，该技术在 Windows Server 2012 中首次推出。 这意味着 SMB 的所有高级特性（如RoCE、iWARP 和 InfiniBand RDMA 网卡上的多通道和 SMB 直通支持）均可用于存储副本。   
 
@@ -84,7 +83,7 @@ ms.locfileid: "59866708"
 
 * **精简预配**。 在很多情况下，为了提供近乎瞬间的初始复制时间，支持在存储空间和 SAN 设备中进行精简配置。  
 
-Windows Server 2016 在存储副本中实现了以下功能：  
+存储副本包括以下功能：  
 
 |功能|详细信息|  
 |-----------|-----------|  
@@ -112,11 +111,16 @@ Windows Server 2016 在存储副本中实现了以下功能：
 
 ## <a name="BKMK_SR3"></a> 存储副本先决条件  
 
-* Active Directory 域服务林。  
-* 具有 SAS JBOD 的存储空间、存储空间直通、光纤通道 SAN、共享 VHDX、iSCSI 目标或本地 SAS/SCSI/SATA 存储。 对于复制日志驱动器，建议使用 SSD 或更快速度。 Microsoft 建议日志存储应比数据存储速度快。 日志卷不得用于其他工作负荷。 
-* 每个服务器上必须具有至少一个用于同步复制的以太网/TCP 连接，但最好是 RDMA。   
-* 至少 2 GB 的 RAM 且每台服务器具有两个内核。  
-* 服务器间的网络具有足够的带宽，以包含 IO 写入工作负载和平均值为 5 毫秒或更低的往返行程延迟（对于同步复制）。 异步复制没有延迟建议。  
+* Active Directory 域服务林。
+* 具有 SAS JBOD 的存储空间、存储空间直通、光纤通道 SAN、共享 VHDX、iSCSI 目标或本地 SAS/SCSI/SATA 存储。 对于复制日志驱动器，建议使用 SSD 或更快速度。 Microsoft 建议日志存储应比数据存储速度快。 日志卷不得用于其他工作负荷。
+* 每个服务器上必须具有至少一个用于同步复制的以太网/TCP 连接，但最好是 RDMA。
+* 至少 2 GB 的 RAM 且每台服务器具有两个内核。
+* 服务器间的网络具有足够的带宽，以包含 IO 写入工作负载和平均值为 5 毫秒或更低的往返行程延迟（对于同步复制）。 异步复制没有延迟建议。
+* Windows Server、 数据中心版或 Windows Server Standard Edition。 在 Windows Server Standard Edition 上运行的存储副本具有以下限制：
+
+  * 必须使用 Windows Server 2019 或更高版本
+  * 存储副本复制而不是无限数量的卷的单个卷。
+  * 卷可以具有最多 2 TB 而不是大小不受限制的大小。
 
 ##  <a name="BKMK_SR4"> </a> 背景  
 本节包括有关高级行业术语、同步和异步复制以及关键行为的信息。
@@ -152,13 +156,13 @@ Windows Server 2016 在存储副本中实现了以下功能：
 
 -   在 Windows Server 2016 中复制时目标卷不可访问。 在配置复制时，目标卷将卸除，这使得用户无法进行任何读取或写入。 其驱动器号可以显示在文件资源管理器等常见界面中，但是，应用程序无法访问卷本身。 块级别复制技术与卷中允许访问的目标已装载文件系统不兼容；当块在其下更改时，NTFS 和 ReFS 不支持用户将数据写入该卷中。 
 
-在 Windows Server，版本 1709年**测试故障转移**cmdlet 已添加。 现在支持暂时装载读写备份的目标卷的快照、 测试、 等等。请参阅 https://aka.ms/srfaq的详细信息。
+在 Windows Server 2019 （和 Windows Server 版本 1709年）**测试故障转移**cmdlet 已添加。 现在支持暂时装载读写备份的目标卷的快照、 测试、 等等。请参阅 https://aka.ms/srfaq的详细信息。
 
 -   异步复制的 Microsoft 实现与大多数不同。 异步复制的大多数行业实现依赖于基于快照的复制，其中周期性差异传输移动到另一个节点并进行合并。 存储副本异步复制的操作与同步复制相同，只是它不需要从目标进行序列化同步确认。 这意味着存储副本理论上具有较低的 RPO，因为它会持续进行复制。 但是，这也意味着它依赖于内部应用程序一致性保证，而不是使用快照来强制实现应用程序文件一致性。 存储副本保证所有复制模式中的故障一致性  
 
 -   许多客户使用 DFS 复制作为灾难恢复解决方案，即使往往在这种情况下不切实际 - DFS 复制不能复制打开的文件，它旨在最小化带宽使用量，这会降低性能，从而导致较大的恢复点增量。 存储副本可能允许从这些类型的灾难恢复职责停用 DFS 复制。  
 
--   存储副本未备份。 某些 IT 环境部署复制系统作为备份解决方案，因为相比每日备份，它们具有零数据丢失选项。 存储副本将所有更改都复制到卷上的数据块，而不考虑更改类型。 如果用户从卷中删除所有数据，存储副本复制删除立即为另一个卷不可挽回地从这两个服务器中删除数据。 不要使用存储副本来替换时间点备份解决方案。  
+-   存储副本不是备份解决方案。 某些 IT 环境部署复制系统作为备份解决方案，因为相比每日备份，它们具有零数据丢失选项。 存储副本将所有更改都复制到卷上的数据块，而不考虑更改类型。 如果用户从卷中删除所有数据，存储副本复制删除立即为另一个卷不可挽回地从这两个服务器中删除数据。 不要使用存储副本来替换时间点备份解决方案。  
 
 -   存储副本不是 Hyper-V 副本或 Microsoft SQL AlwaysOn 可用性组。 存储副本是存储不可知的常规用途引擎。 根据定义，它不能像应用程序级别的复制一样理想地定制其行为。 这可能导致特定功能差距，它鼓励你部署或保持特定的应用程序复制技术。  
 
@@ -185,6 +189,6 @@ Windows Server 2019 中的存储副本中的新增功能的列表，请参阅[�
 - [服务器到服务器存储复制](server-to-server-storage-replication.md)  
 - [群集到群集存储复制](cluster-to-cluster-storage-replication.md)  
 - [存储副本：已知的问题](storage-replica-known-issues.md)  
-- [存储副本：方面的常见问题](storage-replica-frequently-asked-questions.md)  
+- [存储副本：常见问题解答](storage-replica-frequently-asked-questions.md)  
 - [Windows Server 2016 中的存储空间直通](../storage-spaces/storage-spaces-direct-overview.md)
 - [Windows IT 专业人员支持](https://www.microsoft.com/itpro/windows/support)

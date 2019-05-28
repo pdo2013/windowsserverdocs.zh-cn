@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 29b7b61f7edc20edda7bc18b82db17447badc0f2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c20e2da3e629743ab4d4d4cf1da16a6e69093ecf
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834248"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192580"
 ---
 # <a name="extend-a-basic-volume"></a>扩展基本卷
 
@@ -25,30 +25,26 @@ ms.locfileid: "59834248"
 
 ## <a name="extending-a-basic-volume"></a>扩展基本卷
 
--   [使用 Windows 界面](#BKMK_WINUI)
--   [使用命令行](#BKMK_CMD)
+-   [使用 Windows 界面](#to-extend-a-basic-volume-using-the-windows-interface)
+-   [使用命令行](#to-extend-a-basic-volume-using-a-command-line)
 
-<a href="" id="BKMK_WINUI"></a>
 #### <a name="to-extend-a-basic-volume-using-the-windows-interface"></a>使用 Windows 界面扩展基本卷
 
-1.  在磁盘管理器中，右键单击想要扩展的基本卷。
+1. 在磁盘管理器中，右键单击想要扩展的基本卷。
 
-2.  单击**扩展卷**。
+2. 单击**扩展卷**。
 
-3.  按照屏幕上的说明进行操作。
+3. 按照屏幕上的说明进行操作。
 
-<a href="" id="BKMK_CMD"></a>
 #### <a name="to-extend-a-basic-volume-using-a-command-line"></a>使用命令行扩展基本卷
 
-1.  打开命令提示符并键入 `diskpart`。
+1. 打开命令提示符并键入 `diskpart`。
 
-2.  在 **DISKPART** 提示符下，键入 `list volume`。 记下你想要扩展的基本卷。
+2. 在 **DISKPART** 提示符下，键入 `list volume`。 记下你想要扩展的基本卷。
 
-3.  在 **DISKPART** 提示符下，键入 `select volume <volumenumber>`。 这会选择你想要扩展到同一磁盘上的连续空白空间中的基本卷 *volumenumber*。
+3. 在 **DISKPART** 提示符下，键入 `select volume <volumenumber>`。 这会选择你想要扩展到同一磁盘上的连续空白空间中的基本卷 *volumenumber*。
 
-4.  在 **DISKPART** 提示符下，键入 `extend [size=<size>]`。 这会以兆字节 (MB) 为单位将选择的卷以指定*大小*进行扩展。
-
-<br />
+4. 在 **DISKPART** 提示符下，键入 `extend [size=<size>]`。 这会以兆字节 (MB) 为单位将选择的卷以指定*大小*进行扩展。
 
 | ReplTest1 | 描述 |
 | --- | --- |
@@ -64,5 +60,3 @@ ms.locfileid: "59834248"
 ## <a name="see-also"></a>请参阅
 
 -   [命令行语法表示法](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)
-
-

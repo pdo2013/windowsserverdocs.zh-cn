@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 8a94e0724d6fd2a04e2fbfc22b3054b49d87f440
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ac9f9b95ad6226a8e3b7012e317899f1d48c60c9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826148"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192475"
 ---
 # <a name="add-a-token-signing-certificate"></a>添加令牌签名证书
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 Active Directory 联合身份验证服务中的联合身份验证服务器\(AD FS\)需要令牌\-签名证书，以防止攻击者更改或伪造安全令牌以尝试未经授权的访问对联合资源。 每个令牌\-签名证书包含私钥的加密密钥和用于进行数字签名的公钥\(通过私钥\)安全令牌。 更高版本，合作伙伴联合身份验证服务器接收这些密钥后，它们验证真实性\(通过公钥\)的加密的安全令牌。  
   
@@ -40,8 +39,8 @@ Active Directory 联合身份验证服务中的联合身份验证服务器\(AD F
 4.  在中**浏览证书文件**对话框框中，导航到你想要添加、 选择证书文件，然后单击该证书文件**打开**。  
   
 ## <a name="additional-references"></a>其他参考  
-[清单：设置联合身份验证服务器](Checklist--Setting-Up-a-Federation-Server.md)  
+[清单：设置联合服务器](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[联合身份验证服务器的证书要求](https://technet.microsoft.com/library/dd807040.aspx)  
+[联合服务器的证书要求](https://technet.microsoft.com/library/dd807040.aspx)  
   
 

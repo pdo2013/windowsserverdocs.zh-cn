@@ -1,29 +1,27 @@
 ---
 title: Windows Server 安装和升级
-description: ''
-ms.custom: na
+description: 如何安装、 升级或迁移到 Windows Server 的较新版本。
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.date: 07/12/2018
+ms.date: 05/14/2019
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 98f876bd-63ff-4c3a-95d4-a8dd8d0d119c
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: c3b9070fc6cb9227ccfa445e23983d9e91fe5c82
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f859253188c46d3e34e7a6ae504bf3eeafbae75c
+ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859188"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65613182"
 ---
 # <a name="windows-server-installation-and-upgrade"></a>Windows Server 安装和升级
 
 >适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012 中，Windows Server 2008 R2 和 Windows Server 2008
+
+要查找 Windows 服务器 2019年？ 请参阅[安装，请升级或迁移到 Windows Server 2019](../get-started-19/install-upgrade-migrate-19.md)。
 
 > [!IMPORTANT]
 > Windows Server 2008 R2 和 Windows Server 2008 的扩展支持将于 2020 年 1 月结束。 [了解您的升级选项](#upgrading-from-windows-server-2008-r2-or-windows-server-2008)。
@@ -31,13 +29,14 @@ ms.locfileid: "59859188"
 是时候移动到较新版本的 Windows Server 了吗？ 根据你现在正在运行的内容，你有很多选择实现这一点。
 
 ## <a name="installation"></a>安装
+
 如果你想要在同一硬件上移动到较新版本的 Windows Server，始终有效的一种方法是**全新安装**，通过该方法，你只需在同一硬件上的旧操作系统上直接安装较新的操作系统即可，这样可删除先前的操作系统。 这是最简单的方法，但你将需要先备份你的数据，然后计划重新安装你的应用程序。 要注意几个方面，例如系统要求，因此务必查看有关 [Windows Server 2016](https://go.microsoft.com/fwlink/?LinkID=825558)、[Windows Server 2012 R2](https://technet.microsoft.com/library/dn303418) 和 [Windows Server 2012](https://technet.microsoft.com/library/jj134246.aspx) 的详细信息。
 
 从任何预发布版本（如 Windows Server 2016 Technical Preview) 移动到已发布版本 (Windows Server 2016) 始终需要进行全新安装。
 
 ## <a name="migration-recommended-for-windows-server-2016"></a>迁移（建议对 Windows Server 2016 执行此操作）
 
-Windows Server [迁移] 文档可帮助你每次从运行 Windows Server 的源计算机将一个角色或功能迁移到运行相同或更高版本的 Windows Server 的目标计算机。 出于这些目的，迁移被定义为将一个角色或功能及其数据移动到其他计算机，而不是在同一计算机上升级此功能。 这是将你的现有工作负荷和数据移动到较新版本 Windows Server 的建议方式。 若要开始操作，请查看针对 Windows Server 2016 的[服务器角色升级和迁移矩阵](https://go.microsoft.com/fwlink/?LinkId=828595)。
+Windows Server 迁移文档可帮助你从运行 Windows Server，相同或较新版本的另一台目标计算机运行 Windows Server 的源计算机一次迁移一个角色或功能。 出于这些目的，迁移被定义为将一个角色或功能及其数据移动到其他计算机，而不是在同一计算机上升级此功能。 这是将你的现有工作负荷和数据移动到较新版本 Windows Server 的建议方式。 若要开始，请[服务器角色升级和迁移矩阵](https://go.microsoft.com/fwlink/?LinkId=828595)适用于 Windows Server。
 
 ## <a name="cluster-os-rolling-upgrade"></a>群集操作系统滚动升级
 群集操作系统滚动升级是 Windows Server 2016 中的新增功能，管理员利用此功能可以将群集节点的操作系统从 Windows Server 2012 R2 升级到 Windows Server 2016，而无需停止 Hyper-v 或横向扩展文件服务器工作负荷。 利用此功能可以避免出现可能影响服务级别协议的故障时间。 [群集操作系统滚动升级](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) 中对这一新增功能进行了更详细地讨论。
@@ -139,7 +138,7 @@ Windows Server [迁移] 文档可帮助你每次从运行 Windows Server 的源�
 
 如中所述[升级 Windows Server 2008 和 Windows Server 2008 R2](modernize-windows-server-2008.md)，Windows Server 2008 R2/Windows Server 2008 的扩展的支持将在 2020 年 1 月结束。 若要不确保在支持任何间隙，您需要升级到支持的版本的 Windows Server 或重新托管在 Azure 中通过将移到[专用 Windows Server 2008 R2 虚拟机](uploading-specialized-WS08-image-to-azure.md)。 请查看[Windows Server 迁移指南](https://go.microsoft.com/fwlink/?linkid=872689)有关信息和计划迁移/升级注意事项。
 
-对于在本地服务器，是没有直接的升级路径从 Windows Server 2008 R2 到 Windows Server 2016 或更高版本。 相反，升级到 Windows Server 2012 R2 的第一次，然后[升级到 Windows Server 2016](#Upgrading-to-Windows-Server-2016)。
+对于在本地服务器，是没有直接的升级路径从 Windows Server 2008 R2 到 Windows Server 2016 或更高版本。 相反，升级到 Windows Server 2012 R2 的第一次，然后[升级到 Windows Server 2016](#upgrading-to-windows-server-2016)。
 
 如你计划升级，请注意的中间步骤升级到 Windows Server 2012 R2 的以下指导原则。
 

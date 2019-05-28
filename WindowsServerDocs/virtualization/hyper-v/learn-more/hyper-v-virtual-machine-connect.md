@@ -13,12 +13,12 @@ ms.assetid: deae35b9-7647-42b8-b6bf-45645a44c9c4
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: e1f3260fdbbd82a97c3b0949936afc6a04ec5e5a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a3c0fd18ded0621c550546a2f0108b573cc67767
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887838"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222515"
 ---
 # <a name="hyper-v-virtual-machine-connection"></a>HYPER-V 虚拟机连接
 
@@ -48,9 +48,9 @@ ms.locfileid: "59887838"
 |连接到的 DVD 映像\(.iso 文件\)或虚拟软盘\(.vfd 文件\)|选择**媒体**。<br /><br />第 2 代虚拟机不支持虚拟软盘。 有关详细信息，请参阅[应在 HYPER-V 中创建第 1 或 2 代虚拟机？](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)。|  
 |使用主机的本地资源上超\-V 虚拟机类似于 USB 闪存驱动器|打开增强的会话模式的 HYPER-V 主机上，使用 VMConnect 连接到虚拟机，并在连接之前，选择你想要使用的本地资源。 有关特定步骤，请参阅[使用本地资源上超\-V 虚拟机通过 VMConnect](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md)。|  
 |保存更改的虚拟机的 VMConnect 设置|在 Windows PowerShell 或命令提示符中运行以下命令：<br /><br />`VMConnect.exe <ServerName> <VMName> \/edit`|  
-|防止 VMConnect 用户接管另一个用户的 VMConnect 会话|[打开增强的会话模式的 HYPER-V 主机上](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md#BKMK_OVER)。<br /><br />不具有增强会话模式打开可能会带来安全和隐私风险。 如果用户连接并登录到虚拟机通过 VMConnect 和另一个授权的用户连接到同一个虚拟机、 会话将接管第二个用户和第一个用户将丢失该会话。 第二个用户将能够查看第一个用户的桌面、 文档和应用程序。|
+|防止 VMConnect 用户接管另一个用户的 VMConnect 会话|[打开增强的会话模式的 HYPER-V 主机上](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md#turn-on-enhanced-session-mode-on-a-hyper-v-host)。<br /><br />不具有增强会话模式打开可能会带来安全和隐私风险。 如果用户连接并登录到虚拟机通过 VMConnect 和另一个授权的用户连接到同一个虚拟机、 会话将接管第二个用户和第一个用户将丢失该会话。 第二个用户将能够查看第一个用户的桌面、 文档和应用程序。|
 |管理 integration services 或允许 VM 与 HYPER-V 主机进行通信的组件| 在运行 Windows 10 或 Windows Server 2016 的 HYPER-V 主机，不能管理通过 VMConnect 的集成服务。 请参阅以下主题： <br />- [打开或关闭的 HYPER-V 主机的集成服务](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics) <br />- [打开或关闭 Windows 虚拟机的集成服务](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics#manage-integration-services-from-guest-os-windows)<br />- [开启/关闭 Linux 虚拟机的集成服务](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics#manage-integration-services-from-guest-os-linux) <br />- [保留为虚拟机更新的集成服务](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics#integration-service-maintenance)  <br />对于运行 Windows Server 2012 或 Windows Server 2012 R2 的主机，请参阅[Integration Services](https://technet.microsoft.com/library/dn798297(v=ws.11).aspx)。|
-|调整 VMConnect 窗口的大小|可以更改运行 Windows 操作系统的第 2 代虚拟机在 VMConnect 窗口的大小。 若要执行此操作，可能需要打开增强的会话模式的 HYPER-V 主机上。 有关详细信息，请参阅[上打开增强的会话模式的 HYPER-V 主机](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md#BKMK_OVER)。 对于运行 Ubuntu 的虚拟机，请参阅[中的 HYPER-V VM 更改 Ubuntu 屏幕分辨率](https://blogs.msdn.microsoft.com/virtual_pc_guy/2014/09/19/changing-ubuntu-screen-resolution-in-a-hyper-v-vm/)。|
+|调整 VMConnect 窗口的大小|可以更改运行 Windows 操作系统的第 2 代虚拟机在 VMConnect 窗口的大小。 若要执行此操作，可能需要打开增强的会话模式的 HYPER-V 主机上。 有关详细信息，请参阅[上打开增强的会话模式的 HYPER-V 主机](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md#turn-on-enhanced-session-mode-on-a-hyper-v-host)。 对于运行 Ubuntu 的虚拟机，请参阅[中的 HYPER-V VM 更改 Ubuntu 屏幕分辨率](https://blogs.msdn.microsoft.com/virtual_pc_guy/2014/09/19/changing-ubuntu-screen-resolution-in-a-hyper-v-vm/)。|
 
 
 ## <a name="keyboard-shortcuts"></a>键盘快捷方式  

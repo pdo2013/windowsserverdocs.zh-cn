@@ -4,25 +4,30 @@ description: Windows Server 2019 中新功能的概述，包括桌面体验、�
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 ms.localizationpriority: high
-ms.openlocfilehash: 4c454fc397b662e313d5cfb7ed02a83dc7059207
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.date: 05/21/2019
+ms.openlocfilehash: af887c0e1c66a017ee091fb2cab2dc61fa9ac1dc
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871838"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976547"
 ---
 # <a name="whats-new-in-windows-server-2019"></a>Windows Server 2019 中的新增功能
 
-本主题将介绍 Windows Server 2019 中的一些新增功能。 Windows Server 2019 强大的 Windows Server 2016 基础上构建，并大量创新上四个关键主题：混合云、 安全、 应用程序平台和超聚合基础结构 (HCI)。 若要了解 Windows Server 版本 1809 中的新增功能，请参阅 [Windows Server 版本 1809 中的新增功能](../get-started/whats-new-in-windows-server-1809.md)。
+> 适用于：Windows Server 2019
+
+本主题将介绍 Windows Server 2019 中的一些新增功能。 Windows Server 2019 强大的 Windows Server 2016 基础上构建，并大量创新上四个关键主题：混合云、 安全、 应用程序平台和超聚合基础结构 (HCI)。
+
+若要了解什么是 Windows Server 半年频道发布中的新增功能，请参阅[What's New in Windows Server](../get-started/whats-new-in-windows-server.md)。 
 
 ## <a name="general"></a>常规
 
 ### <a name="desktop-experience"></a>桌面体验
 
-Windows Server 2019 是长期服务频道 (LTSC) 版本，因此它包含<b>桌面体验</b>。 (它不包含在 Windows Server、 版本 1709年、 Windows Server、 版本 1803，或 Windows Server 版本 1809，因为半年频道\(SAC\)版本不包含桌面体验的设计，因为它们是严格服务器Core 和 Nano Server 容器映像版本。）与 Windows Server 2016 中，在操作系统安装过程中您可以选择服务器核心安装或服务器带桌面体验安装。
+Windows Server 2019 是长期服务频道 (LTSC) 版本，因此它包含<b>桌面体验</b>。 (半年频道\(SAC\)版本不包含桌面体验的设计; 它们是严格 Server Core 和 Nano Server 容器映像版本。)与 Windows Server 2016 中，在操作系统安装过程中您可以选择服务器核心安装或服务器带桌面体验安装。
 
 ### <a name="system-insights"></a>系统见解
 
@@ -132,7 +137,7 @@ ATP 的深度平台传感器和响应操作可暴露内存和内核级别攻击�
 
 以下是故障转移群集中的一系列新增功能。 有关详细信息，请参阅[故障转移群集中的新增功能](../failover-clustering/whats-new-in-failover-clustering.md)。
 
-- **群集设置**
+- **群集集**
 - **Azure 感知群集**
 - **跨域的群集迁移**
 - **USB 见证服务器**
@@ -148,7 +153,7 @@ ATP 的深度平台传感器和响应操作可暴露内存和内核级别攻击�
 
 现在可以使用相同的 Docker 守护程序在同一容器主机上运行基于 Windows 和 Linux 的容器。 这使你能够具有异构容器主机环境，同时向应用程序开发人员提供灵活性。
 
-### <a name="building-support-for-kubernetes"></a>建立针对 Kubernetes 的支持
+### <a name="built-in-support-for-kubernetes"></a>适用于 Kubernetes 的内置支持
 
 Windows Server 2019 通过推出半年频道版本不断改进计算、联网和存储功能，以支持 Kubernetes 在 Windows 上运行。 即将推出的 Kubernetes 版本中将提供更多详细信息。
 

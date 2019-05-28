@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cd517be0de3ba6ca97ca11f4bbe8f59111a01216
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2ffc6680239fa468b058b74f9acf26d22f2b65f
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870948"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222608"
 ---
 # <a name="viewing-and-managing-updates"></a>查看和管理更新
 
@@ -76,7 +76,7 @@ ms.locfileid: "59870948"
 
 5.  下**步骤 3:指定一个名称**，为您的新视图提供一个名称。
 
-6.  单击 **“确定”**。
+6.  单击 **“确定”** 。
 
 您的新视图将显示在更新下的树视图窗格中。 它将显示，如处于选中状态时的中心窗格中的标准视图。
 
@@ -127,7 +127,7 @@ ms.locfileid: "59870948"
 
 -   更新文件：所需的计算机上安装更新的实际文件。
 
-将更新同步到 WSUS 服务器时，元数据和更新文件存储在两个不同的位置。 元数据存储在 WSUS 数据库中。 更新文件可以存储在 WSUS 服务器上或 Microsoft Update 在服务器上，具体取决于同步选项的配置方式。 如果您选择 Microsoft 更新服务器上存储更新文件，在同步; 时，将下载仅元数据你批准通过 WSUS 控制台中，更新，然后客户端计算机获取更新文件直接从 Microsoft 更新在安装时。 有关存储更新选项的详细信息，请参阅部分[1.3。选择 WSUS 存储策略](../plan/plan-your-wsus-deployment.md#BKMK_1.3.)的步骤 1:WSUS 部署指南中为你的 WSUS 部署做好准备。
+将更新同步到 WSUS 服务器时，元数据和更新文件存储在两个不同的位置。 元数据存储在 WSUS 数据库中。 更新文件可以存储在 WSUS 服务器上或 Microsoft Update 在服务器上，具体取决于同步选项的配置方式。 如果您选择 Microsoft 更新服务器上存储更新文件，在同步; 时，将下载仅元数据你批准通过 WSUS 控制台中，更新，然后客户端计算机获取更新文件直接从 Microsoft 更新在安装时。 有关存储更新选项的详细信息，请参阅部分[1.3。选择 WSUS 存储策略](../plan/plan-your-wsus-deployment.md#13-choose-a-wsus-storage-strategy)的步骤 1:WSUS 部署指南中为你的 WSUS 部署做好准备。
 
 您将设置和运行同步过程中，添加计算机和计算机组和部署上定期更新。 以下列表提供了可能会在更新的计算机使用 WSUS 时需要执行的常规任务的示例。
 

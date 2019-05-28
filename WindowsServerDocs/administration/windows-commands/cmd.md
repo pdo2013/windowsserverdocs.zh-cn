@@ -13,16 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 966ac7f70984dff6d26265e07a26a6eebcde9fb6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7d9b99dbe7e26190e87c5dfc9de29980b9cb2f43
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874388"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192595"
 ---
 # <a name="cmd"></a>Cmd
-
-
 
 启动命令解释器，Cmd.exe 的新实例。 如果使用不带参数， **cmd**显示操作系统的版本和版权信息。
 
@@ -104,6 +102,7 @@ cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<B><F>|<F>}] [/e:{on|off}] [/f:{on|off}]
 
 > [!CAUTION]
 > 不正确地编辑注册表可能会对系统造成严重损坏。 在更改注册表之前，应备份计算机上任何有价值的数据。
+
 -   启用和禁用命令扩展
 
     默认情况下，在 Windows XP 中启用命令扩展。 可以通过使用禁用它们的特定进程 **/e： 关闭**。 可以启用或禁用扩展的所有**cmd**通过设置以下的计算机或用户会话上的命令行选项**REG_DWORD**值：
@@ -114,34 +113,35 @@ cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<B><F>|<F>}] [/e:{on|off}] [/f:{on|off}]
 
     设置**REG_DWORD**值为**0 × 1** （启用） 或**0 × 0** （禁用） 在注册表中使用 Regedit.exe。 用户指定的设置优先于计算机设置和命令行选项优先于注册表设置。
 
->     [!CAUTION]
->     Incorrectly editing the registry may severely damage your system. Before making changes to the registry, you should back up any valued data on the computer.
+> [!CAUTION]
+> 不正确地编辑注册表可能会对系统造成严重损坏。 在更改注册表之前，应备份计算机上任何有价值的数据。
 
     When you enable command extensions, the following commands are affected:  
-    -   **assoc**
-    -   **call**
-    -   **chdir (cd)**
-    -   **color**
-    -   **del (erase)**
-    -   **endlocal**
-    -   **for**
-    -   **ftype**
-    -   **goto**
-    -   **if**
-    -   **mkdir (md)**
-    -   **popd**
-    -   **prompt**
-    -   **pushd**
-    -   **set**
-    -   **setlocal**
-    -   **shift**
-    -   **start** (also includes changes to external command processes)
+    -  **assoc**
+    -  **call**
+    -  **chdir (cd)**
+    -  **color**
+    -  **del (erase)**
+    -  **endlocal**
+    -  **for**
+    -  **ftype**
+    -  **goto**
+    -  **if**
+    -  **mkdir (md)**
+    -  **popd**
+    -  **prompt**
+    -  **pushd**
+    -  **set**
+    -  **setlocal**
+    -  **shift**
+    -  **start** (also includes changes to external command processes)
+
 -   启用延迟的环境变量扩展
 
     如果启用延迟的环境变量扩展，可用于在惊叹号字符替换为在运行时的环境变量的值。
 -   启用文件和目录名称完成
 
-    默认情况下不启用完成文件和目录名称。 可以启用或禁用特定的进程完成的文件名称**cmd**命令 **/f:**{**上**|**关闭**}. 可以启用或禁用文件和目录名称完成的所有进程**cmd**的计算机上或通过设置以下用户登录会话的命令**REG_DWORD**值：
+    默认情况下不启用完成文件和目录名称。 可以启用或禁用特定的进程完成的文件名称**cmd**命令 **/f:** {**上**|**关闭**}. 可以启用或禁用文件和目录名称完成的所有进程**cmd**的计算机上或通过设置以下用户登录会话的命令**REG_DWORD**值：
 
     **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\CompletionChar\REG_DWORD**
 
@@ -170,4 +170,4 @@ cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<B><F>|<F>}] [/e:{on|off}] [/f:{on|off}]
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

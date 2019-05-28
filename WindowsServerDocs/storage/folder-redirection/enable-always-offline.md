@@ -8,20 +8,20 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: bc54b1e33d09e7f2b9eea01e4f09fb83f13dc1af
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8684926beb0f0c911ac384970d15ba7d25f84079
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832878"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475937"
 ---
 # <a name="enable-always-offline-mode-for-faster-access-to-files"></a>启用更快地访问文件始终脱机模式
 
->适用于：Windows 10、 Windows 8、 Windows 8.1、 Windows Server 2012、 Windows Server 2012 R2 和 Windows Server 2016
+>适用于：Windows 10、 Windows 8、 Windows 8.1、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012、 Windows Server 2012 R2 和 Windows （半年频道）
 
 本文档介绍如何使用脱机文件的始终脱机模式提供更快地访问缓存的文件和重定向的文件夹。 始终脱机还提供了较低的带宽使用率，因为用户始终脱机工作，即使它们连接时通过高速网络连接。
 
-## <a name="prerequisites"></a>系统必备
+## <a name="prerequisites"></a>先决条件
 
 若要启用始终脱机模式下，你的环境必须满足以下先决条件。
 
@@ -41,7 +41,7 @@ ms.locfileid: "59832878"
 3. 在控制台树中，右键单击您要为其配置脱机文件设置，然后选择的 GPO**编辑**。 **组策略管理编辑器**出现。
 4. 在控制台树中下,**计算机配置**，展开**策略**，展开**管理模板**，展开**网络**，展开**脱机文件**。
 5. 右键单击**配置慢速链接模式**，然后选择**编辑**。 **配置慢速链接模式**窗口中会显示。
-6. 选择“已启用” 。
+6. 选择“已启用”  。
 7. 在中**选项**框中，选择**显示**。 **显示内容窗口**将出现。
 8. 在中**值名称**框中，指定你想要启用始终脱机模式下的文件共享。
 9. 若要启用始终脱机模式下的所有文件共享上，输入**\***。

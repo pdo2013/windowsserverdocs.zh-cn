@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: adc93906cb7ff958fc1db7b00abdc557623e764e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b006742c9256c357d9aff3fb1b765dbed087383a
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834198"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475887"
 ---
 # <a name="disable-offline-files-on-individual-redirected-folders"></a>禁用单个重定向的文件夹上的脱机文件
 
->适用于：Windows 10、 Windows 8、 Windows 8.1、 Windows Server 2012、 Windows Server 2012 R2 和 Windows Server 2016
+>适用于：Windows 10、 Windows 8、 Windows 8.1、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 中，Windows Server 2012 R2、 Windows （半年频道）
 
 本主题介绍如何禁用脱机文件缓存在单个将重定向到网络共享使用文件夹重定向的文件夹上。 因此，可指定要从本地缓存中排除的文件夹，减少脱机文件缓存大小和时间所需同步脱机文件。
 
@@ -29,7 +29,7 @@ ms.locfileid: "59834198"
 若要禁用脱机文件缓存的特定重定向的文件夹，你的环境必须满足以下先决条件。
 
 - 具有客户端计算机加入到域的 Active Directory 域服务 (AD DS) 域。 没有林或域功能级别要求或架构要求。
-- 运行 Windows 10、 Windows 8.1，Windows 8、 Windows Server 2016、 Windows Server 2012 R2 或 Windows Server 2012 的客户端计算机。
+- 客户端计算机运行 Windows 10、 Windows 8.1，Windows 8、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012 或 Windows （半年频道）。
 - 使用安装组策略管理的计算机。
 
 ## <a name="disabling-offline-files-on-individual-redirected-folders"></a>禁用单个重定向的文件夹上的脱机文件
@@ -46,7 +46,7 @@ ms.locfileid: "59834198"
 3. 在控制台树中，右键单击你想要配置文件夹重定向设置，然后选择的 GPO**编辑**。 组策略管理编辑器显示。
 4. 在控制台树中下,**用户配置**，展开**策略**，展开**管理模板**，展开**系统**，和展开**文件夹重定向**。
 5. 右键单击**请勿自动允许特定的重定向的文件夹可脱机**，然后选择**编辑**。 **请勿自动允许特定的重定向的文件夹可脱机使用**窗口会显示。
-6. 选择“已启用” 。 在中**选项**窗格中选择的文件夹，不应将提供脱机通过选择相应的复选框。 选择“确定”。
+6. 选择“已启用”  。 在中**选项**窗格中选择的文件夹，不应将提供脱机通过选择相应的复选框。 选择“确定”  。
 
 ### <a name="windows-powershell-equivalent-commands"></a>Windows PowerShell 等效命令
 

@@ -11,12 +11,12 @@ ms.assetid: 930e758f-bd50-46b4-a3a4-9857110f17b4
 author: shirgall
 ms.author: kathydav
 ms.date: 08/30/2017
-ms.openlocfilehash: 013328953321bc66b3fd30759e5be321eea32dde
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a398334700f7c292732207919b73a33145a6aae9
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824228"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222695"
 ---
 # <a name="supported-freebsd-virtual-machines-on-hyper-v"></a>受支持的 FreeBSD 虚拟机上的 HYPER-V
 
@@ -35,9 +35,9 @@ ms.locfileid: "59824228"
 |**功能**|**Windows Server 操作系统版本**|**11.1/11.2**|**11.0**|**10.3**|**10.2**|**10.0 - 10.1**|**9.1 - 9.3, 8.4**|
 |-|-|-|-|-|-|-|-|
 |**可用性**||内置的|内置的|内置的|内置的|内置的|[端口](https://svnweb.freebsd.org/ports/branches/2015Q1/emulators/hyperv-is/) |
-|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_core)**|2016、 2012 R2、 2012、 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004; |
+|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2016、 2012 R2、 2012、 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004; |
 |Windows Server 2016 准确的时间|2016|&#10004;||||||
-|**[网络](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Networking)**||||||||
+|**[网络](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**||||||||
 |Jumbo 帧|2016、 2012 R2、 2012、 2008 R2|&#10004;请注意 3|&#10004;请注意 3|&#10004;请注意 3|&#10004;请注意 3|&#10004;请注意 3|&#10004;请注意 3|
 |VLAN 标记和中继|2016、 2012 R2、 2012、 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |实时迁移|2016、 2012 R2、 2012、 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
@@ -46,28 +46,28 @@ ms.locfileid: "59824228"
 |TCP 分段和校验和卸载|2016、 2012 R2、 2012、 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|||
 |大型接收卸载 （进行 lro 操作）|2016、 2012 R2、 2012、 2008 R2|&#10004;|&#10004;|&#10004;||||
 |SR-IOV|2016|||||||
-|**[存储](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**||注释 1|注释 1|注释 1|注释 1|请注意 1、 2|请注意 1、 2|
+|**[存储](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||注释 1|注释 1|注释 1|注释 1|请注意 1、 2|请注意 1、 2|
 |VHDX 大小调整|2016、 2012 R2|&#10004;请注意 7|&#10004;请注意 7|||||
 |虚拟光纤通道|2016、 2012 R2|||||||
 |实时虚拟机备份|2016、 2012 R2|&#10004;||||||
 |剪裁支持|2016、 2012 R2|&#10004;||||||
 |SCSI WWN|2016、 2012 R2|||||||
-|**[Memory](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**||||||||
+|**[Memory](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**||||||||
 |PAE 内核支持|2016、 2012 R2、 2012、 2008 R2|||||||
 |MMIO 间隙的配置|2016、 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |动态内存的热添加|2016、 2012 R2，2012年|||||||
 |动态内存-扩大|2016、 2012 R2，2012年|||||||
 |运行时内存调整大小|2016|||||||
-|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**||||||||
+|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**||||||||
 |HYPER-V 特定视频设备|2016、 2012 R2、 2012、 2008 R2|||||||
-|**[杂项](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Misc)**||||||||
+|**[杂项](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**||||||||
 |键/值对|2016、 2012 R2、 2012、 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;备注 6|&#10004;请注意 5、 6|&#10004;备注 6|
 |不可屏蔽的中断|2016、 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |从主机到来宾文件副本|2016、 2012 R2|||||||
 |lsvmbus 命令|2016、 2012 R2、 2012、 2008 R2|||||||
 |HYPER-V 套接字|2016|||||||
 |PCI 传递/DDA|2016|&#10004;||||||
-|**[第 2 代虚拟机](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_gen2)**||||||||
+|**[第 2 代虚拟机](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**||||||||
 |使用 UEFI 启动|2016、 2012 R2|&#10004;||||||
 |安全启动|2016|||||||
 

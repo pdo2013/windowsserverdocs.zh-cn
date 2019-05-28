@@ -8,21 +8,21 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4706372b06d0554196b692c3ddcda145dee5bae5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6eb6f2acd420ae657a5c1b698e9733751378552
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848168"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476081"
 ---
 # <a name="failover-clustering-hardware-requirements-and-storage-options"></a>故障转移群集硬件要求和存储选项
 
-适用于：Windows Server 2012 R2、 Windows Server 2012 中，Windows Server 2016
+适用于：Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
 
 若要创建故障转移群集，你需要以下硬件。 若要获得 Microsoft 的支持，所有硬件必须针对正在运行的 Windows Server 的版本进行了认证，并且完整的故障转移群集解决方案必须通过“验证配置向导”中的所有测试。 有关验证故障转移群集的详细信息，请参阅[验证故障转移群集的硬件](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v%3dws.11)>)。
 
 - **服务器**：建议使用一组包含相同或相似组件的匹配计算机。
-- **网络适配器和电缆（用于网络通信）**：如果使用 iSCSI，则应将每个网络适配器专用于网络通信或 iSCSI，而不能同时用于这两者。
+- **网络适配器和电缆（用于网络通信）** ：如果使用 iSCSI，则应将每个网络适配器专用于网络通信或 iSCSI，而不能同时用于这两者。
 
     在连接群集节点的网络基础结构中，应避免出现单点故障。 例如，你可以通过多个不同的网络来连接群集节点。 或者，可以使用成组的网络适配器、 冗余交换机、 冗余路由器或类似硬件的单一故障点中删除与一个网络来连接群集节点。
 

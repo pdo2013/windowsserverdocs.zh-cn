@@ -9,16 +9,16 @@ ms.date: 10/02/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: abcff8632bc8a3a75af4eee30c3aed046ca0ccc9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9bae831da9d247c423c2874a5928b7f811ef65dc
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877338"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188707"
 ---
 # <a name="managing-ssl-certificates-in-ad-fs-and-wap-in-windows-server-2016"></a>在 Windows Server 2016 中管理 AD FS 和 WAP 中的 SSL 证书
 
->适用于：Windows Server 2016
+
 
 本文介绍如何将新的 SSL 证书部署到你的 AD FS 和 WAP 服务器。
 
@@ -125,5 +125,5 @@ Install-WebApplicationProxy -FederationServiceTrustCredential $cred -Certificate
 ```
 
 ## <a name="additional-references"></a>其他参考  
-* [AD FS 支持的证书身份验证的备用主机名绑定](../operations/AD-FS-support-for-alternate-hostname-binding-for-certificate-authentication.md)
+* [AD FS 对证书身份验证的备用主机名绑定的支持](../operations/AD-FS-support-for-alternate-hostname-binding-for-certificate-authentication.md)
 * [AD FS 和证书 KeySpec 属性信息](../technical-reference/AD-FS-and-KeySpec-Property.md)

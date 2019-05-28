@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 52a08ae7eaee81c00985d5334f9abeaa84e30879
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 05fcaf402347d16bf8c28528d402664ae5f99165
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814158"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476055"
 ---
 # <a name="file-screening-management"></a>文件屏蔽管理
 
-> 适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
+> 适用于：Windows Server 2019，Windows Server 2016、 Windows 服务器 （半年频道）、 Windows Server 2012 R2 和 Windows Server 2012 中，Windows Server 2008 R2
 
 在文件服务器资源管理器 MMC 管理单元的**文件屏蔽管理**节点上，可以执行以下任务：
 
@@ -32,7 +32,7 @@ ms.locfileid: "59814158"
 
 本部分包括以下主题：
 
--   [定义用于进行筛选的文件组](define-file-groups-for-screening.md)
+-   [定义用于屏蔽的文件组](define-file-groups-for-screening.md)
 -   [创建文件屏蔽](create-file-screen.md)
 -   [创建文件屏蔽例外](create-file-screen-exception.md)
 -   [创建文件屏蔽模板](create-file-screen-template.md)

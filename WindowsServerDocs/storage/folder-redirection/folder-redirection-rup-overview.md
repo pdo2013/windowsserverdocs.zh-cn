@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e3cf32cd718b906f16fc09901284d8520177df8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ad44ba4bbe0b31f423a4ae4593e349571d838de2
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824278"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475924"
 ---
 # <a name="folder-redirection-offline-files-and-roaming-user-profiles-overview"></a>文件夹重定向、脱机文件和漫游用户配置文件概述
 
->适用于：Windows 10、 Windows 8、 Windows 8.1、 Windows Server 2012、 Windows Server 2012 R2 和 Windows Server 2016
+>适用于：Windows 10 中，Windows 8、 Windows 8.1、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 中，Windows Server 2012 R2
 
 本主题讨论文件夹重定向、 脱机文件 （客户端缓存或 CSC），以及漫游用户配置文件 （有时称为 RUP） 技术，包括新增功能以及在何处找到其他信息。
 
@@ -76,7 +76,7 @@ ms.locfileid: "59824278"
 利用感知成本的同步，当用户使用按流量计费的网络连接（例如 4G 移动网络）时，Windows 禁用背景同步，如果计算机在其他提供程序的网络上漫游，则接近用户的带宽限制或超过限制。
 
 >[!NOTE]
->按流量计费的网络连接通常具有往返网络延迟，该延迟比转换为 Windows 8、 Windows Server 2012 和 Windows Server 2016 中的脱机 （慢速连接） 模式的默认 35 毫秒延迟值。 因此，这些连接通常自动转换为“脱机”（慢速连接）模式。
+>按流量计费的网络连接通常具有往返网络延迟，该转换为 Windows 8、 Windows Server 2019、 Windows Server 2016 和 Windows Server 中的脱机 （慢速连接） 模式的默认 35 毫秒延迟值比延迟2012。 因此，这些连接通常自动转换为“脱机”（慢速连接）模式。
 
 ### <a name="what-value-does-cost-aware-synchronization-add"></a>感知成本的同步增添了什么价值？
 
@@ -107,7 +107,7 @@ ms.locfileid: "59824278"
 
 为仅将私人用户数据下载到主计算机中，当用户登录计算机时，文件夹重定向和漫游用户配置文件技术可执行以下逻辑检查：
 
-1. Windows 操作系统检测新的组策略设置（**“仅在主计算机上下载漫游的配置文件”** 以及 **“仅在主计算机上重定向文件夹”**），以确定 Active Directory 域服务 (ADDS) 中的 **msDS-Primary-Computer** 属性是否影响有关漫游用户配置文件或应用文件夹重定向的决定。
+1. Windows 操作系统检测新的组策略设置（ **“仅在主计算机上下载漫游的配置文件”** 以及 **“仅在主计算机上重定向文件夹”** ），以确定 Active Directory 域服务 (ADDS) 中的 **msDS-Primary-Computer** 属性是否影响有关漫游用户配置文件或应用文件夹重定向的决定。
 2. 如果策略设置启用主计算机支持，则 Windows 验证 AD DS 架构是否支持 **ms-DS-Primary-Computer** 属性。 如果支持，则 Windows 按照如下方式确定是否将用户登录的计算机指定为用户的主计算机：
     1. 如果该计算机是用户的主计算机之一，则 Windows 应用“漫游用户配置文件”和“文件夹重定向”设置。
     2. 如果该计算机不是用户的主计算机之一，则 Windows 加载该用户缓存的本地配置文件（如果存在），或创建新的本地配置文件。 Windows 还根据之前应用的组策略设置（保留在本地“文件夹重定向”配置中）指定的删除操作删除任何现有的重定向文件夹。
@@ -123,7 +123,7 @@ ms.locfileid: "59824278"
 为指定主计算机，你的环境必须符合以下要求：
 
 - 必须更新 Active Directory 域服务 (AD DS) 架构，以包括 Windows Server 2012 架构和条件 （安装 Windows Server 2012 或更高版本的域控制器会自动更新架构）。 有关升级 AD DS 架构的详细信息，请参阅[域控制器升级到 Windows Server 2016](../../identity/ad-ds/deploy/upgrade-domain-controllers.md)。
-- 客户端计算机必须运行 Windows 10、 Windows 8.1，Windows 8、 Windows Server 2016、 Windows Server 2012 R2 或 Windows Server 2012 并加入你管理的 Active Directory 域。
+- 客户端计算机必须运行 Windows 10、 Windows 8.1，Windows 8、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2 或 Windows Server 2012 并加入你管理的 Active Directory 域。
 
 ## <a name="more-information"></a>详细信息
 

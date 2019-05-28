@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c0d750fd139865daa92319c1d1926dc5d36669b2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 62215aa802e2509be5305aef53069ae9643562f1
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885768"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476103"
 ---
 # <a name="storage-reports-management"></a>存储报告管理
 
-> 适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
+> 适用于：Windows Server 2019，Windows Server 2016、 Windows 服务器 （半年频道）、 Windows Server 2012 R2 和 Windows Server 2012 中，Windows Server 2008 R2
 
 在文件服务器资源管理器 Microsoft<sup>®</sup> 管理控制台 (MMC) 管理单元的**存储报告管理**节点上，可执行以下任务：
 
@@ -34,8 +34,8 @@ ms.locfileid: "59885768"
 
 本部分包括以下主题：
 
--   [计划的一组报表](schedule-set-of-reports.md)
--   [按需求生成报告](generate-reports-on-demand.md)
+-   [计划一组报告](schedule-set-of-reports.md)
+-   [按需生成报告](generate-reports-on-demand.md)
 
 > [!Note]
 > 若要设置电子邮件通知和特定的报告功能，必须首先配置文件服务器资源管理器常规选项。

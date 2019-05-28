@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 61131d2bf253c66d93408bc66b78d1dca2502087
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d358c47bd278cf11c4bab6887302bf6d053529ec
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840588"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192664"
 ---
 # <a name="gpupdate"></a>gpupdate
 
 
 
-更新组策略设置。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
+更新组策略设置。 有关如何使用此命令的示例，请参阅[示例](#examples)。
 
 ## <a name="syntax"></a>语法
 
@@ -48,7 +48,7 @@ gpupdate [/target:{Computer | User}] [/force] [/wait:<VALUE>] [/logoff] [/boot] 
 
 -   **Gpupdate**命令现已推出 Windows Server 2008 R2、 Windows Server 2008、 Windows 7 旗舰版、 Windows 7 Professional、 Windows Vista Ultimate、 Windows Vista Enterprise 和 Windows Vista Business。
 
-## <a name="BKMK_Examples"></a>示例
+## <a name="examples"></a>示例
 
 强制执行所有组策略设置，而不考虑它们是否发生更改的后台的更新。
 ```
@@ -58,4 +58,4 @@ gpupdate /force
 #### <a name="additional-references"></a>其他参考
 
 -   [组策略技术中心](https://go.microsoft.com/fwlink/?LinkID=145531)
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)

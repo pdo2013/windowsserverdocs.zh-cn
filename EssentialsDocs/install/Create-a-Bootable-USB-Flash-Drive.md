@@ -12,12 +12,12 @@ ms.assetid: 2fe8e35c-69f9-40b3-a270-22e2402510d8
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 2716ffb7ce8f74d7c729565064de91e0598d0753
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cb62a460c09fdb2874bcc051176a05e88cee19e7
+ms.sourcegitcommit: 7cb939320fa2613b7582163a19727d7b77debe4b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884678"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621278"
 ---
 # <a name="create-a-bootable-usb-flash-drive"></a>创建可启动的 U 盘
 
@@ -50,9 +50,9 @@ ms.locfileid: "59884678"
   
 6.  键入 `clean`，然后单击 Enter。 此命令会删除 U 盘中的所有数据。  
   
-7.  若要在 USB 闪存驱动器上创建新的主分区，请键入 `create part pri`，然后单击 Enter。  
+7.  若要在 USB 闪存驱动器上创建新的主分区，请键入 `create partition primary`，然后单击 Enter。  
   
-8.  若要选择刚创建的分区，请键入 `select part 1`，然后单击 Enter。  
+8.  若要选择刚创建的分区，请键入 `select partition 1`，然后单击 Enter。  
   
 9. 若要对分区进行格式化，请键入 `format fs=ntfs quick`，然后单击 Enter。  
   

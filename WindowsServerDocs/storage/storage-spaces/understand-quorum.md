@@ -10,12 +10,12 @@ ms.topic: article
 author: adagashe
 ms.date: 01/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 24890b191db8bc6934132857e830d4f77c394b02
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 66d4796a6ffb453f6edb5fed20dba29b70f7ec4b
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879968"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476110"
 ---
 # <a name="understanding-cluster-and-pool-quorum"></a>了解群集和池仲裁
 
@@ -27,7 +27,7 @@ ms.locfileid: "59879968"
 
 仲裁确定群集可以承受仍保持在线时的故障数。 仲裁旨在处理方案的群集节点之间的通信问题时，以便多个服务器不尝试同时托管资源组并将同时写入同一磁盘。 通过采用这一概念的仲裁，群集将强制群集服务停止的节点以确保只有一个真正的特定资源组所有者子集之一。 一旦已停止的节点可以再一次与主组的节点进行通信，它们将自动重新加入群集并启动其群集服务。
 
-在 Windows Server 2016 中，有两个系统的组件具有其自己的仲裁机制：
+在 Windows Server 2019 和 Windows Server 2016 中，有两个系统的组件具有其自己的仲裁机制：
 
 - <strong>群集仲裁</strong>:此操作的过程在群集级别 （即您可以丢失节点并具有仍然能正常运行的群集）
 - <strong>池仲裁</strong>:此操作的过程在池级别上启用存储空间直通 （即可以丢失节点和驱动器并将仍然能正常运行的池）。 存储池是专门设计用来在聚集和非群集方案中，正因如此，它们具有不同的仲裁机制。

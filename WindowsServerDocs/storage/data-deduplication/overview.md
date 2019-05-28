@@ -8,27 +8,27 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 05/09/2017
-ms.openlocfilehash: 4344108f96d14475c15a31bd1ab917e7fc78ef9f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4376dbb2c172a82c4ab64dc63acefbc37457110f
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860128"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476035"
 ---
 # <a name="data-deduplication-overview"></a>数据重复删除概述
 
-> 适用于：Windows 服务器 （半年频道），Windows Server 2016
+> 适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道） 
 
 ## <a name="what-is-dedup"></a>什么是重复数据删除？
 
-重复数据删除（通常简称为删除重复）是 Windows Server 2016 的一项功能，可以帮助减少冗余数据对存储成本的影响。 启用后，重复数据删除会检查卷上的数据（检查是否存在重复分区），优化卷上的可用空间。 卷数据集的重复分区只存储一次，并可以压缩，节省更多空间。 重复数据删除可优化冗余，而不会损坏数据保真度或完整性。 若要详细了解重复数据删除的工作原理，请参阅“[重复数据删除是如何工作的？](understand.md#how-does-dedup-work)”部分， 位于[了解重复数据删除](understand.md)页面。
+重复数据删除，通常简称为称为重复数据删除是一项功能，可以帮助减少冗余数据对存储成本的影响。 启用后，重复数据删除会检查卷上的数据（检查是否存在重复分区），优化卷上的可用空间。 卷数据集的重复分区只存储一次，并可以压缩，节省更多空间。 重复数据删除可优化冗余，而不会损坏数据保真度或完整性。 若要详细了解重复数据删除的工作原理，请参阅“[重复数据删除是如何工作的？](understand.md#how-does-dedup-work)”部分， 位于[了解重复数据删除](understand.md)页面。
 
 > [!Important]  
-> [KB4025334](https://support.microsoft.com/kb/4025334) 包含重复数据删除的累积的修补程序（包括重要的可靠性修补程序），我们强烈建议在将重复数据删除与 Windows Server 2016 配合使用时安装该修补程序。
+> [KB4025334](https://support.microsoft.com/kb/4025334)包含汇总的修补程序的最多进行重复数据删除，包括重要的可靠性修复，和我们强烈建议使用 Windows Server 2016 和 Windows Server 2019 使用重复数据删除时安装它。
 
 ## <a name="why-is-dedup-useful"></a>重复数据删除为什么很有用？
 
-重复数据删除可帮助存储管理员降低重复数据的相关成本。 大型数据集通常具有**<u>大量</u>** 重复数据，增加了数据的存储成本。 例如：
+重复数据删除可帮助存储管理员降低重复数据的相关成本。 大型数据集通常具有 **<u>大量</u>** 重复数据，增加了数据的存储成本。 例如：
 
 - 用户文件共享可能会有相同或类似文件的多个副本。
 - 不同 VM 的虚拟化来宾可能几乎完全相同。

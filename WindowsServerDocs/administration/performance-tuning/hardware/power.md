@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5261c856a0a29f9f58526e4f9580a16bbed5be56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5fe91888188796c96d5da80e8f9bd3ed627b9d43
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874298"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564744"
 ---
 # <a name="server-hardware-power-considerations"></a>服务器硬件功能的注意事项
 
@@ -22,7 +22,7 @@ ms.locfileid: "59874298"
 
 操作系统电压、 缓存大小和处理技术的频率会影响处理器的能源消耗。 处理器都有指向基本地指示出相对于其他模型的能源消耗 (TDP) 分级的热量设计。
 
-一般情况下，选择将满足性能目标的最低 TDP 处理器。 此外，较新代的处理器是通常更高的能效，而且它们可能会暴露更多的电源状态，对于 Windows 电源管理算法，这样在所有级别的性能更好的电源管理。 也可以使用一些新的"协作？ Microsoft 已开发出与硬件制造商合作关系中的电源管理方法。
+一般情况下，选择将满足性能目标的最低 TDP 处理器。 此外，较新代的处理器是通常更高的能效，而且它们可能会暴露更多的电源状态，对于 Windows 电源管理算法，这样在所有级别的性能更好的电源管理。 或者它们可能会使用一些 Microsoft 已开发出与硬件制造商合作关系中的新"协作"电源管理技术。
 
 协作式电源管理方法的详细信息，请参阅名为协作处理器性能控件中的部分[高级配置和电源接口规范](http://www.uefi.org/sites/default/files/resources/ACPI_5_1release.pdf)。
 
@@ -36,7 +36,7 @@ ms.locfileid: "59874298"
 ## <a name="disks-recommendations"></a>磁盘的建议
 更高版本的 RPM 意味着增加的能源消耗。 SSD 驱动器的更多电源效率比旋转驱动器。 此外，2.5 英寸驱动器通常需要较少的电量比 3.5 英寸驱动器。
 
-## <a name="network-and-storage-adapter-recommendations"></a>网络和存储适配器的建议
+## <a name="network-and-storage-adapter-recommendations"></a>网络和存储器适配器建议
 某些适配器减少能源消耗在空闲时段。 这是 10 Gb 网络适配器和高带宽 (4-8 Gb) 的存储链接的重要考虑事项。 此类设备可以使用大量能源。
 
 
@@ -71,4 +71,4 @@ ms.locfileid: "59874298"
 - [服务器硬件的性能注意事项](index.md)
 - [电源和性能优化](power/power-performance-tuning.md)
 - [处理器电源管理优化](power/processor-power-management-tuning.md)
-- [建议平衡的计划参数](power/recommended-balanced-plan-parameters.md)
+- [建议的平衡计划参数](power/recommended-balanced-plan-parameters.md)

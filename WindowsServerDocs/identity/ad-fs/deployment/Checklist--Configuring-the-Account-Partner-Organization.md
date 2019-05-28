@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: df8057bf8afb51cbd9ca2ec704144b5863bdf064
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5c01daa86b52f3f175d763d09b4c779affef9681
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878978"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192421"
 ---
 # <a name="checklist-configuring-the-account-partner-organization"></a>清单：配置帐户伙伴组织
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 帐户伙伴组织包含将访问 Web 的用户\-基于资源伙伴中的应用程序。 此组织中的管理员必须使用 AD FS 管理管理单元\-才能创建信赖方信任来表示它们资源伙伴组织之间的信任关系。 反过来，资源伙伴管理员必须创建每个帐户伙伴组织，他们想要信任的声明提供方信任。  
   
@@ -41,7 +39,7 @@ ms.locfileid: "59878978"
 |![配置帐户伙伴组织](media/icon_checkboxo.gif)|确定哪些 AD FS 设计此帐户伙伴组织将与相关联。|![配置帐户伙伴组织](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[Web SSO 设计](https://technet.microsoft.com/library/dd807033.aspx)<br /><br />![配置帐户伙伴组织](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[联合 Web SSO 设计](https://technet.microsoft.com/library/dd807050.aspx)|  
 |![配置帐户伙伴组织](media/icon_checkboxo.gif)|在开始部署 AD FS 服务器之前，请查看;1.\)选择这两个 Windows 内部数据库的优点和缺点\(WID\)或 SQL Server 存储 AD FS 配置数据库 2。\)AD FS 部署拓扑类型和关联的服务器位置和网络布局建议。|![配置帐户伙伴组织](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[确定 AD FS 部署拓扑](https://technet.microsoft.com/library/gg982491.aspx)<br /><br />![配置帐户伙伴组织](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[AD FS 部署拓扑注意事项](https://technet.microsoft.com/library/gg982489.aspx)|  
 |![配置帐户伙伴组织](media/icon_checkboxo.gif)|查看 AD FS 容量规划指南以确定联合身份验证服务器和联合服务器代理服务器应在生产环境中使用的正确号码。|![配置帐户伙伴组织](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[AD FS 服务器容量规划](https://technet.microsoft.com/library/gg749899.aspx)|  
-|![配置帐户伙伴组织](media/icon_checkboxo.gif)|为了有效地规划和实施帐户合作伙伴部署的物理拓扑，确定你的 AD FS 设计需要一个或多个联合服务器或联合服务器代理。|![配置帐户伙伴组织](media/bc6cea1a-1c6c-4124-8c8f-1df5adfe8c88.gif)[核对清单：设置联合身份验证服务器](Checklist--Setting-Up-a-Federation-Server.md)<br /><br />![配置帐户伙伴组织](media/bc6cea1a-1c6c-4124-8c8f-1df5adfe8c88.gif)[核对清单：设置联合服务器代理](Checklist--Setting-Up-a-Federation-Server-Proxy.md)|  
+|![配置帐户伙伴组织](media/icon_checkboxo.gif)|为了有效地规划和实施帐户合作伙伴部署的物理拓扑，确定你的 AD FS 设计需要一个或多个联合服务器或联合服务器代理。|![配置帐户伙伴组织](media/bc6cea1a-1c6c-4124-8c8f-1df5adfe8c88.gif)[核对清单：设置联合服务器](Checklist--Setting-Up-a-Federation-Server.md)<br /><br />![配置帐户伙伴组织](media/bc6cea1a-1c6c-4124-8c8f-1df5adfe8c88.gif)[核对清单：设置联合服务器代理](Checklist--Setting-Up-a-Federation-Server-Proxy.md)|  
 |![配置帐户伙伴组织](media/icon_checkboxo.gif)|确定想要添加到 AD FS 的属性存储的类型。 然后，将属性存储区中使用 AD FS 管理管理单元添加\-中。|![配置帐户伙伴组织](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[角色的属性存储](../../ad-fs/technical-reference/The-Role-of-Attribute-Stores.md)<br /><br />![配置帐户伙伴组织](media/15dd35b6-6cc6-421f-93f8-7109920e7144.gif)[添加属性存储](../../ad-fs/operations/Add-an-Attribute-Store.md)|  
 |![配置帐户伙伴组织](media/icon_checkboxo.gif)|如果你将需要发送声明或使用 AD FS 1.0 或 1.1 联合身份验证服务的来自资源合作伙伴正在使用其中的声明，请参阅的有关如何配置 AD FS 的信息的权限与以前版本的 AD FS 进行互操作的链接。 如果资源伙伴组织也使用 AD FS 以发送或使用您的组织声明，您可以跳过此步骤，然后继续进行此检查表的下一任务。|![配置帐户伙伴组织](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[规划互操作性与 AD FS 1.x](https://technet.microsoft.com/library/ff678040.aspx)|  
 |![配置帐户伙伴组织](media/icon_checkboxo.gif)|部署帐户伙伴组织中的第一个联合服务器后，创建使用 AD FS 管理管理单元的信赖方信任关系\-中。 可以通过手动输入有关资源伙伴的数据，或者使用资源伙伴组织管理员提供给你的联合元数据 URL，来创建信赖方信任。 可以使用联合元数据来自动检索资源伙伴的数据。 **注意：** 如果资源伙伴发布了其联合元数据，或者可以提供此元数据的文件副本让你使用，那么，我们建议你自动检索数据，因为这可以节省时间。|![配置帐户伙伴组织](media/15dd35b6-6cc6-421f-93f8-7109920e7144.gif)[信赖方信任手动创建](../../ad-fs/operations/Create-a-Relying-Party-Trust.md)<br /><br />![配置帐户伙伴组织](media/15dd35b6-6cc6-421f-93f8-7109920e7144.gif)[创建信赖方信任使用联合身份验证元数据](../../ad-fs/operations/Create-a-Relying-Party-Trust.md)|  

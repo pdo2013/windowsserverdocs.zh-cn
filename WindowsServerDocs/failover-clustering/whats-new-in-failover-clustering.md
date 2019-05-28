@@ -8,22 +8,22 @@ manager: dongill
 author: JasonGerend
 ms.author: jgerend
 ms.date: 10/18/2018
-ms.openlocfilehash: b4fa59aa62acba5c89f20c191da2c3c1b776b1ca
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3c0792347aaa70fe80d346cc51cbc44b73c42f39
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884748"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476020"
 ---
 # <a name="whats-new-in-failover-clustering"></a>故障转移群集中的新增功能
 
-> 适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
+> 适用于：Windows Server 2019、Windows Server 2016
 
-本主题介绍了在故障转移群集的 Windows Server 2019，Windows Server 2016 中的新功能和更改功能和 Windows Server 半年频道发布。
+本主题介绍故障转移群集的 Windows Server 2019 和 Windows Server 2016 中的新功能和更改功能。
 
 ## <a name="whats-new-in-windows-server-2019"></a>Windows Server 2019 中的新增功能
 
-- **群集设置**
+- **群集集**
 
     群集设置，可增加到超出群集的当前限制的单个软件定义数据中心 (SDDC) 解决方案中的服务器数目。 这通过对分组到群集 set--多个故障转移群集的松散耦合分组的多个群集实现： 计算、 存储和超聚合。
     使用群集集时，您可以移动联机虚拟机 （实时迁移） 在群集中的群集之间设置。

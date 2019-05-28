@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: jgerend
 ms.date: 6/11/2017
 description: 工作文件夹概述 - Windows Server 中的一个服务器角色，可为用户访问电脑和设备上的工作文件提供一致的方式。
-ms.openlocfilehash: dd32b84e6442ec55414da27ea94ef16eeab769eb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3e3c86efb2f781dc88cac6851ea22f19c6ae812
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890478"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222848"
 ---
 # <a name="work-folders-overview"></a>工作文件夹概述
 
@@ -24,18 +24,18 @@ ms.locfileid: "59890478"
   
 如果您希望下载或使用在 Windows 10、 Windows 7 或 Android 或 iOS 设备上的工作文件夹，请参阅以下各项：
 
--   [工作文件夹适用于 Windows 10](https://support.microsoft.com/help/12370/windows-10-work-folders)
--   [工作文件夹适用于 Windows 7 （64 位下载）](https://www.microsoft.com/download/details.aspx?id=42558)
--   [工作文件夹适用于 Windows 7 （32 位下载）](https://www.microsoft.com/download/details.aspx?id=42559)
+- [工作文件夹适用于 Windows 10](https://support.microsoft.com/help/12370/windows-10-work-folders)
+- [工作文件夹适用于 Windows 7 （64 位下载）](https://www.microsoft.com/download/details.aspx?id=42558)
+- [工作文件夹适用于 Windows 7 （32 位下载）](https://www.microsoft.com/download/details.aspx?id=42559)
 - [适用于 iOS 的工作文件夹](https://itunes.apple.com/app/work-folders/id950878067)
 - [适用于 Android 的工作文件夹](https://play.google.com/store/apps/details?id=com.microsoft.workfolders)
 
-##  <a name="BKMK_OVER"></a> 角色描述  
+## <a name="role-description"></a>角色描述  
  使用工作文件夹，除公司电脑外，用户还可以在个人电脑和个人设备上存储工作文件以及访问这些设备上存储的工作文件，通常称为自带设备办公 (BYOD)。 用户可以在方便的位置存储工作文件，随时随地访问这些文件。 通过在集中管理的文件服务器上存储文件，并有选择地指定用户设备策略（如加密和锁屏密码），组织可以维持对公司数据的控制。  
   
  可以使用现有的文件夹重定向、脱机文件和家庭文件夹部署来部署工作文件夹。 工作文件夹将用户文件存储在名为*同步共享*的服务器上的文件夹中。 你可以指定已经包含用户数据的文件夹，这能使你无需迁移服务器和数据或立即淘汰现有的解决方案就能采用工作文件夹。  
   
-##  <a name="BKMK_APP"></a> 实际应用程序  
+## <a name="practical-applications"></a>实际应用程序  
  管理员可以使用工作文件夹为用户提供对其工作文件的访问权限，同时对组织的数据保持集中的存储和控制。 工作文件夹的一些特定应用包括：  
   
 -   提供从用户的工作和个人计算机和设备对工作文件的单一访问点  
@@ -50,7 +50,8 @@ ms.locfileid: "59890478"
   
 -   通过工作文件夹使用故障转移群集，提供高可用性解决方案  
   
-##  <a name="BKMK_NEW"></a> 重要的功能  
+## <a name="important-functionality"></a>重要功能
+
  工作文件夹包含以下功能。  
   
 |功能|可用性|描述|  
@@ -60,7 +61,8 @@ ms.locfileid: "59890478"
 |工作文件夹与 Windows 的集成|Windows 10<br /><br /> Windows 8.1<br /><br /> Windows RT 8.1<br /><br /> Windows 7（需要下载）|工作文件夹在 Windows 计算机中提供以下功能：<br /><br /> -   控制面板项，可设置和监视工作文件夹<br />-   文件资源管理器集成，允许轻松访问工作文件夹中的文件<br />-   同步引擎，可与中央文件服务器来回传输文件，并实现电池使用时间和系统性能的最大化|  
 |设备的工作文件夹应用|Android<br /><br /> Apple iPhone 和 iPad®|一款应用，允许受欢迎的设备访问工作文件夹中的文件|  
   
-##  <a name="BKMK_New"></a> 新的和更改功能  
+## <a name="new-and-changed-functionality"></a>新增功能和更改的功能
+  
  下表描述了工作文件夹的某些主要变化。  
   
 |特性/功能|新功能或更新的功能？|描述|  
@@ -70,7 +72,7 @@ ms.locfileid: "59890478"
 |与 Windows 信息保护 (WIP) 集成|已添加到 Windows 10 版本 1607|如果管理员部署 WIP，工作文件夹可以通过加密电脑上的数据实施数据保护。 加密使用与企业 ID 关联的密钥，它可以使用受支持的移动设备管理包（例如 Microsoft Intune）远程擦除。|  
 |Microsoft Office 集成|已添加到 Windows 10 版本 1511|在 Windows 8.1 中，你可以通过单击或点击这台电脑，然后导航到电脑上的工作文件夹位置，导航到 Office 应用内的工作文件夹。 在 Windows 10 中，你可以通过在保存或打开文件时将其添加到 Office 显示的位置列表，更轻松地转到工作文件夹。 有关详细信息，请参阅 [Windows 10 中的工作文件夹](https://windows.microsoft.com/windows-10/work-folders-in-windows-10)和[将工作文件夹用作 Microsoft Office 中的一个位置相关疑难解答](https://social.technet.microsoft.com/wiki/contents/articles/32881.troubleshooting-using-work-folders-as-a-place-in-microsoft-office.aspx)。|  
   
-##  <a name="BKMK_SOFT"></a> 软件要求  
+## <a name="software-requirements"></a>软件要求
 
 工作文件夹要求在文件服务器和网络基础结构方面符合以下软件要求：  
   
@@ -126,7 +128,7 @@ ms.locfileid: "59890478"
   
 -   工作文件夹不支持回滚客户端虚拟机的虚拟机状态。 但允许使用系统映像备份或其他备份应用从客户端虚拟机内部执行备份和还原操作。  
   
-##  <a name="BKMK_Comparison"></a> 相比其他同步技术的工作文件夹  
+## <a name="work-folders-compared-to-other-sync-technologies"></a>工作文件夹与其他同步技术对比  
 
 下表介绍各种 Microsoft 同步技术的定位以及何时使用。  
   
@@ -141,7 +143,7 @@ ms.locfileid: "59890478"
 > [!NOTE]
 >  除了上表列出的同步技术外，Microsoft 还提供其他复制技术，包括 DFS 复制（用于服务器到服务器复制）和 BranchCache（设计为分支机构 WAN 加速技术）。 有关详细信息，请参阅 [DFS 命名空间和 DFS 复制](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx)和 [BranchCache 概述](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx)  
   
-##  <a name="BKMK_INSTALL"></a> 服务器管理器信息  
+## <a name="server-manager-information"></a>服务器管理器信息  
 
 工作文件夹是文件和存储服务角色的一部分。 你可以使用添加角色和功能向导或 `Install-WindowsFeature` cmdlet 安装工作文件夹。 两种方法均能实现以下目标：  
   
@@ -151,12 +153,13 @@ ms.locfileid: "59890478"
   
 -   安装 SyncShare Windows PowerShell 模块管理服务器上的工作文件夹  
   
-##  <a name="BKMK_Azure"></a> Windows Azure 虚拟机与互操作性  
+## <a name="interoperability-with-windows-azure-virtual-machines"></a>与 Windows Azure 虚拟机的互操作性
+
  你可以在 Windows Azure 中的虚拟机上运行 Windows Server 角色服务。 此方案已经使用 Windows Server 2012 R2 和 Windows Server 2016 测试过。  
   
 若要了解如何开始使用 Windows Azure 虚拟机，请访问 [Windows Azure 网站](http://www.windowsazure.com/documentation/services/virtual-machines)。  
   
-##  <a name="BKMK_LINKS"></a> 另请参阅  
+## <a name="see-also"></a>请参阅  
  有关其他相关信息，请参阅以下资源。  
   
 |内容类型|参考|  

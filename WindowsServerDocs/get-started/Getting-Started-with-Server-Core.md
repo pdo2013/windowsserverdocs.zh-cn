@@ -1,25 +1,22 @@
 ---
 title: 安装服务器核心
 description: 如何获取并安装服务器核心安装上 Windows Server 2019、 Windows Server 2016 或 Windows Server （半年频道）。
-ms.custom: na
 ms.prod: windows-server-threshold
-ms.reviewer: na
-ms.suite: na
-ms.date: 1/04/2019
+ms.date: 05/21/2019
 ms.technology: server-general
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2d22818c-fbb7-487a-bb82-81ef0a3f7ede
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: d99cd0b028d08d5c3247541ce3a868676b60693d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6f685ce29088b56bb243d21315787ab90e6863a4
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869018"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976720"
 ---
 # <a name="install-server-core"></a>安装服务器核心
 
@@ -35,7 +32,7 @@ ms.locfileid: "59869018"
 -   Windows Server Datacenter
 -   带桌面体验的 Windows Server Datacenter
 
-在安装 Windows Server （半年频道），包括版本 1709年、 1803 和 1809，您具有以下安装选项：
+在安装 Windows Server （半年频道） 时，你具有以下安装选项：
 
 -   Windows Server Standard 
 -   Windows Server Datacenter
@@ -74,10 +71,10 @@ ms.locfileid: "59869018"
 - Windows Server 更新服务器
 - Active Directory 权限管理服务器
 - 路由和远程访问服务器以及下列子角色：
-- 远程桌面服务连接代理
-- 授权
-- 虚拟化
-- 批量激活服务
+   - 远程桌面服务连接代理
+   - 授权
+   - 虚拟化
+   - 批量激活服务
 
 对于未包含在服务器核心角色，请参阅[角色、 角色服务和功能不在 Windows Server 的服务器核心](../administration/server-core/server-core-removed-roles.md)。
 
@@ -88,13 +85,12 @@ ms.locfileid: "59869018"
 ## <a name="installing-on-windows-server-semi-annual-channel"></a>Windows Server （半年频道） 上安装
 
 适用于 Windows Server （半年频道） 的安装步骤将与安装的 Windows Server 的以前版本相同 (从。ISO 映像），但存在以下例外：
+
 - 不支持将以前版本的 Windows Server 升级到 Windows Server 版本 1709。 始终需要进行重新安装。
    这意味着从 Windows 计算机的桌面上运行 setup.exe 时，安装体验不允许升级选项 （它将灰显）。
 - 没有适用于 Windows Server （半年频道） 评估版本
 - 没有任何 OEM 或零售版本。 仅可以通过软件保障常客或獎授予许可 Windows Server （半年频道）。
 
-若要获取 Windows Server 版本 1709，请参阅 [Windows Server 版本 1709 简介](get-started-with-1709.md)。
+有关半年频道的详细信息，请参阅[比较的维护服务频道](../get-started-19/servicing-channels-19.md)。
 
-若要获取 Windows Server 1803 的版本，请参阅[简介 Windows Server 版本 1803年](get-started-with-1803.md)。
-
-若要查看新增功能在 Windows Server，版本 1809，请参阅[What's New in Windows Server 版本 1809年](whats-new-in-windows-server-1809.md)
+若要查看 Windows Server 半年频道中的新增功能，请参阅[What's New in Windows Server](whats-new-in-windows-server.md)

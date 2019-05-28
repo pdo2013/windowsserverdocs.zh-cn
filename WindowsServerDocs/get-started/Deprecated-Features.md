@@ -1,33 +1,32 @@
 ---
 title: Windows Server 2016 中已删除或弃用的功能
-description: 各版本中已删除或计划删除的特性和功能。
-ms.custom: na
+description: 功能和 Windows Server 2016 中的功能已从当前版本的产品中删除或计划在 （已弃用） 的后续版本中可能删除的列表。 本文档面向在商业环境中更新操作系统的 IT 专业人员。
 ms.prod: windows-server-threshold
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 05/21/2019
 ms.assetid: 5d10c5f9-ebac-49a0-b808-c0b1702e0437
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 20178a3be14c076623f647fa139e013528de9a69
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 83855cf7e4fa86a932298dd15735dc5bf7277dfb
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858158"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976598"
 ---
 # <a name="features-removed-or-deprecated-in--windows-server-2016"></a>Windows Server 2016 中已删除或弃用的功能
 
 >适用于：Windows Server 2016
 
-以下是 Windows Server 2016 中已从当前版本的产品中删除或计划在后续版本中可能删除（“已弃用”）的特性和功能列表。 本文档面向在商业环境中更新操作系统的 IT 专业人员。 在后续的版本中可能会对该列表进行更改，并且可能不包含任何已弃用的特性或功能。 有关特定特性或功能及其替代项的详细信息，请参阅相应特性或功能的文档。  
+以下是 Windows Server 2016 中已从当前版本的产品中删除或计划在后续版本中可能删除（“已弃用”）的特性和功能列表。 本文档面向在商业环境中更新操作系统的 IT 专业人员。 在后续的版本中可能会对该列表进行更改，并且可能不包含任何已弃用的特性或功能。 有关特定特性或功能及其替代项的详细信息，请参阅相应特性或功能的文档。
 
-## <a name="features-removed-from-windows-server-2016"></a>从 Windows Server 2016 中删除的功能 
+有关什么已卸下或更高版本中不推荐使用的信息，请参见[功能已删除或计划来启动 Windows Server 2019 更换](../get-started-19/removed-features-19.md)。
+
+## <a name="features-removed-from-windows-server-2016"></a>从 Windows Server 2016 中删除的功能
+
 从此版本的 Windows Server 2016 中删除了以下特性和功能。 除非你使用了替代方法，否则依赖于这些功能的应用程序、代码或用法都将无法工作。  
 
 > [!NOTE]  

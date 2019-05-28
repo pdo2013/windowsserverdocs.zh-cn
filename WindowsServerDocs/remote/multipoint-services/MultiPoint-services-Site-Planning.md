@@ -13,12 +13,12 @@ ms.assetid: 063783cd-d748-489e-b175-46eadc993f7a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 60d2e1fedc018136f5668d55a8afb2e0574d94de
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: da27467efb842368167b7a315056506e99331e8d
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845068"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034596"
 ---
 # <a name="multipoint-services-site-planning"></a>MultiPoint Services 站点规划
 应考虑将在其中部署运行 MultiPoint 服务，其关联的工作站的一个或多个计算机的位置。  
@@ -86,11 +86,11 @@ ms.locfileid: "59845068"
 ## <a name="using-additional-hubs"></a>使用其他中心  
 其他中心可用来简化安装。 有三种类型的 MultiPoint 服务系统使用的中心：  
   
--   [工作站集线器](#Station-hubs)  
+-   [工作站集线器](#station-hubs)  
   
--   [中间的中心](#Intermediate-hubs)  
+-   [中间的中心](#intermediate-hubs)  
   
--   [下游集线器](#Downstream-hubs)  
+-   [下游集线器](#downstream-hubs)  
   
 ### <a name="station-hubs"></a>工作站集线器  
 工作站集线器是已经与 MultiPoint 服务工作站相关联的外部中心。 至少，工作站集线器将具有键盘接通到它。 它还可能具有附加的其他外围设备。 工作站集线器可以是符合的 USB 2.0 或更高版本规范的泛型 USB 集线器。 如果高性能的设备将向其插件的工作站集线器应从外部电源。  

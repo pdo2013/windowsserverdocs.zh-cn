@@ -8,12 +8,12 @@ author: cosmosdarwin
 ms.date: 09/07/2018
 Keywords: 存储空间直通
 ms.localizationpriority: medium
-ms.openlocfilehash: 828a3265c9770bab0158067c4f856866d03e3d42
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1916d2d5e4d1fc846bec19826437b200afe36f42
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870858"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64772221"
 ---
 # <a name="performance-history-for-storage-spaces-direct"></a>有关存储空间直通的性能历史记录
 
@@ -153,7 +153,7 @@ Get-VM "MyVM" | Get-ClusterPerf -VMSeriesName "VM.Cpu.Usage" -TimeFrame LastHour
 
 该卷由存储空间提供支持，并使用简单的双向镜像或三向镜像复原则，具体取决于群集中的节点数量。 修复后的驱动器或服务器故障就像任何其他卷中存储空间直通。
 
-卷使用 ReFS，但不是群集共享卷 (CSV)，因此，它仅显示在群集组所有者节点上。 除了自动创建，并没有什么特别与该卷： 可以查看、 浏览它、 调整其大小，或删除它 （不推荐）。 如果出现问题，请参阅[故障排除](#troubleshooting)。 
+卷使用 ReFS，但不是群集共享卷 (CSV)，因此，它仅显示在群集组所有者节点上。 除了自动创建，并没有什么特别与该卷： 可以查看、 浏览它、 调整其大小，或删除它 （不推荐）。 如果出现问题，请参阅[故障排除](#troubleshooting)。
 
 ### <a name="object-discovery-and-data-collection"></a>对象发现和数据收集
 
@@ -163,7 +163,7 @@ Get-VM "MyVM" | Get-ClusterPerf -VMSeriesName "VM.Cpu.Usage" -TimeFrame LastHour
 
 ### <a name="handling-measurement-gaps"></a>处理度量缺口
 
-当度量值将合并到更粗粒度系列跨更多的时间，如中所述的[时段](#Timeframes)，排除缺少数据的时间段。 例如，如果服务器已关闭的 30 分钟内，然后运行 50%的 CPU 在接下来的 30 分钟内，`ClusterNode.Cpu.Usage`的平均时间为一小时将正确记录为 50%（而不是 25%)。
+当度量值将合并到更粗粒度系列跨更多的时间，如中所述的[时段](#timeframes)，排除缺少数据的时间段。 例如，如果服务器已关闭的 30 分钟内，然后运行 50%的 CPU 在接下来的 30 分钟内，`ClusterNode.Cpu.Usage`的平均时间为一小时将正确记录为 50%（而不是 25%)。
 
 ### <a name="extensibility-and-customization"></a>可扩展性和自定义项
 

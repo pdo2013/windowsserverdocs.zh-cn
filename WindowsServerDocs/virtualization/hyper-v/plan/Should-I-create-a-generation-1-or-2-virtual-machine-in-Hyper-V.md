@@ -11,19 +11,19 @@ ms.assetid: 02e31413-6140-4723-a8d6-46c7f667792d
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/05/2016
-ms.openlocfilehash: 48319e057da9c815a77349bba34996f89973d85a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3c88ef5ee700bb3906746402bf6cc8916976800
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850498"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192767"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>应在 HYPER-V 中创建第 1 或 2 代虚拟机？
 
 >适用于：Windows 10、 Windows Server 2016、 Microsoft HYPER-V Server 2016，Windows Server 2019，Microsoft HYPER-V Server 2019
 
-> [!WARNING]
-> 如果你打算过上传 Windows 虚拟机 (VM) 从本地到 Microsoft Azure**只有第 1 代 Vm** ，是在 VHD 文件格式，并具有固定大小的磁盘支持。 上传 Windows VHD 或 VHDX 的详细信息，请参阅[准备要上传到 Azure 的 Windows VHD 或 VHDX](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepare-for-upload-vhd-image)。
+> [!NOTE]
+> 如果你打算过上传 Windows 虚拟机 (VM) 从本地到 Microsoft Azure、 第 1 代和第 2 代 Vm 的 VHD 文件格式中并具有固定大小的磁盘支持。 请参阅[第 2 代 Vm 在 Azure 上](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)若要了解有关 Azure 上支持的第 2 代功能的详细信息。 上传 Windows VHD 或 VHDX 的详细信息，请参阅[准备要上传到 Azure 的 Windows VHD 或 VHDX](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image)。
 
 若要创建的第 1 代或第 2 代虚拟机所选取决于哪些来宾操作系统上要安装和你想要用于部署虚拟机的启动方法。 我们建议你创建要充分利用安全启动等功能，除非以下语句之一为 true 的第 2 代虚拟机：  
 

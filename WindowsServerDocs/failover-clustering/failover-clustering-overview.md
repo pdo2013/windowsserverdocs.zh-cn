@@ -10,16 +10,16 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 03/08/2019
 ms.localizationpriority: high
-ms.openlocfilehash: 445de065ff5b68b83481ee5bd83ebf18fdd180a7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9e4184e52ef48e758ebc80e63d3d6f952a09cc2c
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848648"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222457"
 ---
 # <a name="failover-clustering-in-windows-server"></a>Windows Server 中的故障转移群集
 
-> 适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
+> 适用于：Windows Server 2019、Windows Server 2016
 
 >[!TIP]
 > 要查找有关较旧版 Windows Server 的信息？ 在 docs.microsoft.com 上查看我们的其他 [Windows Server 库](/previous-versions/windows/)。 也可以[搜索此站点](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions)了解具体信息。
@@ -34,189 +34,30 @@ ms.locfileid: "59848648"
 * 用于如 Microsoft SQL Server 和 Hyper-V 虚拟机等应用程序的高度可用或持续可用文件共享存储
 * 在物理服务器或虚拟机（安装在运行 Hyper-V 的服务器上）上运行的高度可用群集角色
 
-<hr />
 
-<ul class="cardsF panelContent">
-<li>
-                         <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage">
-                                                <img src="../media/i-whats-new.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                        <h2><a href="whats-new-in-failover-clustering.md">什么是故障转移群集中的新增功能</a></h2>
-                                        </div>
-                                    </div>
-                                </div>
-                             </div>
-                          </a>
-                        </li>
-                     </ul>
-<HR />
+|  |  |
+|---------|---------|
+|![新增功能](../media/i-whats-new.svg)  | [**什么是故障转移群集中的新增功能**](whats-new-in-failover-clustering.md) |
 
-<ul class="cardsF panelContent">
 
-<li>
-                         <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage">
-                                                <img src="../media/i-cluster.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                        <h3>了解</h3>
-<HR />
-                                        <p><a href="sofs-overview.md">应用程序数据的横向扩展文件服务器</a></p>
-<HR />
-                                        <p><a href="../storage/storage-spaces/understand-quorum.md">群集和池仲裁</a></p>
-<HR />
-                                        <p><a href="fault-domains.md">容错域感知</a></p>
-<HR />
-                                        <p><a href="smb-multichannel.md">简化的 SMB 多通道和多 NIC 群集网络</a></p>
-<HR />
-                                        <p><a href="vm-load-balancing-overview.md">VM 负载平衡</a></p>
-<HR />
-                                        <p><a href="../storage/storage-spaces/cluster-sets.md">群集设置</a></p>
-<HR />
-                                        <p><a href="cluster-affinity.md">群集关联</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                          </a>
-                        </li>
+|  |  |  |
+|---------|---------|---------|
+|![了解](../media/i-cluster.svg)**了解**  |  ![规划](../media/i-cluster.svg)**规划**  |  ![部署](../media/i-cluster.svg)**部署**       |
+| [横向扩展应用程序数据文件服务器](sofs-overview.md)    |   [计划的故障转移群集硬件要求和存储选项](clustering-requirements.md)      |  [Active Directory 域服务中部署预安排群集计算机对象](prestage-cluster-adds.md)  |
+|  [群集和池仲裁](../storage/storage-spaces/understand-quorum.md)   |   [使用群集共享卷 (CSV)](failover-cluster-csvs.md)      | [创建故障转移群集](create-failover-cluster.md)        |
+|  [群集和池仲裁](fault-domains.md)   |  [使用存储空间直通使用来宾虚拟机群集](../storage/storage-spaces/storage-spaces-direct-in-vm.md)       | [部署双节点文件服务器](../storage/storage-spaces/storage-spaces-direct-in-vm.md)        |
+| [简化的 SMB 多通道和多 NIC 群集网络](smb-multichannel.md)    |         |  [管理仲裁和见证服务器](manage-cluster-quorum.md)       |
+|   [VM 负载均衡](vm-load-balancing-overview.md)  |         |   [部署云见证](deploy-cloud-witness.md)      |
+|   [群集集](../storage/storage-spaces/cluster-sets.md)  |         |     [部署文件共享见证](file-share-witness.md)    |
+|   [群集关联](cluster-affinity.md)  |         |    [群集操作系统滚动升级]()     |
+|     |         |     [在同一硬件上升级故障转移群集](upgrade-option-same-hardware.md)    |
+|     |         |     [部署与 Active Directory 分离的群集](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265970\(v%3dws.11\))    |
 
-<li>
-                         <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage">
-                                                <img src="../media/i-cluster.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                        <h3>计划</h3>
-<HR />
-                                        <p><a href="clustering-requirements.md">故障转移群集硬件要求和存储选项</a></p>
-<HR />
-                                        <p><a href="failover-cluster-csvs.md">使用群集共享卷 (Csv)</a></p>               
-<HR />
-                                        <p><a href="../storage/storage-spaces/storage-spaces-direct-in-vm.md">使用存储空间直通使用来宾虚拟机群集</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                          </a>
-                        </li>
-<li>
-                         <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage">
-                                                <img src="../media/i-cluster.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                        <h3>部署</a></h3> 
-<HR />
-                                        <p><a href="prestage-cluster-adds.md">预安排群集计算机对象在 Active Directory 域服务</a></p>
-<HR />
-                                        <p><a href="create-failover-cluster.md">创建故障转移群集</a></p> 
-<HR />
-                                        <p><a href="deploy-two-node-clustered-file-server.md">部署双节点文件服务器</a></p> 
-<HR />
-                                        <p><a href="manage-cluster-quorum.md">管理仲裁和见证服务器</a></p> 
-<HR />
-                                        <p><a href="deploy-cloud-witness.md">部署云见证</a></p>
-<HR />
-                                        <p><a href="file-share-witness.md">部署的文件共享见证</a></p>
-<HR />
-                                        <p><a href="cluster-operating-system-rolling-upgrade.md">群集操作系统滚动升级</a></p> 
-<HR />
-                                        <p><a href="upgrade-option-same-hardware.md">升级在同一硬件上的故障转移群集</a></p>
-<HR />
-                                        <p><a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265970\(v%3dws.11\)">部署与 Active Directory 分离的群集</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                          </a>
-                        </li>
-                     </ul>
-<HR />
-<ul class="cardsF panelContent">
-<li>
-                         <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage">
-                                                <img src="../media/i-cluster.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                        <h3>管理</h3>
-<HR />
-                                        <p><a href="cluster-aware-updating.md">群集感知更新</a></p> 
-<HR />
-                                        <p><a href="health-service-overview.md">运行状况服务</a></p>
-<HR />
-                                        <p><a href="cluster-domain-migration.md">群集域迁移</a></p>
-<HR />
-                                        <p><a href="troubleshooting-using-wer-reports.md">使用 Windows 错误报告进行故障排除</a></p> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                          </a>
-                        </li>
-<li>
-                         <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage">
-                                                <img src="../media/i-cluster.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                        <h3>工具和设置</a></h3>
-<HR />
-                                        <p><a href="https://docs.microsoft.com/powershell/module/failoverclusters/?view=win10-ps">故障转移群集 PowerShell Cmdlet</a></p> 
-<HR />
-                                        <p><a href="https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps">群集感知更新的 PowerShell Cmdlet</a></p> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                          </a>
-                        </li>
-<li>
-                         <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage">
-                                                <img src="../media/i-cluster.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                        <h3>社区资源</a></h3>
-<HR />
-                                        <p><a href="https://go.microsoft.com/fwlink/p/?LinkId=230641">高可用性（群集）论坛</a></p> 
-<HR />
-                                        <p><a href="http://blogs.msdn.com/b/clustering/">故障转移群集和网络负载平衡团队博客</a></p> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                          </a>
-                        </li>
-</ul>
+
+|  |  |  |
+|---------|---------|---------|
+|![管理](../media/i-cluster.svg)**管理**  |  ![工具和设置](../media/i-cluster.svg)**工具和设置**  |  ![社区资源](../media/i-cluster.svg)**社区资源**       |
+| [群集感知更新](cluster-aware-updating.md)    |   [故障转移群集 PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/failoverclusters/?view=win10-ps)      |  [高可用性（群集）论坛](https://go.microsoft.com/fwlink/p/?LinkId=230641)       |
+|  [运行状况服务](health-service-overview.md)   |   [群集感知更新的 PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps)      | [故障转移群集和网络负载平衡团队博客](http://blogs.msdn.com/b/clustering/)        |
+|  [群集域迁移](cluster-domain-migration.md)   |         |         |
+|  [使用 Windows 错误报告进行疑难解答](troubleshooting-using-wer-reports.md)   |         |         |

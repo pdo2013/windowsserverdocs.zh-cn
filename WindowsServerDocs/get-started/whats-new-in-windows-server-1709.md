@@ -7,25 +7,25 @@ ms.topic: article
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1d63721dde484756e67b68bcff078257c130ae36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 32ce591a8b50c6e35c3fde4fedb177b6d76fccdd
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825488"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976728"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Windows Server 版本 1709 中的新增功能
 
 >适用于：Windows Server（半年频道）
 
-<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;本节中的内容介绍 Windows Server 版本 1709 中的新增功能和更改的功能。 此处列出的新功能和更改在你使用此版本时最可能具有最大影响力。 另请参阅 [Windows Server 版本 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/)。
+<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;若要了解有关 Windows 中的最新功能的信息，请参阅[What's New in Windows Server](whats-new-in-windows-server.md)。 本节中的内容介绍 Windows Server 版本 1709 中的新增功能和更改的功能。 此处列出的新功能和更改在你使用此版本时最可能具有最大影响力。 另请参阅 [Windows Server 版本 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/)。
    
 
 ## <a name="new-cadence-of-releases"></a>新的版本节奏
 
 从此版本开始，你可以采用以下两个选项来接收 Windows Server 功能更新：
-- **长期服务频道 (LTSC)**:这是像往常一样使用 5 年的主流支持和 5 年扩展支持的业务。 你可以选择以过去 20 年一直支持的相同方法每 2-3 年升级到下一个 LTSC 版本。
-- **半年频道 (SAC)**:这是软件保障权益，完全支持在生产环境中。 区别在于其支持期为 18 个月，并且每六个月将推出一个新版本。
+- **长期服务频道 (LTSC)** :这是像往常一样使用 5 年的主流支持和 5 年扩展支持的业务。 你可以选择以过去 20 年一直支持的相同方法每 2-3 年升级到下一个 LTSC 版本。
+- **半年频道 (SAC)** :这是软件保障权益，完全支持在生产环境中。 区别在于其支持期为 18 个月，并且每六个月将推出一个新版本。
 
 下表概述了版本频道。
 
@@ -36,7 +36,7 @@ ms.locfileid: "59825488"
 | 可用性  | 软件保障或 Azure（云托管）  | 全部频道 |
 | 命名约定  | Windows Server 版本 YYMM  | Windows Server YYYY |
 
-有关详细信息，请参阅 [Windows Server 半年频道概述](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview)。
+有关详细信息，请参阅[比较的维护服务频道](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview)。
 
 ## <a name="application-containers-and-micro-services"></a>应用程序容器和微服务
 
@@ -70,7 +70,7 @@ Project Honolulu 可提供直观的全新管理体验，用于管理电脑、Win
 
 **容器存储 – 永久数据卷与 SMB 全局映射**。 在 Windows Server 版本 1709 中，我们添加了支持以支持将 SMB 文件共享映射到容器内的驱动器号 - 这种映射称为 SMB 全局映射。 此映射的驱动器以后可供本地服务器上的所有用户访问，以便数据卷上的容器 I/O 可以经安装的驱动器到达基础文件共享。 有关详细信息，请参阅[群集共享卷 (CSV)、存储空间直通 (S2D)、SMB 全局映射的容器存储支持](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/)。
 
-**虚拟机配置文件格式（已更新）**。 已经为配置版本为 8.2 和更高版本的虚拟机额外添加了一个文件 (.vmgs)。 VMGS 指 VM 来宾状态，是一个新的内部文件，其中包括以前属于 VM 运行时状态文件一部分的设备状态。
+**虚拟机配置文件格式（已更新）** 。 已经为配置版本为 8.2 和更高版本的虚拟机额外添加了一个文件 (.vmgs)。 VMGS 指 VM 来宾状态，是一个新的内部文件，其中包括以前属于 VM 运行时状态文件一部分的设备状态。
 
 ## <a name="security-and-assurance"></a>安全和保障
 
@@ -115,7 +115,7 @@ Project Honolulu 可提供直观的全新管理体验，用于管理电脑、Win
 **适用于 Kubernetes 网络进行同等的 Linux 的 Windows**:Windows 现已与 Linux 相媲美在网络方面。 在任何包括 Azure 的环境中、在本地以及在包含 Linux 所支持的相同网络基元和拓扑的第三方云堆栈上，客户可以部署混合操作系统、Kubernetes 群集，而无需使用任何解决方法或交换机扩展。
 
 **核心网络堆栈**:核心网络堆栈的多个功能将得到提升。 有关这些功能的详细信息，请参阅 [Windows 10 创意者更新中的核心网络堆栈功能](https://blogs.technet.microsoft.com/networking/2017/07/13/core-network-stack-features-in-the-creators-update-for-windows-10/)。
-- **TCP 快速打开 (TFO)**:添加了对 TFO 支持，以优化 TCP 3 握手过程。 TFO 使用标准 3 方握手在首次连接中建立安全的 TFO Cookie。  以后连接到同一服务器时，会使用 TFO Cookie 代替 3 方握手进行连接，因此行程往返时间为零。
+- **TCP 快速打开 (TFO)** :添加了对 TFO 支持，以优化 TCP 3 握手过程。 TFO 使用标准 3 方握手在首次连接中建立安全的 TFO Cookie。  以后连接到同一服务器时，会使用 TFO Cookie 代替 3 方握手进行连接，因此行程往返时间为零。
 - **三次方**:实验性的 Windows 本机实现的三次方，TCP 拥塞控制算法是可用。 以下命令可分别启用或禁用 CUBIC。
 
     ```
@@ -140,7 +140,7 @@ Project Honolulu 可提供直观的全新管理体验，用于管理电脑、Win
     ```
 
     - **ISATAP 和 6to4**:作为实现将来不推荐使用的步，创意者更新将具有默认情况下禁用这些技术。
-- **失效网关检测 (DGD)**:DGD 算法将自动转换连接转移到另一个网关无法访问当前网关时。 在此版本中，此算法经过了改进以定期重新探测网络环境。
+- **失效网关检测 (DGD)** :DGD 算法将自动转换连接转移到另一个网关无法访问当前网关时。 在此版本中，此算法经过了改进以定期重新探测网络环境。
 - [Test-NetConnection](https://technet.microsoft.com/itpro/powershell/windows/nettcpip/test-netconnection) 是 Windows PowerShell 中的内置 cmdlet，可执行各种网络诊断。  在此版本中，我们增强了 cmdlet 以提供有关路由选择以及源地址选择的详细信息。
 
 **软件定义的网络**

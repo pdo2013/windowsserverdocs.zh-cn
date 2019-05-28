@@ -13,12 +13,12 @@ ms.assetid: 63f08b5b-c735-41f4-b6c8-411eff85a4ab
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: befd784f4a2179c121992057e298d4ea9068c11b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0aa81ef3633adf27a25b45b3b7c00082d83bf0bb
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862078"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034623"
 ---
 # <a name="create-windows-10-enterprise-virtual-desktops-for-stations"></a>为工作站创建 Windows 10 企业版虚拟桌面
 MultiPoint Services 中此可选配置主要适用于其中的基本应用程序需要它自己的客户端操作系统的实例为每个用户的情况。 示例包括不能在 Windows Server 上安装的应用程序和应用程序将在同一台主机计算机上运行多个实例。  
@@ -44,13 +44,13 @@ MultiPoint Services 中此可选配置主要适用于其中的基本应用程序
 ## <a name="procedures"></a>过程  
 使用下面的过程，以：  
   
--   [创建虚拟桌面模板](#a-namebkmkcreateatemplateacreate-a-template-for-virtual-desktops)  
+-   [创建虚拟桌面模板](#create-a-template-for-virtual-desktops)  
   
--   [从模板创建虚拟桌面](#BKMK_CreateVirtualDesktopsfromTemplate)  
+-   [从模板创建虚拟桌面](#create-virtual-machine-desktops-from-the-template)  
   
--   [复制现有的虚拟桌面模板](#BKMK_CopyExiistingVirtualDesktopTemplate)  
+-   [复制现有的虚拟桌面模板](#copy-an-existing-virtual-desktop-template)  
   
-### <a name="BKMK_CreateaTemplate"></a>创建虚拟桌面模板  
+### <a name="create-a-template-for-virtual-desktops"></a>创建虚拟桌面模板  
 可以创建你的虚拟桌面模板之前，必须启用 MultiPoint Server 中的虚拟桌面功能。  
   
 ##### <a name="to-enable-the-virtual-desktop-feature"></a>若要启用虚拟桌面功能  
@@ -98,7 +98,7 @@ MultiPoint Services 中此可选配置主要适用于其中的基本应用程序
 4.  选择你想要自定义，请单击模板**自定义模板**，然后单击**确定**。  
   
     > [!NOTE]  
-    > 可以使用仅具有尚未用于创建虚拟桌面工作站模板。 如果你想要更新已在使用模板，您必须通过使用进行模板的副本**导入模板**更高版本，介绍的任务中[复制现有的虚拟桌面模板](#BKMK_CopyExiistingVirtualDesktopTemplate)。  
+    > 可以使用仅具有尚未用于创建虚拟桌面工作站模板。 如果你想要更新已在使用模板，您必须通过使用进行模板的副本**导入模板**更高版本，介绍的任务中[复制现有的虚拟桌面模板](#copy-an-existing-virtual-desktop-template)。  
   
     该模板将在 HYPER-V 中打开**VM 连接**使用内置管理员帐户执行窗口中，并自动登录。  
   
@@ -111,7 +111,7 @@ MultiPoint Services 中此可选配置主要适用于其中的基本应用程序
   
 6.  完成配置您的系统后，双击**CompleteCustomization**上运行 Sysprep，然后关闭该模板管理员的桌面快捷方式。 自定义期间，Sysprep 工具中删除所有唯一的系统信息来准备要映像的 Windows 安装。  
   
-### <a name="BKMK_CreateVirtualDesktopsfromTemplate"></a>从模板创建虚拟机桌面  
+### <a name="create-virtual-machine-desktops-from-the-template"></a>从模板创建虚拟机桌面  
 使用的虚拟桌面模板配置所需桌面是，您就可以开始创建虚拟桌面的方式。 将创建连接到 MultiPoint Server 计算机的每个工作站的虚拟桌面。 下次用户登录到工作站，他们将看到虚拟桌面而不是基于会话的桌面之前显示。  
   
 > [!NOTE]  
@@ -141,7 +141,7 @@ MultiPoint Services 中此可选配置主要适用于其中的基本应用程序
 > [!NOTE]  
 > 如果用户帐户登录到任意本地工作站，将需要注销会话后，若要获取连接到一个新创建的工作站虚拟桌面工作站。  
   
-### <a name="BKMK_CopyExiistingVirtualDesktopTemplate"></a>复制现有的虚拟桌面模板  
+### <a name="copy-an-existing-virtual-desktop-template"></a>复制现有的虚拟桌面模板  
 使用以下过程创建一个现有的虚拟桌面模板，可以自定义和使用的副本。 这可以是以下情况下有用：  
   
 -   若要从网络共享到 MultiPoint Server 主机计算机上复制的主模板，以便可以从主模板创建虚拟桌面工作站。  

@@ -13,136 +13,135 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8248f5ae540866394169229f0d7cf11497c9dcf2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: faaf936e4c23579e908e12543c07d0764a2cdcc1
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834718"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192625"
 ---
 # <a name="certutil"></a>certutil
 
-
-
 Certutil.exe 是一个命令行程序，证书服务的一部分安装。 可以使用 Certutil.exe 来转储并显示证书颁发机构 (CA) 配置信息，请配置证书服务备份和还原 CA 组件，并验证证书、 密钥对和证书链。
 
-在不使用其他参数的证书颁发机构上运行 certutil 时，它显示当前的证书颁发机构配置。 Cerutil 非证书颁发机构上运行时，该命令默认为运行 certutil [-转储](#BKMK_dump)谓词。
+在不使用其他参数的证书颁发机构上运行 certutil 时，它显示当前的证书颁发机构配置。 Cerutil 非证书颁发机构上运行时，该命令默认为运行 certutil [-转储](#-dump)谓词。
 
 > [!WARNING]
-> Certutil 的早期版本可能不会提供所有本文档中描述的选项。 您可以查看所有 certutil 的特定版本提供了通过运行中所示的命令的选项[语法表示法](#BKMK_notations)部分。
+> Certutil 的早期版本可能不会提供所有本文档中描述的选项。 您可以查看所有 certutil 的特定版本提供了通过运行中所示的命令的选项[语法表示法](#syntax-notations)部分。
 
-## <a name="BKMK_menu"></a>菜单
+## <a name="menu"></a>菜单
 
 下面是本文档中的主要部分：
--   [Verbs](#BKMK_Verbs)
--   [语法表示法](#BKMK_notations)
--   [选项](#BKMK_Options)
--   [其他 certutil 示例](#BKMK_AddedExamples)
 
-## <a name="BKMK_Verbs"></a>谓词
+- [Verbs](#verbs)
+- [语法表示法](#syntax-notations)
+- [选项](#options)
+- [其他 certutil 示例](#additional-certutil-examples)
+
+## <a name="verbs"></a>谓词
 
 下表介绍可以使用 certutil 命令使用的谓词。
 
 |谓词|描述|
 |-----|-----------|
-|[-dump](#BKMK_dump)|转储的配置信息或文件|
-|[-asn](#BKMK_asn)|分析 ASN.1 文件|
-|[-decodehex](#BKMK_decodehex)|解码十六进制编码的文件|
-|[-decode](#BKMK_decode)|解码的 Base64 编码文件|
-|[-encode](#BKMK_encode)|文件编码为 Base64|
-|[-deny](#BKMK_deny)|拒绝挂起的证书申请|
-|[-resubmit](#BKMK_resubmit)|重新提交挂起的证书申请|
-|[-setattributes](#BKMK_setattributes)|为挂起的证书申请设置属性|
-|[-setextension](#BKMK_setextension)|设置挂起的证书请求的扩展|
-|[-revoke](#BKMK_revoke)|吊销证书|
-|[-isvalid](#BKMK_isvalid)|显示当前证书的处理设置|
-|[-getconfig](#BKMK_getconfig)|获取默认配置字符串|
-|[-ping](#BKMK_ping)|尝试联系 Active Directory 证书服务请求的接口|
+|[-dump](#-dump)|转储的配置信息或文件|
+|[-asn](#-asn)|分析 ASN.1 文件|
+|[-decodehex](#-decodehex)|解码十六进制编码的文件|
+|[-decode](#-decode)|解码的 Base64 编码文件|
+|[-encode](#-encode)|文件编码为 Base64|
+|[-deny](#-deny)|拒绝挂起的证书申请|
+|[-resubmit](#-resubmit)|重新提交挂起的证书申请|
+|[-setattributes](#-setattributes)|为挂起的证书申请设置属性|
+|[-setextension](#-setextension)|设置挂起的证书请求的扩展|
+|[-revoke](#-revoke)|吊销证书|
+|[-isvalid](#-isvalid)|显示当前证书的处理设置|
+|[-getconfig](#-getconfig)|获取默认配置字符串|
+|[-ping](#-ping)|尝试联系 Active Directory 证书服务请求的接口|
 |-pingadmin|尝试联系 Active Directory 证书服务管理界面|
-|[-CAInfo](#BKMK_CAInfo)|显示有关证书颁发机构的信息|
-|[-ca.cert](#BKMK_ca.cert)|检索证书颁发机构的证书|
-|[-ca.chain](#BKMK_ca.chain)|检索证书颁发机构的证书链|
-|[-GetCRL](#BKMK_GetCRL)|获取证书吊销列表 (CRL)|
-|[-CRL](#BKMK_CRL)|发布新的证书吊销列表 (Crl) [或仅增量 Crl]|
-|[-shutdown](#BKMK_shutdown)|关闭 Active Directory 证书服务|
-|[-installCert](#BKMK_installcert)|安装证书颁发机构证书|
-|[-renewCert](#BKMK_renewcert)|续订证书颁发机构证书|
-|[-schema](#BKMK_schema)|转储证书架构|
-|[-view](#BKMK_view)|转储证书视图|
-|[-db](#BKMK_db)|转储原始数据库|
-|[-deleterow](#BKMK_deleterow)|从服务器数据库中删除行|
-|[-backup](#BKMK_backup)|备份 Active Directory 证书服务|
-|[-backupDB](#BKMK_backupDB)|备份 Active Directory 证书服务数据库|
-|[-backupKey](#BKMK_backupKey)|备份 Active Directory 证书服务证书和私钥|
-|[-restore](#BKMK_restore)|还原 Active Directory 证书服务|
-|[-restoreDB](#BKMK_restoreDB)|还原 Active Directory 证书服务数据库|
-|[-restoreKey](#BKMK_restorekey)|还原 Active Directory 证书服务证书和私钥|
-|[-importPFX](#BKMK_importPFX)|导入证书和私钥|
-|[-dynamicfilelist](#BKMK_dynamicfilelist)|显示动态文件列表|
-|[-databaselocations](#BKMK_databaselocations)|显示数据库位置|
-|[-hashfile](#BKMK_hashfile)|生成并通过 file 显示加密哈希|
-|[-store](#BKMK_Store)|转储的证书存储区|
-|[-addstore](#BKMK_addstore)|将证书添加到应用商店|
-|[-delstore](#BKMK_delstore)|从存储中删除证书|
-|[-verifystore](#BKMK_verifystore)|验证存储中的证书|
-|[-repairstore](#BKMK_repairstore)|修复键关联或更新证书属性或重要的安全描述符|
-|[-viewstore](#BKMK_viewstore)|转储的证书存储|
-|[-viewdelstore](#BKMK_viewdelstore)|从存储中删除证书|
-|[-dsPublish](#BKMK_dsPublish)|将证书或证书吊销列表 (CRL) 发布到 Active Directory|
-|[-ADTemplate](#BKMK_ADTemplate)|显示 AD 模板|
-|[-Template](#BKMK_template)|显示证书模板|
-|[-TemplateCAs](#BKMK_TemplateCAs)|显示证书模板的证书颁发机构 (Ca)|
-|[-CATemplates](#BKMK_CATemplates)|CA 的显示模板|
-|[-SetCASites](#BKMK_SetCASites)|管理 Ca 的站点名称|
-|[-enrollmentServerURL](#BKMK_enrollmentServerURL)|显示、 添加或删除与 CA 相关联的注册服务器 Url|
-|[-ADCA](#BKMK_ADCA)|显示 AD Ca|
-|[-CA](#BKMK_CA)|显示注册策略 Ca|
-|[-Policy](#BKMK_Policy)|显示注册策略|
-|[-PolicyCache](#BKMK_PolicyCache)|显示或删除注册策略缓存条目|
-|[-CredStore](#BKMK_Credstore)|显示、 添加或删除凭据存储区条目|
-|[-InstallDefaultTemplates](#BKMK_InstallDefaultTemplates)|安装默认的证书模板|
-|[-URLCache](#BKMK_URLCache)|显示或删除 URL 缓存条目|
-|[-pulse](#BKMK_pulse)|脉冲自动注册事件|
-|[-MachineInfo](#BKMK_MachineInfo)|显示有关 Active Directory 计算机对象的信息|
-|[-DCInfo](#BKMK_DCInfo)|显示有关域控制器的信息|
-|[-EntInfo](#BKMK_EntInfo)|显示有关企业 CA 的信息|
-|[-TCAInfo](#BKMK_TCAInfo)|显示关于 CA 的信息|
-|[-SCInfo](#BKMK_SCInfo)|显示有关智能卡信息|
-|[-SCRoots](#BKMK_SCRoots)|管理智能卡的根证书|
-|[-verifykeys](#BKMK_verifykeys)|验证公共或专用的密钥集|
-|[-verify](#BKMK_verify)|验证证书、 证书吊销列表 (CRL) 或证书链|
-|[-verifyCTL](#BKMK_verifyCTL)|验证 AuthRoot 或不允许的证书的 CTL|
-|[-sign](#BKMK_sign)|重新签名的证书吊销列表 (CRL) 或证书|
-|[-vroot](#BKMK_vroot)|创建或删除 web 虚拟根和文件共享|
-|[-vocsproot](#BKMK_vocsproot)|创建或删除 web 虚拟根 OCSP web 代理|
-|[-addEnrollmentServer](#BKMK_addEnrollmentServer)|添加注册服务器应用程序|
-|[-deleteEnrollmentServer](#BKMK_deleteEnrollmentServer)|删除注册服务器应用程序|
-|[-addPolicyServer](#BKMK_addPolicyServer)|添加策略服务器应用程序|
-|[-deletePolicyServer](#BKMK_deletePolicyServer)|删除策略服务器应用程序|
-|[-oid](#BKMK_oid)|显示的对象标识符或设置显示名称|
-|[-error](#BKMK_error)|显示与错误代码关联的消息文本|
-|[-getreg](#BKMK_getreg)|显示的注册表值|
-|[-setreg](#BKMK_setreg)|设置注册表值|
-|[-delreg](#BKMK_delreg)|删除注册表值|
-|[-ImportKMS](#BKMK_ImportKMS)|用户密钥和证书导入密钥存档服务器数据库|
-|[-ImportCert](#BKMK_ImportCert)|证书文件导入数据库|
-|[-GetKey](#BKMK_GetKey)|检索已存档私钥恢复 blob|
-|[-RecoverKey](#BKMK_RecoverKey)|恢复已存档的私钥|
-|[-MergePFX](#BKMK_MergePFX)|合并 PFX 文件|
-|[-ConvertEPF](#BKMK_ConvertEPF)|将 PFX 文件转换为 EPF 文件|
+|[-CAInfo](#-cainfo)|显示有关证书颁发机构的信息|
+|[-ca.cert](#-cacert)|检索证书颁发机构的证书|
+|[-ca.chain](#-cachain)|检索证书颁发机构的证书链|
+|[-GetCRL](#-getcrl)|获取证书吊销列表 (CRL)|
+|[-CRL](#-crl)|发布新的证书吊销列表 (Crl) [或仅增量 Crl]|
+|[-shutdown](#-shutdown)|关闭 Active Directory 证书服务|
+|[-installCert](#-installcert)|安装证书颁发机构证书|
+|[-renewCert](#-renewcert)|续订证书颁发机构证书|
+|[-schema](#-schema)|转储证书架构|
+|[-view](#-view)|转储证书视图|
+|[-db](#-db)|转储原始数据库|
+|[-deleterow](#-deleterow)|从服务器数据库中删除行|
+|[-backup](#-backup)|备份 Active Directory 证书服务|
+|[-backupDB](#-backupdb)|备份 Active Directory 证书服务数据库|
+|[-backupKey](#-backupkey)|备份 Active Directory 证书服务证书和私钥|
+|[-restore](#-restore)|还原 Active Directory 证书服务|
+|[-restoreDB](#-restoredb)|还原 Active Directory 证书服务数据库|
+|[-restoreKey](#-restorekey)|还原 Active Directory 证书服务证书和私钥|
+|[-importPFX](#-importpfx)|导入证书和私钥|
+|[-dynamicfilelist](#-dynamicfilelist)|显示动态文件列表|
+|[-databaselocations](#-databaselocations)|显示数据库位置|
+|[-hashfile](#-hashfile)|生成并通过 file 显示加密哈希|
+|[-store](#-store)|转储的证书存储区|
+|[-addstore](#-addstore)|将证书添加到应用商店|
+|[-delstore](#-delstore)|从存储中删除证书|
+|[-verifystore](#-verifystore)|验证存储中的证书|
+|[-repairstore](#-repairstore)|修复键关联或更新证书属性或重要的安全描述符|
+|[-viewstore](#-viewstore)|转储的证书存储|
+|[-viewdelstore](#-viewdelstore)|从存储中删除证书|
+|[-dsPublish](#-dspublish)|将证书或证书吊销列表 (CRL) 发布到 Active Directory|
+|[-ADTemplate](#-adtemplate)|显示 AD 模板|
+|[-Template](#-template)|显示证书模板|
+|[-TemplateCAs](#-templatecas)|显示证书模板的证书颁发机构 (Ca)|
+|[-CATemplates](#-catemplates)|CA 的显示模板|
+|[-SetCASites](#-setcasites)|管理 Ca 的站点名称|
+|[-enrollmentServerURL](#-enrollmentserverurl)|显示、 添加或删除与 CA 相关联的注册服务器 Url|
+|[-ADCA](#-adca)|显示 AD Ca|
+|[-CA](#-ca)|显示注册策略 Ca|
+|[-Policy](#-policy)|显示注册策略|
+|[-PolicyCache](#-policycache)|显示或删除注册策略缓存条目|
+|[-CredStore](#-credstore)|显示、 添加或删除凭据存储区条目|
+|[-InstallDefaultTemplates](#-installdefaulttemplates)|安装默认的证书模板|
+|[-URLCache](#-urlcache)|显示或删除 URL 缓存条目|
+|[-pulse](#-pulse)|脉冲自动注册事件|
+|[-MachineInfo](#-machineinfo)|显示有关 Active Directory 计算机对象的信息|
+|[-DCInfo](#-dcinfo)|显示有关域控制器的信息|
+|[-EntInfo](#-entinfo)|显示有关企业 CA 的信息|
+|[-TCAInfo](#-tcainfo)|显示关于 CA 的信息|
+|[-SCInfo](#-scinfo)|显示有关智能卡信息|
+|[-SCRoots](#-scroots)|管理智能卡的根证书|
+|[-verifykeys](#-verifykeys)|验证公共或专用的密钥集|
+|[-verify](#-verify)|验证证书、 证书吊销列表 (CRL) 或证书链|
+|[-verifyCTL](#-verifyctl)|验证 AuthRoot 或不允许的证书的 CTL|
+|[-sign](#-sign)|重新签名的证书吊销列表 (CRL) 或证书|
+|[-vroot](#-vroot)|创建或删除 web 虚拟根和文件共享|
+|[-vocsproot](#-vocsproot)|创建或删除 web 虚拟根 OCSP web 代理|
+|[-addEnrollmentServer](#-addenrollmentserver)|添加注册服务器应用程序|
+|[-deleteEnrollmentServer](#-deleteenrollmentserver)|删除注册服务器应用程序|
+|[-addPolicyServer](#-addpolicyserver)|添加策略服务器应用程序|
+|[-deletePolicyServer](#-deletepolicyserver)|删除策略服务器应用程序|
+|[-oid](#-oid)|显示的对象标识符或设置显示名称|
+|[-error](#-error)|显示与错误代码关联的消息文本|
+|[-getreg](#-getreg)|显示的注册表值|
+|[-setreg](#-setreg)|设置注册表值|
+|[-delreg](#-delreg)|删除注册表值|
+|[-ImportKMS](#-importkms)|用户密钥和证书导入密钥存档服务器数据库|
+|[-ImportCert](#-importcert)|证书文件导入数据库|
+|[-GetKey](#-getkey)|检索已存档私钥恢复 blob|
+|[-RecoverKey](#-recoverkey)|恢复已存档的私钥|
+|[-MergePFX](#-mergepfx)|合并 PFX 文件|
+|[-ConvertEPF](#-convertepf)|将 PFX 文件转换为 EPF 文件|
 |-?|显示谓词列表|
-|-*\<verb>* -?|显示指定的谓词的帮助。|
+|- *\<verb>* -?|显示指定的谓词的帮助。|
 |-? -v|显示谓词的完整列表和|
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_notations"></a>语法表示法
+## <a name="syntax-notations"></a>语法表示法
 
--   有关基本命令行语法，运行 `certutil -?`
--   有关与特定谓词使用 certutil 语法，运行**certutil** *\<谓词 >* **-？**
--   若要将所有的 certutil 语法发送到文本文件中，运行以下命令：  
-    -   `certutil -v -? > certutilhelp.txt`
-    -   `notepad certutilhelp.txt`
+- 有关基本命令行语法，运行 `certutil -?`
+- 有关与特定谓词使用 certutil 语法，运行**certutil** *\<谓词 >* **-？**
+- 若要将所有的 certutil 语法发送到文本文件中，运行以下命令：  
+  - `certutil -v -? > certutilhelp.txt`
+  - `notepad certutilhelp.txt`
 
 下表介绍用来指示命令行语法表示法。
 
@@ -155,9 +154,9 @@ Certutil.exe 是一个命令行程序，证书服务的一部分安装。 可以
 |竖线 （|)|互斥项; 分隔符选择一个|
 |省略号 （...）|可以重复的项|
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_dump"></a>-dump
+## <a name="-dump"></a>-dump
 
 CertUtil [Options] [-dump]
 
@@ -167,29 +166,29 @@ CertUtil [选项] [-转储] 文件
 
 [-f] [-silent] [-split] [-p Password] [-t Timeout]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_asn"></a>-asn
+## <a name="-asn"></a>-asn
 
 CertUtil [选项]-asn 文件 [类型]
 
 分析 ASN.1 文件
 
-类型： 数值 CRYPT_STRING_ * 解码类型
+类型： 数值 CRYPT\_字符串\_\*解码类型
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_decodehex"></a>-decodehex
+## <a name="-decodehex"></a>-decodehex
 
 CertUtil [选项] decodehex InFile OutFile [类型]
 
-类型： 数值 CRYPT_STRING_ * 编码类型
+类型： 数值 CRYPT\_字符串\_\*编码类型
 
 [-f]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_decode"></a>-decode
+## <a name="-decode"></a>-decode
 
 CertUtil [Options] -decode InFile OutFile
 
@@ -197,9 +196,9 @@ CertUtil [Options] -decode InFile OutFile
 
 [-f]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_encode"></a>-encode
+## <a name="-encode"></a>-encode
 
 CertUtil [Options] -encode InFile OutFile
 
@@ -207,9 +206,9 @@ CertUtil [Options] -encode InFile OutFile
 
 [-f] [-UnicodeText]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_deny"></a>-deny
+## <a name="-deny"></a>-拒绝
 
 CertUtil [选项]-拒绝请求 Id
 
@@ -217,9 +216,9 @@ CertUtil [选项]-拒绝请求 Id
 
 [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_resubmit"></a>-重新提交
+## <a name="-resubmit"></a>-resubmit
 
 CertUtil [选项]-重新提交请求 Id
 
@@ -227,9 +226,9 @@ CertUtil [选项]-重新提交请求 Id
 
 [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_setattributes"></a>-setattributes
+## <a name="-setattributes"></a>-setattributes
 
 CertUtil [Options] -setattributes RequestId AttributeString
 
@@ -238,16 +237,17 @@ CertUtil [Options] -setattributes RequestId AttributeString
 RequestId-数字请求 Id 的挂起的请求
 
 AttributeString-请求特性名称和值对
--   名称和值是分号分隔。
--   多个名称值对在不同的行。
--   示例:"CertificateTemplate:User\nEMail:User@Domain.com"
--   每个"\n"序列转换为换行分隔符。
+
+- 名称和值是分号分隔。
+- 多个名称值对在不同的行。
+- 示例:"CertificateTemplate:User\nEMail:User@Domain.com"
+- 每个"\n"序列转换为换行分隔符。
 
 [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_setextension"></a>-setextension
+## <a name="-setextension"></a>-setextension
 
 CertUtil [选项] setextension RequestId ExtensionName 标记 {长 |日期 |字符串 |@InFile}
 
@@ -269,9 +269,9 @@ CertUtil [选项] setextension RequestId ExtensionName 标记 {长 |日期 |字�
 
 [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_revoke"></a>-revoke
+## <a name="-revoke"></a>-revoke
 
 CertUtil [Options] -revoke SerialNumber [Reason]
 
@@ -280,21 +280,22 @@ CertUtil [Options] -revoke SerialNumber [Reason]
 序列号：若要吊销的证书序列号的逗号分隔列表
 
 原因： 数字或符号吊销原因
--   0:CRL_REASON_UNSPECIFIED:未指定 （默认值）
--   1：CRL_REASON_KEY_COMPROMISE:密钥泄漏
--   2：CRL_REASON_CA_COMPROMISE:CA 泄漏
--   3：CRL_REASON_AFFILIATION_CHANGED:从属关系已改变
--   4:CRL_REASON_SUPERSEDED:被取代
--   5:CRL_REASON_CESSATION_OF_OPERATION:停止操作
--   6:CRL_REASON_CERTIFICATE_HOLD:证书挂起
--   8:CRL_REASON_REMOVE_FROM_CRL:从 CRL 中删除
--   -1：解除吊销：解除吊销
+
+- 0:CRL_REASON_UNSPECIFIED:未指定 （默认值）
+- 1：CRL_REASON_KEY_COMPROMISE:密钥泄漏
+- 2：CRL_REASON_CA_COMPROMISE:CA 泄漏
+- 3：CRL_REASON_AFFILIATION_CHANGED:从属关系已改变
+- 4:CRL_REASON_SUPERSEDED:被取代
+- 5:CRL_REASON_CESSATION_OF_OPERATION:停止操作
+- 6:CRL_REASON_CERTIFICATE_HOLD:证书挂起
+- 8:CRL_REASON_REMOVE_FROM_CRL:从 CRL 中删除
+- -1：解除吊销：解除吊销
 
 [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_isvalid"></a>-isvalid
+## <a name="-isvalid"></a>-isvalid
 
 CertUtil [Options] -isvalid SerialNumber | CertHash
 
@@ -302,9 +303,9 @@ CertUtil [Options] -isvalid SerialNumber | CertHash
 
 [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_getconfig"></a>-getconfig
+## <a name="-getconfig"></a>-getconfig
 
 CertUtil [Options] -getconfig
 
@@ -312,29 +313,30 @@ CertUtil [Options] -getconfig
 
 [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_ping"></a>-ping
+## <a name="-ping"></a>-ping
 
 CertUtil [Options] -ping [MaxSecondsToWait | CAMachineList]
 
 Ping Active Directory 证书服务请求的接口
 
 CAMachineList-以逗号分隔的 CA 计算机名称列表
-1.  对于单台计算机，请使用终止逗号
-2.  显示每个 CA 计算机的站点成本
+
+1. 对于单台计算机，请使用终止逗号
+2. 显示每个 CA 计算机的站点成本
 
 [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_CAInfo"></a>-CAInfo
+## <a name="-cainfo"></a>-CAInfo
 
 CertUtil [Options] -CAInfo [InfoName [Index | ErrorCode]]
 
 显示 CA 信息
 
-InfoName-指示 CA 属性来显示 （见下文）。 使用"*"的所有属性。
+InfoName-指示 CA 属性来显示 （见下文）。 使用"\*"为所有属性。
 
 索引--从零开始的可选属性索引
 
@@ -343,58 +345,59 @@ InfoName-指示 CA 属性来显示 （见下文）。 使用"*"的所有属性�
 [-f] [-split] [-config Machine\CAName]
 
 InfoName 参数语法：
--   文件：文件版本
--   产品：产品版本
--   exitcount:退出模块计数
--   退出 [Index]:退出模块说明
--   策略：策略模块说明
--   名称：CA 名称
--   sanitizedname:净化的 CA 名称
--   dsname:净化的 CA 短名称 （DS 名称）
--   共享文件夹：共享的文件夹
--   error1 错误代码：错误消息文本
--   error2 错误代码：错误消息文本和错误代码
--   类型：CA 类型
--   信息：CA 信息
--   父级：父 CA
--   certcount:CA 证书计数
--   xchgcount:CA 交换证书计数
--   kracount:KRA 证书计数
--   kraused:KRA 证书使用计数
--   propidmax:Maximum CA PropId
--   certstate [Index]:CA 证书
--   certversion [Index]:CA 证书版本
--   certstatuscode [Index]:CA 证书验证状态
--   crlstate [Index]:CRL
--   krastate [Index]:KRA 证书
--   crossstate + [Index]:前向交叉证书
--   crossstate-[Index]:后向交叉证书
--   证书 [Index]:CA 证书
--   certchain [Index]:CA 证书链
--   certcrlchain [Index]:通过 Crl 的 CA 证书链
--   xchg [Index]:CA 交换证书
--   xchgchain [Index]:CA 交换证书链
--   xchgcrlchain [Index]:通过 Crl 的 CA exchange 证书链
--   kra [Index]:KRA 证书
--   跨 + [Index]:前向交叉证书
--   跨-[Index]:后向交叉证书
--   CRL [Index]:基本 CRL
--   deltacrl [Index]:Delta CRL
--   crlstatus [Index]:CRL 发布状态
--   deltacrlstatus [Index]:增量 CRL 发布状态
--   dns:DNS 名称
--   角色：角色分隔
--   广告：高级服务器版
--   模板：模板
--   ocsp [Index]:OCSP Url
--   aia [Index]:AIA Url
--   cdp [Index]:CDP Url
--   localename:CA 的区域设置名称
--   subjecttemplateoids:使用者模板 Oid
 
-返回到[菜单](#BKMK_menu)
+- 文件：文件版本
+- 产品：产品版本
+- exitcount:退出模块计数
+- 退出 [Index]:退出模块说明
+- 策略：策略模块说明
+- 名称：CA 名称
+- sanitizedname:净化的 CA 名称
+- dsname:净化的 CA 短名称 （DS 名称）
+- 共享文件夹：共享的文件夹
+- error1 错误代码：错误消息文本
+- error2 错误代码：错误消息文本和错误代码
+- 类型：CA 类型
+- 信息：CA 信息
+- 父级：父 CA
+- certcount:CA 证书计数
+- xchgcount:CA 交换证书计数
+- kracount:KRA 证书计数
+- kraused:KRA 证书使用计数
+- propidmax:Maximum CA PropId
+- certstate [Index]:CA 证书
+- certversion [Index]:CA 证书版本
+- certstatuscode [Index]:CA 证书验证状态
+- crlstate [Index]:CRL
+- krastate [Index]:KRA 证书
+- crossstate + [Index]:前向交叉证书
+- crossstate-[Index]:后向交叉证书
+- 证书 [Index]:CA 证书
+- certchain [Index]:CA 证书链
+- certcrlchain [Index]:通过 Crl 的 CA 证书链
+- xchg [Index]:CA 交换证书
+- xchgchain [Index]:CA 交换证书链
+- xchgcrlchain [Index]:通过 Crl 的 CA exchange 证书链
+- kra [Index]:KRA 证书
+- 跨 + [Index]:前向交叉证书
+- 跨-[Index]:后向交叉证书
+- CRL [Index]:基本 CRL
+- deltacrl [Index]:Delta CRL
+- crlstatus [Index]:CRL 发布状态
+- deltacrlstatus [Index]:增量 CRL 发布状态
+- dns:DNS 名称
+- 角色：角色分隔
+- 广告：高级服务器版
+- 模板：模板
+- csp [Index]:OCSP Url
+- aia [Index]:AIA Url
+- cdp [Index]:CDP Url
+- localename:CA 的区域设置名称
+- subjecttemplateoids:使用者模板 Oid
 
-## <a name="BKMK_ca.cert"></a>-ca.cert
+返回到[菜单](#menu)
+
+## <a name="-cacert"></a>-ca.cert
 
 CertUtil [Options] -ca.cert OutCACertFile [Index]
 
@@ -406,9 +409,9 @@ OutCACertFile： 输出文件
 
 [-f] [-split] [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_ca.chain"></a>-ca.chain
+## <a name="-cachain"></a>-ca.chain
 
 CertUtil [Options] -ca.chain OutCACertChainFile [Index]
 
@@ -420,9 +423,9 @@ OutCACertChainFile： 输出文件
 
 [-f] [-split] [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_GetCRL"></a>-GetCRL
+## <a name="-getcrl"></a>-GetCRL
 
 CertUtil [Options] -GetCRL OutFile [Index] [delta]
 
@@ -434,9 +437,9 @@ CertUtil [Options] -GetCRL OutFile [Index] [delta]
 
 [-f] [-split] [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_CRL"></a>-CRL
+## <a name="-crl"></a>-CRL
 
 CertUtil [Options] -CRL [dd:hh | republish] [delta]
 
@@ -450,9 +453,9 @@ dd:hh-新的 CRL 有效期内，小时和天数
 
 [-split] [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_shutdown"></a>-shutdown
+## <a name="-shutdown"></a>-shutdown
 
 CertUtil [Options] -shutdown
 
@@ -460,9 +463,9 @@ CertUtil [Options] -shutdown
 
 [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_installcert"></a>-installCert
+## <a name="-installcert"></a>-installCert
 
 CertUtil [Options] -installCert [CACertFile]
 
@@ -470,9 +473,9 @@ CertUtil [Options] -installCert [CACertFile]
 
 [-f] [-silent] [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_renewcert"></a>-renewCert
+## <a name="-renewcert"></a>-renewCert
 
 CertUtil [Options] -renewCert [ReuseKeys] [Machine\ParentCAName]
 
@@ -482,9 +485,9 @@ CertUtil [Options] -renewCert [ReuseKeys] [Machine\ParentCAName]
 
 [-f] [-silent] [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_schema"></a>-schema
+## <a name="-schema"></a>-schema
 
 CertUtil [选项]-架构 [Ext |Attrib |CRL]
 
@@ -500,9 +503,9 @@ CRL:CRL 表
 
 [-split] [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_view"></a>-view
+## <a name="-view"></a>-view
 
 CertUtil [选项] 的视图 [队列 |日志 |LogFail |撤消 |Ext |Attrib |CRL] [csv]
 
@@ -542,9 +545,9 @@ To display Base CRL Number 3: -v -restrict "CRLMinBase=0,CRLNumber=3" -out "CRLR
 
 [-无提示][-拆分][-config Machine\CAName][-限制 RestrictionList][-out ColumnList]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_db"></a>-db
+## <a name="-db"></a>-db
 
 CertUtil [Options] -db
 
@@ -552,9 +555,9 @@ CertUtil [Options] -db
 
 [-config Machine\CAName][-限制 RestrictionList][-out ColumnList]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_deleterow"></a>-deleterow
+## <a name="-deleterow"></a>-deleterow
 
 CertUtil [选项]-deleterow RowId |日期 [请求 |Cert |Ext |Attrib |CRL]
 
@@ -580,9 +583,9 @@ CRL:CRL 表 （超过到期日期）
 
 [-f] [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_backup"></a>-backup
+## <a name="-backup"></a>-backup
 
 CertUtil [选项]-备份 BackupDirectory [增量] [KeepLog]
 
@@ -596,9 +599,9 @@ KeepLog： 保留数据库日志文件 （默认值为截断日志文件）
 
 [-f] [-config Machine\CAName] [-p Password]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_backupDB"></a>-backupDB
+## <a name="-backupdb"></a>-backupDB
 
 CertUtil [Options] -backupDB BackupDirectory [Incremental] [KeepLog]
 
@@ -612,9 +615,9 @@ KeepLog： 保留数据库日志文件 （默认值为截断日志文件）
 
 [-f] [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_backupKey"></a>-backupKey
+## <a name="-backupkey"></a>-backupKey
 
 CertUtil [Options] -backupKey BackupDirectory
 
@@ -624,9 +627,9 @@ BackupDirectory： 目录来存储备份的 PFX 文件
 
 [-f] [-config Machine\CAName] [-p Password] [-t Timeout]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_restore"></a>-restore
+## <a name="-restore"></a>-restore
 
 CertUtil [Options] -restore BackupDirectory
 
@@ -636,9 +639,9 @@ BackupDirectory： 目录，其中包含要还原的数据
 
 [-f] [-config Machine\CAName] [-p Password]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_restoreDB"></a>-restoreDB
+## <a name="-restoredb"></a>-restoreDB
 
 CertUtil [Options] -restoreDB BackupDirectory
 
@@ -648,9 +651,9 @@ BackupDirectory： 目录，其中包含要还原的数据库文件
 
 [-f] [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_restorekey"></a>-restoreKey
+## <a name="-restorekey"></a>-restoreKey
 
 CertUtil [Options] -restoreKey BackupDirectory | PFXFile
 
@@ -662,35 +665,36 @@ PFXFile:若要还原的 PFX 文件
 
 [-f] [-config Machine\CAName] [-p Password]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_importPFX"></a>-importPFX
+## <a name="-importpfx"></a>-importPFX
 
 CertUtil [Options] -importPFX [CertificateStoreName] PFXFile [Modifiers]
 
 导入证书和私钥
 
-CertificateStoreName:证书存储区名称。  请参阅[-存储](#BKMK_Store)。
+CertificateStoreName:证书存储区名称。  请参阅[-存储](#-store)。
 
 PFXFile:要导入 PFX 文件
 
 修饰符：一个或多个以下的以逗号分隔列表：
-1.  AT_SIGNATURE:更改签名到 KeySpec
-2.  AT_KEYEXCHANGE:更改为密钥交换 KeySpec
-3.  NoExport:使非可导出私钥
-4.  NoCert:不导入证书
-5.  NoChain:不导入的证书链
-6.  NoRoot:不导入根证书
-7.  保护：保护使用密码的密钥
-8.  NoProtect:执行不密码保护密钥
+
+1. AT_SIGNATURE:更改签名到 KeySpec
+2. AT_KEYEXCHANGE:更改为密钥交换 KeySpec
+3. NoExport:使非可导出私钥
+4. NoCert:不导入证书
+5. NoChain:不导入的证书链
+6. NoRoot:不导入根证书
+7. 保护：保护使用密码的密钥
+8. NoProtect:执行不密码保护密钥
 
 默认值为个人计算机存储。
 
 [-f] [-user] [-p Password] [-csp Provider]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_dynamicfilelist"></a>-dynamicfilelist
+## <a name="-dynamicfilelist"></a>-dynamicfilelist
 
 CertUtil [Options] -dynamicfilelist
 
@@ -698,9 +702,9 @@ CertUtil [Options] -dynamicfilelist
 
 [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_databaselocations"></a>-databaselocations
+## <a name="-databaselocations"></a>-databaselocations
 
 CertUtil [Options] -databaselocations
 
@@ -708,30 +712,31 @@ CertUtil [Options] -databaselocations
 
 [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_hashfile"></a>-hashfile
+## <a name="-hashfile"></a>-hashfile
 
 CertUtil [Options] -hashfile InFile [HashAlgorithm]
 
 生成并通过 file 显示加密哈希
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_Store"></a>-store
+## <a name="-store"></a>-store
 
 CertUtil [Options] -store [CertificateStoreName [CertId [OutputFile]]]
 
 转储证书存储区
 
 CertificateStoreName:证书存储区名称。 示例：
--   "我的"，"CA"（默认值）、"Root"，
--   "ldap: / / CN = 证书颁发机构，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 一个？ objectClass = 证书颁发机构"（查看根证书）
--   "ldap: / / CN = CAName，CN = 证书颁发机构，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 基？ objectClass = 证书颁发机构"（修改根证书）
--   "ldap: / / CN = CAName，CN = MachineName，CN = CDP，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ certificateRevocationList？ 基？ objectClass = cRLDistributionPoint"(视图 Crl)
--   "ldap: / / CN = NTAuthCertificates，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 基？ objectClass = 证书颁发机构"（企业 CA 证书）
--   ldap:（AD 计算机对象证书）
--   -用户 ldap:（AD 用户对象证书）
+
+- "我的"，"CA"（默认值）、"Root"，
+- "ldap: / / CN = 证书颁发机构，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 一个？ objectClass = 证书颁发机构"（查看根证书）
+- "ldap: / / CN = CAName，CN = 证书颁发机构，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 基？ objectClass = 证书颁发机构"（修改根证书）
+- "ldap: / / CN = CAName，CN = MachineName，CN = CDP，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ certificateRevocationList？ 基？ objectClass = cRLDistributionPoint"(视图 Crl)
+- "ldap: / / CN = NTAuthCertificates，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 基？ objectClass = 证书颁发机构"（企业 CA 证书）
+- ldap:（AD 计算机对象证书）
+- -用户 ldap:（AD 用户对象证书）
 
 CertId:证书或 CRL 匹配令牌。  这可以是序列号、 sha-1 证书、 CRL、 CTL 或公共密钥哈希，数值 cert 索引 （0，1，依此类推），数字的 CRL 索引 (。 0、.1、 等等)，数字 CTL 索引 (...0...1，依次类推） 的公共密钥、 签名或扩展 ObjectId，证书使用者公用名，电子邮件地址的 UPN 或 DNS 名称、 密钥容器名称或 CSP 名称、 模板名称或 ObjectId、 EKU 或应用程序策略 ObjectId 或 CRL 颁发者公用名。 其中许多可能会导致多个匹配项。
 
@@ -746,68 +751,70 @@ CertId:证书或 CRL 匹配令牌。  这可以是序列号、 sha-1 证书、 C
 使用的组策略来访问计算机组策略存储区。
 
 示例：
--   -企业 NTAuth
--   -企业根 37
--   -用户我 26e0aaaf000000000004
--   CA .11
+
+- -企业 NTAuth
+- -企业根 37
+- -用户我 26e0aaaf000000000004
+- CA .11
 
 [-f] [-enterprise] [-user] [-GroupPolicy] [-silent] [-split] [-dc DCName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_addstore"></a>-addstore
+## <a name="-addstore"></a>-addstore
 
 CertUtil [Options] -addstore CertificateStoreName InFile
 
 将证书添加到存储
 
-CertificateStoreName:证书存储区名称。  请参阅[-存储](#BKMK_Store)。
+CertificateStoreName:证书存储区名称。  请参阅[-存储](#-store)。
 
 InFile:若要添加到存储的证书或 CRL 文件。
 
 [-f] [-enterprise] [-user] [-GroupPolicy] [-dc DCName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_delstore"></a>-delstore
+## <a name="-delstore"></a>-delstore
 
 CertUtil [Options] -delstore CertificateStoreName CertId
 
 从存储中删除证书
 
-CertificateStoreName:证书存储区名称。  请参阅[-存储](#BKMK_Store)。
+CertificateStoreName:证书存储区名称。  请参阅[-存储](#-store)。
 
-CertId:证书或 CRL 匹配令牌。  请参阅[-存储](#BKMK_Store)。
+CertId:证书或 CRL 匹配令牌。  请参阅[-存储](#-store)。
 
 [-enterprise] [-user] [-GroupPolicy] [-dc DCName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_verifystore"></a>-verifystore
+## <a name="-verifystore"></a>-verifystore
 
 CertUtil [Options] -verifystore CertificateStoreName [CertId]
 
 验证证书存储区中
 
-CertificateStoreName:证书存储区名称。  请参阅[-存储](#BKMK_Store)。
+CertificateStoreName:证书存储区名称。  请参阅[-存储](#-store)。
 
-CertId:证书或 CRL 匹配令牌。  请参阅[-存储](#BKMK_Store)。
+CertId:证书或 CRL 匹配令牌。  请参阅[-存储](#-store)。
 
 [-enterprise] [-user] [-GroupPolicy] [-silent] [-split] [-dc DCName] [-t Timeout]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_repairstore"></a>-repairstore
+## <a name="-repairstore"></a>-repairstore
 
 CertUtil [Options] -repairstore CertificateStoreName CertIdList [PropertyInfFile | SDDLSecurityDescriptor]
 
 修复键关联或更新证书属性或密钥安全描述符
 
-CertificateStoreName:证书存储区名称。  请参阅[-存储](#BKMK_Store)。
+CertificateStoreName:证书存储区名称。  请参阅[-存储](#-store)。
 
-证书或 CRL 匹配令牌 CertIdList： 以逗号分隔列表。 请参阅[-存储](#BKMK_Store)CertId 说明。
+证书或 CRL 匹配令牌 CertIdList： 以逗号分隔列表。 请参阅[-存储](#-store)CertId 说明。
 
 包含外部属性 PropertyInfFile-INF 文件：
+
 ```
 [Properties]
      19 = Empty ; Add archived property, OR:
@@ -830,24 +837,26 @@ CertificateStoreName:证书存储区名称。  请参阅[-存储](#BKMK_Store)�
        _continue_ = "1.3.6.1.5.5.7.3.2,"
        _continue_ = "1.3.6.1.5.5.7.3.1,"
 ```
+
 [-f] [-enterprise] [-user] [-GroupPolicy] [-silent] [-split] [-csp Provider]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_viewstore"></a>-viewstore
+## <a name="-viewstore"></a>-viewstore
 
 CertUtil [Options] -viewstore [CertificateStoreName [CertId [OutputFile]]]
 
 转储证书存储区
 
-CertificateStoreName:证书存储区名称。  示例：
--   "我的"，"CA"（默认值）、"Root"，
--   "ldap: / / CN = 证书颁发机构，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 一个？ objectClass = 证书颁发机构"（查看根证书）
--   "ldap: / / CN = CAName，CN = 证书颁发机构，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 基？ objectClass = 证书颁发机构"（修改根证书）
--   "ldap: / / CN = CAName，CN = MachineName，CN = CDP，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ certificateRevocationList？ 基？ objectClass = cRLDistributionPoint"(视图 Crl)
--   "ldap: / / CN = NTAuthCertificates，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 基？ objectClass = 证书颁发机构"（企业 CA 证书）
--   ldap:（AD 计算机对象证书）
--   -用户 ldap:（AD 用户对象证书）
+CertificateStoreName:证书存储区名称。 示例：
+
+- "我的"，"CA"（默认值）、"Root"，
+- "ldap: / / CN = 证书颁发机构，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 一个？ objectClass = 证书颁发机构"（查看根证书）
+- "ldap: / / CN = CAName，CN = 证书颁发机构，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 基？ objectClass = 证书颁发机构"（修改根证书）
+- "ldap: / / CN = CAName，CN = MachineName，CN = CDP，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ certificateRevocationList？ 基？ objectClass = cRLDistributionPoint"(视图 Crl)
+- "ldap: / / CN = NTAuthCertificates，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 基？ objectClass = 证书颁发机构"（企业 CA 证书）
+- ldap:（AD 计算机对象证书）
+- -用户 ldap:（AD 用户对象证书）
 
 CertId:证书或 CRL 匹配令牌。 这可以是序列号、 sha-1 证书、 CRL、 CTL 或公共密钥哈希，数值 cert 索引 （0，1，依此类推），数字的 CRL 索引 (。 0、.1、 等等)，数字 CTL 索引 (...0...1，依次类推） 的公共密钥、 签名或扩展 ObjectId，证书使用者公用名，电子邮件地址的 UPN 或 DNS 名称、 密钥容器名称或 CSP 名称、 模板名称或 ObjectId、 EKU 或应用程序策略 ObjectId 或 CRL 颁发者公用名。 其中许多可能会导致多个匹配项。
 
@@ -862,29 +871,31 @@ CertId:证书或 CRL 匹配令牌。 这可以是序列号、 sha-1 证书、 CR
 使用的组策略来访问计算机组策略存储区。
 
 示例：
-1.  -企业 NTAuth
-2.  -企业根 37
-3.  -用户我 26e0aaaf000000000004
-4.  CA .11
+
+1. -企业 NTAuth
+2. -企业根 37
+3. -用户我 26e0aaaf000000000004
+4. CA .11
 
 [-f] [-enterprise] [-user] [-GroupPolicy] [-dc DCName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_viewdelstore"></a>-viewdelstore
+## <a name="-viewdelstore"></a>-viewdelstore
 
 CertUtil [Options] -viewdelstore [CertificateStoreName [CertId [OutputFile]]]
 
 从存储中删除证书
 
-CertificateStoreName:证书存储区名称。  示例：
--   "我的"，"CA"（默认值）、"Root"，
--   "ldap: / / CN = 证书颁发机构，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 一个？ objectClass = 证书颁发机构"（查看根证书）
--   "ldap: / / CN = CAName，CN = 证书颁发机构，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 基？ objectClass = 证书颁发机构"（修改根证书）
--   "ldap: / / CN = CAName，CN = MachineName，CN = CDP，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ certificateRevocationList？ 基？ objectClass = cRLDistributionPoint"(视图 Crl)
--   "ldap: / / CN = NTAuthCertificates，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 基？ objectClass = 证书颁发机构"（企业 CA 证书）
--   ldap:（AD 计算机对象证书）
--   -用户 ldap:（AD 用户对象证书）
+CertificateStoreName:证书存储区名称。 示例：
+
+- "我的"，"CA"（默认值）、"Root"，
+- "ldap: / / CN = 证书颁发机构，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 一个？ objectClass = 证书颁发机构"（查看根证书）
+- "ldap: / / CN = CAName，CN = 证书颁发机构，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 基？ objectClass = 证书颁发机构"（修改根证书）
+- "ldap: / / CN = CAName，CN = MachineName，CN = CDP，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ certificateRevocationList？ 基？ objectClass = cRLDistributionPoint"(视图 Crl)
+- "ldap: / / CN = NTAuthCertificates，CN = Public Key Services，CN = Services，CN = Configuration，DC = cpandl，DC = com？ cACertificate？ 基？ objectClass = 证书颁发机构"（企业 CA 证书）
+- ldap:（AD 计算机对象证书）
+- -用户 ldap:（AD 用户对象证书）
 
 CertId:证书或 CRL 匹配令牌。 这可以是序列号、 sha-1 证书、 CRL、 CTL 或公共密钥哈希，数值 cert 索引 （0，1，依此类推），数字的 CRL 索引 (。 0、.1、 等等)，数字 CTL 索引 (...0...1，依次类推） 的公共密钥、 签名或扩展 ObjectId，证书使用者公用名，电子邮件地址的 UPN 或 DNS 名称、 密钥容器名称或 CSP 名称、 模板名称或 ObjectId、 EKU 或应用程序策略 ObjectId 或 CRL 颁发者公用名。 其中许多可能会导致多个匹配项。
 
@@ -899,16 +910,17 @@ CertId:证书或 CRL 匹配令牌。 这可以是序列号、 sha-1 证书、 CR
 使用的组策略来访问计算机组策略存储区。
 
 示例：
-1.  -企业 NTAuth
-2.  -企业根 37
-3.  -用户我 26e0aaaf000000000004
-4.  CA .11
+
+1. -企业 NTAuth
+2. -企业根 37
+3. -用户我 26e0aaaf000000000004
+4. CA .11
 
 [-f] [-enterprise] [-user] [-GroupPolicy] [-dc DCName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_dsPublish"></a>-dsPublish
+## <a name="-dspublish"></a>-dsPublish
 
 [选项] CertUtil-dsPublish CertFile [NTAuthCA |RootCA |SubCA |CrossCA |KRA |用户 |计算机]
 
@@ -942,9 +954,9 @@ DSCDPCN:DS CDP 对象 CN，通常基于净化的 CA 短名称和密钥索引
 
 [-f] [-user] [-dc DCName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_ADTemplate"></a>-ADTemplate
+## <a name="-adtemplate"></a>-ADTemplate
 
 CertUtil [Options] -ADTemplate [Template]
 
@@ -952,7 +964,7 @@ CertUtil [Options] -ADTemplate [Template]
 
 [-f] [-user] [-ut] [-mt] [-dc DCName]
 
-## <a name="BKMK_template"></a>-Template
+## <a name="-template"></a>-Template
 
 CertUtil [Options] -Template [Template]
 
@@ -960,9 +972,9 @@ CertUtil [Options] -Template [Template]
 
 [-f] [-user] [-silent] [-PolicyServer URLOrId] [-Anonymous] [-Kerberos] [-ClientCertificate ClientCertId] [-UserName UserName] [-p Password]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_TemplateCAs"></a>-TemplateCAs
+## <a name="-templatecas"></a>-TemplateCAs
 
 CertUtil [Options] -TemplateCAs Template
 
@@ -970,9 +982,9 @@ CertUtil [Options] -TemplateCAs Template
 
 [-f] [-user] [-dc DCName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_CATemplates"></a>-CATemplates
+## <a name="-catemplates"></a>-CATemplates
 
 CertUtil [Options] -CATemplates [Template]
 
@@ -980,9 +992,9 @@ CA 的显示模板
 
 [-f] [-user] [-ut] [-mt] [-config Machine\CAName] [-dc DCName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_SetCASites"></a>-SetCASites
+## <a name="-setcasites"></a>-SetCASites
 
 CertUtil [Options] -SetCASites [set] [SiteName]
 
@@ -991,19 +1003,20 @@ CertUtil [Options] -SetCASites verify [SiteName]
 CertUtil [Options] -SetCASites delete
 
 设置、 验证或删除 CA 站点名称
--   -Config 选项用于针对单个 CA （默认值为所有 Ca）
--   *SiteName*仅当针对单个 CA 时，才允许
--   -F 用于重写为指定的验证错误*SiteName*
--   使用-f 中删除所有 CA 站点名称
+
+- -Config 选项用于针对单个 CA （默认值为所有 Ca）
+- *SiteName*仅当针对单个 CA 时，才允许
+- -F 用于重写为指定的验证错误*SiteName*
+- 使用-f 中删除所有 CA 站点名称
 
 [-f] [-config Machine\CAName] [-dc DCName]
 
 > [!NOTE]
 > 配置 Ca 的 Active Directory 域服务 (AD DS) 站点感知的详细信息，请参阅[适用于 AD CS 和 PKI 客户端的 AD DS 站点感知](https://social.technet.microsoft.com/wiki/contents/articles/14106.ad-ds-site-awareness-for-ad-cs-and-pki-clients.aspx)。
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_enrollmentServerURL"></a>-enrollmentServerURL
+## <a name="-enrollmentserverurl"></a>-enrollmentServerURL
 
 CertUtil [Options] -enrollmentServerURL [URL AuthenticationType [Priority] [Modifiers]]
 
@@ -1012,24 +1025,26 @@ CertUtil [Options] -enrollmentServerURL URL delete
 显示、 添加或删除与 CA 相关联的注册服务器 Url
 
 AuthenticationType:添加 URL 时指定一个以下客户端身份验证方法
-1.  Kerberos:使用 Kerberos SSL 凭据
-2.  用户名：指定的帐户用于 SSL 凭据
-3.  ClientCertificate:使用 X.509 证书的 SSL 凭据
-4.  Anonymous：使用匿名的 SSL 凭据
+
+1. Kerberos:使用 Kerberos SSL 凭据
+2. 用户名：指定的帐户用于 SSL 凭据
+3. ClientCertificate:使用 X.509 证书的 SSL 凭据
+4. Anonymous：使用匿名的 SSL 凭据
 
 删除： 删除指定的 URL 与 CA 相关联
 
 如果未指定添加 URL 时，优先级： 默认为"1"
 
 修饰符-以逗号分隔的一个或多个以下的列表：
-1.  AllowRenewalsOnly:可以向此 CA 通过此 URL 提交仅续订请求
-2.  AllowKeyBasedRenewal:允许使用在 AD 中具有关联的帐户的证书。 这适用于仅使用 ClientCertificate 和 AllowRenewalsOnly 模式
+
+1. AllowRenewalsOnly:可以向此 CA 通过此 URL 提交仅续订请求
+2. AllowKeyBasedRenewal:允许使用在 AD 中具有关联的帐户的证书。 这适用于仅使用 ClientCertificate 和 AllowRenewalsOnly 模式
 
 [-config Machine\CAName][-dc DCName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_ADCA"></a>-ADCA
+## <a name="-adca"></a>-ADCA
 
 CertUtil [Options] -ADCA [CAName]
 
@@ -1037,9 +1052,9 @@ CertUtil [Options] -ADCA [CAName]
 
 [-f] [-split] [-dc DCName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_CA"></a>-CA
+## <a name="-ca"></a>-CA
 
 CertUtil [Options] -CA [CAName | TemplateName]
 
@@ -1047,17 +1062,17 @@ CertUtil [Options] -CA [CAName | TemplateName]
 
 [-f] [-user] [-silent] [-split] [-PolicyServer URLOrId] [-Anonymous] [-Kerberos] [-ClientCertificate ClientCertId] [-UserName UserName] [-p Password]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_Policy"></a>-Policy
+## <a name="-policy"></a>-Policy
 
 显示注册策略
 
 [-f] [-user] [-silent] [-split] [-PolicyServer URLOrId] [-Anonymous] [-Kerberos] [-ClientCertificate ClientCertId] [-UserName UserName] [-p Password]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_PolicyCache"></a>-PolicyCache
+## <a name="-policycache"></a>-PolicyCache
 
 CertUtil [Options] -PolicyCache [delete]
 
@@ -1069,9 +1084,9 @@ CertUtil [Options] -PolicyCache [delete]
 
 [-f] [-user] [-PolicyServer URLOrId]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_Credstore"></a>-CredStore
+## <a name="-credstore"></a>-CredStore
 
 CertUtil [Options] -CredStore [URL]
 
@@ -1081,7 +1096,7 @@ CertUtil [Options] -CredStore URL delete
 
 显示、 添加或删除凭据存储区条目
 
-URL： 目标 URL。  使用 * 来匹配所有条目。 使用 https://machine* 若要匹配的 URL 前缀。
+URL： 目标 URL。  使用\*以匹配的所有条目。 使用 https://machine\* 若要匹配的 URL 前缀。
 
 添加： 将凭据存储区条目添加。 此外必须指定 SSL 凭据。
 
@@ -1091,9 +1106,9 @@ URL： 目标 URL。  使用 * 来匹配所有条目。 使用 https://machine* 
 
 [-f] [-user] [-silent] [-Anonymous] [-Kerberos] [-ClientCertificate ClientCertId] [-UserName UserName] [-p Password]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_InstallDefaultTemplates"></a>-InstallDefaultTemplates
+## <a name="-installdefaulttemplates"></a>-InstallDefaultTemplates
 
 CertUtil [Options] -InstallDefaultTemplates
 
@@ -1101,11 +1116,11 @@ CertUtil [Options] -InstallDefaultTemplates
 
 [-dc DCName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_URLCache"></a>-URLCache
+## <a name="-urlcache"></a>-URLCache
 
-CertUtil [Options] -URLCache [URL | CRL | * [delete]]
+CertUtil [Options] -URLCache [URL | CRL | \* [delete]]
 
 显示或删除 URL 缓存条目
 
@@ -1113,7 +1128,7 @@ URL： 缓存的 URL
 
 对所有缓存 CRL 的 Url 仅 CRL:
 
-*: 对所有缓存的 Url
+\*： 对所有缓存的 Url
 
 删除： 从当前用户的本地缓存中删除相关 Url
 
@@ -1121,9 +1136,9 @@ URL： 缓存的 URL
 
 [-f] [-split]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_pulse"></a>-pulse
+## <a name="-pulse"></a>-pulse
 
 CertUtil [Options] -pulse
 
@@ -1131,17 +1146,17 @@ CertUtil [Options] -pulse
 
 [-用户]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_MachineInfo"></a>-MachineInfo
+## <a name="-machineinfo"></a>-MachineInfo
 
 CertUtil [Options] -MachineInfo DomainName\MachineName$
 
 显示 Active Directory 计算机对象信息
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_DCInfo"></a>-DCInfo
+## <a name="-dcinfo"></a>-DCInfo
 
 CertUtil [Options] -DCInfo [Domain] [Verify | DeleteBad | DeleteAll]
 
@@ -1156,17 +1171,17 @@ CertUtil [Options] -DCInfo [Domain] [Verify | DeleteBad | DeleteAll]
 
 例如，假定存在名为 CPANDL DC1 的域控制器创建名为 CPANDL 域。 您可以运行以下命令检索域控制器和其证书的列表，从 CPANDL DC1: certutil-dc cpandl dc1-dcinfo cpandl
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_EntInfo"></a>-EntInfo
+## <a name="-entinfo"></a>-EntInfo
 
 CertUtil [Options] -EntInfo DomainName\MachineName$
 
 [-f] [-user]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_TCAInfo"></a>-TCAInfo
+## <a name="-tcainfo"></a>-TCAInfo
 
 CertUtil [Options] -TCAInfo [DomainDN | -]
 
@@ -1174,9 +1189,9 @@ CertUtil [Options] -TCAInfo [DomainDN | -]
 
 [-f] [-enterprise] [-user] [-urlfetch] [-dc DCName] [-t Timeout]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_SCInfo"></a>-SCInfo
+## <a name="-scinfo"></a>-SCInfo
 
 CertUtil [Options] -SCInfo [ReaderName [CRYPT_DELETEKEYSET]]
 
@@ -1186,9 +1201,9 @@ CRYPT_DELETEKEYSET:删除智能卡上的所有密钥
 
 [-silent] [-split] [-urlfetch] [-t Timeout]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_SCRoots"></a>-SCRoots
+## <a name="-scroots"></a>-SCRoots
 
 CertUtil [Options] -SCRoots update [+][InputRootFile] [ReaderName]
 
@@ -1202,9 +1217,9 @@ CertUtil [Options] -SCRoots delete [ReaderName]
 
 [-f] [-split] [-p Password]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_verifykeys"></a>-verifykeys
+## <a name="-verifykeys"></a>-verifykeys
 
 CertUtil [Options] -verifykeys [KeyContainerName CACertFile]
 
@@ -1220,9 +1235,9 @@ CACertFile： 签名或加密的证书文件
 
 [-f]。[-用户][-无提示][-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_verify"></a>-verify
+## <a name="-verify"></a>-verify
 
 CertUtil [Options] -verify CertFile [ApplicationPolicyList | - [IssuancePolicyList]]
 
@@ -1266,20 +1281,21 @@ DeltaCRLFile： 可选增量 crl 的步骤
 
 [-f] [-enterprise] [-user] [-silent] [-split] [-urlfetch] [-t Timeout]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_verifyCTL"></a>-verifyCTL
+## <a name="-verifyctl"></a>-verifyCTL
 
 CertUtil [Options] -verifyCTL CTLObject [CertDir] [CertFile]
 
 验证 AuthRoot 或不允许的证书的 CTL
 
 CTLObject:标识 CTL 验证：
--   AuthRootWU： 从 URL 缓存读取 AuthRoot CAB 和匹配的证书。 使用-f 要改为从 Windows Update 下载。
--   DisallowedWU： 读取不允许使用证书 CAB 和不允许从 URL 缓存的证书存储区文件。  使用-f 要改为从 Windows Update 下载。
--   AuthRoot： 读取的注册表缓存 AuthRoot CTL。  使用-f 和不信任，若要强制更新注册表 CertFile 缓存 AuthRoot 和不允许使用证书的 Ctl。
--   不允许： 读取的注册表缓存不允许使用证书 CTL。 -f 与 AuthRoot 一样具有相同的行为。
--   CTLFileName： 文件或 http: CTL 或 CAB 路径
+
+- AuthRootWU： 从 URL 缓存读取 AuthRoot CAB 和匹配的证书。 使用-f 要改为从 Windows Update 下载。
+- DisallowedWU： 读取不允许使用证书 CAB 和不允许从 URL 缓存的证书存储区文件。  使用-f 要改为从 Windows Update 下载。
+- AuthRoot： 读取的注册表缓存 AuthRoot CTL。  使用-f 和不信任，若要强制更新注册表 CertFile 缓存 AuthRoot 和不允许使用证书的 Ctl。
+- 不允许： 读取的注册表缓存不允许使用证书 CTL。 -f 与 AuthRoot 一样具有相同的行为。
+- CTLFileName： 文件或 http: CTL 或 CAB 路径
 
 CertDir： 此文件夹包含证书的 CTL 的匹配项。 Http： 文件夹路径必须以路径分隔符结尾。 如果未使用 AuthRoot 或不允许指定一个文件夹，将多个位置搜索匹配的证书： 本地证书存储、 crypt32.dll 资源和本地的 URL 缓存。 -F 用于从 Windows 更新在必要时才下载。 否则默认为 CTLObject 为相同的文件夹或 web 站点。
 
@@ -1287,9 +1303,9 @@ CertFile： 包含要验证的证书文件。 证书将与 CTL 条目匹配，�
 
 [-f] [-user] [-split]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_sign"></a>-sign
+## <a name="-sign"></a>-登录
 
 CertUtil [Options] -sign InFileList|SerialNumber|CRL OutFileList [StartDate+dd:hh] [+SerialNumberList | -SerialNumberList | -ObjectIdList | @ExtensionFile]
 
@@ -1312,12 +1328,14 @@ SerialNumberList： 以逗号分隔的序列号列表，以添加或删除
 ObjectIdList： 以逗号分隔扩展 ObjectId 列表删除
 
 @ExtensionFile: INF 文件包含要更新或删除扩展：
+
 ```
 [Extensions]
      2.5.29.31 = ; Remove CRL Distribution Points extension
      2.5.29.15 = "{hex}" ; Update Key Usage extension
      _continue_="03 02 01 86"
 ```
+
 HashAlgorithm:以 # 符号开头的哈希算法的名称
 
 内容： AlternateSignatureAlgorithm： 备用签名算法说明符
@@ -1326,85 +1344,89 @@ HashAlgorithm:以 # 符号开头的哈希算法的名称
 
 [-nullsign] [-f] [-silent] [-Cert CertId]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_vroot"></a>-vroot
+## <a name="-vroot"></a>-vroot
 
 CertUtil [Options] -vroot [delete]
 
 创建/删除 web 虚拟根和文件共享
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_vocsproot"></a>-vocsproot
+## <a name="-vocsproot"></a>-vocsproot
 
 CertUtil [Options] -vocsproot [delete]
 
 创建/删除的虚拟根 web OCSP web 代理
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_addEnrollmentServer"></a>-addEnrollmentServer
+## <a name="-addenrollmentserver"></a>-addEnrollmentServer
 
 CertUtil [Options] -addEnrollmentServer Kerberos | UserName | ClientCertificate [AllowRenewalsOnly] [AllowKeyBasedRenewal]
 
 添加注册服务器应用程序
 
 添加注册服务器应用程序和应用程序池，如有必要，为指定的 CA。 此命令不会安装二进制文件或包。 与客户端连接到证书注册服务器的以下身份验证方法之一。
--   Kerberos:使用 Kerberos SSL 凭据
--   用户名：指定的帐户用于 SSL 凭据
--   ClientCertificate:使用 X.509 证书的 SSL 凭据
--   AllowRenewalsOnly:可以向此 CA 通过此 URL 提交仅续订请求
--   AllowKeyBasedRenewal-允许使用在 AD 中具有关联的帐户的证书。 这仅使用 ClientCertificate 和 AllowRenewalsOnly 模式适用。
+
+- Kerberos:使用 Kerberos SSL 凭据
+- 用户名：指定的帐户用于 SSL 凭据
+- ClientCertificate:使用 X.509 证书的 SSL 凭据
+- AllowRenewalsOnly:可以向此 CA 通过此 URL 提交仅续订请求
+- AllowKeyBasedRenewal-允许使用在 AD 中具有关联的帐户的证书。 这仅使用 ClientCertificate 和 AllowRenewalsOnly 模式适用。
 
 [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_deleteEnrollmentServer"></a>-deleteEnrollmentServer
+## <a name="-deleteenrollmentserver"></a>-deleteEnrollmentServer
 
 CertUtil [Options] -deleteEnrollmentServer Kerberos | UserName | ClientCertificate
 
 删除注册服务器应用程序
 
 删除注册服务器应用程序和应用程序池，如有必要，为指定的 CA。 此命令不会删除二进制文件或包。 与客户端连接到证书注册服务器的以下身份验证方法之一。
-1.  Kerberos:使用 Kerberos SSL 凭据
-2.  用户名：指定的帐户用于 SSL 凭据
-3.  ClientCertificate:使用 X.509 证书的 SSL 凭据
+
+1. Kerberos:使用 Kerberos SSL 凭据
+2. 用户名：指定的帐户用于 SSL 凭据
+3. ClientCertificate:使用 X.509 证书的 SSL 凭据
 
 [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_addPolicyServer"></a>-addPolicyServer
+## <a name="-addpolicyserver"></a>-addPolicyServer
 
 CertUtil [Options] -addPolicyServer Kerberos | UserName | ClientCertificate [KeyBasedRenewal]
 
 添加策略服务器应用程序
 
 如有必要，将添加一个策略服务器应用程序和应用程序池。 此命令不会安装二进制文件或包。 与客户端连接到证书策略服务器的以下身份验证方法之一：
--   Kerberos:使用 Kerberos SSL 凭据
--   用户名：指定的帐户用于 SSL 凭据
--   ClientCertificate:使用 X.509 证书的 SSL 凭据
--   KeyBasedRenewal:包含 KeyBasedRenewal 模板的策略返回到客户端。 此标志仅适用于用户名和 ClientCertificate 身份验证。
 
-返回到[菜单](#BKMK_menu)
+- Kerberos:使用 Kerberos SSL 凭据
+- 用户名：指定的帐户用于 SSL 凭据
+- ClientCertificate:使用 X.509 证书的 SSL 凭据
+- KeyBasedRenewal:包含 KeyBasedRenewal 模板的策略返回到客户端。 此标志仅适用于用户名和 ClientCertificate 身份验证。
 
-## <a name="BKMK_deletePolicyServer"></a>-deletePolicyServer
+返回到[菜单](#menu)
+
+## <a name="-deletepolicyserver"></a>-deletePolicyServer
 
 CertUtil [Options] -deletePolicyServer Kerberos | UserName | ClientCertificate [KeyBasedRenewal]
 
 删除策略服务器应用程序
 
 如有必要，删除策略服务器应用程序和应用程序池。 此命令不会删除二进制文件或包。 与客户端连接到证书策略服务器的以下身份验证方法之一：
-1.  Kerberos:使用 Kerberos SSL 凭据
-2.  用户名：指定的帐户用于 SSL 凭据
-3.  ClientCertificate:使用 X.509 证书的 SSL 凭据
-4.  KeyBasedRenewal:KeyBasedRenewal 策略服务器
 
-返回到[菜单](#BKMK_menu)
+1. Kerberos:使用 Kerberos SSL 凭据
+2. 用户名：指定的帐户用于 SSL 凭据
+3. ClientCertificate:使用 X.509 证书的 SSL 凭据
+4. KeyBasedRenewal:KeyBasedRenewal 策略服务器
 
-## <a name="BKMK_oid"></a>-oid
+返回到[菜单](#menu)
+
+## <a name="-oid"></a>-oid
 
 CertUtil [Options] -oid ObjectId [DisplayName | delete [LanguageId [Type]]]
 
@@ -1413,29 +1435,30 @@ CertUtil [Options] -oid GroupId
 CertUtil [Options] -oid AlgId | AlgorithmName [GroupId]
 
 显示 ObjectId 或设置显示名称
--   ObjectId-ObjectId 来显示或添加显示名称
--   有关 ObjectIds 枚举 GroupId-GroupId 小数
--   要查找 ObjectId 为 AlgId-十六进制 AlgId
--   要查找 ObjectId AlgorithmName-算法名称
--   DisplayName-显示名称将存储在 DS
--   删除-删除显示名称
--   LanguageId-语言 Id (到当前的默认值：1033)
--   类型-DS 对象类型来创建：模板 （默认值），2 表示颁发策略，为应用程序策略的 3 1
--   使用-f 创建 DS 对象。
+
+- ObjectId-ObjectId 来显示或添加显示名称
+- 有关 ObjectIds 枚举 GroupId-GroupId 小数
+- 要查找 ObjectId 为 AlgId-十六进制 AlgId
+- 要查找 ObjectId AlgorithmName-算法名称
+- DisplayName-显示名称将存储在 DS
+- 删除-删除显示名称
+- LanguageId-语言 Id (到当前的默认值：1033)
+- 类型-DS 对象类型来创建：模板 （默认值），2 表示颁发策略，为应用程序策略的 3 1
+- 使用-f 创建 DS 对象。
 
 [-f]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_error"></a>-error
+## <a name="-error"></a>-error
 
 CertUtil [Options] -error ErrorCode
 
 显示错误代码的消息文本
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_getreg"></a>-getreg
+## <a name="-getreg"></a>-getreg
 
 CertUtil [Options] -getreg [{ca|restore|policy|exit|template|enroll|chain|PolicyServers}\[ProgId\]][RegistryValueName]
 
@@ -1459,7 +1482,7 @@ PolicyServers:使用策略服务器注册表项
 
 ProgId:使用策略或退出模块的 ProgId （注册表子项名称）
 
-RegistryValueName： 注册表值名称 （使用"名称 *"前缀匹配项）
+RegistryValueName： 注册表值名称 (使用"名称\*"为前缀匹配项)
 
 值： 新的数字、 字符串或日期的注册表值或文件名。 如果数字值开头，则"+"或"-"，设置或清除现有的注册表值中的新值中指定的位。
 
@@ -1471,9 +1494,9 @@ RegistryValueName： 注册表值名称 （使用"名称 *"前缀匹配项）
 
 [-f] [-user] [-GroupPolicy] [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_setreg"></a>-setreg
+## <a name="-setreg"></a>-setreg
 
 CertUtil [Options] -setreg [{ca|restore|policy|exit|template|enroll|chain|PolicyServers}\[ProgId\]]RegistryValueName Value
 
@@ -1497,7 +1520,7 @@ PolicyServers:使用策略服务器注册表项
 
 ProgId:使用策略或退出模块的 ProgId （注册表子项名称）
 
-RegistryValueName： 注册表值名称 （使用"名称 *"前缀匹配项）
+RegistryValueName： 注册表值名称 (使用"名称\*"为前缀匹配项)
 
 值： 新的数字、 字符串或日期的注册表值或文件名。 如果数字值开头，则"+"或"-"，设置或清除现有的注册表值中的新值中指定的位。
 
@@ -1509,9 +1532,9 @@ RegistryValueName： 注册表值名称 （使用"名称 *"前缀匹配项）
 
 [-f] [-user] [-GroupPolicy] [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_delreg"></a>-delreg
+## <a name="-delreg"></a>-delreg
 
 CertUtil [Options] -delreg [{ca|restore|policy|exit|template|enroll|chain|PolicyServers}\[ProgId\]][RegistryValueName]
 
@@ -1535,7 +1558,7 @@ PolicyServers:使用策略服务器注册表项
 
 ProgId:使用策略或退出模块的 ProgId （注册表子项名称）
 
-RegistryValueName： 注册表值名称 （使用"名称 *"前缀匹配项）
+RegistryValueName： 注册表值名称 (使用"名称\*"为前缀匹配项)
 
 值： 新的数字、 字符串或日期的注册表值或文件名。 如果数字值开头，则"+"或"-"，设置或清除现有的注册表值中的新值中指定的位。
 
@@ -1547,27 +1570,28 @@ RegistryValueName： 注册表值名称 （使用"名称 *"前缀匹配项）
 
 [-f] [-user] [-GroupPolicy] [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_ImportKMS"></a>-ImportKMS
+## <a name="-importkms"></a>-ImportKMS
 
 CertUtil [Options] -ImportKMS UserKeyAndCertFile [CertId]
 
 用户密钥和证书导入到 server 数据库中的密钥存档
 
 UserKeyAndCertFile-数据文件包含用户的私钥和证书以进行存档。  这可以是以下任一项：
--   Exchange 密钥管理服务器 (KMS) 导出文件
--   PFX 文件
 
-CertId:KMS 将导出文件解密证书匹配令牌。  请参阅[-存储](#BKMK_Store)。
+- Exchange 密钥管理服务器 (KMS) 导出文件
+- PFX 文件
+
+CertId:KMS 将导出文件解密证书匹配令牌。  请参阅[-存储](#-store)。
 
 使用-f 导入不由 CA 颁发的证书。
 
 [-f] [-silent] [-split] [-config Machine\CAName] [-p Password] [-symkeyalg SymmetricKeyAlgorithm[,KeyLength]]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_ImportCert"></a>-ImportCert
+## <a name="-importcert"></a>-ImportCert
 
 CertUtil [Options] -ImportCert Certfile [ExistingRow]
 
@@ -1581,9 +1605,9 @@ CA 还可能需要将配置为支持外部证书导入： certutil-setreg ca\KRA
 
 [-f] [-config Machine\CAName]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_GetKey"></a>-GetKey
+## <a name="-getkey"></a>-GetKey
 
 CertUtil [Options] -GetKey SearchToken [RecoveryBlobOutFile]
 
@@ -1602,12 +1626,13 @@ CertUtil [选项] GetKey SearchToken 检索 |恢复 OutputFileBaseName
 SearchToken:用于选择的密钥和证书才会得到恢复。
 
 可以是以下任一项：
-1.  证书公用名
-2.  证书序列号
-3.  证书的 sha-1 哈希 （指纹）
-4.  证书 KeyId sha-1 哈希 （使用者密钥标识符）
-5.  请求者名称 （域 \ 用户）
-6.  UPN (user@domain)
+
+1. 证书公用名
+2. 证书序列号
+3. 证书的 sha-1 哈希 （指纹）
+4. 证书 KeyId sha-1 哈希 （使用者密钥标识符）
+5. 请求者名称 （域 \ 用户）
+6. UPN (user@domain)
 
 包含证书链和关联的私钥，仍加密到一个或多个 Key Recovery Agent 证书 RecoveryBlobOutFile： 输出文件。
 
@@ -1617,9 +1642,9 @@ OutputFileBaseName： 输出文件基名称。 用于检索、 截断任何扩�
 
 [-f] [-UnicodeText] [-silent] [-config Machine\CAName] [-p Password] [-ProtectTo SAMNameAndSIDList] [-csp Provider]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_RecoverKey"></a>-RecoverKey
+## <a name="-recoverkey"></a>-RecoverKey
 
 CertUtil [Options] -RecoverKey RecoveryBlobInFile [PFXOutFile [RecipientIndex]]
 
@@ -1627,9 +1652,9 @@ CertUtil [Options] -RecoverKey RecoveryBlobInFile [PFXOutFile [RecipientIndex]]
 
 [-f] [-user] [-silent] [-split] [-p Password] [-ProtectTo SAMNameAndSIDList] [-csp Provider] [-t Timeout]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_MergePFX"></a>-MergePFX
+## <a name="-mergepfx"></a>-MergePFX
 
 CertUtil [Options] -MergePFX PFXInFileList PFXOutFile [ExtendedProperties]
 
@@ -1639,13 +1664,13 @@ PFXOutFile:输出的 PFX 文件
 
 扩展属性：包括扩展的属性
 
-在命令行上指定的密码是以逗号分隔的密码列表。  如果指定多个密码，则最后一次密码用于输出文件。  如果只提供一个密码，或如果上一个密码为"*"，将提示用户输入输出文件的密码。
+在命令行上指定的密码是以逗号分隔的密码列表。  如果指定多个密码，则最后一次密码用于输出文件。  如果只提供一个密码或最后一次密码是"\*"，将提示用户输入输出文件的密码。
 
 [-f] [-user] [-split] [-p Password] [-ProtectTo SAMNameAndSIDList] [-csp Provider]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_ConvertEPF"></a>-ConvertEPF
+## <a name="-convertepf"></a>-ConvertEPF
 
 CertUtil [Options] -ConvertEPF PFXInFileList EPFOutFile [cast | cast-] [V3CACertId][,Salt]
 
@@ -1659,17 +1684,17 @@ EPF:EPF 输出文件
 
 强制转换的：使用强制转换 64 加密 （导出）
 
-V3CACertId:V3 CA 证书匹配标记。  请参阅[-存储](#BKMK_Store)CertId 说明。
+V3CACertId:V3 CA 证书匹配标记。  请参阅[-存储](#-store)CertId 说明。
 
 Salt:EPF 输出文件 salt 字符串
 
-在命令行上指定的密码是以逗号分隔的密码列表。 如果指定多个密码，则最后一次密码用于输出文件。  如果只提供一个密码，或如果上一个密码为"*"，将提示用户输入输出文件的密码。
+在命令行上指定的密码是以逗号分隔的密码列表。 如果指定多个密码，则最后一次密码用于输出文件。  如果只提供一个密码或最后一次密码是"\*"，将提示用户输入输出文件的密码。
 
 [-f] [-silent] [-split] [-dc DCName] [-p Password] [-csp Provider]
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_Options"></a>选项
+## <a name="options"></a>选项
 
 本部分定义可以使用该命令指定的选项。
 
@@ -1693,7 +1718,7 @@ Salt:EPF 输出文件 salt 字符串
 |-将固定 PIN|智能卡 PIN|
 |-urlfetch|检索和验证的证书都 AIA 和 CDP Crl|
 |-config Machine\CAName|CA 和计算机名称字符串|
-|-PolicyServer URLOrId|策略服务器 URL 或 id。用于选择 U /，我使用的服务器。 对于所有策略服务器，请使用-服务器 *|
+|-PolicyServer URLOrId|策略服务器 URL 或 id。用于选择 U /，我使用的服务器。 对于所有策略服务器，请使用-服务器 \*|
 |-Anonymous|使用匿名的 SSL 凭据|
 |-Kerberos|使用 Kerberos SSL 凭据|
 |-ClientCertificate ClientCertId|使用 X.509 证书的 SSL 凭据。 用于选择 U / 我使用 clientCertificate。|
@@ -1708,15 +1733,16 @@ Salt:EPF 输出文件 salt 字符串
 |-t 超时|URL 提取超时以毫秒为单位|
 |-symkeyalg SymmetricKeyAlgorithm[,KeyLength]|可选的密钥长度，对称密钥算法的名称示例：AES 128 或 3DES|
 
-返回到[菜单](#BKMK_menu)
+返回到[菜单](#menu)
 
-## <a name="BKMK_AddedExamples"></a>其他 certutil 示例
+## <a name="additional-certutil-examples"></a>其他 certutil 示例
 
 有关如何使用此命令的一些示例，请参阅
-1.  [从命令行管理 Active Directory 证书服务 (AD CS) 的 Certutil 示例](https://social.technet.microsoft.com/wiki/contents/articles/3063.certutil-examples-for-managing-active-directory-certificate-services-ad-cs-from-the-command-line.aspx)
-2.  [管理证书的 Certutil 任务](https://technet.microsoft.com/library/cc772898.aspx)
-3.  [使用 CertUtil.exe 命令行工具演练二进制请求导出](https://social.technet.microsoft.com/wiki/contents/articles/7573.active-directory-certificate-services-pki-key-archival-and-management.aspx)
-4.  [根 CA 证书续订](https://social.technet.microsoft.com/wiki/contents/articles/2016.root-ca-certificate-renewal.aspx)
-5.  [certutil](https://msdn.microsoft.com/subscriptions/cc773087.aspx)
 
-返回到[菜单](#BKMK_menu)
+1. [从命令行管理 Active Directory 证书服务 (AD CS) 的 Certutil 示例](https://social.technet.microsoft.com/wiki/contents/articles/3063.certutil-examples-for-managing-active-directory-certificate-services-ad-cs-from-the-command-line.aspx)
+2. [管理证书的 Certutil 任务](https://technet.microsoft.com/library/cc772898.aspx)
+3. [使用 CertUtil.exe 命令行工具演练二进制请求导出](https://social.technet.microsoft.com/wiki/contents/articles/7573.active-directory-certificate-services-pki-key-archival-and-management.aspx)
+4. [根 CA 证书续订](https://social.technet.microsoft.com/wiki/contents/articles/2016.root-ca-certificate-renewal.aspx)
+5. [certutil](https://msdn.microsoft.com/subscriptions/cc773087.aspx)
+
+返回到[菜单](#menu)

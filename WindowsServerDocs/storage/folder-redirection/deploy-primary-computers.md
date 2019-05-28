@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b3c87597e07102d00fc068b7ecd5744e4ba366f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 39b790f39a2bf9c6334eb2176aa2e5f2e0196c0c
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854008"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475969"
 ---
 # <a name="deploy-primary-computers-for-folder-redirection-and-roaming-user-profiles"></a>文件夹重定向和漫游用户配置文件部署主计算机
 
->适用于：Windows 10、 Windows 8、 Windows 8.1、 Windows Server 2012、 Windows Server 2012 R2 和 Windows Server 2016
+>适用于：Windows 10 中，Windows 8、 Windows 8.1、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 中，Windows Server 2012 R2
 
 本主题介绍如何启用主计算机支持和指定的用户的主计算机。 执行此操作，来控制哪些计算机使用文件夹重定向和漫游用户配置文件。
 
@@ -31,7 +31,7 @@ ms.locfileid: "59854008"
 主计算机支持具有以下要求：
 
 - 必须更新 Active Directory 域服务 (AD DS) 架构，以包含 Windows Server 2012 架构新增内容 （安装 Windows Server 2012 域控制器会自动更新架构）。 有关更新 AD DS 架构的信息，请参阅[Adprep.exe 集成](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh472161(v=ws.11)#adprepexe-integration>)并[运行 Adprep.exe](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd464018(v=ws.10)>)。
-- 客户端计算机必须运行 Windows 10、 Windows 8.1，Windows 8、 Windows Server 2016、 Windows Server 2012 R2 或 Windows Server 2012。
+- 客户端计算机必须运行 Windows 10、 Windows 8.1，Windows 8、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2 或 Windows Server 2012。
 
 >[!TIP]
 >虽然主计算机支持需要文件夹重定向和/或漫游用户配置文件中，如果你首次部署这些技术，但最好设置启用的 Gpo 的配置文件夹重定向之前的主计算机支持和漫游用户配置文件。 这会防止在启用主计算机支持之前将用户数据复制到非主计算机。 有关配置信息，请参阅[部署文件夹重定向](deploy-folder-redirection.md)并[部署漫游用户配置文件](deploy-roaming-user-profiles.md)。

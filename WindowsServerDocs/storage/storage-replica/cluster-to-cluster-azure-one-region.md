@@ -1,23 +1,26 @@
 ---
-title: Azure 中同一个区域内的群集到群集存储副本
-description: 在 Azure 中的同一区域内的群集到群集存储复制
+title: 群集到群集存储副本在 Azure 中的同一区域内
+description: 在 Azure 中的同一区域内的群集存储复制到群集
 keywords: 存储副本，服务器管理器、 Windows Server、 Azure、 群集、 位于同一区域
 author: arduppal
 ms.author: arduppal
-ms.date: 12/19/2017
+ms.date: 04/26/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 8dbfab96404f5c98b9861476c0bc654af1bda775
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4371192d44878d3c953374b8d307b4d5612869f5
+ms.sourcegitcommit: 7e54a1bcd31cd2c6b18fd1f21b03f5cfb6165bf3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829138"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65461981"
 ---
-# <a name="cluster-to-cluster-storage-replica-within-the-same-region-in-azure"></a>Azure 中同一个区域内的群集到群集存储副本
-可以在 Azure 中配置群集到群集存储副本在同一区域中。 在下面的示例中，我们使用双节点群集，但群集到群集存储副本不会被限制到两个节点群集。 下图是可以彼此进行通信的两个节点存储空间直通群集是在同一个域，并在同一区域中。
+# <a name="cluster-to-cluster-storage-replica-within-the-same-region-in-azure"></a>群集到群集存储副本在 Azure 中的同一区域内
+
+> 适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
+
+可以在 Azure 中配置群集到群集存储复制在同一区域中。 在下面的示例中，我们使用双节点群集，但群集到群集存储副本不会被限制到两个节点群集。 下图是可以彼此进行通信的两个节点存储空间直通群集是在同一个域，并在同一区域中。
 
 观看有关该过程的完整演练以下视频。
 
@@ -57,10 +60,10 @@ ms.locfileid: "59829138"
     
 9. 创建群集 (**SRAZC1**， **SRAZC2**)。 下面是我们的示例中的 PowerShell 命令
 ```PowerShell
-    New-Cluster -Name SRAZC1 -Node az2az1,az2az2 – StaticAddress 10.3.0.100
+    New-Cluster -Name SRAZC1 -Node az2az1,az2az2 –StaticAddress 10.3.0.100
 ```
 ```PowerShell
-    New-Cluster -Name SRAZC2 -Node az2az3,az2az4 – StaticAddress 10.3.0.101
+    New-Cluster -Name SRAZC2 -Node az2az3,az2az4 –StaticAddress 10.3.0.101
 ```
 10. 启用存储空间直通
 ```PowerShell

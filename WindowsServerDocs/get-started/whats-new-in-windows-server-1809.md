@@ -4,21 +4,22 @@ description: Windows Server 版本 1809 中的新功能
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
+ms.date: 05/21/2019
 ms.localizationpriority: high
-ms.openlocfilehash: 32868a4a5044360bf596e26d497138bccf6692bc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d268550112236daecbe3dc1a9d9da21bc8ec67fb
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834408"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976645"
 ---
 # <a name="whats-new-in-windows-server-version-1809"></a>Windows Server 版本 1809 中的新增功能
 
 >适用于：Windows Server（半年频道）
 
-本主题将介绍 Windows Server 版本 1809 中的一些新功能。 若要了解 Windows Server 2019 中的新增功能，请参阅 [Windows Server 2019 中的新增功能](../get-started-19/whats-new-19.md)。
+若要了解有关 Windows 中的最新功能的信息，请参阅[What's New in Windows Server](whats-new-in-windows-server.md)。 本主题将介绍 Windows Server 版本 1809 中的一些新功能。
 
 ## <a name="container-networking-with-kubernetes"></a>支持 Kubernetes 的容器网络
 
@@ -41,7 +42,7 @@ Windows Server 版本 1809 针对使用组托管服务帐户 (gMSA) 来访问网
 * Windows 上的 Linux 容器
 * [较低的额外延迟后台传输 (LEDBAT)](https://blogs.technet.microsoft.com/networking/2018/07/25/ledbat/)
 * 虚拟工作负载的网络性能提升
-* [按需 (FOD) 的服务器核心应用程序兼容性功能 ](https://docs.microsoft.com/windows-server/get-started-19/install-fod-19)
+* [按需 (FOD) 的服务器核心应用程序兼容性功能](https://docs.microsoft.com/windows-server/get-started-19/install-fod-19)
 * [Storage Migration Service (SMS)](../storage/whats-new-in-storage.md#storage-spaces-direct)
 * 存储副本
 * 系统见解 

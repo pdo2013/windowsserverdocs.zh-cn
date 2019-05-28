@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 0eba51521e7ef88542bccf93d92d2e783d800b5e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cf89972120f3f0effa3eb1cf0fee6d29dbc8ed4e
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842208"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192480"
 ---
 # <a name="add-a-token-decrypting-certificate"></a>添加令牌解密证书
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 联合身份验证服务器使用令牌\-解密证书时的信赖方联合身份验证服务器必须对新的证书设置为主解密证书后，使用较旧的证书颁发的令牌进行解密。 Active Directory 联合身份验证服务\(AD FS\)使用安全套接字层\(SSL\) Internet 信息服务的证书\(IIS\)作为默认解密证书。  
   
@@ -40,8 +38,8 @@ ms.locfileid: "59842208"
 4.  在中**浏览证书文件**对话框框中，导航到你想要添加、 选择证书文件，然后单击该证书文件**打开**。  
   
 ## <a name="additional-references"></a>其他参考  
-[清单：设置联合身份验证服务器](Checklist--Setting-Up-a-Federation-Server.md)  
+[清单：设置联合服务器](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[联合身份验证服务器的证书要求](https://technet.microsoft.com/library/dd807040.aspx)  
+[联合服务器的证书要求](https://technet.microsoft.com/library/dd807040.aspx)  
   
 

@@ -6,22 +6,22 @@ ms.author: nedpyle
 ms.technology: storage-replica
 ms.topic: get-started-article
 author: nedpyle
-ms.date: 12/19/2018
+ms.date: 04/26/2019
 ms.assetid: 12bc8e11-d63c-4aef-8129-f92324b2bf1b
-ms.openlocfilehash: 0e010f0319b46e04cf9aa15cde9552af1191ab22
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e832dce3eed7d0e5103254fb48683726b82af2e6
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824708"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475938"
 ---
 # <a name="frequently-asked-questions-about-storage-replica"></a>有关存储副本的常见问题
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
 
 本主题包含存储副本相关的常见问题解答 (FAQ)。
 
-## <a name="FAQ1"></a> 在 Azure 上支持存储副本？  
+## <a name="FAQ1"></a> 在 Azure 上支持存储副本？
 是。 可以在 Azure 中使用以下方案：
 
 1. 在 Azure 内的服务器到服务器复制 （同步或异步之间一个或两个数据中心容错域中的 IaaS Vm 或异步两个单独的区域之间）
@@ -29,12 +29,12 @@ ms.locfileid: "59824708"
 3. 在 Azure 内的群集到群集复制 （同步或异步之间一个或两个数据中心容错域中的 IaaS Vm 或异步两个单独的区域之间）
 4. 群集到群集在本地和 Azure 之间异步复制 （使用 VPN 或 Azure ExpressRoute）
 
-可从 Azure 中的来宾群集上的进一步说明：[部署 Microsoft Azure 中的 IaaS VM 来宾群集](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/)。
+可从 Azure 中的来宾群集上的进一步说明：[部署 Microsoft Azure 中的 IaaS VM 来宾群集](https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126)。
 
 重要说明：
 
 1. Azure 不支持共享的 VHDX 来宾群集，因此 Windows 故障转移群集虚拟机必须使用经典的共享存储持久性磁盘保留群集或存储空间直通的 iSCSI 目标。
-2. 基于存储空间直通的存储副本在聚类分析的 Azure 资源管理器模板[跨 Azure 区域存储空间直通 (S2D) 的 SOFS 群集使用存储副本创建灾难恢复](https://aka.ms/azure-storage-replica-cluster)。  
+2. 基于存储空间直通的存储副本在聚类分析的 Azure 资源管理器模板[跨 Azure 区域存储空间直通 SOFS 群集使用存储副本创建灾难恢复](https://aka.ms/azure-storage-replica-cluster)。  
 3. 群集在 Azure （需要由群集 Api 授予群集之间的访问权限） 中的 RPC 通信的群集需要为 CNO 配置网络访问权限。 TCP 端口 49152 上方，则必须允许 TCP 端口 135 和动态范围。 引用[构建 Windows Server 故障转移群集在 Azure IAAS VM – 第 2 个网络和创建部分](https://blogs.technet.microsoft.com/askcore/2015/06/24/building-windows-server-failover-cluster-on-azure-iaas-vm-part-2-network-and-creation/)。  
 4. 它是可以使用两个节点来宾群集，其中每个节点由存储副本复制为非对称群集使用环回 iSCSI。 但这可能会很差的性能，并且仅应该用于非常有限的工作负荷或测试。  
 
@@ -80,7 +80,7 @@ Update-SmbMultichannelConnection
     Set-SRNetworkConstraint -SourceComputerName sr-srv01 -SourceRGName group1 -SourceNWInterface "Cluster Network 1","Cluster Network 2" -DestinationComputerName sr-srv03 -DestinationRGName group2 -DestinationNWInterface "Cluster Network 1","Cluster Network 2"  
 
 ## <a name="FAQ4"></a> 可以配置一个多复制或可传递 (A 到 B 到 C) 复制吗？  
-在 Windows Server 2016 中不能。 此版本仅支持服务器、群集或拉伸群集节点的一对一复制。 这可能会在后续版本中更改。 当然，你可以在特定卷对的各种服务器之间以任一方向配置复制。 例如，服务器 1 可以将其 D 卷复制到服务器 2，以及从服务器 3 复制其 E 卷。
+不可以，存储副本支持仅一复制的服务器、 群集或拉伸群集节点。 这可能会在后续版本中更改。 当然，你可以在特定卷对的各种服务器之间以任一方向配置复制。 例如，服务器 1 可以将其 D 卷复制到服务器 2，以及从服务器 3 复制其 E 卷。
 
 ## <a name="FAQ5"></a> 可以扩大或缩小由存储副本复制的已复制的卷？  
 可以增大（扩展）卷，但不能收缩它们。 默认情况下，存储副本会阻止管理员扩展复制卷；请在调整大小之前对源组使用 `Set-SRGroup -AllowVolumeResize $TRUE` 选项。 例如：
@@ -90,9 +90,9 @@ Update-SmbMultichannelConnection
 3. 使用针对源计算机： `Set-SRGroup -Name YourRG -AllowVolumeResize $FALSE` 
 
 ## <a name="FAQ6"></a>可将目标卷联机放置的只读访问权限？  
-在 Windows Server 2016 RTM（即所谓的“RS1”版本）中不能。 存储副本可在复制开始时卸除目标卷。 
+在 Windows Server 2016 中不能。 存储副本可在复制开始时卸除目标卷。 
 
-但是，在 Windows Server 版本 1709 中，现在可以使用用于安装目标存储的选项 - 此功能称为“测试故障转移”。 若要执行此操作，你必须具有当前未在目标位置进行复制的未使用的 NTFS 或 ReFS 格式卷。 然后，你可以临时安装复制的存储的快照以便进行测试或备份。 
+但是，在 Windows Server 2019 和 Windows Server 半年频道版开始，1709，现在可以装载目标存储的选项是-此功能称为"测试故障转移"。 若要执行此操作，你必须具有当前未在目标位置进行复制的未使用的 NTFS 或 ReFS 格式卷。 然后，你可以临时安装复制的存储的快照以便进行测试或备份。 
 
 例如，若要创建一个测试故障转移，其中，你要在目标服务器“SRV2”上的复制组“RG2”中复制卷“D:”，并且 SRV2 上有未被复制的“T:”驱动器，可执行以下命令：
 
@@ -107,7 +107,7 @@ Update-SmbMultichannelConnection
 测试故障转移功能只应该用于短期临时操作。 它不适合长期使用。 在使用过程中，复制操作会继续复制到真正的目标卷。 
 
 ## <a name="FAQ7"></a> 可以在拉伸群集中配置横向扩展文件服务器 (SOFS)？  
-虽然从技术上来说，这是可以实现的，但建议不要在 Windows Server 2016 中进行此配置，因为联系 SOFS 的计算节点中缺少站点感知。 如果使用的校园网，其延迟通常是亚毫秒级的则此配置通常会正常时未出现问题。   
+虽然从技术上讲可能这不是建议的配置，因为联系 SOFS 的计算节点中的站点感知缺少。 如果使用的校园网，其延迟通常是亚毫秒级的则此配置通常会正常时未出现问题。   
 
 在两个群集间进行复制时，如果配置群集到群集复制，存储副本会完全支持横向扩展文件服务器，包括可以使用存储空间直通。  
 
@@ -117,7 +117,7 @@ Update-SmbMultichannelConnection
 在两个群集间进行复制时，如果配置群集到群集复制，存储副本会完全支持横向扩展文件服务器，包括可以使用存储空间直通。  
 
 ## <a name="FAQ8"></a>可以配置存储空间直通在拉伸群集中使用存储副本？  
-这不是 Windows Server 2016 中受支持的配置。  这可能会在后续版本中更改。 如果配置群集到群集复制，存储副本会完全支持横向扩展文件服务器和 Hyper-V 服务器，包括可以使用存储空间直通。  
+这不是 Windows Server 中受支持的配置。 这可能会在后续版本中更改。 如果配置群集到群集复制，存储副本会完全支持横向扩展文件服务器和 Hyper-V 服务器，包括可以使用存储空间直通。  
 
 ## <a name="FAQ9"></a>如何配置异步复制？  
 
@@ -126,10 +126,10 @@ Update-SmbMultichannelConnection
 ## <a name="FAQ10"></a>如何防止拉伸群集的自动故障转移？  
 为了防止自动故障转移，可以使用 PowerShell 来配置 `Get-ClusterNode -Name "NodeName").NodeWeight=0`。 这将在灾难恢复站点中删除每个节点上的投票。 然后，可以在主站点的节点上使用 `Start-ClusterNode -PreventQuorum`，并在灾难站点的节点上使用 `Start-ClusterNode -ForceQuorum` 来强制进行故障转移。 没有阻止自动故障转移的图形选项，不建议阻止自动故障转移。  
 
-## <a name="FAQ11"></a>如何禁用虚拟机复原性？  
+## <a name="FAQ11"></a>如何禁用虚拟机复原性？
 若要防止从运行和暂停虚拟机而不是其故障转移到灾难恢复站点的新的 HYPER-V 虚拟机复原功能，请运行 `(Get-Cluster).ResiliencyDefaultPeriod=0`  
 
-## <a name="FAQ12"></a> 如何减少初始同步的时间？  
+## <a name="FAQ12"></a> 如何减少初始同步的时间？
 
 可以使用精简配置的存储来缩短初始同步时间。 存储副本查询并自动使用精简配置的存储，包括非聚集存储空间、Hyper-V 动态磁盘和 SAN LUN。  
 
@@ -139,11 +139,9 @@ Update-SmbMultichannelConnection
 2. 还原快照或还原基于快照的备份-还原到目标卷上的基于卷的快照应该有块布局中的最小差异。 这是下一步最有效方法，因为块很可能会由于正在镜像卷的快照与匹配。
 3. 复制的文件-通过从未使用过的目标上创建新卷并执行完整的 robocopy /MIR 树将复制的数据，有可能是块匹配项。 使用 Windows 文件资源管理器或复制树的某些部分不会创建多块匹配项。 手动复制文件是种子设定的最有效方法。
 
-
-
 ## <a name="FAQ13"></a> 我可以委派用户管理复制？  
 
-可以在 Windows Server 2016 中使用 `Grant-SRDelegation` cmdlet。 这样，可以设置特定用户在服务器到服务器、群集到群集以及拉伸群集复制方案中拥有创建、修改或删除复制的权限，而无需成为本地管理员组中的成员。 例如：  
+可以使用`Grant-SRDelegation`cmdlet。 这样，可以设置特定用户在服务器到服务器、群集到群集以及拉伸群集复制方案中拥有创建、修改或删除复制的权限，而无需成为本地管理员组中的成员。 例如：  
 
     Grant-SRDelegation -UserName contso\tonywang  
 
@@ -158,7 +156,7 @@ Update-SmbMultichannelConnection
 
     vssadmin list shadows
      vssadmin revert shadow /shadow={shadown copy ID GUID listed previously}
-还可以使用计划任务安排此工具定期运行。 有关使用 VSS 的详细信息，请参阅 [Vssadmin](https://technet.microsoft.com/library/cc754968.aspx)。 备份日志卷没有必要，也没有价值。 若尝试执行此操作，VSS 将会忽略该操作。
+还可以使用计划任务安排此工具定期运行。 有关使用 VSS 的详细信息，请参阅 [Vssadmin](../../administration/windows-commands/vssadmin.md)。 备份日志卷没有必要，也没有价值。 若尝试执行此操作，VSS 将会忽略该操作。
 存储副本支持使用 Windows Server 备份、Microsoft Azure 备份、Microsoft DPM 或其他快照、VSS、虚拟机或基于文件的技术，只要它们在卷层中运行。 存储副本不支持基于块的备份和还原。
 
 ## <a name="FAQ14"></a> 可以配置复制，以限制带宽的使用？
@@ -204,13 +202,13 @@ Update-SmbMultichannelConnection
 仅源群集中的数据磁盘应备份。 存储副本日志磁盘应不会备份由于备份可能会使用存储副本操作发生冲突。
 
 ## <a name="FAQ16"></a> 为什么要选择与群集到群集服务器到服务器拓扑与拉伸群集？  
-存储副本有三种主要配置：拉伸群集、群集到群集和服务器到服务器。 每种配置都具有不同的优势。
+在三种主要配置存储副本处于： 拉伸群集、 群集到群集和服务器到服务器。 每种配置都具有不同的优势。
 
 拉伸群集拓扑适用于需要带业务流程的自动故障转移的工作负荷，例如 Hyper-V 私有云群集和 SQL Server FCI。 此外还具有使用故障转移群集管理器的内置图形界面。 它通过永久保留采用存储空间的经典对称群集共享存储架构，即 SAN、iSCSI 和 RAID。 使用至少 2 个节点进行运行。
 
 群集到群集拓扑使用两个独立群集，非常适用于需要手动故障转移的管理员，尤其是当预配第二个站点以进行灾难恢复以及无需每日使用的时候。 业务流程为手动操作。 与不同的拉伸群集存储空间直通可在此配置 （但需要注意的问题-请参阅存储副本常见问题和群集到群集文档）。 使用至少四个节点进行运行。 
 
-服务器到服务器拓扑适用于运行无法组成群集的硬件的客户。 这种配置需要手动故障转移和业务流程。 非常适用于分支机构和中央数据中心之间的低成本部署，尤其是当使用异步复制的时候。 此配置通常可替代用于单主机灾难恢复方案的受 DFSR 保护的文件服务器的实例。
+服务器到服务器拓扑适用于运行无法组成群集的硬件的客户。 这种配置需要手动故障转移和业务流程。 特别是使用异步复制时，它非常适合于分支机构和中央数据中心之间成本较低的部署。 此配置通常可替代用于单主机灾难恢复方案的受 DFSR 保护的文件服务器的实例。
 
 在所有的情况下，拓扑支持在物理硬件和虚拟机运行。 在虚拟机上运行时，基础虚拟机监控程序无需 Hyper-V；可以是 VMware、KVM 和 Xen 等。
 
@@ -221,6 +219,12 @@ Update-SmbMultichannelConnection
 是的数据 Deduplcation 支持存储副本。 源服务器上的卷上启用重复数据删除，并在复制期间在目标服务器接收已删除重复的卷的副本。
 
 而应该*安装*源和目标服务器上重复数据删除 (请参阅[安装和启用重复数据删除](../data-deduplication/install-enable.md))，它不应对*启用*重复数据删除在目标服务器上。 存储副本允许将仅在源服务器上的写入。 因为重复数据删除可以写入到卷，则它应仅在源服务器上运行。 
+
+## <a name="FAQ19"></a> 可以 Windows Server 2019 和 Windows Server 2016 之间进行复制
+
+遗憾的是，我们不支持创建*新*Windows Server 2019 和 Windows Server 2016 之间的合作关系。 您可以安全地升级的服务器或群集到 Windows Server 2019 和任何运行 Windows Server 2016*现有*合作关系将继续工作。
+
+但是，若要获取的 Windows Server 2019 改进的复制性能，合作关系的所有成员必须都运行 Windows Server 2019 和必须删除现有的合作关系和相关联的复制组，然后使用植入的数据 （无论是重新创建它们当创建合作关系中 Windows Admin Center 或新建 SRPartnership cmdlet）。
 
 ## <a name="FAQ17"></a> 如何报告存储副本或本指南的问题？  
 如需存储副本的技术援助，可以通过 [Microsoft TechNet 论坛](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=WinServerPreview) 发布。 还可以将有关存储副本的疑问或本文档中出现的问题通过电子邮件发送至 srfeed@microsoft.com。  https://windowsserver.uservoice.com 站点是设计更改请求的首选，因为它允许客户对你的想法提供支持和反馈。
@@ -236,4 +240,4 @@ Update-SmbMultichannelConnection
 
 ## <a name="see-also"></a>请参阅  
 - [存储概述](../storage.md)  
-- [Windows Server 2016 中的存储空间直通](../storage-spaces/storage-spaces-direct-overview.md)  
+- [存储空间直通](../storage-spaces/storage-spaces-direct-overview.md)  

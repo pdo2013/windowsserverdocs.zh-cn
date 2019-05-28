@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 8af76edbdb5fc2aa5768811f01c563aab1a89fc6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f6aba72c329ba380f9617f484c4cf754fbcbb363
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849598"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192726"
 ---
 # <a name="convert-an-mbr-disk-into-a-gpt-disk"></a>MBR 磁盘转换为 GPT 磁盘
 
@@ -23,15 +23,11 @@ ms.locfileid: "59849598"
 
 只要磁盘不包含分区或卷，就可以将磁盘从 MBR 更改为 GPT 分区样式。
 
-
 > [!NOTE]
 > 转换磁盘之前，备份上它的任何数据，并关闭任何正在访问该磁盘的程序。
 
-
 > [!NOTE]
 > 你至少必须是**备份操作员**或**管理员**组的成员才能完成这些步骤。
-
-<a id="BKMK_WINUI"></a>
 
 ## <a name="converting-using-the-windows-interface"></a>转换使用 Windows 界面
 
@@ -40,8 +36,6 @@ ms.locfileid: "59849598"
 2.  如果该磁盘包含任何分区或卷，请右键单击每一项，然后单击**删除分区**或**删除卷**。
 
 3.  右键单击你想要更改为 GPT 磁盘的 MBR 磁盘，然后单击**转换成 GPT 磁盘**。
-
-<a id="BKMK_CMD"></a>
 
 ## <a name="converting-using-a-command-line"></a>转换使用命令行
 
@@ -64,14 +58,12 @@ ms.locfileid: "59849598"
 
 7.  在 **DISKPART** 提示符下，键入 `convert gpt`。
 
-<br />
-
-| 值  | 描述  |
+| ReplTest1  | 描述  |
 | ----- | ----|
-| <p>**list disk**</p> | <p>显示磁盘列表和有关磁盘的信息，例如磁盘大小、可用空间量、磁盘是基本磁盘还是动态磁盘，以及磁盘是使用主启动记录 (MBR) 还是 GUID 分区表 (GPT) 分区样式。 用星号 (*) 标记的磁盘具有焦点。</p> |
-| <p>**选择磁盘** <em>disknumber</em></p> | <p>选择指定的磁盘（其中 <em>disknumber</em> 是磁盘编号），并赋予其焦点。</p> |
-| <p>**clean**</p> | <p>从具有焦点的磁盘中删除所有分区或卷。</p>  |
-| <p>**转换 gpt**</p>| <p>将具有主启动记录 (MBR) 分区样式的空基本磁盘转换为具有 GUID 分区表 (GPT) 分区样式的基本磁盘。</p> |
+| **list disk** | 显示磁盘列表和有关磁盘的信息，例如磁盘大小、可用空间量、磁盘是基本磁盘还是动态磁盘，以及磁盘是使用主启动记录 (MBR) 还是 GUID 分区表 (GPT) 分区样式。 用星号 (*) 标记的磁盘具有焦点。 |
+| **选择磁盘** *disknumber* | 选择指定的磁盘（其中 *disknumber* 是磁盘编号），并赋予其焦点。 |
+| **clean** | 从具有焦点的磁盘中删除所有分区或卷。  |
+| **转换 gpt**| 将具有主启动记录 (MBR) 分区样式的空基本磁盘转换为具有 GUID 分区表 (GPT) 分区样式的基本磁盘。 |
 
 ## <a name="see-also"></a>请参阅
 

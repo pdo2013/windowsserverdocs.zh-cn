@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 6099dac7d77e37b761785b4f58b6106472e5ba1e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f30bfcd531731e3a0d14350536ddf418c50f3ea0
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827948"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475952"
 ---
 # <a name="troubleshoot-user-profiles-with-events"></a>与事件的用户配置文件疑难解答
 
->适用于：Windows 10、 Windows 8、 Windows 8.1、 Windows Server 2012、 Windows Server 2012 R2 和 Windows Server 2016。
+>适用于：Windows 10、 Windows 8、 Windows 8.1、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012 和 Windows Server （半年频道）。
 
 本主题讨论如何排查问题加载和卸载用户配置文件通过使用事件和跟踪日志。 以下部分介绍如何使用三个记录用户配置文件信息的事件日志。
 
@@ -58,7 +58,7 @@ ms.locfileid: "59827948"
 1. 在中**操作**窗格中的事件查看器中，选择**视图**，然后选择**显示分析和调试日志**。
 2. 导航到**应用程序和服务日志**，然后**Microsoft**，然后**Windows**，然后**用户配置文件服务**，，然后**诊断**。
 3. 选择**启用日志**，然后选择**是**。 这样将启动日志记录的诊断日志。
-4. 如果需要更多详细信息，请参阅[步骤 4:创建和解码跟踪](#step-4:-creating-and-decoding-a-trace)有关如何创建跟踪日志的详细信息。
+4. 如果需要更多详细信息，请参阅[步骤 4:创建和解码跟踪](#step-4-creating-and-decoding-a-trace)有关如何创建跟踪日志的详细信息。
 5. 在完成解决此问题，请导航到**诊断**日志中，选择**禁用日志**，选择**视图**，然后清除**显示分析和调试日志**复选框以隐藏分析日志和调试日志记录。
 
 ## <a name="step-4-creating-and-decoding-a-trace"></a>步骤 4：创建和解码跟踪
@@ -70,7 +70,7 @@ ms.locfileid: "59827948"
 下面介绍了如何创建和解码为用户配置文件服务的跟踪：
 
 1. 登录到计算机的用户所遇到的问题，使用该帐户是本地 Administrators 组的成员。
-2. 从提升的命令提示符输入以下命令，其中*\<路径\>* 是到本地文件夹，你之前已创建，例如 c： 路径\\日志：
+2. 从提升的命令提示符输入以下命令，其中 *\<路径\>* 是到本地文件夹，你之前已创建，例如 c： 路径\\日志：
         
     ```PowerShell
     logman create trace -n RUP -o <Path>\RUP.etl -ets

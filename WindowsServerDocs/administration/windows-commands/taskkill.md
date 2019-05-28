@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: db264181ef8e5e3632f3312ade61183cac3fc8f5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c31098a7dc151b29def2f3615da1e969ff8c5664
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853078"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222944"
 ---
 # <a name="taskkill"></a>taskkill
 
 >适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 结束一个或多个任务或进程。 可以通过进程 ID 或图像名称结束进程。 **taskkill**取代**kill**工具。
-有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
+有关如何使用此命令的示例，请参阅[示例](#examples)。
 
 ## <a name="syntax"></a>语法
 ```
@@ -37,13 +37,13 @@ taskkill [/s <computer> [/u [<Domain>\]<UserName> [/p [<Password>]]]] {[/fi <Fil
 |/s \<computer>|指定的名称或远程计算机的 IP 地址 （不使用反斜杠）。 默认值为本地计算机。|
 |/u\<域 >\\\<用户名 >|使用指定的用户帐户权限运行命令*用户名*或*域*\\*用户名*。 **/u**可以指定仅当 **/s**指定。 默认值为当前已登录到发出命令的计算机的用户的权限。|
 |/p \<Password>|指定在指定的用户帐户的密码 **/u**参数。|
-|/fi \<Filter>|应用筛选器选择的一组任务。 可以使用多个筛选器，也可以使用通配符字符 (**\***) 指定的所有任务或映像名称。 请参阅以下[的有效的筛选器名称表](#BKMK_table)，运算符和值。|
+|/fi \<Filter>|应用筛选器选择的一组任务。 可以使用多个筛选器，也可以使用通配符字符 ( **\*** ) 指定的所有任务或映像名称。 请参阅以下[的有效的筛选器名称表](#filter-names-operators-and-values)，运算符和值。|
 |/pid \<ProcessID>|指定要终止的进程的进程 ID。|
-|/im \<ImageName>|指定要终止的进程映像名称。 使用通配符字符 (**\***) 指定所有的映像名称。|
+|/im \<ImageName>|指定要终止的进程映像名称。 使用通配符字符 ( **\*** ) 指定所有的映像名称。|
 |/f|指定的进程将强制终止。 对远程进程; 忽略此参数强制终止所有远程进程。|
 |/t|终止指定的进程和由其启动的任何子进程。|
 
-#### <a name="BKMK_table"></a>筛选器名称、 运算符和值
+#### <a name="filter-names-operators-and-values"></a>筛选器名称、 运算符和值
 |筛选器名称|有效的运算符|有效值|
 |--------|----------|----------|
 |STatUS|eq, ne|RUNNING &#124; NOT RESPONDING &#124; UNKNOWN|
@@ -59,7 +59,7 @@ taskkill [/s <computer> [/u [<Domain>\]<UserName> [/p [<Password>]]]] {[/fi <Fil
 
 ## <a name="remarks"></a>备注
 * 指定远程系统时，不支持的 WINDOWTITLE 和状态筛选器。
-* 通配符字符 (**\***) 对于接受 **/im**选项只有在应用筛选器时。
+* 通配符字符 ( **\*** ) 对于接受 **/im**选项只有在应用筛选器时。
 * 终止远程进程始终执行强制，而不管是否 **/f**指定选项。
 * 提供将计算机名称传递给主机名筛选器会导致关闭并停止所有进程。
 * 可以使用**tasklist**来确定进程 ID (PID) 将被终止的进程。
@@ -87,4 +87,4 @@ taskkill /f /fi "PID ge 1000" /im *
 ```
 
 #### <a name="additional-references"></a>其他参考
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

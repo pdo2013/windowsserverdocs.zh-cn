@@ -7,21 +7,27 @@ ms.topic: article
 author: wmgries
 manager: klaasl
 ms.author: wgries
-ms.date: 09/15/2016
-ms.openlocfilehash: 4a69221548d9defff5a45413ccfe824f9788755a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.date: 04/17/2019
+ms.openlocfilehash: 44a08443312d4e48b8fa518755e2a9b7aa50643c
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876448"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476079"
 ---
 # <a name="whats-new-in-data-deduplication"></a>重复数据删除中的新增功能
 
-> 适用于：Windows 服务器 （半年频道），Windows Server 2016
+> 适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
 
-Windows Server 2016 中的[重复数据删除](overview.md)已进行了优化，在私有云范围内实现了高性能和灵活性，且易于管理。 若要详细了解 Windows Server 2016 中的软件定义存储堆栈，请参阅 [Windows Server 2016 中的存储的新增功能](../whats-new-in-storage.md)。
+[重复数据删除](overview.md)Windows Server 中已优化为高性能、 灵活且可管理私有云的规模。 有关 Windows Server 中的软件定义的存储堆栈的详细信息，请参阅[What's New in Windows Server 中存储](../whats-new-in-storage.md)。
 
-Windows Server 2016 中的重复数据删除具有以下增强功能：
+重复数据删除在 Windows Server 2019 中具有以下增强功能：
+
+| 功能 | 新功能或更新功能 | 描述 |
+|---------------|----------------|-------------|
+| ReFS 支持  | 新增            | 重复数据删除和 ReFS 文件系统压缩的同一个卷上存储多达 10 倍更多的数据。 (它具有[只需单击一下](https://www.youtube.com/watch?v=PRibTacyKko&feature=youtu.be)若要使用 Windows Admin Center 打开。)使用可选的压缩大小可变的区块存储可节省率最大化，而多线程的后续处理体系结构保证性能的影响最小。 支持的卷最多 64 TB 和将重复数据删除的每个文件的第一个 4 TB。|
+
+重复数据删除具有启动 Windows Server 2016 中的以下增强功能：
 
 | 功能 | 新功能或更新功能 | 描述 |
 |---------------|----------------|-------------|

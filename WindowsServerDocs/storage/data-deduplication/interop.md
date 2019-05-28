@@ -8,18 +8,21 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/16/2016
-ms.openlocfilehash: 2a28be1bdd22915182cbdbb2726ab9d37422e889
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9453811b0f76b249c245990293ba82cf5a6e0867
+ms.sourcegitcommit: 29ad32b9dea298a7fe81dcc33d2a42d383018e82
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834428"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65624630"
 ---
 # <a name="data-deduplication-interoperability"></a>重复数据删除互操作性
 
-> 适用于：Windows 服务器 （半年频道），Windows Server 2016
+> 适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2019
 
 ## <a id="supported"></a>支持
+
+### <a id="supported-ReFS"></a>ReFS
+自 Windows Server 2019 起，支持重复数据删除。 
 
 ### <a id="supported-clusters"></a>故障转移群集
 
@@ -76,8 +79,6 @@ Windows Server 备份能够“按原样”备份优化卷（即不删除已删�
     ```
 
 ## <a id="unsupported"></a>不受支持
-### <a id="unsupported-refs"></a>ReFS
-Windows Server 2016 不支持在 ReFS 格式卷上进行重复数据删除。 [在 Windows Server Storage UserVoice 上为针对 Windows Server vNext 的此项投票](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/7962813-support-deduplication-on-refs)。
 
 ### <a id="unsupported-windows-client"></a>Windows 10 （客户端操作系统）
 在 Windows 10 上不支持重复数据删除。 Windows 社区中有多个广受欢迎的博客文章描述了如何从 Windows Server 2016 中移除二进制文件并在 Windows 10 上安装，但尚未作为重复数据删除开发的一部分对这种情况进行验证。 [在 Windows Server Storage UserVoice 上为针对 Windows 10 vNext 的此项投票](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/9011008-add-deduplication-support-to-client-os)。
