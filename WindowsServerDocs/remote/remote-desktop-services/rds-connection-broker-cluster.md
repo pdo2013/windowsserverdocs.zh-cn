@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 2f4fc63c6ff7c1254fda630a8f34188d8fedc8e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e20b4960faac0ef40ad68271fa907394344e9c47
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825038"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034429"
 ---
 # <a name="add-the-rd-connection-broker-server-to-the-deployment-and-configure-high-availability"></a>添加 RD 连接代理服务器以部署和配置高可用性
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server （半年频道），Windows Server 2019，Windows Server 2016
 
 可以部署远程桌面连接代理 （RD 连接代理） 群集来提高可用性和可扩展性的远程桌面服务基础结构。 
 
@@ -37,7 +37,7 @@ ms.locfileid: "59825038"
     1. 在 Azure 门户中，单击**浏览 > 资源组**单击部署的资源组。   
     2. 选择刚刚创建 （例如 CB DB1） 的 SQL 数据库。   
     3. 单击**设置 > 属性 > 显示数据库连接字符串**。   
-    4. 复制的连接字符串**ODBC （包括 Node.js）**，这应如下所示：   
+    4. 复制的连接字符串**ODBC （包括 Node.js）** ，这应如下所示：   
       
         Driver={SQL Server Native Client 13.0};Server=tcp:cb-sqls1.database.windows.net,1433;Database=CB-DB1;Uid=sqladmin@contoso;Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;   
   
@@ -62,7 +62,7 @@ ms.locfileid: "59825038"
 
 ## <a name="step-2-configure-load-balancing-on-the-rd-connection-brokers"></a>步骤 2：RD 连接代理上配置负载均衡 
 
-如果使用的 Azure 基础结构，则可以创建[Azure 负载均衡器](#create-a-load-balancer); 如果没有，则可以设置向上[DNS 轮循机制](#configure-dns-round--robin)。 
+如果使用的 Azure 基础结构，则可以创建[Azure 负载均衡器](#create-a-load-balancer); 如果没有，则可以设置向上[DNS 轮循机制](#configure-dns-round-robin)。
 
 ### <a name="create-a-load-balancer"></a>创建负载均衡器  
 1. 创建 Azure 负载均衡器   
@@ -71,9 +71,9 @@ ms.locfileid: "59825038"
       3. 选择**内部**有关**方案**，**虚拟网络**为你的部署 (例如，Contoso-VNet)，以及**子网**所有您的资源 （例如，默认值）。   
       4. 选择**静态**有关**IP 地址分配**，然后输入**专用 IP 地址**，它是不在当前正在使用 (例如，10.0.0.32)。   
       5. 选择适当**订阅**，则**资源组**您的资源，然后使用适当的所有**位置**。   
-      6. 选择“创建”。   
+      6. 选择“创建”  。   
 2. 创建[探测](https://azure.microsoft.com/documentation/articles/load-balancer-custom-probe-overview/)到哪些服务器处于活动状态的监视器：   
-      1. 在 Azure 门户中，单击**浏览 > 负载平衡器**，然后单击负载均衡器只需创建 (例如，CBLB)。 单击“设置”。   
+      1. 在 Azure 门户中，单击**浏览 > 负载平衡器**，然后单击负载均衡器只需创建 (例如，CBLB)。 单击“设置”  。   
       2. 单击**探测 > 添加**。   
       3. 输入探测的名称 (例如， **RDP**)，选择**TCP**作为**协议**，输入**3389**为**端口**，然后单击**确定**。   
 3. 创建连接代理的后端池：   
@@ -88,9 +88,9 @@ ms.locfileid: "59825038"
       1. 连接到 RDMS server 虚拟机 (例如，Contoso CB1)。 请查看[准备 RD 连接代理 VM](Prepare-the-RD-Connection-Broker-VM-for-Remote-Desktop.md)一文，了解如何连接到 VM 的步骤。   
       2. 在服务器管理器中，单击**工具 > DNS**。   
       3. 在左侧窗格中，展开**DNS**，单击 DNS 计算机，单击**正向查找区域**，然后单击你的域名 (例如，Contoso.com)。 （它可能需要几秒钟来处理对 DNS 服务器的信息的查询）。  
-      4. 单击**操作 > 新建主机 （A 或 AAAA）**。   
+      4. 单击**操作 > 新建主机 （A 或 AAAA）** 。   
       9. 输入名称 (例如，hacb) 和前面指定的 IP 地址 (例如，10.0.0.32)。   
-  
+
 ### <a name="configure-dns-round-robin"></a>配置 DNS 轮循机制  
   
 以下步骤，创建 Azure 内部负载均衡器的替代方法。   
@@ -99,7 +99,7 @@ ms.locfileid: "59825038"
 2. 创建 DNS 记录：   
       1. 在服务器管理器中，单击**工具 > DNS**。   
       2. 在左侧窗格中，展开**DNS**，单击 DNS 计算机，单击**正向查找区域**，然后单击你的域名 (例如，Contoso.com)。 （它可能需要几秒钟来处理对 DNS 服务器的信息的查询）。  
-      3. 单击**操作**并**新主机 （A 或 AAAA）**。   
+      3. 单击**操作**并**新主机 （A 或 AAAA）** 。   
       4. 输入**DNS 名称**对于 RD 连接代理群集 （例如 hacb），并输入**IP 地址**的第一个 RD 连接代理。   
       5. 对每个其他的 RD 连接代理，为每个其他记录提供每个唯一的 IP 地址重复步骤 3-4。
 
