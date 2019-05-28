@@ -9,23 +9,22 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 39c735e9dde0fd60c7eb9ccfe0af890bdc5a5950
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c8e72f1075b984506f9f992cd45cf853b50bddeb
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838318"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191917"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>使用 WID 数据库升级到 Windows Server 2016 中的 AD FS
 
->适用于：Windows Server 2019、Windows Server 2016
 
 
-## <a name="upgrading-a-windows-server-2012-r2-or-2016-ad-fs-farm-to-windows-server-2019"></a>Windows Server 2012 R2 或 2016 AD FS 场升级到 Windows Server 2019 
+## <a name="upgrading-a-windows-server-2012-r2-or-2016-ad-fs-farm-to-windows-server-2019"></a>Windows Server 2012 R2 或 2016 AD FS 场升级到 Windows Server 2019
 以下文档将描述如何升级到 Windows Server 2019 中的 AD FS 的 AD FS 场，使用 WID 数据库时。  
 
 ### <a name="ad-fs-farm-behavior-levels-fbl"></a>AD FS 场行为级别 (FBL)  
-在 Windows Server 2016 的 AD FS 中，引入了场行为级别 (FBL)。 这是将确定可以使用功能在 AD FS 场的场级设置。 
+在 Windows Server 2016 的 AD FS 中，引入了场行为级别 (FBL)。 这是将确定可以使用功能在 AD FS 场的场级设置。
 
 下表列出了由 Windows Server 版本的 FBL 值：
 | Windows Server 版本  | FBL | AD FS 配置数据库名称 |
@@ -59,7 +58,7 @@ ms.locfileid: "59838318"
 
 ##### <a name="to-upgrade-your-ad-fs-farm-to-windows-server-2019-farm-behavior-level"></a>若要将 AD FS 场升级到 Windows Server 2019 场行为级别  
 
-1.  使用服务器管理器，在 Windows Server 2019 上安装 Active Directory 联合身份验证服务角色 
+1.  使用服务器管理器，在 Windows Server 2019 上安装 Active Directory 联合身份验证服务角色
 
 2.  使用 AD FS 配置向导，将新的 Windows Server 2019 服务器加入到现有的 AD FS 场。  
 
@@ -77,45 +76,56 @@ ms.locfileid: "59838318"
 
     ![升级](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_5.png)  
 
-6.  在每个 Web 应用程序代理服务器上，重新配置通过在提升的窗口中执行以下 PowerShell 命令 WAP:  
-```powershell
-$trustcred = Get-Credential -Message "Enter Domain Administrator credentials"
-Install-WebApplicationProxy -CertificateThumbprint {SSLCert} -fsname fsname -FederationServiceTrustCredential $trustcred  
-```
-
-7.  现在在 Windows Server 2016 联合身份验证服务器上打开 AD FS 管理。 请注意，现在所有管理功能会显示，因为主角色已转移到此服务器。  
+6.  现在在 Windows Server 2016 联合身份验证服务器上打开 AD FS 管理。 请注意，现在所有管理功能会显示，因为主角色已转移到此服务器。  
 
     ![升级](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_6.png)  
 
-8.  如果您要升级到 2016年或 2019 AD FS 2012 R2 场，场升级要求 AD 架构是至少为级别 85。  若要升级的架构、 使用 Windows Server 2016 安装媒体，打开命令提示符并导航到 support\adprep 目录。 运行以下命令：  `adprep /forestprep`
+7.  如果您要升级到 2016年或 2019 AD FS 2012 R2 场，场升级要求 AD 架构是至少为级别 85。  若要升级的架构、 使用 Windows Server 2016 安装媒体，打开命令提示符并导航到 support\adprep 目录。 运行以下命令：  `adprep /forestprep`
 
     ![升级](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_7.png)  
 
     该操作完成后运行 `adprep/domainprep`
     >[!NOTE]
-    >在运行下一步之前, 请确保 Windows Server 是最新的设置从运行 Windows Update。 继续这一过程，直到不需要进一步更新。 
-    > 
-    
+    >在运行下一步之前, 请确保 Windows Server 是最新的设置从运行 Windows Update。 继续这一过程，直到不需要进一步更新。
+    >
+
     ![升级](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_8.png)  
 
-9. 现在在 Windows Server 2016 服务器上打开 PowerShell 并运行以下 cmdlt:
+8. 现在在 Windows Server 2016 服务器上打开 PowerShell 并运行以下 cmdlt:
     >[!NOTE]
     > 在运行下一步之前，必须从场删除所有 2012 R2 服务器。
- 
+
     `Invoke-AdfsFarmBehaviorLevelRaise`  
 
     ![升级](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_9.png)  
 
-10. 出现提示时，请键入 Y。这将开始提升级别。 完成此操作已成功提升 FBL。  
+9. 出现提示时，请键入 Y。这将开始提升级别。 完成此操作已成功提升 FBL。  
 
     ![升级](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_10.png)  
 
-11. 现在，如果您转到 AD FS 管理，你将看到更高版本的 AD FS 版本，已添加新功能 
+10. 现在，如果您转到 AD FS 管理，你将看到更高版本的 AD FS 版本，已添加新功能
 
     ![升级](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_12.png)  
 
-13. 同样，可以使用 PowerShell cmdlt:`Get-AdfsFarmInformation`以显示当前 FBL。  
+11. 同样，可以使用 PowerShell cmdlt:`Get-AdfsFarmInformation`以显示当前 FBL。  
 
     ![升级](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_13.png)  
-    
 
+12. 若要将 WAP 服务器升级到最新的级别，在每个 Web 应用程序代理服务器上，重新通过在提升的窗口中执行以下 PowerShell 命令来配置 WAP:  
+    ```powershell
+    $trustcred = Get-Credential -Message "Enter Domain Administrator credentials"
+    Install-WebApplicationProxy -CertificateThumbprint {SSLCert} -fsname fsname -FederationServiceTrustCredential $trustcred  
+    ```
+    从群集中删除旧服务器并保留仅的 WAP 服务器运行最新的服务器版本中，已重新配置更高版本，通过运行以下 Powershell commandlet。
+    ```powershell
+    Set-WebApplicationProxyConfiguration -ConnectedServersName WAPServerName1, WAPServerName2
+    ```
+    运行 Get WebApplicationProxyConfiguration commmandlet 检查 WAP 配置。 ConnectedServersName 将反映从以前的命令运行的服务器。
+    ```powershell
+    Get-WebApplicationProxyConfiguration
+    ```
+    若要升级的 WAP 服务器 ConfigurationVersion，运行以下 Powershell 命令。
+    ```powershell
+    Set-WebApplicationProxyConfiguration -UpgradeConfigurationVersion
+    ```
+    这将完成 WAP 服务器的升级。

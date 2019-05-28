@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e26b7cac971f472bc8b5e48e3dc8cd2592dc22ce
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 585d0195b096056ba769f4e9a08d5c4d2156b96a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814778"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191447"
 ---
 # <a name="federation-server-farm-using-sql-server"></a>使用 SQL Server 的联合服务器场
-
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 此拓扑用于 Active Directory 联合身份验证服务\(AD FS\)方面不同于使用 Windows 内部数据库的联合服务器场\(WID\)部署拓扑中，它不会复制到数据场中的每个联合身份验证服务器。 相反，场中的所有联合身份验证服务器可以读取和写入到运行 Microsoft SQL Server 位于企业网络中的服务器存储的常见数据库的数据。  
   

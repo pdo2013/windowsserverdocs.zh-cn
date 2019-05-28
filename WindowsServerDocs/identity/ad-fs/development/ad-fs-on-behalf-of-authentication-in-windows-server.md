@@ -1,6 +1,6 @@
 ---
 ms.assetid: 5052f13c-ff35-471d-bff5-00b5dd24f8aa
-title: 生成使用 On-Behalf-Of (OBO) 与 AD FS 2016 使用 OAuth 的多层应用程序
+title: 生成使用 On-Behalf-Of (OBO) 与 AD FS 2016 或更高版本配合使用 OAuth 的多层应用程序
 description: ''
 author: billmath
 ms.author: billmath
@@ -9,18 +9,17 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 33d0bfa4139f16c90f3d79f5b61188b4d311538b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f98141745cb5bc8355d1ad3c37e72b4710eb4fc9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858938"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190616"
 ---
-# <a name="build-a-multi-tiered-application-using-on-behalf-of-obo-using-oauth-with-ad-fs-2016"></a>生成使用 On-Behalf-Of (OBO) 与 AD FS 2016 使用 OAuth 的多层应用程序
+# <a name="build-a-multi-tiered-application-using-on-behalf-of-obo-using-oauth-with-ad-fs-2016-or-later"></a>生成使用 On-Behalf-Of (OBO) 与 AD FS 2016 或更高版本配合使用 OAuth 的多层应用程序
 
->适用于：Windows Server 2016
 
-本演练提供了用于实现上代表的 (OBO) 身份验证在 Windows Server 2016 TP5 中使用 AD FS 的指令。 若要详细了解 OBO 身份验证，请阅读[面向开发人员的 AD FS 方案](../../ad-fs/overview/AD-FS-Scenarios-for-Developers.md)
+本演练提供了用于实现上代表的 (OBO) 身份验证使用 AD FS 中 Windows Server 2016 TP5 或更高版本的说明。 若要详细了解 OBO 身份验证，请阅读[面向开发人员的 AD FS 方案](../../ad-fs/overview/AD-FS-Scenarios-for-Developers.md)
 
 >警告：您可以在此处生成的示例是仅供教学使用。 这些说明适用于可能会公开模型的所需的元素的最简单、 最小实现。 该示例可能不包括错误处理的所有方面和其他相关功能，并且着重于仅在获取 OBO 身份验证成功。
 
@@ -84,7 +83,7 @@ WebAPIOBO | 后端 web api ToDoService 用于当用户添加 ToDoItem 时执行�
 
 ## <a name="modifying-the-sample"></a>修改示例
 
-一旦打开该解决方案 WebAPI OnBehalfOf DotNet.sln，你会注意到解决方案-中有两个项目
+一旦打开该解决方案 WebAPI OnBehalfOf DotNet.sln，你会注意到解决方案中有两个项目
 
 * **ToDoListClient**:这将用作在用户将与交互的 OpenID 客户端
 * **ToDoListService**:这将是中间层 web 服务器应用程序 / 服务，将进行身份验证的用户交互与另一个后端 WebAPI OBO
@@ -128,9 +127,6 @@ WebAPIOBO | 后端 web api ToDoService 用于当用户添加 ToDoItem 时执行�
     @RuleName = "All claims"
     c:[]
     => issue(claim = c);
-
-    @RuleName = "Issue open id scope"
-    => issue(Type = "https://schemas.microsoft.com/identity/claims/scope", Value = "openid");
 
     @RuleName = "Issue user_impersonation scope"
     => issue(Type = "https://schemas.microsoft.com/identity/claims/scope", Value = "user_impersonation");
@@ -281,7 +277,7 @@ WebAPIOBO | 后端 web api ToDoService 用于当用户添加 ToDoItem 时执行�
 |ida:Audience| 在提供给 AD FS 配置 ToDoListService WebAPI，例如，时 ToDoListService 的 ID https://localhost:44321/|
 |ida:ClientID| 在提供给 AD FS 配置 ToDoListService WebAPI，例如，时 ToDoListService 的 ID https://localhost:44321/ </br>**它是非常重要，ida： 受众和 ida: ClientID 相互匹配**|
 |ida:ClientSecret| 这是当你在 AD FS 中配置 ToDoListService 客户端，AD FS 生成的密码|
-|ida:ADFSMetadata| 这是的 URL 为 AD FS 元数据例如 https://fs.anandmsft.com/federationmetadata/2007-06/federationmetadata.xml|
+|ida:AdfsMetadataEndpoint| 这是的 URL 为 AD FS 元数据例如 https://fs.anandmsft.com/federationmetadata/2007-06/federationmetadata.xml|
 |ida:OBOWebAPIBase| 这是我们将使用为调用后端 API，例如的基址 https://localhost:44300|
 |ida:Authority| 这是 AD FS 服务的 URL 示例 https://fs.anandmsft.com/adfs/|
 
@@ -362,17 +358,19 @@ WebAPIOBO | 后端 web api ToDoService 用于当用户添加 ToDoItem 时执行�
     // POST api/todolist
     public async Task Post(TodoItem todo)
     {
-        if (!ClaimsPrincipal.Current.FindFirst("https://schemas.microsoft.com/identity/claims/scope").Value.Contains("user_impersonation"))
+      if (!ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/scope").Value.Contains("user_impersonation"))
         {
             throw new HttpResponseException(new HttpResponseMessage { StatusCode = HttpStatusCode.Unauthorized, ReasonPhrase = "The Scope claim does not contain 'user_impersonation' or scope claim not found" });
         }
 
-        //
-        // Call the WebAPIOBO On Behalf Of the user who called the To Do list web API.
-        //
-        string augmentedTitle = null;
-        string custommessage = await CallGraphAPIOnBehalfOfUser();
-        if (custommessage != null)
+      //
+      // Call the WebAPIOBO On Behalf Of the user who called the To Do list web API.
+      //
+
+      string augmentedTitle = null;
+      string custommessage = await CallGraphAPIOnBehalfOfUser();
+
+      if (custommessage != null)
         {
             augmentedTitle = String.Format("{0}, Message: {1}", todo.Title, custommessage);
         }
@@ -381,15 +379,15 @@ WebAPIOBO | 后端 web api ToDoService 用于当用户添加 ToDoItem 时执行�
             augmentedTitle = todo.Title;
         }
 
-        if (null != todo && !string.IsNullOrWhiteSpace(todo.Title))
+      if (null != todo && !string.IsNullOrWhiteSpace(todo.Title))
         {
             db.TodoItems.Add(new TodoItem { Title = augmentedTitle, Owner = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Name).Value });
             db.SaveChanges();
         }
-    }
+      }
 
-    public static async Task<string> CallGraphAPIOnBehalfOfUser()
-    {
+      public static async Task<string> CallGraphAPIOnBehalfOfUser()
+      {
         string accessToken = null;
         AuthenticationResult result = null;
         AuthenticationContext authContext = null;
@@ -398,11 +396,12 @@ WebAPIOBO | 后端 web api ToDoService 用于当用户添加 ToDoItem 时执行�
 
         //
         // Use ADAL to get a token On Behalf Of the current user.  To do this we will need:
-        //      The Resource ID of the service we want to call.
-        //      The current user's access token, from the current request's authorization header.
-        //      The credentials of this application.
-        //      The username (UPN or email) of the user calling the API
+        // The Resource ID of the service we want to call.
+        // The current user's access token, from the current request's authorization header.
+        // The credentials of this application.
+        // The username (UPN or email) of the user calling the API
         //
+
         ClientCredential clientCred = new ClientCredential(clientId, clientSecret);
         var bootstrapContext = ClaimsPrincipal.Current.Identities.First().BootstrapContext as System.IdentityModel.Tokens.BootstrapContext;
         string userName = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Upn) != null ? ClaimsPrincipal.Current.FindFirst(ClaimTypes.Upn).Value : ClaimsPrincipal.Current.FindFirst(ClaimTypes.Email).Value;
@@ -418,30 +417,31 @@ WebAPIOBO | 后端 web api ToDoService 用于当用户添加 ToDoItem 时执行�
         int retryCount = 0;
 
         do
-        {
-            retry = false;
-            try
-            {
-                result = await authContext.AcquireTokenAsync(...);
-                accessToken = result.AccessToken;
-            }
-            catch (AdalException ex)
-            {
-                if (ex.ErrorCode == "temporarily_unavailable")
+          {
+              retry = false;
+              try
                 {
-                    // Transient error, OK to retry.
-                    retry = true;
-                    retryCount++;
-                    Thread.Sleep(1000);
+                    result = await authContext.AcquireTokenAsync(OBOWebAPIBase, clientCred, userAssertion);
+                    //result = await authContext.AcquireTokenAsync(...);
+                    accessToken = result.AccessToken;
                 }
-            }
-        } while ((retry == true) && (retryCount < 1));
+              catch (AdalException ex)
+                {
+                    if (ex.ErrorCode == "temporarily_unavailable")
+                    {
+                        // Transient error, OK to retry.
+                        retry = true;
+                        retryCount++;
+                        Thread.Sleep(1000);
+                    }
+                }
+          } while ((retry == true) && (retryCount < 1));
 
         if (accessToken == null)
-        {
-            // An unexpected error occurred.
-            return (null);
-        }
+          {
+              // An unexpected error occurred.
+              return (null);
+          }
 
         // Once the token has been returned by ADAL, add it to the http authorization header, before making the call to access the To Do list service.
         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
@@ -451,17 +451,17 @@ WebAPIOBO | 后端 web api ToDoService 用于当用户添加 ToDoItem 时执行�
 
 
         if (response.IsSuccessStatusCode)
-        {
-            // Read the response and databind to the GridView to display To Do items.
-            string s = await response.Content.ReadAsStringAsync();
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            custommessage = serializer.Deserialize<string>(s);
-            return custommessage;
-        }
+          {
+              // Read the response and databind to the GridView to display To Do items.
+              string s = await response.Content.ReadAsStringAsync();
+              JavaScriptSerializer serializer = new JavaScriptSerializer();
+              custommessage = serializer.Deserialize<string>(s);
+              return custommessage;
+          }
         else
-        {
-            custommessage = "Unsuccessful OBO operation : " + response.ReasonPhrase;
-        }
+          {
+              custommessage = "Unsuccessful OBO operation : " + response.ReasonPhrase;
+          }
         // An unexpected error occurred calling the Graph API.  Return a null profile.
         return (null);
     }

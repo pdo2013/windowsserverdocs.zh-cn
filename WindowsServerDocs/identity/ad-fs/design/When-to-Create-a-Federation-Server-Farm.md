@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2e7c991cf87bc0e6914e158f0878bcadbede3c22
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91a0122198639bf75e9e43e9da9edf68dd0453d9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816228"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190676"
 ---
 # <a name="when-to-create-a-federation-server-farm"></a>何时创建联合服务器场
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 请考虑在 Active Directory 联合身份验证服务中创建联合服务器场\(AD FS\)当有更大的 AD FS 部署，并且你想要提供容错、 负载\-平衡或可伸缩性再到你组织的联合身份验证服务。 在同一网络中创建两个或多个联合身份验证服务器、 配置每个使用相同的联合身份验证服务，并且添加每个服务器的公钥的令牌的行为\-签名证书为 AD FS 管理管理单元\-中创建联合服务器场。  
   
@@ -55,4 +53,4 @@ ms.locfileid: "59816228"
 |指向相同的 SQL Server 实例|如果将 SQL 数据库中存储的 AD FS 配置数据库，新的联合身份验证服务器必须指向场中的其他联合身份验证服务器，以便新服务器可以加入场中使用的同一 SQL Server 实例。|  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

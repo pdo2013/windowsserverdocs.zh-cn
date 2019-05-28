@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e372f066fc82b9857d438234b491732a177e24fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d49ae34d83d4a0b912bd92dbb9de16e18cc5b7ff
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860388"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191336"
 ---
 # <a name="federation-server-farm-using-wid-and-proxies"></a>使用 WID 和代理的联合服务器场
-
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 Active Directory 联合身份验证服务的此部署拓扑\(AD FS\)等同于联合服务器场装有 Windows Internal Database \(WID\)拓扑，但它将添加到代理计算机外围网络以支持外部用户。 这些代理重定向到联合服务器场来自公司网络外部的客户端身份验证请求。 在以前版本的 AD FS 中，这些代理被称为联合身份验证服务器代理。  
   

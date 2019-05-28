@@ -8,16 +8,15 @@ ms.date: 09/19/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 68cd67dc14d3407985579a49e2f8603634fafdb7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b0d5754a4622df9ca26a80bd4e32c355dda0f684
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824428"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190060"
 ---
-# <a name="configure-3rd-party-authenticaiton-providers-as-primary-authentication-in-ad-fs-2019"></a>将第三方身份验证提供程序配置为 AD FS 2019 中的主要身份验证
+# <a name="configure-3rd-party-authentication-providers-as-primary-authentication-in-ad-fs-2019"></a>将第三方身份验证提供程序配置为 AD FS 2019 中的主要身份验证
 
->适用于：Windows Server 2019
 
 组织遇到尝试暴力破解攻击、 泄漏，或否则锁定用户帐户通过发送基于密码的身份验证请求。  为了帮助保护组织免受损坏，AD FS 引入了功能，例如"智能"extranet 锁定和阻止 IP 地址为基础。  
 

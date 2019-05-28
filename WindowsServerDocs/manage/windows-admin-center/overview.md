@@ -5,20 +5,19 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
+ms.date: 04/12/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: e23d02fd8da96392f44874ad6ea4d6c40e2be940
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 3208c20e8bf9f4cfab4340aa33b24175bbc72dda
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828198"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188326"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
 >适用于：Windows Admin Center，Windows Admin Center 预览版
-
-欢迎使用 Windows Admin Center！
 
 **Windows Admin Center** (代码名为**项目 Honolulu**) 是一种演变，Windows Server 中框管理工具; 它是单一管理平台，包含本地和远程服务器管理的所有方面。 作为一种本地部署、基于浏览器的管理体验，不需要 Internet 连接和 Azure。 利用 Windows Admin Center，你可以全面控制部署的各个方面，包括未连接到 Internet 的专用网络。
 
@@ -58,7 +57,6 @@ ms.locfileid: "59828198"
             <ul>
             <li><a href="plan/installation-options.md">哪种类型是安装的最适合你？</a>
             <li><a href="plan/user-access-options.md">用户访问选项</a>
-            <li><a href="plan/azure-integration-options.md">Azure 集成选项有哪些？</a>
             <br>
             </ul>
         </td>
@@ -78,8 +76,6 @@ ms.locfileid: "59828198"
             <li><a href="configure/settings.md">Windows Admin Center 设置</a>
             <li><a href="configure/user-access-control.md">用户访问控制和权限</a>
             <li><a href="configure/using-extensions.md">扩展插件</a>
-            <li><a href="configure/azure-integration.md">将与 Azure 集成</a>
-            <li><a href="configure/manage-azure-vms.md">管理 Windows Admin Center 使用的 Azure Vm</a>
             </ul>
         </td>
     </tr>
@@ -92,13 +88,29 @@ ms.locfileid: "59828198"
             <li><a href="use/manage-hyper-converged.md">管理超聚合基础结构</a>
             <li><a href="use/manage-failover-clusters.md">管理故障转移群集</a>
             <li><a href="use/manage-virtual-machines.md">管理虚拟机</a>
-            <li><a href="use/azure-services.md">利用 Azure 服务</a>
-            <li><a href="use/troubleshooting.md">常见的疑难解答步骤</a>
             <li><a href="use/logging.md">日志记录</a>
-            <li><a href="use/known-issues.md">已知问题</a>
             </ul>
         </td>
         <td style="vertical-align: top;">
+            <h3>连接到 Azure</h3>
+            <ul>
+            <li><a href="azure/index.md">Azure 混合服务</a></li>
+            <li><a href="azure/azure-integration.md">Windows Admin Center 连接到 Azure</a></li>
+            <li><a href="azure/deploy-wac-in-azure.md">部署在 Azure 中 Windows Admin Center</a></li>
+            <li><a href="azure/manage-azure-vms.md">通过 Windows Admin Center 管理 Azure 虚拟机</a></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+            <td style="vertical-align: top;">
+            <h3>支持</h3>
+            <ul>
+            <li><a href="support/index.md">支持策略</a>
+            <li><a href="support/troubleshooting.md">常见的疑难解答步骤</a>
+            <li><a href="support/known-issues.md">已知问题</a>
+            </ul>
+        </td>
+            <td style="vertical-align: top;">
             <h3>扩展</h3>
             <ul>
             <li><a href="extend/extensibility-overview.md">扩展概述</a>
@@ -116,7 +128,9 @@ ms.locfileid: "59828198"
 
 了解我们发布的最新功能：
 
-- 版本 [1902] (https://aka.ms/wac1902)添加到软件定义网络 (SDN) 管理，包括新的 SDN 工具来管理 Acl、 网关连接和逻辑网络的共享的连接列表和改进。
+- 版本[1904年](https://aka.ms/wac1904)是最新 GA 版本引入了 Azure 混合服务工具，并将以前在预览版中供 GA 通道的功能。
+- 版本[1903年](https://aka.ms/wac1903)通过 Azure Monitor，能够从 Active Directory 和新工具来管理 Active Directory、 DHCP 和 DNS 中添加服务器或电脑连接将电子邮件通知。
+- 版本[1902年](https://aka.ms/wac1902)添加到软件定义网络 (SDN) 管理，包括新的 SDN 工具来管理 Acl、 网关连接和逻辑网络的共享的连接列表和改进。
 - 版本 [1812](https://aka.ms/wac1812) 添加了深色主题（预览版）、电源配置设置、 BMC 信息以及 PowerShell 支持，以管理[扩展](./configure/using-extensions.md#manage-extensions-with-powershell)和[连接](./use/get-started.md#use-powershell-to-import-or-export-your-connections-with-tags)。
 - 版本 [1809.5](https://aka.ms/wac1809.5) 是 GA 累积更新，其中包含整个平台的各种质量提升、功能改进和 Bug 修复，以及超融合基础设施管理解决方案中的若干新功能。
 - 版本 [1809](https://cloudblogs.microsoft.com/windowsserver/2018/09/20/windows-admin-center-1809-and-sdk-now-generally-available/) 是以前的 GA 版本，在 GA 通道中提供之前的预览版功能。
@@ -133,6 +147,6 @@ ms.locfileid: "59828198"
 
 ## <a name="stay-updated"></a>保持更新状态
 
-<a target="_blank" class="mscom-link twitter-follow-link" title="Twitter 上关注我们" aria-label="Follow us on Twitter" data-info="Twitter" href="https://twitter.com/servermgmt"><picture><source srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR" media="(min-width:0)"><img srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR" alt="Follow us on Twitter" src="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR"></picture></a>
- | 
-<a target="_blank" class="mscom-link blogs-follow-link" title="阅读我们的博客" aria-label="Visit our Blogs" data-info="Blogs" href="https://blogs.technet.microsoft.com/servermanagement/"><picture><source srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw" media="(min-width:0)"><img srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw" alt="Follow us on Blogs" src="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw"></picture></a>
+![ ](//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR)[Twitter 上关注我们](https://twitter.com/servermgmt)
+
+![ ](//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw)[阅读我们的博客](https://blogs.technet.microsoft.com/servermanagement/)

@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 484dd08edef85b91e777f8963f175a6172c75430
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0191c822ec068c5486a1b0d5da4c1ae2ee9e4d31
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847388"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191096"
 ---
 # <a name="planning-for-ad-fs-server-capacity"></a>AD FS 服务器容量规划
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
   
 > [!NOTE]  
@@ -36,7 +35,7 @@ Active Directory 联合身份验证服务的容量规划\(AD FS\)是为你的联
   
 |建议的任务|描述|参考|  
 |--------------------|---------------|-------------|  
-|了解有关部署 AD FS 联合身份验证服务器和联合服务器代理的要求|查看部署联合服务器和联合服务器代理所需的重要硬件和软件要求。|[附录 a:查看 AD FS 要求](Appendix-A--Reviewing-AD-FS-Requirements.md)|  
+|了解有关部署 AD FS 联合身份验证服务器和联合服务器代理的要求|查看部署联合服务器和联合服务器代理所需的重要硬件和软件要求。|[附录 A：查看 AD FS 要求](Appendix-A--Reviewing-AD-FS-Requirements.md)|  
 |选择将在你的组织中部署的 AD FS 配置数据库的类型|在可以开始使用本部分中的容量规划数据之前，首先需要确定哪些 AD FS 配置数据库的类型将部署这两个 Windows 内部数据库\(WID\)或结构化查询语言\(SQL\)数据库。|[The Role of the AD FS Configuration Database](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)；<br /><br />[AD FS 部署拓扑注意事项](AD-FS-Deployment-Topology-Considerations.md)|  
 |确定可用于新的 AD FS 配置数据库选择的拓扑布局的类型。|一旦你已决定要在部署中使用的 AD FS 配置数据库的类型，你将需要考虑在生产环境中哪种部署拓扑最匹配将需要放置联合服务器和联合服务器代理的位置。|[确定 AD FS 部署拓扑](Determine-Your-AD-FS-Deployment-Topology.md)|  
 |了解关键 AD FS 相关容量规划术语|查看常见容量规划 AD FS 容量规划讨论中使用的术语的定义。|请参阅本主题中的 [AD FS capacity planning terms](Planning-for-AD-FS-Server-Capacity.md#bk_terms) 部分|  
@@ -98,9 +97,9 @@ Active Directory 联合身份验证服务的容量规划\(AD FS\)是为你的联
 ## <a name="continue-reading-more-about-ad-fs-capacity-planning"></a>继续阅读有关 AD FS 容量规划的详细信息  
 已经完成必备的任务，并已熟悉相关的术语和硬件要求之后，可以使用下列其他容量规划内容来帮助您确定所需的 AD FS 服务器的建议的数目应用部署：  
   
--   [联合身份验证服务器容量规划](Planning-for-Federation-Server-Capacity.md)  
+-   [联合服务器容量规划](Planning-for-Federation-Server-Capacity.md)  
   
--   [联合身份验证服务器代理容量规划](Planning-for-Federation-Server-Proxy-Capacity.md)  
+-   [联合服务器代理容量规划](Planning-for-Federation-Server-Proxy-Capacity.md)  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

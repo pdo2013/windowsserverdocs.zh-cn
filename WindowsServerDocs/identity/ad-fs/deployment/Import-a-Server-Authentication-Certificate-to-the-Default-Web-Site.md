@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 7bc890c744de5cd86d4e8b0418e75512518f656c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: da91a3e8c34c86f7fd03ca875b3800fdb6001750
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880938"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192121"
 ---
 # <a name="import-a-server-authentication-certificate-to-the-default-web-site"></a>将服务器身份验证证书导入到默认网站
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 从证书颁发机构获取服务器身份验证证书后\(CA\)，您必须手动安装该证书默认 Web 站点上为每个联合服务器或服务器场中的联合服务器代理。  
   
@@ -35,24 +33,24 @@ ms.locfileid: "59880938"
   
 1.  上**启动**屏幕上，键入**Internet Information Services \(IIS\) Manager**，然后按 ENTER。  
   
-2.  在控制台树中，单击“计算机名称”。  
+2.  在控制台树中，单击“计算机名称”  。  
   
 3.  在中心窗格中，双击\-单击**服务器证书**。  
   
-4.  在“操作”  窗格中，单击“导入” 。  
+4.  在“操作”  窗格中，单击“导入”  。  
   
 5.  在中**导入证书**对话框中，单击 **...** 按钮。  
   
-6.  浏览到 pfx 证书文件的位置，使其突出显示，然后单击“打开” 。  
+6.  浏览到 pfx 证书文件的位置，使其突出显示，然后单击“打开”  。  
   
-7.  为该证书键入一个密码，然后单击“确定” 。  
+7.  为该证书键入一个密码，然后单击“确定”  。  
   
 ## <a name="additional-references"></a>其他参考  
-[清单：设置联合身份验证服务器](Checklist--Setting-Up-a-Federation-Server.md)  
+[清单：设置联合服务器](Checklist--Setting-Up-a-Federation-Server.md)  
   
 [清单：设置联合服务器代理](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
-[联合身份验证服务器的证书要求](https://technet.microsoft.com/library/dd807040.aspx)  
+[联合服务器的证书要求](https://technet.microsoft.com/library/dd807040.aspx)  
   
 [联合服务器代理的证书要求](https://technet.microsoft.com/library/dd807054.aspx)  
    

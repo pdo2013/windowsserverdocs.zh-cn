@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2e57f34b173c10e9e753c7f3b8dcd88d7bf6742c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c3efbb4081336ebfdfe9d3ab8a2b91412aa82dee
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888898"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191076"
 ---
 # <a name="planning-for-federation-server-proxy-capacity"></a>联合服务器代理容量规划
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 容量规划联合服务器代理可帮助你估计：  
   
@@ -47,4 +45,4 @@ ms.locfileid: "59888898"
 但是，出于容错目的，我们建议你部署的每个联合服务器场的两个联合服务器代理的最小值。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a0fff975b9cb278e59686323d2bd72e641597573
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 66c8bae2fbccca2bf618e46ffd3ccc05cb52f911
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863948"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191502"
 ---
 # <a name="federation-server-farm-using-sql-server"></a>使用 SQL Server 的联合服务器场
-
->适用于：Windows Server 2012
 
 此拓扑用于 Active Directory 联合身份验证服务\(AD FS\)方面不同于使用 Windows 内部数据库的联合服务器场\(WID\)部署拓扑中，它不会复制到数据场中的每个联合身份验证服务器。 相反，场中的所有联合身份验证服务器可以读取和写入到运行 Microsoft SQL Server 位于企业网络中的服务器存储的常见数据库的数据。  
   
@@ -65,4 +63,4 @@ Microsoft 信息技术\(IT\)部门使用 SQL Server 数据库镜像在高\-安�
 有关如何使用联合身份验证服务器或联合服务器代理配置为使用你的网络环境的详细信息，请参阅[联合身份验证服务器的名称解析要求](Name-Resolution-Requirements-for-Federation-Servers.md)或[名称联合服务器代理的解析要求](Name-Resolution-Requirements-for-Federation-Server-Proxies.md)。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

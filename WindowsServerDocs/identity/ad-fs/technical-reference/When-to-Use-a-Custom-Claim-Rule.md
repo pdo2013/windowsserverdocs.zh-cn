@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b08622cd9eefa153e2fe8403fbe85077644182f4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e566de4df2895dfa2ed1104f85c1429881ff5bbf
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813108"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188291"
 ---
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
-
 # <a name="when-to-use-a-custom-claim-rule"></a>何时使用自定义声明规则
 在 Active Directory 联合身份验证服务中编写自定义声明规则\(AD FS\)使用声明规则语言，这是用于以编程方式生成声明发出引擎的框架，转换、 传递和筛选声明。 通过使用自定义规则，可以创建逻辑比标准规则模板更复杂的规则。 在以下情况下可考虑使用自定义规则：  
   

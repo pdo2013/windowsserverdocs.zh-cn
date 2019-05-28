@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 699622a8a075dd6c78ab1b536dce2abfee642e9e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b9702873d42e0a72e510ac022d8d7fb04b45dab9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855188"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189166"
 ---
 # <a name="customize-the-display-names-and-descriptions-for-authentication-methods"></a>自定义显示名称和说明的身份验证方法 
 
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 若要为身份验证方法自定义显示名称和说明，可以使用 `Set-AdfsAuthenticationProviderWebContent` PowerShell cmdlt。  若要使用此 cmdlt，你必须首先获取要自定义的身份验证方法的名称。  这可以使用 `Get-AdfsGlobalAuthenticationPolicy`来进行。  在下面的示例中我们看到，我们登录\-在页中，显示以下信息：“Sign in using an X.509 certificate”。  我们要为我们的用户简化此操作。  
   

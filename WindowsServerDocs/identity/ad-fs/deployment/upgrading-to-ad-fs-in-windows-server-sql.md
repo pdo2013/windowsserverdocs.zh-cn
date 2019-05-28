@@ -9,16 +9,15 @@ ms.prod: windows-server-threshold
 ms.assetid: 70f279bf-aea1-4f4f-9ab3-e9157233e267
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 59b761e69da5b1c1e27fea71b32447b19d2b83c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8ada2ae5c9fcdb77f35200581848041f222ed7f3
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812078"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191965"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-with-sql-server"></a>升级到与 SQL Server 的 Windows Server 2016 中的 AD FS
 
->适用于：Windows Server 2016
 
 
 ## <a name="moving-from-a-windows-server-2012-r2-ad-fs-farm-to-a-windows-server-2016-ad-fs-farm"></a>从 Windows Server 2012 R2 AD FS 场迁移到 Windows Server 2016 AD FS 场  
@@ -44,7 +43,7 @@ Windows Server 2016 AD FS 服务器可以添加到 Windows Server 2012 R2 场，
 
 为以下体系结构关系图显示了用于验证和记录下面的步骤设置。
 
-![体系结构](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/arch.png) 
+![体系结构](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/arch.png)
 
 
 #### <a name="join-the-windows-2016-ad-fs-server-to-the-ad-fs-farm"></a>将 Windows 2016 AD FS 服务器联接到 AD FS 场
@@ -58,32 +57,32 @@ Windows Server 2016 AD FS 服务器可以添加到 Windows Server 2012 R2 场，
 ![加入场](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure3.png)
 5.  上**指定 SSL 证书**屏幕上，指定的证书，单击**下一步**。
 ![加入场](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure4.png)
-6.  上**指定服务帐户**屏幕上，指定服务帐户，然后单击**下一步**。 
-7.  上**查看选项**屏幕上，查看选项并单击**下一步**。 
+6.  上**指定服务帐户**屏幕上，指定服务帐户，然后单击**下一步**。
+7.  上**查看选项**屏幕上，查看选项并单击**下一步**。
 8.  上**系统必备组件检查**屏幕上，确保所有先决条件检查已通过，单击**配置**。
 9.  上**结果**屏幕上，确保已成功配置该服务器，然后单击**关闭**。
- 
-   
+
+
 #### <a name="remove-the-windows-server-2012-r2-ad-fs-server"></a>删除 Windows Server 2012 R2 AD FS 服务器
 
 >[!NOTE]
 >不需要设置主 AD FS 服务器使用集 AdfsSyncProperties-角色时，使用 SQL 作为数据库。  这是因为所有节点被视为主要在这种配置。
 
-1.  在服务器管理器使用 Windows Server 2012 R2 AD FS 服务器上**删除角色和功能**下**管理**。 
+1.  在服务器管理器使用 Windows Server 2012 R2 AD FS 服务器上**删除角色和功能**下**管理**。
 ![删除服务器](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/remove1.png)
-2.  在“开始之前”屏幕上，单击“下一步”。
+2.  在“开始之前”  屏幕上，单击“下一步”  。
 3.  上**服务器选择**屏幕上，单击**下一步**。
 4.  上**服务器角色**屏幕上，清除该复选框旁边**Active Directory 联合身份验证服务**然后单击**下一步**。
 ![删除服务器](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/remove2.png)
 5.  上**功能**屏幕上，单击**下一步**。
 6.  上**确认**屏幕上，单击**删除**。
 7.  完成此操作，重新启动服务器。
-     
+
 #### <a name="raise-the-farm-behavior-level-fbl"></a>提升场行为级别 (FBL)
 在此步骤之前，您需要确保 forestprep 和 domainprep 已运行 Active Directory 环境和 Active Directory 具有 Windows Server 2016 的架构。  本文档开始使用 Windows 2016 域控制器并不需要运行这些，因为它们已运行 AD 安装时。
 
 >[!NOTE]
->开始以下过程之前，确保 Windows Server 2016 是最新的设置从运行 Windows 更新。  继续这一过程，直到不需要进一步更新。 
+>开始以下过程之前，确保 Windows Server 2016 是最新的设置从运行 Windows 更新。  继续这一过程，直到不需要进一步更新。
 
 1. 现在在 Windows Server 2016 服务器上打开 PowerShell 并运行以下命令： **$cred = Get-credential**并按 enter。
 2. 输入 SQL 服务器具有管理员权限的凭据。
@@ -93,3 +92,24 @@ Windows Server 2016 AD FS 服务器可以添加到 Windows Server 2012 R2 场，
 3. 现在，如果转到 AD FS 管理，你将看到已添加适用于 Windows Server 2016 中的 AD FS 的新节点  
 4. 同样，可以使用 PowerShell 脚本：Get AdfsFarmInformation 以显示当前 FBL。  
 ![完成更新](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/finish2.png)
+
+#### <a name="upgrade-the-configuration-version-of-existing-wap-servers"></a>升级现有的 WAP 服务器的配置版本
+1. 在每个 Web 应用程序代理服务器上，重新配置通过在提升的窗口中执行以下 PowerShell 命令 WAP:  
+    ```powershell
+    $trustcred = Get-Credential -Message "Enter Domain Administrator credentials"
+    Install-WebApplicationProxy -CertificateThumbprint {SSLCert} -fsname fsname -FederationServiceTrustCredential $trustcred  
+    ```
+2. 从群集中删除旧服务器并保留仅的 WAP 服务器运行最新的服务器版本中，已重新配置更高版本，通过运行以下 Powershell commandlet。
+    ```powershell
+    Set-WebApplicationProxyConfiguration -ConnectedServersName WAPServerName1, WAPServerName2
+    ```
+3. 运行 Get WebApplicationProxyConfiguration commmandlet 检查 WAP 配置。 ConnectedServersName 将反映从以前的命令运行的服务器。
+    ```powershell
+    Get-WebApplicationProxyConfiguration
+    ```
+4. 若要升级的 WAP 服务器 ConfigurationVersion，运行以下 Powershell 命令。
+    ```powershell
+    Set-WebApplicationProxyConfiguration -UpgradeConfigurationVersion
+    ```
+5. 验证已使用 Get WebApplicationProxyConfiguration Powershell 命令升级 ConfigurationVersion。
+    

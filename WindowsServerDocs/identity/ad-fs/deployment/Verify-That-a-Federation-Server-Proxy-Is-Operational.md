@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 4900d8621b94a514a07bba55b2f7f3df5dd36353
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 26b0ae4f331607d83c6b94a2655ddc9eded8a356
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814618"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191875"
 ---
 # <a name="verify-that-a-federation-server-proxy-is-operational"></a>验证联合服务器代理是否正常运行
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 可以使用以下过程来验证联合服务器代理可以与 Active Directory 联合身份验证服务中的联合身份验证服务通信\(AD FS\)。 在运行后运行此过程**AD FS 联合服务器代理配置向导**若要将计算机配置为在联合服务器代理角色中运行。 有关如何运行此向导的详细信息，请参阅[将计算机配置为联合服务器代理角色](Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md)。  
   
@@ -35,7 +34,7 @@ ms.locfileid: "59814618"
   
 3.  在详细信息窗格中，双击\-单击**应用程序和服务日志**，双精度型\-单击**AD FS 事件**，然后单击**管理员**。  
   
-4.  在“事件 ID”列中，查找事件 ID 198。  
+4.  在“事件 ID”  列中，查找事件 ID 198。  
   
     如果联合服务器代理配置正确，您会看到事件查看器中，与事件 ID 198 的应用程序日志中的新事件。 此事件证实联合服务器代理服务已成功启动且现在处于联机状态。  
   

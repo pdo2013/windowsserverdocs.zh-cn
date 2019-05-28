@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3a668659f375f7fe96d676e7018e9e9315e35be5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bf21860603b3055c2ef2c9e7b77bb106eb06e238
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814438"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191619"
 ---
 # <a name="deploying-ad-fs-in-the-account-partner-organization"></a>在帐户伙伴组织中部署 AD FS
-
->适用于：Windows Server 2012
 
 在 Active Directory 联合身份验证服务帐户伙伴\(AD FS\)表示组织中受支持的属性存储中以物理方式存储用户帐户的联合身份验证信任关系。 有关支持的属性存储的详细信息，请参阅[The Role of Attribute Stores](../../ad-fs/technical-reference/The-Role-of-Attribute-Stores.md)。  
   
@@ -30,11 +28,11 @@ ms.locfileid: "59814438"
   
 ## <a name="in-this-section"></a>本节内容  
   
--   [查看帐户伙伴中的联合身份验证服务器的角色](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md)  
+-   [查看联合服务器在帐户伙伴中的角色](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md)  
   
 -   [查看联合服务器代理在帐户伙伴中的角色](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Account-Partner.md)  
   
 -   [准备帐户伙伴中的客户端计算机](Prepare-Client-Computers-in-the-Account-Partner.md)  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

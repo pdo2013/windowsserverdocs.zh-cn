@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3372e1f051ba7f900753a4961d948ddabdef6f4d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 40f1f4952730fad0749a173fdc968714d043b1c1
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867618"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188509"
 ---
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
-
 # <a name="the-role-of-the-ad-fs-configuration-database"></a>AD FS 配置数据库的角色
 AD FS 配置数据库将表示 Active Directory 联合身份验证服务的单个实例的所有配置数据都存储\(AD FS\) \(即，联合身份验证服务\)。 AD FS 配置数据库定义联合身份验证服务识别伙伴、证书、属性存储、声明和有关这些相关联实体的各种数据所需的参数集。 可以在 Microsoft SQL Server® 数据库或 Windows 内部数据库中存储此配置数据\(WID\)随 Windows Server® 2008年、 Windows Server 2008 R2 和 Windows Server® 2012年的功能。  
   
@@ -96,7 +94,7 @@ WID 同步过程还支持用于中间更改的更高效传输的增量传输。 
 > 如果您是帐户伙伴组织中的管理员，请确保分配或绑定 SSL 证书，链接到 Windows 根证书程序成员的根证书，在 IIS 中的联合被动 Web 站点\( <ComputerName>\\站点\\Default Web Site\\adfs\\ls\)场中的所有帐户联合身份验证服务器上。 若要避免资源联合服务器通过手动将 SSL 证书添加到本地计算机受信任人证书存储，或无法解析你的组织中发布的项目，这样做是非常重要的。  
   
 ### <a name="samlws---federation-token-replay-detection"></a>SAML/WS-联合身份验证令牌重放检测  
-术语*令牌重放*是指在帐户伙伴组织中的浏览器客户端尝试将其从帐户联合服务器收到的同一个令牌进行多次发送，以对资源联合服务器进行身份验证的操作。  在用户单击他们浏览器的“返回”按钮时，会执行此操作以尝试重新提交身份验证页面。  
+术语*令牌重放*是指在帐户伙伴组织中的浏览器客户端尝试将其从帐户联合服务器收到的同一个令牌进行多次发送，以对资源联合服务器进行身份验证的操作。  在用户单击他们浏览器的“返回”  按钮时，会执行此操作以尝试重新提交身份验证页面。  
   
 AD FS 提供称为*令牌重放检测*的功能，通过此功能，可检测使用相同令牌的多个令牌请求，然后丢弃这些令牌。 启用此功能后，令牌重放检测可保护的身份验证请求中这两个 WS 完整性\-联合身份验证被动配置文件和通过确保永远不会多次使用相同的令牌的 SAML WebSSO 配置文件。 应在对安全有很高要求的情况下启用此功能，例如使用展台时。  
   

@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 6a7602cddcaee274d42213cd9365f6d1722dab79
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5426ea929037e59d2105fb2b3b06d4ebfdb7a577
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852908"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192295"
 ---
 # <a name="configure-performance-monitoring"></a>配置性能监视
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
   
 ## <a name="bkmk_ConfigurePerfMon"></a>  
 AD FS 包含其自己的专用的性能计数器来帮助你监视联合身份验证服务器和联合服务器代理计算机的性能。 若要使用性能监视器来监视 AD FS 服务器的性能，它可用于创建新的数据收集器集并将 AD FS 计数器添加到该视图。 以下过程介绍如何配置性能监视适用于 AD FS。  
@@ -31,7 +29,7 @@ AD FS 包含其自己的专用的性能计数器来帮助你监视联合身份�
   
     创建新数据收集器集向导将显示。  
   
-3.  在中**新数据收集器集**，对于**名称**键入新的数据收集器集的名称\(如"AD FS 性能"\)，单击**手动创建\(高级\)**，然后单击**下一步**。  
+3.  在中**新数据收集器集**，对于**名称**键入新的数据收集器集的名称\(如"AD FS 性能"\)，单击**手动创建\(高级\)** ，然后单击**下一步**。  
   
 4.  对于要包含的数据类型，请验证**创建数据日志**已选中，然后单击以下数据类型对应的复选框：**性能计数器**，**事件跟踪数据**，**系统配置信息**。  
   
@@ -43,7 +41,7 @@ AD FS 包含其自己的专用的性能计数器来帮助你监视联合身份�
   
 7.  当提示来添加注册表项，若要监视，请单击**下一步**。  
   
-8.  时系统会提示您指定要保存的性能数据的位置，您可以接受默认位置\( * *%systemdrive%\\PerfLogs\\管理员\\* * * < 数据\_收集器\_设置 >*，然后单击**下一步**。  
+8.  时系统会提示您指定要保存的性能数据的位置，您可以接受默认位置\( * *%systemdrive%\\PerfLogs\\管理员\\* * * < 数据\_收集器\_设置 >* ，然后单击**下一步**。  
   
 9. 时系统会提示您创建数据收集器集，选择**保存并关闭**，然后单击**完成**。  
   

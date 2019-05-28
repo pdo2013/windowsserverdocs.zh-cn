@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: bdfb086c8177e72c074ac5b5b1a38aac49c4082c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e28d050a9aa40c015af16a665e90535cb810b4ff
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886748"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192328"
 ---
 # <a name="configure-client-computers-to-trust-the-account-federation-server"></a>配置客户端计算机信任的帐户联合身份验证服务器
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 以便客户端计算机可以成功访问联合应用程序使用 Active Directory 联合身份验证服务\(AD FS\)，您必须首先配置 Internet Explorer 设置每个客户端计算机上，以便在浏览器信任帐户联合身份验证服务器。 您可以执行此操作手动或通过组策略，具体取决于您管理的首选项，通过完成以下过程之一。  
   
@@ -37,7 +35,7 @@ ms.locfileid: "59886748"
   
 4.  单击**高级**，然后在**将该网站添加到区域**，键入在完整域名系统\(DNS\)帐户联合身份验证服务器的名称\(例如，https:\/\/fs1.fabrikam.com\)，然后单击**添加**。  
   
-5.  单击“确定”三次。  
+5.  单击“确定”  三次。  
   
 ## <a name="configuring-internet-explorer-settings-by-using-grouppolicy"></a>通过使用组策略配置 Internet Explorer 设置  
 对于大多数部署，我们建议使用组策略，将适当的 Internet Explorer 设置推送到每个客户端计算机。  

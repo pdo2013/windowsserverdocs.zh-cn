@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 12f544ad0d037c4ae7a9789238186b7ded311bdf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e80927f2670614d2949f4e67cc158319f05c5fa0
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825238"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192151"
 ---
 # <a name="enroll-an-ssl-certificate-for-ad-fs"></a>为 AD FS 注册 SSL 证书
-
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 Active Directory 联合身份验证服务\(AD FS\)需要安全套接字层证书\(SSL\)联合服务器场中每个联合身份验证服务器上的服务器身份验证。 场中每个联合身份验证服务器上，可以使用相同的证书。 你必须获得该证书及其私钥。 例如，如果你将该证书及其私钥保存在一个 .pfx 文件中，则可以将该文件直接导入 Active Directory 联合身份验证服务配置向导。 此 SSL 证书必须包含以下内容：  
   

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3300c16be6d516d7ec0bf4d0c3a025e59e6126b6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 06cc4bd37905f6bb7afbc513ffce216104654aba
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834518"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191483"
 ---
 # <a name="determine-your-ad-fs-deployment-topology"></a>确定 AD FS 部署拓扑
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 规划 Active Directory 联合身份验证服务的部署的第一步\(AD FS\)是确定正确的部署拓扑，以满足的单一登录\-上\(SSO\)需要的应用组织。 在本部分中的主题介绍可以与 AD FS 配合使用的各种部署拓扑。 这些主题还描述了与每个部署拓扑相关联的优势和限制，以便你可以为特定的业务需求选择最合适的拓扑。  
   
@@ -38,12 +36,12 @@ ms.locfileid: "59834518"
   
 -   [使用 WID 的联合服务器场](Federation-Server-Farm-Using-WID-2012.md)  
   
--   [联合服务器场使用 WID 和代理](Federation-Server-Farm-Using-WID-and-Proxies-2012.md)  
+-   [使用 WID 和代理的联合服务器场](Federation-Server-Farm-Using-WID-and-Proxies-2012.md)  
   
 -   [使用 SQL Server 的联合服务器场](Federation-Server-Farm-Using-SQL-Server-2012.md)  
   
 选择 AD FS 部署拓扑后，我们建议你查看主题[AD FS 服务器容量规划](Planning-for-AD-FS-Server-Capacity.md)来确定将需要部署以支持此拓扑的服务器的建议的数目。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
 

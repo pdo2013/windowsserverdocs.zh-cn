@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1198d8b76f2ecdad728e2de6ce7a5c0d053f779f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e91306ecd8ef08dd6af9173ead314a39dd5d2eff
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868928"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189128"
 ---
 # <a name="home-realm-discovery-customization"></a>主领域发现自定义项
 
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 当 AD FS 客户端首次请求资源时，资源联合身份验证服务器具有有关领域的客户端的任何信息。 资源联合身份验证服务器与 AD FS 客户端响应**客户端领域发现**页面上，其中用户从列表选择主领域。 列表的值由“声明提供方信任”中的显示名称属性填充。 使用以下 Windows PowerShell cmdlet 来修改和自定义主 AD FS 领域发现体验。  
   

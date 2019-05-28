@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4bde30f694c6490962edaa0c3fe1543e74ba7fd7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9cc40920d366c973ace06a0b6d438a1c2d84b03e
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842978"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190508"
 ---
 # <a name="where-to-place-a-federation-server-proxy"></a>联合服务器代理放置位置
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 您可以放置 Active Directory 联合身份验证服务\(AD FS\)联合服务器代理在外围网络中以提供针对可能来自 Internet 的恶意用户的保护层。 联合服务器代理不能访问用于创建令牌的私钥，因此非常适合外围网络环境。 但是，联合服务器代理可以有效地将传入请求路由到联合身份验证服务器有权生成这些令牌。  
   
@@ -53,4 +51,4 @@ ms.locfileid: "59842978"
 > 联合身份验证服务器或联合服务器代理需要通过 SSL 来保护安全令牌的内容进行保护的连接。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

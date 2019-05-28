@@ -9,16 +9,15 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d5c2d84c263517a4c81622ca02538796ccd9da71
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2d819ea036029fbe7cfde9ad5a445db6b2b42c96
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817498"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189701"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>为用户证书身份验证配置 AD FS
 
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 可以为 x509 用户证书身份验证使用一种模式中所述配置 AD FS[这篇文章](ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md)。 可以使用此功能[与 Azure Active Directory](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/)或本身要使客户端和设备预配用户证书访问 AD FS 与从 intranet 或 extranet 资源。
 
@@ -43,7 +42,7 @@ ms.locfileid: "59817498"
 
 
 ## <a name="troubleshooting"></a>疑难解答
-- 如果证书身份验证请求因 HTTP 204"从无内容 https://certauth.fs.contoso.com"响应，验证，根和任何中间 CA 证书是否已安装，分别为受信任的根 CA 证书和中间 CA 证书对所有存储联合身份验证服务器。
+- 如果证书身份验证请求因 HTTP 204"没有内容从 https:\//certauth.fs.contoso.com"响应，验证的根和任何中间 CA 证书是否已安装，分别与受信任的根 CA 和所有联合服务器上存储中间 CA 证书。
 - 如果证书身份验证请求失败，原因未知，将客户端证书导出到.cer 文件，并运行命令 
 
 `certutil -f -urlfetch -verify certificatefilename.cer`

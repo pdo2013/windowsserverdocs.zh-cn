@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a047b94906cf703bb934c93f517b8874af91e092
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9db69cfb2eb42af90b392433a6e05eaab9978160
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864058"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190815"
 ---
 # <a name="token-signing-certificates"></a>令牌签名证书
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 联合身份验证服务器需要令牌\-签名证书，以防止攻击者更改或伪造安全令牌以尝试对联合资源未经授权的访问。 私有\/配对的公共密钥用于令牌\-签名证书是最重要的验证任何的机制联合合作关系，因为这些密钥验证安全令牌是否由有效的合作伙伴颁发联合身份验证服务器，并在传输期间未修改该令牌。  
   
@@ -75,4 +73,4 @@ ms.locfileid: "59864058"
 有关安装自助\-签名证书，请参阅[IIS 7.0:创建自\-签名服务器证书在 IIS 7.0 中的](https://go.microsoft.com/fwlink/?LinkID=108271)。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

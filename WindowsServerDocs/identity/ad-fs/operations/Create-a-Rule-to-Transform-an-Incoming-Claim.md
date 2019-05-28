@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e982b7608f7602268657ceae74f641bbaaaec939
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6bd107aca6c6f33cdf5f88e5b48a52fdea8d2086
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816678"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189340"
 ---
 # <a name="create-a-rule-to-transform-an-incoming-claim"></a>创建规则以转换传入声明
 
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 通过使用**转换传入声明**Active Directory 联合身份验证服务中的规则模板\(AD FS\)，可以选择一个传入声明、 更改其声明的类型，并将其声明值更改。 例如，可以使用此规则模板来创建发送具有相同的声明值的传入组声明的角色声明的规则。 此外可以使用此规则将发送一组声明使用购买者声明值时没有传入组声明的值为管理员，也可以发送用户主体名称\(UPN\)结尾的声明@fabrikam。  
   
@@ -131,7 +130,7 @@ ms.locfileid: "59816678"
 >   
 > 有关动态访问控制方案的详细信息，请参阅[动态访问控制内容指南](../../solution-guides/dynamic-access-control--scenario-overview.md)或[将使用 AD FS 的 AD DS 声明](https://technet.microsoft.com/library/hh831504.aspx)。  
   
-7.  单击 **“完成”**。  
+7.  单击 **“完成”** 。  
   
 8.  在中**编辑声明规则**对话框中，单击**确定**以保存规则。  
 
@@ -140,7 +139,7 @@ ms.locfileid: "59816678"
  
 [清单：为信赖方信任创建声明规则](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[清单：为声明提供程序创建声明规则信任](https://technet.microsoft.com/library/ee913564.aspx)  
+[清单：为声明提供方信任创建声明规则](https://technet.microsoft.com/library/ee913564.aspx)  
   
 [何时使用授权声明规则](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 

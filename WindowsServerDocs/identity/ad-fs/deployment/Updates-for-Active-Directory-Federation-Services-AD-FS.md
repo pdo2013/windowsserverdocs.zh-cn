@@ -5,20 +5,19 @@ description: ''
 author: billmath
 ms.author: billmath
 manager: femila
-ms.date: 11/28/2017
+ms.date: 3/29/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 467eda2e1556c3f098fba4f35cb7e52103bee6b0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 071017d05b288a70592af9203fedc72f699d18e0
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867368"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191937"
 ---
 # <a name="required-updates-for-active-directory-federation-services-ad-fs-and-web-application-proxy-wap"></a>有关 Active Directory 联合身份验证服务 (AD FS) 和 Web 应用程序代理 (WAP) 所需的更新
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2 SP1
 
 截至 2016 年 10 月 Windows Server 的所有组件的所有更新都发布仅通过 Windows Update (WU)。  有没有更多修补程序或单独下载。
 这适用于 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012 和 Windows Server 2008 R2 SP1。
@@ -30,13 +29,14 @@ Windows Server 2016 的更新通过 Windows Update 每月会传递，并且具�
 
 |KB # |描述|发布日期
 |----- | ----- |-----
-|[KB4487006 （OS 内部版本 14393.2828）](https://support.microsoft.com/en-us/help/4487006/windows-10-update-kb4487006) | 解决了导致更新失败时使用 PowerShell 或 Active Directory 联合身份验证服务 (AD FS) 管理控制台的信赖方信任的问题。 如果配置为使用发布多个 PassiveRequestorEndpoint 联机元数据 URL 的信赖方信任，会发生此问题。 错误是，"MSIS7615:信赖方信任中指定的受信任终结点必须是唯一的该信赖方信任。" </br></br>解决了因 Azure 密码保护策略而显示的特定错误消息的复杂性外部密码更改的问题。 |2019 年 2 月|
-|[4462928 （OS 内部版本 14393.2580）](https://support.microsoft.com/en-us/help/4462928/windows-10-update-kb4462928)|解决了 Active Directory 联合身份验证服务 (ADFS) Extranet 智能锁定 (ESL) 和备用登录 ID 之间的互操作问题 启用备用登录 ID 后，调用到 AD FS Powershell cmdlet、 Get AdfsAccountActivity 和重置 AdfsAccountLockout，返回"找不到帐户"错误。 当调用集 AdfsAccountActivity 时，而不是编辑一个现有添加新条目。|2018 年 10 月|
+|[4489889 （OS 内部版本 14393.2879）](https://support.microsoft.com/help/4489889/windows-10-update-kb4489889) | 解决了在 Active Directory 联合身份验证服务 (AD FS) 会导致重复信赖方信任 AD FS 管理控制台中显示的问题。 发生这种情况时创建或查看信赖方信任使用的 AD FS 管理控制台。 |2019 年 3 月|
+|[4487006 （OS 内部版本 14393.2828）](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) | 解决了导致更新失败时使用 PowerShell 或 Active Directory 联合身份验证服务 (AD FS) 管理控制台的信赖方信任的问题。 如果配置为使用发布多个 PassiveRequestorEndpoint 联机元数据 URL 的信赖方信任，会发生此问题。 错误是，"MSIS7615:信赖方信任中指定的受信任终结点必须是唯一的该信赖方信任。"  </br></br>解决了因 Azure 密码保护策略而显示的特定错误消息的复杂性外部密码更改的问题。 |2019 年 2 月|
+|[4462928 （OS 内部版本 14393.2580）](https://support.microsoft.com/help/4462928/windows-10-update-kb4462928)|解决了 Active Directory 联合身份验证服务 (ADFS) Extranet 智能锁定 (ESL) 和备用登录 ID 之间的互操作问题 启用备用登录 ID 后，调用到 AD FS Powershell cmdlet、 Get AdfsAccountActivity 和重置 AdfsAccountLockout，返回"找不到帐户"错误。 当调用集 AdfsAccountActivity 时，而不是编辑一个现有添加新条目。|2018 年 10 月|
 |[4343884 （OS 内部版本 14393.2457）](https://support.microsoft.com/en-us/help/4343884/windows-10-update-kb4343884)|解决了 Active Directory 联合身份验证服务 (AD FS) 的问题： 多重身份验证不会无法正常工作与使用自定义区域性定义的移动设备。 </br></br>解决了在 Windows hello 企业版的新用户注册会导致较长的延迟 （15 秒） 的问题。 硬件安全模块使用 ADFS 注册机构 (RA) 证书存储时，会发生此问题。|2018 年 8 月|
-|[4338822 （OS 内部版本 14393.2395）](https://support.microsoft.com/en-us/help/4338822/windows-10-update-kb4338822)|解决了在显示时创建或查看从控制台的信赖方信任的 AD FS 管理控制台中的重复信赖方信任的 AD FS 中的问题。</br></br>解决了导致 Windows hello 企业版失败的 ADFS 中的问题。 有两个声明提供程序时，将发生此问题。 PIN 注册将失败，并"400 内部服务器错误：无法获取设备标识符。"</br></br>解决了与永远不会结束的非活动连接相关的 WAP 问题。 这会导致系统资源泄漏 （例如，内存泄漏） 和它不再响应的 WAP 服务。</br></br>
-解决了 AD FS 的问题，以防止用户选择不同的登录选项。 当用户选择使用基于证书身份验证进行登录，但尚未配置时，将发生这种情况。 如果用户选择基于证书的身份验证，然后尝试选择另一个登录名选项也会发生这种情况。 如果发生这种情况，用户将重定向到基于证书的身份验证页直至将其关闭浏览器。 |2018 年 7 月|
-|[4103720 （OS 内部版本 14393.2273）](https://support.microsoft.com/en-us/help/4103720/windows-10-update-kb4103720)|解决了使用 ADFS 对 SAML 信赖方时启用 PreventTokenReplays 失败将导致 IdP 发起的登录名的问题。 </br></br>解决了从设备或浏览器应用程序的 OAUTH 进行身份验证时，会发生了 ADFS 的问题。 更改用户密码生成失败，并要求用户退出应用程序或浏览器进行登录。 </br></br>解决了的问题，启用 Extranet 智能锁定 utc + 1 和更高版本 （欧洲和亚洲） 不起作用。 此外，它会导致正常的 Extranet 锁定失败并出现以下错误：Get-AdfsAccountActivity:大于 DateTime.MaxValue 或小于 DateTime.MinValue 时转换为 UTC 日期时间值不能序列化为 JSON。</br></br>解决了 ADFS Windows hello 企业中的新用户不能预配其 PIN 的业务问题。 配置无 MFA 提供程序时，将发生这种情况。|2018 年 5 月|
-|[4077525 （OS 内部版本 14393.2097）](https://support.microsoft.com/en-us/help/4077525/windows-10-update-kb4077525)|解决了 HTTP 500 错误发生时的 ADFS 场有使用 Windows 内部数据库 (WID) 在至少两台服务器的问题。 在此方案中，HTTP 基本预身份验证 Web 应用程序代理 (WAP) 服务器上的无法对某些用户进行身份验证。 发生错误时，可能还会看到警告 WAP 事件日志中的事件 ID 13039 Microsoft Windows Web 应用程序代理。 说明读取，"Web 应用程序代理无法对用户进行身份验证。 预身份验证是 ADFS 的富客户端。 给定的用户无权访问给定信赖方。 目标信赖方或 WAP 信赖方的授权规则所需进行修改。"</br></br>解决 AD FS 可以不再忽略提示的问题在身份验证期间 = 登录名。 已禁用选项被为了支持在密码中不使用身份验证的方案。 有关详细信息，请参阅 AD FS 在 Windows Server 2016 RTM 中的身份验证过程中忽略"prompt = 登录名"参数。</br></br>在 AD FS 中解决问题，其中授权客户 （以及信赖方） 人员选择证书身份验证选项将无法进行连接。 使用提示符时，出现故障 = 登录名，如果已启用 Windows 集成身份验证 (WIA)，并请求怎样 WIA。</br></br>解决 AD FS 错误地显示在那里主页领域发现 (HRD) 页面与 OAuth 组中的信赖方 (RP) 相关联的标识提供者 (IDP) 时的问题。 除非多个 Idp 都与 RP OAuth 组中，用户将不会显示 HRD 页。 相反，用户将直接转到相关联的 IDP 进行身份验证。|2018 年 2 月|
+|[4338822 （OS 内部版本 14393.2395）](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)|解决了在显示时创建或查看从控制台的信赖方信任的 AD FS 管理控制台中的重复信赖方信任的 AD FS 中的问题。</br></br>解决了导致 Windows hello 企业版失败的 ADFS 中的问题。 有两个声明提供程序时，将发生此问题。 PIN 注册将失败，并"400 内部服务器错误：无法获取设备标识符。"</br></br> 解决了与永远不会结束的非活动连接相关的 WAP 问题。 这会导致系统资源泄漏 （例如，内存泄漏） 和它不再响应的 WAP 服务。 解决了 AD FS 的问题，以防止用户选择不同的登录选项。 当用户选择使用基于证书身份验证进行登录，但尚未配置时，将发生这种情况。 如果用户选择基于证书的身份验证，然后尝试选择另一个登录名选项也会发生这种情况。 如果发生这种情况，用户将重定向到基于证书的身份验证页直至将其关闭浏览器。|2018 年 7 月|
+|[4103720 （OS 内部版本 14393.2273）](https://support.microsoft.com/help/4103720/windows-10-update-kb4103720)|解决了使用 ADFS 对 SAML 信赖方时启用 PreventTokenReplays 失败将导致 IdP 发起的登录名的问题。 </br></br>解决了从设备或浏览器应用程序的 OAUTH 进行身份验证时，会发生了 ADFS 的问题。 更改用户密码生成失败，并要求用户退出应用程序或浏览器进行登录。 </br></br>解决了的问题，启用 Extranet 智能锁定 utc + 1 和更高版本 （欧洲和亚洲） 不起作用。 此外，它会导致正常的 Extranet 锁定失败并出现以下错误：Get-AdfsAccountActivity:大于 DateTime.MaxValue 或小于 DateTime.MinValue 时转换为 UTC 日期时间值不能序列化为 JSON。</br></br>解决了 ADFS Windows hello 企业中的新用户不能预配其 PIN 的业务问题。 配置无 MFA 提供程序时，将发生这种情况。|2018 年 5 月|
+|[4093120 （OS 内部版本 14393.2214）](https://support.microsoft.com/help/4093120/windows-10-update-kb4093120)| 解决了未经处理的刷新令牌验证问题。 它会生成以下错误：“Microsoft.IdentityServer.Web.Protocols.OAuth.Exceptions.OAuthInvalidRefreshTokenException:MSIS9312:接收到无效的 OAuth 刷新令牌。 刷新令牌已收到早于令牌中允许的时间。" |2018 年 4 月|
+|[4077525 （OS 内部版本 14393.2097）](https://support.microsoft.com/help/4077525/windows-10-update-kb4077525)|解决了 HTTP 500 错误发生时的 ADFS 场有使用 Windows 内部数据库 (WID) 在至少两台服务器的问题。 在此方案中，HTTP 基本预身份验证 Web 应用程序代理 (WAP) 服务器上的无法对某些用户进行身份验证。 发生错误时，可能还会看到警告 WAP 事件日志中的事件 ID 13039 Microsoft Windows Web 应用程序代理。 说明读取，"Web 应用程序代理无法对用户进行身份验证。 预身份验证是 ADFS 的富客户端。 给定的用户无权访问给定信赖方。 目标信赖方或 WAP 信赖方的授权规则所需进行修改。"</br></br>解决 AD FS 可以不再忽略提示的问题在身份验证期间 = 登录名。 已禁用选项被为了支持在密码中不使用身份验证的方案。 有关详细信息，请参阅 AD FS 在 Windows Server 2016 RTM 中的身份验证过程中忽略"prompt = 登录名"参数。</br></br>在 AD FS 中解决问题，其中授权客户 （以及信赖方） 人员选择证书身份验证选项将无法进行连接。 使用提示符时，出现故障 = 登录名，如果已启用 Windows 集成身份验证 (WIA)，并请求怎样 WIA。</br></br>解决 AD FS 错误地显示在那里主页领域发现 (HRD) 页面与 OAuth 组中的信赖方 (RP) 相关联的标识提供者 (IDP) 时的问题。 除非多个 Idp 都与 RP OAuth 组中，用户将不会显示 HRD 页。 相反，用户将直接转到相关联的 IDP 进行身份验证。|2018 年 2 月|
 |[4041688 （OS 内部版本 14393.1794）](https://support.microsoft.com/kb/4041688)|这一修补解决了间歇性 misdirects AD 颁发机构请求到错误的标识提供程序由于不正确的缓存行为的问题。 这可以影响身份验证功能，如多重身份验证。 </br></br>添加了 AAD 连接运行状况到 ADFS 服务器运行状况报表，以正确保真度 （使用详细审核） 上混合 WS2012R2 和 WS2016 ADFS 场。</br></br>其中 2012年的升级过程 R2 ADFS 场到 ADFS 2016 解决了问题，用于将场行为级别提升的 powershell cmdlet 失败具有超时值，当有多个信赖方信任时。</br></br>解决 AD FS 通过联合到其他安全令牌服务器 (STS) 的请求时修改 wct 参数值导致身份验证失败的其中一个问题。|2017 年 10 月|
 |[4038801 （OS 内部版本 14393.1737）](https://support.microsoft.com/kb/4038801)|添加了对使用联合的 LDPs OIDC 注销的支持。 这将允许"网亭方案"其中多个用户可能会按顺序记录到一个设备没有使用 LDP 联合身份验证。</br></br>修复的问题 CEP/CES 基于证书的位置不使用 gMSA 帐户 WinHello。</br></br>Windows 内部数据库 (WID) 在 Windows Server 2016 ADFS 服务器上无法同步某些设置，如 IdentityServerPolicy.Scopes 和 IdentityServerPolicy.Clients 表中的 ApplicationGroupId 列可以解决问题） 由于外键约束。 此类的同步故障可以导致不同的声明，声明提供程序和应用程序的体验，到辅助主 ADFS 服务器之间。 此外，如果 WID 主角色移到辅助节点中，应用程序组将不再可管理在 ADFS 管理的用户体验。</br></br>此更新修复了问题： 多重身份验证不会无法正常工作与使用自定义区域性定义的移动设备|2017 年 9 月|
 |[4034661 （OS 内部版本 14393.1613）](https://support.microsoft.com/kb/4034661)|其中，调用方 IP 地址是由 411 事件 ADFS 4.0 在安全事件日志中记录的 nog 可以解决问题 \ 即使在启用"成功审核"和"失败审核"后的 Windows Server 2016 RS1 ADFS 服务器。</br></br>ADFX 服务器配置为使用 HTTP 代理时，这一修补解决了问题与 Azure 多重身份验证 (MFA)。</br></br>"解决其中呈现到 ADFS 代理服务器的已过期或已吊销证书不返回错误给用户的问题。"|2017 年 8 月|

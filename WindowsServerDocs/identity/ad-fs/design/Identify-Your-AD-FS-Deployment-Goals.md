@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f618add4c4803142b3bd7278908834a412f30999
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2b881553431be873ed9883da67a7989527d7d288
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862568"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191275"
 ---
 # <a name="identify-your-ad-fs-deployment-goals"></a>标识 AD FS 部署目标
-
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 正确识别 Active Directory 联合身份验证服务\(AD FS\)部署目标对于 AD FS 设计项目的成功至关重要。 确定优先级，并可能是，合并部署目标，以便您可以设计和部署 AD FS 通过使用一种迭代方法。 您可以充分利用现有的、 已记录在案、 和预定义的与 AD FS 设计和开发工作解决方案适合您情况的 AD FS 部署目标。  
   

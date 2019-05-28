@@ -9,16 +9,16 @@ ms.date: 12/05/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0ee22afd6fdec96ab69d915e4730bb834d2ab8ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e9d6161666be89673cff6ef1a975d3205fa4b5c9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855518"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189089"
 ---
 # <a name="join-to-workplace-from-any-device-for-sso-and-seamless-second-factor-authentication-across-company-applications"></a>跨公司应用程序从任一设备加入工作区以实现 SSO 和无缝第二重身份验证
 
->适用于：Windows Server 2012 R2
+
 
 消费型电子设备和无处不在的信息访问量的快速增长正在改变人们看待技术的方式。 全天对信息技术的不断使用以及容易获取的信息正在模糊工作与家庭生活之间的传统界限。 这些转变的界限都伴随相信该个人技术选择、 自定义以满足用户的个性、 活动和计划-应延伸到工作区。 为了满足不断增长的个人消费型电子设备连接到企业网络的需求，我们引入了以下价值主张：
 

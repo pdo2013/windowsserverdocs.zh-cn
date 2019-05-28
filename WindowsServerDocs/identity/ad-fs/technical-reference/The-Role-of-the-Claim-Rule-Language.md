@@ -9,27 +9,25 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: dda9d148-d72f-4bff-aa2a-f2249fa47e4c
 ms.technology: identity-adfs
-ms.openlocfilehash: 05728f04f6fb924cf3793bc843df3832c7c383f7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: bf36f12803b8ba621f2249b53ad868fcd8f6c4a7
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855688"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188457"
 ---
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
-
 # <a name="the-role-of-the-claim-rule-language"></a>声明规则语言的角色
 Active Directory 联合身份验证服务 (AD FS) 声明规则语言充当传入和传出声明，而声明引擎充当声明规则语言中的逻辑的处理引擎的行为管理构建基块，定义自定义规则。 详细了解如何处理所有规则由声明引擎，请参阅[The Role of the Claims Engine](The-Role-of-the-Claims-Engine.md)。  
   
 ## <a name="creating-custom-claim-rules-using-the-claim-rule-language"></a>使用声明规则语言创建自定义声明规则  
-AD FS 为管理员提供的选项，定义可用于确定标识声明与声明规则语言的行为的自定义规则。 可以使用本主题中的声明规则语言语法示例创建一个自定义规则，用于枚举、添加、删除和修改声明以满足组织的需求。 可以通过在“使用自定义声明发送声明”规则模板中输入声明规则语言语法，来构建自定义规则。  
+AD FS 为管理员提供的选项，定义可用于确定标识声明与声明规则语言的行为的自定义规则。 可以使用本主题中的声明规则语言语法示例创建一个自定义规则，用于枚举、添加、删除和修改声明以满足组织的需求。 可以通过在“使用自定义声明发送声明”  规则模板中输入声明规则语言语法，来构建自定义规则。  
   
 规则使用分号相互分隔。  
   
 有关何时使用自定义规则的详细信息，请参阅[何时使用自定义声明规则](When-to-Use-a-Custom-Claim-Rule.md)。  
   
 ## <a name="using-claim-rule-templates-to-learn-about-the-claim-rule-language-syntax"></a>使用声明规则模板了解声明规则语言语法  
-AD FS 还提供了一组预定义的声明发出和声明接受规则模板，可用于实现常见声明规则。 在给定信任的“编辑声明规则”对话框中，可以创建预定义规则，并通过单击该规则的“查看规则语言”选项卡来查看组成该规则的声明规则语言语法。 使用本部分中的信息和“查看规则语言”方法可以深入了解如何构造自己的自定义规则。  
+AD FS 还提供了一组预定义的声明发出和声明接受规则模板，可用于实现常见声明规则。 在给定信任的“编辑声明规则”  对话框中，可以创建预定义规则，并通过单击该规则的“查看规则语言”  选项卡来查看组成该规则的声明规则语言语法。 使用本部分中的信息和“查看规则语言”  方法可以深入了解如何构造自己的自定义规则。  
   
 有关详细信息有关声明规则和声明规则模板的详细信息，请参阅[规则的角色声明](The-Role-of-Claim-Rules.md)。  
   
@@ -87,7 +85,7 @@ AD FS 还提供了一组预定义的声明发出和声明接受规则模板，�
 ### <a name="issuance-statements"></a>发出语句  
 自定义规则会根据发出语句处理 (*问题*或*添加*) 你编程到声明规则。 根据所需结果，可以将发出语句或添加语句编写到规则中以填充输入声明集或输出声明集。 使用添加语句的自定义规则仅将声明值填充到输入声明集中，而使用发出语句的自定义声明规则会将声明值同时填充到输入声明集和输出声明集中。 当声明值旨在仅供声明规则集中的将来规则使用时，这可能十分有用。  
   
-例如，在下图中，传入声明由声明发出引擎添加到输入声明集。 当第一个自定义声明规则执行并满足条件的域用户，声明发出引擎处理中使用添加语句和的值的规则的逻辑**编辑器**添加到输入的声明集。 由于值 Editor 存在于输入声明集中，因此规则 2 可以成功处理其逻辑中的发出语句并生成新值“Hello”，该值会同时添加到输出声明集和输入声明集，以便供规则集中的下一个规则使用。 规则 3 现在可以使用输入声明集中存在的所有值作为输入来处理其逻辑。  
+例如，在下图中，传入声明由声明发出引擎添加到输入声明集。 当第一个自定义声明规则执行并满足条件的域用户，声明发出引擎处理中使用添加语句和的值的规则的逻辑**编辑器**添加到输入的声明集。 由于值 Editor 存在于输入声明集中，因此规则 2 可以成功处理其逻辑中的发出语句并生成新值“Hello”  ，该值会同时添加到输出声明集和输入声明集，以便供规则集中的下一个规则使用。 规则 3 现在可以使用输入声明集中存在的所有值作为输入来处理其逻辑。  
   
 ![AD FS 角色](media/adfs2_customrule.gif)  
   
@@ -160,6 +158,6 @@ exists([issuer == "MSFT"])
 规则主体只能包含单个发出语句。 如果在未使用 Exists 函数的情况下使用条件，则每当与条件部分匹配时，都会执行一次规则主体。  
   
 ## <a name="additional-references"></a>其他参考  
-[创建规则，以使用自定义规则发送声明](https://technet.microsoft.com/library/dd807049.aspx)  
+[创建规则以使用自定义规则发送声明](https://technet.microsoft.com/library/dd807049.aspx)  
   
 

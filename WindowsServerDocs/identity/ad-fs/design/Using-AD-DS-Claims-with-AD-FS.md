@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 46692653ba10558a9236bd321127591bc7c8a275
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d2af0950e52d800202235bf674545f6c47e9cd88
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838378"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190779"
 ---
 # <a name="using-ad-ds-claims-with-ad-fs"></a>将 AD DS 声明用于 AD FS
   
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
   
 你可以通过使用 Active Directory 域服务启用更丰富的联合应用程序的访问控制\(AD DS\)\-颁发与 Active Directory 联合身份验证服务的用户和设备声明\(AD FS\).  
   
@@ -80,4 +79,4 @@ AD DS 发出声明，可以与 AD FS 配合使用来访问直接从用户的身�
 有关如何创建所需的 AD DS 颁发声明为使用 AD FS 声明规则的详细信息，请参阅[创建一个规则以转换传入声明](../../ad-fs/operations/Create-a-Rule-to-Transform-an-Incoming-Claim.md)。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

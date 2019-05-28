@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: bb4e5f88f3d62511b185a2b4317416169717c860
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f0f3d8c70a41d512e7cd33282524bc401ce84600
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851398"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191428"
 ---
 # <a name="federation-server-farm-using-wid"></a>使用 WID 的联合服务器场
-
->适用于：Windows Server 2012
 
 Active Directory 联合身份验证服务的默认拓扑\(AD FS\)是使用 Windows 内部数据库的联合身份验证服务器场\(WID\)，最多五个托管的联合身份验证服务器，它包含在组织的联合身份验证服务。 在此拓扑中，AD FS 使用 WID 作为存储的所有联合服务器加入到该场的 AD FS 配置数据库。 该场针对场中的每台服务器，在此配置数据库中复制和维护联合身份验证服务数据。  
   
@@ -75,4 +73,4 @@ NLB 主机可以使用此 NLB 群集，以便分配对单个联合身份验证�
 有关如何使用联合身份验证服务器配置为使用你的网络环境的详细信息，请参阅[联合身份验证服务器的名称解析要求](Name-Resolution-Requirements-for-Federation-Servers.md)AD FS 设计指南中。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

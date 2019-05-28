@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0c5bdcb0a80b15a1905109229ddd20ee642a8dd7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3a746ec003cf312ffe0b9804f84a55c98aa8089
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868518"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190988"
 ---
 # <a name="prepare-client-computers-in-the-account-partner"></a>在帐户伙伴中准备客户端计算机
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 管理员帐户中的最简单方法伙伴组织准备客户端计算机到 Active Directory 联合身份验证服务的访问\(AD FS\)联合应用程序是使用组策略。 组策略为你提供一种便捷的方法，可让你将联合所需的特定证书和设置推送到将用于访问联合应用程序的所有客户端计算机。  
   
@@ -34,4 +32,4 @@ ms.locfileid: "59868518"
   
 
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

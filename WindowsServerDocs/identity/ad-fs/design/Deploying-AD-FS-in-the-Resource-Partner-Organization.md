@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4a556c07e7d6e0bec4c947ea9d1a75eef9964cef
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: acdecd4afd9c55bdbd71cea9e01f3b3024870ced
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877598"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191524"
 ---
 # <a name="deploying-ad-fs-in-the-resource-partner-organization"></a>在资源伙伴组织中部署 AD FS
-
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 在 Active Directory 联合身份验证服务资源伙伴组织\(AD FS\)代表其 Web 服务器可能会受到保护的资源的组织\-端联合身份验证服务器。 在资源伙伴联合身份验证服务器使用由帐户伙伴提供到 Web 服务器位于资源伙伴中的声明的安全令牌。  
   
@@ -28,7 +26,7 @@ ms.locfileid: "59877598"
   
 ## <a name="in-this-section"></a>本节内容  
   
--   [查看资源伙伴中的联合身份验证服务器的角色](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md)  
+-   [查看联合服务器在资源伙伴中的角色](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md)  
   
 -   [查看联合服务器代理在资源伙伴中的角色](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md)  
   
@@ -36,4 +34,4 @@ ms.locfileid: "59877598"
   
 
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

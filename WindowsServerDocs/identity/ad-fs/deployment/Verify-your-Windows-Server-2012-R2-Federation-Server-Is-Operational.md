@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2df8a00a953196d7ca19ea0d164abbbf6eefd829
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7cab415cc599f388c2bb5966d45998874ce56987
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840738"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191840"
 ---
 # <a name="verify-your-windows-server-2012-r2-federation-server-is-operational"></a>验证 Windows Server 2012 R2 联合身份验证服务器操作
 
->适用于：Windows Server 2016, Windows Server 2012 R2
+
 
 你可以使用以下过程验证联合服务器正常工作；也即，同一网络中的任何客户端都可以到达新的联合服务器。  
   
@@ -32,7 +32,7 @@ ms.locfileid: "59840738"
   
     **https:\/\/fs1.fabrikam.com\/adfs\/fs\/federationserverservice.asmx**  
   
-3.  按 Enter，然后在联合服务器计算机上完成下一过程。 如果你看到消息“此网站的安全证书有问题”，请单击“继续浏览此网站”。  
+3.  按 Enter，然后在联合服务器计算机上完成下一过程。 如果你看到消息“此网站的安全证书有问题”  ，请单击“继续浏览此网站”  。  
   
     预期输出为显示 XML 以及服务说明文档。 如果显示此页，则联合服务器上的 IIS 正常工作且成功提供页面。  
   

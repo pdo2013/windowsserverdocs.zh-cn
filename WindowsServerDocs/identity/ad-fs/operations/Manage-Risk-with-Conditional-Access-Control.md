@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e2ad7d1467abd6d69077b515b8c69a65f7e70f19
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2c399467a8bb70e723a86618aa37fc54425f4e7d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865588"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189049"
 ---
 # <a name="manage-risk-with-conditional-access-control"></a>使用条件访问控制管理风险
 
->适用于：Windows Server 2012 R2
+
 
 
 -   [在 AD FS 中的关键概念-条件访问控制](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md#BKMK_1)
@@ -106,7 +106,7 @@ AD FS 的总体功能是颁发一个包含一组声明的访问令牌。 AD FS �
 |使用者备用名称|证书的备用名称之一。|
 |序列号|证书的序列号。|
 |签名算法|用于创建证书签名的算法。|
-|主题|证书中的使用者。|
+|Subject|证书中的使用者。|
 |使用者密钥标识符|证书的使用者密钥标识符。|
 |使用者名称|证书中的使用者可分辨名称。|
 |V2 模板名称|颁发或续订证书时使用的版本 2 证书模板的名称。 这是一个特定于 Microsoft 的值。|

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0914d32e8f24d5e7db0a25c733342c1bde3e0329
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5bc304277b872bd9b99b79b84694dd0cb1eb73ba
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835128"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190880"
 ---
 # <a name="review-the-role-of-the-federation-server-in-the-account-partner"></a>查看联合服务器在帐户伙伴中的角色
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 Active Directory 联合身份验证服务中的联合身份验证服务器\(AD FS\)充当安全令牌颁发者。 联合身份验证服务器生成基于帐户驻留在本地属性的值存储声明并将它们打包为安全令牌，以便用户可以无缝地访问 Web\-浏览器\-基于应用程序\(使用单一登录\-上\(SSO\) \)资源伙伴组织中承载。  
   
@@ -31,4 +29,4 @@ Active Directory 联合身份验证服务中的联合身份验证服务器\(AD F
 > 可以将联合身份验证服务器计算机帐户伙伴组织中设置之前，您必须首先将计算机加入到其中的联合身份验证服务器将使用来自该林的用户进行身份验证在 Active Directory 林中任何域中。 有关详细信息，请参阅[核对清单：设置联合身份验证服务器](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md)。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

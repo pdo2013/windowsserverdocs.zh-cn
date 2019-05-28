@@ -5,20 +5,18 @@ description: ''
 author: billmath
 ms.author: billmath
 manager: femila
-ms.date: 09/19/2018
+ms.date: 04/01/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6fb023529ac8857f7c2eb35586be497f0c809a51
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: a831154a8b1e84f5ed879375980882e208c33d73
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874168"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190349"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>AD FS 快速还原工具
-
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 ## <a name="overview"></a>概述
 现在 AD FS 是实现的高可用性设置 AD FS 场。 某些组织希望只有一台服务器的 AD FS 部署的方法，无需多个 AD FS 服务器和网络负载平衡的基础结构，同时使某些服务的保障可以快速还原是否存在问题。
@@ -215,6 +213,16 @@ RngCryptoServiceProvider 用于生成 AES 和 Rfc2898DeriveBytes 类使用的 sa
 > 当执行的还原 PostRestore_Instructions 文件可能会创建包含附加身份验证提供程序的概述，属性存储和本地声明提供方信任，若要启动的 AD FS 服务之前手动安装。
 
 ## <a name="version-release-history"></a>版本发行历史记录
+
+### <a name="version-10810"></a>版本：1.0.81.0
+版本：2019 年 4 月
+
+**修复了问题：**
+
+
+- 证书备份和还原的 bug 修复
+- 更多跟踪信息写入日志文件
+
 
 ### <a name="version-10750"></a>版本：1.0.75.0
 版本：2018 年 8 月

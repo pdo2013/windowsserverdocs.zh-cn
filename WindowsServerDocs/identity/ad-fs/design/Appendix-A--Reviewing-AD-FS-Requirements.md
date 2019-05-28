@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d5cfb5de77843eebfc152b9c79ac55bab1fa7727
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5e90df713f08dd387a2438b34839d16efe6e470f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818168"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191691"
 ---
 # <a name="appendix-a-reviewing-ad-fs-requirements"></a>附录 A：查看 AD FS 要求
-
->适用于：Windows Server 2012
 
 以便在 Active Directory 联合身份验证服务 (AD FS) 部署中的组织伙伴可以成功地协作，您必须首先确保配置企业网络基础结构以支持对帐户的 AD FS 要求，命名解析和证书。 AD FS 具有以下类型的要求：  
   
@@ -182,4 +180,4 @@ AD FS 联合服务器代理角色使得使用 SSL 客户端身份验证从外部
 若要在某些情况下支持某些身份验证强度要求，也可以配置 AD FS 以创建指示用户通过身份验证的方式的声明。 然后，信赖方可以使用此声明做出授权决定。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

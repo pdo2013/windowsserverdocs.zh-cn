@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f0eef89e651585d48ba87d14bc782efa49087669
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ade2a8304288d102608c81a0c29155478e5a4b7b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824828"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189430"
 ---
 # <a name="create-a-rule-to-send-claims-using-a-custom-rule"></a>创建规则以使用自定义规则发送声明
 
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 通过使用**使用自定义规则发送声明**Active Directory 联合身份验证服务 (AD FS) 中的模板，您可以创建自定义声明规则的标准规则模板不满足的要求的情况下你组织。 自定义声明规则声明规则语言编写而成，然后必须复制到**自定义规则**文本框中才可以在规则集中使用。 有关构造高级规则的语法的信息，请参阅[的声明规则语言角色](../../ad-fs/technical-reference/The-Role-of-the-Claim-Rule-Language.md)。  
   
@@ -47,7 +46,7 @@ ms.locfileid: "59824828"
 6.  上**配置规则**页面上，在**声明规则名称**，键入此规则的显示名称。 下**自定义规则**，键入或粘贴要用于此规则的声明规则语言语法。  
 ![创建规则](media/Create-a-Rule-to-Send-Claims-Using-a-Custom-Rule/custom4.PNG)     
 
-7.  单击 **“完成”**。  
+7.  单击 **“完成”** 。  
   
 8.  在中**编辑声明规则**对话框中，单击**确定**以保存规则。   
   
@@ -70,7 +69,7 @@ ms.locfileid: "59824828"
 6.  上**配置规则**页面上，在**声明规则名称**，键入此规则的显示名称。 下**自定义规则**，键入或粘贴要用于此规则的声明规则语言语法。  
 ![创建规则](media/Create-a-Rule-to-Send-Claims-Using-a-Custom-Rule/custom4.PNG)     
 
-7.  单击 **“完成”**。  
+7.  单击 **“完成”** 。  
   
 8.  在中**编辑声明规则**对话框中，单击**确定**以保存规则。   
 
@@ -118,7 +117,7 @@ ms.locfileid: "59824828"
 6.  上**配置规则**页面上，在**声明规则名称**，键入此规则的显示名称。 下**自定义规则**，键入或粘贴要用于此规则的声明规则语言语法。  
 ![创建规则](media/Create-a-Rule-to-Send-Claims-Using-a-Custom-Rule/custom2.PNG)     
 
-7.  单击 **“完成”**。  
+7.  单击 **“完成”** 。  
   
 8.  在中**编辑声明规则**对话框中，单击**确定**以保存规则。  
 
@@ -127,7 +126,7 @@ ms.locfileid: "59824828"
  
 [清单：为信赖方信任创建声明规则](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[清单：为声明提供程序创建声明规则信任](https://technet.microsoft.com/library/ee913564.aspx)  
+[清单：为声明提供方信任创建声明规则](https://technet.microsoft.com/library/ee913564.aspx)  
   
 [何时使用授权声明规则](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 

@@ -9,16 +9,14 @@ ms.date: 08/17/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0b0d4d085a94631b70df81fd53bff974d8425611
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f3719277c80eae2bf2a4d923146920d17546601d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877758"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188728"
 ---
 # <a name="ad-fs-single-sign-on-settings"></a>AD FS 单一登录设置
-
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 单一登录 (SSO) 允许用户一次身份验证并不会提示输入其他凭据访问多个资源。  本文描述了 SSO，以及可用于自定义此行为的配置设置的默认 AD FS 行为。  
 
