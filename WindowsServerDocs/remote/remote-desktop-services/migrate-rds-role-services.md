@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 9b1fa833-4325-48a8-bf34-46265f40c001
 author: christianmontoya
 manager: scottman
-ms.openlocfilehash: 73beb1539420f4b4aad818ffe0b0bdaabe901748
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 63037dd7e32320b6e640396e20344e5678ed91dd
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870258"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034438"
 ---
 # <a name="migrate-your-remote-desktop-services-deployment-to-windows-server-2016"></a>远程桌面服务部署迁移到 Windows Server 2016
 
@@ -28,8 +28,8 @@ ms.locfileid: "59870258"
 
 有关升级过程和要求的详细信息，请参阅[远程桌面服务部署升级到 Windows Server 2016](upgrade-to-rds-2016.md)。
 
-使用以下步骤迁移远程桌面服务部署： 
-- [迁移 RD 连接代理服务器](#migrate-rd-connection-broker-servers) 
+使用以下步骤迁移远程桌面服务部署：
+- [迁移 RD 连接代理服务器](#migrate-rd-connection-broker-servers)
 - [迁移会话集合](#migrate-session-collections)
 - [迁移虚拟机集合](#migrate-virtual-desktop-collections)
 - [迁移 RD Web 访问服务器](#migrate-rd-web-access-servers)
@@ -54,7 +54,7 @@ ms.locfileid: "59870258"
 
 请按照这些步骤在 Windows Server 2012 R2 中的会话集合迁移到 Windows Server 2016 中的会话集合。
 > [!IMPORTANT] 
-> 只有成功完成上一步骤之后迁移会话集合[迁移 RD 连接代理服务器](#Migrate-RD-Connection-Broker-servers)。
+> 只有成功完成上一步骤之后迁移会话集合[迁移 RD 连接代理服务器](#migrate-rd-connection-broker-servers)。
 
 1. [升级会话集合](Upgrade-to-RDSH-2016.md)从 Windows Server 2012 R2 到 Windows Server 2016。
 2. 将添加到会话集合中运行 Windows Server 2016 的新 RD 会话主机服务器。
@@ -69,7 +69,7 @@ ms.locfileid: "59870258"
 请按照以下步骤来迁移虚拟机集合从运行 Windows Server 2016 的目标服务器到运行 Windows Server 2012 R2 的源服务器。
 
 > [!IMPORTANT] 
-> 仅在成功完成上一步骤后迁移虚拟机集合[迁移 RD 连接代理服务器](#Migrate-RD-Connection-Broker-servers)。
+> 仅在成功完成上一步骤后迁移虚拟机集合[迁移 RD 连接代理服务器](#migrate-rd-connection-broker-servers)。
 
 1. [升级虚拟机集合](Upgrade-to-RDVH-2016.md)从服务器运行 Windows Server 2012 R2 到 Windows Server 2016。
 2. 将新的 Windows Server 2016 RD 虚拟化主机服务器添加到虚拟桌面集合。
@@ -85,14 +85,14 @@ ms.locfileid: "59870258"
 请执行以下步骤来迁移 RD Web 访问服务器：
 - 加入远程桌面服务部署到运行 Windows Server 2016 的目标服务器并安装 RD Web 角色
 - 使用[IIS Web 部署工具](https://www.iis.net/)RD Web 网站设置从当前 RD Web 访问服务器迁移到运行 Windows Server 2016 的目标服务器。
-- [迁移证书](#Migrate-certificates)到目标服务器运行 Windows Server 2016。
+- [迁移证书](#migrate-certificates)到目标服务器运行 Windows Server 2016。
 - 从远程桌面服务部署中删除源服务器  
 
 ## <a name="migrate-rdgateway-servers"></a>迁移 RD 网关服务器
 请执行以下步骤来迁移 RD 网关服务器：
 - 加入远程桌面服务部署到运行 Windows Server 2016 的目标服务器并安装 RD 网关角色
 - 使用[IIS Web 部署工具](https://www.iis.net/)将 RD 网关终结点设置从当前的 RD 网关服务器迁移到运行 Windows Server 2016 的目标服务器。
-- [迁移证书](#Migrate-certificates)到目标服务器运行 Windows Server 2016。
+- [迁移证书](#migrate-certificates)到目标服务器运行 Windows Server 2016。
 - 从远程桌面服务部署中删除源服务器  
 
 ## <a name="migrate-rdlicensing-servers"></a>迁移 RD 授权服务器

@@ -7,12 +7,12 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: f51ffae5ed8f91cca386eb209e7a1d8cc664ceeb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b19512a6f34e13469433aba6051f1232824beb0e
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817348"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034155"
 ---
 # <a name="patch-a-server-core-installation"></a>服务器核心安装的修补程序
 
@@ -20,7 +20,7 @@ ms.locfileid: "59817348"
 
 您可以修补通过以下方式在运行服务器核心安装的服务器：
 
-- **使用 Windows Update 自动或使用 Windows Server Update Services (WSUS)**。 通过使用 Windows 更新，自动或通过命令行工具或 Windows Server Update Services (WSUS)，可以服务运行服务器核心安装的服务器。
+- **使用 Windows Update 自动或使用 Windows Server Update Services (WSUS)** 。 通过使用 Windows 更新，自动或通过命令行工具或 Windows Server Update Services (WSUS)，可以服务运行服务器核心安装的服务器。
 
 - **手动**。 即使在不使用 Windows update 或 WSUS 的组织，你可以手动应用更新。
 
@@ -66,7 +66,7 @@ ms.locfileid: "59817348"
 Wuauclt /detectnow 
 ```
 
-取决于安装的更新，你可能需要重启计算机，尽管系统不会通知你这些。 若要确定是否已完成安装过程，使用任务管理器来验证**Wuauclt**或**可信的安装程序**进程是否未活跃运行。 此外可以使用中的方法[查看在服务器核心服务器上安装的更新](#view-the-updates-installed-on-your-Server-Core-server)检查已安装的更新列表。
+取决于安装的更新，你可能需要重启计算机，尽管系统不会通知你这些。 若要确定是否已完成安装过程，使用任务管理器来验证**Wuauclt**或**可信的安装程序**进程是否未活跃运行。 此外可以使用中的方法[查看在服务器核心服务器上安装的更新](#view-the-updates-installed-on-your-server-core-server)检查已安装的更新列表。
 
 ## <a name="patch-the-server-with-wsus"></a>使用 WSUS 服务器的修补程序 
 

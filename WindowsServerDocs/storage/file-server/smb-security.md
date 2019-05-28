@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 831ca8266c3ec18ffb83227dcb2d39b3f953ad1a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b1586c8c63e46452075b4106c944670395734142
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838048"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034400"
 ---
 # <a name="smb-security-enhancements"></a>SMB 安全增强功能
 
@@ -73,7 +73,7 @@ SMB 加密应视为敏感数据需要从拦截的攻击保护任何方案。 可
 Set-SmbServerConfiguration –RejectUnencryptedAccess $false
 ```
 
-下一节中所述的安全方言协商功能可防止人为干预攻击降级从 SMB 3.0 到 SMB 2.0 （它将使用未加密的访问） 的连接。 但是，它不会阻止降级到 SMB 1.0，它还会导致未加密访问。 若要保证，SMB 3.0 客户端始终使用 SMB 加密访问加密的共享，必须禁用 SMB 1.0 服务器。 (有关说明，请参阅明[禁用 SMB 1.0](#disabling-smb-1.0)。)如果 **– RejectUnencryptedAccess**设置保留为其默认设置为 **$true**，仅支持加密的 SMB 3.0 客户端被允许访问文件共享 （也会拒绝 SMB 1.0 客户端）。
+下一节中所述的安全方言协商功能可防止人为干预攻击降级从 SMB 3.0 到 SMB 2.0 （它将使用未加密的访问） 的连接。 但是，它不会阻止降级到 SMB 1.0，它还会导致未加密访问。 若要保证，SMB 3.0 客户端始终使用 SMB 加密访问加密的共享，必须禁用 SMB 1.0 服务器。 (有关说明，请参阅明[禁用 SMB 1.0](#disabling-smb-10)。)如果 **– RejectUnencryptedAccess**设置保留为其默认设置为 **$true**，仅支持加密的 SMB 3.0 客户端被允许访问文件共享 （也会拒绝 SMB 1.0 客户端）。
 
 >[!NOTE]
 >* SMB 加密使用高级加密标准 (AES) 的 CCM 算法来加密和解密数据。 AES CCM 还提供了数据完整性验证 （签名） 的加密的文件共享，而不考虑 SMB 签名设置。 如果你想要启用 SMB 签名但未加密，你可以继续执行此操作。 有关详细信息，请参阅[基础知识的 SMB 签名](https://blogs.technet.microsoft.com/josebda/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2/)。
@@ -84,7 +84,7 @@ Set-SmbServerConfiguration –RejectUnencryptedAccess $false
 
 ## <a name="secure-dialect-negotiation"></a>安全方言协商
 
-SMB 3.0 都能够检测尝试降级 SMB 2.0 或 SMB 3.0 协议或功能的客户端和服务器协商的拦截的攻击。 客户端或服务器检测到此类攻击时，连接将断开连接，并且 Microsoft-Windows-SmbServer/Operational 事件日志中记录事件 ID 为 1005年。 安全方言协商不能检测或防止从 SMB 2.0 或 3.0 降级到 SMB 1.0。 正因为如此，并充分利用 SMB 加密的所有功能，我们强烈建议禁用 SMB 1.0 服务器。 有关详细信息，请参阅[禁用 SMB 1.0](#disabling-smb-1.0)。
+SMB 3.0 都能够检测尝试降级 SMB 2.0 或 SMB 3.0 协议或功能的客户端和服务器协商的拦截的攻击。 客户端或服务器检测到此类攻击时，连接将断开连接，并且 Microsoft-Windows-SmbServer/Operational 事件日志中记录事件 ID 为 1005年。 安全方言协商不能检测或防止从 SMB 2.0 或 3.0 降级到 SMB 1.0。 正因为如此，并充分利用 SMB 加密的所有功能，我们强烈建议禁用 SMB 1.0 服务器。 有关详细信息，请参阅[禁用 SMB 1.0](#disabling-smb-10)。
 
 下一节中描述的安全方言协商功能可防止人为干预攻击降级从 SMB 3 到 SMB 2 （它将使用未加密的访问）; 的连接但是，它不会阻止降级到 SMB 1，这也会导致未加密访问。 使用前面的 SMB 的非 Windows 实现的潜在问题的详细信息，请参阅[Microsoft 知识库文章](http://support.microsoft.com/kb/2686098)。
 

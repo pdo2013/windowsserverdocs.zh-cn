@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 2cb819a7f91646c61b84c3ee70550af6033ba340
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bf10f7f7444967247e51065bc6138fc0afd5ed1a
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865968"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976783"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>为用户设置远程桌面 Web 客户端
 
@@ -248,7 +248,36 @@ ms.locfileid: "59865968"
     > [!NOTE]
     > 如果 RD 会话主机和 RD 代理服务器都共享同一台计算机，设置 RD 代理服务器证书。 如果 RD 会话主机和 RD 代理服务器使用不同的计算机，都必须使用唯一的证书配置。
 
-* **使用者可选名称 (SAN)** 每个证书必须设置为计算机的**完全限定域名 (FQDN)**。 **公用名 (CN)** 必须匹配的每个证书 SAN。
+* **使用者可选名称 (SAN)** 每个证书必须设置为计算机的**完全限定域名 (FQDN)** 。 **公用名 (CN)** 必须匹配的每个证书 SAN。
+
+## <a name="how-to-pre-configure-settings-for-remote-desktop-web-client-users"></a>如何预配置远程桌面 web 客户端用户设置
+本部分将告诉您如何使用 PowerShell 配置远程桌面 web 客户端部署的设置。 这些 PowerShell cmdlet 控制用户能够更改设置，根据组织的安全问题或者工作流。 以下设置均位于**设置**的 web 客户端侧面板。 
+
+### <a name="suppress-telemetry"></a>禁止显示遥测数据
+默认情况下，用户可以选择启用或禁用向 Microsoft 发送的遥测数据的集合。 有关 Microsoft 收集的遥测数据的信息，请参阅中的链接，通过我们的隐私声明**有关**侧面板。
+
+作为管理员，你可以选择要取消你的部署使用以下 PowerShell cmdlet 的遥测数据收集：
+
+   ```PowerShell
+    Set-RDWebClientDeploymentSetting -SuppressTelemetry $true
+   ```
+
+默认情况下，用户可以选择启用或禁用遥测数据。 一个布尔值 **$false**将匹配的默认客户端行为。 一个布尔值 **$true**禁用遥测数据，并将用户限制从启用遥测。
+
+### <a name="remote-resource-launch-method"></a>远程资源启动方法
+默认情况下，用户可以选择以启动远程资源 （1） 在浏览器中或 （2） 通过下载.rdp 文件，以处理与他们的计算机上安装的另一个客户端。 作为管理员，你可以选择限制你使用以下 Powershell 命令的部署的远程资源启动方法：
+
+   ```PowerShell
+    Set-RDWebClientDeploymentSetting -LaunchResourceInBrowser ($true|$false)
+   ```
+ 默认情况下，用户可以选择任何一种启动方法。 一个布尔值 **$true**将强制用户启动浏览器中的资源。 一个布尔值 **$false**将强制用户通过下载.rdp 文件来处理使用本地安装 RDP 客户端启动的资源。
+
+### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>重置 RDWebClientDeploymentSetting 配置为默认值
+若要重置为默认配置的所有部署级别 web 客户端设置，请运行以下 PowerShell cmdlet:
+
+   ```PowerShell
+    Reset-RDWebClientDeploymentSetting 
+   ```
 
 ## <a name="troubleshooting"></a>疑难解答
 

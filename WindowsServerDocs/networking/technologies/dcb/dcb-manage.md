@@ -8,12 +8,12 @@ ms.assetid: 1575cc7c-62a7-4add-8f78-e5d93effe93f
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3912bb6048a06a4656b5b27ccec8f8fb3f5b114b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: daed746fe798ae253956d0977827d0e205bb8b3e
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847408"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034575"
 ---
 # <a name="manage-data-center-bridging-dcb"></a>管理数据中心桥接 (DCB)
 
@@ -39,7 +39,7 @@ ms.locfileid: "59847408"
 2. 启用网络适配器上的 DCB。 请参阅[启用和显示网络适配器上的 DCB 设置](#bkmk_enabledcb)。
 
 >[!NOTE]
->如果你想要将 DCB 配置从通过 DCBX 开关，请参阅[DCBX 设置](#BKMK_DCBX_Settings)
+>如果你想要将 DCB 配置从通过 DCBX 开关，请参阅[DCBX 设置](#dcb-configuration-on-network-adapters)。
 
 DCBX 愿意位是 DCB 规范中所述。 如果在设备上的愿意位设置为 true，该设备是愿意接受从通过 DCBX 远程设备的配置。 如果在设备上的愿意位设置为 false，设备将拒绝所有配置尝试从远程设备，并强制实施仅本地配置。
 
