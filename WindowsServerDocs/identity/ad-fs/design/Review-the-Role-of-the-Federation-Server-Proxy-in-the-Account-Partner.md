@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d2b60ce593c2ca7eb902595ee6a42850cb7605d9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dbceb19d31738bdc5b628a9a2b069e5d3022d145
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870838"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190950"
 ---
 # <a name="review-the-role-of-the-federation-server-proxy-in-the-account-partner"></a>查看联合服务器代理在帐户伙伴中的角色
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 在 Active Directory 联合身份验证服务在帐户伙伴组织的外围网络中的联合身份验证服务器代理的主要作用\(AD FS\)是从登录的客户端计算机收集身份验证凭据通过 Internet 以及将这些凭据传递给联合身份验证服务器，该按钮位于帐户伙伴组织在企业网络内部。 客户端计算机的帐户存储在帐户伙伴的属性存储中。  
   
@@ -35,4 +33,4 @@ ms.locfileid: "59870838"
   
 
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 11baba5bfdb699f120a506feb8361db21d26cff1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 103ee707c88f4e88b231a833f739cf75b6503e18
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837858"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190096"
 ---
 # <a name="add-an-attribute-store"></a>添加属性存储
 
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 用户帐户和计算机帐户需要对受 Active Directory 联合身份验证服务资源的访问\(AD FS\)属性存储，如 Active Directory 域服务中存储\(AD DS\). 声明颁发引擎使用属性存储中收集数据所需发出声明。 从属性存储的数据然后投影以声明方式。  
   
@@ -47,7 +46,7 @@ ms.locfileid: "59837858"
  
 ![添加属性存储](media/Add-an-Attribute-Store/addstore2.PNG) 
 
-4.  单击 **“确定”**。  
+4.  单击 **“确定”** 。  
   
 ## <a name="additional-references"></a>其他参考  
 

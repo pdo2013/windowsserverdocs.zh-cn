@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4bd815daccdd72a8c612b9b728ce12378c1926e7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 19e73e43a863ec60fbc9da09b24173220bb331ed
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817618"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191365"
 ---
 # <a name="federation-server-farm-using-wid-and-proxies"></a>使用 WID 和代理的联合服务器场
-
->适用于：Windows Server 2012
 
 Active Directory 联合身份验证服务的此部署拓扑\(AD FS\)等同于联合服务器场装有 Windows Internal Database \(WID\)拓扑，但它将添加联合服务器代理到外围网络，以支持外部用户。 联合服务器代理重定向到联合服务器场来自公司网络外部的客户端身份验证请求。  
   
@@ -51,4 +49,4 @@ Active Directory 联合身份验证服务的此部署拓扑\(AD FS\)等同于联
 有关如何使用联合身份验证服务器或联合服务器代理配置为使用你的网络环境的详细信息，请参阅[联合身份验证服务器的名称解析要求](Name-Resolution-Requirements-for-Federation-Servers.md)或[名称联合服务器代理的解析要求](Name-Resolution-Requirements-for-Federation-Server-Proxies.md)。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

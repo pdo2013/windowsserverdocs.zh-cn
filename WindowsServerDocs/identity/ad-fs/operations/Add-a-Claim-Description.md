@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0e388ef656d3b690da62b077cb9f9e678a771e64
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 454d261aa520778a6129ac9809f53894937b036a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851428"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190141"
 ---
 # <a name="add-a-claim-description"></a>添加声明说明
 
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 在帐户伙伴组织中，管理员创建声明来表示用户的组或角色中的成员身份或以表示有关用户，例如，用户的雇员标识号的一些数据。
 
@@ -49,7 +48,7 @@ ms.locfileid: "59851428"
     - 若要发布此声明以确保合作伙伴注意此服务器可以接受此声明，请单击**联合身份验证元数据中发布此声明，作为此联合身份验证服务可以接受的声明类型**。
     - 若要发布此声明以确保合作伙伴注意此服务器可以颁发此声明，请单击**联合身份验证元数据中发布此声明，作为此联合身份验证服务可以发送的声明类型**。
 
-8.  单击 **“确定”**。
+8.  单击 **“确定”** 。
 
 ![添加声明说明](media\Add-a-Claim-Description\claimdesc2.png)
 

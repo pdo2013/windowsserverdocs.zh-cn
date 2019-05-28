@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 8ee42bfe964bed4a0d52045e7a4add1efbfa1d51
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 154e6e986bd0e78936a985ce7b80ee533ea5c82a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836508"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191826"
 ---
-# <a name="windows-server-2016-and-2012-r2-ad-fs-deployment-guide"></a>Windows Server 2016 和 2012 R2 AD FS 部署指南
+# <a name="windows-server-ad-fs-deployment-guide"></a>Windows Server AD FS 部署指南
 
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 可以使用 Active Directory 联合身份验证服务\(AD FS\)与 Windows Server 2016 和 2012 R2 操作系统来构建联合身份标识管理解决方案，以扩展分布式的标识、 身份验证，并授权服务添加到 Web\-基于跨越组织和平台边界的应用程序。 通过部署 AD FS，可将组织现有的标识管理功能扩展到 Internet。  
   
@@ -26,7 +25,7 @@ ms.locfileid: "59836508"
   
 -   [部署联合服务器代理](Deploying-Federation-Server-Proxies.md)  
   
--   [Azure Active Directory 连接](Azure-Active-Directory-Connect.md)  
+-   [Azure Active Directory Connect](Azure-Active-Directory-Connect.md)  
   
 ## <a name="see-also"></a>请参阅  
 [AD FS 部署](../../ad-fs/AD-FS-Deployment.md)  

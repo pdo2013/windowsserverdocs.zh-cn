@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e7fb8e71afed1c0eb6b55857835d95f2dd0ec9d5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ca0b25480eedfc6471837ab8ae83b0d1d522e61e
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875718"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191662"
 ---
 # <a name="certificate-requirements-for-federation-server-proxies"></a>联合服务器代理的证书要求
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 在 Active Directory 联合身份验证服务中的联合身份验证服务器代理角色中运行的服务器\(AD FS\)都需要使用安全套接字层\(SSL\)服务器身份验证证书。 联合服务器代理使用 SSL 服务器身份验证证书保护与 Web 客户端的 Web 服务器流量通信。  
   
@@ -36,4 +34,4 @@ ms.locfileid: "59875718"
 如果任何证书，使用具有证书吊销列表\(Crl\)，具有配置的证书的服务器必须能够联系分发 Crl 的服务器。 CRL 的类型确定了使用的端口。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

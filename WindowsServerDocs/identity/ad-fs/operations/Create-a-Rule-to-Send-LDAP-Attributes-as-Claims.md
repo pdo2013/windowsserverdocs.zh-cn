@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e9762e4bc50a1c2b862999af5269a0da376ec9a1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 00ea4f9f868b9c82c2a0859be971db26394251a3
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887608"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189347"
 ---
 # <a name="create-a-rule-to-send-ldap-attributes-as-claims"></a>创建规则以声明方式发送 LDAP 属性
 
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 使用发送 LDAP 属性作为 Active Directory 联合身份验证服务中的声明规则模板\(AD FS\)，可以创建一个规则，将从一种轻型目录访问协议中选择属性\(LDAP\)属性存储，如 Active Directory，以向信赖方的声明的形式发送。 例如，使用此规则模板创建声明规则，将提取属性值已经过身份验证用户能够从 a Send LDAP Attributes **displayName**并**telephoneNumber** Active目录属性，然后将这些值作为两个不同的传出声明发送。  
   
@@ -110,7 +109,7 @@ ms.locfileid: "59887608"
  
 [清单：为信赖方信任创建声明规则](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[清单：为声明提供程序创建声明规则信任](https://technet.microsoft.com/library/ee913564.aspx)  
+[清单：为声明提供方信任创建声明规则](https://technet.microsoft.com/library/ee913564.aspx)  
   
 [何时使用授权声明规则](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 

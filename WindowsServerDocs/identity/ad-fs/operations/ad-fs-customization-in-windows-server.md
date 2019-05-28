@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2e4d463f5f25fe85dc95d767c9c75b722e60b012
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b5aa22ad99529d99e2d7381a434916e8e749f185
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852028"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188762"
 ---
 # <a name="ad-fs-customization-in-windows-server-2016"></a>Windows Server 2016 中的 AD FS 自定义
 
->适用于：Windows Server 2016
 
 在响应中使用 AD FS 的组织的反馈，我们添加了其他工具自定义用户的登录体验为受 AD FS 的单个应用程序。  
 除了指定每个应用程序 web 内容，例如说明文本和链接，现在还可以指定每个应用程序的整个 web 主题。  这包括徽标、 插图、 样式表或整个 onload.js 文件。  

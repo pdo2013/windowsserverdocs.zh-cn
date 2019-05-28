@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fd222eb47982591e051594e8a572443b65c0357f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8b3b2934e7aa177e873e19d77530b2d796ccd521
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863998"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188901"
 ---
 # <a name="walkthrough-workplace-join-with-a-windows-device"></a>操作实例：使用 Windows 设备加入工作区
-
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 本主题演示如何使用“工作区加入”将你的 Windows 设备与工作区连接以及如何通过使用单一登录访问 Web 应用程序。 必须完成中的步骤[为 Windows Server 2012 R2 中的 AD FS 设置实验室环境](../deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)部分之前可以尝试此操作实例。
 
@@ -46,19 +44,19 @@ ms.locfileid: "59863998"
 > [!IMPORTANT]
 > 若要成功执行工作区加入，客户端计算机 (Client1) 必须信任用于配置 Active Directory 联合身份验证服务 (AD FS) 的 SSL 证书中[步骤 2:使用 Device Registration Service (ADFS1 上) 配置联合身份验证服务器](../deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_4)。 它还必须能够验证该证书的吊销信息。 如果在执行工作区加入时遇到任何问题，可以查看 Client1 上的事件日志。
 > 
-> 若要查看事件日志，请打开事件查看器，依次展开“应用程序和服务日志” 、“Microsoft” 和“Windows” ，然后单击“工作区加入” 。
+> 若要查看事件日志，请打开事件查看器，依次展开“应用程序和服务日志”  、“Microsoft”  和“Windows”  ，然后单击“工作区加入”  。
 
 #### <a name="to-join-your-device-with-workplace-join"></a>使用“工作区加入”加入你的设备
 
 1.  请使用你的 Microsoft 帐户登录到 Client1。
 
-2.  在“开始”  屏幕上，打开“超级按钮”  栏，然后选择“设置”  超级按钮。 选择“更改电脑设置”。
+2.  在“开始”  屏幕上，打开“超级按钮”  栏，然后选择“设置”  超级按钮。 选择“更改电脑设置”  。
 
-3.  在“电脑设置”  页面上，选择“网络” ，然后单击“工作区” 。
+3.  在“电脑设置”  页面上，选择“网络”  ，然后单击“工作区”  。
 
 4.  在中**输入用户 Id 以获取工作区访问权限或打开设备管理**框中，键入**roberth@contoso.com**，然后单击**加入**。
 
-5.  系统提示输入凭据，键入**roberth@contoso.com**，和密码： **P@ssword**。 单击 **“确定”**。
+5.  系统提示输入凭据，键入**roberth@contoso.com**，和密码： **P@ssword**。 单击 **“确定”** 。
 
 6.  现在，你应看到如下消息：“此设备已加入工作区网络。”
 

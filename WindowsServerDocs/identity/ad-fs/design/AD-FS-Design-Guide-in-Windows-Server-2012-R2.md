@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 498b399818fb8c9e463f9990fa13c87648c0a33d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2d15f680f28c54da75100a03f7b85e880442d9be
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822148"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191736"
 ---
-# <a name="ad-fs-design-guide-in-windows-server-2012-r2"></a>Windows Server 2012 R2 中的 AD FS 设计指南
-
->适用于：Windows Server 2016, Windows Server 2012 R2
+# <a name="ad-fs-design-guide-in-windows-server"></a>在 Windows Server 中的 AD FS 设计指南 
 
 Active Directory 联合身份验证服务\(AD FS\)提供了简便而安全的标识联合身份验证和 Web 单一登录\-上\(SSO\)的最终用户想要访问的应用程序的功能与 AD FS 内\-保护企业，在联合身份验证伙伴组织中或在云中。  
   

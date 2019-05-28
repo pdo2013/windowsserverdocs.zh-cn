@@ -9,16 +9,15 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 615faf4153949aa4ad989f017068d1809fca26b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5bc43717f37fb3b14ac7f384a061ee64c734222d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820868"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189661"
 ---
 # <a name="configuring-alternate-login-id"></a>配置备用登录 ID
 
->适用于：Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2
 
 ## <a name="what-is-alternate-login-id"></a>备用登录 ID 是什么？
 在大多数情况下，用户使用其登录到其帐户的 UPN （用户主体名称）。 但是，在某些环境中由于公司政策或本地业务线应用程序依赖关系，用户可能使用其他形式的单一登录。 
@@ -39,7 +38,7 @@ Active Directory 联合身份验证服务 (AD FS) 启用联合应用程序使用
 ## <a name="end-user-experience-with-alternate-login-id"></a>使用备用登录 ID 的最终用户体验
 最终用户体验与备用登录 id 一起使用的身份验证方法而异。目前那里三种不同的方式在其中可以实现使用备用登录 id。  它们分别是：
 
-- **正则身份验证 （旧版）**-使用基本身份验证协议。
+- **正则身份验证 （旧版）** -使用基本身份验证协议。
 - **新式身份验证**-提供基于 Active Directory 身份验证库 (ADAL） 的单一登录对应用程序。 这使单一登录功能如多重身份验证 (MFA)，基于 SAML 的第三方标识提供程序与 Office 客户端应用程序，智能卡和基于证书的身份验证。
 - **混合新式身份验证**-提供所有新式身份验证的优点，并为用户提供访问本地应用程序使用从云中获取的授权令牌的能力。
 
@@ -127,18 +126,19 @@ Set-AdfsClaimsProviderTrust -TargetIdentifier "AD AUTHORITY" -AlternateLoginID $
 
 使用以下其他配置，用户体验已得到明显改进，并可以在你的组织实现接近零会提示你输入的备用 id 用户的身份验证。
 
-##### <a name="step-1-update-to-required-office-version"></a>步骤 1： 更新到所需的 office 版本
-Office 版本 1712年 （内部没有 8827.2148） 和更高版本已更新身份验证逻辑来处理的备用 id 方案。 若要利用新的逻辑，客户端计算机需要更新到 （内部版本没有 8827.2148） 的 office 版本 1712年及更高版本。
+##### <a name="step-1-update-to-required-office-version"></a>步骤 1： 对更新所需的 Office 版本
+Office 版本 1712年 （内部没有 8827.2148） 和更高版本已更新身份验证逻辑来处理的备用 id 方案。 若要利用新的逻辑，客户端计算机需要更新到 （内部版本没有 8827.2148） 的 Office 版本 1712年及更高版本。
 
-##### <a name="step-2-configure-registry-for-impacted-users-using-group-policy"></a>步骤 2： 配置为使用组策略的受影响用户的注册表
+##### <a name="step-2-update-to-required-windows-version"></a>步骤 2： 对更新所需的 Windows 版本
+Windows 1709 版和更高版本已更新身份验证逻辑来处理的备用 id 方案。 若要利用新的逻辑，客户端计算机需要更新到 Windows 版本 1709年及更高版本。
+
+##### <a name="step-3-configure-registry-for-impacted-users-using-group-policy"></a>步骤 3： 配置为使用组策略的受影响用户的注册表
 Office 应用程序依赖于标识备用 id 环境推送到由目录管理员的信息。 以下注册表项需要进行配置以便使用备用 id 用户而不显示任何额外的提示进行身份验证的 office 应用程序
 
 |若要添加的注册密钥|Regkey 数据名称、 类型和值|Windows 7/8|Windows 10|描述|
 |-----|-----|-----|-----|-----|
 |HKEY_CURRENT_USER\Software\Microsoft\AuthN|DomainHint</br>REG_SZ</br>contoso.com|必需|必需|此注册密钥的值是组织的租户中的已验证自定义域名称。 例如，Contoso 公司可以提供的 Contoso.com 中此注册密钥的值，如果 Contoso.com 租户 Contoso.onmicrosoft.com 中的已验证自定义域名称之一。|
 HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Common\Identity|EnableAlternateIdSupport</br>REG_DWORD</br>1|所需的专业增强版 Outlook 2016|所需的专业增强版 Outlook 2016|此注册密钥的值可以是 1 / 0 到 Outlook 应用程序指示它是否应该咨询改进的备用 id 身份验证逻辑。|
-HKEY_CURRENT_USER\SOFTWARE\Microsoft\Office\16.0\Common\Identity|DisableADALatopWAMOverride</br>REG_DWORD</br>1|不适用|必需。|这可确保 Office 不因为 WAM 不支持 alt id 使用 WAM。|
-HKEY_CURRENT_USER\SOFTWARE\Microsoft\Office\16.0\Common\Identity|DisableAADWAM</br>REG_DWORD</br>1|不适用|必需。|这可确保 Office 不因为 WAM 不支持 alt id 使用 WAM。|
 HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\contoso.com\sts|&#42;</br>REG_DWORD</br>1|必需|必需|此注册密钥可用于设置作为受信任区域中的 internet 设置的 STS。 标准 ADFS 部署建议将 ADFS 命名空间添加到本地 Intranet 区域的 Internet 资源管理器|
 
 ## <a name="new-authentication-flow-after-additional-configuration"></a>其他配置后的新身份验证流

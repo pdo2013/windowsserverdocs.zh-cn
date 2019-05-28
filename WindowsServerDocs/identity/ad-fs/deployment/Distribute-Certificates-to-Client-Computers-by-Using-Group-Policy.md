@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: d3a7e05e4d16565b17b69de254e353df749bbc3a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 11cdd9c75ca588ebeac9387e6512fee439621bf8
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839228"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192156"
 ---
 # <a name="distribute-certificates-to-client-computers-by-using-group-policy"></a>通过使用组策略分发到客户端计算机的证书
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 
 可以使用以下过程来推送适当的安全套接字层\(SSL\)证书\(等效项链接到受信任的根证书或\)帐户联合身份验证服务器资源联合身份验证服务器，并通过使用组策略的帐户伙伴林中每个客户端计算机的 Web 服务器。  

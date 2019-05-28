@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 225e6b52ed46eef6f2ccacb5b0d9c6e6d880f475
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1f3b2e1ce901df1df1a232dfba51c292c8e1c29c
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847168"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192179"
 ---
 # <a name="deploying-federation-servers"></a>部署联合服务器
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 若要部署 Active Directory 联合身份验证服务中的联合身份验证服务器\(AD FS\)，完成每个中的任务[核对清单：设置联合身份验证服务器](Checklist--Setting-Up-a-Federation-Server.md)。  
   
@@ -28,7 +26,7 @@ ms.locfileid: "59847168"
 ## <a name="about-federation-servers"></a>有关联合身份验证服务器  
 联合身份验证服务器是安装的 AD FS 软件与运行 Windows Server 2008 的已配置为充当联合身份验证服务器角色的计算机。 联合身份验证服务器进行身份验证，或从其他组织中的用户帐户和可以位于任意位置在 Internet 的客户端计算机的请求路由。  
   
-在计算机上安装 AD FS 软件，并且使用 AD FS 联合身份验证服务器配置向导以将其配置为联合身份验证服务器角色的行为使该计算机的联合身份验证服务器。 它还使 AD FS 管理管理单元\-中在该计算机上可用**启动\\管理工具\\**菜单，以便你可以指定以下：  
+在计算机上安装 AD FS 软件，并且使用 AD FS 联合身份验证服务器配置向导以将其配置为联合身份验证服务器角色的行为使该计算机的联合身份验证服务器。 它还使 AD FS 管理管理单元\-中在该计算机上可用**启动\\管理工具\\** 菜单，以便你可以指定以下：  
   
 -   AD FS 托管合作伙伴组织和应用程序将在其中发送令牌请求和响应的名称  
   

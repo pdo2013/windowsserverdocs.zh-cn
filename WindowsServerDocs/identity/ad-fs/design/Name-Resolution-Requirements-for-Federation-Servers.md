@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 74701cbaa403611b081942f016b21db1c0b3ff70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2776cc29b8c9ede884a6b304cd541f700f516ca
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845458"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191258"
 ---
 # <a name="name-resolution-requirements-for-federation-servers"></a>联合服务器的名称解析要求
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 当企业网络上的客户端计算机尝试访问应用程序或由 Active Directory 联合身份验证服务保护的 Web 服务\(AD FS\)，他们必须首先进行身份验证到联合身份验证服务器。 若要进行身份验证的一种方法是让企业网络客户端通过 Windows 集成身份验证访问本地联合身份验证服务器。  
   
@@ -37,4 +35,4 @@ ms.locfileid: "59845458"
   
 
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: cddc5d890114dec7e0053b16701db6f03c3cbbdf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c79524a011336d676fa2e80936e1254a8d2dd6b2
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889848"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189687"
 ---
 # <a name="configuring-intranet-forms-based-authentication-for-devices-that-do-not-support-wia"></a>配置 intranet 基于窗体的身份验证不支持 WIA 的设备
 
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 默认情况下，Active Directory 联合身份验证服务 (AD FS) 在 Windows Server 2012 R2 中的组织的内部网络 (intranet) 内发生的任何应用程序使用的身份验证请求中启用 Windows 集成身份验证 (WIA)其身份验证的浏览器。 例如，这些可以是基于浏览器的应用程序使用 WS 联合身份验证或 SAML 协议和丰富的应用程序使用 OAuth 协议。 WIA 为最终用户提供无缝登录到应用程序，而不必手动输入其凭据。 但是，某些设备和浏览器不能够支持 WIA，因此从这些设备的身份验证请求失败。 此外，不应在协商到 NTLM 某些浏览器上的体验。 建议的方法是回退到此类设备和浏览器的基于窗体的身份验证。
 

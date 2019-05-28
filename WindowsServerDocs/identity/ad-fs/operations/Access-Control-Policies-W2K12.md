@@ -9,16 +9,15 @@ ms.date: 06/05/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6e56c95bb3284615d8cc9487e70ca32abbb0f22b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 13969958c9b4e0539993142d680cb6c34dc10750
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855558"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190249"
 ---
 # <a name="access-control-policies-in-windows-server-2012-r2-and-windows-server-2012-ad-fs"></a>在 Windows Server 2012 R2 和 Windows Server 2012 AD FS 访问控制策略
 
->适用于：Windows Server 2012 R2 和 Windows Server 2012 
 
 本文中所述的策略进行使用的两种类型的声明  
   
@@ -80,7 +79,7 @@ AD FS 终结点上所需的 Windows 10 域加入和登录
   
 5.  上**配置规则**页面上，在**声明规则名称**，此规则，例如显示名称"超出了所需的范围，任何 IP 声明是否拒绝"的类型。 下**自定义规则**，键入或粘贴以下声明规则语言语法 （替换上面的"x-ms-转发的客户端的 ip"是有效的 IP 表达式的值）：  
 `c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");` </br>
-6.  单击 **“完成”**。 验证新规则显示在颁发授权规则列表之前为默认值**允许访问所有用户**（拒绝规则将优先即使看起来列表中前面） 的规则。  如果没有默认值允许访问规则，可以添加一个，如下所示使用声明规则语言列表的末尾：  </br>
+6.  单击 **“完成”** 。 验证新规则显示在颁发授权规则列表之前为默认值**允许访问所有用户**（拒绝规则将优先即使看起来列表中前面） 的规则。  如果没有默认值允许访问规则，可以添加一个，如下所示使用声明规则语言列表的末尾：  </br>
     
     `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true"); ` 
 
@@ -105,7 +104,7 @@ AD FS 终结点上所需的 Windows 10 域加入和登录
     
     `c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
 
-6.  单击 **“完成”**。 验证新规则显示在**颁发授权规则**列表。  
+6.  单击 **“完成”** 。 验证新规则显示在**颁发授权规则**列表。  
   
 7.  接下来，在**编辑声明规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**再次启动声明规则向导。  
   
@@ -116,7 +115,7 @@ AD FS 终结点上所需的 Windows 10 域加入和登录
 
     `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value != "Microsoft.Exchange.ActiveSync"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
   
-10. 单击 **“完成”**。 验证新规则显示在**颁发授权规则**列表。  
+10. 单击 **“完成”** 。 验证新规则显示在**颁发授权规则**列表。  
   
 11. 接下来，在**编辑声明规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**再次启动声明规则向导。  
   
@@ -128,7 +127,7 @@ AD FS 终结点上所需的 Windows 10 域加入和登录
     NOT EXISTS([Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application"]) => add(Type = "http://custom/xmsapplication", Value = "fail");  
     ```  
   
-14. 单击 **“完成”**。 验证新规则显示在**颁发授权规则**列表。  
+14. 单击 **“完成”** 。 验证新规则显示在**颁发授权规则**列表。  
   
 15. 接下来，在**编辑声明规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**再次启动声明规则向导。  
   
@@ -137,7 +136,7 @@ AD FS 终结点上所需的 Windows 10 域加入和登录
 17. 上**配置规则**页面上，在**声明规则名称**中，键入此规则的显示名称，例如"拒绝用户具有 ipoutsiderange true 和应用程序失败"。 下**自定义规则**，键入或粘贴以下声明规则语言语法：  
   
 `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/xmsapplication", Value == "fail"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`</br>  
-18. 单击 **“完成”**。 验证新规则紧下方上一个规则，然后之前为默认值允许访问所有用户中的规则 （拒绝规则将优先即使看起来列表中前面） 的颁发授权规则列表。  </br>如果没有默认值允许访问规则，可以添加一个，如下所示使用声明规则语言列表的末尾：</br></br>      `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`</br></br>
+18. 单击 **“完成”** 。 验证新规则紧下方上一个规则，然后之前为默认值允许访问所有用户中的规则 （拒绝规则将优先即使看起来列表中前面） 的颁发授权规则列表。  </br>如果没有默认值允许访问规则，可以添加一个，如下所示使用声明规则语言列表的末尾：</br></br>      `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`</br></br>
 19. 若要保存新规则，在**编辑声明规则**对话框框中，单击确定。 结果列表应如以下所示。  
   
      ![颁发授权规则](media/Access-Control-Policies-W2K12/clientaccess2.png )  
@@ -156,7 +155,7 @@ AD FS 终结点上所需的 Windows 10 域加入和登录
   
 5.  上**配置规则**页面上，在**声明规则名称**，键入此规则的显示名称为示例"所需的范围之外的任何 IP 声明是否发出 ipoutsiderange 声明"。 下**自定义规则**，键入或粘贴以下声明规则语言语法 （替换上面的"x-ms-转发的客户端的 ip"是有效的 IP 表达式的值）：  </br>
 `c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`   
-6.  单击 **“完成”**。 验证新规则显示在**颁发授权规则**列表。  
+6.  单击 **“完成”** 。 验证新规则显示在**颁发授权规则**列表。  
   
 7.  接下来，在**编辑声明规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**再次启动声明规则向导。  
   
@@ -167,7 +166,7 @@ AD FS 终结点上所需的 Windows 10 域加入和登录
  
     `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
   
-10. 单击 **“完成”**。 验证新规则显示在颁发授权规则列表之前为默认值**允许访问所有用户**（拒绝规则将优先即使看起来列表中前面） 的规则。  </br></br> 如果没有默认值允许访问规则，可以添加一个，如下所示使用声明规则语言列表的末尾：  
+10. 单击 **“完成”** 。 验证新规则显示在颁发授权规则列表之前为默认值**允许访问所有用户**（拒绝规则将优先即使看起来列表中前面） 的规则。  </br></br> 如果没有默认值允许访问规则，可以添加一个，如下所示使用声明规则语言列表的末尾：  
   
     `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`
   
@@ -193,7 +192,7 @@ AD FS 终结点上所需的 Windows 10 域加入和登录
       
     `c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] && c2:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
 
-6.  单击 **“完成”**。 验证新规则显示在**颁发授权规则**列表。  
+6.  单击 **“完成”** 。 验证新规则显示在**颁发授权规则**列表。  
   
 7.  接下来，在**编辑声明规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**再次启动声明规则向导。  
   
@@ -203,7 +202,7 @@ AD FS 终结点上所需的 Windows 10 域加入和登录
    
     `NOT EXISTS([Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == "S-1-5-32-100"]) => add(Type = "http://custom/groupsid", Value = "fail");`  
 
-10. 单击 **“完成”**。 验证新规则显示在**颁发授权规则**列表。  
+10. 单击 **“完成”** 。 验证新规则显示在**颁发授权规则**列表。  
   
 11. 接下来，在**编辑声明规则**对话框中，在**颁发授权规则**选项卡上，单击**添加规则**再次启动声明规则向导。  
   
@@ -213,7 +212,7 @@ AD FS 终结点上所需的 Windows 10 域加入和登录
    
     `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/groupsid", Value == "fail"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
 
-14. 单击 **“完成”**。 验证新规则紧下方上一个规则，然后之前为默认值允许访问所有用户中的规则 （拒绝规则将优先即使看起来列表中前面） 的颁发授权规则列表。  </br></br>如果没有默认值允许访问规则，可以添加一个，如下所示使用声明规则语言列表的末尾：  
+14. 单击 **“完成”** 。 验证新规则紧下方上一个规则，然后之前为默认值允许访问所有用户中的规则 （拒绝规则将优先即使看起来列表中前面） 的颁发授权规则列表。  </br></br>如果没有默认值允许访问规则，可以添加一个，如下所示使用声明规则语言列表的末尾：  
    
     `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`  
 

@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b4ec08182e2523b0fcb16088ec9c1d094a5923fe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4a13332cd7cf6361824f05ead4568a45211cc70a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836528"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191025"
 ---
 # <a name="provide-users-in-another-organization-access-to-your-claims-aware-applications-and-services"></a>为另一个组织中的用户提供对声明感知应用程序和服务的访问权限
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 如果要在 Active Directory 联合身份验证服务资源伙伴组织中的管理员\(AD FS\) ，并且必须为另一组织中的用户提供联合访问权限的部署目标是\(帐户伙伴组织\)为索赔\-感知应用程序或 Web\-基于位于你的组织中的服务\(资源伙伴组织\):  
   
@@ -49,4 +48,4 @@ ms.locfileid: "59836528"
 ![访问您的声明](media/75358b16-2a6f-4e16-9cc4-b0e614480305.gif)  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
