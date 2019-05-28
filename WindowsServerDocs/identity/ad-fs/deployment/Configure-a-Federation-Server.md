@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 13ce514dc5f3f70217a26c898cde6fe24d4967c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d2f597994aa74f453903e09f7d3eefd83f26faba
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847378"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192269"
 ---
 # <a name="configure-a-federation-server"></a>配置联合服务器
-
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 安装 Active Directory 联合身份验证服务后\(AD FS\)角色服务在计算机上已准备好将该计算机成为联合服务器配置。 执行下面其中一项操作：  
   
@@ -33,15 +31,15 @@ ms.locfileid: "59847378"
 > [!NOTE]  
 > 请确保你拥有域管理员权限或具有可用的域管理员凭据，然后执行此过程。  
   
-1.  在服务器管理器“仪表板”页面上，单击“通知”标志，然后单击“在服务器上配置联合身份验证服务”。  
+1.  在服务器管理器“仪表板”  页面上，单击“通知”  标志，然后单击“在服务器上配置联合身份验证服务”  。  
   
     打开“Active Directory 联合身份验证服务配置向导”  。  
   
-2.  在“欢迎使用”页面上，选择“在联合服务器场中创建第一个联合服务器”，然后单击“下一步”。  
+2.  在“欢迎使用”  页面上，选择“在联合服务器场中创建第一个联合服务器”  ，然后单击“下一步”  。  
   
 3.  上**连接到 AD DS**页上，指定通过使用 Active Directory 域管理员权限的帐户\(AD\)此计算机所加入的域，然后单击**下一步**.  
   
-4.  在“指定服务属性”  页面上，执行以下操作，然后再单击“下一步” ：  
+4.  在“指定服务属性”  页面上，执行以下操作，然后再单击“下一步”  ：  
   
     -   导入.pfx 文件包含安全套接字层\(SSL\)证书和你前面获取的密钥。 在[步骤 2:为 AD FS 注册 SSL 证书](../../ad-fs/deployment/Enroll-an-SSL-Certificate-for-AD-FS.md)，获取此证书并将其复制到你想要将配置为联合身份验证服务器的计算机上。 若要通过该向导将.pfx 文件导入，请单击**导入**，然后浏览到该文件的位置。 输入在得到提示时的.pfx 文件的密码。  
   
@@ -66,7 +64,7 @@ ms.locfileid: "59847378"
     > [!IMPORTANT]  
     > 如果你想要创建的 AD FS 场并使用 SQL Server 来存储配置数据，可以使用 SQL Server 2008 和更新版本，包括 SQL Server 2012 和 SQL Server 2014。  
   
-7.  在“查看选项”页面上，验证你的配置选择，然后单击“下一步”。  
+7.  在“查看选项”  页面上，验证你的配置选择，然后单击“下一步”  。  
   
 8.  上**Pre\-必备项检查**页上，验证所有先决条件检查都成功完成，然后单击**配置**。  
   
@@ -118,7 +116,7 @@ ms.locfileid: "59847378"
         Install-AdfsFarm -CertificateThumbprint <certificate_thumbprint> -FederationServiceName <federation_service_name> -ServiceAccountCredential $fscred  
         ```  
   
-        若要获取的值 **< 证书\_指纹 >**，请运行`dir Cert:\LocalMachine\My`，然后选择你的 SSL 证书的指纹。 值 **< 联合身份验证\_服务\_名称 >** 是你的联合身份验证服务 （例如 fs.contoso.com） 的名称。  
+        若要获取的值 **< 证书\_指纹 >** ，请运行`dir Cert:\LocalMachine\My`，然后选择你的 SSL 证书的指纹。 值 **< 联合身份验证\_服务\_名称 >** 是你的联合身份验证服务 （例如 fs.contoso.com） 的名称。  
   
         > [!NOTE]  
         > 如果这不是第一次运行此命令，添加`OverwriteConfiguration`参数。  
@@ -141,7 +139,7 @@ ms.locfileid: "59847378"
   
 ### <a name="to-add-a-federation-server-to-an-existing-federation-server-farm-via-the-active-directory-federation-service-configuration-wizard"></a>若要将联合服务器添加到 Active Directory 联合身份验证服务配置向导通过现有的联合服务器场  
   
-1.  在服务器管理器“仪表板”页面上，单击“通知”标志，然后单击“在服务器上配置联合身份验证服务”。  
+1.  在服务器管理器“仪表板”  页面上，单击“通知”  标志，然后单击“在服务器上配置联合身份验证服务”  。  
   
     打开“Active Directory 联合身份验证服务配置向导”  。  
   
@@ -164,7 +162,7 @@ ms.locfileid: "59847378"
     > [!IMPORTANT]  
     > 您指定的帐户必须与此服务器场中主联合服务器使用的帐户相同的帐户。  
   
-7.  在“查看选项”页面上，验证你的配置选择，然后单击“下一步”。  
+7.  在“查看选项”  页面上，验证你的配置选择，然后单击“下一步”  。  
   
 8.  上**Pre\-必备项检查**页上，验证所有先决条件检查都成功完成，然后单击**配置**。  
   

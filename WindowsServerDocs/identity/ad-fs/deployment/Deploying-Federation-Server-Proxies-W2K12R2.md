@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: dc49d8f4b656fdbb92083aa3c60bc4ce81091e9b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 330214e83b6da5bf711c36995306f8f1a098fa24
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890818"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192210"
 ---
 # <a name="deploying-federation-server-proxies"></a>部署联合服务器代理
-
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 在 Active Directory 联合身份验证服务\(AD FS\)在 Windows Server 2012 R2 中的联合服务器代理角色处理由一个称为 Web 应用程序代理的新远程访问角色服务。 若要启用从已部署在旧版本的 AD FS，例如 AD FS 2.0 和 Windows Server 2012 中的 AD FS 联合服务器代理的目的在企业网络外部的辅助功能的 AD FS 可以将部署 a 的一个或多个 web 应用程序代理Windows Server 2012 R2 中的 D FS。  
   

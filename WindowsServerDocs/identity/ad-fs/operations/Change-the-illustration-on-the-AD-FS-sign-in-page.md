@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4f1cba9862766092c2beadb894cbac092d146887
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a182b6243777d119394615008cee63b5e5a71ab8
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858238"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189949"
 ---
 # <a name="change-the-illustration-on-the-ad-fs-sign-in-page"></a>更改 AD FS 登录页上的插图
-
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 ## <a name="change-the-illustration"></a>更改图片  
 

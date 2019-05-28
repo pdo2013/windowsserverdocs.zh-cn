@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3e555d1003878e12320cb8557bd205ac24e1bbb3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6be56c25cc6f639f73842f57cdf48a6339dccf9c
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882438"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191851"
 ---
 # <a name="windows-server-2012-ad-fs-deployment-guide"></a>Windows Server 2012 AD FS 部署指南
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 可以使用 Active Directory® 联合身份验证服务\(AD FS\)与 Windows Server® 2012年操作系统来构建一个联合的标识管理解决方案，扩展了分布式的标识、 身份验证，并授权服务添加到 Web\-基于跨越组织和平台边界的应用程序。 通过部署 AD FS，可将组织现有的标识管理功能扩展到 Internet。  
   
@@ -62,11 +61,11 @@ ms.locfileid: "59882438"
   
 -   [规划部署 AD FS](Planning-to-Deploy-AD-FS.md)  
   
--   [实现中的 AD FS 设计计划](Implementing-Your-AD-FS-Design-Plan.md)  
+-   [实现 AD FS 设计规划](Implementing-Your-AD-FS-Design-Plan.md)  
   
 -   [清单：实现 Web SSO 设计](Checklist--Implementing-a-Web-SSO-Design.md)  
   
--   [清单：实现联合的 Web SSO 设计](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
+-   [清单：实现联合 Web SSO 设计](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
   
 -   [配置伙伴组织](Configuring-Partner-Organizations.md)  
   
@@ -76,4 +75,4 @@ ms.locfileid: "59882438"
   
 -   [部署联合服务器代理](Deploying-Federation-Server-Proxies.md)  
   
--   [Interoperating with AD FS 1.x](Interoperating-with-AD-FS-1.x.md)  
+-   [与 AD FS 1.x 进行互操作](Interoperating-with-AD-FS-1.x.md)  

@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 811f5296143637974cf82e59d57665f8a96f1c8c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 02df9659ee3a1121c0cee3f7c5fa21b91c36b87c
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884108"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192050"
 ---
 # <a name="join-a-computer-to-a-domain"></a>将计算机加入到域
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 Active Directory 联合身份验证服务\(AD FS\)正常工作，每台计算机，其功能的联合身份验证服务器必须加入到域。 联合服务器代理可能会加入到域，但这不是必需。  
   
@@ -32,16 +30,16 @@ Active Directory 联合身份验证服务\(AD FS\)正常工作，每台计算机
   
 2.  导航到**系统和安全**，然后单击**系统**。  
   
-3.  在“计算机名、域和工作组设置” 下，单击“更改设置” 。  
+3.  在“计算机名、域和工作组设置”  下，单击“更改设置”  。  
   
-4.  在“计算机名”  选项卡上，单击“更改” 。  
+4.  在“计算机名”  选项卡上，单击“更改”  。  
   
 5.  下**的成员**，单击**域**，键入你想要加入，然后单击此计算机的域的名称**确定**。  
   
-6.  单击“确定”，然后重新启动计算机。  
+6.  单击“确定”  ，然后重新启动计算机。  
   
 ## <a name="additional-references"></a>其他参考  
-[清单：设置联合身份验证服务器](Checklist--Setting-Up-a-Federation-Server.md)  
+[清单：设置联合服务器](Checklist--Setting-Up-a-Federation-Server.md)  
   
 [清单：设置联合服务器代理](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   

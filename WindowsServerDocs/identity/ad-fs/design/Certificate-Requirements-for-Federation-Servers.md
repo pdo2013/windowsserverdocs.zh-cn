@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 369c0e9e7ab1ef25baee1c35379cc66b886f20d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ce301f6320ed3347b1ee802f57c2b2ebd4394970
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827098"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191638"
 ---
 # <a name="certificate-requirements-for-federation-servers"></a>联合服务器的证书要求
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 在任何 Active Directory 联合身份验证服务\(AD FS\)设计中，必须使用各种证书来保护通信和 Internet 客户端与联合身份验证服务器之间的用户身份验证提供便利。 每个联合身份验证服务器必须具有服务通信证书和令牌\-签名证书才可以参与 AD FS 通信。 下表介绍与联合身份验证服务器相关联的证书类型。  
   
@@ -55,4 +53,4 @@ AD FS 不需要由 CA 颁发证书。 但是，SSL 证书\(还用作默认情况
 如果你使用的任何证书具有 CRL，则具有配置证书的服务器必须能够联系分发 CRL 的服务器。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

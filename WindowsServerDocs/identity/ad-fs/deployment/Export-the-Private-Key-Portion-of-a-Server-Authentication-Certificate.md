@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: c968f0702d56b56d0a80459e5cf0c9e658c56741
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c3a39f9d51ed8243118522ae37bc7d205a7ea416
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857188"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192138"
 ---
 # <a name="export-the-private-key-portion-of-a-server-authentication-certificate"></a>导出服务器身份验证证书的私钥部分
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 在 Active Directory 联合身份验证服务中的每个联合身份验证服务器\(AD FS\)场必须具有服务器身份验证证书的私钥访问权限。 如果要实现的联合身份验证服务器或 Web 服务器的服务器场，必须具有单一身份验证证书。 此证书必须由企业证书颁发机构颁发\(CA\)，并且它必须可导出的私钥。 服务器身份验证证书的私钥必须可导出，以便使其可用于该服务器场中的所有服务器。  
   
@@ -35,7 +33,7 @@ ms.locfileid: "59857188"
   
 1.  上**启动**屏幕上，键入**Internet Information Services \(IIS\) Manager**，然后按 ENTER。  
   
-2.  在控制台树中，单击“计算机名称”。  
+2.  在控制台树中，单击“计算机名称”  。  
   
 3.  在中心窗格中，双击\-单击**服务器证书**。  
   
@@ -45,7 +43,7 @@ ms.locfileid: "59857188"
   
 6.  在中**文件名**，类型 **c:\\* * * NameofCertificate*，然后单击**打开**。  
   
-7.  键入证书的密码、进行确认，然后单击“确定”。  
+7.  键入证书的密码、进行确认，然后单击“确定”  。  
   
 8.  通过确认指定的文件创建在指定的位置上来验证导出成功。  
   
@@ -55,11 +53,11 @@ ms.locfileid: "59857188"
 9. 请在安装联合身份验证服务之前，将已导出的服务器身份验证证书导入到新的服务器上的证书存储区。 有关如何将证书导入的信息，请参阅导入服务器证书\( [http:\/\/go.microsoft.com\/fwlink\/？LinkId\=108283](https://go.microsoft.com/fwlink/?LinkId=108283)\)。  
   
 ## <a name="additional-references"></a>其他参考  
-[清单：设置联合身份验证服务器](Checklist--Setting-Up-a-Federation-Server.md)  
+[清单：设置联合服务器](Checklist--Setting-Up-a-Federation-Server.md)  
   
 [清单：设置联合服务器代理](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
-[联合身份验证服务器的证书要求](https://technet.microsoft.com/library/dd807040.aspx)  
+[联合服务器的证书要求](https://technet.microsoft.com/library/dd807040.aspx)  
   
 [联合服务器代理的证书要求](https://technet.microsoft.com/library/dd807054.aspx)  
   

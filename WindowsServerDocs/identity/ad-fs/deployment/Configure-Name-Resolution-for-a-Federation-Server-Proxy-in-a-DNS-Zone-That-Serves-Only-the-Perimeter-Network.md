@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 32b8e3cc133ce95872881115608bb8cfb17b2427
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7d046c720c5c6250b6efa03e068aa66e2a6bbe3d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816008"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192305"
 ---
 # <a name="configure-name-resolution-for-a-federation-server-proxy-in-a-dns-zone-that-serves-only-the-perimeter-network"></a>在仅为外围网络提供服务的 DNS 区域中为联合服务器代理配置名称解析
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 这样的名称解析成功适用于 Active Directory 联合身份验证服务中的联合身份验证服务器\(AD FS\)的一个或多个域名系统中的方案\(DNS\)区域提供仅外围网络，以下必须完成任务：  
   
@@ -38,7 +37,7 @@ ms.locfileid: "59816008"
   
 1.  导航到 %systemroot%\\Winnt\\System32\\驱动程序目录文件夹并找到**主机**文件。  
   
-2.  启动记事本，然后打开“主机”文件。  
+2.  启动记事本，然后打开“主机”  文件。  
   
 3.  添加到帐户伙伴中的 IP 地址和联合身份验证服务器的主机名**主机**文件，在下面的示例所示：  
   
@@ -58,13 +57,13 @@ ms.locfileid: "59816008"
   
 1.  在外围网络的 DNS 服务器，打开 DNS 管理单元\-中。 单击**启动**，依次指向**管理工具**，然后单击**DNS**。  
   
-2.  在控制台树中，右键\-单击适用的正向查找区域，然后单击**新的主机\(A 或 AAAA\)**。  
+2.  在控制台树中，右键\-单击适用的正向查找区域，然后单击**新的主机\(A 或 AAAA\)** 。  
   
 3.  在中**名称**，键入联合身份验证服务器的计算机名称。 例如，对于完全限定的域名\(FQDN\) fs.fabrikam.com，键入**fs**。  
   
 4.  在中**IP 地址**，为新的联合服务器代理，例如，键入的 IP 地址**131.107.27.68**。  
   
-5.  单击“添加主机” 。  
+5.  单击“添加主机”  。  
   
 ## <a name="additional-references"></a>其他参考  
 [清单：设置联合服务器代理](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  

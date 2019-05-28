@@ -9,16 +9,14 @@ ms.date: 10/04/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 73de8908677b3f74651b10c29ef2abe62e484694
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 88c4d976b9808d254dc1681ce9eee3ca556824ab
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868408"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189792"
 ---
 # <a name="configure-additional-authentication-methods-for-ad-fs"></a>为 AD FS 配置额外的身份验证方法
-
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 若要启用多因素身份验证 (MFA)，你必须至少选择一种附加身份验证方法。 默认情况下，在 Windows Server 2012 R2 中，Active Directory 联合身份验证服务 (AD FS) 中您可以选择证书身份验证 （即，基于智能卡的身份验证） 作为附加身份验证方法。
 

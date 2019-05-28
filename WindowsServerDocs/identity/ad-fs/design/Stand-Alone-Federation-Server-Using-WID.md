@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 9ec4150a7d3adfaac786219d253e1d0898c18204
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 31e2e1b04383adc8bec12e7290a7acec80e0402f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876518"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190787"
 ---
 # <a name="stand-alone-federation-server-using-wid"></a>使用 WID 的独立联合服务器
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 独立\-Active Directory 联合身份验证服务中的单独的联合身份验证服务器\(AD FS\)由单个服务器承载联合身份验证服务配置为使用 Windows 内部数据库组成\(WID\). 此 AD FS 拓扑适用于测试实验室。 我们不建议这样做用于生产环境因为它的限制为只有一个联合身份验证服务器，它不能用于扩展到更多的服务器。  
   
@@ -45,4 +43,4 @@ ms.locfileid: "59876518"
   
 
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

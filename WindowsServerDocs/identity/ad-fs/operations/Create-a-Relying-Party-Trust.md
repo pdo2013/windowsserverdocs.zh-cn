@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 14e1cc732ed60b7f05a9a4a9aac9037c48b702f2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 42df338ee5a5aecb3cf32f91a2b1aedae1210164
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879918"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189508"
 ---
 # <a name="create-a-relying-party-trust"></a>创建信赖方信任
 
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 以下文档提供有关手动创建信赖方信任和使用联合身份验证元数据信息。
   
@@ -36,7 +35,7 @@ ms.locfileid: "59879918"
 3.  上**欢迎**页上，选择**声明感知**然后单击**启动**。  
 ![信赖方](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
   
-4.  在“选择数据源”  页上，单击“手动输入信赖方数据” ，然后单击“下一步” 。  
+4.  在“选择数据源”  页上，单击“手动输入信赖方数据”  ，然后单击“下一步”  。  
 ![信赖方](media/Create-a-Relying-Party-Trust/addtrust3.PNG) 
   
 5.  上**指定显示名称**页上，键入一个名称中的**显示名称**下**说明**键入此信赖方信任的描述，然后单击**下一步**.  
@@ -49,10 +48,10 @@ ms.locfileid: "59879918"
   
     -   选择**启用支持 WS\-联合身份验证被动协议**复选框。 下**信赖方 WS\-联合身份验证被动协议 URL**，键入此信赖方信任的 URL，然后单击**下一步**。  
   
-    -   选中“启用对 SAML 2.0 WebSSO 的支持”复选框。 下**信赖方 SAML 2.0 SSO 服务 URL**，键入安全断言标记语言\(SAML\)服务终结点 URL 为此信赖方信任，然后单击**下一步**.  
+    -   选中“启用对 SAML 2.0 WebSSO 的支持”  复选框。 下**信赖方 SAML 2.0 SSO 服务 URL**，键入安全断言标记语言\(SAML\)服务终结点 URL 为此信赖方信任，然后单击**下一步**.  
 ![信赖方](media/Create-a-Relying-Party-Trust/addtrust6.PNG)   
 
-8. 在“配置标识符”页上，为此信赖方指定一个或多个标识符、单击“添加”以将其添加到列表中，然后单击“下一步”。  
+8. 在“配置标识符”  页上，为此信赖方指定一个或多个标识符、单击“添加”  以将其添加到列表中，然后单击“下一步”  。  
 ![信赖方](media/Create-a-Relying-Party-Trust/addtrust8.PNG)
   
 9.  上**选择访问控制策略**选择一个策略，然后单击**下一步**。  有关访问控制策略的详细信息，请参阅[AD FS 中的访问控制策略](Access-Control-Policies-in-AD-FS.md)。 
@@ -60,7 +59,7 @@ ms.locfileid: "59879918"
 
 10. 在“准备好添加信任”  页上，复查设置，然后单击“下一步”  来保存信赖方信任的信息。  
    ![信赖方](media/Create-a-Relying-Party-Trust/addtrust10.PNG) 
-11. 在“完成”页面上，单击“关闭”。 执行此操作会自动显示“编辑声明规则”对话框。  
+11. 在“完成”  页面上，单击“关闭”  。 执行此操作会自动显示“编辑声明规则”对话框  。  
 ![信赖方](media/Create-a-Relying-Party-Trust/addtrust11.PNG) 
 
 ## <a name="to-create-a-claims-aware-relying-party-trust-using-federation-metadata"></a>若要创建声明感知信赖方信任使用联合身份验证元数据
@@ -81,7 +80,7 @@ ms.locfileid: "59879918"
 3.  上**欢迎**页上，选择**声明感知**然后单击**启动**。  
 ![信赖方](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
   
-4.  上**选择数据源**页上，单击 **导入数据有关信赖方联机或本地网络上发布*。 在“联合元数据地址(主机名或 URL)”中，键入伙伴的联合元数据 URL 或主机名，然后单击“下一步”。  
+4.  上**选择数据源**页上，单击 **导入数据有关信赖方联机或本地网络上发布*。 在“联合元数据地址(主机名或 URL)”中，  键入伙伴的联合元数据 URL 或主机名，然后单击“下一步”  。  
 ![信赖方](media/Create-a-Relying-Party-Trust/addtrust12.PNG) 
 
 5.  在指定显示名称页中键入一个名称**显示名称**，在说明下键入此信赖方信任的说明，然后单击**下一步**。

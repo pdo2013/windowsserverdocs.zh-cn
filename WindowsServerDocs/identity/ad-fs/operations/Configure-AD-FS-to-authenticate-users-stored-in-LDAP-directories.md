@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 05f8b8991e664a84c3f2b3200de4068af8d1476a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bef2cac726b1c4ea9b30f9a2086e3a2670339228
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846608"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189835"
 ---
 # <a name="configure-ad-fs-to-authenticate-users-stored-in-ldap-directories"></a>配置 AD FS 对存储在 LDAP 目录中的用户进行身份验证
-
->适用于：Windows Server 2016
 
 以下主题介绍启用 AD FS 基础结构，其标识存储在轻型目录访问协议 (LDAP) v3 兼容目录中的用户进行身份验证所需的配置。
 

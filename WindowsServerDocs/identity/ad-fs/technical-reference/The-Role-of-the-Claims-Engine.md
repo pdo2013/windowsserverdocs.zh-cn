@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 930b6f8034f17d8902104419042f944b82e90b4f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b69277cdedd697605f57aa4cf7214f5b65bb2e81
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814928"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188475"
 ---
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
-
 # <a name="the-role-of-the-claims-engine"></a>声明引擎的角色
 在最高级别，声明引擎在 Active Directory 联合身份验证服务\(AD FS\)是一种规则\-基于引擎，专用于提供服务和联合身份验证服务处理声明请求。 声明引擎是联合身份验证服务中具有以下功能的唯一实体：负责跨所有已配置的联合信任关系运行每个规则集，并将输出结果传递给声明管道。  
   
@@ -41,7 +39,7 @@ ms.locfileid: "59814928"
 有关管道过程的详细信息，请参阅 [The Role of the Claims Pipeline](The-Role-of-the-Claims-Pipeline.md)。  
   
 ### <a name="step-1--initialization"></a>步骤 1 – 初始化  
-在声明规则执行过程中的第一步中，声明引擎会通过首先将传入声明添加到“输入声明集”来接受它们。 输入声明集类似于仅用于临时存储数据的内存中缓存（只要所需过程要求提供数据进行检索）。 输入声明集数据会在规则执行完成之后丢弃。  
+在声明规则执行过程中的第一步中，声明引擎会通过首先将传入声明添加到“输入声明集”  来接受它们。 输入声明集类似于仅用于临时存储数据的内存中缓存（只要所需过程要求提供数据进行检索）。 输入声明集数据会在规则执行完成之后丢弃。  
   
 #### <a name="adding-a-claim-to-the-input-claim-set-for-a-rule-set"></a>为规则集向输入声明集添加声明  
 当声明引擎在处理与声明规则集关联的逻辑的同时需要在内存中临时存储声明数据时，它会创建输入声明集。 声明引擎会将所有传入声明复制到输入声明集，规则集中的第一个规则可以在其中检索这些声明。  
@@ -64,12 +62,12 @@ ms.locfileid: "59814928"
 3.  使用匹配声明\(s\)作为键来查找从属性存储来创建新的声明的详细信息\(s\)在只需输入声明集，或在这种输入和输出声明集。  
   
 #### <a name="adding-a-claim-to-the-output-claim-set-for-a-rule-set"></a>为规则集向输出声明集添加声明  
-“输出声明集”是内存中最初为空的位置，十分重要，因为声明引擎在执行过程完成之后只返回位于输出声明集中的声明。 这意味着，在计算最终的传出声明集时，会忽略仅位于输入声明集中、而不位于输出声明集中的任何声明。  
+“输出声明集”  是内存中最初为空的位置，十分重要，因为声明引擎在执行过程完成之后只返回位于输出声明集中的声明。 这意味着，在计算最终的传出声明集时，会忽略仅位于输入声明集中、而不位于输出声明集中的任何声明。  
   
 #### <a name="adding-a-claim-to-both-claim-sets-for-a-rule-set"></a>为规则集向两个声明集添加声明  
-处理规则时，声明会基于规则的发出语句中使用的语句，添加到输入声明集中或同时添加到输入声明集和输出声明集中。 声明规则语言将这些语句称为“添加”或“发出”。  
+处理规则时，声明会基于规则的发出语句中使用的语句，添加到输入声明集中或同时添加到输入声明集和输出声明集中。 声明规则语言将这些语句称为“添加”  或“发出”  。  
   
-如果使用“添加”语句，则声明仅添加到输入声明集，声明只是为进行执行而存在，会在执行完成之后停止存在。 如果使用“发出”  语句，则声明会同时添加到输入声明集和输出声明集，并且声明会在执行完成之后在输出声明集中返回。 有关这些语句的详细信息，请参阅 [The Role of the Claim Rule Language](The-Role-of-the-Claim-Rule-Language.md)。  
+如果使用“添加”  语句，则声明仅添加到输入声明集，声明只是为进行执行而存在，会在执行完成之后停止存在。 如果使用“发出”  语句，则声明会同时添加到输入声明集和输出声明集，并且声明会在执行完成之后在输出声明集中返回。 有关这些语句的详细信息，请参阅 [The Role of the Claim Rule Language](The-Role-of-the-Claim-Rule-Language.md)。  
   
 如果规则集中规则的条件部分与输入声明集中的任何声明都不匹配，则会忽略规则的发出语句部分，因此不会将任何声明添加到输出声明集或输入声明集。 下图和对应步骤演示在声明引擎执行转换规则时发生的情况：  
   

@@ -9,16 +9,15 @@ ms.prod: windows-server-threshold
 ms.technology: active-directory-federation-services
 ms.author: billmath
 ms.assetId: 7b9f9a4f-888c-4358-bacd-3237661b1935
-ms.openlocfilehash: 0ab10e61135a26b62605ed8e0a76ab6e53fdc82c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cf3d7513dd02bdb578bffd2f3ef8bdb29d8f983d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824288"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192167"
 ---
 # <a name="setup-geographic-redundancy-with-sql-server-replication"></a>使用 SQL Server 复制设置地理冗余
 
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 > [!IMPORTANT]  
 > 如果你想要创建的 AD FS 场并使用 SQL Server 来存储配置数据，可以使用 SQL Server 2008 或更高版本。
@@ -90,7 +89,7 @@ ms.locfileid: "59824288"
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql18.png) </br>   
 您可能需要为 SQL 代理创建的域帐户。 使用中的步骤[CONTOSO 的域帐户配置 SQL 登录名\\sqlagent](Set-up-Geographic-Redundancy-with-SQL-Server-Replication.md#sqlagent)若要创建此新的 AD 用户的 SQL 登录名并分配特定权限。  
   
-13. 上**代理安全性**页上，单击**安全设置**并输入用户名\/域帐户的密码\(不 GMSA\)创建 SQL 代理和单击**确定**。  单击“下一步” 。  
+13. 上**代理安全性**页上，单击**安全设置**并输入用户名\/域帐户的密码\(不 GMSA\)创建 SQL 代理和单击**确定**。  单击“下一步”  。  
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql19.png) </br>  
 
 14. 上**向导操作**页上，单击**下一步**。   
@@ -99,7 +98,7 @@ ms.locfileid: "59824288"
 15. 上**完成该向导**页上，输入你发布的名称，单击**完成**。 
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql21.png) </br>  
 
-16. 创建发布后，应看到成功的状态。  单击 **“关闭”**。
+16. 创建发布后，应看到成功的状态。  单击 **“关闭”** 。
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql22.png) </br>  
 
 17. 返回在 SQL Server Management Studio 中，右键单击新发布，然后单击**启动复制监视器**。  
@@ -108,7 +107,7 @@ ms.locfileid: "59824288"
 ## <a name="create-subscription-settings-on-the-replica-sql-server"></a>SQL Server 副本上创建订阅设置  
 请确保您创建的发布服务器设置初始的 SQL Server 上按上文所述，然后完成以下过程：  
   
-1.  从 SQL Server Management studio 的 SQL Server 副本上下**复制**，右键单击**本地订阅**，然后选择**新订阅...**.![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql24.png) </br>  
+1.  从 SQL Server Management studio 的 SQL Server 副本上下**复制**，右键单击**本地订阅**，然后选择**新订阅...** .![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql24.png) </br>  
 
 2.  上**新建订阅向导**页上，单击**下一步**。
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql25.png) </br>   
@@ -142,7 +141,7 @@ ms.locfileid: "59824288"
 11. 上**完成该向导**页上，单击**完成**。 
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql35.png) </br>
 
-12. 在创建过程完成订阅后，应会看到成功。 单击 **“关闭”**。 
+12. 在创建过程完成订阅后，应会看到成功。 单击 **“关闭”** 。 
 ![设置地理冗余](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql36.png) </br>
   
 ## <a name="verify-the-process-of-initialization-and-replication"></a>验证初始化和复制的过程  

@@ -8,16 +8,15 @@ ms.date: 09/19/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2b11454427a65e37604b430a63b5ed745f4a2bb1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 946e99448d13bf6782c10bce5a0b8566da4deb17
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864448"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190384"
 ---
 # <a name="ad-fs-paginated-sign-in"></a>AD FS 登录分页
 
->适用于：Windows Server 2019
 
 对于 AD FS 2019，我们已重新设计登录 UI。  现在，AD FS 登录中将有相同的外观和感觉的 Azure AD。  这将使用户获得更一致登录体验，合并居中和分页用户流。 
 

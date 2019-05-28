@@ -9,16 +9,14 @@ ms.date: 01/28/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ae7809089a69ac0ff48168db0aa2e9d61c35257a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 33b782ded2ae1bdd8b00c08b81e4e0ee7f885899
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814088"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188835"
 ---
 # <a name="configure-azure-mfa-as-authentication-provider-with-ad-fs"></a>将 Azure MFA 配置为使用 AD FS 身份验证提供程序
-
->适用于：Windows Server 2016 中，Windows Server 2019
 
 如果你的组织已与 Azure AD 联合，您可以到安全的 AD FS 资源，同时在本地和云中使用 Azure 多重身份验证。 Azure MFA，可消除密码并提供更安全的方式进行身份验证。  从 Windows Server 2016 开始，你现在可以将 Azure MFA 配置为主要身份验证或将其用作其他身份验证提供程序。 
   
@@ -50,7 +48,7 @@ AD FS 不支持内联&#34;证明了&#34;，或注册 Azure MFA 安全验证信�
 因为作为主 Azure MFA 被视为一个因素后初始配置的用户将需要提供另一个因素来管理或更新 Azure AD 中的其验证信息或访问其他资源的要求进行 MFA。
 
 >[!NOTE]
-> ADFS 2019 所需对 Active Directory 声明提供方信任的定位点声明类型进行修改并将修改这从 windowsaccountname UPN。 执行下面提供的 powershell commandlet 下面。 这具有对 AD FS 场的内部功能没有影响。 您可能会注意到一些用户可能会再次提示输入凭据后进行此更改。 再次登录之后, 最终用户会看到任何区别。 
+> ADFS 2019 所需对 Active Directory 声明提供方信任的定位点声明类型进行修改并将修改这从 windowsaccountname UPN。 执行下面提供的 PowerShell cmdlet。 这具有对 AD FS 场的内部功能没有影响。 您可能会注意到一些用户可能会重新提示输入凭据后进行此更改。 再次登录之后, 最终用户会看到任何区别。 
 
 ```powershell
 Set-AdfsClaimsProviderTrust -AnchorClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" -TargetName "Active Directory"
@@ -68,7 +66,7 @@ Set-AdfsClaimsProviderTrust -AnchorClaimType "http://schemas.xmlsoap.org/ws/2005
   
 - [Azure 订阅与 Azure Active Directory](https://azure.microsoft.com/pricing/free-trial/)。  
 - [Azure 多重身份验证](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/)  
-- Web 应用程序代理通过端口 80 和 443 是可以使用以下 communticate
+- Web 应用程序代理是能够通过端口 80 和 443 与以下通信：
 
     - https://adnotifications.windowsazure.com
     - https://login.microsoftonline.com
@@ -90,7 +88,7 @@ Set-AdfsClaimsProviderTrust -AnchorClaimType "http://schemas.xmlsoap.org/ws/2005
 若要完成 Azure MFA for AD FS 配置，你需要配置每个 AD FS 服务器使用所述的步骤。 
 
 >[!NOTE]
->确保在执行这些步骤**所有**AD FS 服务器场中的。 如果场中有多个 AD FS 服务器，则可以执行远程使用 Azure AD Powershell 所需的配置。  
+>确保在执行这些步骤**所有**AD FS 服务器场中的。 如果场中有多个 AD FS 服务器，则可以执行远程使用 Azure AD PowerShell 所需的配置。  
 
 ### <a name="step-1-generate-a-certificate-for-azure-mfa-on-each-ad-fs-server-using-the-new-adfsazuremfatenantcertificate-cmdlet"></a>第 1 步：为 Azure MFA 中生成证书，每个 AD FS 服务器使用`New-AdfsAzureMfaTenantCertificate`cmdlet
 
@@ -108,7 +106,7 @@ Set-AdfsClaimsProviderTrust -AnchorClaimType "http://schemas.xmlsoap.org/ws/2005
 若要启用 AD FS 服务器与 Azure 多重身份验证客户端进行通信，需要将凭据添加到 Azure 多重身份验证客户端服务主体。 使用生成的证书`New-AdfsAzureMFaTenantCertificate`cmdlet 将作为这些凭据。 执行以下操作使用 PowerShell 将新凭据添加到 Azure 多重身份验证客户端的服务主体。  
 
 > [!NOTE]
-> 若要完成此步骤需要连接到 Azure AD 与 PowerShell 中使用 Connect-msolservice 的实例。  这些步骤假定你已通过 PowerShell 连接。  有关信息请参阅[Connect-msolservice。](https://msdn.microsoft.com/library/dn194123.aspx)  
+> 若要完成此步骤中需要连接到 Azure AD PowerShell 中使用的实例`Connect-MsolService`。  这些步骤假定你已通过 PowerShell 连接。  有关信息请参阅[ `Connect-MsolService`。](https://msdn.microsoft.com/library/dn194123.aspx)  
 
 **针对 Azure 多重身份验证客户端设置为新的凭据的证书**  
 
@@ -140,7 +138,7 @@ Set-AdfsClaimsProviderTrust -AnchorClaimType "http://schemas.xmlsoap.org/ws/2005
 ## <a name="renew-and-manage-ad-fs-azure-mfa-certificates"></a>续订和管理 AD FS Azure MFA 证书
 
 以下指南指导您如何管理在 AD FS 服务器上的 Azure MFA 证书。
-默认情况下，使用 Azure MFA 配置 AD FS 时通过新建 AdfsAzureMfaTenantCertificate PowerShell cmdlet 生成的证书的有效期为 2 年。  若要确定如何接近过期证书，以及然后续订并安装新证书，请使用以下过程。
+默认情况下，当使用 Azure MFA 配置 AD FS 证书通过生成`New-AdfsAzureMfaTenantCertificate`PowerShell cmdlet 的有效期为 2 年。  若要确定如何接近过期证书，以及然后续订并安装新证书，请使用以下过程。
 
 ### <a name="assess-ad-fs-azure-mfa-certificate-expiration-date"></a>评估 AD FS Azure MFA 证书到期日期
 
@@ -148,7 +146,7 @@ Set-AdfsClaimsProviderTrust -AnchorClaimType "http://schemas.xmlsoap.org/ws/2005
 
 ### <a name="create-new-ad-fs-azure-mfa-certificate-on-each-ad-fs-server"></a>每个 AD FS 服务器上创建新的 AD FS Azure MFA 证书
 
-如果您的证书的有效期即将达到其最终，通过生成每个 AD FS 服务器上的新 Azure MFA 证书开始续订过程。 在 powershell 命令窗口中，生成使用以下 cmdlet 的每个 AD FS 服务器上的新证书：
+如果您的证书的有效期即将达到其最终，通过生成每个 AD FS 服务器上的新 Azure MFA 证书开始续订过程。 在 PowerShell 命令窗口中，生成使用以下 cmdlet 的每个 AD FS 服务器上的新证书：
 
 ```
 PS C:\> $newcert = New-AdfsAzureMfaTenantCertificate -TenantId <tenant id such as contoso.onmicrosoft.com> -Renew $true
@@ -158,23 +156,37 @@ PS C:\> $newcert = New-AdfsAzureMfaTenantCertificate -TenantId <tenant id such a
 
 ### <a name="configure-each-new-ad-fs-azure-mfa-certificate-in-the-azure-ad-tenant"></a>在 Azure AD 租户中配置每个新的 AD FS Azure MFA 证书
 
-使用 Azure AD PowerShell 模块，为每个新证书 （在每个 AD FS 服务器上），更新 Azure AD 租户设置，如下所示 (注意： 您必须首先连接到租户使用 Connect-msolservice 运行以下命令)。
+使用 Azure AD PowerShell 模块，为每个新证书 （在每个 AD FS 服务器上），更新 Azure AD 租户设置，如下所示 (注意： 必须先连接到使用租户`Connect-MsolService`运行以下命令)。
 
 ```
 PS C:/> New-MsolServicePrincipalCredential -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -Type Asymmetric -Usage Verify -Value $newcert
 ```
 
-$certbase64 是新的证书。  可以通过为 DER 编码的文件和在 Notepad.exe，打开并复制/粘贴到 PSH 会话和将分配给变量 $certbase64 导出 （不带私钥） 的证书获取的 base64 编码证书
+`$certbase64` 是的新证书。  可以通过为 DER 编码的文件和中 Notepad.exe，打开，然后复制/粘贴到 PowerShell 会话并为变量分配导出 （不带私钥） 的证书获取的 base64 编码证书`$certbase64`。
 
 ### <a name="verify-that-the-new-certificates-will-be-used-for-azure-mfa"></a>请验证新的证书将用于 Azure MFA
 
-一旦新证书变为有效，AD FS 将选取它们，并开始使用 Azure mfa 在一天到几小时内的每个相应的证书。  一旦发生这种情况，将每个服务器上看到以下信息在 AD FS 管理员事件日志中记录一个事件：日志名称：    AD FS/管理中的源代码：      AD FS 日期：        2018 年 2 月 27 日 7:33:31 PM 事件 ID:    547 任务类别：无级别：       信息的关键字：    AD FS 用户：        DOMAIN\adfssvc 计算机：    ADFS.domain.contoso.com 说明：已续订 Azure MFA 租户证书。  
+一旦新证书变为有效，AD FS 将选取它们，并开始使用 Azure mfa 在一天到几小时内的每个相应的证书。  一旦发生这种情况，将每个服务器上看到以下信息在 AD FS 管理员事件日志中记录一个事件：
 
-TenantId: contoso.onmicrosoft.com。
-旧指纹：7CC103D60967318A11D8C51C289EF85214D9FC63.
-旧的到期日期：9/15/2019年 9:43:17 PM。
-新的指纹：8110D7415744C9D4D5A4A6309499F7B48B5F3CCF.
-新的到期日期：于 2020 27/2/2:16:07 AM。
+```
+Log Name:      AD FS/Admin
+Source:        AD FS
+Date:          2/27/2018 7:33:31 PM
+Event ID:      547
+Task Category: None
+Level:         Information
+Keywords:      AD FS
+User:          DOMAIN\adfssvc
+Computer:      ADFS.domain.contoso.com
+Description:
+The tenant certificate for Azure MFA has been renewed.  
+
+TenantId: contoso.onmicrosoft.com.
+Old thumbprint: 7CC103D60967318A11D8C51C289EF85214D9FC63.
+Old expiration date: 9/15/2019 9:43:17 PM.
+New thumbprint: 8110D7415744C9D4D5A4A6309499F7B48B5F3CCF.
+New expiration date: 2/27/2020 2:16:07 AM.
+```
 
 ## <a name="customize-the-ad-fs-web-page-to-guide-users-to-register-mfa-verification-methods"></a>自定义 AD FS 网页，以指导用户注册 MFA 的验证方法
 
@@ -211,7 +223,8 @@ TenantId: contoso.onmicrosoft.com。
  - 搜索标识的错误字符串
  - 提供的自定义 web 内容。  
 
-(有关如何自定义 onload.js 文件的常规指南，请参阅文章[Advanced Customization of AD FS 登录页](advanced-customization-of-ad-fs-sign-in-pages.md)。)
+> [!NOTE]
+> 有关如何自定义 onload.js 文件的常规指南，请参阅文章[Advanced Customization of AD FS 登录页](advanced-customization-of-ad-fs-sign-in-pages.md)。
 
 下面是一个简单的示例，你可能想要扩展：
 
@@ -220,10 +233,10 @@ TenantId: contoso.onmicrosoft.com。
     ``` PowerShell
         New-AdfsWebTheme –Name ProofUp –SourceName default
     ``` 
-2. 接下来，导出默认 AD FS Web 主题：
+2. 接下来，创建文件夹，并导出默认 AD FS Web 主题：
 
     ``` PowerShell
-       Export-AdfsWebTheme –Name default –DirectoryPath c:\Theme
+       New-Item -Path 'c:\Theme' -ItemType Directory;Export-AdfsWebTheme –Name default –DirectoryPath c:\Theme
     ```
 3. 在文本编辑器中打开 C:\Theme\script\onload.js 文件
 4. 将以下代码追加到 onload.js 文件的末尾
@@ -239,22 +252,24 @@ TenantId: contoso.onmicrosoft.com。
     var authArea = document.getElementById("authArea");
     if (authArea) {
         var errorMessage = document.getElementById("errorMessage");
-        if (errorMessage.innerHTML.indexOf(mfaSecondFactorErr) >= 0) {
+        if (errorMessage) {
+            if (errorMessage.innerHTML.indexOf(mfaSecondFactorErr) >= 0) {
 
-        //Hide the error message
-            var openingMessage = document.getElementById("openingMessage");
-            if (openingMessage) {
-                openingMessage.style.display = 'none'
-            }
-            var errorDetailsLink = document.getElementById("errorDetailsLink");
-            if (errorDetailsLink) {
-                errorDetailsLink.style.display = 'none'
-            }
+                //Hide the error message
+                var openingMessage = document.getElementById("openingMessage");
+                if (openingMessage) {
+                    openingMessage.style.display = 'none'
+                }
+                var errorDetailsLink = document.getElementById("errorDetailsLink");
+                if (errorDetailsLink) {
+                    errorDetailsLink.style.display = 'none'
+                }
 
-            //Provide a message and redirect to Azure AD MFA Registration Url
-            var mfaRegisterUrl = "https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1&whr=" + domain_hint;
-            errorMessage.innerHTML = "<br>" + mfaProofupMessage.replace("{0}", mfaRegisterUrl);
-            window.setTimeout(function () { window.location.href = mfaRegisterUrl; }, 5000);
+                //Provide a message and redirect to Azure AD MFA Registration Url
+                var mfaRegisterUrl = "https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1&whr=" + domain_hint;
+                errorMessage.innerHTML = "<br>" + mfaProofupMessage.replace("{0}", mfaRegisterUrl);
+                window.setTimeout(function () { window.location.href = mfaRegisterUrl; }, 5000);
+            }
         }
     }
 
@@ -273,7 +288,7 @@ TenantId: contoso.onmicrosoft.com。
 7. 最后，将自定义 AD FS Web 主题应用通过键入以下 Windows PowerShell 命令：
     
     ``` PowerShell
-    Set-AdfsWebConfig -ActiveThemeName
+    Set-AdfsWebConfig -ActiveThemeName "ProofUp"
     ```
 
 ## <a name="next-steps"></a>后续步骤

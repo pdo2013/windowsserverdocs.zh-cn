@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 7d215c80c03236df9479aff8046981741dfc83e2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b027bff4645203c44e228f11c651b767fa4502e0
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838148"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192057"
 ---
 # <a name="manually-configure-a-service-account-for-a-federation-server-farm"></a>为联合服务器场手动配置服务帐户
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 如果您想要在 Active Directory 联合身份验证服务配置联合服务器场环境\(AD FS\)，必须创建并配置专用的服务帐户在 Active Directory 域服务中\(AD DS\)场将驻留的位置。 然后配置服务器场中的每个联合服务器以使用此帐户。 当你想要允许对任何使用 Windows 集成身份验证的 AD FS 场中的联合身份验证服务器进行身份验证的企业网络上的客户端计算机时，必须在组织中完成以下任务。  
 

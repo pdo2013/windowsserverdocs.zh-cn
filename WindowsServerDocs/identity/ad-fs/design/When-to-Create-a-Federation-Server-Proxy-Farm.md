@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 8935760cad272d5b82edb675cda85caf0456565f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c33475d7420383448439e2b769562e55127c7b0e
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859438"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190627"
 ---
 # <a name="when-to-create-a-federation-server-proxy-farm"></a>何时创建联合服务器代理场
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 请考虑安装其他联合服务器代理，如果有大型的 Active Directory 联合身份验证服务\(AD FS\)部署并且想要提供容错、 负载\-均衡和可伸缩性代理部署。 在相同外围网络中创建两个或多个联合服务器代理和配置每个保护相同的 AD FS 联合身份验证服务的操作将创建联合服务器代理场。  
   
@@ -39,4 +37,4 @@ ms.locfileid: "59859438"
 有关添加新的联合服务器代理创建联合服务器代理场的详细信息，请参阅[核对清单：设置联合服务器代理](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server-Proxy.md)。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

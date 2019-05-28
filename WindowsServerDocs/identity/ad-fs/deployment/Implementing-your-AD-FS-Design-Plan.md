@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 31c2e048c3c125d0ea60610b049501151d7aa823
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6150b52030734c57b345aea731302650bcbddbfd
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830778"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192135"
 ---
 # <a name="implementing-your-ad-fs-design-plan"></a>实现 AD FS 设计规划
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 以下环境的条件和要求是在 Active Directory 联合身份验证服务的实现中的重要因素\(AD FS\)设计规划：  
   
@@ -41,4 +39,4 @@ ms.locfileid: "59830778"
   
 -   [清单：实现 Web SSO 设计](Checklist--Implementing-a-Web-SSO-Design.md)  
   
--   [清单：实现联合的 Web SSO 设计](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
+-   [清单：实现联合 Web SSO 设计](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  

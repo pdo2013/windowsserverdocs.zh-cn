@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: c7b7ea2c8d9a08a4cbf6c89c2de2482043efe25b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5ed8ee500582e0e687a2b52e83d99fc3cb8f147f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885558"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188342"
 ---
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
-
 # <a name="when-to-use-a-transform-claim-rule"></a>何时使用转换声明规则
 可以在 Active Directory 联合身份验证服务中使用此规则\(AD FS\)何时需要将传入声明类型映射到传出声明类型，然后应用一项操作，以确定应出现的输出基于值的源于传入声明中。 使用此规则时，将根据你在此规则中配置的任一选项传递或转换与以下规则逻辑匹配的声明，如下表所述。  
   
@@ -45,7 +43,7 @@ ms.locfileid: "59885558"
 ## <a name="pass-through-all-claim-values"></a>传递所有声明值  
 使用此操作时，会将与指定的传入声明类型相匹配的所有传入声明值映射到指定的传出声明类型，然后将这些声明值作为传出声明发送到由联合身份验证服务签名的令牌中。  
   
-例如，如果为规则设置“传递所有声明值”选项逻辑并且指定传入声明类型“组”和传出声明类型“角色”，那么，从发出方流入的所有传入声明值将逐一复制到声明类型为“角色”的新传出声明中。  
+例如，如果为规则设置“传递所有声明值”  选项逻辑并且指定传入声明类型“组”和传出声明类型“角色”，那么，从发出方流入的所有传入声明值将逐一复制到声明类型为“角色”的新传出声明中。  
   
 ## <a name="transforming-a-claim"></a>转换声明  
 在 AD FS 中，术语*声明转换*方法替换为一个传入声明值，该值具有不同的传出声明值。 “转换传入声明”规则使该功能变为可能。 在该规则的属性内，你可以设置条件，以便根据指定的传入声明类型将传入值转换为不同的传出声明值。  

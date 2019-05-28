@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 511a039afd47cf7570fffdcaf17842e0eccc5683
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f1367f03ea8a9ba96bfe4bae1c324deff92576f0
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843058"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192257"
 ---
 # <a name="configure-a-federation-server-with-device-registration-service"></a>使用设备注册服务配置联合服务器
-
->适用于：Windows Server 2012 R2
 
 可以启用设备注册服务\(DRS\)后完成中的过程在联合服务器上[步骤 4:配置联合身份验证服务器](https://technet.microsoft.com/library/dn303424.aspx)。 设备注册服务提供了载入机制，用于无缝第二因素身份验证、 永久性的单一登录\-上\(SSO\)，并需要访问公司的使用者的条件性访问资源。 有关 DRS 的详细信息，请参阅[加入工作区以从任一设备实现 SSO 和无缝第二因素身份验证跨公司应用程序](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)  
   

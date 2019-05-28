@@ -9,16 +9,15 @@ ms.date: 10/25/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3d622686a3cc34316f0cf5187839785195c2f104
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2f6e4abb4255281be85b7fa928566f681bcf2de2
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880228"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188358"
 ---
 # <a name="auditing-enhancements-to-ad-fs-in-windows-server-2016"></a>在 Windows Server 2016 中审核 AD FS 的增强功能
 
->适用于：Windows Server 2016
 
 目前，AD FS 的 Windows Server 2012 R2 有是生成用于单个请求与日志中的相关信息的大量审核事件或令牌颁发活动是不存在 （在某些版本的 AD FS） 或跨多个审核事件。 默认情况下，AD FS 审核事件处于关闭状态由于其详细的特性。  
     Windows Server 2016 中的 AD FS 的版本中，审核变得更简单和不太详细。  

@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: bd15df5360a50e417881d83319344dbdf48f35fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2af1bfc295469d43e59593d69d4ba88f476e427
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829638"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034147"
 ---
 # <a name="ad-forest-recovery---windows-server-2003-recovery"></a>AD 林恢复-Windows Server 2003 恢复
 
@@ -22,9 +22,9 @@ ms.locfileid: "59829638"
 
 本主题包括运行 Windows Server 2003 的域控制器 (Dc) 的林恢复过程。 林恢复的一般过程是使用 Windows Server 2003 域控制器，没有什么不同，但特定的过程，因为不同的工具可能不同。 例如，可以使用 Ntdsutil.exe 来备份和还原的域控制器都运行 Windows Server 2003 域控制器，而 Windows Server Backup 或 Wbadmin.exe 是用于域控制器都运行 Windows Server 2008 或更高版本。  
   
-- [备份系统状态数据](#Backing-up-the-System-State-data)  
-- [执行非权威还原](#Performing-a-nonauthoritative restore)  
-- [安装和配置 DNS 服务器服务](#Install-and-configure-the-DNS-Server-service)  
+- [备份系统状态数据](#backing-up-the-system-state-data)  
+- [执行非权威还原](#performing-a-nonauthoritative-restore)  
+- [安装和配置 DNS 服务器服务](#install-and-configure-the-dns-server-service)
 
 ## <a name="backing-up-the-system-state-data"></a>备份系统状态数据
 使用以下过程来备份系统状态数据，以及您为运行 Windows Server 2003 DC 的当前备份操作选择的任何其他数据。 Windows Server 2003 包括 Ntbackup 工具，可用于备份系统状态数据。  
@@ -57,7 +57,7 @@ ms.locfileid: "59829638"
 ### <a name="to-perform-a-nonauthoritative-restore"></a>若要执行非权威还原
   
 1. 启动 DC 后，按 f8 键可以在目录服务还原模式 (DSRM) 重新启动计算机。  
-2. 选择**目录服务还原模式 （仅 Windows 域控制器）**。  
+2. 选择**目录服务还原模式 （仅 Windows 域控制器）** 。  
 3. 选择你想要在还原模式下启动的操作系统。  
 4. 以管理员身份 （也可以仅使用本地计算机帐户，任何域登录选项可用） 登录。  
 5. 在命令提示符下键入**ntbackup**，然后按 ENTER。  
@@ -89,7 +89,7 @@ ms.locfileid: "59829638"
   
 1. 打开 Windows 组件向导。 若要打开向导：  
 
-   - 依次单击“开始”、“控制面板”，然后单击“添加或删除程序”。  
+   - 依次单击“开始”  、“控制面板”  ，然后单击“添加或删除程序”  。  
    - 单击**添加/删除 Windows 组件**。  
 
 2. 在中**组件**，选择**网络服务**复选框，然后依次**详细信息**。  
@@ -119,12 +119,12 @@ ms.locfileid: "59829638"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [AD 林恢复的系统必备组件](AD-Forest-Recovery-Prerequisties.md)  
+- [AD 林恢复 - 先决条件](AD-Forest-Recovery-Prerequisties.md)  
 - [AD 林恢复-设计出一个自定义林恢复计划](AD-Forest-Recovery-Devising-a-Plan.md)  
 - [AD 林恢复-识别问题](AD-Forest-Recovery-Identify-the-Problem.md)
 - [AD 林恢复-确定如何恢复](AD-Forest-Recovery-Determine-how-to-Recover.md)
 - [AD 林恢复-执行初始恢复](AD-Forest-Recovery-Perform-initial-recovery.md)  
-- [AD 林恢复的过程](AD-Forest-Recovery-Procedures.md)  
+- [AD 林恢复 - 过程](AD-Forest-Recovery-Procedures.md)  
 - [AD 林恢复-方面的常见问题](AD-Forest-Recovery-FAQ.md)  
 - [AD 林恢复-恢复单个的多域林中域](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
 - [AD 林恢复-与 Windows Server 2003 域控制器的林恢复](AD-Forest-Recovery-Windows-Server-2003.md) 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: fe113eb7fe5cb096ff1e94150b929682d137b24b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8e05043d029636ddeb3a24349897ac61a713b2a7
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871948"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034119"
 ---
 # <a name="perform-initial-recovery"></a>执行初始恢复  
 
@@ -22,9 +22,9 @@ ms.locfileid: "59871948"
 
 本部分包括以下步骤：  
 
-- [还原每个域中的第一个可写域控制器](#Restore-the-first-writeable-domain-controller-in-each-domain)  
-- [重新连接到网络的每个还原的可写域控制器](#Reconnect-each-restored-writeable-domain-controller-to-a-common-network)  
-- [将全局编录添加到林根级域中的域控制器](#Add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain)  
+- [还原每个域中的第一个可写域控制器](#restore-the-first-writeable-domain-controller-in-each-domain)  
+- [重新连接到网络的每个还原的可写域控制器](#reconnect-each-restored-writeable-domain-controller-to-a-common-network)  
+- [将全局编录添加到林根级域中的域控制器](#add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain)  
 
 ## <a name="restore-the-first-writeable-domain-controller-in-each-domain"></a>还原每个域中的第一个可写域控制器  
 
@@ -151,12 +151,12 @@ ms.locfileid: "59871948"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [AD 林恢复的系统必备组件](AD-Forest-Recovery-Prerequisties.md)  
+- [AD 林恢复 - 先决条件](AD-Forest-Recovery-Prerequisties.md)  
 - [AD 林恢复-设计出一个自定义林恢复计划](AD-Forest-Recovery-Devising-a-Plan.md)  
 - [AD 林恢复-识别问题](AD-Forest-Recovery-Identify-the-Problem.md)
 - [AD 林恢复-确定如何恢复](AD-Forest-Recovery-Determine-how-to-Recover.md)
 - [AD 林恢复-执行初始恢复](AD-Forest-Recovery-Perform-initial-recovery.md)  
-- [AD 林恢复的过程](AD-Forest-Recovery-Procedures.md)  
+- [AD 林恢复 - 过程](AD-Forest-Recovery-Procedures.md)  
 - [AD 林恢复-方面的常见问题](AD-Forest-Recovery-FAQ.md)  
 - [AD 林恢复-恢复单个的多域林中域](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
 - [AD 林恢复-与 Windows Server 2003 域控制器的林恢复](AD-Forest-Recovery-Windows-Server-2003.md)  

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: bbd3ec26e5fb0ce9857f2c9e5321300fb835b303
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c5a3c85d40baee137ecdf7a1a5507b25361cac6d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834588"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191770"
 ---
 # <a name="ad-fs-deployment-topology-considerations"></a>AD FS 部署拓扑注意事项
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 本主题介绍了重要的注意事项，以帮助你规划和设计的 Active Directory 联合身份验证服务\(AD FS\)部署拓扑，以在生产环境中使用。 本主题是检查和评估会影响哪些功能将可供你在部署 AD FS 后的注意事项的起始点。 例如，具体取决于哪个数据库所选存储 AD FS 配置数据库类型将最终确定是否可以实现某些安全断言标记语言\(SAML\)需要 SQL 的功能。服务器。  
   
@@ -32,8 +30,8 @@ AD FS 功能
 |功能|WID 支持吗？|SQL Server 支持吗？|有关此功能的详细信息|  
 |-----------|---------------------|----------------------------|---------------------------------------|  
 |联合服务器场部署|是的限制为每个服务器场 30 个联合身份验证服务器|是。 对可以在单个服务器场中部署的联合服务器数目没有强制限制|[确定 AD FS 部署拓扑](Determine-Your-AD-FS-Deployment-Topology.md)|  
-|SAML 项目解析**注意：** 此功能并不是 Microsoft 联机服务、Microsoft Office 365、Microsoft Exchange 或 Microsoft Office SharePoint 方案所必需的。|否|是|[AD FS 配置数据库的角色](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[安全规划和部署的 AD FS 的最佳实践](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
-|SAML\/WS\-联合身份验证令牌重放检测|否|是|[AD FS 配置数据库的角色](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[安全规划和部署的 AD FS 的最佳实践](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
+|SAML 项目解析**注意：** 此功能并不是 Microsoft 联机服务、Microsoft Office 365、Microsoft Exchange 或 Microsoft Office SharePoint 方案所必需的。|否|是|[AD FS 配置数据库的角色](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[AD FS 安全规划和部署的最佳做法](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
+|SAML\/WS\-联合身份验证令牌重放检测|否|是|[AD FS 配置数据库的角色](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[AD FS 安全规划和部署的最佳做法](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
   
 数据库功能  
   
@@ -66,4 +64,4 @@ AD FS 功能
 -   网络负载平衡\(NLB\)  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

@@ -7,12 +7,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: b6ad1f1f8573fc380e999e5ec2091cea8ebb8aa1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d761e4532a5be92d43e09904e9df8f2aa61b6bb8
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820358"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63738469"
 ---
 # <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB:文件和打印机共享端口应该已打开
 
@@ -69,7 +69,7 @@ ms.locfileid: "59820358"
 
 2.  在左窗格中，单击**高级设置**，然后在控制台树中，单击**入站规则**。
 
-3.  下**入站规则**，找到规则**文件和打印机共享 （NB 会话-接程序）** 并**文件和打印机共享 (Smb-in)**。
+3.  下**入站规则**，找到规则**文件和打印机共享 （NB 会话-接程序）** 并**文件和打印机共享 (Smb-in)** 。
 
 4.  对于每个规则，请右键单击规则，然后依次**启用规则**。
 

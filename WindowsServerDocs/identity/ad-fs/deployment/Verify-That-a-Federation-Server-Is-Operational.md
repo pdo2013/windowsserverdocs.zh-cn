@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 2034b4c35061879a64004486395d0887c59087b2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b9498451e8f6d7701e9ed4b3ac7d61f19d2dcdb4
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877708"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191891"
 ---
 # <a name="verify-that-a-federation-server-is-operational"></a>验证联合服务器是否正常运行
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 你可以使用以下过程验证联合服务器正常工作；也即，同一网络中的任何客户端都可以到达新的联合服务器。  
   
@@ -32,7 +31,7 @@ ms.locfileid: "59877708"
   
     **https://fs1.fabrikam.com/adfs/fs/federationserverservice.asmx**  
   
-3.  按 Enter，然后在联合服务器计算机上完成下一过程。 如果你看到消息“此网站的安全证书有问题”，请单击“继续浏览此网站”。  
+3.  按 Enter，然后在联合服务器计算机上完成下一过程。 如果你看到消息“此网站的安全证书有问题”  ，请单击“继续浏览此网站”  。  
   
     预期输出为显示 XML 以及服务说明文档。 如果显示此页，则联合服务器上的 IIS 正常工作且成功提供页面。  
   
@@ -49,6 +48,6 @@ ms.locfileid: "59877708"
 4.  在中**事件 ID**列，查找事件 ID 为 100。 如果联合身份验证服务器配置正确，请参阅新的事件-事件查看器在应用程序日志 — 与事件 ID 为 100。 此事件证实联合服务器已能够成功地与联合身份验证服务进行通信。  
   
 ## <a name="additional-references"></a>其他参考  
-[清单：设置联合身份验证服务器](Checklist--Setting-Up-a-Federation-Server.md)  
+[清单：设置联合服务器](Checklist--Setting-Up-a-Federation-Server.md)  
   
 

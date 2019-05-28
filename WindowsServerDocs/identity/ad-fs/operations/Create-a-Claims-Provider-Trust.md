@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fbc8bb63435211a92cb7fc6aa05b1413aef939c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1c47986cda3f091033274aa2c59a656ec861a98f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854228"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189710"
 ---
 # <a name="create-a-claims-provider-trust"></a>创建声明提供方信任
-
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 若要添加新声明提供方信任使用 AD FS 管理管理单元\-并且手动配置设置，资源伙伴组织中的资源伙伴联合身份验证服务器上执行以下过程。  
   
@@ -31,28 +29,28 @@ ms.locfileid: "59854228"
 2.  下**操作**，单击**添加声明提供方信任**。  
 ![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim1.PNG)   
   
-3.  在“欢迎使用”页面上，单击“启动”。 
+3.  在“欢迎使用”  页面上，单击“启动”  。 
 ![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim2.PNG)    
   
-4.  在“选择数据源”页面上，单击“手动输入声明提供方信任数据”，然后单击“下一步”。  
+4.  在“选择数据源”  页面上，单击“手动输入声明提供方信任数据”  ，然后单击“下一步”  。  
 ![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim3.PNG)     
 
-5.  在“指定显示名称”页面上键入一个显示名称，在“注释”下键入此声明提供方信任的描述，然后单击“下一步”。  
+5.  在“指定显示名称”页面上  键入一个显示名称  ，在“注释”  下键入此声明提供方信任的描述，然后单击“下一步”  。  
 ![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim4.PNG)     
 
 6.  上**配置 URL**页上，指定**WS 联合身份验证被动 URL**如果适用，单击**下一步**。
 ![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim5.PNG)     
 
-8. 在“配置标识符”页面上的“声明提供方信任标识符”下，键入相应的标识符，然后单击“下一步”。  
+8. 在“配置标识符”页面上的“声明提供方信任标识符”下，   键入相应的标识符，然后单击“下一步”  。  
 ![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim6.PNG)    
 
-9. 在“配置证书”页面上，单击“添加”找到证书文件并将它添加到证书列表，然后单击“下一步”。  
+9. 在“配置证书”页面上，单击“添加”找到证书文件并将它添加到证书列表，然后单击“下一步”    。  
 ![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim7.PNG)    
 
-10. 在“准备好添加信任”页面上，单击“下一步”保存声明提供方信任信息。  
+10. 在“准备好添加信任”页面上，  单击“下一步”保存声明提供方信任信息  。  
 ![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim8.PNG)    
 
-11. 在“完成”页面上，单击“关闭”。 执行此操作会自动显示“编辑声明规则”对话框。 详细了解如何以继续添加声明规则，此声明提供方信任，请参阅以下其他引用。  
+11. 在“完成”  页面上，单击“关闭”  。 执行此操作会自动显示“编辑声明规则”对话框  。 详细了解如何以继续添加声明规则，此声明提供方信任，请参阅以下其他引用。  
 ![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim9.PNG)
 
 ## <a name="to-create-a-claims-provider-trust-using-federation-metadata"></a>若要创建声明提供程序信任使用联合身份验证元数据
@@ -66,10 +64,10 @@ ms.locfileid: "59854228"
 2.  下**操作**，单击**添加声明提供方信任**。  
 ![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim1.PNG)   
   
-3.  在“欢迎使用”页面上，单击“启动”。 
+3.  在“欢迎使用”  页面上，单击“启动”  。 
 ![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim2.PNG)    
   
-4.  在“选择数据源”页面上，单击“导入有关在线或在本地网络上发布的声明提供方的数据”。 在联合身份验证元数据地址 （主机名或 URL），键入**联合身份验证元数据 URL**或主机名称对于合作伙伴，然后单击**下一步**。
+4.  在“选择数据源”页面上，  单击“导入有关在线或在本地网络上发布的声明提供方的数据”  。 在联合身份验证元数据地址 （主机名或 URL），键入**联合身份验证元数据 URL**或主机名称对于合作伙伴，然后单击**下一步**。
 ![声明提供方信任](media/Create-a-Claims-Provider-Trust/addclaim10.PNG)    
 
 5.  指定显示名称在页上，键入**显示名称**，此声明提供方信任，则在说明下键入的描述，然后单击**下一步**。
@@ -84,7 +82,7 @@ ms.locfileid: "59854228"
 ## <a name="additional-references"></a>其他参考  
 [清单：配置资源伙伴组织](../../ad-fs/deployment/Checklist--Configuring-the-Resource-Partner-Organization.md)  
   
-[清单：为声明提供程序创建声明规则信任](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Claims-Provider-Trust.md)  
+[清单：为声明提供方信任创建声明规则](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Claims-Provider-Trust.md)  
   
 ## <a name="see-also"></a>请参阅  
 [AD FS 操作](../../ad-fs/AD-FS-2016-Operations.md) 

@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 129cd83be4cd8302bd170ba87aad58c50f636006
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f1d38e23d7f1671f729b03b7e6f8000471d2e9f9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815848"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188650"
 ---
 # <a name="determine-the-type-of-claim-rule-template-to-use"></a>确定要使用的声明规则模板的类型
 
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 设计 Active Directory 联合身份验证服务的重要组成部分\(AD FS\)基础结构确定完整的声明规则集 — 和的相应声明规则模板应使用来创建它们，每个伙伴将参与与你的组织的联合身份验证。 通过在 AD FS 管理管理单元中使用声明规则模板创建规则\-中。  
   

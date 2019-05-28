@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fac6437e9b6c3893064769a8279c2cf96cbc47d6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2e373f45088105a7ac9ca5cb43fbebc6452ccb9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833778"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188583"
 ---
->适用于：Windows Server 2016, Windows Server 2012 R2
-
 # <a name="device-registration-technical-reference"></a>设备注册技术参考
 设备注册服务\(DRS\)是一种新的 Windows 服务，随 Windows Server 2012 R2 上的 Active Directory 联合身份验证服务角色。  DRS 必须在 AD FS 场中的所有联合服务器上进行安装和配置。  有关部署 DRS 的信息，请参阅 [使用设备注册服务配置联合务器](https://technet.microsoft.com/library/dn486831.aspx)。  
   
@@ -25,7 +23,7 @@ ms.locfileid: "59833778"
 以下 Active Directory 对象作为设备注册服务的一部分进行创建。  
   
 ### <a name="device-registration-configuration"></a>设备注册配置  
-设备注册配置存储在 Active Directory 林的配置命名上下文中。 \(例如， **CN\=Device Registration Configuration，CN\=服务，< 配置\-命名\-上下文 >**\)。 此对象在为设备注册启动 Active Directory 林时进行创建。  
+设备注册配置存储在 Active Directory 林的配置命名上下文中。 \(例如， **CN\=Device Registration Configuration，CN\=服务，< 配置\-命名\-上下文 >** \)。 此对象在为设备注册启动 Active Directory 林时进行创建。  
   
 设备注册配置包括以下元素：  
   
@@ -40,7 +38,7 @@ ms.locfileid: "59833778"
 ### <a name="registered-devices-container"></a>注册的设备容器  
 设备对象容器在 Active Directory 林中的一个域下创建。  此对象容器会包含 Active Directory 林的所有设备对象。  
   
-默认情况下，该容器在与 AD FS 相同的域中创建。  \(例如， **CN\=RegisteredDevices，DC\=< 默认\-命名\-上下文 >**\)。此对象被创建时为设备注册启动 Active Directory 林。  
+默认情况下，该容器在与 AD FS 相同的域中创建。  \(例如， **CN\=RegisteredDevices，DC\=< 默认\-命名\-上下文 >** \)。此对象被创建时为设备注册启动 Active Directory 林。  
   
 ### <a name="registered-devices"></a>注册的设备  
 设备对象是 Active Directory 中新的轻型对象。  它们用于表示用户、设备和公司之间的关系。  设备对象使用由 AD FS 签名的证书将物理设备定位到 Active Directory 中的逻辑设备对象。  

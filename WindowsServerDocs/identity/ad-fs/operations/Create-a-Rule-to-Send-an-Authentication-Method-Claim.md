@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4065a61e042f52298da656899289e718e010f932
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: be3a16bac9c146637117aa7b9720cb4aa76177e2
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819088"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189387"
 ---
 # <a name="create-a-rule-to-send-an-authentication-method-claim"></a>创建规则以发送身份验证方法声明
 
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 你可以使用**以声明方式发送组成员身份**规则模板或**转换传入声明**要发送的身份验证方法声明规则模板。 信赖方可以使用的身份验证方法声明来确定来自 Active Directory 联合身份验证服务的用户进行身份验证并获取时使用的登录机制声明\(AD FS\)。 此外可以使用 Active Directory 联合身份验证服务的身份验证机制保证功能\(AD FS\) Windows Server 2012 R2 中作为输入要在其中生成的情况下的身份验证方法声明的信赖方想要确定的基于智能卡登录的访问级别。 例如，开发人员可以将不同级别的访问权限分配给信赖方应用程序的联合用户。 级别的访问权限基于是否用户使用其用户名称和密码凭据登录，而不是其智能卡。  
   
@@ -287,7 +286,7 @@ ms.locfileid: "59819088"
  
 [清单：为信赖方信任创建声明规则](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[清单：为声明提供程序创建声明规则信任](https://technet.microsoft.com/library/ee913564.aspx)  
+[清单：为声明提供方信任创建声明规则](https://technet.microsoft.com/library/ee913564.aspx)  
   
 [何时使用授权声明规则](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 

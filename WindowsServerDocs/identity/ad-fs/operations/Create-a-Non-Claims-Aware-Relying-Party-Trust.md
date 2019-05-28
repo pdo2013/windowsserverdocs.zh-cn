@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f46675ff4c471af743fd8782c1e3036e7c546256
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cdd0b32b50f676007a6cc922bc15b95bb61323be
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839338"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189672"
 ---
 # <a name="create-a-non-claims-aware-relying-party-trust"></a>创建非声明感知信赖方信任
 
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 在 AD FS 管理管理单元\-中，非\-声明\-感知信赖方信任是创建用于表示联合身份验证服务和一个单独的网站之间的信任对象\-基于不应用程序声明\-识别和访问通过 Web 应用程序代理。  
   
@@ -40,7 +39,7 @@ ms.locfileid: "59839338"
 4.  上**指定显示名称**页上，键入一个名称中的**显示名称**下**说明**键入此信赖方信任的描述，然后单击**下一步**.  
 ![信赖方](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon2.PNG)
 
-5. 在“配置标识符”页上，为此信赖方指定一个或多个标识符、单击“添加”以将其添加到列表中，然后单击“下一步”。  
+5. 在“配置标识符”  页上，为此信赖方指定一个或多个标识符、单击“添加”  以将其添加到列表中，然后单击“下一步”  。  
 ![信赖方](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon3.PNG)
 
 6.  上**选择访问控制策略**选择一个策略，然后单击**下一步**。  有关访问控制策略的详细信息，请参阅[AD FS 中的访问控制策略](Access-Control-Policies-in-AD-FS.md)。 
@@ -49,7 +48,7 @@ ms.locfileid: "59839338"
 7. 在“准备好添加信任”  页上，复查设置，然后单击“下一步”  来保存信赖方信任的信息。  
    ![信赖方](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon5.PNG) 
 
-8. 在“完成”页面上，单击“关闭”。 执行此操作会自动显示“编辑声明规则”对话框。  
+8. 在“完成”  页面上，单击“关闭”  。 执行此操作会自动显示“编辑声明规则”对话框  。  
 ![信赖方](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon6.PNG)  
   
 ## <a name="see-also"></a>请参阅  

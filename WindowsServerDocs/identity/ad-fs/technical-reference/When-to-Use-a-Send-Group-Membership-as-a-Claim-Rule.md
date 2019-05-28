@@ -9,21 +9,19 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: dffd886ffd0bedd429918f72408b2d13d9fa1bdf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ea537aa61cd7bfbe05ed1dd151eddd4a0bfc5ca7
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859168"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188296"
 ---
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
-
 # <a name="when-to-use-a-send-group-membership-as-a-claim-rule"></a>何时使用发送组成员身份作为声明规则
 可以在 Active Directory 联合身份验证服务中使用此规则\(AD FS\)当你想要发出新的传出声明值只能是指定的 Active Directory 安全组的成员的用户。 使用此规则时，你只会为与规则逻辑匹配的指定组发出单个声明，如下表中所述。  
   
 |规则选项|规则逻辑|  
 |---------------|--------------|  
-|传出声明值|如果用户的组成员身份等于“指定组”，并且传出声明类型等于“指定声明类型”，则将现有组名称值替换为“指定传出声明值”并发出声明。|  
+|传出声明值|如果用户的组成员身份等于“指定组”  ，并且传出声明类型等于“指定声明类型”  ，则将现有组名称值替换为“指定传出声明值”  并发出声明。|  
   
 以下部分提供声明规则的基本简介。 它们还提供有关何时使用发送组成员身份作为声明规则的详细信息。  
   

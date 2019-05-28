@@ -7,18 +7,18 @@ ms.author: nedpyle
 ms.technology: storage-replica
 ms.topic: get-started-article
 author: nedpyle
-ms.date: 06/04/2018
+ms.date: 04/26/2019
 ms.assetid: 61881b52-ee6a-4c8e-85d3-702ab8a2bd8c
-ms.openlocfilehash: 620d339a505da77649d65537abc92f301760d40d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd0a160213e69e59194e1f775040c12769f1eb5e
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821288"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64772490"
 ---
 # <a name="server-to-server-storage-replication-with-storage-replica"></a>存储副本的服务器到服务器存储复制
 
-> 适用于：Windows 服务器 （半年频道），Windows Server 2016
+> 适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
 
 可以使用存储副本配置两个同步数据的服务器，以便每个服务器都具有相同卷的相同副本。 本主题提供了此服务器到服务器复制配置的一些背景知识，以及如何对其进行设置和管理环境。
 
@@ -28,10 +28,10 @@ ms.locfileid: "59821288"
 > [!video https://www.microsoft.com/videoplayer/embed/3aa09fd4-867b-45e9-953e-064008468c4b?autoplay=false]
 
 
-## <a name="prerequisites"></a>系统必备  
+## <a name="prerequisites"></a>先决条件  
 
 * Active Directory 域服务林 （无需以运行 Windows Server 2016）。  
-* 两个安装了 Windows Server 2016 Datacenter Edition 的服务器。  
+* 两台运行 Windows Server 2019 或 Windows Server 2016 Datacenter Edition 的服务器。 如果您在运行 Windows Server 2019，则可以如果确定要复制单个卷使用 Standard Edition 最多 2 TB 的大小。  
 * 两个使用 SAS JBOD、光纤通道 SAN、iSCSI 目标或本地 SCSI/SATA 存储的存储集。 存储需包含 HDD 和 SSD 媒体的组合。 将每个存储设置为仅对每个服务器可用（没有共享的访问）。  
 * 每个存储集必须允许至少创建两个虚拟磁盘，一个用于复制的数据，另一个用于日志。 物理存储在所有数据磁盘上的扇区大小必须相同。 物理存储在所有日志磁盘上的扇区大小必须相同。  
 * 每个服务器上必须具有至少一个用于同步复制的以太网/TCP 连接，但最好是 RDMA。   
@@ -52,7 +52,7 @@ ms.locfileid: "59821288"
 
 | 系统                        | 操作系统                                            | 所需的     |
 |-------------------------------|-------------------------------------------------------------|------------------|
-| 两个服务器 <br>（在本地硬件、 Vm 和云 Vm，包括 Azure Vm 的任意组合）| Windows Server （半年频道） 或 Windows Server 2016 数据中心版 | 存储副本  |
+| 两个服务器 <br>（在本地硬件、 Vm 和云 Vm，包括 Azure Vm 的任意组合）| Windows Server 2019、 Windows Server 2016 中或 Windows Server （半年频道） | 存储副本  |
 | 一台 PC                     | Windows 10                                                  | Windows Admin Center |
 
 > [!NOTE]
@@ -86,7 +86,7 @@ ms.locfileid: "59821288"
 
 ## <a name="provision-os"></a>步骤 2:设置操作系统、功能、角色、存储和网络
 
-1.  在安装类型为 Windows Server 2016 Datacenter **（桌面体验）** 的两个服务器节点上安装 Windows Server 2016。 不要选择标准版，如果可用，因为它不包含存储副本。
+1.  Windows Server 的安装类型这两个服务器节点上安装 Windows Server **（桌面体验）** 。 
  
     若要使用 Azure VM 连接到网络通过 ExpressRoute，请参阅[添加 Azure VM 连接到网络通过 ExpressRoute](#add-azure-vm-expressroute)。
 
@@ -129,7 +129,7 @@ ms.locfileid: "59821288"
         $Servers | ForEach { Install-WindowsFeature -ComputerName $_ -Name Storage-Replica,FS-FileServer -IncludeManagementTools -restart }  
         ```  
 
-        有关这些步骤的详细信息，请参阅[安装或卸载角色、角色服务或功能](http://technet.microsoft.co/library/hh831809.aspx)  
+        有关这些步骤的详细信息，请参阅[安装或卸载角色、角色服务或功能](../../administration/server-manager/install-or-uninstall-roles-role-services-or-features.md)  
 
 8.  配置存储，如下所示：  
 
@@ -155,7 +155,7 @@ ms.locfileid: "59821288"
 
         1.  确保每个群集都只能看到该站点的存储机箱。 如果使用 iSCSI，则应使用多个网络适配器。    
 
-        2.  使用供应商文档预配存储。 如果使用基于 Windows 的 iSCSI 目标，请查阅 [iSCSI 目标块存储方法](https://technet.microsoft.com/library/hh848268.aspx)。  
+        2.  使用供应商文档预配存储。 如果使用基于 Windows 的 iSCSI 目标，请查阅 [iSCSI 目标块存储方法](../iscsi/iscsi-target-server.md)。  
 
     - **对于 FC SAN 存储：**  
 
@@ -210,7 +210,7 @@ ms.locfileid: "59821288"
 
 ### <a name="using-windows-powershell"></a>使用 Windows PowerShell
 
-现在可使用 Windows PowerShell 配置服务器到服务器复制。 必须直接在节点上或从包含 Windows Server 2016 RSAT 管理工具的远程管理计算机执行以下所有步骤。  
+现在可使用 Windows PowerShell 配置服务器到服务器复制。 直接在节点上或从包含 Windows Server 的远程服务器管理工具的远程管理计算机，您必须执行所有以下步骤。  
 
 1. 确保以管理员身份使用提升的 Powershell 控制台。  
 2. 配置服务器到服务器复制、指定源和目标磁盘、源和目标日志、源和目标节点以及日志大小。  
@@ -314,7 +314,7 @@ ms.locfileid: "59821288"
 
 ## <a name="step-4-manage-replication"></a>步骤 4：管理复制
 
-现在，可以管理并运行从服务器复制到服务器的基础结构。 可以直接在节点上或从包含 Windows Server 2016 RSAT 管理工具的远程管理计算机执行以下所有步骤。  
+现在，可以管理并运行从服务器复制到服务器的基础结构。 直接在节点上或从包含 Windows Server 的远程服务器管理工具的远程管理计算机，您可以执行所有以下步骤。  
 
 1.  使用 `Get-SRPartnership` 和 `Get-SRGroup` 确定复制的当前源和目标及其状态。  
 
@@ -372,7 +372,7 @@ ms.locfileid: "59821288"
 
     -   \Storage Replica Statistics(*)\Number of Messages Sent  
 
-    有关 Windows PowerShell 中的性能计数器的详细信息，请参阅 [Get-Counter](https://technet.microsoft.com/library/hh849685.aspx)。  
+    有关 Windows PowerShell 中的性能计数器的详细信息，请参阅 [Get-Counter](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Diagnostics/Get-Counter)。  
 
 3.  要从一个站点移动复制方向，请使用 `Set-SRPartnership` cmdlet。  
 
@@ -381,7 +381,7 @@ ms.locfileid: "59821288"
     ```  
 
     > [!WARNING]  
-    > Windows Server 2016 会在初始同步进行时阻止角色切换，如果在允许初始复制完成前尝试进行切换，则会导致数据丢失。 初始同步完成前不要强制切换方向。  
+    > Windows Server 会阻止角色切换初始同步进行时，它可能会导致数据丢失，如果在尝试进行切换在允许初始复制完成之前。 初始同步完成前不要强制切换方向。  
 
     检查事件日志以查看复制方向的更改和恢复恢复模式发生，然后进行协调。 写入 IO 然后可以写入到新的源服务器所拥有的存储。 更改复制方向将阻止在以前的源计算机上写入 IO。  
 
@@ -410,7 +410,7 @@ ms.locfileid: "59821288"
 如果没有这些阻止因素，存储复制可以将 DFS 复制服务器替换为较新的技术。   
 在较高级别上，此过程：  
 
-1.  在两台服务器上安装 Windows Server 2016 并配置存储。 这可能意味着升级现有的服务器组或干净安装。  
+1.  两台服务器上安装 Windows Server 并配置你的存储。 这可能意味着升级现有的服务器组或干净安装。  
 2.  确保想要复制的任何数据在一个或多个数据卷上，而不是在 C: 驱动器上。   
 a.  也可以在其他服务器上生成种子数据以节省时间（使用备份或文件副本，以及使用精简设置的存储。 无需完全匹配类似元数据的安全性（这与 DFS 复制不同）。  
 3.  共享你的源服务器上的数据并对其进行访问 DFS 命名空间。 如果服务器名称更改为灾难站点中的名称，请确保用户仍可对其访问，这一点很重要。  
@@ -440,7 +440,7 @@ b.  我们强烈建议启用卷影副本并使用 VSSADMIN 或其他所选工具
 1. [创建 Azure VM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)具有以下设置 （如图 5 所示）：
     - **公共 IP 地址**:无
     - **虚拟网络**:选择从使用 ExpressRoute 添加的资源组已记录的虚拟网络。
-    - **网络安全组 （防火墙）**:选择以前创建的网络安全组。
+    - **网络安全组 （防火墙）** :选择以前创建的网络安全组。
     ![创建虚拟机，其中显示 ExpressRoute 网络设置](media/Server-to-Server-Storage-Replication/azure-vm-express-route.png)
     **图 5:选择 ExpressRoute 网络设置时创建的 VM**
 1. 创建 VM 后，请参阅[步骤 2:预配操作系统、 功能、 角色、 存储和网络](#provision-os)。
@@ -451,5 +451,5 @@ b.  我们强烈建议启用卷影副本并使用 VSSADMIN 或其他所选工具
 - [使用共享的存储拉伸群集复制](stretch-cluster-replication-using-shared-storage.md)  
 - [群集到群集存储复制](cluster-to-cluster-storage-replication.md)
 - [存储副本：已知的问题](storage-replica-known-issues.md)  
-- [存储副本：方面的常见问题](storage-replica-frequently-asked-questions.md)
+- [存储副本：常见问题解答](storage-replica-frequently-asked-questions.md)
 - [Windows Server 2016 中的存储空间直通](../storage-spaces/storage-spaces-direct-overview.md)  
