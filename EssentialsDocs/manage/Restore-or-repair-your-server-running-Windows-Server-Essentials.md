@@ -12,12 +12,12 @@ ms.assetid: 27bf6f24-30c4-4935-9b24-069eb43e22f4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e1ebc539928d13b0d34dfe5a0ee57ce6e98088e9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 15d9a10daec0b72eb41092dbd9fa87f989ebedb8
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862348"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63720664"
 ---
 # <a name="restore-or-repair-your-server-running-windows-server-essentials"></a>还原或修复运行 Windows Server Essentials 的服务器
 
@@ -126,14 +126,14 @@ ms.locfileid: "59862348"
   
      如果制造商将安装媒体预加载在服务器上，请在启动时按 F8 来从安装媒体启动。  
   
-2.  在 Windows Server 文件加载后，请选择语言和其他首选项，然后单击 **“下一步”**。  
+2.  在 Windows Server 文件加载后，请选择语言和其他首选项，然后单击 **“下一步”** 。  
   
-3.  在向导的下一页上，单击 **“修复计算机”**。  
+3.  在向导的下一页上，单击 **“修复计算机”** 。  
   
     > [!CAUTION]
     >  不要选择 **“立即安装”** 选项。 该选项将指导你完成整个系统安装，并删除系统驱动器上的所有配置设置和所有数据。  
   
-4.  在 **“选择一个选项”** 页上，单击 **“疑难解答”**。  
+4.  在 **“选择一个选项”** 页上，单击 **“疑难解答”** 。  
   
 5.  上**系统映像恢复**页上，选择当前的系统？ 任一**Windows Server Essentials**或**Windows Server Essentials**。  
   
@@ -141,7 +141,7 @@ ms.locfileid: "59862348"
   
 6.  在 **“选择系统映像备份”** 页上，你可以选择使用最新的备份，也可以选择以前的备份。 系统将还原到备份时所处的状态，该备份是你为还原或修复服务器所选择的。 必须重新创建在保存备份后添加的数据和对设置进行的更改。  
   
-     选择以下选项之一，然后单击 **“下一步”**：  
+     选择以下选项之一，然后单击 **“下一步”** ：  
   
     -   **“使用最新的可用系统映像(推荐)”**  
   
@@ -207,7 +207,7 @@ ms.locfileid: "59862348"
   
 1.  打开 Windows Server Essentials 仪表板，然后依次**设备**选项卡。  
   
-2.  单击服务器的名称，然后单击 **“任务”** 窗格中的 **“为服务器还原文件或文件夹”**。  
+2.  单击服务器的名称，然后单击 **“任务”** 窗格中的 **“为服务器还原文件或文件夹”** 。  
   
      此时将打开“还原文件和文件夹”向导。  
   
@@ -223,7 +223,7 @@ ms.locfileid: "59862348"
   
 1.  在文件资源管理器中，找到硬盘驱动器上的共享文件夹。  
   
-2.  右键单击共享文件夹，依次单击 **“属性”**、 **“设置”** 选项卡，然后记下文件夹权限。  
+2.  右键单击共享文件夹，依次单击 **“属性”** 、 **“设置”** 选项卡，然后记下文件夹权限。  
   
 3.  登录到 Windows Server Essentials 仪表板上，单击**存储**选项卡，然后依次**添加的文件夹**中**服务器文件夹任务**窗格。  
   
@@ -233,9 +233,9 @@ ms.locfileid: "59862348"
   
 5.  单击**浏览**，导航到 *< 驱动器\>\\< 服务器名\>* \ServerFolders (例如*d:\Contoso\ServerFolders*)，选择你想要共享，然后单击该文件夹**确定**。  
   
-6.  单击“下一步” 。  
+6.  单击“下一步”  。  
   
-7.  指定在步骤 2 中记下的权限，然后单击 **“添加文件夹”**。  
+7.  指定在步骤 2 中记下的权限，然后单击 **“添加文件夹”** 。  
   
     > [!IMPORTANT]
     >  这些权限将替换未通过使用 Windows Server Essentials 仪表板添加到该文件夹的任何现有权限。  

@@ -12,12 +12,12 @@ ms.assetid: d09dd82f-f7d2-47ce-862d-fd9869f2021c
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 8fb73f8186d3984c9e93f7a6e39cb72a54db1e58
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 413c1d5d3bec7f002b73e9861aa119d495c5cfb2
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875418"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63717126"
 ---
 # <a name="add-windows-server-essentials-as-a-member-server"></a>将 Windows Server Essentials 添加为成员服务器
 
@@ -51,17 +51,17 @@ ms.locfileid: "59875418"
   
 1.  在第二台服务器上完成 Windows Server Essentials 的安装后，关闭配置 Windows Server Essentials 向导。  
   
-2.  在“搜索”  框中，键入 **System Settings**，然后在搜索结果中，单击“查看高级系统设置” 。  
+2.  在“搜索”  框中，键入 **System Settings**，然后在搜索结果中，单击“查看高级系统设置”  。  
   
-3.  在“系统属性”中，单击“计算机名称”选项卡。  
+3.  在“系统属性”  中，单击“计算机名称”  选项卡。  
   
-4.  在“计算机名称” 的“域”  部分中，单击“更改” 。  
+4.  在“计算机名称”  的“域”  部分中，单击“更改”  。  
   
 5.  在中**计算机名/域更改**，在**成员**部分中，选择你想要运行到 Windows Server Essentials 的服务器加入**工作组**或**域**。  
   
-    -   若要将服务器添加到工作组，请键入 **workgroup**，然后单击“确定”。  
+    -   若要将服务器添加到工作组，请键入 **workgroup**，然后单击“确定”  。  
   
-    -   若要将此服务器加入到现有 Active Directory 域，请键入域的名称，然后单击“确定”。  
+    -   若要将此服务器加入到现有 Active Directory 域，请键入域的名称，然后单击“确定”  。  
   
 6.  重新启动服务器以应用这些更改。  
   
@@ -78,11 +78,11 @@ ms.locfileid: "59875418"
   
 3.  打开服务器管理器。  
   
-4.  在“服务器管理器”中的标志通知区域内，单击标志，然后单击“配置 Windows Server Essentials”。  
+4.  在“服务器管理器”  中的标志通知区域内，单击标志，然后单击“配置 Windows Server Essentials”  。  
   
-5.  选择将服务器配置为成员服务器，然后单击“下一步”。  
+5.  选择将服务器配置为成员服务器，然后单击“下一步”  。  
   
-6.  单击“配置”以开始进行配置。 完成配置过程需要大约 10 分钟的时间。  
+6.  单击“配置”  以开始进行配置。 完成配置过程需要大约 10 分钟的时间。  
   
 7.  在桌面上，单击仪表板图标以启动服务器仪表板。 在“主页”上，完成“安装”  选项卡上列出的“入门”  任务。  
   

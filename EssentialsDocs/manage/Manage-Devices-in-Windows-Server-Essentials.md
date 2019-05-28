@@ -12,12 +12,12 @@ ms.assetid: f5fe1088-ebe7-4799-a47d-075b0048dea1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 288d62a3fe4d9073ba2c0e3fdff385d8317f20d4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d740b71a2c3b9ed8ddb0ecfae6da2cf7d4f689a5
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815108"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63720414"
 ---
 # <a name="manage-devices-in-windows-server-essentials"></a>管理 Windows Server Essentials 中的设备
 
@@ -38,13 +38,13 @@ ms.locfileid: "59815108"
 -   [查看计算机属性](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_8)  
   
 ##  <a name="BKMK_1"></a> 通过使用仪表板管理设备  
- 通过 Windows Server Essentials，可以使用 Windows Server Essentials 仪表板执行常见管理任务。 仪表板的“设备”页面提供了以下内容：  
+ 通过 Windows Server Essentials，可以使用 Windows Server Essentials 仪表板执行常见管理任务。 仪表板的“设备”页面  提供了以下内容：  
   
 -   显示以下内容的网络计算机列表：  
   
     -   计算机名称  
   
-    -   计算机状态：“联机”或“脱机”  
+    -   计算机状态：“联机”  或“脱机”   
   
     -   计算机说明  
   
@@ -66,7 +66,7 @@ ms.locfileid: "59815108"
   
 1.  打开 Windows Server Essentials 仪表板。  
   
-2.  在导航栏上，单击“设备”。  
+2.  在导航栏上，单击“设备”  。  
   
 3.  在列表窗格中查看网络中所有计算机的状态。  
   
@@ -96,13 +96,13 @@ ms.locfileid: "59815108"
   
 1.  打开 Windows Server Essentials 仪表板。  
   
-2.  在导航栏上，单击“用户”。  
+2.  在导航栏上，单击“用户”  。  
   
 3.  在用户帐户列表中，选择要更改的用户帐户。  
   
 4.  在中 **< 用户帐户\>任务**窗格中，单击**查看帐户属性**。 这将显示用户帐户的“属性”  页面。  
   
-5.  在“计算机访问”选项卡上，选择该用户可以远程访问的计算机，然后单击“确定”。  
+5.  在“计算机访问”  选项卡上，选择该用户可以远程访问的计算机，然后单击“确定”  。  
   
 ##  <a name="BKMK_3"></a> 从服务器中删除计算机  
  当你使用仪表板从运行 Windows Server Essentials 的服务器中删除计算机时，该服务器将不再管理该计算机。 因此，在从网络中删除计算机后，服务器将停止创建计算机备份或监控其运行状况。  
@@ -116,7 +116,7 @@ ms.locfileid: "59815108"
   
 2.  在导航栏上，单击“设备”  选项卡。  
   
-3.  在计算机列表中，右键单击要从网络中删除的计算机，然后单击“删除该计算机”。  
+3.  在计算机列表中，右键单击要从网络中删除的计算机，然后单击“删除该计算机”  。  
   
 ##  <a name="BKMK_5"></a> 配置文件夹重定向和安全性的组策略设置  
  通过使用 Windows Server Essentials 仪表板，可以配置组策略并将其部署到 Windows Server Essentials 网络中的计算机。 Windows Server Essentials 中的组策略包括影响 Windows 更新、Windows Defender 以及网络防火墙的文件夹重定向和安全性设置。  
@@ -125,24 +125,24 @@ ms.locfileid: "59815108"
   
 1.  打开 Windows Server Essentials 仪表板。  
   
-2.  在导航栏上，单击“设备” 。  
+2.  在导航栏上，单击“设备”  。  
   
-3.  适用于 Windows Server Essentials:在全局“用户任务”窗格中，单击“实现组策略”。  
+3.  适用于 Windows Server Essentials:在全局“用户任务”  窗格中，单击“实现组策略”  。  
   
-     适用于 Windows Server Essentials:在全局“设备任务”窗格中，单击“实现组策略”。  
+     适用于 Windows Server Essentials:在全局“设备任务”  窗格中，单击“实现组策略”  。  
   
 4.  此时将打开“实现组策略”向导。  
   
-5.  在该向导的“启用文件夹重定向组策略”页面上，你可以选择要重定向的用户文件夹。  
+5.  在该向导的“启用文件夹重定向组策略”  页面上，你可以选择要重定向的用户文件夹。  
   
-6.  在该向导的“启用安全策略设置”  页面上，你可以选择启用适用于“Windows 更新” 、“Windows Defender” 以及“网络防火墙” 的组策略设置。  
+6.  在该向导的“启用安全策略设置”  页面上，你可以选择启用适用于“Windows 更新”  、“Windows Defender”  以及“网络防火墙”  的组策略设置。  
   
 7.  单击“完成”  以实现组策略设置。  
   
 ##  <a name="BKMK_7"></a> 使用远程桌面会话连接到网络计算机  
  若要在离开办公室后，远程访问 Windows Server Essentials 网络计算机，使用 Web 浏览器登录到你的组织的远程 Web 访问网站，然后在**计算机**选项卡上，单击的名称计算机。  
   
- “状态”列将显示是否能连接到网络上的计算机，以及是否可以包含下列值：  
+ “状态”  列将显示是否能连接到网络上的计算机，以及是否可以包含下列值：  
   
 -   **已推出**  
   
@@ -167,7 +167,7 @@ ms.locfileid: "59815108"
   
 1.  打开 Windows Server Essentials 仪表板。  
   
-2.  在主导航栏上，单击“设备”。  
+2.  在主导航栏上，单击“设备”  。  
   
 3.  仪表板将显示计算机的当前列表。  
   
@@ -179,7 +179,7 @@ ms.locfileid: "59815108"
   
 3.  单击选项卡以显示该计算机的属性。  
   
-4.  若要保存对计算机属性所做的任何更改，请单击“应用” 。  
+4.  若要保存对计算机属性所做的任何更改，请单击“应用”  。  
   
 ## <a name="see-also"></a>请参阅  
   

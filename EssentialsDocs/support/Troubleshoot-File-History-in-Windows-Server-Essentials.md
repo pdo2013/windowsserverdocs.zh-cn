@@ -12,12 +12,12 @@ ms.assetid: ed062945-27e9-4572-b1bb-6c8cf1b9c2f4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 34442565b54b089064c1fa19317a24f591e44fda
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 12a9ba285757a37a8fc32a73e52ac3003db80a6d
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868598"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63721025"
 ---
 # <a name="troubleshoot-file-history-in-windows-server-essentials"></a>解决 Windows Server Essentials 中的文件历史记录问题
 
@@ -56,9 +56,9 @@ ms.locfileid: "59868598"
   
 1.  以管理员身份登录到服务器。  
   
-2.  在 Windows Server Essentials 仪表板上单击“存储” 。  
+2.  在 Windows Server Essentials 仪表板上单击“存储”  。  
   
-3.  在“服务器文件夹”选项卡上，记下文件历史记录备份文件夹的位置。 默认位置为 %SystemDrive%\ServerFolders\File 历史记录备份\\。  
+3.  在“服务器文件夹”  选项卡上，记下文件历史记录备份文件夹的位置。 默认位置为 %SystemDrive%\ServerFolders\File 历史记录备份\\。  
   
 ##### <a name="to-resolve-file-history-issues-for-a-new-user-with-a-name-conflict"></a>为名称冲突的新用户解决文件历史记录问题  
   
