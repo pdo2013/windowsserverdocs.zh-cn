@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: df35348cb51a9021f4aaa2fc6516cb119bdb8b8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 542d7a24e29b52dd3fa0d7ea6a9b2d27fb620d8d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849428"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188500"
 ---
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
-
 # <a name="the-role-of-claims"></a>声明的角色
 中的声明\-基于的标识模型中，声明在联合身份验证过程中扮演着关键角色，它们是所依据的关键组件的所有 Web 结果\-确定基于身份验证和授权请求。 此模型支持组织以一种标准化方法跨安全和企业界限安全地投影数字标识和权限或 *声明*。  
   
@@ -34,7 +32,7 @@ Active Directory 联合身份验证服务中的联合身份验证服务\(AD FS\)
 声明可以包含值，例如电子\-邮件地址、 用户主体名称\(UPN\)，组成员身份和其他帐户属性。  
   
 ### <a name="how-claims-flow"></a>如何声明流  
-第三方依赖于声明为 Web 执行授权任务的值\-基于其托管的应用程序。 这些参与方嘿 *信赖方*AD FS 管理管理单元\-中。 联合身份验证服务负责协调许多不同参与方之间的信任关系。 这为了处理和流动来自最初源声明，也称为组织声明受信任声明交换*声明提供程序*AD FS 管理管理单元\-在中，向信赖方。 信赖方然后使用这些声明做出授权决定。  
+第三方依赖于声明为 Web 执行授权任务的值\-基于其托管的应用程序。 这些参与方嘿*信赖方*AD FS 管理管理单元\-中。 联合身份验证服务负责协调许多不同参与方之间的信任关系。 这为了处理和流动来自最初源声明，也称为组织声明受信任声明交换*声明提供程序*AD FS 管理管理单元\-在中，向信赖方。 信赖方然后使用这些声明做出授权决定。  
   
 使用此过程的声明流称为*声明管道*。 通过声明管道的声明流有三个步骤：  
   
