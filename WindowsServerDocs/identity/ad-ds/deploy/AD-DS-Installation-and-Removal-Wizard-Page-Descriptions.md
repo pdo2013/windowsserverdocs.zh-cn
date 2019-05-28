@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 52e4b215c406eeae11dbab41e367f6ce4cd83507
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b4df753a1635a0935e70a76278b097d2f9f70142
+ms.sourcegitcommit: b190fac4bfa5599751a60d3fc3b4c4a64dd9afd7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849248"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66009103"
 ---
 # <a name="ad-ds-installation-and-removal-wizard-page-descriptions"></a>AD DS 安装和删除向导页面说明
 
@@ -51,7 +51,7 @@ ms.locfileid: "59849248"
 -   [确认角色删除选择](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_ConfirmRoleRemovalPage)  
   
 ## <a name="BKMK_DepConfigPage"></a>部署配置  
-服务器管理器从“部署配置”页面开始执行每个域控制器的安装。 其余选项和必填字段在此页面和后续页面上会有所变化，这视所选部署操作而定。 例如，如果创建新的林，**准备选项**页未出现，但是如果它安装在现有林或域中运行 Windows Server 2012 的第一个域控制器。  
+服务器管理器从“部署配置”页面  开始执行每个域控制器的安装。 其余选项和必填字段在此页面和后续页面上会有所变化，这视所选部署操作而定。 例如，如果创建新的林，**准备选项**页未出现，但是如果它安装在现有林或域中运行 Windows Server 2012 的第一个域控制器。  
   
 有些验证测试会在此页面上执行，之后作为先决条件检查的一部分再次执行。 例如，如果尝试在具有 Windows 2000 功能级别的林中安装第一个 Windows Server 2012 域控制器，在此页上将出现错误。  
   
@@ -61,7 +61,7 @@ ms.locfileid: "59849248"
   
 -   创建新林时，必须为林根域指定名称。 林根域的名称不能为单标记 （例如，它必须是"contoso.com"而不是"contoso"）。 必须使用允许的 DNS 域命名约定。 你可以指定国际化域名 (IDN)。 有关 DNS 域命名约定的详细信息，请参阅 [KB 909264](https://support.microsoft.com/kb/909264)。  
   
--   不要使用与外部 NDS 名称相同的名称创建新 Active Directory 林。 例如，如果你的 Internet DNS URL 是 http://contoso.com，必须选择其他名称为内部林以避免将来的兼容性问题。 该名称应具有唯一性，且不会产生 Web 流量，比如 corp.contoso.com。  
+-   不要使用与外部 NDS 名称相同的名称创建新 Active Directory 林。 例如，如果您的 Internet DNS URL 为 http: \/ /contoso.com，必须选择其他名称为内部林以避免将来的兼容性问题。 该名称应具有唯一性，且不会产生 Web 流量，比如 corp.contoso.com。  
   
 -   在创建新林的服务器上，你必须属于 管理员组 的成员。  
   
@@ -74,13 +74,13 @@ ms.locfileid: "59849248"
 > [!NOTE]  
 > 如果创建新树域，需要指定林根域的名称，而不是父域，但其余向导页和选项相同。  
   
--   单击“选择”以浏览到父域或 Active Directory 树，或键入有效父域或树名称。 然后在“新域名”中键入新域的名称。  
+-   单击“选择”  以浏览到父域或 Active Directory 树，或键入有效父域或树名称。 然后在“新域名”中键入新域的名称  。  
   
 -   树域：提供有效完全限定根域名；该名称无法单标记，且必须使用 DNS 域名要求。  
   
 -   子域：提供有效的单标记子域名；该名称必须使用 DNS 域名要求。  
   
--   如果当前凭据不是来自域，Active Directory 域服务配置向导将提示你提供域凭据。 单击“更改”提供域凭据。  
+-   如果当前凭据不是来自域，Active Directory 域服务配置向导将提示你提供域凭据。 单击“更改”  提供域凭据。  
   
 有关如何创建一个域的详细信息，请参阅[安装新的 Windows Server 2012 Active Directory 子域或树域&#40;级别 200&#41;](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md)。  
   
@@ -88,7 +88,7 @@ ms.locfileid: "59849248"
   
 ![AD DS 安装](./media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_DeploymentConfiguration_Replica.gif)  
   
--   单击“选择”以浏览到该域，或键入有效域名。  
+-   单击“选择”  以浏览到该域，或键入有效域名。  
   
 -   服务器管理器将根据需要提示你提供有效凭据。 安装其他域控制器需要 Domain Admins 组中的成员身份。  
   
@@ -120,14 +120,14 @@ ms.locfileid: "59849248"
   
 -   默认情况下，域功能级别设置为 Windows Server 2012。 你可以任意指定至少属于林功能级别或更高版本值的其他值。  
   
--   可配置的域控制器选项包括 **“DNS 服务器”** 和 **“全局目录”**；你不能将只读域控制器配置为新域的第一个域控制器。  
+-   可配置的域控制器选项包括 **“DNS 服务器”** 和 **“全局目录”** ；你不能将只读域控制器配置为新域的第一个域控制器。  
   
     Microsoft 建议所有域控制器都提供 DNS 和全局目录服务，以在分布式环境中实现高可用性，这就是在创建新域时向导默认情况下启用这些选项的原因。  
   
--   “域控制器选项”页还让你可以从林配置中选择相应的 Active Directory 逻辑“站点名称”。 默认情况下，将选择具有最合适子网的站点。 如果只有一个站点，将自动选择该站点。  
+-   “域控制器选项”  页还让你可以从林配置中选择相应的 Active Directory 逻辑“站点名称”  。 默认情况下，将选择具有最合适子网的站点。 如果只有一个站点，将自动选择该站点。  
   
     > [!IMPORTANT]  
-    > 如果服务器不属于 Active Directory 子网且存在多个站点，则不选择任何内容且“下一步”按钮不可用，直至从列表中选择一个站点。  
+    > 如果服务器不属于 Active Directory 子网且存在多个站点，则不选择任何内容且“下一步”  按钮不可用，直至从列表中选择一个站点。  
   
 有关如何创建一个域的详细信息，请参阅[安装新的 Windows Server 2012 Active Directory 子域或树域&#40;级别 200&#41;](../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md)。  
   
@@ -135,14 +135,14 @@ ms.locfileid: "59849248"
   
 ![AD DS 安装](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_DCOptions_Replica.gif)  
   
--   可配置的域控制器选项包括“DNS 服务器”、“全局目录”和“只读域控制器”。  
+-   可配置的域控制器选项包括“DNS 服务器”  、“全局目录”  和“只读域控制器”  。  
   
     Microsoft 建议所有域控制器都提供 DNS 和全局目录服务，以在分布式环境中实现高可用性，这就是向导默认情况下启用这些选项的原因。 有关部署 RODC 的详细信息，请参阅[只读域控制器计划和部署指南](https://technet.microsoft.com/library/cc771744(v=WS.10).aspx)。  
   
 有关如何将域控制器添加到现有域的详细信息，请参阅[在现有域中安装副本 Windows Server 2012 域控制器&#40;级别 200&#41;](../../ad-ds/deploy/../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md)。  
   
 ## <a name="BKMK_DNSOptionsPage"></a>DNS 选项  
-如果安装 DNS 服务器，则将显示以下“DNS 选项”页。  
+如果安装 DNS 服务器，则将显示以下“DNS 选项”  页。  
   
 ![AD DS 安装](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_DNSOptions_Replica.gif)  
   
@@ -152,9 +152,9 @@ ms.locfileid: "59849248"
   
 -   主机 （A 或 AAAA） 资源记录也称为粘连记录必须存在要解析为其 IP 地址的名称服务器 (NS) 资源记录中指定的服务器的名称。 将此资源记录中的主机名称解析为名称服务器 (NS) 资源记录中的委派 DNS 服务器的过程有时称为“粘连跟踪”。  
   
-你可以让 Active Directory 域服务配置向导自动配置它们。 单击“域控制器选项”页上的“下一步”后，该向导将验证父 DNS 区域中是否存在相应的记录。 如果该向导无法验证父域中是否存在记录，则该向导将为你提供用于自动创建新域的新 DNS 委派（或更新现有委派）的选项，并继续安装新的域控制器。  
+你可以让 Active Directory 域服务配置向导自动配置它们。 单击“域控制器选项”  页上的“下一步”  后，该向导将验证父 DNS 区域中是否存在相应的记录。 如果该向导无法验证父域中是否存在记录，则该向导将为你提供用于自动创建新域的新 DNS 委派（或更新现有委派）的选项，并继续安装新的域控制器。  
   
-此外，还可以先创建这些 DNS 委派记录，再安装 DNS 服务器。 若要创建区域委派，请打开 **“DNS 管理器”**，右键单击父域，然后单击 **“新建委派”**。 按照“新建委派向导”中的步骤创建委派。  
+此外，还可以先创建这些 DNS 委派记录，再安装 DNS 服务器。 若要创建区域委派，请打开 **“DNS 管理器”** ，右键单击父域，然后单击 **“新建委派”** 。 按照“新建委派向导”中的步骤创建委派。  
   
 安装过程尝试创建委派，以确保其他域中的计算机可解析主机的 DNS 查询，包括 DNS 子域中的域控制器和成员计算机。 请注意，只能在 Microsoft DNS 服务器上自动创建委派记录。 如果父 DNS 域区域位于 BIND 等第三方 DNS 服务器上，则将在“先决条件检查”页面上显示无法创建 DNS 委派记录的警告。 有关该警告的详细信息，请参阅[安装 AD DS 的已知问题](https://technet.microsoft.com/library/cc754463(v=WS.10).aspx)。  
   
@@ -184,26 +184,26 @@ ms.locfileid: "59849248"
 有关安装 Rodc 的详细信息，请参阅[安装 Windows Server 2012 Active Directory 只读域控制器&#40;RODC&#41; &#40;级别 200&#41;](../../ad-ds/deploy/RODC/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-.md)。  
   
 ## <a name="BKMK_AdditionalOptionsPage"></a>其他选项  
-如果要创建新域，以下选项将显示在“其他选项”页中。  
+如果要创建新域，以下选项将显示在“其他选项”  页中。  
   
 ![AD DS 安装](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_AdditionalOptions_Child.gif)  
   
-如果在现有域中安装附加域控制器，以下选项将显示在“其他选项”页中：  
+如果在现有域中安装附加域控制器，以下选项将显示在“其他选项”  页中：  
   
 ![AD DS 安装](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_AdditionalOptions_Replica.gif)  
   
 -   你可以将域控制器指定为复制源，或允许向导选择任何域控制器作为复制源。  
   
--   你还可以使用“从媒体安装 (IFM)”选项选择使用备份的媒体安装域控制器。 如果在本地存储安装媒体，可以选择“从媒体安装路径”选项浏览到文件位置。 此浏览选项不适用于远程安装。 你可以单击“验证”来确保提供的路径是有效媒体。 IFM 选项使用的媒体必须从另一台现有 Windows Server 2012 计算机; 仅创建使用 Windows Server Backup 或 Ntdsutil.exe您不能使用 Windows Server 2008 R2 或以前的操作系统为 Windows Server 2012 域控制器创建媒体。 如果使用 SYSKEY 保护媒体，服务器管理器将在验证期间提示提供映像密码。  
+-   你还可以使用“从媒体安装 (IFM)”选项选择使用备份的媒体安装域控制器。 如果在本地存储安装媒体，可以选择“从媒体安装路径”  选项浏览到文件位置。 此浏览选项不适用于远程安装。 你可以单击“验证”  来确保提供的路径是有效媒体。 IFM 选项使用的媒体必须从另一台现有 Windows Server 2012 计算机; 仅创建使用 Windows Server Backup 或 Ntdsutil.exe您不能使用 Windows Server 2008 R2 或以前的操作系统为 Windows Server 2012 域控制器创建媒体。 如果使用 SYSKEY 保护媒体，服务器管理器将在验证期间提示提供映像密码。  
   
 有关如何创建一个域的详细信息，请参阅[安装新的 Windows Server 2012 Active Directory 子域或树域&#40;级别 200&#41;](../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md)。 有关如何将域控制器添加到现有域的详细信息，请参阅[在现有域中安装副本 Windows Server 2012 域控制器&#40;级别 200&#41;](../../ad-ds/deploy/../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md)。  
   
 ## <a name="BKMK_Paths"></a>Paths  
-以下选项显示在“路径”页。  
+以下选项显示在“路径”  页。  
   
 ![AD DS 安装](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_Paths.gif)  
   
--   “路径”页可以用于覆盖 AD DS 数据库、数据库事务日志和 SYSVOL 共享的默认文件夹位置。 默认位置始终位于 %systemroot% 中。  
+-   “路径”  页可以用于覆盖 AD DS 数据库、数据库事务日志和 SYSVOL 共享的默认文件夹位置。 默认位置始终位于 %systemroot% 中。  
   
 指定 AD DS 数据库 (NTDS.DIT)、日志文件和 SYSVOL 的位置。 对于本地安装，可以浏览到要用于存储文件的位置。  
   
@@ -259,7 +259,7 @@ ms.locfileid: "59849248"
     > [!IMPORTANT]  
     > 如果域控制器可以联系其他域控制器，则不要选择此选项，而且*还没有任何合理的方法*可解决这种网络问题。 强制降级会将 Active Directory 中已丢弃的元数据保留在林中的其余域控制器上。 此外，该域控制器上所有未复制的更改（如密码或新用户帐户）都将永久丢失。 已丢弃的元数据是 AD DS、Exchange、SQL 和其他软件的大部分 Microsoft 客户支持案例的根本原因。 如果强制降级域控制器，*必须*立即手动执行元数据清理。 有关步骤，请查看 [清理服务器元数据](https://technet.microsoft.com/library/cc816907(WS.10).aspx)。  
   
--   降级域中的最后一个域控制器需要 Enterprise Admins 组成员身份，因为这将删除域本身（如果这是林中的最后一个域，这将删除林）。 服务器管理器将通知当前域控制器是否是域中的最后一个域控制器。 选择“域中的最后一个域控制器”以确认域控制器是域中的最后一个域控制器。  
+-   降级域中的最后一个域控制器需要 Enterprise Admins 组成员身份，因为这将删除域本身（如果这是林中的最后一个域，这将删除林）。 服务器管理器将通知当前域控制器是否是域中的最后一个域控制器。 选择“域中的最后一个域控制器”  以确认域控制器是域中的最后一个域控制器。  
   
 有关删除 AD DS 的详细信息，请参阅[删除 Active Directory 域服务 (级别 100)](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c)并[降级域控制器和域&#40;级别 200&#41;](Demoting-Domain-Controllers-and-Domains--Level-200-.md)。  
   
@@ -270,7 +270,7 @@ ms.locfileid: "59849248"
   
 ![AD DS 安装](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_RRW_Warnings.gif)  
   
-必须单击“继续删除”确认附加角色不再提供，才能单击“下一步”继续。  
+必须单击“继续删除”  确认附加角色不再提供，才能单击“下一步”  继续。  
   
 如果强制删除域控制器，未复制到域中其他域控制器的任何 Active Directory 对象更改都将丢失。 此外，如果域控制器托管操作主机角色、全局目录或 DNS 服务器角色，可能会给域和林中的关键操作带来如下影响。 在删除托管任何操作主机角色的域控制器之前，尝试将角色传输到其他域控制器。 如果不能将此角色转移，首先从这台计算机中删除 Active Directory 域服务，，然后使用 Ntdsutil.exe 占用角色。 在计划占用角色的域控制器上使用 Ntdsutil；如果可能，使用与此域控制器相同的站点中的最新复制伙伴。 有关传输和占用操作主机角色的详细信息，请参阅 Microsoft 知识库文章 [255504](https://go.microsoft.com/fwlink/?LinkId=80395)。 如果向导无法确定域控制器是否托管操作主机角色，请运行 netdom.exe 命令以确定此域控制器是否执行任何操作主机角色。  
   
@@ -306,7 +306,7 @@ ms.locfileid: "59849248"
 有关删除 AD DS 的详细信息，请参阅[删除 Active Directory 域服务 (级别 100)](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c)并[降级域控制器和域&#40;级别 200&#41;](Demoting-Domain-Controllers-and-Domains--Level-200-.md)。  
   
 ## <a name="BKMK_ConfirmRoleRemovalPage"></a>查看选项  
-“审查” 选项页面可以将降级配置设置导出到 Windows PowerShell 脚本，以便可以自动执行附加降级。 单击“降级”以删除 AD DS。  
+“审查” 选项  页面可以将降级配置设置导出到 Windows PowerShell 脚本，以便可以自动执行附加降级。 单击“降级”  以删除 AD DS。  
   
 ![AD DS 安装](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_RRW_ReviewOptions.gif)  
   

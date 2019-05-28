@@ -11,12 +11,12 @@ ms.assetid: 95ea5f7c-25c6-494b-8ffd-2a77f631ee94
 author: shirgall
 ms.author: shirgall
 ms.date: 11/19/2018
-ms.openlocfilehash: afba885fc49ba129c0ef452704cbfe9f9cf884ba
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b58193ec570cf0d94b6c95018b8c00c813331986
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834038"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222645"
 ---
 # <a name="supported-ubuntu-virtual-machines-on-hyper-v"></a>受支持的 Ubuntu 虚拟机上的 HYPER-V
 
@@ -39,9 +39,9 @@ Ubuntu 12.04 从开始，"linux 虚拟"包加载将作为来宾虚拟机安装�
 |**功能**|**Windows Server 操作系统版本**|**18.10**|**18.04 LTS**|**16.04 LTS**|**14.04 LTS**|**12.04 LTS**|
 |-|-|-|-|-|-|-|
 |**可用性**||内置|内置|内置|内置|内置|
-|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_core)**|2019、 2016、 2012 R2、 2012、 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019、 2016、 2012 R2、 2012、 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows Server 2016 准确的时间|2019, 2016|&#10004;|&#10004;|&#10004;|||
-|**[网络](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Networking)**|||||||
+|**[网络](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**|||||||
 |Jumbo 帧|2019、 2016、 2012 R2、 2012、 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |VLAN 标记和中继|2019、 2016、 2012 R2、 2012、 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |实时迁移|2019、 2016、 2012 R2、 2012、 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
@@ -49,32 +49,32 @@ Ubuntu 12.04 从开始，"linux 虚拟"包加载将作为来宾虚拟机安装�
 |vRSS|2019、 2016、 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
 |TCP 分段和校验和卸载|2019、 2016、 2012 R2、 2012、 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
 |SR-IOV|2019, 2016|&#10004;|&#10004;|&#10004;|||
-|**[存储](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**||||||
+|**[存储](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||||||
 |VHDX 大小调整|2019、 2016、 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
 |虚拟光纤通道|2019、 2016、 2012 R2|&#10004;请注意 2|&#10004;请注意 2|&#10004;请注意 2|&#10004;请注意 2||
 |实时虚拟机备份|2019、 2016、 2012 R2|&#10004;请注意 3、 4、 6|&#10004;请注意 3、 4、 5|&#10004;请注意 3、 4、 5|&#10004;请注意 3、 4、 5||
 |剪裁支持|2019、 2016、 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |SCSI WWN|2019、 2016、 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
-|**[Memory](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**||||||
+|**[Memory](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**||||||
 |PAE 内核支持|2019、 2016、 2012 R2、 2012、 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |MMIO 间隙的配置|2019、 2016、 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |动态内存的热添加|2019、 2016、 2012 R2，2012年|&#10004;请注意 7、 8、 9|&#10004;请注意 7、 8、 9|&#10004;请注意 7、 8、 9|&#10004;请注意 7、 8、 9||
 |动态内存-扩大|2019、 2016、 2012 R2，2012年|&#10004;请注意 7、 8、 9|&#10004;请注意 7、 8、 9|&#10004;请注意 7、 8、 9|&#10004;请注意 7、 8、 9||
 |运行时内存调整大小|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||
-|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**|||||||
+|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**|||||||
 |HYPER-V 特定视频设备|2019、 2016、 2012 R2、 2012、 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
-|**[杂项](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Misc)**||||||
+|**[杂项](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**||||||
 |键/值对|2019、 2016、 2012 R2、 2012、 2008 R2|&#10004;请注意 6 10|&#10004;请注意 5、 10|&#10004;请注意 5、 10|&#10004;请注意 5、 10|&#10004;请注意 5、 10|
 |不可屏蔽的中断|2019、 2016、 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |从主机到来宾文件副本|2019、 2016、 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
 |lsvmbus 命令|2019、 2016、 2012 R2、 2012、 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
 |HYPER-V 套接字|2019, 2016||||||
 |PCI 传递/DDA|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||
-|**[第 2 代虚拟机](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_gen2)**||||||
+|**[第 2 代虚拟机](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**||||||
 |使用 UEFI 启动|2019、 2016、 2012 R2|&#10004;请注意 11、 12|&#10004;请注意 11、 12|&#10004;请注意 11、 12|&#10004;请注意 11、 12||
 |安全启动|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||
 
-## <a name="BKMK_notes"></a>说明
+## <a name="notes"></a>说明
 
 1. 如果静态 IP 注入可能无法工作**网络管理器**已为虚拟机上的给定 Hyper V 特定网络适配器配置。 若要确保顺畅运行静态 IP 注入请确保网络管理器完全关闭，或通过为特定的网络适配器已关闭其**ifcfg ethX**文件。
 
@@ -184,7 +184,7 @@ Ubuntu 12.04 从开始，"linux 虚拟"包加载将作为来宾虚拟机安装�
 
 * [支持 CentOS 和 Red Hat Enterprise Linux 虚拟机上的 HYPER-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 
-* [在 HYPER-V 上支持的 Debian 虚拟机](Supported-Debian-virtual-machines-on-Hyper-V.md)
+* [Hyper-V 上支持的 Debian 虚拟机](Supported-Debian-virtual-machines-on-Hyper-V.md)
 
 * [受支持的 Oracle Linux 虚拟机上的 HYPER-V](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md)
 

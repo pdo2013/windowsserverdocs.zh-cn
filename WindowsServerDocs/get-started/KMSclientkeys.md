@@ -4,17 +4,17 @@ description: 从 KMS 服务器激活 Windows 产品所需的密钥
 ms.prod: windows-server-threshold
 ms.mktglfcycl: manage
 ms.sitesec: library
-author: jaimeo
+author: jasongerend
+ms.author: jgerend
 ms.localizationpriority: medium
-ms.date: 10/02/2018
-ms.tgt_pltfrm: na
+ms.date: 05/21/2019
 ms.topic: get-started-article
-ms.openlocfilehash: 57ce4c4d7623c2a424efbdf0ff117ede8fad726b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2aac6db7bb9e118d672190c95f0d73294474f75
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847028"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976531"
 ---
 # <a name="kms-client-setup-keys"></a>KMS 客户端安装密钥
 
@@ -29,9 +29,9 @@ ms.locfileid: "59847028"
 
 如果是将计算机从 KMS 主机、MAK 或零售版 Windows 转换为 KMS 客户端，则从下表中选择相应的安装程序密钥 (GVLK) 进行安装。 若要安装客户端安装密钥，请打开客户端类型上的管理命令提示符**slmgr /ipk\<安装程序密钥\>** ，然后按**Enter**。
 
-| 如果你希望                                                                                                                                                                                          | 请使用以下资源                                                                                                         |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| 在批量激活方案之外激活 Windows（即，你尝试激活零售版本的 Windows），**这些密钥将不可用**。                                                     | 请点击以下链接以获取零售版本的 Windows：                                                                              |
+| 如果你希望    | 请使用以下资源   |
+|--------------------|------------------------|
+| 在批量激活方案之外激活 Windows（即，你尝试激活零售版本的 Windows），**这些密钥将不可用**。 | 请点击以下链接以获取零售版本的 Windows： |
 | 修复尝试激活 Windows 8.1、 Windows Server 2012 R2 或更高版本的系统时你收到此错误：“错误：0xC004F050 软件授权服务报告产品密钥无效”… | 如果 KMS 主机运行的是 Windows 8.1、Windows Server 2012 R2、Windows 8 或 Windows Server 2012，则在 KMS 主机上[安装此更新](https://support.microsoft.com/en-us/help/3172614/july-2016-update-rollup-for-windows-8-1-and-windows-server-2012-r2) 。 |
 
 -   [获取 Windows 10](https://www.microsoft.com/en-us/windows/get-windows-10)
@@ -43,15 +43,14 @@ ms.locfileid: "59847028"
 
 >   如果你运行的是 Windows Server 2008 R2 或 Windows 7，请留意一项更新，该更新支持将这些计算机用作 Windows 10 客户端的 KMS 主机。
 
-
 ## <a name="windows-server-semi-annual-channel-versions"></a>Windows Server 半年频道版本
 
-### <a name="windows-server-version-1809"></a>Windows Server 版本 1809
-| 操作系统版本       | KMS 客户端安装程序密钥          |
-|--------------------------------|-------------------------------|
-| Windows Server Datacenter | 6NMRW-2C8FM-D24W7-TQWMY-CWH2D  | 
-| Windows Server Standard | N2KJX-J94YW-TQVFB-DG9YT-724CC  |
+### <a name="windows-server-version-1903-and-windows-server-version-1809"></a>Windows Server、 版本 1903年和 Windows Server 版本 1809
 
+| 操作系统版本  | KMS 客户端安装程序密钥          |
+|---------------------------|-------------------------------|
+| Windows Server Datacenter | 6NMRW-2C8FM-D24W7-TQWMY-CWH2D |
+| Windows Server Standard   | N2KJX-J94YW-TQVFB-DG9YT-724CC |
 
 ### <a name="windows-server-version-1803"></a>Windows Server 版本 1803
 

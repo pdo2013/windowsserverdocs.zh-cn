@@ -9,19 +9,17 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: af227d9e87ddb73f194dd46c8ce45fcdf12a34cf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2544001b871a1eda2c03005c384a99d5209e7282
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872548"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190555"
 ---
 # <a name="when-to-use-identity-delegation"></a>何时使用身份委派
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
   
 ## <a name="what-is-identity-delegation"></a>什么是身份委派？  
-身份委派是 Active Directory 联合身份验证服务的一项功能\(AD FS\)允许管理员\-指定的帐户可以模拟用户。 模拟用户的帐户称为“代理人”。 对于要为其进行一系列访问控制检查并且必须为处于原始请求的授权链中的每个应用程序、数据库或服务按顺序进行这些检查的许多分布式应用程序，此委派功能至关重要。 许多实际\-世界存在一个 Web 应用程序"前端"必须在其中检索数据更安全"后端"，如连接到 Microsoft SQL Server 数据库的 Web 服务。  
+身份委派是 Active Directory 联合身份验证服务的一项功能\(AD FS\)允许管理员\-指定的帐户可以模拟用户。 模拟用户的帐户称为“代理人”  。 对于要为其进行一系列访问控制检查并且必须为处于原始请求的授权链中的每个应用程序、数据库或服务按顺序进行这些检查的许多分布式应用程序，此委派功能至关重要。 许多实际\-世界存在一个 Web 应用程序"前端"必须在其中检索数据更安全"后端"，如连接到 Microsoft SQL Server 数据库的 Web 服务。  
   
 例如，现有部件\-订购网站可以以编程方式增强，因此，它允许合作伙伴组织查看其自己的购买历史记录和帐户状态。 出于安全原因，所有合作伙伴财务数据都存储在安全的数据库上专用的结构化查询语言\(SQL\)服务器。 在此情况下，在前面的代码\-最终应用程序知道有关合作伙伴组织的财务数据执行任何操作。 因此，它必须从另一台计算机上承载的网络的其他位置检索该数据\(这种情况下\)零件数据库的 Web 服务\(后端\)。  
   
@@ -61,4 +59,4 @@ AD FS 不限制可以模拟的用户。 为身份委派的 AD FS 配置后，执
 开发人员有几个选项，它们可用于适当编程 Web 前端\-结束应用程序或服务委派请求重定向到 AD FS 计算机。 有关如何自定义 Web 应用程序以使用身份委派的详细信息，请参阅 [Windows Identity Foundation SDK](https://go.microsoft.com/fwlink/?LinkId=122266)。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

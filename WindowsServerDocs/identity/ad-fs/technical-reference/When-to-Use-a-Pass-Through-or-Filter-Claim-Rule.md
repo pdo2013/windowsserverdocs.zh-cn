@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: aa205c46bf67dc25a55232b799bdd39fee4ac3c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 09f26e256793d30936496f7a936550acb7b20025
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812208"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188350"
 ---
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
-
 # <a name="when-to-use-a-pass-through-or-filter-claim-rule"></a>何时使用传递或筛选声明规则
 可以在 Active Directory 联合身份验证服务中使用此规则\(AD FS\)需要采用特定的传入声明类型，然后应用一项操作，以确定应出现的输出基于传入声明中的值。 使用此规则时，将根据你在此规则中配置的任一选项传递或筛选与下表中的规则逻辑匹配的任何声明。  
   
@@ -47,7 +45,7 @@ ms.locfileid: "59812208"
 使用此操作时，将指定声明类型的所有传入声明值作为传出声明传递。 例如，当传入声明类型指定为“角色”声明类型时，将所有传入声明值逐个复制到传出声明类型为“角色”的新传出声明中。  
   
 ## <a name="filtering-a-claim"></a>筛选声明  
-在 AD FS 中，术语*声明筛选*指筛选或限制传入声明值，以便仅将特定值是传递或作为传出声明发送。 “传递或筛选传入声明”规则模板使该功能变为可能。 在此规则的属性内，你可以设置传入值筛选条件，以便仅传递满足指定条件的值。  
+在 AD FS 中，术语*声明筛选*指筛选或限制传入声明值，以便仅将特定值是传递或作为传出声明发送。 “传递或筛选传入声明”  规则模板使该功能变为可能。 在此规则的属性内，你可以设置传入值筛选条件，以便仅传递满足指定条件的值。  
   
 例如，如果传入声明类型与“角色”声明类型匹配，或者你可能只想发出有关用户姓名的声明，而不发出包含用户身份证号的声明，则可以使用此规则仅传递与声明值“Purchaser”匹配的声明。  
   

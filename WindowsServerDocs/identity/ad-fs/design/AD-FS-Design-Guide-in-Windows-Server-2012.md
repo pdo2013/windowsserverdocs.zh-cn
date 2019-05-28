@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e660c1dabcc5a683fa74068ea148fd4efbeee569
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3f2a6df6a9c9a5cbdfa9c64bc6521e92f4982a15
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890208"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191733"
 ---
-# <a name="ad-fs-design-guide-in-windows-server-2012"></a>Windows Server 2012 中的 AD FS 设计指南
+# <a name="ad-fs-design-guide-in-windows-server"></a>在 Windows Server 中的 AD FS 设计指南 
 
->适用于：Windows Server 2012
+
   
 > [!NOTE]  
 > 有关如何部署 Windows Server 2012 R2 中的 AD FS 的信息，请参阅[Windows Server 2012 R2 AD FS 部署指南](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)。  
@@ -52,6 +52,6 @@ ms.locfileid: "59890208"
   
 -   [AD FS 服务器容量规划](Planning-for-AD-FS-Server-Capacity.md)  
   
--   [附录 a:查看 AD FS 要求](Appendix-A--Reviewing-AD-FS-Requirements.md)  
+-   [附录 A：查看 AD FS 要求](Appendix-A--Reviewing-AD-FS-Requirements.md)  
   
 

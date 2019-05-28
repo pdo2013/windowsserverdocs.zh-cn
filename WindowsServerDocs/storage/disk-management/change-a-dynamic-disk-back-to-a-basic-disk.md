@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: d018b417aeba21e2b1303fd9e72b58b4e2fc334f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e7655ca78868d40d354b5260fa99fcfa3a21d0de
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836048"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192746"
 ---
 # <a name="change-a-dynamic-disk-back-to-a-basic-disk"></a>将动态磁盘更改回基本磁盘
 
@@ -26,22 +26,20 @@ ms.locfileid: "59836048"
 
 ## <a name="changing-a-dynamic-disk-back-to-a-basic-disk"></a>将动态磁盘更改回基本磁盘
 
--   [使用 Windows 界面](#BKMK_WINUI)
--   [使用命令行](#BKMK_CMD)
+-   [使用 Windows 界面](#to-change-a-dynamic-disk-back-to-a-basic-disk-using-the-windows-interface)
+-   [使用命令行](#to-change-a-dynamic-disk-back-to-a-basic-disk-using-a-command-line)
 
 > [!NOTE]
 > 你至少必须是**备份操作员**或**管理员**组的成员才能完成这些步骤。
 
-<a href="" id="BKMK_WINUI"></a>
 #### <a name="to-change-a-dynamic-disk-back-to-a-basic-disk-using-the-windows-interface"></a>使用 Windows 界面将动态磁盘更改回基本磁盘
+
 1.  备份要从动态磁盘转换为基本磁盘的磁盘上的所有卷。
 
 2.  在“磁盘管理”中，右键单击你想要转换为基本磁盘的动态磁盘上的每个卷，然后针对磁盘上的每个卷单击**删除卷**。
 
 3.  删除了磁盘上的所有卷后，右键单击该磁盘，然后单击**转换成基本磁盘**。
 
-
-<a href="" id="BKMK_CMD"></a>
 #### <a name="to-change-a-dynamic-disk-back-to-a-basic-disk-using-a-command-line"></a>使用命令行将动态磁盘更改回基本磁盘
 
 1.  备份要从动态磁盘转换为基本磁盘的磁盘上的所有卷。

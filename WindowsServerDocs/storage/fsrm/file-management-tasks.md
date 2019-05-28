@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e83d0b79117144d42a0aff748f482f3c181cb300
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d8d798611a00e29337a5d45979947a51f03bcdee
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874048"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475880"
 ---
 # <a name="file-management-tasks"></a>文件管理任务
 
-> 适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
+> 适用于：Windows Server 2019，Windows Server 2016、 Windows 服务器 （半年频道）、 Windows Server 2012 R2 和 Windows Server 2012 中，Windows Server 2008 R2
 
 文件管理任务会自动执行在服务器上查找文件子集和应用简单命令的过程。 这些任务可被安排为定期执行以降低重复操作的成本。 将由文件管理任务处理的文件可通过以下任一属性进行定义：
 

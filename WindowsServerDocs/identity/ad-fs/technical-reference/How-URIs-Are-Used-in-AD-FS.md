@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 305bf0cece742c961604dacda7e27b8eac8065e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 677d3136305cbddd29f2fd782be33ae1e824d096
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812218"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188548"
 ---
->适用于：Windows Server 2016, Windows Server 2012 R2
-
 # <a name="how-uris-are-used-in-ad-fs"></a>在 AD FS 中如何使用 URI
 统一资源标识符\(URI\)是用作唯一标识符的字符的字符串。  在 AD FS 中，URI 用于标识合作伙伴网络地址和配置对象。  用于标识合作伙伴网络地址时，URI 始终是 URL。  用于标识配置对象时，URI 可以是 URN，也可以是 URL。  有关 URI 的更多常规信息，请参阅 [RFC 2396](https://go.microsoft.com/fwlink/?LinkId=48289) 和 [RFC 3986](https://go.microsoft.com/fwlink/?LinkId=90453)。  
   
@@ -63,7 +61,7 @@ ms.locfileid: "59812218"
   
 下表提供了其他示例。  
   
-|AD FS 配置数据库中的信赖方标识符|请求消息中的信赖方标识符|请求标识符与配置标识符是否匹配？|原因|  
+|AD FS 配置数据库中的信赖方标识符|请求消息中的信赖方标识符|请求标识符与配置标识符是否匹配？|Reason|  
 |------------------------------------------------------------|-----------------------------------------------|------------------------------------------------------------|----------|  
 |http:\/\/contoso.com|http:\/\/contoso.com|TRUE|精确匹配|  
 |http:\/\/contoso.com\/|http:\/\/contoso.com|TRUE|忽略尾部斜杠|  

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: de85af27e699242977054420178dd3c424b2ddb3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: abb00e14dd0b3ce7b06efba816fbd7452e7bf0f1
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822588"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189415"
 ---
 # <a name="create-a-rule-to-permit-all-users"></a>创建规则以允许所有用户
-
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 在 Windows Server 2016 中，你可以使用**访问控制策略**创建将授予所有用户访问信赖方规则。  在 Windows Server 2012 R2 中，使用**允许所有用户**Active Directory 联合身份验证服务中的规则模板\(AD FS\)，可以创建将给所有用户访问信赖的授权规则参与方。 
 

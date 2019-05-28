@@ -5,34 +5,30 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.date: 01/05/2017
+ms.date: 05/21/2019
 ms.technology: server-general
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2827f332-44d4-4785-8b13-98429087dcc7
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: b504c3396200502a09467ae97a36f9de613e4820
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8d36961558066197a54f42d27a3560d653bd81f2
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830328"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976635"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Windows Server 2016 中的新增功能
 
 >适用于：Windows Server 2016
 
-<img src="media/whats-new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">本部分的内容将介绍 Windows Server&reg; 2016 中的新增功能和更改的功能。 此处列出的新功能和更改在你使用此版本时最可能具有最大影响力。  
-   
-<br>
-<br>
-<br>
-<br>
-<br>
-## <a name="computevirtualizationvirtualizationmd"></a>[计算](../virtualization/virtualization.md)  
+<img src="media/whats-new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">若要了解有关 Windows 中的最新功能的信息，请参阅[What's New in Windows Server](whats-new-in-windows-server.md)。 本部分的内容将介绍 Windows Server&reg; 2016 中的新增功能和更改的功能。 此处列出的新功能和更改在你使用此版本时最可能具有最大影响力。  
+
+## <a name="computevirtualizationvirtualizationmd"></a>[Compute](../virtualization/virtualization.md)
+
 虚拟化区域包括适用于 IT 专业人员的虚拟化产品和功能，以设计、部署和维护 Windows Server。  
 
 ### <a name="general"></a>常规  
@@ -67,7 +63,7 @@ Windows Server 2016 提供新的基于 Hyper-V 的受防护的虚拟机，以保
 
 有关使用受防护的虚拟机的详细信息和说明，请参阅 [Shielded VMs and Guarded Fabric Validation Guide for Windows Server 2016 (TPM)](https://aka.ms/shieldedvms)（Windows Server 2016 (TPM) 受防护的 VM 和受保护的构造验证指南）。  
 
-## <a name="identity-and-accessidentityidentity-and-accessmd"></a>[标识和访问](../identity/Identity-and-Access.md)  
+## <a name="identity-and-accessidentityidentity-and-accessmd"></a>[身份标识和访问权限](../identity/Identity-and-Access.md)  
 身份标识中的新功能提高了组织保护 Active Directory 环境的能力，并帮助他们迁移到仅限云的部署和混合部署，其中某些应用程序和服务托管在云中，其他的则托管在本地。  
 
 ### <a name="active-directory-certificate-services"></a>Active Directory 证书服务  

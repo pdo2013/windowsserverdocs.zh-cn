@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 5076a686b5d0b9a539f6cad8594aaf84dccc3edb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7891f1d0b96df84e8ac4f3eb670f30350d3c194c
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887058"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188438"
 ---
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
-
 # <a name="the-role-of-the-claims-pipeline"></a>声明管道的角色
 声明管道在 Active Directory 联合身份验证服务\(AD FS\)表示声明必须遵循通过联合身份验证服务，然后才能发出的路径。 联合身份验证服务管理整个结束\-到\-结束使声明流过声明管道，其中也包括由声明规则引擎的声明规则处理的各个阶段的过程。  
   

@@ -9,19 +9,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 38c1962c2814a28adaf776d409bfd2b8129389ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 541ad987b81e7192c565c5be5ac93ef37db4d19b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867108"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192540"
 ---
 # <a name="ad-fs-technical-reference"></a>AD FS 技术参考
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 - [AD FS 和证书 KeySpec 属性信息](../ad-fs/technical-reference/AD-FS-and-KeySpec-Property.md)
-- [Windows Server 中的 AD FS 审核增强功能](../ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server.md)
+- [审核 Windows Server 中的 AD FS 的增强功能](../ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server.md)
 -   [了解关键的 AD FS 概念](../ad-fs/technical-reference/Understanding-Key-AD-FS-Concepts.md)
 -   [设备注册技术参考](../ad-fs/technical-reference/Device-Registration-Technical-Reference.md)
 -   [AD FS 密码攻击保护](../ad-fs/technical-reference/ad-fs-password-protection.md)

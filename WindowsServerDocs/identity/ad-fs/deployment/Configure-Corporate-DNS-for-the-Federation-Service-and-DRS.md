@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 9b66bed99cbc2ac2cdf116579adaea282c45fabe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cd8febf9eff300b1a83d22828874b4a577b8af36
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876388"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192325"
 ---
 # <a name="configure-corporate-dns-for-the-federation-service-and-drs"></a>为联合身份验证服务和 DRS 配置企业 DNS
-
->适用于：Windows Server 2016, Windows Server 2012 R2
   
 ## <a name="step-6-add-a-host-a-and-alias-cname-resource-record-to-corporate-dns-for-the-federation-service-and-drs"></a>步骤 6：添加主机\(A\)和别名\(CNAME\)公司 dns 中为联合身份验证服务和 DRS 的资源记录  
 必须将以下资源记录添加到公司域名系统\(DNS\)联合身份验证服务和你在前面的步骤中配置的设备注册服务。  
@@ -36,15 +34,15 @@ ms.locfileid: "59876388"
   
 1.  您在域控制器上，在服务器管理器中，在**工具**菜单上，单击**DNS**以打开 DNS 管理单元\-中。  
   
-2.  在控制台树中，展开**域\_控制器\_名称**节点，展开**正向查找区域**，右键\-单击**域\_名称**，然后单击**新的主机\(A 或 AAAA\)**。  
+2.  在控制台树中，展开**域\_控制器\_名称**节点，展开**正向查找区域**，右键\-单击**域\_名称**，然后单击**新的主机\(A 或 AAAA\)** 。  
   
 3.  在中**名称**框中，键入要用于 AD FS 场的名称。  
   
-4.  在 **IP 地址**框中，键入联合身份验证服务器的 IP 地址。 单击“添加主机” 。  
+4.  在 **IP 地址**框中，键入联合身份验证服务器的 IP 地址。 单击“添加主机”  。  
   
-5.  右\-单击**域\_名称**节点，，然后单击**新别名\(CNAME\)**。  
+5.  右\-单击**域\_名称**节点，，然后单击**新别名\(CNAME\)** 。  
   
-6.  在“新资源记录”对话框中，在“别名”框内键入 **enterpriseregistration**。  
+6.  在“新资源记录”  对话框中，在“别名”  框内键入 **enterpriseregistration**。  
   
 7.  中的完全限定的域名\(FQDN\)的目标主机框中，键入**联合身份验证\_服务\_场\_name.domain\_name.com**，，然后单击**确定**。  
   

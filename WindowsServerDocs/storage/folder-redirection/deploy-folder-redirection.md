@@ -8,23 +8,23 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 33942db34314e0ff60b24d4b9c8e5e33b4ca92fd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2bb15d5ae29da6c9dbcd6b58af280026d06febc8
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831568"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222738"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>部署使用脱机文件的文件夹重定向
 
->适用于：Windows 10 中，Windows 7、 Windows 8、 Windows 8.1、 Windows Server 2008 R2、 Windows Server 2012、 Windows Server 2012 R2、 Windows Server 2016 中，Windows Vista
+>适用于：Windows 10、 Windows 7、 Windows 8、 Windows 8.1，Windows Vista、 Windows Server 2019、 Windows Server 2016、 Windows Server （半年频道）、 Windows Server 2012、 Windows Server 2012 R2、 Windows Server 2008 R2
 
 本主题介绍如何使用 Windows Server 部署使用脱机文件的文件夹重定向到 Windows 客户端计算机。
 
 本主题最近更改的列表，请参阅[更改历史记录](#change-history)。
 
 >[!IMPORTANT]
->由于中所做的安全性更改[MS16 072](https://support.microsoft.com/en-us/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016)，我们更新了[步骤 3:为文件夹重定向创建 GPO](#step-3:-create-a-gpo-for-folder-redirection)的本主题，因此该 Windows 可以正确应用文件夹重定向策略 （并不还原受影响的 Pc 上的重定向的文件夹）。
+>由于中所做的安全性更改[MS16 072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016)，我们更新了[步骤 3:为文件夹重定向创建 GPO](#step-3-create-a-gpo-for-folder-redirection)的本主题，因此该 Windows 可以正确应用文件夹重定向策略 （并不还原受影响的 Pc 上的重定向的文件夹）。
 
 ## <a name="prerequisites"></a>系统必备
 
@@ -37,7 +37,7 @@ ms.locfileid: "59831568"
 文件夹重定向具有以下软件要求：
 
 - 若要管理文件夹重定向，必须以 Domain Administrators 安全组、 Enterprise Administrators 安全组或 Group Policy Creator Owners 安全组的成员的身份登录。
-- 客户端计算机必须运行 Windows 10、 Windows 8.1，Windows 8、 Windows 7、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2 或 Windows Server 2008。
+- 客户端计算机必须运行 Windows 10、 Windows 8.1，Windows 8、 Windows 7、 Windows Server 2019、 Windows Server 2016、 Windows Server （半年频道）、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2 或 Windows Server 2008。
 - 客户端计算机必须加入你管理的 Active Directory 域服务 (AD DS)。
 - 必须提供一台安装了组策略管理和 Active Directory 管理中心的计算机。
 - 文件服务器必须是可用于托管重定向的文件夹。
@@ -57,8 +57,8 @@ ms.locfileid: "59831568"
 1. 打开服务器管理器的计算机上使用 Active Directory 管理中心安装。
 2. 上**工具**菜单中，选择**Active Directory 管理中心**。 此时将出现 Active Directory 管理中心。
 3. 右键单击相应的域或 OU 中，选择**新建**，然后选择**组**。
-4. 在“创建组”窗口的“组”部分，指定以下设置：
-    - 在“组名”中，键入安全组的名称，例如：**文件夹重定向用户**。
+4. 在“创建组”  窗口的“组”  部分，指定以下设置：
+    - 在“组名”  中，键入安全组的名称，例如：**文件夹重定向用户**。
     - 在中**组作用域**，选择**安全**，然后选择**全局**。
 5. 在中**成员**部分中，选择**添加**。 此时将出现“选择用户、联系人、计算机、服务帐户或组”对话框。
 6. 键入的名称的用户或组你想要部署文件夹重定向，请选择**确定**，然后选择**确定**试。
@@ -70,17 +70,17 @@ ms.locfileid: "59831568"
 >[!NOTE]
 >如果在运行另一个版本的 Windows Server 的服务器上创建文件共享，则某些功能可能会有所不同或不可用。
 
-下面介绍了如何在 Windows Server 2012 和 Windows Server 2016 上创建文件共享：
+下面介绍了如何在 Windows Server 2019、 Windows Server 2016 和 Windows Server 2012 上创建文件共享：
 
 1. 在服务器管理器导航窗格中，选择**文件和存储服务**，然后选择**共享**以显示共享页。
 2. 在中**共享**磁贴中，选择**任务**，然后选择**新共享**。 此时将出现新建共享向导。
 3. 上**选择配置文件**页上，选择**SMB 共享 – 快速**。 如果已安装的文件服务器资源管理器并且要使用文件夹管理属性，而是选择**SMB 共享 – 高级**。
-4. 在“共享位置”页上，选择你要在其上创建共享的服务器和卷。
-5. 上**共享名**页上，键入共享的名称 (例如，**用户 $**) 中**共享名**框。
+4. 在“共享位置”  页上，选择你要在其上创建共享的服务器和卷。
+5. 上**共享名**页上，键入共享的名称 (例如，**用户 $** ) 中**共享名**框。
     >[!TIP]
     >在创建共享时，通过在共享名后放置 ```$``` 来隐藏共享。 这将隐藏普通浏览器中的共享。
 6. 上**其他设置**页上，如果存在，请清除启用连续可用性复选框，并 （可选） 选择**启用基于访问权限的枚举**和**加密数据访问**复选框。
-7. 上**权限**页上，选择**自定义权限...**. 将出现高级安全设置对话框。
+7. 上**权限**页上，选择**自定义权限...** . 将出现高级安全设置对话框。
 8. 选择**禁用继承**，然后选择**继承权限对此对象的显式权限转换为**。
 9. 表 1 所述以及图 1 所示，删除权限未列出的组和帐户，并将特殊权限添加到在步骤 1 中创建的文件夹重定向用户组设置的权限。
     
@@ -93,50 +93,15 @@ ms.locfileid: "59831568"
 
 ### <a name="required-permissions-for-the-file-share-hosting-redirected-folders"></a>该文件所需的权限共享承载重定向的文件夹
 
-<table>
-<tbody>
-<tr class="odd">
-<td>用户帐户</td>
-<td>访问</td>
-<td>适用对象</td>
-</tr>
-<tr class="even">
-<td>系统</td>
-<td>完全控制</td>
-<td>此文件夹、子文件夹和文件</td>
-</tr>
-<tr class="odd">
-<td>Administrators</td>
-<td>完全控制</td>
-<td>仅此文件夹</td>
-</tr>
-<tr class="even">
-<td>创建者/所有者</td>
-<td>完全控制</td>
-<td>仅子文件夹和文件</td>
-</tr>
-<tr class="odd">
-<td>安全组的用户无需将数据放在共享 （文件夹重定向用户）</td>
-<td>列出文件夹/读取数据<sup>1</sup><br />
-<br />
-创建文件夹/附加数据<sup>1</sup><br />
-<br />
-读取属性<sup>1</sup><br />
-<br />
-读取扩展属性<sup>1</sup><br />
-<br />
-读取权限<sup>1</sup></td>
-<td>仅此文件夹</td>
-</tr>
-<tr class="even">
-<td>其他组和帐户</td>
-<td>无（删除）</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 
-1 高级权限
+|用户帐户  |访问  |适用对象  |
+|---------|---------|---------|
+| 用户帐户 | 访问 | 适用对象 |
+|系统     | 完全控制        |    此文件夹、子文件夹和文件     |
+|Administrators     | 完全控制       | 仅此文件夹        |
+|创建者/所有者     |   完全控制      |   仅子文件夹和文件      |
+|安全组的用户无需将数据放在共享 （文件夹重定向用户）     |   列出文件夹 / 读取数据 *（高级权限）* <br /><br />创建文件夹 / 附加数据 *（高级权限）* <br /><br />读取属性 *（高级权限）* <br /><br />读取扩展属性 *（高级权限）* <br /><br />读取权限 *（高级权限）*      |  仅此文件夹       |
+|其他组和帐户     |  无（删除）       |         |
 
 ## <a name="step-3-create-a-gpo-for-folder-redirection"></a>步骤 3:为文件夹重定向创建 GPO
 
@@ -225,9 +190,9 @@ ms.locfileid: "59831568"
 
 下表总结了一些对本主题进行的最重要的更改。
 
-|日期|描述|原因|
+|Date|描述|Reason|
 |---|---|---|
-|2017 年 1 月 18日日|添加了一个步骤到[步骤 3:为文件夹重定向创建 GPO](#step-3:-create-a-gpo-for-folder-redirection)委派给经过身份验证的用户，现在是读取权限所需由于组策略安全更新。|客户反馈。|
+|2017 年 1 月 18日日|添加了一个步骤到[步骤 3:为文件夹重定向创建 GPO](#step-3-create-a-gpo-for-folder-redirection)委派给经过身份验证的用户，现在是读取权限所需由于组策略安全更新。|客户反馈。|
 
 ## <a name="more-information"></a>详细信息
 

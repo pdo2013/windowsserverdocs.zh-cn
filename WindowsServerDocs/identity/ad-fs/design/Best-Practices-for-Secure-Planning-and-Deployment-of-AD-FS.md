@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 67b122353ca9dff3a4df6cbfac56b16bed52b539
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: df1afc77afffd9b737965215a5c9d96f278c8129
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848078"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191666"
 ---
 # <a name="best-practices-for-secure-planning-and-deployment-of-ad-fs"></a>AD FS 安全规划和部署的最佳做法
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 本主题提供了最佳实践信息，以便帮助您规划和设计您的 Active Directory 联合身份验证服务 (AD FS) 部署时评估安全。 本主题是检查和评估会影响你的 AD FS 使用的总体安全性的注意事项的起始点。 本主题中的信息是为了补充并扩展现有安全规划和其他设计的最佳实践。  
   
@@ -146,4 +145,4 @@ ms.locfileid: "59848078"
     若要提供更好的服务和数据隔离，可以创建所有属性存储查找命令的存储过程。 你可以创建数据库角色，然后向其授予运行存储过程的权限。 AD FS Windows 服务的服务标识分配到此数据库角色。 AD FS Windows 服务应无法运行任何其他 SQL 语句，用于属性查找的相应存储过程之外。 以这种方式锁定对 SQL Server 数据库的访问会降低特权提升攻击的风险。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

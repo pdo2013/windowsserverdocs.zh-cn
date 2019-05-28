@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a94e4de181cd8794d479bbd6695a94658aba0f86
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8aef8b3d8f1e6dde4f960a3bee5a93964d07c72b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855018"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191285"
 ---
 # <a name="name-resolution-requirements-for-federation-server-proxies"></a>联合服务器代理的名称解析要求
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 当在 Internet 上的客户端计算机尝试访问受 Active Directory 联合身份验证服务的应用程序\(AD FS\)，他们必须首先进行身份验证到联合身份验证服务器。 在大多数情况下，联合身份验证服务器通常是不能从 Internet 直接访问。 因此，Internet 客户端计算机必须重定向到联合服务器代理改为。 您可以成功完成重定向通过添加相应域名系统\(DNS\)到你的 DNS 区域或多个面向 Internet 的区域的记录。  
   
@@ -69,4 +67,4 @@ ms.locfileid: "59855018"
 有关如何修改外围网络和 Internet DNS 区域的详细信息，请参阅[联合服务器代理在 DNS 区域，提供两个外围网络和 Internet 客户端的配置名称解析](../../ad-fs/deployment/Configure-Name-Resolution-for-a-Federation-Server-Proxy-in-a-DNS-Zone-That-Serves-Both-the-Perimeter-Network-and-Internet-Clients.md)。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

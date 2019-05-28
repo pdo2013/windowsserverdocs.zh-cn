@@ -5,21 +5,19 @@ description: ''
 author: billmath
 ms.author: billmath
 manager: daveba
-ms.date: 02/26/2019
+ms.date: 04/23/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: faa0590dc38921a56952aa54bf38243b6ff84d82
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fbb289c16d82da79aded49e3af4134ac7f6df325
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867708"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188704"
 ---
 # <a name="whats-new-in-active-directory-federation-services"></a>Active Directory 联合身份验证服务的新增功能
 
-
->适用于：Windows Server 2019、Windows Server 2016
 
 ## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2019"></a>什么是 Active Directory 联合身份验证服务的 Windows Server 2019 中的新增功能
 
@@ -27,7 +25,7 @@ ms.locfileid: "59867708"
 以下是更新到受保护的登录名在 AD FS 2019 中可用的简短摘要：
 - **外部身份验证提供程序作为主要**-客户可以使用第三方身份验证产品作为第一个因素并不公开的密码作为第一个因素。 在可以证明外部身份验证提供程序的 2 个因素的情况下，它可以声明 MFA。 
 - **作为附加身份验证的密码身份验证**-客户现在有完全受支持的收件箱选项，若要使用的密码，仅有的其他因素后密码更少选项使用作为第一个因素。 这提高了从客户不得不下载 github 适配器的支持，是因为 ADFS 2016 的客户体验。 
-- **可插入威胁模块 Framework** -客户现在可以构建他们自己即插即用在模块在预身份验证阶段期间阻止某些类型的请求。 这使得客户更轻松地使用例如标识保护的云智能来阻止有风险的用户或有风险的事务的登录名。
+- **可插入的风险评估模块**-客户现在可以构建他们自己即插即用在模块在预身份验证阶段期间阻止某些类型的请求。 这使得客户更轻松地使用例如标识保护的云智能来阻止有风险的用户或有风险的事务的登录名。  有关详细信息请参阅[构建插件与 AD FS 2019 风险评估模型](../../ad-fs/development/ad-fs-risk-assessment-model.md) 
 - **ESL 改进**-改进了 ESL QFE 2016 中通过添加以下功能
     - 使客户能够由自 ADFS 2012R2 起可用的经典 extranet 锁定功能保护的同时处于审核模式。 当前 2016年客户已在审核模式下的任何保护。 
     - 启用独立的锁定阈值的熟悉的位置。 这样，可以使用常见的服务帐户来滚动更新的影响最小密码运行的应用程序的多个实例。 

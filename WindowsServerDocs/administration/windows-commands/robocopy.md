@@ -13,16 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 07/25/2018
-ms.openlocfilehash: c4218331f716dc530e01f28a295cebd83c0e6616
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a10b3d3877e9511164d298bcc1dab11540e6f596
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818108"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188205"
 ---
 # <a name="robocopy"></a>robocopy
-
-
 
 将文件数据。
 
@@ -38,7 +36,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |---------|-----------|
 |\<源 >|指定源目录的路径。|
 |\<目标 >|指定目标目录的路径。|
-|\<文件 >|指定要复制的文件。 可以使用通配符 (**&#42;** 或 **？**)，如果你想。 如果**文件**未指定参数，  **\*。\*** 用作默认值。|
+|\<文件 >|指定要复制的文件。 可以使用通配符 (**&#42;** 或 **？** )，如果你想。 如果**文件**未指定参数，  **\*。\*** 用作默认值。|
 |\<Options>|指定要与一起使用的选项**robocopy**命令。|
 
 ### <a name="copy-options"></a>复制选项
@@ -46,7 +44,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |Option|描述|
 |------|-----------|
 |/s|副本子目录。 请注意，此选项将排除空的目录。|
-|/e|副本子目录。 请注意，此选项将包含空的目录。 有关其他信息，请参阅[备注](#BKMK_remarks)。|
+|/e|副本子目录。 请注意，此选项将包含空的目录。 有关其他信息，请参阅[备注](#remarks)。|
 |/lev:\<N >|将复制只返回前*N*源目录树的级别。|
 |/z|将文件复制可重新启动模式。|
 |/b|在备份模式下将文件复制。|
@@ -59,8 +57,8 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/nocopy|将复制任何文件信息 (与有用 **/清除**)。|
 |/secfix|已跳过所有文件，甚至的修补程序文件安全性的。|
 |/timfix|已跳过所有文件，甚至的修补程序文件时间的。|
-|/purge|删除目标文件和源中不再存在的目录。 有关其他信息，请参阅[备注](#BKMK_remarks)。|
-|/mir|镜像目录树 (等效于 **/e**加上 **/清除**)。 有关其他信息，请参阅[备注](#BKMK_remarks)。|
+|/purge|删除目标文件和源中不再存在的目录。 有关其他信息，请参阅[备注](#remarks)。|
+|/mir|镜像目录树 (等效于 **/e**加上 **/清除**)。 有关其他信息，请参阅[备注](#remarks)。|
 |/mov|移动文件，并将它们从删除源后将其复制。|
 |/move|移动文件和目录，并将它们从删除源复制后。|
 |/a+:[RASHCNET]|将指定的特性添加到复制的文件。|
@@ -74,10 +72,15 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/rh:hhmm-hhmm|指定新的副本可能会开始时的运行的时间。|
 |/pf|检查每个文件 （不每步） 运行时间。|
 |/ipg:n|指定间数据包间隙以释放上慢速线路的带宽。|
-|/sl|遵循符号链接，并将复制目标。|
+|/sl|不遵循符号链接，并改为创建的链接的副本。|
 
 > [!IMPORTANT]
-> 使用时 **/SECFIX**复制选项，指定你想要通过还使用这些其他复制选项之一，将复制的安全信息的类型：</br>> -   **/COPYALL**</br>&GT;- **/COPY:O**</br>&GT;- **/COPY:S**</br>&GT;- **/COPY:U**</br>> -   **/SEC**
+> 使用时 **/SECFIX**复制选项，指定你想要通过还使用这些其他复制选项之一，将复制的安全信息的类型：
+>- **/COPYALL**
+>- **/COPY:O**
+>- **/COPY:S**
+>- **/COPY:U**
+>- **/SEC**
 
 ### <a name="file-selection-options"></a>文件选择选项
 
@@ -87,7 +90,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/m|仅复制的文件为其**存档**属性设置，并将重置**存档**属性。|
 |/ia:[RASHCNETO]|包括仅为其设置任何指定的特性的文件。|
 |/xa:[RASHCNETO]|排除设置指定任何的特性文件。|
-|/xf \<FileName>[ ...]|排除与指定的名称或路径相匹配的文件。 请注意，*文件名*可包含通配符 (**&#42;** 并 **？**)。|
+|/xf \<FileName>[ ...]|排除与指定的名称或路径相匹配的文件。 请注意，*文件名*可包含通配符 (**&#42;** 并 **？** )。|
 |/xd \<Directory>[ ...]|不包括匹配的指定的名称和路径的目录。|
 |/xc|不包括已更改的文件。|
 |/xn|排除较新的文件。|
@@ -154,7 +157,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/if|包含指定的文件。|
 
 ### <a name="exit-return-codes"></a>（返回） 的退出代码
-ReplTest1 | Description
+值 | Description
 -- | --
 0 | 没有复制文件。 不遇到任何错误。  不匹配任何文件。 文件已存在于目标目录中;因此，复制操作已跳过。
 1 | 已成功复制的所有文件。
@@ -168,7 +171,7 @@ ReplTest1 | Description
 > [!NOTE]
 > 任何大于 8 的值指示在复制操作期间出现至少一个错误。
 
-### <a name="BKMK_remarks"></a>备注
+### <a name="remarks"></a>备注
 
 -   **/Mir**选项等同于 **/e**加上 **/清除**与行为一个略有不同的选项：  
     -   与 **/e**加上 **/清除**选项，如果目标目录存在，目标目录的安全设置不被覆盖。
@@ -176,4 +179,4 @@ ReplTest1 | Description
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

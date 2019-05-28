@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 553ff059693c7b0c0e6f0364d82c1adbca661097
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3e3d1e5d86afbef2fdabd211047f513d31a40300
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887248"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190320"
 ---
 # <a name="ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication"></a>AD FS 对证书身份验证的备用主机名绑定的支持
-
->适用于：Windows Server 2016
 
 许多网络上的本地防火墙策略可能不允许通信通过非标准端口 49443 等。 尝试完成之前 Windows Server 2016 中的 AD FS 的 AD FS 证书身份验证时，这已经成为问题。 这是因为无法在同一主机上具有不同绑定进行设备身份验证和用户证书身份验证。 默认端口 443 绑定到接收设备证书，无法更改以支持在同一个通道中的多个绑定。 结果是，智能卡身份验证将不起作用，并且用户是不知道由于没有任何迹象的事情发生了什么情况。  
   

@@ -5,15 +5,14 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 54b34b6d8849caecae2123ddab91a658a4692ba3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3cc0667b54dba75d892795f6520664ce7a7a62a5
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849338"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192651"
 ---
 # <a name="diskpart-commands"></a>DiskPart 命令
-
 
 适用于：Windows 10、 Windows 8.1，Windows 8、 Windows 7、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012 和 Windows Server 2008 R2 和 Windows Server 2008
 
@@ -31,11 +30,8 @@ DiskPart 命令可帮助你管理你的电脑的驱动器 （磁盘、 分区、
 
 `diskpart`
 
-
 > [!IMPORTANT]
-> 本地成员资格<STRONG>管理员</STRONG>组或等效身份是最低要求运行 DiskPart。 
-<br>
-
+> 本地成员资格**管理员**组或等效身份是最低要求运行 DiskPart。 
 
 在 Diskpart 命令解释器中，可以运行以下命令：
 
@@ -118,7 +114,6 @@ DiskPart 命令可帮助你管理你的电脑的驱动器 （磁盘、 分区、
 
 ## <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)
 
 [Windows PowerShell 中的存储 Cmdlet](https://docs.microsoft.com/en-us/powershell/module/storage/)
-

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7e41f7728c42912ec6ce680e1ed0c6a906a33392
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 00c43a56d9b57a2ae2c8b9aeca56807fe1d1841f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821708"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191185"
 ---
 # <a name="plan-your-ad-fs-deployment-topology"></a>规划 AD FS 部署拓扑
-
->适用于：Windows Server 2016, Windows Server 2012 R2
 
 规划 Active Directory 联合身份验证服务的部署的第一步\(AD FS\)是确定正确的部署拓扑，以满足你的组织的需求。  
   
@@ -73,7 +71,7 @@ AD FS 使用数据库来存储配置和 — 在某些情况下，与联合身份
   
 -   [使用 WID 的联合服务器场](Federation-Server-Farm-Using-WID.md)  
   
--   [联合服务器场使用 WID 和代理](Federation-Server-Farm-Using-WID-and-Proxies.md)  
+-   [使用 WID 和代理的联合服务器场](Federation-Server-Farm-Using-WID-and-Proxies.md)  
   
 -   [使用 SQL Server 的联合服务器场](Federation-Server-Farm-Using-SQL-Server.md)  
   

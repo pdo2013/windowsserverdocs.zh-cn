@@ -10,12 +10,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/24/2018
-ms.openlocfilehash: 73fd1d83d82da1694d90a2b3cf3f39717536606b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e4da87e5a2a4cd80e748a05596da3f23b5ac85f
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822118"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222899"
 ---
 # <a name="plan-your-wsus-deployment"></a>规划 WSUS 部署
 
@@ -25,15 +25,15 @@ ms.locfileid: "59822118"
 
 |任务|描述|
 |----|--------|
-|[1.1.查看注意事项和系统要求](plan-your-wsus-deployment.md#BKMK_1.1)|查看注意事项列表和系统要求，以确保你拥有部署 WSUS 所需的所有硬件和软件。|
-|[1.2.选择 WSUS 部署方案](plan-your-wsus-deployment.md#BKMK_1.2)|确定将使用哪种 WSUS 部署方案。|
-|[1.3.选择 WSUS 存储策略](plan-your-wsus-deployment.md#BKMK_1.3.)|确定哪种 WSUS 存储策略最适合你的部署。|
-|[1.4.选择 WSUS 更新语言](plan-your-wsus-deployment.md#BKMK_1.4.)|确定将安装哪种 WSUS 更新语言。|
-|[1.5.计划 WSUS 计算机组](plan-your-wsus-deployment.md#BKMK_1.5)|计划你进行部署时所用的 WSUS 计算机组方法。|
-|[1.6.计划 WSUS 性能注意事项：后台智能传输服务](plan-your-wsus-deployment.md#BKMK_1.6.)|计划优化性能的 WSUS 设计。|
-|[1.7.计划自动更新设置](plan-your-wsus-deployment.md#BKMK_1.7.)|计划如何为你的方案配置自动更新设置。|
+|[1.1.查看注意事项和系统要求](#11-review-considerations-and-system-requirements)|查看注意事项列表和系统要求，以确保你拥有部署 WSUS 所需的所有硬件和软件。|
+|[1.2.选择 WSUS 部署方案](#12-choose-a-wsus-deployment-scenario)|确定将使用哪种 WSUS 部署方案。|
+|[1.3.选择 WSUS 存储策略](#13-choose-a-wsus-storage-strategy)|确定哪种 WSUS 存储策略最适合你的部署。|
+|[1.4.选择 WSUS 更新语言](#14-choose-wsus-update-languages)|确定将安装哪种 WSUS 更新语言。|
+|[1.5.计划 WSUS 计算机组](#15-plan-wsus-computer-groups)|计划你进行部署时所用的 WSUS 计算机组方法。|
+|[1.6.计划 WSUS 性能注意事项：后台智能传输服务](#16-plan-wsus-performance-considerations)|计划优化性能的 WSUS 设计。|
+|[1.7.计划自动更新设置](#17-plan-automatic-updates-settings)|计划如何为你的方案配置自动更新设置。|
 
-## <a name="BKMK_1.1"></a>1.1. 查看注意事项和系统要求
+## <a name="11-review-considerations-and-system-requirements"></a>1.1. 查看注意事项和系统要求
 
 ### <a name="system-requirements"></a>系统要求
 
@@ -108,7 +108,7 @@ ms.locfileid: "59822118"
 
     可以使用安装单独获取按需包的功能[DISM 命令行选项](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options)。
 
-### <a name="BKM_1.1.1."></a>WSUS 数据库要求
+### <a name="wsus-database-requirements"></a>WSUS 数据库要求
 WSUS 要求以下数据库之一：
 
 -   Windows 内部数据库 (WID)
@@ -144,7 +144,7 @@ WSUS 支持以下版本的 SQL Server：
 
 4.  WSUS 服务器和数据库服务器必须位于相同的时区或同步到相同的协调世界时 （格林威治标准时间） 源。
 
-## <a name="BKMK_1.2"></a>1.2. 选择 WSUS 部署方案
+## <a name="12-choose-a-wsus-deployment-scenario"></a>1.2. 选择 WSUS 部署方案
 本部分介绍了所有 WSUS 部署的基本特征。 使用本部分，熟悉单一 WSUS 服务器的简单部署，并且了解更加复杂的方案，例如在独立网段上的 WSUS 服务器层次结构或 WSUS 服务器。
 
 ### <a name="simple-wsus-deployment"></a>简单 WSUS 部署
@@ -196,7 +196,7 @@ WSUS 支持以下版本的 SQL Server：
 2.  在低带宽连接到中央办公室而高带宽连接到 Internet 的分支机构中，同样可使用“分支机构”功能。 在这种情况下，你可能希望配置下游 WSUS 服务器，以获取有关安装哪些来自中央 WSUS 服务器的更新的信息，并且从 Microsoft 更新下载更新。
 
 ### <a name="network-load-balancing"></a>网络负载平衡
-网络负载平衡 (NLB) 提高 WSUS 网络的可靠性和性能。 您可以设置共享单一故障转移群集运行 SQL Server 2008 R2 SP1 如 QL Server 的多个 WSUS 服务器。 在该配置中，你必须使用完整的 SQL Server 安装程序（而非 WSUS 提供的 Windows 内部数据库安装程序），并且数据库角色必须安装在所有 WSUS 前端服务器上。 你还可让所有 WSUS 服务器都使用分布式文件系统 (DFS) 来存储其内容。
+网络负载平衡 (NLB) 提高 WSUS 网络的可靠性和性能。 您可以设置共享运行如 SQL Server 2008 R2 SP1 的 SQL Server 的单个故障转移群集的多个 WSUS 服务器。 在该配置中，你必须使用完整的 SQL Server 安装程序（而非 WSUS 提供的 Windows 内部数据库安装程序），并且数据库角色必须安装在所有 WSUS 前端服务器上。 你还可让所有 WSUS 服务器都使用分布式文件系统 (DFS) 来存储其内容。
 
 **用于 NLB 的 WSUS 设置：** nlb 与 WSUS 3.2 设置相比，特殊的设置调用和参数不再需要配置用于 NLB 的 WSUS。 你只需要设置每台 WSUS 服务器，请记住以下注意事项。
 
@@ -209,7 +209,7 @@ WSUS 支持以下版本的 SQL Server：
 ### <a name="wsus-deployment-with-roaming-client-computers"></a>带有漫游客户端计算机的 WSUS 部署
 如果网络包含从不同位置登录到网络的移动用户，则可配置 WSUS，以便漫游用户从在地理上最接近它们的 WSUS 服务器更新其客户端计算机。 例如，每个区域部署一台 WSUS 服务器和对每个区域使用不同的 DNS 子网。 所有客户端计算机可以被定向到相同的 WSUS 服务器解析到最接近物理 WSUS 服务器的每个子网中。
 
-## <a name="BKMK_1.3."></a>1.3. 选择 WSUS 存储策略
+## <a name="13-choose-a-wsus-storage-strategy"></a>1.3. 选择 WSUS 存储策略
 Windows Server Update Services (WSUS) 使用两种存储系统：一个是存储 WSUS 配置和更新元数据的数据库，另一个是存储更新文件的可选本地文件系统。 在安装 WSUS 之前，应确定你希望实施存储的方式。
 
 更新由两部分组成：描述更新的元数据，以及安装更新所需的文件。 更新元数据的规模通常比实际的更新要小很多，并且它存储在 WSUS 数据库中。 更新文件存储在本地 WSUS 服务器上或 Microsoft 更新 Web 服务器上。
@@ -236,7 +236,7 @@ SQL Server、SQL Server Express 和 Windows 内部数据库为单服务器配置
 默认情况下，安装向导创建和使用命名为 SUSDB.mdf 的 Windows 内部数据库。 该数据库位于 %windir%\wid\data\ folder 中，其中 %windir% 是安装 WSUS 服务器软件的本地驱动器。
 
 > [!NOTE]
-> 在 Windows Server 2012 中引入 Windows 内部数据库 (WID)。
+> 在 Windows Server 2008 中引入 Windows 内部数据库 (WID)。
 
 WSUS 支持仅用于数据库的 Windows 身份验证。 你不能同时使用 SQL Server 身份验证和 WSUS。 如果你针对 WSUS 数据库使用 Windows 内部数据库，WSUS 安装可创建命名为 server\Microsoft##WID 的 SQL Server 实例，其中的服务器采用计算机的名称。 使用任一数据库选项，WSUS 安装创建命名为 SUSDB 的数据库。 该数据库的名称是不可配置的。
 
@@ -273,12 +273,12 @@ Windows 内部数据库不提供用户界面或任何数据库管理工具。 �
 
 此选项要求服务器拥有充分的磁盘空间来存储所有需要的更新。 WSUS 至少需要 20 GB 才能在本地; 存储更新但是，我们建议根据测试的变量 30 GB。
 
-#### <a name="remote-storage-on-microsoft-update-servers"></a>Microsoft 更新服务器上的远程存储
+#### <a name="remote-storage-on-microsoft-update-servers"></a>在 Microsoft 更新服务器上的远程存储
 你可以将更新远程存储在 Microsoft 更新服务器上。 如果大多数客户端计算机通过慢速 WAN 连接来连接 WSUS 服务器，但它们却通过高带宽连接来连接 Internet，则此选项是非常有帮助的。
 
 在这种情况下，根 WSUS 服务器与 Microsoft 更新同步，并接收更新元数据。 你批准更新后，客户端计算机从 Microsoft 更新服务器下载批准的更新。
 
-## <a name="BKMK_1.4."></a>1.4. 选择 WSUS 更新语言
+## <a name="14-choose-wsus-update-languages"></a>1.4. 选择 WSUS 更新语言
 当你部署 WSUS 服务器层次结构时，你应确定整个组织需要哪种语言更新。 你应配置根 WSUS 服务器以下载整个组织使用的所有语言的更新。
 
 例如，总部可能需要英语和法语更新，但某个分支机构需要英语、法语和德语更新，其他分支机构则需要英语和西班牙语更新。 在这种情况下，你将配置根 WSUS 服务器，以下载英语、法语、德语和西班牙语更新。 随后为第一个分支机构配置 WSUS 服务器以便仅下载英语、法语和德语，为第二个分支机构配置 WSUS 服务器以便仅下载英语和西班牙语更新。
@@ -300,7 +300,7 @@ WSUS 配置向导的 **“选择语言”** 页可让你获得所有语言或语
 > [!NOTE]
 > 将上游服务器配置为同步下游副本服务器所需的所有语言中的更新。 不会向你通知非同步语言中的所需更新。
 
-更新会在需要相关语言的客户端计算机上显示为“不适用”。 若要避免此问题，请确保所有操作系统语言都包含在 WSUS 服务器同步选项中。 您可以通过转到查看所有操作系统语言**计算机**WSUS 管理控制台和操作系统语言对计算机进行排序的视图。 但是，你可能想要包含多种语言，如果有多个语言的 Microsoft 应用程序 （例如，如果在使用英文版 Windows 8 的某些计算机上安装法语版本的 Microsoft Word。
+更新会在需要相关语言的客户端计算机上显示为“不适用”  。 若要避免此问题，请确保所有操作系统语言都包含在 WSUS 服务器同步选项中。 您可以通过转到查看所有操作系统语言**计算机**WSUS 管理控制台和操作系统语言对计算机进行排序的视图。 但是，你可能想要包含多种语言，如果有多个语言的 Microsoft 应用程序 （例如，如果在使用英文版 Windows 8 的某些计算机上安装法语版本的 Microsoft Word。
 
 为上游服务器选择语言与为下游服务器选择语言不同。 以下过程说明了差异。
 
@@ -308,25 +308,25 @@ WSUS 配置向导的 **“选择语言”** 页可让你获得所有语言或语
 
 1.  在 WSUS 配置向导中：
 
-    -   若要获取所有语言的更新，请单击“下载包括新语言在内的所有语言的更新”。
+    -   若要获取所有语言的更新，请单击“下载包括新语言在内的所有语言的更新”  。
 
-    -   若要仅获取特定语言的更新，请单击“仅下载以下语言的更新” ，然后选择你希望获得更新的语言。
+    -   若要仅获取特定语言的更新，请单击“仅下载以下语言的更新”  ，然后选择你希望获得更新的语言。
 
 #### <a name="to-choose-update-languages-for-a-downstream-server"></a>为下游服务器选择更新语言
 
-1.  如果上游服务器配置为下载一部分语言的更新文件：在 WSUS 配置向导中，单击“仅下载以下语言的更新”（上游服务器仅支持标有星号的语言），然后选择你希望获得更新的语言。
+1.  如果上游服务器配置为下载一部分语言的更新文件：在 WSUS 配置向导中，单击“仅下载以下语言的更新”  （上游服务器仅支持标有星号的语言），然后选择你希望获得更新的语言。
 
 > [!NOTE]
 > 即使你希望下游服务器下载与上游服务器相同的语言，也应执行此操作。
 
-2.  如果上游服务器配置为下载所有语言的更新文件：在 WSUS 配置向导中，单击“下载上游服务器支持的所有语言的更新”。
+2.  如果上游服务器配置为下载所有语言的更新文件：在 WSUS 配置向导中，单击“下载上游服务器支持的所有语言的更新”  。
 
 > [!NOTE]
 > 即使你希望下游服务器下载与上游服务器相同的语言，也应执行此操作。 此设置使上游服务器下载所有语言的更新，包括最初没有为上游服务器配置的语言。 如果向上游服务器添加语言，则应将新的更新复制到其副本服务器。
 >
 > 在上游服务器上单独更改语言选项可能会导致中心服务器上批准的更新数与副本服务器上批准的更新数不匹配。
 
-## <a name="BKMK_1.5"></a>1.5. 计划 WSUS 计算机组
+## <a name="15-plan-wsus-computer-groups"></a>1.5. 计划 WSUS 计算机组
 WSUS 可让你将各组客户端计算机作为更新目标，从而确保特定计算机总是在最方便的时候获得适当的更新。 例如，如果同一部门（例如会计组）中的所有计算机具有特定配置，你可为该组建立一个计算机组，并确定它们的计算机需要哪些更新以及何时安装这些更新，然后使用 WSUS 报告评估团队更新。
 
 > [!NOTE]
@@ -353,7 +353,7 @@ WSUS 可让你将各组客户端计算机作为更新目标，从而确保特定
 
 3.  最后期限
 
-#### <a name="BKMK_Priority"></a>优先级
+#### <a name="priority"></a>Priority
 与最高优先级组有关的操作会覆盖其他组的操作。 小组在组层次结构中出现的结构越深，优先级越高。 仅基于深度分配优先级；所有分支都有相同的优先级。 例如，桌面分支之下二级的组的优先级高于服务器分支之下一级的组。
 
 在更新服务控制台层次结构窗格的以下文本示例，对于名为 wsus-01 的 WSUS 服务器，计算机组名为台式计算机和服务器已添加到默认**的所有计算机**组。 台式计算机和服务器组都处于相同层次结构级别。
@@ -390,14 +390,14 @@ WSUS 可让你将各组客户端计算机作为更新目标，从而确保特定
 
 在此示例中，(Desktops L2) 的桌面计算机分支之下二级组具有的优先级高于服务器分支 (Servers L1) 的下一级组。 因此，对于具有 Desktops-L2 和 Servers-L1 组成员资格的计算机，Desktops-L2 组的所有操作优先于为 Servers-L1 组指定的操作。
 
-#### <a name="BKMK_Install"></a>优先级的安装和卸载
+#### <a name="priority-of-install-and-uninstall"></a>安装和卸载的优先级
 安装操作会覆盖卸载操作。 必需安装会覆盖可选安装（可选安装仅通过 API 可用且为使用 WSUS 管理控制台的更新更改批准将清除所有可选批准）。
 
-#### <a name="BKMK_Deadline"></a>最后期限的优先级
+#### <a name="priority-of-deadlines"></a>最后期限的优先级
 具有最后期限的操作会覆盖没有最后期限的操作。  最后期限较早的操作会覆盖最后期限较晚的操作。
 
-## <a name="BKMK_1.6."></a>1.6. 计划 WSUS 性能注意事项
-在部署 WSUS 之前，你应小心计划一些区域，以便你可以优化性能。 关键区域包括：
+## <a name="16-plan-wsus-performance-considerations"></a>1.6. 计划 WSUS 性能注意事项
+有，以便可以优化性能部署 WSUS 之前应小心计划一些区域。 关键区域包括：
 
 -   网络设置
 
@@ -411,26 +411,26 @@ WSUS 可让你将各组客户端计算机作为更新目标，从而确保特定
 
 -   后台智能传输服务 (BITS)
 
-### <a name="BKMK_1.6.Network"></a>网络设置
+### <a name="network-setup"></a>网络设置
 若要优化 WSUS 网络中的性能，请考虑以下建议：
 
 1.  在集散拓扑（而非层次结构拓扑）中设置 WSUS 网络。
 
 2.  为漫游客户端计算机使用 DNS 网络掩码排序，并配置漫游客户端计算机以获得本地 WSUS 服务器的更新。
 
-### <a name="BKMK_1.6.Deferred"></a>延迟的下载
+### <a name="deferred-download"></a>延迟的下载
 你可在下载更新文件之前，批准更新和下载更新元数据，这种方法被称为 *延迟的下载*。 当你延迟下载时，仅在获批准之后才能下载更新。 我们建议你延迟下载，原因是它优化了网络带宽和磁盘空间。
 
 在 WSUS 服务器的层次结构中，WSUS 将自动设置所有下游服务器，以使用根 WSUS 服务器的延迟下载设置。 你可以更改此默认设置。 例如，你可配置上游服务器以执行完全、即时同步，然后配置下游服务器以延迟下载。
 
 如果你部署连接的 WSUS 服务器的层次结构，我们建议你不要深入嵌套服务器。 如果启用延迟的下载和下游服务器请求上游服务器未批准的更新，下游服务器的请求将强制在上游服务器上的下载。 然后下游服务器在后续同步上下载更新。 在 WSUS 服务器的深层次结构中，请求和下载更新并将更新传递到服务器层次结构时会出现延误。 默认情况下，当你在本地存储更新时，启用延迟的下载。 你可以手动更改此选项。
 
-### <a name="BKMK_1.6.Filters"></a>筛选器
+### <a name="filters"></a>筛选器
 WSUS 可让你按语言、产品和类别来过滤更新同步。 在 WSUS 服务器的层次结构中，WSUS 将自动设置所有下游服务器，以使用在根 WSUS 服务器上选择的更新过滤选项。 你可以配置下游服务器，以仅接收语言子集。
 
 默认情况下，要更新的产品是 Windows 和 Office，默认类别是 Critical 更新、Security 更新和 Definition 更新。 若要保存带宽和磁盘空间，我们建议你将语言限制为你实际使用那些语言。
 
-### <a name="BKMK_1.6.Installation"></a>安装
+### <a name="installation"></a>安装
 更新通常由新版本且早已存在于准备更新的计算机中的文件组成。 在二进制级，这些现有的文件可能与更新的版本有很大不同。 快速安装文件功能识别不同版本之间的精确字节，并创建和分配仅限于那些差异的更新，然后将现有文件与更新的字节合并在一起。
 
 因为它仅下载的增量 （差异） 文件的两个版本之间，此功能有时称为"增量交付"。 快速安装文件比分配给客户端计算机的更新要大，因为快速安装文件含有每份要更新的文件的所有潜在版本。
@@ -439,19 +439,19 @@ WSUS 可让你按语言、产品和类别来过滤更新同步。 在 WSUS 服�
 
 并非所有更新都适合使用快速安装文件来分配。 如果你选择此选项，你将为所有更新获得快速安装文件。 如果不在本地存储更新，则 Windows 更新代理会决定是下载快速安装文件还是完整文件更新分发。
 
-### <a name="BKMK_1.6.LargeUpdates"></a>大规模更新部署
+### <a name="large-update-deployment"></a>大规模更新部署
 当你部署大规模更新（例如 service pack）时，你可以使用以下操作来避免占满网络：
 
-1.  使用后台智能传送服务 (BITS) 限制 可使用当天的时间来控制 BITS 带宽，但它们适用于使用 BITS 的所有应用程序。 若要了解如何控制 BITS 限制，请参阅 [组策略](https://msdn.microsoft.com/library/windows/desktop/aa362844(v=vs.85).aspx)
+1.  使用后台智能传送服务 (BITS) 限制 可使用当天的时间来控制 BITS 带宽，但它们适用于使用 BITS 的所有应用程序。 若要了解如何控制 BITS 限制，请参阅[组策略](https://msdn.microsoft.com/library/windows/desktop/aa362844(v=vs.85).aspx)。
 
 2.  使用 Internet 信息服务 (IIS) 限制来控制对一个或多个 Web 服务的限制。
 
 3.  使用计算机组来控制推出。 当客户端计算机向 WSUS 服务器发送信息时，它将自己识别为特定计算机组的成员。 WSUS 服务器使用此信息确定应向此计算机部署哪些更新。 你可以设置多个计算机组，并随后为这些组的子集批准大规模 service pack 下载。
 
-### <a name="BKMK_1.6.BITS"></a>后台智能传输服务
+### <a name="background-intelligent-transfer-service"></a>后台智能传送服务
 WSUS 为所有其文件传送任务使用后台智能传送服务 (BITS) 协议。 这包括到客户端计算机和服务器同步的下载。 BITS 使用空闲带宽启用程序来下载文件。 BITS 保持通过断开网络和重新启动计算机来传送文件的方式。 有关详细信息，请参阅：[后台智能传送服务](https://msdn.microsoft.com/library/bb968799.aspx)
 
-## <a name="BKMK_1.7."></a>1.7. 计划自动更新设置
+## <a name="17-plan-automatic-updates-settings"></a>1.7. 计划自动更新设置
 你可以指定批准 WSUS 服务器上的更新的截止时间。 截止时间促使客户端计算机在特定时间安装更新，但存在的情况有许多种，取决于截止时间是否过期、计算机中是否有其他更新排队等候安装以及更新（或队列中的其他更新）是否需要重新启动。
 
 默认情况下，自动更新每隔 22 小时（减去随机偏移量）就向 WSUS 服务器询问批准的更新。 如果需要安装新更新，则已下载它们。 每个检测周期之间的时间可限制为 1 到 22 小时。

@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 08cc0b31aa123aadd57a0ea5ddbbeb96bffc3d6e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 69b433ee3e0f57398db1e7814d2de24df7dd1696
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880098"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222926"
 ---
 # <a name="step-4-configure-group-policy-settings-for-automatic-updates"></a>步骤 4：配置为自动更新的组策略设置
 
@@ -27,69 +27,69 @@ ms.locfileid: "59880098"
 
 本主题包含两个主要部分：
 
-[WSUS 客户端的更新的组策略设置](4-configure-group-policy-settings-for-automatic-updates.md#BKMK_PolSettings)，其中提供了规范性指南和行为有关的详细信息组策略的 Windows 更新和维护计划程序设置该 WSUS 客户端可以与 Windows 更新中进行交互的控件若要获取自动更新。
+[WSUS 客户端的更新的组策略设置](#group-policy-settings-for-wsus-client-updates)，其中提供了规范性指南和行为有关的详细信息组策略的 Windows 更新和维护计划程序设置该 WSUS 客户端可以与 Windows 更新中进行交互的控件若要获取自动更新。
 
-[补充信息](4-configure-group-policy-settings-for-automatic-updates.md#BKMK_Supplemental)包含以下部分：
+[补充信息](#supplemental-information)包含以下部分：
 
--   [访问组策略中的 Windows 更新设置](4-configure-group-policy-settings-for-automatic-updates.md#BKMK_OpenGPO)，其中提供了有关使用组策略管理编辑器和访问的更新服务策略扩展和维护计划程序中的设置信息的常规指南组策略。
+-   [访问组策略中的 Windows 更新设置](#accessing-the-windows-update-settings-in-group-policy)，其中提供了有关使用组策略管理编辑器和访问的更新服务策略扩展和维护计划程序中的设置信息的常规指南组策略。
 
--   [将更改为 WSUS 与本指南相关](4-configure-group-policy-settings-for-automatic-updates.md#BKMK_changes)： 对于管理员熟悉 WSUS 3.2 及更低版本，此部分可为 WSUS 与本指南相关的当前和过去版本之间的主要差异的简短摘要。
+-   [将更改为 WSUS 与本指南相关](#changes-to-wsus-relevant-to-this-guide)： 对于管理员熟悉 WSUS 3.2 及更低版本，此部分可为 WSUS 与本指南相关的当前和过去版本之间的主要差异的简短摘要。
 
--   [术语和定义](4-configure-group-policy-settings-for-automatic-updates.md#BKMK_Terms)： 与本指南中使用的 WSUS 和更新服务相关的各个术语的定义。
+-   [术语和定义](#terms-and-definitions)： 与本指南中使用的 WSUS 和更新服务相关的各个术语的定义。
 
-## <a name="BKMK_PolSettings"></a>WSUS 客户端的更新的组策略设置
+## <a name="group-policy-settings-for-wsus-client-updates"></a>WSUS 客户端的更新的组策略设置
 本部分提供的信息就以下三个扩展的组策略。 在这些扩展将找到可用于配置 WSUS 客户端与 Windows 更新接收自动更新的交互方式的设置。
 
--   [计算机配置&gt;Windows 更新策略设置](#BKMK_computerPol)
+-   [计算机配置&gt;Windows 更新策略设置](#computer-configuration--windows-update-policy-settings)
 
--   [计算机配置&gt;维护计划程序策略设置](#BKMK_MtncScheduler)
+-   [计算机配置&gt;维护计划程序策略设置](#computer-configuration--maintenance-scheduler-policy-settings)
 
--   [用户配置&gt;Windows 更新策略设置](#BKMK_UserPol)
+-   [用户配置&gt;Windows 更新策略设置](#user-configuration--windows-update-policy-settings)
 
 > [!NOTE]
-> 本主题假定你已使用并熟悉组策略。 如果您不熟悉组策略，因此建议您查看中的信息[的补充信息](#BKMK_Supplemental)然后再尝试配置 WSUS 的策略设置本文档的部分。
+> 本主题假定你已使用并熟悉组策略。 如果您不熟悉组策略，因此建议您查看中的信息[的补充信息](#supplemental-information)然后再尝试配置 WSUS 的策略设置本文档的部分。
 
-### <a name="BKMK_computerPol"></a>计算机配置 > Windows 更新策略设置
+### <a name="computer-configuration--windows-update-policy-settings"></a>计算机配置 > Windows 更新策略设置
 本部分提供有关以下基于计算机的策略设置的详细信息：
 
--   [允许自动更新立即安装](#BKMK_comp1)
+-   [允许自动更新立即安装](#allow-automatic-updates-immediate-installation)
 
--   [允许非管理员会收到更新通知](#BKMK_comp2)
+-   [允许非管理员会收到更新通知](#allow-non-administrators-to-receive-update-notifications)
 
--   [允许来自 intranet Microsoft 更新服务位置的签名的更新](#BKMK_comp3)
+-   [允许来自 intranet Microsoft 更新服务位置的签名的更新](#allow-signed-updates-from-an-intranet-microsoft-update-service-location)
 
--   [自动更新检测频率](#BKMK_comp4)
+-   [自动更新检测频率](#automatic-updates-detection-frequency)
 
--   [配置自动更新](#BKMK_comp5)
+-   [配置自动更新](#configure-automatic-updates)
 
--   [计划安装的的延迟重新启动](#BKMK_comp6)
+-   [计划安装的的延迟重新启动](#delay-restart-for-scheduled-installations)
 
--   [不调整为"安装更新并关机"关闭 Windows 对话框中的默认选项](#BKMK_comp7)
+-   [不调整为"安装更新并关机"关闭 Windows 对话框中的默认选项](#do-not-adjust-default-option-to-install-updates-and-shut-down-in-shut-down-windows-dialog)
 
--   [不要关闭 Windows 对话框中显示"安装更新并关机"选项](#BKMK_comp8)
+-   [不要关闭 Windows 对话框中显示"安装更新并关机"选项](#do-not-display-install-updates-and-shut-down-option-in-shut-down-windows-dialog)
 
--   [允许客户端的目标](#BKMK_comp9)
+-   [允许客户端的目标](#enable-client-side-targeting)
 
--   [启用 Windows Update 电源管理以自动唤醒计算机以安装计划的更新](#BKMK_comp10)
+-   [启用 Windows Update 电源管理以自动唤醒计算机以安装计划的更新](#enabling-windows-update-power-management-to-automatically-wake-up-the-computer-to-install-scheduled-updates)
 
--   [不为已登录用户的计划自动重新启动更新安装](#BKMK_comp11)
+-   [不为已登录用户的计划自动重新启动更新安装](#no-auto-restart-with-logged-on-users-for-scheduled-automatic-updates-installations)
 
--   [重新提示重启，并计划安装](#BKMK_comp12)
+-   [重新提示重启，并计划安装](#re-prompt-for-restart-with-scheduled-installations)
 
--   [重新计划自动更新计划的安装](#BKMK_comp13)
+-   [重新计划自动更新计划的安装](#reschedule-automatic-updates-scheduled-installations)
 
--   [指定 intranet Microsoft 更新服务位置](#BKMK_comp14)
+-   [指定 intranet Microsoft 更新服务位置](#specify-intranet-microsoft-update-service-location)
 
--   [启用通过自动更新的建议更新](#BKMK_comp15)
+-   [启用通过自动更新的建议更新](#turn-on-recommended-updates-via-automatic-updates)
 
--   [打开软件通知](#BKMK_comp16)
+-   [打开软件通知](#turn-on-software-notifications)
 
 在 GPME 中，为基于计算机的配置的 Windows 更新策略位于路径中：*PolicyName* > **计算机配置** > **策略** > **管理模板** > **Windows 组件** > **Windows Update**。
 
 > [!NOTE]
 > 默认情况下，不配置这些设置。
 
-#### <a name="BKMK_comp1"></a>允许自动更新立即安装
+#### <a name="allow-automatic-updates-immediate-installation"></a>允许自动更新立即安装
 指定是否自动更新将自动安装更新不会中断 Windows 服务或重新启动 Windows。
 
 |支持：|不包括：|
@@ -108,7 +108,7 @@ ms.locfileid: "59880098"
 
 **选项：** 没有为此设置的选项。
 
-#### <a name="BKMK_comp2"></a>允许非管理员会收到更新通知
+#### <a name="allow-non-administrators-to-receive-update-notifications"></a>允许非管理员会收到更新通知
 指定是否非管理用户将收到更新通知基于配置自动更新策略设置。
 
 |支持：|不包括：|
@@ -130,7 +130,7 @@ ms.locfileid: "59880098"
 
 **选项：** 没有为此设置的选项。
 
-#### <a name="BKMK_comp3"></a>允许来自 intranet Microsoft 更新服务位置的签名的更新
+#### <a name="allow-signed-updates-from-an-intranet-microsoft-update-service-location"></a>允许使用来自 Intranet Microsoft 更新服务位置的签名更新
 指定是否自动更新接受 intranet Microsoft 更新服务位置上找到更新时，不是 Microsoft 的实体进行签名的更新。
 
 |支持：|不包括：|
@@ -173,7 +173,7 @@ ms.locfileid: "59880098"
 
 **选项：** 如果启用此设置，则可以指定之前发生强制的计算机重启安装更新后经过的时间量。
 
-#### <a name="BKMK_comp4"></a>自动更新检测频率
+#### <a name="automatic-updates-detection-frequency"></a>自动更新检测频率
 指定 Windows 将用于确定在检查可用更新前等待的时长的小时数。 使用此处指定的小时数减去指定小时数的 0% 到 20% 来确定准确的等待时间。 例如，如果此策略用于指定 20 小时检测频率，此策略应用到的所有客户端将检查 16 到 20 个小时之间的任意位置的更新。
 
 |支持：|不包括：|
@@ -197,7 +197,7 @@ ms.locfileid: "59880098"
 
 **选项：** 如果启用此设置，则可以指定 Windows 更新检查更新之前等待的时间间隔 （以小时为单位）。
 
-#### <a name="BKMK_comp5"></a>配置自动更新
+#### <a name="configure-automatic-updates"></a>配置自动更新
 指定指定是否在此计算机上启用自动更新。
 
 |支持：|不包括：|
@@ -212,10 +212,10 @@ ms.locfileid: "59880098"
 |-|-|
 |**状态策略设置**|**行为**|
 |**未配置**|指定自动更新使用未指定在组策略级别。 但是，计算机管理员仍可以在控制面板中配置自动更新。|
-|**Enabled**|指定 Windows 识别时在计算机处于联机状态，并使用其 Internet 连接的可用更新搜索 Windows Update。<br /><br />启用时，将允许本地管理员使用 Windows Update 控制面板选择所选的配置选项。 但是，本地管理员将不能禁用自动更新的配置。<br /><br />-   **2-下载通知和通知安装**<br />    Windows 更新类型可以查找应用于此计算机的更新，用户将收到通知准备好下载更新。 然后，用户可以运行 Windows 更新来下载和安装可用更新。<br />-   **3-自动下载和通知安装**（默认设置）<br />    Windows Update 查找适用的更新，并将它们下载在后台;用户未收到通知或在过程中中断。 下载完成后，通知用户有更新准备好进行安装。 然后，用户可以运行 Windows 更新安装已下载的更新。<br />-   **4-自动下载并计划安装**<br />    可以通过使用选项在此组策略设置中指定的计划。 如果指定无计划，则所有安装的默认计划将每隔一天的凌晨 3:00 如果更新要求重新启动才能完成安装，Windows 将自动重新在计算机启动。 （如果用户登录到计算机准备好重新启动 Windows 时，用户将会收到通知并选择延迟重新启动。）**注意：** 自 Windows 8，可以设置而不是使用特定计划绑定到 Windows 更新自动维护过程中要安装的更新。 自动维护的当计算机不在使用中，安装更新，并避免当计算机使用电池电源运行时安装更新。 如果自动维护程序无法安装天内的更新，Windows 更新将立即安装更新。 挂起的重新启动，然后将通知用户。 如果没有任何可能发生了意外的数据丢失，挂起的重启只会进行。    可以在 GPME 维护计划程序设置中，位于路径中，指定计划选项*PolicyName* > **计算机配置** >  **策略** > **管理模板** > **Windows 组件** > **维护计划程序** > **自动维护激活边界**。 请参阅标题为本参考部分：[维护计划程序设置](#BKMK_MtncScheduler)，用于设置的详细信息。    **5-允许本地管理员选择设置**<br />-指定是否允许本地管理员使用自动更新控制面板来选择所选的配置选项，例如，无论本地管理员可以选择计划的安装时间。<br />    不允许本地管理员禁用自动更新配置。|
+|**Enabled**|指定 Windows 识别时在计算机处于联机状态，并使用其 Internet 连接的可用更新搜索 Windows Update。<br /><br />启用时，将允许本地管理员使用 Windows Update 控制面板选择所选的配置选项。 但是，本地管理员将不能禁用自动更新的配置。<br /><br />-   **2-下载通知和通知安装**<br />    Windows 更新类型可以查找应用于此计算机的更新，用户将收到通知准备好下载更新。 然后，用户可以运行 Windows 更新来下载和安装可用更新。<br />-   **3-自动下载和通知安装**（默认设置）<br />    Windows Update 查找适用的更新，并将它们下载在后台;用户未收到通知或在过程中中断。 下载完成后，通知用户有更新准备好进行安装。 然后，用户可以运行 Windows 更新安装已下载的更新。<br />-   **4-自动下载并计划安装**<br />    可以通过使用选项在此组策略设置中指定的计划。 如果指定无计划，则所有安装的默认计划将每隔一天的凌晨 3:00 如果更新要求重新启动才能完成安装，Windows 将自动重新在计算机启动。 （如果用户登录到计算机准备好重新启动 Windows 时，用户将会收到通知并选择延迟重新启动。）**注意：** 自 Windows 8，可以设置而不是使用特定计划绑定到 Windows 更新自动维护过程中要安装的更新。 自动维护的当计算机不在使用中，安装更新，并避免当计算机使用电池电源运行时安装更新。 如果自动维护程序无法安装天内的更新，Windows 更新将立即安装更新。 挂起的重新启动，然后将通知用户。 如果没有任何可能发生了意外的数据丢失，挂起的重启只会进行。    可以在 GPME 维护计划程序设置中，位于路径中，指定计划选项*PolicyName* > **计算机配置** >  **策略** > **管理模板** > **Windows 组件** > **维护计划程序** > **自动维护激活边界**。 请参阅标题为本参考部分：[维护计划程序设置](#computer-configuration--maintenance-scheduler-policy-settings)，用于设置的详细信息。    **5-允许本地管理员选择设置**<br />-指定是否允许本地管理员使用自动更新控制面板来选择所选的配置选项，例如，无论本地管理员可以选择计划的安装时间。<br />    不允许本地管理员禁用自动更新配置。|
 |**已禁用**|指定可从公共 Windows 更新服务的任何客户端更新，必须手动从 Internet 下载并安装。|
 
-#### <a name="BKMK_comp6"></a>计划安装的的延迟重新启动
+#### <a name="delay-restart-for-scheduled-installations"></a>计划安装的的延迟重新启动
 指定自动更新在继续进行计划的重新启动之前要等待时间的量。
 
 |支持：|不包括：|
@@ -234,7 +234,7 @@ ms.locfileid: "59880098"
 
 **选项：** 如果启用此设置，可以使用此选项以指定在继续进行计划的重新启动之前等待的时间 （以分钟为单位） 自动更新。
 
-#### <a name="BKMK_comp7"></a>不调整为"安装更新并关机"关闭 Windows 对话框中的默认选项
+#### <a name="do-not-adjust-default-option-to-install-updates-and-shut-down-in-shut-down-windows-dialog"></a>不调整安装更新并关机关闭 Windows 对话框中的默认选项
 此策略设置，可指定是否**安装更新并关机**中的默认选项为允许使用选项**关闭 Windows**对话框。
 
 |支持：|不包括：|
@@ -274,7 +274,7 @@ ms.locfileid: "59880098"
 
 **选项：** 没有为此设置的选项。
 
-#### <a name="BKMK_comp8"></a>不要关闭 Windows 对话框中显示"安装更新并关机"选项
+#### <a name="do-not-display-install-updates-and-shut-down-option-in-shut-down-windows-dialog"></a>不要关闭 Windows 对话框中显示安装更新和关机选项
 指定是否**安装更新并关机**中显示选项**关闭 Windows**对话框。
 
 |支持：|不包括：|
@@ -290,7 +290,7 @@ ms.locfileid: "59880098"
 
 **选项：** 没有为此设置的选项。
 
-#### <a name="BKMK_comp9"></a>允许客户端的目标
+#### <a name="enable-client-side-targeting"></a>启用客户端定位
 指定的目标组名称或在 WSUS 控制台中配置要从 WSUS 接收更新的名称。
 
 |支持：|不包括：|
@@ -312,7 +312,7 @@ ms.locfileid: "59880098"
 
 **选项：** 使用此空间指定一个或多个目标组名称。
 
-#### <a name="BKMK_comp10"></a>启用 Windows Update 电源管理以自动唤醒计算机以安装计划的更新
+#### <a name="enabling-windows-update-power-management-to-automatically-wake-up-the-computer-to-install-scheduled-updates"></a>启用 Windows Update 电源管理以自动唤醒计算机以安装计划的更新
 指定 Windows 更新是否将使用 Windows 电源管理或电源选项功能以自动唤醒计算机从休眠状态，如果计划安装的更新。
 
 仅当 Windows 更新配置为自动安装更新，将自动唤醒计算机。 如果计算机处于休眠状态，当发生的计划的安装时间，而应用更新时，Windows 更新将使用 Windows 电源管理或电源选项功能以自动唤醒计算机以安装更新。 Windows 更新还将唤醒计算机并安装更新，如果采用安装截止时间发生。
@@ -332,7 +332,7 @@ ms.locfileid: "59880098"
 
 **选项：** 没有为此设置的选项。
 
-#### <a name="BKMK_comp11"></a>不为已登录用户的计划自动重新启动更新安装
+#### <a name="no-auto-restart-with-logged-on-users-for-scheduled-automatic-updates-installations"></a>对于有已登录用户的计算机，计划的自动更新安装不执行自动重启
 指定要完成计划的安装，自动更新将等待的任何用户都已登录，而不是导致计算机重新启动自动重新启动计算机。
 
 |支持：|不包括：|
@@ -351,7 +351,7 @@ ms.locfileid: "59880098"
 
 **选项：** 没有为此设置的选项。
 
-#### <a name="BKMK_comp12"></a>重新提示重启，并计划安装
+#### <a name="re-prompt-for-restart-with-scheduled-installations"></a>对计划的安装再次提示重启
 指定自动更新会再次提示与计划重新启动之前要等待的时间量。
 
 |支持：|不包括：|
@@ -373,7 +373,7 @@ ms.locfileid: "59880098"
 
 **选项：** 启用时，可以使用此设置选项以指定 （以分钟为单位） 的系统会提示用户重新计划重新启动前经过的时间的持续时间。
 
-#### <a name="BKMK_comp13"></a>重新计划自动更新计划的安装
+#### <a name="reschedule-automatic-updates-scheduled-installations"></a>重新计划自动更新计划的安装
 指定自动更新以下计算机启动时，以前未完成的计划安装继续之前等待的时间量。
 
 如果将状态设置为**未配置**，丢失计划的安装会发生一分钟后下, 一步是在计算机启动。
@@ -394,7 +394,7 @@ ms.locfileid: "59880098"
 
 **选项：** 启用此策略设置后，可以使用它来指定在数分钟后接下来启动计算机，未采用的计划的安装前面放置会发生。
 
-#### <a name="BKMK_comp14"></a>指定 intranet Microsoft 更新服务位置
+#### <a name="specify-intranet-microsoft-update-service-location"></a>指定 Intranet Microsoft 更新服务位置
 指定用于托管来自 Microsoft 更新的更新的 Intranet 服务器。 然后，您可以使用 WSUS 以自动更新的计算机在网络上。
 
 |支持：|不包括：|
@@ -425,7 +425,7 @@ ms.locfileid: "59880098"
 |设置检测更新的 intranet 更新服务|http://wsus01:8530|
 |设置 intranet 统计服务器|http://IntranetUpd01|
 
-#### <a name="BKMK_comp15"></a>启用通过自动更新的建议更新
+#### <a name="turn-on-recommended-updates-via-automatic-updates"></a>启用通过自动更新的建议更新
 指定是否自动更新将提供重要信息和建议从 WSUS 的更新。
 
 |支持：|不包括：|
@@ -441,7 +441,7 @@ ms.locfileid: "59880098"
 
 **选项：** 没有为此设置的选项。
 
-#### <a name="BKMK_comp16"></a>打开软件通知
+#### <a name="turn-on-software-notifications"></a>打开软件通知
 此策略设置，可以控制是否用户可查看有关从 Microsoft 更新服务功能完备的软件的详细增强的通知消息。 增强的通知消息带来的价值，并将提升的安装和使用的可选软件。 此策略设置用于在松散管理的环境，从而允许对 Microsoft Update 服务的最终用户访问。
 
 如果不使用 Microsoft Update 服务，则"软件通知"策略设置无效。
@@ -464,16 +464,16 @@ ms.locfileid: "59880098"
 
 **选项：** 没有为此设置的选项。
 
-### <a name="BKMK_MtncScheduler"></a>计算机配置 > 维护计划程序策略设置
+### <a name="computer-configuration--maintenance-scheduler-policy-settings"></a>计算机配置 > 维护计划程序策略设置
 在配置自动更新设置中，选择了选项**4-自动下载并计划安装**，可以指定计划运行 Windows 8 和 Windows RT 的计算机在 GPMC 中的维护计划程序设置 如果未在"配置自动更新"设置中选择选项 4，您不需要配置用于自动更新这些设置。 维护计划程序设置路径中的位置：*PolicyName* > **计算机配置** > **策略** > **管理模板** > **Windows 组件** > **维护计划程序**。 组策略的维护计划程序扩展包含以下设置：
 
--   [自动维护激活边界](#BKMK_comp5a)
+-   [自动维护激活边界](#automatic-maintenance-activation-boundary)
 
--   [自动维护随机延迟](#BKMK_comp5b)
+-   [自动维护随机延迟](#automatic-maintenance-random-delay)
 
--   [自动唤醒策略](#BKMK_comp5c)
+-   [自动唤醒策略](#automatic-wakeup-policy)
 
-#### <a name="BKMK_comp5a"></a>自动维护激活边界
+#### <a name="automatic-maintenance-activation-boundary"></a>自动维护激活边界
 此策略可用于配置"自动维护激活边界"设置。
 
 维护激活边界是自动维护开始每日计划的时间。
@@ -492,7 +492,7 @@ ms.locfileid: "59880098"
 |**Enabled**|启用此策略设置将覆盖任何默认值或修改客户端计算机上配置的设置**Control Panel** > **操作中心** >  **自动维护**(或在某些客户端版本中，**维护**)。|
 |**已禁用**|如果将此策略设置设置为**已禁用**、 每日计划的时间中的规定**操作中心** > **自动维护**，在控件中面板将应用。|
 
-#### <a name="BKMK_comp5b"></a>自动维护随机延迟
+#### <a name="automatic-maintenance-random-delay"></a>自动维护随机延迟
 此策略设置允许您配置自动维护激活随机延迟。
 
 维护随机延迟是时间的之前，自动维护将延迟从其激活边界开始量。 此设置可用于虚拟机随机维护可能性能要求。
@@ -513,7 +513,7 @@ ms.locfileid: "59880098"
 |**Enabled**|自动维护将延迟到指定的时间内通过其激活边界从开始。|
 |**已禁用**|不随机延迟将应用于自动维护。|
 
-#### <a name="BKMK_comp5c"></a>自动唤醒策略
+#### <a name="automatic-wakeup-policy"></a>自动唤醒策略
 此策略设置允许你配置的自动维护唤醒策略。
 
 维护唤醒策略指定是否自动维护来建立与每日计划的维护操作计算机的唤醒请求。
@@ -535,14 +535,14 @@ ms.locfileid: "59880098"
 |**Enabled**|如果启用此策略设置，自动维护将尝试设置操作系统唤醒策略并为每日计划的时间，使唤醒请求必要。|
 |**已禁用**|如果禁用此策略设置，在中指定设置为唤醒**操作中心** > **自动维护**控制面板将应用。|
 
-### <a name="BKMK_UserPol"></a>用户配置 > Windows 更新策略设置
+### <a name="user-configuration--windows-update-policy-settings"></a>用户配置 > Windows 更新策略设置
 本部分提供有关以下基于用户的策略设置的详细信息：
 
--   [无法在关闭 Windows 对话框中显示"安装更新并关机"选项](#BKMK_Client1)
+-   [无法在关闭 Windows 对话框中显示"安装更新并关机"选项](#do-not-display-install-updates-and-shut-down-option-in-shut-down-windows-dialog)
 
--   [在对话框中关闭 Windows 不调整为"安装更新并关机"的默认选项](#BKMK_Client2)
+-   [在对话框中关闭 Windows 不调整为"安装更新并关机"的默认选项](#do-not-adjust-default-option-to-install-updates-and-shut-down-in-shut-down-windows-dialog)
 
--   [删除使用所有 Windows 更新功能的访问权限](#BKMK_Client3)
+-   [删除使用所有 Windows 更新功能的访问权限](#remove-access-to-use-all-windows-update-features)
 
 在 GPMC 中，路径中的位置自动计算机更新的用户设置：*PolicyName* > **用户配置** > **策略** > **管理模板** >  **Windows 组件** > **Windows 更新**。 出现在计算机配置和用户配置组策略中的扩展插件的相同顺序列出的设置时**设置**Windows 更新策略选项卡上选择进行排序设置按字母顺序。
 
@@ -552,7 +552,7 @@ ms.locfileid: "59880098"
 > [!TIP]
 > 对于每个这些设置，可以使用以下步骤来启用、 禁用或设置之间导航：
 
-#### <a name="BKMK_Client1"></a>无法在关闭 Windows 对话框中显示安装更新并关机选项
+#### <a name="do-not-display-install-updates-and-shut-down-option-in-shut-down-windows-dialog-box"></a>无法在关闭 Windows 对话框中显示安装更新并关机选项
 指定是否**安装更新并关机**中显示选项**关闭 Windows**对话框。
 
 |支持：|不包括：|
@@ -568,7 +568,7 @@ ms.locfileid: "59880098"
 
 **选项：** 没有为此设置的选项。
 
-#### <a name="BKMK_Client2"></a>在对话框中关闭 Windows 不调整为"安装更新并关机"的默认选项
+#### <a name="do-not-adjust-default-option-to-install-updates-and-shut-down-in-shut-down-windows-dialog-box"></a>在对话框中关闭 Windows 不调整为"安装更新并关机"的默认选项
 指定是否**安装更新并关机**中的默认选项为允许使用选项**关闭 Windows**对话框。
 
 |支持：|不包括：|
@@ -586,8 +586,8 @@ ms.locfileid: "59880098"
 |**已禁用**|指定是否**安装更新并关机**选项将中的默认选项**关闭 Windows**是否可用于在用户选择关闭的时间安装更新对话框向下关闭计算机的选项。|
 
 **选项：** 没有为此设置的选项。
-
-#### <a name="BKMK_Client3"></a>删除使用所有 Windows 更新功能的访问权限
+    
+#### <a name="remove-access-to-use-all-windows-update-features"></a>删除使用所有 Windows 更新功能的访问权限
 此设置，可删除对 Windows 更新 WSUS 客户端访问权限。
 
 |支持：|不包括：|
@@ -603,10 +603,10 @@ ms.locfileid: "59880098"
 
 **选项：** 请参阅**已启用**此设置的表中。
 
-## <a name="BKMK_Supplemental"></a>补充信息
+## <a name="supplemental-information"></a>补充信息
 本部分提供有关使用打开和本指南中使用的术语将 WSUS 设置保存在组策略和定义的其他信息。 对于熟悉以前版本的 WSUS （WSUS 3.2 及早期版本） 的管理员，没有简单概述了 WSUS 版本之间的差异的表。
 
-### <a name="BKMK_OpenGPO"></a>访问组策略中的 Windows 更新设置
+### <a name="accessing-the-windows-update-settings-in-group-policy"></a>访问组策略中的 Windows 更新设置
 后面的过程介绍如何打开 GPMC 在域控制器上。 该过程然后介绍如何打开现有域级组策略对象 (GPO) 并进行编辑，或创建一个新的域级别 GPO 并打开以进行编辑。
 
 > [!NOTE]
@@ -668,7 +668,7 @@ ms.locfileid: "59880098"
 
     -   若要放弃所有未保存的更改并关闭对话框中，单击**取消**。
 
-### <a name="BKMK_changes"></a>对 WSUS 与本指南相关的更改
+### <a name="changes-to-wsus-relevant-to-this-guide"></a>对 WSUS 与本指南相关的更改
 下表总结了与本指南的 WSUS 的当前和过去版本之间的主要差异。
 
 |Windows Server 和 WSUS 版本|描述|
@@ -676,7 +676,7 @@ ms.locfileid: "59880098"
 | WSUS 6.0 和后续版本的 Windows Server 2012 R2|从 Windows Server 2012 开始，WSUS 服务器角色集成到操作系统，并将 WSUS 客户端的相关联的组策略设置，默认情况下，包含在组策略。|
 | Windows Server 2008 （和更早版本的 Windows Server） 与 WSUS 3.2 及更早版本|Windows Server 2008 （和更早版本的 Windows Server） 中使用 WSUS 版本 3.2 （及更早版本），在这些 Windows Server 操作系统的系统中不包括管理 WSUS 客户端的组策略设置。 在 WSUS 管理模板策略设置都**wuau.adm**。 在这些服务器版本中，WSUS 管理必须首先将模板添加到组策略管理控制台 (GPMC) 可以配置 WSUS 的客户端设置。|
 
-### <a name="BKMK_Terms"></a>术语和定义
+### <a name="terms-and-definitions"></a>术语和定义
 下面是本指南中使用的术语的列表。
 
 |术语|定义|

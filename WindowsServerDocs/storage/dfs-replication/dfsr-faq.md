@@ -6,17 +6,17 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: f1d77b6640bc0d6a5832a5a19c80d9d0af5d2b00
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3782667e54f5e6b52c07645704b95fc9e7409a27
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832658"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476071"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>DFS 复制：常见问题 (FAQ)
 
 
-更新日期：2013 年 10 月 9日日
+更新日期：2019 年 4 月 30日日
 
 适用于：Windows Server 2019，Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2、 Windows Server 2008
 
@@ -631,7 +631,7 @@ DFS 复制不会复制该文件\_特性\_临时值。
 
 ### <a name="is-there-a-way-to-force-a-complete-replication-of-all-files-including-unchanged-files"></a>有一种方法来强制完成的所有文件包括未更改的文件复制吗？
 
-否。 如果 DFS 复制将文件完全相同，则它不会复制它们。 如果尚未更改的文件中复制，DFS 复制会自动将它们复制配置为执行此操作时。 若要覆盖配置的计划，请使用 WMI 方法**ForceReplicate()**。 但是，这是仅计划重写，并不会强制保持不变或相同的文件的复制。
+否。 如果 DFS 复制将文件完全相同，则它不会复制它们。 如果尚未更改的文件中复制，DFS 复制会自动将它们复制配置为执行此操作时。 若要覆盖配置的计划，请使用 WMI 方法**ForceReplicate()** 。 但是，这是仅计划重写，并不会强制保持不变或相同的文件的复制。
 
 ### <a name="what-happens-if-the-primary-member-suffers-a-database-loss-during-initial-replication"></a>如果在初始复制期间主成员出现数据库丢失，则会发生什么情况？
 
@@ -728,9 +728,9 @@ DFS 复制不会复制该文件\_特性\_临时值。
 </colgroup>
 <thead>
 <tr class="header">
-<th>日期</th>
+<th>Date</th>
 <th>描述</th>
-<th>原因</th>
+<th>Reason</th>
 </tr>
 </thead>
 <tbody>

@@ -7,12 +7,12 @@ ms.topic: article
 author: phstee
 ms.author: NedPyle; Danlo; DKruse
 ms.date: 4/14/2017
-ms.openlocfilehash: 93718cf13f28cde8f25b35b42ce20ca75c6fa13c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 337716792a4bb3cf730b723df3abe1029631426b
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832058"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222504"
 ---
 # <a name="performance-tuning-for-smb-file-servers"></a>SMB 文件服务器的性能优化
 
@@ -106,10 +106,8 @@ Windows Server 2012 中引入了以下的 SMB 性能计数器和监视的 SMB 2 
     默认值分别为 512 和 8192。 这些参数允许服务器限制动态中的指定边界的客户端操作并发性。 某些客户端可能会实现更高的吞吐量，具有更高并发限制，例如，通过高带宽、 高延迟链接复制的文件。
     
     >[!TIP]
-    > 在 Windows 10 和 Server 2016 之前, 授予客户端动态变化 Smb2CreditsMin 和 Smb2CreditsMax 基于一种算法，尝试确定授予的信用额度的最佳数量之间的可修读人数根据网络延迟和信用额度使用情况。 在 Windows 10 和 Server 2016 中，在 SMB 服务器已更改，以无条件地授予根据请求到已配置的最大数目的信用额度信用额度。 作为此更改的一部分，已删除阻止机制，当服务器处于内存压力下时，减少了每个连接的信用额度窗口的大小，信用额度。 触发的阻止的内核的低内存事件仅发出信号时服务器因此内存不足 (< 几 MB)，就可以使用无意义。 因为服务器无法再收缩信用额度 windows Smb2CreditsMin 设置将不再需要，并且现在被忽略。
+    > 在 Windows 10 和 Windows Server 2016 之前, 授予客户端的可修读人数随其而变化动态 Smb2CreditsMin 和 Smb2CreditsMax 基于一种算法，尝试确定最优数目的信用额度以授予基于网络延迟之间和信用额度的使用情况。 在 Windows 10 和 Windows Server 2016 中，在 SMB 服务器已更改，以无条件地授予根据请求到已配置的最大数目的信用额度信用额度。 作为此更改的一部分，已删除阻止机制，当服务器处于内存压力下时，减少了每个连接的信用额度窗口的大小，信用额度。 触发的阻止的内核的低内存事件仅发出信号时服务器因此内存不足 (< 几 MB)，就可以使用无意义。 因为服务器无法再收缩信用额度 windows Smb2CreditsMin 设置将不再需要，并且现在被忽略。
 
-
-    >[!TIP]
     > 你可以监视 SMB 客户端共享\\信用额度停留数/秒以查看是否有使用信用额度的任何问题。
 
 - **AdditionalCriticalWorkerThreads**
@@ -134,7 +132,8 @@ Windows Server 2012 中引入了以下的 SMB 性能计数器和监视的 SMB 2 
     >[!TIP]
     > 可能需要增加值指示是如果 SMB2 工作队列会增长得非常大 (性能计数器服务器工作队列\\队列长度\\SMB2 非阻止性\*持续高于 ~ 100)。
 
-     
+    >[!Note]
+    >在 Windows 10 和 Windows Server 2016，MaxThreadsPerQueue 不可用。 线程池的线程数将为"20 * 的 NUMA 节点中的处理器数"。  
 
 -   **AsynchronousCredits**
 
@@ -146,9 +145,9 @@ Windows Server 2012 中引入了以下的 SMB 性能计数器和监视的 SMB 2 
 
 ### <a name="smb-server-tuning-example"></a>SMB 服务器优化示例
 
-以下设置，可以优化在许多情况下的文件服务器性能的计算机。 设置不是最佳或相应的所有计算机上。 应将其应用之前评估各个设置的影响。
+以下设置，可以优化在许多情况下的文件服务器性能的计算机。 所有计算机上的这些设置都不是最佳或最合适的。 应在应用各个设置之前评估其影响。
 
-| 参数                       | 值 | 默认 |
+| 参数                       | ReplTest1 | 默认 |
 |---------------------------------|-------|---------|
 | AdditionalCriticalWorkerThreads | 64    | 0       |
 | MaxThreadsPerQueue              | 64    | 20      |

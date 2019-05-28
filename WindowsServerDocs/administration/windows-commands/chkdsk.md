@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: 26aad48db4a5f0a593dfcb29160031a0c9f3dc75
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9c5272ba0a5ff7c0a30f61631bb6c8dac6552ef0
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886858"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192608"
 ---
 # <a name="chkdsk"></a>chkdsk
 
@@ -35,7 +35,7 @@ ms.locfileid: "59886858"
 > [!IMPORTANT]
 > **注意：** Chkdsk 可仅为本地磁盘。 该命令不能用于在网络上已重定向本地驱动器号。
 
-有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
+有关如何使用此命令的示例，请参阅[示例](#examples)。
 
 ##<a name="syntax"></a>语法
 
@@ -60,7 +60,7 @@ chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]
 |/b|仅限 NTFS:清除不正确的卷上的群集的列表和反复扫描错误的所有已分配和可用群集。 **/b**包括的功能 **/r**。 图像处理到新的硬盘驱动器上的卷之后，使用此参数。|
 |/?|在命令提示符下显示帮助。|
 
-##<a name="remarks"></a>备注
+## <a name="remarks"></a>备注
 
 -   正在跳过卷检查
 
@@ -114,7 +114,7 @@ chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]
 -   **Chkdsk**命令，使用不同的参数，可从恢复控制台。
 -   很少重新启动的服务器上，你可能想要使用**chkntfs**或**fsutil 脏查询**命令来确定该卷的脏位是否已在运行 chkdsk 之前设置。
 
-## <a name="BKMK_examples"></a>示例
+## <a name="examples"></a>示例
 
 如果你想要检查驱动器 D 中的磁盘，并具有 Windows 修复错误，请键入：
 ```
@@ -131,4 +131,4 @@ chkdsk *.*
 **Chkdsk**显示状态报告，，然后列出与具有非连续的块的文件规范匹配的文件。
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

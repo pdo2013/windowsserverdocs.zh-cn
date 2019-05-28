@@ -9,23 +9,25 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ecf3cb5703a90976dce15abbd0c9fdd1d4aa24ec
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 48099ad15465b885ccaf562bcf94b4bafdeff388
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812628"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64772626"
 ---
 # <a name="troubleshoot-storage-spaces-direct"></a>排查存储空间直通
+
+> 适用于：Windows Server 2019、Windows Server 2016
 
 使用以下信息来排查存储空间直通部署。
 
 一般情况下，使用以下步骤启动：
 
-1. 确认 SSD 制造商/型号经过认证的 Windows Server 2016 使用 Windows Server 目录。 与供应商确认存储空间直通支持的驱动器。
+1. 确认 SSD 制造商/型号经过认证的 Windows Server 2016 和 Windows Server 2019 使用 Windows Server 目录。 与供应商确认存储空间直通支持的驱动器。
 2. 检查任何故障的驱动器的存储。 使用存储管理软件检查驱动器的状态。 如果任意驱动器发生故障，请与供应商联系。 
 3. 更新存储和驱动器固件，如有必要。
-   请确保在所有节点上安装最新的 Windows 更新。 你可以获取最新的更新从 Windows Server 2016 [ https://aka.ms/update2016 ](https://aka.ms/update2016)。
+   请确保在所有节点上安装最新的 Windows 更新。 你可以获取最新的更新从 Windows Server 2016 [Windows Server 2016 和 Windows 10 更新历史记录](https://aka.ms/update2016)以及从 Windows Server 2019 [Windows 10 和 Windows Server 2019 更新历史记录](https://support.microsoft.com/help/4464619)。
 4. 网络适配器驱动程序和固件更新。
 5. 运行群集验证和查看存储空间直通部分，确保正确地报告将用于缓存的驱动器和没有错误。
 
@@ -195,7 +197,8 @@ Volume Name:
     
 ## <a name="event-5120-with-statusiotimeout-c00000b5"></a>STATUS_IO_TIMEOUT c00000b5 5120 事件 
 
->[!重要} 若要减少应用使用修补程序更新时遇到以下症状的可能性，建议使用下面的过程存储维护模式下安装[2018 年 10 月 18 日，Windows Server 2016 的累积更新](https://support.microsoft.com/help/4462928)或更高版本时节点当前已安装已在中发布的 Windows Server 2016 累积更新[2018 年 5 月 8](https://support.microsoft.com/help/4103723)到[2018 年 10 月 9 日](https://support.microsoft.com/help/KB4462917)。
+> [!Important]
+> **对于 Windows Server 2016:** 若要减少应用使用修补程序更新时遇到以下症状的可能性，建议使用下面的过程存储维护模式下安装[2018 年 10 月 18 日，累积更新的 Windows Server 2016](https://support.microsoft.com/help/4462928)或更高版本时节点当前已安装 Windows Server 2016 累积更新已在中发布[2018 年 5 月 8](https://support.microsoft.com/help/4103723)到[2018 年 10 月 9 日](https://support.microsoft.com/help/KB4462917)。
 
 重新启动具有累积更新从发布的 Windows Server 2016 上的节点后，可能会收到事件 5120 STATUS_IO_TIMEOUT c00000b5 [KB 4103723 2018 年 5 月 8 日](https://support.microsoft.com/help/4103723)到[KB 44629172018年10月9日](https://support.microsoft.com/help/4462917)安装。
 
@@ -217,11 +220,7 @@ Event ID: 1135
 Description: Cluster node 'NODENAME'was removed from the active failover cluster membership. The Cluster service on this node may have stopped. This could also be due to the node having lost communication with other active nodes in the failover cluster. Run the Validate a Configuration wizard to check your network configuration. If the condition persists, check for hardware or software errors related to the network adapters on this node. Also check for failures in any other network components to which the node is connected such as hubs, switches, or bridges.
 ```
 
-存储空间直通群集内部的 SMB 网络会话添加 SMB 弹性处理 8，2018 年 5 月累积更新中引入了更改。 这样做是为了提高暂时网络故障的复原能力并提高 RoCE 如何处理网络拥塞。
-
-重新启动节点时，这些改进会无意中增加 SMB 连接尝试重新连接时的超时和超时等待。 这些问题可能会影响系统的压力。 在计划外停机期间的最多 60 秒的 IO 暂停还观察到系统等待超时的连接时。
-
-若要解决此问题，请安装[2018 年 10 月 18 日，Windows Server 2016 的累积更新](https://support.microsoft.com/help/4462928)或更高版本。
+这添加 SMB 弹性处理存储空间直通群集内部的 SMB 网络会话的累积更新 8，2018 年 5 月到 Windows Server 2016 中引入的更改。 这样做是为了提高暂时网络故障的复原能力并提高 RoCE 如何处理网络拥塞。 重新启动节点时，这些改进会无意中增加 SMB 连接尝试重新连接时的超时和超时等待。 这些问题可能会影响系统的压力。 在计划外停机期间的最多 60 秒的 IO 暂停还观察到系统等待超时的连接时。若要解决此问题，请安装[2018 年 10 月 18 日，Windows Server 2016 的累积更新](https://support.microsoft.com/help/4462928)或更高版本。
 
 *请注意*此更新将对齐 CSV 超时值具有 SMB 连接超时值，若要解决此问题。 它不实现更改后，若要禁用的解决方法部分中所述的实时转储生成。
     
@@ -455,4 +454,4 @@ reg add "HKLM\Software\Microsoft\Windows\Windows Error Reporting\FullLiveKernelR
 >[!NOTE]
 > 各个 Oem 可能基于 Intel P3x00 系列使用唯一的固件版本字符串的 NVMe 设备的设备。 有关最新的固件版本的详细信息，请与您的 OEM 联系。
 
-如果使用的基于 Intel P3x00 系列 NVMe 设备在部署中的硬件，我们建议您立即应用的最新的固件 (至少维护版本 8)。 这[Microsoft 支持文章](https://support.microsoft.com/en-us/help/4052341/slow-performance-or-lost-communication-io-error-detached-or-no-redunda)提供了有关此问题的其他信息。 
+如果使用的基于 Intel P3x00 系列 NVMe 设备在部署中的硬件，我们建议您立即应用的最新的固件 (至少维护版本 8)。 这[Microsoft 支持文章](https://support.microsoft.com/help/4052341/slow-performance-or-lost-communication-io-error-detached-or-no-redunda)提供了有关此问题的其他信息。 

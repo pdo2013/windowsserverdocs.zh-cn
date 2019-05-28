@@ -13,23 +13,23 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8750094e7357a3aefa307d24abd1470fbf8d2a71
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 7cf99a9124f78189de223018608d9864e51d7897
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867168"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564694"
 ---
 # <a name="manage-bde-wipefreespace"></a>管理-bde:WipeFreeSpace
 
 
 
-擦除删除任何可能已存在于的空间中的数据片段的卷上的可用空间。 在卷上运行此命令使用"已用的空间仅加密？ 加密方法可提供相同级别的保护"全卷加密？ 加密方法。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
+擦除删除任何可能已存在于的空间中的数据片段的卷上的可用空间。 使用"仅已用空间"加密方法加密的卷上运行此命令可提供相同级别的保护"全卷加密"加密方法。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
 
 ## <a name="syntax"></a>语法
 
 ```
-manage-bde –WipeFreeSpace|-w [<Drive>] [-Cancel] [-computername <Name>] [{-?|/?}] [{-help|-h}]
+manage-bde -WipeFreeSpace|-w [<Drive>] [-Cancel] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
 
 ### <a name="parameters"></a>Parameters
@@ -49,12 +49,12 @@ manage-bde –WipeFreeSpace|-w [<Drive>] [-Cancel] [-computername <Name>] [{-?|/
 ```
 manage-bde -w C:
 ```
-下面的示例演示如何使用 **-w**命令 **– 取消**参数来取消擦除驱动器 C 上的可用空间
+下面的示例演示如何使用 **-w**命令 **-取消**参数来取消擦除驱动器 C 上的可用空间
 ```
 manage-bde -w -Cancel C:
 ```
 
 #### <a name="additional-references"></a>其他参考
 
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)
 -   [管理 bde](manage-bde.md)

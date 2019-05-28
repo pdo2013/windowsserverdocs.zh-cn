@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 376cec7f3a4fb1f988ac5d458b05220c7b9de970
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b883126f60950c0015b3a21e2ca5abc251b25b84
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857688"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190465"
 ---
 # <a name="where-to-place-a-federation-server"></a>联合服务器的放置位置
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 作为安全性最佳实践，Active Directory 联合身份验证服务的位置\(AD FS\)联合身份验证服务器位于防火墙前面并连接到企业网络以防止从 Internet 暴露。 这非常重要，因为联合身份验证服务器具有完整授权，可授予安全令牌。 因此，它们应具有与域控制器相同的保护。 如果联合身份验证服务器受到攻击，恶意用户能够为所有 Web 应用程序和受 Active Directory 联合身份验证服务的联合服务器颁发完全访问令牌\(AD FS\)中所有资源合作伙伴组织。  
   
@@ -40,4 +38,4 @@ ms.locfileid: "59857688"
 有关如何在外围网络中配置服务器发布的详细信息，请参阅 [Where to Place a Federation Server Proxy](Where-to-Place-a-Federation-Server-Proxy.md)。 有关如何配置 ISA 服务器以发布服务器的信息，请参阅[创建安全的 Web 发布规则](https://go.microsoft.com/fwlink/?LinkId=75182)。  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

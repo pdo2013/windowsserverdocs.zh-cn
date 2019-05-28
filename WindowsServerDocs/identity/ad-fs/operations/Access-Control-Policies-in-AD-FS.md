@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 101cab68d7c79bb107f1d6ef73900d9a4475b6ea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c690f81620f97622a2f068b07c36e0a6c59e90d4
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861298"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190338"
 ---
 # <a name="access-control-policies-in-windows-server-2016-ad-fs"></a>Windows Server 2016 AD FS 中的访问控制策略
-
->适用于：Windows Server 2016
 
   
 ## <a name="access-control-policy-templates-in-ad-fs"></a>在 AD FS 访问控制策略模板  
@@ -85,11 +83,11 @@ AD FS 包含几个内置的访问控制策略模板。  以下目标具有一组
   
 5.  在底部，选择在有下划线**特定**  
   
-6.  从该弹出窗口中，选择**进行身份验证**从下拉列表。  单击“确定”。  
+6.  从该弹出窗口中，选择**进行身份验证**从下拉列表。  单击“确定”  。  
   
     ![访问控制策略](media/Access-Control-Policies-in-AD-FS/ADFSACP6.PNG)  
   
-7.  单击“确定”。 单击“确定”。  
+7.  单击“确定”  。 单击“确定”  。  
   
     ![访问控制策略](media/Access-Control-Policies-in-AD-FS/ADFSACP7.PNG)  
   
@@ -108,11 +106,11 @@ AD FS 包含几个内置的访问控制策略模板。  以下目标具有一组
   
 5.  在底部，选择在有下划线**特定**  
   
-6.  从该弹出窗口中，选择**参数指定的访问控制策略分配时**。  单击“确定”。  
+6.  从该弹出窗口中，选择**参数指定的访问控制策略分配时**。  单击“确定”  。  
   
     ![访问控制策略](media/Access-Control-Policies-in-AD-FS/ADFSACP8.PNG)  
   
-7.  单击“确定”。 单击“确定”。  
+7.  单击“确定”  。 单击“确定”  。  
   
     ![访问控制策略](media/Access-Control-Policies-in-AD-FS/ADFSACP9.PNG)  
   
@@ -131,15 +129,15 @@ AD FS 包含几个内置的访问控制策略模板。  以下目标具有一组
   
 5.  在底部，选择在有下划线**特定**  
   
-6.  从该弹出窗口中，选择**进行身份验证**从下拉列表。  单击“确定”。  
+6.  从该弹出窗口中，选择**进行身份验证**从下拉列表。  单击“确定”  。  
   
 7.  下除外，在框旁边放置一个检查**从特定的信任级别的设备**  
   
 8.  在底部下除外，选择在有下划线**特定**  
   
-9. 从该弹出窗口中，选择**托管**从下拉列表。  单击“确定”。  
+9. 从该弹出窗口中，选择**托管**从下拉列表。  单击“确定”  。  
   
-10. 单击“确定”。 单击“确定”。  
+10. 单击“确定”  。 单击“确定”  。  
   
     ![访问控制策略](media/Access-Control-Policies-in-AD-FS/ADFSACP10.PNG)  
   
@@ -158,13 +156,13 @@ AD FS 包含几个内置的访问控制策略模板。  以下目标具有一组
   
 5.  在底部，选择在有下划线**特定**组旁边的第一个条件  
   
-6.  从该弹出窗口中，选择**参数指定当分配了策略**。  单击“确定”。  
+6.  从该弹出窗口中，选择**参数指定当分配了策略**。  单击“确定”  。  
   
 7.  在底部，选择在有下划线**特定**对于第二个条件，旁边声明  
   
-8.  从该弹出窗口中，选择**参数指定的访问控制策略分配时**。  单击“确定”。  
+8.  从该弹出窗口中，选择**参数指定的访问控制策略分配时**。  单击“确定”  。  
   
-9. 单击“确定”。 单击“确定”。  
+9. 单击“确定”  。 单击“确定”  。  
   
 ![访问控制策略](media/Access-Control-Policies-in-AD-FS/ADFSACP12.PNG)  
   

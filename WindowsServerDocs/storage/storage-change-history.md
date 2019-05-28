@@ -7,14 +7,14 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.date: 03/08/2019
+ms.date: 03/25/2019
 description: 面向 IT 专业人员的本地存储空间文档适用于 Windows Server 中的新的和更新主题。
-ms.openlocfilehash: 3eb2f0e8dd05612d1c160ffe53791db3c1ef1828
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: fa3da6e14c36fecfa48c3688a36518babb257920
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851088"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192685"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Windows Server 中存储主题的更改历史记录
 
@@ -24,11 +24,20 @@ ms.locfileid: "59851088"
 
 > 如果您正在寻找适用于 Windows Server 更新历史记录，请参阅[Windows Server 2016 和 Windows 10 更新历史记录](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history)。
 
+## <a name="may-2019"></a>2019 年 5 月
+
+|新的或已更改的主题                                        |描述|
+|---                                                         |---           |
+|[删除卷](storage-spaces/delete-volumes.md)| 新增        |
+|[创建卷](storage-spaces/create-volumes.md)| 添加的步骤，并在 Windows Admin Center 中创建卷的视频。|
+|[扩展卷](storage-spaces/resize-volumes.md)| 添加了若干的步骤和调整 Windows Admin Center 中的卷的大小的视频。|
+
 ## <a name="march-2019"></a>2019 年 3 月
 
 |新的或已更改的主题                                        |描述|
 |---                                                         |---           |
-|[存储空间直通群集升级到 Windows Server 2019](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)| 新增        |
+|[使用 Azure Monitor 的监视器](storage-spaces/configure-azure-monitor.md)| 新增|
+|[将存储空间直通群集升级为 Windows Server 2019](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)| 新增        |
 |[DFS 复制](dfs-replication/dfsr-overview.md)        | 从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770278(v%3dws.11))库|
 
 ## <a name="february-2019"></a>2019 年 2 月
@@ -41,33 +50,33 @@ ms.locfileid: "59851088"
 
 |新的或已更改的主题                                        |描述|
 |---                                                         |---           |
-|[了解和监视存储重新同步](storage-spaces/understand-storage-resync.md)|新主题|
+|[了解并监视存储重新同步](storage-spaces/understand-storage-resync.md)|新主题|
 
 ## <a name="december-2018"></a>2018 年 12 月
 
 |新的或已更改的主题                                        |描述|
 |---                                                         |---           |
 |[使用存储迁移服务的服务器迁移](storage-migration-service/migrate-data.md)| 添加一些说明我们如何传输文件 |
-|[群集到群集存储副本跨 Azure 中的区域](storage-replica/cluster-to-cluster-azure-cross-region.md)|添加的验证步骤|
-|[在 Azure 中的同一区域内的群集到群集存储副本](storage-replica/cluster-to-cluster-azure-one-region.md)|添加的验证步骤|
+|[Azure 中跨区域群集到群集存储副本](storage-replica/cluster-to-cluster-azure-cross-region.md)|添加的验证步骤|
+|[Azure 中同一个区域内的群集到群集存储副本](storage-replica/cluster-to-cluster-azure-one-region.md)|添加的验证步骤|
 |[存储副本方面的常见问题](storage-replica/storage-replica-frequently-asked-questions.md)| 添加了的支持声明进行重复数据删除|
 
 ## <a name="november-2018"></a>2018 年 11 月
 
 |新的或已更改的主题                                        |描述|
 |---                                                         |---           |
-|[嵌套的复原能力](storage-spaces/nested-resiliency.md)    | 新主题    |
+|[嵌套复原](storage-spaces/nested-resiliency.md)    | 新主题    |
 |[存储迁移服务的已知问题](storage-migration-service/known-issues.md)   | 新主题    |
-|[DFS 复制：Frequently Asked Questions (FAQ)](dfs-replication/dfsr-faq.md)|从迁移[以前的版本](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/)库|
+|[DFS 复制：常见问题解答 (FAQ)](dfs-replication/dfsr-faq.md)|从迁移[以前的版本](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/)库|
 |[将 SYSVOL 复制迁移到 DFS 复制](dfs-replication/migrate-sysvol-to-dfsr.md)|从迁移[以前的版本](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)库|
-|[SMB:文件和打印机共享端口应该已打开](file-server/best-practices-analyzer/smb-open-file-sharing-ports.md)|从迁移[以前的版本](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)库|
+|[SMB：文件和打印机共享端口应打开](file-server/best-practices-analyzer/smb-open-file-sharing-ports.md)|从迁移[以前的版本](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)库|
 |[卷影复制服务](file-server/volume-shadow-copy-service.md)|从迁移[以前的版本](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)库|
 
 ## <a name="october-2018"></a>2018 年 10 月
 
 |新的或已更改的主题|描述|
 |---|---|
-|[什么是存储中的新增功能](whats-new-in-storage.md)|更新以介绍什么是 Windows Server 2019 中的新增功能|
+|[存储中的新增功能](whats-new-in-storage.md)|更新以介绍什么是 Windows Server 2019 中的新增功能|
 |[存储副本的已知问题](storage-replica/storage-replica-known-issues.md)|添加了新的更新信息。|
 
 ## <a name="september-2018"></a>2018 年 9 月
@@ -78,14 +87,14 @@ ms.locfileid: "59851088"
 |[使用存储迁移服务的服务器迁移](storage-migration-service/migrate-data.md)| 新主题 |
 |[存储迁移服务方面的常见问题 (FAQ)](storage-migration-service/faq.md)| 新主题 |
 | [iSCSI 目标服务器](iscsi/iscsi-target-server.md) | 从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
-| [iSCSI 目标服务器可伸缩性限制](iscsi/iscsi-target-server-limits.md) |从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
+| [iSCSI 目标服务器可扩展性限制](iscsi/iscsi-target-server-limits.md) |从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
 
 ## <a name="june-2018"></a>2018 年 6 月
 
 |新的或已更改的主题|描述|
 |---|---|
 |[服务器到服务器存储复制](storage-replica/server-to-server-storage-replication.md)|使用 Azure 虚拟机，包括 ExpressRoute 的添加的信息。|
-|[群集设置](storage-spaces/cluster-sets.md)| 新主题|
+|[群集集](storage-spaces/cluster-sets.md)| 新主题|
 
 ## <a name="may-2018"></a>2018 年 5 月
 
@@ -110,7 +119,7 @@ ms.locfileid: "59851088"
 |[文件夹重定向、 脱机文件和漫游用户配置文件概述](folder-redirection/folder-redirection-rup-overview.md)|迁移从多个主题[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
 |[文件共享使用 SMB 3 协议](file-server/file-server-smb-overview.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
 |[提高使用 SMB 直通的文件服务器的性能](file-server/smb-direct.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
-|[SMB 的安全性增强功能](file-server/smb-security.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
+|[SMB 安全增强功能](file-server/smb-security.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
 
 ## <a name="march-2018"></a>2018 年 3 月
 
@@ -141,7 +150,7 @@ ms.locfileid: "59851088"
 |新的或已更改的主题|描述|
 |---|---|
 |[更改驱动器号](disk-management/change-a-drive-letter.md)|新主题。|
-|[磁盘管理疑难解答](disk-management/troubleshooting-disk-management.md)|重写[磁盘的状态为未初始化或磁盘丢失完全](disk-management/troubleshooting-disk-management.md#disk-not-initialized)部分，以添加大量故障排除步骤，根据客户请求。|
+|[磁盘管理疑难解答](disk-management/troubleshooting-disk-management.md)|重写[磁盘的状态为未初始化或磁盘丢失完全](disk-management/troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing)部分，以添加大量故障排除步骤，根据客户请求。|
 |[初始化新磁盘](disk-management/initialize-new-disks.md)|重写以尝试使其更易理解和解决客户问题。|
 |[存储空间直通中规划卷](storage-spaces/plan-volumes.md)|添加汇总的复原类型在四个节点和更大的群集上可用的表。|
 |[ReFS 概述](refs/refs-overview.md)|阐明了镜像加速奇偶校验的建议的工作负荷，更正对 ReFS 和 NTFS，受支持的文件和卷大小。|

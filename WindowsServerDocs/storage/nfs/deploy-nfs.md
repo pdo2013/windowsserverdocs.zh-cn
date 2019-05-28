@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 2f3671283720d515cd3e3e609d98e02343c15892
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ab80b6d73a40256d5935635c9afc55b7c53727d3
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860768"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63737829"
 ---
 # <a name="deploy-network-file-system"></a>部署网络文件系统
 
@@ -82,7 +82,7 @@ NFS 支持基于 Windows 的和基于 UNIX 的操作系统的混合的环境。 
 
 ### <a name="install-network-file-system-on-the-server-with-windows-powershell"></a>使用 Windows PowerShell 在服务器上安装网络文件系统
 
-1. 启动 Windows PowerShell。 在任务栏上，右键单击 PowerShell 图标，然后选择“以管理员身份运行” 。
+1. 启动 Windows PowerShell。 在任务栏上，右键单击 PowerShell 图标，然后选择“以管理员身份运行”  。
 2. 运行以下 Windows PowerShell 命令：
 
 ```PowerShell

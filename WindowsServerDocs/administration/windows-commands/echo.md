@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: afb4b10a0d347367780dbaf19b764f2cabd480d9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eb5c9650b95703f1316e6f5f179b910d22574f68
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819538"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222963"
 ---
 # <a name="echo"></a>echo
 
@@ -26,7 +26,7 @@ ms.locfileid: "59819538"
 
 显示消息，或打开或关闭回显功能的命令。 如果使用不带参数， **echo**将显示当前回显设置。
 
-有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
+有关如何使用此命令的示例，请参阅[示例](#examples)。
 
 ## <a name="syntax"></a>语法
 
@@ -49,9 +49,9 @@ echo [on | off]
 -   当**echo**处于关闭状态，命令提示符将不会出现在命令提示符窗口中。 若要显示命令提示符处，键入**上回显。**
 -   如果在批处理文件中，使用**上回显**并**回显关闭**不会影响在命令提示符下设置。
 -   若要防止发送的批处理文件中的特定命令，将插入符号 (@) 命令的前面。 若要防止发送的批处理文件中的所有命令，包括**回显关闭**命令文件的开头。
--   若要显示一个管道 (**|**) 或重定向字符 (**<** 或**>**) 使用时**echo**，立即在管道或重定向字符之前使用插入符号 (^) (例如， **^|**， **^>**，或 **^<**). 若要显示一个插入符号，连续键入两个插入符号 (**^^**)。
+-   若要显示一个管道 ( **|** ) 或重定向字符 (**<** 或**>**) 使用时**echo**，立即在管道或重定向字符之前使用插入符号 (^) (例如， **^|**， **^>**，或 **^<** ). 若要显示一个插入符号，连续键入两个插入符号 ( **^^** )。
 
-## <a name="BKMK_examples"></a>示例
+## <a name="examples"></a>示例
 
 若要显示当前**echo**设置中，键入：
 ```
@@ -106,4 +106,4 @@ File3.txt
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

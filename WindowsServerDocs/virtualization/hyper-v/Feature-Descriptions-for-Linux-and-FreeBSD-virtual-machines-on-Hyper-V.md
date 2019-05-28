@@ -11,12 +11,12 @@ ms.assetid: a9ee931d-91fc-40cf-9a15-ed6fa6965cb6
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: 944f8e9d902953ab4d6da0750603a2c40fa9e96d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a574275f6d3495a9cc9bff36fa785f28a7cd8d6f
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844888"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222887"
 ---
 # <a name="feature-descriptions-for-linux-and-freebsd-virtual-machines-on-hyper-v"></a>用于在 HYPER-V 上的 Linux 和 FreeBSD 虚拟机的功能说明
 
@@ -24,7 +24,7 @@ ms.locfileid: "59844888"
 
 使用 Linux 和 FreeBSD 虚拟机上时，本文将介绍组件，如 core、 网络、 存储和内存中的可用功能。
 
-## <a name="BKMK_core"></a>核心
+## <a name="core"></a>核心版
 
 |**功能**|**说明**|
 |-|-|
@@ -37,7 +37,7 @@ ms.locfileid: "59844888"
 |HYPER-V 特定存储设备|此功能授予对附加到虚拟机的存储设备的高性能访问权限。|
 |HYPER-V 特定网络设备|此功能授予给附加到虚拟机的网络适配器的高性能访问权限。|
 
-## <a name="BKMK_Networking"></a>网络
+## <a name="networking"></a>网络
 
 |**功能**|**说明**|
 |-|-|
@@ -50,7 +50,7 @@ ms.locfileid: "59844888"
 |大型接收卸载 （进行 lro 操作）|增加的聚合成较大的缓冲区，减少 CPU 开销的多个数据包通过高带宽连接的入站的吞吐量。|
 |SR-IOV|单根 I/O 设备使用 DDA 允许来宾访问权限，允许以降低的延迟和更高的吞吐量的特定 NIC 卡的部分。 SR-IOV 需要主机上的最新的物理函数 (PF) 驱动程序和在来宾机器上的虚拟函数 (VF) 驱动程序。|
 
-## <a name="BKMK_Storage"></a>存储
+## <a name="storage"></a>存储
 
 |**功能**|**说明**|
 |-|-|
@@ -60,7 +60,7 @@ ms.locfileid: "59844888"
 |剪裁支持|剪裁提示通知某些以前分配的扇区不再需要的应用程序，并且可以清除的驱动器。 应用程序的文件提供使大的空间分配，然后自助管理分配到该文件，例如，虚拟硬盘文件时，通常使用此过程。|
 |SCSI WWN|Storvsc 驱动程序的端口和设备连接到虚拟机的节点从提取全球通用名称 (WWN) 的信息并创建相应 sysfs 文件。 |
 
-## <a name="BKMK_Memory"></a>内存
+## <a name="memory"></a>内存
 
 |**功能**|**说明**|
 |-|-|
@@ -70,13 +70,13 @@ ms.locfileid: "59844888"
 |动态内存-扩大|主机可以动态增加或减少可到虚拟机的内存量，在操作时。 设置之前，管理员在虚拟机设置面板中启用动态内存，并为虚拟机指定的启动内存、 最小内存和最大内存。 可以更改当虚拟机处于无法禁用动态内存的操作，并仅的最小值和最大值设置。 （它是指定这些内存大小为 128 MB 的倍数的最佳做法。）<br /><br />当虚拟机首次启动可用内存是否等于**启动内存**。 由于应用程序工作负荷增加内存需求的 HYPER-V 可能会动态分配到虚拟机通过热添加机制 （上述） 的更多内存。 当内存需求减少的 HYPER-V 可能会自动取消设置从通过气球机制的虚拟机的内存。 HYPER-V 将取消设置以下内存**最小内存**参数。<br /><br />Hyper-v 管理器内存选项卡将显示分配给虚拟机的内存量，但虚拟机中的内存统计信息将显示最高的分配的内存量。<br /><br />有关详细信息，请参阅[HYPER-V 动态内存概述](https://technet.microsoft.com/library/hh831766.aspx)。<br /><br />|
 |运行时内存调整大小|管理员可以设置可用内存量到虚拟机过程中操作，增加 （"热添加内存"） 或减少它 （"热删除"）。 内存返回到 HYPER-V 通过气球驱动程序 （请参阅"动态内存-扩大"）。 气球驱动程序维护的最小可用内存后扩大，名为"floor"，因此分配的内存量不能降低以下的当前需求以及此 floor 量。 Hyper-v 管理器内存选项卡将显示分配给虚拟机的内存量，但虚拟机中的内存统计信息将显示最高的分配的内存量。 （它是内存值指定为 128 MB 的倍数的最佳做法。）|
 
-## <a name="BKMK_Video"></a>Video
+## <a name="video"></a>视频
 
 |**功能**|**说明**|
 |-|-|
 |Hyper V 特定视频设备|此功能为虚拟机提供高性能图形和卓越的解决方法。 此设备不提供增强会话模式或 RemoteFX 的功能。|
 
-## <a name="BKMK_Misc"></a>杂项
+## <a name="miscellaneous"></a>其他
 
 |**功能**|**说明**|
 |-|-|
@@ -87,7 +87,7 @@ ms.locfileid: "59844888"
 |HYPER-V 套接字|这是主机和来宾操作系统之间的更多通信通道。 若要加载和使用 HYPER-V 套接字内核模块，请参阅[使您自己的集成服务](https://msdn.microsoft.com/virtualization/hyperv_on_windows/develop/make_mgmt_service)。|
 |PCI 传递/DDA|使用 Windows Server 2016 管理员可以通过 PCI Express 设备通过传递离散设备分配机制。 常见设备是网卡、 图形卡和特殊存储设备。 虚拟机将需要相应的驱动程序使用公开的硬件。 硬件必须分配给虚拟机，才能使用。<br /><br />有关详细信息，请参阅[离散设备分配-说明和背景](https://blogs.technet.microsoft.com/virtualization/2015/11/19/discrete-device-assignment-description-and-background/)。<br /><br />DDA 是 SR-IOV 网络的先决条件。 虚拟端口需要分配给虚拟机和虚拟机必须使用正确的虚拟函数 (VF) 驱动程序设备多路复用。|
 
-## <a name="BKMK_gen2"></a>第 2 代虚拟机
+## <a name="generation-2-virtual-machines"></a>第 2 代虚拟机
 
 |**功能**|**说明**|
 |-|-|
@@ -98,7 +98,7 @@ ms.locfileid: "59844888"
 
 * [支持 CentOS 和 Red Hat Enterprise Linux 虚拟机上的 HYPER-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 
-* [在 HYPER-V 上支持的 Debian 虚拟机](Supported-Debian-virtual-machines-on-Hyper-V.md)
+* [Hyper-V 上支持的 Debian 虚拟机](Supported-Debian-virtual-machines-on-Hyper-V.md)
 
 * [受支持的 Oracle Linux 虚拟机上的 HYPER-V](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md)
 

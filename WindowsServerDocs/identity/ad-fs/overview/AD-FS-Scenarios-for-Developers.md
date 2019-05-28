@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a2a88608f3989522b1ec1c123f29bd679db7e318
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3a3156eefc4af52fb7daefb618c689b78fef5efc
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877938"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188816"
 ---
 # <a name="ad-fs-scenarios-for-developers"></a>面向开发人员的 AD FS 方案
 
->适用于：Windows Server 2016
 
 Windows Server 2016 [AD FS 2016] 中的 AD FS，可添加的行业标准 OpenID Connect 和 OAuth 2.0 基于身份验证和授权对应用程序进行开发，并让用户直接对 AD FS 进行身份验证这些应用程序。    
   
@@ -199,7 +198,7 @@ AD FS 通过例如的 redirect_uri，查询组件中的"code"参数作为返回�
 **令牌请求：**  
 发布 https://fs.contoso.com/adfs/oauth2/token  
   
-参数|值  
+参数|ReplTest1  
 ---------|---------  
 grant_type|"authorization_code"  
 code|从上面的第 2 授权代码  
@@ -248,7 +247,7 @@ client_secret|应用程序组中的 web 应用 （应用程序服务器） 机�
 **授权请求：**  
 获取 https://fs.contoso.com/adfs/oauth2/authorize?  
   
-参数|ReplTest1  
+参数|值  
 ---------|---------  
 response_type|"code+id_token"  
 response_mode|"form_post"  
@@ -270,7 +269,7 @@ AD FS 响应使用 HTTP 200 和窗体包含以下作为隐藏元素：
   
   
   
-参数|值  
+参数|ReplTest1  
 ---------|---------  
 grant_type|"authorization_code"  
 code|从上面的授权代码  

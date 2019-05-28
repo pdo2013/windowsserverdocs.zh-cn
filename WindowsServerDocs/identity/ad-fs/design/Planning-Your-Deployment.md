@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 5c7cec9ad92605f3dc98f8ce8fb7853a7ae61299
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0206197b24f13d80019cbc864057e99e195ebc4b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863688"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191136"
 ---
 # <a name="planning-your-deployment"></a>规划部署
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 当你规划跨\-组织\(联合身份验证\-基于\)协作使用 Active Directory 联合身份验证服务\(AD FS\)，首先确定你的组织将托管 Web 资源可由其他组织通过 Internet 访问或如果将你的组织中的员工提供对 Web 资源的访问。 此结果会影响如何部署 AD FS 中，和它是在 AD FS 基础结构的规划的基础。  
   
@@ -33,17 +31,17 @@ ms.locfileid: "59863688"
   
 ## <a name="in-this-section"></a>本节内容  
   
--   [安全规划和部署的 AD FS 的最佳实践](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)  
+-   [AD FS 安全规划和部署的最佳做法](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)  
   
--   [规划互操作性与 AD FS 1.x](Planning-for-Interoperability-with-AD-FS-1.x.md)  
+-   [规划与 AD FS 1.x 的互操作性](Planning-for-Interoperability-with-AD-FS-1.x.md)  
   
 -   [何时使用标识委托](When-to-Use-Identity-Delegation.md)  
   
--   [帐户伙伴组织中部署 AD FS](Deploying-AD-FS-in-the-Account-Partner-Organization-2012.md)  
+-   [在帐户伙伴组织中部署 AD FS](Deploying-AD-FS-in-the-Account-Partner-Organization-2012.md)  
   
--   [资源伙伴组织中部署 AD FS](Deploying-AD-FS-in-the-Resource-Partner-Organization-2012.md)  
+-   [在资源伙伴组织中部署 AD FS](Deploying-AD-FS-in-the-Resource-Partner-Organization-2012.md)  
   
 ## <a name="see-also"></a>请参阅
-[在 Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
 
 

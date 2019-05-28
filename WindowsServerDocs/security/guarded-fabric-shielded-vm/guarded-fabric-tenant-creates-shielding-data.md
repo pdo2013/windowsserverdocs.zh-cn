@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 1245b88a42b80218b5557dc89f2b97b5d0059d44
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 25ed17d964f12c2f497ccde443dad9f8bc253b20
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852538"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034671"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>租户-创建防护数据来定义受防护的 VM 的受防护的 Vm
 
@@ -35,7 +35,7 @@ ms.locfileid: "59852538"
 
 然后可以创建防护数据文件：
 
-- [创建防护数据文件并添加 guardians](#create-a-shielding-data-file-and-add-guardians)
+- [创建防护数据文件并添加 guardians](#create-a-shielding-data-file-and-add-guardians-using-the-shielding-data-file-wizard)
 
 
 ## <a name="obtain-a-certificate-for-remote-desktop-connection"></a>获取远程桌面连接的证书
@@ -211,7 +211,7 @@ New-HgsGuardian -Name "Owner" -GenerateCertificates
 你将需要所有者证书和相关私钥来 unshield 虚拟机，因此请确保这些证书中备份和保护免遭盗窃。
 攻击者有权访问所有者证书可以使用它们启动受防护的虚拟机或更改其安全配置。
 
-如果你需要从你想要运行你的虚拟机 （在主数据中心、 备份数据中心等），运行以下命令为每个受保护的构造导入保护者信息[从受保护的构造中检索元数据文件](#Select-trusted-fabrics).
+如果你需要从你想要运行你的虚拟机 （在主数据中心、 备份数据中心等），运行以下命令为每个受保护的构造导入保护者信息[从受保护的构造中检索元数据文件](#select-trusted-fabrics).
 
 ```powershell
 Import-HgsGuardian -Name 'EAST-US Datacenter' -Path '.\EastUSGuardian.xml'
@@ -220,7 +220,7 @@ Import-HgsGuardian -Name 'EAST-US Datacenter' -Path '.\EastUSGuardian.xml'
 > [!TIP]
 > 如果使用自签名的证书或证书注册的 HGS 已过期，可能需要使用`-AllowUntrustedRoot`和/或`-AllowExpired`导入 HgsGuardian 命令以绕过安全检查的标志。
 
-您还需要[获取卷签名目录](#Get-the-volume-signature-catalog-file)为每个你想要使用此屏蔽数据文件的模板磁盘和一个[屏蔽数据答案文件](#Create-an-answer-file)以允许操作系统以完成其专用化将自动任务。
+您还需要[获取卷签名目录](#get-the-volume-signature-catalog-file)为每个你想要使用此屏蔽数据文件的模板磁盘和一个[屏蔽数据答案文件](#create-an-answer-file)以允许操作系统以完成其专用化将自动任务。
 最后，决定是否要将完全受保护或只是 vTPM 已启用的 VM。
 使用`-Policy Shielded`为完全受防护的 VM 或`-Policy EncryptionSupported`vTPM 已启用允许基本的控制台连接的 VM 和 PowerShell Direct。
 
@@ -242,5 +242,5 @@ New-ShieldingDataFile -ShieldingDataFilePath "C:\temp\Marketing-LBI.pdk" -Policy
 
 ## <a name="see-also"></a>请参阅
 
-- [部署受防护的 Vm](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
-- [受保护的构造和受防护的 Vm](guarded-fabric-and-shielded-vms-top-node.md)
+- [部署受防护的 VM](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
+- [受保护的结构和受防护的 VM](guarded-fabric-and-shielded-vms-top-node.md)

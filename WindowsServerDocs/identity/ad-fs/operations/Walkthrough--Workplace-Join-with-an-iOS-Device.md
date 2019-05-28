@@ -9,16 +9,15 @@ ms.date: 10/18/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: c9c66b5bbe5fff83010859abe6ea4759d5bc4be0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 42b71667758f392d641c5262e34322f8b21cfad9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853628"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188910"
 ---
 # <a name="walkthrough-workplace-join-with-an-ios-device"></a>操作实例：使用 iOS 设备加入工作区
 
->适用于：Windows Server 2012 R2
 
 > [!IMPORTANT] 
 > 此方法非常适用于仅完全在本地客户。 混合或仅限云的客户必须使用此方法来注册其 iOS 设备。 并在本地客户决定移动到云时，此方法不兼容。 必须取消注册设备，并将其注册到云中。 
@@ -46,18 +45,18 @@ ms.locfileid: "59853628"
 
 2.  登录到网页使用公司的域帐户： **roberth@contoso.com**和密码： **P@ssword**。
 
-3.  系统会提示你安装配置文件。 在“安装配置文件”  屏幕上，单击“安装” 。
+3.  系统会提示你安装配置文件。 在“安装配置文件”  屏幕上，单击“安装”  。
 
-4.  当系统提示确认安装配置文件时，请单击“立即安装”。
+4.  当系统提示确认安装配置文件时，请单击“立即安装”  。
 
 5.  如果你的设备需要一个 PIN 来解锁，系统会提示你输入 PIN。
 
-6.  当你看到“配置文件已安装”  屏幕时，表示配置文件安装已完成。 单击 **“完成”**。
+6.  当你看到“配置文件已安装”  屏幕时，表示配置文件安装已完成。 单击 **“完成”** 。
 
     返回到 Safari。 显示一条消息，通知你可以关闭或退出 Safari。
 
 > [!TIP]
-> 若要查看或删除“工作区加入”配置文件，请浏览到“设置”，单击“常规”，然后单击 iOS 设备上的“配置文件”。
+> 若要查看或删除“工作区加入”配置文件，请浏览到“设置”  ，单击“常规”  ，然后单击 iOS 设备上的“配置文件”  。
 
 ## <a name="see-also"></a>请参阅
 

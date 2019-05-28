@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1310792158995608e8f477b6df9d6cf7c0284571
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c6aa91956f4a90b32b82e6c970e68b3164c732f0
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822248"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191706"
 ---
 # <a name="ad-fs-requirements"></a>AD FS 要求
-
->适用于：Windows Server 2012 R2
 
 部署 AD FS 时必须遵守的各种要求如下：  
   
@@ -334,7 +332,7 @@ AD FS 支持使用证书在加入其设备的最终用户工作区的操作期�
 |TripleDES – 默认 192\(支持 192 – 256\) \- [http:\/\/www.w3.org\/2001年\/04\/xmlenc\#tripledes\-cbc](http://www.w3.org/2001/04/xmlenc)|>\= 192|受支持的算法来对安全令牌进行解密。 不支持加密的安全令牌使用此算法。|  
 |AES128 \- http:\/\/www.w3.org\/2001年\/04\/xmlenc\#aes128\-cbc|128|受支持的算法来对安全令牌进行解密。 不支持加密的安全令牌使用此算法。|  
 |AES192 \- http:\/\/www.w3.org\/2001年\/04\/xmlenc\#aes192\-cbc|192|受支持的算法来对安全令牌进行解密。 不支持加密的安全令牌使用此算法。|  
-|AES256 \- [http:\/\/www.w3.org\/2001\/04\/xmlenc\#aes256\-cbc](http://www.w3.org/2001/04/xmlenc)|256|“默认”。 受支持的算法来加密的安全令牌。|  
+|AES256 \- [http:\/\/www.w3.org\/2001\/04\/xmlenc\#aes256\-cbc](http://www.w3.org/2001/04/xmlenc)|256|“默认”  。 受支持的算法来加密的安全令牌。|  
 |TripleDESKeyWrap \- http:\/\/www.w3.org\/2001年\/04\/xmlenc\#kw\-tripledes|支持的.NET 4.0 的所有密钥大小\+|受支持的加密对安全令牌进行加密的对称密钥的算法。|  
 |AES128KeyWrap \- [http:\/\/www.w3.org\/2001年\/04\/xmlenc\#kw\-aes128](http://www.w3.org/2001/04/xmlenc)|128|受支持的加密对安全令牌进行加密的对称密钥的算法。|  
 |AES192KeyWrap \- [http:\/\/www.w3.org\/2001年\/04\/xmlenc\#kw\-aes192](http://www.w3.org/2001/04/xmlenc)|192|受支持的加密对安全令牌进行加密的对称密钥的算法。|  

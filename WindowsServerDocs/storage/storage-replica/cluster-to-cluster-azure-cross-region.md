@@ -9,14 +9,17 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 41f435c3d537cbfd204dfa869d750b22200deb33
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d9999f786639ff4aa303ed34ade14849cda8feec
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891128"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475916"
 ---
 # <a name="cluster-to-cluster-storage-replica-cross-region-in-azure"></a>Azure 中跨区域群集到群集存储副本
+
+> 适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
+
 可以在 Azure 中配置群集到群集存储副本跨区域应用程序。 在下面的示例中，我们使用双节点群集，但群集到群集存储副本不会被限制到两个节点群集。 下图是可以相互通信，在同一个域中和跨区域的双节点存储空间直通群集。
 
 观看以下视频，该过程的完整演练。
@@ -31,7 +34,7 @@ ms.locfileid: "59891128"
 
     例如， **SR AZ2AZ**中**美国西部 2**并**SR AZCROSS**中**美国中西部**，如上所示。
 
-2. 创建两个[可用性集](https://ms.portal.azure.com/#create/Microsoft.AvailabilitySet-ARM)，一个在每个资源组的每个群集
+2. 创建两个[可用性集](https://ms.portal.azure.com/#create/Microsoft.AvailabilitySet-ARM)，每个资源组的每个群集中。
     - 可用性集 (**az2azAS1**) 中 (**SR AZ2AZ**)
     - 可用性集 (**azcross-AS**) 中 (**SR AZCROSS**)
 
@@ -41,7 +44,7 @@ ms.locfileid: "59891128"
 
 4. 创建两个网络安全组
    - 创建[网络安全组](https://ms.portal.azure.com/#create/Microsoft.NetworkSecurityGroup-ARM)(**az2az NSG**) 的第一个资源组中 (**SR AZ2AZ**)。
-   - 创建[网络安全组](https://ms.portal.azure.com/#create/Microsoft.NetworkSecurityGroup-ARM)(**azcross NSG**) 的第二个资源组中 (**SR AZCROSS**)。 
+   - 创建[网络安全组](https://ms.portal.azure.com/#create/Microsoft.NetworkSecurityGroup-ARM)(**azcross NSG**) 的第二个资源组中 (**SR AZCROSS**)。
 
    将 RDP:3389 的一个入站的安全规则添加到这两个网络安全组。 您可以选择您的安装程序完成后删除此规则。
 
@@ -72,10 +75,10 @@ ms.locfileid: "59891128"
 
    下面是示例 PowerShell 命令
    ```powershell
-      New-Cluster -Name SRAZC1 -Node az2az1,az2az2 – StaticAddress 10.3.0.100
+      New-Cluster -Name SRAZC1 -Node az2az1,az2az2 –StaticAddress 10.3.0.100
    ```
    ```powershell
-      New-Cluster -Name SRAZCross -Node azcross1,azcross2 – StaticAddress 10.0.0.10
+      New-Cluster -Name SRAZCross -Node azcross1,azcross2 –StaticAddress 10.0.0.10
    ```
 
 7. 启用存储空间直通。

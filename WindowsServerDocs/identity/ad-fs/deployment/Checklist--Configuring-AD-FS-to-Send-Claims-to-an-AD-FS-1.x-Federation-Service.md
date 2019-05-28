@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: bdfd06a28f8ccaa04014024a235cd19512adb181
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bd4c436c806074f63bf51f497429532d7be32f75
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887028"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192413"
 ---
 # <a name="checklist-configuring-ad-fs-to-send-claims-to-an-ad-fs-1x-federation-service"></a>清单：配置 AD FS 以发送 AD FS 1.x 联合身份验证服务的声明
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
   
 ## <a name="checklist-configuring-ad-fs-to-send-claims-to-an-adfs1x-federation-service"></a>清单：配置 AD FS 以发送到 AD FS 声明 1.x 联合身份验证服务  
 此清单包括配置 Active Directory 联合身份验证服务所需的任务\(AD FS\) Windows Server 2012，以发送声明可以理解的 AD FS 1 中的联合身份验证服务。*x*联合身份验证服务。  

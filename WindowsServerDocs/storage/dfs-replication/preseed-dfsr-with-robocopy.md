@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: a7a14b1a1e0f91002b201869e4c68187ffaf3f8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eaec563157a77fd4e782842a81e5b59e49a5ea09
+ms.sourcegitcommit: 7cb939320fa2613b7582163a19727d7b77debe4b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865078"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621297"
 ---
 # <a name="use-robocopy-to-preseed-files-for-dfs-replication"></a>使用 Robocopy 预先播种为 DFS 复制的文件
 
@@ -28,9 +28,9 @@ Robocopy （可靠文件副本） 命令行实用程序是包含在 Windows Serv
 
 若要使用 Robocopy 预先播种为 DFS 复制的文件，请执行以下步骤：
 
-1. [下载并安装最新版本的 Robocopy。](#step-1:-download-and-install-the-latest-version-of-robocopy)
-2. [稳定将复制的文件。](#step-2:-stabilize-files-that-will-be-replicated)
-3. [将复制的文件复制到目标服务器。](#step-3:-copy-the-replicated-files-to-the-destination-server)
+1. [下载并安装最新版本的 Robocopy。](#step-1-download-and-install-the-latest-version-of-robocopy)
+2. [稳定将复制的文件。](#step-2-stabilize-files-that-will-be-replicated)
+3. [将复制的文件复制到目标服务器。](#step-3-copy-the-replicated-files-to-the-destination-server)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -38,7 +38,7 @@ Robocopy （可靠文件副本） 命令行实用程序是包含在 Windows Serv
 
 - 需要该帐户是源和目标服务器上的本地管理员组的成员。
 
-- 将用于将文件复制在服务器上安装最新版本的 Robocopy，源服务器或目标服务器;你将需要安装最新版本的操作系统版本。 有关说明，请参阅[步骤 2:稳定将复制的文件](#step-2:-stabilize-files-that-will-be-replicated)。 除非 preseeding 文件从运行 Windows Server 2003 R2 的服务器，可以在源或目标服务器上运行 Robocopy。 目标服务器上，通常具有较新的操作系统版本，使您可以访问到最新版本的 Robocopy。
+- 将用于将文件复制在服务器上安装最新版本的 Robocopy，源服务器或目标服务器;你将需要安装最新版本的操作系统版本。 有关说明，请参阅[步骤 2:稳定将复制的文件](#step-2-stabilize-files-that-will-be-replicated)。 除非 preseeding 文件从运行 Windows Server 2003 R2 的服务器，可以在源或目标服务器上运行 Robocopy。 目标服务器上，通常具有较新的操作系统版本，使您可以访问到最新版本的 Robocopy。
 
 - 确保足够的存储空间可在目标驱动器上。 请勿在你打算将复制到的路径上创建一个文件夹：Robocopy 必须创建的根文件夹。
     
@@ -63,7 +63,7 @@ Robocopy （可靠文件副本） 命令行实用程序是包含在 Windows Serv
     
     ```robocopy.exe kbqfe "<operating system version>"```
     
-    例如，输入**robocopy.exe kbqfe"Windows Server 2008 R2"**。
+    例如，输入**robocopy.exe kbqfe"Windows Server 2008 R2"** 。
 
 3. 查找并下载使用最高 ID 号 （即，最新版本） 的修补程序。
 
@@ -105,7 +105,7 @@ Robocopy （可靠文件副本） 命令行实用程序是包含在 Windows Serv
     |"\<目标复制文件夹路径\>"|指定将存储 preseeded 的文件的文件夹的路径。<br><br>目标文件夹必须已经存在目标服务器上。 若要匹配的文件哈希值，Robocopy 必须 preseeds 文件时创建的根文件夹。|
     |/e|将复制子目录及其文件，以及空的子目录。|
     |/b|在备份模式下将文件复制。|
-    |/ copyal|将复制所有文件信息，包括数据、 属性、 时间戳、 NTFS 访问控制列表 (ACL)、 所有者信息和审核信息。|
+    |/copyall|将复制所有文件信息，包括数据、 属性、 时间戳、 NTFS 访问控制列表 (ACL)、 所有者信息和审核信息。|
     |/r:6|六次将重试该操作发生错误时。|
     |/w:5|等待 5 秒重试之间。|
     |MT:64|同时将 64 文件的复制。|

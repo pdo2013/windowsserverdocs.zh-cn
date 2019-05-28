@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 5494f3bd8d012bf1ecc240439ff880d1bb52c280
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3d7389ce806a5e3aebf4fe166b10e5262df0be8a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875178"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192245"
 ---
 # <a name="configuring-partner-organizations"></a>配置伙伴组织
-
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
 若要部署 Active Directory 联合身份验证服务中新的合作伙伴组织\(AD FS\)，完成中的任务[核对清单：配置资源伙伴组织](Checklist--Configuring-the-Resource-Partner-Organization.md)或[核对清单：配置帐户伙伴组织](Checklist--Configuring-the-Account-Partner-Organization.md)，取决于你的 AD FS 设计。  
   

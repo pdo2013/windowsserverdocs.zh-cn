@@ -4,16 +4,16 @@ description: 已知的问题和故障排除支持存储迁移服务，例如，�
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 02/27/2019
+ms.date: 05/14/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: f5fefab2c1b7ba8b62ffd6734217eab9a13ae95e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e1cfd2b0ea3bc4d7802cb4a6d2a8c1493d5511a1
+ms.sourcegitcommit: 0099873d69bd23495d275d7bcb464594de09ee3c
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888868"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65699696"
 ---
 # <a name="storage-migration-service-known-issues"></a>存储迁移服务的已知问题
 
@@ -54,7 +54,7 @@ Windows Admin Center 存储迁移服务扩展是仅用来管理 Windows Server 2
 
 若要解决此问题，不是预期的迁移目标的 Windows Server 2019 计算机上安装存储迁移服务，然后连接到该服务器与 Windows Admin Center 和执行迁移。
 
-我们想要在 Windows Server 的更高版本中解决此问题。 请打开通过一个支持案例[Microsoft 支持部门](https://support.microsoft.com)请求创建此修补程序的向后移植。
+我们已解决这更高版本的 Windows Server 中。 请打开通过一个支持案例[Microsoft 支持部门](https://support.microsoft.com)请求创建此修补程序的向后移植。
 
 ## <a name="storage-migration-service-isnt-included-in-windows-server-2019-evaluation-edition"></a>存储迁移服务不包括在 Windows Server 2019 评估版
 
@@ -103,14 +103,82 @@ Windows Admin Center 存储迁移服务扩展是仅用来管理 Windows Server 2
 
 ## <a name="cutover-fails-when-migrating-between-networks"></a>当网络之间迁移时，直接转换失败
 
-迁移到目标 VM 时运行中的源，如 Azure IaaS 实例，与不同的网络直接转换无法完成源使用静态 IP 地址时。 
+迁移到目标计算机在与源，如 Azure IaaS 实例，不同的网络中运行时直接转换无法完成源使用静态 IP 地址时。 
 
 此行为是默认设置，以防止用户、 应用程序和连接通过 IP 地址的脚本从迁移后的连接问题。 从旧的源计算机中的 IP 地址移到新的目标时，它不会与匹配的新网络子网信息和可能是 DNS 和 WINS。
 
 解决此问题，在同一网络上执行到一台计算机的迁移。 然后将该计算机移到新的网络，并重新分配其 IP 信息。 例如，如果迁移到 Azure IaaS，第一次迁移到本地 VM，然后使用 Azure Migrate 迁移到 Azure VM。  
 
-我们已在 Windows Server 2019 的更高版本中解决此问题。 现在，我们将允许您指定不会改变目标服务器的网络设置的迁移。 我们可能会发布到 Windows Server 2019 作为正常的每月更新周期的一部分的现有版本的更新。 
+我们已在更高版本的 Windows Admin Center 版本中解决此问题。 现在，我们将允许您指定不会改变目标服务器的网络设置的迁移。 发布时，将此处列出更新后的扩展。 
 
+## <a name="validation-warnings-for-destination-proxy-and-credential-administrative-privileges"></a>目标代理和凭据管理权限的验证警告
+
+正在验证的传输作业，会看到以下警告：
+
+ > **凭据具有管理权限。**
+ > 警告：远程操作不可用。
+ > **目标代理注册。**
+ > 警告：找不到目标代理。
+
+如果你尚未安装存储迁移服务代理服务的 Windows Server 2019 目标计算机上，或对于计算机是 Windows Server 2016 或 Windows Server 2012 R2，此行为由设计决定。 我们建议迁移到 Windows Server 2019 计算机使用代理安装显著改进了的传输性能。  
+
+## <a name="certain-files-do-not-inventory-or-transfer-error-5-access-is-denied"></a>某些文件未列出清单或传输、 错误 5"访问被拒绝"
+
+当清点或将文件从源传输到目标计算机时，用户已从中删除管理员组权限的文件无法迁移。 检查存储迁移服务的代理调试显示：
+
+  日志名称：    Microsoft-Windows-StorageMigrationService-代理/调试源：      Microsoft-Windows-StorageMigrationService-Proxy Date:        2/26/2019年上午 9:00:04 事件 ID:    10000 任务类别：无级别：       错误关键字：      
+  用户：        网络服务计算机： srv1.contoso.com 说明：
+
+  [错误] 02/26/2019-09:00:04.860 传输错误\\srv1.contoso.com\public\indy.png:（5） 访问被拒绝。
+堆栈跟踪： 在 Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.OpenFile （字符串文件名、 DesiredAccess desiredAccess、 ShareMode shareMode、 CreationDisposition creationDisposition、 FlagsAndAttributes flagsAndAttributes）在 Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetTargetFile （FileInfo 文件） 在 Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetTargetFile （字符串路径）在 Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.Transfer() Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.InitializeSourceFileInfo()Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.TryTransfer() [d:\os\src\base\dms\proxy\transfer\transferproxy\FileTransfer.cs::TryTransfer::55]
+
+
+此问题的原因不调用备份特权其中存储迁移服务中的代码缺陷。 
+
+若要解决此问题，请安装[Windows Update 2019 年 4 月 2 日-KB4490481 (OS 生成 17763.404)](https://support.microsoft.com/help/4490481/windows-10-update-kb4490481)业务流程协调程序计算机和目标计算机，如果那里安装了代理服务上。 请确保源迁移用户帐户是源计算机和存储迁移服务业务流程协调程序上的本地管理员。 请确保目标迁移用户帐户是目标计算机和存储迁移服务业务流程协调程序上的本地管理员。 
+
+## <a name="dfsr-hashes-mismatch-when-using-storage-migration-service-to-preseed-data"></a>使用存储迁移服务预先播种数据时，DFSR 哈希不匹配
+
+当使用存储迁移服务将文件传输到新的目标，然后配置 DFS 复制 (DFSR) 复制该数据与现有的 DFSR 服务器通过 presseded 复制或克隆，DFSR 数据库所有文件 experiemce 哈希不匹配，并且是重新复制。 数据流、 安全流、 大小和所有显示要使用 SMS 将其传输之后完全匹配的属性。 检查与 ICACLS 文件或 DFSR 数据库克隆调试日志会显示：
+
+源文件：
+
+  icacls d:\test\Source:
+
+  icacls d:\test\thatcher.png /save out.txt /t thatcher.png D:AI(A;;FA;;;BA)(A;;0x1200a9;;;DD)(A;;0x1301bf;;;DU)(A;ID;FA;;;BA)(A;ID;FA;;;SY)(A;ID;0x1200a9;;;BU)
+
+目标文件：
+
+  icacls d:\test\thatcher.png /save out.txt /t thatcher.png D:AI(A;;FA;;;BA)(A;;0x1301bf;;;DU)(A;;0x1200a9;;;DD)(A;ID;FA;;;BA)(A;ID;FA;;;SY)(A;ID;0x1200a9;;;BU)**S:PAINO_ACCESS_CONTROL**
+
+DFSR 调试日志：
+
+  找到 20190308 10:18:53.116 3948 DBCL 4045 [警告] DBClone::IDTableImportUpdate 不匹配记录。 
+
+  本地 ACL 哈希： 1BCDFE03-A18BCE01-D1AE9859-23A0A5F6 LastWriteTime:20190308 18:09:44.876 FileSizeLow:1131654 FileSizeHigh:0属性： 32 
+
+  克隆 ACL 哈希：**DDC4FCE4 DDF329C4 977CED6D F4D72A5B** LastWriteTime:20190308 18:09:44.876 FileSizeLow:1131654 FileSizeHigh:0属性： 32 
+
+存储迁移服务用于设置安全审核 Acl (SACL) 库中的代码缺陷导致此问题。 SACL 为空，前导 DFSR 以正确地标识哈希不匹配时无意中设置了非 null SACL。 
+
+解决此问题，请继续使用为 Robocopy[预先播种 DFSR 和 DFSR 数据库克隆操作](../dfs-replication/preseed-dfsr-with-robocopy.md)而不是存储迁移服务。 我们正在调查此问题，并想要解决此问题在 Windows Server 和可能是向后移植 Windows 更新的更高版本。 
+
+## <a name="error-404-when-downloading-csv-logs"></a>下载 CSV 时的 404 错误日志
+
+在尝试下载末尾的传输操作传输或错误日志时，你将收到错误：
+
+  $jobname:传输日志： ajax 错误 404
+
+如果没有启用业务流程协调程序服务器上的"文件和打印机共享 (Smb-in)"防火墙规则，会出现此错误。 Windows Admin Center 文件下载要求端口 TCP/445 (SMB) 连接在计算机上。  
+
+## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transfering-from-windows-server-2008-r2"></a>错误"无法将传输存储上的任何终结点"时从 Windows Server 2008 R2 的传输
+
+在尝试从 Windows Server 2008 R2 源计算机传输数据时，没有数据 trasnfers 并且您将收到错误：  
+
+  无法传输在任一终结点上的存储。
+0x9044
+
+如果您的 Windows Server 2008 R2 计算机不完全修补，并从 Windows 更新的所有关键和重要更新的则会出现此错误。 而不考虑存储迁移服务，我们始终建议修补 Windows Server 2008 R2 计算机出于安全目的，因为该操作系统不会包含较新版本的 Windows Server 的安全改进。
 
 ## <a name="see-also"></a>请参阅
 

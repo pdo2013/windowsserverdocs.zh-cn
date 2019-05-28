@@ -1,0 +1,721 @@
+---
+title: 优化 Windows 10，版本 1803，为虚拟桌面基础结构 (VDI) 角色
+description: 建议的设置和配置适用于 Windows 10 1803年开销降至最低） 台式计算机用作 VDI 映像
+ms.custom: na
+ms.prod: windows-server-threshold
+ms.reviewer: robsmi
+ms.suite: na
+ms.technology: remote-desktop-services
+ms.author: jaimeo, robsmi
+ms.tgt_pltfrm: na
+ms.topic: article
+author: jaimeo
+manager: dougkim
+ms.openlocfilehash: 2af0ea64ce88431bfb6a4922ae7a471862ed7f82
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034639"
+---
+# <a name="optimizing-windows-10-version-1803-for-a-virtual-desktop-infrastructure-vdi-role"></a>优化 Windows 10，版本 1803，为虚拟桌面基础结构 (VDI) 角色
+
+本文可帮助你选择适用于 Windows 10，版本 1803 （内部版本 17134），这应该产生虚拟化桌面基础结构 (VDI) 环境中性能最佳的设置。 本指南中的所有设置都都*建议视为*和都中没有的方法要求。
+
+在 VDI 环境中优化 Windows 10 性能的关键方法是以尽量减少应用图形重绘，没有任何主要 VDI 环境的后台活动，并通常最低限度减少正在运行的进程。 第二个目的是将减少到的最低要求的基本映像中的磁盘空间使用情况。 与 VDI 实现、 最小可能的基础或"黄金"图像大小，可以稍微降低上虚拟机监控程序，以及小减少总体桌面映像提供给使用者所需的网络操作的内存使用率。
+
+> [!NOTE]  
+> 此处建议的设置可以应用于 Windows 10，版本 1803，包括物理或其他虚拟设备上的其他安装。 本主题中的任何建议应不影响 Windows 10，版本 1803年可支持的性。
+
+> [!TIP]  
+> 在此主题--实现所述的优化的脚本，以及可以使用导入一个 GPO 导出文件**LGPO.exe**-可在[TheVDIGuys](https://github.com//TheVDIGuys) GitHub 上。
+
+## <a name="vdi-optimization-principles"></a>VDI 优化原则
+
+VDI 环境提供完整的桌面会话，包括应用程序，通过网络计算机用户。 VDI 环境通常使用的基本操作系统映像，然后将成为随后呈现给用户的工作的桌面的基础。 有一些变体 VDI 实现，如"持久性"，"非持久性"和"桌面会话。" 持久类型保留到下一个会话中为 VDI 桌面操作系统的更改。 非持久类型不会保留更改到 VDI 桌面操作系统从到下一个会话。 向用户此桌面是与其他虚拟或物理设备，稍有不同，而不通过网络访问。
+
+优化设置需要在引用设备。 VM 是一个理想位置用于生成映像，因为可以保存的状态，请检查点，并且可以进行备份，以及其他有用的任务。 首先在基础 VM 上安装的默认操作系统，然后通过删除不需要的应用程序、 安装 Windows 更新、 安装其他更新、 删除临时文件、 应用设置等优化用于 VDI 基础 VM。
+
+有其他类型的 VDI 如持久性和远程桌面服务 (RDS)。 有关这些技术的深入讨论已超出本主题中，哪些主要适用于 Windows 的基本映像设置引用主机优化等环境中的其他因素的作用域。
+
+### <a name="persistent-vdi"></a>持久 VDI
+
+在基本级别，持久 VDI 是保存在重新启动之间的操作系统状态的 VM。 VDI 解决方案的其他软件层向其分配的虚拟机，通常使用单一登录解决方案提供用户轻松且无缝访问权限。
+
+有几个不同的持久 VDI 实现：
+
+-   传统的虚拟机，其中 VM 有其自己的虚拟磁盘文件，通常情况下启动、 将更改从一个会话保存到下一步，和在本质上是常规 VM。 不同之处在于，用户如何访问此 VM。 可能在用户登录到，自动将用户定向到其一个 web 门户或者的详细信息分配 VDI Vm。
+
+-   基于映像的永久性虚拟机，使用个人虚拟磁盘。 在这种实现的一个或多个主机服务器上没有基/黄金映像。 创建 VM，并创建一个或多个虚拟磁盘，并分配到此磁盘进行永久性存储。
+
+    -   当启动 VM 时，到 VM 的内存读取的基本映像的副本。 同时，分配给该 VM，与任何以前的操作系统更改持久性虚拟磁盘合并通过一个复杂的过程。
+
+    -   事件日志写入、 日志写入等的更改将重定向到分配给该 VM 的读/写虚拟磁盘。
+
+    -   在此情况下，操作系统和应用程序服务可能正常运行，使用传统服务软件，例如 Windows Server Update Services 或其他管理技术。
+
+### <a name="non-persistent-vdi"></a>非持久 VDI
+
+如果非持久 VDI 实现基于的基或"黄金"映像，优化的主要执行在基本映像，然后通过本地设置和本地策略。
+
+使用基于映像的非持久 VDI 基础映像是只读的。 非持久 VDI VM 启动时，一份基本映像是流式传输到 VM。 发生在启动期间和之后，直到下次重新启动已重定向到一个临时位置的活动。 通常用户提供了网络位置来存储其数据。 在某些情况下，用户的配置文件合并在一起的标准 VM 来为其设置的用户。
+
+服务的单一映像为基础的非 persitent VDI 的一个重要方面。 每月一次通常提供对操作系统的更新。
+基于映像的 VDI 提供了一组进程执行来获取映像的更新：
+
+-   在给定主机上派生自该主机上的所有 Vm 的基本映像都必须是关闭的情况下或处于关闭状态。 这意味着用户将重定向到其他 Vm。
+
+-   然后打开基本映像并将其启动。 然后执行了这所有的维护活动，例如操作系统更新、.NET 更新、 应用更新，等等。
+
+-   在此时应用需要应用任何新设置。
+
+-   在这一次执行其他维护。
+
+-   然后关闭基本映像。
+
+-   基本映像是密封的设置返回到生产环境。
+
+-   允许用户重新登录。
+
+> [!NOTE]  
+> Windows 10 自动执行定期维护任务的一组。 没有在每天凌晨 3:00 当地时间默认情况下设置的计划的任务。 此计划的任务执行任务，包括 Windows 更新清除的列表。 您可以查看维护，会自动使用此 PowerShell 命令发生的所有的类别：
+
+`Get-ScheduledTask | ? {$_.Settings.MaintenanceSettings}`
+
+
+
+使用非持久 VDI 的挑战之一是当用户注销，几乎所有操作系统活动将被都丢弃。 可能会保存用户的配置文件和或状态，但在虚拟机本身将放弃自上次启动以来所做的几乎所有更改。 因此，优化适用于将状态从一个会话保存到下一步的 Windows 计算机不适用。
+
+根据 VM VDI 的体系结构，重启 like 预取和 SuperFetch 将不会从一个会话帮助对下一步，因为 VM 上将放弃所有优化操作。 索引可能是部分会浪费资源，而这是传统的碎片整理等任何磁盘优化。
+
+### <a name="to-sysprep-or-not-sysprep"></a>Sysprep 或不 Sysprep
+
+Windows 10 提供了名为的内置功能[系统准备工具](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)，(通常为"Sysprep"abbreviiated)。 使用 Sysprep 工具来为复制准备的自定义的 Windows 10 映像。 Sysprep 过程可确保生成的操作系统是正确唯一的以在生产环境中运行。
+
+有理由主张和不运行 Sysprep。 对于 VDI，您可能希望自定义将用作后续登录使用此映像的用户配置文件模板的默认用户配置文件的功能。 你可能需安装，但还可以控制每个应用设置的应用。
+
+替代方法是使用标准。ISO 安装，可能使用无人参与的安装应答文件和任务序列安装应用程序或删除应用程序。 此外可以使用任务序列在图中，设置本地策略设置可能使用[本地组策略对象实用工具 (LGPO)](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/)工具。
+
+#### <a name="vdi-optimization-categories"></a>VDI 优化类别
+
+
+-   全局操作系统设置
+
+    -   UWP 应用清理
+
+    -   可选功能清理
+
+    -   本地策略设置
+
+    -   系统服务
+
+    -   计划任务
+
+    -   应用 Windows 更新
+
+    -   自动 Windows 跟踪
+
+    -   磁盘清理之前正在完成 （密封） 映像
+
+-   用户设置
+
+-   虚拟机监控程序 / 主机设置
+
+##### <a name="global-vdi-operating-system-optimization"></a>全局 VDI 操作系统优化
+
+全局 VDI 设置包括：
+
+-   [通用 Windows 平台 (UWP) 应用清理](#universal-windows-platform-app-cleanup)
+
+-   [清除的可选功能](#clean-up-optional-features)
+
+-   [本地策略设置](#local-policy-settings)
+
+-   [系统服务](#system-services)
+
+-   [计划的任务](#scheduled-tasks)
+
+-   [应用 Windows 和其他更新](#apply-windows-and-other-updates)
+
+-   [自动 Windows 跟踪](#automatic-windows-traces)
+
+-   [使用 VDI 的 Windows Defender 优化](#windows-defender-optimization-with-vdi)
+
+-   [通过使用注册表设置优化 Windows 10 的网络性能](#tuning-windows-10-network-performance-by-using-registry-settings)
+
+-   从其他设置[Windows 限制流量有限功能基线](https://go.microsoft.com/fwlink/?linkid=828887)指南。
+
+-   [磁盘清理](#disk-cleanup-including-using-the-disk-cleanup-wizard)
+
+### <a name="universal-windows-platform-app-cleanup"></a>通用 Windows 平台应用清理
+
+VDI 映像的目标之一是为越小越好。 若要减小映像大小的一种方法是在环境中删除的用不到 UWP 应用程序。 与 UWP 应用有主应用程序文件，也称为负载。 没有少量的数据存储在每个用户的配置文件为应用程序特定的设置。 此外，还有少量的所有用户配置文件中的数据。
+
+连接和计时是所有内容谈到 UWP 应用清理。 如果您的基础映像部署到未通过网络连接设备时，Windows 10 不能连接到 Microsoft Store 和下载应用并尝试进行安装它们，但想要卸载它们。
+
+如果您修改基准。用于安装 Windows 10 和删除的 WIM 不需要从 UWP 应用。WIM 之前安装，不会开始安装应用和你的配置文件创建时间应该更短的时间。 更高版本在此部分中，可以找到有关如何从您的安装中删除 UWP 应用的信息。WIM 文件。
+
+VDI 的好办法是预配所需在基本映像，然后限制或阻止访问 Microsoft Store 之后的应用。 应用商店应用程序在正常的计算机上在后台定期更新。 其他更新应用时，可以在维护时段内更新 UWP 应用。 
+
+#### <a name="delete-the-payload-of-uwp-apps"></a>删除 UWP 应用的有效的负载
+
+UWP 应用不需要的是仍在文件系统中使用小磁盘空间量。 对于永远不会将所需的应用程序，可以从基本映像使用 PowerShell 命令删除不需要的 UWP 应用的有效负载。
+
+事实上，如果你删除那些从安装。使用链接的 WIM 文件提供更高版本在此部分中，您应该能够从头开始非常精简的 UWP 应用的列表。
+
+运行以下命令，以枚举预配的 UWP 应用，从正在运行 Windows 10 操作系统，如从 PowerShell 此截断的示例输出所示：
+
+```powershell
+
+    Get-AppxProvisionedPackage -Online 
+    
+    DisplayName  : Microsoft.3DBuilder
+    Version      : 13.0.10349.0  
+    Architecture : neutral
+    ResourceId   : \~ 
+    PackageName  : Microsoft.3DBuilder_13.0.10349.0_neutral_\~_8wekyb3d8bbwe 
+    Regions      : 
+    ...
+```
+
+
+可以在作为任务序列的一部分的操作系统安装过程中删除预配到系统的 UWP 应用或更高版本操作系统后安装。 这可能是首选的方法，因为这样可以模块化的总体过程的创建或维护映像。 一旦您开发脚本，如果发生更改在后续版本中，编辑现有脚本而不重复该过程从零开始。 下面是一些有关此主题的信息的链接：
+
+[任务序列过程中删除 Windows 10 内置应用](https://blogs.technet.microsoft.com/mniehaus/2015/11/11/removing-windows-10-in-box-apps-during-a-task-sequence/)
+
+[从 Windows 10 WIM 文件使用 Powershell 的版本 1.3 中删除内置应用](https://gallery.technet.microsoft.com/Removing-Built-in-apps-65dc387b)
+
+[Windows 10 1607年:即将从使应用程序时部署功能更新](https://blogs.technet.microsoft.com/mniehaus/2016/08/23/windows-10-1607-keeping-apps-from-coming-back-when-deploying-the-feature-update/)
+
+然后运行[删除 AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/remove-appxprovisionedpackage?view=win10-ps) PowerShell 命令以删除 UWP 应用有效负载：
+
+`Remove-AppxProvisionedPackage -Online -PackageName MyAppxPackage`
+
+应为每个 UWP 应用计算每个唯一的环境中的适用性。 将想要安装的 Windows 10，版本 1803，默认安装，然后请注意哪些应用程序正在运行并占用的内存。 例如，您可能需要考虑删除应用程序自动启动或应用的开始菜单中，例如天气和新闻，自动显示的信息和不可能的环境中使用。
+
+其中一个"收件箱"UWP 应用调用照片，具有默认设置被调用**新唱片集不可用时显示通知**。  照片应用可以使用大约 145 MB 的内存;特别是私有的工作集内存，即使，如果不是正在使用。  更改**新唱片集不可用时显示通知**设置所有用户不是实际在此时间，因此如果它不是需要或期望的删除照片应用的建议。
+
+### <a name="clean-up-optional-features"></a>清除的可选功能
+
+#### <a name="managing-optional-features-with-powershell"></a>使用 PowerShell 管理可选功能
+
+ 若要枚举当前已安装的 Windows 功能，请运行以下 PowerShell 命令：
+
+`Get-WindowsOptionalFeature -Online`
+
+
+您可以启用或禁用特定 Windows 可选功能如此示例所示：
+
+`Enable-WindowsOptionalFeature -Online -FeatureName "DirectPlay" -All`
+
+有关详细信息，请参阅[Windows 10:管理可选功能，使用 PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/39386.windows-10-managing-optional-features-with-powershell.aspx)。
+
+#### <a name="enable-or-disable-windows-features-by-using-dism"></a>启用或禁用 Windows 功能使用 DISM
+
+可以使用内置**Dism.exe**工具来枚举和控制 Windows 可选功能。 可以设置 Dism.exe 脚本在用于安装操作系统的任务序列过程中运行。
+
+### <a name="local-policy-settings"></a>本地策略设置
+
+可以使用 Windows 策略建立在 VDI 环境中适用于 Windows 10 的很多优化。 此处列出的设置可以应用于基本映像中的本地。 然后如果未指定等效的设置是以任何其他方式如组策略，这些设置将仍适用。
+
+一些决策可能基于环境的具体情况为例：
+
+-   VDI 环境是否可以访问 Internet？
+
+-   持久或非持久性是 VDI 解决方案？
+
+以下设置，特别是请勿计数器或与具有任何与安全性无关的任何设置发生冲突。 这些设置选择要删除可能不适用于 VDI 环境的设置。
+
+> [!NOTE]  
+> 在此表中的组策略设置，以星号标记的项是从[Windows 限制流量有限功能基线](https://go.microsoft.com/fwlink/?linkid=828887)。
+
+| 策略设置   | 项目    | 子项目     | 可能的设置和注释   |
+|------------------|---------|--------------|--------|
+| **本地计算机策略\\计算机配置\\Windows 设置\\安全设置**  | |  |        |
+| **网络列表管理器策略**                   | 所有网络属性                   | 网络位置     | 用户不能更改位置                                                                                                                                   |
+| **本地计算机策略\\计算机配置\\管理模板\\控制面板**                    |                                           |                      |                                                                                                                                                                               |
+| \***控制面板**                                 | 允许联机提示                                         |                      | 已禁用 （设置将不 Microsoft 内容与服务联系以检索提示和帮助内容）                                                                                                                                                             |
+| **\*控制面板**\\个性化设置                               | 不显示锁屏界面                            |                      | 启用 （此策略设置控制是否在锁定屏幕将显示为用户。 如果启用此策略设置，无需登录前按 CTRL + ALT + DEL 的用户会看到其所选的磁贴后锁定其电脑。）                                                                                                                             |
+| **\*控制面板**\\个性化设置                               | 强制执行特定的默认锁定屏幕和登录图                      |[![UI，以将路径设置为锁屏图像的图像](media/lock-screen-image-settings.png)](media/lock-screen-image-settings.png)             | 启用 (此设置允许您指定的默认锁定屏幕和登录图所示在中，以及无用户登录时设置的指定的图像作为默认为所有用户-它将替换默认图像。)低分辨率，非复杂映像会导致较少呈现图像每次在网络上传输的数据。                                                                                                       |
+| **\*控制面板**\\区域和语言选项\\手写个性化                    | 关闭自动学习                               |                      | 启用 （如果启用此策略设置，自动学习停止并删除任何存储的数据。 用户不能在控制面板中配置此设置）                                                                                                                                                   |
+| **本地计算机策略\\计算机配置\\管理模板\\网络**          |                                           |                      |                                                                                                                                                                               |
+| **后台智能传输服务 (BITS)**                                  | 不允许 BITS 客户端使用 Windows 分支缓存                                  |                      | Enabled                                                                                                                                                                                       |
+| **后台智能传输服务 (BITS)**                                  | 不允许计算机充当 BITS 对等缓存客户端                             |                      | Enabled                                                                                                                                                                                       |
+| **后台智能传输服务 (BITS)**                                  | 不允许为 BITS 对等缓存服务器的计算机                             |                      | Enabled                                                                                                                                                                                       |
+| **后台智能传输服务 (BITS)**                                  | 允许 BITS 对等缓存                                    |                      | Disabled                                                                                                                                                                                      |
+| **BranchCache**                                     | 打开 BranchCache                                       |                      | Disabled                                                                                                                                                                                      |
+| \***字体**                                         | 启用的字体供应商                                     |                      | 已禁用 （Windows 不会连接到联机字体提供程序和仅枚举本地已安装的字体。）                                                                                                                                                    |
+| **热点身份验证**                          | 启用热点身份验证                             |                      | Disabled                                                                                                                                                                                      |
+| **Microsoft 对等方对等网络服务**                      | 关闭 Microsoft 对等方对等网络服务                       |                      | Enabled                                                                                                                                                                                       |
+| **网络连接状态指示器**（请注意，有可以在隔离网络中使用本部分中的其他设置）                           | 指定被动轮询                                   | 禁用被动轮询 （复选框）                   | 启用 （使用此设置，如果隔离的网络）。 基于或使用静态 IP 地址                                                                                                                                                            |
+| **脱机文件**                                   | 允许或禁止使用脱机文件功能                        |                      | Disabled                                                                                                                                                                                      |
+| **\*TCPIP 设置**\\ IPv6 转换技术                                 | 设置 Teredo 状态                                          | 已禁用状态                       | 启用 （处于禁用状态没有 Teredo 接口是主机上存在。）                                                                                                                                                                       |
+| **\*WLAN 服务**\\ WLAN 设置                                  | 允许 Windows，从而自动连接到建议打开热点、 网络共享的联系人，以及提供付费的服务的热点 |                      | 已禁用 (**连接到建议打开热点**，**连接到网络共享的我的联系人**，和**启用付费型服务**将关闭，并且用户在此设备，则将为无法启用它们。）                                                                                                                                |
+| **本地计算机策略\\计算机配置\\管理模板\\开始菜单和任务栏**           |                                           |                      |                                                                                                                                                                               |
+| \***通知**                                 | 关闭通知网络使用情况                                      |                      | 启用 （如果启用此策略设置，应用程序和系统功能将不能从网络从 WNS 或通知轮询 Api 接收通知。）                                                                                                                                               |
+| **本地计算机策略\\计算机配置\\管理模板\\系统**           |                                           |                      |                                                                                                                                                                               |
+| **设备安装**                             | 不发送 Windows 错误报告时在设备上安装的通用驱动程序                         |                      | Enabled                                                                                                                                                                                       |
+| **设备安装**                             | 防止在正常情况下会提示创建还原点的设备活动过程中创建系统还原点                  |                      | Enabled                                                                                                                                                                                       |
+| **设备安装**                             | 阻止来自 Internet 的设备元数据检索                       |                      | Enabled                                                                                                                                                                                       |
+| **设备安装**                             | 阻止 Windows 发送错误报告时设备驱动程序请求其他软件在安装过程        |                      | Enabled                                                                                                                                                                                       |
+| **设备安装**                             | 关闭**发现新硬件**在设备安装过程中提示框                         |                      | Enabled                                                                                                                                                                                       |
+| **文件系统**\\NTFS                                | 短名称创建选项                               | 所有卷上已禁用              | Enabled                                                                                                                                                                                       |
+| \***组策略**                                  | 配置 web 应用与应用程序 URL 处理程序的链接                        |                      | 已禁用 （禁用 web 应用链接和 http （s） Uri 将在中打开默认浏览器而不是 starging 的关联应用程序。）                                                                                                                                                         |
+| \***组策略**                                  | 在此设备上继续体验                                       |                      | 已禁用 （在 Windows 设备不是发现其他设备，且不能参与跨设备体验）                                                                                                                                                         |
+| **Internet 通信管理**\\ Internet 通信设置                             | 关闭对所有 Windows 更新功能的访问                            |                      | 启用 （如果启用此策略设置，所有 Windows 更新功能会被删除。 这包括阻止访问 Windows Update 网站： http://windowsupdate.microsoft.com，从开始菜单中，并且也将在 Internet Explorer 工具菜单上的 Windows 更新超链接。 Windows 自动更新也被禁用;既不会通知您有关，也不会接收关键更新从 Windows 更新。 此策略设置还可防止设备管理器会自动从 Windows 更新网站安装驱动程序更新。）                                                       |
+| **Internet 通信管理**\\ Internet 通信设置                             | 关闭自动根证书更新                               |                      | 已启用 （如果启用此策略设置，会显示不受信任的根证书颁发机构颁发的证书时，您的计算机将联系 Windows 更新网站，以查看 Microsoft 是否已将 CA 添加到受信任颁发机构的列表。）  **注意：** 如果你有最新的证书吊销列表的替代方法，仅使用此策略。                                                                                                           |
+| **Internet 通信管理**\\ Internet 通信设置                             | 关闭事件查看器"Events.asp"链接                                  |                      | Enabled                                                                                                                                                                                       |
+| **Internet 通信管理**\\ Internet 通信设置                             | 关闭手写个性化数据共享                         |                      | Enabled                                                                                                                                                                                       |
+| **Internet 通信管理**\\ Internet 通信设置                             | 关闭手写识别错误报告                          |                      | Enabled                                                                                                                                                                                       |
+| **Internet 通信管理**\\ Internet 通信设置                             | 关闭帮助和支持中心"你知道吗？" content                                  |                      | Enabled                                                                                                                                                                                       |
+| **Internet 通信管理**\\ Internet 通信设置                             | 关闭帮助和支持中心 Microsoft 知识库搜索                          |                      | Enabled                                                                                                                                                                                       |
+| **Internet 通信管理**\\ Internet 通信设置                             | 如果 URL 连接指向 Microsoft.com，则关闭 Internet 连接向导                       |                      | Enabled                                                                                                                                                                                       |
+| **Internet 通信管理**\\ Internet 通信设置                             | 关闭 web 发布和在线订购向导的 Internet 下载                 |                      | Enabled                                                                                                                                                                                       |
+| **Internet 通信管理**\\ Internet 通信设置                             | 关闭 Internet 文件关联服务                                |                      | Enabled                                                                                                                                                                                       |
+| **Internet 通信管理**\\ Internet 通信设置                             | 如果 URL 连接指向 Microsoft.com，则关闭注册                     |                      | Enabled                                                                                                                                                                                       |
+| **Internet 通信管理**\\ Internet 通信设置                             | 关闭"订购打印"照片任务                                  |                      | Enabled                                                                                                                                                                                       |
+| **Internet 通信管理**\\ Internet 通信设置                             | 关闭文件和文件夹的"发布到 Web"任务                                  |                      | Enabled                                                                                                                                                                                       |
+| **Internet 通信管理**\\ Internet 通信设置                             | 关闭 Windows Messenger 客户体验改善计划                    |                      | Enabled                                                                                                                                                                                       |
+| **Internet 通信管理**\\ Internet 通信设置                             | 关闭 Windows 客户体验改善计划                                  |                      | Enabled                                                                                                                                                                                       |
+| **\*Internet 通信管理**\\ Internet 通信设置                           | 关闭 Windows 网络连接状态指示器的活动测试                       |                      | 已启用 （此策略设置将关闭活动的测试执行通过 Windows 网络连接状态指示器 (NCSI) 来确定您的计算机连接到 Internet 或在确定连接级别的限制更多网络NCSI 执行两个活动的测试中的一个： 从专用 Web 服务器下载网页或进行专用地址的 DNS 请求。 如果启用此策略设置，NCSI 不运行两个活动测试之一。 这可能会降低 NCSI，并使用 NCSI，来确定 Internet 访问权限的其他组件的功能） 请注意：没有其他策略，可用于将 NCSI 测试重定向到内部资源，如果需要此功能。 |
+| **Internet 通信管理**\\ Internet 通信设置                             | 关闭 Windows 错误报告                          |                      | Enabled                                                                                                                                                                                       |
+| **Internet 通信管理**\\ Internet 通信设置                             | 关闭 Windows Update 设备驱动程序搜索                           |                      | Enabled                                                                                                                                                                                       |
+| **登录**                                           | 显示首次登录动画                              |                      | Disabled                                                                                                                                                                                      |
+| **登录**                                           | 关闭锁屏界面上的应用通知                             |                      | Enabled                                                                                                                                                                                       |
+| **登录**                                           | 关闭 Windows 启动声音                            |                      | Enabled                                                                                                                                                                                       |
+| **电源管理**                                | 选择活动的电源计划                               | 高性能                     | Enabled                                                                                                                                                                                       |
+| **恢复**                                        | 允许还原为默认状态系统                                  |                      | Disabled                                                                                                                                                                                      |
+| \***存储运行状况**                                | 允许将更新下载到磁盘故障预测模型                            |                      | 已禁用 （将不会下载更新的磁盘故障预测失败模型）                                                                                                                                                      |
+| \***Windows 时间服务**\\时间提供程序                        | 启用 Windows NTP 客户端                                 |                      | （如果禁用或未配置此策略设置，本地计算机时钟不同步时间与 NTP 服务器） 已禁用**注意**:*请考虑此设置非常仔细地*。 应使用加入到域的 Windows 设备**NT5DS**。 DC 在父域的 DC 可能使用 NTP。 PDCe 角色可能会使用 NTP。 虚拟机有时使用"增强功能"或"integration services"。                                                                                       |
+| **故障排除和诊断**\\计划维护                         | 配置计划的维护行为                                  |                      | Disabled                                                                                                                                                                                      |
+| **故障排除和诊断**\\ Windows 启动性能诊断                          | 配置方案的执行级别                                        |                      | Disabled                                                                                                                                                                                      |
+| **故障排除和诊断**\\ Windows 内存泄漏诊断               | 配置方案的执行级别                                        |                      | Disabled                                                                                                                                                                                      |
+| **故障排除和诊断**\\ Windows 资源耗尽检测和解决方法          | 配置方案的执行级别                                        |                      | Disabled                                                                                                                                                                                      |
+| **故障排除和诊断**\\ Windows 关机性能诊断                      | 配置方案的执行级别                                        |                      | Disabled                                                                                                                                                                                      |
+| **故障排除和诊断**\\ Windows 待机/恢复性能诊断                | 配置方案的执行级别                                        |                      | Disabled                                                                                                                                                                                      |
+| **故障排除和诊断**\\ Windows 系统响应能力性能诊断                         | 配置方案的执行级别                                        |                      | Disabled                                                                                                                                                                                      |
+| \***用户配置文件**                                 | 关闭广告 ID                               |                      | 启用 （如果启用此策略设置，ID 处于关闭状态的广告。 应用程序不能用于 ID 体验跨应用程序。）                                                                                                                                              |
+| **本地计算机策略\\计算机配置\\管理模板\\Windows 组件**               |                                           |                      |                                                                                                                                                                               |
+| **将功能添加到 Windows 10**                                      | 阻止运行向导                           |                      | Enabled                                                                                                                                                                                       |
+| \***应用程序隐私**                                   | 让 Windows 应用访问帐户信息                               | 所有应用的默认值：强制拒绝                     | 启用 (如果愿意**强制拒绝**选项，Windows 应用不允许访问帐户信息和你的组织中的员工不能更改)                                                                                                                                               |
+| \***应用程序隐私**                                   | 让的 Windows 应用程序访问呼叫历史记录                                      | 所有应用的默认值：强制拒绝                     | 启用 (如果愿意**强制拒绝**选项，Windows 应用不允许访问呼叫历史记录和在组织中的员工不能更改它。)                                                                                                                                                  |
+| \***应用程序隐私**                                   | 让 Windows 应用访问通讯录                          | 所有应用的默认值：强制拒绝                     | 启用 (如果愿意**强制拒绝**选项，Windows 应用不允许访问的联系人和你的组织中的员工不能更改它。)                                                                                                                                         |
+| \***应用程序隐私**                                   | 允许访问其他应用程序有关的诊断信息的 Windows 应用                           | 所有应用的默认值：强制拒绝                     | 启用 (如果禁用或未配置此策略设置，你的组织中的员工可以决定 Windows 应用是否可以使用设置来获取有关其他应用程序诊断信息\>在设备上的隐私)                                                                                                                                   |
+| \***应用程序隐私**                                   | 让 Windows 应用程序访问电子邮件                             | 所有应用的默认值：强制拒绝                     | 启用 （如果选择"允许强制"选项，允许 Windows 应用以访问电子邮件并进行员工在组织中的不能更改）                                                                                                                                                |
+| \***应用程序隐私**                                   | 让 Windows 应用访问位置                          | 所有应用的默认值：强制拒绝                     | 启用 (如果愿意**强制拒绝**选项，Windows 应用不允许访问的位置和你的组织中的员工不能更改它。)                                                                                                                                         |
+| \***应用程序隐私**                                   | 让 Windows 应用访问消息                         | 所有应用的默认值：强制拒绝                     | 启用 (如果愿意**强制拒绝**选项，Windows 应用不允许访问的位置和你的组织中的员工不能更改它。)                                                                                                                                          |
+| \***应用程序隐私**                                   | 让 Windows 应用程序访问运动                            | 所有应用的默认值：强制拒绝                     | 启用 (如果愿意**强制拒绝**选项，Windows 应用不允许访问运动数据，并在组织中的员工不能更改它。)                                                                                                                                                      |
+| \***应用程序隐私**                                   | 让 Windows 应用程序访问通知                                     | 所有应用的默认值：强制拒绝                     | 启用 (如果愿意**强制拒绝**选项时，不允许访问通知 Windows 应用和你的组织中的员工不能更改)                                                                                                                                                     |
+| \***应用程序隐私**                                   | 让 Windows 应用程序访问任务                             | 所有应用的默认值：强制拒绝                     | 启用 (如果愿意**强制拒绝**选项，Windows 应用程序不能访问的任务和你的组织中的员工不能更改它。)                                                                                                                                            |
+| \***应用程序隐私**                                   | 让 Windows 应用访问日历                                      | 所有应用的默认值：强制拒绝                     | 启用 (如果愿意**强制拒绝**选项，Windows 应用不允许访问日历和你的组织中的员工不能更改它。)                                                                                                                                                      |
+| \***应用程序隐私**                                   | 让 Windows 应用访问相机                                        | 所有应用的默认值：强制拒绝                     | 启用 (如果愿意**强制拒绝**选项，Windows 应用不允许访问照相机和你的组织中的员工不能更改它。)                                                                                                                                        |
+| \***应用程序隐私**                                   | 让 Windows 应用访问麦克风                                    | 所有应用的默认值：强制拒绝                     | 启用 (如果愿意**强制拒绝**选项，Windows 应用不允许访问麦克风和你的组织中的员工不能更改它。)                                                                                                                                                    |
+| \***应用程序隐私**                                   | 让 Windows 应用访问受信任的设备                                   | 所有应用的默认值：强制拒绝                     | 启用 (如果愿意**强制拒绝**选项，Windows 应用不允许访问受信任的设备和员工在组织中的不能更改它。)                                                                                                                                                   |
+| \***应用程序隐私**                                   | 让的 Windows 应用程序的通信使用不成对设备                        | 所有应用的默认值：强制拒绝                     | 启用 (如果愿意**强制拒绝**选项，Windows 应用不允许与不成对的无线设备进行通信和你的组织中的员工不能更改它。)                                                                                                                                               |
+| \***应用程序隐私**                                   | 让 Windows 应用程序访问无线电收发器                            | 所有应用的默认值：强制拒绝                     | 启用 (如果愿意**强制拒绝**选项，Windows 应用程序将不具有访问权限控制无线电收发器和你的组织中的员工不能更改它。)                                                                                                                                                      |
+| **应用程序隐私**                                     | 让发起电话呼叫的 Windows 应用                         | 所有应用的默认值：强制拒绝                     | 启用 （不允许 Windows 应用以发起电话呼叫和你的组织中的员工不能更改它。）                                                                                                                                                                |
+| \***应用程序隐私**                                   | 让的 Windows 在后台运行的应用                                    | 所有应用的默认值：强制拒绝                     | 启用 (如果愿意**强制拒绝**选项，Windows 应用不允许在后台运行并在组织中的员工不能更改它。)                                                                                                                                                    |
+| **自动播放策略**                               | 设置为自动运行的默认行为                                      | 不执行任何自动运行命令                  | Enabled                                                                                                                                                                                       |
+| \***自动播放策略**                             | 关闭自动播放                                         |                      | 已启用 （如果启用此策略设置，自动播放是 CD-ROM 和可移动媒体驱动器上的禁用或已禁用所有驱动器上的。）                                                                                                                                             |
+| \***云内容**                                 | 不显示 Windows 提示                                  |                      | 已启用 （此策略设置可防止 Windows 提示向用户显示。）                                                                                                                                                                 |
+| \***云内容**                                 | 关闭 Microsoft 消费者体验                                   |                      | 已启用 （如果启用此策略设置，用户将无法再看到来自 Microsoft 的个性化的建议和有关其 Microsoft 帐户的通知。）                                                                                                                                             |
+| \***数据收集和预览版本**                            | 允许遥测                                           | 0-安全 [仅适用于企业]                       | 已启用 （设置为 0 的值应用于运行仅限企业版、 教育、 IoT、 或 Windows Server 版本的设备。）                                                                                                                                                         |
+| \***数据收集和预览版本**                            | 请不要显示反馈通知                                        |                      | Enabled                                                                                                                                                                                       |
+| \***数据收集和预览版本**                            | 切换对会员版本的用户控制                                   |                      | Disabled                                                                                                                                                                                      |
+| **传递优化**                           | 下载模式                                             | 下载模式：简单 (99)           | 99 = 无对等互连的简单下载模式。 传递优化下载仅使用 HTTP，并不会尝试联系的传递优化云服务。                                                                                                                                          |
+| **桌面窗口管理器**                          | 不允许 Flip3D 调用                            |                      | Enabled                                                                                                                                                                                       |
+| **桌面窗口管理器**                          | 不允许的窗口动画                            |                      | Enabled                                                                                                                                                                                       |
+| **桌面窗口管理器**                          | 使用纯色，以开始背景                                      |                      | Enabled                                                                                                                                                                                       |
+| **Edge UI**                                         | 允许边缘轻扫                                          |                      | 禁用                                                                                                                                                                                       |
+| **Edge UI**                                         | 禁用帮助提示                                         |                      | Enabled                                                                                                                                                                                       |
+| \***文件资源管理器**                                 | 配置 Windows Defender SmartScreen                                    |                      | 已禁用 （SmartScreen 将关闭的所有用户。 用户将不会发出警告在它们尝试从 Internet 运行可疑的应用。）                                                                                                                                                        |
+|                                     |                                           |                      | **注意**：如果未连接到 internet，这将阻止计算机尝试联系 Microsoft SmartScreen 的信息。                                                                                                                                            |
+| **文件资源管理器**                                   | 不显示**新安装的应用程序**通知                                  |                      | Enabled                                                                                                                                                                                       |
+| \***查找我的设备**                                | 开启/关闭查找我的设备                                |                      | 已禁用 （时查找我的设备处于关闭状态，设备和未注册其位置和找到我的设备功能将不起作用。 用户将还不能在其设备上查看其活动的数字化器最后一次使用的位置。）                                                                                                                             |
+| **游戏资源管理器**                                   | 关闭下载游戏信息                                  |                      | Enabled                                                                                                                                                                                       |
+| **游戏资源管理器**                                   | 关闭游戏更新                                     |                      | Enabled                                                                                                                                                                                       |
+| **游戏资源管理器**                                   | 关闭游戏文件夹中的游戏的上次播放时间的跟踪                          |                      | Enabled                                                                                                                                                                                       |
+| **家庭组**                                       | 阻止在计算机加入家庭组                             |                      | Enabled                                                                                                                                                                                       |
+| \***Internet Explorer**                             | 允许 Microsoft 服务在用户向地址栏中键入内容时提供增强建议             |                      | 已禁用 （用户不会收到增强的建议在地址栏中键入时。 此外，用户将无法更改的建议设置。)                                                                                                                                       |
+| **Internet Explorer**                               | 禁用 Internet Explorer 软件更新的定期检查                             |                      | Enabled                                                                                                                                                                                       |
+| **Internet Explorer**                               | 禁用显示初始屏幕                         |                      | Enabled                                                                                                                                                                                       |
+| **Internet Explorer**                               | 自动安装新版本的 Internet Explorer                                   |                      | Disabled                                                                                                                                                                                      |
+| **Internet Explorer**                               | 防止参与客户体验改善计划                      |                      | Enabled                                                                                                                                                                                       |
+| **Internet Explorer**                               | 阻止运行首次运行向导                          | 直接转到主页             | Enabled                                                                                                                                                                                       |
+| **Internet Explorer**                               | 设置选项卡上的进程增长                                    | 低                  | Enabled                                                                                                                                                                                       |
+| **Internet Explorer**                               | 指定一个新选项卡的默认行为                                    | 新选项卡页                         | Enabled                                                                                                                                                                                       |
+| **Internet Explorer**                               | 关闭加载项性能通知                                 |                      | Enabled                                                                                                                                                                                       |
+| \***Internet Explorer**                             | 关闭 Web 地址的自动完成功能                      |                      | 已启用 （如果启用此策略设置，用户将不会建议匹配项时输入的 Web 地址。 用户不能更改的自动完成设置 web 地址。）                                                                                                                                                 |
+| \***Internet Explorer**                             | 关闭浏览器地理位置                              |                      | 已启用 （如果启用此策略设置，地理位置的浏览器支持处于关闭状态。）                                                                                                                                                        |
+| **Internet Explorer**                               | 关闭重新打开上一次浏览会话                                     |                      | Enabled                                                                                                                                                                                       |
+| \***Internet Explorer**                             | 打开建议网站                                   |                      | 已禁用 （如果禁用此策略设置时，入口点和与此功能相关的功能关闭状态。）                                                                                                                                                |
+| **\*Internet Explorer** \\兼容性视图                        | 关闭“兼容性视图”                               |                      | 已启用 （如果启用此策略设置，用户不能使用兼容性视图按钮或管理兼容性视图的站点列表。）                                                                                                                                                    |
+| **Internet Explorer** \\ Internet 控制面板 **\\** 高级页                  | 在网页中播放动画                              |                      | Disabled                                                                                                                                                                                      |
+| **Internet Explorer** \\ Internet 控制面板\\高级页                      | 在网页中播放视频                                  |                      | Disabled                                                                                                                                                                                      |
+| **\*Internet Explorer** \\ Internet 控制面板\\高级页                    | 关闭以页预测功能翻转                     |                      | 启用 （Microsoft 会收集浏览历史记录以提高翻转提前与页面预测的工作原理。 此功能不可用于 Internet Explorer 桌面。 如果启用此策略设置，以页预测翻转处于关闭状态和下一步的网页不加载到后台。）                                                                                                           |
+| **Internet Explorer** \\ Internet 设置\\高级设置\\浏览                            | 关闭电话号码检测                           |                      | Enabled                                                                                                                                                                                       |
+| **Internet Explorer** \\ Internet 设置\\高级设置\\多媒体                          | 允许 Internet Explorer 播放媒体文件使用其他编解码器                   |                      | Disabled                                                                                                                                                                                      |
+| \***位置和传感器**                          | 关闭位置                                         |                      | 启用 （f 启用此策略设置，位置功能处于关闭状态，并且阻止此计算机上的所有程序使用位置信息从位置功能。）                                                                                                                                     |
+| **位置和传感器**                            | 关闭传感器                                          |                      | Enabled                                                                                                                                                                                       |
+| **位置和传感器 /** Windows 位置提供程序                               | 关闭 Windows 位置提供程序                                        |                      | Enabled                                                                                                                                                                                       |
+| \***映射**                                          | 关闭地图数据的自动下载和更新                        |                      | 启用 （如果启用此设置的自动下载和更新映射数据处于关闭状态。）                                                                                                                                                              |
+| \***映射**                                          | 在“脱机地图”设置页面关闭未经请求的网络流量                    |                      | 启用 （如果启用此策略设置，生成页处于关闭状态的脱机映射设置上的网络流量的功能。 注意：这可能会关闭整个设置页面。）                                                                                                                                        |
+| \***消息传送**                                     | 允许消息服务云同步                          |                      | 已禁用 （此策略设置允许备份和还原到 Microsoft 的云服务的移动电话短信）。                                                                                                                                                             |
+| \***Microsoft Edge**                                | 允许使用地址栏下拉列表建议                              |                      | Disabled                                                                                                                                                                                      |
+| \***Microsoft Edge**                                | 允许对书籍库进行配置更新                         |                      | 已禁用 （关闭 Microsoft Edge 中的兼容性列表。）                                                                                                                                                                    |
+| \***Microsoft Edge**                                | 允许 Microsoft 兼容性列表                                        |                      | 已禁用 （如果禁用此设置，Microsoft 兼容性列表不使用浏览器导航过程。）                                                                                                                                                                |
+| \***Microsoft Edge**                                | 允许“新建选项卡”页面中的 Web 内容                         |                      | 已禁用 (指示 Edge 时打开新选项卡打开具有空白内容。)                                                                                                                                                                   |
+| \***Microsoft Edge**                                | 配置自动填充                                        |                      | 已禁用 （在地址栏上禁用自动填充）。                                                                                                                                                                   |
+| \***Microsoft Edge**                                | 配置 Do Not Track                                    |                      | 启用 （如果启用此设置，Do Not Track 请求始终发送到请求跟踪信息的网站。）                                                                                                                                                           |
+| \***Microsoft Edge**                                | 配置密码管理器                                |                      | 已禁用 （如果禁用此设置，员工无法使用密码管理器来保存本地密码。）                                                                                                                                                  |
+| \***Microsoft Edge**                                | 配置地址栏中的搜索建议                               |                      | 已禁用 （用户无法看到地址栏的 Microsoft Edge 中显示搜索建议。）                                                                                                                                                            |
+| \***Microsoft Edge**                                | 配置“开始”页面                                     |                      | 已启用 （如果启用此设置，可以配置一个或多个起始页。 如果启用此设置，还必须包含 Url 的页面，按以下格式使用尖括号分隔多个页面： \<support.contoso.com\>\<support.microsoft.com\> Windows 10，版本1703 或更高版本：如果不想要将流量发送到 Microsoft，则可以使用\<有关： 空白\>配置 URL 是否加入到域或不是，当它是唯一的设备接受的值。                                                                    |
+| \***Microsoft Edge**                                | 配置 Windows Defender SmartScreen                                    |                      | 已禁用 （关闭 Windows Defender SmartScreen 和员工不能将其打开。）                                                                                                                                                         |
+|                                     |                                           |                      | **注意**：请考虑在环境中的此设置。 如果未连接到 Internet，这将阻止计算机尝试联系 Microsoft SmartScreen 的信息。                                                                                                                                              |
+| \***Microsoft Edge**                                | 阻止打开 Microsoft Edge 上首次运行 web 页                              |                      | **启用**（用户不会看到首次运行页面第一次打开 Microsoft Edge 时。）                                                                                                                                                               |
+| **OneDrive**                                        | 阻止 OneDrive 生成网络流量，直到用户在登录到 OneDrive                      |                      | **启用**（启用此设置以防止在 OneDrive 同步客户端 (OneDrive.exe) 生成网络流量 （检查更新，等等） 直到用户在登录到 OneDrive 或同步文件复制到本地计算机的启动）。                                                                                                                           |
+| \***OneDrive**                                      | 禁止使用 OneDrive 进行文件存储                            |                      | **启用**（除非 OneDrive 或关闭的本地使用。）                                                                                                                                                                  |
+| **OneDrive**                                        | 默认情况下将文档保存到 OneDrive                                     |                      | **已禁用**（除非 OneDrive 或关闭的本地使用。）                                                                                                                                                                 |
+| **RSS 源**                                       | 阻止自动发现的源和网页快讯                       |                      | **Enabled**                                                                                                                                                                                   |
+| \***RSS 源**                                     | 关闭源和网页快讯的后台同步                              |                      | **启用**（如果启用此策略设置，以同步源的能力和背景中的网页快讯处于关闭状态。）                                                                                                                                              |
+| \***搜索**                                        | 允许使用 Cortana                                             |                      | **已禁用**（时 Cortana 处于关闭状态，用户仍将能够使用搜索以在设备上找到的内容。）                                                                                                                                                      |
+| **搜索**                                          | 锁定屏幕上方允许 Cortana                           |                      | **已禁用**                                                                                                                                                                                  |
+| \***搜索**                                        | 允许搜索和 Cortana 使用位置                                  |                      | **已禁用**                                                                                                                                                                                  |
+| **搜索**                                          | 不允许 Web 搜索                                   |                      | **Enabled**                                                                                                                                                                                   |
+| \***搜索**                                        | 不要在 web 上搜索或在搜索中显示 web 结果                     |                      | **启用**（如果启用此策略设置，不会在 web 上执行查询和用户在搜索中执行查询时，不会显示 web 结果。）                                                                                                                                             |
+| **搜索**                                          | 阻止添加 UNC 位置，以便从控制面板编制索引                                  |                      | **Enabled**                                                                                                                                                                                   |
+| **搜索**                                          | 防止脱机文件缓存中的文件编制索引                             |                      | **Enabled**                                                                                                                                                                                   |
+| \***搜索**                                        | 设置在“搜索”中共享的信息                                  | 匿名信息                       | **启用**（共享使用情况信息但不共享的搜索历史记录、 Microsoft 帐户信息或特定位置。）                                                                                                                                                              |
+| \***软件保护平台**                                  | 关闭 KMS 客户端联机 AVC 验证                                 |                      | **启用**（启用此设置会阻止此计算机将数据向 Microsoft 发送有关其激活状态。）                                                                                                                                                      |
+| \***语音**                                        | 允许自动更新语音数据                                     |                      | **已禁用**（将不定期检查更新的语音模型）                                                                                                                                                                          |
+| \***应用商店**                                         | 关闭更新的自动下载和安装                        |                      | **启用**（如果启用此设置，自动下载和安装的应用程序更新处于关闭状态。）                                                                                                                                                                |
+| \***应用商店**                                         | 关闭自动下载 Win8 设备上的更新                                   |                      | **启用**（如果启用此设置，自动下载应用更新处于关闭状态。）                                                                                                                                                                 |
+| **应用商店**                                           | 关闭到最新版本的 Windows 更新的产品/服务                             |                      | **Enabled**                                                                                                                                                                                   |
+| \***同步设置**                            | 不同步                               | 允许用户启用同步 （未选择）         | **启用**（如果启用此策略设置、"同步设置"将关闭，并且任何"同步设置"组将此设备上进行同步。                                                                                                                                                |
+| **文本输入**                                      | 改善墨迹书写和键入识别                                     |                      | **已禁用**                                                                                                                                                                                  |
+| **Windows Defender 防病毒**\\映射                               | 加入 Microsoft MAPS                                       |                      | **已禁用**（如果禁用或未配置此设置，则不会加入 Microsoft MAPS。）                                                                                                                                                             |
+| **Windows Defender 防病毒**\\映射                               | 需要进行进一步分析时发送文件样本                       | 从不发送                           | **启用**（仅当未选择用于接映射诊断数据）                                                                                                                                                                         |
+| **Windows Defender 防病毒**\\报告                          | 关闭增强型通知                           |                      | **启用**（如果启用此设置，Windows Defender 防病毒软件增强的通知将不显示在客户端上。）                                                                                                                                                       |
+| **Windows Defender 防病毒**\\签名更新                                  | 定义用于下载定义更新的源的顺序                            | FileShares                           | **启用**（如果启用此设置，定义更新源将联系指定的顺序。 一旦定义更新已成功下载从一个指定的源，请在列表中剩余的源将联系。）                                                                                                                    |
+| **Windows 错误报告**                         | 自动发送操作系统生成错误报告的内存转储                            |                      | **已禁用**                                                                                                                                                                                  |
+| **Windows 错误报告**                         | 禁用 Windows 错误报告                           |                      | **Enabled**                                                                                                                                                                                   |
+| **Windows 游戏录制和广播**                         | 启用或禁用 Windows 游戏录制和广播                               |                      | **已禁用**                                                                                                                                                                                  |
+| **Windows 安装程序**                               | 控件的基线文件缓存的最大大小                               | 5                    | **Enabled**                                                                                                                                                                                   |
+| **Windows 安装程序**                               | 关闭系统还原检查点的创建                           |                      | **Enabled**                                                                                                                                                                                   |
+| **Windows Mail**                                    | 关闭社区功能                          |                      | **Enabled**                                                                                                                                                                                   |
+| **Windows Media Player**                            | 不显示首次使用对话框                                        |                      | **Enabled**                                                                                                                                                                                   |
+| **Windows Media Player**                            | 防止媒体共享                                     |                      | **Enabled**                                                                                                                                                                                   |
+| **Windows 移动中心**                         | 关闭 Windows 移动中心                          |                      | **Enabled**                                                                                                                                                                                   |
+| **Windows 可靠性分析**                                    | 配置可靠性 WMI 提供程序                                       |                      | **已禁用**                                                                                                                                                                                  |
+| **Windows 更新**                                  | 允许自动更新立即安装                            |                      | **Enabled**                                                                                                                                                                                   |
+| **Windows 更新**                                  | 不要连接任何 Windows 更新 Internet 位置                                   |                      | **启用**（如果启用此策略将禁用该功能，并且可能导致连接到公共服务，如 Windows 应用商店停止工作。 **注意：** 此策略适用仅当此设备已配置为连接到 intranet 更新服务使用"指定 intranet Microsoft 更新服务位置"策略。                                                                                                           |
+| **Windows 更新**                                  | 删除所有 Windows 更新功能的访问权限                              |                      | **Enabled**                                                                                                                                                                                   |
+| **\*Windows Update** \\适用于企业的 Windows 更新                                  | 管理的预览版本                                     | 设置接收的预览版本的行为：       | **已启用**(选择**禁用 preview 内部版本**将阻止在设备上安装的预览版本。 这将防止用户选择加入 Windows 预览体验计划，通过设置-\>更新和安全。)                                                                                                                                    |
+|                                     |                                           | 禁用的预览版本               |                                                                                                                                                                               |
+| **\*Windows Update** \\适用于企业的 Windows 更新                                  | 选择当收到 Preview 内部版本和功能更新                               | 半年频道                 | **启用**(启用此策略以指定的预览生成或功能更新接收，级别和时间。)                                                                                                                                                                |
+|                                     |                                           | 出现延迟：365 天                 |                                                                                                                                                                               |
+|                                     |                                           | 暂停开始： 年-月-日              |                                                                                                                                                                               |
+| **Windows Update** \\适用于企业的 Windows 更新                    | 选择时收到质量更新                                  | 1.30 天内 2。 暂停质量更新起始年-月-日              | **Enabled**                                                                                                                                                                                   |
+| **Windows 限制流量自定义策略设置**                               | 阻止 OneDrive 生成网络流量，直到用户在登录到 OneDrive                      |                      | **启用**（启用此设置，如果你想要防止在 OneDrive 同步客户端 (OneDrive.exe) 生成网络流量 （检查更新，等等） 直到用户在登录到 OneDrive 或同步文件复制到本地计算机的启动）。                                                                                                                         |
+| **Windows 限制流量自定义策略设置**                               | 关闭 Windows Defender 通知                                   |                      | **启用**（如果启用此策略设置，Windows Defender 不会发送通知的运行状况和你的设备的安全性有关的关键信息。）                                                                                                                                          |
+| **本地计算机策略\\用户配置\\管理模板**                         |                                           |                      |                                                                                                                                                                               |
+| **控制面板**\\区域和语言选项                                   | 关闭文本预测产品/服务，因为我键入                                 |                      | **Enabled**                                                                                                                                                                                   |
+| **桌面**                                         | 不将共享的最近打开的文档添加到网络位置                       |                      | **Enabled**                                                                                                                                                                                   |
+| **桌面**                                         | 关闭 Aero Shake 窗口最小化鼠标笔势                       |                      | **Enabled**                                                                                                                                                                                   |
+| **桌面**/ Active Directory                                      | Active Directory 搜索的最大大小                                 | 2500                 | **Enabled**                                                                                                                                                                                   |
+| **开始菜单和任务栏**                          | 不允许将固定到任务栏的应用商店应用程序                             |                      | **Enabled**                                                                                                                                                                                   |
+| **开始菜单和任务栏**                          | 不在跳转列表中显示或跟踪来自远程位置的项目                         |                      | **Enabled**                                                                                                                                                                                   |
+| **开始菜单和任务栏**                          | 解析命令行程序快捷方式时不使用基于搜索的方法                         |                      | **启用**（系统不会进行最后的驱动器搜索。 它只是显示一条消息说明找不到该文件。）                                                                                                                                            |
+| **开始菜单和任务栏**                          | 从任务栏删除人员栏                                    |                      | **启用**（将从任务栏删除人员图标，从任务栏设置页上，删除相应的设置切换和用户将不能固定到任务栏的人。）                                                                                                                                           |
+| **开始菜单和任务栏**                          | 关闭功能广告气球通知                      |                      | **启用**（用户不能固定到任务栏的应用商店应用。 如果应用商店应用程序已固定到任务栏，它将删除从任务栏在下次登录。）                                                                                                                                             |
+| **开始菜单和任务栏**                          | 关闭用户跟踪                                    |                      | **Enabled**                                                                                                                                                                                   |
+| **开始菜单和任务栏**/ 通知                          | 关闭 toast 通知                              |                      | **Enabled**                                                                                                                                                                                   |
+| **Windows 组件**/ 云内容                              | 关闭所有的 Windows 聚焦功能                                   |                      | **Enabled**                                                                                                                                                                                   |
+| **Edge UI**                                         | 关闭跟踪应用使用情况                            |                      | **Enabled**                                                                                                                                                                                   |
+| **文件资源管理器**                                   | 关闭缓存的缩略图的图片                                    |                      | **Enabled**                                                                                                                                                                                   |
+| **文件资源管理器**                                   | 关闭文件资源管理器搜索框中的新搜索条目显示                 |                      | **Enabled**                                                                                                                                                                                   |
+| **文件资源管理器**                                   | 关闭隐藏的 thumbs.db 文件中的缩略图缓存                               |                      | **Enabled**                                                                                                                                                                                   |
+
+
+
+
+### <a name="notes-about-network-connectivity-status-indicator"></a>有关网络连接状态指示器的说明
+
+上述的组策略设置包括设置，以关闭检查以查看系统是否已连接到 Internet。 如果你的环境不会连接到 Internet，或间接连接，则可以设置组策略设置，从而从任务栏中删除的网络图标。 检查你可能想要删除的网络图标从任务栏是如果您关闭 Internet 连接的原因，将有一个黄色旗帜的网络图标，即使网络可能工作正常。 如果你想要删除的网络图标作为组策略设置，您可以在此位置中发现：
+
+| Windows Update 或适用于企业的 Windows 更新                | 选择时收到质量更新 | 1.30 天内 2。 暂停质量更新起始年-月-日 | Enabled                             |
+|-----------------------------------------------------------------------------|------------------------------------------|---------------------------------------------------------|-------------------------------------------------------------------------------------|
+| **本地计算机策略\\用户配置\\管理模板** |          |                         |                     |
+| **开始菜单和任务栏**                  | 删除的网络图标               |                         | **启用**（网络图标不显示系统通知区域中。） |
+
+有关更多有关网络连接状态指示器 (NCSI)，请参阅：[网络连接状态图标](https://blogs.technet.microsoft.com/networking/2012/12/20/the-network-connection-status-icon/)
+
+### <a name="system-services"></a>系统服务
+
+如果您正在考虑禁用系统服务，以节省资源，请格外注意服务被视为不是以某种方式组件的某些其他服务。
+
+此外，这些建议的大多数镜像桌面体验; 使用 Windows Server 2016 的建议有关详细信息，请参阅[禁用带桌面体验的 Windows Server 2016 中的系统服务的指南](https://docs.microsoft.com/windows-server/security/windows-services/security-guidelines-for-disabling-system-services-in-windows-server)。
+
+请注意的很多可能看起来是理想的选择，若要禁用的服务都设置为手动服务启动类型。 这意味着服务将无法自动启动，并且除非特定的应用程序或服务将触发对所考虑的禁用的服务的请求不会启动。 已设置为启动类型手动的服务通常此处未列出。
+
+| Windows 服务                                                                                                                               | 项目                                                                                     | 备注                                                                            |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| CDPUserService                                                                                                                                | 此用户服务用于连接的设备平台方案                                                                       | 注意：这是每个用户服务和在这种情况下，*模板服务*必须禁用。                                                          |
+| 连接的用户体验和遥测                                                                                                                      | 启用支持在应用程序和已连接的用户体验的功能。 此外，该服务可管理的事件驱动的收集和传输诊断和使用情况信息 （用于改进的体验和质量的 Windows 平台） 下时启用诊断和使用情况的隐私选项设置反馈和诊断。 | 请考虑如果断开连接的网络上禁用                                                                      |
+| 联系人数据                                                                                                                                  | 索引用于快速联系人搜索联系人数据。 如果停止或禁用此服务，联系人可能缺少从搜索结果。                                                                | (PimIndexMaintenanceSvc)注意：这是每个用户服务和在这种情况下，*模板服务*必须禁用。              |
+| 诊断策略服务                                                                                                                     | 使问题检测、 故障排除和解决 Windows 组件。 如果此服务已停止，诊断将不再起作用。                                                       |                                                                                    |
+| 下载的映射管理器                                                                                                                       | 已下载的地图应用程序访问权限的 Windows 服务。 此服务已启动按需由应用程序访问下载映射。 禁用此服务将阻止应用访问映射。                                                     |                                                                                    |
+| 地理定位服务                                                                                                                           | 监视系统的当前位置和管理地域隔离区                                                                        |                                                                                    |
+| GameDVR 和广播用户服务                                                                                                                            | 此用户服务可供用于游戏录制和实时广播                                                                        | 注意：这是每个用户服务和在这种情况下，必须禁用模板服务。                                                            |
+| MessagingService                                                                                                                              | 支持文本消息和相关的功能的服务。                                                                             | 注意：这是每个用户服务和在这种情况下，*模板服务*必须禁用。                                                          |
+| 优化驱动器                                                                                                                               | 可帮助更有效地运行通过优化存储驱动器上的文件的计算机。                                                                           | VDI 解决方案不会从磁盘优化通常获益。 这些"驱动器"不是传统的驱动器和通常只是临时存储分配。                                               |
+| Superfetch                                                                                                                                    | 维护和提高一段时间内的系统性能。                                                                                     | 考虑到操作系统状态将被丢弃，通常就不会提高性能 VDI，尤其是间断性，每次重新启动。                                         |
+| 触摸键盘和手写面板服务                                                                                                                  | 可启用触摸键盘和手写面板的笔和墨迹功能                                                                                   |                                                                                    |
+| Windows 错误报告                                                                                                                       | 允许程序停止运行或没有响应时报告的错误并允许传递现有的解决方案。 此外允许日志，以生成用于诊断和修复服务。 如果此服务已停止，错误报告可能无法正常工作，并诊断服务和修复的结果可能不会显示。                   | 使用 VDI，诊断通常在执行脱机的情况下，而且不能在主流生产。 此外，某些客户仍要禁用 WER 时， WER 会产生少量的许多不同的因素，包括无法安装一台设备或无法安装更新的资源。 |
+| Windows Media Player 网络共享服务                                                                                                                  | 共享到其他联网的播放机和媒体设备使用通用即插即用和播放 Windows Media Player 库                                                                         | 除非客户共享网络上的 WMP 库，不需要。                                                              |
+| Windows 移动热点服务                                                                                                                                | 提供的功能与另一台设备共享的移动电话网络数据连接。                                                                            |                                                                                    |
+| Windows 搜索                                                                                                                                | 有关文件、 电子邮件和其他内容提供建立内容索引、 属性缓存和搜索结果。                                                                    | 尤其是在使用非持久 VDI 可能不需要                                                             |
+
+#### <a name="per-user-services-in-windows"></a>Windows 中的按用户服务
+[每个用户服务](https://docs.microsoft.com/windows/application-management/per-user-services-in-windows)是当用户登录到 Windows 或 Windows Server 和被停止并删除该用户注销时创建的服务。用户帐户的安全上下文中运行这些服务这提供了更好地比前一种方法的这些类型的服务运行在资源管理器，使用预配置的帐户，或作为任务相关联的资源管理。 
+
+### <a name="scheduled-tasks"></a>计划任务
+
+Windows 中的其他项，如确保之前您可以将其禁用不需要项。
+
+下面列出的任务是在重新启动后保持其状态的计算机上执行优化或数据集合。 当 VDI VM 任务重新启动，并会放弃所有更改，自上次启动以来时，优化适用于物理计算机并不很有帮助。
+
+你可以获取所有当前的计划任务，包括说明，使用以下 PowerShell 代码：
+
+`Get-ScheduledTask | Select-Object -Property TaskPath,TaskName,State,Description |Export-CSV -Path C:\Temp\W10_1803_SchTasks.csv -NoTypeInformation`
+
+有效**计划的任务名称**值包括：
+
+- OneDrive 独立更新任务 v2
+- Microsoft 兼容性评估程序
+- ProgramDataUpdater
+- StartupAppTask
+- CleanupTemporaryState
+- 代理
+- UninstallDeviceTask
+- ProactiveScan
+- 合并计算器
+- UsbCeip
+- 数据完整性扫描
+- 崩溃恢复的数据完整性扫描
+- ScheduledDefrag
+- SilentCleanup
+- Microsoft-Windows-DiskDiagnosticDataCollector
+- 诊断
+- StorageSense
+- DmClient
+- DmClientOnScenarioDownload
+- 文件历史记录 （维护模式）
+- ScanForUpdates
+- ScanForUpdatesAsUser
+- SmartRetry
+- 通知
+- WindowsActionDialog
+- WinSAT Cellular
+- MapsToastTask
+- ProcessMemoryDiagnosticEvents
+- RunFullMemoryDiagnostic
+- M n O 元数据解析器
+- LPRemove
+- GatherNetworkInfo
+- WiFiTask
+- Sqm 任务
+- AnalyzeSystem
+- MobilityManager
+- VerifyWinRE
+- RegIdleBackup
+- FamilySafetyMonitor
+- FamilySafetyRefreshTask
+- IndexerAutomaticMaintenance
+- SpaceAgentTask
+- SpaceManagerTask
+- HeadsetButtonPress
+- SpeechModelDownloadTask
+- ResPriStaticDbSync
+- WsSwapAssessmentTask
+- SR
+- SynchronizeTimeZone
+- Usb 通知
+- QueueReporting
+- UpdateLibrary
+- 计划的开始
+- sih
+- XblGameSaveTask
+
+### <a name="apply-windows-and-other-updates"></a>应用 Windows 和其他更新
+
+是否从 Microsoft Update，或您的内部资源，应用可用的更新包括 Windows Defender 签名。 这是应用其他可用的更新，如果安装包括那些适用于 Microsoft Office 的好时机。
+
+### <a name="automatic-windows-traces"></a>自动 Windows 跟踪
+
+配置了 Windows，默认情况下，若要收集并保存有限的诊断数据。 目的是启用诊断，或要记录的数据的情况进一步执行故障排除有必要。 可以通过启动计算机管理应用，然后展开找到自动系统跟踪**系统工具**，**性能**，**数据收集器集**，，然后选择**事件跟踪会话**。
+
+
+一些下显示的跟踪**事件跟踪会话**并**启动事件跟踪会话**不能并且应停止。 其他人，例如**WiFiSession**可以停止跟踪。 若要停止正在运行的跟踪下**事件跟踪会话**击跟踪，然后选择**停止**。 若要防止在启动时自动启动跟踪，请执行以下步骤：
+
+1.  选择**启动事件跟踪会话**文件夹
+
+2.  找到感兴趣，跟踪，然后双击该跟踪。
+
+3.  选择**跟踪会话**选项卡。
+
+4.  清除标记为框**已启用**。 
+
+5.  选择“确定”  。
+
+下面是一些系统跟踪信息以考虑禁用 VDI 使用：
+
+| 名称                    | 备注                       |
+|-------------------------|-----------------------------------------------|
+| AppModel                | 其中之一是 phone 跟踪的集合 |
+| CloudExperienceHostOOBE |               |
+| DiagLog                 |               |
+| NtfsLog                 |               |
+| TileStore               |               |
+| UBPM                    |               |
+| WiFiDriverIHVSession    | 如果不使用 WiFi 的设备                    |
+| WiFiSession             |               |
+
+#### <a name="servicing-the-operating-system-and-apps"></a>为操作系统和应用程序提供服务
+
+在某一时刻在映像优化过程中应该应用可用 Windows 更新。 您可以设置要安装的其他 Microsoft 产品更新的 Windows 更新以及 Windows。 若要将此项设置，打开**Windows 设置**，然后选择**更新和安全**，然后选择**高级选项**。 选择**让我的其他 Microsoft 产品时我更新 Windows 更新**以将其设置为**上**。
+
+这将是很好设置情况下要到基本映像安装诸如 Microsoft Office 之类的 Microsoft 应用程序。 通过这种方式图像放入服务时，Office 是最新。 也有.NET 更新和已更新可通过 Windows 更新某些非 Microsoft 组件，如 Adobe。
+
+非持久 VDI Vm 的一个非常重要的考虑因素是安全更新，包括安全软件定义文件。 这些更新可能会以一次或甚至多个发布一次每日。 可能有一种方法要保留这些更新，包括 Windows Defender 和非 Microsoft 组件。
+
+Windows Defender 的可能是最好允许发生，即使在非持久 VDI 上的更新。 将更新应用几乎每个登录会话，但更新字迹小，不应是一个问题。 此外，VM 不会在后面更新因为应用将仅最新可用。 可能是相同的非 Microsoft 定义文件，则返回 true。
+
+> [!NOTE]  
+> 存储通过 Windows 应用商店应用 （UWP 应用） 更新。 通过其自己的机制时直接连接到 Internet，或通过管理技术时不更新最新版本的 Office 365 等 Office。
+
+### <a name="windows-defender-optimization-with-vdi"></a>使用 VDI 的 Windows Defender 优化
+
+Microsoft 最近发布了有关 Windows Defender 文档在 VDI 环境中。 请参阅[虚拟桌面基础结构 (VDI) 环境中 Windows Defender 防病毒软件的部署指南](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus)有关详细信息。
+
+上述文章包含服务黄金 VDI 映像，以及如何维护 VDI 客户端，因为它们正在运行的过程。 VDI 计算机需要更新其 Windows Defender 签名时，请减少网络带宽，分阶段重新启动，并计划重新启动期间空闲时间在可能的情况。 文件共享上，可以在内部包含 Windows Defender 签名更新中，在实际应用中，作为 VDI 虚拟机的相同或关闭的网络段上有这些文件共享。
+
+请参阅有关优化 VDI 与 Windows Defender 的详细信息本部分开头列出的文章。
+
+### <a name="tuning-windows-10-network-performance-by-using-registry-settings"></a>通过使用注册表设置优化 Windows 10 的网络性能
+
+这是在其中 VDI 或物理计算机具有工作负荷中的主要基于网络的环境中尤为重要。 此部分偏置性能中的设置优先网络，通过设置额外的缓冲和缓存的内容，等等等的目录项。
+
+请注意，本部分中的某些设置*基于注册表的仅*和生产环境中使用部署映像之前应包含在基本映像。
+
+以下设置记录在[Windows Server 2016 性能优化准则](https://docs.microsoft.com/windows-server/administration/performance-tuning/)Microsoft.com 上发布的 Windows 产品组的信息。
+
+#### <a name="disablebandwidththrottling"></a>DisableBandwidthThrottling
+
+HKLM\\System\\CurrentControlSet\\Services\\LanmanWorkstation\\Parameters\\DisableBandwidthThrottling
+
+适用于 Windows 10。 默认值是**0**。 默认情况下，SMB 重定向程序会限制高延迟网络连接的吞吐量，在某些情况下可以避免与网络相关的超时。 此注册表值设置为**1**禁用此限制，因此，应考虑此设置通过高延迟网络连接，支持更大的文件传输吞吐量。
+
+#### <a name="fileinfocacheentriesmax"></a>FileInfoCacheEntriesMax
+
+HKLM\\System\\CurrentControlSet\\Services\\LanmanWorkstation\\Parameters\\FileInfoCacheEntriesMax
+
+适用于 Windows 10。 默认值是**64**，其有效范围为 1 到 65536。 此值用于确定可以由客户端缓存的文件元数据量。 增加的值可以减少网络流量并提高性能，当多个文件进行访问。 请尝试增加此值设置为**1024年**。
+
+#### <a name="directorycacheentriesmax"></a>DirectoryCacheEntriesMax
+
+HKLM\\System\\CurrentControlSet\\Services\\LanmanWorkstation\\Parameters\\DirectoryCacheEntriesMax
+
+适用于 Windows 10。 默认值是**16**，有效范围在 1 到 4096。 此值用于确定可以由客户端缓存的目录信息量。 在访问大量目录时，增加该值可以减少网络流量并提高性能。 请考虑增加此值设置为**1024年**。
+
+#### <a name="filenotfoundcacheentriesmax"></a>FileNotFoundCacheEntriesMax
+
+HKLM\\System\\CurrentControlSet\\Services\\LanmanWorkstation\\Parameters\\FileNotFoundCacheEntriesMax
+
+适用于 Windows 10。 默认值是**128**，其有效范围为 1 到 65536。 此值用于确定可由客户端缓存的文件名信息量。 增加的值可以减少网络流量并提高性能时访问多个文件的名称。 请考虑增加此值设置为**2048年**。
+
+#### <a name="dormantfilelimit"></a>DormantFileLimit
+
+HKLM\\System\\CurrentControlSet\\Services\\LanmanWorkstation\\Parameters\\DormantFileLimit
+
+适用于 Windows 10。 默认值是**1023年**。 此参数指定应用程序关闭文件后应在共享资源上保持打开状态的文件的数量上限。 其中许多数千个客户端要连接到 SMB 服务器，请考虑减小此值设置为**256**。
+
+可以使用配置的这些 SMB 设置许多[集 SmbClientConfiguration](https://docs.microsoft.com/powershell/module/smbshare/set-smbclientconfiguration)并[集 SmbServerConfiguration](https://docs.microsoft.com/powershell/module/smbshare/set-smbserverconfiguration) Windows PowerShell cmdlet。 如以下示例所示，使用 Windows PowerShell，可以配置仅限注册表设置：
+
+`Set-ItemProperty -Path "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\LanmanWorkstation\\Parameters" RequireSecuritySignature -Value 0 -Force`
+
+### <a name="additional-settings-from-the-windows-restricted-traffic-limited-functionality-baseline-guidance"></a>从 Windows 限制流量有限功能基线指南的其他设置
+
+Microsoft 已发布了使用相同的过程与创建的基线[Windows 安全基准](https://docs.microsoft.com/windows/device-security/windows-security-baselines)，对于环境，也可以直接连接到 Internet，或者想要减少发送到 Microsoft 和其他数据服务。
+
+[Windows 限制流量有限功能基线](https://docs.microsoft.com/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services)设置标记有一个星号组策略表中。
+
+### <a name="disk-cleanup-including-using-the-disk-cleanup-wizard"></a>磁盘清理 （包括使用磁盘清理向导）
+
+磁盘清理会与主映像 VDI 实现特别有用。 准备好，更新，并配置主映像后，要执行的最后一个任务之一是磁盘清理。 Windows 中内置的磁盘清理向导可以帮助清除的磁盘空间节省大多数潜在区域。
+
+> [!NOTE]  
+> 磁盘清理向导不会再开发。 Windows 将使用其他方法来提供磁盘清理功能。
+
+
+
+以下是针对各种磁盘清理任务的建议。 你应测试这些之前实现其中任何一个：
+
+1.  应用所有更新后运行磁盘清理向导 （提升）。 包括类别**传递优化**并**Windows Update 清理**。 您可以使用自动完成此过程**Cleanmgr.exe**与 **/SAGESET:11**选项。 此选项设置可用于更高版本自动执行磁盘清理，使用磁盘清理向导中的每个可用选项的注册表值。
+
+    1.  测试 VM，从运行的干净安装上**Cleanmgr.exe /SAGESET:11**表示有只有两个默认情况下启用的自动磁盘清理选项：
+
+    - 下载的程序文件
+
+    - Internet 临时文件
+
+    2.  如果您设置更多选项或所有选项，这些选项会记录在注册表中，根据前一命令中提供的索引值 (**Cleanmgr.exe /SAGESET:11**)。 在此示例中，我们使用值*11*作为我们的索引，为后续的自动的磁盘清理过程。
+
+    3.  运行之后**Cleanmgr.exe /SAGESET:11**将看到多个磁盘清理选项的类别。 您可以选择每个选项，然后选择**确定**。 您将注意到，磁盘清理向导只需将消失。 但是，所选的设置都保存在注册表中，并且可以通过运行调用**Cleanmgr.exe /SAGERUN:11**。
+
+2.  清理卷影复制存储，如果任何正在使用中。 若要执行此操作，请在提升的提示符运行以下命令：
+
+    - **vssadmin list shadows**
+
+    - **Vssadmin 列表 shadowstorage**
+
+        这些命令的输出是否*满足查询。 找到的任何项*，则在使用任何 VSS 存储。
+
+3.  清理临时文件和日志。 从提升的命令提示符，运行以下命令：
+
+    - **Del c:\\\*.tmp /s**
+
+    - **Del c:\\Windows\\Temp\\。**
+
+    - **Del %temp%\\。**
+
+4.  删除使用此命令在系统上的任何未使用配置文件：
+
+    **wmic 路径 win32_UserProfile 其中 LocalPath ="c:\\\\用户\\\\\<用户\>"删除**
+
+### <a name="remove-onedrive"></a>删除 OneDrive
+
+删除 OneDrive 涉及删除包，卸载和删除\*.lnk 文件。 您可以使用下面的示例 PowerShell 代码来帮助从映像删除 OneDrive 中：
+
+```azurecli
+
+Taskkill.exe /F /IM "OneDrive.exe"
+Taskkill.exe /F /IM "Explorer.exe"` 
+    if (Test-Path "C:\\Windows\\System32\\OneDriveSetup.exe")`
+     { Start-Process "C:\\Windows\\System32\\OneDriveSetup.exe"`
+         -ArgumentList "/uninstall"`
+         -Wait }
+    if (Test-Path "C:\\Windows\\SysWOW64\\OneDriveSetup.exe")`
+     { Start-Process "C:\\Windows\\SysWOW64\\OneDriveSetup.exe"`
+         -ArgumentList "/uninstall"`
+         -Wait }
+Remove-Item -Path
+"C:\\Windows\\ServiceProfiles\\LocalService\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\OneDrive.lnk" -Force
+Remove-Item -Path "C:\\Windows\\ServiceProfiles\\NetworkService\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\OneDrive.lnk" -Force \# Remove the automatic start item for OneDrive from the default user profile registry hive
+Start-Process C:\\Windows\\System32\\Reg.exe -ArgumentList "Load HKLM\\Temp C:\\Users\\Default\\NTUSER.DAT" -Wait
+Start-Process C:\\Windows\\System32\\Reg.exe -ArgumentList "Delete HKLM\\Temp\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v OneDriveSetup /f" -Wait
+Start-Process C:\\Windows\\System32\\Reg.exe -ArgumentList "Unload HKLM\\Temp" -Wait Start-Process -FilePath C:\\Windows\\Explorer.exe -Wait
+```
+
+
+对于任何问题或顾虑本白皮书中的信息，请联系你的 Microsoft 帐户团队、 研究 Microsoft VDI 博客、 将消息发布到 Microsoft 论坛后，或联系 Microsoft 获取问题或疑虑。

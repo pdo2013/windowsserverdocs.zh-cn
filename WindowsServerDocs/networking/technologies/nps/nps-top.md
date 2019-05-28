@@ -9,12 +9,12 @@ ms.assetid: 9c7a67e0-0953-479c-8736-ccb356230bde
 ms.author: pashort
 author: shortpatti
 ms.date: 06/20/2018
-ms.openlocfilehash: c76483031bdca184e0943738a8c921776440d1fc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0439c0f45a604f6b3ef90369f5fe77a59568d9d7
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829028"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222579"
 ---
 # <a name="network-policy-server-nps"></a>网络策略服务器 (NPS)
 
@@ -39,10 +39,10 @@ ms.locfileid: "59829028"
 
 NPS 可集中配置和管理网络访问身份验证、 授权和记帐具有以下功能：
 
-- **RADIUS 服务器**。 NPS 为无线身份验证交换机、 远程访问拨号和虚拟专用网络 (VPN) 连接执行集中式身份验证、 授权和记帐。 将 NPS 用作 RADIUS 服务器时，可以将无线访问点和 VPN 服务器等网络访问服务器配置为 NPS 中的 RADIUS 客户端。 也可以配置有关使用 NPS 对连接请求进行授权的网络策略，并且可以配置 RADIUS 记帐，以便 NPS 将记帐信息记录到本地硬盘上或 Microsoft SQL Server 数据库中的日志文件。 有关详细信息，请参阅[RADIUS 服务器](#bkmk_server)。
-- **RADIUS 代理**。 当将 NPS 用作 RADIUS 代理时，配置连接请求策略，以告诉的 NPS 哪些连接请求转发给其他 RADIUS 服务器和你想要将连接请求转发哪些 RADIUS 服务器。 也可以配置 NPS，以转发将由远程 RADIUS 服务器组中的一台或多台计算机记录的记帐数据。 若要将 NPS 配置为 RADIUS 代理服务器，请参阅以下主题。 有关详细信息，请参阅[RADIUS 代理](#bkmk_proxy)。
+- **RADIUS 服务器**。 NPS 为无线身份验证交换机、 远程访问拨号和虚拟专用网络 (VPN) 连接执行集中式身份验证、 授权和记帐。 将 NPS 用作 RADIUS 服务器时，可以将无线访问点和 VPN 服务器等网络访问服务器配置为 NPS 中的 RADIUS 客户端。 也可以配置有关使用 NPS 对连接请求进行授权的网络策略，并且可以配置 RADIUS 记帐，以便 NPS 将记帐信息记录到本地硬盘上或 Microsoft SQL Server 数据库中的日志文件。 有关详细信息，请参阅[RADIUS 服务器](#radius-server)。
+- **RADIUS 代理**。 当将 NPS 用作 RADIUS 代理时，配置连接请求策略，以告诉的 NPS 哪些连接请求转发给其他 RADIUS 服务器和你想要将连接请求转发哪些 RADIUS 服务器。 也可以配置 NPS，以转发将由远程 RADIUS 服务器组中的一台或多台计算机记录的记帐数据。 若要将 NPS 配置为 RADIUS 代理服务器，请参阅以下主题。 有关详细信息，请参阅[RADIUS 代理](#radius-proxy)。
     - [配置连接请求策略](nps-crp-configure.md)
-- **RADIUS 记帐**。 你可以配置 NPS 事件记录到本地的日志文件或 Microsoft SQL Server 的本地或远程实例。 有关详细信息，请参阅[NPS 日志记录](#bkmk_logging)。
+- **RADIUS 记帐**。 你可以配置 NPS 事件记录到本地的日志文件或 Microsoft SQL Server 的本地或远程实例。 有关详细信息，请参阅[NPS 日志记录](#nps-logging)。
 
 >[!IMPORTANT]
 >网络访问保护\(NAP\)，健康注册机构\(HRA\)，以及主机凭据授权协议\(HCAP\)在 Windows Server 2012 R2 中，不推荐使用和 Windows Server 2016 中不可用。 如果使用的操作系统早于 Windows Server 2016 的 NAP 部署，您不能将您的 NAP 部署迁移到 Windows Server 2016。
@@ -66,7 +66,7 @@ NPS 提供不同的功能，具体取决于你安装的 Windows Server 版本。
 
 可以将 NPS 用作 RADIUS 服务器、 RADIUS 代理，或两者。
 
-### <a name="bkmk_server"></a>RADIUS 服务器
+### <a name="radius-server"></a>RADIUS 服务器
 
 NPS 是 RADIUS 标准指定由 Internet 工程任务组的 Microsoft 实现\(IETF\) Rfc 2865 和 2866年中。 NPS 用作 RADIUS 服务器，执行集中化的连接身份验证、 授权和记帐的许多类型的网络访问权限，包括无线、 身份验证切换、 拨号和虚拟专用网络\(VPN\)远程访问和路由器到路由器的连接。
 
@@ -97,7 +97,7 @@ RADIUS 服务器有权访问用户帐户信息，并可以检查网络访问身�
 
 ![NPS 用作 RADIUS 服务器](../../media/Nps-Server/Nps-Server.jpg)
 
-### <a name="bkmk_proxy"></a>RADIUS 代理
+### <a name="radius-proxy"></a>RADIUS 代理
 
 为 RADIUS 代理，NPS 将身份验证和记帐消息转发到 NPS 和其他 RADIUS 服务器。 因为 RADIUS 代理，以提供路由的 RADIUS 消息之间的 RADIUS 客户端，您可以使用 NPS\(也称为网络访问服务器\)和执行用户身份验证、 授权和记帐的 RADIUS 服务器连接尝试。 
 
@@ -183,7 +183,7 @@ RADIUS 服务器有权访问用户帐户信息，并可以检查网络访问身�
 - [配置远程 RADIUS 服务器组](nps-crp-rrsg-configure.md)
 - [配置连接请求策略](nps-crp-configure.md)
 
-## <a name="bkmk_logging"></a>NPS 日志记录
+## <a name="nps-logging"></a>NPS 日志记录
 
 NPS 日志记录也称为 RADIUS 记帐。 配置 NPS 日志记录与您的需求，是否将 NPS 用作 RADIUS 服务器、 代理或这些配置的任意组合。
 

@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 11d2d567f9264dca53a3426263a172649d7d7c11
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f034c2eeafe9d52569e8181bbbb2e582b1059d51
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826648"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188856"
 ---
 # <a name="walkthrough-guide-manage-risk-with-conditional-access-control"></a>操作实例指南：使用条件访问控制管理风险
 
->适用于：Windows Server 2012 R2
+
 
 
 ## <a name="about-this-guide"></a>关于本指南
@@ -66,27 +66,27 @@ ms.locfileid: "59826648"
     系统将授予你对应用程序的访问权限。
 
 ## <a name="BKMK_3"></a>步骤 3:基于用户数据配置条件访问控制策略
-在此步骤中，你将基于用户组成员身份数据设置一个访问控制策略。 换而言之，你将在联合服务器上，为代表示例应用程序 ( **claimapp** ) 的信赖方信任配置“颁发授权规则” 。 根据此规则的逻辑**Robert Hatley** AD 用户发出访问此应用程序，因为它属于所需的声明**财务**组。 已添加**Robert Hatley**帐户添加到**财务**组中[为 Windows Server 2012 R2 中的 AD FS 设置实验室环境](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)。
+在此步骤中，你将基于用户组成员身份数据设置一个访问控制策略。 换而言之，你将在联合服务器上，为代表示例应用程序 ( **claimapp** ) 的信赖方信任配置“颁发授权规则”  。 根据此规则的逻辑**Robert Hatley** AD 用户发出访问此应用程序，因为它属于所需的声明**财务**组。 已添加**Robert Hatley**帐户添加到**财务**组中[为 Windows Server 2012 R2 中的 AD FS 设置实验室环境](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)。
 
 可以通过 AD FS 管理控制台或 Windows PowerShell 完成此任务。
 
 #### <a name="to-configure-conditional-access-control-policy-based-on-user-data-via-the-ad-fs-management-console"></a>通过 AD FS 管理控制台基于用户数据配置条件访问控制策略的步骤
 
-1.  在 AD FS 管理控制台中，依次导航到“信任关系” 和“信赖方信任” 。
+1.  在 AD FS 管理控制台中，依次导航到“信任关系”  和“信赖方信任”  。
 
-2.  选择代表示例应用程序 (**claimapp**) 的信赖方信任，然后在“操作”  窗格中选择“编辑声明规则” ，或者通过右键单击此信赖方信任的方式进行选择。
+2.  选择代表示例应用程序 (**claimapp**) 的信赖方信任，然后在“操作”  窗格中选择“编辑声明规则”  ，或者通过右键单击此信赖方信任的方式进行选择。
 
-3.  在“编辑 claimapp 的声明规则”  窗口中，选择“颁发授权规则”  选项卡，然后单击“添加规则” 。
+3.  在“编辑 claimapp 的声明规则”  窗口中，选择“颁发授权规则”  选项卡，然后单击“添加规则”  。
 
-4.  在“添加颁发授权声明规则向导” 中的“选择规则模板” 页面上，选择“根据传入声明允许或拒绝用户”  声明规则模板，然后单击“下一步” 。
+4.  在“添加颁发授权声明规则向导”  中的“选择规则模板”  页面上，选择“根据传入声明允许或拒绝用户”  声明规则模板，然后单击“下一步”  。
 
-5.  在“配置规则”页面上执行下述所有操作，然后单击“完成”：
+5.  在“配置规则”  页面上执行下述所有操作，然后单击“完成”  ：
 
     1.  输入声明规则的名称，例如 **TestRule**。
 
-    2.  选择“组 SID”  作为“传入声明类型” 。
+    2.  选择“组 SID”  作为“传入声明类型”  。
 
-    3.  单击“浏览” ，键入 **Finance** 作为 AD 测试组的名称，然后解析该名称以填入“传入声明值”  字段。
+    3.  单击“浏览”  ，键入 **Finance** 作为 AD 测试组的名称，然后解析该名称以填入“传入声明值”  字段。
 
     4.  选择“拒绝访问具有此传入声明的用户”选项  。
 
