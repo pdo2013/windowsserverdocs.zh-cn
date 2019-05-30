@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 460837c79c0e0d2c48331ddaaffcd118fd16ebc1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 55dd38c966fea8448231b06cde9c1dd63b024197
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870608"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266762"
 ---
 # <a name="authentication-policies-and-authentication-policy-silos"></a>身份验证策略和身份验证策略接收器
 
@@ -228,9 +228,9 @@ Active Directory 帐户类型确定调用方的角色为以下值之一：
 ## <a name="BKMK_ErrorandEvents"></a>相关联的错误消息和信息性事件消息
 下表描述了一些事件，它们与受保护用户安全组和应用到身份验证策略接收器的身份验证策略相关联。
 
-这些事件记录在位于“Microsoft\Windows\Authentication” 的应用程序和服务日志中。
+这些事件记录在位于“Microsoft\Windows\Authentication”  的应用程序和服务日志中。
 
-有关使用这些事件的排除故障步骤，请参阅 [Troubleshoot Authentication Policies](how-to-configure-protected-accounts.md#BKMK_TroubleshootAuthnPolicies) 和 [Troubleshoot events related to Protected Users](how-to-configure-protected-accounts.md#BKMK_TrubleshootingEvents)。
+有关使用这些事件的排除故障步骤，请参阅 [Troubleshoot Authentication Policies](how-to-configure-protected-accounts.md#troubleshoot-authentication-policies) 和 [Troubleshoot events related to Protected Users](how-to-configure-protected-accounts.md#troubleshoot-events-related-to-protected-users)。
 
 |事件 ID 和日志|描述|
 |----------|--------|

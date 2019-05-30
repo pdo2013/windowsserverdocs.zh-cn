@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 0e5c5f8b7cf5c028fbfa5d72c4bc1218565d4087
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e1652e45f51500ceeb0026b8892fbe9c54ff38f3
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814018"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266640"
 ---
 # <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>正确放置域控制器和站点的注意事项
 
@@ -64,7 +64,7 @@ ms.locfileid: "59814018"
 
     -   使用 DnsAvoidRegisterRecords 消除效果不佳性能或高延迟的域控制器，如附属站点，从泛型定位符的广告中。 有关详细信息，请参阅[如何优化域控制器或全局编录，位于客户端的站点之外的位置](https://support.microsoft.com/kb/306602)。
 
-        **请注意**  大约 50%到客户端可以使用的域控制器的数量的实际限制。 这些应是最大站点最佳和最高容量的域控制器。
+        > [!Note]   没有为客户端可以使用的域控制器的数量大约为 50 的实际限制。 这些应是最大站点最佳和最高容量的域控制器。
 
          
 
@@ -80,5 +80,5 @@ ms.locfileid: "59814018"
 - [性能优化 Active Directory 服务器](index.md)
 - [硬件注意事项](hardware-considerations.md)
 - [LDAP 注意事项](ldap-considerations.md)
-- [ADDS 性能故障排除](troubleshoot.md) 
-- [Active Directory 域服务的容量规划](https://go.microsoft.com/fwlink/?LinkId=324566)
+- [ADDS 性能疑难解答](troubleshoot.md) 
+- [Active Directory 域服务的容量计划](https://go.microsoft.com/fwlink/?LinkId=324566)

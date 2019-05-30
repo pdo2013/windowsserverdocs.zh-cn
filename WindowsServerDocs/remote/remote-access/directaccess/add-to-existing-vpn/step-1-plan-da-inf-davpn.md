@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 4ca50ea8-6987-4081-acd5-5bf9ead62acd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d8568defaf0b282c264b2e6fa80c6eab4f9a3c39
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 34f6ec2b50e38042a7530e94915ed6d29d5f76a6
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865158"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266799"
 ---
 # <a name="step-1-plan-directaccess-infrastructure"></a>步骤 1 规划 DirectAccess 基础结构
 
@@ -37,7 +37,7 @@ ms.locfileid: "59865158"
   
 不需要按照特定顺序完成这些规划任务。  
   
-## <a name="bkmk_1_1_Network_svr_top_settings"></a>规划网络拓扑和设置  
+## <a name="plan-network-topology-and-settings"></a>规划网络拓扑和设置  
   
 ### <a name="plan-network-adapters-and-ip-addressing"></a>规划网络适配器和 IP 寻址  
   
@@ -57,7 +57,7 @@ ms.locfileid: "59865158"
   
 3.  按下表配置所需的适配器和寻址。 对于使用单个网络适配器在 NAT 设备后面部署，配置您使用仅内部网络适配器列的 IP 地址。  
   
-    ||外部网络适配器|内部网络适配器<sup>1</sup>|路由要求|  
+    ||外部网络适配器|内部网络适配器|路由要求|  
     |-|--------------|--------------------|------------|  
     |IPv4 Intranet 和 IPv4 Internet|配置以下内容：<br /><br />-一个静态公用 IPv4 地址带有相应子网掩码。<br />默认网关的 Internet 防火墙或本地 Internet 服务提供商 (ISP) 路由器的 IPv4 地址。|配置以下内容：<br /><br />的带有相应子网掩码 IPv4 intranet 地址。<br />的 intranet 命名空间特定于连接的 DNS 后缀。 还必须在内部接口上配置 DNS 服务器。<br />-不要在任何 intranet 接口上配置默认网关。|若要配置远程访问服务器以访问内部 IPv4 网络上的所有子网，请执行以下操作：<br /><br />1.列出 Intranet 上所有位置的 IPv4 地址空间。<br />2.使用 **route add -p** 或 **netsh interface ipv4 add route** 命令将 IPv4 地址空间添加为远程访问服务器 IPv4 路由表中的静态路由。|  
     |IPv6 Internet 和 IPv6 Intranet|配置以下内容：<br /><br />-使用您的 ISP 提供的自动配置地址配置。<br />-使用**路由打印**命令，以确保指向 ISP 路由器的默认 IPv6 路由存在 IPv6 路由表中。<br />-确定 ISP 和 intranet 路由器是否正在使用 RFC 4191 中所述，使用比本地 intranet 路由器更高版本的默认首选项的默认路由器首选项。 如果两个结果都为“是”，则默认路由不需要任何其他配置。 ISP 路由器的更高首选等级可确保远程访问服务器的活动默认 IPv6 路由指向 IPv6 Internet。<br /><br />因为远程访问服务器是一个 IPv6 路由器，所以如果你具有本机 IPv6 基础结构，则 Internet 接口也可以访问 Intranet 上的域控制器。 在这种情况下，将数据包筛选器添加到外围网络中的域控制器，这些数据包筛选器可阻止连接到远程访问服务器面向 Internet 的接口的 IPv6 地址。|配置以下内容：<br /><br />-如果不使用默认首选等级，配置您的 intranet 接口**netsh 接口 ipv6 set InterfaceIndex ignoredefaultroutes = 启用**命令。 此命令可确保不会将指向 Intranet 路由器的其他默认路由添加到 IPv6 路由表。 你可以从 netsh 接口显示接口命令的显示中获得 Intranet 接口的 InterfaceIndex。|如果你拥有 IPv6 Intranet，若要配置远程访问服务器以访问所有的 IPv6 位置，请执行以下操作：<br /><br />1.列出你 Intranet 上所有位置的 IPv6 地址空间。<br />2.使用 **netsh interface ipv6 add route** 命令将 IPv6 地址空间添加为远程访问服务器的 IPv6 路由表中的静态路由。|  
@@ -90,7 +90,7 @@ ms.locfileid: "59865158"
   
 -   所有 IPv4/IPv6 通信的 TCP/UDP  
   
-### <a name="bkmk_1_2_CAs_and_certs"></a>规划证书要求  
+### <a name="plan-certificate-requirements"></a>规划证书要求  
 IPsec 的证书要求包括：在客户端和远程访问服务器之间建立 IPsec 连接时，DirectAccess 客户端计算机使用的计算机证书，以及在建立与 DirectAccess 客户端的 IPsec 连接时，远程访问服务器使用的计算机证书。 Windows Server 2012 中的 DirectAccess 使用这些 IPsec 证书不是必需的。 启用 DirectAccess 向导将远程访问服务器配置为充当 Kerberos 代理，以便无需证书即可执行 IPsec 身份验证。  
   
 1.  **IP-HTTPS 服务器**-远程访问服务器时配置远程访问时，自动配置为充当 IP-HTTPS web 侦听器。 IP-HTTPS 站点需要网站证书，并且客户端计算机必须能够联系该证书的证书吊销列表 (CRL) 站点。 启用 DirectAccess 向导会尝试使用 SSTP VPN 证书。 如果未配置 SSTP，它会检查计算机个人存储中是否存在 IP-HTTPS 的证书。 如果没有可用证书，它会自动创建自签名证书。  
@@ -105,7 +105,7 @@ IPsec 的证书要求包括：在客户端和远程访问服务器之间建立 I
 ||内部 CA-可以使用内部 CA 颁发 IP-HTTPS 证书;但是，必须确保 CRL 分发点有外部。|自签名证书-可将自签名的证书用于网络位置服务器网站;但是，您不能在多站点部署中使用自签名的证书。|  
 ||自签名证书-可以为 IP-HTTPS 服务器; 使用自签名的证书但是，必须确保 CRL 分发点有外部。 无法在多站点部署中使用自签名证书。||  
   
-#### <a name="bkmk_website_cert_IPHTTPS"></a>规划用于 IP-HTTPS 证书  
+#### <a name="plan-certificates-for-ip-https"></a>规划 IP-HTTPS 的证书  
 远程访问服务器充当 IP-HTTPS 侦听器，而且你必须在服务器上手动安装 HTTPS 网站证书。 在规划时请注意以下事项：  
   
 -   建议使用公共 CA，以便可以随时使用 CRL。  
@@ -136,7 +136,7 @@ IPsec 的证书要求包括：在客户端和远程访问服务器之间建立 I
 -   如果稍后你打算配置多站点或群集部署，则证书的名称不应该与远程访问服务器的内部名称相匹配。  
   
     > [!NOTE]  
-    > 确保 IP-HTTPS 和网络位置服务器的证书包含“使用者名称”。 如果该证书不包含  “使用者名称”但包含“备用名称” ，则远程访问向导将不会接受它。  
+    > 确保 IP-HTTPS 和网络位置服务器的证书包含“使用者名称”  。 如果该证书不包含  “使用者名称”但包含“备用名称”  ，则远程访问向导将不会接受它。  
   
 #### <a name="plan-dns-requirements"></a>规划 DNS 要求  
 在远程访问部署中，以下项将需要 DNS：  
@@ -174,7 +174,7 @@ IPsec 的证书要求包括：在客户端和远程访问服务器之间建立 I
   
 -   对于 DirectAccess 客户端，必须使用运行 Windows Server 2003、 Windows Server 2008、 Windows Server 2008 R2、 Windows Server 2012 或支持 IPv6 的任何 DNS 服务器的 DNS 服务器。  
   
-### <a name="bkmk_1_6_AD"></a>规划 Active Directory  
+### <a name="plan-active-directory"></a>规划 Active Directory  
 远程访问使用 Active Directory 和 Active Directory 组策略对象，如下所示：  
   
 -   **身份验证**-使用 Active Directory 进行身份验证。 Intranet 隧道使用 Kerberos 身份验证以使用户可以访问内部资源。  
@@ -207,7 +207,7 @@ IPsec 的证书要求包括：在客户端和远程访问服务器之间建立 I
 > -   远程访问服务器不可以是域控制器。  
 > -   不可从远程访问服务器的外部 Internet 适配器中访问用于远程访问的 Active Directory 域控制器（该适配器不可位于 Windows 防火墙的域配置文件中）。  
   
-### <a name="bkmk_1_7_GPOs"></a>规划组策略对象  
+### <a name="plan-group-policy-objects"></a>规划组策略对象  
 将配置远程访问时配置的 DirectAccess 设置收集到组策略对象 (GPO) 中。 使用 DirectAccess 设置填充三个不同的 GPO 并按如下方式分发它们：  
   
 -   **DirectAccess 客户端 GPO** -此 GPO 包含客户端设置，包括 IPv6 转换技术设置、 NRPT 条目和 Windows 防火墙高级安全连接安全规则。 将 GPO 应用于为客户端计算机指定的安全组。  
@@ -266,11 +266,11 @@ IPsec 的证书要求包括：在客户端和远程访问服务器之间建立 I
 #### <a name="recovering-from-a-deleted-gpo"></a>从已删除的 GPO 中恢复  
 如果已意外删除远程访问服务器、客户端或应用程序服务器 GPO，并且没有可用备份，你必须删除配置设置并再次重新配置。 如果有可用的备份，则可以从备份中还原 GPO。  
   
-“远程访问管理”将显示以下错误消息：**GPO<GPO name>找不到**。 若要删除配置设置，请执行以下步骤：  
+“远程访问管理”  将显示以下错误消息：**GPO<GPO name>找不到**。 若要删除配置设置，请执行以下步骤：  
   
 1.  运行 PowerShell cmdlet **Uninstall-remoteaccess**。  
   
-2.  重新打开“远程访问管理”。  
+2.  重新打开“远程访问管理”  。  
   
-3.  你将看到关于未找到 GPO 的错误消息。 单击“删除配置设置” 。 完成操作后，服务器将还原到未配置状态。  
+3.  你将看到关于未找到 GPO 的错误消息。 单击“删除配置设置”  。 完成操作后，服务器将还原到未配置状态。  
 

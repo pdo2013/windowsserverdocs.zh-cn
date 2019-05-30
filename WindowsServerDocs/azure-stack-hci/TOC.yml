@@ -1,0 +1,21 @@
+- name: Azure Stack HCI
+  items:
+    - name: Azure Stack HCI 内容
+      expanded: true
+      items:
+        - name: Azure Stack HCI 概述
+          href: index.md
+        - name: Hyper-V
+          href: ../virtualization/hyper-v/index.md
+        - name: 存储空间直通
+          href: ../storage/storage-spaces/storage-spaces-direct-overview.md
+        - name: 故障转移群集
+          href: ../failover-clustering/failover-clustering-overview.md
+        - name: 软件定义的网络
+          href: 'https://docs.microsoft.com/windows-server/networking/sdn/'
+        - name: Windows Server 软件定义数据中心
+          href: 'https://docs.microsoft.com/windows-server/sddc/'
+        - name: Windows Admin Center
+          href: ../manage/windows-admin-center/overview.md
+        - name: 连接到 Azure
+          href: ../azure-hybrid-services/index.md

@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cc24893b1a227501959002ea2d81c62813855d4a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 77a4702ddab987cb3adda7627badb790e3102952
+ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883628"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66308545"
 ---
 # <a name="wsus-messages-and-troubleshooting-tips"></a>WSUS 消息和疑难解答提示
 
@@ -57,7 +57,7 @@ WSUS 客户端计算机不发送到 WSUS 服务器，用于指示其当前的更
 
 > 尝试连接到 WSUS 服务器时出错。 多种原因，可能发生此错误。 请如果问题仍然存在，与网络管理员联系。 单击重置服务器节点，以重新连接到服务器。
 
-除此之外，尝试访问 WSUS 管理网站的 URL (即， http://CM12CAS:8530)失败，出现错误：
+除此之外，尝试访问 WSUS 管理网站的 URL (即， `http://CM12CAS:8530`) 失败，出现错误：
 
 > HTTP 错误 503。 服务不可用
 

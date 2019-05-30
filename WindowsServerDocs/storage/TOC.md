@@ -136,13 +136,7 @@
 #### [删除服务器](storage-spaces/remove-servers.md)
 #### [更新驱动器固件](update-firmware.md)
 #### [扩展卷](storage-spaces/resize-volumes.md)
-### 排除故障
-#### [故障排除方案](storage-spaces/troubleshooting-storage-spaces.md)
-#### [运行状况和操作状态](storage-spaces/storage-spaces-states.md)
-#### [收集数据](storage-spaces/data-collection.md)
-#### [常见问题解答](storage-spaces/storage-spaces-direct-faq.md)
-### Insider Preview
-#### [群集集](storage-spaces/cluster-sets.md)
+#### [删除卷](storage-spaces/delete-volumes.md)
 #### [性能历史记录](storage-spaces/performance-history.md)
 ##### [驱动器](storage-spaces/performance-history-for-drives.md)
 ##### [网络适配器](storage-spaces/performance-history-for-network-adapters.md)
@@ -153,6 +147,12 @@
 ##### [Clusters](storage-spaces/performance-history-for-clusters.md)
 ##### [脚本示例](storage-spaces/performance-history-scripting.md)
 #### [分隔卷的分配](storage-spaces/delimit-volume-allocation.md)
+#### [使用 Azure Monitor 进行监视](storage-spaces/configure-azure-monitor.md)
+### 排除故障
+#### [故障排除方案](storage-spaces/troubleshooting-storage-spaces.md)
+#### [运行状况和操作状态](storage-spaces/storage-spaces-states.md)
+#### [收集数据](storage-spaces/data-collection.md)
+#### [常见问题解答](storage-spaces/storage-spaces-direct-faq.md)
 ## [工作文件夹](work-folders/work-folders-overview.md)
 ### [设计工作文件夹实现方案](work-folders/plan-work-folders.md)
 ### [部署工作文件夹](work-folders/deploy-work-folders.md)

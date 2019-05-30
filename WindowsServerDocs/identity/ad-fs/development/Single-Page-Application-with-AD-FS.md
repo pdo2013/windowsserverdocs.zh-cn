@@ -8,12 +8,12 @@ ms.date: 06/12/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: 1292c7e6cd1dec6926516880c34fe60fb97a9ec8
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 24a9caba7a2745973d7c69c3bd7bc42717e7a06c
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190502"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266682"
 ---
 # <a name="build-a-single-page-web-application-using-oauth-and-adaljs-with-ad-fs-2016-or-later"></a>构建使用 OAuth 和 ADAL 的单页 web 应用程序。JS 与 AD FS 2016 或更高版本
 
@@ -78,13 +78,19 @@ ms.locfileid: "66190502"
 ## <a name="registering-the-public-client-in-ad-fs"></a>在 AD FS 中注册公共客户端
 在示例中，WebAPI 配置为侦听 https://localhost:44326/。 应用程序组**Web 浏览器访问 web 应用程序**可用于配置隐式授权流应用程序。
 
-1. 打开 AD FS 管理控制台并单击**添加应用程序组**。 在中**添加应用程序组向导**输入的应用程序、 说明和选择名称**Web 浏览器访问 web 应用程序**模板从**客户端-服务器应用程序**部分如下所示  <br>![创建新的应用程序组](media/Single-Page-Application-with-AD-FS/appgroup_step1.png)
+1. 打开 AD FS 管理控制台并单击**添加应用程序组**。 在中**添加应用程序组向导**输入的应用程序、 说明和选择名称**Web 浏览器访问 web 应用程序**模板从**客户端-服务器应用程序**部分如下所示
 
-2. 在下一页上**本机应用程序**、 提供应用程序客户端标识符和重定向 URI，如下所示  <br>![创建新的应用程序组](media/Single-Page-Application-with-AD-FS/appgroup_step2.png)
+    ![创建新的应用程序组](media/Single-Page-Application-with-AD-FS/appgroup_step1.png)
+
+2. 在下一页上**本机应用程序**、 提供应用程序客户端标识符和重定向 URI，如下所示
+
+    ![创建新的应用程序组](media/Single-Page-Application-with-AD-FS/appgroup_step2.png)
 
 3. 在下一页上**应用访问控制策略**保留为权限*授权所有人*
 
-4. 摘要页应与下列内容类似  <br>![创建新的应用程序组](media/Single-Page-Application-with-AD-FS/appgroup_step3.png)
+4. 摘要页应与下列内容类似
+
+    ![创建新的应用程序组](media/Single-Page-Application-with-AD-FS/appgroup_step3.png)
 
 5. 单击**下一步**若要完成的应用程序组添加并关闭向导。
 

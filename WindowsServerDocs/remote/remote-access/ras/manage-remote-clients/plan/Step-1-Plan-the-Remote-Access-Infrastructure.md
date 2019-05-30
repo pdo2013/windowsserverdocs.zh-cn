@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: a1ce7af5-f3fe-4fc9-82e8-926800e37bc1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7f008dbdb49692e4901ebd03310710b2fbf4bd71
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8fa5886d31ea9e8969b02551b49ae744415fca80
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844418"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266739"
 ---
 # <a name="step-1-plan-the-remote-access-infrastructure"></a>步骤 1 规划远程访问基础结构
 
@@ -30,16 +30,16 @@ ms.locfileid: "59844418"
   
 |任务|描述|  
 |----|--------|  
-|[规划网络拓扑和服务器设置](#BKMK_Network)|确定放置远程访问服务器 （在边缘或网络地址转换 (NAT) 设备或防火墙后面），并规划 IP 寻址和路由的位置。|  
-|[规划防火墙要求](#BKMK_Firewall)|规划允许远程访问通过边缘防火墙。|  
-|[规划证书要求](#bkmk_12CAsandcerts)|确定是否将使用 Kerberos 协议或证书进行客户端身份验证，并规划你的网站证书。<br /><br />IP-HTTPS 是一种转换协议，DirectAccess 客户端使用该协议在 IPv4 网络上对 IPv6 通信进行隧道传送。 决定是否使用通过由远程访问服务器自动颁发自签名的证书或证书颁发机构 (CA) 颁发的证书进行 IP-HTTPS 身份验证服务器。|  
-|[规划 DNS 要求](#BKMK_DNS)|规划远程访问服务器、 基础结构服务器、 本地名称解析选项和客户端连接的域名系统 (DNS) 设置。| 
-|[规划网络位置服务器配置](#BKMK_Location)|决定要将网络位置服务器网站放置在你的组织 （在远程访问服务器或备用的服务器） 和规划证书要求，如果网络位置服务器将位于远程访问服务器上。 **注意：** DirectAccess 客户端使用网络位置服务器来确定它们是否位于内部网络上。|  
-|[计划管理服务器配置](#BKMK_Management)|规划在远程客户端管理过程中使用的管理服务器（如更新服务器）。 **注意：** 管理员可以使用 Internet 远程管理位于企业网络之外的 DirectAccess 客户端计算机。|  
-|[规划 Active Directory 要求](#BKMK_ActiveDirectory)|计划你的域控制器，Active Directory 的要求、 客户端身份验证，以及多个域结构。|  
-|[计划组策略对象创建](#BKMK_GPOs)|确定 Gpo 所需在你的组织以及如何创建和编辑 Gpo。|  
+|[规划网络拓扑和服务器设置](#plan-network-topology-and-settings)|确定放置远程访问服务器 （在边缘或网络地址转换 (NAT) 设备或防火墙后面），并规划 IP 寻址和路由的位置。|  
+|[规划防火墙要求](#plan-firewall-requirements)|规划允许远程访问通过边缘防火墙。|  
+|[规划证书要求](#plan-certificate-requirements)|确定是否将使用 Kerberos 协议或证书进行客户端身份验证，并规划你的网站证书。<br /><br />IP-HTTPS 是一种转换协议，DirectAccess 客户端使用该协议在 IPv4 网络上对 IPv6 通信进行隧道传送。 决定是否使用通过由远程访问服务器自动颁发自签名的证书或证书颁发机构 (CA) 颁发的证书进行 IP-HTTPS 身份验证服务器。|  
+|[规划 DNS 要求](#plan-dns-requirements)|规划远程访问服务器、 基础结构服务器、 本地名称解析选项和客户端连接的域名系统 (DNS) 设置。| 
+|[规划网络位置服务器配置](#plan-the-network-location-server-configuration)|决定要将网络位置服务器网站放置在你的组织 （在远程访问服务器或备用的服务器） 和规划证书要求，如果网络位置服务器将位于远程访问服务器上。 **注意：** DirectAccess 客户端使用网络位置服务器来确定它们是否位于内部网络上。|  
+|[计划管理服务器配置](#plan-management-servers-configuration)|规划在远程客户端管理过程中使用的管理服务器（如更新服务器）。 **注意：** 管理员可以使用 Internet 远程管理位于企业网络之外的 DirectAccess 客户端计算机。|  
+|[规划 Active Directory 要求](#plan-active-directory-requirements)|计划你的域控制器，Active Directory 的要求、 客户端身份验证，以及多个域结构。|  
+|[计划组策略对象创建](#plan-group-policy-object-creation)|确定 Gpo 所需在你的组织以及如何创建和编辑 Gpo。|  
   
-## <a name="BKMK_Network"></a>规划网络拓扑和设置  
+## <a name="plan-network-topology-and-settings"></a>规划网络拓扑和设置  
 当你计划你的网络时，需要考虑网络适配器拓扑中，对于 IP 寻址，设置和 ISATAP 的要求。  
   
 ### <a name="plan-network-adapters-and-ip-addressing"></a>规划网络适配器和 IP 寻址  
@@ -86,7 +86,7 @@ ms.locfileid: "59844418"
 > [!IMPORTANT]  
 > 确保不要在 DirectAccess 服务器的内部接口上具有公共 IP 地址。 如果在内部接口上有公共 IP 地址，通过 ISATAP 的连接可能会失败。  
   
-### <a name="BKMK_Firewall"></a>规划防火墙要求  
+### <a name="plan-firewall-requirements"></a>规划防火墙要求  
 如果远程访问服务器位于边缘防火墙后面，则当远程访问服务器位于 IPv4 Internet 上时，远程访问通信还需要以下例外：  
   
 -   用于 IP-HTTPS:传输控制协议 (TCP) 目标端口 443，以及 TCP 源端口 443 出站。  
@@ -121,7 +121,7 @@ ms.locfileid: "59844418"
   
 -   对于 Teredo:所有 IPv4/IPv6 通信的 ICMP  
   
-### <a name="bkmk_12CAsandcerts"></a>规划证书要求  
+### <a name="plan-certificate-requirements"></a>规划证书要求  
 有三种部署单一远程访问服务器时需要证书的方案。  
   
 -   **IPsec 身份验证**:IPsec 的证书要求包括 DirectAccess 客户端计算机它们建立与远程访问服务器的 IPsec 连接时使用的计算机证书和远程访问服务器用于建立的计算机证书与 DirectAccess 客户端 IPsec 连接。  
@@ -160,7 +160,7 @@ ms.locfileid: "59844418"
   
 -   有关**增强型密钥用法**字段中，使用服务器身份验证对象标识符 (OID)。  
   
--   对于“CRL 分发点”字段，请指定已连接到 Internet 的 DirectAccess 客户端可访问的 CRL 分发点。  
+-   对于“CRL 分发点”  字段，请指定已连接到 Internet 的 DirectAccess 客户端可访问的 CRL 分发点。  
   
     > [!NOTE]  
     > 这只是所需的运行 Windows 7 的客户端。  
@@ -174,7 +174,7 @@ ms.locfileid: "59844418"
 #### <a name="plan-website-certificates-for-the-network-location-server"></a>规划用于网络位置服务器的网站证书  
 规划网络位置服务器网站时，请考虑以下方法：  
   
--   在“使用者”字段中，指定网络位置服务器的 Intranet 接口的 IP 地址，或网络位置 URL 的 FQDN。  
+-   在  “使用者”字段中，指定网络位置服务器的 Intranet 接口的 IP 地址，或网络位置 URL 的 FQDN。  
   
 -   有关**增强型密钥用法**字段中，使用服务器身份验证 OID。  
   
@@ -183,7 +183,7 @@ ms.locfileid: "59844418"
 > [!NOTE]  
 > 确保用于 IP-HTTPS 和网络位置服务器证书包含使用者名称。 如果证书使用备用名称，远程访问向导将不会接受。  
   
-#### <a name="BKMK_DNS"></a>规划 DNS 要求  
+#### <a name="plan-dns-requirements"></a>规划 DNS 要求  
 本部分介绍远程访问部署中的服务器和客户端的 DNS 要求。  
   
 ##### <a name="directaccess-client-requests"></a>DirectAccess 客户端请求  
@@ -227,7 +227,7 @@ DNS 用于解析来自不位于内部网络上的 DirectAccess 客户端计算�
   
 可以通过 HTTP 或 PING 使用其他 web 地址来创建其他连接性验证程序。 对于每个连接性验证程序，都必须存在 DNS 条目。  
   
-##### <a name="BKMK_DNSServer"></a>DNS 服务器要求  
+##### <a name="dns-server-requirements"></a>DNS 服务器要求  
   
 -   对于 DirectAccess 客户端，必须使用运行 Windows Server 2012、 Windows Server 2008 R2、 Windows Server 2008、 Windows Server 2003、 或支持 IPv6 的任何 DNS 服务器的 DNS 服务器。  
   
@@ -235,7 +235,7 @@ DNS 用于解析来自不位于内部网络上的 DirectAccess 客户端计算�
   
 -   通过使用 Internet DNS 服务器，必须解析到 CRL 分发点的 FQDN。 例如，如果 URL https://crl.contoso.com/crld/corp-DC1-CA.crl处于**CRL 分发点**字段的 IP-HTTPS 证书的远程访问服务器，必须确保 FQDN crld.contoso.com 通过使用 Internet DNS 服务器进行解析。  
   
-#### <a name="BKMK_NameResolution"></a>规划本地名称解析  
+#### <a name="plan-for-local-name-resolution"></a>规划本地名称解析  
 规划本地名称解析时，请考虑以下方法：  
   
 ##### <a name="nrpt"></a>NRPT  
@@ -285,7 +285,7 @@ DNS 用于解析来自不位于内部网络上的 DirectAccess 客户端计算�
   
 -   **使用任何类型的 DNS 解析错误 （最不安全） 的本地名称解析**:由于 Intranet 网络服务器的名称可能通过本地名称解析泄漏到本地子网，因此此选项的安全性最低。  
   
-#### <a name="BKMK_Location"></a>规划网络位置服务器配置  
+#### <a name="plan-the-network-location-server-configuration"></a>规划网络位置服务器配置  
 网络位置服务器是一个用于检测 DirectAccess 客户端是否位于企业网络中的网站。 企业网络中的客户端不会使用 DirectAccess 访问内部资源;但它们而是直接连接。  
   
 可以托管网络位置服务器网站，远程访问服务器上或在你的组织中的另一台服务器上。 如果托管网络位置服务器远程访问服务器上的，自动创建网站时部署远程访问。 如果托管网络位置服务器上运行 Windows 操作系统的另一台服务器，必须确保 Internet 信息服务 (IIS) 在该服务器上安装和创建网站。 远程访问不配置网络位置服务器上的设置。  
@@ -309,7 +309,7 @@ DNS 用于解析来自不位于内部网络上的 DirectAccess 客户端计算�
 ##### <a name="plan-certificates-for-the-network-location-server"></a>规划用于网络位置服务器证书  
 当获取要用于网络位置服务器网站证书时，请考虑以下方面：  
   
--   在“使用者”字段中，指定网络位置服务器的 Intranet 接口的 IP 地址，或网络位置 URL 的 FQDN。  
+-   在  “使用者”字段中，指定网络位置服务器的 Intranet 接口的 IP 地址，或网络位置 URL 的 FQDN。  
   
 -   有关**增强型密钥用法**字段中，使用服务器身份验证 OID。  
   
@@ -318,7 +318,7 @@ DNS 用于解析来自不位于内部网络上的 DirectAccess 客户端计算�
 ##### <a name="plan-dns-for-the-network-location-server"></a>规划网络位置服务器的 DNS  
 DirectAccess 客户端尝试访问网络位置服务器，以确定它们是否位于内部网络上。 内部网络上的客户端必须能够解析该网络位置服务器的名称，但当它们位于 Internet 上时，必须阻止它们解析该名称。 为了确保这一点，默认情况下，网络位置服务器的 FQDN 将作为免除规则添加到 NRPT。  
   
-### <a name="BKMK_Management"></a>规划管理服务器配置  
+### <a name="plan-management-servers-configuration"></a>规划管理服务器配置  
 DirectAccess 客户端启动与提供服务，例如 Windows 更新和防病毒更新的管理服务器通信。 DirectAccess 客户端还使用 Kerberos 协议进行身份验证到域控制器，才能访问内部网络。 在 DirectAccess 客户端的远程管理期间，管理服务器与客户端计算机进行通信以执行管理功能，例如，软件或硬件清单评估。 远程访问可以自动发现某些管理服务器，包括：  
   
 -   域控制器：包含客户端计算机的域和中与远程访问服务器位于同一林中所有域执行自动发现域控制器。  
@@ -333,7 +333,7 @@ DirectAccess 客户端启动与提供服务，例如 Windows 更新和防病毒�
   
 -   通过本机 IPv6 地址或使用由 ISATAP 分配的地址，启动到 DirectAccess 客户端的连接的管理服务器必须完全支持 IPv6。  
   
-### <a name="BKMK_ActiveDirectory"></a>规划 Active Directory 要求  
+### <a name="plan-active-directory-requirements"></a>规划 Active Directory 要求  
 远程访问使用 Active Directory，如下所示：  
   
 -   **身份验证**:基础结构隧道将 NTLMv2 身份验证用于连接到远程访问服务器的计算机帐户和该帐户必须位于 Active Directory 域中。 Intranet 隧道使用 Kerberos 身份验证的用户创建 intranet 隧道。  
@@ -380,7 +380,7 @@ DirectAccess 客户端启动与提供服务，例如 Windows 更新和防病毒�
   
 在可能的情况，常见域名后缀应将添加到 NRPT 在远程访问部署过程。 例如，如果你有两个域（domain1.corp.contoso.com 和 domain2.corp.contoso.com），你可以添加一个常见的 DNS 后缀条目（其中域名后缀是 corp.contoso.com），而不是将两个条目都添加到 NRPT 中。 发生这种情况自动对在同一根域。 必须手动添加不在同一根的域。  
   
-### <a name="BKMK_GPOs"></a>计划组策略对象创建  
+### <a name="plan-group-policy-object-creation"></a>计划组策略对象创建  
 在配置远程访问时，DirectAccess 设置将收集到的组策略对象 (Gpo)。 使用 DirectAccess 设置填充两个 Gpo，并将它们分发，如下所示：  
   
 -   **DirectAccess 客户端 GPO**:此 GPO 包含客户端设置，包括 IPv6 转换技术设置、 NRPT 条目和连接安全规则的高级安全 Windows 防火墙。 此 GPO 将应用于为客户端计算机指定的安全组。  
@@ -406,7 +406,7 @@ DirectAccess 客户端启动与提供服务，例如 Windows 更新和防病毒�
   
 -   无论你使用自动或手动配置的 Gpo，您需要添加用于慢速链接检测的策略，如果你的客户端将使用 3g。 有关路径**策略：配置组策略慢速链接检测**是：  
   
-    “计算机配置”/“策略”/“管理模板”/“系统”/“组策略”。  
+    “计算机配置”/“策略”/“管理模板”/“系统”/“组策略”  。  
   
 -   如果不存在用于链接 Gpo 的正确权限，则发出警告。 远程访问操作将继续，但不是会发生链接。 如果发出此警告，则将不会自动创建链接，即使更高版本添加了权限。 相反，管理员必须手动创建链接。  
   
@@ -453,7 +453,7 @@ DirectAccess 客户端启动与提供服务，例如 Windows 更新和防病毒�
   
 2.  打开**远程访问管理**。  
   
-3.  你将看到关于未找到 GPO 的错误消息。 单击“删除配置设置” 。 完成后，服务器将还原到未配置状态，并可以重新配置设置。  
+3.  你将看到关于未找到 GPO 的错误消息。 单击“删除配置设置”  。 完成后，服务器将还原到未配置状态，并可以重新配置设置。  
   
 
 

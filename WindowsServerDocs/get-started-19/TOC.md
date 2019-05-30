@@ -1,5 +1,6 @@
 # [Windows Server 2019 入门](get-started-19.md) 
 ## [Windows Server 2019 中的新增功能](whats-new-19.md)
+## [Windows Server 版本 1903 中的新增功能](whats-new-in-windows-server-1903.md)
 ## [服务渠道的比较](servicing-channels-19.md)
 ## [安装 | 升级 | 迁移](install-upgrade-migrate-19.md)
 ## [发行说明：Windows Server 2019 中的重要问题](rel-notes-19.md)
@@ -10,15 +11,5 @@
 ## [服务器核心应用兼容性按需功能 (FOD)](install-fod-19.md)
 ## [标准 | Datacenter Edition 比较](editions-comparison-19.md)
 ## [从 Windows Server 2019 起已删除或计划替换的功能](removed-features-19.md)
-
-
-
-
-
-
-
-
-
-
-
-
+## [从 Windows Server 版本 1903 起已删除或计划替换的功能](removed-features-1903.md)
+## [Windows Server 版本信息](../get-started/windows-server-release-info.md)

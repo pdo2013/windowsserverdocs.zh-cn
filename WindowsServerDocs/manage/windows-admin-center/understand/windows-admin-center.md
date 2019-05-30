@@ -8,12 +8,12 @@ ms.author: harowl
 ms.date: 04/12/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 618d9a51c0411fb2cbf4c51661a92eed9c9636a1
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: db69ad3021850552e92c4aa653dfd9bd9110c06d
+ms.sourcegitcommit: 39ab8041d166e6817a95417d6aa30bc7abeeef54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188235"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66260288"
 ---
 # <a name="hello-windows-admin-center"></a>你好，Windows Admin Center！
 
@@ -28,14 +28,11 @@ Windows Admin Center 是本地部署的基于浏览器的应用，用于管理�
 
 - [Windows Admin Center Preview 1906](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver) - Includes the latest feature updates.
 -  -->
-[Windows Admin Center （版本 1904年）](https://aka.ms/WACDownload) <!--Broadly validated & generally available.-->
+[Windows Admin Center （版本 1904.1）](https://aka.ms/WACDownload) <!--Broadly validated & generally available.-->
 
 [新增功能](../overview.md#release-history)
 
 通过使用 Microsoft 更新或手动安装，可以更新 Windows Admin Center 的非预览版本。 每个非预览版本的 Windows Admin Center 是下一步的非预览版本发布后的 30 天内在支持。 请参阅我们[的支持策略](../support/index.md)的详细信息。
-
-> [!IMPORTANT]
-> Lenovo XClarity 集成器用户，请参阅此[已知问题](../support/known-issues.md)之前安装 Windows Admin Center 版本 1904年。
 
 ********************
 

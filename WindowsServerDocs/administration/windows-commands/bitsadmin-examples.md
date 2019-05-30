@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/31/2018
-ms.openlocfilehash: 4b9deb4fc7fbfccf569250e965274009764054f7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a98e1a876c972b0f146ff37aff0a77399b684e99
+ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849328"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66308563"
 ---
 # <a name="bitsadmin-examples"></a>bitsadmin 示例
 
@@ -28,7 +28,7 @@ ms.locfileid: "59849328"
 
 **/传输**开关是执行下面列出的任务的快捷方式。 此开关创建作业，可将文件添加到作业，激活的传输队列中的作业，并完成作业。 BITSAdmin 继续在 MS-DOS 窗口中显示进度信息，直到传输完成或发生错误。
 
-**bitsadmin /transfer myDownloadJob /download /priority 正常 https://downloadsrv/10mb.zipc:\\10mb.zip**
+**bitsadmin /transfer myDownloadJob /download /priority 正常 `https://downloadsrv/10mb.zip c:\\10mb.zip`**
 
 ## <a name="create-a-download-job"></a>创建下载作业
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: cc9f02b9-8ddd-4cae-b397-a832996144dd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4ad399e62e1aa76b76b6109e28845b2615efa0fe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fb940effaae7989dec397e539b64160c87828d5a
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882278"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266709"
 ---
 # <a name="step-2-plan-the-remote-access-deployment"></a>步骤 2 规划远程访问部署
 
@@ -31,11 +31,11 @@ ms.locfileid: "59882278"
   
 |任务|描述|  
 |----|--------|  
-|[规划客户端部署策略](#bkmk_21client)|确定将配置为 DirectAccess 客户端的托管服务器。|  
-|[规划远程访问服务器部署策略](#bkmk_22server)|规划如何部署远程访问服务器。|  
-|[规划基础结构服务器的配置](#bkmk_23Infservers)|规划远程访问部署，包括 DirectAccess 网络位置服务器、 DNS 服务器和 DirectAccess 管理服务器中的基础结构服务器。|  
+|[规划客户端部署策略](#plan-a-client-deployment-strategy)|确定将配置为 DirectAccess 客户端的托管服务器。|  
+|[规划远程访问服务器部署策略](#plan-a-remote-access-server-deployment-strategy)|规划如何部署远程访问服务器。|  
+|[规划基础结构服务器的配置](#plan-the-infrastructure-servers-configurations)|规划远程访问部署，包括 DirectAccess 网络位置服务器、 DNS 服务器和 DirectAccess 管理服务器中的基础结构服务器。|  
   
-## <a name="bkmk_21client"></a>规划客户端部署策略  
+## <a name="plan-a-client-deployment-strategy"></a>规划客户端部署策略  
 规划客户端部署时，要作出三个决策：  
   
 1.  将 DirectAccess 可供移动计算机，或指定的安全组中的每台计算机？  
@@ -70,7 +70,7 @@ ms.locfileid: "59882278"
   
         客户端需要本地名称解析的方法。 如果你允许 DirectAccess 客户端使用本地名称解析，则最终用户可以使用本地 DNS 服务器解析名称。 当最终用户选择使用本地 DNS 服务器进行名称解析时，则 DirectAccess 不向公司内部 DNS 服务器发送单标签名称解析的请求。 它改为使用本地名称解析 （通过使用链路本地多播名称解析 (LLMNR) 和 NetBios over TCP/IP 协议）。  
   
-## <a name="bkmk_22server"></a>规划远程访问服务器部署策略  
+## <a name="plan-a-remote-access-server-deployment-strategy"></a>规划远程访问服务器部署策略  
 你需要进行规划以部署远程访问服务器时的决策包括：  
   
 -   **网络拓扑**  
@@ -110,7 +110,7 @@ ms.locfileid: "59882278"
   
     配置远程访问之前，确定是否要为远程客户端提供 VPN 访问。 如果必须在组织中不支持 DirectAccess 连接的客户端计算机，应提供 VPN 访问权限 （例如，它们不受管理或它们运行的操作系统不支持 DirectAccess 的）。 远程访问服务器安装向导可以配置如何分配 IP 地址 （通过使用 DHCP 或从静态地址池） 和如何 VPN 客户端进行身份验证 （通过使用 Active Directory 或 RADIUS 服务器）。  
   
-## <a name="bkmk_23Infservers"></a>规划基础结构服务器的配置  
+## <a name="plan-the-infrastructure-servers-configurations"></a>规划基础结构服务器的配置  
 远程访问需要使用三种类型的基础结构服务器：  
   
 -   **网络位置服务器**  
@@ -119,7 +119,7 @@ ms.locfileid: "59882278"
   
 -   **管理服务器** 
   
-## <a name="BKMK_Links"></a>另请参阅  
+## <a name="see-also"></a>请参阅  
   
 -   [步骤 1：规划远程访问基础结构](Step-1-Plan-the-Remote-Access-Infrastructure.md)  
   

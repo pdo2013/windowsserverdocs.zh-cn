@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9032988c65581ea602451d224f40719b932ab7f5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 79f95c88c49d384f8a13b8808c63a0dc00de53cb
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821688"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266622"
 ---
 # <a name="ldap-considerations-in-adds-performance-tuning"></a>LDAP 中 ADDS 性能优化的注意事项
 
@@ -49,7 +49,7 @@ ms.locfileid: "59821688"
 
     -   **NTDS\\请求的延迟时间**– 这是请求进入进程受多长时间。 Active Directory 后 120 秒 （默认值） 超时的请求，但是，大多数应运行速度更快并且极长时间运行的查询应获取隐藏状态中总体的数字。 查找此基线，而不是绝对阈值中的更改。
 
-        **请注意**  较高值也可以是"代理程序中延迟指标？ 与其他域和 CRL 检查的请求。
+        > [!Note]   较高的值也可以是对其他域和 CRL 检查的"代理"请求中的延迟指标。
 
 
     -   **NTDS\\估计队列延迟**– 这理想情况下应接近于 0 以获得最佳性能是因为这意味着，请求没有时间等待服务。
@@ -64,7 +64,7 @@ ms.locfileid: "59821688"
 
 -   [Microsoft Server Performance Advisor](../../../server-performance-advisor/microsoft-server-performance-advisor.md) Active Directory Advisor 包
 
--   搜索使用除了任何筛选器"(objectClass =\*)？ 使用上级索引。
+-   搜索使用除了任何筛选器"(objectClass =\*)"使用上级索引。
 
 ### <a name="other-index-considerations"></a>其他索引注意事项
 
@@ -102,6 +102,6 @@ ms.locfileid: "59821688"
 ## <a name="see-also"></a>请参阅
 - [性能优化 Active Directory 服务器](index.md)
 - [硬件注意事项](hardware-considerations.md)
-- [正确放置域控制器和站点的注意事项](site-definition-considerations.md)
-- [ADDS 性能故障排除](troubleshoot.md) 
-- [Active Directory 域服务的容量规划](https://go.microsoft.com/fwlink/?LinkId=324566)
+- [域控制器的正确放置和站点注意事项](site-definition-considerations.md)
+- [ADDS 性能疑难解答](troubleshoot.md) 
+- [Active Directory 域服务的容量计划](https://go.microsoft.com/fwlink/?LinkId=324566)

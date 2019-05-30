@@ -38,6 +38,7 @@
 ##### [虚拟化域控制器技术参考（级别 300）](ad-ds/deploy/virtual-dc/Virtualized-Domain-Controller-Technical-Reference--Level-300-.md)
 ###### [虚拟化域控制器体系结构](ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md)
 ###### [虚拟化域控制器部署和配置](ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md)
+###### [在 Azure VM 上运行 Active Directory](ad-ds/deploy/virtual-dc/adds-on-azure-vm.md)
 ###### [使用 Hyper-V 的虚拟化域控制器](ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v.md)
 ###### [虚拟化域控制器疑难解答](ad-ds/manage/virtual-dc/Virtualized-Domain-Controller-Troubleshooting.md)
 ###### [虚拟化域控制器技术参考附录](ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-appendix.md)
@@ -365,6 +366,9 @@
 
 
 ### [AD FS 开发](ad-fs/AD-FS-Development.md)
+
+#### [为 AD FS 构建自定义身份验证方法](ad-fs/development/ad-fs-build-custom-auth-method.md)
+#### [使用 AD FS 2019 风险评估模型构建插件](ad-fs/development/ad-fs-risk-assessment-model.md)
 #### [AD FS 中的自定义 ID 令牌](ad-fs/development/Custom-Id-Tokens-in-AD-FS.md)
 #### [Windows Server 2016 中的 AD FS 代表身份验证](ad-fs/development/AD-FS-On-behalf-of-Authentication-in-Windows-Server.md)
 #### [使用 AD FS 2016 启用 OpenId 连接](ad-fs/development/Enabling-OpenId-Connect-with-AD-FS.md)

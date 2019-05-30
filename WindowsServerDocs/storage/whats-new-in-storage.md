@@ -7,19 +7,49 @@ ms.manager: dongill
 ms.technology: storage
 ms.topic: article
 author: jasongerend
-ms.date: 10/22/2019
-ms.openlocfilehash: b8b6b1145e5b921fac64c47cbfb1e7489fa3f41e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.date: 05/29/2019
+ms.openlocfilehash: 5469d663f64fdb453e03863f409b675473d3f6aa
+ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847238"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66308564"
 ---
 # <a name="whats-new-in-storage-in-windows-server"></a>什么是 Windows Server 中存储中的新增功能
 
 >适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
 
 本主题介绍了在 Windows Server 2019，Windows Server 2016 中的存储中的新功能和更改功能和 Windows Server 半年频道发布。
+
+## <a name="whats-new-in-storage-in-windows-server-2019-and-windows-server-version-1903"></a>什么是 Windows Server 2019 和 Windows Server 版本 1903年中使用存储中的新增功能
+
+此版本的 Windows Server 添加了以下更改和技术。
+
+### <a name="storage-migration-service-now-migrates-local-accounts-clusters-and-linux-servers"></a>本地帐户、 群集和 Linux 服务器，现在将迁移存储迁移服务
+
+存储迁移服务，可以更轻松地迁移到较新版本的 Windows Server 的服务器。 它提供了一个图形工具，列出服务器上的数据的清单，然后将数据和配置传输至较新的服务器，同时应用程序或用户无需更改任何内容。
+
+当使用此版本的 Windows Server 协调迁移，我们添加了以下功能：
+
+- 将本地用户和组迁移到新服务器
+- 从故障转移群集迁移存储
+- 使用 Samba 的 Linux 服务器从迁移存储
+- 更轻松地使用 Azure 文件同步到 Azure 中同步已迁移的共享
+- 将迁移到 Azure 等的新网络
+
+有关存储迁移服务的详细信息，请参阅[存储迁移服务概述](storage-migration-service/overview.md)。
+
+### <a name="system-insights-disk-anomaly-detection"></a>系统 Insights 磁盘异常情况检测
+
+[系统 Insights](../manage/system-insights/overview.md)是预测分析功能，本地 Windows Server 系统数据进行分析，并提供深入的服务器的运行状况。 它还提供了许多内置功能，但我们已添加可以安装其他功能通过 Windows Admin Center，以从磁盘异常情况检测。
+
+磁盘异常情况检测是当磁盘的运行情况符合突出显示的新功能*以不同方式*比平常。 虽然不同并不一定是您的系统上进行问题排查时可以提供帮助是坏事，查看这些异常的情形。
+
+此功能也是可用于运行 Windows Server 2019 的服务器。
+
+### <a name="windows-admin-center-enhancements"></a>Windows Admin Center 增强功能
+
+Windows Admin Center 的新版本，是添加到 Windows Server 的新功能。 有关最新功能的信息，请参见[Windows Admin Center](../manage/windows-admin-center/understand/windows-admin-center.md)。
 
 ## <a name="whats-new-in-storage-in-windows-server-2019-and-windows-server-version-1809"></a>什么是 Windows Server 2019 和 Windows Server 版本 1809年中使用存储中的新增功能
 
@@ -41,7 +71,7 @@ ms.locfileid: "59847238"
 
 - **重复数据删除和 ReFS 卷的压缩**
 
-    重复数据删除和 ReFS 文件系统压缩的同一个卷上存储多达 10 倍更多的数据。 (它具有[只需单击一下](https://www.youtube.com/watch?v=PRibTacyKko&feature=youtu.be)若要使用 Windows Admin Center 打开。)使用可选的压缩大小可变的区块存储可节省率最大化，而多线程的后续处理体系结构保证性能的影响最小。 支持高达 64TB 的卷和每个高达 1TB 的文件。
+    与重复数据删除和 ReFS 文件系统压缩在同一卷上存储最多 10 倍更多数据。 (它具有[只需单击一下](https://www.youtube.com/watch?v=PRibTacyKko&feature=youtu.be)若要使用 Windows Admin Center 打开。)使用可选的压缩大小可变的区块存储可节省率最大化，而多线程的后续处理体系结构保证性能的影响最小。 支持的卷最多 64 TB 和将重复数据删除的每个文件的第一个 4 TB。
 
 - **对永久性内存的本机支持**
 
@@ -268,4 +298,4 @@ ReFS 做了以下改进：
 这些功能是 Windows Server 2016 中的新增功能。 
 
 ## <a name="see-also"></a>请参阅  
-* [什么是 Windows Server 2016 中的新增功能](../get-started/what-s-new-in-windows-server-2016.md)  
+* [Windows Server 2016 中的新增功能](../get-started/what-s-new-in-windows-server-2016.md)  

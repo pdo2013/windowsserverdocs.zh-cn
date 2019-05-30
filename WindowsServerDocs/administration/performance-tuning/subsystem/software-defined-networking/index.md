@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: grcusanz; AnPaul
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: dfb8d997c6e04381e5be0ba2c3a7ca27a851df50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0e173039c45faa100a434b69a9faa736ff7c9b53
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891318"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034135"
 ---
 # <a name="performance-tuning-software-defined-networks"></a>软件定义的网络性能优化
 
@@ -30,7 +30,7 @@ Windows Server 2016 中软件定义的网络 (SDN) 由网络控制器、Hyper-V 
 
 ## <a name="hyper-v-host-networking"></a>Hyper-V 主机网络
 
-使用 SDN 时，虽然 [Hyper-V 服务器性能优化](../../role/remote-desktop/session-hosts.md)指南中 [Hyper-V 网络 I/O 性能](#netio)部分提供的指南适用，但本部分介绍了使用 SDN 时为确保实现最佳性能而必须遵循的指南。
+使用 SDN 时，虽然 [Hyper-V 服务器性能优化](../../role/remote-desktop/session-hosts.md)指南中 Hyper-V 网络 I/O 性能部分提供的指南适用，但本部分介绍了使用 SDN 时为确保实现最佳性能而必须遵循的指南。
 
 ### <a name="physical-network-adapter-nic-teaming"></a>物理网络适配器 (NIC) 组合
 

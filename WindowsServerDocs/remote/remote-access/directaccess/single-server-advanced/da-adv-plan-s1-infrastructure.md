@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: aa3174f3-42af-4511-ac2d-d8968b66da87
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: cd94c1a05ba52a590d6f84122f81764f52b1ae47
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 01005b5d69a48b01a1735e690a4a97c46094da23
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880958"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266776"
 ---
 # <a name="step-1-plan-the-advanced-directaccess-infrastructure"></a>步骤 1 计划高级 DirectAccess 基础结构
 
@@ -26,27 +26,27 @@ ms.locfileid: "59880958"
 
 在单个服务器上规划高级 DirectAccess 部署的第一步是规划部署所需的基础结构。 本主题介绍基础结构规划步骤。 不需要按照特定顺序完成这些规划任务。  
   
-|任务|描述|  
+|任务|描述| 
 |----|--------|  
-|[1.1 规划网络拓扑和设置](#bkmk_11Networksvrtopsettings)|确定放置 DirectAccess 服务器的位置（在边缘，或者在网络地址转换 (NAT) 设备或防火墙后面），并规划 IP 寻址、路由和强制隧道。|  
-|[1.2 规划防火墙要求](#bkmk_ConfigFirewalls)|规划允许 DirectAccess 通信通过边缘防火墙。|  
-|[1.3 规划证书要求](#bkmk_12CAsandCerts)|确定你打算使用 Kerberos 还是证书进行客户端身份验证，并规划你的网站证书。 IP-HTTPS 是一种转换协议，DirectAccess 客户端使用该协议在 IPv4 网络上对 IPv6 通信进行隧道传送。 确定是使用由证书颁发机构 (CA) 颁发的证书，还是使用由 DirectAccess 服务器自动颁发的自签名证书对 IP-HTTPS 服务器进行身份验证。|  
-|[1.4 规划 DNS 要求](#bkmk_14Dns)|规划用于 DirectAccess 服务器、基础结构服务器、本地名称解析选项和客户端连接的域名系统 (DNS) 设置。|  
-|[1.5 规划网络位置服务器](#bkmk_14NLS)|DirectAccess 客户端使用网络位置服务器来确定它们是否位于内部网络上。 确定网络位置服务器网站放置在组织中的位置（在 DirectAccess 服务器上或备用服务器上）；如果网络位置服务器位于 DirectAccess 服务器上，则会规划证书要求。|  
-|[1.6 规划管理服务器](#bkmk_15mgmtservers)|你可以在 Internet 上远程管理位于企业网络之外的 DirectAccess 客户端计算机。 规划在远程客户端管理过程中使用的管理服务器（如更新服务器）。|  
-|[1.7 规划 Active Directory 域服务](#bkmk_16AD)|规划你的域控制器、Active Directory 要求、客户端身份验证和多个域。|  
-|[1.8 规划组策略对象](#bkmk_17GPOs)|确定你的组织中需要哪些 GPO，以及如何创建或编辑这些 GPO。|  
+|[1.1 规划网络拓扑和设置](#11-plan-network-topology-and-settings)|确定放置 DirectAccess 服务器的位置（在边缘，或者在网络地址转换 (NAT) 设备或防火墙后面），并规划 IP 寻址、路由和强制隧道。|  
+|[1.2 规划防火墙要求](#12-plan-firewall-requirements)|规划允许 DirectAccess 通信通过边缘防火墙。|  
+|[1.3 规划证书要求](#13-plan-certificate-requirements)|确定你打算使用 Kerberos 还是证书进行客户端身份验证，并规划你的网站证书。 IP-HTTPS 是一种转换协议，DirectAccess 客户端使用该协议在 IPv4 网络上对 IPv6 通信进行隧道传送。 确定是使用由证书颁发机构 (CA) 颁发的证书，还是使用由 DirectAccess 服务器自动颁发的自签名证书对 IP-HTTPS 服务器进行身份验证。|  
+|[1.4 规划 DNS 要求](#14-plan-dns-requirements)|规划用于 DirectAccess 服务器、基础结构服务器、本地名称解析选项和客户端连接的域名系统 (DNS) 设置。|  
+|[1.5 规划网络位置服务器](#15-plan-the-network-location-server)|DirectAccess 客户端使用网络位置服务器来确定它们是否位于内部网络上。 确定网络位置服务器网站放置在组织中的位置（在 DirectAccess 服务器上或备用服务器上）；如果网络位置服务器位于 DirectAccess 服务器上，则会规划证书要求。|  
+|[1.6 规划管理服务器](#16-plan-management-servers)|你可以在 Internet 上远程管理位于企业网络之外的 DirectAccess 客户端计算机。 规划在远程客户端管理过程中使用的管理服务器（如更新服务器）。|  
+|[1.7 规划 Active Directory 域服务](#17-plan-active-directory-domain-services)|规划你的域控制器、Active Directory 要求、客户端身份验证和多个域。|  
+|[1.8 规划组策略对象](#18-plan-group-policy-objects)|确定你的组织中需要哪些 GPO，以及如何创建或编辑这些 GPO。|  
   
-## <a name="bkmk_11Networksvrtopsettings"></a>1.1 规划网络拓扑和设置  
+## <a name="11-plan-network-topology-and-settings"></a>1.1 规划网络拓扑和设置  
 本部分介绍如何规划网络，包括：  
   
--   [1.1.1 规划网络适配器和 IP 寻址](#BKMK_NA)  
+-   [1.1.1 规划网络适配器和 IP 寻址](#111-plan-network-adapters-and-ip-addressing)  
   
--   [1.1.2 规划 IPv6 intranet 连接](#bkmk_intranet)  
+-   [1.1.2 规划 IPv6 intranet 连接](#112-plan-ipv6-intranet-connectivity)  
   
--   [1.1.3 规划强制隧道](#bkmk_force)  
+-   [1.1.3 规划强制隧道](#113-plan-for-force-tunneling)  
   
-### <a name="BKMK_NA"></a>1.1.1 规划网络适配器和 IP 寻址  
+### <a name="111-plan-network-adapters-and-ip-addressing"></a>1.1.1 规划网络适配器和 IP 寻址  
   
 1.  标识你打算使用的网络适配器拓扑。 可以使用下列任一拓扑设置 DirectAccess：  
   
@@ -76,7 +76,7 @@ ms.locfileid: "59880958"
     > -   如果 DirectAccess 服务器只有一个网络适配器，则无法使用 Teredo。  
     > -   本机 IPv6 客户端计算机可以通过本机 IPv6 连接到 DirectAccess 服务器，而无需转换技术。  
   
-### <a name="bkmk_intranet"></a>1.1.2 规划 IPv6 intranet 连接  
+### <a name="112-plan-ipv6-intranet-connectivity"></a>1.1.2 规划 IPv6 Intranet 连接  
 若要管理远程 DirectAccess 客户端，IPv6 是必需的。 为了进行远程管理，IPv6 允许 DirectAccess 管理服务器连接到位于 Internet 上的 DirectAccess 客户端。  
   
 > [!NOTE]  
@@ -85,7 +85,7 @@ ms.locfileid: "59880958"
 > -   DirectAccess 部署不支持站内自动隧道寻址协议 (ISATAP)。  
 > -   使用 IPv6 时，你可以使用以下 Windows PowerShell 命令启用 DNS64 的 IPv6 主机 (AAAA) 资源记录查询： **Set-NetDnsTransitionConfiguration -OnlySendAQuery $false**。  
   
-### <a name="bkmk_force"></a>1.1.3 规划强制隧道  
+### <a name="113-plan-for-force-tunneling"></a>1.1.3 规划强制隧道  
 在使用 IPv6 和名称解析策略表 (NRPT) 时，默认情况下 DirectAccess 客户端会通过以下方式将其 Intranet 通信和 Internet 通信分开：  
   
 -   对于 Intranet 完全限定的域名 (FQDN) 的 DNS 名称查询和所有 Intranet 通信将通过隧道进行交换，这些隧道使用 DirectAccess 服务器或直接使用 Intranet 服务器创建。 来自 DirectAccess 客户端的 Intranet 通信是 IPv6 通信。  
@@ -113,7 +113,7 @@ ms.locfileid: "59880958"
 > 1.  为 ipv6.msftncsi.com 添加 NRPT 条目，并针对 DNS64 将它解析到内部网站（可以是 IPv4 网站）。  
 > 2.  为 dns.msftncsi.com 添加 NRPT 条目，并针对企业 DNS 服务器对其进行解析，以返回 IPv6 主机 (AAAA) 资源记录 fd3e:4f5a:5b81::1。 （使用 DNS64 仅发送此 FQDN 的主机 (A) 资源记录查询可能不起作用，因为已将它在仅支持 IPv4 部署中配置，所以你应将其配置为直接针对企业 DNS 进行解析。）  
   
-## <a name="bkmk_ConfigFirewalls"></a>1.2 规划防火墙要求  
+## <a name="12-plan-firewall-requirements"></a>1.2 规划防火墙要求  
 如果 DirectAccess 服务器位于边缘防火墙后面，则当 DirectAccess 服务器位于 IPv4 Internet 上时，要进行远程访问通信还需要以下例外：  
   
 -   Teredo 通信的用户数据报协议 (UDP) 目标端口 3544 入站，以及 UDP 源端口 3544 出站。  
@@ -145,20 +145,20 @@ ms.locfileid: "59880958"
   
 -   用于所有 IPv4 和 IPv6 通信的 ICMP（仅使用 Teredo 时）  
   
-## <a name="bkmk_12CAsandCerts"></a>1.3 规划证书要求  
+## <a name="13-plan-certificate-requirements"></a>1.3 规划证书要求  
 部署单个 DirectAccess 服务器时，以下三种方案需要证书：  
   
--   [1.3.1 规划用于 IPsec 身份验证的计算机证书](#BKMK_compcert)  
+-   [1.3.1 规划用于 IPsec 身份验证的计算机证书](#131-plan-computer-certificates-for-ipsec-authentication)  
   
     IPsec 的证书要求包括 DirectAccess 客户端计算机在客户端和 DirectAccess 服务器之间建立 IPsec 连接时使用的计算机证书，以及 DirectAccess 服务器用于建立与 DirectAccess 客户端的 IPsec 连接的计算机证书。  
   
     Windows Server 2012 中的 DirectAccess 使用这些 IPsec 证书不是必需的。 作为备用服务器，DirectAccess 服务器可以充当 Kerberos 代理执行 IPsec 身份验证，而无需证书。 如果使用 Kerberos 协议，则它通过 SSL 工作，并且 Kerberos 代理将使用基于此目的为 IP-HTTPS 配置的证书。 某些企业方案（包括多站点部署和一次性密码 (OTP) 客户端身份验证）需要使用证书身份验证而非 Kerberos 协议。  
   
--   [1.3.2 规划用于 IP-HTTPS 的证书](#bkmk_iph)  
+-   [1.3.2 规划用于 IP-HTTPS 的证书](#132-plan-certificates-for-ip-https)  
   
     配置远程访问时，DirectAccess 服务器将自动配置为充当 IP-HTTPS 侦听器。 IP-HTTPS 站点需要网站证书，并且客户端计算机必须能够联系该证书的证书吊销列表 (CRL) 站点。  
   
--   [1.3.3 规划用于网络位置服务器网站证书](#bkmk_webnlc)  
+-   [1.3.3 规划用于网络位置服务器网站证书](#133-plan-website-certificates-for-the-network-location-server)  
   
     网络位置服务器是一个用于检测客户端计算机是否位于企业网络中的网站。 网络位置服务器需要网站证书。 DirectAccess 客户端必须能够联系该证书的 CRL 站点。  
   
@@ -170,7 +170,7 @@ ms.locfileid: "59880958"
 ||自签名证书：<br /><br />可以对 IP-HTTPS 服务器使用自签名证书；但是，必须确保 CRL 分发点在外部可用。<br /><br />无法在多站点部署中使用自签名证书。|自签名证书：<br /><br />可以对网络位置服务器网站使用自签名证书。<br /><br />无法在多站点部署中使用自签名证书。|  
 ||**建议**<br /><br />公共 CA：<br /><br />建议使用公用 CA 颁发 IP-HTTPS 证书。 这可确保 CRL 分发点在外部可用。|  
   
-### <a name="BKMK_compcert"></a>1.3.1 规划用于 IPsec 身份验证的计算机证书  
+### <a name="131-plan-computer-certificates-for-ipsec-authentication"></a>1.3.1 规划用于 IPsec 身份验证的计算机证书  
 如果使用基于证书的 IPsec 身份验证，则 DirectAccess 服务器和客户端需要获得计算机证书。 安装证书的最简单的方法是为计算机证书配置基于组策略的自动注册。 此方法将确保所有域成员都从企业 CA 获取证书。 如果你的组织中未设置企业 CA，请参阅 [Active Directory 证书服务](https://technet.microsoft.com/library/cc770357.aspx)。  
   
 此证书具有以下要求：  
@@ -179,18 +179,18 @@ ms.locfileid: "59880958"
   
 -   客户端证书和服务器证书应链接到相同的根证书。 必须在 DirectAccess 配置设置中选择该根证书。  
   
-### <a name="bkmk_iph"></a>1.3.2 规划用于 IP-HTTPS 的证书  
+### <a name="132-plan-certificates-for-ip-https"></a>1.3.2 规划用于 IP-HTTPS 的证书  
 DirectAccess 服务器充当 IP-HTTPS 侦听器，而且必须在服务器上手动安装 HTTPS 网站证书。 规划时，请考虑以下内容：  
   
 -   建议使用公共 CA，以便可以随时使用证书吊销列表 (CRL)。  
   
--   在“使用者”字段中，指定 DirectAccess 服务器的 Internet 适配器的 IPv4 地址，或 IP-HTTPS URL（ConnectTo 地址）的 FQDN。 如果 DirectAccess 服务器位于 NAT 设备后面，则应指定 NAT 设备的公用名或地址。  
+-   在  “使用者”字段中，指定 DirectAccess 服务器的 Internet 适配器的 IPv4 地址，或 IP-HTTPS URL（ConnectTo 地址）的 FQDN。 如果 DirectAccess 服务器位于 NAT 设备后面，则应指定 NAT 设备的公用名或地址。  
   
 -   该证书的公用名应与 IP-HTTPS 站点的名称相匹配。  
   
--   对于“增强型密钥使用”字段，请使用服务器身份验证对象标识符 (OID)。  
+-   对于  “增强型密钥使用”字段，请使用服务器身份验证对象标识符 (OID)。  
   
--   对于“CRL 分发点”字段，请指定已连接到 Internet 的 DirectAccess 客户端可访问的 CRL 分发点。  
+-   对于“CRL 分发点”  字段，请指定已连接到 Internet 的 DirectAccess 客户端可访问的 CRL 分发点。  
   
 -   IP-HTTPS 证书必须包含私钥。  
   
@@ -260,7 +260,7 @@ DirectAccess 服务器充当 IP-HTTPS 侦听器，而且必须在服务器上手
   
     3.  打开 IP-HTTPS 状态设置并将 URL 更改为 **https://<DirectAccess server name (for example server.contoso.com)>:44500/IPHTTPS**。  
   
-    4.  单击 **“应用”**。  
+    4.  单击 **“应用”** 。  
   
 2.  修改客户端 GPO 中的 Kerberos 代理客户端设置。  
   
@@ -268,42 +268,42 @@ DirectAccess 服务器充当 IP-HTTPS 侦听器，而且必须在服务器上手
   
     2.  打开 IPHTTPS 状态设置并将 URL 更改为 **https://<DirectAccess server name (for example server.contoso.com)>:44500/IPHTTPS**。  
   
-    3.  单击 **“应用”**。  
+    3.  单击 **“应用”** 。  
   
 3.  修改客户端 IPsec 策略设置以使用 ComputerKerb 和 UserKerb。  
   
     1.  在组策略编辑器中，导航到“计算机配置”=>“策略”=>“Windows 设置”=>“安全设置”=>“高级安全 Windows 防火墙”。  
   
-    2.  单击“连接安全规则”，然后双击“IPsec 规则”。  
+    2.  单击  “连接安全规则”，然后双击  “IPsec 规则”。  
   
-    3.  在“身份验证”选项卡上，单击“高级”。  
+    3.  在  “身份验证”选项卡上，单击  “高级”。  
   
     4.  对于 Auth1：删除现有的身份验证方法，并将它替换为 ComputerKerb。 对于 Auth2：删除现有的身份验证方法，并将其替换为 UserKerb。  
   
-    5.  单击“应用”，然后单击“确定”。  
+    5.  单击“应用”  ，然后单击“确定”  。  
   
 若要完成使用 IP-HTTPS 非标准端口的手动过程，请在客户端计算机和 DirectAccess 服务器上运行 **gpupdate /force**。  
   
-### <a name="bkmk_webnlc"></a>1.3.3 规划用于网络位置服务器网站证书  
+### <a name="133-plan-website-certificates-for-the-network-location-server"></a>1.3.3 规划用于网络位置服务器的网站证书  
 规划网络位置服务器网站时，请考虑以下方面：  
   
--   在“使用者”字段中，指定网络位置服务器的 Intranet 接口的 IP 地址，或网络位置 URL 的 FQDN。  
+-   在  “使用者”字段中，指定网络位置服务器的 Intranet 接口的 IP 地址，或网络位置 URL 的 FQDN。  
   
--   在“增强型密钥用法”字段中，使用服务器身份验证 OID。  
+-   在  “增强型密钥用法”字段中，使用服务器身份验证 OID。  
   
--   在“CRL 分发点”字段中，使用已连接到 Intranet 的 DirectAccess 客户端可访问的 CRL 分发点。 不应从内部网络之外访问此 CRL 分发点。  
+-   在  “CRL 分发点”字段中，使用已连接到 Intranet 的 DirectAccess 客户端可访问的 CRL 分发点。 不应从内部网络之外访问此 CRL 分发点。  
   
 -   如果以后你打算配置多站点或群集部署，证书的名称不应该与将添加到部署的任一 DirectAccess 服务器的内部名称相匹配。  
   
     > [!NOTE]  
-    > 确保用于 IP-HTTPS 和网络位置服务器的证书包含“使用者名称”。 如果该证书不包含“使用者名称”，但它包含“备用名称”，则远程访问向导将不会接受它。  
+    > 确保用于 IP-HTTPS 和网络位置服务器的证书包含  “使用者名称”。 如果该证书不包含  “使用者名称”，但它包含“备用名称”  ，则远程访问向导将不会接受它。  
   
-## <a name="bkmk_14Dns"></a>1.4 规划 DNS 要求  
+## <a name="14-plan-dns-requirements"></a>1.4 规划 DNS 要求  
 本部分介绍远程访问部署中关于 DirectAccess 客户端请求和基础结构服务器的 DNS 要求。 它包括了以下几节：  
   
--   [1.4.1 规划 DNS 服务器要求](#bkmk_dnsserverrequirements)  
+-   [1.4.1 规划 DNS 服务器要求](#141-plan-for-dns-server-requirements)  
   
--   [1.4.2 规划本地名称解析](#bkmk_dnslocalname)  
+-   [1.4.2 规划本地名称解析](#142-plan-for-local-name-resolution)  
   
 **DirectAccess 客户端请求**  
   
@@ -316,7 +316,7 @@ DirectAccess 服务器充当 IP-HTTPS 侦听器，而且必须在服务器上手
 你可以指定客户端使用 DirectAccess DNS64（或备用的内部 DNS 服务器）来解析名称。 在执行名称解析时，将由 DirectAccess 客户端使用 NRPT 来确定如何处理请求。 客户端请求 FQDN 或单标签名称，如 https://internal。 如果请求单标签名称，则将追加 DNS 后缀以产生 FQDN。 如果 DNS 查询与 NRPT 中某个条目匹配，并且为该条目指定了内部网络上的 DNS64 或 DNS 服务器，则将使用指定的服务器发送用于名称解析的 DNS 查询。 如果存在匹配条目，但未指定 DNS 服务器，则这表示存在一条免除规则，并且将应用正常的名称解析。  
   
 > [!NOTE]  
-> 请注意，在远程访问管理控制台将新后缀添加到 NRPT 时，可通过单击“检测”自动发现该后缀的默认 DNS 服务器。  
+> 请注意，在远程访问管理控制台将新后缀添加到 NRPT 时，可通过单击  “检测”自动发现该后缀的默认 DNS 服务器。  
   
 自动检测的工作原理如下：  
   
@@ -361,7 +361,7 @@ DirectAccess 服务器充当 IP-HTTPS 侦听器，而且必须在服务器上手
   
     你可以通过 HTTP 使用其他 Web 地址或使用 **ping** 来创建其他连接性验证程序。 对于每个连接性验证程序，都必须存在 DNS 条目。  
   
-### <a name="bkmk_dnsserverrequirements"></a>1.4.1 规划 DNS 服务器要求  
+### <a name="141-plan-for-dns-server-requirements"></a>1.4.1 规划 DNS 服务器要求  
 以下是部署 DirectAccess 时的 DNS 要求。  
   
 -   对于 DirectAccess 客户端，必须使用运行 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2、 Windows Server 2008 中或支持 IPv6 的任何其他 DNS 服务器的 DNS 服务器。  
@@ -373,7 +373,7 @@ DirectAccess 服务器充当 IP-HTTPS 侦听器，而且必须在服务器上手
   
 -   必须可以通过使用 Internet DNS 服务器解析可访问 Internet 的 CRL 分发点的 FQDN。 例如，如果 URL https://crl.contoso.com/crld/corp-DC1-CA.crl处于**CRL 分发点**的 IP-HTTPS 证书的字段的 DirectAccess 服务器，必须确保 FQDN crld.contoso.com 通过使用 Internet DNS 服务器进行解析。  
   
-### <a name="bkmk_dnslocalname"></a>1.4.2 规划本地名称解析  
+### <a name="142-plan-for-local-name-resolution"></a>1.4.2 规划本地名称解析  
 在规划本地名称解析时，请考虑以下问题：  
   
 **NRPT**  
@@ -421,11 +421,11 @@ DirectAccess 服务器充当 IP-HTTPS 侦听器，而且必须在服务器上手
   
 -   **如果 DNS 中不存在该名称，则使用本地名称解析**。 由于 DirectAccess 客户端仅对 Intranet DNS 服务器无法解析的服务器名称执行本地名称解析，因此此选项的安全性最高。 如果可以访问 Intranet DNS 服务器，则将解析 Intranet 服务器的名称。 如果无法访问 Intranet DNS 服务器，或者存在其他类型的 DNS 错误，则不会通过本地名称解析将 Intranet 服务器名称泄漏到子网中。  
   
--   **如果 DNS 中不存在该名称，或客户端计算机位于专用网络上时无法访问 DNS 服务器，则使用本地名称解析（推荐）**。 因为仅当无法访问 Intranet DNS 服务器时，此选项才允许在专用网络上使用本地名称解析，因此推荐使用此选项。  
+-   **如果 DNS 中不存在该名称，或客户端计算机位于专用网络上时无法访问 DNS 服务器，则使用本地名称解析（推荐）** 。 因为仅当无法访问 Intranet DNS 服务器时，此选项才允许在专用网络上使用本地名称解析，因此推荐使用此选项。  
   
--   **无论出现何种 DNS 解析错误，都使用本地名称解析（安全性最低）**。 由于 Intranet 网络服务器的名称可能通过本地名称解析泄漏到本地子网，因此此选项的安全性最低。  
+-   **无论出现何种 DNS 解析错误，都使用本地名称解析（安全性最低）** 。 由于 Intranet 网络服务器的名称可能通过本地名称解析泄漏到本地子网，因此此选项的安全性最低。  
   
-## <a name="bkmk_14NLS"></a>1.5 规划网络位置服务器  
+## <a name="15-plan-the-network-location-server"></a>1.5 规划网络位置服务器  
 网络位置服务器是一个用于检测 DirectAccess 客户端是否位于企业网络中的网站。 企业网络中的客户端不会使用 DirectAccess 访问内部资源，相反，它们会直接进行连接。  
   
 可以在 DirectAccess 服务器或组织中的另一台服务器上托管网络位置服务器网站。 如果将网络位置服务器托管在 DirectAccess 服务器上，则安装远程访问服务器角色时将自动创建该网站。 如果你将网络位置服务器托管在组织中另一台运行 Windows 操作系统的服务器上，则必须确保已在该服务器上安装 Internet 信息服务 (IIS)，且已创建该网站。 DirectAccess 无法在远程网络位置服务器上配置设置。  
@@ -447,23 +447,23 @@ DirectAccess 服务器充当 IP-HTTPS 侦听器，而且必须在服务器上手
 ### <a name="151-plan-certificates-for-the-network-location-server"></a>1.5.1 规划用于网络位置服务器的证书  
 若打算获得用于网络位置服务器的网站证书，请考虑以下方面：  
   
-1.  在“使用者”字段中，指定网络位置服务器的 Intranet 接口的 IP 地址，或网络位置 URL 的 FQDN。  
+1.  在  “使用者”字段中，指定网络位置服务器的 Intranet 接口的 IP 地址，或网络位置 URL 的 FQDN。  
   
-2.  在“增强型密钥用法”字段中，使用服务器身份验证 OID。  
+2.  在  “增强型密钥用法”字段中，使用服务器身份验证 OID。  
   
-3.  在“CRL 分发点”字段中，使用已连接到 Intranet 的 DirectAccess 客户端可访问的 CRL 分发点。 不应从内部网络之外访问此 CRL 分发点。  
+3.  在  “CRL 分发点”字段中，使用已连接到 Intranet 的 DirectAccess 客户端可访问的 CRL 分发点。 不应从内部网络之外访问此 CRL 分发点。  
   
 ### <a name="152-plan-dns-for-the-network-location-server"></a>1.5.2 规划用于网络位置服务器的 DNS  
 DirectAccess 客户端尝试访问网络位置服务器，以确定它们是否位于内部网络上。 内部网络上的客户端必须能够解析该网络位置服务器的名称，但当它们位于 Internet 上时，必须阻止它们解析该名称。 为了确保这一点，默认情况下，将网络位置服务器的 FQDN 作为免除规则添加到 NRPT。  
   
-## <a name="bkmk_15mgmtservers"></a>1.6 规划管理服务器  
+## <a name="16-plan-management-servers"></a>1.6 规划管理服务器  
 DirectAccess 客户端将启动与提供服务（如 Windows 更新和防病毒更新）的管理服务器之间的通信。 DirectAccess 客户端还使用 Kerberos 协议联系域控制器，以在其访问内部网络之前进行身份验证。 在 DirectAccess 客户端的远程管理期间，管理服务器与客户端计算机进行通信以执行管理功能，例如，软件或硬件清单评估。 远程访问可以自动发现某些管理服务器，包括：  
   
 -   对于与 DirectAccess 服务器和客户端计算机相同的林中所有域的执行域控制器的自动发现的域控制器。  
   
 -   对于与 DirectAccess 服务器和客户端计算机相同的林中所有域的执行 system Center Configuration Manager 服务器的自动发现的 System Center Configuration Manager 服务器。  
   
-首次配置 DirectAccess 时，会自动检测域控制器和 System Center Configuration Manager 服务器。 检测到的域控制器不会显示在控制台中，但可以通过使用 Windows PowerShell cmdlet 来检索设置**Get-damgmtserver-Type All**。 如果修改了域控制器或 System Center Configuration Manager 服务器，则可通过单击远程访问管理控制台中的“刷新管理服务器”来刷新管理服务器列表。  
+首次配置 DirectAccess 时，会自动检测域控制器和 System Center Configuration Manager 服务器。 检测到的域控制器不会显示在控制台中，但可以通过使用 Windows PowerShell cmdlet 来检索设置**Get-damgmtserver-Type All**。 如果修改了域控制器或 System Center Configuration Manager 服务器，则可通过单击远程访问管理控制台中的“刷新管理服务器”  来刷新管理服务器列表。  
   
 **管理服务器要求**  
   
@@ -471,12 +471,12 @@ DirectAccess 客户端将启动与提供服务（如 Windows 更新和防病毒�
   
 -   不管是通过使用本机 IPv6 地址，还是通过某个由 ISATAP 分配的 IPv6 地址，启动到 DirectAccess 客户端连接的管理服务器都必须完全支持 IPv6。  
   
-## <a name="bkmk_16AD"></a>1.7 规划 Active Directory 域服务  
+## <a name="17-plan-active-directory-domain-services"></a>1.7 规划 Active Directory 域服务  
 本部分介绍了 DirectAccess 如何使用 Active Directory 域服务 (AD DS)，它包括以下各小节：  
   
--   [1.7.1 规划客户端身份验证](#bkmk_clientauth)  
+-   [1.7.1 规划客户端身份验证](#171-plan-client-authentication)  
   
--   [1.7.2 规划多个域](#bkmk_multiple)  
+-   [1.7.2 规划多个域](#172-plan-multiple-domains)  
   
 DirectAccess 使用 AD DS 和 Active Directory 组策略对象 (Gpo)，如下所示：  
   
@@ -518,7 +518,7 @@ DirectAccess 使用 AD DS 和 Active Directory 组策略对象 (Gpo)，如下所
 > -   DirectAccess 服务器不可以是域控制器。  
 > -   不可从 DirectAccess 服务器的外部 Internet 适配器访问用于 DirectAccess 的 AD DS 域控制器（即，该适配器不可位于 Windows 防火墙的域配置文件中）。  
   
-### <a name="bkmk_clientauth"></a>1.7.1 规划客户端身份验证  
+### <a name="171-plan-client-authentication"></a>1.7.1 规划客户端身份验证  
 DirectAccess 允许你在使用证书进行 IPsec 计算机身份验证，以及使用内置 Kerberos 代理（使用用户名和密码进行身份验证）之间进行选择。  
   
 在选择使用 AD DS 凭据进行身份验证时，DirectAccess 将使用一条安全隧道，该安全隧道使用计算机 Kerberos 进行第一次身份验证，使用用户 Kerberos 进行第二次身份验证。 将这个模式用于身份验证时，DirectAccess 将使用单条安全隧道，该隧道提供对 DNS 服务器、域控制器和内部网络上的其他服务器的访问权限。  
@@ -535,28 +535,28 @@ DirectAccess 允许你在使用证书进行 IPsec 计算机身份验证，以及
   
 -   Intranet 隧道使用计算机证书凭据进行第一次身份验证，使用用户 Kerberos 进行第二次身份验证。  
   
-### <a name="bkmk_multiple"></a>1.7.2 规划多个域  
+### <a name="172-plan-multiple-domains"></a>1.7.2 规划多个域  
 管理服务器列表应包括来自所有域的域控制器，这些域所包含的安全组中具有 DirectAccess 客户端计算机。 它应该包括所有包含用户帐户的域，这些帐户可能使用配置为 DirectAccess 客户端的计算机。 这可确保通过用户域中的域控制器，可以对未与用户使用的客户端计算机位于同一域中的用户进行身份验证。 如果这些域位于同一个林中，则可自动完成这一操作。  
   
 > [!NOTE]  
-> 如果某些计算机位于用于不同林中的客户端计算机或应用程序服务器的安全组，则不会自动检测这些林的域控制器。 你可以在远程访问管理控制台中运行“刷新管理服务器”任务以检测这些域控制器。  
+> 如果某些计算机位于用于不同林中的客户端计算机或应用程序服务器的安全组，则不会自动检测这些林的域控制器。 你可以在远程访问管理控制台中运行“刷新管理服务器”任务  以检测这些域控制器。  
   
 在远程访问部署过程中，如果可能，应将常见域名后缀添加到名称解析策略表 (NRPT)。 例如，如果你有两个域（domain1.corp.contoso.com 和 domain2.corp.contoso.com），你可以添加一个常见的 DNS 后缀条目（其中域名后缀是 corp.contoso.com），而不是将两个条目都添加到 NRPT 中。 将自动为同一根中的域进行添加，但必须为不在同一根中的域进行手动添加。  
   
-如果在多域环境中部署 Windows Internet 名称服务 (WINS)，则你必须在 DNS 中部署 WINS 前向查找区域。 有关详细信息，请参阅**单标签名称**中[1.4.2 规划本地名称解析](#bkmk_dnslocalname)本文档前面的部分。  
+如果在多域环境中部署 Windows Internet 名称服务 (WINS)，则你必须在 DNS 中部署 WINS 前向查找区域。 有关详细信息，请参阅**单标签名称**中[1.4.2 规划本地名称解析](#142-plan-for-local-name-resolution)本文档前面的部分。  
   
-## <a name="bkmk_17GPOs"></a>1.8 规划组策略对象  
+## <a name="18-plan-group-policy-objects"></a>1.8 规划组策略对象  
 本部分介绍远程访问基础结构中的组策略对象 (GPO) 的角色，包括以下各小节：  
   
--   [1.8.1 配置自动创建的 Gpo](#bkmk_autoGPO)  
+-   [1.8.1 配置自动创建的 Gpo](#181-configure-automatically-created-gpos)  
   
--   [1.8.2 配置手动创建的 Gpo](#bkmk_manualGPO)  
+-   [1.8.2 配置手动创建的 Gpo](#182-configure-manually-created-gpos)  
   
--   [1.8.3 在多域控制器环境中管理 Gpo](#bkmk_multiDC)  
+-   [1.8.3 在多域控制器环境中管理 Gpo](#183-manage-gpos-in-a-multi-domain-controller-environment)  
   
--   [1.8.4 管理具有有限权限的远程访问 Gpo](#bkmk_manageGPO)  
+-   [1.8.4 管理具有有限权限的远程访问 Gpo](#184-manage-remote-access-gpos-with-limited-permissions)  
   
--   [1.8.5 从已删除的 GPO 中恢复](#bkmk_delGPO)  
+-   [1.8.5 从已删除的 GPO 中恢复](#185-recover-from-a-deleted-gpo)  
   
 配置远程访问时配置的 DirectAccess 设置将收集到 GPO 中。 以下类型的 GPO 会使用 DirectAccess 设置填充并进行分发，如下所示：  
   
@@ -581,14 +581,14 @@ DirectAccess 允许你在使用证书进行 IPsec 计算机身份验证，以及
 > [!NOTE]  
 > 将 DirectAccess 配置为使用特定的 GPO 后，无法将它配置为使用不同的 GPO。  
   
-无论你使用自动或手动配置的 GPO，如果你的客户端将使用 3G 网络，你需要添加用于慢速链接检测的策略。 有关路径**策略：配置组策略慢速链接检测**是：“计算机配置”/“策略”/“管理模板”/“系统”/“组策略”。  
+无论你使用自动或手动配置的 GPO，如果你的客户端将使用 3G 网络，你需要添加用于慢速链接检测的策略。 有关路径**策略：配置组策略慢速链接检测**是：“计算机配置”/“策略”/“管理模板”/“系统”/“组策略”  。  
   
 > [!CAUTION]  
 > 运行 DirectAccess cmdlet 之前，请使用以下过程备份所有远程访问 GPO：[备份和还原远程访问配置](https://go.microsoft.com/fwlink/?LinkID=257928)。  
   
 如果用于链接 GPO 的正确权限（将在以下部分中列出）不存在，则会发出警告。 远程访问操作将继续进行，但不会出现链接。 如果发出此警告，则即使之后添加了权限，也不会自动创建链接。 相反，管理员必须手动创建链接。  
   
-### <a name="bkmk_autoGPO"></a>1.8.1 配置自动创建的 Gpo  
+### <a name="181-configure-automatically-created-gpos"></a>1.8.1 配置自动创建的 GPO  
 使用自动创建的 GPO 时，请考虑以下内容。  
   
 将根据位置和链接目标参数应用自动创建的 GPO，如下所示：  
@@ -611,7 +611,7 @@ DirectAccess 允许你在使用证书进行 IPsec 计算机身份验证，以及
   
 -   我们建议远程访问管理员具有针对每个所需的域的 GPO 读取权限。 这使远程访问可以验证在创建 GPO 时不存在具有相同名称的 GPO。  
   
-### <a name="bkmk_manualGPO"></a>1.8.2 配置手动创建的 Gpo  
+### <a name="182-configure-manually-created-gpos"></a>1.8.2 配置手动创建的 GPO  
 使用手动创建的 GPO 时，请考虑以下内容：  
   
 -   在运行远程访问安装向导之前，这些 GPO 应存在。  
@@ -620,7 +620,7 @@ DirectAccess 允许你在使用证书进行 IPsec 计算机身份验证，以及
   
 -   在整个域中对指向 GPO 的链接进行搜索。 如果未在域中链接 GPO，将在域的根中自动创建链接。 如果未提供创建链接所需的权限，则会发出警告。  
   
-### <a name="bkmk_multiDC"></a>1.8.3 在多域控制器环境中管理 Gpo  
+### <a name="183-manage-gpos-in-a-multi-domain-controller-environment"></a>1.8.3 在多域控制器环境中管理 GPO  
 每个 GPO 都由某个特定的域控制器管理，如下所示：  
   
 -   服务器 GPO 由一个与服务器相关联的 Active Directory 站点中的域控制器管理。 如果该站点中的域控制器为只读控制器，则服务器 GPO 由最接近 DirectAccess 服务器且已启用写入权限的域控制器进行管理。  
@@ -639,9 +639,9 @@ DirectAccess 允许你在使用证书进行 IPsec 计算机身份验证，以及
   
 -   在修改这些设置之后，你必须等待更改复制到与 GPO 相关联的域控制器。 在复制完成之前，请勿使用远程访问管理控制台或远程访问 PowerShell cmdlet 作出其他更改。 如果在复制完成之前，在两个域控制器上编辑同一个 GPO，则可能会发生合并冲突，这可导致远程访问配置损坏。  
   
-或者，可以使用组策略管理控制台中的“更改域控制器”对话框或者使用 Windows PowerShell cmdlet“Open-netgpo”来更改默认设置，这样更改将使用你指定的域控制器。  
+或者，可以使用  组策略管理控制台中的“更改域控制器”对话框或者使用 Windows PowerShell cmdlet  “Open-netgpo”来更改默认设置，这样更改将使用你指定的域控制器。  
   
--   若要在组策略管理控制台中执行这一操作，请右键单击域或站点容器，然后单击“更改域控制器”。  
+-   若要在组策略管理控制台中执行这一操作，请右键单击域或站点容器，然后单击  “更改域控制器”。  
   
 -   若要在 Windows PowerShell 中执行这一操作，请为 **Open-NetGPO** cmdlet 指定 **DomainController** 参数。 例如，若要使用名为 europe-dc.corp.contoso.com 的域控制器在名为 domain1\DA_Server_GPO_Europe 的 GPO 上启用 Windows 防火墙中的专用和公用配置文件，请输入以下内容：  
   
@@ -651,7 +651,7 @@ DirectAccess 允许你在使用证书进行 IPsec 计算机身份验证，以及
     Save-NetGPO -GpoSession $gpoSession  
     ```  
   
-### <a name="bkmk_manageGPO"></a>1.8.4 管理具有有限权限的远程访问 Gpo  
+### <a name="184-manage-remote-access-gpos-with-limited-permissions"></a>1.8.4 管理具有有限权限的远程访问 GPO  
 若要管理远程访问部署，远程访问管理员需要对部署中使用的 GPO 具有完全的 GPO 权限（读取、编辑、删除和修改安全权限）。 这是因为远程访问管理控制台和远程访问 PowerShell 模块将在远程访问 GPO（即，客户端、服务器和应用程序服务器 GPO）中读取和写入配置。  
   
 在许多组织中，负责 GPO 操作的域管理员与负责远程访问配置的远程访问管理员不是同一个人。 这些组织可能包含限制远程访问管理员在域中对 GPO 具有完全权限的策略。 在将策略配置应用于域中任何计算机之前，可能还要求域管理员查看策略配置。  
@@ -668,7 +668,7 @@ DirectAccess 允许你在使用证书进行 IPsec 计算机身份验证，以及
   
 ![管理远程访问 Gpo](../../../media/Step-1-Plan-the-DirectAccess-Infrastructure/DA_Plan_Advanced_Step1_GPOS.png)  
   
-### <a name="bkmk_delGPO"></a>1.8.5 从已删除的 GPO 中恢复  
+### <a name="185-recover-from-a-deleted-gpo"></a>1.8.5 从已删除的 GPO 中恢复  
 如果已意外删除客户端、DirectAccess 服务器或应用程序服务器 GPO，并且没有可用的备份，则你必须删除配置设置并重新配置它们。 如果有可用的备份，则可以从备份中还原 GPO。  
   
 远程访问管理控制台将显示以下错误消息：**GPO<GPO name>找不到**。 若要删除配置设置，请执行以下步骤：  
@@ -677,9 +677,9 @@ DirectAccess 允许你在使用证书进行 IPsec 计算机身份验证，以及
   
 2.  打开远程访问管理控制台。  
   
-3.  你将看到关于未找到 GPO 的错误消息。 单击“删除配置设置” 。 完成操作后，服务器将还原到未配置状态。  
+3.  你将看到关于未找到 GPO 的错误消息。 单击“删除配置设置”  。 完成操作后，服务器将还原到未配置状态。  
   
-## <a name="BKMK_Links"></a>下一步  
+## <a name="next-step"></a>下一步  
   
 -   [步骤 2：规划 DirectAccess 部署](da-adv-plan-s2-deployments.md)  
   

@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: f2effdb7a82a25c810bc041475e760145de492d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9bd03beb81d4a3031b80d0633607efea2f2fe1f7
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864608"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266812"
 ---
 # <a name="how-to-configure-protected-accounts"></a>如何配置受保护的帐户
 
@@ -25,11 +25,11 @@ ms.locfileid: "59864608"
 
 通过哈希传递 (PtH) 攻击，攻击者可以使用用户密码（或其他凭据派生对象）的基础 NTLM 哈希针对远程服务器或服务验证自己的身份。 Microsoft 之前 [发布了指南](https://www.microsoft.com/download/details.aspx?id=36036) 以缓解传递哈希攻击。  Windows Server 2012 R2 包括可帮助缓解此类攻击进一步的新功能。 有关其他帮助防止凭据被盗的安全功能的详细信息，请参阅 [凭据保护和管理](https://technet.microsoft.com/library/dn408190.aspx)。 本主题介绍了如何配置以下新功能：  
   
--   [受保护的用户](how-to-configure-protected-accounts.md#BKMK_AddtoProtectedUsers)  
+-   [受保护的用户](#protected-users)  
   
--   [身份验证策略](how-to-configure-protected-accounts.md#BKMK_CreateAuthNPolicies)  
+-   [身份验证策略](#authentication-policies)  
   
--   [身份验证策略接收器](how-to-configure-protected-accounts.md#BKMK_CreateAuthNPolicySilos)  
+-   [身份验证策略接收器](#authentication-policy-silos)  
   
 Windows 8.1 和 Windows Server 2012 R2 中内置了其他缓解措施，以帮助防止凭据被盗，如以下主题中所述：  
   
@@ -37,7 +37,7 @@ Windows 8.1 和 Windows Server 2012 R2 中内置了其他缓解措施，以帮�
   
 -   [LSA 保护](https://technet.microsoft.com/library/dn408187)  
   
-## <a name="BKMK_AddtoProtectedUsers"></a>受保护的用户  
+## <a name="protected-users"></a>Protected Users  
 Protected Users 是一个新的全局安全组，你可以向该组添加新用户或现有用户。 Windows 8.1 设备和 Windows Server 2012 R2 主机具有与此组以提供更好的防护以免凭据被盗的成员的特殊行为。 为组的成员，Windows 8.1 设备或 Windows Server 2012 R2 主机不会缓存不支持的受保护的用户凭据。 如果登录到运行早于 Windows 8.1 的 Windows 版本的设备，此组的成员具有任何额外的保护。  
   
 谁是登录到 Windows 8.1 的设备组的受保护用户成员和 Windows Server 2012 R2 主机可以*不再*使用：  
@@ -71,22 +71,22 @@ Protected Users 组的成员必须能够使用高级加密标准 (AES) 的 Kerbe
   
 -   不要测试，在域中除非**的所有域控制器都运行 Windows Server 2008 或更高版本**。  
   
--   针对创建该域**之前**创建的所有域帐户“更改密码”。 否则，这些帐户无法进行身份验证。  
+-   针对创建该域**之前**创建的所有域帐户“更改密码”  。 否则，这些帐户无法进行身份验证。  
   
 -   **更改密码**为每个用户之前将帐户添加到受保护用户组，或确保密码已在运行 Windows Server 2008 的域控制器上最近已更改或更高版本。  
   
-### <a name="BKMK_Prereq"></a>使用受保护的帐户的要求  
+### <a name="requirements-for-using-protected-accounts"></a>关于使用受保护帐户的要求  
 受保护帐户具有以下部署要求：  
   
 -   若要提供受保护的用户的客户端的限制，主机必须运行 Windows 8.1 或 Windows Server 2012 R2。 用户仅需使用作为 Protected Users 组成员的帐户进行登录。 在这种情况下，可以通过创建受保护用户组[主域控制器 (PDC) 模拟器角色传输](https://technet.microsoft.com/library/cc816944(v=ws.10).aspx)到运行 Windows Server 2012 R2 的域控制器。 将该组对象复制到其他域控制器后，PDC 模拟器角色可以托管在运行较早版本的 Windows Server 的域控制器上。  
   
 -   若要提供域控制器端限制为受保护用户，即限制使用 NTLM 身份验证和其他限制，域功能级别必须是 Windows Server 2012 R2。 有关功能级别的详细信息，请参阅 [了解 Active Directory 域服务 (AD DS) 功能级别](../../identity/ad-ds/active-directory-functional-levels.md)。  
   
-### <a name="BKMK_TrubleshootingEvents"></a>故障排除与受保护的用户相关的事件  
+### <a name="troubleshoot-events-related-to-protected-users"></a>对受保护用户的相关事件进行疑难解答  
 本部分介绍了有助于对受保护用户的相关事件进行疑难解答的新日志，并介绍了受保护用户如何影响更改以解决票证授予票证 (TGT) 过期或委派问题。  
   
 #### <a name="new-logs-for-protected-users"></a>用于受保护用户的新日志  
-提供两个新的操作管理日志，以帮助对受保护用户的相关事件进行疑难解答：受保护的用户-客户端日志和受保护的用户故障-域控制器日志。 这些新日志位于在事件查看器中，并且在默认情况下处于禁用状态。 若要启用日志，请依次单击“应用程序和服务日志” 、“Microsoft” 、“Windows” 、“身份验证” ，然后单击该日志的名称并单击“操作”  （或右键单击该日志）和“启用日志” 。  
+提供两个新的操作管理日志，以帮助对受保护用户的相关事件进行疑难解答：受保护的用户-客户端日志和受保护的用户故障-域控制器日志。 这些新日志位于在事件查看器中，并且在默认情况下处于禁用状态。 若要启用日志，请依次单击“应用程序和服务日志”  、“Microsoft”  、“Windows”  、“身份验证”  ，然后单击该日志的名称并单击“操作”  （或右键单击该日志）和“启用日志”  。  
   
 有关这些日志中事件的详细信息，请参阅 [身份验证策略和身份验证策略接收器](https://technet.microsoft.com/library/dn486813.aspx)。  
   
@@ -95,24 +95,24 @@ Protected Users 组的成员必须能够使用高级加密标准 (AES) 的 Kerbe
   
 ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_TGTExpiration.png)  
   
-对于“Protected Users” ，以下设置是硬编码的：  
+对于“Protected Users”  ，以下设置是硬编码的：  
   
 -   用户票证的最长生存期：240 分钟  
   
 -   用户票证续订的最长生存期：240 分钟  
   
 #### <a name="troubleshoot-delegation-issues"></a>解决委派问题  
-以前，如果使用 Kerberos 委派的技术失败，则会检查客户端帐户，以查看是否设置了“敏感帐户，不能被委派”  。 但是，如果帐户是“Protected Users” 的成员，它可能不会在 Active Directory 管理中心 (ADAC) 中配置此设置。 因此，在解决委派问题时，请检查设置和组成员身份。  
+以前，如果使用 Kerberos 委派的技术失败，则会检查客户端帐户，以查看是否设置了“敏感帐户，不能被委派”  。 但是，如果帐户是“Protected Users”  的成员，它可能不会在 Active Directory 管理中心 (ADAC) 中配置此设置。 因此，在解决委派问题时，请检查设置和组成员身份。  
   
 ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_TshootDelegation.gif)  
   
-### <a name="BKMK_AuditAuthNattempts"></a>审核身份验证尝试  
-若要为“Protected Users”组的成员显式审核身份验证尝试，你可以继续收集安全日志审核事件或在新操作管理日志中收集数据。 有关这些事件的详细信息，请参阅 [身份验证策略和身份验证策略接收器](https://technet.microsoft.com/library/dn486813.aspx)  
+### <a name="audit-authentication-attempts"></a>审核身份验证尝试  
+若要为“Protected Users”  组的成员显式审核身份验证尝试，你可以继续收集安全日志审核事件或在新操作管理日志中收集数据。 有关这些事件的详细信息，请参阅 [身份验证策略和身份验证策略接收器](https://technet.microsoft.com/library/dn486813.aspx)。  
   
-### <a name="BKMK_ProvidePUdcProtections"></a>服务和计算机提供 DC 端保护  
-服务和计算机的帐户不能是“Protected Users”的成员。 本部分说明了可以向这些帐户提供哪些基于域控制器的保护：  
+### <a name="provide-dc-side-protections-for-services-and-computers"></a>为服务和计算机提供 DC 端保护  
+服务和计算机的帐户不能是“Protected Users”  的成员。 本部分说明了可以向这些帐户提供哪些基于域控制器的保护：  
   
--   拒绝 NTLM 身份验证：仅可通过 [NTLM 块策略](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx)进行配置  
+-   拒绝 NTLM 身份验证：仅可通过配置[NTLM 块策略](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx)。  
   
 -   在 Kerberos 预身份验证中拒绝数据加密标准 (DES)：Windows Server 2012 R2 域控制器针对计算机帐户接受 DES，除非它们针对 DES 配置只是因为每个版本的 Windows 与 Kerberos 一起发布还支持 RC4。  
   
@@ -123,11 +123,11 @@ Protected Users 组的成员必须能够使用高级加密标准 (AES) 的 Kerbe
   
 -   将用户票证 (TGT) 限制为初始 4 小时生存期：使用身份验证策略。  
   
--   使用不受约束或约束委派拒绝委派：若要限制帐户，请打开 Active Directory 管理中心 (ADAC)，然后选中“敏感帐户，不能被委派”复选框。  
+-   使用不受约束或约束委派拒绝委派：若要限制帐户，请打开 Active Directory 管理中心 (ADAC)，然后选中“敏感帐户，不能被委派”  复选框。  
   
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_TshootDelegation.gif)  
   
-## <a name="BKMK_CreateAuthNPolicies"></a>身份验证策略  
+## <a name="authentication-policies"></a>身份验证策略  
 身份验证策略是 AD DS 中包含身份验证策略对象的一个新容器。 身份验证策略可以指定帮助减少凭据被盗风险的设置，例如限制帐户的 TGT 生存期或添加其他与声明相关的条件。  
   
 在 Windows Server 2012 动态访问控制引入了名为中央访问策略，可以方便地跨组织配置文件服务器的 Active Directory 林作用域对象类。 在 Windows Server 2012 R2 中，名为身份验证策略 (objectClass Msds-authnpolicies) 的新对象类可用于将身份验证配置应用到 Windows Server 2012 R2 的域中的帐户类。 Active Directory 帐户类包括：  
@@ -155,7 +155,7 @@ Kerberos 身份验证协议包括三种类型的交换（也称为子协议）�
   
 AP 交换的发生频率与应用程序协议的中数据相同，并且不受应用程序协议的影响。  
   
-有关详细信息，请参阅 [Kerberos 版本 5 身份验证协议的工作原理] (https://technet.microsoft.com/library/cc772815(v=WS.10.aspx。  
+有关详细信息，请参阅 [Kerberos 版本 5 身份验证协议的工作原理](https://technet.microsoft.com/library/cc772815(v=WS.10.aspx))。  
   
 ### <a name="overview"></a>概述  
 通过提供一种用于将可配置限制应用到帐户的方法，并且通过为服务和计算机的帐户提供限制，身份验证策略可补充受保护用户。 在 AS 交换或 TGS 交换期间强制执行身份验证策略。  
@@ -172,7 +172,7 @@ AP 交换的发生频率与应用程序协议的中数据相同，并且不受�
   
 -   访问控制条件，从其中进行 TGS 交换的客户端（用户、服务、计算机）或设备必须满足这些条件  
   
-### <a name="BKMK_ReqForAuthnPolicies"></a>使用身份验证策略的要求  
+### <a name="requirements-for-using-authentication-policies"></a>关于使用身份验证策略的要求  
   
 |策略|要求|  
 |-----|--------|  
@@ -182,18 +182,18 @@ AP 交换的发生频率与应用程序协议的中数据相同，并且不受�
 |限制基于用户声明或设备帐户、安全组或者声明的服务票证分发| 支持动态访问控制的 Windows Server 2012 R2 域功能级别资源域|  
   
 ### <a name="restrict-a-user-account-to-specific-devices-and-hosts"></a>将用户帐户限制到特定设备和主机  
-具有管理权限的高价值帐户应该是“Protected Users”组的成员。 默认情况下，所有帐户都不是“Protected Users”  组的成员。 将帐户添加到该组之前，配置域控制器支持并创建审核策略，以确保不存在阻止问题。  
+具有管理权限的高价值帐户应该是“Protected Users”  组的成员。 默认情况下，所有帐户都不是“Protected Users”  组的成员。 将帐户添加到该组之前，配置域控制器支持并创建审核策略，以确保不存在阻止问题。  
   
 #### <a name="configure-domain-controller-support"></a>配置域控制器支持  
 用户的帐户域必须是在 Windows Server 2012 R2 域功能级别 (DFL)。 确保所有域控制器是 Windows Server 2012 R2，以及如何将 Active Directory 域和信任关系[将 dfl 提升](https://technet.microsoft.com/library/cc753104.aspx)到 Windows Server 2012 R2。  
   
 **若要配置动态访问控制的支持**  
   
-1.  在默认域控制器策略中，单击“已启用”，以在计算机配置 | 管理模板 | 系统 | KDC 中启用“密钥发行中心 (KDC) 客户端支持声明、复合身份验证和 Kerberos 保护”。  
+1.  在默认域控制器策略中，单击“已启用”  ，以在计算机配置 | 管理模板 | 系统 | KDC 中启用“密钥发行中心 (KDC) 客户端支持声明、复合身份验证和 Kerberos 保护”  。  
   
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_EnableKDCClaims.gif)  
   
-2.  在“选项”下的下拉列表框中，选择“始终提供声明”。  
+2.  在“选项”  下的下拉列表框中，选择“始终提供声明”  。  
   
     > [!NOTE]  
     > **支持**也可以进行配置，但因为域位于 Windows Server 2012 R2 dfl 上，因此使 Dc 始终提供声明将允许用户基于声明的访问权限检查时使用非声明感知设备和主机连接到声明感知服务。  
@@ -212,13 +212,13 @@ AP 交换的发生频率与应用程序协议的中数据相同，并且不受�
     > [!NOTE]  
     > 所选**身份验证**节点是位于 Windows Server 2012 R2 DFL 的域。 如果未出现该节点，然后重试是在 Windows Server 2012 R2 DFL 的域中使用域管理员帐户。  
   
-2.  单击“身份验证策略”，然后单击“新建”以创建新策略。  
+2.  单击“身份验证策略”  ，然后单击“新建”  以创建新策略。  
   
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_NewAuthNPolicy.gif)  
   
     身份验证策略必须具有一个显示名称，并且在默认情况下强制执行。  
   
-3.  若要创建仅用于审核的策略，请单击“仅审核策略限制” 。  
+3.  若要创建仅用于审核的策略，请单击“仅审核策略限制”  。  
   
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_NewAuthNPolicyAuditOnly.gif)  
   
@@ -240,36 +240,36 @@ AP 交换的发生频率与应用程序协议的中数据相同，并且不受�
   
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_TGTExpiration.png)  
   
-5.  若要限制用户帐户选择设备，请单击“编辑”以定义设备所需的条件。  
+5.  若要限制用户帐户选择设备，请单击“编辑”  以定义设备所需的条件。  
   
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_EditAuthNPolicy.gif)  
   
-6.  在“编辑访问控制条件”窗口中，单击“添加条件”。  
+6.  在“编辑访问控制条件”  窗口中，单击“添加条件”  。  
   
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_AddCondition.png)  
   
 ##### <a name="add-computer-account-or-group-conditions"></a>添加计算机帐户或组条件  
   
-1.  若要配置计算机帐户或组，请在下拉列表中，选中下拉列表框“每个组的成员”并更改为“任何组的成员”。  
+1.  若要配置计算机帐户或组，请在下拉列表中，选中下拉列表框“每个组的成员”  并更改为“任何组的成员”  。  
   
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_AddCompMember.png)  
   
     > [!NOTE]  
-    > 此访问控制定义用户从中登录的设备或主机的条件。 在访问控制术语中，设备或主机的计算机帐户是用户，这就是“用户”是唯一选项的原因。  
+    > 此访问控制定义用户从中登录的设备或主机的条件。 在访问控制术语中，设备或主机的计算机帐户是用户，这就是“用户”  是唯一选项的原因。  
   
-2.  单击“添加项目” 。  
+2.  单击“添加项目”  。  
   
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_AddCompAddItems.png)  
   
-3.  若要更改对象类型，请单击“对象类型” 。  
+3.  若要更改对象类型，请单击“对象类型”  。  
   
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_ChangeObjects.gif)  
   
-4.  若要在 Active Directory 中选择计算机对象，请单击“计算机”，然后单击“确定”。  
+4.  若要在 Active Directory 中选择计算机对象，请单击“计算机”  ，然后单击“确定”  。  
   
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_ChangeObjectsComputers.gif)  
   
-5.  键入计算机的名称以限制该用户，然后单击“检查名称” 。  
+5.  键入计算机的名称以限制该用户，然后单击“检查名称”  。  
   
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_ChangeObjectsCompName.gif)  
   
@@ -298,23 +298,23 @@ AP 交换的发生频率与应用程序协议的中数据相同，并且不受�
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_CompClaimComplete.gif)  
   
 ##### <a name="troubleshoot-missing-computer-claims"></a>解决丢失计算机声明的问题  
-如果已设置该声明，但不可用，则可能仅针对“计算机”类配置了它。  
+如果已设置该声明，但不可用，则可能仅针对“计算机”  类配置了它。  
   
 假设你想要限制基于组织单位 (OU) 的身份验证的计算机，已配置，但只适用于**计算机**类。  
   
 ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_RestrictComputers.gif)  
   
-为了使声明可用于限制用户登录设备，请选择“用户”复选框。  
+为了使声明可用于限制用户登录设备，请选择“用户”  复选框。  
   
 ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_RestrictUsersComputers.gif)  
   
 #### <a name="provision-a-user-account-with-an-authentication-policy-with-adac"></a>使用 ADAC 设置具有身份验证策略的用户帐户  
   
-1.  从“用户”帐户中，单击“策略”。  
+1.  从“用户”  帐户中，单击“策略”  。  
   
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_UserPolicy.gif)  
   
-2.  选中“将身份验证策略分配给此帐户”复选框。  
+2.  选中“将身份验证策略分配给此帐户”  复选框。  
   
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_UserPolicyAssign.gif)  
   
@@ -325,11 +325,11 @@ AP 交换的发生频率与应用程序协议的中数据相同，并且不受�
 #### <a name="configure-dynamic-access-control-support-on-devices-and-hosts"></a>在设备和主机上配置动态访问控制支持  
 你可以在不配置动态访问控制 (DAC) 的情况下配置 TGT 生存期。 只有在检查 AllowedToAuthenticateFrom 和 AllowedToAuthenticateTo 时需要 DAC。  
   
-通过使用组策略或本地组策略编辑器，在计算机配置 | 管理模板 | 系统 | Kerberos 中启用“Kerberos 客户端支持声明、复合身份验证和 Kerberos 保护”：  
+通过使用组策略或本地组策略编辑器，在计算机配置 | 管理模板 | 系统 | Kerberos 中启用“Kerberos 客户端支持声明、复合身份验证和 Kerberos 保护”  ：  
   
 ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_KerbClientDACSupport.gif)  
   
-### <a name="BKMK_TroubleshootAuthnPolicies"></a>对身份验证策略进行故障排除  
+### <a name="troubleshoot-authentication-policies"></a>解决关于身份验证策略的问题  
   
 #### <a name="determine-the-accounts-that-are-directly-assigned-an-authentication-policy"></a>确定直接分配身份验证策略的帐户  
 身份验证策略中的帐户部分显示了已直接应用该策略的帐户。  
@@ -337,9 +337,9 @@ AP 交换的发生频率与应用程序协议的中数据相同，并且不受�
 ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_AccountsAssigned.gif)  
   
 #### <a name="use-the-authentication-policy-failures---domain-controller-administrative-log"></a>使用身份验证策略失败-域控制器管理日志  
-一个新**身份验证策略失败-域控制器**下的管理日志**应用程序和服务日志** > **Microsoft**  >  **Windows** > **身份验证**已创建，以使其更轻松地发现由于身份验证策略导致的失败。 默认情况下，该日志处于禁用状态。 若要启用它，请右键单击日志名称，然后单击“启用日志”。 新事件中的内容与现有 Kerberos TGT 和服务票证审核事件中的内容非常相似。 有关这些事件的详细信息，请参阅 [身份验证策略和身份验证策略接收器](https://technet.microsoft.com/library/dn486813.aspx)。  
+一个新**身份验证策略失败-域控制器**下的管理日志**应用程序和服务日志** > **Microsoft**  >  **Windows** > **身份验证**已创建，以使其更轻松地发现由于身份验证策略导致的失败。 默认情况下，该日志处于禁用状态。 若要启用它，请右键单击日志名称，然后单击“启用日志”  。 新事件中的内容与现有 Kerberos TGT 和服务票证审核事件中的内容非常相似。 有关这些事件的详细信息，请参阅 [身份验证策略和身份验证策略接收器](https://technet.microsoft.com/library/dn486813.aspx)。  
   
-### <a name="BKMK_ManageAuthnPoliciesUsingPSH"></a>使用 Windows PowerShell 管理身份验证策略  
+### <a name="manage-authentication-policies-by-using-windows-powershell"></a>使用 Windows PowerShell 管理身份验证策略  
 此命令创建名为 **TestAuthenticationPolicy**的身份验证策略。 **UserAllowedToAuthenticateFrom** 参数可指定一些设备，用户可从中通过名为 someFile.txt 的文件中的 SDDL 字符串进行身份验证。  
   
 ```  
@@ -371,7 +371,7 @@ PS C:\> Remove-ADAuthenticationPolicy -Identity ADAuthenticationPolicy1
 PS C:\> Get-ADAuthenticationPolicy -Filter 'Enforce -eq $false' | Remove-ADAuthenticationPolicy  
 ```  
   
-## <a name="BKMK_CreateAuthNPolicySilos"></a>身份验证策略接收器  
+## <a name="authentication-policy-silos"></a>身份验证策略接收器  
 身份验证策略接收器是 AD DS 中用于用户、计算机和服务帐户的一个新容器 (objectClass msDS-AuthNPolicySilos）。 它们可帮助保护高价值帐户。 当所有组织需要保护 Enterprise Admins、Domain Admins 和 Schema Admins 组中的成员（因为攻击者可能使用这些帐户访问林中的任何内容）时，可能还需要保护其他帐户。  
   
 通过创建独特于工作负载的帐户，并通过应用组策略来限制本地和远程交互式登录和管理权限，某些组织可隔离这些工作负载。 通过创建一种用于定义用户、计算机和托管服务帐户之间的关系的方式，身份验证策略接收器可补充此工作。 帐户只能属于一个接收器。 你可以为每种类型的帐户配置身份验证策略，以便控制以下内容：  
@@ -421,15 +421,15 @@ PS C:\> Get-ADAuthenticationPolicy -Filter 'Enforce -eq $false' | Remove-ADAuthe
   
 #### <a name="to-create-an-authentication-policy-silo-by-using-active-directory-administrative-center"></a>使用 Active Directory 管理中心创建身份验证策略接收器的步骤  
   
-1.  打开“Active Directory 管理中心” ，单击“身份验证” ，右键单击“身份验证策略接收器” ，单击“新建” ，然后单击“身份验证策略接收器” 。  
+1.  打开“Active Directory 管理中心”  ，单击“身份验证”  ，右键单击“身份验证策略接收器”  ，单击“新建”  ，然后单击“身份验证策略接收器”  。  
   
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_CreateNewAuthNPolicySilo.gif)  
   
-2.  在“显示名称”中，键入接收器的名称。 在“允许的帐户”中，单击“添加”、键入帐户的名称，然后单击“确定”。 你可以指定用户、计算机或服务帐户。 然后指定是针对所有主体使用单个策略，还是针对每个类型的主体使用单独的策略，并指定单个或多个策略的名称。  
+2.  在“显示名称”  中，键入接收器的名称。 在“允许的帐户”  中，单击“添加”  、键入帐户的名称，然后单击“确定”  。 你可以指定用户、计算机或服务帐户。 然后指定是针对所有主体使用单个策略，还是针对每个类型的主体使用单独的策略，并指定单个或多个策略的名称。  
   
     ![受保护的帐户](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_NewAuthNPolicySiloDisplayName.gif)  
   
-### <a name="BKMK_ManageAuthnSilosUsingPSH"></a>使用 Windows PowerShell 管理身份验证策略接收器  
+### <a name="manage-authentication-policy-silos-by-using-windows-powershell"></a>使用 Windows PowerShell 管理身份验证策略接收器  
 此命令将创建身份验证策略接收器对象并强制执行它。  
   
 ```  

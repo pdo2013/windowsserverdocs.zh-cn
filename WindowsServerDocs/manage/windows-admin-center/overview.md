@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 04/12/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 3208c20e8bf9f4cfab4340aa33b24175bbc72dda
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: ee3c4ba5d6c3dc911ab318ade9a46b279317496f
+ms.sourcegitcommit: 39ab8041d166e6817a95417d6aa30bc7abeeef54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188326"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66260260"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -128,6 +128,7 @@ ms.locfileid: "66188326"
 
 了解我们发布的最新功能：
 
+- 版本 1904.1-对维护进行更新，以提高稳定性的网关插件。
 - 版本[1904年](https://aka.ms/wac1904)是最新 GA 版本引入了 Azure 混合服务工具，并将以前在预览版中供 GA 通道的功能。
 - 版本[1903年](https://aka.ms/wac1903)通过 Azure Monitor，能够从 Active Directory 和新工具来管理 Active Directory、 DHCP 和 DNS 中添加服务器或电脑连接将电子邮件通知。
 - 版本[1902年](https://aka.ms/wac1902)添加到软件定义网络 (SDN) 管理，包括新的 SDN 工具来管理 Acl、 网关连接和逻辑网络的共享的连接列表和改进。

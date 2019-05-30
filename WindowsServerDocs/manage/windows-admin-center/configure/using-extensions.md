@@ -7,12 +7,12 @@ author: daniellee-msft
 ms.author: jol
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 6091edd7aa7f790f6029ca6b6ae402bf1b7e61ca
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: c775dd5a3011115bbb031c0b9e4e24a8911d378e
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877018"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63748403"
 ---
 # <a name="install-and-manage-extensions"></a>安装和管理扩展
 
@@ -85,9 +85,6 @@ $feedUrlBase = "https://aka.ms/sme-extension-feed"
 >适用于：Windows Admin Center，Windows Admin Center 预览版
 
 Windows Admin Center 预览版包括一个 PowerShell 模块，以管理网关扩展。
-
->[!IMPORTANT]
->作为 Windows 服务器上的网关服务部署到 Windows Admin Center 仅支持管理网关与 PowerShell 模块的扩展。
 
 ```powershell
 # Add the module to the current session

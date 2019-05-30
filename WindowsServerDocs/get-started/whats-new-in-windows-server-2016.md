@@ -14,18 +14,18 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 8d36961558066197a54f42d27a3560d653bd81f2
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 8526d86c03f895d5bc8e0776aa958c627e78dfd9
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976635"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266806"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Windows Server 2016 中的新增功能
 
 >适用于：Windows Server 2016
 
-<img src="media/whats-new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">若要了解有关 Windows 中的最新功能的信息，请参阅[What's New in Windows Server](whats-new-in-windows-server.md)。 本部分的内容将介绍 Windows Server&reg; 2016 中的新增功能和更改的功能。 此处列出的新功能和更改在你使用此版本时最可能具有最大影响力。  
+![图标显示报纸](media/whats-new.png)若要了解有关 Windows 中的最新功能的信息，请参阅[What's New in Windows Server](whats-new-in-windows-server.md)。 本部分的内容将介绍 Windows Server&reg; 2016 中的新增功能和更改的功能。 此处列出的新功能和更改在你使用此版本时最可能具有最大影响力。
 
 ## <a name="computevirtualizationvirtualizationmd"></a>[Compute](../virtualization/virtualization.md)
 

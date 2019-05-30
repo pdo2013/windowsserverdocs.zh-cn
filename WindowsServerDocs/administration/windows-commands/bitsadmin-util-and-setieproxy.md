@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d4f6ab2e52284895d2e7918364c24bbb69f2b1c9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 81bb333e2bb776bc75789b52ab41d7ef64016f51
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853508"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266469"
 ---
 # <a name="bitsadmin-util-and-setieproxy"></a>bitsadmin util 和 setieproxy
 
@@ -47,7 +47,7 @@ bitsadmin /Util /SetIEProxy <Account> <Usage>[/Conn <ConnectionName>]
 > [!IMPORTANT]
 > 从提升的命令提示符才能成功完成，必须运行此命令。
 
-## <a name="BKMK_examples"></a>示例
+## <a name="examples"></a>示例
 
 下面的示例设置的网络服务帐户的代理使用情况。
 
@@ -64,4 +64,4 @@ bitsadmin /util /setieproxy localsystem MANUAL_PROXY proxy1:80 ""
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

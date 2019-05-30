@@ -9,13 +9,13 @@ author: jasongerend
 ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.date: 05/24/2019
-ms.openlocfilehash: c9af38720df79918bed3404995e81a7f93a10744
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.date: 05/29/2019
+ms.openlocfilehash: e76b7862549814d5453717c40cec45e341141d7a
+ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222889"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66308596"
 ---
 # <a name="server-core-app-compatibility-feature-on-demand-fod"></a>服务器核心应用兼容性按需功能 (FOD)
 
@@ -156,7 +156,7 @@ ms.locfileid: "66222889"
 1. 将 Windows Server 和 Server FOD ISO 图像文件下载到 Windows 计算机上的本地文件夹。
 
    - 如果你拥有的批量许可证可以下载 Windows Server 和 Server FOD ISO 图像文件从[批量许可服务中心](https://www.microsoft.com/Licensing/servicecenter/default.aspx)。
-   - 将服务器 FOD ISO 映像文件，还可以在[Microsoft 评估中心](https://www.microsoft.com/evalcenter/evaluate-windows-server)或在[Visual Studio 门户](https://visualstudio.microsoft.com)订阅者。
+   - Server FOD ISO 图像文件也是可用的版本上的长期服务频道[Microsoft 评估中心](https://www.microsoft.com/evalcenter/evaluate-windows-server)或在[Visual Studio 门户](https://visualstudio.microsoft.com)订阅者。
 
 2. 打开 PowerShell 会话以管理员身份，然后使用以下命令来装载驱动器作为图像文件：
 

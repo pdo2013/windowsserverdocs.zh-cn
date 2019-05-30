@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 1893c0d2689657a5213b2d59e8d83cea0fc3a0db
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 0aa359644f5e9bf85f4e013e6571276716ed0218
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63722722"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266617"
 ---
 # <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>性能优化远程桌面虚拟化主机
 
@@ -40,14 +40,14 @@ Windows Server 2016 支持两种类型的虚拟机、 个人虚拟桌面和共�
 
 在 Windows Server 2012 R2 中引入，重复数据删除支持打开文件的优化。 若要使用已删除重复卷上运行的虚拟机，需要存储在单独的主机中的 HYPER-V 主机上虚拟机文件。 如果在同一台计算机上运行的 HYPER-V 和重复数据删除，这两项功能将争用系统资源，并对整体性能产生负面影响。
 
-卷还必须配置为使用"虚拟桌面基础结构 (VDI)？ 重复数据删除优化类型。 可以使用服务器管理器配置此 (**文件和存储服务** - &gt; **卷** - &gt; **重复数据删除设置**)或通过使用以下 Windows PowerShell 命令：
+卷还必须配置为使用"虚拟桌面基础结构 (VDI)"重复数据删除优化类型。 可以使用服务器管理器配置此 (**文件和存储服务** - &gt; **卷** - &gt; **重复数据删除设置**)或通过使用以下 Windows PowerShell 命令：
 
 ``` syntax
 Enable-DedupVolume <volume> -UsageType HyperV
 ```
 
-**请注意**  打开文件的重复数据删除优化仅支持 VDI 方案具有通过 SMB 3.0 使用远程存储的 HYPER-V。
-
+> [!Note]
+> 打开文件的数据重复数据删除优化仅支持 VDI 方案具有通过 SMB 3.0 使用远程存储的 HYPER-V。
 
 ### <a name="memory"></a>内存
 

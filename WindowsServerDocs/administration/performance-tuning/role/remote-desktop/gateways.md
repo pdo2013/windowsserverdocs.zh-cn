@@ -7,22 +7,24 @@ ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 7619d2e2ce394c7f06826d6ebe36bccfa43344ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 70b27d45acbfb046d52271a50ca7deffb226b8d0
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842568"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266731"
 ---
 # <a name="performance-tuning-remote-desktop-gateways"></a>性能优化远程桌面网关
 
-**请注意**  在 Windows 8 + 和 Windows Server 2012 R2 + 中，远程桌面网关 （RD 网关） 支持 TCP、 UDP 和旧的 RPC 传输。 以下数据的大多数有关旧版 RPC 传输。 如果未使用旧的 RPC 传输，本部分不适用。
+> [!Note]
+> 在 Windows 8 + 和 Windows Server 2012 R2 + 中，远程桌面网关 （RD 网关） 支持 TCP、 UDP 和旧的 RPC 传输。 以下数据的大多数有关旧版 RPC 传输。 如果未使用旧的 RPC 传输，本部分不适用。
 
 本主题介绍与性能相关的参数，可帮助提高客户部署的性能和 tunings 依赖于客户的网络使用情况模式。
 
 就其核心而言，RD 网关执行很多包转发远程桌面连接实例和客户的网络中的 RD 会话主机服务器实例之间的操作。
 
-**请注意**  以下参数适用于仅 RPC 传输。
+> [!Note]
+> 以下参数适用于仅 RPC 传输。
 
 Internet Information Services (IIS) 和 RD 网关导出以下的注册表参数，以帮助提高系统性能在 RD 网关。
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: a9ee7a56-f062-474f-a61c-9387ff260929
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b11064e6b3bd2590d5712afdb7afc69de1ed83f4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6869ee5f39f1719a3c71025207ef9ffe740492ff
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889698"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266791"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-secondary-deployments"></a>使用针对基于地理位置的流量管理和主要-辅助部署的 DNS 策略
 
@@ -28,7 +28,7 @@ ms.locfileid: "59889698"
 >[!NOTE]
 >有关 AXFR 的详细信息，请参阅 Internet 工程任务组 (IETF)[征求意见 5936](https://tools.ietf.org/rfc/rfc5936.txt)。 有关 IXFR 的详细信息，请参阅 Internet 工程任务组 (IETF)[征求意见 1995年](https://tools.ietf.org/html/rfc1995)。  
   
-## <a name="bkmk_example"></a>主要和辅助地理位置基于流量管理示例  
+## <a name="primary-secondary-geo-location-based-traffic-management-example"></a>主要和辅助地理位置基于流量管理示例  
 下面是如何在主要和辅助部署中使用 DNS 策略以实现基于客户端执行 DNS 查询的物理位置的流量重定向的示例。  
   
 此示例使用两个虚构的公司 Contoso 云服务，从而提供 web 应用和托管解决方案; 的域和 Woodgrove 食物服务，它在全球范围内提供多个城市中的食物传送服务，并且具有网站上名为 woodgrove.com。  
@@ -45,14 +45,14 @@ Contoso DNS 部署包括两个辅助服务器：**SecondaryServer1**，使用 IP
   
 ![主要和辅助地理位置基于流量管理示例](../../media/Dns-Policy_PS1/dns_policy_primarysecondary1.jpg)  
    
-## <a name="bkmk_works"></a>DNS 主要和辅助系统的工作原理
+## <a name="how-the-dns-primary-secondary-system-works"></a>DNS 主要和辅助系统的工作原理
 
 部署基于地理位置中的主要和辅助 DNS 部署的流量管理时，必须了解如何正常传输之前了解区域作用域级别传输发生的主要和辅助区域。 以下各节提供有关区域和区域作用域级别传送的信息。  
   
-- [DNS 主要-辅助部署中的区域传送](#bkmk_zone)  
-- [DNS 主要-辅助部署中的区域作用域级别传送](#bkmk_scope)  
+- [DNS 主要-辅助部署中的区域传送](#zone-transfers-in-a-dns-primary-secondary-deployment)  
+- [DNS 主要-辅助部署中的区域作用域级别传送](#zone-scope-level-transfers-in-a-dns-primary-secondary-deployment)  
   
-### <a name="bkmk_zone"></a>DNS 主要-辅助部署中的区域传送
+### <a name="zone-transfers-in-a-dns-primary-secondary-deployment"></a>DNS 主要-辅助部署中的区域传送
 
 您可以创建 DNS 主要-辅助部署，并通过执行以下步骤同步区域。  
 1. 在安装 DNS 时，主 DNS 服务器上创建主要区域。  
@@ -62,7 +62,7 @@ Contoso DNS 部署包括两个辅助服务器：**SecondaryServer1**，使用 IP
 5. 需要时，主服务器将通知发送到辅助服务器有关区域更新信息。  
 6. 辅助服务器进行增量区域传输请求 (IXFR)。 因此，辅助服务器保持同步与主服务器。   
   
-### <a name="bkmk_scope"></a>DNS 主要-辅助部署中的区域作用域级别传送
+### <a name="zone-scope-level-transfers-in-a-dns-primary-secondary-deployment"></a>DNS 主要-辅助部署中的区域作用域级别传送
 
 流量管理方案需要其他步骤才能区域划分为不同的区域作用域。 正因为如此，则将区域作用域中的数据传输到辅助服务器，并将策略和 DNS 客户端子网传输到辅助服务器需要其他步骤。   
   
@@ -78,7 +78,7 @@ Contoso DNS 部署包括两个辅助服务器：**SecondaryServer1**，使用 IP
   
 对于区域作用域中的任何进一步更新，IXFR 通知发送到辅助服务器，使用相同的选择 RR。 接收该通知区域作用域可以包含该选择 RR 的 IXFR 请求，并在同一进程按上文所述遵循。  
   
-## <a name="bkmk_config"></a>如何为主要和辅助地理位置基于流量管理配置 DNS 策略
+## <a name="how-to-configure-dns-policy-for-primary-secondary-geo-location-based-traffic-management"></a>如何为主要和辅助地理位置基于流量管理配置 DNS 策略
 
 在开始之前，请确保你已完成所有主题中的步骤[地理位置基于流量管理和主服务器的使用 DNS 策略](../../dns/deploy/Scenario--Use-DNS-Policy-for-Geo-Location-Based-Traffic-Management-with-Primary-Servers.md)，并使用区域，区域作用域，DNS 客户端配置主 DNS 服务器子网和 DNS 策略。  
   
@@ -87,11 +87,11 @@ Contoso DNS 部署包括两个辅助服务器：**SecondaryServer1**，使用 IP
   
 若要配置主要和辅助地理位置基于查询响应的 DNS 策略，必须执行以下步骤。  
   
-- [创建辅助区域](#bkmk_secondary)  
-- [主区域上配置区域复制设置](#bkmk_zonexfer)  
-- [复制 DNS 客户端子网](#bkmk_client)  
-- [在辅助服务器上创建区域作用域](#bkmk_zonescopes)  
-- [配置 DNS 策略](#bkmk_dnspolicy)  
+- [创建辅助区域](#create-the-secondary-zones)  
+- [主区域上配置区域复制设置](#configure-the-zone-transfer-settings-on-the-primary-zone)  
+- [复制 DNS 客户端子网](#copy-the-dns-client-subnets)  
+- [在辅助服务器上创建区域作用域](#create-the-zone-scopes-on-the-secondary-server)  
+- [配置 DNS 策略](#configure-dns-policy)  
   
 以下部分提供详细的配置说明。  
   
@@ -99,7 +99,7 @@ Contoso DNS 部署包括两个辅助服务器：**SecondaryServer1**，使用 IP
 >以下部分包含示例 Windows PowerShell 命令包含多个参数的示例值。 请确保将这些命令中的示例值替换之前运行这些命令适用于你的部署的值为。  
 ><br>中的成员身份**DnsAdmins**，或等效身份所需执行以下过程。  
   
-### <a name="bkmk_secondary"></a>创建辅助区域
+### <a name="create-the-secondary-zones"></a>创建辅助区域
 
 可以创建要复制到 SecondaryServer1 和 SecondaryServer2 的区域的辅助副本 （假设这些 cmdlet 执行远程的单个管理客户端）。   
   
@@ -115,7 +115,7 @@ Contoso DNS 部署包括两个辅助服务器：**SecondaryServer1**，使用 IP
 
 有关详细信息，请参阅[添加 DnsServerSecondaryZone](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserversecondaryzone?view=win10-ps)。  
   
-### <a name="bkmk_zonexfer"></a>主区域上配置区域复制设置
+### <a name="configure-the-zone-transfer-settings-on-the-primary-zone"></a>主区域上配置区域复制设置
 
 您必须配置主要区域设置，以便：
 
@@ -134,7 +134,7 @@ Contoso DNS 部署包括两个辅助服务器：**SecondaryServer1**，使用 IP
 有关详细信息，请参阅[集 DnsServerPrimaryZone](https://docs.microsoft.com/powershell/module/dnsserver/set-dnsserverprimaryzone?view=win10-ps)。  
   
   
-### <a name="bkmk_client"></a>复制 DNS 客户端子网
+### <a name="copy-the-dns-client-subnets"></a>复制 DNS 客户端子网
 
 必须将 DNS 客户端子网从主服务器复制到辅助服务器中。
   
@@ -148,7 +148,7 @@ Contoso DNS 部署包括两个辅助服务器：**SecondaryServer1**，使用 IP
 
 有关详细信息，请参阅[添加 DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps)。  
   
-### <a name="bkmk_zonescopes"></a>在辅助服务器上创建区域作用域
+### <a name="create-the-zone-scopes-on-the-secondary-server"></a>在辅助服务器上创建区域作用域
 
 必须在辅助服务器上创建区域作用域。 在 DNS 中，区域作用域也开始从主服务器请求 XFRs。 与主服务器上的区域作用域上的任何更改，包含区域作用域信息的通知发送到辅助服务器。 辅助服务器然后可以使用增量更改更新其区域作用域。  
   
@@ -165,7 +165,7 @@ Contoso DNS 部署包括两个辅助服务器：**SecondaryServer1**，使用 IP
   
 有关详细信息，请参阅[添加 DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)。  
   
-### <a name="bkmk_dnspolicy"></a>配置 DNS 策略
+### <a name="configure-dns-policy"></a>配置 DNS 策略
 
 创建子网后，分区 （区域作用域），并且您已将记录添加，则必须创建连接的子网和分区的策略，因此，如果查询来自 DNS 客户端子网之一中的源，从返回的查询响应区域的正确作用域。 没有策略所需的映射的默认区域作用域。  
   

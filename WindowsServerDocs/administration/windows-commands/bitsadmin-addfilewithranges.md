@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 69b402195f90977aa63299c1a2a550ba310a4513
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 081e5caeb7fb458b367f035b9995929de84a5528
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832338"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266562"
 ---
 # <a name="bitsadmin-addfilewithranges"></a>bitsadmin addfilewithranges
 
@@ -41,14 +41,14 @@ bitsadmin /AddFileWithRanges <Job> <RemoteURL> <LocalName> <RangeList>
 
 ## <a name="more-information"></a>详细信息
 
--   令牌**eof**是一个有效的长度值中的偏移量和长度对内 *\<RangeList >*。 它指示服务读取到指定的文件的末尾。
+-   令牌**eof**是一个有效的长度值中的偏移量和长度对内 *\<RangeList >* 。 它指示服务读取到指定的文件的末尾。
 -   请注意 AddFileWithRanges 将失败，错误代码为 0x8020002c 时如以及相同偏移量的另一个范围指定了长度为零的范围：C:\bits > bitsadmin /addfilewithranges j2 http://bitsdc/dload/1k.zip c:\1k.zip 100:0、 100:5
 
     错误消息：无法将文件添加到作业-0x8020002c。 字节范围的列表包含一些重叠的范围，这不受支持。
 
     解决方法： 不要先指定长度为零的范围。 例如： bitsadmin /addfilewithranges j2 http://bitsdc/dload/1k.zip c:\1k.zip 100:5、 100:0。
 
-## <a name="BKMK_examples"></a>示例
+## <a name="examples"></a>示例
 
 下面的示例说明了 BITS，用于传输 100 个字节的偏移量 0，100 个字节从偏移量 2000，以及从剩余的字节偏移量 5000 到文件末尾。
 ```
@@ -57,4 +57,4 @@ C:\>bitsadmin /addfilewithranges http://downloadsrv/10mb.zip c:\10mb.zip "0:100,
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

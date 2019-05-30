@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3d3eba4f62842fa7f862cd4eaea6830e6a08397a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 848c57736c3530e296cffb970237149b4634de67
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868128"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266515"
 ---
 # <a name="bitsadmin-replaceremoteprefix"></a>bitsadmin replaceremoteprefix
 
@@ -40,13 +40,13 @@ bitsadmin /ReplaceRemotePrefix <Job> <OldPrefix> <NewPrefix
 |OldPrefix|现有的 URL 前缀|
 |NewPrefix|新的 URL 前缀|
 
-## <a name="BKMK_examples"></a>示例
+## <a name="examples"></a>示例
 
-下面的示例更改名为作业中的所有文件*myDownloadJob*其远程 URL 开头*http://stageserver*到*http://prodserver*。
+下面的示例更改名为作业中的所有文件*myDownloadJob*其远程 URL 开头 *http://stageserver* 到 *http://prodserver* 。
 ```
 C:\>bitsadmin /ReplaceRemotePrefix myDownloadJob http://stageserver http://prodserver
 ```
 
 ## <a name="additional-information"></a>其他信息
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

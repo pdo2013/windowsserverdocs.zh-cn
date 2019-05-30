@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f8d23cc1bb5739b47c755d90c927cbcf82b8da7f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5e1ee9b7c1ade184cf17b867b7fce10ab8885f0f
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825018"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64771890"
 ---
 # <a name="color"></a>color
 
@@ -44,25 +44,27 @@ color [[<B>]<F>]
 
 ## <a name="remarks"></a>备注
 
--   下表列出了可以使用的值的形式的有效十六进制数字*B*并*F*。  
-    |ReplTest1|颜色|
-    |-----|-----|
-    |0|黑色|
-    |1|蓝色|
-    |2|厚︹|
-    |3|浅绿色|
-    |4|红色|
-    |5|紫色|
-    |6|独︹|
-    |7|白色|
-    |8|灰色|
-    |9|浅蓝色|
-    |A|浅绿色|
-    |B|淡浅绿色|
-    |C|浅红色|
-    |D|淡紫色|
-    |E|淡黄色|
-    |F|亮白色|
+-   下表列出了可以使用的值的形式的有效十六进制数字*B*并*F*。
+
+|ReplTest1|颜色|
+|-----|-----|
+|0|黑色|
+|1|蓝色|
+|2|厚︹|
+|3|浅绿色|
+|4|红色|
+|5|紫色|
+|6|独︹|
+|7|白色|
+|8|灰色|
+|9|浅蓝色|
+|A|浅绿色|
+|B|淡浅绿色|
+|C|浅红色|
+|D|淡紫色|
+|E|淡黄色|
+|F|亮白色|
+    
 -   不使用之间的空格字符*B*并*F*。
 -   如果指定只有一个十六进制数字，对应的颜色用作的前景色和背景色设置为默认颜色。
 -   若要设置的默认命令提示符窗口颜色，请单击命令提示符窗口的左上角，单击**默认值**，单击**颜色**卡，并单击你想要用于的颜色**屏幕上文本**并**屏幕上背景**。
@@ -84,4 +86,4 @@ color e
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

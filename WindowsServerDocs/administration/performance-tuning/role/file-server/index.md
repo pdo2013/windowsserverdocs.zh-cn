@@ -7,12 +7,12 @@ ms.topic: article
 author: phstee
 ms.author: NedPyle; Danlo; DKruse
 ms.date: 4/14/2017
-ms.openlocfilehash: d6dc2739ae45b29bdfd854c1b81b0c8962c8f107
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ed9e9c6e2280aa69408455a111eddb3af7f88750
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891408"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266696"
 ---
 # <a name="performance-tuning-for-file-servers"></a>文件服务器的性能优化
 
@@ -94,7 +94,7 @@ ms.locfileid: "59891408"
 
     默认值为 10 秒。 这是目录缓存超时。
 
-    **注意**  此参数控制缺少目录租用时目录元数据的缓存。
+    > [!Note]  此参数控制在缺少目录租约时的目录元数据缓存。
 
      
 
@@ -224,7 +224,7 @@ ms.locfileid: "59891408"
 
  
 
-从 Windows 8 开始，可使用 Set-SmbClientConfiguration 和 Set-SmbServerConfiguration Windows PowerShell cmdlet 配置其中的许多 SMB 设置。 也可以使用 Windows PowerShell 配置只与注册表相关的设置。
+从 Windows 8 开始，可使用 Set-SmbClientConfiguration 和 Set-SmbServerConfiguration Windows PowerShell cmdlet 配置其中的许多 SMB 设置   。 也可以使用 Windows PowerShell 配置只与注册表相关的设置。
 
 ```
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" RequireSecuritySignature -Value 0 -Force
