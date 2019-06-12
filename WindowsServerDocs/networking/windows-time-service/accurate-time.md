@@ -8,12 +8,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: ea4d957ee68f14f4568d3cefe664736585e50cce
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b68e6b915d029e53d47c6cffe214ec6e11bba6ea
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864008"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812384"
 ---
 # <a name="accurate-time-for-windows-server-2016"></a>适用于 Windows Server 2016 准确的时间
 
@@ -21,8 +21,8 @@ ms.locfileid: "59864008"
 
 Windows 时间服务是为客户端和服务器时间同步提供程序使用插件模型的组件。  在 Windows 中，有两个内置的客户端提供程序并且没有可用的第三方插件。 一个提供程序使用[NTP (RFC 1305)](https://tools.ietf.org/html/rfc1305)或[MS NTP](https://msdn.microsoft.com/library/cc246877.aspx)同步到 NTP 和/或 MS NTP 符合引用服务器的本地系统时间。 其他提供程序用于 HYPER-V，同步到 HYPER-V 主机的虚拟机 (VM)。  当存在多个提供程序时，Windows 将选择最佳的提供程序，首先，使用层次级别的根延迟，根分布后, 跟和最后的时间偏移量。
 
->[!NOTE]
->有关 Windows 时间服务的快速概述，看一看这[高级别概述视频](https://aka.ms/WS2016TimeVideo)。
+> [!NOTE]
+> 有关 Windows 时间服务的快速概述，看一看这[高级别概述视频](https://aka.ms/WS2016TimeVideo)。
 
 <!-- Not sure what to do with the following -->
 在本主题中，我们讨论了...这些主题与启用准确的时间相关： 
@@ -31,13 +31,11 @@ Windows 时间服务是为客户端和服务器时间同步提供程序使用插
 - 度量值
 - 最佳方案
 
->[!IMPORTANT]
->可以下载被 Windows 2016 精确时间项目引用的附录[此处](https://windocs.blob.core.windows.net/windocs/WindowsTimeSyncAccuracy_Addendum.pdf)。  本文档提供有关我们的测试和测量方法更多详细信息。
+> [!IMPORTANT]
+> 可以下载被 Windows 2016 精确时间项目引用的附录[此处](https://windocs.blob.core.windows.net/windocs/WindowsTimeSyncAccuracy_Addendum.pdf)。  本文档提供有关我们的测试和测量方法更多详细信息。
 
-
-
->[!NOTE] 
->Windows 时间提供程序插件模型[TechNet 上所述](https://msdn.microsoft.com/library/windows/desktop/ms725475%28v=vs.85%29.aspx)。
+> [!NOTE] 
+> Windows 时间提供程序插件模型[TechNet 上所述](https://msdn.microsoft.com/library/windows/desktop/ms725475%28v=vs.85%29.aspx)。
 
 ## <a name="domain-hierarchy"></a>域层次结构
 域和独立配置的工作方式。
@@ -60,7 +58,6 @@ HYPER-V 来宾将具有至少两个 Windows 时间提供程序可供选择，因
 1. **Solid 源时钟**-在您的域需要稳定且精确的源时钟。 这通常意味着安装 GPS 设备或指向第 1 源，考虑到 #3。 开始，如果您有两个船上使用，并且您尝试进行测量相比到另一个的海拔高度的相似之处，在准确性是最佳如果源船不过是非常稳定且不移动。 也是如此的时间，而源时钟不稳定，然后同步时钟的整个链是受影响，在每个阶段放大。 它还必须是可访问因为在连接中的中断会影响时间同步。 并且，最后，它必须是安全。 如果引用不正确的时间保留，或由潜在的恶意方运营，可能会暴露您的域和基于时间的攻击。
 2. **稳定的客户端时钟**-稳定的客户端时钟可确保震荡自然偏差是 containable。  NTP 使用从潜在的多个 NTP 服务器的多个样本情形并训练你本地计算机的时钟。  它不会不单步时间将发生更改，但而不是减缓或加快，以便快速进行准确的时间并保持准确 NTP 请求之间的本地时钟。  但是，如果客户端计算机时钟的震荡不稳定，然后详细波动调整之间可能出现，Windows 使用条件时钟的算法不准确地工作。  在某些情况下，固件更新可能需要为准确的时间。
 3. **对称 NTP 通信**-至关重要 NTP 通信的连接是对称。  NTP 使用计算来调整的假定网络修补程序是对称的时间。  如果路径 NTP 数据包采用经过服务器采用不同数量的时间才能返回时，会影响准确性。  例如，路径可能因网络拓扑中或通过设备具有不同的接口速度的路由的数据包中的更改而更改。
-
 
 对于由电池供电的设备，移动和可移植的您必须考虑不同的策略。  根据我们的建议，保持准确的时间需要的时钟; 如果要将符合标准的一次一秒，这对应于时钟更新频率。 这些设置将消耗更多的电池电量超过预期，并且可能会干扰节能模式可在 Windows 中的此类设备。 由电池供电设备还具有某些电源模式，停止所有应用程序运行，干扰 W32time 的功能训练时钟和维护精确的时间。 此外，在移动设备中的时钟可能不是非常准确开始。  环境的环境条件会影响时钟准确性和移动设备可以从一个环境条件移到下一个可能会影响它能够准确地保留时间的。  因此，Microsoft 不建议使用高精度设置设置由电池供电便携式设备。 
 

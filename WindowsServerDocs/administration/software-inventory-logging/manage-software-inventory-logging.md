@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 095cd2ad799857b789943b4f477aa9e6a8c3ae50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 506072251b77362f3dc35faa0c976f396f7f6034
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815178"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435479"
 ---
 # <a name="manage-software-inventory-logging"></a>管理软件清单日志记录
 
@@ -121,7 +121,7 @@ ms.locfileid: "59815178"
 ## <a name="configuring-software-inventory-logging"></a>配置软件清单日志记录  
 配置软件清单日志记录以便将数据持续转发到聚合服务器有三个步骤：  
   
-1.  使用**Set-sillogging – TargetUri**指定聚合服务器 （必须以"https://？ 开头） 的 web 地址。  
+1.  使用**Set-sillogging – TargetUri**指定聚合服务器 （必须以"https://"开头） 的 web 地址。  
   
 2.  使用 **Set-SilLogging –CertificateThumbprint** 指定有效 SSL 证书的指纹哈希，该哈希将用于对传输到聚合服务器的数据进行身份验证（需要将聚合服务器配置为接受哈希）。  
   
@@ -140,17 +140,17 @@ ms.locfileid: "59815178"
 ## <a name="BKMK_Step3"></a>显示软件清单日志记录数据  
 除了在前一个部分介绍的 PowerShell cmdlet，还可以使用六个其他 cmdlet 来收集软件清单日志记录数据：  
   
--   **[Get-SilComputer](https://technet.microsoft.com/library/dn283392.aspx)**:显示特定服务器和与操作系统相关数据的时间点值，以及物理主机的 FQDN 或主机名（如果可用）。  
+-   **[Get-SilComputer](https://technet.microsoft.com/library/dn283392.aspx)** :显示特定服务器和与操作系统相关数据的时间点值，以及物理主机的 FQDN 或主机名（如果可用）。  
   
--   **[Get-silcomputeridentity (KB 3000850)](https://technet.microsoft.com/library/dn858074.aspx)**:显示由 SIL 用于各个服务器的标识符。  
+-   **[Get-silcomputeridentity (KB 3000850)](https://technet.microsoft.com/library/dn858074.aspx)** :显示由 SIL 用于各个服务器的标识符。  
   
--   **[Get-SilData](https://technet.microsoft.com/library/dn283388.aspx)**:显示所有软件清单日志记录数据的时间点集合。  
+-   **[Get-SilData](https://technet.microsoft.com/library/dn283388.aspx)** :显示所有软件清单日志记录数据的时间点集合。  
   
--   **[Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx)**:显示计算机上安装的所有软件的时间点标识。  
+-   **[Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx)** :显示计算机上安装的所有软件的时间点标识。  
   
--   **[Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx)**:显示从两天之前开始的服务器的唯一客户端设备请求和客户端用户请求总数。  
+-   **[Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx)** :显示从两天之前开始的服务器的唯一客户端设备请求和客户端用户请求总数。  
   
--   **[Get-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx)**:显示计算机上安装的所有 Windows 更新的时间点列表。  
+-   **[Get-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx)** :显示计算机上安装的所有 Windows 更新的时间点列表。  
   
 软件清单日志记录 cmdlet 的典型用例情景是管理员使用 [Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx)对软件清单日志记录查询所有软件清单日志记录数据的时间点集合。  
   
@@ -206,13 +206,13 @@ SystemManufacturer        : Microsoft Corporation
   
 #### <a name="to-delete-data-logged-by-software-inventory-logging"></a>删除软件清单日志记录所记录的数据  
   
-1.  在 PowerShell 中，使用 **[Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)** 命令停止软件清单日志记录。  
+1. 在 PowerShell 中，使用 **[Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)** 命令停止软件清单日志记录。  
   
-2.  打开 Windows Explorer。  
+2. 打开 Windows Explorer。  
   
-3.  Go to **\Windows\System32\Logfiles\SIL\**  
+3. Go to **\Windows\System32\Logfiles\SIL\\**  
   
-4.  删除文件夹中的所有文件。  
+4. 删除文件夹中的所有文件。  
   
 ## <a name="BKMK_Step5"></a>备份和还原所记录的软件清单日志记录数据  
 如果通过网络进行的转发失败，则软件清单日志记录会暂时存储每小时的数据集合。 日志文件存储在 \Windows\System32\LogFiles\SIL\ 目录中。 可以使用定期计划的服务器备份来备份此软件清单日志记录数据。  
@@ -237,9 +237,9 @@ SystemManufacturer        : Microsoft Corporation
   
 -   使用 [Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay 设置 SIL 日志记录运行的时间时，必须指定日期和时间。 会设置日历日期，在本地系统时间达到该日期之前，不会进行日志记录。  
   
--   使用时[Get-silsoftware](https://technet.microsoft.com/library/dn283397.aspx)，或[Get-silwindowsupdate](https://technet.microsoft.com/library/dn283393.aspx)，"InstallDate？ 将始终显示 12:00:00 AM，无意义的值。  
+-   使用时[Get-silsoftware](https://technet.microsoft.com/library/dn283397.aspx)，或[Get-silwindowsupdate](https://technet.microsoft.com/library/dn283393.aspx)，"InstallDate"会始终显示 12:00:00 AM，无意义的值。  
   
--   使用时[Get-silualaccess](https://technet.microsoft.com/library/dn283389.aspx)，"SampleDate？ 将始终显示 11:59: 00PM，无意义的值。  日期是这些 cmdlet 查询的相关数据。  
+-   使用时[Get-silualaccess](https://technet.microsoft.com/library/dn283389.aspx)，"SampleDate"会始终显示 11:59: 00PM，无意义的值。  日期是这些 cmdlet 查询的相关数据。  
   
 ## <a name="BKMK_Step10"></a>启用和配置软件清单日志记录已装载的虚拟硬盘中  
 软件清单日志记录还支持脱机虚拟机上的配置和启用。 这种支持的实际用途旨在涵盖针对跨数据中心的大范围部署的“金牌映像”安装，以及配置从本地转到云部署的最终用户映像。  
@@ -256,11 +256,11 @@ SystemManufacturer        : Microsoft Corporation
   
 若要在脱机 VHD（未运行虚拟机操作系统）上修改这些值，必须首先装载 VHD，然后可以使用以下命令进行更改：  
   
--   [Reg 负载](https://technet.microsoft.com/library/cc742053.aspx)  
+-   [Reg load](https://technet.microsoft.com/library/cc742053.aspx)  
   
 -   [Reg delete](https://technet.microsoft.com/library/cc742145.aspx)  
   
--   [Reg 添加](https://technet.microsoft.com/library/cc742162.aspx)  
+-   [Reg add](https://technet.microsoft.com/library/cc742162.aspx)  
   
 -   [Reg unload](https://technet.microsoft.com/library/cc742043.aspx)  
   

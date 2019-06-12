@@ -7,12 +7,12 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: 6836e5db36727294d215f7f98e0faeede55a612a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 761bfc681d7e39059884977cd99997ea9996268b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869298"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811355"
 ---
 # <a name="manage-a-server-core-server"></a>管理服务器核心服务器
  
@@ -61,15 +61,17 @@ ms.locfileid: "59869298"
 若要使用 mmc 管理单元来管理的服务器核心服务器*不*域成员： 
 
 1. 建立替代凭据以用于连接到服务器核心计算机通过远程计算机上的命令提示符下键入以下命令：
+1. 
    ```
    cmdkey /add:<ServerName> /user:<UserName> /pass:<password>
    ```
+
    如果你想要提示输入密码，则忽略 **/pass**选项。
 
 2. 出现提示时，键入您指定的用户名的密码。
    如果服务器核心服务器上的防火墙已未配置为允许 MMC 管理单元连接，请按照以下步骤来配置 Windows 防火墙以允许 mmc 管理单元。 然后继续执行步骤 3。
 3. 在另一台计算机上启动一个 MMC 管理单元，如**计算机管理**。
-4. 在左窗格中，管理单元中，右键单击，然后单击**连接到另一台计算机**。 (例如，在计算机管理示例中，你右键单击**计算机管理 （本地）**。)
+4. 在左窗格中，管理单元中，右键单击，然后单击**连接到另一台计算机**。 (例如，在计算机管理示例中，你右键单击**计算机管理 （本地）** 。)
 5. 在中**另一台计算机**，键入服务器核心服务器的计算机名称，然后单击**确定**。 你现在可以使用 MMC 管理单元来管理服务器核心服务器，像管理运行 Windows Server 操作系统的任何其他计算机一样。
 
 ### <a name="to-configure-windows-firewall-to-allow-mmc-snap-ins-to-connect"></a>若要将 Windows 防火墙配置为允许连接 MMC 管理单元
@@ -120,14 +122,17 @@ cscript C:\Windows\System32\Scregedit.wsf /ar 0
 若要将硬件添加到服务器核心服务器，请安装新硬件的硬件供应商提供的说明进行操作。 
 
 如果硬件不是插，您将需要手动安装驱动程序。 为此，请将驱动程序文件复制到临时位置的服务器上，并运行以下命令：
+
 ```
 pnputil –i –a <driverinf>
 ```
+
 其中*driverinf*是驱动程序的.inf 文件的文件名。
 
 如果出现提示，重新启动计算机。
 
 若要查看安装了哪些驱动程序，请运行以下命令： 
+
 ```
 sc query type= driver
 ```
@@ -135,7 +140,8 @@ sc query type= driver
 > [!NOTE] 
 > 若要命令能成功完成，你必须保留等号后的空格。
 
-若要禁用设备驱动程序，运行以下命令： 
+若要禁用设备驱动程序，运行以下命令：
+
 ```
 sc delete <service_name>
 ```

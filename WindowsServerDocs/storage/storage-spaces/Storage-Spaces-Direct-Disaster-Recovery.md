@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 03/29/2018
 description: 本指南介绍了当前可用的 Microsoft HCI （存储空间直通） 灾难恢复方案
 ms.localizationpriority: medium
-ms.openlocfilehash: 32bbf02ca78d5c6a2147162768c984d0e0b27e36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c844c56c3a1717658bcdb970e78d45b5cdda861c
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879588"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453119"
 ---
 # <a name="disaster-recovery-with-storage-spaces-direct"></a>使用存储空间直通的灾难恢复
 
@@ -41,7 +41,7 @@ ms.locfileid: "59879588"
 
 在此方案中，有两个单独的独立群集。 用于配置存储副本 HCI 之间，可以按照中的步骤[群集到群集存储复制](../storage-replica/cluster-to-cluster-storage-replication.md)。
 
-![存储复制关系图](media\storage-spaces-direct-disaster-recovery\Disaster-Recovery-Figure1.png)
+![存储复制关系图](media/storage-spaces-direct-disaster-recovery/Disaster-Recovery-Figure1.png)
 
 部署存储副本时，应考虑下列注意事项。 
 
@@ -56,7 +56,7 @@ ms.locfileid: "59879588"
 
 [HYPER-V 副本](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica)超聚合基础结构上提供虚拟机级别复制以用于灾难恢复。 HYPER-V 副本可以执行的操作是将虚拟机并将它复制到辅助站点或 Azure （副本）。 然后从辅助站点的 HYPER-V 副本可以虚拟机复制到第三个 （扩展副本）。
 
-![HYPER-V 复制关系图](media\storage-spaces-direct-disaster-recovery\Disaster-Recovery-Figure2.png)
+![HYPER-V 复制关系图](media/storage-spaces-direct-disaster-recovery/Disaster-Recovery-Figure2.png)
 
 与 HYPER-V 副本复制是由负责的 HYPER-V。 首次启用时用于复制的虚拟机，有三个选项需要如何初始副本发送到相应的副本群集。
 

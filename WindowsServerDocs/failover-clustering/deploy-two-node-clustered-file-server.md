@@ -7,12 +7,12 @@ ms.topic: article
 author: johnmarlin-msft
 ms.date: 02/01/2019
 description: 本文介绍如何创建双节点文件服务器群集
-ms.openlocfilehash: fbfde60f60df64514a6a0f514cbabd005544af84
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9f50470b379bd0ab05834eb3c5a35be0f5e9e93a
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846408"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452997"
 ---
 # <a name="deploying-a-two-node-clustered-file-server"></a>部署双节点群集的文件服务器
 
@@ -28,11 +28,11 @@ ms.locfileid: "59846408"
 
 故障转移群集通常包含的存储单元的物理连接到群集中的所有服务器，但在存储中的任何给定的卷只能访问由一台服务器一次。 下图显示了已连接到存储单元的双节点故障转移群集。
 
-![双节点群集](media\Cluster-File-Server\Cluster-FS-Overview.png)
+![双节点群集](media/Cluster-File-Server/Cluster-FS-Overview.png)
 
 不向其他服务器，包括另一个群集中的服务器必须公开存储卷或逻辑单元号 (Lun) 公开给群集中的节点。 下图阐释了这一点。
 
-![在存储 Lun](media\Cluster-File-Server\Cluster-FS-LUNs.png)
+![在存储 Lun](media/Cluster-File-Server/Cluster-FS-LUNs.png)
 
 请注意，对于任何服务器的最大可用性，它必须遵循服务器管理的最佳实践 — 例如，认真管理服务器，并完全实现它们之前, 测试软件更改的物理环境，并仔细跟踪的软件更新和所有群集服务器上的配置更改。
 
@@ -167,7 +167,7 @@ ms.locfileid: "59846408"
 
 1. 打开**服务器管理器**并在**管理**下拉列表中，选择**添加角色和功能**。
 
-   ![添加功能](media\Cluster-File-Server\Cluster-FS-Add-Feature.png)
+   ![添加功能](media/Cluster-File-Server/Cluster-FS-Add-Feature.png)
 
 2. 如果**在开始之前**窗口随即打开，选择**下一步**。
 
@@ -177,11 +177,11 @@ ms.locfileid: "59846408"
 
 5. 对于服务器角色，从列表中的角色，打开**文件服务**，选择**文件服务器**，并**下一步**。
 
-   ![添加角色](media\Cluster-File-Server\Cluster-FS-Add-FS-Role-1.png)
+   ![添加角色](media/Cluster-File-Server/Cluster-FS-Add-FS-Role-1.png)
 
 6. 对于的功能，从列表中的功能，请选择**故障转移群集**。  系统弹出一个对话框将显示列出还安装了管理工具。  将所有所选选择**添加功能**并**下一步**。
 
-   ![添加功能](media\Cluster-File-Server\Cluster-FS-Add-WSFC-1.png)
+   ![添加功能](media/Cluster-File-Server/Cluster-FS-Add-WSFC-1.png)
 
 7. 在确认页中，选择安装。
 
@@ -191,7 +191,7 @@ ms.locfileid: "59846408"
 
 #### <a name="using-powershell"></a>使用 PowerShell
 
-1. 打开管理 PowerShell 会话，请右键单击开始按钮，然后选择**Windows PowerShell （管理员）**。
+1. 打开管理 PowerShell 会话，请右键单击开始按钮，然后选择**Windows PowerShell （管理员）** 。
 2. 若要安装文件服务器角色，运行命令：
 
     ```PowerShell
@@ -233,7 +233,7 @@ ms.locfileid: "59846408"
 
 4. 在中**选择服务器或群集**窗口中，添加将在群集的节点在两台计算机的名称中。  例如，如果名称为 NODE1 和 NODE2，输入名称并选择**添加**。  你还可以选择**浏览**按钮以搜索 Active Directory 中的名称。  后两者列入**所选服务器**，选择**下一步**。
 
-5. 在中**测试选项**窗口中，选择**运行所有测试 （推荐）**，并**下一步**。
+5. 在中**测试选项**窗口中，选择**运行所有测试 （推荐）** ，并**下一步**。
 
 6. 上**确认**页上，它将为您提供的列表中将检查的所有测试。  选择**下一步**，测试将开始。
 
@@ -245,7 +245,7 @@ ms.locfileid: "59846408"
 
 #### <a name="using-powershell"></a>使用 PowerShell
 
-1. 打开管理 PowerShell 会话，请右键单击开始按钮，然后选择**Windows PowerShell （管理员）**。
+1. 打开管理 PowerShell 会话，请右键单击开始按钮，然后选择**Windows PowerShell （管理员）** 。
 
 2. 若要验证故障转移群集的计算机 （例如，正在 NODE1 和 NODE2 计算机名称），运行命令：
 
@@ -283,7 +283,7 @@ ms.locfileid: "59846408"
 
 #### <a name="using-powershell"></a>使用 PowerShell
 
-1. 打开管理 PowerShell 会话，请右键单击开始按钮，然后选择**Windows PowerShell （管理员）**。
+1. 打开管理 PowerShell 会话，请右键单击开始按钮，然后选择**Windows PowerShell （管理员）** 。
 
 2. 运行以下命令以创建群集，如果正在使用静态 IP 地址。  例如，，计算机名称为 NODE1 和 NODE2，群集的名称将为群集，并且 IP 地址将是 1.1.1.1。
 
@@ -315,7 +315,7 @@ ms.locfileid: "59846408"
 
 7. 对于文件服务器类型，选择**常规用途文件服务器**并**下一步**。<br>有关横向扩展文件服务器的信息，请参阅[横向扩展文件服务器概述](sofs-overview.md)。
 
-   ![文件服务器类型](media\Cluster-File-Server\Cluster-FS-File-Server-Type.png)
+   ![文件服务器类型](media/Cluster-File-Server/Cluster-FS-File-Server-Type.png)
 
 8. 在中**客户端访问点**窗口中，输入要使用的文件服务器的名称。  请注意，这不是群集的名称。  这是用于文件共享连接。  例如，如果我想要连接到\\服务器，则输入的名称将为服务器。
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aa8d556822bc6caf4277812be818a0cf456e75dc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0a1cca93a064cfb6e5c18f4a472ea837b922d07b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818878"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434190"
 ---
 # <a name="create-partition-extended"></a>创建扩展分区
 
@@ -36,12 +36,12 @@ create partition extended [size=<n>] [offset=<n>] [align=<n>] [noerr]
   
 ## <a name="parameters"></a>Parameters  
   
-|参数|描述|  
-|-------|--------|  
-|size\=<n>|指定分区的大小以兆字节为单位\(MB\)。 如果没有给定大小，则分区将继续，直到扩展分区中没有更多可用空间。|  
-|offset\=<n>|千字节为单位指定的偏移量\(KB\)，在创建分区。 如果没有给定偏移量，将是足够大以保存新分区在磁盘上的可用空间的开始处启动分区。|  
-|align\=<n>|对齐到最接近的对齐边界的所有分区扩展盘区。 通常与硬件 RAID 逻辑单元号一起使用\(LUN\)数组以提高性能。 <n> 是的千字节数\(KB\)从一开始为最接近的对齐边界的磁盘。|  
-|noerr|仅用于脚本。 当遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，错误会导致 DiskPart 退出，错误代码。|  
+|  参数  |                                                                                                                             描述                                                                                                                              |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  size\=<n>  |                                                  指定分区的大小以兆字节为单位\(MB\)。 如果没有给定大小，则分区将继续，直到扩展分区中没有更多可用空间。                                                  |
+| offset\=<n> |                     千字节为单位指定的偏移量\(KB\)，在创建分区。 如果没有给定偏移量，将是足够大以保存新分区在磁盘上的可用空间的开始处启动分区。                      |
+| align\=<n>  | 对齐到最接近的对齐边界的所有分区扩展盘区。 通常与硬件 RAID 逻辑单元号一起使用\(LUN\)数组以提高性能。 <n> 是的千字节数\(KB\)从一开始为最接近的对齐边界的磁盘。 |
+|    noerr    |                                 仅用于脚本。 当遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，错误会导致 DiskPart 退出，错误代码。                                 |
   
 ## <a name="remarks"></a>备注  
   
@@ -63,7 +63,7 @@ create partition extended size=1000
 ```  
   
 #### <a name="additional-references"></a>其他参考  
-[命令行语法解答](command-line-syntax-key.md)  
+[命令行语法项](command-line-syntax-key.md)  
   
 
   

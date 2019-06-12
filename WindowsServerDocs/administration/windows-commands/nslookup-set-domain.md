@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9019893d92201079fb60b820a14dda3763bafd6b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d1af9f30dd2c44111adecb477a6469333f4f7685
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886638"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436776"
 ---
 # <a name="nslookup-set-domain"></a>nslookup set domain
 
@@ -30,13 +30,15 @@ ms.locfileid: "59886638"
 set domain=<DomainName>
 ```
 ## <a name="parameters"></a>Parameters
-|参数|描述|
-|-------|--------|
-|<DomainName>|指定的默认 DNS 域名的新名称。 默认域名是主机名。|
-|{help &#124; ?}|显示的短摘要**nslookup**子命令。|
+
+|    参数    |                                           描述                                           |
+|-----------------|-------------------------------------------------------------------------------------------------|
+|  <DomainName>   | 指定的默认 DNS 域名的新名称。 默认域名是主机名。 |
+| {help &#124; ?} |                      显示的短摘要**nslookup**子命令。                      |
+
 ## <a name="remarks"></a>备注
--   默认 DNS 域的名称追加到查找请求的状态根据**defname**并**搜索**选项。 DNS 域搜索列表包含的默认 DNS 域的父项，如果它的名称中包含至少两个组件。 例如，如果 mfg.widgets.com 默认 DNS 域，则 mfg.widgets.com 和 widgets.com 命名的搜索列表。 使用**设置 srchlist**命令指定不同的列表并**设置所有**命令以显示的列表。
-## <a name="additional-references"></a>其他参考
-[命令行语法解答](command-line-syntax-key.md)
-[nslookup 设置 srchlist](nslookup-set-srchlist.md)
-[nslookup 将所有设置](nslookup-set-all.md)
+- 默认 DNS 域的名称追加到查找请求的状态根据**defname**并**搜索**选项。 DNS 域搜索列表包含的默认 DNS 域的父项，如果它的名称中包含至少两个组件。 例如，如果 mfg.widgets.com 默认 DNS 域，则 mfg.widgets.com 和 widgets.com 命名的搜索列表。 使用**设置 srchlist**命令指定不同的列表并**设置所有**命令以显示的列表。
+  ## <a name="additional-references"></a>其他参考
+  [命令行语法解答](command-line-syntax-key.md)
+  [nslookup 设置 srchlist](nslookup-set-srchlist.md)
+  [nslookup 将所有设置](nslookup-set-all.md)

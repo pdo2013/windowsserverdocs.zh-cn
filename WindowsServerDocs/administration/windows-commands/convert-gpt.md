@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e838f68162b6faabf2ecbc7dea2ce840235890c0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 433e30efeecec4e4ec51d67c40c14cacf986d12e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859108"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434222"
 ---
 # <a name="convert-gpt"></a>convert gpt
 
@@ -44,8 +44,8 @@ convert gpt [noerr]
 
 > [!IMPORTANT]
 > 磁盘必须为空，将其转换为 GPT 磁盘。 备份你的数据，并在转换磁盘之前删除所有分区或卷。
--   转换为 GPT 的所需的最小磁盘大小为 128 兆字节。
--   若要成功执行此操作，必须选择的基本 MBR 磁盘。 使用**选择的磁盘**命令选择基本磁盘，并将焦点移到它。
+> -   转换为 GPT 的所需的最小磁盘大小为 128 兆字节。
+> -   若要成功执行此操作，必须选择的基本 MBR 磁盘。 使用**选择的磁盘**命令选择基本磁盘，并将焦点移到它。
 
 ## <a name="BKMK_examples"></a>示例
 
@@ -56,5 +56,5 @@ convert gpt
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0605e8dfaaf1631da02ac320aa8748d7a34f3fed
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 37f30a181402fe8a74148b42398641af3c4846b9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840398"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434767"
 ---
 # <a name="bootcfg-delete"></a>bootcfg delete
 
@@ -31,13 +31,15 @@ ms.locfileid: "59840398"
 bootcfg /delete [/s <computer> [/u <Domain>\<User> /p <Password>]] [/id <OSEntryLineNum>]
 ```
 ## <a name="parameters"></a>Parameters
-|术语|定义|
-|----|-------|
-|/s <computer>|指定的名称或远程计算机的 IP 地址 （不使用反斜杠）。 默认值为本地计算机。|
-|/u <Domain>\\<User>|使用指定的用户帐户权限运行命令<User>或<Domain> \\ <User>。 默认值为当前登录的用户发出命令的计算机上的权限。|
-|/p <Password>|指定在指定的用户帐户的密码 **/u**参数。|
-|/id <OSEntryLineNum>|要删除的 Boot.ini 文件的 [操作系统] 部分中指定的操作系统条目行号。 [操作系统] 部分标头后的第一行是 1。|
-|/?|在命令提示符下显示帮助。|
+
+|         术语         |                                                                                             定义                                                                                              |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    /s <computer>     |                                         指定的名称或远程计算机的 IP 地址 （不使用反斜杠）。 默认值为本地计算机。                                          |
+| /u <Domain>\\<User>  | 使用指定的用户帐户权限运行命令<User>或<Domain> \\ <User>。 默认值为当前登录的用户发出命令的计算机上的权限。 |
+|    /p <Password>     |                                                        指定在指定的用户帐户的密码 **/u**参数。                                                        |
+| /id <OSEntryLineNum> |        要删除的 Boot.ini 文件的 [操作系统] 部分中指定的操作系统条目行号。 [操作系统] 部分标头后的第一行是 1。        |
+|          /?          |                                                                                在命令提示符下显示帮助。                                                                                 |
+
 ## <a name="BKMK_examples"></a>示例
 下面的示例演示如何使用**bootcfg /delete**命令：
 ```
@@ -45,4 +47,4 @@ bootcfg /delete /id 1
 bootcfg /delete /s srvmain /u maindom\hiropln /p p@ssW23 /id 3
 ```
 #### <a name="additional-references"></a>其他参考
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

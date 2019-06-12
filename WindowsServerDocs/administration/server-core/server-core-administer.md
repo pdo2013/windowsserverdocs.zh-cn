@@ -8,12 +8,12 @@ author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
 ms.date: 12/18/2018
-ms.openlocfilehash: 39fbb92645d39a46613f2142d0258c78a6ba425b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 50fa737db5862132c1dde5cb6eb6b83674b3f02e
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842658"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811384"
 ---
 # <a name="administer-a-server-core-server"></a>管理服务器核心服务器
 
@@ -80,19 +80,19 @@ ms.locfileid: "59842658"
 使用以下步骤将服务器重命名。
 
 1. 使用 **hostname** 或 **ipconfig** 命令确定服务器的当前名称。
-2. 运行**重命名计算机-ComputerName \<new_name\>**。
+2. 运行**重命名计算机-ComputerName \<new_name\>** 。
 3. 重新启动计算机。
 
 ### <a name="activate-the-server"></a>激活服务器
 
-运行**slmgr.vbs-ipk\<productkey\>**。 然后运行**slmgr.vbs – ato**。 如果激活成功，不会获得一条消息。
+运行**slmgr.vbs-ipk\<productkey\>** 。 然后运行**slmgr.vbs – ato**。 如果激活成功，不会获得一条消息。
 
 > [!NOTE]
 > 您还可以激活的服务器使用的电话[密钥管理服务 (KMS) 服务器](../../get-started/server-2016-activation.md)，或远程。 若要远程激活，请从远程计算机运行以下 cmdlet: 
-
->```powershell
->**cscript windows\system32\slmgr.vbs <ServerName> <UserName> <password>:-ato**
->```
+> 
+> ```powershell
+> **cscript windows\system32\slmgr.vbs <ServerName> <UserName> <password>:-ato**
+> ```
  
 ### <a name="configure-windows-firewall"></a>配置 Windows 防火墙
 
@@ -102,35 +102,34 @@ ms.locfileid: "59842658"
 
 你可以启用 Windows PowerShell 远程处理，在一台计算机上的 Windows PowerShell 中键入的命令在另一台计算机上运行。 启用 Windows PowerShell 远程处理**Enable-psremoting**。
 
-有关详细信息，请参阅[有关远程的常见问题解答](/powershell/module/microsoft.powershell.core/about/about_remote_faq?view=powershell-5.1)
-</br>
+有关详细信息，请参阅[关于远程 FAQ](/powershell/module/microsoft.powershell.core/about/about_remote_faq?view=powershell-5.1)。
 
 ## <a name="administrative-tasks-from-the-command-line"></a>从命令行管理任务
 使用以下参考信息从命令行执行管理任务。
 
 ### <a name="configuration-and-installation"></a>配置和安装
-|任务 | Command |
-|-----|-------|
-|设置本地管理密码| **最终用户管理员** \* |
-|将计算机加入到域| **netdom join %computername%** **/domain:\<域\>/userd:\<域\\用户名\>/passwordd:**\* <br> 重新启动计算机。|
-|确认域已更改。| **set** |
-|从域中删除计算机|**netdom 删除\<computername\>**| 
-|将用户添加到本地管理员组|**net localgroup 管理员 /add\<域\\用户名\>** |
-|从本地管理员组删除用户|**net localgroup 管理员 /delete\<域\\用户名\>** |
-|向本地计算机添加用户|**最终用户\<域 \ 用户名\>* / 添加** |
-|向本地计算机添加组|**net localgroup\<组名称\>/ 添加**|
-|更改加入域的计算机的名称|**netdom renamecomputer %computername%了 /NewName:\<新的计算机名称\>/userd:\<域\\用户名\>/passwordd:** * |
-|确认新计算机名称|**set**| 
-|更改工作组中的计算机的名称|**netdom renamecomputer \<currentcomputername\>了 /NewName:\<newcomputername\>** <br>重新启动计算机。|
-|禁用页面文件管理|**wmic computersystem where name="\<computername\>" set AutomaticManagedPagefile=False**| 
-|配置页面文件|**wmic pagefileset where name=”\<path/filename\>” set InitialSize=\<initialsize\>,MaximumSize=\<maxsize\>** <br>其中*路径/文件名*是路径和分页文件的名称*initialsize*是分页文件，以字节为单位的起始大小和*maxsize*是最大大小页面文件，以字节为单位。|
-|更改静态 IP 地址|**ipconfig /all** <br>记录的相关信息或将其重定向到文本文件 (**ipconfig /all > ipconfig.txt**)。<br>**netsh 接口 ipv4 显示接口**<br>验证存在接口列表。<br>**netsh interface ipv4 设置地址名称\<接口列表中的 ID\>源 = 静态地址 =\<首选的 IP 地址\>网关 =\<网关地址\>**<br>运行**ipconfig /all**到已启用 DHCP 设置为 vierfy**否**。|
-|设置静态 DNS 地址。|**netsh interface ipv4 添加 dnsserver 名称 =\<网络接口卡的名称或 ID\>地址 =\<的主 DNS 服务器的 IP 地址\>索引 = 1 <br>** netsh interface ipv4 添加dnsserver 名称 =\<辅助 DNS 服务器的名称\>地址 =\<辅助 DNS 服务器 IP 地址\>索引 = 2 * * <br> 根据需要添加更多服务器重复。<br>运行**ipconfig /all**若要验证的地址是否正确。|
-|从静态 IP 地址更改为 DHCP 提供的 IP 地址|**netsh interface ipv4 设置地址名称 =\<的本地系统的 IP 地址\>源 = DHCP** <br>运行**Ipconfig /all**若要验证是否已启用的 DCHP 设置为**是**。|
-|输入产品密钥|**slmgr.vbs –ipk \<product key\>**| 
-|本地激活服务器|**slmgr.vbs -ato**| 
-|远程激活服务器|**cscript slmgr.vbs-ipk\<产品密钥\>\<服务器名称\>\<用户名\>\<密码\>** <br>**cscript slmgr.vbs -ato \<servername\> \<username\> \<password\>** <br>通过运行获取计算机的 GUID **cscript slmgr.vbs-未** <br> 运行**cscript slmgr.vbs-dli \<GUID\>** <br>验证许可证状态设置为 **（激活） 的已授权**。
 
+|                             任务                              |                                                                                                                                                                                                                 Command                                                                                                                                                                                                                 |
+|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|             设置本地管理密码             |                                                                                                                                                                                                      **最终用户管理员** \*                                                                                                                                                                                                      |
+|                  将计算机加入到域                  |                                                                                                                                                       **netdom join %computername%** **/domain:\<域\>/userd:\<域\\用户名\>/passwordd:** \* <br> 重新启动计算机。                                                                                                                                                        |
+|              确认域已更改。              |                                                                                                                                                                                                                 **set**                                                                                                                                                                                                                 |
+|                从域中删除计算机                |                                                                                                                                                                                                   **netdom 删除\<computername\>**                                                                                                                                                                                                    |
+|         将用户添加到本地管理员组          |                                                                                                                                                                                       **net localgroup 管理员 /add\<域\\用户名\>**                                                                                                                                                                                       |
+|       从本地管理员组删除用户       |                                                                                                                                                                                     **net localgroup 管理员 /delete\<域\\用户名\>**                                                                                                                                                                                      |
+|               向本地计算机添加用户                |                                                                                                                                                                                                **最终用户\<域 \ 用户名\> \* / 添加**                                                                                                                                                                                                 |
+|               向本地计算机添加组               |                                                                                                                                                                                                 **net localgroup\<组名称\>/ 添加**                                                                                                                                                                                                  |
+|          更改加入域的计算机的名称          |                                                                                                                                                           **netdom renamecomputer %computername%了 /NewName:\<新的计算机名称\>/userd:\<域\\用户名\>/passwordd:** \*                                                                                                                                                            |
+|                 确认新计算机名称                 |                                                                                                                                                                                                                 **set**                                                                                                                                                                                                                 |
+|         更改工作组中的计算机的名称         |                                                                                                                                                                **netdom renamecomputer \<currentcomputername\>了 /NewName:\<newcomputername\>** <br>重新启动计算机。                                                                                                                                                                 |
+|                禁用页面文件管理                 |                                                                                                                                                                        **wmic computersystem where name="\<computername\>" set AutomaticManagedPagefile=False**                                                                                                                                                                         |
+|                   配置页面文件                   |                                                            **wmic pagefileset where name=”\<path/filename\>” set InitialSize=\<initialsize\>,MaximumSize=\<maxsize\>** <br>其中*路径/文件名*是路径和分页文件的名称*initialsize*是分页文件，以字节为单位的起始大小和*maxsize*是最大大小页面文件，以字节为单位。                                                             |
+|                 更改静态 IP 地址                 | **ipconfig /all** <br>记录的相关信息或将其重定向到文本文件 (**ipconfig /all > ipconfig.txt**)。<br>**netsh 接口 ipv4 显示接口**<br>验证存在接口列表。<br>**netsh interface ipv4 设置地址名称\<接口列表中的 ID\>源 = 静态地址 =\<首选的 IP 地址\>网关 =\<网关地址\>**<br>运行**ipconfig /all**若要验证是否已启用 DHCP 设置为**否**。 |
+|                   设置静态 DNS 地址。                   |   <strong>netsh interface ipv4 添加 dnsserver 名称 =\<网络接口卡的名称或 ID\>地址 =\<的主 DNS 服务器的 IP 地址\>索引 = 1 <br></strong>netsh interface ipv4 添加 dnsserver 名称 =\<辅助 DNS 服务器的名称\>地址 =\<辅助 DNS 服务器 IP 地址\>索引 = 2\*\* <br> 根据需要添加更多服务器重复。<br>运行**ipconfig /all**若要验证的地址是否正确。   |
+| 从静态 IP 地址更改为 DHCP 提供的 IP 地址 |                                                                                                                                      **netsh interface ipv4 设置地址名称 =\<的本地系统的 IP 地址\>源 = DHCP** <br>运行**ipconfig /all**若要验证是否已启用的 DCHP 设置为**是**。                                                                                                                                      |
+|                      输入产品密钥                      |                                                                                                                                                                                                   **slmgr.vbs –ipk \<product key\>**                                                                                                                                                                                                    |
+|                  本地激活服务器                  |                                                                                                                                                                                                           **slmgr.vbs -ato**                                                                                                                                                                                                            |
+|                 远程激活服务器                  |                                            **cscript slmgr.vbs-ipk\<产品密钥\>\<服务器名称\>\<用户名\>\<密码\>** <br>**cscript slmgr.vbs -ato \<servername\> \<username\> \<password\>** <br>通过运行获取计算机的 GUID **cscript slmgr.vbs-未** <br> 运行**cscript slmgr.vbs-dli \<GUID\>** <br>验证许可证状态设置为 **（激活） 的已授权**。                                             |
 
 ### <a name="networking-and-firewall"></a>网络与防火墙
 
@@ -153,25 +152,25 @@ ms.locfileid: "59842658"
 
 ### <a name="updates-error-reporting-and-feedback"></a>更新、 错误报告和反馈
 
-|任务|Command| 
-|----|-------|
-|安装更新|**wusa\<更新\>.msu /quiet**| 
-|列出安装的更新|**systeminfo**| 
-|删除更新|**展开 /f:\* \<更新\>.msu c:\test** <br>导航到 c:\test\ 并打开\<更新\>在文本编辑器中的.xml。<br>替换**安装**与**删除**并保存该文件。<br>**pkgmgr /n:\<update\>.xml**|
-|配置自动更新|若要验证当前设置: * * cscript %systemroot%\system32\scregedit.wsf /AU /v * *<br>若要启用自动更新： **cscript scregedit.wsf /AU 4** <br>若要禁用自动更新： **cscript %systemroot%\system32\scregedit.wsf /AU 1**| 
-|启用错误报告|若要验证当前设置： **serverWerOptin /query** <br>若要自动发送详细的报告： **serverWerOptin / 详细** <br>若要自动发送摘要报告： **serverWerOptin /summary** <br>若要禁用错误报告： **serverWerOptin /disable**|
-|参与客户体验改善计划 (CEIP)|若要验证当前设置： **serverCEIPOptin /query** <br>若要启用 CEIP: **serverCEIPOptin /enable** <br>若要禁用 CEIP: **serverCEIPOptin /disable**|
+|                               任务                                |                                                                                                                               Command                                                                                                                                |
+|-------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                         安装更新                         |                                                                                                                    **wusa\<更新\>.msu /quiet**                                                                                                                    |
+|                      列出安装的更新                       |                                                                                                                            **systeminfo**                                                                                                                            |
+|                         删除更新                          |                                 **展开 /f:\* \<更新\>.msu c:\test** <br>导航到 c:\test\ 并打开\<更新\>在文本编辑器中的.xml。<br>替换**安装**与**删除**并保存该文件。<br>**pkgmgr /n:\<update\>.xml**                                 |
+|                    配置自动更新                    |          若要验证当前设置： **cscript %systemroot%\system32\scregedit.wsf /AU /v \* \*<br>以启用自动更新： \* \*cscript scregedit.wsf /AU 4** <br>若要禁用自动更新： **cscript %systemroot%\system32\scregedit.wsf /AU 1**          |
+|                      启用错误报告                       | 若要验证当前设置： **serverWerOptin /query** <br>若要自动发送详细的报告： **serverWerOptin / 详细** <br>若要自动发送摘要报告： **serverWerOptin /summary** <br>若要禁用错误报告： **serverWerOptin /disable** |
+| 参与客户体验改善计划 (CEIP) |                                                     若要验证当前设置： **serverCEIPOptin /query** <br>若要启用 CEIP: **serverCEIPOptin /enable** <br>若要禁用 CEIP: **serverCEIPOptin /disable**                                                      |
 
 ### <a name="services-processes-and-performance"></a>服务、进程和性能
 
-|任务|Command| 
-|----|-------|
-|列出正在运行的服务|**sc 查询**或**net start**| 
-|启动服务|**sc start\<服务名称\>** 或**net start\<服务名称\>**| 
-|停止服务|**sc stop\<服务名称\>** 或**net stop\<服务名称\>**| 
-|检索正在运行的应用程序和相关进程的列表|**tasklist**||强制停止进程|运行**tasklist**检索进程 ID (PID)，然后运行**taskkill /PID\<进程 ID\>**|
-|启动任务管理器|**taskmgr**| 
-|创建和管理事件跟踪会话和性能日志|若要创建计数器、 跟踪、 配置数据收集或 API: **logman 请** <br>查询数据收集器属性： **logman 查询** <br>若要启动或停止数据收集： **logman 开始\|停止** <br>若要删除收集器： **logman 删除** <br> 若要更新收集器的属性： **logman update** <br>若要从 XML 文件导入数据收集器集或将其导出到 XML 文件： **logman 导入\|导出**|
+|                               任务                               |                                                                                                                                                                                                             Command                                                                                                                                                                                                              |
+|------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                    列出正在运行的服务                     |                                                                                                                                                                                                  **sc 查询**或**net start**                                                                                                                                                                                                   |
+|                         启动服务                          |                                                                                                                                                                                 **sc start\<服务名称\>** 或**net start\<服务名称\>**                                                                                                                                                                                  |
+|                          停止服务                          |                                                                                                                                                                                  **sc stop\<服务名称\>** 或**net stop\<服务名称\>**                                                                                                                                                                                   |
+| 检索正在运行的应用程序和相关进程的列表 |                                                                                                                                                                                                           **tasklist**                                                                                                                                                                                                           |
+|                        启动任务管理器                        |                                                                                                                                                                                                           **taskmgr**                                                                                                                                                                                                            |
+|    创建和管理事件跟踪会话和性能日志    | 若要创建计数器、 跟踪、 配置数据收集或 API: **logman 请** <br>查询数据收集器属性： **logman 查询** <br>若要启动或停止数据收集： **logman 开始\|停止** <br>若要删除收集器： **logman 删除** <br> 若要更新收集器的属性： **logman update** <br>若要从 XML 文件导入数据收集器集或将其导出到 XML 文件： **logman 导入\|导出** |
 
 ### <a name="event-logs"></a>事件日志
 
@@ -185,18 +184,18 @@ ms.locfileid: "59842658"
 
 ### <a name="disk-and-file-system"></a>磁盘和文件系统
 
-|任务|Command|
-|----|-------|
-|管理磁盘分区|有关命令的完整列表，运行**diskpart /？**|  
-|管理软件 RAID|有关命令的完整列表，运行**diskraid /？**|  
-|管理卷装入点|有关命令的完整列表，运行**mountvol /？**| 
-|卷碎片整理|有关命令的完整列表，运行**碎片整理 /？**|  
-|将卷转换成 NTFS 文件系统|**将转换\<卷号\>/fs: ntfs**| 
-|压缩文件|有关命令的完整列表，运行**压缩 /？**|  
-|管理打开的文件|有关命令的完整列表，运行**openfiles /？**|  
-|管理 VSS 文件夹|有关命令的完整列表，运行**vssadmin /？**| 
-|管理文件系统|有关命令的完整列表，运行**fsutil /？**||验证文件签名|**sigverif /?**| 
-|取得文件或文件夹的所有权|有关命令的完整列表，运行**icacls /？**| 
+|                   任务                   |                        Command                        |
+|------------------------------------------|-------------------------------------------------------|
+|          管理磁盘分区          | 有关命令的完整列表，运行**diskpart /？**  |
+|           管理软件 RAID           | 有关命令的完整列表，运行**diskraid /？**  |
+|        管理卷装入点        | 有关命令的完整列表，运行**mountvol /？**  |
+|           卷碎片整理            |  有关命令的完整列表，运行**碎片整理 /？**   |
+| 将卷转换成 NTFS 文件系统 |        **将转换\<卷号\>/fs: ntfs**         |
+|              压缩文件              |  有关命令的完整列表，运行**压缩 /？**  |
+|          管理打开的文件           | 有关命令的完整列表，运行**openfiles /？** |
+|          管理 VSS 文件夹          | 有关命令的完整列表，运行**vssadmin /？**  |
+|        管理文件系统        |  有关命令的完整列表，运行**fsutil /？**   |
+|    取得文件或文件夹的所有权    |  有关命令的完整列表，运行**icacls /？**   |
  
 ### <a name="hardware"></a>硬件
 

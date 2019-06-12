@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 007256fffde11899d930c9197cade6d3bf9be42c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3ad9f55ba130014227326f4abe8540c78755f6c5
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868778"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437373"
 ---
 # <a name="mapadmin"></a>mapadmin
 
@@ -52,7 +52,7 @@ mapadmin [<computer>] [-u <user> [-p <password>]] listdomainmaps
 
 &lt;计算机&gt;指定运行用户名映射服务你想要管理的远程计算机。 可以指定计算机使用 Windows Internet 名称服务 (WINS) 名称或域名系统 (DNS) 名称，或通过 Internet 协议 (IP) 地址。
 
--u&lt;用户&gt;指定要使用其凭据的用户的用户名。 它可能需要将域名添加到窗体中的用户名称*域***\\***用户名*。
+-u&lt;用户&gt;指定要使用其凭据的用户的用户名。 它可能需要将域名添加到窗体中的用户名称<em>域</em> **\\** <em>用户名</em>。
 
 -p&lt;密码&gt;指定的用户的密码。 如果指定 **-u**选项，但是省略 **-p**选项，系统会提示输入用户的密码。
 特定操作的**mapadmin**执行取决于您指定的命令参数：
@@ -90,7 +90,7 @@ mapadmin [<computer>] [-u <user> [-p <password>]] listdomainmaps
 
 |Option|定义|
 |-----|-------|
-|-wu &lt;user&gt;|为其映射将被删除，指定为 Windows 用户&lt; *WindowsDomain&gt;\\&lt;用户名&gt;*。 您必须指定这两 **-wu**或 **-uu**选项，和 / 或。 如果指定这两个选项，将删除由两个选项标识该特定映射。 如果仅指定 **-wu**选项，所有映射，将删除指定的用户。|
+|-wu &lt;user&gt;|为其映射将被删除，指定为 Windows 用户&lt; *WindowsDomain&gt;\\&lt;用户名&gt;* 。 您必须指定这两 **-wu**或 **-uu**选项，和 / 或。 如果指定这两个选项，将删除由两个选项标识该特定映射。 如果仅指定 **-wu**选项，所有映射，将删除指定的用户。|
 |-wg &lt;group&gt;|为其映射将被删除，为指定的 Windows 组&lt;WindowsDomain&gt;\\&lt;groupname&gt;。 您必须指定这两 **-wg**或 **-ug**选项，和 / 或。 如果指定这两个选项，将删除由两个选项标识该特定映射。 如果仅指定 **-wg**选项，所有映射，将删除指定的组。|
 |-uu &lt;user&gt;|为其映射将被删除，指定为 UNIX 用户&lt;用户名&gt;。 您必须指定这两 **-wu**或 **-uu**选项，和 / 或。 如果指定这两个选项，将删除由两个选项标识该特定映射。 如果仅指定 **-uu**选项，所有映射，将删除指定的用户。|
 |-ug&lt;组&gt;|为其映射将被删除，指定为 UNIX 组&lt;groupname&gt;。 您必须指定这两 **-wg**或 **-ug**选项，和 / 或。 如果指定这两个选项，将删除由两个选项标识该特定映射。 如果仅指定 **-ug**选项，所有映射，将删除指定的组。|
@@ -114,7 +114,7 @@ mapadmin [<computer>] [-u <user> [-p <password>]] listdomainmaps
 |Option|定义|
 |-----|-------|
 |-d &lt;WindowsDomain&gt;|指定要映射的 Windows 域。|
-|-y &lt;NISdomain&gt;|指定要映射的 NIS 域。&lt;b /&gt;&lt;b /&gt;**-n** &lt;nisServer&gt;指定与指定的 NIS 域的 NIS 服务器 **-y**选项。|
+|-y &lt;NISdomain&gt;|指定要映射的 NIS 域。&lt;b /&gt;&lt;b /&gt; **-n** &lt;nisServer&gt;指定与指定的 NIS 域的 NIS 服务器 **-y**选项。|
 |-f &lt;path&gt;|指定包含要映射的密码和组文件的目录的完全限定的路径。 文件必须位于正在管理的计算机上并不能使用**mapadmin**来管理远程计算机中以设置密码和组文件的基础的映射。|
 
 **removedomainmap** -删除 Windows 域和 NIS 域之间的简单映射。 以下选项和参数是可用于此命令参数：
@@ -136,4 +136,4 @@ mapadmin [<computer>] [-u <user> [-p <password>]] listdomainmaps
 -   对于 UNIX 组，使用窗体&lt;NISdomain&gt;\\&lt;groupname&gt;， &lt;groupname&gt;@&lt;NISdomain&gt;， &lt;groupname&gt;@PCNFS，或 PCNFS\\&lt;groupname&gt;
 
 ## <a name="additional-references"></a>其他参考
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

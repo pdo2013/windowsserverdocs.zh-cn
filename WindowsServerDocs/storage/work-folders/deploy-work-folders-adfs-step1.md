@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 10/18/2018
 ms.assetid: 938cdda2-f17e-4964-9218-f5868fd96735
-ms.openlocfilehash: a26b784c18049ee473a191abc7bfa0a5d253d15e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4f4119e893b215bd9f6d713bc5a17218b751c3d3
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883028"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812691"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-1-set-up-ad-fs"></a>部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 1，安装 AD FS
 
@@ -32,7 +32,7 @@ ms.locfileid: "59883028"
 -   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 5 中，设置客户端](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
->   本节中包含的说明适用于 Windows Server 2016 环境。 如果你使用的是 Windows Server 2012 R2，请遵循 [Windows Server 2012 R2 说明](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx)。
+>   在本部分中介绍的说明适用于 Windows Server 2019 或 Windows Server 2016 环境。 如果你使用的是 Windows Server 2012 R2，请遵循 [Windows Server 2012 R2 说明](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx)。
 
 若要设置 AD FS 以用于工作文件夹，请使用以下过程。  
   
@@ -113,7 +113,7 @@ Workplace Join 需要 enterpriseregistration SAN。
   
 2.  在**服务器角色**页面上，选择 **Active Directory 联合身份验证服务**角色，然后单击**下一步**。  
   
-3.  在 **Active Directory 联合身份验证服务 (AD FS)** 页面上，你将看到一条消息，这条消息指出无法在同一台计算机上将 Web 应用程序代理角色作为 AD FS 安装。 单击“下一步” 。  
+3.  在 **Active Directory 联合身份验证服务 (AD FS)** 页面上，你将看到一条消息，这条消息指出无法在同一台计算机上将 Web 应用程序代理角色作为 AD FS 安装。 单击“下一步”  。  
   
 4.  在“确认”页上，单击**安装**。  
   
@@ -138,16 +138,16 @@ Add-WindowsFeature ADFS-Federation –IncludeManagementTools
   
 4.  在**指定服务属性**页面上，输入用于 AD FS 通信的 SSL 证书使用者名称。 在测试示例中，此为 **blueadfs.contoso.com**。  
   
-5.  输入联合身份验证服务名称。 在测试示例中，此为 **blueadfs.contoso.com**。 单击“下一步” 。  
+5.  输入联合身份验证服务名称。 在测试示例中，此为 **blueadfs.contoso.com**。 单击“下一步”  。  
   
     > [!NOTE]  
     > 联合身份验证服务名称不得使用环境中现有服务器的名称。 一旦使用现有服务器的名称，AD FS 安装将失败，并且必须重启。  
   
-6.  在**指定服务帐户**页面上，输入你想要用于托管服务帐户的名称。 对于测试示例，请选择**创建组托管服务帐户**，并在**帐户名称**中输入 **ADFSService**。 单击“下一步” 。  
+6.  在**指定服务帐户**页面上，输入你想要用于托管服务帐户的名称。 对于测试示例，请选择**创建组托管服务帐户**，并在**帐户名称**中输入 **ADFSService**。 单击“下一步”  。  
   
 7.  在**指定配置数据库**页面上，选择**使用 Windows 内部数据库在此服务器上创建数据库**，然后单击**下一步**。  
   
-8.  **查看选项**页面会显示所选选项的概述。 单击“下一步” 。  
+8.  **查看选项**页面会显示所选选项的概述。 单击“下一步”  。  
   
 9. **先决条件检查**页面会指示所有先决条件是否都成功通过检查。 如果没有任何问题，请单击**配置**。  
   

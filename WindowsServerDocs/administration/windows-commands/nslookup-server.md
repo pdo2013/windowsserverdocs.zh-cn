@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 52a846b1084380d0b40d58d81c11d20dacb407bf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ba58e223d0aa35b4157b813b10bf1d274313a1c1
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869148"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436967"
 ---
 # <a name="nslookup-server"></a>nslookup server
 
@@ -30,12 +30,14 @@ ms.locfileid: "59869148"
 server <DNSDomain>
 ```
 ## <a name="parameters"></a>Parameters
-|参数|描述|
-|-------|--------|
-|<DNSDomain>|必需。 指定的默认服务器的新 DNS 域。|
-|{help &#124; ?}|显示的短摘要**nslookup**子命令。|
+
+|    参数    |                          描述                           |
+|-----------------|----------------------------------------------------------------|
+|   <DNSDomain>   | 必需。 指定的默认服务器的新 DNS 域。 |
+| {help &#124; ?} |     显示的短摘要**nslookup**子命令。      |
+
 ## <a name="remarks"></a>备注
--   **Server**命令使用当前的默认服务器来查找指定的 DNS 域有关的信息。 这是与此相反**lserver**命令，使用初始服务器。
-## <a name="additional-references"></a>其他参考
-[命令行语法解答](command-line-syntax-key.md)
-[nslookup 故障](nslookup-lserver.md)
+- **Server**命令使用当前的默认服务器来查找指定的 DNS 域有关的信息。 这是与此相反**lserver**命令，使用初始服务器。
+  ## <a name="additional-references"></a>其他参考
+  [命令行语法解答](command-line-syntax-key.md)
+  [nslookup 故障](nslookup-lserver.md)

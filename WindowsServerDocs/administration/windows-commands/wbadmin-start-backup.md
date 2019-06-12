@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 09b2ffabcea414dd4717a2ffa1f6e860a17f3653
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2ac602506960b92333750e7a37692c44c92aae22
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871698"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440275"
 ---
 # <a name="wbadmin-start-backup"></a>Wbadmin 启动备份
 
@@ -87,27 +87,27 @@ Wbadmin start backup
 下面的示例演示如何**wbadmin start backup**可以在不同的备份方案中使用命令：
 
 方案 1
--   创建备份卷 e:、 d:\mountpoint，并\\ \\？ \Volume{cc566d14-4410-11d9-9d93-806e6f6e6963}
--   将备份保存到卷 f:
-```
-wbadmin start backup -backupTarget:f: -include:e:,d:\mountpoint,\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
-```
-方案 2
--   执行的一次性备份*f:\folder1*并*h:\folder2*到卷*d:*。
--   备份系统状态
--   进行副本备份，以便按正常计划差异备份不会受到影响。
-```
-wbadmin start backup –backupTarget:d: -include:g\folder1,h:\folder2 –systemstate -vsscopy
-```
-方案 3
--   执行的一次性备份*d:\folder1* ，应备份非递归方式。
--   备份到网络位置的文件夹 *\\ \\backupshare\backup1*
--   限制对备份到的成员的访问**管理员**或**Backup Operators**组。
-```
-wbadmin start backup –backupTarget: \\backupshare\backup1 -noinheritacl -nonrecurseinclude:d:\folder1
-```
+- 创建备份卷 e:、 d:\mountpoint，并\\ \\？ \Volume{cc566d14-4410-11d9-9d93-806e6f6e6963}
+- 将备份保存到卷 f:
+  ```
+  wbadmin start backup -backupTarget:f: -include:e:,d:\mountpoint,\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
+  ```
+  方案 2
+- 执行的一次性备份*f:\folder1*并*h:\folder2*到卷*d:* 。
+- 备份系统状态
+- 进行副本备份，以便按正常计划差异备份不会受到影响。
+  ```
+  wbadmin start backup –backupTarget:d: -include:g\folder1,h:\folder2 –systemstate -vsscopy
+  ```
+  方案 3
+- 执行的一次性备份*d:\folder1* ，应备份非递归方式。
+- 备份到网络位置的文件夹 *\\ \\backupshare\backup1*
+- 限制对备份到的成员的访问**管理员**或**Backup Operators**组。
+  ```
+  wbadmin start backup –backupTarget: \\backupshare\backup1 -noinheritacl -nonrecurseinclude:d:\folder1
+  ```
 
 #### <a name="additional-references"></a>其他参考
 
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

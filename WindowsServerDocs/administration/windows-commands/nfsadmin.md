@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 955f6d93379802444d542ea571f98b69b9191f5c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c4dc49e23d67ae68c598367de5a3fb0d7d6398a8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837108"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437162"
 ---
 # <a name="nfsadmin"></a>nfsadmin
 
@@ -62,7 +62,7 @@ ms.locfileid: "59837108"
 指定你想要管理的远程计算机。 可以指定使用 Windows Internet 名称服务的计算机\(WINS\)名称或域名系统\(DNS\)名称，或通过 Internet 协议\(IP\)地址。  
   
 **\-u** *UserName*  
-指定要使用其凭据的用户的用户名。 它可能需要将域名添加到窗体中的用户名称*域***\\***用户名*  
+指定要使用其凭据的用户的用户名。 它可能需要将域名添加到窗体中的用户名称<em>域</em> **\\** <em>用户名</em>  
   
 **\-p** *密码*  
 指定使用指定的用户的密码 **\-u**选项。 如果指定 **\-u**选项，但是省略 **\-p**选项，系统会提示输入用户的密码。  
@@ -85,10 +85,10 @@ ms.locfileid: "59837108"
 **config**  
 指定 nfs 服务器的常规设置。 必须提供至少使用以下选项之一**config**命令参数：  
   
-**mapsvr\=***server*  
+**mapsvr\=** <em>server</em>  
 集*server*为 nfs 服务器的用户名映射服务器。 虽然此选项可继续与早期版本的兼容性支持，应使用**sfuadmin**实用工具相反。  
   
-**auditlocation\=**{**eventlog** | **file** | **both** | **none**}  
+**auditlocation\=** {**eventlog** | **file** | **both** | **none**}  
 指定是否将审核事件和其中将记录事件。 以下参数之一是必需的。  
   
 **eventlog**  
@@ -103,16 +103,16 @@ ms.locfileid: "59837108"
 **none**  
 指定不将审核事件。  
   
-**fname\=***file*  
+**fname\=** <em>file</em>  
 设置指定的文件*文件*为审核文件。 默认值为 %sfudir%\\日志\\nfssvr.log  
   
-**fsize\=**\=*size*  
+**fsize\=** \=*size*  
 集*大小*作为最大大小以兆字节的审核文件。 默认最大大小为 7 MB。  
   
-**审核\=**\[**\+**|**\-**\]**装载** \[**\+** | **\-** \]**读取** \[ **\+**| **\-** \]**编写** \[ **\+** | **\-**  \]**创建** \[ **\+** | **\-** \]**删除** \[ **\+** | **\-** \]**锁定** \[ **\+** | **\-** \]**所有**  
-指定要记录的事件。 若要启动的事件记录日志，请键入一个加号\( **\+** \)之前的事件名称; 若要停止记录事件时，键入减号\( **\-**\)之前的事件名称。 如果省略符号，则假定加号。 不要使用**所有**使用任何其他的事件名称。  
+**审核\=** \[ **\+** | **\-** \]**装载** \[ **\+** | **\-** \]**读取** \[ **\+** | **\-** \]**编写** \[ **\+** | **\-**  \]**创建** \[ **\+** | **\-** \]**删除** \[ **\+** | **\-** \]**锁定** \[ **\+** | **\-** \]**所有**  
+指定要记录的事件。 若要启动的事件记录日志，请键入一个加号\( **\+** \)之前的事件名称; 若要停止记录事件时，键入减号\( **\-** \)之前的事件名称。 如果省略符号，则假定加号。 不要使用**所有**使用任何其他的事件名称。  
   
-**lockperiod\=***seconds*  
+**lockperiod\=** <em>seconds</em>  
 指定 nfs 服务器与 nfs 服务器的连接已丢失，然后重新建立连接后，或重新启动 NFS 服务的服务器后回收锁将等待的秒数。  
   
 Portmapprotocol\={TCP |UDP |TCP\+UDP  
@@ -130,16 +130,16 @@ nlmprotocol\={TCP | UDP | TCP\+UDP}
 nsmprotocol\={TCP | UDP | TCP\+UDP}  
 指定哪种传输协议的网络状态管理器\(NSM\)支持。 默认设置是**TCP\+UDP**。  
   
-**enableV3\=**{**yes** | **no**}  
+**enableV3\=** {**yes** | **no**}  
 指定是否将支持 NFS 版本 3 协议。 默认设置是**是**。  
   
-**renewauth\=**{**是** | **没有**}  
+**renewauth\=** {**是** | **没有**}  
 指定客户端连接是否将需要重新进行身份验证后指定的时期**config renewauthinterval**。 默认设置是**没有**。  
   
-**renewauthinterval\=***seconds*  
+**renewauthinterval\=** <em>seconds</em>  
 指定客户端强制如果重新进行身份验证之前经过的秒数**config renewauth**设置为**是**。 默认值为 600 秒。  
   
-**dircache\=***size*  
+**dircache\=** <em>size</em>  
 指定的大小以千字节为单位的目录缓存。 为指定的数字*大小*必须是介于 4 和 128 之间的 4 的倍数。 默认目录\-缓存大小为 128 KB。  
   
 **translationfile**\=\[file\]  
@@ -148,7 +148,7 @@ nsmprotocol\={TCP | UDP | TCP\+UDP}
 **dotfileshidden**\={**yes** | **no**}  
 指定文件是否使用以句点开头的名称创建\(。\)将标记为隐藏 Windows 文件系统中并因此从 NFS 客户端中隐藏。 默认设置是**没有**。  
   
-**casesensitivelookups\=**{**是** | **没有**}  
+**casesensitivelookups\=** {**是** | **没有**}  
 指定是否目录查找将区分大小写\(要求的字符大小写完全匹配\)。  
   
 此外需要禁用 Windows 内核用例\-服务器的 NFS 以支持用例的顺序不区分大小写\-敏感文件的名称。 您可以禁用 Windows 内核用例\-通过清除为 0 以下注册表项不区分大小写：  
@@ -160,7 +160,7 @@ DWOrd obcaseinsensitive
 > [!IMPORTANT]  
 > 本部分仅适用于 Windows Server 2008 R2、 Windows Server 2008 和 Windows Server 2003。 本部分不适用于 Windows Server 2012 R2 或 Windows Server 2012。  
   
-**ntfscase\=**{**lower** | **upper** | **preserve**}  
+**ntfscase\=** {**lower** | **upper** | **preserve**}  
 指定是否将以小写字母，大写，或在窗体存储在目录中返回的 NTFS 文件系统中的文件的名称中的字符的大小写。 默认设置是**保留**。 不能更改此设置，如果**casesensitivelookups**设置为**是**。  
   
 **creategroup** *name*  
@@ -198,28 +198,28 @@ DWOrd obcaseinsensitive
 **config**  
 指定 nfs 客户端的常规设置。 必须提供至少使用以下选项之一**config**命令参数：  
   
-**fileaccess\=***mode*  
+**fileaccess\=** <em>mode</em>  
 -   指定网络文件系统上创建的文件的默认权限模式\(NFS\)服务器。 *模式下*自变量包含从 0 到 7 的三个数字\(非独占\)表示的默认权限授予用户、 组和其他\(分别\)。 数字转换为 UNIX\-样式的权限，如下所示：0\=无，1\=x 2\=w，3\=wx，4\=r，5\=rx，6\=rw 和 7\=rwx。 例如， **fileaccess\=750**提供了对所有者的 rwx 权限，rx 到组的权限，向其他人没有访问权限。  
   
-**mapsvr\=***server*  
+**mapsvr\=** <em>server</em>  
 集*server*为 nfs 客户端的用户名映射服务器。 虽然此选项可继续与早期版本的兼容性支持，应使用**sfuadmin**实用工具相反。  
   
-**mtype\=**{**hard** | **soft**}  
+**mtype\=** {**hard** | **soft**}  
 指定默认装载类型。 为硬装载 nfs 客户端将继续重试失败的 RPC，直到成功。 对于软装载 nfs 客户端返回失败重试该调用后调用的应用程序的数目指定的次数**重试**选项。  
   
-**retry\=***number*  
+**retry\=** <em>number</em>  
 指定的次数来尝试为软装载建立连接。 此值必须介于 1 到 10，非独占。 默认值为 1。  
   
-**timeout\=***seconds*  
+**timeout\=** <em>seconds</em>  
 指定要连接时等待的秒数\(远程过程调用\)。 此值必须是 0.8、 0.9 或从 1 到 60，非独占的整数。 默认值为 0.8。  
   
 **Protocol\={TCP | UDP | TCP\+UDP}**  
 指定哪种传输协议客户端支持。 默认设置是**TCP\+UDP**  
   
-**rsize\=***size*  
+**rsize\=** <em>size</em>  
 指定的大小，以千字节为单位的读取缓冲区。 此值可以为 0.5、 1、 2、 4、 8、 16 或 32。 默认值为 32。  
   
-**wsize\=***size*  
+**wsize\=** <em>size</em>  
 指定的大小，以千字节为单位，写入缓冲区。 此值可以为 0.5、 1、 2、 4、 8、 16 或 32。 默认值为 32。  
   
 **perf\=default**  
@@ -235,7 +235,7 @@ DWOrd obcaseinsensitive
   
 -   **wsize**  
   
-**fileaccess\=***mode*  
+**fileaccess\=** <em>mode</em>  
 指定网络文件系统上创建的文件的默认权限模式\(NFS\)服务器。 *模式下*自变量包含从 0 到 7 的三个数字\(非独占\)表示的默认权限授予用户、 组和其他\(分别\)。 数字转换为 UNIX\-样式的权限，如下所示：0\=无，1\=x 2\=w，3\=wx，4\=r，5\=rx，6\=rw 和 7\=rwx。 例如， **fileaccess\=750**提供了对所有者的 rwx 权限，rx 到组的权限，向其他人没有访问权限。  
   
 如果不指定命令选项或参数， **nfsadmin 客户端**显示 NFS 配置设置的当前客户端。  

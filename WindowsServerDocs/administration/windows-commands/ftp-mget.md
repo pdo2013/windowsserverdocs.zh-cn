@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1160ec742dde318141da720bd35b7d60ab805bb1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e43bf8b6e7067a31b3ec51336b0b43845ab88f63
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888418"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438599"
 ---
 # <a name="ftp-mget"></a>ftp: mget
 
@@ -30,9 +30,11 @@ ms.locfileid: "59888418"
 mget <remoteFile>[ ]  
 ```  
 ### <a name="parameters"></a>Parameters  
-|参数|描述|  
-|-------|--------|  
-|<remoteFile>|指定要复制到本地计算机的远程文件。|  
+
+|  参数   |                        描述                        |
+|--------------|-----------------------------------------------------------|
+| <remoteFile> | 指定要复制到本地计算机的远程文件。 |
+
 ## <a name="BKMK_Examples"></a>示例  
 将远程文件复制**a.exe**并**b.exe**到本地计算机使用当前的文件传输类型。  
 ```  
@@ -41,4 +43,4 @@ mget a.exe b.exe
 ## <a name="additional-references"></a>其他参考  
 -   [ftp: ascii](ftp-ascii.md)  
 -   [ftp: binary](ftp-binary.md)  
--   [命令行语法解答](command-line-syntax-key.md)  
+-   [命令行语法项](command-line-syntax-key.md)  

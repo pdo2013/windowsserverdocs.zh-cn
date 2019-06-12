@@ -7,12 +7,12 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: bd22378ec7ce5a1ff4e39546246e6e85ca859c45
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 235df6f681de51a12f82b9fad019dd2db45fd486
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828838"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435542"
 ---
 # <a name="configure-memory-dump-files-for-server-core-installation"></a>配置服务器核心安装的内存转储文件
 
@@ -39,7 +39,7 @@ wmic computersystem set AutomaticManagedPagefile=False
 3. 单击**编辑 > 新建 > 字符串值**。
 4. 新值命名**DedicatedDumpFile**，然后按 ENTER。
 5. 右键单击**DedicatedDumpFile**，然后单击**修改**。
-6. 在中**数值数据**类型**\<驱动器\>:\\\<Dedicateddumpfile.sys\>**，然后单击**确定**.
+6. 在中**数值数据**类型 **\<驱动器\>:\\\<Dedicateddumpfile.sys\>** ，然后单击**确定**.
 
    >[!NOTE] 
    > 替换\<驱动器\>与驱动器具有足够磁盘空间的页面文件，并替换\<Dedicateddumpfile.dmp\>使用专用的文件的完整路径。
@@ -49,8 +49,8 @@ wmic computersystem set AutomaticManagedPagefile=False
 9. 右键单击**DumpFileSize**，然后单击**修改**。
 10. 在中**编辑 DWORD 值**下**基**，单击**十进制**。
 11. 在中**数值数据**，键入适当的值，然后单击**确定**。
-   >[!NOTE]
-   > 转储文件的大小是以兆字节 (MB)。
+    >[!NOTE]
+    > 转储文件的大小是以兆字节 (MB)。
 12. 退出注册表编辑器。
 
 确定分区的位置的内存转储后，配置页面文件的目标路径。 若要查看的页面文件的当前目标路径，请运行以下命令：

@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 17fa97e28d099806c9280e42dd900e8d6c708641
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd381c04b02889a7f2e7b8992ff6050d1b0f078a
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850238"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453060"
 ---
 # <a name="dfs-replication-overview"></a>DFS 复制概述
 
@@ -25,7 +25,7 @@ DFS 复制使用一种称为远程差分压缩 (RDC) 的压缩算法。 RDC 检�
 
 若要使用 DFS 复制，必须创建复制组并将已复制的文件夹添加到组。 下图说明了复制组、 已复制的文件夹和成员。
 
-![包含两个成员之间的连接的复制组，每个都有两个复制文件夹](media\dfsr-overview.gif)
+![包含两个成员之间的连接的复制组，每个都有两个复制文件夹](media/dfsr-overview.gif)
 
 此图显示了复制组是一组服务器称为成员，用于参与一个或多个已复制文件夹的复制。 已复制的文件夹是保持同步每个成员上的文件夹。 在图中，有两个已复制的文件夹：Projects 和 Proposals。 随着数据在每个已复制文件夹中的更改，所做的更改会复制跨复制组的成员之间的连接。 所有成员之间的连接构成复制拓扑。
 在一个复制组中创建多个已复制的文件夹可以简化部署已复制的文件夹，因为拓扑、 计划和带宽复制组的限制将应用于每个已复制文件夹的过程。 若要部署其他已复制的文件夹，您可以使用 Dfsradmin.exe 或按照说明在向导中定义的本地路径和新的已复制文件夹的权限。
@@ -65,7 +65,7 @@ DFS 复制是文件和存储服务角色的一部分。 DFS （DFS 管理，Wind
 
 ### <a name="to-install-dfs-by-using-server-manager"></a>使用服务器管理器安装 DFS 的步骤
 
-1. 打开服务器管理器，单击 **“管理”**，然后单击 **“添加角色和功能”**。 将出现“添加角色和功能向导”。
+1. 打开服务器管理器，单击 **“管理”** ，然后单击 **“添加角色和功能”** 。 将出现“添加角色和功能向导”。
 
 2. 在 **“服务器选择”** 页面上，选择你想要在其上安装 DFS 的脱机虚拟机的服务器或虚拟硬盘 (VHD)。
 
@@ -73,7 +73,7 @@ DFS 复制是文件和存储服务角色的一部分。 DFS （DFS 管理，Wind
 
     - 若要安装 DFS 复制服务上**服务器角色**页上，选择**DFS 复制**。
 
-    - 若只安装 DFS 管理工具，请在 **“功能”** 页上，展开 **“远程服务器管理工具”**、 **“角色管理工具”**、 **“文件服务工具”**，然后选择 **“DFS 管理工具”**。
+    - 若只安装 DFS 管理工具，请在 **“功能”** 页上，展开 **“远程服务器管理工具”** 、 **“角色管理工具”** 、 **“文件服务工具”** ，然后选择 **“DFS 管理工具”** 。
 
          **DFS 管理工具**DFS 管理管理单元中，DFS 复制和 DFS 命名空间 Windows PowerShell 和命令行工具，但它的模块的安装不在服务器上安装任何 DFS 服务。
 

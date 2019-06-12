@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5f907b6162e6767820e23222e287b933397397d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 53340612d26eaa7c4ae6fd977a0eac573f91881d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861098"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434598"
 ---
 # <a name="cd"></a>cd
 
@@ -53,16 +53,16 @@ chdir [..]
 ## <a name="remarks"></a>备注
 
 如果启用了命令扩展，下列条件适用于**cd**命令：
--   当前目录字符串转换为使用该磁盘上的名称相同的大小写。 例如，`cd C:\TEMP`会将当前目录设置为 C:\Temp，如果出现这种情况在磁盘上的。
--   空格不被视为分隔符，因此*路径*可以包含空格，而无需封闭引号。 例如：  
-    ```
-    cd username\programs\start menu
-    ```  
-    是作为相同的：  
-    ```
-    cd "username\programs\start menu"
-    ```  
-    引号是必需的但是，如果已禁用扩展。
+- 当前目录字符串转换为使用该磁盘上的名称相同的大小写。 例如，`cd C:\TEMP`会将当前目录设置为 C:\Temp，如果出现这种情况在磁盘上的。
+- 空格不被视为分隔符，因此*路径*可以包含空格，而无需封闭引号。 例如：  
+  ```
+  cd username\programs\start menu
+  ```  
+  是作为相同的：  
+  ```
+  cd "username\programs\start menu"
+  ```  
+  引号是必需的但是，如果已禁用扩展。
 
 若要禁用命令扩展，请键入：
 ```
@@ -86,4 +86,4 @@ cd [<Drive>:]
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

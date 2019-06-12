@@ -9,12 +9,12 @@ ms.date: 10/02/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 9bae831da9d247c423c2874a5928b7f811ef65dc
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 9acdbe2be56b990876fe365c1f535aaa411009c5
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188707"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501625"
 ---
 # <a name="managing-ssl-certificates-in-ad-fs-and-wap-in-windows-server-2016"></a>在 Windows Server 2016 中管理 AD FS 和 WAP 中的 SSL 证书
 
@@ -109,7 +109,7 @@ WAP 上配置的默认证书身份验证绑定或备用的客户端 TLS 绑定�
 若要将 Web 应用程序代理 SSL 证书，为上**每个**Web 应用程序代理服务器使用以下 cmdlet 来安装新的 SSL 证书：
 
 ```powershell
-Set-WebApplicationProxySslCertificate '<thumbprint of new cert>'
+Set-WebApplicationProxySslCertificate -Thumbprint '<thumbprint of new cert>'
 ```
 
 如果上面的 cmdlet 会失败，因为旧证书已过期，重新配置的代理帐户使用以下 cmdlet:

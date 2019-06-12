@@ -11,14 +11,14 @@ author: sakitong
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: b891f61ff2c930591c33805d0e3bc595ebf196f7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 7331418c1926958da07c94bca9ff9f871134f3fa
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850488"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439868"
 ---
-#<a name="express-update-delivery-isv-support"></a>Express 更新传递 ISV 支持
+# <a name="express-update-delivery-isv-support"></a>Express 更新传递 ISV 支持
 
 >适用于：Windows 10、windows Server 2016
 
@@ -38,7 +38,7 @@ Windows 10 更新的下载可能很大，因为每个包包含所有先前发布
 
 -  **使用[适用于企业的 Windows 更新](https://technet.microsoft.com/itpro/windows/manage/waas-manage-updates-wufb)管理的企业设备**也可受益于 Express 更新传递支持，而无需对配置进行任何更改。
 
-##<a name="how-isvs-can-take-advantage-of-express"></a>Isv 可以如何充分利用 Express
+## <a name="how-isvs-can-take-advantage-of-express"></a>Isv 可以如何充分利用 Express
 
 Isv 可以使用 WSUS 和 WU 客户端来支持快速更新传递。 Microsoft 建议以下三个步骤，每个在以下各节中更详细地讨论：
 
@@ -64,7 +64,7 @@ WSUS 用作到 Windows 更新的接口，并管理描述需要将下载的 Expre
 
 ### <a name="BKMK_2"></a>步骤 2:指定并填充 ISV 文件缓存 
 
-####<a name="specify-the-isv-file-cache"></a>指定 ISV 文件缓存
+#### <a name="specify-the-isv-file-cache"></a>指定 ISV 文件缓存
 
 新客户端的组策略和移动设备管理 (MDM) 设置中详细介绍[**配置服务提供程序参考**](https://msdn.microsoft.com/en-us/windows/hardware/commercialize/customize/mdm/configuration-service-provider-reference)定义 ISV 文件缓存的位置。
 
@@ -82,10 +82,10 @@ WSUS 用作到 Windows 更新的接口，并管理描述需要将下载的 Expre
  
     这种方法配置 WU 客户端，请下载到本地主机的请求。 这允许 ISV 客户端代理，以处理这些请求和根据需要完成下载请求的路由。
 
->[!IMPORTANT]
->ISV 文件缓存需要以下项：                                                          
-                                                                                                                                   >- 服务器必须是 HTTP 1.1 规范按照 RFC: <http://www.w3.org/Protocols/rfc2616/rfc2616.html>                                                                                                                                                                
-                                                                                                                                   >具体而言，需要 web 服务器以支持                                                                                                                                                                                                                                      [ **HEAD** ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)并[**获取**](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.htm)请求<br>                                                                                                                                                                                                                                                                                                  分部范围请求<br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   -保持活动状态<br>                                                                                                                                                                                                                                                                                                                                                                                                                            -不使用"Transfer-encoding: chunked？                                                                                                 
+> [!IMPORTANT]
+> ISV 文件缓存需要以下项：                                                          
+> - 服务器必须是 HTTP 1.1 规范按照 RFC: <http://www.w3.org/Protocols/rfc2616/rfc2616.html>                                                                                                                                                                
+> 具体而言，需要 web 服务器以支持                                                                                                                                                                                                                                      [ **HEAD** ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)并[**获取**](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.htm)请求<br>                                                                                                                                                                                                                                                                                                  分部范围请求<br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   -保持活动状态<br>                                                                                                                                                                                                                                                                                                                                                                                                                            -不使用"Transfer-encoding: chunked"                                                                                                 
 
 #### <a name="populate-the-isv-file-cache"></a>填充 ISV 文件缓存
 
@@ -95,15 +95,15 @@ ISV 文件缓存必须填充要在托管客户端上安装的更新与关联的�
 
 1. 使用[WSUS Api](https://msdn.microsoft.com/en-us/library/windows/desktop/microsoft.updateservices.administration.updatefile(v=vs.85).aspx)访问更新的文件路径和文件名为 MU 服务。
 
-    WSUS 服务器上每个更新的元数据包含在更新的文件路径和 Microsoft Update 上的文件名称，如下所示 (Microsoft Update 中的主机名以粗体显示后, 跟文件路径和文件名): **http://download.windowsupdate.com** /c/msdownload/更新 /software/updt/2016/09/windows10.0-kb3195781-x64_0c06079bccc35cba35a48bd2b1ec46f818bd2e74.msu
+    WSUS 服务器上每个更新的元数据包含在更新的文件路径和 Microsoft Update 上的文件名称，如下所示 (Microsoft Update 中的主机名以粗体显示后, 跟文件路径和文件名): **<http://download.windowsupdate.com>** /c/msdownload/更新 /software/updt/2016/09/windows10.0-kb3195781-x64_0c06079bccc35cba35a48bd2b1ec46f818bd2e74.msu
 
 2. 从 Microsoft 更新下载文件并将其存储在 ISV 文件缓存使用这两种方法之一： 
 
- - 使用的存储文件**作为 MU 服务上的同一文件夹路径**
+   - 使用的存储文件**作为 MU 服务上的同一文件夹路径**
 
- - 使用的存储文件**ISV 定义文件夹路径**
+   - 使用的存储文件**ISV 定义文件夹路径**
 
-    具有 HTTP 服务器 （或 localhost） 重定向**HTTP GET**引用 MU 文件夹路径和文件名的名称，为 ISV 文件位置的请求。
+     具有 HTTP 服务器 （或 localhost） 重定向**HTTP GET**引用 MU 文件夹路径和文件名的名称，为 ISV 文件位置的请求。
 
 ### <a name="BKMK_3"></a>步骤 3:设置为定向 WU 客户端操作的 ISV 客户端代理
 
@@ -132,15 +132,15 @@ ISV 客户端代理会安排下载和使用以下建议的工作流的已批准�
 
 - 对于支持 Express 的操作系统更新，服务上存储了两个版本的文件有效负载：
 
- - **完整文件版本**-实质上替换为更新二进制文件的本地版本
+  - **完整文件版本**-实质上替换为更新二进制文件的本地版本
 
- - **速成版**-包含增量数据所需修补在设备上现有的二进制文件。 
+  - **速成版**-包含增量数据所需修补在设备上现有的二进制文件。 
 
-   作为扫描阶段的一部分下载到客户端的更新的元数据中引用的完整文件版本和 Express 版本。 
+    作为扫描阶段的一部分下载到客户端的更新的元数据中引用的完整文件版本和 Express 版本。 
 
-   **快速下载工作原理如下：**
+    **快速下载工作原理如下：**
 
-   WU 客户端将尝试下载 Express 首先，并在某些情况下 fall 返回到完整文件根据需要 （例如，如果将通过代理服务器不支持字节范围请求）。
+    WU 客户端将尝试下载 Express 首先，并在某些情况下 fall 返回到完整文件根据需要 （例如，如果将通过代理服务器不支持字节范围请求）。
 
   1. 当 WU 客户端启动 Express 下载**WU 客户端首先会下载一个存根**，这是 Express 包的一部分。
 

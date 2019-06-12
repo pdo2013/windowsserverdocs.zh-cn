@@ -1,23 +1,23 @@
 ---
 title: 将主启动记录 (MBR) 磁盘更改为 GUID 分区表 (GPT) 磁盘
 description: 介绍如何将主启动记录 (MBR) 磁盘更改为 GUID 分区表 (GPT) 磁盘
-ms.date: 06/19/2018
+ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: f6aba72c329ba380f9617f484c4cf754fbcbb363
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 902a845bbe6a7e2a4d811aac0ea2990fb3557832
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192726"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812460"
 ---
 # <a name="convert-an-mbr-disk-into-a-gpt-disk"></a>MBR 磁盘转换为 GPT 磁盘
 
-> **适用于：** Windows 10、 Windows 8.1、 Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
+> **适用于：** Windows 10、 Windows 8.1、 Windows Server （半年频道）、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
 
 主启动记录 (MBR) 磁盘使用标准 BIOS 分区表。 GUID 分区表 (GPT) 磁盘使用统一可扩展固件接口 (UEFI)。 GPT 磁盘的一个优势是每个磁盘上可以超过四个分区。 对于大于 2 TB 的磁盘，也需要 GPT。
 
@@ -58,8 +58,8 @@ ms.locfileid: "66192726"
 
 7.  在 **DISKPART** 提示符下，键入 `convert gpt`。
 
-| ReplTest1  | 描述  |
-| ----- | ----|
+| 值  | 描述  |
+| ----- | ---- |
 | **list disk** | 显示磁盘列表和有关磁盘的信息，例如磁盘大小、可用空间量、磁盘是基本磁盘还是动态磁盘，以及磁盘是使用主启动记录 (MBR) 还是 GUID 分区表 (GPT) 分区样式。 用星号 (*) 标记的磁盘具有焦点。 |
 | **选择磁盘** *disknumber* | 选择指定的磁盘（其中 *disknumber* 是磁盘编号），并赋予其焦点。 |
 | **clean** | 从具有焦点的磁盘中删除所有分区或卷。  |
@@ -68,5 +68,3 @@ ms.locfileid: "66192726"
 ## <a name="see-also"></a>请参阅
 
 -   [命令行语法表示法](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)
-
-

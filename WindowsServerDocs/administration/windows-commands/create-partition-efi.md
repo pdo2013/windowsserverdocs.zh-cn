@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3714cfe52aafd4a602346139552b6712dbbc98c1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 99970fba41a747a6bb4b1ca6cc4b7f603c547790
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878218"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434160"
 ---
 # <a name="create-partition-efi"></a>创建 efi 分区
 
@@ -36,11 +36,11 @@ create partition efi [size=<n>] [offset=<n>] [noerr]
   
 ## <a name="parameters"></a>Parameters  
   
-|参数|描述|  
-|-------|--------|  
-|size\=<n>|以兆字节表示的分区的大小\(MB\)。 如果没有给定大小，则分区将继续，直到当前区域中没有更多可用空间为止。|  
-|offset\=<n>|以千字节的偏移量\(KB\)，在创建分区。 如果没有给定偏移量，该分区放置在大小足以容纳它的第一个磁盘区域。|  
-|noerr|仅用于脚本。 当遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，错误会导致 DiskPart 退出，错误代码。|  
+|  参数  |                                                                                             描述                                                                                              |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  size\=<n>  |                         以兆字节表示的分区的大小\(MB\)。 如果没有给定大小，则分区将继续，直到当前区域中没有更多可用空间为止。                         |
+| offset\=<n> |             以千字节的偏移量\(KB\)，在创建分区。 如果没有给定偏移量，该分区放置在大小足以容纳它的第一个磁盘区域。              |
+|    noerr    | 仅用于脚本。 当遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，错误会导致 DiskPart 退出，错误代码。 |
   
 ## <a name="remarks"></a>备注  
   
@@ -56,7 +56,7 @@ create partition efi size=1000
 ```  
   
 #### <a name="additional-references"></a>其他参考  
-[命令行语法解答](command-line-syntax-key.md)  
+[命令行语法项](command-line-syntax-key.md)  
   
 
   

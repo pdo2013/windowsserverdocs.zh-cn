@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 092a97c1166f1090dd7c556f1ab86d42a1f46ee4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 31d8dbd3df4c44b6e0a3780b022dfbd9fffdffec
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889268"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452575"
 ---
 # <a name="develop-a-tool-extension"></a>开发工具扩展
 
@@ -38,7 +38,7 @@ ms.locfileid: "59889268"
 wac create --company "{!Company Name}" --tool "{!Tool Name}"
 ```
 
-| ReplTest1 | 说明 | 示例 |
+| 值 | 说明 | 示例 |
 | ----- | ----------- | ------- |
 | ```{!Company Name}``` | 你的公司名称 （包含空格） | ```Contoso Inc``` |
 | ```{!Tool Name}``` | 你的工具名称 （包含空格） | ```Manage Foo Works``` |
@@ -63,8 +63,8 @@ npm install
 
 现在，已使用 Windows Admin Center CLI 创建一个扩展，已准备好自定义内容。  有关你可以执行的操作的示例，请参阅以下指南：
 
-- 添加[空模块](guides\add-module.md)
-- 添加[iFrame](guides\add-iframe.md)
+- 添加[空模块](guides/add-module.md)
+- 添加[iFrame](guides/add-iframe.md)
  
 更多示例，请参阅我们[GitHub SDK 站点](https://aka.ms/wacsdk):
 -  [开发人员工具](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/windows-admin-center-developer-tools)是一个完全正常运行的扩展，可以是旁加载到 Windows Admin Center，并包含一系列丰富的可浏览和使用自己的扩展中的示例功能和工具示例。

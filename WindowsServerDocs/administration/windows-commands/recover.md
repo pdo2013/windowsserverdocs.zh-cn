@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 805f63e95bcb72416cdacea4ba792af8c9a96c06
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6b9b5544394bfc69a2dc9f7be26ed8355a3f690
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813098"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441967"
 ---
 # <a name="recover"></a>recover
 
@@ -36,17 +36,17 @@ recover [<Drive>:][<Path>]<FileName>
 
 ## <a name="parameters"></a>Parameters
 
-|参数|描述|
-|---------|-----------|
-|[\<Drive>:][<Path>]<FileName>|指定的位置和你想要恢复的文件的名称。 *文件名*是必需的。|
-|/?|在命令提示符下显示帮助。|
+|           参数           |                                          描述                                          |
+|-------------------------------|-----------------------------------------------------------------------------------------------|
+| [\<Drive>:][<Path>]<FileName> | 指定的位置和你想要恢复的文件的名称。 *文件名*是必需的。 |
+|              /?               |                             在命令提示符下显示帮助。                              |
 
 ## <a name="remarks"></a>备注
 
 -   **恢复**命令读取文件，扇区的区域，并很好的扇区从恢复数据。 坏扇区中的数据都将丢失。
 -   坏扇区报告**chkdsk**磁盘准备操作时被标记为"错误"。 它们不会造成危险，并**恢复**不会影响它们。
 -   因为坏扇区中的所有数据丢失时恢复的文件时，应恢复一次只有一个文件。
--   不能使用通配符字符 (**&#42;** 并 **？**) 与**恢复**命令。 必须指定一个文件 （和如果它不是当前目录中的文件的位置）。
+-   不能使用通配符字符 ( **&#42;** 并 **？** ) 与**恢复**命令。 必须指定一个文件 （和如果它不是当前目录中的文件的位置）。
 
 ## <a name="BKMK_examples"></a>示例
 
@@ -57,4 +57,4 @@ recover d:\fiction\story.txt
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

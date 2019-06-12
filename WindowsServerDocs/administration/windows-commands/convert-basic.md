@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a5aef930689e809b9b697e5f428177610ff723b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: df1f999499154366304d59e0573ba921ab1af83d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862398"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434238"
 ---
 # <a name="convert-basic"></a>convert basic
 
@@ -44,7 +44,7 @@ convert basic [noerr]
 
 > [!IMPORTANT]
 > 磁盘必须为空，将其转换为基本磁盘。 备份你的数据，并在转换磁盘之前删除所有分区或卷。
--   若要成功执行此操作，必须选择动态磁盘。 使用**选择的磁盘**命令选择动态磁盘，并将焦点移到它。
+> -   若要成功执行此操作，必须选择动态磁盘。 使用**选择的磁盘**命令选择动态磁盘，并将焦点移到它。
 
 ## <a name="BKMK_examples"></a>示例
 
@@ -55,5 +55,5 @@ convert basic
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)
 

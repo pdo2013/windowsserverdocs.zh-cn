@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: c925c7eb-6880-411f-8e59-bd0f57cc5fc3
 author: lizap
 manager: dongill
-ms.openlocfilehash: 894ea8b134ae5b871a2978e3f72e683c12346fe5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8571c2220f804a27e4e1a6b744e8e15e38bd53a3
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850198"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453084"
 ---
 # <a name="supported-configurations-for-remote-desktop-services-in-windows-server-2016"></a>Windows Server 2016 中的远程桌面服务支持的配置
 
@@ -90,7 +90,7 @@ Windows Server 2016 RDS 支持两种主要的 SSO 体验：
  - 应用 （Windows、 iOS、 Android 和 Mac 上远程桌面应用程序）
  - Web SSO
  
-使用远程桌面应用程序，您可以存储凭据的连接信息的过程 ([Mac](clients\remote-desktop-mac.md)) 或托管帐户的一部分 ([iOS](clients\remote-desktop-ios.md#manage-your-user-accounts)， [Android](clients\remote-desktop-android.md#manage-your-user-accounts)，Windows)安全地通过唯一的每个 OS 的机制。
+使用远程桌面应用程序，您可以存储凭据的连接信息的过程 ([Mac](clients/remote-desktop-mac.md)) 或托管帐户的一部分 ([iOS](clients/remote-desktop-ios.md#manage-your-user-accounts)， [Android](clients/remote-desktop-android.md#manage-your-user-accounts)，Windows)安全地通过唯一的每个 OS 的机制。
 
 若要通过 Windows 上的收件箱远程桌面连接客户端连接到桌面和 remoteapps 所使用 SSO，必须连接到 RD 网页通过 Internet Explorer。 在服务器端需要下列配置选项。 Web SSO 不支持任何其他配置：
 

@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: fd99058036a5b8041e4c65ca120c6a7e68b2df8d
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: ce4cbdc291d98a180ee6f5b597d322620fa1b19f
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976650"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453168"
 ---
 # <a name="storage-migration-service-overview"></a>存储迁移服务概述
 
@@ -32,7 +32,7 @@ ms.locfileid: "65976650"
 - 因此，用户和应用无需任何更改即可访问的现有数据，可以选择接管 （也称为剪切转移） 的源服务器的标识
 - 从 Windows Admin Center 用户界面管理一个或多个迁移
 
-![显示存储迁移服务迁移文件和源服务器中的配置应用到目标服务器、 Azure Vm 或 Azure 文件同步关系图。](media\overview\storage-migration-service-diagram.png)
+![显示存储迁移服务迁移文件和源服务器中的配置应用到目标服务器、 Azure Vm 或 Azure 文件同步关系图。](media/overview/storage-migration-service-diagram.png)
 
 **图 1：存储迁移服务源和目标**
 

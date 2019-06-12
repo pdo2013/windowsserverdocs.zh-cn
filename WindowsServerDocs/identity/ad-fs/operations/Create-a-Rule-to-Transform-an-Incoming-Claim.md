@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6bd107aca6c6f33cdf5f88e5b48a52fdea8d2086
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: a29406880481f0e4e257105e94bc1a33ee661164
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189340"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444444"
 ---
 # <a name="create-a-rule-to-transform-an-incoming-claim"></a>创建规则以转换传入声明
 
@@ -130,9 +130,9 @@ ms.locfileid: "66189340"
 >   
 > 有关动态访问控制方案的详细信息，请参阅[动态访问控制内容指南](../../solution-guides/dynamic-access-control--scenario-overview.md)或[将使用 AD FS 的 AD DS 声明](https://technet.microsoft.com/library/hh831504.aspx)。  
   
-7.  单击 **“完成”** 。  
+7. 单击 **“完成”** 。  
   
-8.  在中**编辑声明规则**对话框中，单击**确定**以保存规则。  
+8. 在中**编辑声明规则**对话框中，单击**确定**以保存规则。  
 
 ## <a name="additional-references"></a>其他参考 
 [配置声明规则](Configure-Claim-Rules.md)  

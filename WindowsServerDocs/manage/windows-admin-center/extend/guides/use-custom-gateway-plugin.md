@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: c9b2e9201d58472286b42a9c89a36423f40d143d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 348ebf5b99de7f582a3edf57b0a190f87f1c4a5b
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834508"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452598"
 ---
 # <a name="use-a-custom-gateway-plugin-in-your-tool-extension"></a>在工具扩展中使用自定义的网关插件
 
@@ -23,7 +23,7 @@ ms.locfileid: "59834508"
 
 ## <a name="prepare-your-environment"></a>准备你的环境 ##
 
-如果尚未安装，请按照中的说明[开发的工具扩展](..\develop-tool.md)准备您的环境，创建了一个新的空工具扩展。
+如果尚未安装，请按照中的说明[开发的工具扩展](../develop-tool.md)准备您的环境，创建了一个新的空工具扩展。
 
 ## <a name="add-a-module-to-your-project"></a>将模块添加到你的项目 ##
 
@@ -62,6 +62,9 @@ export class PluginService {
 ```
 
 将引用更改为```Sample Uno```和```Sample%20Uno```到根据你功能的名称。
+
+[!WARNING]
+> 它是建议中的内置```this.appContextService.node```用来调用自定义网关插件中定义的任何 API。 这将确保，如果需要在它们都可以正确处理你的网关插件内凭据。
 
 ### <a name="modify-modulets"></a>修改 module.ts
 
@@ -142,4 +145,4 @@ import { PluginService } from './plugin.service';
 
 ## <a name="build-and-side-load-your-extension"></a>生成和端加载您的扩展插件
 
-现在，你就已准备好[生成并端负载](..\develop-tool.md#build-and-side-load-your-extension)你在 Windows Admin Center 中的扩展。
+现在，你就已准备好[生成并端负载](../develop-tool.md#build-and-side-load-your-extension)你在 Windows Admin Center 中的扩展。

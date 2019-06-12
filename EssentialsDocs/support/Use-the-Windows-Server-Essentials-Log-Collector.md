@@ -12,12 +12,12 @@ ms.assetid: c6985518-b42d-4cfb-9761-eaa75306b6d7
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d003c6a45159548f7e34d86ca242f74868659d2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ba5c0de9d8689c63c95ea3410a74fc9a7289aeab
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877988"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435988"
 ---
 # <a name="use-the-windows-server-essentials-log-collector"></a>使用 Windows Server Essentials 日志收集器
 
@@ -28,9 +28,9 @@ ms.locfileid: "59877988"
  日志收集器会将程序日志、事件查看器日志以及相关环境信息复制到位于指定位置的单个 zip 文件中。 你可以直接从服务器或网络上的任意计算机或者通过使用到计算机的远程连接运行日志收集器。  
   
 > [!NOTE]
->  -   日志收集器不会分析网络问题或对任何服务器或网络上的计算机进行更改。 有关如何解决网络问题的信息，请参阅服务器产品的帮助文档。  
-> -   在本指南中，不是服务器，你网络上的计算机称为网络计算机。  
-> -   [下载 Windows Server Essentials 日志收集器安装包](https://go.microsoft.com/fwlink/?LinkID=266341)。  
+> - 日志收集器不会分析网络问题或对任何服务器或网络上的计算机进行更改。 有关如何解决网络问题的信息，请参阅服务器产品的帮助文档。  
+>   -   在本指南中，不是服务器，你网络上的计算机称为网络计算机。  
+>   -   [下载 Windows Server Essentials 日志收集器安装包](https://go.microsoft.com/fwlink/?LinkID=266341)。  
   
  若要安装并运行日志收集器，请执行以下主题中的步骤：  
   

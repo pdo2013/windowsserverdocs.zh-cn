@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6b17be8cb1cca5ec32db80851d9f4d893ead5505
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8e1e2ecade2887ef38a1209b49577ea0c851ca8d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852948"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436831"
 ---
 # <a name="nslookup-set-d2"></a>nslookup set d2
 
@@ -34,12 +34,12 @@ set [no]d2
 
 ## <a name="parameters"></a>Parameters
 
-|参数|描述|
-|---------|-----------|
-|**nod2**|关闭详尽的调试模式。 默认语法**nod2**。|
-|**d2**|打开详尽的调试模式。|
-|{帮助 | ?}|显示的短摘要**nslookup**子命令。|
+| 参数 |                             描述                              |
+|-----------|----------------------------------------------------------------------|
+| **nod2**  | 关闭详尽的调试模式。 默认语法**nod2**。 |
+|  **d2**   |                 打开详尽的调试模式。                  |
+|   {帮助   |                                  ?}                                  |
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

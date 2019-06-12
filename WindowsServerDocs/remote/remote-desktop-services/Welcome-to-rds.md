@@ -14,18 +14,18 @@ ms.assetid: 52b9e09f-39e0-41a9-9d3b-4d5f4eacf3e0
 author: christianmontoya
 manager: scottman
 ms.localizationpriority: medium
-ms.openlocfilehash: cd00f92254f9e55f83442f5e68e344e0aa7579a2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3d148c99911be0cebfc29429d93241f24c2b9606
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855498"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453014"
 ---
 # <a name="welcome-to-remote-desktop-services"></a>欢迎使用远程桌面服务 
 
 远程桌面服务 (RDS) 是用于构建每个最终客户需求，包括提供单个虚拟化应用程序、 提供移动和远程桌面访问的安全性，并提供最终用户的虚拟化解决方案选择的平台若要从在云中运行其应用程序和桌面的功能。
 
-![远程桌面服务概述](.\media\rds-overview.png)
+![远程桌面服务概述](./media/rds-overview.png)
 
 RDS 提供了部署灵活性，成本效率和可扩展性-全部通过各种部署选项，包括 Windows Server 2016 的本地部署，Microsoft Azure 的云部署，以及合作伙伴的可靠数组解决方案。
 

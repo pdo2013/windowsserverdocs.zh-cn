@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 02/28/2019
 description: 本指南介绍了升级使用相同的硬件的 2 节点故障转移群集
 ms.localizationpriority: medium
-ms.openlocfilehash: 0bfeb05c8cbc205745dc16bc7ef04052481668ea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 77cde9e64fda385facd91d86483f4d7f749f30a1
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854828"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453048"
 ---
 # <a name="upgrading-failover-clusters-on-the-same-hardware"></a>在同一硬件上升级故障转移群集
 
@@ -29,7 +29,7 @@ ms.locfileid: "59854828"
 
 在之前故障转移群集的任何升级，请查阅[Windows 升级 Center](https://www.microsoft.com/upgradecenter)。  Windows Server 的就地升级时，你将从现有的操作系统版本到较新的发行版，同时在同一硬件上。 Windows Server 可以升级后的就地至少一个，并有时两个版本前滚。 例如，可以升级 Windows Server 2012 R2 和 Windows Server 2016 位置到 Windows Server 2019。  此外请记住[群集迁移向导](https://blogs.msdn.microsoft.com/clustering/2012/06/25/how-to-move-highly-available-clustered-vms-to-windows-server-2012-with-the-cluster-migration-wizard/)可用，但仅支持最多返回两个版本。 下图显示了适用于 Windows Server 的升级路径。 向下指向箭头表示移动到 Windows Server 2019 的早期版本中支持的升级路径。
 
-![就地升级图示](media\In-Place-Upgrade\In-Place-Upgrade-1.png)
+![就地升级图示](media/In-Place-Upgrade/In-Place-Upgrade-1.png)
 
 以下步骤是从 Windows Server 2012 故障转移群集服务器转到 Windows Server 2019 使用相同的硬件的示例。  
 
@@ -41,11 +41,11 @@ ms.locfileid: "59854828"
 
 1. 在故障转移群集管理器中，耗尽所有资源从节点 1 到节点 2 按鼠标右键单击节点并选择**暂停**并**都清空角色**。  或者，可以使用 PowerShell 命令[SUSPEND-CLUSTERNODE](https://docs.microsoft.com/powershell/module/failoverclusters/suspend-clusternode)。
 
-    ![清空节点](media\In-Place-Upgrade\In-Place-Upgrade-2.png)
+    ![清空节点](media/In-Place-Upgrade/In-Place-Upgrade-2.png)
 
 2. 从通过鼠标右键单击节点，然后选择群集节点 1 中收回**更多操作**并**逐出**。  或者，可以使用 PowerShell 命令[删除节点](https://docs.microsoft.com/powershell/module/failoverclusters/remove-clusternode)。
 
-    ![清空节点](media\In-Place-Upgrade\In-Place-Upgrade-3.png)
+    ![清空节点](media/In-Place-Upgrade/In-Place-Upgrade-3.png)
 
 3. 作为预防措施，从正在使用的存储中分离节点 1。  在某些情况下，断开计算机与存储电缆做出就足够了。  检查正确分离步骤根据需要向存储供应商。  具体取决于你的存储，这不可能有必要。
 
@@ -53,11 +53,11 @@ ms.locfileid: "59854828"
 
 5. 创建名为与 NODE1 CLUSTER1 的新群集。  打开故障转移群集管理器并在**管理**窗格中，选择**创建群集**并按照向导中的说明进行操作。
 
-    ![清空节点](media\In-Place-Upgrade\In-Place-Upgrade-4.png)
+    ![清空节点](media/In-Place-Upgrade/In-Place-Upgrade-4.png)
 
 6. 创建群集后，将需要从原始的群集迁移到此新的群集角色。  在新群集上右键鼠标单击群集名称 (CLUSTER1)，然后选择**更多操作**并**复制群集角色**。  遵循向导来迁移角色中。
 
-    ![清空节点](media\In-Place-Upgrade\In-Place-Upgrade-5.png)
+    ![清空节点](media/In-Place-Upgrade/In-Place-Upgrade-5.png)
 
 7.  一旦已迁移的所有资源，关机 NODE2 （原始群集） 和断开连接的存储，以便不会造成任何干扰。  将存储连接到节点 1。  所有连接后，将所有资源联机，并确保它们正常运行也应如此。
 
@@ -75,7 +75,7 @@ ms.locfileid: "59854828"
 
    c. 在选择确定或应用时，你将看到下面的对话框弹出窗口。
 
-    ![清空节点](media\In-Place-Upgrade\In-Place-Upgrade-6.png)
+    ![清空节点](media/In-Place-Upgrade/In-Place-Upgrade-6.png)
 
     d. 将停止并重新启动才能完成该重命名所需群集服务。
 

@@ -1,23 +1,23 @@
 ---
 title: 磁盘管理疑难解答
 description: 本文介绍如何解决磁盘管理问题
-ms.date: 12/22/2017
+ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c234828706d999fe049626a2fd98db70e612766f
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 4d9448cc642ef522fa129dcfe97e2286f16bad1b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192737"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812540"
 ---
 # <a name="troubleshooting-disk-management"></a>磁盘管理疑难解答
 
-> **适用于：** Windows 10、 Windows 8.1、 Windows 7、 Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
+> **适用于：** Windows 10、 Windows 8.1、 Windows 7、 Windows Server （半年频道）、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
 
 本主题列出了使用磁盘管理时可能会遇到的一些常见问题。
 
@@ -26,7 +26,7 @@ ms.locfileid: "66192737"
 
 ## <a name="a-disks-status-is-not-initialized-or-the-disk-is-missing"></a>磁盘的状态为未初始化或磁盘丢失
 
-![显示必须初始化未知的磁盘的磁盘管理。](media\uninitialized-disk.PNG)
+![显示必须初始化未知的磁盘的磁盘管理。](media/uninitialized-disk.PNG)
 
 **原因：** 如果具有的磁盘不再显示在文件资源管理器中，在磁盘管理以列出*未初始化*，则可能是因为该磁盘没有有效的磁盘签名。 基本上，这意味着具有永远不会初始化和格式化，磁盘或已以某种方式损坏的驱动器格式设置。 
 
@@ -39,24 +39,25 @@ ms.locfileid: "66192737"
 1. 查看在磁盘管理的磁盘。 如果显示了该*脱机*如下所示，请尝试右键单击它，然后选择**联机**。
 
     ![显示为脱机的磁盘](media/offline-disk.png)
-1. 如果磁盘出现在磁盘管理中作为*联机*，并具有一个主分区列为*正常*，如下所示在这里，这是一个好迹象。
+2. 如果磁盘出现在磁盘管理中作为*联机*，并具有一个主分区列为*正常*，如下所示在这里，这是一个好迹象。
 
     ![显示为联机的正常卷的磁盘](media/healthy-volume.png)
     - 如果分区具有文件系统中，但没有驱动器号 （例如，e:），请参阅[更改驱动器号](change-a-drive-letter.md)手动添加驱动器号。
     - 如果它不具有文件系统 （NTFS、 ReFS、 FAT32 或 exFAT） 并且您知道，磁盘为空，右键单击分区，然后选择**格式**。 格式化磁盘会清除它，因此不执行此操作如果想要改为将文件从磁盘的恢复，请跳到下一步的所有数据。
-1. 如果有外部磁盘，拔出磁盘时，将其返回，，然后选择**操作** > **重新扫描磁盘**。 
-2. 关闭您的 PC，关闭外部硬盘 （如果它是外部磁盘与电源线），然后将重新打开您的 PC 和磁盘。
+3. 如果有外部磁盘，拔出磁盘时，将其返回，，然后选择**操作** > **重新扫描磁盘**。 
+4. 关闭您的 PC，关闭外部硬盘 （如果它是外部磁盘与电源线），然后将重新打开您的 PC 和磁盘。
     若要关闭您的 PC 在 Windows 10 中，选择开始按钮，选择电源按钮，然后选择**关闭**。
-1. 插入到另一个 USB 端口直接在您的 PC （不在一个中心） 上的磁盘。
+5. 插入到另一个 USB 端口直接在您的 PC （不在一个中心） 上的磁盘。
     有时 USB 磁盘没有从某些端口获取足够的电源或仍有其他问题的特定端口。 这是特别常见的 USB 集线器，但有时会在 PC 上的端口之间的差异，因此请尝试几个不同的端口，如果您已拥有。
-1. 请尝试另一条电缆。
+6. 请尝试另一条电缆。
     它可能听起来有点不切实际，但电缆大量失败，因此请尝试使用另一条电缆插入磁盘。 如果桌面 PC 中有内部磁盘，你可能需要切换电缆之前关闭您的 PC-请参阅你的电脑的手册了解详细信息。
-1. 检查设备管理器的问题。
+7. 检查设备管理器的问题。
     按并保存 （或右键单击） 开始按钮，然后选择设备管理器，从上下文菜单。 寻找带有感叹号旁边它或其他问题的任何设备、 双击的设备，然后读取其状态。
 
     下面是一系列[错误代码在设备管理器](https://support.microsoft.com/help/310123/error-codes-in-device-manager-in-windows)，但又选择一种方法的方式是右键单击有问题的设备，有时**卸载设备**，然后**操作**  > **扫描检测硬件改动**。
-    ![显示未知的 USB 设备的设备管理器](media\device-manager.PNG)
-1. 将磁盘插入不同的电脑。
+
+    ![显示未知的 USB 设备的设备管理器](media/device-manager.PNG)
+8. 将磁盘插入不同的电脑。
     
     如果在另一台 PC 上，磁盘不起作用，则没有类似错误磁盘和不是您的 PC 发生一个好迹象。 我们知道毫无乐趣可言。 可以尝试的一些详细步骤[外部 USB 驱动器错误"逻辑磁盘管理器可以访问它之前必须初始化磁盘"](https://social.technet.microsoft.com/Forums/windows/en-US/2b069948-82e9-49ef-bbb7-e44ec7bfebdb/forum-faq-external-usb-drive-error-you-must-initialize-the-disk-before-logical-disk-manager-can?forum=w7itprohardware)，但这可能是时间来搜索和寻求帮助，网址[Microsoft 社区](https://answers.microsoft.com/en-us/windows)网站，或与磁盘制造商联系。
 
@@ -64,9 +65,9 @@ ms.locfileid: "66192737"
 
 > [!IMPORTANT]
 > 磁盘相当通常情况下，失败，因此务必要定期备份你关注的信息的任何文件。 如果必须有时不出现或出现错误的磁盘，请考虑这一点的提醒，请仔细检查备份方法。 如果你是小隐藏-我们所有已经存在，则确定。 最佳备份解决方案是一个使用，因此我们建议你要查找的工作原理，并继续使用它。
-
+> 
 > [!TIP]
-有关如何使用将文件备份到外部驱动器的 USB 驱动器等内置于 Windows 的应用的信息，请参见[备份和还原文件](https://support.microsoft.com/help/17143/windows-10-back-up-your-files)。 此外可以在 Microsoft OneDrive，会同步到云的文件从您的 PC 中保存文件。 如果您的硬盘出现故障，您将仍将能够获取 OneDrive.com 从 OneDrive 中存储任何文件。 有关详细信息，请参阅[您的 PC 上的 OneDrive](https://support.microsoft.com/help/17184/windows-10-onedrive)。
+> 有关如何使用将文件备份到外部驱动器的 USB 驱动器等内置于 Windows 的应用的信息，请参见[备份和还原文件](https://support.microsoft.com/help/17143/windows-10-back-up-your-files)。 此外可以在 Microsoft OneDrive，会同步到云的文件从您的 PC 中保存文件。 如果您的硬盘出现故障，您将仍将能够获取 OneDrive.com 从 OneDrive 中存储任何文件。 有关详细信息，请参阅[您的 PC 上的 OneDrive](https://support.microsoft.com/help/17184/windows-10-onedrive)。
 
 ## <a name="a-basic-or-dynamic-disks-status-is-unreadable"></a>基本或动态磁盘的状态是不可读
 
@@ -177,10 +178,8 @@ ms.locfileid: "66192737"
 2. 若要在确实支持 VDS 的远程计算机上管理磁盘，则必须在本地计算机（你正在其上运行磁盘管理）和远程计算机上配置 Windows Defender 防火墙。
 3. 在本地计算机上，将 Windows Defender 防火墙配置为启用远程卷管理例外。
 
-
 > [!NOTE]
 > 远程卷管理例外包括 Vds.exe、Vdsldr.exe 和 TCP 端口 135 的例外。
 
-
- > [!NOTE]
- > 不支持工作组中的远程连接。 本地计算机和远程计算机都必须是某个域的成员。
+> [!NOTE]
+> 不支持工作组中的远程连接。 本地计算机和远程计算机都必须是某个域的成员。

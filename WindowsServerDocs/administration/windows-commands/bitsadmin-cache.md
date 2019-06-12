@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 75d303928250053ee30d344e1d8730b07ba452fc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 80077957df0891d738364552491a66a00e831168
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845808"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435048"
 ---
-#<a name="bitsadmin-cache"></a>bitsadmin 缓存
+# <a name="bitsadmin-cache"></a>bitsadmin 缓存
 
 >适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
@@ -43,18 +43,18 @@ bitsadmin /Cache /SetExpirationtime
 
 |参数|描述|
 |-------|--------|
-|[bitsadmin 缓存和帮助](bitsadmin-cache-and-help.md)|显示的命令\-行的使用情况\/缓存开关。|
-|[bitsadmin 缓存，然后清除](bitsadmin-cache-clear.md)|清除本地缓存。|
-|[bitsadmin 缓存和删除](bitsadmin-cache-and-delete.md)|删除某个缓存项。|
-|[bitsadmin 缓存和 deleteurl](bitsadmin-cache-and-deleteurl.md)|对于给定的 URL 中删除所有缓存条目。|
-|[bitsadmin 缓存和列表](bitsadmin-cache-and-list.md)|列出所有缓存条目。|
-|[bitsadmin 缓存和信息](bitsadmin-cache-and-info.md)|转储指定缓存项。|
-|[bitsadmin 缓存和 getlimit](bitsadmin-cache-and-getlimit.md)|检索的缓存限制。|
-|[bitsadmin 缓存和 setlimit](bitsadmin-cache-and-setlimit.md)|设置缓存限制。|
-|[bitsadmin 缓存和 getexpirationtime](bitsadmin-cache-and-getexpirationtime.md)|检索缓存到期时间。|
-|[bitsadmin 缓存和 setexpirationtime](bitsadmin-cache-and-setexpirationtime.md)|设置缓存过期时间。|
+|[bitsadmin cache 和 help](bitsadmin-cache-and-help.md)|显示的命令\-行的使用情况\/缓存开关。|
+|[bitsadmin cache 和 clear](bitsadmin-cache-clear.md)|清除本地缓存。|
+|[bitsadmin cache 和 delete](bitsadmin-cache-and-delete.md)|删除某个缓存项。|
+|[bitsadmin cache 和 deleteurl](bitsadmin-cache-and-deleteurl.md)|对于给定的 URL 中删除所有缓存条目。|
+|[bitsadmin cache 和 list](bitsadmin-cache-and-list.md)|列出所有缓存条目。|
+|[bitsadmin cache 和 info](bitsadmin-cache-and-info.md)|转储指定缓存项。|
+|[bitsadmin cache 和 getlimit](bitsadmin-cache-and-getlimit.md)|检索的缓存限制。|
+|[bitsadmin cache 和 setlimit](bitsadmin-cache-and-setlimit.md)|设置缓存限制。|
+|[bitsadmin cache 和 getexpirationtime](bitsadmin-cache-and-getexpirationtime.md)|检索缓存到期时间。|
+|[bitsadmin cache 和 setexpirationtime](bitsadmin-cache-and-setexpirationtime.md)|设置缓存过期时间。|
 
 ## <a name="additional-references"></a>其他参考
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)
 
 

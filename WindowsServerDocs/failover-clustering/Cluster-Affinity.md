@@ -7,12 +7,12 @@ ms.topic: article
 author: johnmarlin-msft
 ms.date: 03/07/2019
 description: 本指南介绍了故障转移群集的相关性和 antiAffinity 级别
-ms.openlocfilehash: a38d53f6aed1ca634d41822f4486779f6d279ec0
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 67929e6d3399633ebfec0b908463131973aecaf7
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476054"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453035"
 ---
 # <a name="cluster-affinity"></a>群集关联
 
@@ -69,7 +69,7 @@ AntiAffinityClassName 参数是"软"块。  这意味着，它将尝试使它们
 
 当这两种设置时，组将无法联机一起。  如果它们是在同一节点上，这是你将看到的内容在故障转移群集管理器。
 
-![群集关联](media\Cluster-Affinity\Cluster-Affinity-1.png)
+![群集关联](media/Cluster-Affinity/Cluster-Affinity-1.png)
 
 在组的 PowerShell 列表中，你会看到此：
 

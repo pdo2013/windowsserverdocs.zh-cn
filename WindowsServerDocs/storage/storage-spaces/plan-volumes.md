@@ -9,16 +9,16 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 01/10/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e2d9e6828584f4027aa32cec26572c2290098ab6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c68444be5662480293cee630970d5eb76b52268a
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830098"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453195"
 ---
 # <a name="planning-volumes-in-storage-spaces-direct"></a>规划存储空间直通中的卷
 
-> 适用于：Windows Server 2016 中，Windows Server 2019
+> 适用于：Windows Server 2019、Windows Server 2016
 
 本主题提供关于如何规划存储空间直通中的卷以满足工作负载的性能和容量需求（包括选择其文件系统、复原类型和大小）的指南。
 
@@ -31,7 +31,7 @@ ms.locfileid: "59830098"
 
 ![什么是卷](media/plan-volumes/what-are-volumes.png)
 
-群集中的所有服务器可以同时访问所有卷。 创建卷后，它们会显示在所有服务器上的 **C:\ClusterStorage\** 中。
+群集中的所有服务器可以同时访问所有卷。 创建后，它们将显示在**C:\ClusterStorage\\** 所有服务器上。
 
 ![csv 文件夹屏幕截图](media/plan-volumes/csv-folder-screenshot.png)
 
@@ -87,9 +87,9 @@ ms.locfileid: "59830098"
 
 | **复原类型**| **容量效率**| **速度**| **工作负荷**
 |--------------------|--------------------------------|--------------------------------|--------------------------
-| **Mirror**         | ![存储效率显示 33%](media\plan-volumes\3-way-mirror-storage-efficiency.png)<br>三向镜像：33% <br>双的双向镜像：50%     |![性能显示 100%](media\plan-volumes\three-way-mirror-perf.png)<br> 最高的性能  | 虚拟化工作负荷<br> 数据库<br>其他高性能工作负荷 |
-| **镜像加速奇偶校验** |![显示大约 50%的存储效率](media\plan-volumes\mirror-accelerated-parity-storage-efficiency.png)<br> 取决于镜像和奇偶校验的比例 | ![显示大约 20%的性能](media\plan-volumes\mirror-accelerated-parity-perf.png)<br>远远落后于镜像，但最多两次快双奇偶校验<br> 最适合大型顺序写入和读取 | 存档和备份<br> 虚拟化桌面基础结构     |
-| **Dual-parity**               | ![显示大约 80%的存储效率](media\plan-volumes\dual-parity-storage-efficiency.png)<br>4 个服务器：50% <br>16 台服务器： 高达 80% | ![显示大约 10%的性能](media\plan-volumes\dual-parity-perf.png)<br>最高的 I/O 延迟和写入时的 CPU 使用情况<br> 最适合大型顺序写入和读取 | 存档和备份<br> 虚拟化桌面基础结构  |
+| **Mirror**         | ![存储效率显示 33%](media/plan-volumes/3-way-mirror-storage-efficiency.png)<br>三向镜像：33% <br>双的双向镜像：50%     |![性能显示 100%](media/plan-volumes/three-way-mirror-perf.png)<br> 最高的性能  | 虚拟化工作负荷<br> 数据库<br>其他高性能工作负荷 |
+| **镜像加速奇偶校验** |![显示大约 50%的存储效率](media/plan-volumes/mirror-accelerated-parity-storage-efficiency.png)<br> 取决于镜像和奇偶校验的比例 | ![显示大约 20%的性能](media/plan-volumes/mirror-accelerated-parity-perf.png)<br>远远落后于镜像，但最多两次快双奇偶校验<br> 最适合大型顺序写入和读取 | 存档和备份<br> 虚拟化桌面基础结构     |
+| **Dual-parity**               | ![显示大约 80%的存储效率](media/plan-volumes/dual-parity-storage-efficiency.png)<br>4 个服务器：50% <br>16 台服务器： 高达 80% | ![显示大约 10%的性能](media/plan-volumes/dual-parity-perf.png)<br>最高的 I/O 延迟和写入时的 CPU 使用情况<br> 最适合大型顺序写入和读取 | 存档和备份<br> 虚拟化桌面基础结构  |
 
 #### <a name="when-performance-matters-most"></a>当性能最重要时
 
@@ -199,4 +199,4 @@ ms.locfileid: "59830098"
 
 - [存储空间直通概述](storage-spaces-direct-overview.md)
 - [为存储空间直通中选择驱动器](choosing-drives.md)
-- [故障容错和存储效率](storage-spaces-fault-tolerance.md)
+- [容错和存储效率](storage-spaces-fault-tolerance.md)

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 249e9546bec467f92991b15a3d65df173036e464
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8824fab77c3cc10828b31abbe2f9034778c39c47
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857368"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438744"
 ---
 # <a name="ftp-glob1"></a>ftp: glob_1
 
@@ -32,12 +32,12 @@ glob
 ### <a name="parameters"></a>Parameters  
 无  
 ## <a name="remarks"></a>备注  
--   默认情况下，组合是打开的。  
--   组合允许使用星号 （*） 和问号 （？） 作为本地文件或路径名称中的通配符字符。  
-## <a name="BKMK_Examples"></a>示例  
-切换本地文件名的通配符扩展。  
-```  
-glob  
-```  
-## <a name="additional-references"></a>其他参考  
--   [命令行语法解答](command-line-syntax-key.md)  
+- 默认情况下，组合是打开的。  
+- 组合允许使用星号 （*） 和问号 （？） 作为本地文件或路径名称中的通配符字符。  
+  ## <a name="BKMK_Examples"></a>示例  
+  切换本地文件名的通配符扩展。  
+  ```  
+  glob  
+  ```  
+  ## <a name="additional-references"></a>其他参考  
+- [命令行语法项](command-line-syntax-key.md)  

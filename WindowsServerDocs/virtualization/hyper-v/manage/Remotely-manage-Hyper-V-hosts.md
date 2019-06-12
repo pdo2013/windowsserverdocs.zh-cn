@@ -11,12 +11,12 @@ ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/06/2016
-ms.openlocfilehash: df66f308ee7999f97fe7e57a8b52256f2561faa2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d4d9f2dd3727e196bb6893fd5041fa3f08c30796
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870228"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453177"
 ---
 # <a name="remotely-manage-hyper-v-hosts-with-hyper-v-manager"></a>远程管理的 HYPER-V 主机的 HYPER-V 管理器
 
@@ -24,7 +24,7 @@ ms.locfileid: "59870228"
 
 本文列出了支持的 HYPER-V 主机和 Hyper-v 管理器版本的组合，并介绍如何连接到远程和本地 HYPER-V 主机，以便可以管理它们。 
 
-Hyper-v 管理器允许你管理少量的 HYPER-V 主机，远程和本地。 安装时安装 HYPER-V 管理工具，可以执行此操作通过完整的 HYPER-V 安装或仅工具安装。 仅工具安装意味着可以在不满足向主机的 HYPER-V 硬件要求的计算机上使用工具。 有关 HYPER-V 主机的硬件的详细信息，请参阅[系统要求](..\System-requirements-for-Hyper-V-on-Windows.md)。
+Hyper-v 管理器允许你管理少量的 HYPER-V 主机，远程和本地。 安装时安装 HYPER-V 管理工具，可以执行此操作通过完整的 HYPER-V 安装或仅工具安装。 仅工具安装意味着可以在不满足向主机的 HYPER-V 硬件要求的计算机上使用工具。 有关 HYPER-V 主机的硬件的详细信息，请参阅[系统要求](../System-requirements-for-Hyper-V-on-Windows.md)。
 
 如果未安装 Hyper-v 管理器，请参阅[说明](#install-hyper-v-manager)下面。
 
@@ -59,8 +59,8 @@ Hyper-v 管理器不会列出任何之前添加的计算机，包括本地计算
 
 如果无法连接：
 
-* 就可以安装仅 HYPER-V 工具。 若要检查安装了 HYPER-V 平台，请查找虚拟机管理服务。 \(打开服务桌面应用程序： 单击**启动**，单击**开始搜索**框中，键入**services.msc**，然后按**Enter**。 如果未列出的虚拟机管理服务，请按照中的说明安装 HYPER-V 平台[安装 HYPER-V](..\get-started\Install-the-Hyper-V-role-on-Windows-Server.md)。\)
-* 检查硬件满足要求。 请参阅[系统要求](..\System-requirements-for-Hyper-V-on-Windows.md)。
+* 就可以安装仅 HYPER-V 工具。 若要检查安装了 HYPER-V 平台，请查找虚拟机管理服务。 / (打开服务桌面应用程序： 单击**开始**，单击**开始搜索**框中，键入**services.msc**，然后按**Enter**。 如果未列出的虚拟机管理服务，请按照中的说明安装 HYPER-V 平台[安装 HYPER-V](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md)。
+* 检查硬件满足要求。 请参阅[系统要求](../System-requirements-for-Hyper-V-on-Windows.md)。
 * 检查你的用户帐户属于管理员组或 HYPER-V 管理员组。
 
 ## <a name="manage-hyper-v-hosts-remotely"></a>远程管理的 HYPER-V 主机  
@@ -171,5 +171,5 @@ add-windowsfeature rsat-hyper-v-tools
 
 ## <a name="see-also"></a>请参阅  
  
-[安装 Hyper-V](..\get-started\Install-the-Hyper-V-role-on-Windows-Server.md) 
+[安装 Hyper-V](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md) 
 

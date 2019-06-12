@@ -11,12 +11,12 @@ ms.assetid: 02e31413-6140-4723-a8d6-46c7f667792d
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/05/2016
-ms.openlocfilehash: e3c88ef5ee700bb3906746402bf6cc8916976800
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 95ececde8a1b8c591ea2baf367a93f63ee55a6e3
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192767"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811984"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>应在 HYPER-V 中创建第 1 或 2 代虚拟机？
 
@@ -35,25 +35,25 @@ ms.locfileid: "66192767"
 
 无法更改虚拟机的代次后创建它。 因此，我们建议，你查看此处的注意事项，以及选择的操作系统、 启动方法和你想要使用之前选择生成功能。  
 
-## <a name="BKMK_OS"></a>支持哪些来宾操作系统？
+## <a name="which-guest-operating-systems-are-supported"></a>支持哪些来宾操作系统？
 
 第 1 代虚拟机支持大多数的来宾操作系统。 第 2 代虚拟机支持最 64 位版本的 Windows 和 Linux 和 FreeBSD 操作系统的较新版本。 使用下列部分来查看哪一代虚拟机的支持来宾操作系统，你想要安装。  
 
-- [Windows 来宾操作系统支持](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_Windows)  
+- [Windows 来宾操作系统支持](#windows-guest-operating-system-support)  
 
-- [CentOS 和 Red Hat Enterprise Linux 来宾操作系统支持](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_CentOS)  
+- [CentOS 和 Red Hat Enterprise Linux 来宾操作系统支持](#centos-and-red-hat-enterprise-linux-guest-operating-system-support)  
 
-- [Debian 来宾操作系统支持](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_Debian)  
+- [Debian 来宾操作系统支持](#debian-guest-operating-system-support)  
 
-- [FreeBSD 来宾操作系统支持](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_FreeBSD)  
+- [FreeBSD 来宾操作系统支持](#freebsd-guest-operating-system-support)  
 
-- [Oracle Linux 来宾操作系统支持](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_Oracle)  
+- [Oracle Linux 来宾操作系统支持](#oracle-linux-guest-operating-system-support)  
 
-- [SUSE 来宾操作系统支持](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_SUSE)  
+- [SUSE 来宾操作系统支持](#suse-guest-operating-system-support)  
 
-- [Ubuntu 来宾操作系统支持](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_Ubuntu)  
+- [Ubuntu 来宾操作系统支持](#ubuntu-guest-operating-system-support)  
 
-### <a name="BKMK_Windows"></a>Windows 来宾操作系统支持
+### <a name="windows-guest-operating-system-support"></a>Windows 来宾操作系统支持
 
 下表显示了 Windows 的 64 位版本可用作来宾操作系统的第 1 代和第 2 代虚拟机。  
 
@@ -79,7 +79,7 @@ ms.locfileid: "66192767"
 |Windows 8|&#10004;| &#10006;|  
 |Windows 7|&#10004;| &#10006;|  
 
-### <a name="BKMK_CentOS"></a>CentOS 和 Red Hat Enterprise Linux 来宾操作系统支持
+### <a name="centos-and-red-hat-enterprise-linux-guest-operating-system-support"></a>CentOS 和 Red Hat Enterprise Linux 来宾操作系统支持
 
 下表显示了哪些版本的 Red Hat Enterprise Linux \(RHEL\)并且 CentOS 您只能使用作为来宾操作系统的第 1 代和第 2 代虚拟机。
 
@@ -91,7 +91,7 @@ ms.locfileid: "66192767"
 
 有关详细信息，请参阅[CentOS 和 Red Hat Enterprise Linux 上的 HYPER-V 虚拟机](../Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)。  
 
-### <a name="BKMK_Debian"></a>Debian 来宾操作系统支持  
+### <a name="debian-guest-operating-system-support"></a>Debian 来宾操作系统支持  
 
 下表显示了哪些版本的 Debian 可用作来宾操作系统的第 1 代和第 2 代虚拟机。
 
@@ -102,7 +102,7 @@ ms.locfileid: "66192767"
 
 有关详细信息，请参阅[HYPER-V 上的 Debian 虚拟机](../Supported-Debian-virtual-machines-on-Hyper-V.md)。  
 
-### <a name="BKMK_FreeBSD"></a>FreeBSD 来宾操作系统支持
+### <a name="freebsd-guest-operating-system-support"></a>FreeBSD 来宾操作系统支持
 
 下表显示了哪些版本的 FreeBSD 可用作来宾操作系统的第 1 代和第 2 代虚拟机。  
 
@@ -114,7 +114,7 @@ ms.locfileid: "66192767"
 
 有关详细信息，请参阅[FreeBSD 虚拟机上的 HYPER-V](../Supported-FreeBSD-virtual-machines-on-Hyper-V.md)。  
 
-### <a name="BKMK_Oracle"></a>Oracle Linux 来宾操作系统支持  
+### <a name="oracle-linux-guest-operating-system-support"></a>Oracle Linux 来宾操作系统支持  
 
 下表显示了哪些版本的 Red Hat 兼容内核系列你可以使用作为来宾操作系统的第 1 代和第 2 代虚拟机。  
 
@@ -133,7 +133,7 @@ ms.locfileid: "66192767"
 
 有关详细信息，请参阅[HYPER-V 上的 Oracle Linux 虚拟机](../Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md)。  
 
-### <a name="BKMK_SUSE"></a>SUSE 来宾操作系统支持
+### <a name="suse-guest-operating-system-support"></a>SUSE 来宾操作系统支持
 
 下表显示了的 SUSE 版本可用作来宾操作系统的第 1 代和第 2 代虚拟机。
 
@@ -145,7 +145,7 @@ ms.locfileid: "66192767"
 
 有关详细信息，请参阅[SUSE 虚拟机上的 HYPER-V](../Supported-SUSE-virtual-machines-on-Hyper-V.md)。  
 
-### <a name="BKMK_Ubuntu"></a>Ubuntu 来宾操作系统支持
+### <a name="ubuntu-guest-operating-system-support"></a>Ubuntu 来宾操作系统支持
 
 下表显示了哪些版本的 Ubuntu 可用作来宾操作系统的第 1 代和第 2 代虚拟机。
 
@@ -156,7 +156,7 @@ ms.locfileid: "66192767"
 
 有关详细信息，请参阅[Ubuntu 虚拟机上的 HYPER-V](../Supported-Ubuntu-virtual-machines-on-Hyper-V.md)。  
 
-## <a name="BKMK_Boot"></a>如何启动虚拟机？
+## <a name="how-can-i-boot-the-virtual-machine"></a>如何启动虚拟机？
 
 下表显示了方法所支持的第 1 代和第 2 代虚拟机的启动。  
 
@@ -168,7 +168,7 @@ ms.locfileid: "66192767"
 |从 IDE 控制器的虚拟硬盘启动 (。VHD) 或虚拟 DVD (。ISO)|&#10004;| &#10006;|  
 |从软盘启动 (。VFD)|&#10004;| &#10006;|  
 
-## <a name="BKMK_Advantages"></a>使用第 2 代虚拟机的优点有哪些？
+## <a name="what-are-the-advantages-of-using-generation-2-virtual-machines"></a>使用第 2 代虚拟机的优点有哪些？
 
 下面是一些在使用第 2 代虚拟机时获得的优势：  
 - **安全启动**这是一项功能，用于验证的启动加载器是受信任颁发机构签名 UEFI 数据库中来帮助防止未经授权的固件、 操作系统或 UEFI 驱动程序在启动时运行。 默认情况下，针对第 2 代虚拟机启用安全启动。 如果需要运行来宾操作系统不支持安全启动的可以创建虚拟机后禁用它。  有关详细信息，请参阅[安全启动](https://technet.microsoft.com/library/dn486875.aspx)。  
@@ -177,9 +177,9 @@ ms.locfileid: "66192767"
 
 - **更大的启动卷**第 2 代虚拟机的最大启动卷是 64 TB。 这是支持的最大磁盘大小。VHDX。 对于第 1 代虚拟机，最大启动卷是为 2 TB。VHDX 和 2040 GB。VHD。 有关详细信息，请参阅[HYPER-V 虚拟硬盘格式概述](https://technet.microsoft.com/library/hh831446.aspx)。  
 
- 您可能会看到一些改进中与第 2 代虚拟机的虚拟机启动和安装时间。
+  您可能会看到一些改进中与第 2 代虚拟机的虚拟机启动和安装时间。
 
-## <a name="BKMK_DeviceCompare"></a> 在设备支持的区别是什么？
+## <a name="whats-the-difference-in-device-support"></a>在设备支持的区别是什么？
 
 下表比较了第 1 代和第 2 代虚拟机之间提供的设备。  
 
@@ -200,7 +200,7 @@ ms.locfileid: "66192767"
 |可编程间隔计时器 (PIT)|不再需要|不可用|  
 |超级 I/O 设备|不再需要|不可用|  
 
-## <a name="BKMK_More"></a> 有关第 2 代虚拟机的详细信息
+## <a name="more-about-generation-2-virtual-machines"></a>有关第 2 代虚拟机的详细信息
 
 以下是一些有关使用第 2 代虚拟机的更多技巧。
 
@@ -230,7 +230,7 @@ ms.locfileid: "66192767"
 Set-VMFirmware -VMName TestVM -IPProtocolPreference IPv6  
 ```  
 
-## <a name="BKMK_Debug"></a>添加 COM 端口进行内核调试
+## <a name="add-a-com-port-for-kernel-debugging"></a>添加 COM 端口进行内核调试
 
 COM 端口不可用在第 2 代虚拟机中，直到将其添加。 可以使用 Windows PowerShell 或 Windows Management Instrumentation (WMI) 来执行此操作。 这些步骤演示了如何使用 Windows PowerShell 执行此操作。
 

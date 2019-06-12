@@ -9,16 +9,16 @@ ms.topic: article
 author: vpetter
 ms.date: 03/27/2018
 ms.localizationpriority: ''
-ms.openlocfilehash: 55167d0f4c838af5f6f79432ede2dd45eac848a5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6e301b8c46041f107739bbcdb09c2eb0c8252ebb
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853858"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452903"
 ---
 # <a name="troubleshooting-a-failover-cluster-using-windows-error-reporting"></a>使用 Windows 错误报告的故障转移群集进行故障排除 
 
-> 适用于：Windows Server 2016 中，Windows Server
+> 适用于：Windows Server 2019，Windows Server 2016 中，Windows Server
 
 Windows 错误报告 (WER) 是旨在帮助高级的管理员或第 3 层支持收集有关 Windows 可以检测到，硬件和软件问题的信息的灵活的基于事件的反馈基础结构报告给 Microsoft，信息并为用户提供任何可用的解决方案。 这[引用](https://docs.microsoft.com/powershell/module/windowserrorreporting/)提供所有 WindowsErrorReporting cmdlet 说明和语法。
 
@@ -317,15 +317,15 @@ PS C:\Windows\system32> (Get-ClusterResourceType -Name "Physical Disk").DumpLogQ
 
 Message Analyzer 可以捕获、 显示和分析协议消息传送流量。 它还允许您跟踪并评估系统事件和 Windows 组件从其他消息。 您可以下载[从此处的 Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226)。 当日志加载到 Message Analyzer 中时，您将看到以下提供程序和消息日志通道。
 
-![加载到 Message Analyzer 的日志](media\troubleshooting-using-WER-reports\loading-logs-into-message-analyzer.png)
+![加载到 Message Analyzer 的日志](media/troubleshooting-using-WER-reports/loading-logs-into-message-analyzer.png)
 
 此外可以分组由提供程序以获取以下视图：
 
-![日志提供程序按分组](media\troubleshooting-using-WER-reports\logs-grouped-by-providers.png)
+![日志提供程序按分组](media/troubleshooting-using-WER-reports/logs-grouped-by-providers.png)
 
-若要确定磁盘故障的原因，导航到下的事件**FailoverClustering/诊断**并**FailoverClustering/DiagnosticVerbose**。 然后运行以下查询：**EventLog.EventData["LogString"] 包含"群集磁盘 10"**。  这样一来您为您提供以下输出：
+若要确定磁盘故障的原因，导航到下的事件**FailoverClustering/诊断**并**FailoverClustering/DiagnosticVerbose**。 然后运行以下查询：**EventLog.EventData["LogString"] 包含"群集磁盘 10"** 。  这样一来您为您提供以下输出：
 
-![正在运行的日志查询的输出](media\troubleshooting-using-WER-reports\output-of-running-log-query.png)
+![正在运行的日志查询的输出](media/troubleshooting-using-WER-reports/output-of-running-log-query.png)
 
 
 ### <a name="physical-disk-timed-out"></a>物理磁盘已超时
@@ -423,7 +423,7 @@ DynamicSig[29].Value=10008
 
 若要确定如何发生的原因，请打开 dum 文件。 然后运行以下查询：**EventLog.EventData["LogString"] 包含"群集磁盘 10"** 这样一来您为您提供以下输出：
 
-![正在运行的日志查询 2 的输出](media\troubleshooting-using-WER-reports\output-of-running-log-query-2.png)
+![正在运行的日志查询 2 的输出](media/troubleshooting-using-WER-reports/output-of-running-log-query-2.png)
 
 我们可以与从线程 cross-examine 这**memory.hdmp**文件：
 

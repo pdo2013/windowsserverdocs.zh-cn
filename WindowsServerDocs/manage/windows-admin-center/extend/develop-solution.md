@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: ed5ecddbaef91f127846825e408a9a6ec65ff741
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 268a7d2833f73e9fab006501e9b3dc261d1b1d9e
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825468"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452572"
 ---
 # <a name="develop-a-solution-extension"></a>开发解决方案扩展
 
@@ -71,10 +71,10 @@ npm install
 
 现在，已使用 Windows Admin Center CLI 创建一个扩展，已准备好自定义内容。  有关你可以执行的操作的示例，请参阅以下指南：
 
-- 添加[空模块](guides\add-module.md)
-- 添加[iFrame](guides\add-iframe.md)
-- 创建[自定义连接提供程序](guides\create-connection-provider.md)
-- 修改[根导航行为](guides\modify-root-navigation.md)
+- 添加[空模块](guides/add-module.md)
+- 添加[iFrame](guides/add-iframe.md)
+- 创建[自定义连接提供程序](guides/create-connection-provider.md)
+- 修改[根导航行为](guides/modify-root-navigation.md)
  
 更多示例，请参阅我们[GitHub SDK 站点](https://aka.ms/wacsdk):
 -  [开发人员工具](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/windows-admin-center-developer-tools)是一个完全正常运行的扩展，可以是旁加载到 Windows Admin Center，并包含一系列丰富的可浏览和使用自己的扩展中的示例功能和工具示例。

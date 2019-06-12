@@ -5,21 +5,21 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 04/12/2019
+ms.date: 06/07/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: ee3c4ba5d6c3dc911ab318ade9a46b279317496f
-ms.sourcegitcommit: 39ab8041d166e6817a95417d6aa30bc7abeeef54
+ms.openlocfilehash: 2314e336cbf9ad44b07f3f94d7a866b48b5e9bff
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66260260"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811805"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
->适用于：Windows Admin Center，Windows Admin Center 预览版
+> 适用于：Windows Admin Center，Windows Admin Center 预览版
 
-**Windows Admin Center** (代码名为**项目 Honolulu**) 是一种演变，Windows Server 中框管理工具; 它是单一管理平台，包含本地和远程服务器管理的所有方面。 作为一种本地部署、基于浏览器的管理体验，不需要 Internet 连接和 Azure。 利用 Windows Admin Center，你可以全面控制部署的各个方面，包括未连接到 Internet 的专用网络。
+**Windows Admin Center** (以前的代号**项目 Honolulu**) 是一种演变，Windows Server 中框管理工具; 它是单一管理平台，包含本地和远程服务器管理的所有方面。 作为一种本地部署、基于浏览器的管理体验，不需要 Internet 连接和 Azure。 利用 Windows Admin Center，你可以全面控制部署的各个方面，包括未连接到 Internet 的专用网络。
 
 ## <a name="introduction"></a>简介
 
@@ -75,6 +75,7 @@ ms.locfileid: "66260260"
             <ul>
             <li><a href="configure/settings.md">Windows Admin Center 设置</a>
             <li><a href="configure/user-access-control.md">用户访问控制和权限</a>
+            <li><a href="configure/shared-connections.md">共享的连接</a>
             <li><a href="configure/using-extensions.md">扩展插件</a>
             </ul>
         </td>

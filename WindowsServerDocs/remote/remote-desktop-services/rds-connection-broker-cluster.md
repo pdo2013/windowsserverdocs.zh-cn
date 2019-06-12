@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: e20b4960faac0ef40ad68271fa907394344e9c47
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: b1e5726e3976527278b11f105007a32548da0bc4
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034429"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805153"
 ---
 # <a name="add-the-rd-connection-broker-server-to-the-deployment-and-configure-high-availability"></a>添加 RD 连接代理服务器以部署和配置高可用性
 
@@ -27,7 +27,7 @@ ms.locfileid: "65034429"
 
 ## <a name="pre-requisites"></a>先决条件
 
-设置服务器以充当第二个 RD 连接代理-这可以是物理服务器或 VM。
+设置服务器以充当第二个 RD 连接代理 — 这可以是物理服务器或 VM。
 
 设置连接代理的数据库。 可以使用[Azure SQL 数据库](https://azure.microsoft.com/documentation/articles/sql-database-get-started/#create-a-new-aure-sql-database)实例或在本地环境中的 SQL Server。 我们讨论有关使用 Azure SQL，但步骤仍适用于 SQL Server。 您需要找到数据库的连接字符串，同时确保具有正确的 ODBC 驱动程序。
 
@@ -36,21 +36,23 @@ ms.locfileid: "65034429"
 1. 找到你创建的数据库的连接字符串-需要它这两个版本的 ODBC 驱动程序需要和更高版本时要配置连接代理本身 （步骤 3），, 因此将字符串保存的位置，您可以引用它轻松地识别。 下面是如何为 Azure SQL 中查找连接字符串：  
     1. 在 Azure 门户中，单击**浏览 > 资源组**单击部署的资源组。   
     2. 选择刚刚创建 （例如 CB DB1） 的 SQL 数据库。   
-    3. 单击**设置 > 属性 > 显示数据库连接字符串**。   
+    3. 单击**设置** > **属性** > **显示数据库连接字符串**。   
     4. 复制的连接字符串**ODBC （包括 Node.js）** ，这应如下所示：   
       
-        Driver={SQL Server Native Client 13.0};Server=tcp:cb-sqls1.database.windows.net,1433;Database=CB-DB1;Uid=sqladmin@contoso;Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;   
+        ```
+        Driver={SQL Server Native Client 13.0};Server=tcp:cb-sqls1.database.windows.net,1433;Database=CB-DB1;Uid=sqladmin@contoso;Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
+        ```
   
     5. "Your_password_here"替换为实际密码。 连接到数据库时，将使用包含密码，使用此整个字符串。 
 2. 在新的连接代理上安装的 ODBC 驱动程序： 
    1. 如果 VM 将用于连接代理，则为第一个 RD 连接代理创建一个公共 IP 地址。 （您仅需要执行此操作，如果 RDMS 虚拟机尚不包含公共 IP 地址，以便建立 RDP 连接。）
-       1. 在 Azure 门户中，单击**浏览 > 资源组**，单击部署的资源组，然后单击第一个 RD 连接代理虚拟机 (例如，Contoso Cb1)。
+       1. 在 Azure 门户中，单击**浏览** > **资源组**，单击部署的资源组，然后单击第一个 RD 连接代理虚拟机 （例如，Contoso-Cb1)。
        2. 单击**设置 > 网络接口**，然后单击相应的网络接口。
        3. 单击**设置 > IP 地址**。
        4. 有关**公共 IP 地址**，选择**已启用**，然后单击**IP 地址**。
        5. 如果你有想要使用现有公共 IP 地址，它从列表中选择。 否则，请单击**新建**，输入一个名称，然后单击**确定**，然后**保存**。
    2. 连接到第一个 RD 连接代理：
-       1. 在 Azure 门户中，单击**浏览 > 资源组**，单击部署的资源组，然后单击第一个 RD 连接代理虚拟机 (例如，Contoso Cb1)。
+       1. 在 Azure 门户中，单击**浏览** > **资源组**，单击部署的资源组，然后单击第一个 RD 连接代理虚拟机 （例如，Contoso-Cb1)。
        2. 单击**Connect > 打开**打开远程桌面客户端。
        3. 在客户端，单击**Connect**，然后单击**使用的其他用户帐户**。 输入域管理员帐户的用户名和密码。
        4. 单击**是**时收到有关证书的警告。

@@ -9,12 +9,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: 67c3471a726df354e0faa9e3aced491c4084e9e3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9e4131c28a18a50f3312e5e0201a0ed9529d4555
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864338"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812394"
 ---
 # <a name="how-the-windows-time-service-works"></a>Windows 时间服务的工作原理
 
@@ -22,13 +22,13 @@ ms.locfileid: "59864338"
 
 **在本部分中**  
   
--   [Windows 时间服务体系结构](#w2k3tr_times_how_rrfo)  
+-   [Windows 时间服务体系结构](#windows-time-service-architecture)  
   
--   [Windows 时间服务时间协议](#w2k3tr_times_how_ekoc)  
+-   [Windows 时间服务时间协议](#windows-time-service-time-protocols)  
   
--   [Windows 时间服务进程和交互](#w2k3tr_times_how_izcr)  
+-   [Windows 时间服务进程和交互](#windows-time-service-processes-and-interactions)  
   
--   [Windows 时间服务使用的网络端口](#w2k3tr_times_how_ydum)  
+-   [Windows 时间服务使用的网络端口](#network-ports-used-by-windows-time-service)  
   
 > [!NOTE]  
 > 本主题说明仅 Windows 时间服务 (W32Time) 的工作方式。 有关如何配置 Windows 时间服务的信息，请参阅[配置系统上的高精度](configuring-systems-for-high-accuracy.md)。
@@ -57,7 +57,7 @@ AD DS 林具有预先确定的时间同步层次结构。 Windows 时间服务�
   
 W32Time 管理器接收时间示例，它使用特殊算法中 NTP 用于确定最适合使用哪个时间示例。 时间服务还使用另一组算法来确定哪一项配置的时间源是最准确。 当时间服务已确定的时间示例是最佳时，它将根据上述条件，调整本地时钟速率，使其可以聚合到正确的时间。 如果本地时钟与所选的准确时间示例 （也称为时间偏差） 之间的时差是太大，无法更正通过调整本地时钟速率，时间服务设置为正确的时间的本地时钟。 此项调整时钟速率或直接时钟时间更改的称为时钟专业。  
   
-## <a name="w2k3tr_times_how_rrfo"></a>Windows 时间服务体系结构  
+## <a name="windows-time-service-architecture"></a>Windows 时间服务体系结构  
 Windows 时间服务由以下组件构成：  
   
 -   服务控制管理器  
@@ -88,7 +88,7 @@ Windows 时间服务由以下组件构成：
   
 如果计算机已被指定为时间服务器，它可以发送到请求在此过程中的任何点的时间同步的任何计算机的时间。  
   
-## <a name="w2k3tr_times_how_ekoc"></a>Windows 时间服务时间协议  
+## <a name="windows-time-service-time-protocols"></a>Windows 时间服务时间协议  
 
 时间协议确定程度两台计算机的时钟同步。 时间协议负责确定最佳的可用时间信息和聚合来确保一致的时间维护单独的系统上的时钟。  
   
@@ -144,7 +144,7 @@ Windows 时间服务可以与运行 Windows NT 4.0，因为它们可以与运行
   
 Windows NT 4.0 使用比 Windows 时间服务使用的时间同步更简单的机制。 因此，若要确保你的网络上的准确的时间同步，建议您升级到 Windows 2000 或 Windows Server 2003 的所有 Windows NT 4.0 域控制器。  
   
-## <a name="w2k3tr_times_how_izcr"></a>Windows 时间服务进程和交互  
+## <a name="windows-time-service-processes-and-interactions"></a>Windows 时间服务进程和交互  
 
 Windows 时间服务旨在使网络上的计算机时钟同步。 网络时间同步过程中，也称为时间收敛，作为每个计算机访问时间发生在整个网络从更准确的时间服务器。 时间聚合涉及到的权威服务器提供的 NTP 数据包的窗体中的客户端计算机的当前时间的进程。 数据包中提供的信息指示是否需要调整，使其与计算机的当前时钟时间，以便它与更准确的服务器进行同步。  
   
@@ -252,7 +252,7 @@ Windows 时间服务旨在使网络上的计算机时钟同步。 网络时间�
 ### <a name="disabling-the-windows-time-service"></a>禁用 Windows 时间服务  
 可以完全禁用 Windows 时间服务 (W32Time)。 如果您选择实现一个使用 NTP 的第三方的时间同步产品，则必须禁用 Windows 时间服务。 这是因为所有 NTP 服务器都需要访问用户数据报协议 (UDP) 端口 123，并且只要 Windows 时间服务 Windows Server 2003 操作系统上运行，端口 123 仍是保留的 Windows 时间。  
   
-## <a name="w2k3tr_times_how_ydum"></a>Windows 时间服务使用的网络端口  
+## <a name="network-ports-used-by-windows-time-service"></a>Windows 时间服务使用的网络端口  
 Windows 时间服务以确定可靠时间源，获取时间的信息，并提供到其他计算机的时间信息的网络上进行通信。 NTP 和 SNTP Rfc 定义的它会执行此通信。  
   
 **Windows 时间服务的端口分配**  

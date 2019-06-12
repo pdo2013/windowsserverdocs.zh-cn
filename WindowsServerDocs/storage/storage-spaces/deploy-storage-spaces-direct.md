@@ -7,15 +7,15 @@ ms.technology: storage-spaces
 ms.topic: get-started-article
 ms.assetid: 20fee213-8ba5-4cd3-87a6-e77359e82bc0
 author: stevenek
-ms.date: 8/16/2018
+ms.date: 06/07/2019
 description: 将部署使用存储空间直通在 Windows Server 中软件定义存储为超聚合基础结构或聚合 （也称为非聚合） 的基础结构的分步说明。
 ms.localizationpriority: medium
-ms.openlocfilehash: 55cfa0e066506d7174f9e5b1e61cc0aa290706d7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a4159c85be23025ef57084b47dcc77d4f749888f
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865408"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812353"
 ---
 # <a name="deploy-storage-spaces-direct"></a>部署存储空间直通
 
@@ -24,7 +24,7 @@ ms.locfileid: "59865408"
 本主题提供了分步说明部署[存储空间直通](storage-spaces-direct-overview.md)。
 
 > [!Tip]
-> 为希望获得 Hyper-Converged 基础结构？ Microsoft 建议这些[Windows Server 软件定义](https://microsoft.com/wssd)从我们的合作伙伴解决方案。 它们是设计、 组装和根据我们的参考体系结构，以确保兼容性和可靠性，因此你和快速运行验证。
+> 为希望获得 Hyper-Converged 基础结构？ Microsoft 建议在我们的合作伙伴，包括部署工具和过程购买已验证的硬件/软件解决方案。 这些解决方案设计、 组装和根据我们的参考体系结构，以确保兼容性和可靠性，因此你和快速运行验证。 对于 Windows Server 2019 解决方案，请访问[Azure Stack HCI solutions 网站](https://azure.microsoft.com/overview/azure-stack/hci)。 对于 Windows Server 2016 的解决方案，了解详细信息，请[Windows Server 软件定义](https://microsoft.com/wssd)。
 
 > [!Tip]
 > 可以使用 HYPER-V 虚拟机，包括在 Microsoft Azure 中，以便[无需任何硬件评估存储空间直通](storage-spaces-direct-in-vm.md)。 您可能还想要查看便利[Windows Server 快速实验室部署脚本](https://aka.ms/wslab)，我们用于培训目的。
@@ -51,7 +51,7 @@ ms.locfileid: "59865408"
 
 第一步是将位于群集中每个服务器上安装 Windows Server。 存储空间直通需要 Windows Server 2016 Datacenter Edition。 带有桌面体验，可以使用服务器核心安装选项或服务器。
 
-在安装 Windows Server 使用安装向导，您可以选择*Windows Server* （指服务器核心） 和*Windows Server （带有桌面体验的服务器）*，这相当*完整*安装选项在 Windows Server 2012 R2 中可用。 如果您没有作出选择，将获取的服务器核心安装选项。 有关详细信息，请参阅[Windows Server 2016 的安装选项](../../get-started/Windows-Server-2016.md)。
+在安装 Windows Server 使用安装向导，您可以选择*Windows Server* （指服务器核心） 和*Windows Server （带有桌面体验的服务器）* ，这相当*完整*安装选项在 Windows Server 2012 R2 中可用。 如果您没有作出选择，将获取的服务器核心安装选项。 有关详细信息，请参阅[Windows Server 2016 的安装选项](../../get-started/Windows-Server-2016.md)。
 
 ### <a name="step-12-connect-to-the-servers"></a>步骤 1.2:连接到服务器
 
@@ -297,15 +297,15 @@ Write-Output "$ClusterName CSV cache size: $CSVCurrentCacheSize MB"
 
 #### <a name="to-create-a-scale-out-file-server-role-by-using-server-manager"></a>若要使用服务器管理器中创建横向扩展文件服务器角色
 
-1.  在故障转移群集管理器中，选择的群集，请转到**角色**，然后单击**配置角色...**.<br>高可用性向导会显示。
-2.  上**选择角色**页上，单击**文件服务器**。
-3.  上**文件服务器类型**页上，单击**应用程序数据的横向扩展文件服务器**。
-4.  上**客户端访问点**页上，键入在横向扩展文件服务器的名称。
-5.  验证该角色已成功地设置了通过转到**角色**并确认**状态**列将显示**运行**旁边你创建的群集的文件服务器角色如图 1 中所示。
+1. 在故障转移群集管理器中，选择的群集，请转到**角色**，然后单击**配置角色...** .<br>高可用性向导会显示。
+2. 上**选择角色**页上，单击**文件服务器**。
+3. 上**文件服务器类型**页上，单击**应用程序数据的横向扩展文件服务器**。
+4. 上**客户端访问点**页上，键入在横向扩展文件服务器的名称。
+5. 验证该角色已成功地设置了通过转到**角色**并确认**状态**列将显示**运行**旁边你创建的群集的文件服务器角色如图 1 中所示。
 
-    ![屏幕截图的故障转移群集管理器显示横向扩展文件服务器](media\Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016\SOFS_in_FCM.png "显示横向扩展文件服务器故障转移群集管理器")
+   ![屏幕截图的故障转移群集管理器显示横向扩展文件服务器](media/Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016/SOFS_in_FCM.png "显示横向扩展文件服务器故障转移群集管理器")
 
-     **图 1**显示横向扩展文件服务器的运行状态的故障转移群集管理器
+    **图 1**显示横向扩展文件服务器的运行状态的故障转移群集管理器
 
 > [!NOTE]
 >  创建群集的角色后，可能有一些网络传播延迟可能会阻止您从其上创建文件共享，在几分钟内，或可能更长时间。  

@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 79f95c88c49d384f8a13b8808c63a0dc00de53cb
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 7ac9453159fe97dc15ecbb2ab858214664a2a197
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266622"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811523"
 ---
 # <a name="ldap-considerations-in-adds-performance-tuning"></a>LDAP 中 ADDS 性能优化的注意事项
 
->[!Important]
+> [!IMPORTANT]
 > 以下是需要优化服务器硬件的详细介绍的更高版本中的 Active Directory 工作负荷的关键的建议和注意事项的摘要[Active Directory 域服务的容量规划](https://go.microsoft.com/fwlink/?LinkId=324566)一文。 读者都高度建议，若要查看[Active Directory 域服务的容量规划](https://go.microsoft.com/fwlink/?LinkId=324566)的更高版本的技术知识和这些建议的影响。
 
 ## <a name="verify-ldap-queries"></a>验证 LDAP 查询
@@ -45,14 +45,14 @@ ms.locfileid: "66266622"
 
 -   查询需要很长时间，并且无法完成向客户端由于可接受时间范围内缺乏涵盖索引。
 
--   使用情况和的 ATQ LDAP 线程耗尽导致高持续时间的查询量很大。 监视以下性能计数器：
+- 使用情况和的 ATQ LDAP 线程耗尽导致高持续时间的查询量很大。 监视以下性能计数器：
 
-    -   **NTDS\\请求的延迟时间**– 这是请求进入进程受多长时间。 Active Directory 后 120 秒 （默认值） 超时的请求，但是，大多数应运行速度更快并且极长时间运行的查询应获取隐藏状态中总体的数字。 查找此基线，而不是绝对阈值中的更改。
+    - **NTDS\\请求的延迟时间**– 这是请求进入进程受多长时间。 Active Directory 后 120 秒 （默认值） 超时的请求，但是，大多数应运行速度更快并且极长时间运行的查询应获取隐藏状态中总体的数字。 查找此基线，而不是绝对阈值中的更改。
 
-        > [!Note]   较高的值也可以是对其他域和 CRL 检查的"代理"请求中的延迟指标。
+        > [!NOTE]
+        > 较高的值也可以是对其他域和 CRL 检查的"代理"请求中的延迟指标。
 
-
-    -   **NTDS\\估计队列延迟**– 这理想情况下应接近于 0 以获得最佳性能是因为这意味着，请求没有时间等待服务。
+    - **NTDS\\估计队列延迟**– 这理想情况下应接近于 0 以获得最佳性能是因为这意味着，请求没有时间等待服务。
 
 这些方案可以检测到使用一个或多个以下方法：
 
@@ -98,8 +98,8 @@ ms.locfileid: "66266622"
 
 -   [编入索引的属性](https://msdn.microsoft.com/library/windows/desktop/ms677112.aspx)
 
-
 ## <a name="see-also"></a>请参阅
+
 - [性能优化 Active Directory 服务器](index.md)
 - [硬件注意事项](hardware-considerations.md)
 - [域控制器的正确放置和站点注意事项](site-definition-considerations.md)

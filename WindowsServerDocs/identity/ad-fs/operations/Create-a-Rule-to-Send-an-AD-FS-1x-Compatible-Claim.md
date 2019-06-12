@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: c87b76224d1ac5dbe3befc837fad8879d0b9a1ef
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: bda071be6668710361205643125fc8ad44246012
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189399"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453021"
 ---
 # <a name="create-a-rule-to-send-an-ad-fs-1x-compatible-claim"></a>创建一个规则以发送 AD FS 1.x 兼容声明
 
@@ -42,9 +42,6 @@ ms.locfileid: "66189399"
   
 > [!NOTE]  
 > 对于此规则中按预期方式工作，请确保是否信赖方信任或要在其中创建此规则的声明提供方信任已配置为使用**AD FS 1.0 和 1.1 配置文件**。 
-
-
-
 
 ## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-pass-through-or-filter-an-incoming-claim-rule-template-on-a-relying-party-trust-in-windows-server-2016"></a>若要创建一个规则以发出与 AD FS 1。*x*名称 ID 声明使用传递或筛选传入声明规则模板上了信赖方信任在 Windows Server 2016 
 
@@ -125,11 +122,10 @@ ms.locfileid: "66189399"
     -   **仅与特定电子邮件后缀值匹配的声明值直通**  
   
     -   **仅特定值开头的声明值直通**  
-![创建规则](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs3.PNG)   
+![创建规则](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs3.PNG)
 
 10. 单击**完成**，然后单击**确定**以保存规则。  
 
-  
 
 ## <a name="to-create-a-rule-to-transform-an-incoming-claim-on-a-relying-party-trust-in-windows-server-2016"></a>若要创建一个规则以转换传入声明上了信赖方信任在 Windows Server 2016 
 
@@ -139,13 +135,13 @@ ms.locfileid: "66189399"
 ![创建规则](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
 3.  右\-单击选定的信任，然后单击**编辑声明颁发策略**。
-![创建规则](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
+![创建规则](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)
   
 4.  在中**编辑声明颁发策略**对话框中的**颁发转换规则**单击**添加规则**启动规则向导。 
-![创建规则](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule11.PNG)    
+![创建规则](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule11.PNG)
 
 5.  上**选择规则模板**页面上，在**声明规则模板**，选择**转换传入声明**从列表中，然后单击**下一步**.  
-![创建规则](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform3.PNG)      
+![创建规则](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform3.PNG)
 
 6.  上**配置规则**页上，键入声明规则名称。  
   
@@ -168,7 +164,7 @@ ms.locfileid: "66189399"
     -   **传入声明值替换为不同的传出声明值**  
   
     -   **替换为传入电子\-邮件后缀声明与新的电子\-邮件后缀**  
-![创建规则](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)    
+![创建规则](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)
 
 11. 单击**完成**，然后单击**确定**以保存规则。  
 
@@ -273,7 +269,7 @@ ms.locfileid: "66189399"
     -   **仅与特定电子邮件后缀值匹配的声明值直通**  
   
     -   **仅特定值开头的声明值直通**  
-![创建规则](media/\Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs1.PNG)   
+![创建规则](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs1.PNG)
 
 10. 单击**完成**，然后单击**确定**以保存规则。  
 

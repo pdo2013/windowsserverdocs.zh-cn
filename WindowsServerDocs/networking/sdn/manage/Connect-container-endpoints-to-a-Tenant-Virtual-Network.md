@@ -13,12 +13,12 @@ ms.assetid: f7af1eb6-d035-4f74-a25b-d4b7e4ea9329
 ms.author: pashort
 author: jmesser81
 ms.date: 08/24/2018
-ms.openlocfilehash: 1968a4db9231459fe5858d9a0f3ba5e8f317ed1b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cb9c7157ffb07233e41e1c933f6775f1cd0766a9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872738"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446348"
 ---
 # <a name="connect-container-endpoints-to-a-tenant-virtual-network"></a>将容器终结点连接到租户虚拟网络
 
@@ -34,16 +34,18 @@ ms.locfileid: "59872738"
 
 之间的差异*l2 桥接*并*l2tunnel*驱动程序：
 
-| l2bridge | l2tunnel |
-| --- | --- |
-|驻留在的容器终结点： <ul><li>同一个容器托管虚拟机和同一子网上将桥接中的 HYPER-V 虚拟交换机的所有网络流量。 </li><li>不同的容器主机 Vm，或在不同子网上将其流量转发到物理 HYPER-V 主机。 </li></ul>网络策略不会不获取强制执行，因为在同一主机上和相同的子网中的容器之间的网络流量就不会流入物理主机。 网络策略将应用仅为跨主机或跨子网的容器网络流量。 | *所有*两个容器终结点之间的网络流量转发到物理 HYPER-V 主机而不考虑主机或子网。 网络策略适用于跨子网和跨主机的网络流量。 |
+
+|                                                                                                                                                                                                                                                                            l2bridge                                                                                                                                                                                                                                                                            |                                                                                                 l2tunnel                                                                                                  |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 驻留在的容器终结点： <ul><li>同一个容器托管虚拟机和同一子网上将桥接中的 HYPER-V 虚拟交换机的所有网络流量。 </li><li>不同的容器主机 Vm，或在不同子网上将其流量转发到物理 HYPER-V 主机。 </li></ul>网络策略不会不获取强制执行，因为在同一主机上和相同的子网中的容器之间的网络流量就不会流入物理主机。 网络策略将应用仅为跨主机或跨子网的容器网络流量。 | *所有*两个容器终结点之间的网络流量转发到物理 HYPER-V 主机而不考虑主机或子网。 网络策略适用于跨子网和跨主机的网络流量。 |
+
 ---
 
 >[!NOTE]
 >这些网络模式不适用于在 Azure 公有云的租户虚拟网络的连接 windows 容器终结点。
 
 
-## <a name="prerequisites"></a>系统必备
+## <a name="prerequisites"></a>先决条件
 -  与网络控制器部署的 SDN 基础结构。
 -  已创建租户虚拟网络。
 -  部署的租户虚拟机使用 Windows 容器功能启用，Docker 安装，并启用 HYPER-V 功能。 需要安装多个二进制文件的 l2 桥接和 l2tunnel 网络的 HYPER-V 功能。
@@ -60,10 +62,10 @@ ms.locfileid: "59872738"
 ## <a name="workflow"></a>工作流
 
 [1.将多个 IP 配置添加到现有 VM NIC 资源通过网络控制器 （HYPER-V 主机）](#1-add-multiple-ip-configurations)
-[2。启用主机将 CA IP 地址分配的容器终结点 （HYPER-V 主机） 上的网络代理](#2-enable-the-network-proxy) 
- [3。安装插件，以将 CA IP 地址分配给容器终结点 (容器主机 VM) 的私有云](#3-install-the-private-cloud-plug-in) 
- [4。创建*l2 桥接*或*l2tunnel*使用 docker (容器主机 VM) 网络 ](#4-create-an-l2bridge-container-network)
- 
+[2。启用主机将 CA IP 地址分配的容器终结点 （HYPER-V 主机） 上的网络代理](#2-enable-the-network-proxy)
+[3。安装插件，以将 CA IP 地址分配给容器终结点 (容器主机 VM) 的私有云](#3-install-the-private-cloud-plug-in)
+[4。创建*l2 桥接*或*l2tunnel*使用 docker (容器主机 VM) 网络](#4-create-an-l2bridge-container-network)
+
 >[!NOTE]
 >通过 System Center Virtual Machine Manager 中创建的 VM NIC 资源不支持多个 IP 配置。 建议为这些部署类型创建带外使用网络控制器 PowerShell VM NIC 资源。
 
@@ -101,10 +103,10 @@ foreach ($i in 1..10)
         $resourceid += "0$i"
         $ipstr = "192.168.1.10$i"
     }
-    
+
     $newipconfig.ResourceId = $resourceid
     $props.PrivateIPAddress = $ipstr    
-    
+
     $props.PrivateIPAllocationMethod = "Static"
     $props.Subnet = new-object Microsoft.Windows.NetworkController.Subnet
     $props.Subnet.ResourceRef = $vmsubnet.ResourceRef

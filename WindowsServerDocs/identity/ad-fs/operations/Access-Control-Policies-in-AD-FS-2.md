@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 216af933aee643ee56feff71c59d9ecc2e62998c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 036d6d0543687e7f82caf3dfd2c3bb0b4a981181
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842988"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445050"
 ---
 # <a name="client-access-control-policies-in-ad-fs-20"></a>AD FS 2.0 中的客户端访问控制策略
 在 Active Directory 联合身份验证服务 2.0 客户端访问策略，可限制或授予用户对资源的访问权限。  本文档介绍如何启用 AD FS 2.0 中的客户端访问策略以及如何配置最常见的方案。
@@ -52,11 +52,13 @@ ms.locfileid: "59842988"
     `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`
 
 
-    `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`
+~~~
+`https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`
 
-    `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`
+`https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`
 
-    `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`
+`https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`
+~~~
 
 ### <a name="step-3-update-the-microsoft-office-365-identity-platform-relying-party-trust"></a>步骤 3:更新信赖方信任 Microsoft Office 365 标识平台
 
@@ -160,16 +162,16 @@ ms.locfileid: "59842988"
 
 ### <a name="descriptions-of-the-claim-rule-language-syntax-used-in-the-above-scenarios"></a>在上述方案中使用的声明规则语言语法的说明
 
-|描述|声明规则语言语法|
-|-----|-----| 
-|默认的 AD FS 规则应用于允许访问所有用户。 此规则应已存在于 Microsoft Office 365 标识平台信赖方信任颁发授权规则列表。|=> issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");| 
-|此子句添加到新的自定义规则指定请求是否来自联合服务器代理 （即，它具有 x ms 代理标头）
-建议所有规则都包括此。|exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"])| 
-|用于建立该请求来自定义可接受范围内的 IP 具有的客户端。|NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value=~"customer-provided public ip address regex"])| 
-|此子句用于指定是否正在访问的应用程序不是 Microsoft.Exchange.ActiveSync 应拒绝请求。|NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value=="Microsoft.Exchange.ActiveSync"])| 
-|此规则可确定是否在调用通过 Web 浏览器中，并且将被拒绝。|NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value == "/adfs/ls/"])| 
-|此规则规定应拒绝 （基于 SID 值） 的特定 Active Directory 组的唯一用户。 将添加到此语句不意味着将允许一组用户，而不考虑位置。|exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "{Group SID value of allowed AD group}"])| 
-|这是一所需的子句，以满足上述所有条件时发出拒绝。|=> issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");|
+|                                                                                                   描述                                                                                                   |                                                                     声明规则语言语法                                                                     |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|              默认的 AD FS 规则应用于允许访问所有用户。 此规则应已存在于 Microsoft Office 365 标识平台信赖方信任颁发授权规则列表。              |                                  => issue(Type = "<https://schemas.microsoft.com/authorization/claims/permit>", Value = "true");                                   |
+|                               此子句添加到新的自定义规则指定请求是否来自联合服务器代理 （即，它具有 x ms 代理标头）                                |                                                                                                                                                                    |
+|                                                                                 建议所有规则都包括此。                                                                                  |                                    exists([Type == "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy>"])                                    |
+|                                                         用于建立该请求来自定义可接受范围内的 IP 具有的客户端。                                                         | NOT exists([Type == "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip>", Value=~"customer-provided public ip address regex"]) |
+|                                    此子句用于指定是否正在访问的应用程序不是 Microsoft.Exchange.ActiveSync 应拒绝请求。                                     |       NOT exists([Type == "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application>", Value=="Microsoft.Exchange.ActiveSync"])        |
+|                                                      此规则可确定是否在调用通过 Web 浏览器中，并且将被拒绝。                                                      |              NOT exists([Type == "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path>", Value == "/adfs/ls/"])               |
+| 此规则规定应拒绝 （基于 SID 值） 的特定 Active Directory 组的唯一用户。 将添加到此语句不意味着将允许一组用户，而不考虑位置。 |             exists([Type == "<https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid>", Value =~ "{Group SID value of allowed AD group}"])              |
+|                                                                这是一所需的子句，以满足上述所有条件时发出拒绝。                                                                 |                                   => issue(Type = "<https://schemas.microsoft.com/authorization/claims/deny>", Value = "true");                                    |
 
 ### <a name="building-the-ip-address-range-expression"></a>生成 IP 地址范围表达式
 
@@ -271,4 +273,4 @@ AD FS 跟踪事件将记录到 AD FS 2.0 的调试日志。 若要启用跟踪�
 
 ## <a name="related"></a>相关内容
 新的声明类型的详细信息请参阅[AD FS 声明类型](AD-FS-Claims-Types.md)。
- 
+

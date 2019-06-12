@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: a9ee7a56-f062-474f-a61c-9387ff260929
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6869ee5f39f1719a3c71025207ef9ffe740492ff
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: cf66a306c7f023852cec93d6458e74a99c46c831
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266791"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812110"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-secondary-deployments"></a>使用针对基于地理位置的流量管理和主要-辅助部署的 DNS 策略
 
@@ -25,8 +25,8 @@ ms.locfileid: "66266791"
   
 辅助服务器使用权威传输 (AXFR) 和增量区域传输 (IXFR) 的区域传输协议请求并接收区域更新，其中包括对主 DNS 服务器上区域的新更改。   
   
->[!NOTE]
->有关 AXFR 的详细信息，请参阅 Internet 工程任务组 (IETF)[征求意见 5936](https://tools.ietf.org/rfc/rfc5936.txt)。 有关 IXFR 的详细信息，请参阅 Internet 工程任务组 (IETF)[征求意见 1995年](https://tools.ietf.org/html/rfc1995)。  
+> [!NOTE]
+> 有关 AXFR 的详细信息，请参阅 Internet 工程任务组 (IETF)[征求意见 5936](https://tools.ietf.org/rfc/rfc5936.txt)。 有关 IXFR 的详细信息，请参阅 Internet 工程任务组 (IETF)[征求意见 1995年](https://tools.ietf.org/html/rfc1995)。  
   
 ## <a name="primary-secondary-geo-location-based-traffic-management-example"></a>主要和辅助地理位置基于流量管理示例  
 下面是如何在主要和辅助部署中使用 DNS 策略以实现基于客户端执行 DNS 查询的物理位置的流量重定向的示例。  
@@ -82,7 +82,7 @@ Contoso DNS 部署包括两个辅助服务器：**SecondaryServer1**，使用 IP
 
 在开始之前，请确保你已完成所有主题中的步骤[地理位置基于流量管理和主服务器的使用 DNS 策略](../../dns/deploy/Scenario--Use-DNS-Policy-for-Geo-Location-Based-Traffic-Management-with-Primary-Servers.md)，并使用区域，区域作用域，DNS 客户端配置主 DNS 服务器子网和 DNS 策略。  
   
->[!NOTE]
+> [!NOTE]
 > 本主题中的说明将 DNS 客户端的子网、 区域作用域和 DNS 策略 DNS 主服务器复制到辅助 DNS 服务器是初始 DNS 设置和验证。 在将来可能会想要更改的 DNS 客户端子网、 区域作用域和主服务器上的策略设置。 在这种情况下，可以创建自动化脚本，用于保留与主服务器同步的辅助服务器。  
   
 若要配置主要和辅助地理位置基于查询响应的 DNS 策略，必须执行以下步骤。  
@@ -95,9 +95,10 @@ Contoso DNS 部署包括两个辅助服务器：**SecondaryServer1**，使用 IP
   
 以下部分提供详细的配置说明。  
   
->[!IMPORTANT]
->以下部分包含示例 Windows PowerShell 命令包含多个参数的示例值。 请确保将这些命令中的示例值替换之前运行这些命令适用于你的部署的值为。  
-><br>中的成员身份**DnsAdmins**，或等效身份所需执行以下过程。  
+> [!IMPORTANT]
+> 以下部分包含示例 Windows PowerShell 命令包含多个参数的示例值。 请确保将这些命令中的示例值替换之前运行这些命令适用于你的部署的值为。  
+> 
+> 中的成员身份**DnsAdmins**，或等效身份所需执行以下过程。  
   
 ### <a name="create-the-secondary-zones"></a>创建辅助区域
 
@@ -124,8 +125,8 @@ Contoso DNS 部署包括两个辅助服务器：**SecondaryServer1**，使用 IP
   
 可以使用以下 Windows PowerShell 命令来配置在主要区域上的区域复制设置。
   
->[!NOTE]
->在以下示例命令中，参数 **-通知**指定主服务器会将有关更新的通知发送到辅助数据库的选择列表。  
+> [!NOTE]
+> 在以下示例命令中，参数 **-通知**指定主服务器会将有关更新的通知发送到辅助数据库的选择列表。  
   
     
     Set-DnsServerPrimaryZone -Name "woodgrove.com" -Notify Notify -SecondaryServers "10.0.0.2,10.0.0.3" -SecureSecondaries TransferToSecureServers -ComputerName PrimaryServer  
@@ -160,8 +161,8 @@ Contoso DNS 部署包括两个辅助服务器：**SecondaryServer1**，使用 IP
     Get-DnsServerZoneScope -ZoneName "woodgrove.com" -ComputerName PrimaryServer|Add-DnsServerZoneScope -ZoneName "woodgrove.com" -ComputerName SecondaryServer2 -ErrorAction Ignore  
   
 
->[!NOTE]
->在这些示例命令中， **-ErrorAction 忽略**参数会包括在内，因为在每个区域上存在的默认区域作用域。 不能创建或删除默认区域作用域。 管道操作将导致尝试创建该作用域，则会失败。 或者，可以在两个辅助区域上创建非默认区域作用域。  
+> [!NOTE]
+> 在这些示例命令中， **-ErrorAction 忽略**参数会包括在内，因为在每个区域上存在的默认区域作用域。 不能创建或删除默认区域作用域。 管道操作将导致尝试创建该作用域，则会失败。 或者，可以在两个辅助区域上创建非默认区域作用域。  
   
 有关详细信息，请参阅[添加 DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)。  
   

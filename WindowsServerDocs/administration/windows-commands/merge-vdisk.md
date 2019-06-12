@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 159e307912cb06bc3ea5e452f735e786c0cf9965
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bc20fcaf6e511bb25156996bddc3357f99195875
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847008"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437408"
 ---
 # <a name="merge-vdisk"></a>合并的虚拟磁盘
 
@@ -27,26 +27,28 @@ ms.locfileid: "59847008"
 合并差异虚拟硬盘 (VHD) 使用其相应的父 VHD。 将修改父 VHD，以包括从差异 VHD 的修改。
 > [!NOTE]
 > 此命令当前仅适用于 Windows 7 和 Windows Server 2008 R2。
-## <a name="syntax"></a>语法
-```
-merge vdisk depth=<n>
-```
-### <a name="parameters"></a>Parameters
-|参数|描述|
-|-------|--------|
-|depth=<n>|指示父 VHD 文件以将合并在一起的数字。 例如，**深度 = 1**指示将使用一个级别的差异链合并差异虚拟硬盘。|
-## <a name="remarks"></a>备注
--   必须选择并为此操作才能成功分离 VHD。 使用**选择的虚拟磁盘**命令选择 VHD，并将焦点移到它。
--   此参数将修改父 VHD。 因此，依赖于父其他差异 Vhd 将不再有效。
-## <a name="BKMK_Examples"></a>示例
-若要合并其父 VHD 的差异 VHD，请键入：
-```
-merge vdisk depth=1
-```
-## <a name="additional-references"></a>其他参考
--   [命令行语法解答](command-line-syntax-key.md)
--   [attach vdisk](attach-vdisk.md)
--   [压缩的虚拟磁盘](compact-vdisk.md)
+> ## <a name="syntax"></a>语法
+> ```
+> merge vdisk depth=<n>
+> ```
+> ### <a name="parameters"></a>Parameters
+> 
+> | 参数 |                                                                                    描述                                                                                    |
+> |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | depth=<n> | 指示父 VHD 文件以将合并在一起的数字。 例如，**深度 = 1**指示将使用一个级别的差异链合并差异虚拟硬盘。 |
+> 
+> ## <a name="remarks"></a>备注
+> - 必须选择并为此操作才能成功分离 VHD。 使用**选择的虚拟磁盘**命令选择 VHD，并将焦点移到它。
+> - 此参数将修改父 VHD。 因此，依赖于父其他差异 Vhd 将不再有效。
+>   ## <a name="BKMK_Examples"></a>示例
+>   若要合并其父 VHD 的差异 VHD，请键入：
+>   ```
+>   merge vdisk depth=1
+>   ```
+>   ## <a name="additional-references"></a>其他参考
+> - [命令行语法项](command-line-syntax-key.md)
+> - [attach vdisk](attach-vdisk.md)
+> - [压缩的虚拟磁盘](compact-vdisk.md)
 
 -   [detail vdisk](detail-vdisk.md)
 -   [分离的虚拟磁盘](detach-vdisk.md)

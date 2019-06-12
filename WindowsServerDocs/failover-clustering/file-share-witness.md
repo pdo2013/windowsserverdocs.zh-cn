@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 01/24/2019
 description: 文件共享见证服务器，可使用文件共享来群集仲裁投票。 本主题介绍文件共享见证服务器和新功能，包括使用 USB 驱动器连接到路由器作为文件共享见证服务器。
 ms.localizationpriority: medium
-ms.openlocfilehash: 1888142f96208800a0417c9caeea89e8a0472e88
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 47371be946c08cac2f271138d701922fc340a89d
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831748"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453044"
 ---
 # <a name="deploy-a-file-share-witness"></a>部署的文件共享见证
 
@@ -61,26 +61,26 @@ ms.locfileid: "59831748"
 
 在[Microsoft ignite 大会 2018年](https://azure.microsoft.com/ignite/)， [DataOn 存储](http://www.dataonstorage.com/)其展台区域中具有存储空间直通群集。  已连接到此群集[NetGear](https://www.netgear.com) Nighthawk X4S WiFi 路由器使用的 USB 端口为文件共享见证服务器与此类似。
 
-![NetGear 见证服务器](media\File-Share-Witness\FSW1.png)
+![NetGear 见证服务器](media/File-Share-Witness/FSW1.png)
 
 下面列出了用于创建此特定路由器上使用 USB 设备的文件共享见证的步骤。  请注意，其他路由器和 NAS 设备上的步骤会有所不同，并且应使用供应商来完成提供说明。
 
 
 1. 使用接通电源的 USB 设备登录到路由器。
 
-   ![NetGear 接口](media\File-Share-Witness\FSW2.png)
+   ![NetGear 接口](media/File-Share-Witness/FSW2.png)
 
 2. 从选项列表中，选择 ReadySHARE 这是在其中创建共享。
 
-   ![NetGear ReadySHARE](media\File-Share-Witness\FSW3.png)
+   ![NetGear ReadySHARE](media/File-Share-Witness/FSW3.png)
 
 3. 对于文件共享见证，基本共享是所需要的。  选择编辑按钮将弹出一个对话框，其中 USB 设备创建共享。
 
-   ![NetGear 共享接口](media\File-Share-Witness\FSW4.png)
+   ![NetGear 共享接口](media/File-Share-Witness/FSW4.png)
 
 4. 后选择应用按钮，创建共享，且可以看到列表中。
 
-   ![NetGear 共享](media\File-Share-Witness\FSW5.png)
+   ![NetGear 共享](media/File-Share-Witness/FSW5.png)
 
 5. 一旦创建共享后，创建群集的文件共享见证服务器是通过 PowerShell。
 

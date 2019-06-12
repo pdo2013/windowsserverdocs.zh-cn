@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: e6978ce20a7c6da8addb217de8d30f733b40d261
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d8d901097eb280679a388ff66161e3514befcd13
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834398"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452650"
 ---
 # <a name="add-a-module-to-a-tool-extension"></a>将模块添加到工具扩展中
 
@@ -23,7 +23,7 @@ ms.locfileid: "59834398"
 
 ## <a name="prepare-your-environment"></a>准备你的环境
 
-如果尚未安装，请按照说明在开发[工具](..\develop-tool.md)(或[解决方案](..\develop-solution.md)) 扩展来准备环境并创建新的空工具扩展。
+如果尚未安装，请按照说明在开发[工具](../develop-tool.md)(或[解决方案](../develop-solution.md)) 扩展来准备环境并创建新的空工具扩展。
 
 ## <a name="use-the-angular-cli-to-create-a-module-and-component"></a>使用 Angular CLI 创建模块 （和组件）
 
@@ -65,7 +65,7 @@ ng generate component ManageFooWorksPortal
 
 * 按照此命名约定，创建新文件 ```{!module-name}.routing.ts```：
 
-    | 值 | 说明 | 示例文件名 |
+    | ReplTest1 | 说明 | 示例文件名 |
     | ----- | ----------- | ------- |
     | ```{!module-name}``` | 模块名称（小写，空格替换为短划线） | ```manage-foo-works-portal.routing.ts``` |
 
@@ -140,7 +140,7 @@ ng generate component ManageFooWorksPortal
 
 打开使用以下命名约定找到的文件 ```{!module-name}.component.ts```：
 
-| 值 | 说明 | 示例文件名 |
+| ReplTest1 | 说明 | 示例文件名 |
 | ----- | ----------- | ------- |
 | ```{!module-name}``` | 模块名称（小写，空格替换为短划线） | ```manage-foo-works-portal.component.ts``` |
     
@@ -159,7 +159,7 @@ public ngOnInit() {
 
 打开文件```app-routing.module.ts```，因此它会加载您刚创建的新模块可以修改默认路径。  找到的项```path: ''```，并更新```loadChildren```加载而不是默认模块在模块：
 
-| ReplTest1 | 说明 | 示例 |
+| 值 | 说明 | 示例 |
 | ----- | ----------- | ------- |
 | ```{!ModuleName}``` | 模块名称（删除空格） | ```ManageFooWorksPortal``` |
 | ```{!module-name}``` | 模块名称（小写，空格替换为短划线） | ```manage-foo-works-portal``` |
@@ -181,4 +181,4 @@ public ngOnInit() {
 
 ## <a name="build-and-side-load-your-extension"></a>生成和端加载您的扩展插件
 
-你现在已添加到你的扩展的模块。  接下来，你可以[生成并端负载](..\develop-tool.md#build-and-side-load-your-extension)将扩展 Windows Admin Center，以查看结果。
+你现在已添加到你的扩展的模块。  接下来，你可以[生成并端负载](../develop-tool.md#build-and-side-load-your-extension)将扩展 Windows Admin Center，以查看结果。

@@ -9,16 +9,16 @@ ms.topic: article
 author: JasonGerend
 ms.date: 01/18/2019
 description: 如何使用 Microsoft Azure 来托管在云中的 Windows Server 故障转移群集的见证服务器也称为如何部署云见证。
-ms.openlocfilehash: f7e1c84e54f08044a772f06e591588c1add33026
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 64fd39a37c63d24f8fc0eb4f45c8a7e9f6089013
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857978"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439779"
 ---
 # <a name="deploy-a-cloud-witness-for-a-failover-cluster"></a>部署故障转移群集的云见证
 
-> 适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
+> 适用于：Windows Server 2019、Windows Server 2016
 
 云见证是一种类型的使用 Microsoft Azure 提供在群集仲裁投票的故障转移群集仲裁见证。 本主题概述了云见证服务器功能，它支持的方案和有关如何配置云见证服务器故障转移群集的说明。
 
@@ -134,14 +134,14 @@ ms.locfileid: "59857978"
     **图 8。选择的仲裁见证服务器**  
 
 5. 上**配置云见证**页上，输入以下信息：  
-    1. （所需的参数）Azure 存储帐户名称。  
-    2. （所需的参数）对应于存储帐户访问密钥。  
-        1. 当第一次创建，请使用主访问密钥 （请参阅图 5）  
-        2. 在轮换主访问密钥时，使用辅助访问密钥 （请参阅图 5）  
-    3. （可选参数）如果你想要使用不同的 Azure 服务终结点 （例如中国的 Microsoft Azure 服务），然后更新终结点服务器名称。  
+   1. （所需的参数）Azure 存储帐户名称。  
+   2. （所需的参数）对应于存储帐户访问密钥。  
+       1. 当第一次创建，请使用主访问密钥 （请参阅图 5）  
+       2. 在轮换主访问密钥时，使用辅助访问密钥 （请参阅图 5）  
+   3. （可选参数）如果你想要使用不同的 Azure 服务终结点 （例如中国的 Microsoft Azure 服务），然后更新终结点服务器名称。  
 
-    ![群集仲裁向导中云见证配置窗格的快照](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_10.png)  
-    **图 9:配置云见证**
+      ![群集仲裁向导中云见证配置窗格的快照](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_10.png)  
+      **图 9:配置云见证**
 
 6. 后成功配置了云见证服务器，您可以查看新创建的见证资源在故障转移群集管理器管理单元中 （请参阅图 10）。
 

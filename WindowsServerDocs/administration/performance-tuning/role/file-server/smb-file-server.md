@@ -7,12 +7,12 @@ ms.topic: article
 author: phstee
 ms.author: NedPyle; Danlo; DKruse
 ms.date: 4/14/2017
-ms.openlocfilehash: 337716792a4bb3cf730b723df3abe1029631426b
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 87ad8058f7353c938087b1211e0f17820f0bd2ae
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222504"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435656"
 ---
 # <a name="performance-tuning-for-smb-file-servers"></a>SMB 文件服务器的性能优化
 
@@ -93,22 +93,22 @@ Windows Server 2012 中引入了以下的 SMB 性能计数器和监视的 SMB 2 
 
 以下 REG\_DWORD 注册表设置可能会影响 SMB 文件服务器的性能：
 
--   **Smb2CreditsMin**和**Smb2CreditsMax**
+- **Smb2CreditsMin**和**Smb2CreditsMax**
 
-    ```
-    HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\Smb2CreditsMin
-    ```
+  ```
+  HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\Smb2CreditsMin
+  ```
 
-    ```
-    HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\Smb2CreditsMax
-    ```
+  ```
+  HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\Smb2CreditsMax
+  ```
 
-    默认值分别为 512 和 8192。 这些参数允许服务器限制动态中的指定边界的客户端操作并发性。 某些客户端可能会实现更高的吞吐量，具有更高并发限制，例如，通过高带宽、 高延迟链接复制的文件。
+  默认值分别为 512 和 8192。 这些参数允许服务器限制动态中的指定边界的客户端操作并发性。 某些客户端可能会实现更高的吞吐量，具有更高并发限制，例如，通过高带宽、 高延迟链接复制的文件。
     
-    >[!TIP]
-    > 在 Windows 10 和 Windows Server 2016 之前, 授予客户端的可修读人数随其而变化动态 Smb2CreditsMin 和 Smb2CreditsMax 基于一种算法，尝试确定最优数目的信用额度以授予基于网络延迟之间和信用额度的使用情况。 在 Windows 10 和 Windows Server 2016 中，在 SMB 服务器已更改，以无条件地授予根据请求到已配置的最大数目的信用额度信用额度。 作为此更改的一部分，已删除阻止机制，当服务器处于内存压力下时，减少了每个连接的信用额度窗口的大小，信用额度。 触发的阻止的内核的低内存事件仅发出信号时服务器因此内存不足 (< 几 MB)，就可以使用无意义。 因为服务器无法再收缩信用额度 windows Smb2CreditsMin 设置将不再需要，并且现在被忽略。
-
-    > 你可以监视 SMB 客户端共享\\信用额度停留数/秒以查看是否有使用信用额度的任何问题。
+  > [!TIP]
+  > 在 Windows 10 和 Windows Server 2016 之前, 授予客户端的可修读人数随其而变化动态 Smb2CreditsMin 和 Smb2CreditsMax 基于一种算法，尝试确定最优数目的信用额度以授予基于网络延迟之间和信用额度的使用情况。 在 Windows 10 和 Windows Server 2016 中，在 SMB 服务器已更改，以无条件地授予根据请求到已配置的最大数目的信用额度信用额度。 作为此更改的一部分，已删除阻止机制，当服务器处于内存压力下时，减少了每个连接的信用额度窗口的大小，信用额度。 触发的阻止的内核的低内存事件仅发出信号时服务器因此内存不足 (< 几 MB)，就可以使用无意义。 因为服务器无法再收缩信用额度 windows Smb2CreditsMin 设置将不再需要，并且现在被忽略。
+  > 
+  > 你可以监视 SMB 客户端共享\\信用额度停留数/秒以查看是否有使用信用额度的任何问题。
 
 - **AdditionalCriticalWorkerThreads**
 
@@ -121,27 +121,28 @@ Windows Server 2012 中引入了以下的 SMB 性能计数器和监视的 SMB 2 
     >[!TIP]
     > 如果缓存管理器的脏数据增加可能需要的值 (性能计数器缓存\\脏页) 的增长，使用了很大一部分 （超过大约 25%)内存或系统正在执行大量同步读取 I/o。
 
--   **MaxThreadsPerQueue**
+- **MaxThreadsPerQueue**
 
-    ```
-    HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\MaxThreadsPerQueue
-    ```
+  ```
+  HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\MaxThreadsPerQueue
+  ```
 
-    默认值为 20。 增加此值将引发文件服务器可以使用为并发请求提供服务的线程的数。 如果大量的活动连接需要提供服务，并且硬件资源，例如存储带宽已足够，增加的值可以提高服务器的可伸缩性、 性能和响应时间。
+  默认值为 20。 增加此值将引发文件服务器可以使用为并发请求提供服务的线程的数。 如果大量的活动连接需要提供服务，并且硬件资源，例如存储带宽已足够，增加的值可以提高服务器的可伸缩性、 性能和响应时间。
 
-    >[!TIP]
-    > 可能需要增加值指示是如果 SMB2 工作队列会增长得非常大 (性能计数器服务器工作队列\\队列长度\\SMB2 非阻止性\*持续高于 ~ 100)。
+  >[!TIP]
+  > 可能需要增加值指示是如果 SMB2 工作队列会增长得非常大 (性能计数器服务器工作队列\\队列长度\\SMB2 非阻止性\*持续高于 ~ 100)。
 
-    >[!Note]
-    >在 Windows 10 和 Windows Server 2016，MaxThreadsPerQueue 不可用。 线程池的线程数将为"20 * 的 NUMA 节点中的处理器数"。  
+  >[!Note]
+  >在 Windows 10 和 Windows Server 2016，MaxThreadsPerQueue 不可用。 线程池的线程数将为"20 * 的 NUMA 节点中的处理器数"。
+     
 
--   **AsynchronousCredits**
+- **AsynchronousCredits**
 
-    ``` 
-    HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\AsynchronousCredits
-    ```
+  ``` 
+  HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\AsynchronousCredits
+  ```
 
-    默认值为 512。 此参数限制在单个连接允许的并发异步 SMB 命令数。 某些情况下 (例如，当没有与后端 IIS 服务器的前端服务器) （有关文件更改通知请求，特别是） 需要大量的并发。 若要支持这种情况下，可以增加此项的值。
+  默认值为 512。 此参数限制在单个连接允许的并发异步 SMB 命令数。 某些情况下 (例如，当没有与后端 IIS 服务器的前端服务器) （有关文件更改通知请求，特别是） 需要大量的并发。 若要支持这种情况下，可以增加此项的值。
 
 ### <a name="smb-server-tuning-example"></a>SMB 服务器优化示例
 

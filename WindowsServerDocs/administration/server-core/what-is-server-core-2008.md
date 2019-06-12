@@ -6,14 +6,14 @@ ms.author: helohr
 ms.date: 11/01/2017
 ms.topic: article
 author: Heidilohr
-ms.openlocfilehash: c1ef71dbc589cfdeac63b46d720c4bdd0a44dbaa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8d1aaf8b61142155ea7b2a5391367cc677596ebe
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815398"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435600"
 ---
-#<a name="what-is-server-core-2008"></a>什么是 Server Core 2008？
+# <a name="what-is-server-core-2008"></a>什么是 Server Core 2008？
 >适用于：Windows Server 2008
 
 >[!NOTE]
@@ -24,6 +24,7 @@ ms.locfileid: "59815398"
 在继续之前，短语"安装选项"要求加以解释。 通常情况下，当你购买一份 Windows Server 2008，你购买的许可证可以使用特定版本或库存单位 (Sku)。 表 1-1 列出了可用的各种 Windows Server 2008 版本。 此表还指示了每个版本可用 （完整、 服务器核心或两者） 的安装选项。
 
 **表 1-1** Windows Server 2008 版本和它们对安装选项的支持
+
 | 版本       | 完全          | 服务器核心  |
 | ------------- | :-------------: | :------------: |
 | Windows Server 2008 标准版 （x86 和 x64）       | X | X        |
@@ -44,14 +45,14 @@ ms.locfileid: "59815398"
 
 在图 1-1，您的批量许可证 （或产品密钥，零售媒体） 提供可以选择之间的两个安装选项： 第二个选项 (完整安装的 Windows Server 2008 Enterprise) 和第五个选项 (服务器核心安装的 WindowsServer 2008 企业版），后者选择在此示例中。 
 
-##<a name="full-vs-server-core"></a>完全与。服务器核心 
+## <a name="full-vs-server-core"></a>完全与。服务器核心 
 Microsoft Windows 平台的早期阶段，Windows 服务器都实质上是"everything"包括所有类型的功能，其中一些您可能永远不会实际在环境中使用网络的服务器。 例如，在系统上安装 Windows Server 2003，路由和远程访问服务 (RRAS) 的二进制文件已在服务器上安装即使你有此服务不需要 （尽管你仍必须配置和启用 RRAS 并将它将开始工作前）。 Windows Server 2008 改进了通过安装所需的服务器角色，仅当你选择要在服务器上安装该特定角色的二进制文件的早期版本。 但是，Windows Server 2008 的完全安装选项仍然会安装许多服务和特定使用方案通常不需要其他组件。 
 
 这是 Microsoft 创建了第二个安装选项的原因-服务器核心-对于 Windows Server 2008： 若要消除任何服务和其他功能的支持的某些常用的服务器角色不重要。 例如，真正的域名系统 (DNS) 服务器不需要安装它，因为您可能不希望浏览来自 DNS 服务器出于安全原因 Web 的 Windows Internet Explorer。 和 DNS 服务器甚至不需要图形用户界面 (GUI)，因为你可以管理 DNS 的几乎所有方面从命令行使用功能强大的 Dnscmd.exe 命令，或者远程使用 DNS Microsoft 管理控制台 (MMC) 管理单元中。
 
 若要避免此问题，Microsoft 决定去除从已运行核心网络服务，如 Active Directory 域服务 (AD DS)、 DNS、 动态主机配置协议 (DHCP)、 文件和打印，绝对必要的 Windows Server 2008 的所有内容和几个其他服务器角色。 结果是可用于创建支持有限的数量的角色和功能的服务器的新服务器核心安装选项。 
 
-##<a name="the-server-core-gui"></a>在 Server Core GUI
+## <a name="the-server-core-gui"></a>在 Server Core GUI
 完成服务器核心上安装系统和登录第一次后，您在为一点惊喜。 图 1-2 后第一次登录显示了服务器核心用户界面。
 
 ![服务器核心用户界面](../media/what-is-server-core-2008/Fig1-2.png)
@@ -69,6 +70,7 @@ Microsoft Windows 平台的早期阶段，Windows 服务器都实质上是"every
 表 1-2 列出了主要的 GUI 应用程序，以及可执行文件，在服务器核心安装中可用。
 
 **表 1-2** GUI 应用程序在服务器核心安装中可用
+
 | GUI 应用程序 | 可执行文件路径 |
 | -------------   | -------------       | 
 | 命令提示符 | %WINDIR%\System32\Cmd.exe |
@@ -93,10 +95,11 @@ Microsoft Windows 平台的早期阶段，Windows 服务器都实质上是"every
 >[!NOTE]
 >由于 Windows PowerShell 要求.NET Framework，不能安装到服务器核心上的 Windows PowerShell。 但是，可以管理使用 Windows PowerShell，远程处理程序，但前提使用仅 PowerShell WMI 命令的服务器核心安装。
 
-##<a name="supported-server-roles"></a>支持的服务器角色 
+## <a name="supported-server-roles"></a>支持的服务器角色 
 服务器核心安装提供仅有限的数量的服务器角色与 Windows Server 2008 的完整安装。 表 1-3 比较了可用于的 Windows Server 2008 Enterprise Edition 的完全安装选项和服务器核心安装的角色。 
 
 **表 1-3**完全安装选项和服务器核心安装的 Windows Server 2008 Enterprise Edition 的服务器角色之间的比较
+
 | 服务器角色  | 在完整安装中可用  | Server Core 中可用  |
 | ------------- | :-------------: | :------------: |
 | Active Directory 证书服务 (AD CS)  | X |  |
@@ -124,7 +127,7 @@ Microsoft Windows 平台的早期阶段，Windows 服务器都实质上是"every
 * 您可以在 Server Core 上安装流媒体服务角色之前，需要下载并安装相应 Microsoft 更新独立程序包 （.msu 文件） 的服务器的体系结构 （x86 或 x64） 从 Microsoft 下载中心获得。
 * Web 服务器 (IIS) 角色不支持 ASP.NET。 这是因为服务器核心，这可以限制与服务器核心 Web 服务器可以执行的操作不支持.NET Framework。 
 
-##<a name="supported-optional-features"></a>支持的可选功能
+## <a name="supported-optional-features"></a>支持的可选功能
 服务器核心安装还支持仅提供的功能的有限的子集上完整安装的 Windows Server 2008。 表 1-4 进行比较可用于的 Windows Server 2008 Enterprise Edition 的完全安装选项和服务器核心安装的功能。
 
 **表 1-4**的完全安装选项和服务器核心安装的 Windows Server 2008 Enterprise Edition 的功能比较
@@ -171,7 +174,7 @@ Microsoft Windows 平台的早期阶段，Windows 服务器都实质上是"every
 * 某些功能可能在 Server Core 上需要特殊硬件才能正确 （或根本）。 这些功能包括 BitLocker 驱动器加密、 故障转移群集、 多路径 IO、 网络负载平衡和可移动存储。 
 * 故障转移群集上不可用标准版。
 
-##<a name="server-core-architecture"></a>服务器核心体系结构
+## <a name="server-core-architecture"></a>服务器核心体系结构
 深入了解到服务器核心，让我们来简要介绍一下 Windows Server 2008 的服务器核心安装的体系结构进行比较，这与完全安装。 首先，请记住，服务器核心不是其他版本的 Windows Server 2008，但只需安装选项，可以选择到系统上安装 Windows Server 2008 时。 这意味着：
 * 服务器核心安装上的内核是相同的相同的硬件体系结构 （x86 或 x64） 和版本类别的完整安装上找到。 
 * 如果服务器核心安装上存在一个二进制文件，则相同的硬件体系结构 （x86 或 x64） 和版本的完整安装具有相同版本的该特定二进制文件 （稍后讨论的两种例外情况）。 
@@ -185,7 +188,7 @@ Microsoft Windows 平台的早期阶段，Windows 服务器都实质上是"every
 
 **图 1-3**的服务器核心和完整安装的体系结构
 
-##<a name="driver-support"></a>驱动程序支持
+## <a name="driver-support"></a>驱动程序支持
 图 1-3 所示的服务器核心体系结构关系图很明显简化;它不会显示一件事是设备驱动程序支持在服务器核心和完整安装之间的差异。 Windows Server 2008 的完整安装包含成千上万个不同类型的设备，以便你能够在各种不同的硬件配置上安装产品的现成驱动程序。 （如 Windows Vista 客户端操作系统包括更多的驱动程序以支持设备，例如数码照相机和扫描仪通常不与服务器一起使用。） 
 
 如果新的设备连接到 （或安装在） Windows Server 2008 的完整安装，插即用 (PnP) 子系统首先检查设备的现成驱动程序是否存在。 如果找到兼容的现成驱动程序，即插即用的子系统将自动安装该驱动程序和设备，然后进行操作。 在完整安装的 Windows Server 2008 中的气球状弹出通知可能会显示，指示安装了驱动程序和设备便可供使用。 
@@ -201,14 +204,14 @@ Microsoft Windows 平台的早期阶段，Windows 服务器都实质上是"every
 
 因此要怎么做时打印服务角色添加到服务器核心安装，并且你想要安装打印机？ 您的打印机驱动程序手动添加到服务器-服务器核心有没有现成的打印驱动程序。
 
-##<a name="service-footprint"></a>服务占用空间
+## <a name="service-footprint"></a>服务占用空间
 服务器核心是最小安装，因为它具有较小的系统服务占用比相应的完整安装的相同的硬件体系结构和版本。 例如，默认情况下，Windows Server 2008 中，其中大约 50 配置为自动启动的完全安装上安装约 75 个系统服务。 与此相反，服务器核心已自动安装的默认值，且少于 40 这些开始仅约 70 服务。 
 
 表 1-5 列出了默认情况下，在服务器核心安装中，启动模式下进行安装的服务和每个服务使用的帐户。
 
 **表 1-5**默认情况下，在 Server Core 上安装的系统服务
 
-| 服务名称  | 显示名称  | 启动模式  | 帐户  |
+| 服务名称  | Display name  | 启动模式  | 帐户  |
 | ------------- | ------------- | ------------ | ------------ |
 | AeLookupSvc  | 应用程序体验  | 自动 | LocalSystem |
 | AppMgmt  | 应用程序管理  | Manual | LocalSystem |

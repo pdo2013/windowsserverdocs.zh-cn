@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 01/18/2019
 description: 本文介绍将 Windows Server 2019 群集从一个域移到另一个
 ms.localizationpriority: medium
-ms.openlocfilehash: bcfd458c94d33820f434cde3313dc069fc42ffd9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1054de942e807f00586903683faeaf695ec2f033
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875938"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452927"
 ---
 # <a name="failover-cluster-domain-migration"></a>故障转移群集域迁移
 
@@ -46,7 +46,7 @@ Microsoft 不会尝试将资源从一个域移到另一个如果基础的应用�
 
 第一个选项涉及销毁群集和重新生成新的域中。
 
-![销毁并重新生成](media\Cross-Domain-Cluster-Migration\Cross-Cluster-Domain-Migration-1.gif)
+![销毁并重新生成](media/Cross-Domain-Cluster-Migration/Cross-Cluster-Domain-Migration-1.gif)
 
 如动画所示，此选项是破坏性的步骤要：
 
@@ -56,7 +56,7 @@ Microsoft 不会尝试将资源从一个域移到另一个如果基础的应用�
 
 第二个选项是破坏性较小，但需要额外的硬件，如新的群集需要生成新的域中。  群集后在新域中，运行群集迁移向导迁移资源。 请注意，这不会将数据迁移-将需要使用另一种工具来迁移数据，如[存储迁移服务](../storage/storage-migration-service/overview.md)（一旦添加了群集支持）。
 
-![生成并迁移](media\Cross-Domain-Cluster-Migration\Cross-Cluster-Domain-Migration-2.gif)
+![生成并迁移](media/Cross-Domain-Cluster-Migration/Cross-Cluster-Domain-Migration-2.gif)
 
 如动画所示，此选项不是破坏性，但确实需要不同的硬件或从现有群集节点不是已删除。
 
@@ -76,7 +76,7 @@ Microsoft 不会尝试将资源从一个域移到另一个如果基础的应用�
 
 若要完成此过程是从一个域更改群集到工作组并返回到新域。  要销毁群集、 重新生成群集，请安装应用程序，等等的要求不是一项要求。 例如，它将类似如下：
 
-![迁移](media\Cross-Domain-Cluster-Migration\Cross-Cluster-Domain-Migration-3.gif)
+![迁移](media/Cross-Domain-Cluster-Migration/Cross-Cluster-Domain-Migration-3.gif)
 
 ## <a name="migrating-a-cluster-to-a-new-domain"></a>将群集迁移到新域
 

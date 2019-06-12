@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0ac1e7cd50fe4d9325c272f74a7b81971c8bb12a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c4ec445c3e367a46dc40d10a37c0b3b8e53a10e3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878208"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438328"
 ---
 # <a name="ftp-mdir"></a>ftp: mdir
 
@@ -30,24 +30,26 @@ ms.locfileid: "59878208"
 mdir <remoteFile>[ ] <LocalFile>  
 ```  
 ### <a name="parameters"></a>Parameters  
-|参数|描述|  
-|-------|--------|  
-|<remoteFile>|指定你想要查看列表的目录或文件。|  
-|<LocalFile>|指定要应用商店一览的本地文件。 此参数是必需的。|  
+
+|  参数   |                               描述                                |
+|--------------|--------------------------------------------------------------------------|
+| <remoteFile> |   指定你想要查看列表的目录或文件。   |
+| <LocalFile>  | 指定要应用商店一览的本地文件。 此参数是必需的。 |
+
 ## <a name="remarks"></a>备注  
--   可以使用**mdir**若要指定多个文件。  
--   指定*remoteFile*  
-    键入一个连字符 (**-**) 若要在远程计算机上使用当前工作目录。  
--   指定*本地文件*  
-    键入一个连字符 (**-**) 以在屏幕上显示该列表。  
-## <a name="BKMK_Examples"></a>示例  
-显示的目录列表**dir1**并**dir2**在屏幕上  
-```  
-mdir dir1 dir2 -  
-```  
-保存的组合的目录列表**dir1**并**dir2**本地文件中名为**dirlist.txt**  
-```  
-mdir dir1 dir2 dirlist.txt  
-```  
-## <a name="additional-references"></a>其他参考  
--   [命令行语法解答](command-line-syntax-key.md)  
+- 可以使用**mdir**若要指定多个文件。  
+- 指定*remoteFile*  
+  键入一个连字符 ( **-** ) 若要在远程计算机上使用当前工作目录。  
+- 指定*本地文件*  
+  键入一个连字符 ( **-** ) 以在屏幕上显示该列表。  
+  ## <a name="BKMK_Examples"></a>示例  
+  显示的目录列表**dir1**并**dir2**在屏幕上  
+  ```  
+  mdir dir1 dir2 -  
+  ```  
+  保存的组合的目录列表**dir1**并**dir2**本地文件中名为**dirlist.txt**  
+  ```  
+  mdir dir1 dir2 dirlist.txt  
+  ```  
+  ## <a name="additional-references"></a>其他参考  
+- [命令行语法项](command-line-syntax-key.md)  

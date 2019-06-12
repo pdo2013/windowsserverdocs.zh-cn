@@ -9,12 +9,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 05/21/2019
 ms.topic: get-started-article
-ms.openlocfilehash: e2aac6db7bb9e118d672190c95f0d73294474f75
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: c0d85da8a51a43acd7765957b34220829a43b086
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976531"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810707"
 ---
 # <a name="kms-client-setup-keys"></a>KMS 客户端安装密钥
 
@@ -22,7 +22,7 @@ ms.locfileid: "65976531"
 
 默认情况下，运行批量许可版本的 Windows Server、Windows 10、Windows 8.1、Windows Server 2012 R2、Windows 8、Windows Server 2012、Windows 7、Windows Server 2008 R2、Windows Vista 和 Windows Server 2008 的计算机为无需额外配置的 KMS 客户端。
 
->[!NOTE]
+> [!NOTE]
 > 在各表所述，"LTSC"代表"长期服务频道，"而"LTSB"是指"长期服务分支。" 
 
 **为使用此处列出的密钥 （它们是 Gvlk），你必须首先在部署中运行的 KMS 主机。** 如果你尚未配置 KMS 主机，则请参阅 [Deploy KMS Activation](https://technet.microsoft.com/library/dn502531(v=ws.11).aspx) ，以获取安装一个主机的步骤。

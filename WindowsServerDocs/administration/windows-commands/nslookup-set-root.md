@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 63bdd16263c64f823530119754c31de24e395159
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 38cd5a2e9878a8e43393befc5cbd4fc47c65ec53
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820788"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436601"
 ---
 # <a name="nslookup-set-root"></a>nslookup set root
 
@@ -30,12 +30,14 @@ ms.locfileid: "59820788"
 set root=<RootServer>
 ```
 ## <a name="parameters"></a>Parameters
-|参数|描述|
-|-------|--------|
-|<RootServer>|指定根服务器的新名称。 默认值为 ns.nic.ddn.mil。|
-|{help &#124; ?}|显示的短摘要**nslookup**子命令。|
+
+|    参数    |                                   描述                                    |
+|-----------------|----------------------------------------------------------------------------------|
+|  <RootServer>   | 指定根服务器的新名称。 默认值为 ns.nic.ddn.mil。 |
+| {help &#124; ?} |              显示的短摘要**nslookup**子命令。               |
+
 ## <a name="remarks"></a>备注
--   **集根**子命令会影响**根**子命令。
-## <a name="additional-references"></a>其他参考
-[命令行语法解答](command-line-syntax-key.md)
-[nslookup 根](nslookup-root.md)
+- **集根**子命令会影响**根**子命令。
+  ## <a name="additional-references"></a>其他参考
+  [命令行语法解答](command-line-syntax-key.md)
+  [nslookup 根](nslookup-root.md)

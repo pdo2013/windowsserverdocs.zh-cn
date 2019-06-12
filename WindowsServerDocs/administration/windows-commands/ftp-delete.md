@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1365373097cf7280c4475514107a940f46e65893
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1c8af4beb83b789be1456d5556a0aa07749590fb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840068"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438722"
 ---
 # <a name="ftp-delete"></a>ftp: delete
 
@@ -30,13 +30,15 @@ ms.locfileid: "59840068"
 delete <remoteFile>  
 ```  
 ### <a name="parameters"></a>Parameters  
-|参数|描述|  
-|-------|--------|  
-|<remoteFile>|指定要删除的文件。|  
+
+|  参数   |          描述          |
+|--------------|-------------------------------|
+| <remoteFile> | 指定要删除的文件。 |
+
 ## <a name="BKMK_Examples"></a>示例  
 删除远程计算机上的 test.txt 文件。  
 ```  
 delete test.txt  
 ```  
 ## <a name="additional-references"></a>其他参考  
--   [命令行语法解答](command-line-syntax-key.md)  
+-   [命令行语法项](command-line-syntax-key.md)  

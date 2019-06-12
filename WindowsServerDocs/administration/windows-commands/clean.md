@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6e7d7613784f3e599005b25259f70466db60e626
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cd5eb2ec1bde4523eb6f0f919e09b9711b2654fb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877428"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434327"
 ---
 # <a name="clean"></a>clean
 
@@ -30,17 +30,19 @@ Diskpart clean 命令中删除所有分区或卷格式从选中的磁盘。
 clean [all]
 ```
 ## <a name="parameters"></a>Parameters
-|参数|描述|
-|-------|--------|
-|全部|指定在磁盘上的每个扇区设置为零，完全删除磁盘上包含的所有数据。|
+
+| 参数 |                                                        描述                                                        |
+|-----------|---------------------------------------------------------------------------------------------------------------------------|
+|    全部    | 指定在磁盘上的每个扇区设置为零，完全删除磁盘上包含的所有数据。 |
+
 ## <a name="remarks"></a>备注
--   在主启动记录 (MBR) 磁盘，覆盖 MBR 分区信息和隐藏的扇区信息。
--   在 GUID 分区表 (gpt) 磁盘上，会覆盖 gpt 分区信息，包括保护性 MBR。 没有任何隐藏扇区信息。
--   成功执行此操作，必须选择一个磁盘。 使用**选择的磁盘**命令选择某一磁盘，并将焦点移到它。
-## <a name="BKMK_examples"></a>示例
-若要删除所选磁盘中的所有格式，请键入：
-```
-clean
-```
+- 在主启动记录 (MBR) 磁盘，覆盖 MBR 分区信息和隐藏的扇区信息。
+- 在 GUID 分区表 (gpt) 磁盘上，会覆盖 gpt 分区信息，包括保护性 MBR。 没有任何隐藏扇区信息。
+- 成功执行此操作，必须选择一个磁盘。 使用**选择的磁盘**命令选择某一磁盘，并将焦点移到它。
+  ## <a name="BKMK_examples"></a>示例
+  若要删除所选磁盘中的所有格式，请键入：
+  ```
+  clean
+  ```
 
 [Clear-Disk](https://technet.microsoft.com/library/hh848661.aspx)

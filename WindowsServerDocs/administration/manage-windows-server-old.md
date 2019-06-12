@@ -8,12 +8,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 03/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4faadb811927626c26a5b01e2ce0598d40792b68
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7ae87b12997aa3cb3ae3fe290c9243995b30d6b0
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846758"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452825"
 ---
 # <a name="manage-windows-server"></a>管理 Windows Server
 
@@ -118,5 +118,5 @@ Winows PowerShell 是命令行 shell 和脚本语言，旨在让你快速地自�
 Windows 命令行工具用于在 Windows 中执行管理任务。 你可以使用命令参考熟悉命令行工具，以了解命令 shell，并通过使用批处理文件或脚本工具自动执行命令行任务。
 
 ## <a name="windows-server-insider-preview"></a>Windows Server Insider Preview
-### <a name="system-insightsmanagesystem-insightsoverviewmd"></a>[系统见解](..\manage\system-insights\overview.md)
+### <a name="system-insightsmanagesystem-insightsoverviewmd"></a>[系统见解](../manage/system-insights/overview.md)
 系统见解是一项新功能，可在本机将预测分析引入到 Windows Server 中。 这些预测功能在本地分析 Windows Server 系统数据，例如性能计数器或 ETW 事件，并帮助 IT 管理员主动检测和解决其部署中的问题行为。 

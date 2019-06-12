@@ -1,33 +1,36 @@
 ---
 title: 哪种类型是安装的最适合你
-description: 哪种类型是安装的最适合你 Windows Admin Center (项目 Honolulu)。 在高可用性和复原能力的故障转移群集上安装。
+description: 本主题介绍 Windows Admin Center，包括由多个管理员在 Windows 10 电脑或使用的 Windows 服务器上安装的不同安装选项。
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: fae0305e454cdd10109219c6182ff612f539e9c9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.date: 06/07/2019
+ms.openlocfilehash: 9b26ce28d8b3f74c26adab87e68b9985f2be5361
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868008"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811813"
 ---
 # <a name="what-type-of-installation-is-right-for-you"></a>哪种安装类型适合你？
 
 >适用于：Windows Admin Center，Windows Admin Center 预览版
 
+本主题介绍 Windows Admin Center，包括由多个管理员在 Windows 10 电脑或使用的 Windows 服务器上安装的不同安装选项。 若要在 Azure 中的 VM 上安装 Windows Admin Center，请参阅[在 Azure 中部署 Windows Admin Center](../azure/deploy-wac-in-azure.md)。
+
 ## <a name="supported-operating-systems-installation"></a>支持的操作系统：安装
 
 你可以**安装**以下 Windows 操作系统上的 Windows Admin Center:
 
-| **版本** | **安装模式** |
-|-------------|-----------------------|
-|Windows 10 版本 1709 或更高版本 | 桌面模式 |
-|Windows Server 半年频道 | 网关模式 |
-|Windows Server 2016 | 网关模式 |
-|Windows Server 2019 | 网关模式 |
+| **版本**  | **安装模式** |
+| -------------| -----------------------|
+| Windows 10 版本 1709 或更高版本 | 桌面模式 |
+| Windows Server 半年频道 | 网关模式 |
+| Windows Server 2016 | 网关模式 |
+| Windows Server 2019 | 网关模式 |
 
 **桌面模式：** 从开始菜单启动以及从其安装同一台计算机连接到 Windows Admin Center 网关 (即`https://localhost:6516`)
 
@@ -44,8 +47,8 @@ ms.locfileid: "59868008"
 
 你可以**管理**以下 Windows 操作系统使用 Windows Admin Center:
 
-| Version | 管理*节点*通过*服务器管理器* | 管理*群集*通过*故障转移群集管理器* | 管理*HCI*通过*HCI 群集管理器*|
-|-------------------------|---------------|-----|------------------------|
+| Version | 管理*节点*通过*服务器管理器* | 管理*群集*通过*故障转移群集管理器* | 管理*HCI*通过*HCI 群集管理器* |
+| ------------------------- |--------------- | ----- | ------------------------ |
 | Windows 10 版本 1709 或更高版本 | 是 （通过计算机管理） | 不可用 | 不可用 |
 | Windows Server 半年频道 | 是 | 是 | 不可用 |
 | Windows Server 2019 | 是 | 是 | 是 |
@@ -58,15 +61,16 @@ ms.locfileid: "59868008"
 
 > [!NOTE]
 > Windows Admin Center 需要的 Windows Server 2008 R2，2012年和 2012 R2 中不包括 PowerShell 功能。 如果将管理其与 Windows Admin Center，您将需要这些服务器上安装 Windows Management Framework (WMF) 5.1 或更高版本。
-
->在 PowerShell 中键入 `$PSVersiontable`，以验证是否安装了 WMF 并且版本是否为 5.1 或更高版本。 
-
->如果未安装 WMF，你可以[下载 WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)。
+> 
+> 在 PowerShell 中键入 `$PSVersiontable`，以验证是否安装了 WMF 并且版本是否为 5.1 或更高版本。 
+> 
+> 如果未安装 WMF，你可以[下载 WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)。
 
 ## <a name="deployment-options"></a>部署选项
 
 | ![i m g](../media/deployment-options/W10.png) | ![i m g](../media/deployment-options/gateway.png) | ![i m g](../media/deployment-options/node.png) | ![i m g](../media/deployment-options/HA.png) |
-|---|---|---|---|
+| --------------------------------------------- | ------------------------------------------------- |----------------------------------------------|-------------------------------------------- |
+|                                             |                                                 |                                              |                                            |
 
 | 本地客户端 | 网关服务器 | 托管服务器 | 故障转移群集 |
 | --- | --- | --- | --- |

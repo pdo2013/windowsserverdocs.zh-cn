@@ -10,23 +10,23 @@ ms.topic: article
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 71b56a0bc4f53879ebaf3610f60dded39484375b
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: e7ff669b1a1ca3bed5d7c827c40bc46e81ea3f02
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222356"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810598"
 ---
 # <a name="get-started-with-windows-server-2016"></a>Windows Server 2016 入门
 
 >适用于：Windows Server 2016
 
->[!TIP]
+> [!TIP]
 > 要查找有关较旧版 Windows Server 的信息？ 在 docs.microsoft.com 上查看我们的其他 [Windows Server 库](/previous-versions/windows/)。 也可以[搜索此站点](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions)了解具体信息。
 
 ![显示具有一个复选标记的框图标](../media/landing-icons/getstarted.png)此集合包含可帮助您确定您是否准备好移动到 Windows Server 2016 的详细的信息。 一旦检查了移动到 Windows Server 2016 的系统要求、升级选项和其他信息，你就可以返回到主 [Windows Server 2016](Windows-Server-2016.md) 集线器，并开始在路径下安装满足你需要的最佳版本和安装选项。 
 
->[!Note]
+> [!Note]
 > 若要下载 Windows Server 2016，请参阅 [Windows Server 评估](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016)。
 
 

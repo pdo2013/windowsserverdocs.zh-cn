@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a3de5088b64105e970fc38f55ecaf54382670549
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f8ad4cf5480492042cdd1e372abae652aff71b90
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843458"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437188"
 ---
 # <a name="msinfo32"></a>msinfo32
 
@@ -30,19 +30,21 @@ ms.locfileid: "59843458"
 msinfo32 [/pch] [/nfo <path>] [/report <path>] [/computer <computerName>] [/showcategories] [/category <CategoryID>] [/categories {+<CategoryID>(+<CategoryID>)|+all(-<CategoryID>)}]
 ```
 ### <a name="parameters"></a>Parameters
-|参数|描述|
-|-------|--------|
-|<path>|指定的文件格式打开*C:\Folder1\File1.XXX*，其中*C*是驱动器号， *Folder1*是文件夹， *File1*是文件名称，并*XXX*是文件扩展名。<br /><br />此文件可以是 **.nfo**， **.xml**， **.txt**，或者 **.cab**文件。|
-|<computerName>|指定的目标或本地计算机的名称。 这可以是 UNC 名称、 IP 地址或完整计算机名称。|
-|<CategoryID>|指定的类别项的 ID。 你可以通过使用获取的类别 ID **/showcategories**。|
-|/pch|显示系统历史记录视图中的系统信息工具。|
-|/nfo|保存导出的文件作为 **.nfo**文件。 中指定的文件的名称，如果*路径*不是以结尾 **.nfo**扩展 **.nfo**扩展自动追加到的文件的名称。|
-|/report|将保存在文件*路径*为文本文件。 保存的文件名称中显示的样子*路径*。 除非指定路径中时，.txt 扩展名不被追加到文件。|
-|/computer|启动指定的远程计算机的系统信息工具。 必须具有适当的权限即可访问远程计算机。|
-|/showcategories|系统信息工具启动了所有可用类别 Id 显示，而不是显示友好或本地化名称。 例如，软件环境类别显示为**SWEnv**类别。|
-|/category|系统信息开始指定所选的类别。 使用 **/showcategories**以显示可用的类别 Id 的列表。|
-|/categories|启动指定的类别或类别显示系统信息。 它还将输出限制为所选的类别或类别。 使用 **/showcategories**以显示可用的类别 Id 的列表。|
-|/?|在命令提示符下显示帮助。|
+
+|    参数    |                                                                                                                                 描述                                                                                                                                  |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     <path>      | 指定的文件格式打开*C:\Folder1\File1.XXX*，其中*C*是驱动器号， *Folder1*是文件夹， *File1*是文件名称，并*XXX*是文件扩展名。<br /><br />此文件可以是 **.nfo**， **.xml**， **.txt**，或者 **.cab**文件。 |
+| <computerName>  |                                                                             指定的目标或本地计算机的名称。 这可以是 UNC 名称、 IP 地址或完整计算机名称。                                                                              |
+|  <CategoryID>   |                                                                                     指定的类别项的 ID。 你可以通过使用获取的类别 ID **/showcategories**。                                                                                      |
+|      /pch       |                                                                                                       显示系统历史记录视图中的系统信息工具。                                                                                                       |
+|      /nfo       |                                     保存导出的文件作为 **.nfo**文件。 中指定的文件的名称，如果*路径*不是以结尾 **.nfo**扩展 **.nfo**扩展自动追加到的文件的名称。                                      |
+|     /report     |                                               将保存在文件*路径*为文本文件。 保存的文件名称中显示的样子*路径*。 除非指定路径中时，.txt 扩展名不被追加到文件。                                                |
+|    /computer    |                                                                启动指定的远程计算机的系统信息工具。 必须具有适当的权限即可访问远程计算机。                                                                |
+| /showcategories |                         系统信息工具启动了所有可用类别 Id 显示，而不是显示友好或本地化名称。 例如，软件环境类别显示为**SWEnv**类别。                         |
+|    /category    |                                                                     系统信息开始指定所选的类别。 使用 **/showcategories**以显示可用的类别 Id 的列表。                                                                     |
+|   /categories   |                          启动指定的类别或类别显示系统信息。 它还将输出限制为所选的类别或类别。 使用 **/showcategories**以显示可用的类别 Id 的列表。                          |
+|       /?        |                                                                                                                     在命令提示符下显示帮助。                                                                                                                     |
+
 ## <a name="remarks"></a>备注
 某些系统信息类别包含大量的数据。 可以使用**start /wait**命令可优化这些类别的报告性能。 有关详细信息，请参阅[系统信息](https://technet.microsoft.com/library/cc783305(v=ws.10).aspx)。
 ## <a name="BKMK_Examples"></a>示例
@@ -63,5 +65,5 @@ msinfo32 /nfo syssum.nfo /categories +systemsummary
 msinfo32 /nfo conflicts.nfo /categories    +componentsproblemdevices+resourcesconflicts+resourcesforcedhardware
 ```
 ## <a name="additional-references"></a>其他参考
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)
 

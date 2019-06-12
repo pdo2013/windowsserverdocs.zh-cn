@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 7469171005164d9ff823dad7de230d877c874dc9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 486c11ebd46c6fd23b3bd16cd90463f8d607287e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840878"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443547"
 ---
 # <a name="migrating-roles-and-features-in-windows-server"></a>在 Windows Server 中迁移角色和功能
 
@@ -36,7 +36,7 @@ Windows Server 2012 R2 和 Windows Server 2012 迁移指南的电子书现已提
 
 >[!NOTE]
 >每当迁移到或升级到任何版本的 Windows Server 时，都应查看并了解[支持生命周期策略](https://support.microsoft.com/lifecycle)以及该版本的时间范围，并且作出相应的计划。 你可以[搜索生命周期信息](https://support.microsoft.com/lifecycle)，以便了解你感兴趣的特定 Windows server 版本。
- 
+ 
 ## <a name="windows-server-2016"></a>Windows Server 2016
 
 ### <a name="migration-guides"></a>迁移指南
@@ -45,8 +45,8 @@ Windows Server 2012 R2 和 Windows Server 2012 迁移指南的电子书现已提
 - [远程桌面服务](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/migrate-rds-role-services)
 - [Web Server (IIS)](https://www.iis.net/downloads/microsoft/web-deploy)
 - [Windows Server Update Services](https://technet.microsoft.com/library/hh852339.aspx)
-- [MultiPoint 服务](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/multipoint-services/multipoint-services-migrate)
- 
+- [MultiPoint Services](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/multipoint-services/multipoint-services-migrate)
+ 
 ## <a name="windows-server-2012-r2"></a>Windows Server 2012 R2
 
 ### <a name="migration-guides"></a>迁移指南
@@ -63,7 +63,7 @@ Windows Server 2012 R2 和 Windows Server 2012 迁移指南的电子书现已提
 - [将 Windows Server Update Services 迁移到 Windows Server 2012 R2](https://technet.microsoft.com/library/hh852339.aspx)
 - [将群集角色迁移到 Windows Server 2012 R2](https://technet.microsoft.com/library/dn530779.aspx)
 - [将 DHCP 服务器迁移到 Windows Server 2012 R2](https://technet.microsoft.com/library/dn495425.aspx)
- 
+ 
 ## <a name="windows-server-2012"></a>Windows Server 2012
 
 ### <a name="migration-guides"></a>迁移指南
@@ -80,7 +80,7 @@ Windows Server 2012 R2 和 Windows Server 2012 迁移指南的电子书现已提
 - [将 Windows Server Update Services 迁移到 Windows Server 2012](https://technet.microsoft.com/library/hh852339)
 - [Active Directory 域控制器升级到 Windows Server 2012](https://technet.microsoft.com/library/hh994618.aspx)
 - [迁移群集的服务和应用程序到 Windows Server 2012](https://technet.microsoft.com/library/dn486790.aspx)
- 
+ 
 
 有关其他迁移资源，请访问[将角色和功能迁移到 Windows Server 2012](https://technet.microsoft.com/library/jj134039)。
 
@@ -104,5 +104,6 @@ Windows Server 2012 R2 和 Windows Server 2012 迁移指南的电子书现已提
 - [远程桌面服务迁移指南](https://technet.microsoft.com/library/ff849223)
 - [RRAS 迁移指南](https://technet.microsoft.com/library/ee822825)
 - [Windows Server 迁移常见任务和信息](https://technet.microsoft.com/library/ff400258)
-- [Windows Server Update Services 3.0 SP2 迁移指南](https://technet.microsoft.com/library/ee822826)  
+- [Windows Server Update Services 3.0 SP2 迁移指南](https://technet.microsoft.com/library/ee822826)
+ 
 有关其他迁移资源，请访问[将角色和功能迁移到 Windows Server 2008 R2](https://technet.microsoft.com/library/dd365353)。

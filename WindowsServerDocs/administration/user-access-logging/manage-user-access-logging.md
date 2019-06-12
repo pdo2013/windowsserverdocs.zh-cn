@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d65a40e229fe4b0a1b27db496523dfe7a9419752
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 03bad9864f81cf75be13b4ca391fdcbc5f9dcb5c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886788"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435355"
 ---
 # <a name="manage-user-access-logging"></a>管理用户访问日志记录记录
 
@@ -58,24 +58,24 @@ UAL 启用和运行 Windows Server 2012 的计算机时默认情况下运行或�
   
 1.  使用有本地管理员权限的帐户登录服务器。  
   
-2.  在“服务器管理器”中，指向 **“工具”**，然后单击 **“服务”**。  
+2.  在“服务器管理器”中，指向 **“工具”** ，然后单击 **“服务”** 。  
   
 3.  向下滚动并选择**User Access Logging Service**。单击**停止服务**。  
   
-4.  右\-单击服务名称，然后选择**属性**。 在 **“常规”** 选项卡中，将 **“启动类型”** 更改为 **“禁用”**，然后单击 **“确定”**。  
+4.  右\-单击服务名称，然后选择**属性**。 在 **“常规”** 选项卡中，将 **“启动类型”** 更改为 **“禁用”** ，然后单击 **“确定”** 。  
   
 #### <a name="to-stop-and-disable-ual-from-the-command-line"></a>从命令行停止并禁用 UAL 的步骤  
   
 1.  使用有本地管理员权限的帐户登录服务器。  
   
-2.  按 Windows 徽标键 + R，然后键入“cmd” 打开命令提示符窗口。  
+2.  按 Windows 徽标键 + R，然后键入“cmd”  打开命令提示符窗口。  
   
     > [!IMPORTANT]  
-    > 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+    > 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
-3.  键入“net stop ualsvc”，然后按 Enter。  
+3.  键入“net stop ualsvc”  ，然后按 Enter。  
   
-4.  键入“netsh ualsvc set opmode mode=disable”，然后按 Enter。  
+4.  键入“netsh ualsvc set opmode mode=disable”  ，然后按 Enter。  
    
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
 
@@ -95,24 +95,24 @@ Disable-ual
   
 1.  使用有本地管理员权限的帐户登录服务器。  
   
-2.  在“服务器管理器”中，指向 **“工具”**，然后单击 **“服务”**。  
+2.  在“服务器管理器”中，指向 **“工具”** ，然后单击 **“服务”** 。  
   
 3.  向下滚动并选择 **User Access Logging Service**。单击 **启用服务**。  
   
-4.  右键单击该服务名称，然后选择 **“属性”**。 在 **“常规”** 选项卡中，将 **“启动类型”** 更改为 **“自动”**，然后单击 **“确定”**。  
+4.  右键单击该服务名称，然后选择 **“属性”** 。 在 **“常规”** 选项卡中，将 **“启动类型”** 更改为 **“自动”** ，然后单击 **“确定”** 。  
   
 #### <a name="to-start-and-enable-ual-from-the-command-line"></a>从命令行启动并启用 UAL 的步骤  
   
 1.  使用本地管理员凭据登录服务器  
   
-2.  按 Windows 徽标键 + R，然后键入“cmd” 打开命令提示符窗口。  
+2.  按 Windows 徽标键 + R，然后键入“cmd”  打开命令提示符窗口。  
   
     > [!IMPORTANT]  
-    > 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+    > 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
-3.  键入“net start ualsvc”，然后按 Enter。  
+3.  键入“net start ualsvc”  ，然后按 Enter。  
   
-4.  键入“netsh ualsvc set opmode mode=enable” ，然后按 Enter。  
+4.  键入“netsh ualsvc set opmode mode=enable”  ，然后按 Enter。  
 
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。
   
@@ -193,9 +193,9 @@ UAL 会保留长达两年的历史记录。 为了在服务运行的时候允许
   
 1.  使用有本地管理员权限的帐户登录服务器。  
   
-2.  按 Windows 徽标键 + R，然后键入“cmd” 打开命令提示符窗口。  
+2.  按 Windows 徽标键 + R，然后键入“cmd”  打开命令提示符窗口。  
   
-3.  添加注册表值：**HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\WMI\AutoLogger\Sum\PollingInterval (REG_DWORD)**。  
+3.  添加注册表值：**HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\WMI\AutoLogger\Sum\PollingInterval (REG_DWORD)** 。  
   
     > [!WARNING]  
     > 不正确地编辑注册表可能会对系统造成严重损坏。 在更改注册表之前，应当备份计算机上任何有价值的数据。  
@@ -211,13 +211,13 @@ UAL 意图不在于充当一个关键任务组件。 它的设计目的是在保
   
 #### <a name="to-delete-data-logged-by-ual"></a>删除 UAL 记录的数据的步骤  
   
-1.  停止 User Access Logging Service。  
+1. 停止 User Access Logging Service。  
   
-2.  打开 Windows Explorer。  
+2. 打开 Windows Explorer。  
   
-3.  转到 **\Windows\System32\Logfiles\SUM\**。  
+3. 转到 **\Windows\System32\Logfiles\SUM\\** 。  
   
-4.  删除文件夹中的所有文件。  
+4. 删除文件夹中的所有文件。  
   
 ## <a name="managing-ual-in-high-volume-environments"></a>在大容量环境中管理 UAL  
 本部分描述了在高客户端容量的服务器上使用 UAL 时，管理员可以期待什么：  

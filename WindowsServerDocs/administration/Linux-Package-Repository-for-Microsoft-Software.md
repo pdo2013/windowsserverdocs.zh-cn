@@ -11,12 +11,12 @@ ms.assetid: b5387444-595f-4f38-abb7-163a70ea1895
 author: szarkos
 ms.author: szark
 ms.date: 10/16/2017
-ms.openlocfilehash: dbdbd0f436645f7e19c07e4f3278c5073636a547
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.openlocfilehash: 3b4feb6b8b3dad5c34de92f634eb30d0e952fe76
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831858"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435772"
 ---
 # <a name="linux-software-repository-for-microsoft-products"></a>Linux 软件存储库的 Microsoft 产品
 
@@ -29,8 +29,8 @@ Microsoft 的 Linux 软件存储库包含多个的子存储库：
 
  - mssql-server-这些存储库包含包的 Linux-请参阅上的 Microsoft SQL Server 还：[Linux 上的 SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-vnext-including-Linux)。
 
->[!Note]
-Linux 软件存储库中的包位于包的许可条款。 请阅读许可条款才能使用包。 安装和使用包即表明您接受这些条款。 如果你不同意许可条款，请勿使用包。
+> [!Note]
+> Linux 软件存储库中的包位于包的许可条款。 请阅读许可条款才能使用包。 安装和使用包即表明您接受这些条款。 如果你不同意许可条款，请勿使用包。
 
 
 ## <a name="configuring-the-repositories"></a>配置存储库

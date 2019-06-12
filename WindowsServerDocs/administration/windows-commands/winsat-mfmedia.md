@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 69ce4fac127a6af8a94f3800d62c45989cf7020b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2c63682e474311a49b01dc8078b023547e1fb170
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845428"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440020"
 ---
 # <a name="winsat-mfmedia"></a>winsat mfmedia
 
@@ -48,16 +48,16 @@ winsat mfmedia <parameters>
 |xml\<文件名称 >|将评估的输出保存为指定的 XML 文件。 如果指定的文件存在，它将被覆盖。|
 |-idiskinfo|保存有关物理卷和逻辑磁盘的信息作为的一部分 **\<SystemConfig >** XML 输出中的部分。|
 |-iguid|在 XML 输出文件中创建全局唯一标识符 (GUID)。|
-|-请注意"注意 text"|请注意将文本添加到**\<注意 >** XML 输出文件中的部分。|
+|-请注意"注意 text"|请注意将文本添加到 **\<注意 >** XML 输出文件中的部分。|
 |-icn|在 XML 输出文件中包含本地计算机的名称。|
 |-eef|枚举 XML 输出文件中的额外的系统信息。|
 
 ## <a name="BKMK_examples"></a>示例
 
--   下面的示例使用过程中使用的输入文件运行评估**winsat 正式**评估，而无需使用 Media Foundation 受保护的媒体管道 (MFPMP)，c:\windows 所在的位置的计算机上Windows 文件夹中。  
-    ```
-    winsat mfmedia -input c:\windows\performance\winsat\winsat.wmv -nopmp
-    ```
+- 下面的示例使用过程中使用的输入文件运行评估**winsat 正式**评估，而无需使用 Media Foundation 受保护的媒体管道 (MFPMP)，c:\windows 所在的位置的计算机上Windows 文件夹中。  
+  ```
+  winsat mfmedia -input c:\windows\performance\winsat\winsat.wmv -nopmp
+  ```
 
 ## <a name="remarks"></a>备注
 

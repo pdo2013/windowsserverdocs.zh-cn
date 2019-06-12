@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bbc878bd0ee25ad92c640710ab6b46bbc0eaf62a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: f097fc8268976cf038523de0d5fa33c1dd3c6901
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827678"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438036"
 ---
 # <a name="ksetupaddrealmflags"></a>ksetup:addrealmflags
 
@@ -42,7 +42,7 @@ ksetup /addrealmflags <RealmName> [sendaddress] [tcpsupported] [delegate] [ncsup
 
 领域标志指定 Kerberos 领域不基于 Windows Server 操作系统的其他功能。 运行 Windows Server 2003、 Windows Server 2008 或 Windows Server 2008 R2 的计算机可以使用 Kerberos 服务器来管理身份验证而不是使用域运行 Windows Server 操作系统，并且这些系统参与Kerberos 领域。 此项建立的领域的功能。 下表描述了每个。
 
-|值|领域标志|描述|
+|ReplTest1|领域标志|描述|
 |-----|----------|-----------|
 |0xF|全部|设置所有领域标志。|
 |0x00|无|未设置任何领域标志，并启用任何其他功能。|
@@ -52,7 +52,7 @@ ksetup /addrealmflags <RealmName> [sendaddress] [tcpsupported] [delegate] [ncsup
 |0x08|NcSupported|此领域支持名称规范化，允许对 DNS 和领域命名标准。|
 |0x80|RC4|此领域支持 RC4 加密来启用跨领域信任，可以利用 TLS。|
 
-注册表中存储领域标志**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Domains\*** 领域-名称*。 默认情况下，注册表中不存在此项。 可以使用[Ksetup:addrealmflags](ksetup-addrealmflags.md)命令来填充注册表。
+注册表中存储领域标志**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Domains\\** <em>领域名称</em>。 默认情况下，注册表中不存在此项。 可以使用[Ksetup:addrealmflags](ksetup-addrealmflags.md)命令来填充注册表。
 
 您可以看到哪些领域标志是可用，并且已设置通过查看 ksetup 或 ksetup /dumpstate 的输出。
 
@@ -70,11 +70,11 @@ ksetup /setrealmflags CONTOSO ncsupported delegate
 ```
 ksetup /addrealmflags CONTOSO SendAddress
 ```
-运行**ksetup**命令来验证是否通过查看输出并查找设置领域标志**领域标志 =**。
+运行**ksetup**命令来验证是否通过查看输出并查找设置领域标志**领域标志 =** 。
 
 #### <a name="additional-references"></a>其他参考
 
 -   [Ksetup:listrealmflags](ksetup-listrealmflags.md)
 -   [Ksetup:setrealmflags](ksetup-setrealmflags.md)
 -   [Ksetup:delrealmflags](ksetup-delrealmflags.md)
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)

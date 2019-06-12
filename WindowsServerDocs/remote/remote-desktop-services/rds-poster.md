@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a8c6d5fa-399b-4823-8f10-affec1bbfe65
 ms.localizationpriority: medium
-ms.openlocfilehash: 601261780f64a779d0aa43ea8d14f58fdcb5f502
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 571af5a50618db285aecbf26573ba52a6aec1101
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874138"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453112"
 ---
 # <a name="remote-desktop-services---planning-poster"></a>远程桌面服务 - 规划海报
 
@@ -27,7 +27,7 @@ ms.locfileid: "59874138"
 
 远程桌面服务团队制作了海报，帮助你规划、构建并运行 RDS 环境。
 
-![远程桌面服务海报](.\media\rds-poster-download.png)
+![远程桌面服务海报](./media/rds-poster-download.png)
 
 若要获取海报副本，你可以右键单击该图像，将其保存到你的本地系统。
 

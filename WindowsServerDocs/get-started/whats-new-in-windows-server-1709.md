@@ -7,19 +7,23 @@ ms.topic: article
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
-ms.openlocfilehash: 32ce591a8b50c6e35c3fde4fedb177b6d76fccdd
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.date: 06/03/2019
+ms.openlocfilehash: e17a636c5bf06d194abd1bfe9b6d20970773e993
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976728"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501395"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Windows Server 版本 1709 中的新增功能
 
 >适用于：Windows Server（半年频道）
 
 <img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;若要了解有关 Windows 中的最新功能的信息，请参阅[What's New in Windows Server](whats-new-in-windows-server.md)。 本节中的内容介绍 Windows Server 版本 1709 中的新增功能和更改的功能。 此处列出的新功能和更改在你使用此版本时最可能具有最大影响力。 另请参阅 [Windows Server 版本 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/)。
-   
+
+> [!IMPORTANT]
+> Windows Server 1709 版不受支持从 2019 年 4 月 9 日开始。
+
 
 ## <a name="new-cadence-of-releases"></a>新的版本节奏
 
@@ -126,20 +130,20 @@ Project Honolulu 可提供直观的全新管理体验，用于管理电脑、Win
 - **接收窗口自动调整**:TCP 自动调整逻辑计算 TCP 连接的"接收窗口"参数。  高速和/或长延迟连接需要使用该算法来实现良好的性能特征。  在此版本中，该算法经过了修改，以使用阶梯函数收敛给定连接的最大接收窗口值。
 - **TCP 统计信息 API**:引入了一个新的 API 调用 SIO_TCP_INFO。  SIO_TCP_INFO 允许开发人员使用套接字选项查询有关各个 TCP 连接的大量信息。
 - **IPv6**:有多个 IPv6 中此版本中的改进。
-    - **RFC 6106**支持：RFC 6106 这允许通过路由器播发 (RAs) 的 DNS 配置。 你可以使用以下命令启用或禁用 RFC 6106 支持：
+  - **RFC 6106**支持：RFC 6106 这允许通过路由器播发 (RAs) 的 DNS 配置。 你可以使用以下命令启用或禁用 RFC 6106 支持：
 
     ```
     netsh int ipv6 set interface <ifindex> rabaseddnsconfig=<enabled | disabled>
     ```
 
-    - **流标签**:开头创意者更新出站 TCP 和 UDP 通过 IPv6 的数据包将此字段设置为 5 元组 （Src IP、 Dst IP、 源端口、 目标端口） 的哈希值。  这将使纯 IPv6 型数据中心能够更有效地进行负载平衡或流分类。 若要启用流标签，请执行以下命令：
+  - **流标签**:开头创意者更新出站 TCP 和 UDP 通过 IPv6 的数据包将此字段设置为 5 元组 （Src IP、 Dst IP、 源端口、 目标端口） 的哈希值。  这将使纯 IPv6 型数据中心能够更有效地进行负载平衡或流分类。 若要启用流标签，请执行以下命令：
 
     ```
     netsh int ipv6 set flowlabel=[disabled|enabled] (enabled by default)
     netsh int ipv6 set global flowlabel=<enabled | disabled>
     ```
 
-    - **ISATAP 和 6to4**:作为实现将来不推荐使用的步，创意者更新将具有默认情况下禁用这些技术。
+  - **ISATAP 和 6to4**:作为实现将来不推荐使用的步，创意者更新将具有默认情况下禁用这些技术。
 - **失效网关检测 (DGD)** :DGD 算法将自动转换连接转移到另一个网关无法访问当前网关时。 在此版本中，此算法经过了改进以定期重新探测网络环境。
 - [Test-NetConnection](https://technet.microsoft.com/itpro/powershell/windows/nettcpip/test-netconnection) 是 Windows PowerShell 中的内置 cmdlet，可执行各种网络诊断。  在此版本中，我们增强了 cmdlet 以提供有关路由选择以及源地址选择的详细信息。
 

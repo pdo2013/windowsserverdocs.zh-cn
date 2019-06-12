@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 245f8fb2e6419d22da3e2e76eebd9f801ab90664
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 45545b4e12d31c293ead5b18b83efd50d7bc37bb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821478"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439648"
 ---
 # <a name="dfsutil"></a>dfsutil
 
@@ -53,13 +53,13 @@ command </parameter> </param2>
 如果指定的对象\(如命名空间服务器\)命令的末尾，大多数命令将无需进一步的参数或命令显示有关对象的信息。 例如时使用 dfsutil 根命令，你可以将命名空间根路径追加到命令以查看有关根的信息。
 
 ## <a name="BKMK_Examples"></a>示例
-<Here is where you put a detailed description of your example.>
+&lt;下面是示例的详细的说明的放置位置。&gt;
 
 ```
 This /is /the /example /of /calling /command /with /parameters
 ```
 
-<Here is where you put a detailed description of another example.>
+&lt;下面是另一个示例的详细的说明的放置位置。&gt;
 
 ```
 This /is /a:different /example
@@ -67,6 +67,6 @@ This /is /a:different /example
 
 ## <a name="additional-references"></a>其他参考
 
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)
 
 

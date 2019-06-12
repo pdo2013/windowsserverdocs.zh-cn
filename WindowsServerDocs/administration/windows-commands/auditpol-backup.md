@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 78594c0445ae482e49d47b3b67bb867e53866017
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7de5e6dc6d205b7e6749d38ac822e31a78788c6e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867948"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435208"
 ---
 # <a name="auditpol-backup"></a>auditpol 备份
 
@@ -31,10 +31,12 @@ ms.locfileid: "59867948"
 auditpol /backup /file:<filename>
 ```
 ## <a name="parameters"></a>Parameters
-|参数|描述|
-|-------|--------|
-|/file|指定到的审核策略将备份文件的名称。|
-|/?|在命令提示符下显示帮助。|
+
+| 参数 |                                 描述                                 |
+|-----------|-----------------------------------------------------------------------------|
+|   /file   | 指定到的审核策略将备份文件的名称。 |
+|    /?     |                    在命令提示符下显示帮助。                     |
+
 ## <a name="remarks"></a>备注
 为每个用户策略和系统策略的备份操作，您必须具有写入或完全控制权限，该对象上设置安全描述符中。 此外可以通过拥有执行备份操作**管理审核和安全日志**(SeSecurityPrivilege) 用户权限。 但是，此权限允许其他不需要执行列表操作的访问。
 ## <a name="BKMK_examples"></a>示例
@@ -44,6 +46,6 @@ auditpol /backup /file:C:\auditpolicy.csv
 ```
 > [!NOTE]
 > 如果未指定驱动器，使用当前目录。
-#### <a name="additional-references"></a>其他参考
-[命令行语法解答](command-line-syntax-key.md)
-[auditpol 还原](auditpol-restore.md)
+> #### <a name="additional-references"></a>其他参考
+> [命令行语法解答](command-line-syntax-key.md)
+> [auditpol 还原](auditpol-restore.md)

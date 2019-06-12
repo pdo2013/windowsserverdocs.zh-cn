@@ -7,16 +7,16 @@ ms.assetid: 6e102c1f-df26-4eaa-bc7a-d0d55d3b82d5
 author: jasongerend
 ms.author: jgerend
 ms.date: 03/27/2018
-ms.openlocfilehash: 60dacf63f1a355b961f84169060dbd7122a6fd32
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f56c036768de7c1afcf3327135a7ff7d7a690a8b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842728"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440142"
 ---
 # <a name="cluster-operating-system-rolling-upgrade"></a>群集操作系统滚动升级
 
-> 适用于：Windows 服务器 （半年频道），Windows Server 2016
+> 适用于：Windows Server 2019、Windows Server 2016
 
 群集操作系统滚动升级使管理员能够在群集节点的操作系统升级而无需停止 HYPER-V 或横向扩展文件服务器工作负荷。 使用此功能可以避免服务级别协议 (SLA) 的停机时间损失。
 
@@ -226,12 +226,12 @@ Windows Server 2016 节点添加到群集时，Windows Server 2012 R2 群集进�
         ![方屏幕截图显示 Get VMHostSupportedVersion cmdlet 的输出](media/Cluster-Operating-System-Rolling-Upgrade/Clustering_GetVMHostSupportVersion.png)  
         **图 21:查看支持的主机的 HYPER-V VM 配置版本**  
 
-   3.  在群集中的每个 HYPER-V 主机节点，可以通过与用户计划一个短的维护时段、 备份、 关闭虚拟机和运行升级的 HYPER-V VM 配置版本[ `Update-VMVersion` ](https://docs.microsoft.com/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) cmdlet （请参阅图 22）。 这将更新虚拟机版本，并启用新的 HYPER-V 功能，从而无需将来的 HYPER-V 集成组件 (IC) 更新。 可以从托管 VM 的 HYPER-V 节点运行此 cmdlet 或`-ComputerName`参数可用于远程更新 VM 版本。 在此示例中，此处我们 VM1 的配置版本从升级 5.0 到 7.0 才能利用此虚拟机配置版本为生产检查点 （应用程序一致性备份） 和二进制 VM 等相关联的许多新的 HYPER-V 功能配置文件。  
+   3. 在群集中的每个 HYPER-V 主机节点，可以通过与用户计划一个短的维护时段、 备份、 关闭虚拟机和运行升级的 HYPER-V VM 配置版本[ `Update-VMVersion` ](https://docs.microsoft.com/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) cmdlet （请参阅图 22）。 这将更新虚拟机版本，并启用新的 HYPER-V 功能，从而无需将来的 HYPER-V 集成组件 (IC) 更新。 可以从托管 VM 的 HYPER-V 节点运行此 cmdlet 或`-ComputerName`参数可用于远程更新 VM 版本。 在此示例中，此处我们 VM1 的配置版本从升级 5.0 到 7.0 才能利用此虚拟机配置版本为生产检查点 （应用程序一致性备份） 和二进制 VM 等相关联的许多新的 HYPER-V 功能配置文件。  
 
-        ![在操作中显示 Update-vmversion cmdlet 方屏幕截图](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_StopVM.png)  
-        **图 22:使用 Update-vmversion PowerShell cmdlet 将 VM 版本升级**  
+       ![在操作中显示 Update-vmversion cmdlet 方屏幕截图](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_StopVM.png)  
+       **图 22:使用 Update-vmversion PowerShell cmdlet 将 VM 版本升级**  
 
-4.  可以使用升级存储池[Update-storagepool](https://docs.microsoft.com/powershell/module/storage/Update-StoragePool?view=win10-ps) PowerShell cmdlet-这是一个联机操作。  
+6. 可以使用升级存储池[Update-storagepool](https://docs.microsoft.com/powershell/module/storage/Update-StoragePool?view=win10-ps) PowerShell cmdlet-这是一个联机操作。  
 
 尽管我们面向私有云方案，特别是 HYPER-V 和横向扩展文件服务器群集，可以升级而无需停机，群集操作系统滚动升级过程可以用于任何群集角色。  
 
@@ -279,5 +279,5 @@ Windows Server 2016 节点添加到群集时，Windows Server 2012 R2 群集进�
 
 ## <a name="see-also"></a>请参阅  
 -   [发行说明：Windows Server 2016 中的重要问题](../get-started/Release-Notes--Important-Issues-in-Windows-Server-2016-Technical-Preview.md)  
--   [什么是 Windows Server 2016 中的新增功能](../get-started/What-s-New-in-windows-server-2016.md)  
+-   [Windows Server 2016 中的新增功能](../get-started/What-s-New-in-windows-server-2016.md)  
 -   [什么是 Windows Server 中故障转移群集中的新增功能](whats-new-in-failover-clustering.md)  

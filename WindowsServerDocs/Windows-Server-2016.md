@@ -1,11 +1,11 @@
 ---
 redirect_url: /windows-server/windows-server
-ms.openlocfilehash: 6f6e0d21fdf43ce3cf9f713d5731cfea5bb069de
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a852dfdda87aa37b403176483ea85f9bdb059e68
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812268"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436001"
 ---
 # <a name="windows-server-2016"></a>Windows Server 2016
 
@@ -19,54 +19,40 @@ ms.locfileid: "59812268"
 <table border="0" width="100%" align='center'>
   <tr style="text-align:center;">
     <td align='center' style="width:25%; border:0;">
-      <a href="/windows-server/get-started/what-s-new-in-windows-server-2016">
-        <img height=145 src="media/whats-new-highlight.png" alt="What's new icon" title="Windows Server 16 中有什么新增功能？"/></a>
-        <br/>新增功能？
+      <a href="/windows-server/get-started/what-s-new-in-windows-server-2016"> &lt;i m g = 145 src =&quot;媒体/的新增功能-新-highlight.png&quot; alt =&quot;什么&#39;s 新图标&quot;title =&quot;Windows Server 16 中的新增功能？&quot;/&gt;</a>
+        <br/>什么&#39;新增？
     </td>
     <td align='center' style="width:25%; border:0;">
-      <a href="/windows-server/get-started/server-basics">
-        <img height=145 src="media/1-getstarted.png" alt="get started icon" title="Windows Server 16 入门" /></a>
+      <a href="/windows-server/get-started/server-basics"> &lt;i m g = 145 src =&quot;媒体/1-getstarted.png&quot; alt =&quot;get 图标&quot;title =&quot;开始使用 Windows Server 16&quot; /&gt;</a>
       <br/>入门 </td>
     <td align='center' style="width:25%; border:0;">
-      <a href="/windows-server/administration/index">
-        <img height=145 src="media/8-management.png" alt="administer icon" title="管理 Windows Server" /></a>
+      <a href="/windows-server/administration/index"> &lt;i m g = 145 src =&quot;媒体/8-management.png&quot; alt =&quot;管理图标&quot;title =&quot;管理 Windows Server&quot; /&gt;</a>
       <br/>管理 </td>
     <td align='center' style="width:25%; border:0;">
-      <a href="/windows-server/failover-clustering/failover-clustering-overview">
-        <img height=145 src="media/3-failover.png" alt="Failover clustering icon" title="Windows Server 故障转移群集" /></a>
+      <a href="/windows-server/failover-clustering/failover-clustering-overview"> &lt;i m g = 145 src =&quot;媒体/3-failover.png&quot; alt =&quot;故障转移聚类分析图标&quot;title =&quot;Windows Server 故障转移群集&quot; /&gt;</a>
       <br/>故障转移群集 </td>
   </tr>
   <tr style="text-align:center;">
     <td align='center' style="width:25%; border:0;"><br/>
-      <a href="/windows-server/identity/identity-and-access">
-        <img height=145 src="media/4-identity.png" alt="Identity and access icon" title="Windows Server 标识和访问" /></a>
+      <a href="/windows-server/identity/identity-and-access"> &lt;i m g = 145 src =&quot;媒体/4-identity.png&quot; alt =&quot;标识和访问图标&quot;title =&quot;Windows 服务器标识和访问&quot; /&gt;</a>
       <br>身份标识和访问控制 </td>
     <td align='center' style="width:25%; border:0;"><br/>
-      <a href="/windows-server/networking/networking">
-        <img height=145 src="media/6-networking.png" alt="Networking icon" title="Windows Server 网络" />
-        </a>
+      <a href="/windows-server/networking/networking"> &lt;i m g = 145 src =&quot;媒体/6-networking.png&quot; alt =&quot;网络图标&quot;title =&quot;Windows Server 网络&quot; /&gt; </a>
       <br/>网络 </td>
     <td align='center' style="width:25%; border:0;"><br/>
-      <a href="/windows-server/remote/index">
-        <img height=145 src="media/remote.png" alt="remote icon" title="远程访问和服务器管理" />
-        </a>
+      <a href="/windows-server/remote/index"> &lt;i m g = 145 src =&quot;media/remote.png&quot; alt =&quot;远程图标&quot;title =&quot;远程访问和服务器管理&quot; /&gt; </a>
       <br/>远程访问 </td>
     <td align='center' style="width:25%; border:0;"><br/>
-      <a href="/windows-server/security/security-and-assurance">
-        <img height=145 src="media/5-security.png" alt="Security icon" title="Windows Server 的安全和保障" />
-      </a>
+      <a href="/windows-server/security/security-and-assurance"> &lt;i m g = 145 src =&quot;媒体/5-security.png&quot; alt =&quot;安全图标&quot;title =&quot;Windows Server 安全和保障&quot; /&gt; </a>
       <br/>安全和保障 </td>
   </tr>
   <tr style="text-align:center;">
     <td align='center' style="width:25%; border:0;">&nbsp;</td>
     <td align='center' style="width:25%; border:0;"><br>
-      <a href="/windows-server/storage/storage">
-        <img height=145 src="media/7-storage.png" alt="Storage icon" title="Windows Server 存储" />
-      </a>
+      <a href="/windows-server/storage/storage"> &lt;i m g = 145 src =&quot;媒体/7-storage.png&quot; alt =&quot;存储图标&quot;title =&quot;Windows Server 存储&quot; /&gt; </a>
       <br/>存储 </td>
    <td align='center' style="width:25%; border:0;"><br/>
-      <a href="/windows-server/virtualization/virtualization">
-        <img height=145 src="media/virtualization.png" alt="virtualization icon" title="Windows Server 虚拟化" /></a>
+      <a href="/windows-server/virtualization/virtualization"> &lt;i m g = 145 src =&quot;media/virtualization.png&quot; alt =&quot;虚拟化图标&quot;title =&quot;Windows Server 虚拟化&quot; /&gt;</a>
       <br/>虚拟化 </td>
     <td align='center' style="width:25%; border:0;">&nbsp; </td>
   </tr>

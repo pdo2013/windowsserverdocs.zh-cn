@@ -14,12 +14,12 @@ ms.assetid: abded6f3-5708-4e35-9a9e-890e81924fec
 ms.author: pashort
 author: shortpatti
 ms.date: 09/10/2018
-ms.openlocfilehash: 367de10e8c77490ff27be81ddc05239f931ad1f4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cf58956ead8e8a47b8ec6d189bf23e5c576d5f15
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860468"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812191"
 ---
 # <a name="nic-teaming"></a>NIC 组合
 
@@ -27,8 +27,8 @@ ms.locfileid: "59860468"
 
 在本主题中，我们提供您的网络接口卡 (NIC) 合作概述 Windows Server 2016 中。 NIC 组合允许你将介于 1 和 32 之间分组到一个或多个基于软件的虚拟网络适配器的物理以太网网络适配器。 这些虚拟网络适配器可以提高性能，并在网络适配器发生故障时提供容错能力。  
   
->[!IMPORTANT]
->必须在同一台物理主机计算机中安装的 NIC 组成员的网络适配器。 
+> [!IMPORTANT]
+> 必须在同一台物理主机计算机中安装的 NIC 组成员的网络适配器。 
 
 > [!TIP]  
 > NIC 组包含只有一个网络适配器不能提供负载平衡和故障转移。 但是，使用一个网络适配器，你可以使用 NIC 组合的网络流量进行隔离还使用虚拟局域网 (Vlan) 时。  
@@ -63,9 +63,9 @@ NIC 组合是在 Windows Server 2016 的所有版本中可用。 可以使用各
 ## <a name="compatibility"></a>兼容性  
 NIC 组合是与 Windows Server 2016 中有以下例外的所有网络的技术兼容。  
   
--   **单根 I/O 虚拟化 (SR-IOV)**。 有关 SR-IOV，数据被直接传递到 NIC 而不通过网络堆栈 （主机操作系统中，在虚拟化的情况下）。 因此，不可能 NIC 组合，若要检查或将数据重定向到团队中的另一个路径。  
+-   **单根 I/O 虚拟化 (SR-IOV)** 。 有关 SR-IOV，数据被直接传递到 NIC 而不通过网络堆栈 （主机操作系统中，在虚拟化的情况下）。 因此，不可能 NIC 组合，若要检查或将数据重定向到团队中的另一个路径。  
   
--   **本机主机服务质量 (QoS)**。 当您设置本机或主机系统上的 QoS 策略和这些策略调用最小带宽限制，NIC 组的总体吞吐量小于相比它而无需在位置的带宽策略。  
+-   **本机主机服务质量 (QoS)** 。 当您设置本机或主机系统上的 QoS 策略和这些策略调用最小带宽限制，NIC 组的总体吞吐量小于相比它而无需在位置的带宽策略。  
   
 -   **TCP 烟囱**。 不支持 TCP 烟囱使用 NIC 组合，因为 TCP 烟囱卸载整个网络堆栈直接到 nic。  
   

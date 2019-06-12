@@ -8,12 +8,12 @@ ms.date: 02/21/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 20e2d0747b98e7c7728230d0768506261f5b0d50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1acc00ca376c48f7fb34214cef3a92961d355ae4
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825118"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444021"
 ---
 # <a name="ad-fs-troubleshooting---events-and-logging"></a>AD FS 故障排除-事件和日志记录
 AD FS 提供了可在故障排除的两个主日志。  它们分别是：
@@ -89,18 +89,21 @@ AD FS 事件可以是基于处理的 AD FS 请求不同类型的不同类型。 
 AD FS 服务帐户的安全审核可以有时帮助您跟踪密码更新、 请求/响应日志记录、 请求上下文标头和设备注册结果的问题。  默认情况下禁用审核的 AD FS 服务帐户。
 
 ### <a name="to-enable-security-auditing"></a>若要启用安全审核
-1.      单击开始，指向**程序**，依次指向**管理工具**，然后单击**本地安全策略**。
-2.       导航到“安全设置\本地策略\用户权限管理”文件夹，然后双击“生成安全审核”。
-3.       上**本地安全设置**选项卡上，验证是否列出了 AD FS 服务帐户。 如果不存在，单击添加用户或组并将其添加到列表中，，然后单击确定。
-4.       使用提升的权限打开命令提示符并运行以下命令以启用审核 auditpol.exe /set /subcategory:"Application Generated"/failure:enable /success:enable 5。       关闭**本地安全策略**，然后打开 AD FS 管理管理单元中。
- 
+1. 单击开始，指向**程序**，依次指向**管理工具**，然后单击**本地安全策略**。
+2. 导航到“安全设置\本地策略\用户权限管理”  文件夹，然后双击“生成安全审核”  。
+3. 上**本地安全设置**选项卡上，验证是否列出了 AD FS 服务帐户。 如果不存在，单击添加用户或组并将其添加到列表中，，然后单击确定。
+4. 使用提升的权限打开命令提示符并运行以下命令以启用审核 auditpol.exe /set /subcategory:"Application Generated"/failure:enable /success:enable
+5. 关闭**本地安全策略**，然后打开 AD FS 管理管理单元中。
+ 
 若要打开 AD FS 管理管理单元中，单击开始、 指向程序、 管理工具，然后单击 AD FS 管理。
- 
-6.       在操作窗格中单击编辑联合身份验证服务属性 7。       在联合身份验证服务属性对话框中，单击事件选项卡。8.       选择**成功审核**并**失败审核**复选框。
-9.       单击“确定”。
+ 
+6. 在操作窗格中，单击编辑联合身份验证服务属性
+7. 在联合身份验证服务属性对话框中，单击事件选项卡。
+8. 选择**成功审核**并**失败审核**复选框。
+9. 单击“确定”。
 
 ![审核增强功能](media/ad-fs-tshoot-logging/event4.PNG)  
- 
+ 
 >[!NOTE]
 >仅当 AD FS 是独立的成员服务器上时，使用上面的说明。  如果 AD FS 正在运行的域控制器上，而不是本地安全策略，使用**默认域控制器策略**位于**组策略管理/林/域/域控制器**。  单击编辑并导航到**计算机配置 \ 策略 \windows 设置 \ 安全设置 \ 本地策略 \ 用户权限管理**
 
@@ -155,4 +158,4 @@ AD FS 服务帐户的安全审核可以有时帮助您跟踪密码更新、 请�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [AD FS 进行故障排除](ad-fs-tshoot-overview.md)
+- [AD FS 疑难解答](ad-fs-tshoot-overview.md)

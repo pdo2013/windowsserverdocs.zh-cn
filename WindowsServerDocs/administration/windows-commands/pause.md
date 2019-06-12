@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 109d162e8d5c4bdd59871a21f16b6f568df4fbd6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e5805fcc14d6874d95ba90537d72b560229ba99b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861658"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436308"
 ---
 # <a name="pause"></a>pause
 
@@ -44,16 +44,16 @@ pause
 
 ## <a name="remarks"></a>备注
 
--   在运行时**暂停**命令时，将显示以下消息：  
-    ```
-    Press any key to continue . . .
-    ```  
--   如果按 CTRL + C 来停止批处理程序时，将显示以下消息：  
-    ```
-    Terminate batch job (Y/N)?
-    ```  
-    如果对此消息的响应按 Y （为否)，批处理程序结束，控制将返回到操作系统。
--   可以插入**暂停**命令之前可能不想要处理的批处理文件的一部分。 当**暂停**挂起处理的批处理程序，您可以按 CTRL + C，然后按 Y，若要停止批处理程序。
+- 在运行时**暂停**命令时，将显示以下消息：  
+  ```
+  Press any key to continue . . .
+  ```  
+- 如果按 CTRL + C 来停止批处理程序时，将显示以下消息：  
+  ```
+  Terminate batch job (Y/N)?
+  ```  
+  如果对此消息的响应按 Y （为否)，批处理程序结束，控制将返回到操作系统。
+- 可以插入**暂停**命令之前可能不想要处理的批处理文件的一部分。 当**暂停**挂起处理的批处理程序，您可以按 CTRL + C，然后按 Y，若要停止批处理程序。
 
 ## <a name="BKMK_examples"></a>示例
 
@@ -70,4 +70,4 @@ goto begin
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

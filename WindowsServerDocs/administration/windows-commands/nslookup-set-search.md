@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bf952a0337e23c0426265c6c0a4a8387a6ab45e1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d95ebe30ce45430787bebbfe63766a571a436bbf
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816988"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436588"
 ---
 # <a name="nslookup-set-search"></a>nslookup set search
 
@@ -34,12 +34,12 @@ set [no]search
 
 ## <a name="parameters"></a>Parameters
 
-|参数|描述|
-|---------|-----------|
-|**nosearch**|停止将 DNS 域搜索列表中的域名系统 (DNS) 域名称追加到该请求。|
-|**search**|将 DNS 域搜索列表中的域名系统 (DNS) 域名称追加到请求，直到得到答复。 默认语法**搜索**。|
-|{帮助 | ?}|显示的短摘要**nslookup**子命令。|
+|  参数   |                                                                          描述                                                                          |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **nosearch** |                            停止将 DNS 域搜索列表中的域名系统 (DNS) 域名称追加到该请求。                            |
+|  **search**  | 将 DNS 域搜索列表中的域名系统 (DNS) 域名称追加到请求，直到得到答复。 默认语法**搜索**。 |
+|    {帮助     |                                                                              ?}                                                                               |
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

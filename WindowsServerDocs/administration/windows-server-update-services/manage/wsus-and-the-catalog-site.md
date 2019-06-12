@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7cced9a930b63baa79b4addb429c562c38d6da01
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 298df36b856cba97ec19126f77456785e5eb6f50
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843878"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810927"
 ---
 # <a name="wsus-and-the-catalog-site"></a>WSUS 和目录站点
 
@@ -64,7 +64,7 @@ WSUS 管理员可能会考虑将访问限制为它们已从 Microsoft 更新目�
 
     -   选择**Windows 身份验证**然后单击**启用**中**操作**右侧窗格中的。
 
-2.  创建需要该修补程序的计算机的 WSUS 目标组并将其添加到组。 有关计算机和组的详细信息，请参阅[管理 WSUS 客户端计算机和 WSUS 计算机组](managing-wsus-client-computers-and-wsus-computer-groups.md)在本指南中和部分[3.3。配置 WSUS 计算机组](../deploy/2-configure-wsus.md#BKMK_ConfigcomputerGroups)的步骤 3:配置 WSUS，WSUS 部署指南中。
+2.  创建需要该修补程序的计算机的 WSUS 目标组并将其添加到组。 有关计算机和组的详细信息，请参阅[管理 WSUS 客户端计算机和 WSUS 计算机组](managing-wsus-client-computers-and-wsus-computer-groups.md)在本指南中和部分[3.3。配置 WSUS 计算机组](../deploy/2-configure-wsus.md#23-configure-wsus-computer-groups)的步骤 3:配置 WSUS，WSUS 部署指南中。
 
 3.  下载该修补程序的文件。
 

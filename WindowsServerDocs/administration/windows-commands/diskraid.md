@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a565a1d5fa1bc3ff57d1578fb54cfa4553e3bb26
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7ebd65fb56114bff9e6ae4b6a76376561c686dfa
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818868"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439562"
 ---
 # <a name="diskraid"></a>diskraid
 
@@ -59,7 +59,7 @@ RAID 是一种方法用于进行标准化和分类的容错磁盘系统。 RAID 
 -   [login](#BKMK_20)
 -   [logout](#BKMK_21)
 -   [maintenance](#BKMK_22)
--   [名称](#BKMK_23)
+-   [name](#BKMK_23)
 -   [offline](#BKMK_24)
 -   [online](#BKMK_25)
 -   [recover](#BKMK_26)
@@ -95,7 +95,7 @@ add tpgroup tportal=n [noerr]
 > [!CAUTION]
 > 将删除添加为复杂的 LUN 上的所有数据。
 
-**tpgroup tportal = * * * n*
+**tpgroup tportal=** <em>n</em>
 
 指定的 iSCSI 目标门户编号，以将添加到当前所选的 iSCSI 目标门户组。
 
@@ -353,7 +353,7 @@ create tpgroup [noerr]
 
 当前所选子系统上创建一个新的 iSCSI 目标。
 
-**名称**
+**name**
 
 提供目标的友好名称。
 
@@ -742,7 +742,7 @@ login target iadapter=<iadapter> [type={manual | persistent | boot}] [chap={none
 
 **永久性**-自动重新启动计算机时使用相同的登录名。
 
-**启动**-(此选项是将来的开发和当前未使用 *。*)
+**启动**-(此选项是将来的开发和当前未使用<em>。</em>)
 
 **chap**
 

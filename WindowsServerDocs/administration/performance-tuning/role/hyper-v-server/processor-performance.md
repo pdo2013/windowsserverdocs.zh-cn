@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 2a49fdaba89a01c8daf6483f72dbc88daa91452b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f16ee9cff9c244a8c579e008bced1e90b1a20673
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843238"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435588"
 ---
 # <a name="hyper-v-processor-performance"></a>Hyper V 处理器性能
 
@@ -69,20 +69,20 @@ Microsoft SQL Server 是 NUMA 感知应用程序的示例。 有关详细信息�
 
 虚拟 NUMA 的详细信息，请参阅[HYPER-V 虚拟 NUMA 概述](https://technet.microsoft.com/library/dn282282.aspx)。
 
-##<a name="see-also"></a>请参阅
+## <a name="see-also"></a>请参阅
 
--   [HYPER-V 术语](terminology.md)
+-   [Hyper-V 术语](terminology.md)
 
--   [HYPER-V 体系结构](architecture.md)
+-   [Hyper-V 体系结构](architecture.md)
 
--   [HYPER-V 服务器配置](configuration.md)
+-   [Hyper-V 服务器配置](configuration.md)
 
--   [HYPER-V 内存性能](memory-performance.md)
+-   [Hyper-V 内存性能](memory-performance.md)
 
--   [HYPER-V 存储 I/O 性能](storage-io-performance.md)
+-   [Hyper-V 存储 I/O 性能](storage-io-performance.md)
 
--   [HYPER-V 网络 I/O 性能](network-io-performance.md)
+-   [Hyper-V 网络 I/O 性能](network-io-performance.md)
 
--   [虚拟化环境中检测瓶颈](detecting-virtualized-environment-bottlenecks.md)
+-   [检测虚拟化环境中的瓶颈](detecting-virtualized-environment-bottlenecks.md)
 
 -   [Linux 虚拟机](linux-virtual-machine-considerations.md)

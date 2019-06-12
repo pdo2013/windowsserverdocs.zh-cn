@@ -10,12 +10,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.service: na
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
-ms.openlocfilehash: b049efc61d5060791574f20fcdd8b369a26f0507
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2c14e471abb9af7a9182100969a8dd94a17205a
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890248"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812202"
 ---
 >适用于：Windows 10，Windows Server 2016 中，Windows Server 2019
 
@@ -25,8 +25,8 @@ HYPER-V 集成服务增强虚拟机性能，并通过利用与 HYPER-V 主机的
 
 有关每个集成服务的详细信息，请参阅[HYPER-V Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services)。
 
->[!IMPORTANT]
->你想要使用每个的服务必须在主机和来宾中启用才能正常。 除"HYPER-V 来宾服务接口"的所有集成服务上都的 Windows 来宾操作系统上的默认值。 服务可以打开和关闭单独。 接下来的部分介绍如何操作。
+> [!IMPORTANT]
+> 你想要使用每个的服务必须在主机和来宾中启用才能正常。 除"HYPER-V 来宾服务接口"的所有集成服务上都的 Windows 来宾操作系统上的默认值。 服务可以打开和关闭单独。 接下来的部分介绍如何操作。
 
 ## <a name="turn-an-integration-service-on-or-off-using-hyper-v-manager"></a>打开或关闭使用 Hyper-v 管理器启用的集成服务
 
@@ -47,6 +47,7 @@ HYPER-V 集成服务增强虚拟机性能，并通过利用与 HYPER-V 主机的
     ``` PowerShell
     Get-VMIntegrationService -VMName "DemoVM"
     ```
+
 1. 输出应如下所示：
 
     ``` PowerShell
@@ -84,12 +85,13 @@ HYPER-V 集成服务增强虚拟机性能，并通过利用与 HYPER-V 主机的
 ```
 REG QUERY "HKLM\Software\Microsoft\Virtual Machine\Auto" /v IntegrationServicesVersion
 ```
+
 早期版本的来宾操作系统将不具有所有可用的服务。 例如，Windows Server 2008 R2 来宾不能具有"HYPER-V 来宾服务接口"。
 
 ## <a name="start-and-stop-an-integration-service-from-a-windows-guest"></a>启动和停止从 Windows 来宾的集成服务
 为了使完全正常工作的集成服务，其相应的服务必须运行除主机上启用来宾内。 在 Windows 来宾，每个集成服务被列为标准的 Windows 服务。 可以使用 PowerShell 或控制面板中的服务小程序来停止和启动这些服务。
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > 停止的集成服务可能会严重影响主机的功能来管理你的虚拟机。 若要正常工作，必须在主机和来宾上启用你想要使用每个集成服务。
 > 最佳做法是，您应仅控制使用上面的说明 HYPER-V 的集成服务。 来宾操作系统中匹配的服务将停止或更改其状态的 HYPER-V 中时自动启动。
 > 如果来宾操作系统中启动服务，但已禁用的 HYPER-V 中，将停止该服务。 如果停止服务中的 HYPER-V 启用了来宾操作系统中，HYPER-V 将最终再次启动它。 如果禁用来宾中的服务时，HYPER-V 将无法启动它。
@@ -104,7 +106,6 @@ REG QUERY "HKLM\Software\Microsoft\Virtual Machine\Auto" /v IntegrationServicesV
 
 1. 右键单击要启动或停止的服务。 单击所需的操作。
 
-
 ### <a name="use-windows-powershell-to-start-or-stop-an-integration-service-within-a-windows-guest"></a>使用 Windows PowerShell 来启动或停止 Windows 来宾中的集成服务
 
 1. 若要获取的集成服务的列表，请运行：
@@ -112,6 +113,7 @@ REG QUERY "HKLM\Software\Microsoft\Virtual Machine\Auto" /v IntegrationServicesV
     ```
     Get-Service -Name vm*
     ```
+
 1.  输出应类似于此：
 
     ```PowerShell
@@ -137,13 +139,13 @@ REG QUERY "HKLM\Software\Microsoft\Virtual Machine\Auto" /v IntegrationServicesV
 
 Linux 集成服务通常通过 Linux 内核提供。 Linux 集成服务驱动程序名为**hv_utils**。
 
-1.  若要查明**hv_utils**加载时，使用以下命令：
+1. 若要查明**hv_utils**加载时，使用以下命令：
 
-    ``` BASH
-    lsmod | grep hv_utils
-    ``` 
+   ``` BASH
+   lsmod | grep hv_utils
+   ``` 
   
-1. 输出应类似于此：  
+2. 输出应类似于此：  
   
     ``` BASH
     Module                  Size   Used by
@@ -151,13 +153,13 @@ Linux 集成服务通常通过 Linux 内核提供。 Linux 集成服务驱动程
     hv_vmbus               61440   8 hv_balloon,hyperv_keyboard,hv_netvsc,hid_hyperv,hv_utils,hyperv_fb,hv_storvsc
     ```
 
-1. 若要查找所需的守护程序是否正在运行，请使用此命令。
+3. 若要查找所需的守护程序是否正在运行，请使用此命令。
   
     ``` BASH
     ps -ef | grep hv
     ```
   
-1. 输出应类似于此： 
+4. 输出应类似于此： 
   
     ```BASH
     root       236     2  0 Jul11 ?        00:00:00 [hv_vmbus_con]
@@ -170,13 +172,13 @@ Linux 集成服务通常通过 Linux 内核提供。 Linux 集成服务驱动程
     scooley  43774 43755  0 21:20 pts/0    00:00:00 grep --color=auto hv          
     ```
 
-1. 若要查看哪些守护程序可用，请运行：
+5. 若要查看哪些守护程序可用，请运行：
 
     ``` BASH
     compgen -c hv_
     ```
   
-1. 输出应类似于此：
+6. 输出应类似于此：
   
     ``` BASH
     hv_vss_daemon
@@ -187,10 +189,10 @@ Linux 集成服务通常通过 Linux 内核提供。 Linux 集成服务驱动程
     hv_fcopy_daemon     
     ```
   
- 集成服务守护程序，可能会列出包括以下内容。 如果缺少任一元素，它们可能不支持你的系统上，或可能未安装它们。 查找详细信息，请参阅[Windows 上的 HYPER-V 的支持的 Linux 和 FreeBSD 虚拟机](https://technet.microsoft.com/library/dn531030.aspx)。  
-  - **hv_vss_daemon**:创建实时 Linux 虚拟机备份需要此守护程序。
-  - **hv_kvp_daemon**:此守护程序允许设置和查询内部和外部键/值对。
-  - **hv_fcopy_daemon**:此守护程序实现的文件复制到主机和来宾之间的服务。  
+   集成服务守护程序，可能会列出包括以下内容。 如果缺少任一元素，它们可能不支持你的系统上，或可能未安装它们。 查找详细信息，请参阅[Windows 上的 HYPER-V 的支持的 Linux 和 FreeBSD 虚拟机](https://technet.microsoft.com/library/dn531030.aspx)。  
+   - **hv_vss_daemon**:创建实时 Linux 虚拟机备份需要此守护程序。
+   - **hv_kvp_daemon**:此守护程序允许设置和查询内部和外部键/值对。
+   - **hv_fcopy_daemon**:此守护程序实现的文件复制到主机和来宾之间的服务。  
 
 ### <a name="examples"></a>示例
 
@@ -306,7 +308,7 @@ Linux 集成服务通常通过 Linux 内核提供。 Linux 集成服务驱动程
   
 2.  连接到虚拟机。 右键单击虚拟机，然后单击**Connect**。  
   
-3.  在虚拟机连接的“操作”菜单中，单击 **“插入集成服务安装盘”**. 该操作将在虚拟 DVD 驱动器中加载安装盘。 根据来宾操作系统，可能需要手动启动安装。  
+3.  在虚拟机连接的“操作”菜单中，单击 **“插入集成服务安装盘”** . 该操作将在虚拟 DVD 驱动器中加载安装盘。 根据来宾操作系统，可能需要手动启动安装。  
   
 4.  安装完成后，所有集成服务均可使用。
 
