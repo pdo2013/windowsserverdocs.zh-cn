@@ -11,12 +11,12 @@ ms.assetid: bc4a4971-f727-40cd-91f5-2ee6d24b54cb
 author: KBDAzure
 ms.author: kathydav
 ms.date: 9/30/2016
-ms.openlocfilehash: 55114821b5ac2f1cc028c662217f4bee6980c923
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 97fb1b9003705ba8ad26c2b3e71eda34e88642ee
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845198"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812616"
 ---
 # <a name="system-requirements-for-hyper-v-on-windows-server"></a>Windows Server 上的 HYPER-V 的系统要求
 
@@ -44,7 +44,7 @@ HYPER-V 都有特定的硬件要求，并且某些 HYPER-V 功能有其他要求
 
   - 硬件强制实施的数据执行保护 (DEP) 必须可用且已启用。 对于 Intel 系统，这是 XD 位 （执行禁用位）。 对于 AMD 系统，这是 NX 位 （无执行位）。
 
-## <a name="bkmk_CheckReq"></a>如何检查有关 HYPER-V 要求
+## <a name="how-to-check-for-hyper-v-requirements"></a>如何检查有关 HYPER-V 要求
 
 打开 Windows PowerShell 或命令提示符并键入：
 

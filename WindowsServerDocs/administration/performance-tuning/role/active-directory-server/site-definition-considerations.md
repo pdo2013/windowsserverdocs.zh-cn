@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: e1652e45f51500ceeb0026b8892fbe9c54ff38f3
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 9861703e5ae88dcaec5e76d9fab426b928d0cb9a
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266640"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811496"
 ---
 # <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>正确放置域控制器和站点的注意事项
 
@@ -64,11 +64,11 @@ ms.locfileid: "66266640"
 
     -   使用 DnsAvoidRegisterRecords 消除效果不佳性能或高延迟的域控制器，如附属站点，从泛型定位符的广告中。 有关详细信息，请参阅[如何优化域控制器或全局编录，位于客户端的站点之外的位置](https://support.microsoft.com/kb/306602)。
 
-        > [!Note]   没有为客户端可以使用的域控制器的数量大约为 50 的实际限制。 这些应是最大站点最佳和最高容量的域控制器。
+        > [!NOTE]
+        > 没有为客户端可以使用的域控制器的数量大约为 50 的实际限制。 这些应是最大站点最佳和最高容量的域控制器。
 
-         
-
-    -   请考虑将域控制器放置在同一物理位置中的受信任及信任域中。
+    
+    -  请考虑将域控制器放置在同一物理位置中的受信任及信任域中。
 
 对于所有信任方案，凭据将被路由根据身份验证请求中指定的域。 这也是如此的查询的 LookupAccountName 和 LsaLookupNames （以及其他人，这些只是最常用） Api。 这些 Api 的域参数传递 NULL 值，当域控制器将尝试查找每个受信任的域中指定的帐户名称。
 

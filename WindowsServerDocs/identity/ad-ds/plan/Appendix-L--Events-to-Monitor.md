@@ -9,12 +9,12 @@ ms.date: 07/30/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 0b937debf2d9156c50f3c0ae51fdab8bd2a2bf2d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c245c5a6b2165385096f32713a92916236cdddfb
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863478"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719694"
 ---
 # <a name="appendix-l-events-to-monitor"></a>附录 l:要监视的事件
 
@@ -174,7 +174,7 @@ ms.locfileid: "59863478"
 |4707|611|低|已删除对域的信任。|  
 |4709|不可用|低|已启动 IPsec 服务。|  
 |4710|不可用|低|IPsec 服务已被禁用。|  
-|4711|不可用|低|可能包含任何下列选项之一：PAStore 引擎应用在计算机上的 Active Directory 存储 IPsec 策略的本地缓存的副本。PAStore 引擎应用在计算机上的 Active Directory 存储 IPsec 策略。PAStore 引擎应用在计算机上的本地注册表存储 IPsec 策略。PAStore 引擎无法在计算机上应用的 Active Directory 存储 IPsec 策略的本地缓存的副本。PAStore 引擎无法在计算机上应用 Active Directory 存储 IPsec 策略。PAStore 引擎无法在计算机上应用本地注册表存储 IPsec 策略。PAStore 引擎无法在计算机上应用这些活动的 IPsec 策略的规则。PAStore 引擎未能加载目录存储在计算机上的 IPsec 策略。PAStore 引擎加载目录存储在计算机上的 IPsec 策略。PAStore 引擎无法加载本地存储在计算机上的 IPsec 策略。PAStore 引擎加载本地存储在计算机上的 IPsec 策略。PAStore 引擎轮询以获取对活动的 IPsec 策略的更改，并检测到任何更改。|  
+|4711|不可用|低|可能包含任何下列选项之一：PAStore 引擎应用在计算机上的 Active Directory 存储 IPsec 策略的本地缓存的副本。 PAStore 引擎应用在计算机上的 Active Directory 存储 IPsec 策略。 PAStore 引擎应用在计算机上的本地注册表存储 IPsec 策略。 PAStore 引擎无法在计算机上应用的 Active Directory 存储 IPsec 策略的本地缓存的副本。 PAStore 引擎无法在计算机上应用 Active Directory 存储 IPsec 策略。 PAStore 引擎无法在计算机上应用本地注册表存储 IPsec 策略。 PAStore 引擎无法在计算机上应用这些活动的 IPsec 策略的规则。 PAStore 引擎未能加载目录存储在计算机上的 IPsec 策略。 PAStore 引擎加载目录存储在计算机上的 IPsec 策略。 PAStore 引擎无法加载本地存储在计算机上的 IPsec 策略。 PAStore 引擎加载本地存储在计算机上的 IPsec 策略。PAStore 引擎轮询以获取对活动的 IPsec 策略的更改，并检测到任何更改。 |  
 |4712|不可用|低|IPsec 服务遇到潜在的严重故障。|  
 |4717|621|低|已授予对帐户的系统安全访问。|  
 |4718|622|低|帐户已删除系统安全访问权限。|  

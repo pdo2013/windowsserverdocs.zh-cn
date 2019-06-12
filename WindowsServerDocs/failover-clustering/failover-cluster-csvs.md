@@ -6,14 +6,14 @@ ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage-failover-clustering
-ms.date: 04/05/2018
+ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 00f29c70628f2869e9f3aeffd0d08032bce5aeda
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: b41ebd0bb822875a3114de4a849ea3ec5decee11
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034181"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810884"
 ---
 # <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>在故障转移群集中使用群集共享卷
 
@@ -26,15 +26,15 @@ CSV 提供了常规用途的群集文件系统，NTFS （或 Windows Server 2012
 - 群集 Hyper-V 虚拟机的群集虚拟硬盘 (VHD) 文件
 - 用于存储横向扩展文件服务器群集角色的应用程序数据的横向扩展文件共享。 此角色的应用程序数据的示例包括 Hyper-V 虚拟机文件和 Microsoft SQL Server 数据。 （请注意横向扩展文件服务器不支持 ReFS。）有关横向扩展文件服务器的详细信息，请参阅[应用程序数据的横向扩展文件服务器](sofs-overview.md)。
 
->[!NOTE]
->CSV 不支持 SQL Server 2012 和 SQL Server 早期版本中的 Microsoft SQL Server 群集工作负载。
+> [!NOTE]
+> SQL Server 2012 和 SQL Server 的早期版本中，Csv 不支持的 Microsoft SQL Server 群集工作负载。
 
 在 Windows Server 2012 中，CSV 功能得到显著增强。 例如，已删除 Active Directory 域服务上的依赖关系。 已添加了对 **chkdsk**中的功能改进、与防病毒和备份应用程序的互操作性以及与常规存储功能（如 BitLocker 加密卷和存储空间）集成的支持。 Windows Server 2012 中引入的 CSV 功能的概述，请参阅[What's New in Windows Server 2012 中故障转移群集\[重定向\]](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>)。
 
 Windows Server 2012 R2 引入了附加功能，例如分发了 CSV 所有权、 通过服务器服务，你可以更好地分配给 CSV 缓存的物理内存量更大的灵活性的可用性增强的复原能力诊断能力，并包括对 ReFS 和重复数据删除支持的增强互操作性。 有关详细信息，请参阅[What's New in 故障转移群集](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>)。
 
->[!NOTE]
->有关将 CSV 上的数据重复删除用于虚拟桌面基础结构 (VDI) 方案的信息，请参阅博客文章 [在 Windows Server 2012 R2 中部署 VDI 存储的数据重复删除](https://blogs.technet.com/b/filecab/archive/2013/07/31/deploying-data-deduplication-for-vdi-storage-in-windows-server-2012-r2.aspx) 和 [在 Windows Server 2012 R2 中将数据重复删除扩展到新的工作负荷](https://blogs.technet.com/b/filecab/archive/2013/07/31/extending-data-deduplication-to-new-workloads-in-windows-server-2012-r2.aspx)。
+> [!NOTE]
+> 有关将 CSV 上的数据重复删除用于虚拟桌面基础结构 (VDI) 方案的信息，请参阅博客文章 [在 Windows Server 2012 R2 中部署 VDI 存储的数据重复删除](https://blogs.technet.com/b/filecab/archive/2013/07/31/deploying-data-deduplication-for-vdi-storage-in-windows-server-2012-r2.aspx) 和 [在 Windows Server 2012 R2 中将数据重复删除扩展到新的工作负荷](https://blogs.technet.com/b/filecab/archive/2013/07/31/extending-data-deduplication-to-new-workloads-in-windows-server-2012-r2.aspx)。
 
 ## <a name="review-requirements-and-considerations-for-using-csv-in-a-failover-cluster"></a>查看在故障转移群集中使用 CSV 的要求和注意事项
 
@@ -81,7 +81,7 @@ Windows Server 2012 R2 引入了附加功能，例如分发了 CSV 所有权、 
 
 在 Windows Server 2012 R2 中，可以基于每个节点查看 CSV 卷的状态。 例如，你可以看到 I/O 是直接定向还是重定向，或者 CSV 卷是否不可用。 如果 CSV 卷在 I/O 重定向模式下，则还可以查看原因。 使用 Windows PowerShell cmdlet **Get-ClusterSharedVolumeState** 查看此信息。
 
->[!NOTE]
+> [!NOTE]
 > * 在 Windows Server 2012 中，由于 CSV 设计中的改进 CSV 执行在直接 I/O 模式下比 Windows Server 2008 R2 中发生的更多操作。
 > * 由于借助将 CSV 与 SMB 3.0 功能（如 SMB 多通道和 SMB 直通）相集成，重定向 I/O 通信可以在多个群集网络上进行流式传输。
 > * 你应该计划群集网络，以允许在 I/O 重定向期间潜在增加协调器节点的网络通信。
@@ -116,8 +116,8 @@ Windows Server 2012 R2 引入了附加功能，例如分发了 CSV 所有权、 
 
 本部分列出了计划注意事项和运行 Windows Server 2012 R2 或 Windows Server 2012 的故障转移群集中使用 CSV 的建议。
 
->[!IMPORTANT]
->向存储供应商询问有关如何为 CSV 配置特定存储单位的建议。 如果存储供应商提供的建议与本主题中的信息不同，请使用存储供应商提供的建议。
+> [!IMPORTANT]
+> 向存储供应商询问有关如何为 CSV 配置特定存储单位的建议。 如果存储供应商提供的建议与本主题中的信息不同，请使用存储供应商提供的建议。
 
 ### <a name="arrangement-of-luns-volumes-and-vhd-files"></a>LUN、卷和 VHD 文件的排列
 
@@ -198,31 +198,14 @@ CSV 缓存通过将系统内存 (RAM) 分配为直写缓存，在只读无缓冲
 >[!NOTE]
 >我们建议为所有群集 Hyper-V 和横向扩展文件服务器部署启用 CSV 缓存。
 
-默认情况下，Windows Server 2012 中禁用 CSV 缓存。 在 Windows Server 2012 R2 中，默认情况下启用 CSV 缓存。 但是，你必须仍然分配要保留的块缓存大小。
+默认情况下，Windows Server 2012 中禁用 CSV 缓存。 Windows Server 2012 R2 及更高版本，默认情况下被启用 CSV 缓存。 但是，你必须仍然分配要保留的块缓存大小。
 
 下表介绍了控制 CSV 缓存的两个配置设置。
 
-<table>
-<thead>
-<tr class="header">
-<th>Windows Server 2012 R2 中的属性名称</th>
-<th>Windows Server 2012 中的属性名称</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>BlockCacheSize</strong></td>
-<td><strong>SharedVolumeBlockCacheSizeInMB</strong></td>
-<td>这是群集公用属性，它允许你定义要为群集中每个节点上的 CSV 保留的内存量（以兆字节为单位）。 例如，如果定义了值 512，则在每个节点上保留 512 MB 的系统内存。 （在许多群集中，512 MB 是推荐的值。）默认设置为 0 （对应于已禁用）。</td>
-</tr>
-<tr class="even">
-<td><strong>EnableBlockCache</strong></td>
-<td><strong>CsvEnableBlockCache</strong></td>
-<td>这是群集物理磁盘资源的专用属性。 它允许你在添加到 CSV 的单个磁盘上启用 CSV 缓存。 Windows Server 2012 中的默认设置为 0 （对应于已禁用）。 若要在磁盘上启用 CSV 缓存，请配置值 1。 默认情况下，在 Windows Server 2012 R2 中，启用此设置。</td>
-</tr>
-</tbody>
-</table>
+| Windows Server 2012 R2 及更高版本 |  Windows Server 2012                 | 描述 |
+| -------------------------------- | ------------------------------------ | ----------- |
+| BlockCacheSize                   | SharedVolumeBlockCacheSizeInMB       | 这是群集公用属性，它允许你定义要为群集中每个节点上的 CSV 保留的内存量（以兆字节为单位）。 例如，如果定义了值 512，则在每个节点上保留 512 MB 的系统内存。 （在许多群集中，512 MB 是推荐的值。）默认设置为 0 （对应于已禁用）。 |
+| EnableBlockCache                 | CsvEnableBlockCache                  | 这是群集物理磁盘资源的专用属性。 它允许你在添加到 CSV 的单个磁盘上启用 CSV 缓存。 Windows Server 2012 中的默认设置为 0 （对应于已禁用）。 若要在磁盘上启用 CSV 缓存，请配置值 1。 默认情况下，在 Windows Server 2012 R2 中，启用此设置。 |
 
 通过在“群集 CSV 卷缓存”  下添加计数器，可在性能监视器中监视 CSV 缓存。
 
@@ -231,7 +214,7 @@ CSV 缓存通过将系统内存 (RAM) 分配为直写缓存，在只读无缓冲
 1. 以管理员身份启动 Windows PowerShell。
 2. 若要定义要在每个节点上保留的 *512* MB 的缓存，请键入以下内容：
 
-    - 适用于 Windows Server 2012 R2:
+    - Windows Server 2012 R2 和更高版本：
 
         ```PowerShell
         (Get-Cluster).BlockCacheSize = 512  
@@ -249,14 +232,14 @@ CSV 缓存通过将系统内存 (RAM) 分配为直写缓存，在只读无缓冲
     ```
 
 >[!NOTE]
-> * 在 Windows Server 2012 中，可以分配给 CSV 缓存的总物理 RAM 的仅有 20%。 在 Windows Server 2012 R2 中，您可以分配 80%。 由于横向扩展文件服务器通常不受内存的约束，因此可以通过使用 CSV 缓存的额外内存来完成较大的性能增益。
-> * 若要避免资源争用，您应重新启动每个节点群集中后修改分配给 CSV 缓存的内存。 在 Windows Server 2012 R2 中，重新启动不再需要。
-> * 在单个磁盘上启用或禁用CSV 缓存后，必须使物理磁盘资源脱机并将其重新联机，才能使设置生效。 （默认情况下，在 Windows Server 2012 R2 中，CSV 缓存已启用。） 
+> * 在 Windows Server 2012 中，可以分配给 CSV 缓存的总物理 RAM 的仅有 20%。 Windows Server 2012 R2 及更高版本，您可以分配 80%。 由于横向扩展文件服务器通常不受内存的约束，因此可以通过使用 CSV 缓存的额外内存来完成较大的性能增益。
+> * 若要避免资源争用，您应重新启动每个节点群集中后修改分配给 CSV 缓存的内存。 Windows Server 2012 R2 及更高版本，不再需要重新启动。
+> * 在单个磁盘上启用或禁用CSV 缓存后，必须使物理磁盘资源脱机并将其重新联机，才能使设置生效。 （默认情况下，Windows Server 2012 R2 及更高版本，CSV 缓存已启用。） 
 > * 有关包括性能计数器相关信息的 CSV 缓存的详细信息，请参阅博客文章 [如何启用 CSV 缓存](https://blogs.msdn.microsoft.com/clustering/2013/07/19/how-to-enable-csv-cache/)。
 
-## <a name="back-up-csv"></a>备份 CSV
+## <a name="backing-up-csvs"></a>备份 Csv
 
-有多种方法可备份存储在故障转移群集中的 CSV 上的信息。 你可以使用 Microsoft 备份应用程序或非 Microsoft 应用程序。 通常，对于那些使用 NTFS 或 ReFS 格式化的群集存储之外的存储，CSV 不会施加特殊的备份要求。 CSV 备份也不会中断其他 CSV 存储操作。
+有多种方法来备份存储在 Csv 的故障转移群集中的信息。 你可以使用 Microsoft 备份应用程序或非 Microsoft 应用程序。 通常，对于那些使用 NTFS 或 ReFS 格式化的群集存储之外的存储，CSV 不会施加特殊的备份要求。 CSV 备份也不会中断其他 CSV 存储操作。
 
 当你选择 CSV 的备份应用程序和备份计划时，应考虑以下因素：
 
@@ -266,11 +249,11 @@ CSV 缓存通过将系统内存 (RAM) 分配为直写缓存，在只读无缓冲
 - CSV 支持运行 Windows Server 2012 R2 备份、 Windows Server 2012 Backup 或 Windows Server 2008 R2 备份的备份请求者。 但是，Windows Server Backup 通常仅提供可能不适合具有较大群集的组织的基本备份解决方案。 Windows Server Backup 不支持 CSV 上应用程序一致的虚拟机备份。 它仅支持崩溃一致的卷级备份。 （如果还原崩溃一致的备份，虚拟机将处于它发生崩溃时（进行备份的准确时间）所处的状态。）CSV 卷上的虚拟机的备份将成功，但会记录错误事件，指示这不受支持。
 - 当备份故障转移群集时，你可能需要管理凭据。
 
->[!IMPORTANT]
+> [!IMPORTANT]
 >请确保仔细查看备份应用程序将备份和还原的数据、它支持的 CSV 功能，以及每个群集节点上的应用程序的资源要求。
 
->[!WARNING]
->如果需要在 CSV 卷上还原备份数据，请注意备份应用程序在群集节点上维护和还原应用程序一致的数据时的功能和限制。 例如，借助某些应用程序，如果在不同于备份 CSV 卷所在的节点上还原 CSV，则你可能会无意中覆盖正在进行还原的节点上的有关应用程序状态的重要数据。
+> [!WARNING]
+> 如果需要在 CSV 卷上还原备份数据，请注意备份应用程序在群集节点上维护和还原应用程序一致的数据时的功能和限制。 例如，借助某些应用程序，如果在不同于备份 CSV 卷所在的节点上还原 CSV，则你可能会无意中覆盖正在进行还原的节点上的有关应用程序状态的重要数据。
 
 ## <a name="more-information"></a>详细信息
 

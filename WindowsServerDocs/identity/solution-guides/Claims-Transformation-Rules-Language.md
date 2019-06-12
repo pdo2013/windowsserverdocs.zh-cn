@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 4a6b378bc4aef180ebedd260008febaa2f2a76ae
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a1f5c724d041a9f64c3b2697a8b5acd17a2a7bd9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856208"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445811"
 ---
 # <a name="claims-transformation-rules-language"></a>声明转换规则语言
 
@@ -225,75 +225,75 @@ Active Directory 无法在这种情况下确定意图并进入防故障模式，
   
 本部分演示了编写不正确的语法和相应的语法由分析器生成的错误的规则的一些示例。  
   
-1.  例如：  
+1. 例如：  
   
-    ```  
-    c1;[]=>Issue(claim=c1);  
-    ```  
+   ```  
+   c1;[]=>Issue(claim=c1);  
+   ```  
   
-    此示例具有不正确使用的分号来代替冒号。   
-    **错误消息：**  
-    *POLICY0002:无法分析策略数据。*  
-    *行号：1，列号：2 个，令牌时出错:;。Line: 'c1;[]=>Issue(claim=c1);'.*  
-    *分析器错误：POLICY0030:语法错误，意外 ';'，应为下列选项之一: ':'。*  
+   此示例具有不正确使用的分号来代替冒号。   
+   **错误消息：**  
+   *POLICY0002:无法分析策略数据。*  
+   *行号：1，列号：2 个，令牌时出错:;。Line: 'c1;[]=>Issue(claim=c1);'.*  
+   *分析器错误：POLICY0030:语法错误，意外 ';'，应为下列选项之一: ':'。*  
   
-2.  例如：  
+2. 例如：  
   
-    ```  
-    c1:[]=>Issue(claim=c2);  
-    ```  
+   ```  
+   c1:[]=>Issue(claim=c2);  
+   ```  
   
-    在此示例中，复制颁发语句中的标识符标记未定义。   
-    **错误消息**:   
-    *POLICY0011:中的声明规则没有条件匹配 CopyIssuanceStatement 中指定的条件标签: c2。*  
+   在此示例中，复制颁发语句中的标识符标记未定义。   
+   **错误消息**:   
+   *POLICY0011:中的声明规则没有条件匹配 CopyIssuanceStatement 中指定的条件标签: c2。*  
   
-3.  例如：  
+3. 例如：  
   
-    ```  
-    c1:[type=="x1", value=="1", valuetype=="bool"]=>Issue(claim=c1)  
-    ```  
+   ```  
+   c1:[type=="x1", value=="1", valuetype=="bool"]=>Issue(claim=c1)  
+   ```  
   
-    "bool"不是在语言中，终端并不是有效的值类型。 以下的错误消息中列出了有效的终端。   
-    **错误消息：**  
-    *POLICY0002:无法分析策略数据。*  
-    行号：1，列号：39，令牌时出错:"bool"。 Line: 'c1:[type=="x1", value=="1",valuetype=="bool"]=>Issue(claim=c1);'.   
-    *分析器错误：POLICY0030:语法错误，意外 STRING，应为以下值之一：'INT64_TYPE' 'UINT64_TYPE' 'STRING_TYPE' 'BOOLEAN_TYPE' 'IDENTIFIER'*  
+   "bool"不是在语言中，终端并不是有效的值类型。 以下的错误消息中列出了有效的终端。   
+   **错误消息：**  
+   *POLICY0002:无法分析策略数据。*  
+   行号：1，列号：39，令牌时出错:"bool"。 Line: 'c1:[type=="x1", value=="1",valuetype=="bool"]=>Issue(claim=c1);'.   
+   *分析器错误：POLICY0030:语法错误，意外 STRING，应为以下值之一：'INT64_TYPE' 'UINT64_TYPE' 'STRING_TYPE' 'BOOLEAN_TYPE' 'IDENTIFIER'*  
   
-4.  例如：  
+4. 例如：  
   
-    ```  
-    c1:[type=="x1", value==1, valuetype=="boolean"]=>Issue(claim=c1);  
-    ```  
+   ```  
+   c1:[type=="x1", value==1, valuetype=="boolean"]=>Issue(claim=c1);  
+   ```  
   
-    数字**1**中匹配的条件不允许这类使用情况和在此示例中不是在语言中，有效的令牌。 它必须括在双引号内以使它成为字符串。   
-    **错误消息：**  
-    *POLICY0002:无法分析策略数据。*  
-    *行号：1，列号：23，令牌时出错：1.Line: 'c1:[type=="x1", value==1, valuetype=="bool"]=>Issue(claim=c1);'.**Parser error:POLICY0029:意外的输入。*  
+   数字**1**中匹配的条件不允许这类使用情况和在此示例中不是在语言中，有效的令牌。 它必须括在双引号内以使它成为字符串。   
+   **错误消息：**  
+   *POLICY0002:无法分析策略数据。*  
+   *行号：1，列号：23，令牌时出错：1.Line: 'c1:[type=="x1", value==1, valuetype=="bool"]=>Issue(claim=c1);'.* <em>Parser error:POLICY0029:意外的输入。</em>  
   
-5.  例如：  
+5. 例如：  
   
-    ```  
-    c1:[type == "x1", value == "1", valuetype == "boolean"] =>   
+   ```  
+   c1:[type == "x1", value == "1", valuetype == "boolean"] =>   
   
-         Issue(type = c1.type, value="0", valuetype == "boolean");  
-    ```  
+        Issue(type = c1.type, value="0", valuetype == "boolean");  
+   ```  
   
-    此示例使用双等号 （= =），而不是单个等号 （=）。   
-    **错误消息：**  
-    *POLICY0002:无法分析策略数据。*  
-    *行号：1，列号：91，令牌时出错: = =。Line: 'c1:[type=="x1", value=="1",*  
-    *valuetype=="boolean"]=>Issue(type=c1.type, value="0", valuetype=="boolean");'.*  
-    *分析器错误：POLICY0030:语法错误、 意外 = =，应为以下值之一: =*  
+   此示例使用双等号 （= =），而不是单个等号 （=）。   
+   **错误消息：**  
+   *POLICY0002:无法分析策略数据。*  
+   *行号：1，列号：91，令牌时出错: = =。Line: 'c1:[type=="x1", value=="1",*  
+   *valuetype=="boolean"]=>Issue(type=c1.type, value="0", valuetype=="boolean");'.*  
+   *分析器错误：POLICY0030:语法错误、 意外 = =，应为以下值之一: =*  
   
-6.  例如：  
+6. 例如：  
   
-    ```  
-    c1:[type=="x1", value=="boolean", valuetype=="string"] =>   
+   ```  
+   c1:[type=="x1", value=="boolean", valuetype=="string"] =>   
   
-          Issue(type=c1.type, value=c1.value, valuetype = "string");  
-    ```  
+         Issue(type=c1.type, value=c1.value, valuetype = "string");  
+   ```  
   
-    此示例中是语法和语义上正确的。 但是，使用"boolean"字符串值被绑定到会导致混淆，以及应避免使用。 正如前面提到，声明值应尽可能避免使用语言终端。  
+   此示例中是语法和语义上正确的。 但是，使用"boolean"字符串值被绑定到会导致混淆，以及应避免使用。 正如前面提到，声明值应尽可能避免使用语言终端。  
   
 ## <a name="BKMK_LT"></a>语言终端  
 下表列出了一整套的终端字符串和声明转换规则语言中使用的关联的语言终端。 这些定义使用不区分大小写的 utf-16 字符串。  

@@ -9,12 +9,12 @@ ms.date: 08/17/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f3719277c80eae2bf2a4d923146920d17546601d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 97e1fa441c5fe4fb7d23743387392732663326de
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188728"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501590"
 ---
 # <a name="ad-fs-single-sign-on-settings"></a>AD FS 单一登录设置
 
@@ -56,7 +56,7 @@ AD FS 支持几种类型的单一登录体验：
 
 
 ## <a name="ad-fs-2016---single-sign-on-and-authenticated-devices"></a>AD FS 2016 的单一登录和经过身份验证的设备
-请求者增加到最大的 90 天，但需要在 14 天内 （设备使用情况窗口） authenticvation 已经注册的设备进行身份验证时，AD FS 2016 更改 PSSO。
+请求者从已注册的设备，增加到最大的 90 天，但需要在 14 天内机构 （设备使用情况窗口） 的身份验证进行身份验证时，AD FS 2016 更改 PSSO。
 提供凭据后第一次，默认情况下具有已注册的设备的用户获得单一登录最大时间段的 90 天，前提是它们使用设备来访问每 14 天至少一次的 AD FS 资源。  如果它们等待 15 天提供凭据后，用户将会再次提示输入凭据。  
 
 默认情况下启用持续的 SSO。 如果已禁用，将写入任何 PSSO cookie。 |  
@@ -103,23 +103,23 @@ Set-AdfsProperties –KmsiLifetimeMins <Int32\>
 ## <a name="psso-revocation"></a>PSSO 吊销  
  若要保护安全，AD FS 将拒绝以前当满足以下条件时，发出任何持久性 SSO cookie。 这将要求用户提供其凭据才能再次使用 AD FS 身份验证。 
   
--   用户更改密码  
+- 用户更改密码  
   
--   在 AD FS 中禁用了持久性 SSO 设置  
+- 在 AD FS 中禁用了持久性 SSO 设置  
   
--   设备已由管理员在丢失或被盗的情况下被禁用  
+- 设备已由管理员在丢失或被盗的情况下被禁用  
   
--   AD FS 接收持续的 SSO cookie 颁发的已注册的用户，但用户或设备未注册不再  
+- AD FS 接收持续的 SSO cookie 颁发的已注册的用户，但用户或设备未注册不再  
   
--   AD FS 收到的已注册用户的持久性 SSO cookie，但用户重新进行注册  
+- AD FS 收到的已注册用户的持久性 SSO cookie，但用户重新进行注册  
   
--   AD FS 接收因"使我保持登录"，但"使我保持登录"而发出的持久 SSO cookie 设置处于禁用状态的 AD fs  
+- AD FS 接收因"使我保持登录"，但"使我保持登录"而发出的持久 SSO cookie 设置处于禁用状态的 AD fs  
   
--   AD FS 接收持久性的 SSO cookie，这针对已注册的用户发出的但设备证书缺失或更改身份验证过程  
+- AD FS 接收持久性的 SSO cookie，这针对已注册的用户发出的但设备证书缺失或更改身份验证过程  
   
--   AD FS 管理员已设置为持续的 SSO 的截止时间。 当此配置时，AD FS 将拒绝此时间之前发出任何持久性 SSO cookie  
+- AD FS 管理员已设置为持续的 SSO 的截止时间。 当此配置时，AD FS 将拒绝此时间之前发出任何持久性 SSO cookie  
   
- 若要设置截止时间，请运行以下 PowerShell cmdlet:  
+  若要设置截止时间，请运行以下 PowerShell cmdlet:  
   
 
 ``` powershell
@@ -163,7 +163,7 @@ c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
     <th>是</th>
   </tr>
  <tr align="center">
-    <td>SSO=>set Refresh Token=></td>
+    <td>SSO=&gt;set Refresh Token=&gt;</td>
     <td>8 小时</td>
     <td>不可用</td>
     <td>不可用</td>
@@ -174,7 +174,7 @@ c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
   </tr>
 
  <tr align="center">
-    <td>PSSO=>set Refresh Token=></td>
+    <td>PSSO=&gt;set Refresh Token=&gt;</td>
     <td>不可用</td>
     <td>24 小时</td>
     <td>7 天</td>

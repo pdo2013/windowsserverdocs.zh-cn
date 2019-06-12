@@ -9,12 +9,12 @@ ms.assetid: 158b7a62-2c52-448b-9467-c00d5018f65b
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: 005721873ad3a0df942bc9e23eba13728965ccba
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 989216f90e78689b464240cff957bab1d9c1229b
+ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864548"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749568"
 ---
 # <a name="configure-vpn-device-tunnels-in-windows-10"></a>在 Windows 10 中配置 VPN 设备隧道
 
@@ -92,22 +92,23 @@ Set-VpnAuthProtocol -UserAuthProtocolAccepted Certificate, EAP -RootCertificateN
 根据每个特定部署方案的需要，可以使用设备隧道配置的另一个 VPN 功能是[受信任网络检测](https://social.technet.microsoft.com/wiki/contents/articles/38546.new-features-for-vpn-in-windows-10-and-windows-server-2016.aspx#Trusted_Network_Detection)。
 
 ```
- <!-- inside/outside detection --> 
-  <TrustedNetworkDetection>corp.contoso.com</TrustedNetworkDetection> 
+ <!-- inside/outside detection -->
+  <TrustedNetworkDetection>corp.contoso.com</TrustedNetworkDetection>
 ```
 
 ## <a name="deployment-and-testing"></a>部署和测试
 
-可以通过使用 Windows PowerShell 脚本和使用 Windows Management Instrumentation 配置设备隧道\(WMI\)桥。 必须在的上下文中配置 Always On VPN 设备隧道**本地系统**帐户。 若要实现此目的，它将使用所需[PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec)、 利用某个的[PsTools](https://docs.microsoft.com/sysinternals/downloads/pstools)中包含[Sysinternals](https://docs.microsoft.com/sysinternals/)套件的实用程序。
+可以通过使用 Windows PowerShell 脚本，并使用 Windows Management Instrumentation (WMI) 桥配置设备隧道。 必须在的上下文中配置 Always On VPN 设备隧道**本地系统**帐户。 若要实现此目的，它将使用所需[PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec)、 利用某个的[PsTools](https://docs.microsoft.com/sysinternals/downloads/pstools)中包含[Sysinternals](https://docs.microsoft.com/sysinternals/)套件的实用程序。
 
-有关如何部署的指导原则的每个设备`(.\Device)`与每个用户`(.\User)`配置文件，请参阅[使用 PowerShell 脚本使用 WMI 桥提供程序](https://docs.microsoft.com/windows/client-management/mdm/using-powershell-scripting-with-the-wmi-bridge-provider)。 
+有关如何部署的指导原则的每个设备`(.\Device)`与每个用户`(.\User)`配置文件，请参阅[使用 PowerShell 脚本使用 WMI 桥提供程序](https://docs.microsoft.com/windows/client-management/mdm/using-powershell-scripting-with-the-wmi-bridge-provider)。
 
 运行以下 Windows PowerShell 命令来验证你已成功部署的设备配置文件：
 
-    `Get-VpnConnection -AllUserConnection`
+  ```powershell
+  Get-VpnConnection -AllUserConnection
+  ```
 
 输出显示设备的列表\-宽的设备部署的 VPN 配置文件。
-
 
 ### <a name="example-windows-powershell-script"></a>Windows PowerShell 脚本示例
 
@@ -166,7 +167,7 @@ Write-Host "$Message"
 
 ## <a name="additional-resources"></a>其他资源
 
-下面是其他资源来帮助进行 VPN 部署。
+以下是其他资源来帮助进行 VPN 部署。
 
 ### <a name="vpn-client-configuration-resources"></a>VPN 客户端配置资源
 
@@ -176,9 +177,9 @@ Write-Host "$Message"
 - [配置 Windows 10 客户端 Always On VPN 连接](always-on-vpn/deploy/vpn-deploy-client-vpn-connections.md)
 - [VPN 配置文件选项](https://docs.microsoft.com/windows/access-protection/vpn/vpn-profile-options)
 
-### <a name="remote-access-server-ras-gateway-resources"></a>远程访问服务器\(RAS\)网关资源
+### <a name="remote-access-server-gateway-resources"></a>远程访问服务器网关资源
 
-下面是 RAS 网关资源。
+以下是远程访问服务器 (RAS) 网关资源。
 
 - [使用计算机身份验证证书配置 RRAS](https://technet.microsoft.com/library/dd458982.aspx)
 - [IKEv2 VPN 连接故障排除](https://technet.microsoft.com/library/dd941612.aspx)
@@ -187,4 +188,3 @@ Write-Host "$Message"
 >[!IMPORTANT]
 >当使用 Microsoft RAS 网关设备隧道，将需要配置 RRAS 服务器以支持 IKEv2 计算机证书身份验证，从而**允许对 IKEv2 的计算机证书身份验证**身份验证方法，如所述[此处](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee922682%28v=ws.10%29)。 一旦启用此设置，强烈建议**集 VpnAuthProtocol** PowerShell cmdlet，连同**RootCertificateNameToAccept**可选参数，用于确保RRAS IKEv2 连接只被允许的 VPN 客户端证书链接到显式定义内部/专用根证书颁发机构。 或者，**受信任的根证书颁发机构**RRAS 服务器上的存储应已修正，以确保它不包含公共证书颁发机构，如所述[此处](https://blogs.technet.microsoft.com/rrasblog/2009/06/10/what-type-of-certificate-to-install-on-the-vpn-server/)。 类似的方法可能还需要考虑其他 VPN 网关。
 
----

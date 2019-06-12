@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: aa3174f3-42af-4511-ac2d-d8968b66da87
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 01005b5d69a48b01a1735e690a4a97c46094da23
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: c3b7751ca6d0b62ee078d5da7084cbc007edc155
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266776"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805178"
 ---
 # <a name="step-1-plan-the-advanced-directaccess-infrastructure"></a>步骤 1 计划高级 DirectAccess 基础结构
 
@@ -26,7 +26,7 @@ ms.locfileid: "66266776"
 
 在单个服务器上规划高级 DirectAccess 部署的第一步是规划部署所需的基础结构。 本主题介绍基础结构规划步骤。 不需要按照特定顺序完成这些规划任务。  
   
-|任务|描述| 
+|任务|描述|
 |----|--------|  
 |[1.1 规划网络拓扑和设置](#11-plan-network-topology-and-settings)|确定放置 DirectAccess 服务器的位置（在边缘，或者在网络地址转换 (NAT) 设备或防火墙后面），并规划 IP 寻址、路由和强制隧道。|  
 |[1.2 规划防火墙要求](#12-plan-firewall-requirements)|规划允许 DirectAccess 通信通过边缘防火墙。|  
@@ -37,60 +37,63 @@ ms.locfileid: "66266776"
 |[1.7 规划 Active Directory 域服务](#17-plan-active-directory-domain-services)|规划你的域控制器、Active Directory 要求、客户端身份验证和多个域。|  
 |[1.8 规划组策略对象](#18-plan-group-policy-objects)|确定你的组织中需要哪些 GPO，以及如何创建或编辑这些 GPO。|  
   
-## <a name="11-plan-network-topology-and-settings"></a>1.1 规划网络拓扑和设置  
+## <a name="11-plan-network-topology-and-settings"></a>1.1 规划网络拓扑和设置
+
 本部分介绍如何规划网络，包括：  
   
--   [1.1.1 规划网络适配器和 IP 寻址](#111-plan-network-adapters-and-ip-addressing)  
+- [1.1.1 规划网络适配器和 IP 寻址](#111-plan-network-adapters-and-ip-addressing)  
   
--   [1.1.2 规划 IPv6 intranet 连接](#112-plan-ipv6-intranet-connectivity)  
+- [1.1.2 规划 IPv6 intranet 连接](#112-plan-ipv6-intranet-connectivity)  
   
--   [1.1.3 规划强制隧道](#113-plan-for-force-tunneling)  
+- [1.1.3 规划强制隧道](#113-plan-for-force-tunneling)  
   
 ### <a name="111-plan-network-adapters-and-ip-addressing"></a>1.1.1 规划网络适配器和 IP 寻址  
   
-1.  标识你打算使用的网络适配器拓扑。 可以使用下列任一拓扑设置 DirectAccess：  
+1. 标识你打算使用的网络适配器拓扑。 可以使用下列任一拓扑设置 DirectAccess：  
   
-    -   **两个网络适配器** 可以使用一个连接到 Internet 的网络适配器和另一个连接到内部网络的网络适配器，在边缘安装 DirectAccess 服务器；也可以使用一个连接到外围网络的网络适配器和另一个连接到内部网络的网络适配器，在 NAT、防火墙或路由器设备后面安装 DirectAccess 服务器。  
+    - **两个网络适配器** 可以使用一个连接到 Internet 的网络适配器和另一个连接到内部网络的网络适配器，在边缘安装 DirectAccess 服务器；也可以使用一个连接到外围网络的网络适配器和另一个连接到内部网络的网络适配器，在 NAT、防火墙或路由器设备后面安装 DirectAccess 服务器。  
   
-    -   **一个网络适配器** 在 NAT 设备后面安装 DirectAccess 服务器，单个网络适配器将连接到内部网络。  
+    - **一个网络适配器** 在 NAT 设备后面安装 DirectAccess 服务器，单个网络适配器将连接到内部网络。  
   
-2.  标识 IP 寻址要求：  
+2. 标识 IP 寻址要求：  
   
     DirectAccess 使用 IPv6 和 IPsec 在 DirectAccess 客户端计算机和内部企业网络之间创建安全连接。 但是，DirectAccess 不一定需要连接到 IPv6 Internet 或内部网络上的本机 IPv6 支持。 相反，它会自动配置并使用 IPv6 转换技术在 IPv4 Internet 上（通过使用 6to4、Teredo 或 IP-HTTPS）和仅支持 IPv4 的 Intranet 上（通过使用 NAT64 或 ISATAP）对 IPv6 通信进行隧道传送。 有关这些转换技术的概述，请参阅以下资源：  
   
-    -   [IPv6 转换技术](https://technet.microsoft.com/library/bb726951.aspx)  
+    - [IPv6 转换技术](https://technet.microsoft.com/library/bb726951.aspx)  
   
-    -   [IP-HTTPS 隧道协议规范](https://msdn.microsoft.com/library/dd358571(PROT.10).aspx)  
+    - [IP-HTTPS 隧道协议规范](https://msdn.microsoft.com/library/dd358571(PROT.10).aspx)  
   
-3.  按下表配置所需的适配器和地址。 对于使用单个网络适配器并在 NAT 设备后面设置的部署，仅使用**内部网络适配器**列配置 IP 地址。  
+3. 按下表配置所需的适配器和地址。 对于使用单个网络适配器并在 NAT 设备后面设置的部署，仅使用**内部网络适配器**列配置 IP 地址。  
   
     ||外部网络适配器|内部网络适配器|路由要求|  
     |-|--------------|--------------|------------|  
-    |IPv4 Internet 和 IPv4 Intranet|配置带有相应子网掩码的两个静态连续公用 IPv4 地址（仅 Teredo 要求)。<br /><br />此外，配置 Internet 防火墙或本地 Internet 服务提供商 (ISP) 路由器的默认网关 IPv4 地址。 **注意：** DirectAccess 服务器需要两个连续的公用 IPv4 地址，以便它可用作 Teredo 服务器，而且 NAT 设备后面的基于 Windows 的客户端可以使用 DirectAccess 服务器检测该 NAT 设备的类型。|配置以下内容：<br /><br />的带有相应子网掩码 IPv4 intranet 地址。<br />的 intranet 命名空间特定于连接的 DNS 后缀。 还应在内部接口上配置 DNS 服务器。 **警告：** 不要在任何 Intranet 接口上配置默认网关。|若要配置 DirectAccess 服务器以访问内部 IPv4 网络上的所有子网，请执行以下操作：<br /><br />-列出在 intranet 上的所有位置的 IPv4 地址空间。<br />-使用**路由添加-p**或**netsh interface ipv4 添加路由**命令将 IPv4 地址空间添加为 DirectAccess 服务器 IPv4 路由表中的静态路由。|  
-    |IPv6 Internet 和 IPv6 Intranet|配置以下内容：<br /><br />-使用您的 ISP 提供的地址配置。<br />-使用**Route Print**命令，以确保默认 IPv6 路由存在并指向 IPv6 路由表中的 ISP 路由器。<br />-确定 ISP 和 intranet 路由器是否正在使用 RFC 4191 中所述，使用比本地 intranet 路由器更高版本的默认首选项的默认路由器首选项。<br />    如果两个结果都为“是”，则默认路由不需要任何其他配置。 用于 ISP 路由器的更高级首选项可确保 DirectAccess 服务器的活动默认 IPv6 路由指向 IPv6 Internet。<br /><br />因为 DirectAccess 服务器是一个 IPv6 路由器，所以如果你具有本机 IPv6 基础结构，则 Internet 接口也可以访问 Intranet 上的域控制器。 在这种情况下，将数据包筛选器添加到外围网络中的域控制器，这些数据包筛选器可阻止连接到 DirectAccess 服务器面向 Internet 的接口的 IPv6 地址。|配置以下内容：<br /><br />-如果不使用默认首选等级，可以通过使用以下命令来配置 intranet 接口**netsh 接口 ipv6 set InterfaceIndex ignoredefaultroutes = 启用**。<br />    这一命令可确保不会将指向 Intranet 路由器的其他默认路由添加到 IPv6 路由表。 你可以使用以下命令获取 Intranet 接口的接口索引：**netsh interface ipv6 show interface**。|如果你拥有 IPv6 Intranet，若要配置 DirectAccess 服务器以访问所有的 IPv6 位置，请执行以下操作：<br /><br />-列出在 intranet 上的所有位置的 IPv6 地址空间。<br />-使用**netsh 接口 ipv6 添加路由**命令将 IPv6 地址空间添加为 DirectAccess 服务器 IPv6 路由表中的静态路由。|  
-    |IPv4 Internet 和 IPv6 Intranet|在 IPv4 Internet 上，DirectAccess 服务器通过 Microsoft 6to4 适配器将 IPv6 路由通信转发到 6to4 中继。 可以使用以下命令来配置为 Microsoft 6to4 适配器的 IPv4 地址的 DirectAccess 服务器： **netsh interface ipv6 6to4 set relay =<ipaddress>状态 = 已启用**。|||  
+    |IPv4 Internet 和 IPv4 Intranet|配置带有相应子网掩码的两个静态连续公用 IPv4 地址（仅 Teredo 要求)。<br/><br/>此外，配置 Internet 防火墙或本地 Internet 服务提供商 (ISP) 路由器的默认网关 IPv4 地址。 **注意：** DirectAccess 服务器需要两个连续的公用 IPv4 地址，以便它可用作 Teredo 服务器，而且 NAT 设备后面的基于 Windows 的客户端可以使用 DirectAccess 服务器检测该 NAT 设备的类型。|配置以下内容：<br/><br/>的带有相应子网掩码 IPv4 intranet 地址。<br/>的 intranet 命名空间特定于连接的 DNS 后缀。 还应在内部接口上配置 DNS 服务器。 **警告：** 不要在任何 Intranet 接口上配置默认网关。|若要配置 DirectAccess 服务器以访问内部 IPv4 网络上的所有子网，请执行以下操作：<br/><br/>-列出在 intranet 上的所有位置的 IPv4 地址空间。<br/>-使用**路由添加-p**或**netsh interface ipv4 添加路由**命令将 IPv4 地址空间添加为 DirectAccess 服务器 IPv4 路由表中的静态路由。|  
+    |IPv6 Internet 和 IPv6 Intranet|配置以下内容：<br/><br/>-使用您的 ISP 提供的地址配置。<br/>-使用**Route Print**命令，以确保默认 IPv6 路由存在并指向 IPv6 路由表中的 ISP 路由器。<br/>-确定 ISP 和 intranet 路由器是否正在使用 RFC 4191 中所述，使用比本地 intranet 路由器更高版本的默认首选项的默认路由器首选项。<br/>    如果两个结果都为“是”，则默认路由不需要任何其他配置。 用于 ISP 路由器的更高级首选项可确保 DirectAccess 服务器的活动默认 IPv6 路由指向 IPv6 Internet。<br/><br/>因为 DirectAccess 服务器是一个 IPv6 路由器，所以如果你具有本机 IPv6 基础结构，则 Internet 接口也可以访问 Intranet 上的域控制器。 在这种情况下，将数据包筛选器添加到外围网络中的域控制器，这些数据包筛选器可阻止连接到 DirectAccess 服务器面向 Internet 的接口的 IPv6 地址。|配置以下内容：<br/><br/>-如果不使用默认首选等级，可以通过使用以下命令来配置 intranet 接口**netsh 接口 ipv6 set InterfaceIndex ignoredefaultroutes = 启用**。<br/>    这一命令可确保不会将指向 Intranet 路由器的其他默认路由添加到 IPv6 路由表。 你可以使用以下命令获取 Intranet 接口的接口索引：**netsh interface ipv6 show interface**。|如果你拥有 IPv6 Intranet，若要配置 DirectAccess 服务器以访问所有的 IPv6 位置，请执行以下操作：<br/><br/>-列出在 intranet 上的所有位置的 IPv6 地址空间。<br/>-使用**netsh 接口 ipv6 添加路由**命令将 IPv6 地址空间添加为 DirectAccess 服务器 IPv6 路由表中的静态路由。|  
+    |IPv4 Internet 和 IPv6 Intranet|在 IPv4 Internet 上，DirectAccess 服务器通过 Microsoft 6to4 适配器将 IPv6 路由通信转发到 6to4 中继。 可以使用以下命令，为 Microsoft 6to4 适配器的 IPv4 地址配置 DirectAccess 服务器：`netsh interface ipv6 6to4 set relay name=<ipaddress> state=enabled`。|||  
   
     > [!NOTE]  
-    > -   如果已为 DirectAccess 客户端分配公用 IPv4 地址，则它将使用 6to4 转换技术连接到 Intranet。 如果给它分配了专用 IPv4 地址，则它将使用 Teredo。 如果 DirectAccess 客户端无法使用 6to4 或 Teredo 连接到 DirectAccess 服务器，则它将使用 IP-HTTPS。  
-    > -   若要使用 Teredo，必须在面向外部的网络适配器上配置两个连续的 IP 地址。  
-    > -   如果 DirectAccess 服务器只有一个网络适配器，则无法使用 Teredo。  
-    > -   本机 IPv6 客户端计算机可以通过本机 IPv6 连接到 DirectAccess 服务器，而无需转换技术。  
+    > - 如果已为 DirectAccess 客户端分配公用 IPv4 地址，则它将使用 6to4 转换技术连接到 Intranet。 如果给它分配了专用 IPv4 地址，则它将使用 Teredo。 如果 DirectAccess 客户端无法使用 6to4 或 Teredo 连接到 DirectAccess 服务器，则它将使用 IP-HTTPS。  
+    > - 若要使用 Teredo，必须在面向外部的网络适配器上配置两个连续的 IP 地址。  
+    > - 如果 DirectAccess 服务器只有一个网络适配器，则无法使用 Teredo。  
+    > - 本机 IPv6 客户端计算机可以通过本机 IPv6 连接到 DirectAccess 服务器，而无需转换技术。  
   
-### <a name="112-plan-ipv6-intranet-connectivity"></a>1.1.2 规划 IPv6 Intranet 连接  
+### <a name="112-plan-ipv6-intranet-connectivity"></a>1.1.2 规划 IPv6 Intranet 连接
+
 若要管理远程 DirectAccess 客户端，IPv6 是必需的。 为了进行远程管理，IPv6 允许 DirectAccess 管理服务器连接到位于 Internet 上的 DirectAccess 客户端。  
   
 > [!NOTE]  
-> -   无需在你的网络上使用 IPv6，即可支持由 DirectAccess 客户端计算机发起且到你组织网络上的 IPv4 资源的连接。 为此，将使用 NAT64/DNS64。  
-> -   如果你不管理远程 DirectAccess 客户端，则无需部署 IPv6。  
-> -   DirectAccess 部署不支持站内自动隧道寻址协议 (ISATAP)。  
-> -   使用 IPv6 时，你可以使用以下 Windows PowerShell 命令启用 DNS64 的 IPv6 主机 (AAAA) 资源记录查询： **Set-NetDnsTransitionConfiguration -OnlySendAQuery $false**。  
+> - 无需在你的网络上使用 IPv6，即可支持由 DirectAccess 客户端计算机发起且到你组织网络上的 IPv4 资源的连接。 为此，将使用 NAT64/DNS64。  
+> - 如果你不管理远程 DirectAccess 客户端，则无需部署 IPv6。  
+> - DirectAccess 部署不支持站内自动隧道寻址协议 (ISATAP)。  
+> - 使用 IPv6 时，你可以使用以下 Windows PowerShell 命令启用 DNS64 的 IPv6 主机 (AAAA) 资源记录查询： **Set-NetDnsTransitionConfiguration -OnlySendAQuery $false**。  
   
-### <a name="113-plan-for-force-tunneling"></a>1.1.3 规划强制隧道  
+### <a name="113-plan-for-force-tunneling"></a>1.1.3 规划强制隧道
+
 在使用 IPv6 和名称解析策略表 (NRPT) 时，默认情况下 DirectAccess 客户端会通过以下方式将其 Intranet 通信和 Internet 通信分开：  
   
--   对于 Intranet 完全限定的域名 (FQDN) 的 DNS 名称查询和所有 Intranet 通信将通过隧道进行交换，这些隧道使用 DirectAccess 服务器或直接使用 Intranet 服务器创建。 来自 DirectAccess 客户端的 Intranet 通信是 IPv6 通信。  
+- 对于 Intranet 完全限定的域名 (FQDN) 的 DNS 名称查询和所有 Intranet 通信将通过隧道进行交换，这些隧道使用 DirectAccess 服务器或直接使用 Intranet 服务器创建。 来自 DirectAccess 客户端的 Intranet 通信是 IPv6 通信。  
   
--   对于符合免除规则或与 Intranet 命名空间不匹配的 FQDN 的 DNS 名称查询（以及到 Internet 服务器的所有通信）将通过连接到 Internet 的物理接口进行交换。 来自 DirectAccess 客户端的 Internet 通信通常为 IPv4 通信。  
+- 对于符合免除规则或与 Intranet 命名空间不匹配的 FQDN 的 DNS 名称查询（以及到 Internet 服务器的所有通信）将通过连接到 Internet 的物理接口进行交换。 来自 DirectAccess 客户端的 Internet 通信通常为 IPv4 通信。  
   
 相反，在默认情况下，某些远程访问虚拟专用网络 (VPN) 实现（包括 VPN 客户端）通过远程访问 VPN 连接发送其所有 Intranet 和 Internet 通信。 Internet 绑定的通信会由 VPN 服务器路由到 Intranet IPv4 Web 代理服务器以访问 IPv4 Internet 资源。 可以使用拆分隧道分离远程访问 VPN 客户端的 Intranet 和 Internet 通信。 该过程包括在 VPN 客户端上配置 Internet 协议 (IP) 路由表，以便到 Intranet 位置的通信会通过 VPN 连接发送，而到所有其他位置的通信会使用连接到 Internet 的物理接口发送。  
   
@@ -101,28 +104,29 @@ ms.locfileid: "66266776"
   
 启用强制隧道具有以下结果：  
   
--   DirectAccess 客户端只能使用基于安全超文本传输协议的 Internet 协议 (IP-HTTPS) 获取 IPv4 Internet 上到 DirectAccess 服务器的 IPv6 连接。  
+- DirectAccess 客户端只能使用基于安全超文本传输协议的 Internet 协议 (IP-HTTPS) 获取 IPv4 Internet 上到 DirectAccess 服务器的 IPv6 连接。  
   
--   默认情况下，DirectAccess 客户端可通过 IPv4 通信访问的唯一位置为其本地子网上的位置。 由 DirectAccess 客户端上运行的应用程序和服务发送的所有其他通信为 IPv6 通信，它们通过 DirectAccess 连接发送。 因此，无法使用 DirectAccess 客户端上仅支持 IPv4 的应用程序访问 Internet 资源，本地子网上的此类应用程序除外。  
+- 默认情况下，DirectAccess 客户端可通过 IPv4 通信访问的唯一位置为其本地子网上的位置。 由 DirectAccess 客户端上运行的应用程序和服务发送的所有其他通信为 IPv6 通信，它们通过 DirectAccess 连接发送。 因此，无法使用 DirectAccess 客户端上仅支持 IPv4 的应用程序访问 Internet 资源，本地子网上的此类应用程序除外。  
   
 > [!IMPORTANT]  
 > 若要通过 DNS64 和 NAT64 进行强制隧道，必须实现 IPv6 Internet 连接。 实现此目的的一种方法是使 IP-HTTPS 前缀全局可路由，以便可通过 IPv6 访问 ipv6.msftncsi.com，并且能够通过 DirectAccess 服务器返回从 Internet 服务器到 IP-HTTPS 客户端的响应。  
->   
+>
 > 因为在大多数情况下这一方法并不可行，所以最好的选择是在企业网络内部创建虚拟 NCSI 服务器，如下所示：  
->   
-> 1.  为 ipv6.msftncsi.com 添加 NRPT 条目，并针对 DNS64 将它解析到内部网站（可以是 IPv4 网站）。  
-> 2.  为 dns.msftncsi.com 添加 NRPT 条目，并针对企业 DNS 服务器对其进行解析，以返回 IPv6 主机 (AAAA) 资源记录 fd3e:4f5a:5b81::1。 （使用 DNS64 仅发送此 FQDN 的主机 (A) 资源记录查询可能不起作用，因为已将它在仅支持 IPv4 部署中配置，所以你应将其配置为直接针对企业 DNS 进行解析。）  
+>
+> 1. 为 ipv6.msftncsi.com 添加 NRPT 条目，并针对 DNS64 将它解析到内部网站（可以是 IPv4 网站）。  
+> 2. 为 dns.msftncsi.com 添加 NRPT 条目，并针对企业 DNS 服务器对其进行解析，以返回 IPv6 主机 (AAAA) 资源记录 fd3e:4f5a:5b81::1。 （使用 DNS64 仅发送此 FQDN 的主机 (A) 资源记录查询可能不起作用，因为已将它在仅支持 IPv4 部署中配置，所以你应将其配置为直接针对企业 DNS 进行解析。）  
   
-## <a name="12-plan-firewall-requirements"></a>1.2 规划防火墙要求  
+## <a name="12-plan-firewall-requirements"></a>1.2 规划防火墙要求
+
 如果 DirectAccess 服务器位于边缘防火墙后面，则当 DirectAccess 服务器位于 IPv4 Internet 上时，要进行远程访问通信还需要以下例外：  
   
--   Teredo 通信的用户数据报协议 (UDP) 目标端口 3544 入站，以及 UDP 源端口 3544 出站。  
+- Teredo 通信的用户数据报协议 (UDP) 目标端口 3544 入站，以及 UDP 源端口 3544 出站。  
   
--   6to4 流量 IP 协议 41 入站和出站。  
+- 6to4 流量 IP 协议 41 入站和出站。  
   
--   IP HTTPS 传输控制协议 (TCP) 目标端口 443，以及 TCP 源端口 443 出站。  
+- IP HTTPS 传输控制协议 (TCP) 目标端口 443，以及 TCP 源端口 443 出站。  
   
--   如果你要使用单个网络适配器部署远程访问，并且要在 DirectAccess 服务器上安装网络位置服务器，则还应免除 TCP 端口 62000。  
+- 如果你要使用单个网络适配器部署远程访问，并且要在 DirectAccess 服务器上安装网络位置服务器，则还应免除 TCP 端口 62000。  
   
     > [!NOTE]  
     > 这一免除位于 DirectAccess 服务器上，其他所有免除位于边缘防火墙上。  
@@ -131,24 +135,25 @@ ms.locfileid: "66266776"
   
 当 DirectAccess 服务器位于 IPv6 Internet 上时，要进行远程访问通信需要以下例外：  
   
--   IP 协议 ID 50  
+- IP 协议 ID 50  
   
--   UDP 目标端口 500 入站，以及 UDP 源端口 500 出站  
+- UDP 目标端口 500 入站，以及 UDP 源端口 500 出站  
   
--   ICMPv6 通信入站和出站（仅使用 Teredo 时）  
+- ICMPv6 通信入站和出站（仅使用 Teredo 时）  
   
 当你使用其他防火墙时，请为远程访问通信应用以下内部网络防火墙例外：  
   
--   ISATAP — 协议 41 入站和出站  
+- ISATAP — 协议 41 入站和出站  
   
--   用于所有 IPv4 和 IPv6 通信的 TCP/UDP  
+- 用于所有 IPv4 和 IPv6 通信的 TCP/UDP  
   
--   用于所有 IPv4 和 IPv6 通信的 ICMP（仅使用 Teredo 时）  
+- 用于所有 IPv4 和 IPv6 通信的 ICMP（仅使用 Teredo 时）  
   
-## <a name="13-plan-certificate-requirements"></a>1.3 规划证书要求  
+## <a name="13-plan-certificate-requirements"></a>1.3 规划证书要求
+
 部署单个 DirectAccess 服务器时，以下三种方案需要证书：  
   
--   [1.3.1 规划用于 IPsec 身份验证的计算机证书](#131-plan-computer-certificates-for-ipsec-authentication)  
+- [1.3.1 规划用于 IPsec 身份验证的计算机证书](#131-plan-computer-certificates-for-ipsec-authentication)  
   
     IPsec 的证书要求包括 DirectAccess 客户端计算机在客户端和 DirectAccess 服务器之间建立 IPsec 连接时使用的计算机证书，以及 DirectAccess 服务器用于建立与 DirectAccess 客户端的 IPsec 连接的计算机证书。  
   
@@ -166,9 +171,9 @@ ms.locfileid: "66266776"
   
 |IPsec 身份验证|IP-HTTPS 服务器|网络位置服务器|  
 |------------|----------|--------------|  
-|在未使用 Kerberos 代理进行身份验证时需要向 DirectAccess 服务器和 IPsec 身份验证的客户端颁发计算机证书的内部 CA|内部 CA：<br /><br />可以使用内部 CA 颁发 IP-HTTPS 证书；但是，必须确保 CRL 分发点在外部可用。|内部 CA：<br /><br />可以使用内部 CA 颁发网络位置服务器网站证书。 请确保 CRL 分发点在内部网络中高度可用。|  
-||自签名证书：<br /><br />可以对 IP-HTTPS 服务器使用自签名证书；但是，必须确保 CRL 分发点在外部可用。<br /><br />无法在多站点部署中使用自签名证书。|自签名证书：<br /><br />可以对网络位置服务器网站使用自签名证书。<br /><br />无法在多站点部署中使用自签名证书。|  
-||**建议**<br /><br />公共 CA：<br /><br />建议使用公用 CA 颁发 IP-HTTPS 证书。 这可确保 CRL 分发点在外部可用。|  
+|在未使用 Kerberos 代理进行身份验证时需要向 DirectAccess 服务器和 IPsec 身份验证的客户端颁发计算机证书的内部 CA|内部 CA：<br/><br/>可以使用内部 CA 颁发 IP-HTTPS 证书；但是，必须确保 CRL 分发点在外部可用。|内部 CA：<br/><br/>可以使用内部 CA 颁发网络位置服务器网站证书。 请确保 CRL 分发点在内部网络中高度可用。|  
+||自签名证书：<br/><br/>可以对 IP-HTTPS 服务器使用自签名证书；但是，必须确保 CRL 分发点在外部可用。<br/><br/>无法在多站点部署中使用自签名证书。|自签名证书：<br/><br/>可以对网络位置服务器网站使用自签名证书。<br/><br/>无法在多站点部署中使用自签名证书。|  
+||**建议**<br/><br/>公共 CA：<br/><br/>建议使用公用 CA 颁发 IP-HTTPS 证书。 这可确保 CRL 分发点在外部可用。|  
   
 ### <a name="131-plan-computer-certificates-for-ipsec-authentication"></a>1.3.1 规划用于 IPsec 身份验证的计算机证书  
 如果使用基于证书的 IPsec 身份验证，则 DirectAccess 服务器和客户端需要获得计算机证书。 安装证书的最简单的方法是为计算机证书配置基于组策略的自动注册。 此方法将确保所有域成员都从企业 CA 获取证书。 如果你的组织中未设置企业 CA，请参阅 [Active Directory 证书服务](https://technet.microsoft.com/library/cc770357.aspx)。  
@@ -313,7 +318,7 @@ DirectAccess 服务器充当 IP-HTTPS 侦听器，而且必须在服务器上手
   
 -   如果该连接不成功，则假定客户端位于 Internet 上，DirectAccess 客户端将使用名称解析策略表 (NRPT) 来确定解析名称请求时使用哪个 DNS 服务器。  
   
-你可以指定客户端使用 DirectAccess DNS64（或备用的内部 DNS 服务器）来解析名称。 在执行名称解析时，将由 DirectAccess 客户端使用 NRPT 来确定如何处理请求。 客户端请求 FQDN 或单标签名称，如 https://internal。 如果请求单标签名称，则将追加 DNS 后缀以产生 FQDN。 如果 DNS 查询与 NRPT 中某个条目匹配，并且为该条目指定了内部网络上的 DNS64 或 DNS 服务器，则将使用指定的服务器发送用于名称解析的 DNS 查询。 如果存在匹配条目，但未指定 DNS 服务器，则这表示存在一条免除规则，并且将应用正常的名称解析。  
+你可以指定客户端使用 DirectAccess DNS64（或备用的内部 DNS 服务器）来解析名称。 在执行名称解析时，将由 DirectAccess 客户端使用 NRPT 来确定如何处理请求。 客户端请求 FQDN 或单标签名称，如<https://internal>。 如果请求单标签名称，则将追加 DNS 后缀以产生 FQDN。 如果 DNS 查询与 NRPT 中某个条目匹配，并且为该条目指定了内部网络上的 DNS64 或 DNS 服务器，则将使用指定的服务器发送用于名称解析的 DNS 查询。 如果存在匹配条目，但未指定 DNS 服务器，则这表示存在一条免除规则，并且将应用正常的名称解析。  
   
 > [!NOTE]  
 > 请注意，在远程访问管理控制台将新后缀添加到 NRPT 时，可通过单击  “检测”自动发现该后缀的默认 DNS 服务器。  
@@ -332,7 +337,7 @@ DirectAccess 服务器充当 IP-HTTPS 侦听器，而且必须在服务器上手
   
     -   根域或 DirectAccess 服务器的域名对应的 DNS 后缀规则，以及与 DNS64 地址相对应的 IPv6 地址。 在仅支持 IPv6 的企业网络中，将在 DirectAccess 服务器上配置 Intranet DNS 服务器。 例如，如果 DirectAccess 服务器是 corp.contoso.com 域的成员，则会为 corp.contoso.com DNS 后缀创建一条规则。  
   
-    -   用于网络位置服务器的 FQDN 的免除规则。 例如，如果网络位置服务器 URL 为 https://nls.corp.contoso.com，为 FQDN nls.corp.contoso.com 创建一条免除规则。  
+    -   用于网络位置服务器的 FQDN 的免除规则。 例如，如果网络位置服务器 URL 为<https://nls.corp.contoso.com>，为 FQDN nls.corp.contoso.com 创建一条免除规则。  
   
 -   **IP-HTTPS 服务器**  
   
@@ -371,7 +376,7 @@ DirectAccess 服务器充当 IP-HTTPS 侦听器，而且必须在服务器上手
   
 -   使用支持动态更新的 DNS 服务器。 你也可以使用不支持动态更新的 DNS 服务器，但你必须在这些服务器上手动更新条目。  
   
--   必须可以通过使用 Internet DNS 服务器解析可访问 Internet 的 CRL 分发点的 FQDN。 例如，如果 URL https://crl.contoso.com/crld/corp-DC1-CA.crl处于**CRL 分发点**的 IP-HTTPS 证书的字段的 DirectAccess 服务器，必须确保 FQDN crld.contoso.com 通过使用 Internet DNS 服务器进行解析。  
+-   必须可以通过使用 Internet DNS 服务器解析可访问 Internet 的 CRL 分发点的 FQDN。 例如，如果 URL<https://crl.contoso.com/crld/corp-DC1-CA.crl>处于**CRL 分发点**的 IP-HTTPS 证书的字段的 DirectAccess 服务器，必须确保 FQDN crld.contoso.com 通过使用 Internet DNS 服务器进行解析。  
   
 ### <a name="142-plan-for-local-name-resolution"></a>1.4.2 规划本地名称解析  
 在规划本地名称解析时，请考虑以下问题：  
@@ -392,7 +397,7 @@ DirectAccess 服务器充当 IP-HTTPS 侦听器，而且必须在服务器上手
   
 **单标签名称**  
   
-单标签名称，如 https://paycheck，有时用于 intranet 服务器。 如果请求单标签名称并配置了 DNS 后缀搜索列表，则列表中的 DNS 后缀将追加到单标签名称。 例如，当用户在一台计算机上是 corp.contoso.com 域类型的成员 https://paycheck在 web 浏览器中，构造为该名称的 FQDN 为 paycheck.corp.contoso.com。 默认情况下，附加的后缀基于客户端计算机的主 DNS 后缀。  
+单标签名称，如<https://paycheck>，有时用于 intranet 服务器。 如果请求单标签名称并配置了 DNS 后缀搜索列表，则列表中的 DNS 后缀将追加到单标签名称。 例如，当用户在一台计算机上是 corp.contoso.com 域类型的成员<https://paycheck>在 web 浏览器中，构造为该名称的 FQDN 为 paycheck.corp.contoso.com。 默认情况下，附加的后缀基于客户端计算机的主 DNS 后缀。  
   
 > [!NOTE]  
 > 在不互连的命名空间方案中（其中一个或多个域计算机具有的 DNS 后缀与计算机所属的 Active Directory 域不匹配），应确保将搜索列表自定义为包括所有必需的后缀。 默认情况下，远程访问向导会将 Active Directory DNS 名称配置为客户端上的主 DNS 后缀。 请确保添加客户端用于名称解析的 DNS 后缀。  
@@ -645,7 +650,7 @@ DirectAccess 允许你在使用证书进行 IPsec 计算机身份验证，以及
   
 -   若要在 Windows PowerShell 中执行这一操作，请为 **Open-NetGPO** cmdlet 指定 **DomainController** 参数。 例如，若要使用名为 europe-dc.corp.contoso.com 的域控制器在名为 domain1\DA_Server_GPO_Europe 的 GPO 上启用 Windows 防火墙中的专用和公用配置文件，请输入以下内容：  
   
-    ```  
+    ```powershell
     $gpoSession = Open-NetGPO -PolicyStore "domain1\DA_Server_GPO _Europe" -DomainController "europe-dc.corp.contoso.com"  
     Set-NetFirewallProfile -GpoSession $gpoSession -Name @("Private","Public") -Enabled True  
     Save-NetGPO -GpoSession $gpoSession  
@@ -671,7 +676,7 @@ DirectAccess 允许你在使用证书进行 IPsec 计算机身份验证，以及
 ### <a name="185-recover-from-a-deleted-gpo"></a>1.8.5 从已删除的 GPO 中恢复  
 如果已意外删除客户端、DirectAccess 服务器或应用程序服务器 GPO，并且没有可用的备份，则你必须删除配置设置并重新配置它们。 如果有可用的备份，则可以从备份中还原 GPO。  
   
-远程访问管理控制台将显示以下错误消息：**GPO<GPO name>找不到**。 若要删除配置设置，请执行以下步骤：  
+远程访问管理控制台将显示以下错误消息：**找不到 GPO （组策略对象名称）** 。 若要删除配置设置，请执行以下步骤：  
   
 1.  运行 Windows PowerShell cmdlet **Uninstall-remoteaccess**。  
   
@@ -679,7 +684,7 @@ DirectAccess 允许你在使用证书进行 IPsec 计算机身份验证，以及
   
 3.  你将看到关于未找到 GPO 的错误消息。 单击“删除配置设置”  。 完成操作后，服务器将还原到未配置状态。  
   
-## <a name="next-step"></a>下一步  
+## <a name="next-steps"></a>后续步骤  
   
 -   [步骤 2：规划 DirectAccess 部署](da-adv-plan-s2-deployments.md)  
   

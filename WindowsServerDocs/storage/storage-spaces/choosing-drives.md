@@ -9,16 +9,16 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 10/08/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 227906685d77c31587c66d1c292f20ca94775058
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d16a9ddea96760b41c6cd2e4239b9bb51c8b3b38
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881048"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501639"
 ---
 # <a name="choosing-drives-for-storage-spaces-direct"></a>选择存储空间直通驱动器
 
->适用于：Windows Server 2016
+>适用于：Windows 2019 年，Windows Server 2016
 
 本主题提供有关如何选择[存储空间直通](storage-spaces-direct-overview.md)驱动器以满足你的性能和容量要求的指南。
 
@@ -116,7 +116,7 @@ ms.locfileid: "59881048"
 
 我们建议将每个服务器的总存储容量限制为大约 100 千吉字节 (TB)。 每个服务器的存储容量越高，在停机或重启后重新同步数据所需的时间就越长，例如在应用软件更新时。
 
-每个存储池的当前最大大小是 1 PB 或 1,000 TB。
+每个存储池的当前最大大小是 4 个 1 千万亿字节 (PB) (4,000 TB) 的 Windows Server 2019 或 Windows Server 2016 的 1 千万亿字节。
 
 ## <a name="see-also"></a>请参阅
 
@@ -124,4 +124,4 @@ ms.locfileid: "59881048"
 - [了解存储空间直通中的缓存](understand-the-cache.md)
 - [存储空间直通的硬件要求](storage-spaces-direct-hardware-requirements.md)
 - [存储空间直通中规划卷](plan-volumes.md)
-- [故障容错和存储效率](storage-spaces-fault-tolerance.md)
+- [容错和存储效率](storage-spaces-fault-tolerance.md)

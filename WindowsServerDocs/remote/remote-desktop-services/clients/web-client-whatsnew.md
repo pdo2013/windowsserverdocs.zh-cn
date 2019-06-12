@@ -13,19 +13,19 @@ manager: dongill
 ms.author: elizapo
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 15218af2f084e9c998d89250aace1d763d03b42a
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 5be9b05da1e78cc54e12254f43d0f44f7ff65c5d
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976330"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66804883"
 ---
 # <a name="whats-new-for-the-remote-desktop-web-client"></a>新增的远程桌面 web 客户端？
 
 我们会定期更新[远程桌面 web 客户端](remote-desktop-web-client.md)、 添加新功能和修复问题。 请查看以下最新的更新。
 
-   >[!NOTE]
-    >我们已为 web 客户端更改版本控制系统。 从版本 1.0.18.0 开始，所有 web 客户端发布版本将都包含数值 （在"W.X.Y.Z"的格式）。 远程桌面 web 客户端的版本号将始终以 0 (例如，W.X.Y.0) 结尾。 每个 Windows 虚拟桌面 web 客户端版本将更改下一步的远程桌面 web 客户端版本 (例如，1.0.18.1) 之前的最后一位数。
+> [!NOTE]
+> 我们已为 web 客户端更改版本控制系统。 从版本 1.0.18.0 开始，所有 web 客户端发布版本将都包含数值 （在"W.X.Y.Z"的格式）。 远程桌面 web 客户端的版本号将始终以 0 (例如，W.X.Y.0) 结尾。 每个 Windows 虚拟桌面 web 客户端版本将更改下一步的远程桌面 web 客户端版本 (例如，1.0.18.1) 之前的最后一位数。
 
 ## <a name="updates-for-version-10180"></a>针对版本 1.0.18.0 的更新
 *发布的日期：5/14/2019*
@@ -38,7 +38,7 @@ ms.locfileid: "65976330"
 - 尝试使用已过期的密码进行身份验证的用户的更新的错误消息。
 - 在所有资源页上刷新的源 UI。
 - 会话过程中出现的解决重叠经过重新连接。
-- 修复了远程资源图标大小调整资源任务栏中。 
+- 修复了远程资源图标大小调整资源任务栏中。
 
 ## <a name="updates-for-version-1011"></a>针对版本 1.0.11 的更新
 *发布的日期：2/22/2019*
@@ -58,7 +58,7 @@ ms.locfileid: "65976330"
 - 固定的可访问性 bug，使有视觉障碍的用户能够使用 web 客户端。
 - 改进了错误消息显示给用户的源的错误。
 - 添加了的 Ctrl + Alt + 结束 (Windows) 和 fn + 控件 + 选项 + delete (Mac) 的快捷方式来调用在远程计算机中的 Ctrl + Alt + Del。
-- 改进了遥测数据的故障事件。 
+- 改进了遥测数据的故障事件。
 - 改进了我们的生成管道和生成工具。
 - 修复了多个 Bug。
 
@@ -86,7 +86,7 @@ ms.locfileid: "65976330"
 
 - 新的登录体验在 web 客户端。
 - 不再提示输入凭据时启动的桌面或应用程序的连接 （单一登录）。
-- 移到新 URL 的 web 客户端： **https://server_FQDN/RDWeb/webclient/index.html**
+- 移到新 URL 的 web 客户端： <https://server_FQDN/RDWeb/webclient/index.html>
 - 添加了的时区重定向。
 - 修复了多个 Bug。
 

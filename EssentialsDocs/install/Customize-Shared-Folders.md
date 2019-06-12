@@ -12,12 +12,12 @@ ms.assetid: 47bc4986-14eb-4a29-9930-83a25704a3a0
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 552a76ba9c2ff385f1ff09d4869eaeb6613027a7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d8f52cbe76204bb00cb15c3093f69daf3d8abb6e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823468"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433532"
 ---
 # <a name="customize-shared-folders"></a>自定义共享文件夹
 
@@ -25,33 +25,33 @@ ms.locfileid: "59823468"
 
 默认情况下，会在磁盘 0 上的最大数据分区中创建服务器文件夹。 合作伙伴可以使用以下步骤来自定义位置并指定其他服务器文件夹：  
   
-1.  在使用 Sysprep 之前，使用自定义分区配置创建出厂映像，然后创建新的 Storage 注册表项。 在初始配置 (IC) 过程中，存储 IC 任务会检查此注册表项。 如果此注册表项存在，则会在 C:\ServerFolders 目录中创建默认服务器文件夹。  
+1. 在使用 Sysprep 之前，使用自定义分区配置创建出厂映像，然后创建新的 Storage 注册表项。 在初始配置 (IC) 过程中，存储 IC 任务会检查此注册表项。 如果此注册表项存在，则会在 C:\ServerFolders 目录中创建默认服务器文件夹。  
   
-    #### <a name="to-create-a-new-storage-registry-key"></a>创建新的 Storage 注册表项  
+   #### <a name="to-create-a-new-storage-registry-key"></a>创建新的 Storage 注册表项  
   
-    1.  在服务器上，将鼠标移动到屏幕右上角，然后单击 **“搜索”**。  
+   1.  在服务器上，将鼠标移动到屏幕右上角，然后单击 **“搜索”** 。  
   
-    2.  在搜索框中，键入 **“regedit”**，然后单击 **“Regedit”** 应用程序。  
+   2.  在搜索框中，键入 **“regedit”** ，然后单击 **“Regedit”** 应用程序。  
   
-    3.  在导航窗格中，依次展开 **“HKEY_LOCAL_MACHINE”**、**“SOFTWARE”** 和 **“Microsoft”**。  
+   3.  在导航窗格中，依次展开 **“HKEY_LOCAL_MACHINE”** 、 **“SOFTWARE”** 和 **“Microsoft”** 。  
   
-    4.  右键单击 **“Windows Server”**，单击 **“新建”**，然后单击 **“项”**。  
+   4.  右键单击 **“Windows Server”** ，单击 **“新建”** ，然后单击 **“项”** 。  
   
-    5.  将该项命名为 **Storage**。  
+   5.  将该项命名为 **Storage**。  
   
-    6.  在导航窗格中，右键单击新的 Storage 注册表项，单击 **“新建”**，然后单击 **“DWORD（32 位）值”**。  
+   6.  在导航窗格中，右键单击新的 Storage 注册表项，单击 **“新建”** ，然后单击 **“DWORD（32 位）值”** 。  
   
-    7.  将该字符串命名为 **CreateFoldersOnSystem**。  
+   7.  将该字符串命名为 **CreateFoldersOnSystem**。  
   
-    8.  右键单击 **“CreateFoldersOnSystem”**，然后单击 **“修改”**。 此时将显示 **“编辑字符串”** 对话框。  
+   8.  右键单击 **“CreateFoldersOnSystem”** ，然后单击 **“修改”** 。 此时将显示 **“编辑字符串”** 对话框。  
   
-    9. 将此新项的值设置为 **1**，然后单击 **“确定”**。  
+   9. 将此新项的值设置为 **1**，然后单击 **“确定”** 。  
   
-2.  使用 PostIC.cmd 脚本将文件夹移至其他位置或创建其他文件夹。 请参阅以下示例：[示例 1:创建自定义文件夹并将默认文件夹从 PostIC.cmd 使用 Windows PowerShell 的文件夹移到新位置中](Customize-Shared-Folders.md#BKMK_Example1)。  
+2. 使用 PostIC.cmd 脚本将文件夹移至其他位置或创建其他文件夹。 请参阅以下示例：[示例 1:创建自定义文件夹并将默认文件夹从 PostIC.cmd 使用 Windows PowerShell 的文件夹移到新位置中](Customize-Shared-Folders.md#BKMK_Example1)。  
   
-3.  使用 Windows Server 解决方案 SDK 将文件夹移至其他位置或创建其他文件夹。 请参阅以下示例：[示例 2:创建一个自定义文件夹并移动现有文件夹，通过使用 Windows Server 解决方案 SDK](Customize-Shared-Folders.md#BKMK_Example2)。  
+3. 使用 Windows Server 解决方案 SDK 将文件夹移至其他位置或创建其他文件夹。 请参阅以下示例：[示例 2:创建一个自定义文件夹并移动现有文件夹，通过使用 Windows Server 解决方案 SDK](Customize-Shared-Folders.md#BKMK_Example2)。  
   
- 或者，合作伙伴可以将数据文件夹留在驱动器 C 中。这样可以由最终用户或经销商决定数据驱动器上的数据文件夹的布局。  
+   或者，合作伙伴可以将数据文件夹留在驱动器 C 中。这样可以由最终用户或经销商决定数据驱动器上的数据文件夹的布局。  
   
 ###  <a name="BKMK_Example1"></a> 示例 1:使用 Windows PowerShell 创建自定义文件夹并将默认文件夹从 PostIC.cmd 移至新位置  
   

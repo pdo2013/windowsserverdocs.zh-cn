@@ -13,16 +13,16 @@ author: haley-rowland
 ms.author: harowl
 ms.date: 07/17/2018
 manager: scottman
-ms.openlocfilehash: 8af3a389ec726bbb5ebd62db57d9b3a9861ac63f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 792c9320f6976a4fc7f2ccd235f66daa0cb19b19
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890958"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805189"
 ---
 # <a name="deploy-a-two-node-storage-spaces-direct-scale-out-file-server-for-upd-storage-in-azure"></a>部署为 UPD 存储在 Azure 中的双节点存储空间直通的横向扩展文件服务器
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server （半年频道），Windows Server 2019，Windows Server 2016
 
 远程桌面服务 (RDS) 的用户配置文件磁盘 (Upd) 需要一个已加入域的文件服务器。 若要在 Azure 中部署高可用性已加入域的横向扩展文件服务器 (SOFS)，使用存储空间直通使用 Windows Server 2016。 如果您不熟悉 Upd 或远程桌面服务，请查看[欢迎使用远程桌面服务](welcome-to-rds.md)。
 
@@ -66,7 +66,7 @@ ms.locfileid: "59890958"
       - 使用自动生成的 VNet。
       - 按照安装 AD DS 的步骤。
 5. 设置文件服务器群集节点。 您可以执行此操作通过部署[Windows Server 2016 存储空间直通 SOFS 群集 Azure 模板](https://azure.microsoft.com/resources/templates/301-storage-spaces-direct/)或者按照以下步骤 6-11 以手动部署。
-5. 若要手动设置文件服务器群集节点：
+6. 若要手动设置文件服务器群集节点：
    1. 创建第一个节点： 
       1. 创建新的虚拟机使用 Windows Server 2016 映像。 (单击**新 > 虚拟机 > Windows Server 2016。** 选择**资源管理器**，然后单击**创建**。)
       2. 设置基本配置，如下所示：
@@ -80,59 +80,59 @@ ms.locfileid: "59890958"
    2. 创建第二个节点。 重复上述步骤有以下更改：
       - 我 fsn2 名称：
       - 高可用性-上面创建的可用性集的选择。  
-6. [将数据磁盘附加](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-attach-disk-portal/)到群集节点 Vm 用户根据需要 （如上面的表中所示）。 创建并附加到 VM，设置磁盘的数据之后**主机缓存**到**None**。
-7. 对所有 vm 设置 IP 地址**静态**。 
+7. [将数据磁盘附加](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-attach-disk-portal/)到群集节点 Vm 用户根据需要 （如上面的表中所示）。 创建并附加到 VM，设置磁盘的数据之后**主机缓存**到**None**。
+8. 对所有 vm 设置 IP 地址**静态**。 
    1. 在资源组中，选择一个 VM，然后单击**网络接口**(下**设置**)。 选择所列出的网络接口，然后依次**IP 配置**。 选择列出的 IP 配置中，选择**静态**，然后单击**保存**。
    2. 记下的域控制器 (我的 dc 对于我们的示例) (10.x.x.x) 专用 IP 地址。
-8. 在群集节点 Vm 的 Nic 上设置主 DNS 服务器地址，为我 dc 服务器。 选择 VM，然后依次**网络接口 > DNS 服务器 > 自定义 DNS**。 输入上面，记下的专用 IP 地址，然后单击**保存**。
-9. 创建[Azure 存储帐户是云见证](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)。 （如果使用的链接的说明进行操作，停止到"配置云见证服务器与故障转移群集管理器 GUI 的"获取-我们将执行下面的步骤。）
-10. 设置存储空间直通的文件服务器。 连接到 VM 的节点，然后运行以下 Windows PowerShell cmdlet。
-   1. 在两个文件服务器群集节点 Vm 上安装故障转移群集功能和文件服务器功能：
+9. 在群集节点 Vm 的 Nic 上设置主 DNS 服务器地址，为我 dc 服务器。 选择 VM，然后依次**网络接口 > DNS 服务器 > 自定义 DNS**。 输入上面，记下的专用 IP 地址，然后单击**保存**。
+10. 创建[Azure 存储帐户是云见证](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)。 （如果使用的链接的说明进行操作，停止到"配置云见证服务器与故障转移群集管理器 GUI 的"获取-我们将执行下面的步骤。）
+11. 设置存储空间直通的文件服务器。 连接到 VM 的节点，然后运行以下 Windows PowerShell cmdlet。
+    1. 在两个文件服务器群集节点 Vm 上安装故障转移群集功能和文件服务器功能：
 
-      ```powershell
-      $nodes = ("my-fsn1", "my-fsn2")
-      icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools} 
-      icm $nodes {Install-WindowsFeature FS-FileServer} 
-      ```
-   2. 验证群集节点 Vm，并创建 2 节点的 SOFS 群集：
+       ```powershell
+       $nodes = ("my-fsn1", "my-fsn2")
+       icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools} 
+       icm $nodes {Install-WindowsFeature FS-FileServer} 
+       ```
+    2. 验证群集节点 Vm，并创建 2 节点的 SOFS 群集：
 
-      ```powershell
-      Test-Cluster -node $nodes
-      New-Cluster -Name MY-CL1 -Node $nodes –NoStorage –StaticAddress [new address within your addr space]
-      ``` 
-   3. 配置云见证。 使用云见证服务器存储帐户名称和访问密钥。
+       ```powershell
+       Test-Cluster -node $nodes
+       New-Cluster -Name MY-CL1 -Node $nodes –NoStorage –StaticAddress [new address within your addr space]
+       ``` 
+    3. 配置云见证。 使用云见证服务器存储帐户名称和访问密钥。
 
-      ```powershell
-      Set-ClusterQuorum –CloudWitness –AccountName <StorageAccountName> -AccessKey <StorageAccountAccessKey> 
-      ```
-   4. 启用存储空间直通。
+       ```powershell
+       Set-ClusterQuorum –CloudWitness –AccountName <StorageAccountName> -AccessKey <StorageAccountAccessKey> 
+       ```
+    4. 启用存储空间直通。
 
-      ```powershell
-      Enable-ClusterS2D 
-      ```
+       ```powershell
+       Enable-ClusterS2D 
+       ```
       
-   5. 创建虚拟磁盘卷。
+    5. 创建虚拟磁盘卷。
 
-      ```powershell
-      New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 120GB 
-      ```
-      若要查看在 SOFS 群集上的群集共享卷的相关信息，请运行以下 cmdlet:
+       ```powershell
+       New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 120GB 
+       ```
+       若要查看在 SOFS 群集上的群集共享卷的相关信息，请运行以下 cmdlet:
 
-      ```powershell
-      Get-ClusterSharedVolume
-      ```
+       ```powershell
+       Get-ClusterSharedVolume
+       ```
    
-   6. 创建横向扩展文件服务器 (SOFS):
+    6. 创建横向扩展文件服务器 (SOFS):
 
-      ```powershell
-      Add-ClusterScaleOutFileServerRole -Name my-sofs1 -Cluster MY-CL1
-      ```
+       ```powershell
+       Add-ClusterScaleOutFileServerRole -Name my-sofs1 -Cluster MY-CL1
+       ```
 
-   7. 在 SOFS 群集上创建新的 SMB 文件共享。
+    7. 在 SOFS 群集上创建新的 SMB 文件共享。
 
-      ```powershell
-      New-Item -Path C:\ClusterStorage\Volume1\Data -ItemType Directory
-      New-SmbShare -Name UpdStorage -Path C:\ClusterStorage\Volume1\Data
-      ```
+       ```powershell
+       New-Item -Path C:\ClusterStorage\Volume1\Data -ItemType Directory
+       New-SmbShare -Name UpdStorage -Path C:\ClusterStorage\Volume1\Data
+       ```
 
-现可在共享&#92;\my-sofs1\UpdStorage，可以使用为 UPD 存储时您[启用 UPD](https://social.technet.microsoft.com/wiki/contents/articles/15304.installing-and-configuring-user-profile-disks-upd-in-windows-server-2012.aspx)为你的用户。 
+现可在共享`\\my-sofs1\UpdStorage`，可以使用为 UPD 存储时您[启用 UPD](https://social.technet.microsoft.com/wiki/contents/articles/15304.installing-and-configuring-user-profile-disks-upd-in-windows-server-2012.aspx)为你的用户。 

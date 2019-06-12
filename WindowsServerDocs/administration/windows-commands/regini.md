@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 292dfe5755a10a91f2b8bcffaa6412ccda6c6f8a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3f8454572b662c9327aeb4783c5e9651ad2022b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867628"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441895"
 ---
 # <a name="regini"></a>regini
 
@@ -35,6 +35,7 @@ regini [-m \\machinename | -h hivefile hiveroot][-i n] [-o outputWidth][-b] text
 ### <a name="parameters"></a>Parameters
 
 |参数 |说明 |
+
 |-m \< \\\\计算机名 >|使用要修改的注册表中指定的远程计算机名称。 使用格式 **\\ \\ComputerName**。|
 |---------------------|-|
 |-h \<hivefile hiveroot >|指定要修改本地注册表配置单元。 必须采用格式指定配置单元文件的名称和配置单元的根**hivefile hiveroot**。|
@@ -52,4 +53,4 @@ regini [-m \\machinename | -h hivefile hiveroot][-i n] [-o outputWidth][-b] text
 
 #### <a name="additional-references"></a>其他参考
 
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)

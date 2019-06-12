@@ -12,12 +12,12 @@ ms.assetid: d3925f80-552d-431f-b2a6-2af202e50ca4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 613ff4c80a80ed4f3207cb0c1ead6db12c723e85
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 98b1a7adc23fca15c06ae9588d52bc9bcd532252
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815378"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432603"
 ---
 # <a name="step-5-enable-folder-redirection-on-the-destination-server-for-windows-server-essentials-migration"></a>步骤 5：启用文件夹重定向目标服务器以进行 Windows Server Essentials 迁移
 
@@ -31,27 +31,27 @@ ms.locfileid: "59815378"
   
 1.  在目标服务器上打开 Windows Server Essentials 仪表板。  
   
-2.  在导航栏中，单击“设备” 。  
+2.  在导航栏中，单击“设备”  。  
   
-3.  在“设备任务”窗格中，单击“实现组策略”。  
+3.  在“设备任务”  窗格中，单击“实现组策略”  。  
   
-4.  在“启用文件夹重定向组策略”页上，选择要重定向的文件夹，然后单击“下一步”。  
+4.  在“启用文件夹重定向组策略”  页上，选择要重定向的文件夹，然后单击“下一步”  。  
   
-5.  在“启用安全策略设置”  页上，单击“完成” 。  
+5.  在“启用安全策略设置”  页上，单击“完成”  。  
   
 ### <a name="to-delete-the-old-folder-redirection-group-policy-setting"></a>删除旧的文件夹重定向组策略设置  
   
-1.  在目标服务器上，打开“组策略管理”管理工具。  
+1. 在目标服务器上，打开“组策略管理”  管理工具。  
   
-2.  在中**组策略管理**，展开 **林:*** YourNetworkDomainName*，展开**域**，展开*YourNetworkDomainName*然后展开 **组策略对象** 。  
+2. 在中**组策略管理**，展开**林：** <em>YourNetworkDomainName</em>，展开**域**，依次展开*YourNetworkDomainName*，然后展开**组策略对象**。  
   
-3.  右键单击要删除的策略，然后单击“删除” 。  
+3. 右键单击要删除的策略，然后单击“删除”  。  
   
-4.  阅读警告，然后单击“是” 。  
+4. 阅读警告，然后单击“是”  。  
   
-5.  关闭“组策略管理”。  
+5. 关闭“组策略管理”  。  
   
- 若要将更改应用于文件夹重定向，则网络用户必须注销其计算机，然后再重新登录。 这可确保所有重定向的文件夹都传输到目标服务器。  
+   若要将更改应用于文件夹重定向，则网络用户必须注销其计算机，然后再重新登录。 这可确保所有重定向的文件夹都传输到目标服务器。  
   
 ## <a name="next-steps"></a>后续步骤  
  已在目标服务器上启用文件夹重定向。 现在，转到[步骤 6:降级和删除源服务器从新的 Windows Server Essentials 网络](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md)。  

@@ -8,12 +8,12 @@ manager: dongill
 author: JasonGerend
 ms.author: jgerend
 ms.date: 10/18/2018
-ms.openlocfilehash: 3c0792347aaa70fe80d346cc51cbc44b73c42f39
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 330f65721fca1908ac54ddfd194f96ffe540f1b5
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476020"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442360"
 ---
 # <a name="whats-new-in-failover-clustering"></a>故障转移群集中的新增功能
 
@@ -50,10 +50,10 @@ ms.locfileid: "65476020"
     现在集成了群集感知更新 (CAU)，并可感知存储空间直通，验证并确保了每个节点上数据重新同步完成。 群集感知更新检查更新，以仅在必要时以智能方式重新启动。 这样安排重新启动计划内维护群集中的所有服务器。
 
 - **文件共享见证服务器增强功能**我们启用了文件共享见证在以下方案中使用： 
-    - 找不到或极差由于远程位置，导致无法使用云见证服务器的 Internet 访问。 
-    - 缺少的共享驱动器的磁盘见证。 这可能是存储空间直通超聚合配置，SQL Server 始终在可用性组 (AG)，或 * Exchange 数据库可用性组 (DAG)，其中没有任何使用共享的磁盘。 
-    - 由于正在受 dmz 保护群集的域控制器连接的不足。 
-    - 工作组或跨域群集为其存在是没有 Active Directory 群集名称对象 (CNO)。 了解有关在服务器和管理博客中的以下文章中的这些增强功能的详细信息：故障转移群集文件共享见证和 DFS。
+  - 找不到或极差由于远程位置，导致无法使用云见证服务器的 Internet 访问。 
+  - 缺少的共享驱动器的磁盘见证。 这可能是存储空间直通超聚合配置，SQL Server 始终在可用性组 (AG)，或 * Exchange 数据库可用性组 (DAG)，其中没有任何使用共享的磁盘。 
+  - 由于正在受 dmz 保护群集的域控制器连接的不足。 
+  - 工作组或跨域群集为其存在是没有 Active Directory 群集名称对象 (CNO)。 了解有关在服务器和管理博客中的以下文章中的这些增强功能的详细信息：故障转移群集文件共享见证和 DFS。
     
     我们现在还显式阻止使用 DFS 命名空间共享作为位置。 添加文件共享见证到 DFS 共享可能会导致群集稳定性问题和永远不会支持此配置。 我们添加了逻辑来检测如果共享使用 DFS 命名空间，并且如果检测到 DFS 命名空间，则故障转移群集管理器阻止的见证服务器创建并显示有关不受支持的错误消息。
 - **群集强化**

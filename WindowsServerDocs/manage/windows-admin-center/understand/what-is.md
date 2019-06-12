@@ -7,16 +7,17 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 76427cc6d86a3d61dcf2d66cdf47ded9ba9be848
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.date: 06/07/2019
+ms.openlocfilehash: 99f1a9a32ef69ba8322b2dba902003f8a750a4d2
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829038"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811652"
 ---
 # <a name="what-is-windows-admin-center"></a>什么是 Windows Admin Center？
 
->适用于：Windows Admin Center，Windows Admin Center 预览版
+> 适用于：Windows Admin Center，Windows Admin Center 预览版
 
 Windows Admin Center 是一个在本地部署的基于浏览器的管理工具集，让你能够管理 Windows Server，而无需依赖 Azure 或云。 利用 Windows Admin Center，你可以完全控制服务器基础结构的各个方面，对于在未连接到 Internet 的专用网络上进行管理特别有用。
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: 82a42cd219e41330fe4215124c21e799a41e412c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d97ec0efee86165f82bdf99a316d24d9c39ec958
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853138"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810715"
 ---
 # <a name="system-requirements"></a>系统要求
 
@@ -27,6 +27,7 @@ ms.locfileid: "59853138"
 本主题概述了运行 Windows Server 的最低系统要求&reg;2019年。
 
 ## <a name="review-system-requirements"></a>查看操作系统要求  
+
 以下是 Windows Server 2019 的估计的系统要求。 如果计算机未满足“最低”要求，将无法正确安装本产品。 实际要求将因系统配置和所安装应用程序及功能而异。
 
 除非另有指定，否则最低系统要求适用于所有安装选项（服务器核心、带桌面体验的服务器和 Nano Server）以及标准版和数据中心版。  
@@ -34,8 +35,8 @@ ms.locfileid: "59853138"
 > [!IMPORTANT]  
 > 因为可能的部署方案多种多样，所以确定“推荐的”系统要求有些不切实际，只是大体适用而已。 请针对要部署的每个服务器角色查阅相关文档，以便获得特定服务器角色的资源需求的更多详细信息。 要获得最佳结果，请安排测试部署来确定特定部署方案的相应系统要求。  
 
-
 ## <a name="processor"></a>处理器  
+
 处理器性能不仅取决于处理器的时钟频率，还取决于处理器内核数以及处理器缓存大小。 以下是本产品对处理器的要求：  
 
 **最低**：  
@@ -69,13 +70,13 @@ ms.locfileid: "59853138"
 
 **最低**：32 GB  
 
-   > [!NOTE]  
-    > 请注意，32 GB 应视为确保成功安装的*绝对最低*值。 此最小值应允许您将其安装在 Server Core 模式下，Web 服务 (IIS) 服务器角色的 Windows Server 2019。 “服务器核心”模式下的服务器容量比 GUI 模式下的同一服务器要小 4 GB 左右。 
-    >   
-    > 系统分区在以下任何情形中将需要额外空间：  
-    >   
-    > -   如果通过网络安装系统。  
-    > -   RAM 超过 16 GB 的计算机还需要为页面文件、休眠文件和转储文件分配额外磁盘空间。  
+> [!NOTE]
+> 请注意，32 GB 应视为确保成功安装的*绝对最低*值。 此最小值应允许您将其安装在 Server Core 模式下，Web 服务 (IIS) 服务器角色的 Windows Server 2019。 “服务器核心”模式下的服务器容量比 GUI 模式下的同一服务器要小 4 GB 左右。 
+> 
+> 系统分区在以下任何情形中将需要额外空间：  
+> 
+> -   如果通过网络安装系统。  
+> -   RAM 超过 16 GB 的计算机还需要为页面文件、休眠文件和转储文件分配额外磁盘空间。  
 
 ## <a name="network-adapter-requirements"></a>网络适配器要求  
 
@@ -88,8 +89,6 @@ ms.locfileid: "59853138"
 支持网络调试 (KDNet) 的网络适配器很有用，但不是最低要求。   
 
 网络适配器支持预启动执行环境 (PXE) 非常有用，但不是最低要求。
-
-
 
 ## <a name="other-requirements"></a>其他要求  
 运行此版本的计算机还必须具有：  
@@ -107,10 +106,10 @@ ms.locfileid: "59853138"
 
 -   Internet 访问（可能需要付费）  
 
->[!NOTE]  
+> [!NOTE]  
 > 尽管必须安装受信任的平台模块 (TPM) 芯片才能使用某些功能（如 BitLocker 驱动器加密），但它不是安装此版本的硬性要求。 如果你的计算机使用 TPM，则它必须满足以下要求：  
 >  
->- 基于硬件的 TPM 必须实现的 TPM 规范的版本 2.0。  
->- 实现 2.0 版的 TPM 必须具有符合以下条件之一的 EK 证书：由硬件供应商预配到 TPM 或在首次启动期间能够由设备进行检索。  
->- 实现 2.0 版的 TPM 必须随附有 SHA 256 PCR 库并且对 SHA 256 实现 PCR 0 到 23。 可以接受将 TPM 随附可用于 SHA-1 和 SHA-256 度量值的单个可切换 PCR 库。  
->- 不要求用于关闭 TPM 的 UEFI 选项。  
+> - 基于硬件的 TPM 必须实现的 TPM 规范的版本 2.0。  
+> - 实现 2.0 版的 TPM 必须具有符合以下条件之一的 EK 证书：由硬件供应商预配到 TPM 或在首次启动期间能够由设备进行检索。  
+> - 实现 2.0 版的 TPM 必须随附有 SHA 256 PCR 库并且对 SHA 256 实现 PCR 0 到 23。 可以接受将 TPM 随附可用于 SHA-1 和 SHA-256 度量值的单个可切换 PCR 库。  
+> - 不要求用于关闭 TPM 的 UEFI 选项。  

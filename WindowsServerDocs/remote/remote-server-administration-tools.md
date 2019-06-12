@@ -12,12 +12,12 @@ ms.assetid: d54a1f5e-af68-497e-99be-97775769a7a7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dansimp
-ms.openlocfilehash: 748010e80cf2b54926ca226a7af8c49f1aa16800
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 30ca0a1e8a2f17f54a8f05d7270bf9512be7a8dc
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192640"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805185"
 ---
 # <a name="remote-server-administration-tools"></a>远程服务器管理工具
 
@@ -97,30 +97,30 @@ RSAT 可让 IT 管理员从 Windows 10 电脑管理 Windows Server 角色和功�
 
 ##### <a name="to-uninstall-remote-server-administration-tools-for-windows-10-after-rsat-package-install"></a>若要卸载适用于 Windows 10 （安装完成后 RSAT 程序包） 的远程服务器管理工具
 
-1.  在桌面上，依次单击“开始”  、“所有应用”  、“Windows 系统”  和“控制面板”  。
+1. 在桌面上，依次单击“开始”  、“所有应用”  、“Windows 系统”  和“控制面板”  。
 
-2.  在“程序”  下，单击“卸载程序”  。
+2. 在“程序”  下，单击“卸载程序”  。
 
-3.  单击 **“查看已安装的更新”** 。
+3. 单击 **“查看已安装的更新”** 。
 
-4.  右键单击“Microsoft Windows 的更新(KB2693643)”  ，然后单击“卸载”  。
+4. 右键单击“Microsoft Windows 的更新(KB2693643)”  ，然后单击“卸载”  。
 
-5.  当系统询问你是否确定要卸载更新时，单击 **“是”** 。
-S
-##### <a name="to-turn-off-specific-tools-after-rsat-package-install"></a>若要关闭特定工具 （在安装 RSAT 程序包） 之后
+5. 当系统询问你是否确定要卸载更新时，单击 **“是”** 。
+   S
+   ##### <a name="to-turn-off-specific-tools-after-rsat-package-install"></a>若要关闭特定工具 （在安装 RSAT 程序包） 之后
 
-1.  在桌面上，依次单击“开始”  、“所有应用”  、“Windows 系统”  和“控制面板”  。
+6. 在桌面上，依次单击“开始”  、“所有应用”  、“Windows 系统”  和“控制面板”  。
 
-2.  单击 **“程序”** ，然后在 **“程序和功能”** 中单击 **“打开或关闭 Windows 功能”** 。
+7. 单击 **“程序”** ，然后在 **“程序和功能”** 中单击 **“打开或关闭 Windows 功能”** 。
 
-3.  在 **“Windows 功能”** 对话框中，展开 **“远程服务器管理工具”** ，然后展开 **“角色管理工具”** 或 **“功能管理工具”** 。
+8. 在 **“Windows 功能”** 对话框中，展开 **“远程服务器管理工具”** ，然后展开 **“角色管理工具”** 或 **“功能管理工具”** 。
 
-4.  清除要关闭的工具对应的复选框。
+9. 清除要关闭的工具对应的复选框。
 
-    > [!NOTE]
-    > 如果关闭服务器管理器，必须重新启动计算机，并从可用**工具**必须从打开的服务器管理器菜单**管理工具**文件夹。
+   > [!NOTE]
+   > 如果关闭服务器管理器，必须重新启动计算机，并从可用**工具**必须从打开的服务器管理器菜单**管理工具**文件夹。
 
-5.  关闭完不使用的工具后，单击 **“确定”** 。
+10. 关闭完不使用的工具后，单击 **“确定”** 。
 
 ### <a name="run-remote-server-administration-tools"></a>运行远程服务器管理工具
 
@@ -158,7 +158,7 @@ S
 ### <a name="issue-rsat-fod-installation-fails-with-error-code-0x800f0954"></a>**问题**:RSAT FOD 安装将失败，错误代码为 0x800f0954
 
 > **影响**:在 Windows 10 1809 RSAT FODs （2018 年 10 月更新） 在 WSUS/SCCM 环境
-
+> 
 > **解析**:若要在其中接收通过 WSUS 或 SCCM 更新已加入域的 PC 上安装 FODs，您需要更改组策略设置以启用下载 FODs 直接从 Windows 更新或本地共享。 有关详细信息和如何更改该设置的说明，请参阅[如何使功能上的需求和语言包可使用 WSUS/SCCM 时](https://docs.microsoft.com/windows/deployment/update/fod-and-lang-packs)。
 
 ---
@@ -166,7 +166,7 @@ S
 ### <a name="issue-rsat-fod-installation-via-settings-app-does-not-show-statusprogress"></a>**问题**:通过设置应用的 RSAT FOD 安装不会显示状态/进度
 
 > **影响**:Windows 10 1809 （2018 年 10 月更新） 上的 RSAT FODs
-
+> 
 > **解析**:若要查看安装进度，请单击**回**按钮以上查看状态**管理可选功能**页。
 
 ---
@@ -174,7 +174,7 @@ S
 ### <a name="issue-rsat-fod-uninstallation-via-settings-app-may-fail"></a>**问题**:通过设置应用的 RSAT FOD 卸载可能会失败
 
 > **影响**:Windows 10 1809 （2018 年 10 月更新） 上的 RSAT FODs
-
+> 
 > **解析**:在某些情况下，卸载故障是由于需要手动卸载依赖关系。 具体而言，如果需要 RSAT 工具的 RSAT 工具 B，然后选择要卸载 RSAT 工具的将失败如果仍安装 RSAT 工具 B。 首先，在这种情况下，卸载 RSAT 工具 B，然后卸载 RSAT 工具 a。请参阅 RSAT FODs 包括依赖项的列表。
 
 ---
@@ -182,7 +182,7 @@ S
 ### <a name="issue-rsat-fod-uninstallation-appears-to-succeed-but-the-tool-is-still-installed"></a>**问题**:RSAT FOD 卸载操作似乎成功，但仍然安装该工具
 
 > **影响**:Windows 10 1809 （2018 年 10 月更新） 上的 RSAT FODs
-
+> 
 > **解析**:重新启动 PC 将在完成删除该工具。
 
 ---
@@ -190,7 +190,7 @@ S
 ### <a name="issue-rsat-missing-after-windows-10-upgrade"></a>**问题**:缺少 Windows 10 升级后的 RSAT
 
 > **影响**:任何 RSAT。MSU 包 （在之前的安装 RSAT FODs) 不会自动重新安装
-
+> 
 > **解析**:不能跨 OS 升级由于 RSAT 保持 RSAT 安装。MSU 以 Windows 更新包的形式传递。 请升级 Windows 10 后，安装 RSAT。 请注意，此限制是为什么我们已经移到 FODs 随着 Windows 10 1809年启动的原因之一。 安装的 RSAT FODs 将持续到将来的 Windows 10 版本升级。
 
 ## <a name="see-also"></a>请参阅

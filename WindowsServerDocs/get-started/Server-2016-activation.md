@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 79f15c4c9c635138ae74a61fe1c259b97717155e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 88cab1965e299c7d25c177125cb504432bf987e8
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862378"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810649"
 ---
 # <a name="windows-server-2016-activation"></a>Windows Server 2016 激活
 
@@ -32,8 +32,8 @@ KMS 主机不必是专用服务器，KMS 可与其他服务共用一台主机。
 在 Windows 10 或 Windows 8.1 上运行的 KMS 主机只能激活运行客户端操作系统的计算机。
 下表总结了 KMS 主机和客户端（包括 Windows Server 2016 和 Windows 10 客户端）对网络的要求。
 
->[!NOTE]
->**注意：** 可能需要对 KMS 服务器进行更新以便支持对这些较新的客户端进行激活。 如果收到激活错误，请检查你是否具有在此表下面列出的相应更新。
+> [!NOTE]
+> **注意：** 可能需要对 KMS 服务器进行更新以便支持对这些较新的客户端进行激活。 如果收到激活错误，请检查你是否具有在此表下面列出的相应更新。
 
 |产品密钥组|KMS 可以托管于|由此 KMS 主机激活的 Windows 版本|  
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|  
@@ -42,11 +42,11 @@ KMS 主机不必是专用服务器，KMS 可与其他服务共用一台主机。
 |“适用于 Windows 10 的 Windows Server 2012 R2”批量许可证|Windows Server 2008 R2<br /><br /> Windows Server 2012 Standard<br /><br /> Windows Server 2012 Datacenter<br /><br /> Windows Server 2012 R2 Standard<br /><br />Windows Server 2012 R2 Datacenter|Windows 10 专业版<br /><br /> Windows 10 企业版<br /><br />Windows 10 企业版 LTSB (2015)<br><br>Windows 10 专业工作站版<br><br>Windows 10 教育版<br><br> Windows Server 2012 R2（所有版本）<br /><br /> Windows 8.1 专业版<br /><br /> Windows 8.1 企业版<br /><br /> Windows Server 2012（所有版本）<br /><br /> Windows Server 2008 R2 （所有版本）<br /><br />Windows Server 2008 （所有版本）<br /><br /> Windows 7 专业版<br /><br /> Windows 7 企业版|
 
 > [!NOTE]  
->你可能需要安装这些更新中的一个或多个，具体取决于 KMS 服务器运行的操作系统以及你想要激活的操作系统。
->- Windows 7 或 Windows Server 2008 R2 上的 KMS 安装必须经过更新才可支持对运行 Windows 10 的客户端进行激活。 有关详细信息，请参阅 [使 Windows 7 和 Windows Server 2008 R2 KMS 主机可以激活 Windows 10 的更新](https://support.microsoft.com/help/3079821/update-that-enables-windows-7-and-windows-server-2008-r2-kms-hosts-to-activate-windows-10)。  
->- Windows Server 2012 上的 KMS 安装必须经过更新才可支持对运行 Windows 10 和 Windows Server 2016 或更高版本客户端或服务器操作系统的客户端进行激活。 有关详细信息，请参阅 [适用于 Windows Server 2012 的 2016 年 7 月更新汇总](https://support.microsoft.com/help/3172615/july-2016-update-rollup-for-windows-server-2012)。 
->- Windows 8.1 或 Windows Server 2012 R2 上的 KMS 安装必须经过更新才可支持对运行 Windows 10 和 Windows Server 2016 或更高版本客户端或服务器操作系统的客户端进行激活。 有关详细信息，请参阅 [2016 年 7 月 Windows 8.1 和 Windows Server 2012 R2 更新汇总](https://support.microsoft.com/help/3172614/july-2016-update-rollup-for-windows-8.1-and-windows-server-2012-r2)。  
->- 无法更新 Windows Server 2008 R2 来支持对运行 Windows Server 2016 或更高版本操作系统的客户端进行激活。 
+> 你可能需要安装这些更新中的一个或多个，具体取决于 KMS 服务器运行的操作系统以及你想要激活的操作系统。
+> - Windows 7 或 Windows Server 2008 R2 上的 KMS 安装必须经过更新才可支持对运行 Windows 10 的客户端进行激活。 有关详细信息，请参阅 [使 Windows 7 和 Windows Server 2008 R2 KMS 主机可以激活 Windows 10 的更新](https://support.microsoft.com/help/3079821/update-that-enables-windows-7-and-windows-server-2008-r2-kms-hosts-to-activate-windows-10)。  
+> - Windows Server 2012 上的 KMS 安装必须经过更新才可支持对运行 Windows 10 和 Windows Server 2016 或更高版本客户端或服务器操作系统的客户端进行激活。 有关详细信息，请参阅 [适用于 Windows Server 2012 的 2016 年 7 月更新汇总](https://support.microsoft.com/help/3172615/july-2016-update-rollup-for-windows-server-2012)。 
+> - Windows 8.1 或 Windows Server 2012 R2 上的 KMS 安装必须经过更新才可支持对运行 Windows 10 和 Windows Server 2016 或更高版本客户端或服务器操作系统的客户端进行激活。 有关详细信息，请参阅 [2016 年 7 月 Windows 8.1 和 Windows Server 2012 R2 更新汇总](https://support.microsoft.com/help/3172614/july-2016-update-rollup-for-windows-8.1-and-windows-server-2012-r2)。  
+> - 无法更新 Windows Server 2008 R2 来支持对运行 Windows Server 2016 或更高版本操作系统的客户端进行激活。 
 
 一台 KMS 主机能够支持无限数量的 KMS 客户端。 如果客户端数量超过 50 个，我们建议至少准备两台 KMS 主机，以防某一台 KMS 主机不可用。 大多数组织单位运行两台 KMS 主机可以满足整个基础结构的需求。
 
@@ -65,8 +65,8 @@ KMS 激活要求 TCP/IP 连接。 KMS 主机可客户端默认配置使用域名
 
 如果您的组织单位需要 6 台以上的KMS 主机，则应为组织单位的 KMS 密钥请求更多的激活次数 例如，如果一份批量许可协议涵盖 10 个物理位置，并且您希望每个位置有一台本地的 KMS 主机。
 
->[!NOTE] 
->要解决此特殊情况，请联系您的激活呼叫中心。 有关详细信息，请参阅 [Microsoft 批量许可]( https://www.microsoft.com/licensing)。
+> [!NOTE] 
+> 要解决此特殊情况，请联系您的激活呼叫中心。 有关详细信息，请参阅 [Microsoft 批量许可]( https://www.microsoft.com/licensing)。
 
 默认情况下，运行批量许可版本的 Windows 10、Windows Server 2016、Windows 8.1、Windows Server 2012 R2、Windows Server 2012、Windows 7、Windows Server 2008 R2 的计算机为无需额外配置的 KMS 客户端。
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f24cf173d1bacd70d92b325bfe7b342d0589a490
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 305b915a0d7e8ab152b072ff131854f56b9b0386
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874278"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441533"
 ---
 # <a name="seceditimport"></a>Secedit:import
 
@@ -30,7 +30,6 @@ ms.locfileid: "59874278"
 
 ```
 Secedit /import /db <database file name> /cfg <configuration file name> [/overwrite] [/areas [securitypolicy | group_mgmt | user_rights | regkeys | filestore | services]] [/log <log file name>] [/quiet]
-
 ```
 
 ### <a name="parameters"></a>Parameters
@@ -49,7 +48,7 @@ Secedit /import /db <database file name> /cfg <configuration file name> [/overwr
 
 在导入到另一台计算机上的.inf 文件之前, 运行命令 secedit /generaterollback 对数据库将执行导入和 secedit / 导入文件以验证其完整性验证。
 
-如果日志文件的路径未提供，默认日志文件 (*systemroot*\Documents 和设置\*UserAccount*\My Documents\Security\Logs\*DatabaseName*。使用日志）。
+如果日志文件的路径未提供，默认日志文件 (*systemroot*\Documents 和设置\*UserAccount<em>\My Documents\Security\Logs\*DatabaseName</em>。使用日志）。
 
 在 Windows Server 2008`Secedit /refreshpolicy`已替换为`gpupdate`。 有关如何刷新的安全设置的信息，请参阅[Gpupdate](gpupdate.md)。
 
@@ -67,7 +66,7 @@ Secedit /import /db C:\Security\FY12\SecDbContoso.sdb /cfg NetworkShare\Policies
 #### <a name="additional-references"></a>其他参考
 
 -   [Secedit:export](secedit-export.md)
--   [secedit:generaterollback](secedit-generaterollback.md)
--   [secedit： 验证](secedit-validate.md)
+-   [Secedit:generaterollback](secedit-generaterollback.md)
+-   [Secedit:validate](secedit-validate.md)
 -   [Secedit](secedit.md)
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)

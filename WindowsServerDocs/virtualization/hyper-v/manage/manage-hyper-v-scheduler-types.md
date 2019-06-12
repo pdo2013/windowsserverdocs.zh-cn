@@ -9,12 +9,12 @@ ms.prod: windows-server-hyper-v
 ms.technology: virtualization
 ms.localizationpriority: low
 ms.assetid: 6cb13f84-cb50-4e60-a685-54f67c9146be
-ms.openlocfilehash: 7af6d68b02367d349580eacb27405c6f37e97ff8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c0c2f85fbbeca9e8ac5d40bbcb71f286fabfb65c
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871988"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501672"
 ---
 # <a name="managing-hyper-v-hypervisor-scheduler-types"></a>管理的 HYPER-V 虚拟机监控程序计划程序类型
 
@@ -141,7 +141,7 @@ Windows Server 2016 HYPER-V 默认情况下使用经典虚拟机监控程序计�
 
 ## <a name="windows-server-2019-hyper-v-defaults-to-using-the-core-scheduler"></a>Windows Server 2019 HYPER-V 在默认情况下使用核心计划程序
 
-若要帮助确保获得最佳安全配置中部署的 HYPER-V 主机，Windows Server 2019 HYPER-V 现在将默认情况下使用的核心虚拟机监控程序计划程序模型。 主机管理员可能可以选择将主机配置为使用旧的经典计划程序。 管理员应仔细阅读、 了解并考虑每个计划程序类型具有安全性和性能的虚拟化主机之前重写的计划程序类型默认设置的影响。  请参阅[了解 HYPER-V 计划程序类型选择](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/understanding-hyper-v-scheduler-type-selection)有关详细信息。
+为了帮助确保 HYPER-V 主机部署的最佳安全配置中，Windows Server 2019 HYPER-V 现在将默认情况下使用的核心虚拟机监控程序计划程序模型。 主机管理员可能可以选择将主机配置为使用旧的经典计划程序。 管理员应仔细阅读、 了解并考虑每个计划程序类型具有安全性和性能的虚拟化主机之前重写的计划程序类型默认设置的影响。  请参阅[了解 HYPER-V 计划程序类型选择](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/understanding-hyper-v-scheduler-type-selection)有关详细信息。
 
 ### <a name="required-updates"></a>所需更新
 
@@ -169,6 +169,7 @@ Windows Server 2016 HYPER-V 默认情况下使用经典虚拟机监控程序计�
 
 * 经典
 * 核心版
+* 根
 
 有关对虚拟机监控程序计划程序类型才会生效的任何更改，必须重新启动系统。
 
@@ -177,7 +178,7 @@ Windows Server 2016 HYPER-V 默认情况下使用经典虚拟机监控程序计�
 
 ## <a name="determining-the-current-scheduler-type"></a>确定当前的计划程序类型
 
-您可以确定当前的虚拟机监控程序计划程序类型在使用通过检查事件查看器中的列值日志的最新的虚拟机监控程序启动事件 ID 为 2，它报告在虚拟机监控程序启动配置的虚拟机监控程序计划程序类型。 从 Windows 事件查看器中，或通过 PowerShell，可以获取虚拟机监控程序启动事件。
+您可以确定当前的虚拟机监控程序计划程序类型在使用通过检查系统日志中事件查看器中的最新的虚拟机监控程序启动事件 ID 为 2，它报告在虚拟机监控程序启动配置的虚拟机监控程序计划程序类型。 从 Windows 事件查看器中，或通过 PowerShell，可以获取虚拟机监控程序启动事件。
 
 虚拟机监控程序启动事件 ID 为 2 表示虚拟机监控程序计划程序类型，其中：
 

@@ -14,16 +14,16 @@ manager: dongill
 ms.author: elizapo
 ms.date: 06/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: af41304e08f19ca155f6fd13c9258e9a8f20c163
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d03dcd307696aea55ab6a1569ab907635994772a
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817008"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66804989"
 ---
 # <a name="remote-desktop---allow-access-to-your-pc"></a>远程桌面-允许访问您的电脑
 
->适用于：Windows 10，Windows 8.1，Windows Server 2012 R2 和 Windows Server 2016
+>适用于：Windows 10 中，Windows 8.1、 Windows Server 2019、 Windows Server 2016 中，Windows Server 2012 R2
 
 可以使用远程桌面连接到并通过使用来控制您的 PC 的远程设备[Microsoft 远程桌面客户端](remote-desktop-clients.md)（适用于 Windows、 iOS、 macOS 和 Android）。 如果您允许远程连接到您的 PC，可以使用另一台设备连接到您的 PC 并对所有的应用程序、 文件和网络资源具有访问权限，就像您正坐在办公桌旁。  
 
@@ -64,7 +64,7 @@ ms.locfileid: "59817008"
 您应确保使用强密码配置了每个帐户都有权访问您的 PC。
 
 ## <a name="why-allow-connections-only-with-network-level-authentication"></a>为什么允许仅带网络级身份验证的连接？ 
- 
-如果你想要限制谁可以访问您的电脑，选择允许访问带网络级身份验证 (NLA) 中的仅。 如果启用此选项，用户必须向网络验证自身，才能连接到您的 PC。 允许仅从运行带 NLA 的远程桌面的计算机的连接是一种更安全的身份验证方法，可帮助保护计算机免受恶意用户和软件。 若要了解有关 NLA 和远程桌面的详细信息，请查看[RDS 连接配置 NLA](https://technet.microsoft.com/library/cc732713(v=ws.11).aspx)。 
+
+如果你想要限制谁可以访问您的电脑，选择允许访问带网络级身份验证 (NLA) 中的仅。 如果启用此选项，用户必须向网络验证自身，才能连接到您的 PC。 允许仅从运行带 NLA 的远程桌面的计算机的连接是一种更安全的身份验证方法，可帮助保护计算机免受恶意用户和软件。 若要了解有关 NLA 和远程桌面的详细信息，请查看[RDS 连接配置 NLA](https://technet.microsoft.com/library/cc732713(v=ws.11).aspx)。
 
 如果要从该网络外的家庭网络上远程连接到 PC，不选择此选项。

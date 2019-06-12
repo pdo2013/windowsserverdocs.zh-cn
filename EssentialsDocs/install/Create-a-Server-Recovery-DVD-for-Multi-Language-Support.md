@@ -12,12 +12,12 @@ ms.assetid: c7da0f6c-9732-4784-9c28-7dad72c4071d
 4author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ac547f97b48e4cd0ebf87e0935cadc2c539b4d0b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2bbc7bf7af71c671153bf7ba3356ddc08dcc38b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854998"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433631"
 ---
 # <a name="create-a-server-recovery-dvd-for-multi-language-support"></a>为多语言支持创建服务器恢复 DVD
 
@@ -30,20 +30,20 @@ ms.locfileid: "59854998"
   
  安装有两个阶段：Windows 预安装环境 (Windows PE) 和初始配置。 默认情况下，不会显示初始配置中的语言选择页面。  
   
--   对于 OEM 远程管理安装或 OEM 预安装方案，需要使用以下命令添加注册表项以显示初始配置中的语言选择页面。  
+- 对于 OEM 远程管理安装或 OEM 预安装方案，需要使用以下命令添加注册表项以显示初始配置中的语言选择页面。  
   
-    ```  
-    %systemroot%\system32\reg.exe add "HKLM\Software\microsoft\windows server\setup" /v ShowPreinstallPages /t REG_SZ /d true /f  
-    ```  
+  ```  
+  %systemroot%\system32\reg.exe add "HKLM\Software\microsoft\windows server\setup" /v ShowPreinstallPages /t REG_SZ /d true /f  
+  ```  
   
-    > [!IMPORTANT]
-    >  当 OEM 在实验室中创建映像时，他们必须在安装过程的 Windows PE 阶段选择 **“英语”** 作为所选语言。  
+  > [!IMPORTANT]
+  >  当 OEM 在实验室中创建映像时，他们必须在安装过程的 Windows PE 阶段选择 **“英语”** 作为所选语言。  
   
--   对于经销商选项工具包 (ROK)，客户会收到一张 DVD，还有可能收到若干硬件。 客户应能够在 Windows PE 安装过程中选择语言，并且在初始配置中不再显示语言选择页面。  
+- 对于经销商选项工具包 (ROK)，客户会收到一张 DVD，还有可能收到若干硬件。 客户应能够在 Windows PE 安装过程中选择语言，并且在初始配置中不再显示语言选择页面。  
   
- 你可以选择发运一张包含多种语言的双层 DVD。  
+  你可以选择发运一张包含多种语言的双层 DVD。  
   
- 本节介绍如何将语言支持添加到 Windows 安装程序。 自定义 Windows PE 3.0 的主要工具是部署映像服务和管理 (DISM)，它是一个命令行工具。 该解决方案适用于以下情景：  
+  本节介绍如何将语言支持添加到 Windows 安装程序。 自定义 Windows PE 3.0 的主要工具是部署映像服务和管理 (DISM)，它是一个命令行工具。 该解决方案适用于以下情景：  
   
 1.  创建多语言安装  
   

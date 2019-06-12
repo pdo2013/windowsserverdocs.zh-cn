@@ -12,12 +12,12 @@ ms.assetid: 48ea6cd4-3955-4aaf-9236-2515a6c3e730
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 8a2310b178663c6ca32a4e07d11656f1aaf2a11b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f5593c21b99f4f8cb22979d5dc201a38e54be84c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844408"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433486"
 ---
 # <a name="install-and-configure-windows-server-essentials-or-windows-server-essentials-experience"></a>安装和配置 Windows Server Essentials 或 Windows Server Essentials 体验
 
@@ -73,28 +73,28 @@ Windows Server Essentials 体验是使您能够充分利用 （如远程 Web 访
   
 ##### <a name="to-configure-windows-server-essentials-on-a-physical-server"></a>若要在物理服务器上配置 Windows Server Essentials  
   
-1.  在 Windows“欢迎使用”页之后，“配置 Windows Server Essentials 向导”将在桌面上可见。  
+1. 在 Windows“欢迎使用”  页之后，“配置 Windows Server Essentials 向导”  将在桌面上可见。  
   
-2.  按照说明完成向导，如下所示：  
+2. 按照说明完成向导，如下所示：  
   
-    1.  在“配置 Windows Server Essentials”  页上，单击“下一步” 。  
+   1.  在“配置 Windows Server Essentials”  页上，单击“下一步”  。  
   
-    2.  在“时间设置” 中，确保日期、时间和时区均正确，然后单击“下一步” 。  
+   2.  在“时间设置”  中，确保日期、时间和时区均正确，然后单击“下一步”  。  
   
-    3.  在中**公司信息**，键入你的公司名称，如**Contoso，Ltd.**，然后单击**下一步**。 （可选）可以更改内部域名和服务器名称。  
+   3.  在中**公司信息**，键入你的公司名称，如**Contoso，Ltd.** ，然后单击**下一步**。 （可选）可以更改内部域名和服务器名称。  
   
-    4.  在“创建网络管理员” 中，键入新的管理员帐户名称和密码。  
+   4.  在“创建网络管理员”  中，键入新的管理员帐户名称和密码。  
   
-        > [!NOTE]
-        >  不要使用默认“管理员”  帐户名称和密码。  
+       > [!NOTE]
+       >  不要使用默认“管理员”  帐户名称和密码。  
   
-    5.  单击 **“配置”**。  
+   5.  单击 **“配置”** 。  
   
-3.  服务器在配置过程中将多次重新启动，并且在完成配置前，将会自动进行登录。 此过程需要大约 20 分钟的时间。  
+3. 服务器在配置过程中将多次重新启动，并且在完成配置前，将会自动进行登录。 此过程需要大约 20 分钟的时间。  
   
-4.  在桌面上，单击仪表板图标以启动服务器仪表板。 在“主页”上，完成“安装”选项卡上列出的“入门”任务。  
+4. 在桌面上，单击仪表板图标以启动服务器仪表板。 在“主页”  上，完成“安装”  选项卡上列出的“入门”  任务。  
   
- 完成服务器配置后，运行 Windows Server Essentials 的服务器将被设置为域控制器。  
+   完成服务器配置后，运行 Windows Server Essentials 的服务器将被设置为域控制器。  
   
 ###  <a name="BKMK_DeployWSERole"></a> 部署 Windows Server 2012 R2 Standard 和 Datacenter 中的 Windows Server Essentials 体验角色  
  可以使用服务器管理器来启用和配置 Windows Server Essentials 体验角色在 Windows Server 2012 R2 Standard 或 Windows Server 2012 R2 Datacenter 中使用以下过程。  
@@ -103,19 +103,19 @@ Windows Server Essentials 体验是使您能够充分利用 （如远程 Web 访
   
 1.  以本地管理员身份登录到服务器。  
   
-2.  打开“服务器管理器” ，然后单击“添加角色和功能” 。  
+2.  打开“服务器管理器”  ，然后单击“添加角色和功能”  。  
   
-3.  在“选择服务器角色” 中，选择“Windows Server Essentials Experience”  角色。 在对话框中，单击“添加功能” ，然后单击“下一步” 。  
+3.  在“选择服务器角色”  中，选择“Windows Server Essentials Experience”  角色。 在对话框中，单击“添加功能”  ，然后单击“下一步”  。  
   
-4.  在“功能” 中，单击“下一步” 。  
+4.  在“功能”  中，单击“下一步”  。  
   
-5.  查看“Windows Server Essentials Experience”  角色说明，然后单击“下一步” 。  
+5.  查看“Windows Server Essentials Experience”  角色说明，然后单击“下一步”  。  
   
-6.  在后续页面中，单击“下一步”，然后在配置页上，单击“安装”。  
+6.  在后续页面中，单击“下一步”  ，然后在配置页上，单击“安装”  。  
   
 7.  安装完成后，应作为服务器角色在服务器管理器列出 Windows Server Essentials 体验。  
   
-8.  在服务器管理器中的标志通知区域内，单击标志，然后单击“配置 Windows Server Essentials” 。  
+8.  在服务器管理器中的标志通知区域内，单击标志，然后单击“配置 Windows Server Essentials”  。  
   
 9. （可选）更改服务器名称（如果需要）。  
   
@@ -149,23 +149,23 @@ Windows Server Essentials 体验是使您能够充分利用 （如远程 Web 访
   
 3.  重新启动服务器并以域管理员身份登录到服务器。  
   
-4.  打开服务器管理器，然后单击“添加角色和功能”。  
+4.  打开服务器管理器，然后单击“添加角色和功能”  。  
   
-5.  在后续页面中，单击“下一步”。  
+5.  在后续页面中，单击“下一步”  。  
   
-6.  在“选择服务器角色”中，选择“Windows Server Essentials Experience”。 在对话框中，单击“添加功能” ，然后单击“下一步” 。  
+6.  在“选择服务器角色”  中，选择“Windows Server Essentials Experience”  。 在对话框中，单击“添加功能”  ，然后单击“下一步”  。  
   
-7.  在“功能” 中，单击“下一步” 。  
+7.  在“功能”  中，单击“下一步”  。  
   
-8.  查看“Windows Server Essentials Experience”说明，然后单击“下一步”。  
+8.  查看“Windows Server Essentials Experience”  说明，然后单击“下一步”  。  
   
-9. 在后续页面中，单击“下一步”，然后在配置页上，单击“安装”。  
+9. 在后续页面中，单击“下一步”  ，然后在配置页上，单击“安装”  。  
   
 10. 安装完成后，将作为服务器角色在服务器管理器列出 Windows Server Essentials 体验。  
   
-11. 在“服务器管理器”中的标志通知区域内，单击标志，然后单击“配置 Windows Server Essentials”。  
+11. 在“服务器管理器”  中的标志通知区域内，单击标志，然后单击“配置 Windows Server Essentials”  。  
   
-12. 按照向导来配置 Windows Server Essentials。 根据 Active Directory 配置，将会通知你是否要将 Windows Server Essentials 配置在域控制器上或配置为域成员。 单击“配置”以开始进行配置。 完成配置过程需要大约 10 分钟的时间。  
+12. 按照向导来配置 Windows Server Essentials。 根据 Active Directory 配置，将会通知你是否要将 Windows Server Essentials 配置在域控制器上或配置为域成员。 单击“配置”  以开始进行配置。 完成配置过程需要大约 10 分钟的时间。  
   
 ##  <a name="BKMK_VirtualWSE"></a> 虚拟化环境  
   可以作为虚拟机运行 Windows Server Essentials、 Windows Server 2012 R2 Standard 和 Windows Server 2012 R2 Datacenter。 可通过使用 Hyper-V 管理工具在运行 Hyper-V 的服务器上运行虚拟机。 从授权的角度来看，Windows Server Essentials 允许你设置 HYPER-V 角色和虚拟化您的环境。 该许可证允许你设置另一个来宾操作系统运行 Windows Server Essentials。 具体取决于系统提供程序"，配置的不同，Windows Server Essentials 可以无缝地设置虚拟化环境。  

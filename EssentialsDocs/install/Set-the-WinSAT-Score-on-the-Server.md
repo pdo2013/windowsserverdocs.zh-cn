@@ -12,12 +12,12 @@ ms.assetid: 911dc494-0f8f-4723-93d6-2106f914b906
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 77866acccac13ac48da8779700c8654f2c7f3277
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e5ce037c7a8c802419cd980fc0272c4f687c6a6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819948"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433449"
 ---
 # <a name="set-the-winsat-score-on-the-server"></a>在服务器上设置 WinSAT 分数
 
@@ -30,19 +30,19 @@ ms.locfileid: "59819948"
   
 #### <a name="to-obtain-the-winsat-cpu-score"></a>获取 WinSAT CPU 分数  
   
-1.  复制 Resources\WinServerSAT\\* 在引用计算机的 ADK 媒体中。  
+1. 复制 Resources\WinServerSAT\\* 在引用计算机的 ADK 媒体中。  
   
-2.  在引用计算机中，打开提升的命令提示符窗口。  
+2. 在引用计算机中，打开提升的命令提示符窗口。  
   
-3.  如果 %ProgramFiles%\Windows Server\Bin\OEM 文件夹不存在，则输入以下命令，然后按 Enter 键。  
+3. 如果 %ProgramFiles%\Windows Server\Bin\OEM 文件夹不存在，则输入以下命令，然后按 Enter 键。  
   
-     **mkdir "%ProgramFiles%\Windows Server\Bin\OEM"**  
+    **mkdir "%ProgramFiles%\Windows Server\Bin\OEM"**  
   
-4.  输入以下命令，然后按 Enter 键。  
+4. 输入以下命令，然后按 Enter 键。  
   
-     **WinServerSAT.exe "%ProgramFiles%\Windows Server\Bin\OEM\WinServerSAT.xml"**  
+    **WinServerSAT.exe "%ProgramFiles%\Windows Server\Bin\OEM\WinServerSAT.xml"**  
   
- 以下示例显示了创建的 WinServerSAT.xml 文件的 XML 内容。  
+   以下示例显示了创建的 WinServerSAT.xml 文件的 XML 内容。  
   
 ```  
   

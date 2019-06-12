@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: cc9f02b9-8ddd-4cae-b397-a832996144dd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fb940effaae7989dec397e539b64160c87828d5a
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 7aec08a19759c98150cf7518643f634947c5133d
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266709"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805006"
 ---
 # <a name="step-2-plan-the-remote-access-deployment"></a>步骤 2 规划远程访问部署
 
@@ -56,7 +56,7 @@ ms.locfileid: "66266709"
   
     -   **连接性验证程序**  
   
-        将创建默认 Web 探测，客户端可将其用于验证到内部网络的连接性。 默认名称是 https://directaccess-WebProbeHost.<domain_name>。 应在 DNS 中手动注册该名称。 您可以创建其他连接性验证程序，通过 HTTP 或 PING 使用其他 web 地址。 对于每个连接性验证程序，都必须存在 DNS 条目。  
+        将创建默认 Web 探测，客户端可将其用于验证到内部网络的连接性。 默认名称是`https://directaccess-WebProbeHost.<domain_name>`。 应在 DNS 中手动注册该名称。 您可以创建其他连接性验证程序，通过 HTTP 或 PING 使用其他 web 地址。 对于每个连接性验证程序，都必须存在 DNS 条目。  
   
     -   **帮助服务台电子邮件地址**  
   

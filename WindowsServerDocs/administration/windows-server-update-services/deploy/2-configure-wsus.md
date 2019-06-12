@@ -10,28 +10,28 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9e51d5f69ff62c120cabfbe549a84fc9fd26f822
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ae151c2a6f0f5ef72b263fbe7f1f0d26933452af
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820478"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811001"
 ---
 # <a name="step-2-configure-wsus"></a>步骤 2：将 WSUS 配置
 
 >适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
-在服务器上安装 WSUS 服务器角色后，你必须正确配置它。 以下清单汇总有关你的 WSUS 服务器执行初始配置所涉及的步骤。
+在服务器上安装 WSUS 服务器角色后，你必须正确配置它。 以下清单汇总了有关你的 WSUS 服务器执行初始配置所涉及的步骤。
 
 |任务|描述|
 |----|--------|
-|[2.1.配置网络连接](2-configure-wsus.md#BKM_ConfigurenetworkConnections)|使用网络配置向导配置群集网络。|
-|[2.2.使用 WSUS 配置向导配置 WSUS](2-configure-wsus.md#BKM_ConfigureWSUSusingConfigurationWizard)|使用 WSUS 配置向导执行基本 WSUS 配置。|
-|[2.3.配置 WSUS 计算机组](2-configure-wsus.md#BKMK_ConfigcomputerGroups)|在 WSUS 管理控制台创建计算机组以管理组织中的更新。|
-|[2.4.配置客户端更新](2-configure-wsus.md#BKM_ConfigureClientUpdates)|指定如何以及何时将自动更新应用于客户端计算机。|
-|[2.5.使用安全套接字层协议保护 WSUS](2-configure-wsus.md#bkmk_2.5.ConfigSSL)|配置安全套接字层 (SSL) 协议以帮助保护 Windows Server Update Services (WSUS)。|
+|[2.1.配置网络连接](#21-configure-network-connections)|使用网络配置向导配置群集网络。|
+|[2.2.使用 WSUS 配置向导配置 WSUS](#22-configure-wsus-by-using-the-wsus-configuration-wizard)|使用 WSUS 配置向导执行基本 WSUS 配置。|
+|[2.3.配置 WSUS 计算机组](#23-configure-wsus-computer-groups)|在 WSUS 管理控制台创建计算机组以管理组织中的更新。|
+|[2.4.配置客户端更新](#24-configure-client-updates)|指定如何以及何时将自动更新应用于客户端计算机。|
+|[2.5.使用安全套接字层协议保护 WSUS](#25-secure-wsus-with-the-secure-sockets-layer-protocol)|配置安全套接字层 (SSL) 协议以帮助保护 Windows Server Update Services (WSUS)。|
 
-## <a name="BKM_ConfigurenetworkConnections"></a>2.1. 配置网络连接
+## <a name="21-configure-network-connections"></a>2.1. 配置网络连接
 开始配置过程之前，确保你知道以下问题的答案：
 
 1.  是否配置服务器防火墙以便让客户端访问服务器？
@@ -54,35 +54,35 @@ ms.locfileid: "59820478"
 -   **防火墙**你确定 WSUS 安装在企业防火墙后，是否必须在边缘设备，以便完全允许 WSUS 流量完成一些附加步骤。
 
 ### <a name="211-connection-from-the-wsus-server-to-the-internet"></a>2.1.1. 从 WSUS 服务器到 Internet 的连接
-如果 WSUS 和 Internet 之间的企业防火墙，你可能必须配置防火墙以确保 WSUS 可获得更新。 为了从 Microsoft 更新获取更新，WSUS 服务器将端口 443 用于 HTTPS 协议。 尽管大多数企业防火墙允许这种类型的流量，但有限制由于公司的安全策略的服务器从 Internet 访问某些公司。 如果你的公司限制访问，您需要获得授权才能访问 Internet 从 WSUS 到以下 Url 列表：
+如果 WSUS 和 Internet 之间存有企业防火墙，你可能必须配置防火墙以确保 WSUS 可获得更新。 为了从 Microsoft 更新获取更新，WSUS 服务器将端口 443 用于 HTTPS 协议。 尽管大多数企业防火墙允许这种类型的流量，但有限制由于公司的安全策略的服务器从 Internet 访问某些公司。 如果你的公司限制访问，您需要获得授权才能访问 Internet 从 WSUS 到以下 Url 列表：
 
--   http://windowsupdate.microsoft.com
+- http://windowsupdate.microsoft.com
 
--   http://*.windowsupdate.microsoft.com
+- http://*.windowsupdate.microsoft.com
 
--   https://*.windowsupdate.microsoft.com
+- https://*.windowsupdate.microsoft.com
 
--   http://*.update.microsoft.com
+- http://*.update.microsoft.com
 
--   https://*.update.microsoft.com
+- https://*.update.microsoft.com
 
--   http://*.windowsupdate.com
+- http://*.windowsupdate.com
 
--   http://download.windowsupdate.com
+- http://download.windowsupdate.com
 
--   https://download.microsoft.com
+- https://download.microsoft.com
 
--   http://*.download.windowsupdate.com
+- http://*.download.windowsupdate.com
 
--   http://wustat.windows.com
+- http://wustat.windows.com
 
--   http://ntservicepack.microsoft.com
+- http://ntservicepack.microsoft.com
 
--   http://go.microsoft.com
+- http://go.microsoft.com
 
--   http://dl.delivery.mp.microsoft.com
+- http://dl.delivery.mp.microsoft.com
 
--   https://dl.delivery.mp.microsoft.com
+- https://dl.delivery.mp.microsoft.com
 
 > [!IMPORTANT]
 > 有关 WSUS 未能获得更新由于防火墙配置所在的方案，请参阅[文章 885819](https://support.microsoft.com/kb/885819) Microsoft 知识库中。
@@ -119,7 +119,7 @@ WSUS 服务器上的防火墙必须配置为允许这些端口上存在入站流
 
 2.  安装 WSUS 服务器角色的。 在 WSUS 配置向导（下一部分中讨论）过程中，未指定代理服务器。
 
-3.  以管理员身份打开命令提示符 (Cmd.exe)。 若要以管理员身份打开命令提示符，请转到“开始” 。 在中**开始搜索**，类型**命令提示符下**。 在开始菜单的顶部，右键单击**命令提示符**，然后单击**以管理员身份运行**。 如果**用户帐户控制**出现对话框，请输入相应的凭据 （如果需要），确认它显示的操作是您想要，然后单击**继续**。
+3.  以管理员身份打开命令提示符 (Cmd.exe)。 若要以管理员身份打开命令提示符，请转到“开始”  。 在中**开始搜索**，类型**命令提示符下**。 在开始菜单的顶部，右键单击**命令提示符**，然后单击**以管理员身份运行**。 如果**用户帐户控制**出现对话框，请输入相应的凭据 （如果需要），确认它显示的操作是您想要，然后单击**继续**。
 
 4.  在命令提示符窗口中，转到 C:\Program Files\Update Services\Tools 文件夹。 键入以下命令：
 
@@ -137,43 +137,43 @@ WSUS 服务器上的防火墙必须配置为允许这些端口上存在入站流
 
 1.  打开 WSUS 管理控制台。
 
-2.  在左窗格中，展开服务器名称，然后单击“选项” 。
+2.  在左窗格中，展开服务器名称，然后单击“选项”  。
 
-3.  在“选项”窗格中，单击“更新源和更新服务器”，然后单击“代理服务器”选项卡。
+3.  在“选项”  窗格中，单击“更新源和更新服务器”  ，然后单击“代理服务器”  选项卡。
 
 4.  使用以下选项可修改现有代理服务器配置：
 
     ###### <a name="to-change-or-add-a-proxy-server-to-the-wsus-configuration"></a>对 WSUS 配置更改或添加代理服务器
 
-    1.  选中“在同步时使用代理服务器”的复选框。
+    1.  选中“在同步时使用代理服务器”  的复选框。
 
-    2.  在“代理服务器名称”文本框中，输入代理服务器的名称。
+    2.  在“代理服务器名称”  文本框中，输入代理服务器的名称。
 
     3.  在“代理端口号”  文本框中，输入代理服务器的端口号。 默认端口号为 80。
 
     4.  Ff 代理服务器要求使用特定用户帐户，选择**使用用户凭据来连接到代理服务器**复选框。 对应的文本框中键入所需的用户名称、 域和密码。
 
-    5.  如果代理服务器支持基本身份验证，请选择“允许基本身份验证(以明文形式发送密码)”复选框。
+    5.  如果代理服务器支持基本身份验证，请选择“允许基本身份验证(以明文形式发送密码)”  复选框。
 
-    6.  单击 **“确定”**。
+    6.  单击 **“确定”** 。
 
     ###### <a name="to-remove-a-proxy-server-from-the-wsus-configuration"></a>从 WSUS 配置中删除代理服务器
 
-    1.  若要从 WSUS 配置中删除代理服务器，请清除“在同步时使用代理服务器”的复选框。
+    1.  若要从 WSUS 配置中删除代理服务器，请清除“在同步时使用代理服务器”  的复选框。
 
-    2.  单击 **“确定”**。
+    2.  单击 **“确定”** 。
 
-## <a name="BKM_ConfigureWSUSusingConfigurationWizard"></a>2.2. 使用 WSUS 配置向导配置 WSUS。
+## <a name="22-configure-wsus-by-using-the-wsus-configuration-wizard"></a>2.2. 使用 WSUS 配置向导配置 WSUS。
 该过程假设你使用首次启用 WSUS 管理控制台时出现的 WSUS 配置向导。 在本主题的后部分中，你将学习如何使用 **“选项”** 页执行这些配置。
 
 #### <a name="to-configure-wsus"></a>配置 WSUS 的步骤
 
-1.  在“服务器管理器”导航窗格中，单击 **“仪表板”**，单击 **“工具”**，然后单击 **“Windows Server Update Services”**。
+1.  在“服务器管理器”导航窗格中，单击 **“仪表板”** ，单击 **“工具”** ，然后单击 **“Windows Server Update Services”** 。
 
     > [!NOTE]
     > 如果**完成 WSUS 安装**出现对话框，请单击**运行**。 在中**完成 WSUS 安装**对话框中，单击**关闭**安装成功完成。
 
-2.  Windows Server Update Services 向导会打开。 在“开始之前”  页上，查看信息，再单击“下一步” 。
+2.  Windows Server Update Services 向导会打开。 在“开始之前”  页上，查看信息，再单击“下一步”  。
 
 3.  阅读 **“加入 Microsoft 更新改善计划”** 页上的说明，评估你是否想参与其中。 如果要参与该计划。 保留默认选择，或清除该复选框，然后依次**下一步**。
 
@@ -198,14 +198,14 @@ WSUS 服务器上的防火墙必须配置为允许这些端口上存在入站流
 
 7.  如果你想要使用特定用户凭据，选择连接到代理服务器**使用用户凭据来连接到代理服务器**复选框，然后相应然后键入用户名、 域和用户的密码框。 如果你想要启用基本身份验证的用户连接到代理服务器，选择**允许基本身份验证 （密码以明文形式发送）** 复选框。
 
-8.  单击“下一步” 。 上**连接到上游服务器**页上，单击**启动连接**。
+8.  单击“下一步”  。 上**连接到上游服务器**页上，单击**启动连接**。
 
 9. 连接它时，然后单击 **“下一步”** 继续。
 
 10. 上**选择语言**页上，可以选择 WSUS 将收到更新的所有语言或语言子集的语言的选项。 选择语言子集将节省磁盘空间，但这十分重要，若要选择的所有所需的此 WSUS 服务器的所有客户端语言。 如果您选择仅获得特定语言获取更新，请选择**下载这些语言的更新仅**，然后选择为其想要更新; 否则，保持默认选择的语言。
 
     > [!WARNING]
-    > 如果您选择的选项**下载这些语言的更新仅**，并且该服务器具有下游 WSUS 服务器连接到它，此选项将强制下游服务器也仅使用所选的语言。
+    > 如果你选择 **“仅下载这些语言的更新”** 选项，且该服务器具有与其连接的下游 WSUS 服务器，该选项将强制下游服务器也仅使用所选的语言。
 
 11. 为你的部署选择适当语言后，单击 **“下一步”** 继续。
 
@@ -213,25 +213,25 @@ WSUS 服务器上的防火墙必须配置为允许这些端口上存在入站流
 
 13. 选择你的部署，适当的产品选项，然后单击**下一步**。
 
-14. 在 **“选择类别”** 页上，选择要包含的更新类别。 选择所有类别或它们的子集，然后单击“下一步”。
+14. 在 **“选择类别”** 页上，选择要包含的更新类别。 选择所有类别或它们的子集，然后单击“下一步”  。
 
-15. “设置同步计划”页使你可以选择手动还是自动执行同步。
+15. “设置同步计划”  页使你可以选择手动还是自动执行同步。
 
     -   如果愿意**手动同步**，您必须从 WSUS 管理控制台启动同步过程。
 
     -   如果愿意**自动同步**，WSUS 服务器将每隔一段时间执行同步。
 
-    设置“第一次同步” 的时间，然后指定你希望该服务器执行的“每天同步次数”  数量。 例如，如果你指定每天同步四次，从上午 3:00 开始，则同步将在上午 3:00、上午 9:00、下午 3:00 和下午 9:00 发生。
+    设置“第一次同步”  的时间，然后指定你希望该服务器执行的“每天同步次数”  数量。 例如，如果你指定每天同步四次，从上午 3:00 开始，则同步将在上午 3:00、上午 9:00、下午 3:00 和下午 9:00 发生。
 
 16. 为你的部署选择适当的产品选项后，单击 **“下一步”** 继续。
 
-17. 在 **“完成”** 页上，你可通过选择 **“开始初始同步”** 对话框，即时启动同步。 如果不选择此选项，您需要使用 WSUS 管理控制台来执行初始同步。 如果你希望阅读有关其他设置的详细信息，请单击 **“下一步”**，或单击 **“完成”** 来结束该向导并完成初始 WSUS 设置。
+17. 在 **“完成”** 页上，你可通过选择 **“开始初始同步”** 对话框，即时启动同步。 如果不选择此选项，您需要使用 WSUS 管理控制台来执行初始同步。 如果你希望阅读有关其他设置的详细信息，请单击 **“下一步”** ，或单击 **“完成”** 来结束该向导并完成初始 WSUS 设置。
 
 18. 在单击 **“完成”** 后，WSUS 管理控制台会出现。
 
 既然你已执行基本的 WSUS 配置，请阅读下一部分了解有关使用 WSUS 管理控制台来更改设置的详细信息。
 
-## <a name="BKMK_ConfigcomputerGroups"></a>2.3. 配置 WSUS 计算机组
+## <a name="23-configure-wsus-computer-groups"></a>2.3. 配置 WSUS 计算机组
 计算机组是 Windows Server Update Services (WSUS) 部署的重要组成部分。 计算机组允许你测试更新并将更新作为特定计算机的目标。 有两个默认计算机组：所有计算机和未分配的计算机。 默认情况下，当每台客户端计算机首次联系 WSUS 服务器时，服务器会将该客户端计算机添加到这两组。
 
 你可以按需要创建自定义计算机组来管理组织的更新。 根据最佳做法，先至少创建一个计算机组来测试更新，然后再将它们部署给组织中的其他计算机。
@@ -250,7 +250,7 @@ WSUS 服务器上的防火墙必须配置为允许这些端口上存在入站流
 
 5.  在中**设置计算机组成员身份**对话框中，选择测试组所创建的然后单击**确定**。
 
-## <a name="BKM_ConfigureClientUpdates"></a>2.4. 配置客户端更新
+## <a name="24-configure-client-updates"></a>2.4. 配置客户端更新
 WSUS 设置自动配置 IIS 以将最新版本的自动更新分配给每台连接 WSUS 服务器的客户端计算机。 配置自动更新的最佳方式取决于网络环境。
 
 -   在环境中使用 active directory 目录服务，可以使用现有的基于域的组策略对象 (GPO)，或创建一个新的 GPO。
@@ -262,11 +262,12 @@ WSUS 设置自动配置 IIS 以将最新版本的自动更新分配给每台连�
 
 使用以下过程向客户端计算机配置自动更新。
 
--   [步骤 4：配置为自动更新的组策略设置](4-configure-group-policy-settings-for-automatic-updates.md)
+-   [步骤 4：为自动更新配置组策略设置](4-configure-group-policy-settings-for-automatic-updates.md)
 
--   [2.3.配置计算机组](2-configure-wsus.md#BKMK_ConfigcomputerGroups)本主题中
+-   [2.3.配置计算机组](#23-configure-wsus-computer-groups)本主题中
 
-### <a name="BKMK_ConfigureAU"></a>在组策略中配置自动更新
+### <a name="configure-automatic-updates-in-group-policy"></a>在组策略中配置自动更新
+
 如果已在网络中设置 active directory，可以通过它们包含在组策略对象 (GPO)，然后使用 WSUS 设置中配置该 GPO 同时配置一个或多个计算机。 我们建议你创建一个仅含有 WSUS 设置的新 GPO。
 
 此 WSUS GPO 链接到适用于你的环境的 active directory 容器。 在简单的环境中，你可能将单一 WSUS GPO 连接到域。 在较为复杂的环境中，你可能会将多个 WSUS GPO 连接到几个组织单位 (OU)，从而将不同的 WSUS 策略设置应用到不同类型的计算机。
@@ -277,9 +278,9 @@ WSUS 设置自动配置 IIS 以将最新版本的自动更新分配给每台连�
 
 2.  在 GPMC 中，展开**计算机配置**，展开**策略**，展开**管理模板**，展开**Windows 组件**，然后依次**Windows Update**。
 
-3.  在详细信息窗格中，双击 **“配置自动更新”**。 “配置自动更新”  策略会打开。
+3.  在详细信息窗格中，双击 **“配置自动更新”** 。 “配置自动更新”  策略会打开。
 
-4.  单击“已启用”，然后选择“配置自动更新”设置下的以下选项之一：
+4.  单击“已启用”  ，然后选择“配置自动更新”  设置下的以下选项之一：
 
     -   **下载通知和安装通知**。 该选项会在你下载和安装更新之前通知登录的管理用户。
 
@@ -292,20 +293,20 @@ WSUS 设置自动配置 IIS 以将最新版本的自动更新分配给每台连�
 5.  选择**允许客户端的目标**，选择**已启用**，然后键入你想要添加此计算机的 WSUS 计算机组的名称**此计算机的目标组名称**框。
 
     > [!NOTE]
-    > “允许客户端目标设置”使客户端计算机可以在自动更新重定向到 WSUS 服务器时将自己添加到 WSUS 服务器上的目标计算机组。 如果状态设置为已启用，此计算机将自己标识为特定计算机组的成员时将信息发送到 WSUS 服务器，使用它来确定哪些更新部署到此计算机。 此设置会向 WSUS 服务器指示客户端计算机使用的组。 必须在 WSUS 服务器上创建组，并将域成员计算机添加到该组。
+    > “允许客户端目标设置”  使客户端计算机可以在自动更新重定向到 WSUS 服务器时将自己添加到 WSUS 服务器上的目标计算机组。 如果状态设置为已启用，此计算机将自己标识为特定计算机组的成员时将信息发送到 WSUS 服务器，使用它来确定哪些更新部署到此计算机。 此设置会向 WSUS 服务器指示客户端计算机使用的组。 必须在 WSUS 服务器上创建组，并将域成员计算机添加到该组。
 
-6.  单击“确定”关闭“允许客户端目标设置”策略并返回 Windows 更新详细信息窗格。
+6.  单击“确定”  关闭“允许客户端目标设置”  策略并返回 Windows 更新详细信息窗格。
 
 7.  单击“确定”  关闭“配置自动更新”  策略并返回 Windows 更新详细信息窗格。
 
-8.  在 **Windows Update** 详细信息窗格中，双击 **“指定 Intranet Microsoft 更新服务位置”**。
+8.  在 **Windows Update** 详细信息窗格中，双击 **“指定 Intranet Microsoft 更新服务位置”** 。
 
-9. 单击“已启用”，然后在“设置检测更新的 Intranet 更新服务”框和“设置 Intranet 统计服务器”框中，输入 WSUS 服务器的相同 URL。 例如，键入*http://servername*这两个框中 (其中*servername*是 WSUS 服务器的名称)。
+9. 单击“已启用”  ，然后在“设置检测更新的 Intranet 更新服务”  框和“设置 Intranet 统计服务器”  框中，输入 WSUS 服务器的相同 URL。 例如，键入 *http://servername* 这两个框中 (其中*servername*是 WSUS 服务器的名称)。
 
     > [!WARNING]
-    > 当你键入 WSUS 服务器的 Intranet 地址时，确保指定准备使用哪个端口。 默认情况下，WSUS 使用适用于 HTTP 的端口 8530 以及适用于 HTTPS 的端口 8531。 例如，如果使用 HTTP，则应键入**http://servername:8530**。
+    > 当你键入 WSUS 服务器的 Intranet 地址时，确保指定准备使用哪个端口。 默认情况下，WSUS 使用适用于 HTTP 的端口 8530 以及适用于 HTTPS 的端口 8531。 例如，如果使用 HTTP，则应键入 **http://servername:8530** 。
 
-10. 单击 **“确定”**。
+10. 单击 **“确定”** 。
 
 将客户端计算机设置后，将需要几分钟才会在该计算机将出现**计算机**WSUS 管理控制台中的页。 对于配有基于域的组策略对象的客户端计算机，组策略将花费大约 20 分钟才能将新的策略设置应用于客户端计算机。 默认情况下，在后台每隔 90 分钟，0 到 30 分钟的随机偏移量与组策略更新。 如果你想要更快地更新组策略，可以打开客户端计算机并键入 gpupdate /force 上的命令提示符窗口。
 
@@ -319,7 +320,8 @@ WSUS 设置自动配置 IIS 以将最新版本的自动更新分配给每台连�
 
 2.  键入 wuauclt.exe /detectnow，然后按 ENTER。
 
-## <a name="bkmk_2.5.ConfigSSL"></a>2.5. 使用安全套接字层协议保护 WSUS
+## <a name="25-secure-wsus-with-the-secure-sockets-layer-protocol"></a>2.5. 使用安全套接字层协议保护 WSUS
+
 可以使用安全套接字层 (SSL) 协议来帮助保护 WSUS 部署。 WSUS 使用 SSL 向 WSUS 服务器验证客户端计算机和下游 WSUS 服务器的身份。 WSUS 还使用 SSL 加密更新元数据。
 
 > [!IMPORTANT]
@@ -327,7 +329,7 @@ WSUS 设置自动配置 IIS 以将最新版本的自动更新分配给每台连�
 
 WSUS 仅将 SSL 用于元数据，而不用于更新文件。 这与 Microsoft 更新分发更新的方式相同。 Microsoft 通过对每个更新进行签名来降低在未加密通道上发送更新文件的风险。 此外，还会为每个更新计算哈希并随元数据一起发送。 下载更新时，WSUS 会检查数字签名和哈希。 如果更新已更改，未安装。
 
-### <a name="ssllmits"></a>WSUS SSL 部署的限制
+### <a name="limitations-of-wsus-ssl-deployments"></a>WSUS SSL 部署的限制
 使用 SSL 保护 WSUS 部署时，必须考虑以下限制：
 
 1.  使用 SSL 会增加服务器工作负荷。 应预计到 10% 的性能损失，因为对通过网络发送的所有元数据进行加密会产生成本。
@@ -340,7 +342,7 @@ WSUS 仅将 SSL 用于元数据，而不用于更新文件。 这与 Microsoft �
 
 -   部署 Internet 协议安全性 (IPsec) 以帮助保护网络流量。 有关 IPsec 的详细信息，请参阅 [创建和使用 IPsec 策略](https://go.microsoft.com/fwlink/?LinkID=203841)。
 
-### <a name="consswsus"></a>WSUS 服务器上配置 SSL
+### <a name="configure-ssl-on-the-wsus-server"></a>在 WSUS 服务器上配置 SSL
 WSUS 需要将两个端口用于 SSL：一个端口使用 HTTPS 发送加密的元数据，另一个端口使用 HTTP 发送更新。 将 WSUS 配置为使用 SSL 时，请考虑下列事项：
 
 -   不能将整个 WSUS 网站配置为需要 SSL，因为必须对发送到 WSUS 网站的所有流量进行加密。 WSUS 仅对更新元数据进行加密。 如果在计算机尝试检索更新文件上的 HTTPS 端口，则传输将失败。
@@ -387,7 +389,7 @@ WSUS 需要将两个端口用于 SSL：一个端口使用 HTTPS 发送加密的�
 
 2.  转到**启动**，类型**CMD**，右键单击**命令提示符下**，然后单击**以管理员身份运行**。
 
-3.  导航到 *%ProgramFiles%***\Update Services\Tools\\** 文件夹。
+3.  导航到 *%ProgramFiles%***\Update Services\Tools\\* * 文件夹。
 
 4.  在命令提示符窗口中，键入以下命令：
 
@@ -397,7 +399,7 @@ WSUS 需要将两个端口用于 SSL：一个端口使用 HTTPS 发送加密的�
 
     *certificateName* 是 WSUS 服务器的 DNS 名称。
 
-### <a name="consslclient"></a>客户端计算机上配置 SSL
+### <a name="configure-ssl-on-client-computers"></a>在客户端计算机上配置 SSL
 在客户端计算机上配置 SSL 时，应考虑以下问题：
 
 -   必须包含用于 WSUS 服务器上的安全端口的 URL。 因为不能在服务器上要求 SSL，所以确保客户端计算机可以使用安全通道的唯一方法是使用指定 HTTPS 的 URL。 如果任何非 443 的端口用于 SSL，则必须也在 URL 中包含该端口。
@@ -406,7 +408,7 @@ WSUS 需要将两个端口用于 SSL：一个端口使用 HTTPS 发送加密的�
 
 -   客户端计算机必须信任绑定到 WSUS 服务器的证书。 根据使用的证书类型，可能必须设置服务以使客户端计算机可以信任绑定到 WSUS 服务器的证书。
 
-### <a name="consslds"></a>为下游 WSUS 服务器配置 SSL
+### <a name="configure-ssl-for-downstream-wsus-servers"></a>为下游 WSUS 服务器配置 SSL
 以下说明配置下游服务器以同步到使用 SSL 的上游服务器。
 
 ##### <a name="to-synchronize-a-downstream-server-to-an-upstream-server-that-uses-ssl"></a>将下游服务器同步到使用 SSL 的上游服务器
@@ -417,15 +419,15 @@ WSUS 需要将两个端口用于 SSL：一个端口使用 HTTPS 发送加密的�
 
 3.  在右窗格中，展开服务器名称。
 
-4.  单击“选项” ，然后单击“更新源和代理服务器” 。
+4.  单击“选项”  ，然后单击“更新源和代理服务器”  。
 
-5.  在“更新源”  页上，选择“从其他 Windows Server Update Services 服务器中进行同步” 。
+5.  在“更新源”  页上，选择“从其他 Windows Server Update Services 服务器中进行同步”  。
 
 6.  键入到上游服务器的名称**服务器名称**文本框。 键入服务器用于 SSL 连接到的端口号**端口号**文本框。
 
 7.  选择**同步更新信息时使用 SSL**复选框，然后依次**确定**。
 
-### <a name="addlsl"></a>其他 SSL 资源
+### <a name="additional-ssl-resources"></a>其他 SSL 资源
 设置证书颁发机构所需的步骤是将证书绑定到 WSUS 网站并在客户端计算机之间建立信任，证书不在本指南的讨论范围之内。 有关详细信息以及有关如何安装证书和设置此环境的说明，请参阅以下主题：
 
 -   [Suite B PKI 分步指南](https://go.microsoft.com/fwlink/?LinkID=203858)

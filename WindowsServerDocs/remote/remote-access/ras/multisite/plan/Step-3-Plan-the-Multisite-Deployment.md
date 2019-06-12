@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: e5ea9d22-a503-4ed4-96b3-0ee2ccf4fd17
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6024b118504a233e9e7483711df4e0a05b632d5a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 29d52e57a18bf956d135179b503255efd256b35e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869438"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446851"
 ---
 # <a name="step-3-plan-the-multisite-deployment"></a>步骤 3 计划多站点部署
 
@@ -151,39 +151,39 @@ ms.locfileid: "59869438"
 ### <a name="routing"></a>路由  
 在多站点部署中对称路由将强制使用 Teredo 和 IP-HTTPS。 在企业网络中部署 IPv6，请注意以下：  
   
-1.  在企业网络到其关联的远程访问服务器，必须可路由的每个入口点的 Teredo 和的 IP-HTTPS 前缀。  
+1. 在企业网络到其关联的远程访问服务器，必须可路由的每个入口点的 Teredo 和的 IP-HTTPS 前缀。  
   
-2.  必须在企业网络路由基础结构中配置路由。  
+2. 必须在企业网络路由基础结构中配置路由。  
   
-3.  每个入口点应该有一到三个路由的内部网络中：  
+3. 每个入口点应该有一到三个路由的内部网络中：  
   
-    1.  IP-HTTPS 前缀此前缀选择由管理员在添加入口点向导。  
+   1. IP-HTTPS 前缀此前缀选择由管理员在添加入口点向导。  
   
-    2.  VPN IPv6 前缀 （可选）。 为入口点启用 VPN 后，可以选择此前缀  
+   2. VPN IPv6 前缀 （可选）。 为入口点启用 VPN 后，可以选择此前缀  
   
-    3.  Teredo 前缀 （可选）。 此前缀是只使用两个连续公用 IPv4 地址的外部适配器上配置远程访问服务器时才适用。 前缀基于的地址对的第一个公共 IPv4 地址。 例如，如果外部地址：  
+   3. Teredo 前缀 （可选）。 此前缀是只使用两个连续公用 IPv4 地址的外部适配器上配置远程访问服务器时才适用。 前缀基于的地址对的第一个公共 IPv4 地址。 例如，如果外部地址：  
   
-        1.  www.xxx.yyy.zzz  
+      1. www.xxx.yyy.zzz  
   
-        2.  www.xxx.yyy.zzz+1  
+      2. www.xxx.yyy.zzz+1  
   
-        若要配置的 Teredo 前缀为 2001:0:WWXX:YYZZ:: / 64，其中 WWXX:YYZZ 是 IPv4 地址 www.xxx.yyy.zzz 的十六进制表示形式。  
+      若要配置的 Teredo 前缀为 2001:0:WWXX:YYZZ:: / 64，其中 WWXX:YYZZ 是 IPv4 地址 www.xxx.yyy.zzz 的十六进制表示形式。  
   
-        请注意，可以使用以下脚本来计算 Teredo 前缀：  
+      请注意，可以使用以下脚本来计算 Teredo 前缀：  
   
-        ```  
-        $TeredoIPv4 = (Get-NetTeredoConfiguration).ServerName # Use for a Remote Access server that is already configured  
-        $TeredoIPv4 = "20.0.0.1" # Use for an IPv4 address  
+      ```  
+      $TeredoIPv4 = (Get-NetTeredoConfiguration).ServerName # Use for a Remote Access server that is already configured  
+      $TeredoIPv4 = "20.0.0.1" # Use for an IPv4 address  
   
-            [Byte[]] $TeredoServerAddressBytes = `  
-            [System.Net.IPAddress]::Parse("2001::").GetAddressBytes()[0..3] + `  
-            [System.Net.IPAddress]::Parse($TeredoIPv4).GetAddressBytes() + `  
-            [System.Net.IPAddress]::Parse("::").GetAddressBytes()[0..7]  
+          [Byte[]] $TeredoServerAddressBytes = `  
+          [System.Net.IPAddress]::Parse("2001::").GetAddressBytes()[0..3] + `  
+          [System.Net.IPAddress]::Parse($TeredoIPv4).GetAddressBytes() + `  
+          [System.Net.IPAddress]::Parse("::").GetAddressBytes()[0..7]  
   
-        Write-Host "The server's Teredo prefix is $([System.Net.IPAddress]$TeredoServerAddressBytes)/64"  
-        ```  
+      Write-Host "The server's Teredo prefix is $([System.Net.IPAddress]$TeredoServerAddressBytes)/64"  
+      ```  
   
-    4.  所有上述路由必须路由到内部适配器的远程访问服务器上的 IPv6 地址 （或到的内部虚拟 IP (VIP) 地址在负载平衡入口点）。  
+   4. 所有上述路由必须路由到内部适配器的远程访问服务器上的 IPv6 地址 （或到的内部虚拟 IP (VIP) 地址在负载平衡入口点）。  
   
 > [!NOTE]  
 > IPv6 中的企业网络和远程访问服务器管理的部署时通过 DirectAccess，Teredo 的路由远程执行，并且必须将添加到每台远程访问服务器的 IP-HTTPS 前缀的所有其他入口点，以便将流量转发到内部网络。  

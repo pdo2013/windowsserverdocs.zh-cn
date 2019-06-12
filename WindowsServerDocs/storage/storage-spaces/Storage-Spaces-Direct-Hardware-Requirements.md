@@ -7,22 +7,22 @@ ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
-ms.date: 04/12/2018
+ms.date: 06/04/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 84d10ab3e25500720dd13e2ba057dc3c5bf05a6f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2031afada302c0f73621a75f572c8547620db16
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849318"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501662"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>存储空间直通的硬件要求
 
-> 适用于：Windows Server 2016 中，Windows Server Insider Preview
+> 适用于：Windows Server 2019、Windows Server 2016
 
 本主题介绍存储空间直通的最低硬件要求。
 
-对于生产环境，Microsoft 建议这些[Windows Server 软件定义](https://microsoft.com/wssd)硬件/软件提供了在我们的合作伙伴，包括部署工具和过程。 它们是设计、 组装和根据我们的参考体系结构，以确保兼容性和可靠性，因此你和快速运行验证。 了解详细信息，请[ https://microsoft.com/wssd ](https://microsoft.com/wssd)。
+对于生产环境，Microsoft 建议从我们的合作伙伴购买的已验证的硬件/软件解决方案的其中包括部署工具和过程。 这些解决方案设计、 组装和根据我们的参考体系结构，以确保兼容性和可靠性，因此你和快速运行验证。 对于 Windows Server 2019 解决方案，请访问[Azure Stack HCI solutions 网站](https://azure.microsoft.com/overview/azure-stack/hci)。 对于 Windows Server 2016 的解决方案，了解详细信息，请[Windows Server 软件定义](https://microsoft.com/wssd)。
 
 ![Windows Server 软件定义的合作伙伴的徽标](media/hardware-requirements/wssd-partners.png)
 
@@ -79,25 +79,27 @@ ms.locfileid: "59849318"
 - 支持 512n、 512e 和 4k 本机驱动器
 - 固态驱动器必须提供[电源中断保护](https://blogs.technet.microsoft.com/filecab/2016/11/18/dont-do-it-consumer-ssd/)
 - 相同数量和类型的驱动器中的每个服务器 – 请参阅[驱动器对称性注意事项](drive-symmetry-considerations.md)
+- 缓存设备必须是 32 GB 或更大
+- 永久性内存设备缓存设备时，必须使用 NVMe 或 SSD 容量设备 （不能使用 Hdd）
 - NVMe 驱动程序是 Microsoft 的内置或更新 NVMe 驱动程序。
 - 建议：容量驱动器的数量是整数倍的缓存驱动器数
 - 建议：缓存驱动器应具有较高的写入耐用性： 至少 3 个驱动器的写入-每天 (DWPD) 或至少为 4 千吉字节 (TBW) 编写每日 – 请参阅[了解驱动器兆兆字节写入 (TBW) 和所需的最低建议用于存储每一天 (DWPD) 写入空间直通](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
 
 下面是可以连接的存储空间直通的驱动器的方式：
 
-1. 直接连接 SATA 驱动器
-2. 直连 NVMe 驱动器
-3. SAS 驱动器的 SAS 主机总线适配器 (HBA)
-4. SATA 驱动器的 SAS 主机总线适配器 (HBA)
-5. **不支持：** RAID 控制器卡或 SAN （光纤通道、 iSCSI、 FCoE） 存储。 主机总线适配器 (HBA) 卡必须实现简单的传递模式。
+- 直接连接 SATA 驱动器
+- 直连 NVMe 驱动器
+- SAS 驱动器的 SAS 主机总线适配器 (HBA)
+- SATA 驱动器的 SAS 主机总线适配器 (HBA)
+- **不支持：** RAID 控制器卡或 SAN （光纤通道、 iSCSI、 FCoE） 存储。 主机总线适配器 (HBA) 卡必须实现简单的传递模式。
 
 ![互连设备的受支持的驱动器的关系图](media/hardware-requirements/drive-interconnect-support-1.png)
 
 驱动器可以在服务器的内部或外部机箱中这是到只剩一个连接的服务器。 SCSI 机箱服务 (SES) 是必需的槽映射和标识。 每个外部机箱必须提供唯一标识符 (唯一 ID)。
 
-1. 服务器的内部驱动器
-2. 驱动器连接到一个服务器到外部机器 ("JBOD")
-3. **不支持：** 共享的 SAS 存储设备连接到多个服务器或任何形式的多路径 IO (MPIO) 驱动器是可由多个路径访问。
+- 服务器的内部驱动器
+- 驱动器连接到一个服务器到外部机器 ("JBOD")
+- **不支持：** 共享的 SAS 存储设备连接到多个服务器或任何形式的多路径 IO (MPIO) 驱动器是可由多个路径访问。
 
 ![互连设备的受支持的驱动器的关系图](media/hardware-requirements/drive-interconnect-support-2.png)
 
@@ -108,8 +110,10 @@ ms.locfileid: "59849318"
 
 | 存在驱动器类型   | 所需的最小数量 |
 |-----------------------|-------------------------|
+| 所有永久性内存 （相同的模型） | 4 永久性内存 |
 | 所有 NVMe（同一型号） | 4 个 NVMe                  |
 | 所有 SSD（同一型号）  | 4 个 SSD                   |
+| 永久性内存 + NVMe 或 SSD | 2 个持久的内存 + 4 NVMe 或 SSD |
 | NVMe + SSD            | 2 个 NVMe + 4 个 SSD          |
 | NVMe + HDD            | 2 个 NVMe + 4 个 HDD          |
 | SSD + HDD             | 2 个 SSD + 4 个 HDD           |
@@ -120,5 +124,7 @@ ms.locfileid: "59849318"
 
 ### <a name="maximum-capacity"></a>最大容量
 
-- 建议：每个服务器的最大 100 千兆字节 (TB) 的原始存储容量
-- 最大 1 千万亿字节 (1,000 TB) 原始容量中存储池
+| 最大值                | Windows Server 2019  | Windows Server 2016  |
+| ---                     | ---------            | ---------            |
+| 每个服务器的原始容量 | 100 TB               | 100 TB               |
+| 池容量           | 4 PB (4,000 TB)      | 1 PB                 |

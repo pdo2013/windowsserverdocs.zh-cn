@@ -8,12 +8,12 @@ ms.date: 02/21/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 91f252f5b0eca0f4c44e0b1a4564037298bf023c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9703a8652b0e0bbafe48858cbfbcc8aa9aa31ef8
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814058"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812045"
 ---
 # <a name="ad-fs-troubleshooting---integrated-windows-authentication"></a>AD FS 故障排除-集成 Windows 身份验证
 集成的 Windows 身份验证使用户能够使用其 Windows 凭据和体验单一登录 (SSO)，使用 Kerberos 或 NTLM 进行登录。
@@ -24,7 +24,7 @@ ms.locfileid: "59814058"
     - 通道绑定令牌
     - Internet Explorer 配置
 
-## <a name="spn-misonfiguration"></a>SPN misonfiguration
+## <a name="spn-misconfiguration"></a>SPN 配置错误
 服务主体名称 (SPN) 是服务实例的唯一标识符。 Kerberos 身份验证使用 Spn 来将服务实例与服务登录帐户相关联。 这允许客户端应用程序请求的服务帐户进行身份验证即使客户端没有帐户名称。
 
 如何的示例使用的 SPN 与 AD FS 是按如下所示：
@@ -67,13 +67,14 @@ ms.locfileid: "59814058"
 
 有 2 个可以禁止此行为从 happeing 的主要事项。
    - 启用集成的 Windows 身份验证未签入 IE 的属性。  这位于 Internet 选项-> 高级-> 安全。
-![integrated](media/ad-fs-tshoot-iwa/iwa4.png)
+   
+   ![集成](media/ad-fs-tshoot-iwa/iwa4.png)
    
    - 安全区域配置不正确
        - Fqdn 不在 intranet 区域
        - AD FS URL 不是在 intranet 区域中。
 
-![集成](media/ad-fs-tshoot-iwa/iwa5.png)
+      ![集成](media/ad-fs-tshoot-iwa/iwa5.png)
 ## <a name="next-steps"></a>后续步骤
 
-- [AD FS 进行故障排除](ad-fs-tshoot-overview.md)
+- [AD FS 疑难解答](ad-fs-tshoot-overview.md)

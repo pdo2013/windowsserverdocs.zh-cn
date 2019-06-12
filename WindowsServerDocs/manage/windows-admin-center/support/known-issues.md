@@ -7,21 +7,22 @@ author: jwwool
 ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.date: 04/12/2019
-ms.openlocfilehash: 7bf23c5af5620241574864babd07fd852115a450
-ms.sourcegitcommit: 39ab8041d166e6817a95417d6aa30bc7abeeef54
+ms.date: 06/07/2019
+ms.openlocfilehash: e7cf6fc6a4fae2eee76409bd6af4ef2ff6ed35a3
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66260279"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811776"
 ---
 # <a name="windows-admin-center-known-issues"></a>Windows Admin Center 已知问题
 
->适用于：Windows Admin Center，Windows Admin Center 预览版
+> 适用于：Windows Admin Center，Windows Admin Center 预览版
 
 如果遇到此页中未列出的问题，请[告诉我们](http://aka.ms/WACfeedback)。
 
 ## <a name="lenovo-xclarity-integrator"></a>Lenovo XClarity 系统集成商
+
 与 Windows Admin Center 版本 1904.1 现在已解决的 Lenovo XClarity 集成器扩展插件和 Windows Admin Center 版本 1904年以前披露不兼容性问题。 我们强烈建议你更新到最新的受支持 Windows Admin Center 版本。
 
 - Lenovo XClarity 集成器扩展版本 1.1 是与 Windows Admin Center 1904.1 完全兼容。 我们强烈建议你更新到最新版本的 Windows Admin Center 和 Lenovo 扩展。
@@ -50,8 +51,8 @@ ms.locfileid: "66260279"
 
 - 如果有 Windows Admin Center 作为网关安装并连接列表似乎已损坏，请执行以下步骤：
 
->[!WARNING]
->这将删除的连接列表和在网关上的所有 Windows Admin Center 用户的设置。
+   > [!WARNING]
+   >这将删除的连接列表和在网关上的所有 Windows Admin Center 用户的设置。
 
   1. 卸载 Windows Admin Center
   2. 删除 **C:\Windows\ServiceProfiles\NetworkService\AppData\Roaming\Microsoft** 下面的 **Server Management Experience** 文件夹
@@ -82,7 +83,7 @@ ms.locfileid: "66260279"
 
 - 使用 Azure Active Directory 作为标识提供者并且使用自签名证书或其他不受信任的证书配置 Windows Admin Center 时，无法在 Microsoft Edge 中完成 AAD 身份验证。  [15968377]
 
-- 如果你有作为服务部署到 Windows Admin Center 和 Microsoft Edge 使用作为你的浏览器，连接到 Azure 网关后生成新的浏览器窗口可能会失败。 尝试添加来解决此问题 https://login.microsoftonline.com， https://login.live.com，为你网关的 URL 是受信任的站点并允许客户端浏览器上的弹出窗口阻止程序设置的站点。 有关更多指导修复这[故障排除指南](troubleshooting.md#azlogin)。 [17990376]
+- 如果你有作为服务部署到 Windows Admin Center 和 Microsoft Edge 使用作为你的浏览器，连接到 Azure 网关后生成新的浏览器窗口可能会失败。 尝试添加来解决此问题 https://login.microsoftonline.com， https://login.live.com，为你网关的 URL 是受信任的站点并允许客户端浏览器上的弹出窗口阻止程序设置的站点。 有关更多指导修复这[故障排除指南](troubleshooting.md#azure-features-dont-work-properly-in-edge)。 [17990376]
 
 - 如果必须在桌面模式下安装 Windows Admin Center，在 Microsoft Edge 浏览器选项卡不会显示 favicon。 [17665801]
 
@@ -100,8 +101,6 @@ ms.locfileid: "66260279"
 
 - Windows 10 安装：Mozilla Firefox 有其自己的证书存储，因此您必须导入```Windows Admin Center Client```入 Firefox，若要在 Windows 10 上使用 Windows Admin Center 证书。
 
-<a id="websockets"></a>
-
 ## <a name="websocket-compatibility-when-using-a-proxy-service"></a>WebSocket 兼容性时使用的代理服务
 
 Windows Admin Center 中的远程桌面、PowerShell 和事件模块使用 WebSocket 协议，使用代理服务时通常不支持该协议。 [预览版](https://blogs.technet.microsoft.com/applicationproxyblog/2018/03/28/limited-websocket-support-now-in-public-preview/)内的 Azure AD 应用程序代理兼容性中提供了 WebSocket 支持，我们正在寻求有关兼容性的反馈。
@@ -114,8 +113,6 @@ Windows Admin Center 中的远程桌面、PowerShell 和事件模块使用 WebSo
 在 PowerShell 中键入 `$PSVersiontable`，以验证是否安装了 WMF 并且版本是否为 5.1 或更高版本。
 
 如果未安装，则可以[下载并安装 WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)。
-
-<a id="rbacknownissues"></a>
 
 ## <a name="role-based-access-control-rbac"></a>基于角色的访问控制 (RBAC)
 
@@ -141,7 +138,7 @@ Windows Admin Center 中的远程桌面、PowerShell 和事件模块使用 WebSo
 
 ### <a name="events"></a>事件
 
-- [使用代理服务时的 WebSocket 兼容性](#websockets)会影响事件。
+- [使用代理服务时的 WebSocket 兼容性](#websocket-compatibility-when-using-a-proxy-service)会影响事件。
 
 - 导出大日志文件时，你可能会遇到一个引用“数据包大小”的错误。 [16630279]
 
@@ -153,7 +150,7 @@ Windows Admin Center 中的远程桌面、PowerShell 和事件模块使用 WebSo
 
 ### <a name="powershell"></a>PowerShell
 
-- [使用代理服务时的 WebSocket 兼容性](#websockets)会影响 PowerShell
+- [使用代理服务时的 WebSocket 兼容性](#websocket-compatibility-when-using-a-proxy-service)会影响 PowerShell
 
 - 像在桌面 PowerShell 控制台中那样通过一次右键单击进行粘贴不起作用。 系统会改为向你呈现浏览器的上下文菜单，你可以在其中选择“粘贴”。 Ctrl-V 也可以正常使用。
 
@@ -173,7 +170,7 @@ Windows Admin Center 中的远程桌面、PowerShell 和事件模块使用 WebSo
 
 - 某些配置可能会阻止 Windows Admin Center 远程桌面客户端使用组策略。 如果您遇到此问题，启用```Allow users to connect remotely by using Remote Desktop Services```下 ```Computer Configuration/Policies/Administrative Templates/Windows Components/Remote Desktop Services/Remote Desktop Session Host/Connections```
 
-- 远程桌面受[websocket 兼容性。](#websockets)
+- 远程桌面受[websocket 兼容性。](#websocket-compatibility-when-using-a-proxy-service)
 
 - 远程桌面工具当前不支持在本地桌面和远程会话之间复制/粘贴任何文本、图像或文件。
 

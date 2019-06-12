@@ -12,12 +12,12 @@ ms.assetid: 51bcf124-c215-4e9d-9fa8-a90fa2c2fa22
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d2005b72adede72b718fa5b49b93435f5fbac1bd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 445472822de09263b84821e552c931ca19f14b2b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882498"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432530"
 ---
 # <a name="transition-from-windows-server-essentials-to-windows-server-2012-standard"></a>从 Windows Server Essentials 转换到 Windows Server 2012 Standard
 
@@ -53,28 +53,28 @@ ms.locfileid: "59882498"
 ## <a name="transition-to--windows-server-2012-standard"></a>过渡到 Windows Server 2012 Standard  
  之后您已决定转换从 Windows Server Essentials 到 Windows Server 2012 Standard，完成这两个步骤：  
   
-1.  Windows Server 2012 Standard 和适当数量的用户和/或设备客户端访问许可证为您的环境购买许可证。  
+1. Windows Server 2012 Standard 和适当数量的用户和/或设备客户端访问许可证为您的环境购买许可证。  
   
-     从零售商店、 经销商，或使用的帮助，可以为 Windows Server 2012 Standard 购买许可证[Microsoft 合作伙伴](https://pinpoint.microsoft.com/SelectCulture.aspx)。  
+    从零售商店、 经销商，或使用的帮助，可以为 Windows Server 2012 Standard 购买许可证[Microsoft 合作伙伴](https://pinpoint.microsoft.com/SelectCulture.aspx)。  
   
-    > [!NOTE]
-    >  如果最初购买 Windows Server 2012 Standard 和执行降级权限安装两个虚拟实例之一为 Windows Server Essentials，你不需要购买任何许可证。  
-    >   
-    >  如果通过批量许可渠道购买了 Windows Server 2012 Standard，您可以为 Windows Server 2012 Standard 从批量许可服务中心 (VLSC) 下载的 ISO 映像和产品密钥。  
-    >   
-    >  如果你通过其他渠道购买 Windows Server 2012 Standard 可以下载的 ISO 映像和评估版产品密钥适用于从 Windows Server Essentials [TechNet 评估中心](https://technet.microsoft.com/evalcenter/jj659306.aspx)。 下一步中介绍的转换操作会将评估产品转换为完全授权和受支持的产品。  
+   > [!NOTE]
+   >  如果最初购买 Windows Server 2012 Standard 和执行降级权限安装两个虚拟实例之一为 Windows Server Essentials，你不需要购买任何许可证。  
+   >   
+   >  如果通过批量许可渠道购买了 Windows Server 2012 Standard，您可以为 Windows Server 2012 Standard 从批量许可服务中心 (VLSC) 下载的 ISO 映像和产品密钥。  
+   >   
+   >  如果你通过其他渠道购买 Windows Server 2012 Standard 可以下载的 ISO 映像和评估版产品密钥适用于从 Windows Server Essentials [TechNet 评估中心](https://technet.microsoft.com/evalcenter/jj659306.aspx)。 下一步中介绍的转换操作会将评估产品转换为完全授权和受支持的产品。  
   
-2.  以管理员身份打开 Windows PowerShell，然后运行如下命令。  
+2. 以管理员身份打开 Windows PowerShell，然后运行如下命令。  
   
-     **dism /online /set-edition:ServerStandard /accepteula /productkey:** *产品密钥*  
+    **dism /online /set-edition:ServerStandard /accepteula /productkey:** *产品密钥*  
   
-     其中*产品密钥*是您的 Windows Server 2012 Standard 副本的产品密钥。  
+    其中*产品密钥*是您的 Windows Server 2012 Standard 副本的产品密钥。  
   
-     服务器将重新启动，完成转换过程。  
+    服务器将重新启动，完成转换过程。  
   
- 过渡后，Windows Server Essentials 功能保留在服务器上，并支持最多 75 位用户和 75 台设备。 如果你超出这些限制的任何一个，应使用 Windows Server 2012 Standard 本机工具来管理用户帐户和设备。  
+   过渡后，Windows Server Essentials 功能保留在服务器上，并支持最多 75 位用户和 75 台设备。 如果你超出这些限制的任何一个，应使用 Windows Server 2012 Standard 本机工具来管理用户帐户和设备。  
   
- 此外，你过渡到 Windows Server 2012 Standard 后，Windows Server Essentials 的媒体功能将不再可用。 这包括远程 Web 访问的媒体功能和仪表板上的媒体设置。  
+   此外，你过渡到 Windows Server 2012 Standard 后，Windows Server Essentials 的媒体功能将不再可用。 这包括远程 Web 访问的媒体功能和仪表板上的媒体设置。  
   
 ## <a name="turn-off--windows-server-essentials-features"></a>关闭 Windows Server Essentials 的功能  
  如果您不再需要 Windows Server Essentials 仪表板或其他增值功能来管理服务器，可以关闭这些功能，并从服务器中删除。  
@@ -97,13 +97,13 @@ ms.locfileid: "59882498"
   
 #### <a name="from-the-get-help-and-support-pane"></a>通过“获取帮助和支持”窗格运行  
   
-1.  在主页上单击“获取帮助和支持”。  
+1. 在主页上单击“获取帮助和支持”。  
   
-2.  单击**关闭 Windows Server Essentials 功能向导**。  
+2. 单击**关闭 Windows Server Essentials 功能向导**。  
   
- 通过执行某些任务可能**关闭 Windows Server Essentials 功能向导**将无法成功完成。 某些情况下，这可能会阻止仪表板的运行。 如果发生此情况，你可以运行以下文件手动启动该向导：  
+   通过执行某些任务可能**关闭 Windows Server Essentials 功能向导**将无法成功完成。 某些情况下，这可能会阻止仪表板的运行。 如果发生此情况，你可以运行以下文件手动启动该向导：  
   
- **%systemdrive%\Program Files\Windows Server\Bin\TurnOffFeaturesWizard.exe**  
+   **%systemdrive%\Program Files\Windows Server\Bin\TurnOffFeaturesWizard.exe**  
   
 ## <a name="see-also"></a>请参阅  
   

@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: de1af9712b54c977c591953c68eec506c80d3cdd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5666943138070cfa8cfe62f1ba932c2793daa003
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821998"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501604"
 ---
 # <a name="ad-fs-password-attack-protection"></a>AD FS 密码攻击保护
 
@@ -29,23 +29,22 @@ ms.locfileid: "59821998"
 ### <a name="password-spray-attack"></a>密码喷射攻击
 在密码喷射攻击中，这些不良参与方将跨许多不同的帐户和服务以获取对用户可从中找到任何受密码保护的资产的访问尝试的最常见的密码。 通常这些跨许多不同的组织和标识提供程序。 例如，攻击者将使用一个常用工具包枚举所有在组织中多个用户，然后再尝试"P@$$w0rd"和"Password1"对所有这些帐户。 为了让你了解，攻击可能如下所示：
 
-|目标用户|目标密码|
-|-----|-----|-----|
-|User1@org1.com|Password1|
-|User2@org1.com|Password1|
-|User1@org2.com|Password1|
-|User2@org2.com|Password1|
-|…|…|
-|User1@org1.com|P@$$w0rd|
-|User2@org1.com|P@$$w0rd|
-|User1@org2.com|P@$$w0rd|
-|User2@org2.com|P@$$w0rd|
+
+|  目标用户   | 目标密码 |
+|----------------|-----------------|
+| User1@org1.com |    Password1    |
+| User2@org1.com |    Password1    |
+| User1@org2.com |    Password1    |
+| User2@org2.com |    Password1    |
+|       …        |        …        |
+| User1@org1.com |    P@$$w0rd     |
+| User2@org1.com |    P@$$w0rd     |
+| User1@org2.com |    P@$$w0rd     |
+| User2@org2.com |    P@$$w0rd     |
 
 此攻击模式漏过大多数的检测技术，因为从单个用户或公司的出发点，攻击看起来就像独立的失败登录。
 
 攻击者，这是一个数字游戏： 他们知道有一些密码有非常常见的。  攻击者将收到一些成功的攻击，每个几千个帐户和这足以生效。 它们使用的帐户来从电子邮件中获取数据、 获取联系信息，然后发送仿冒网站的链接，或只需展开密码喷射目标组。 攻击者不太在意这些初始目标是谁，只是它们具有他们可以利用某些成功。
-
-它们使用的帐户来从电子邮件中获取数据、 获取联系信息，然后发送仿冒网站的链接，或只需展开密码喷射目标组。 攻击者不太在意这些初始目标是谁，只是它们具有他们可以利用某些成功。
 
 但可以通过执行一些步骤来配置 AD FS 和正确的网络，针对这些类型的攻击中保护 AD FS 终结点。 本文介绍了 3 个领域的需要正确配置以帮助防范这些攻击。
 
@@ -55,7 +54,7 @@ ms.locfileid: "59821998"
 此类攻击还可能导致 DOS 的模式。 这可能是在 ADFS 是无法处理大型 # 由于没有足够数量的服务器请求的服务级别，或可能是在用户无法使用其帐户被锁定在其中用户级别。  
 
 ## <a name="securing-ad-fs-against-password-attacks"></a>保护 AD FS 密码攻击 
- 
+
 但可以通过执行一些步骤来配置 AD FS 和正确的网络，针对这些类型的攻击中保护 AD FS 终结点。 本文介绍了 3 个领域的需要正确配置以帮助防范这些攻击。 
 
 
@@ -70,11 +69,11 @@ ms.locfileid: "59821998"
 
 2. 监视和阻止可疑的 IP 地址 
     - 如果你有 Azure AD Premium，ADFS 和使用实现连接运行状况[风险 IP 报表](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs#risky-ip-report-public-preview)通知它所提供的。
-        
+
         a. 许可的所有用户并不需要 25 许可证/ADFS/WAP 服务器可能是简单的客户。
-    
+
         b. 现在，可以调查 IP 的生成大型失败的登录数
-    
+
         c. 这将需要在 ADFS 服务器上启用审核。
 
 3.  阻止可疑 IP。  这可能会阻止 DOS 攻击。
@@ -97,20 +96,20 @@ ms.locfileid: "59821998"
 
     b. 你将需要使用 Outlook 2013 （采用最新 CU 修补程序） 或 Outlook 2016。
 
-6.  针对所有 extranet 访问启用 MFA。 这样，添加了任何外部网络访问保护。
+6. 针对所有 extranet 访问启用 MFA。 这样，添加了任何外部网络访问保护。
 
-    a.  如果你有 Azure AD 高级版，使用[Azure AD 条件性访问策略](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)若要对此进行控制。  这是优于实现在 AD FS 规则。  这是因为现代客户端应用程序会更频繁地强制执行。  发生这种情况，在 Azure AD 中，请求新访问令牌 （通常每隔一小时） 使用刷新令牌时。  
+   a.  如果你有 Azure AD 高级版，使用[Azure AD 条件性访问策略](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)若要对此进行控制。  这是优于实现在 AD FS 规则。  这是因为现代客户端应用程序会更频繁地强制执行。  发生这种情况，在 Azure AD 中，请求新访问令牌 （通常每隔一小时） 使用刷新令牌时。  
 
-    b.  如果你没有 Azure AD 高级版或具有 AD FS 允许 internet 上的其他应用基于访问权限，实现的 MFA （可以是 Azure MFA 还在 AD FS 2016） 和执行[全局 MFA 策略](../../ad-fs/operations/configure-authentication-policies.md#to-configure-multi-factor-authentication-globally)针对所有 extranet 访问。
- 
+   b.  如果你没有 Azure AD 高级版或具有 AD FS 允许 internet 上的其他应用基于访问权限，实现的 MFA （可以是 Azure MFA 还在 AD FS 2016） 和执行[全局 MFA 策略](../../ad-fs/operations/configure-authentication-policies.md#to-configure-multi-factor-authentication-globally)针对所有 extranet 访问。
+
 ## <a name="level-3-move-to-password-less-for-extranet-access"></a>级别 3:转到密码进行 extranet 访问更少
 
 7. 将移动到 Window 10 并用[Hello For Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)。
 
 8. 对于其他设备，如果在 AD FS 2016，可以使用[Azure MFA OTP](../../ad-fs/operations/configure-ad-fs-and-azure-mfa.md)作为第一个身份和密码作为第二个因素。 
 
-9.  对于移动设备，如果只允许 MDM 托管设备，则可以使用[证书](../../ad-fs/operations/configure-user-certificate-authentication.md)登录用户。 
- 
+9. 对于移动设备，如果只允许 MDM 托管设备，则可以使用[证书](../../ad-fs/operations/configure-user-certificate-authentication.md)登录用户。 
+
 ## <a name="urgent-handling"></a>紧急处理
 
 如果 AD FS 环境受到 active 攻击，应尽早实现以下步骤：

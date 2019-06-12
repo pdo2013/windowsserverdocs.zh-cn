@@ -14,20 +14,20 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ec1b0a17c578f2d8ac55d1704af6b267b6bb8e5c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e6f91aa02cd0f19d480c24309be5797c273b0f2e
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865928"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66804949"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>有关远程桌面客户端常见问题
 
->适用于：Windows 10，Windows 8.1，Windows Server 2012 R2 和 Windows Server 2016
+>适用于：Windows 10 中，Windows 8.1、 Windows Server 2019、 Windows Server 2016 中，Windows Server 2012 R2
 
 现在，已在你的设备 （Android、 Mac、 iOS 或 Windows） 上设置远程桌面客户端，可能有问题。 以下是有关远程桌面客户端最常见问题的解答。 
 
-- [设置](#Setting-up)
+- [设置](#setting-up)
 - [连接、 网关和网络](#connection-gateway-and-networks)
 - [web 客户端](#web-client)
 - [监视器、 音频和鼠标](#monitors-audio-and-mouse)
@@ -81,18 +81,20 @@ ms.locfileid: "59865928"
 - **没有与网络问题。** 请确保具有 internet 连接。 
 - **可能被防火墙阻止远程桌面端口。** 如果正在使用 Windows 防火墙，请按照下列步骤：
 
-   1. 打开 Windows 防火墙。 
-   2. 单击**允许应用或功能通过 Windows 防火墙**。 
-   3. 单击**更改设置**。 您可能会要求输入管理员密码或确认你的选择。
-   4. 下**允许的应用程序和功能**，选择**远程桌面**，然后点击或单击**确定**。
+  1. 打开 Windows 防火墙。 
+  2. 单击**允许应用或功能通过 Windows 防火墙**。 
+  3. 单击**更改设置**。 您可能会要求输入管理员密码或确认你的选择。
+  4. 下**允许的应用程序和功能**，选择**远程桌面**，然后点击或单击**确定**。
 
-   如果使用其他防火墙，请确保远程桌面 (通常为 3389) 端口处于打开状态。
+     如果使用其他防火墙，请确保远程桌面 (通常为 3389) 端口处于打开状态。
 - **远程连接可能不会设置远程 PC 上。** 若要解决此问题，向上重新滚动到[如何设置一台 PC 为远程桌面？](#how-do-i-set-up-a-pc-for-remote-desktop)本主题中的问题。
 - **远程 PC 可能只允许连接的电脑网络级身份验证设置。** 
 - **远程 PC 可能已关闭。** 无法连接到已关闭、 处于休眠状态，PC 或休眠状态，因此请确保设置睡眠和休眠远程 PC 上的设置为**从不**（休眠不在所有 Pc 上可用。）。
 
 ### <a name="why-cant-i-find-or-connect-to-my-pc"></a>为什么无法找到或连接到我的电脑？
+
 检查下列项目：
+
 - 是 PC 以及被唤醒？
 - 未输入正确的名称或 IP 地址？
 
@@ -105,9 +107,11 @@ ms.locfileid: "59865928"
    > 没有第三方软件的情况下不支持 Windows XP Home、 Windows Media Center Edition、 Windows Vista Home 和 Windows 7 家庭版或初学者。
 
 ### <a name="why-cant-i-sign-in-to-a-remote-pc"></a>为什么不能登录到远程电脑？
+
 如果可以看到远程 PC 的登录屏幕，但无法登录，你可能不具有已添加到远程桌面用户组或具有远程 PC 上的管理员权限的任何组。 向系统管理员为你执行此操作。
 
 ### <a name="which-connection-methods-are-supported-for-company-networks"></a>支持的公司网络的连接方法？
+
 如果你想要访问 office 桌面从公司网络之外，你的公司必须提供远程访问的一种方法。 远程桌面客户端目前支持以下功能：
 
 - 终端服务器网关或远程桌面网关
@@ -124,9 +128,11 @@ VPN 问题可以有几个原因。 第一步是验证 VPN 作为您的 PC 或 Ma
 - **VPN 配置不正确。** 错误配置的 VPN 服务器可以是 VPN 连接，永远不会起作用或一段时间后停止工作的原因。 请确保使用同一网络上的 iOS 设备的 web 浏览器或在电脑或 Mac 测试，如果发生这种情况。
 
 ### <a name="how-can-i-test-if-vpn-is-working-properly"></a>如何测试 VPN 是否正常工作？
+
 验证在设备上启用 VPN。 可以通过在内部网络上转到网页或使用 web 服务，仅可通过 VPN 来测试你的 VPN 连接。
 
 ### <a name="how-do-i-configure-l2tp-or-pptp-vpn-connections"></a>如何配置 L2TP 或 PPTP VPN 连接？
+
 如果在您的 VPN 使用 L2TP 或 PPTP，请务必设置**发送的所有流量**到**ON**在 VPN 配置。
 
 ## <a name="web-client"></a>web 客户端

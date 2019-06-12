@@ -7,13 +7,13 @@ ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
-ms.date: 05/21/2019
-ms.openlocfilehash: af887c0e1c66a017ee091fb2cab2dc61fa9ac1dc
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.date: 06/04/2019
+ms.openlocfilehash: 7110fe78982fec616174a93514d86fb2e1cf9fa5
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976547"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810764"
 ---
 # <a name="whats-new-in-windows-server-2019"></a>Windows Server 2019 中的新增功能
 
@@ -21,9 +21,17 @@ ms.locfileid: "65976547"
 
 本主题将介绍 Windows Server 2019 中的一些新增功能。 Windows Server 2019 强大的 Windows Server 2016 基础上构建，并大量创新上四个关键主题：混合云、 安全、 应用程序平台和超聚合基础结构 (HCI)。
 
-若要了解什么是 Windows Server 半年频道发布中的新增功能，请参阅[What's New in Windows Server](../get-started/whats-new-in-windows-server.md)。 
+若要了解什么是 Windows Server 半年频道发布中的新增功能，请参阅[What's New in Windows Server](../get-started/whats-new-in-windows-server.md)。
 
 ## <a name="general"></a>常规
+
+### <a name="windows-admin-center"></a>Windows Admin Center
+
+Windows Admin Center 是本地部署的基于浏览器的应用，用于管理服务器、群集、超级集成基础架构和 Windows 10 电脑。 它不会在 Windows 之外产生额外费用，并可以在生产中使用。
+
+可以在 Windows Server 2019，以及 Windows 10 和早期版本的 Windows 和 Windows Server 上安装 Windows Admin Center 和使用它来管理服务器和群集运行 Windows Server 2008 R2 和更高版本。
+
+有关详细信息，请参阅[Windows Admin Center](../manage/windows-admin-center/understand/windows-admin-center.md)。
 
 ### <a name="desktop-experience"></a>桌面体验
 
@@ -60,8 +68,6 @@ ATP 的深度平台传感器和响应操作可暴露内存和内核级别攻击�
 -   [受控文件夹访问权限](https://cloudblogs.microsoft.com/microsoftsecure/2017/10/23/stopping-ransomware-where-it-counts-protecting-your-data-with-controlled-folder-access/?ocid=cx-blog-mmpc?source=mmpc)可阻止不受信任的进程访问受保护的文件夹，从而保护敏感数据免受勒索软件的威胁。
 
 -   [Exploit Protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-exploit-guard/exploit-protection-exploit-guard) 是针对漏洞利用的一组缓解（代替 EMET），可以轻松地进行配置以保护你的系统和应用程序。
-
-
 
 [Windows Defender 应用程序控制](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control)（也称为代码完整性 (CI) 策略）已在 Windows Server 2016 中发布。
 客户反馈表明，这个概念虽好，但却难以实施。
@@ -111,7 +117,7 @@ ATP 的深度平台传感器和响应操作可暴露内存和内核级别攻击�
 
 ### <a name="storage-spaces-direct"></a>存储空间直通
 
-下面是存储空间直通中的新增功能的列表。 有关详细信息，请参阅[存储空间直通中的新增功能](../storage/whats-new-in-storage.md#storage-spaces-direct)。
+下面是存储空间直通中的新增功能的列表。 有关详细信息，请参阅[存储空间直通中的新增功能](../storage/whats-new-in-storage.md#storage-spaces-direct)。 另请参阅[Azure Stack HCI](https://docs.microsoft.com/azure-stack/operator/azure-stack-hci-overview)获取信息验证这些存储空间直通系统。
 
 - **重复数据删除和 ReFS 卷的压缩**
 - **对永久性内存的本机支持**

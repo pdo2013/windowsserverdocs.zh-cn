@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: bc22d29c-678c-462d-88b3-1c737dceca75
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a985df9fea31e5ee180caef4e69899ae8468ff71
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: f51bfb1c767c0eee3aed64df9879dd0a97f2f7b1
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865258"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446160"
 ---
 # <a name="use-regular-expressions-in-nps"></a>在 NPS 中使用正则表达式
 
@@ -25,37 +25,38 @@ ms.locfileid: "59865258"
 
 创建正则表达式模式匹配语法时，可以使用下表作为参考源。
 
-|字符|描述|示例|
-|---------|-----------|-------|
-|`\`  |将下一个字符标记为要匹配的字符。 |`/n/ matches the character "n". The sequence /\n/ matches a line feed or newline character.`  |
-|`^`  |匹配输入或行的开头。 | &nbsp; |
-|`$`  |与输入或行的末尾匹配。 | &nbsp; |
-|`*`  |匹配前面的字符零次或多次。 |`/zo*/ matches either "z" or "zoo."` |
-|`+`  |匹配一个或多个前面的字符。 |`/zo+/ matches "zoo" but not "z."` |
-|`?`  |匹配前面的字符零或一次。 |`/a?ve?/ matches the "ve" in "never."` |
-|`.`  |匹配任一单字符换行字符除外。  | &nbsp; |
-|`(pattern)`  |匹配"模式"，并记住匹配。<br />若要匹配文本字符`(`并`)`（括号），使用`\(`或`\)`。   | &nbsp;  |
-|`x|y `  |匹配 x 或 y。  |`/z|food?/ matches "zoo" or "food."` |
-|`{n} `  |匹配正好 n 次\(n 是非\-负整数\)。  |`/o{2}/ does not match the "o" in "Bob," but matches the first two instances of the letter o in "foooood."`  |
-|`{n,}`  |匹配至少 n 次\(n 是非\-负整数\)。  |`/o{2,}/ does not match the "o" in "Bob" but matches all of the instances of the letter o in "foooood." /o{1,}/ is equivalent to /o+/.`  |
-|`{n,m}`  |匹配至少 n 个，最 m 次多次\(m 和 n 都包含非\-负整数\)。  |`/o{1,3}/ matches the first three instances of the letter o in "fooooood."`  |
-|`[xyz]`  |匹配任何一个括住的字符\(字符集\)。  |`/[abc]/ matches the "a" in "plain."`  |
-|`[^xyz]`  |匹配不包含任何字符\(负字符组\)。  |`/[^abc]/ matches the "p" in "plain."`  |
-|`\b`  |匹配字边界\(例如，空格\)。  |`/ea*r\b/ matches the "er" in "never early."`  |
-|`\B`  |与非字边界匹配。  |`/ea*r\B/ matches the "ear" in "never early."`  |
-|`\d`  |匹配数字字符\(等效于数字从 0 到 9\)。  | &nbsp; |
-|`\D`  |匹配非数字字符\(等效于`[^0-9]` \)。  | &nbsp; |
-|`\f`  |匹配换页符。  | &nbsp; |
-|`\n`  |匹配换行字符。  | &nbsp; |
-|`\r`  |匹配回车符。  | &nbsp; |
-|`\s`  |匹配任何空白字符，包括空间、 制表符和换页符\(等效于`[ \f\n\r\t\v]` \)。  | &nbsp; |
-|`\S`  |匹配任何非空白字符\(等效于`[^ \f\n\r\t\v]` \)。  | &nbsp; |
-|`\t`  |与制表符匹配。  | &nbsp; |
-|`\v`  |与垂直制表符匹配。  | &nbsp; |
-|`\w`  |匹配任何单词字符，包括下划线\(等效于`[A-Za-z0-9_]` \)。  | &nbsp; |
-|`\W`  |匹配任何非\-单词字符，不包括下划线\(等效于`[^A-Za-z0-9_]` \)。  | &nbsp; |
-|`\num`  |记住的匹配项是指\( `?num`，其中 num 是一个正整数\)。  可以使用此选项仅在**替换为**配置属性操作时的文本框。| `\1` 将替换第一个记住的匹配项中存储的内容。  |
-|`/n/ `  |允许将 ASCII 代码插入正则表达式\( `?n`，其中 n 是八进制、 十六进制或十进制转义值\)。  | &nbsp; |
+
+|  字符  |                                                                                 描述                                                                                  |                                                                 示例                                                                 |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+|     `\`     |                                                              将下一个字符标记为要匹配的字符。                                                               |                      `/n/ matches the character "n". The sequence /\n/ matches a line feed or newline character.`                       |
+|     `^`     |                                                                 匹配输入或行的开头。                                                                  |                                                                 &nbsp;                                                                  |
+|     `$`     |                                                                    与输入或行的末尾匹配。                                                                     |                                                                 &nbsp;                                                                  |
+|     `*`     |                                                             匹配前面的字符零次或多次。                                                              |                                                  `/zo*/ matches either "z" or "zoo."`                                                   |
+|     `+`     |                                                              匹配一个或多个前面的字符。                                                              |                                                   `/zo+/ matches "zoo" but not "z."`                                                    |
+|     `?`     |                                                              匹配前面的字符零或一次。                                                              |                                                 `/a?ve?/ matches the "ve" in "never."`                                                  |
+|     `.`     |                                                           匹配任一单字符换行字符除外。                                                           |                                                                 &nbsp;                                                                  |
+| `(pattern)` |                         匹配"模式"，并记住匹配。<br />若要匹配文本字符`(`并`)`（括号），使用`\(`或`\)`。                         |                                                                 &nbsp;                                                                  |
+|     \`x     |                                                                                     y \`                                                                                     |                                                         匹配 x 或 y。                                                          |
+|   `{n} `    |                                                          匹配正好 n 次\(n 是非\-负整数\)。                                                           |               `/o{2}/ does not match the "o" in "Bob," but matches the first two instances of the letter o in "foooood."`               |
+|   `{n,}`    |                                                          匹配至少 n 次\(n 是非\-负整数\)。                                                          | `/o{2,}/ does not match the "o" in "Bob" but matches all of the instances of the letter o in "foooood." /o{1,}/ is equivalent to /o+/.` |
+|   `{n,m}`   |                                                匹配至少 n 个，最 m 次多次\(m 和 n 都包含非\-负整数\)。                                                |                               `/o{1,3}/ matches the first three instances of the letter o in "fooooood."`                               |
+|   `[xyz]`   |                                                       匹配任何一个括住的字符\(字符集\)。                                                        |                                                  `/[abc]/ matches the "a" in "plain."`                                                  |
+|  `[^xyz]`   |                                                  匹配不包含任何字符\(负字符组\)。                                                  |                                                 `/[^abc]/ matches the "p" in "plain."`                                                  |
+|    `\b`     |                                                              匹配字边界\(例如，空格\)。                                                               |                                              `/ea*r\b/ matches the "er" in "never early."`                                              |
+|    `\B`     |                                                                         与非字边界匹配。                                                                          |                                             `/ea*r\B/ matches the "ear" in "never early."`                                              |
+|    `\d`     |                                                       匹配数字字符\(等效于数字从 0 到 9\)。                                                        |                                                                 &nbsp;                                                                  |
+|    `\D`     |                                                           匹配非数字字符\(等效于`[^0-9]` \)。                                                           |                                                                 &nbsp;                                                                  |
+|    `\f`     |                                                                        匹配换页符。                                                                        |                                                                 &nbsp;                                                                  |
+|    `\n`     |                                                                        匹配换行字符。                                                                        |                                                                 &nbsp;                                                                  |
+|    `\r`     |                                                                     匹配回车符。                                                                     |                                                                 &nbsp;                                                                  |
+|    `\s`     |                                   匹配任何空白字符，包括空间、 制表符和换页符\(等效于`[ \f\n\r\t\v]` \)。                                   |                                                                 &nbsp;                                                                  |
+|    `\S`     |                                                  匹配任何非空白字符\(等效于`[^ \f\n\r\t\v]` \)。                                                   |                                                                 &nbsp;                                                                  |
+|    `\t`     |                                                                           与制表符匹配。                                                                           |                                                                 &nbsp;                                                                  |
+|    `\v`     |                                                                      与垂直制表符匹配。                                                                       |                                                                 &nbsp;                                                                  |
+|    `\w`     |                                              匹配任何单词字符，包括下划线\(等效于`[A-Za-z0-9_]` \)。                                              |                                                                 &nbsp;                                                                  |
+|    `\W`     |                                           匹配任何非\-单词字符，不包括下划线\(等效于`[^A-Za-z0-9_]` \)。                                           |                                                                 &nbsp;                                                                  |
+|   `\num`    | 记住的匹配项是指\( `?num`，其中 num 是一个正整数\)。  可以使用此选项仅在**替换为**配置属性操作时的文本框。 |                                       `\1` 将替换第一个记住的匹配项中存储的内容。                                       |
+|   `/n/ `    |                      允许将 ASCII 代码插入正则表达式\( `?n`，其中 n 是八进制、 十六进制或十进制转义值\)。                       |                                                                 &nbsp;                                                                  |
 
 ## <a name="examples-for-network-policy-attributes"></a>网络策略属性的示例
 
@@ -81,7 +82,7 @@ ms.locfileid: "59865258"
 
 - 将：
 
-**若要替换*user@example.microsoft.com*与*example.microsoft.com\user***
+**若要替换<em>user@example.microsoft.com</em>与*example.microsoft.com\user***
 
 - 查找：`(.*)@(.*)`
 
@@ -97,7 +98,7 @@ ms.locfileid: "59865258"
 
 
 
-**若要替换*用户*与 *user@specific_domain***
+<strong>若要替换*用户*与 *user@specific_domain</strong>*
 
 - 查找：`$`
 

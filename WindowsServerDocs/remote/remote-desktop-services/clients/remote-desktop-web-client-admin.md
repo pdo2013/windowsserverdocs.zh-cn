@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: bf10f7f7444967247e51065bc6138fc0afd5ed1a
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 45164e9eca0873c82148aa3b7baa179a3f626dd7
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976783"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66804971"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>为用户设置远程桌面 Web 客户端
 
@@ -216,7 +216,7 @@ ms.locfileid: "65976783"
     >
     > 在列表中的 SSL 证书绑定，请确保正确的证书绑定到端口 3392。
 
-3. 打开 Windows 注册表 (regedit) 和到 nagivate```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp```并找到该密钥**WebSocketURI**。 值必须设置为**https://+:3392/rdp/**。
+3. 打开 Windows 注册表 (regedit) 和到 nagivate```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp```并找到该密钥**WebSocketURI**。 值必须设置为<strong>https://+:3392/rdp/</strong>。
 
 ### <a name="setting-up-the-rd-session-host"></a>设置 RD 会话主机
 如果在 RD 会话主机服务器不同于 RD 代理服务器，请执行以下步骤：
@@ -238,7 +238,7 @@ ms.locfileid: "65976783"
     >
     > 在列表中的 SSL 证书绑定，请确保正确的证书绑定到端口 3392。
 
-3. 打开 Windows 注册表 (regedit) 和到 nagivate```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp```并找到该密钥**WebSocketURI**。 值必须设置为**https://+:3392/rdp/**。
+3. 打开 Windows 注册表 (regedit) 和到 nagivate```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp```并找到该密钥**WebSocketURI**。 值必须设置为<https://+:3392/rdp/>。
 
 ### <a name="general-observations"></a>问题的一般意见
 

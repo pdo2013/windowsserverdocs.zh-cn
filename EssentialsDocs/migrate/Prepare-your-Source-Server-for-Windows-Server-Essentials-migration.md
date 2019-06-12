@@ -12,12 +12,12 @@ ms.assetid: f5861ae9-77cb-4d37-b4c5-8f0757213385
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 929c7506c78667646e429c4f28df7e5642c575ab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93f5bdb615adf56b81a1c4c93f802f6da4e48c1b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841148"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432614"
 ---
 # <a name="prepare-your-source-server-for-windows-server-essentials-migration1"></a>适用于 Windows Server Essentials 中准备好源服务器 migration1
 
@@ -69,11 +69,11 @@ ms.locfileid: "59841148"
   
 ###### <a name="to-check-for-the-latest-updates"></a>检查最新更新  
   
-1.  在源服务器上，依次单击“开始” 、“所有程序” ，然后单击“Windows Update” 。  
+1.  在源服务器上，依次单击“开始”  、“所有程序”  ，然后单击“Windows Update”  。  
   
-2.  单击“检查更新” 。  
+2.  单击“检查更新”  。  
   
-3.  如果找到更新，则请单击“安装更新”。  
+3.  如果找到更新，则请单击“安装更新”  。  
   
 #### <a name="check-the-alert-viewer-for-critical-errors"></a>检查警报查看器中的关键错误  
  你可以检查仪表板上的警报查看器以查看任何关键错误。  
@@ -89,20 +89,20 @@ ms.locfileid: "59841148"
   
 ###### <a name="to-use-the-windows-server-solutions-bpa-to-analyze-your-source-server"></a>使用 Windows Server 解决方案 BPA 分析源服务器  
   
-1.  在 Microsoft 下载中心下载并安装 [Windows Server 解决方案最佳做法分析器](https://www.microsoft.com/en-us/download/details.aspx?id=15556)。  
+1. 在 Microsoft 下载中心下载并安装 [Windows Server 解决方案最佳做法分析器](https://www.microsoft.com/en-us/download/details.aspx?id=15556)。  
   
-2.  下载完毕后，单击“开始”、指向“所有程序”，然后单击“SBS 最佳做法分析器工具”。  
+2. 下载完毕后，单击“开始”  、指向“所有程序”  ，然后单击“SBS 最佳做法分析器工具”  。  
   
-    > [!NOTE]
-    >  在扫描服务器之前检查更新。  
+   > [!NOTE]
+   >  在扫描服务器之前检查更新。  
   
-3.  在导航窗格中，单击“启动扫描”。  
+3. 在导航窗格中，单击“启动扫描”  。  
   
-4.  在详细信息窗格中，键入扫描标签，然后单击“开始扫描” 。 扫描标签是指扫描报告名称，例如 **SBS BPA Scan 1Jul2012**。  
+4. 在详细信息窗格中，键入扫描标签，然后单击“开始扫描”  。 扫描标签是指扫描报告名称，例如 **SBS BPA Scan 1Jul2012**。  
   
-5.  扫描完毕后，单击“查看该最佳实践扫描的报告”。  
+5. 扫描完毕后，单击“查看该最佳实践扫描的报告”  。  
   
- 收集有关服务器配置信息之后，Windows Server 解决方案 BPA 验证信息正确，然后向管理员呈现一个按严重性排序的信息和问题列表。 该列表描述每个问题并提供建议或可能的解决方案。 可以使用三种报告类型：  
+   收集有关服务器配置信息之后，Windows Server 解决方案 BPA 验证信息正确，然后向管理员呈现一个按严重性排序的信息和问题列表。 该列表描述每个问题并提供建议或可能的解决方案。 可以使用三种报告类型：  
   
 |报告类型|描述|  
 |-----------------|-----------------|  
@@ -140,25 +140,25 @@ ms.locfileid: "59841148"
   
 ##### <a name="to-verify-that-you-have-the-appropriate-permissions-to-run-the-tool-on-the-source-server"></a>验证你是否拥有在源服务器上运行此工具的适当权限  
   
-1.  在源服务器上，依次单击 **“开始”**、**“管理工具”**，然后单击 **“Active Directory 用户和计算机”**。  
+1. 在源服务器上，依次单击 **“开始”** 、 **“管理工具”** ，然后单击 **“Active Directory 用户和计算机”** 。  
   
-2.  在控制台树中，单击以展开域，然后单击“用户”。  
+2. 在控制台树中，单击以展开域，然后单击“用户”  。  
   
-3.  右键单击正用于迁移的管理员帐户，然后单击 **“属性”**。  
+3. 右键单击正用于迁移的管理员帐户，然后单击 **“属性”** 。  
   
-4.  单击 **“隶属于”** 选项卡，然后验证 Enterprise Admins、Schema Admins 和 Domain Admins 是否在 **“隶属于”** 文本框中列出。  
+4. 单击 **“隶属于”** 选项卡，然后验证 Enterprise Admins、Schema Admins 和 Domain Admins 是否在 **“隶属于”** 文本框中列出。  
   
-5.  如果没有列出这些组，请单击 **“添加”**，然后添加未列出的每个组。  
+5. 如果没有列出这些组，请单击 **“添加”** ，然后添加未列出的每个组。  
   
-    > [!NOTE]
-    >  -   如果 Netlogon 服务未启动，则可能会收到权限错误。  
-    > -   你必须注销然后登录回服务器才能使所做更改生效。  
+   > [!NOTE]
+   > - 如果 Netlogon 服务未启动，则可能会收到权限错误。  
+   >   -   你必须注销然后登录回服务器才能使所做更改生效。  
   
-     可以使用 Windows 更新代理的最新版本确保服务器更新过程正常运行。  
+    可以使用 Windows 更新代理的最新版本确保服务器更新过程正常运行。  
   
- 可以使用 Windows 更新代理的最新版本确保服务器更新过程正常运行。  
+   可以使用 Windows 更新代理的最新版本确保服务器更新过程正常运行。  
   
- 在源服务器上安装 Windows 更新代理之前，必须首先安装 Windows PowerShell 2.0 和 Microsoft Baseline Configuration Analyzer 2.0。  
+   在源服务器上安装 Windows 更新代理之前，必须首先安装 Windows PowerShell 2.0 和 Microsoft Baseline Configuration Analyzer 2.0。  
   
 -   若要下载并安装 Windows PowerShell 2.0，请参阅[文章 968929](https://go.microsoft.com/fwlink/p/?LinkId=241483) Microsoft 知识库中。  
   
@@ -168,34 +168,34 @@ ms.locfileid: "59841148"
   
 ##### <a name="to-install-and-run-the-migration-preparation-tool-on-the-source-server"></a>在源服务器上安装并运行迁移准备工具  
   
-1.  在源服务器上的 DVD 驱动器中插入 Windows Server Essentials DVD1。  
+1. 在源服务器上的 DVD 驱动器中插入 Windows Server Essentials DVD1。  
   
-2.  打开 Windows 资源管理器，浏览到 DVD 的 **\support\tools** 文件夹，然后双击 **sourcetool.msi** 文件。  
+2. 打开 Windows 资源管理器，浏览到 DVD 的 **\support\tools** 文件夹，然后双击 **sourcetool.msi** 文件。  
   
-    > [!NOTE]
-    >  -   如果已在服务器上安装了迁移准备工具，请从“开始”菜单运行此工具。  
-    > -   为确保获得最佳的可能迁移体验，建议你始终选择安装最新的更新。  
+   > [!NOTE]
+   > - 如果已在服务器上安装了迁移准备工具，请从“开始”  菜单运行此工具。  
+   >   -   为确保获得最佳的可能迁移体验，建议你始终选择安装最新的更新。  
   
-     向导将在源服务器上安装“迁移准备工具”。 安装完成后，“迁移准备工具”将自动运行并安装最新更新。  
+    向导将在源服务器上安装“迁移准备工具”。 安装完成后，“迁移准备工具”将自动运行并安装最新更新。  
   
-3.  在“迁移准备工具”中，选择“我已备份并准备好继续”，然后单击“下一步”。  
+3. 在“迁移准备工具”中，选择  “我已备份并准备好继续”，然后单击  “下一步”。  
   
-    > [!WARNING]
-    >  如果你收到一条与修补程序安装相关的错误消息，请参阅方法 2:重命名 Catroot2 文件夹中[文章 822798](https://go.microsoft.com/FWLink/p/?LinkID=118672) Microsoft 知识库中。  
+   > [!WARNING]
+   >  如果你收到一条与修补程序安装相关的错误消息，请参阅方法 2:重命名 Catroot2 文件夹中[文章 822798](https://go.microsoft.com/FWLink/p/?LinkID=118672) Microsoft 知识库中。  
   
-     迁移准备工具会通过扩展 Active Directory 架构来准备源域以进行迁移。 在完成任务之后，单击“下一步”以继续。  
+    迁移准备工具会通过扩展 Active Directory 架构来准备源域以进行迁移。 在完成任务之后，单击  “下一步”以继续。  
   
-4.  在准备好源域之后，迁移准备工具会扫描源服务器以确定两种类型的潜在问题。  
+4. 在准备好源域之后，迁移准备工具会扫描源服务器以确定两种类型的潜在问题。  
   
-    -   **错误**可以阻止迁移或导致迁移失败的源服务器上发现的问题。 按照错误消息中的说明修复问题，然后单击“重新扫描”。  
+   - **错误**可以阻止迁移或导致迁移失败的源服务器上发现的问题。 按照错误消息中的说明修复问题，然后单击  “重新扫描”。  
   
-    -   **警告**可能会导致功能问题，在迁移期间源服务器上发现的问题。 强烈建议在继续进行迁移之前，按照错误消息中的说明修复问题。  
+   - **警告**可能会导致功能问题，在迁移期间源服务器上发现的问题。 强烈建议在继续进行迁移之前，按照错误消息中的说明修复问题。  
   
-     在修复或确认所有问题之后，单击“下一步”。  
+     在修复或确认所有问题之后，单击  “下一步”。  
   
-5.  在迁移准备工具中，单击“完成”。  
+5. 在迁移准备工具中，单击  “完成”。  
   
-6.  迁移准备工具完成时，可能提示您重新启动源服务器，然后才能开始迁移到 Windows Server Essentials。  
+6. 迁移准备工具完成时，可能提示您重新启动源服务器，然后才能开始迁移到 Windows Server Essentials。  
   
 > [!NOTE]
 >  必须完成的迁移准备工具在源服务器上成功运行在目标服务器上安装 Windows Server Essentials 的两周内。 否则，将阻止在目标服务器上的 Windows Server Essentials 的安装。 如果发生这种情况，则必须再次在源服务器上运行迁移准备工具。  

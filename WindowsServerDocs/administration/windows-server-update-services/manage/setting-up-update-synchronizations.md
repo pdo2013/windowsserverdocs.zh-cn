@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e381316372e68d2a43203b8fc90a243af5f40b02
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5fdfaaf1af2b74fe15530095700005a422b64986
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869208"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719623"
 ---
 # <a name="setting-up-update-synchronizations"></a>设置更新同步
 
@@ -61,18 +61,6 @@ WSUS 服务器下载更新基于产品或产品系列 （例如，Windows 或 Wi
 ### <a name="synchronizing-updates-from-the-microsoft-update-catalog"></a>将更新从 Microsoft Update 目录同步
 有关同步来自 Microsoft Update 目录网站的更新的详细信息，请参阅：[WSUS 和目录站点](wsus-and-the-catalog-site.md)。
 
-### <a name="synchronizing-device-updates-by-inventory-inventory-based-synchronization"></a>同步设备更新的清单 （基于清单的同步）
-某些产品类别和分类 （例如驱动程序） 包含非常大量的更新，因此不建议将同步到 WSUS 服务器这些整个类别。 执行此操作可能会导致性能问题和不间断的维护困难。 WSUS 库存系统从客户端设备收集非标识性信息，并使用该清单信息以从 Microsoft Update 检索刚好足够更新元数据。 此机制是大致等效于具有 WSUS 自动，搜索 Microsoft 更新目录导入仅适用于设备检测到更新管理的设备。
-
-启用此清单功能是唯一支持的方法，以获取特定设备固件和基于模型的服务集未发布到 Microsoft 更新目录。
-
-审核和批准就像任何其他更新，以这种方式同步更新和也遵循相同的自动批准规则，取代和过期和任何其他行为关联与传统的更新。
-
-WSUS 执行服务器端筛选，当客户端请求某些驱动程序和固件更新，包括已由清单导入的更新。 因此，客户端计算机或设备都将收到的元数据驱动程序的 detectoid 和仅适用于实际附加到该设备的设备驱动程序更新。 此行为最大程度减少客户端扫描时间并减少客户端和 WSUS 服务器之间传输的数据。
-
-> [!NOTE]
-> 启用基于清单的同步后，WSUS 会保留在每个设备的基础; 上的设备清单仅摘要汇总 （消除重复的 Id 列表） 不断发送到上游 WSUS 服务器。 上游 WSUS 服务器不会收到有关哪些设备与相关联的计算机，也不 WSUS 层次结构中存在多少个实例的给定设备的信息。 一般情况下，此摘要汇总不能用于标识或计数由 WSUS 管理网络上的设备。
-
 ## <a name="configuring-proxy-server-settings"></a>配置代理服务器设置
 可以配置你的 WSUS 服务器与上游服务器或 Microsoft Update 的同步期间使用代理服务器。 仅当你的 WSUS 服务器运行同步时，将应用此设置。 默认情况下你的 WSUS 服务器将尝试直接连接到上游服务器或 Microsoft Update。
 
@@ -89,7 +77,7 @@ WSUS 执行服务器端筛选，当客户端请求某些驱动程序和固件更
 
     -   如果你想要启用基本身份验证连接到代理服务器，选择的用户**允许基本身份验证 （密码以明文形式发送）** 复选框。
 
-3.  单击 **“确定”**。
+3.  单击 **“确定”** 。
 
     > [!NOTE]
     > 由于 WSUS 启动所有其网络流量，没有必要在直接连接到 Microsoft 更新的 WSUS 服务器上配置 Windows 防火墙。
@@ -122,7 +110,7 @@ WSUS 执行服务器端筛选，当客户端请求某些驱动程序和固件更
 
 4.  有关**每天同步次数**，选择想要执行每日同步数。 例如，如果您想同步四次在凌晨 3:00 天开始，则同步会发生在凌晨 3:00、 上午 9:00，下午 3:00 和下午 9:00 每一天。 （请注意，随机的时间偏移量将添加到计划的同步时间以隔开服务器连接到 Microsoft 更新。）
 
-5.  单击 **“确定”**。
+5.  单击 **“确定”** 。
 
 #### <a name="to-synchronize-your-wsus-server-immediately"></a>若要立即同步你的 WSUS 服务器
 

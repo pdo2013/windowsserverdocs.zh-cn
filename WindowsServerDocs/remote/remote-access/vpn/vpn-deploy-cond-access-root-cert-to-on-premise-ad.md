@@ -15,12 +15,12 @@ ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 210540846f5d62dfc74a2e629a6b7675ccf9894d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4aaad98cd04c9b07bdea848294e10d9bcb602064
+ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837368"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749551"
 ---
 # <a name="step-74-deploy-conditional-access-root-certificates-to-on-premises-ad"></a>步骤 7.4： 将条件性访问的根证书部署到的本地 AD
 
@@ -28,10 +28,10 @@ ms.locfileid: "59837368"
 
 在此步骤中，将部署条件性访问的根证书作为 VPN 身份验证的受信任的根证书到你的本地 AD。
 
-&#171;  [**上一：** 步骤 7.3：配置条件性访问策略](vpn-config-conditional-access-policy.md)<br>
-&#187;[ **下一步：** 步骤 7.5：创建到 Windows 10 设备的 OMA DM 基于 VPNv2 配置文件](vpn-create-oma-dm-based-vpnv2-profiles.md)
+- [**上一：** 步骤 7.3：配置条件访问策略](vpn-config-conditional-access-policy.md)
+- [**下一步：** 步骤 7.5：向 Windows 10 设备创建基于 OMA-DM 的 VPNv2 配置文件](vpn-create-oma-dm-based-vpnv2-profiles.md)
 
-1. 上**VPN 连接**页上，单击**下载证书**。 
+1. 上**VPN 连接**页上，选择**下载证书**。 
    
     ![下载用于条件性访问证书](../../media/Always-On-Vpn/06.png)
 
@@ -56,16 +56,17 @@ ms.locfileid: "59837368"
     >[!NOTE]
     >默认情况下**证书颁发机构管理工具**是已安装的证书颁发机构服务器。 它们可以在服务器上安装其他成员作为的一部分**角色管理工具**在服务器管理器。
 
-    b.  在 VPN 服务器上，在开始菜单中，键入**pkiview.msc**以打开企业 PKI 对话框。
+    b.  在 VPN 服务器上，在开始菜单中，输入**pkiview.msc**以打开企业 PKI 对话框。
 
-    c.  从开始菜单中，键入**pkiview.msc**以打开企业 PKI 对话框。
+    c.  从开始菜单中，输入**pkiview.msc**以打开企业 PKI 对话框。
 
     d.  右键单击**企业 PKI** ，然后选择**管理 AD 容器**。
 
-    d.  验证每个 Microsoft VPN 根 CA 第 1 代证书存在下：<ul><li>NTAuthCertificates</li><li>AIA 容器</li><li>证书颁发机构容器</li></ul>
+    d.  验证每个 Microsoft VPN 根 CA 第 1 代证书存在下：
+      - NTAuthCertificates
+      - AIA 容器
+      - 证书颁发机构容器
 
-    
-## <a name="next-step"></a>下一步
-[步骤 7.5。创建到 Windows 10 设备的 OMA DM 基于 VPNv2 配置文件](vpn-create-oma-dm-based-vpnv2-profiles.md):在此步骤中，您可以创建 OMA DM 基于 VPNv2 配置文件使用 Intune 部署的 VPN 设备配置策略。 如果您想 SCCM 或 PowerShell 脚本创建 VPNv2 配置文件，请参阅[VPNv2 CSP 设置](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp)的更多详细信息。
+## <a name="next-steps"></a>后续步骤
 
----
+[步骤 7.5.创建到 Windows 10 设备的 OMA DM 基于 VPNv2 配置文件](vpn-create-oma-dm-based-vpnv2-profiles.md):在此步骤中，您可以创建 OMA DM 基于 VPNv2 配置文件使用 Intune 部署的 VPN 设备配置策略。 如果您想 SCCM 或 PowerShell 脚本创建 VPNv2 配置文件，请参阅[VPNv2 CSP 设置](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp)的更多详细信息。

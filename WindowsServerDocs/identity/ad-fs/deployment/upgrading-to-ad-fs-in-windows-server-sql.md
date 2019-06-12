@@ -9,15 +9,18 @@ ms.prod: windows-server-threshold
 ms.assetid: 70f279bf-aea1-4f4f-9ab3-e9157233e267
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 8ada2ae5c9fcdb77f35200581848041f222ed7f3
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 0a3db2a095d1a31f55bd1c8bfc5bf3c9f6bb65b8
+ms.sourcegitcommit: ccc802338b163abdad2e53b55f39addcfea04603
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191965"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687394"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-with-sql-server"></a>升级到与 SQL Server 的 Windows Server 2016 中的 AD FS
 
+
+> [!NOTE]  
+> 仅在明确的时间段计划完成的与开始升级。 建议不要继续 AD FS 处于混合的模式状态的时间，长时间处于混合的模式状态的保留 AD FS 与场可能引起问题。
 
 
 ## <a name="moving-from-a-windows-server-2012-r2-ad-fs-farm-to-a-windows-server-2016-ad-fs-farm"></a>从 Windows Server 2012 R2 AD FS 场迁移到 Windows Server 2016 AD FS 场  
@@ -112,4 +115,3 @@ Windows Server 2016 AD FS 服务器可以添加到 Windows Server 2012 R2 场，
     Set-WebApplicationProxyConfiguration -UpgradeConfigurationVersion
     ```
 5. 验证已使用 Get WebApplicationProxyConfiguration Powershell 命令升级 ConfigurationVersion。
-    

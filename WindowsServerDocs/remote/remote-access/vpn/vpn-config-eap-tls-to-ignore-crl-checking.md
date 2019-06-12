@@ -15,19 +15,19 @@ ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: ac59c554c69a6138a106a648c3fab3ed4fe05b7b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 781239f45b9b260b7d374c2a6972cdb8faad2879
+ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836418"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749593"
 ---
 # <a name="step-71-configure-eap-tls-to-ignore-certificate-revocation-list-crl-checking"></a>步骤 7.1： 配置 EAP-TLS 以忽略证书吊销列表 (CRL) 检查
 
 >适用于：Windows Server （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows 10
 
-&#171;  [**上一：** 步骤 7：（可选）针对 VPN 连接使用 Azure AD 条件性访问](ad-ca-vpn-connectivity-windows10.md)<br>
-&#187;[ **下一步：** 步骤 7.2：创建与 Azure AD 进行 VPN 身份验证的根证书](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
+- [**上一：** 步骤 7：（可选）针对 VPN 连接使用 Azure AD 条件性访问](ad-ca-vpn-connectivity-windows10.md)
+- [**下一步：** 步骤 7.2：使用 Azure AD 创建 VPN 身份验证的根证书](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
 
 >[!IMPORTANT]
 >如果无法实现此注册表更改将导致 IKEv2 连接使用与 PEAP 云证书失败，但使用从内部 CA 颁发的客户端身份验证证书的 IKEv2 连接将继续运行。
@@ -47,11 +47,11 @@ EAP-TLS 客户端无法连接，除非在 NPS 服务器完成 （包括根证书
 
 2. 导航到**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\13**。
 
-3. 单击**编辑 > 新建**，然后选择**DWORD （32 位） 值**并键入**IgnoreNoRevocationCheck**。
+3. 选择**编辑 > 新建**，然后选择**DWORD （32 位） 值**，然后输入**IgnoreNoRevocationCheck**。
 
 4. 双击**IgnoreNoRevocationCheck**并将值数据设置为**1**。
 
-5. 单击**确定**和重新启动服务器。 重新启动的 RRAS 和 NPS 服务不满足需要。
+5. 选择**确定**和重新启动服务器。 重新启动的 RRAS 和 NPS 服务不满足需要。
 
 有关详细信息，请参阅[如何启用或禁用客户端上的证书吊销检查 (CRL)](https://technet.microsoft.com/library/bb680540.aspx)。
 
@@ -62,8 +62,6 @@ EAP-TLS 客户端无法连接，除非在 NPS 服务器完成 （包括根证书
 |HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\25     |PEAP         |
 |HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\26     |EAP-MSCHAP v2         |
 
-## <a name="next-step"></a>下一步
+## <a name="next-steps"></a>后续步骤
 
-[步骤 7.2。创建与 Azure AD 进行 VPN 身份验证的根证书](vpn-create-root-cert-for-vpn-auth-azure-ad.md):在此步骤中，与 Azure AD，会自动在租户中创建的 VPN 服务器云应用程序配置 VPN 身份验证的条件性访问的根的证书。 
-
----
+[步骤 7.2.创建与 Azure AD 进行 VPN 身份验证的根证书](vpn-create-root-cert-for-vpn-auth-azure-ad.md):在此步骤中，与 Azure AD，会自动在租户中创建的 VPN 服务器云应用程序配置 VPN 身份验证的条件性访问的根的证书。

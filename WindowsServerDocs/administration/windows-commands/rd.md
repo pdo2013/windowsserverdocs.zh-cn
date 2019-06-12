@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a9190a77369c0a4631db87ab5a5c112b13b37e6f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 94231e3ec032280beb91a14db7949a1296c2d811
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840038"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442029"
 ---
 # <a name="rd"></a>rd
 
@@ -37,12 +37,12 @@ rmdir [<Drive>:]<Path> [/s [/q]]
 
 ## <a name="parameters"></a>Parameters
 
-|参数|描述|
-|---------|-----------|
-|[\<Drive>:]<Path>|指定的位置和你想要删除的目录的名称。 *路径*是必需的。|
-|/s|删除目录树 （指定的目录和所有的子目录，其中包括所有文件）。|
-|/q|指定安静模式。 删除目录树时不提示确认。 (请注意， **/q** works 才 **/s**指定。)|
-|/?|在命令提示符下显示帮助。|
+|     参数     |                                                                 描述                                                                  |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| [\<Drive>:]<Path> |                      指定的位置和你想要删除的目录的名称。 *路径*是必需的。                       |
+|        /s         |                     删除目录树 （指定的目录和所有的子目录，其中包括所有文件）。                      |
+|        /q         | 指定安静模式。 删除目录树时不提示确认。 (请注意， **/q** works 才 **/s**指定。) |
+|        /?         |                                                     在命令提示符下显示帮助。                                                     |
 
 ## <a name="remarks"></a>备注
 
@@ -81,4 +81,4 @@ rd /s /q test
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

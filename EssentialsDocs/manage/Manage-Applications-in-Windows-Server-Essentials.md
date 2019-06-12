@@ -12,12 +12,12 @@ ms.assetid: ae89c46a-0afd-4858-9150-ec97650f45a4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e98d661ac71697bc0e38b6a25fe2f9d2b0b7254f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1a60a9e7fd958d447b4770431a69546f0ad6f229
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860168"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433339"
 ---
 # <a name="manage-applications-in-windows-server-essentials"></a>管理 Windows Server Essentials 中的应用程序
 
@@ -32,21 +32,21 @@ ms.locfileid: "59860168"
 ##  <a name="BKMK_1"></a> 在仪表板中的应用程序管理任务  
  仪表板的“应用程序”  管理页面提供以下内容：  
   
--   已安装的加载项列表，它显示如下内容：  
+- 已安装的加载项列表，它显示如下内容：  
   
-    -   联机服务或加载项的名称  
+  -   联机服务或加载项的名称  
   
-    -   加载项的更新状态  
+  -   加载项的更新状态  
   
-    -   加载项的订阅状态  
+  -   加载项的订阅状态  
   
-    -   提供加载项的公司或发布者的名称  
+  -   提供加载项的公司或发布者的名称  
   
--   一个任务窗格，它包括一组用于管理选定加载项的任务  
+- 一个任务窗格，它包括一组用于管理选定加载项的任务  
   
--   可从 Microsoft Pinpoint 下载并安装的加载项列表  
+- 可从 Microsoft Pinpoint 下载并安装的加载项列表  
   
- 下表描述了服务器仪表板中可用的各种加载项管理任务。 某些任务特定于加载项，因此仅在你选择列表中的某个加载项时，这些任务才可见。  
+  下表描述了服务器仪表板中可用的各种加载项管理任务。 某些任务特定于加载项，因此仅在你选择列表中的某个加载项时，这些任务才可见。  
   
 |任务名称|描述|  
 |---------------|-----------------|  
@@ -65,7 +65,7 @@ ms.locfileid: "59860168"
   
 #### <a name="to-install-an-add-in-from-microsoft-pinpoint"></a>从 Microsoft Pinpoint 安装加载项  
   
-1.  在服务器仪表板中，单击“应用程序” ，然后单击“Microsoft Pinpoint”  选项卡。显示可用的加载项列表。  
+1.  在服务器仪表板中，单击“应用程序”  ，然后单击“Microsoft Pinpoint”  选项卡。显示可用的加载项列表。  
   
 2.  单击要安装的加载项。 将显示该加载项的信息页。  
   
@@ -89,11 +89,11 @@ ms.locfileid: "59860168"
   
 1.  打开服务器仪表板。  
   
-2.  单击“应用程序”选项卡。  
+2.  单击“应用程序”  选项卡。  
   
-3.  在“加载项”  选项卡上，选择要删除的加载项，然后单击“删除该加载项” 。  
+3.  在“加载项”  选项卡上，选择要删除的加载项，然后单击“删除该加载项”  。  
   
-4.  在“删除加载项”窗口中单击“删除”。  
+4.  在“删除加载项”  窗口中单击“删除”  。  
   
     > [!NOTE]
     >  可能需要重新启动仪表板以完全删除该加载项。  

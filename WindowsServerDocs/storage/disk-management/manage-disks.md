@@ -1,23 +1,23 @@
 ---
 title: 管理磁盘
 description: 本文介绍了如何管理磁盘
-ms.date: 12/21/2017
+ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: f4698dac683ff3769eb4403ae2750ad38a301022
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 344dd363e970b195abe20fcb69e741c450fc7a21
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846188"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812407"
 ---
 # <a name="manage-disks"></a>管理磁盘
 
-> **适用于：** Windows 10、 Windows 8.1、 Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
+> **适用于：** Windows 10、 Windows 8.1、 Windows Server （半年频道）、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
 
 本主题和及其子主题讨论使用磁盘管理来管理的计算机中的磁盘，并包含有关初始化新磁盘，不同的分区样式，以及 Windows 如何处理新磁盘的联机状态之间转换磁盘的信息。
 
@@ -31,15 +31,11 @@ ms.locfileid: "59846188"
 
 若要使磁盘联机或使其脱机，右键单击磁盘名称，然后选择相应的措施。
 
-
-
-
-
 ## <a name="see-also"></a>请参阅
 
 -   [初始化新磁盘](initialize-new-disks.md)
 -   [将磁盘移动到另一台计算机](move-disks-to-another-computer.md)
--   [动态磁盘改回为基本磁盘](change-a-dynamic-disk-back-to-a-basic-disk.md)
+-   [将动态磁盘更改回基本磁盘](change-a-dynamic-disk-back-to-a-basic-disk.md)
 -   [转换为 GUID 分区表磁盘更改为主启动记录磁盘](change-an-mbr-disk-into-a-gpt-disk.md)
 -   [GUID 分区表磁盘更改为主启动记录磁盘](change-a-gpt-disk-into-an-mbr-disk.md)
 -   [管理虚拟硬盘](manage-virtual-hard-disks.md)

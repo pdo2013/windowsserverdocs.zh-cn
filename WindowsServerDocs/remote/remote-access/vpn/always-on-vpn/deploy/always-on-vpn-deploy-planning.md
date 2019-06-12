@@ -9,29 +9,27 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.date: 11/05/2018
-ms.openlocfilehash: d629f04abda0ce22deb75e487f5b485f50a60a53
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: db309f451eb9187463f71dfd85a82d214c464e2b
+ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881908"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749456"
 ---
 # <a name="step-1-plan-the-always-on-vpn-deployment"></a>步骤 1： 规划 Always On VPN 部署
 
 >适用于：Windows Server （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows 10
 
+- [**上一：** 了解如何部署 Always On VPN 的工作流](always-on-vpn-deploy-deployment.md)
+- [**下一步：** 步骤 2：配置服务器基础结构](vpn-deploy-server-infrastructure.md)
 
-&#171;  [**上一：** 了解如何部署 Always On VPN 的工作流](always-on-vpn-deploy-deployment.md)<br>
-&#187;  [**下一步：** 步骤 2：配置服务器基础结构](vpn-deploy-server-infrastructure.md)
-
-在此步骤中，您开始规划和准备 Always On VPN 部署。 在你计划使用作为 VPN 服务器的计算机上安装远程访问服务器角色之前，请执行以下任务。 正确的规划之后, 可以部署 Always On VPN，并 （可选） 配置的 VPN 连接使用 Azure AD 条件性访问。 
+在此步骤中，您开始规划和准备 Always On VPN 部署。 在你计划使用作为 VPN 服务器的计算机上安装远程访问服务器角色之前，请执行以下任务。 正确的规划之后, 可以部署 Always On VPN，并 （可选） 配置的 VPN 连接使用 Azure AD 条件性访问。
 
 [!INCLUDE [always-on-vpn-standard-config-considerations-include](../../../includes/always-on-vpn-standard-config-considerations-include.md)]
 
-
 ## <a name="prepare-the-remote-access-server"></a>准备远程访问服务器
 
-必须执行以下操作作为 VPN 服务器使用的计算机上： 
+必须执行以下操作作为 VPN 服务器使用的计算机上：
 
 - **请确保 VPN 服务器软件和硬件配置是否正确**。 你打算使用作为远程访问 VPN 服务器的计算机上安装 Windows Server 2016。 此服务器必须安装两个物理网络适配器，一个用于连接到外部外围网络，一个连接到内部外围网络。
 
@@ -61,19 +59,18 @@ IKEv2 是 VPN 隧道协议中所述[Internet 工程任务组为请求注释 7296
 
 - **请确保您可以编辑在公用 DNS 区域**。 将 DNS 记录添加到你的公共 DNS 域支持的 VPN 基础结构。 
 
-- **请确保所有 VPN 用户都拥有用户帐户的 Active Directory 用户\(AD DS\)**。 用户可以连接到使用 VPN 连接网络之前，它们必须在 AD DS 中具有用户帐户。
+- **请确保所有 VPN 用户都具有用户帐户在 Active Directory 用户 (AD DS) 中**。 用户可以连接到使用 VPN 连接网络之前，它们必须在 AD DS 中具有用户帐户。
 
 ## <a name="prepare-routing-and-firewall"></a>准备路由和防火墙 
 
 安装在外围网络中，分区在外围网络到内部和外部外围网络的 VPN 服务器。 具体取决于您的网络环境，可能需要进行多个路由的修改。
 
-- **\(可选\)配置端口转发。** 边缘防火墙必须打开的端口和协议与 IKEv2 VPN 相关联的 Id，并将其转发到 VPN 服务器。 在大多数环境中，这样做因此要求您配置端口转发。 将通用数据报协议 (UDP) 端口 500 和 4500 重定向到 VPN 服务器。
+- **（可选）配置端口转发。** 边缘防火墙必须打开的端口和协议与 IKEv2 VPN 相关联的 Id，并将其转发到 VPN 服务器。 在大多数环境中，这样做因此要求您配置端口转发。 将通用数据报协议 (UDP) 端口 500 和 4500 重定向到 VPN 服务器。
 
-- **配置路由，以便在 DNS 服务器和 VPN 服务器可以连接到互联网**。 此部署使用 IKEv2 和网络地址转换\(NAT\)。 请确保在 VPN 服务器可以访问所有所需的内部网络和网络资源。 任何网络或从 VPN 服务器无法访问的资源是也无法访问通过 VPN 连接从远程位置。
+- **配置路由，以便在 DNS 服务器和 VPN 服务器可以连接到互联网**。 此部署使用 IKEv2 和网络地址转换 (NAT)。 请确保在 VPN 服务器可以访问所有所需的内部网络和网络资源。 任何网络或从 VPN 服务器无法访问的资源是也无法访问通过 VPN 连接从远程位置。
 
 在大多数环境中，若要访问新的内部外围网络，调整边缘防火墙和 VPN 服务器上的静态路由。 在更复杂环境中，但是，您可能需要将静态路由添加到内部路由器或调整 VPN 服务器和 VPN 客户端与关联的 IP 地址块的内部防火墙规则。
 
-## <a name="next-step"></a>下一步
-[第 2 步。配置服务器基础结构](vpn-deploy-server-infrastructure.md):此步骤中，安装并配置支持的 VPN 所必需的服务器端组件。 服务器端组件包括配置要分发所用的用户、 VPN 服务器和 NPS 服务器证书的 PKI。 
+## <a name="next-steps"></a>后续步骤
 
----
+[步骤 2.配置服务器基础结构](vpn-deploy-server-infrastructure.md):此步骤中，安装并配置支持的 VPN 所必需的服务器端组件。 服务器端组件包括配置要分发所用的用户、 VPN 服务器和 NPS 服务器证书的 PKI。

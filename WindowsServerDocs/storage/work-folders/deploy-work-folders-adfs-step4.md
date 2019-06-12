@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 6/242017
 ms.assetid: 4a11ede0-b000-4188-8190-790971504e17
-ms.openlocfilehash: 1f452fd1e2f054c449660eb0ee12642fefe4da8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4cbf85f8413353801f048f253859c9f3ef9c7691
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865048"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812562"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-4-set-up-web-application-proxy"></a>部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 4 中，设置 Web 应用程序代理
 
@@ -32,7 +32,7 @@ ms.locfileid: "59865048"
 -   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 5 中，设置客户端](deploy-work-folders-adfs-step5.md)  
 
 > [!NOTE]
->   本节中包含的说明适用于 Windows Server 2016 环境。 如果你使用的是 Windows Server 2012 R2，请遵循 [Windows Server 2012 R2 说明](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx)。
+>   在本部分中介绍的说明适用于 Windows Server 2019 或 Windows Server 2016 环境。 如果你使用的是 Windows Server 2012 R2，请遵循 [Windows Server 2012 R2 说明](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx)。
 
 要设置用于工作文件夹的 Web 应用程序代理，请使用以下过程。  
   
@@ -43,19 +43,19 @@ ms.locfileid: "59865048"
   
 若要安装证书，请执行以下步骤：  
   
-1.  单击 **“开始”**，然后单击 **“运行”**。  
+1.  单击 **“开始”** ，然后单击 **“运行”** 。  
   
 2.  键入 **MMC**。  
   
-3.  在“文件”  菜单上，单击“添加/删除管理单元” 。  
+3.  在“文件”  菜单上，单击“添加/删除管理单元”  。  
   
 4.  在**可用的管理单元**列表中，单击**证书**，然后单击**添加**。 证书管理单元向导启动。  
   
-5.  选择“计算机帐户”，然后单击“下一步”。  
+5.  选择“计算机帐户”  ，然后单击“下一步”  。  
   
-6.  选择**本地计算机：（运行此控制台的计算机）**，然后单击**完成**。  
+6.  选择**本地计算机：（运行此控制台的计算机）** ，然后单击**完成**。  
   
-7.  单击 **“确定”**。  
+7.  单击 **“确定”** 。  
   
 8.  展开文件夹**控制台根节点\证书\(本地计算机)\个人\证书**。  
   
@@ -88,7 +88,7 @@ ms.locfileid: "59865048"
   
 6.  在**角色服务**页上，选择 **Web 应用程序代理**，单击**添加功能**，然后单击**下一步**。
 
-7.  在 **“确认安装选择”** 页上，单击 **“安装”**。  
+7.  在 **“确认安装选择”** 页上，单击 **“安装”** 。  
   
 ## <a name="configure-web-application-proxy"></a>配置 Web 应用程序代理  
 要配置 Web 应用程序代理，请遵循下列步骤：  
@@ -101,54 +101,54 @@ ms.locfileid: "59865048"
   
 4.  在联合服务器上输入本地管理员帐户的凭据。 不要输入域凭据（例如 contoso\administrator），而是输入本地凭据（例如 administrator）。  
   
-5.  在 **AD FS 代理证书**页上，选择之前导入的 AD FS 证书。 在测试用例中，证书为 **blueadfs.contoso.com**。 单击“下一步” 。  
+5.  在 **AD FS 代理证书**页上，选择之前导入的 AD FS 证书。 在测试用例中，证书为 **blueadfs.contoso.com**。 单击“下一步”  。  
   
-6.  确认页显示将执行以配置服务的 Windows PowerShell 命令。 单击 **“配置”**。  
+6.  确认页显示将执行以配置服务的 Windows PowerShell 命令。 单击 **“配置”** 。  
   
 ## <a name="publish-the-work-folders-web-application"></a>发布工作文件夹 Web 应用程序  
 下一步是发布 Web 应用程序，它会使工作文件夹可用于客户端。 要发布工作文件夹 Web 应用程序，请遵循下列步骤：  
   
-1.  打开**服务器管理器**，并在**工具**菜单上，单击**远程访问管理**以打开远程访问管理控制台。  
+1. 打开**服务器管理器**，并在**工具**菜单上，单击**远程访问管理**以打开远程访问管理控制台。  
   
-2.  在**配置**下，单击 **Web 应用程序代理**。  
+2. 在**配置**下，单击 **Web 应用程序代理**。  
   
-3.  在**任务**下，单击**发布**。 “发布新应用程序向导”将打开。  
+3. 在**任务**下，单击**发布**。 “发布新应用程序向导”将打开。  
   
-4.  在“欢迎”页上，单击**下一步**。  
+4. 在“欢迎”页上，单击**下一步**。  
   
-5.  在**预身份验证**页上，选择 **Active Directory 联合身份验证服务 (AD FS)**，然后单击**下一步**。  
+5. 在**预身份验证**页上，选择 **Active Directory 联合身份验证服务 (AD FS)** ，然后单击**下一步**。  
   
-6.  在**支持客户端**页上，选择 **OAuth2**，然后单击**下一步**。
+6. 在**支持客户端**页上，选择 **OAuth2**，然后单击**下一步**。
 
-7.  在**依赖方**页上，选择**工作文件夹**，然后单击**下一步**。 该列表从 AD FS 发布到 Web 应用程序代理。  
+7. 在**依赖方**页上，选择**工作文件夹**，然后单击**下一步**。 该列表从 AD FS 发布到 Web 应用程序代理。  
   
-8.  在**发布设置**页上输入以下内容，然后单击**下一步**：  
+8. 在**发布设置**页上输入以下内容，然后单击**下一步**：  
   
-    -   你要用于 Web 应用程序的名称  
+   -   你要用于 Web 应用程序的名称  
   
-    -   工作文件夹的外部 URL  
+   -   工作文件夹的外部 URL  
   
-    -   工作文件夹证书的名称  
+   -   工作文件夹证书的名称  
   
-    -   工作文件夹的后端 URL  
+   -   工作文件夹的后端 URL  
   
-    默认情况下，向导会使后端 URL 与外部 URL 相同。  
+   默认情况下，向导会使后端 URL 与外部 URL 相同。  
   
-    对于测试示例，请使用以下值：  
+   对于测试示例，请使用以下值：  
   
-    名称：**WorkFolders**  
+   名称：**WorkFolders**  
   
-    外部 URL: **https://workfolders.contoso.com**  
+   外部 URL: **https://workfolders.contoso.com**  
   
-    外部证书：**前面安装的工作文件夹证书**  
+   外部证书：**前面安装的工作文件夹证书**  
   
-    后端服务器 URL: **https://workfolders.contoso.com**  
+   后端服务器 URL: **https://workfolders.contoso.com**  
   
-9.  确认页显示将执行以发布应用程序的 Windows PowerShell 命令。 单击“发布” 。  
+9. 确认页显示将执行以发布应用程序的 Windows PowerShell 命令。 单击“发布”  。  
   
 10. 在**结果**页上，你应该看到该应用程序已成功发布。
-   >[!NOTE]
-   > 如果拥有多个工作文件夹服务器，则需要为每个工作文件夹服务器发布一个工作文件夹 Web 应用程序（重复步骤 1-10）。  
+    >[!NOTE]
+    > 如果拥有多个工作文件夹服务器，则需要为每个工作文件夹服务器发布一个工作文件夹 Web 应用程序（重复步骤 1-10）。  
   
 下一步：[部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 5 中，设置客户端](deploy-work-folders-adfs-step5.md)  
   

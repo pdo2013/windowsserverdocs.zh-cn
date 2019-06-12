@@ -13,16 +13,16 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/07/2016
 manager: dongill
-ms.openlocfilehash: 50cbabf377e5b01c44360d776b9ff999826303c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5ca2a29b0287dbd940afeb4404a85f1d978447f9
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814868"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805109"
 ---
 # <a name="remote-desktop-services---multi-factor-authentication"></a>远程桌面服务-多重身份验证
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server （半年频道），Windows Server 2019，Windows Server 2016
 
 利用 Active Directory 与多重身份验证的强大功能来实施高安全性保护业务资源。
 
@@ -31,4 +31,4 @@ ms.locfileid: "59814868"
 - 连接到安全的远程访问 RD 网关时，收到短信或移动应用程序 MFA 质询
 - 正确进行身份验证并获取连接到其资源 ！
 
-有关配置过程的更多详细信息，请参阅[集成远程桌面网关基础结构使用网络策略服务器 (NPS) 扩展和 Azure AD ](https://docs.microsoft.com/azure/multi-factor-authentication/nps-extension-remote-desktop-gateway)。
+有关配置过程的更多详细信息，请参阅[集成远程桌面网关基础结构使用网络策略服务器 (NPS) 扩展和 Azure AD](https://docs.microsoft.com/azure/multi-factor-authentication/nps-extension-remote-desktop-gateway)。

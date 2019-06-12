@@ -12,12 +12,12 @@ ms.assetid: fd7196ac-cfa6-46a5-ba77-6962b47a825e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 808a4b1e120fa559d603b34ad006b18de6b94378
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 74c40cc0f06d73a922a3d7fb819f7e71b47ac088
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847688"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432965"
 ---
 # <a name="install-windows-server-essentials-in-migration-mode1"></a>在迁移模式 1 中安装 Windows Server Essentials
 
@@ -47,25 +47,25 @@ ms.locfileid: "59847688"
   
 #### <a name="to-install-windows-server-essentials-on-the-destination-server"></a>若要在目标服务器上安装 Windows Server Essentials  
   
-1.  在目标服务器上启用和 Windows Server Essentials DVD1 插入 DVD 驱动器。 如果你看到一条消息，询问你是否要从 CD 或 DVD 启动，请按任意键来执行该操作。  
+1. 在目标服务器上启用和 Windows Server Essentials DVD1 插入 DVD 驱动器。 如果你看到一条消息，询问你是否要从 CD 或 DVD 启动，请按任意键来执行该操作。  
   
-    > [!NOTE]
-    >  如果目标服务器支持从 U 盘启动，则可以使用**Windows 7 USB/DVD 下载工具**从 Windows Server Essentials ISO 文件创建可启动 USB 闪存驱动器。 因为 U 盘读取数据的速度比 DVD-ROM 驱动器要快得多，所以使用 U 盘可以显著加快安装过程。 在创建可启动的 U 盘之后，可以将应答文件添加到 U 盘中。 你可以[下载 Windows 7 USB/DVD 下载工具](https://go.microsoft.com/fwlink/p/?LinkId=248282)在 Microsoft Store 网站免费。  
+   > [!NOTE]
+   >  如果目标服务器支持从 U 盘启动，则可以使用**Windows 7 USB/DVD 下载工具**从 Windows Server Essentials ISO 文件创建可启动 USB 闪存驱动器。 因为 U 盘读取数据的速度比 DVD-ROM 驱动器要快得多，所以使用 U 盘可以显著加快安装过程。 在创建可启动的 U 盘之后，可以将应答文件添加到 U 盘中。 你可以[下载 Windows 7 USB/DVD 下载工具](https://go.microsoft.com/fwlink/p/?LinkId=248282)在 Microsoft Store 网站免费。  
   
-    > [!NOTE]
-    >  如果目标服务器不从 DVD 启动，则请重新启动计算机并检查 BIOS 设置，以确保在启动序列中首先列出“DVD-ROM”。 有关如何更改 BIOS 设置启动序列的详细信息，请参阅硬件制造商提供的文档。  
+   > [!NOTE]
+   >  如果目标服务器不从 DVD 启动，则请重新启动计算机并检查 BIOS 设置，以确保在启动序列中首先列出“DVD-ROM”  。 有关如何更改 BIOS 设置启动序列的详细信息，请参阅硬件制造商提供的文档。  
   
-2.  单击“新安装”。  
+2. 单击“新安装”  。  
   
-3.  如果你拥有未显示在列表中的内部硬盘驱动器，则请单击“加载驱动程序”，并在继续安装之前安装必要的驱动程序。  
+3. 如果你拥有未显示在列表中的内部硬盘驱动器，则请单击“加载驱动程序”  ，并在继续安装之前安装必要的驱动程序。  
   
-4.  选中可验证是否将删除主硬盘驱动器上的所有文件和文件夹的复选框，然后单击“安装”。  
+4. 选中可验证是否将删除主硬盘驱动器上的所有文件和文件夹的复选框，然后单击“安装”  。  
   
-5.  在“选择服务器安装模式”页上，单击“服务器迁移”，然后提供所需的迁移信息。  
+5. 在“选择服务器安装模式”  页上，单击“服务器迁移”  ，然后提供所需的迁移信息。  
   
-6.  当“已成功迁移你的服务器”  消息出现时，请单击“关闭” 。  
+6. 当“已成功迁移你的服务器”  消息出现时，请单击“关闭”  。  
   
- 安装完成后，你将通过已在迁移应答文件中提供的管理员用户帐户和密码自动登录。  
+   安装完成后，你将通过已在迁移应答文件中提供的管理员用户帐户和密码自动登录。  
   
 > [!NOTE]
 >  若要安装 Windows Server Essentials 时解锁桌面，使用内置管理员帐户，并将密码留空。  

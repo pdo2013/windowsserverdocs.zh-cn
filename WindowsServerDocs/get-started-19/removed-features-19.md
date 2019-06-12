@@ -13,12 +13,12 @@ ms.author: jgerend
 manager: jasgro
 ms.date: 05/21/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 820dfed8a0a58d3ccc64023325c373b761461ba8
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 597da91aa40d9af4526b5358a88128b52d040645
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65976525"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501442"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-windows-server-2019"></a>已删除或计划启动 Windows Server 2019 的替换功能
 
@@ -54,5 +54,5 @@ Windows Server 的每一次发布都增加了新的特性和功能；我们偶�
 | 受信任的平台模块 (TPM) 管理控制台|以前在 TPM 管理控制台中提供的信息现在已接入[**设备安全**](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-security-center/wdsc-device-security)页[Windows Defender 安全中心](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-security-center/windows-defender-security-center)。 |
 | 主机保护者服务 Active Directory 证明模式|我们不会再开发主机保护者服务 Active Directory 证明模式-现在我们已添加了新的证明模式，[托管密钥证明](../security/guarded-fabric-shielded-vm/guarded-fabric-create-host-key.md)，这就是简单得多和同样与基于 Active Directory 为兼容证明。  这个新模式提供了等效功能的安装体验、 更简单的管理和 Active Directory 证明比较少的基础结构依赖项。 主机密钥证明具有必需的哪些 Active Directory 证明以外没有其他硬件要求，因此所有的现有系统将保留与新模式兼容。 请参阅[部署受保护的主机](../security/guarded-fabric-shielded-vm/guarded-fabric-configure-hgs-with-authorized-hyper-v-hosts.md)证明选项有关的详细信息。 |
 | OneSync 服务|OneSync 服务会同步邮件、 日历和人员应用的数据。 我们已添加到的 Outlook 应用程序提供相同的同步的同步引擎。 |
-| 远程差分压缩 API 支持|远程差分压缩 API 支持启用与使用压缩技术，通过网络发送的数据量最小化的远程源同步数据。 这种支持当前未由任何 Microsoft 产品使用。 |
+| 远程差分压缩 API 支持|远程差分压缩 API 支持启用与使用压缩技术，通过网络发送的数据量最小化的远程源同步数据。 |
 | WFP 轻型筛选器交换机扩展|WFP 轻型筛选器交换机扩展开发人员可以构建[简单的网络数据包筛选的 HYPER-V 虚拟交换机扩展](https://docs.microsoft.com/en-us/windows-hardware/drivers/network/using-virtual-switch-filtering)。 可以通过创建完整的筛选扩展来实现相同的功能。 在这种情况下，我们将删除此扩展在将来。 |

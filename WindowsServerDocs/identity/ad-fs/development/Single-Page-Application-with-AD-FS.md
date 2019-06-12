@@ -4,16 +4,16 @@ description: 它提供有关针对 AD FS 进行身份验证的说明使用 ADAL 
 author: billmath
 ms.author: billmath
 manager: mtillman
-ms.date: 06/12/2018
+ms.date: 06/13/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: 24a9caba7a2745973d7c69c3bd7bc42717e7a06c
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: f8a8d6b81f63a691954eecf02dba4e33215a462a
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266682"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811745"
 ---
 # <a name="build-a-single-page-web-application-using-oauth-and-adaljs-with-ad-fs-2016-or-later"></a>构建使用 OAuth 和 ADAL 的单页 web 应用程序。JS 与 AD FS 2016 或更高版本
 
@@ -21,7 +21,8 @@ ms.locfileid: "66266682"
 
 在此方案中，当用户登录时，JavaScript 前端使用[Active Directory Authentication Library for JavaScript (ADAL。JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js)和隐式授权许可从 Azure AD 获取一个 ID 令牌 (id_token)。 令牌缓存和客户端作为附加到请求的持有者令牌时进行调用的 Web api 后端，使用 OWIN 中间件进行保护。
 
->警告：您可以在此处生成的示例是仅供教学使用。 这些说明适用于可能会公开模型的所需的元素的最简单、 最小实现。 该示例可能不包括错误处理的所有方面和其他相关功能。
+>[!IMPORTANT]
+>您可以在此处生成的示例是仅供教学使用。 这些说明适用于可能会公开模型的所需的元素的最简单、 最小实现。 该示例可能不包括错误处理的所有方面和其他相关功能。
 
 >[!NOTE]
 >本演练是适用**仅**到 2016年及更高版本的 AD FS 服务器 
@@ -50,7 +51,7 @@ ms.locfileid: "66266682"
 
 如何设置域控制器和 AD FS 已超出本文的讨论范围。 有关其他部署信息，请参阅：
 
-- [AD DS 部署](../../ad-ds/deploy/AD-DS-Deployment.md) 
+- [AD DS 部署](../../ad-ds/deploy/AD-DS-Deployment.md)
 - [AD FS 部署](../AD-FS-Deployment.md)
 
 
@@ -109,14 +110,14 @@ ms.locfileid: "66266682"
         $httpProvider
         );
 
-|配置|描述
-|--------|--------
-|实例|你 STS 的 URL，例如 https://fs.contoso.com/
-|租户|将它保留为 adfs
-|clientID|这是你在配置单页面应用程序的公共客户端时指定的客户端 ID
+|配置|描述|
+|--------|--------|
+|实例|你 STS 的 URL，例如 https://fs.contoso.com/|
+|租户|将它保留为 adfs|
+|clientID|这是你在配置单页面应用程序的公共客户端时指定的客户端 ID|
 
 ## <a name="configure-webapi-to-use-ad-fs"></a>WebAPI 配置为使用 AD FS
-打开**Startup.Auth.cs**示例文件，并在开头添加以下内容： 
+打开**Startup.Auth.cs**示例文件，并在开头添加以下内容：
 
     using System.IdentityModel.Tokens;
 
@@ -143,11 +144,11 @@ ms.locfileid: "66266682"
     }
     );
 
-|参数|描述
-|--------|--------
-|ValidAudience|这会配置 'audience' 的值，将针对其检查令牌中
-|ValidIssuer|这将配置的值将根据检查令牌中的颁发者
-|MetadataEndpoint|这指向您的 STS 的元数据信息
+|参数|描述|
+|--------|--------|
+|ValidAudience|这会配置 'audience' 的值，将针对其检查令牌中|
+|ValidIssuer|这将配置的值将根据检查令牌中的颁发者|
+|MetadataEndpoint|这指向您的 STS 的元数据信息|
 
 ## <a name="add-application-configuration-for-ad-fs"></a>添加适用于 AD FS 的应用程序配置
 更改 appsettings 按如下所示：

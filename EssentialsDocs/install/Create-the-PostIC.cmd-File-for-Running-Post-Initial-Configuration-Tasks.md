@@ -12,12 +12,12 @@ ms.assetid: 99e258bc-0695-48c9-b694-a7f3cbe2a2d0
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f5042204cd189e3101f5e0126fd98e786a49032d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e15cb8591fc701094dde884d0a55e08d2cf422bb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844118"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433599"
 ---
 # <a name="create-the-posticcmd-file-for-running-post-initial-configuration-tasks"></a>创建用于运行后初始配置任务的 PostIC.cmd 文件
 
@@ -25,13 +25,13 @@ ms.locfileid: "59844118"
 
 可以通过编写自己的代码，然后从名为 PostIC.cmd 的脚本文件调用代码来添加后初始配置自定义。 使用 PostIC.cmd 文件时，必须遵循以下指导原则：  
   
--   必须以静默方式运行自定义代码（它不能显示用户界面）。  
+- 必须以静默方式运行自定义代码（它不能显示用户界面）。  
   
--   自定义代码无法启动重新启动服务器的操作。 初始配置将重新启动服务器，并将此作为最后一项任务。  
+- 自定义代码无法启动重新启动服务器的操作。 初始配置将重新启动服务器，并将此作为最后一项任务。  
   
--   必须在三分钟之内运行你的自定义代码。  
+- 必须在三分钟之内运行你的自定义代码。  
   
- 将 PostIC.cmd 文件定义为当代码运行成功时返回 0。 如果返回任何其他值，操作系统将查找名为 [SetupFailure.cmd](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md#BKMK_SetupFailure)的文件，该文件包含当 PostIC.cmd 文件中的代码未成功运行时应该运行的代码。 PostIC.cmd 文件和 SetupFailure.cmd 文件必须位于 C:\Windows\Setup\Scripts。  
+  将 PostIC.cmd 文件定义为当代码运行成功时返回 0。 如果返回任何其他值，操作系统将查找名为 [SetupFailure.cmd](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md#BKMK_SetupFailure)的文件，该文件包含当 PostIC.cmd 文件中的代码未成功运行时应该运行的代码。 PostIC.cmd 文件和 SetupFailure.cmd 文件必须位于 C:\Windows\Setup\Scripts。  
   
 #### <a name="to-define-post-initial-configuration-customizations"></a>定义后初始配置自定义  
   

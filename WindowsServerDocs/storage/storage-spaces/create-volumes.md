@@ -7,22 +7,22 @@ author: cosmosdarwin
 ms.author: cosdar
 manager: eldenc
 ms.technology: storage-spaces
-ms.date: 05/09/2019
-ms.openlocfilehash: d7c842a9b393f67c482dadeaa4090627887a67a3
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.date: 06/06/2019
+ms.openlocfilehash: 85eca06a5d8c103851596055099876cb53a902ad
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613222"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810554"
 ---
 # <a name="creating-volumes-in-storage-spaces-direct"></a>在存储空间直通中创建卷
 
->适用于：Windows Server 2019、Windows Server 2016
+> 适用于：Windows Server 2019、Windows Server 2016
 
 本主题介绍如何使用 Windows Admin Center、 PowerShell 或故障转移群集管理器存储空间直通群集上创建卷。
 
-   >[!TIP]
-   >  如果你尚未首先查看[规划存储空间直通中的卷](plan-volumes.md)，请先查看。
+> [!TIP]
+> 如果你尚未首先查看[规划存储空间直通中的卷](plan-volumes.md)，请先查看。
 
 ## <a name="create-a-three-way-mirror-volume"></a>创建三向镜像卷
 
@@ -105,14 +105,14 @@ ms.locfileid: "65613222"
 - **StoragePoolFriendlyName:** 你的存储名称池，例如 *"S2D 上 ClusterName"*
 - **大小：** 大小的卷，例如 *"10 TB"*
 
-   >[!NOTE]
-   >  Windows 以及 PowerShell 使用二进制（基数为 2）数字进行计数，而系统经常使用十进制（基数为 10）数字来标记驱动器。 这可以说明定义为 1,000,000,000,000 字节的“1 TB”驱动器在 Windows 中显示为大约“909 GB”的原因。 这是预期情况。 使用 **New-Volume** 创建卷时，你应使用二进制（基数为 2）数字指定 **Size** 参数。 例如，指定“909 GB”或“0.909495TB”将创建大约 1,000,000,000,000 字节的卷。
+   > [!NOTE]
+   > Windows 以及 PowerShell 使用二进制（基数为 2）数字进行计数，而系统经常使用十进制（基数为 10）数字来标记驱动器。 这可以说明定义为 1,000,000,000,000 字节的“1 TB”驱动器在 Windows 中显示为大约“909 GB”的原因。 这是预期情况。 使用 **New-Volume** 创建卷时，你应使用二进制（基数为 2）数字指定 **Size** 参数。 例如，指定“909 GB”或“0.909495TB”将创建大约 1,000,000,000,000 字节的卷。
 
 ### <a name="example-with-2-or-3-servers"></a>例如：与 2 或 3 个服务器
 
 为使操作更简单，如果你的部署仅涉及两个服务器，则存储空间直通将自动使用双向镜像进行复原。 如果你的部署仅涉及三个服务器，则它将自动使用三向镜像。
 
-```
+```PowerShell
 New-Volume -FriendlyName "Volume1" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB
 ```
 
@@ -124,7 +124,7 @@ New-Volume -FriendlyName "Volume1" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 
 在以下示例中， *“Volume2”* 使用三向镜像， *“Volume3”* 使用双奇偶校验（通常称为“擦除编码”）。
 
-```
+```PowerShell
 New-Volume -FriendlyName "Volume2" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB -ResiliencySettingName Mirror
 New-Volume -FriendlyName "Volume3" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB -ResiliencySettingName Parity
 ```
@@ -137,7 +137,7 @@ New-Volume -FriendlyName "Volume3" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 
 你可以通过运行**Get-StorageTier** cmdlet 查看它们。
 
-```
+```PowerShell
 Get-StorageTier | Select FriendlyName, ResiliencySettingName, PhysicalDiskRedundancy
 ```
 
@@ -145,7 +145,7 @@ Get-StorageTier | Select FriendlyName, ResiliencySettingName, PhysicalDiskRedund
 
 若要创建分层卷，请使用 **New-Volume** cmdlet 的 **StorageTierFriendlyNames** 和 **StorageTierSizes** 参数引用这些层模板。 例如，以下 cmdlet 会创建一个按 30:70 的比例混合三向镜像和双奇偶校验的卷。
 
-```
+```PowerShell
 New-Volume -FriendlyName "Volume4" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes 300GB, 700GB
 ```
 

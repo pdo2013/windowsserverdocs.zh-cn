@@ -5,23 +5,23 @@ ms.technology: manage
 ms.topic: article
 author: haley-rowland
 ms.author: harowl
-ms.date: 03/19/2019
+ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: b19657f4ce1a1a2cfb94f7234f07805ba0abd42c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 96d09b25ddb2f473fb4fe22c0cf716bfcf8becaa
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850568"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811925"
 ---
 # <a name="configure-user-access-control-and-permissions"></a>配置用户访问控制和权限
 
->适用于：Windows Admin Center，Windows Admin Center 预览版
+> 适用于：Windows Admin Center，Windows Admin Center 预览版
 
 如果尚不具备，自己应熟悉[Windows Admin Center 中的用户访问控制选项](../plan/user-access-options.md)
 
->[!NOTE]
+> [!NOTE]
 > 在工作组环境中或跨不受信任的域不支持 Windows Admin Center 中的组基于访问权限。
 
 ## <a name="gateway-access-role-definitions"></a>网关访问的角色定义
@@ -41,7 +41,7 @@ ms.locfileid: "59850568"
 
 上**用户**可以控制可以访问 Windows Admin Center 作为网关用户的选项卡。 默认情况下，如果未指定安全组，访问网关 URL 的任何用户具有访问权限。 一旦将一个或多个安全组添加到用户列表，访问权限仅限于这些组的成员。
 
-如果不在你的环境中使用 Active Directory 域，由控制访问```Users```和```Administrators```Windows Admin Center 网关计算机上的本地组。
+如果不在你的环境中使用 Active Directory 域，由控制访问`Users`和`Administrators`Windows Admin Center 网关计算机上的本地组。
 
 ### <a name="smartcard-authentication"></a>智能卡身份验证
 
@@ -143,6 +143,7 @@ Set-ADComputer -Identity $nodeObject -PrincipalsAllowedToDelegateToAccount $null
 
 在单台计算机部署模型非常适合仅几个要管理的计算机的简单环境。
 使用支持基于角色的访问控制配置一台计算机将导致以下更改：
+
 -   在系统驱动器中，将在安装 PowerShell 模块与函数所需的 Windows Admin Center `C:\Program Files\WindowsPowerShell\Modules`。 所有模块将从都开始**Microsoft.Sme**
 -   Desired State Configuration 将运行一次性配置名为的机上配置的 Just Enough Administration 的终结点**Microsoft.Sme.PowerShell**。 此终结点定义使用 Windows Admin Center 的 3 个角色，并在用户连接到它时将作为临时的本地管理员运行。
 -   控制哪些用户分配到了哪些角色访问权限，将创建 3 个新的本地组：
@@ -191,6 +192,7 @@ Invoke-RestMethod -Uri "https://localhost:6516/api/nodes/all/features/jea/endpoi
 ```
 
 在展开 zip 存档时，会看到以下文件夹结构：
+
 - InstallJeaFeatures.ps1
 - JustEnoughAdministration （目录）
 - 模块 （目录）
@@ -198,6 +200,7 @@ Invoke-RestMethod -Uri "https://localhost:6516/api/nodes/all/features/jea/endpoi
     - WindowsAdminCenter.Jea (directory)
 
 若要配置对节点上的基于角色的访问控制的支持，需要执行以下操作：
+
 1.  将复制 JustEnoughAdministration，Microsoft.SME。\*，和 WindowsAdminCenter.Jea 模块到目标计算机上的 PowerShell 模块目录。 通常情况下，该文件夹位于`C:\Program Files\WindowsPowerShell\Modules`。
 2.  更新**InstallJeaFeature.ps1**文件以匹配的 RBAC 终结点所需的配置。
 3.  运行 InstallJeaFeature.ps1 来编译 DSC 资源。

@@ -11,12 +11,12 @@ ms.assetid: 92bb573b-03b7-470e-b72e-e35edf52b349
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 239cce3c9f1acb2d45935e0f60fb1875b004485b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3591e17c9485fc8f9e365f6322c4f48e783db8ce
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880948"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442219"
 ---
 # <a name="choose-between-standard-or-production-checkpoints-in-hyper-v"></a>在 HYPER-V 中的标准或生产检查点之间选择
 
@@ -29,7 +29,7 @@ ms.locfileid: "59880948"
   
 - 标准检查点捕获正在运行的虚拟机的状态、 数据和硬件配置，并适用于在开发和测试方案中使用。 标准检查点可以是您需要重新创建某个特定状态或正在运行的虚拟机的条件，以便可以对问题进行故障排除时很有用。  
  
- ## <a name="change-checkpoints-to-production-or-standard-checkpoints"></a>将检查点更改为生产或标准检查点  
+  ## <a name="change-checkpoints-to-production-or-standard-checkpoints"></a>将检查点更改为生产或标准检查点  
   
 1.  在中**Hyper-v 管理器**，右键单击虚拟机，然后单击**设置**。  
   

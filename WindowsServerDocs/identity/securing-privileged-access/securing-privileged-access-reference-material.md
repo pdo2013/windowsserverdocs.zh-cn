@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 75474bd37f425388f01986ca32073107ee4fed99
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bcc06a3ccc4e95fa43a7f8f0ef7d110fd427f5a0
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830688"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501654"
 ---
 # <a name="active-directory-administrative-tier-model"></a>Active Directory 管理层模型
 
@@ -330,11 +330,11 @@ ms.locfileid: "59830688"
 确保将以下做法应用于此情形：
 
 - **远程服务器支持** - 远程访问服务器时，第 0 层管理员必须遵守以下原则：
-   - **主要（工具）** - 使用网络登录的远程工具（类型 3）。 有关详细信息，请参阅[管理工具和登录类型](http://aka.ms/admintoolsecurity)。
-   - **主要（交互式）** - 通过域帐户从管理工作站使用 RDP RestrictedAdmin 或标准 RDP 会话
+  - **主要（工具）** - 使用网络登录的远程工具（类型 3）。 有关详细信息，请参阅[管理工具和登录类型](http://aka.ms/admintoolsecurity)。
+  - **主要（交互式）** - 通过域帐户从管理工作站使用 RDP RestrictedAdmin 或标准 RDP 会话
 
-   > [!NOTE]
-   > 如果你有第 0 层权限管理解决方案，则添加“使用从特权访问管理解决方案实时获取的权限”。
+    > [!NOTE]
+    > 如果你有第 0 层权限管理解决方案，则添加“使用从特权访问管理解决方案实时获取的权限”。
 
 - **物理服务器支持** - 当以物理方式出现在服务器控制台或虚拟机控制台（Hyper-V 或 VMWare 工具）上时，这些帐户没有任何特定的管理工具使用限制，仅受制于标准用户任务（如电子邮件和浏览开放 Internet）的一般限制。
 
@@ -347,7 +347,7 @@ ms.locfileid: "59830688"
 
 - **远程服务器支持** - 远程访问服务器时，第 1 级管理员必须遵守以下原则：
    - **主要（工具）** - 使用网络登录的远程工具（类型 3）。 有关详细信息，请参阅[降低传递哈希和其他凭据被盗的风险](https://www.microsoft.com/pth) v1 (pp 42-47)。
-   - **主要（交互式）**- 通过使用从特权访问管理解决方案实时获取的权限的域帐户从管理工作站使用 RDP RestrictedAdmin。
+   - **主要（交互式）** - 通过使用从特权访问管理解决方案实时获取的权限的域帐户从管理工作站使用 RDP RestrictedAdmin。
    - **次要** - 通过使用由 LAPS 从管理工作站设置的本地帐户密码登录到服务器。
    - **禁止** - 标准 RDP 可能不能用于域帐户。
    - **禁止** - 在会话中使用域帐户凭据（例如，使用 *RunAs* 或对共享进行身份验证）。 这会公开到被盗的风险的登录凭据。
@@ -436,10 +436,10 @@ ms.locfileid: "59830688"
 - 只有授权的域管理员可以使用域管理员权限访问紧急访问帐户。
 - 仅可在域控制器和其他第 0 层主机上使用紧急访问帐户。
 - 此帐户仅可用于：
-   - 执行故障排除和更正导致无法使用正确管理帐户的技术问题。
-   - 执行极少数的任务，例如：
-      - 架构管理
-      - 需要企业管理员权限的全林性任务
+  - 执行故障排除和更正导致无法使用正确管理帐户的技术问题。
+  - 执行极少数的任务，例如：
+    - 架构管理
+    - 需要企业管理员权限的全林性任务
 
       > [!NOTE]
       > 拓扑管理，包括 Active Directory 站点和子网管理委派以限制这些权限的使用。
@@ -555,7 +555,7 @@ ms.locfileid: "59830688"
 - Server Operators
 - 域控制器
 - 只读域控制器
-- Group Policy Creators Owners
+- Group Policy Creator Owners
 - Cryptographic Operators
 - Distributed COM Users
 - 其他委派组中的可能由你的组织来管理目录操作还可能具有有效第 0 层访问权限创建的自定义组。

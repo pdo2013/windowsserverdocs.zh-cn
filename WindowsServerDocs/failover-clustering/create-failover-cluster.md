@@ -6,14 +6,14 @@ ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage-failover-clustering
-ms.date: 11/05/2018
+ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 4122375a48cae17e5f3ebcd7e9f3ce1fad28a105
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: b36f707edc08a4a8b2bc55a87c9db168e19a5487
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222497"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810978"
 ---
 # <a name="create-a-failover-cluster"></a>创建故障转移群集
 
@@ -25,13 +25,13 @@ ms.locfileid: "66222497"
 
 #### <a name="checklist-create-a-failover-cluster"></a>清单：创建故障转移群集
 
-|状态|任务|参考|
-|:---:|---|---|
-|☐|验证先决条件|[验证先决条件](#verify-the-prerequisites)|
-|☐|在你想要添加为群集节点的每个服务器上安装故障转移群集功能|[安装故障转移群集功能](#install-the-failover-clustering-feature)|
-|☐|运行群集验证向导来验证配置|[验证配置](#validate-the-configuration)|
-|☐|运行创建群集向导来创建故障转移群集|[创建故障转移群集](#create-the-failover-cluster)|
-|☐|创建群集角色来托管群集工作负载|[创建群集的角色](#create-clustered-roles)|
+| 状态 | 任务 | 参考 |
+| ---    | ---  | ---       |
+| ☐    | 验证先决条件 | [验证先决条件](#verify-the-prerequisites) |
+| ☐    | 在你想要添加为群集节点的每个服务器上安装故障转移群集功能 | [安装故障转移群集功能](#install-the-failover-clustering-feature) |
+| ☐    | 运行群集验证向导来验证配置 | [验证配置](#validate-the-configuration) |
+| ☐ | 运行创建群集向导来创建故障转移群集 | [创建故障转移群集](#create-the-failover-cluster) |
+| ☐ | 创建群集角色来托管群集工作负载 | [创建群集的角色](#create-clustered-roles) |
 
 ## <a name="verify-the-prerequisites"></a>验证先决条件
 
@@ -50,8 +50,8 @@ ms.locfileid: "66222497"
     - 创建群集的用户具有向 OU 或将形成群集的服务器所在的容器 **创建计算机对象** 权限。
     - 如果用户没有**创建计算机对象**权限，则要求域管理员为该群集预留群集计算机对象。 有关详细信息，请参阅[在 Active Directory 域服务中预留群集计算机对象](prestage-cluster-adds.md)。
 
->[!NOTE]
->如果你想要在 Windows Server 2012 R2 中创建与 Active Directory 分离的群集，此要求不适用。 有关详细信息，请参阅[部署与 Active Directory 分离的群集](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11))。
+> [!NOTE]
+> 如果你想要在 Windows Server 2012 R2 中创建与 Active Directory 分离的群集，此要求不适用。 有关详细信息，请参阅[部署与 Active Directory 分离的群集](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11))。
 
 ## <a name="install-the-failover-clustering-feature"></a>安装故障转移群集功能
 
@@ -73,22 +73,22 @@ ms.locfileid: "66222497"
 10. 完成安装后，选择**关闭**。
 11. 在你想要添加为故障转移群集节点的每个服务器上重复此过程。
 
->[!NOTE]
->安装故障转移群集功能之后，我们建议你从 Windows 更新应用最新更新。 此外，对于基于 Windows Server 2012 的故障转移群集，请查看[推荐修补程序和基于 Windows Server 2012 的故障转移群集的更新](https://support.microsoft.com/help/2784261/recommended-hotfixes-and-updates-for-windows-server-2012-based-failove)Microsoft 支持文章并安装任何适用的更新。
+> [!NOTE]
+> 安装故障转移群集功能之后，我们建议你从 Windows 更新应用最新更新。 此外，对于基于 Windows Server 2012 的故障转移群集，请查看[推荐修补程序和基于 Windows Server 2012 的故障转移群集的更新](https://support.microsoft.com/help/2784261/recommended-hotfixes-and-updates-for-windows-server-2012-based-failove)Microsoft 支持文章并安装任何适用的更新。
 
 ## <a name="validate-the-configuration"></a>验证配置
 
 在创建故障转移群集之前，我们强烈建议你验证配置，以确保硬件和硬件设置与故障转移群集兼容。 仅当完整配置通过所有验证测试，并且针对运行群集节点的 Windows Server 版本认证了所有硬件时，Microsoft 才支持群集解决方案。
 
->[!NOTE]
->必须至少有两个节点才能运行所有测试。 如果你只有一个节点，许多关键存储测试都不能运行。
+> [!NOTE]
+> 必须至少有两个节点才能运行所有测试。 如果你只有一个节点，许多关键存储测试都不能运行。
 
 ### <a name="run-cluster-validation-tests"></a>运行群集验证测试
 
 1. 在已从远程服务器管理工具安装了故障转移群集管理工具的计算机上，或在安装了故障转移群集功能的服务器上，启动故障转移群集管理器。 若要执行此操作的服务器上，启动服务器管理器，然后在**工具**菜单中，选择**故障转移群集管理器**。
 2. 在中**故障转移群集管理器**窗格下**管理**，选择**验证配置**。
 3. 上**开始之前**页上，选择**下一步**。
-4. 上**选择服务器或群集**页上，在**输入名称**框中，输入 NetBIOS 名称或你打算添加为故障转移群集节点的服务器的完全限定的域名，然后选择**添加**。 为要添加的每台服务器重复此步骤。 若要同时添加多台服务器，请用逗号或分号分隔这些名称。 例如，采用格式 *server1.contoso.com, server2.contoso.com* 输入名称。 在完成后，请选择**下一步**。
+4. 上**选择服务器或群集**页上，在**输入名称**框中，输入 NetBIOS 名称或你打算添加为故障转移群集节点的服务器的完全限定的域名，然后选择**添加**。 为要添加的每台服务器重复此步骤。 若要同时添加多台服务器，请用逗号或分号分隔这些名称。 例如，输入的名称格式`server1.contoso.com, server2.contoso.com`。 在完成后，请选择**下一步**。
 5. 上**测试选项**页上，选择**运行所有测试 （推荐）** ，然后选择**下一步**。
 6. 上**确认**页上，选择**下一步**。
 
@@ -98,8 +98,8 @@ ms.locfileid: "66222497"
       - 如果结果指示测试已成功完成和配置适用于聚类分析，并且你想要立即创建该群集，请确保**现在使用已验证的节点创建群集**检查框被选中，并且选择**完成**。 然后，继续执行[创建故障转移群集](#create-the-failover-cluster)过程的步骤 4。
       - 如果结果指示出现警告或失败，则选择**查看报表**查看详细信息，并确定必须更正的问题。 请注意，特定验证测试的警告指示可以支持故障转移群集的这个方面，但是可能不符合推荐的最佳做法。
         
-        >[!NOTE]
-        >如果你收到“验证存储空间永久保留”测试的警告，请参阅博客文章 [Windows 故障转移群集验证警告指示你的磁盘不支持存储空间的永久保留](https://blogs.msdn.microsoft.com/clustering/2013/05/24/validate-storage-spaces-persistent-reservation-test-results-with-warning/) 以获取详细信息。
+        > [!NOTE]
+        > 如果你收到“验证存储空间永久保留”测试的警告，请参阅博客文章 [Windows 故障转移群集验证警告指示你的磁盘不支持存储空间的永久保留](https://blogs.msdn.microsoft.com/clustering/2013/05/24/validate-storage-spaces-persistent-reservation-test-results-with-warning/) 以获取详细信息。
 
 有关硬件验证测试的详细信息，请参阅 [Validate Hardware for a Failover Cluster](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v%3dws.11)>)。
 
@@ -115,8 +115,8 @@ ms.locfileid: "66222497"
 4. 上**开始之前**页上，选择**下一步**。
 5. 如果**选择服务器**页面出现**输入名称**框中，输入 NetBIOS 名称或你打算添加为故障转移群集节点的服务器的完全限定的域名，然后选择**添加**。 为要添加的每台服务器重复此步骤。 若要同时添加多台服务器，请用逗号或分号分隔这些名称。 例如，采用格式 *server1.contoso.com; server2.contoso.com*输入名称。 在完成后，请选择**下一步**。
     
-    >[!NOTE]
-    >如果你选择在运行验证后立即创建群集[验证过程配置](#validate-the-configuration)，则不会看到**选择服务器**页。 已验证的节点会自动添加到创建群集向导中，以便你无需再次输入它们。
+    > [!NOTE]
+    > 如果你选择在运行验证后立即创建群集[验证过程配置](#validate-the-configuration)，则不会看到**选择服务器**页。 已验证的节点会自动添加到创建群集向导中，以便你无需再次输入它们。
 6. 如果你提前跳过验证，则会出现“验证警告”  页面。 我们强烈建议你运行群集验证。 Microsoft 仅支持通过所有验证测试的群集。 若要运行验证测试，请选择**是**，然后选择**下一步**。 完成验证配置向导，如中所述[验证配置](#validate-the-configuration)。
 7. 在“用于管理群集的访问点”  页面上，执行以下操作：
     
@@ -151,24 +151,23 @@ ms.locfileid: "66222497"
 1. 使用服务器管理器或 Windows PowerShell 安装每个故障转移群集节点上的群集角色都需要的角色或功能。 例如，如果你想要创建群集文件服务器，则在所有群集节点上安装文件服务器角色。
     
     下表显示了可以在高可用性向导中配置的群集角色，以及必须作为先决条件安装的关联的服务器角色或功能。
-    
 
-|群集角色  |角色或功能先决条件  |
-|---------|---------|
-|Namespace 服务器     |   命名空间 （文件服务器角色的一部分）       |
-|DFS 命名空间服务器     |  DHCP 服务器角色       |
-|分布式事务处理协调器 (DTC)     | 无        |
-|文件服务器     |  文件服务器角色       |
-|通用应用程序     |  不适用       |
-|通用脚本     |   不适用      |
-|通用服务     |   不适用      |
-|Hyper-V 副本代理     |   Hyper-V 角色      |
-|iSCSI 目标服务器     |    iSCSI 目标服务器（文件服务器角色的一部分）     |
-|iSNS 服务器     |  iSNS 服务器服务功能       |
-|消息队列     |  消息队列服务功能       |
-|其他服务器     |  无       |
-|虚拟机     |  Hyper-V 角色       |
-|WINS 服务器     |   WINS 服务器功能      |
+   | 群集角色  | 角色或功能先决条件  |
+   | ---------       | ---------                    |
+   | Namespace 服务器     |   命名空间 （文件服务器角色的一部分）       |
+   | DFS 命名空间服务器     |  DHCP 服务器角色       |
+   | 分布式事务处理协调器 (DTC)     | 无        |
+   | 文件服务器     |  文件服务器角色       |
+   | 通用应用程序     |  不适用       |
+   | 通用脚本     |   不适用      |
+   | 通用服务     |   不适用      |
+   | Hyper-V 副本代理     |   Hyper-V 角色      |
+   | iSCSI 目标服务器     |    iSCSI 目标服务器（文件服务器角色的一部分）     |
+   | iSNS 服务器     |  iSNS 服务器服务功能       |
+   | 消息队列     |  消息队列服务功能       |
+   | 其他服务器     |  无       |
+   | 虚拟机     |  Hyper-V 角色       |
+   | WINS 服务器     |   WINS 服务器功能      |
 
 2. 在故障转移群集管理器中，展开群集名称，右键单击**角色**，然后选择**配置角色**。
 3. 按照“高可用性向导”中的步骤创建群集角色。
@@ -178,8 +177,8 @@ ms.locfileid: "66222497"
 
 以下 Windows PowerShell cmdlet 执行本主题中前面的过程相同的功能。 在单行中输入每个 cmdlet，即使可能因格式限制而出现多行换行也是如此。
 
->[!NOTE]
->必须使用 Windows PowerShell 在 Windows Server 2012 R2 中创建与 Active Directory 分离的群集。 有关该语法的信息，请参阅 [Deploy an Active Directory-Detached Cluster](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11))。
+> [!NOTE]
+> 必须使用 Windows PowerShell 在 Windows Server 2012 R2 中创建与 Active Directory 分离的群集。 有关该语法的信息，请参阅 [Deploy an Active Directory-Detached Cluster](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11))。
 
 以下示例安装故障转移群集功能。
 
@@ -193,8 +192,8 @@ Install-WindowsFeature –Name Failover-Clustering –IncludeManagementTools
 Test-Cluster –Node Server1, Server2
 ```
 
->[!NOTE]
->**Test-cluster** cmdlet 将结果输出到当前工作目录中的日志文件。 例如：C:\Users\<用户名 > \AppData\Local\Temp。
+> [!NOTE]
+> **Test-cluster** cmdlet 将结果输出到当前工作目录中的日志文件。 例如：C:\Users\<用户名 > \AppData\Local\Temp。
 
 以下示例创建一个名为 *MyCluster* 且带有节点 *Server1* 和 *Server2*的故障转移群集、分配静态 IP 地址 *192.168.1.12*，并将所有符合条件的存储添加到故障转移群集。
 

@@ -6,14 +6,14 @@ ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
-ms.date: 09/10/2018
+ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 39b790f39a2bf9c6334eb2176aa2e5f2e0196c0c
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: b6e0a019297dbee557e284508a329001cac93bde
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475969"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812517"
 ---
 # <a name="deploy-primary-computers-for-folder-redirection-and-roaming-user-profiles"></a>文件夹重定向和漫游用户配置文件部署主计算机
 
@@ -21,10 +21,10 @@ ms.locfileid: "65475969"
 
 本主题介绍如何启用主计算机支持和指定的用户的主计算机。 执行此操作，来控制哪些计算机使用文件夹重定向和漫游用户配置文件。
 
->[!IMPORTANT]
->在启用漫游用户配置文件的主计算机支持时，始终启用主计算机支持文件夹重定向以及。 这会使文档和其他用户文件超出了用户配置文件，可帮助配置文件保持较小，和登录时间保持快速。
+> [!IMPORTANT]
+> 在启用漫游用户配置文件的主计算机支持时，始终启用主计算机支持文件夹重定向以及。 这会使文档和其他用户文件超出了用户配置文件，可帮助配置文件保持较小，和登录时间保持快速。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>系统必备
 
 ## <a name="software-requirements"></a>软件要求
 
@@ -33,15 +33,15 @@ ms.locfileid: "65475969"
 - 必须更新 Active Directory 域服务 (AD DS) 架构，以包含 Windows Server 2012 架构新增内容 （安装 Windows Server 2012 域控制器会自动更新架构）。 有关更新 AD DS 架构的信息，请参阅[Adprep.exe 集成](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh472161(v=ws.11)#adprepexe-integration>)并[运行 Adprep.exe](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd464018(v=ws.10)>)。
 - 客户端计算机必须运行 Windows 10、 Windows 8.1，Windows 8、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2 或 Windows Server 2012。
 
->[!TIP]
->虽然主计算机支持需要文件夹重定向和/或漫游用户配置文件中，如果你首次部署这些技术，但最好设置启用的 Gpo 的配置文件夹重定向之前的主计算机支持和漫游用户配置文件。 这会防止在启用主计算机支持之前将用户数据复制到非主计算机。 有关配置信息，请参阅[部署文件夹重定向](deploy-folder-redirection.md)并[部署漫游用户配置文件](deploy-roaming-user-profiles.md)。
+> [!TIP]
+> 虽然主计算机支持需要文件夹重定向和/或漫游用户配置文件中，如果你首次部署这些技术，但最好设置启用的 Gpo 的配置文件夹重定向之前的主计算机支持和漫游用户配置文件。 这会防止在启用主计算机支持之前将用户数据复制到非主计算机。 有关配置信息，请参阅[部署文件夹重定向](deploy-folder-redirection.md)并[部署漫游用户配置文件](deploy-roaming-user-profiles.md)。
 
 ## <a name="step-1-designate-primary-computers-for-users"></a>第 1 步：为用户指定主计算机
 
 部署主计算机支持的第一步指定为每个用户的主计算机。 为此，请使用 Active Directory 管理中心来获取相关计算机的可分辨的名称，然后设置**msDs PrimaryComputer**属性。
 
->[!TIP]
->若要使用 Windows PowerShell 使用的主计算机，请参阅博客文章[深入发掘 Windows 8 的主要计算机](<https://blogs.technet.microsoft.com/askds/2012/10/23/digging-a-little-deeper-into-windows-8-primary-computer/>)。
+> [!TIP]
+> 若要使用 Windows PowerShell 使用的主计算机，请参阅博客文章[深入发掘 Windows 8 的主要计算机](<https://blogs.technet.microsoft.com/askds/2012/10/23/digging-a-little-deeper-into-windows-8-primary-computer/>)。
 
 下面介绍了如何指定用户的主计算机：
 
@@ -76,8 +76,7 @@ ms.locfileid: "65475969"
 
 下面介绍了如何为漫游用户配置文件启用主计算机：
 
-1. 如果尚未，启用文件夹重定向的主计算机支持。
-    * 这会使文档和其他用户文件超出了用户配置文件，可帮助配置文件保持较小，和登录时间保持快速。
+1. 如果尚未，启用文件夹重定向的主计算机支持。<br>这会使文档和其他用户文件超出了用户配置文件，可帮助配置文件保持较小，和登录时间保持快速。
 2. 在组策略管理，右键单击你创建的 GPO (例如，**文件夹重定向和漫游用户配置文件设置**)，然后选择**编辑**。
 3. 导航到**计算机配置**，然后**策略**，然后**管理模板**，然后**系统**，，然后**用户配置文件**。
 4. 右键单击**下载仅，在主计算机上漫游配置文件**，然后选择**编辑**。
@@ -100,17 +99,19 @@ ms.locfileid: "65475969"
 
 1. 登录到已为其启用文件夹重定向和/或漫游用户配置文件的用户帐户的指定主计算机。
 2. 如果用户帐户登录到计算机之前，打开 Windows PowerShell 会话或以管理员身份的命令提示符窗口、 键入以下命令，然后注销，以确保最新的组策略设置应用于出现提示时客户端计算机：
+
     ```PowerShell
     Gpupdate /force
     ```
-3. 打开文件资源管理器。
-4. 重定向的文件夹 （例如，在文档库中的 My Documents 文件夹），右键单击，然后选择**属性**。
-5. 选择**位置**选项卡，并确认该路径显示，而不是本地路径指定的文件共享。 若要确认漫游用户配置文件，请打开**Control Panel**，选择**系统和安全**，选择**系统**，选择**高级系统设置**，选择**设置**部分中用户配置文件，然后查找**漫游**中**类型**列。
-6. 使用相同用户帐户登录到未指定为该用户的主计算机的计算机。
-7. 重复步骤 2-5，而不查看本地路径和一个**本地**配置文件类型。
 
->[!NOTE]
->如果文件夹已重定向的计算机上，启用主计算机支持之前，文件夹将保留重定向，除非每个文件夹的文件夹重定向策略设置中配置以下设置：**策略被删除时，将文件夹重定向回本地用户配置文件位置**。 同样，将显示以前在特定计算机漫游的配置文件**漫游**中**类型**列; 但是，**状态**列将显示**本地**。
+3. 打开文件资源管理器。
+1. 重定向的文件夹 （例如，在文档库中的 My Documents 文件夹），右键单击，然后选择**属性**。
+1. 选择**位置**选项卡，并确认该路径显示，而不是本地路径指定的文件共享。 若要确认漫游用户配置文件，请打开**Control Panel**，选择**系统和安全**，选择**系统**，选择**高级系统设置**，选择**设置**部分中用户配置文件，然后查找**漫游**中**类型**列。
+1. 使用相同用户帐户登录到未指定为该用户的主计算机的计算机。
+1. 重复步骤 2-5，而不查看本地路径和一个**本地**配置文件类型。
+
+> [!NOTE]
+> 如果文件夹已重定向的计算机上，启用主计算机支持之前，文件夹将保留重定向，除非每个文件夹的文件夹重定向策略设置中配置以下设置：**策略被删除时，将文件夹重定向回本地用户配置文件位置**。 同样，将显示以前在特定计算机漫游的配置文件**漫游**中**类型**列; 但是，**状态**列将显示**本地**。
 
 ## <a name="more-information"></a>详细信息
 

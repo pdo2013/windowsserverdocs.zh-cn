@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fdd31a8b7c2c6ef87d1d22d901b5c6ca69b5c70d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: f3f84a5c18589d38606825ee064cfb729003a05d
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188725"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719692"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS Frequently Asked Questions (FAQ)
 
@@ -120,7 +120,7 @@ Apple 已发布一的组要求调用应用程序传输安全 (ATS) 可能会影�
 可以使用自定义的 id_token 本身在 id_token 中添加相关信息。 有关详细信息，请参阅文章[自定义声明在 id_token 中发出](../development/Custom-Id-Tokens-in-AD-FS.md)。
 
 ### <a name="how-to-issue-json-blobs-inside-jwt-tokens"></a>如何颁发 JWT 令牌中的 json blob？
-特殊值类型 ("http://www.w3.org/2001/XMLSchema#json") 和转义 character(\x22)，对于这已在 AD FS 2016 中添加。 请颁发规则以及访问令牌的最终输出的示例如下。
+特殊值类型 ("<http://www.w3.org/2001/XMLSchema#json>") 和转义 character(\x22)，对于这已在 AD FS 2016 中添加。 请颁发规则以及访问令牌的最终输出的示例如下。
 
 颁发规则示例：
 
@@ -171,13 +171,13 @@ AD FS SSL 证书不在 AD FS 管理管理单元中找到的 AD FS 服务通信�
 了解如何配置提示 = 登录名，请参阅[Active Directory 联合身份验证服务提示 = 登录名参数支持](../operations/AD-FS-Prompt-Login.md)。
 
 ### <a name="how-can-i-change-the-ad-fs-service-account"></a>如何更改 AD FS 服务帐户？
-若要更改 AD FS 服务帐户，请按照的说明使用 AD FS 工具箱[服务帐户 Powershell 模块](https://github.com/Microsoft/adfsToolbox/tree/master/serviceAccountModule)。 
+若要更改 AD FS 服务帐户，请按照的说明使用 AD FS 工具箱[服务帐户 Powershell 模块](https://github.com/Microsoft/adfsToolbox/tree/master/serviceAccountModule)。
 
 ### <a name="how-can-i-configure-browsers-to-use-windows-integrated-authentication-wia-with-ad-fs"></a>如何配置与 AD FS 配合使用 Windows 集成身份验证 (WIA) 的浏览器？
 
 有关如何配置浏览器的信息，请参阅[配置为使用 AD FS Windows 集成身份验证 (WIA) 的浏览器](../operations/Configure-AD-FS-Browser-WIA.md)。
 
-### <a name="can-i-trun-off-browserssoenabled"></a>我可以关闭 BrowserSsoEnabled trun 吗？
+### <a name="can-i-turn-off-browserssoenabled"></a>可以关闭 BrowserSsoEnabled？
 如果你没有访问控制策略基于设备上 ADFS 或 Windows hello 企业版证书注册使用 ADFS;您可以关闭 BrowserSsoEnabled。 BrowserSsoEnabled 允许 ADFS 从客户端，其中包含设备信息收集 PRT （主刷新令牌）。 未安装该设备的 ADFS 身份验证将不适用于 Windows 10 设备。
 
 ### <a name="how-long-are-ad-fs-tokens-valid"></a>多长时间是有效的 AD FS 令牌？
@@ -295,3 +295,8 @@ AD FS 的其余部分和类似的方式中的 WAP 服务器上执行更新。
 
 ### <a name="is-adfs-supported-when-web-application-proxy-wap-servers-are-behind-azure-web-application-firewallwaf"></a>当 Web 应用程序代理 (WAP) 服务器位于 Azure Web 应用程序 Firewall(WAF) 支持 ADFS？
 ADFS 和 Web 应用程序服务器支持不会在终结点执行 SSL 终止的任何防火墙。 此外，ADFS/WAP 服务器具有内置的机制来防止跨站点脚本、 ADFS 代理的常见 web 攻击并满足定义的所有要求[MS ADFSPIP 协议](https://msdn.microsoft.com/library/dn392811.aspx)。
+
+### <a name="i-am-seeing-an-event-441-a-token-with-a-bad-token-binding-key-was-found-what-should-i-do-to-resolve-this"></a>我看到"事件 441:具有错误的标记绑定密钥的令牌找到。" 应该我做什么才能解决此问题？
+在 AD FS 2016 中的标记绑定会自动启用，会导致多个已知的问题与代理和联合身份验证方案的结果中此错误。 若要解决此问题，运行以下 Powershell 命令并删除令牌绑定支持。
+
+`Set-AdfsProperties -IgnoreTokenBinding $true`

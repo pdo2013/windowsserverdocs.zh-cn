@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: c8070268fdf58fbbb71c159a7360b488222ef740
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1e2ccf6187e4480f94b30632b6f8f9f092052541
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852178"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811075"
 ---
 # <a name="powershell"></a>PowerShell
 
@@ -31,22 +31,31 @@ Windows PowerShell 是一种基于任务的命令行 shell 和脚本语言，专
 可以使用**PowerShell.exe**命令行工具在命令提示符窗口中启动 Windows PowerShell 会话。
 
 - 若要启动 Windows PowerShell 会话的命令提示符窗口中，键入`PowerShell`。 一个**PS**前缀添加到命令提示符，以表明你是在 Windows PowerShell 会话中。
-- 若要使用特定的执行策略启动会话，请使用**ExecutionPolicy**参数。  
+
+- 若要使用特定的执行策略启动会话，请使用**ExecutionPolicy**参数。
+
     ```
     PowerShell.exe -ExecutionPolicy Restricted
-    ```  
-- 若要启动 Windows PowerShell 配置文件没有的 Windows PowerShell 会话，请使用**NoProfile**参数。  
+    ```
+
+- 若要启动 Windows PowerShell 配置文件没有的 Windows PowerShell 会话，请使用**NoProfile**参数。
+
     ```
     PowerShell.exe -NoProfile
-    ```  
-- 若要启动会话，请使用**ExecutionPolicy**参数。  
+    ```
+  
+- 若要启动会话，请使用**ExecutionPolicy**参数。
+
     ```
     PowerShell.exe -ExecutionPolicy Restricted
-    ```  
+    ```
+  
 - 若要查看 PowerShell.exe 帮助文件，请使用以下命令格式。  
+    
     ```
     PowerShell.exe -help, -?, /?
-    ```  
+    ```
+
 - 若要在命令提示符窗口中结束的 Windows PowerShell 会话，请键入`exit`。 典型的命令提示符返回。
 
 有关完整列表**PowerShell.exe**命令行参数，请参阅[about_PowerShell.Exe](https://go.microsoft.com/fwlink/?LinkID=113439)。

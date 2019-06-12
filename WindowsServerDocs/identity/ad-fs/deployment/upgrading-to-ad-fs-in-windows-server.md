@@ -9,16 +9,18 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: c8e72f1075b984506f9f992cd45cf853b50bddeb
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 6f3cdc34ee03fab1a8fb1d42ebed2d2f76e2618d
+ms.sourcegitcommit: ccc802338b163abdad2e53b55f39addcfea04603
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191917"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687411"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>使用 WID 数据库升级到 Windows Server 2016 中的 AD FS
 
 
+> [!NOTE]  
+> 仅在明确的时间段计划完成的与开始升级。 建议不要继续 AD FS 处于混合的模式状态的时间，长时间处于混合的模式状态的保留 AD FS 与场可能引起问题。
 
 ## <a name="upgrading-a-windows-server-2012-r2-or-2016-ad-fs-farm-to-windows-server-2019"></a>Windows Server 2012 R2 或 2016 AD FS 场升级到 Windows Server 2019
 以下文档将描述如何升级到 Windows Server 2019 中的 AD FS 的 AD FS 场，使用 WID 数据库时。  
@@ -27,6 +29,7 @@ ms.locfileid: "66191917"
 在 Windows Server 2016 的 AD FS 中，引入了场行为级别 (FBL)。 这是将确定可以使用功能在 AD FS 场的场级设置。
 
 下表列出了由 Windows Server 版本的 FBL 值：
+
 | Windows Server 版本  | FBL | AD FS 配置数据库名称 |
 | ------------- | ------------- | ------------- |
 | 2012 R2  | 1  | AdfsConfiguration |

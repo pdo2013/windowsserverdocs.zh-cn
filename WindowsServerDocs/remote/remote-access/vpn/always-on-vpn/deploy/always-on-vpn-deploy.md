@@ -9,26 +9,23 @@ ms.localizationpriority: medium
 ms.date: 12/20/2018
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7cb60bdc6d6f3ff074f04827aa95c9e8e8abf35b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 533f0273f6802be209ae5ad79b57f46dd6775149
+ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859618"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749463"
 ---
 # <a name="always-on-vpn-deployment-for-windows-server-and-windows-10"></a>适用于 Windows Server 和 Windows 10 的 always On VPN 部署
 
 >适用于：Windows Server （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows 10
 
-&#171;  [**上一：** 远程访问](../../../Remote-Access.md)<br>
-&#187;[**下一步：** 了解有关 Always On VPN 特性和功能](../../vpn-map-da.md)
+- [**上一：** 远程访问](../../../Remote-Access.md)<br>
+- [**下一步：** 了解有关 Always On VPN 特性和功能](../../vpn-map-da.md)
 
+Always On VPN 提供了单个且一致的解决方案，用于远程访问和支持已加入域的、 非域加入 （工作组） 或加入 Azure AD-设备，甚至个人拥有的设备。 使用 Always On VPN 时，连接类型不需要是用户独占或设备独占，可以是二者相结合。 例如，可以先启用设备身份验证，以便进行远程设备管理；然后启用用户身份验证，以便连接到公司内部站点和服务。
 
-Always On VPN 提供了单个且一致的解决方案，用于远程访问和支持已加入域的、 非域加入 （工作组） 或加入 Azure AD-设备，甚至个人拥有的设备。  使用 Always On VPN，连接类型不需要以独占方式为用户或设备，但可以是这两者的组合。 例如，您可以针对远程设备管理启用设备身份，然后启用用户身份验证连接到内部公司站点和服务。
-
-
-
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>系统必备
 
 您很可能有的技术部署可用于部署 Always On VPN。 在 DC/DNS 服务器，以外 Always On VPN 部署所需的 NPS (RADIUS) 服务器、 证书颁发机构 (CA) 服务器和远程访问 (路由/VPN) 服务器。 一旦设置基础结构，必须注册客户端，然后将客户端连接到你的本地安全地通过多个网络更改。
 
@@ -43,39 +40,32 @@ Always On VPN 提供了单个且一致的解决方案，用于远程访问和支
 - 查看为每个所用的技术设计和部署指南。 这些指南可以帮助您确定部署方案提供的服务和组织的网络所需的配置。 有关详细信息，请参阅[始终在 VPN 技术概述](../always-on-vpn-technology-overview.md)。
 - 所选部署 Always On VPN 配置，因为 CSP 不是特定于供应商的管理平台。
 
-
 >[!IMPORTANT]
 >对于此部署中，它不是您的基础结构服务器，例如运行 Active Directory 域服务、 Active Directory 证书服务和网络策略服务器的计算机正在运行 Windows Server 2016 的要求。 可以使用早期版本的 Windows Server、 Windows Server 2012 R2，例如，为基础结构服务器和运行远程访问服务器。
 >
->请不要尝试在虚拟机上部署远程访问\(VM\)在 Microsoft Azure 中。 在 Microsoft Azure 中使用远程访问不被支持，包括远程访问 VPN 和 DirectAccess。 有关详细信息，请参阅[对 Microsoft Azure 虚拟机的 Microsoft 服务器软件支持](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)。
+>不要尝试在 Microsoft Azure 中的虚拟机 (VM) 上部署远程访问。 在 Microsoft Azure 中使用远程访问不被支持，包括远程访问 VPN 和 DirectAccess。 有关详细信息，请参阅[对 Microsoft Azure 虚拟机的 Microsoft 服务器软件支持](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)。
 
+## <a name="about-this-deployment"></a>有关此部署
 
-## <a name="bkmk_about"></a>有关此部署
-
-提供的说明将引导你完成将远程访问部署为单个租户 VPN RAS 网关点\-到\-站点 VPN 连接，使用任何下述，对于运行 Windows 的远程客户端计算机的方案10。 您还会发现修改某些现有的基础结构部署的说明。 此外在此部署中，找到链接，以帮助你详细了解 VPN 连接过程中，要配置的服务器、 ProfileXML VPNv2 CSP 节点和其他技术来部署 Always On VPN。
+提供的说明将引导你完成将远程访问部署为单个租户 VPN RAS 网关对于点到站点 VPN 连接，使用任何下述，对于运行 Windows 10 的远程客户端计算机的方案。 您还会发现修改某些现有的基础结构部署的说明。 此外在此部署中，找到链接，以帮助你详细了解 VPN 连接过程中，要配置的服务器、 ProfileXML VPNv2 CSP 节点和其他技术来部署 Always On VPN。
 
 **Always On VPN 部署方案：**
 
 1. 始终在 VPN 上仅部署。
 2. 将 Always On VPN 部署使用的 VPN 连接使用 Azure AD 条件性访问。
 
-
 有关详细信息和提供的方案的工作流，请参阅[部署 Always On VPN](always-on-vpn-deploy-deployment.md)。
 
-
-## <a name="bkmk_not"></a>在此部署中不提供内容
+## <a name="what-isnt-provided-in-this-deployment"></a>在此部署中不提供的内容
 
 此部署不提供的说明：
 
-- Active Directory 域服务\(AD DS\)。
-- Active Directory 证书服务\(AD CS\)和公钥基础结构\(PKI\)。
-- 动态主机配置协议\(DHCP\)。 
+- Active Directory 域服务 (AD DS)。
+- Active Directory 证书服务 (AD CS) 和公钥基础结构 (PKI)。
+- 动态主机配置协议 (DHCP)。
 - 网络硬件，如以太网电缆、 防火墙、 交换机和集线器。
 - 其他网络资源，例如，应用程序和文件服务器，远程用户可以访问通过 Always On VPN 连接。
 - Internet 连接或 Internet 连接使用 Azure AD 的条件性访问。 有关详细信息，请参阅[Azure Active Directory 中的条件访问](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)。
-
-
-
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -88,6 +78,3 @@ Always On VPN 提供了单个且一致的解决方案，用于远程访问和支
 - [了解有关 Always On VPN 技术的详细信息](../always-on-vpn-technology-overview.md)
 
 - [开始规划 Always On VPN 部署](always-on-vpn-deploy-deployment.md)
-
-
----

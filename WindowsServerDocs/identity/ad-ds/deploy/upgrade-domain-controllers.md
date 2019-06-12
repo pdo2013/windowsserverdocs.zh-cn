@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: fe6fb196c996d4d95c6b58d1ab77591602e143d9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6f3907426fd1124c5ed0a411a155490a2a537239
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868418"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719679"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2016"></a>将域控制器升级到 Windows Server 2016
 
@@ -24,17 +24,17 @@ ms.locfileid: "59868418"
 ## <a name="pre-requisites"></a>先决条件
 升级域的推荐的方法是将提升运行较新版本的 Windows Server 并降级较旧的域控制器根据域控制器。 该方法优于升级现有域控制器的操作系统。 此列表包括要执行之前将提升运行较新版本的 Windows Server 的域控制器的常规步骤： 
 
-1.  验证目标服务器是否满足系统要求。 
-2.  验证应用程序兼容性。 
-3.  查看移动到 Windows Server 2016 的建议 
-4.  验证安全设置。 有关详细信息，请参阅[与 Windows Server 2016 中的 AD DS 有关的弃用功能及行为变化](../../../get-started\deprecated-features.md)。 
-5.  从计划运行安装的计算机上检查与目标服务器的连接性。 
-6.  检查所需操作主机角色的可用性： 
-    - 若要安装在现有域和林中运行 Windows Server 2016 的第一个 DC，运行安装的计算机需要连接到**架构主机**才能运行 adprep/forestprep 和基础结构主机若要运行 adprep /domainprep。 
-    - 若要在已扩展林架构的域中安装第一个 DC，则只需连接至结构主机即可。 
-    - 若要安装或在现有林中删除域，则需要连接至**域命名主机**。 
-    - 任何域控制器安装也需要连接到**RID 主机。** 
-    - 如果正在现有林中安装第一个只读域控制器，则需要为每一个应用程序目录分区（也称作非域命名上下文或 NDNC）连接至结构主机。 
+1. 验证目标服务器是否满足系统要求。 
+2. 验证应用程序兼容性。 
+3. 查看移动到 Windows Server 2016 的建议 
+4. 验证安全设置。 有关详细信息，请参阅[与 Windows Server 2016 中的 AD DS 有关的弃用功能及行为变化](https://docs.microsoft.com/en-us/windows-server/get-started/deprecated-features)。 
+5. 从计划运行安装的计算机上检查与目标服务器的连接性。 
+6. 检查所需操作主机角色的可用性： 
+   - 若要安装在现有域和林中运行 Windows Server 2016 的第一个 DC，运行安装的计算机需要连接到**架构主机**才能运行 adprep/forestprep 和基础结构主机若要运行 adprep /domainprep。 
+   - 若要在已扩展林架构的域中安装第一个 DC，则只需连接至结构主机即可。 
+   - 若要安装或在现有林中删除域，则需要连接至**域命名主机**。 
+   - 任何域控制器安装也需要连接到**RID 主机。** 
+   - 如果正在现有林中安装第一个只读域控制器，则需要为每一个应用程序目录分区（也称作非域命名上下文或 NDNC）连接至结构主机。 
 
 ### <a name="installation-steps-and-required-administrative-levels"></a>安装步骤和所需的管理级别
 下表提供升级步骤以及完成这些步骤的权限要求的摘要
@@ -123,35 +123,35 @@ Windows Server 2016 需要 Windows Server 2003 林功能级别。 也就是说�
 
 ![升级](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade1.png)
 
-1.  将新的 Windows Server 2016 加入到你的林。 出现提示时，请重新启动。 
-![Upgrade](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade2.png)
-2.  登录到新的 Windows Server 2016 使用域管理员帐户。
-3.  在中**服务器管理器**下**添加角色和功能**，安装**Active Directory 域服务**新的 Windows Server 2016 上。 在 2012 R2 林和域，这将自动运行 adprep。
-![Upgrade](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade3.png) 
-4.  在中**服务器管理器**，单击黄色三角形，然后从下拉列表中，单击**将服务器提升为域控制器**。 
-![Upgrade](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade4.png)
-5.  上**部署配置**屏幕上，选择**的域控制器添加到现有林**和单击下一步。 
-![Upgrade](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade5.png)
-6.  上**域控制器选项**屏幕中，输入**目录服务还原模式 (DSRM)** 密码，然后单击下一步。 
-7.  有关屏幕的其余部分，请单击**下一步**。 
-8.  上**先决条件检查**屏幕上，单击**安装**。 在重新启动完成后你可以重新登录。
-9.  在 Windows Server 2012 R2 服务器上，在**服务器管理器**，在工具，选择**Active Directory 的 Windows PowerShell 模块**。 
-![Upgrade](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade6.png)
+1. 将新的 Windows Server 2016 加入到你的林。 出现提示时，请重新启动。 
+   ![Upgrade](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade2.png)
+2. 登录到新的 Windows Server 2016 使用域管理员帐户。
+3. 在中**服务器管理器**下**添加角色和功能**，安装**Active Directory 域服务**新的 Windows Server 2016 上。 在 2012 R2 林和域，这将自动运行 adprep。
+   ![Upgrade](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade3.png) 
+4. 在中**服务器管理器**，单击黄色三角形，然后从下拉列表中，单击**将服务器提升为域控制器**。 
+   ![Upgrade](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade4.png)
+5. 上**部署配置**屏幕上，选择**的域控制器添加到现有林**和单击下一步。 
+   ![Upgrade](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade5.png)
+6. 上**域控制器选项**屏幕中，输入**目录服务还原模式 (DSRM)** 密码，然后单击下一步。 
+7. 有关屏幕的其余部分，请单击**下一步**。 
+8. 上**先决条件检查**屏幕上，单击**安装**。 在重新启动完成后你可以重新登录。
+9. 在 Windows Server 2012 R2 服务器上，在**服务器管理器**，在工具，选择**Active Directory 的 Windows PowerShell 模块**。 
+   ![Upgrade](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade6.png)
 10. 在 PowerShell 窗口中使用移动 ADDirectoryServerOperationMasterRole 移动 FSMO 角色。 可以键入的每个-OperationMasterRole 名称或编号，用于指定角色。 有关详细信息请参阅[移动 ADDirectoryServerOperationMasterRole](https://technet.microsoft.com/library/hh852302.aspx)
 
-   ``` powershell
-   Move-ADDirectoryServerOperationMasterRole -Identity "DC-W2K16" -OperationMasterRole 0,1,2,3,4
-   ```
+    ``` powershell
+    Move-ADDirectoryServerOperationMasterRole -Identity "DC-W2K16" -OperationMasterRole 0,1,2,3,4
+    ```
 
-   ![升级](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade7.png)</br>
+    ![升级](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade7.png)</br>
 11. 验证是否已通过转到 Windows Server 2016 的服务器，在移动角色**服务器管理器**下**工具**，选择**Active Directory 的 Windows PowerShell 模块**。 使用`Get-ADDomain`和`Get-ADForest`cmdlet 查看对 FSMO 角色持有者。
-![升级](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade8.png)
-![升级](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade9.png)
+    ![升级](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade8.png)
+    ![升级](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade9.png)
 12. 降级和删除 Windows Server 2012 R2 域控制器。 降级的 dc 的信息，请参阅[降级域控制器和域](../../ad-ds/deploy/Demoting-Domain-Controllers-and-Domains--Level-200-.md)
 13. 降级和删除服务器后可以引发的林功能和到 Windows Server 2016 域功能级别。
 
 
 ## <a name="next-steps"></a>后续步骤
--   [新功能的 Active Directory 域服务安装和删除](../../ad-ds/deploy/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal.md)  
+-   [Active Directory 域服务安装和删除的新功能](../../ad-ds/deploy/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal.md)  
 -   [安装 Active Directory 域服务&#40;级别 100&#41;](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md)     
 -   [Windows Server 2016 功能级别](../../ad-ds/Windows-Server-2016-Functional-Levels.md)  

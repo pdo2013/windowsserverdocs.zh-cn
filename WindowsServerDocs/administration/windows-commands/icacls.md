@@ -13,16 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: 2639b8bb913bcd604a7c79015545006a23e1d0f2
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: b1aaa329c8925d7fa4245555ed51b08f7366299d
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222950"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811111"
 ---
 # <a name="icacls"></a>icacls
-
-
 
 显示或修改指定文件上的随机访问控制列表 (DACL)，并将存储的 DACL 应用于指定目录中的文件。
 
@@ -132,18 +130,25 @@ icacls <Directory> [/substitute <SidOld> <SidNew> [...]] [/restore <ACLfile> [/c
 ## <a name="examples"></a>示例
 
 若要保存的所有文件的 Dacl C:\Windows 目录及其子目录 ACLFile 文件中，请键入：
+
 ```
 icacls c:\windows\* /save aclfile /t
 ```
+
 若要还原的每个文件中存在 C:\Windows 目录及其子目录中的 ACLFile Dacl，请键入：
+
 ```
 icacls c:\windows\ /restore aclfile
 ```
+
 若要向用户授予 User1 删除和写入 DAC 权限到名为"Test1"，键入：
+
 ```
 icacls test1 /grant User1:(d,wdac)
 ```
+
 若要授予用户定义的 SID 为 S-1-1-0 删除和写入 DAC 权限到文件中，名为"Test2"，键入：
+
 ```
 icacls test2 /grant *S-1-1-0:(d,wdac)
 ```

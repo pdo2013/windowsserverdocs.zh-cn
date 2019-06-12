@@ -1,23 +1,23 @@
 ---
 title: 将动态磁盘更改回基本磁盘
 description: 介绍如何将动态磁盘转换回基本磁盘。
-ms.date: 10/12/2017
+ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e7655ca78868d40d354b5260fa99fcfa3a21d0de
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 249db6d2779e696ef93fecfd11718dbcce8654be
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192746"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812465"
 ---
 # <a name="change-a-dynamic-disk-back-to-a-basic-disk"></a>将动态磁盘更改回基本磁盘
 
-> **适用于：** Windows 10、 Windows 8.1、 Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
+> **适用于：** Windows 10、 Windows 8.1、 Windows Server （半年频道）、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
 
 本主题介绍如何删除动态磁盘上的所有内容，然后将其转换回基本磁盘。 从 Windows 已弃用动态磁盘，我们不建议不再使用它们。 相反，我们建议使用基本磁盘或使用较新[存储空间](https://support.microsoft.com/help/12438/windows-10-storage-spaces)技术时所需为池磁盘一起为更大的卷。 如果要镜像 Windows 的引导卷，则可能需要使用硬件 RAID 控制器，例如许多主板上包含的 RAID 控制器。
 
@@ -57,17 +57,16 @@ ms.locfileid: "66192746"
 7.  在 **DISKPART** 提示符下，键入 `select disk <disknumber>`，并指定你希望转换为基本磁盘的磁盘编号。
 
 8.  在 **DISKPART** 提示符下，键入 `convert basic`。
- 
-<br /> <br />
+
 
 | ReplTest1  | 描述 |
-| --- |---|
-| <p>**list disk**</p>                         | <p>显示磁盘列表和有关磁盘的信息，例如磁盘大小、可用空间量、磁盘是基本磁盘还是动态磁盘，以及磁盘是使用主启动记录 (MBR) 还是 GUID 分区表 (GPT) 分区样式。 用星号 (*) 标记的磁盘具有焦点。</p> |
-| <p>**选择磁盘** <em>disknumber</em></p>   | <p>选择指定的磁盘（其中 <em>disknumber</em> 是磁盘编号），并赋予其焦点。</p>  |
-| <p>**明细数据磁盘** <em>disknumber</em></p>   | <p>显示所选磁盘的属性和该磁盘上的卷。</p>  |
-| <p>**选择卷** <em>disknumber</em></p> | <p>选择指定的卷（其中 <em>disknumber</em> 是卷编号），并赋予其焦点。 如果未指定卷，则 **select** 命令会列出具有焦点的当前卷。 你可以通过编号、驱动器号或装入点路径来指定卷。 在基本磁盘上，如果选择卷，则还会赋予相应的分区焦点。</p> |
-| <p>**删除卷**</p>                     | <p>删除所选的卷。 你无法删除系统卷、启动卷或任何包含活动分页文件或崩溃转储（内存转储）的卷。</p> |
-| <p>**将基本转换**</p> | <p>将空动态磁盘转换为基本磁盘。</p>  |
+| --- | --- |
+| **list disk**                         | 显示磁盘列表和有关磁盘的信息，例如磁盘大小、可用空间量、磁盘是基本磁盘还是动态磁盘，以及磁盘是使用主启动记录 (MBR) 还是 GUID 分区表 (GPT) 分区样式。 用星号 (*) 标记的磁盘具有焦点。 |
+| **选择磁盘** <em>disknumber</em>   | 选择指定的磁盘（其中 <em>disknumber</em> 是磁盘编号），并赋予其焦点。  |
+| **明细数据磁盘** <em>disknumber</em>   | 显示所选磁盘的属性和该磁盘上的卷。  |
+| **选择卷** <em>disknumber</em> | 选择指定的卷（其中 <em>disknumber</em> 是卷编号），并赋予其焦点。 如果未指定卷，则 **select** 命令会列出具有焦点的当前卷。 你可以通过编号、驱动器号或装入点路径来指定卷。 在基本磁盘上，如果选择卷，则还会赋予相应的分区焦点。 |
+| **删除卷**                     | 删除所选的卷。 你无法删除系统卷、启动卷或任何包含活动分页文件或崩溃转储（内存转储）的卷。 |
+| **将基本转换** | 将空动态磁盘转换为基本磁盘。  |
 
 ## <a name="additional-considerations"></a>其他注意事项
 
@@ -77,5 +76,3 @@ ms.locfileid: "66192746"
 ## <a name="see-also"></a>请参阅
 
 -   [命令行语法表示法](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)
-
-

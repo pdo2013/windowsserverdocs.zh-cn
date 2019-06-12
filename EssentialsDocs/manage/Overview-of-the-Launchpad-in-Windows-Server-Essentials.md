@@ -12,12 +12,12 @@ ms.assetid: 198d16cb-3d07-4706-be89-ad14a5f7dc47
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 9c240320d990652a4669499d99c1fc3eba9e06fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4dd32d57f6f36bdbf94c763fe0cbd1f37ff990b8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883588"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433110"
 ---
 # <a name="overview-of-the-launchpad-in-windows-server-essentials"></a>Windows Server Essentials 中的快速启动板概述
 
@@ -29,40 +29,40 @@ Windows Server Essentials 快速启动板是一个小应用程序，该快速启
   
  以下 Windows 操作系统支持使用 Windows Server Essentials 快速启动板：  
   
--   **Windows 8**:所有版本。  
+- **Windows 8**:所有版本。  
   
--   **Windows 7**:所有版本。  
--   **Windows 10**:所有版本。 
+- **Windows 7**:所有版本。  
+- **Windows 10**:所有版本。 
   
- 以下操作系统不支持使用 Windows Server Essentials 快速启动板：  
+  以下操作系统不支持使用 Windows Server Essentials 快速启动板：  
   
--   **其他服务器**：不能在运行 Windows Server 操作系统的任何其他计算机上运行 Windows Server Essentials 快速启动板。  
+- **其他服务器**：不能在运行 Windows Server 操作系统的任何其他计算机上运行 Windows Server Essentials 快速启动板。  
   
- 本主题内容：  
+  本主题内容：  
   
--   [使用快速启动板](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Launchpad)  
+- [使用快速启动板](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Launchpad)  
   
--   [Mac 计算机上使用快速启动板](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Mac)  
+- [Mac 计算机上使用快速启动板](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Mac)  
   
 ##  <a name="BKMK_Launchpad"></a> 使用快速启动板  
  以下链接和信息在 Windows Server Essentials 快速启动板上可用。  
   
 ### <a name="backup"></a>备份  
- 单击“备份”  以打开计算机的“备份属性”  。 在“备份属性”页面上，你可以执行以下操作：  
+ 单击“备份”  以打开计算机的“备份属性”  。 在“备份属性”  页面上，你可以执行以下操作：  
   
--   启动或停止备份。  
+- 启动或停止备份。  
   
--   查看最新备份的状态和详细信息。  
+- 查看最新备份的状态和详细信息。  
   
--   指定如何在运行备份时管理计算机电源。  
+- 指定如何在运行备份时管理计算机电源。  
   
- 有关如何使用快速启动板备份计算机的信息，请参阅[管理客户端备份](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md)。  
+  有关如何使用快速启动板备份计算机的信息，请参阅[管理客户端备份](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md)。  
   
 ### <a name="remote-web-access"></a>远程 Web 访问  
- 单击“远程 Web 访问”以将 Web 浏览器打开到远程 Web 访问站点。 远程 Web 访问站点使你能够连接到其他计算机，并通过启用了 Internet 的计算机从办公室中或任何远程位置中访问某些网络资源。 有关远程 Web 访问的详细信息，请参阅[管理远程 Web 访问](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)。  
+ 单击“远程 Web 访问”  以将 Web 浏览器打开到远程 Web 访问站点。 远程 Web 访问站点使你能够连接到其他计算机，并通过启用了 Internet 的计算机从办公室中或任何远程位置中访问某些网络资源。 有关远程 Web 访问的详细信息，请参阅[管理远程 Web 访问](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)。  
   
 ### <a name="shared-folders"></a>共享文件夹  
- 单击“共享文件夹”以将 Windows 资源管理器打开到服务器上共享文件夹的位置。 有关共享文件和文件夹的信息，请参阅主题[管理服务器文件夹](Manage-Server-Folders-in-Windows-Server-Essentials.md)。  
+ 单击“共享文件夹”  以将 Windows 资源管理器打开到服务器上共享文件夹的位置。 有关共享文件和文件夹的信息，请参阅主题[管理服务器文件夹](Manage-Server-Folders-in-Windows-Server-Essentials.md)。  
   
 ### <a name="dashboard"></a>仪表板  
  单击“仪表板”   以打开用于访问 Windows Server Essentials 仪表板的“登录”  页面。 完成登录后，将打开到服务器仪表板的远程桌面连接。 有关仪表板的详细信息，请参阅[仪表板概述](Overview-of-the-Dashboard-in-Windows-Server-Essentials.md)。  
@@ -85,13 +85,13 @@ Windows Server Essentials 快速启动板是一个小应用程序，该快速启
 >  服务器管理员无法使用 Mac 计算机上的快速启动板或远程 Web 访问来打开服务器仪表板和管理该服务器。  
   
 ### <a name="backup"></a>备份  
- 单击“备份”以将“时间机器”设置为备份你的计算机并更改“时间机器”设置。 有关“时间机器”的详细信息，请参阅计算机制造商提供的文档。  
+ 单击“备份”  以将“时间机器”设置为备份你的计算机并更改“时间机器”设置。 有关“时间机器”的详细信息，请参阅计算机制造商提供的文档。  
   
 ### <a name="remote-web-access"></a>远程 Web 访问  
  单击**远程 Web 访问**打开 web 浏览器到远程 Web 访问站点。 远程 Web 访问使你可以从任何具有 Internet 启用了计算机的远程位置访问的共享的文件和服务器上的文件夹。 你可以上载文件、在基于 Web 的媒体播放上播放音乐和视频、查看图片以及播放幻灯片放映。 有关详细信息，请参阅[Use Remote Web Access](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)。  
   
 ### <a name="shared-folders"></a>共享文件夹  
- 单击“共享文件夹”以将查找器打开到服务器上共享文件夹的位置。 有关共享文件和文件夹的信息，请参阅[使用的共享文件夹](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md)。  
+ 单击“共享文件夹”  以将查找器打开到服务器上共享文件夹的位置。 有关共享文件和文件夹的信息，请参阅[使用的共享文件夹](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md)。  
   
 ### <a name="computer-health-alerts"></a>计算机运行状况警报  
  快速启动板上的警报提供了一个有关计算机的即时运行状况的快速状态。 若要查看有关运行状况警报的信息，请单击警报指示器以打开警报查看器。 运行状况警报基于严重性级别显示在查看器中。 最严重的警报显示在列表前面。 不太严重的警报显示在列表后面。  

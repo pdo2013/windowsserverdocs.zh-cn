@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 02/15/2019
-ms.openlocfilehash: ff1f949c764473a63eafa25346949d710699dbd1
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: bd35e439ee3c76af1306bbbd712d754dd79f555f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222723"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446097"
 ---
 # <a name="get-started-with-windows-admin-center"></a>Get started with Windows Admin Center 入门
 
@@ -52,17 +52,17 @@ ms.locfileid: "66222723"
 
  **将一台服务器或群集添加为被管理节点**
 
- 1. 单击 **+ 添加**下**的所有连接**。
+1. 单击 **+ 添加**下**的所有连接**。
 
-    ![](../media/launch/addserver0.png)
+   ![](../media/launch/addserver0.png)
 
- 2. 选择要添加的服务器、 故障转移群集或 Hyper-Converged 群集连接：
+2. 选择要添加的服务器、 故障转移群集或 Hyper-Converged 群集连接：
     
-    ![](../media/launch/addserver1.png)
+   ![](../media/launch/addserver1.png)
 
- 3. 键入的服务器或群集管理和单击名称**提交**。 服务器或群集将添加到您在概述页上的连接列表。
+3. 键入的服务器或群集管理和单击名称**提交**。 服务器或群集将添加到您在概述页上的连接列表。
 
-    ![](../media/launch/addserver2.png)
+   ![](../media/launch/addserver2.png)
 
    **-- OR --**
 
@@ -96,7 +96,7 @@ Windows Admin Center 支持多种机制进行身份验证与托管节点。 单�
 
 **单一登录时作为 Windows 服务器上的服务部署**
 
-如果已在 Windows Server 上安装 Windows Admin Center，则为实现单一登录所需额外配置。  [配置委派的环境](..\configure\user-access-control.md)
+如果已在 Windows Server 上安装 Windows Admin Center，则为实现单一登录所需额外配置。  [配置委派的环境](../configure/user-access-control.md)
 
 **-- OR --**
 

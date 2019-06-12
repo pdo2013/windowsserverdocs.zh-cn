@@ -5,15 +5,15 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 09/18/2018
+ms.date: 06/06/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 883fba96fcb71cb1c6e8162c1564d66924c4e24d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b79e832ee45990d18baf4c211ab68b907134ceb7
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885648"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811835"
 ---
 # <a name="create-a-connection-provider-for-a-solution-extension"></a>创建解决方案扩展的连接提供程序
 
@@ -83,19 +83,17 @@ ms.locfileid: "59885648"
 | description | 输入的入口点的简短说明。 |
 | connectionType | 表示提供程序将加载的连接类型。 此处输入的值还用于在解决方案入口点中指定该解决方案可以加载这些连接。 此处输入的值还用于在工具入口点中指示该工具是与此类型兼容。 在此处输入此值还将使用的连接对象中的提交到 RPC 调用"添加窗口"，在应用程序层实现步骤。 |
 | connectionTypeName | 在连接表中用于表示使用连接提供程序的连接。 这被应为类型的复数名称。 |
-| connectionTypeUrlName | 在创建该 URL 用于 Windows Admin Center 具有连接到实例后表示加载的解决方案。 后的连接，并在目标之前，会使用此项。 在此示例中，"connectionexample"为此值显示在 URL 中的位置： http://localhost:6516/solutionexample/connections/connectionexample/con-fake1.corp.contoso.com |
-| connectionTypeDefaultSolution | 表示应加载的连接提供程序的默认组件。 此值是的组合: [a] 顶部的清单; 定义的扩展包的名称[b] 感叹号 （！）;[c] 解决方案入口点名称。    对于具有名称"msft.sme.mySample-扩展"，项目名称"示例"使用一个解决方案入口点，此值将为"msft.sme.solutionExample 扩展 ！ 示例"。 |
-| connectionTypeDefaultTool | 表示默认值应成功连接时加载的工具。 此属性的值由两个部分，类似于 connectionTypeDefaultSolution 组成。 此值是的组合: [a] 顶部的清单; 定义的扩展包的名称[b] 感叹号 （！）;[最初应加载该工具 c] 工具入口点名称。 对于具有名称"msft.sme.solutionExample-扩展"，项目名称"示例"使用一个解决方案入口点，此值将为"msft.sme.solutionExample 扩展 ！ 示例"。 |
+| connectionTypeUrlName | 在创建该 URL 用于 Windows Admin Center 具有连接到实例后表示加载的解决方案。 后的连接，并在目标之前，会使用此项。 在此示例中，"connectionexample"为此值显示在 URL 中的位置： `http://localhost:6516/solutionexample/connections/connectionexample/con-fake1.corp.contoso.com` |
+| connectionTypeDefaultSolution | 表示应加载的连接提供程序的默认组件。 此值是的组合： <br>[a] 顶部的清单; 定义的扩展包的名称 <br>[b] 感叹号 （！）; <br>[c] 解决方案入口点名称。    <br>对于具有名称"msft.sme.mySample-扩展"，项目名称"示例"使用一个解决方案入口点，此值将为"msft.sme.solutionExample 扩展 ！ 示例"。 |
+| connectionTypeDefaultTool | 表示默认值应成功连接时加载的工具。 此属性的值由两个部分，类似于 connectionTypeDefaultSolution 组成。 此值是的组合： <br>[a] 顶部的清单; 定义的扩展包的名称 <br>[b] 感叹号 （！）; <br>[最初应加载该工具 c] 工具入口点名称。 <br>对于具有名称"msft.sme.solutionExample-扩展"，项目名称"示例"使用一个解决方案入口点，此值将为"msft.sme.solutionExample 扩展 ！ 示例"。 |
 | connectionStatusProvider | 请参阅"定义连接状态提供程序"一节 |
 
 ## <a name="define-connection-status-provider"></a>定义连接状态提供程序
 
 连接状态提供程序是依据目标进行验证以连接到网络并且可用，该机制还可确保连接的用户有权访问目标。 目前有两种类型的连接状态提供程序：PowerShell 和 RelativeGatewayUrl。
 
-*   PowerShell 连接状态提供程序
-    *   确定目标是否联机并可通过 PowerShell 脚本访问。 必须在具有下面定义的单个属性"status"的对象中返回的结果。
-*   RelativeGatewayUrl 连接状态提供程序
-    *   确定目标是否联机并可通过 rest 调用访问。 必须在具有下面定义的单个属性"status"的对象中返回的结果。
+*   <strong>PowerShell 连接状态提供程序</strong>-确定目标是否联机并可通过 PowerShell 脚本访问。 必须在具有下面定义的单个属性"status"的对象中返回的结果。
+*   <strong>RelativeGatewayUrl 连接状态提供程序</strong>-确定目标是否联机并可通过 rest 调用访问。 必须在具有下面定义的单个属性"status"的对象中返回的结果。
 
 ### <a name="define-status"></a>定义状态
 
@@ -113,25 +111,22 @@ ms.locfileid: "59885648"
 
 状态属性：
 
-* Label
-    * 描述状态的标签的返回类型。 请注意，可以在运行时映射标签的值。 请参阅下面的运行时中的映射值的条目。
+* <strong>标签</strong>-描述状态的返回类型的标签。 请注意，可以在运行时映射标签的值。 请参阅下面的运行时中的映射值的条目。
 
-* 在任务栏的搜索框中键入
-    * 状态返回类型。 类型具有以下枚举值。 任何值 2 或更高版本，该平台将导航到已连接的对象，并将在 UI 中显示错误。
+* <strong>类型</strong>-状态返回类型。 类型具有以下枚举值。 任何值 2 或更高版本，该平台将导航到已连接的对象，并将在 UI 中显示错误。
 
-类型：
+   类型：
 
-| ReplTest1 | Description |
-| ----- | ----------- |
-| 0 | 联机 |
-| 1 | 警告 |
-| 2 | 未经授权 |
-| 3 | 错误 |
-| 4 | 严重 |
-| 5 | Unknown |
+  | 值 | Description |
+  | ----- | ----------- |
+  | 0 | 联机 |
+  | 1 | 警告 |
+  | 2 | 未经授权 |
+  | 3 | 错误 |
+  | 4 | 严重 |
+  | 5 | Unknown |
 
-* 详细信息
-    * 描述状态的更多详细信息的返回类型。
+* <strong>详细信息</strong>-描述状态的返回类型的其他详细信息。
 
 ### <a name="powershell-connection-status-provider-script"></a>PowerShell 连接状态提供程序脚本
 
@@ -139,7 +134,7 @@ ms.locfileid: "59885648"
 
 PowerShell 脚本示例：
 
-``` ts
+```PowerShell
 ## Get-My-Status ##
 
 function Get-Status()

@@ -11,18 +11,27 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 05/06/2019
+ms.date: 06/05/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e2b79a1f914bdbc971299493ca00680e2504fbd3
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 7730790495babf4a70fb5a70ce93464faa86f1e3
+ms.sourcegitcommit: 1102e91571c88c7a1a2e021a6c53af1def7bb0a4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476031"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66736528"
 ---
 # <a name="whats-new-for-the-remote-desktop-client-on-android"></a>什么是用于在 Android 上的远程桌面客户端的新功能？
 
 我们会定期更新[适用于 Android 的远程桌面客户端](remote-desktop-android.md)、 添加新功能和修复问题。 请查看以下最新的更新。
+
+## <a name="updates-for-version-8171"></a>针对版本 8.1.71 的更新
+
+*发布的日期：06/05/2019*
+
+- 删除了对 4.0.3 和 4.0.4 的 Android 版本的支持。
+- 修复了具有相同名称的远程资源未正确显示。
+- 更新应用图标。
+- 次要 bug 修复和改进。
 
 ## <a name="updates-for-version-8170"></a>针对版本 8.1.70 的更新
 

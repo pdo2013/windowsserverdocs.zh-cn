@@ -12,12 +12,12 @@ ms.assetid: cdfa9504-9881-4265-b308-c7ee8721bfaa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1a67cda9e4b04e8d861232b48f45915fb2b460d1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0240abfff58baedd79ab038af93b107dbb898eb2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836408"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432938"
 ---
 # <a name="join-computers-to-the-new-windows-server-essentials-server1"></a>将计算机加入到新的 Windows Server Essentials 服务器 1
 
@@ -31,7 +31,7 @@ ms.locfileid: "59836408"
   
  对于加入域的计算机和未加入域的计算机而言，将客户端计算机连接到服务器的过程是相同的。  
   
--   浏览到**http://***目标 servername***/ 连接**并安装 Windows Server 连接器软件，好像这是新计算机。  
+- 浏览到 **http://** <em>destination-servername</em> **/connect** 并安装 Windows Server 连接器软件，就好像这是一台新计算机一样。  
   
 > [!NOTE]
 >  Windows Server 连接器软件不支持运行 Windows XP 或 Windows Vista 的计算机。 如果你拥有已加入域的运行 Windows XP 或 Windows Vista 的计算机，则可以跳过此步骤。  
@@ -65,8 +65,8 @@ ms.locfileid: "59836408"
   
 5.  如果目标服务器仍未出现，则在组策略设置中或者在将它们应用到此特定客户端计算机的过程中可能存在错误。 如果目标服务器未出现，则请执行以下步骤：  
   
-    1.  依次单击“开始” 、“运行” ，键入 **rsop.msc** （生成的策略集），然后按 Enter。  
+    1.  依次单击“开始”  、“运行”  ，键入 **rsop.msc** （生成的策略集），然后按 Enter。  
   
     2.  展开具有对其的 X 的树，直到到达一个节点。  
   
-    3.  右键单击该节点，再单击“查看错误”，以获取有关组策略设置为何无法应用于列出的计算机的信息。
+    3.  右键单击该节点，再单击“查看错误”  ，以获取有关组策略设置为何无法应用于列出的计算机的信息。

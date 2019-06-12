@@ -12,12 +12,12 @@ ms.assetid: 2e6ff6e4-8d68-4d49-9e38-8088bc8bf95e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d4c547c2fec8e2b11e5c1d9bde46e55e91c9d6fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c2345726a17a074fc7022c8c4dc9b2443e9ad384
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884618"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433640"
 ---
 # <a name="automate-installation-of-add-ins-during-setup"></a>在安装过程中自动安装加载项
 
@@ -69,13 +69,13 @@ C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q
   
  自定义的卸载步骤可用于以下任一项：  
   
--   替换内置确认对话框。  
+- 替换内置确认对话框。  
   
--   在卸载之前填充自定义对话框。  
+- 在卸载之前填充自定义对话框。  
   
--   在卸载之前执行特定任务。  
+- 在卸载之前执行特定任务。  
   
- 若要实现卸载步骤，请在 addin.xml 中添加以下内容（直接位于软件包下）：  
+  若要实现卸载步骤，请在 addin.xml 中添加以下内容（直接位于软件包下）：  
   
 ```  
 <Package xmlns="https://schemas.microsoft.com/WindowsServerSolutions/2010/03/Addins" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">  
@@ -103,19 +103,19 @@ C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q
   
  exefile 可在此阶段执行以下任务：  
   
--   弹出一些对话框用于用户交互。  
+- 弹出一些对话框用于用户交互。  
   
--   执行一些后台任务。  
+- 执行一些后台任务。  
   
- 此 exe 文件的退出代码确定卸载过程如何继续：  
+  此 exe 文件的退出代码确定卸载过程如何继续：  
   
--   0：卸载过程继续进行，而不填充内置确认对话框，正如用户已确认一样。 （此方法可以用于替换内置确认对话框）；  
+- 0：卸载过程继续进行，而不填充内置确认对话框，正如用户已确认一样。 （此方法可以用于替换内置确认对话框）；  
   
--   1：取消卸载过程，最后会向用户显示已取消消息。 所有内容都保持不变；  
+- 1：取消卸载过程，最后会向用户显示已取消消息。 所有内容都保持不变；  
   
--   其他：卸载过程继续进行，会出现内置确认对话框，正如不存在自定义卸载步骤一样。  
+- 其他：卸载过程继续进行，会出现内置确认对话框，正如不存在自定义卸载步骤一样。  
   
- 调用 exefile 时出现的任何故障都会产生与 exefile 返回非 0 和 1 的代码相同的行为。  
+  调用 exefile 时出现的任何故障都会产生与 exefile 返回非 0 和 1 的代码相同的行为。  
   
 ## <a name="see-also"></a>请参阅  
  [创建和自定义映像](Creating-and-Customizing-the-Image.md)   

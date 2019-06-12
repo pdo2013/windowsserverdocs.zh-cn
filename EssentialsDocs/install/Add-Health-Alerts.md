@@ -12,12 +12,12 @@ ms.assetid: 270e0aac-dc42-46f3-a20b-a68ffbded06d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cf0c062b92c687f5f7b33b419eafdca2dd3bbbfc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8c3ba4746211690ad52f775b8bdc1ccf9b6c74b7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828508"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433725"
 ---
 # <a name="add-health-alerts"></a>添加运行状况警报
 
@@ -32,13 +32,13 @@ ms.locfileid: "59828508"
   
 #### <a name="to-install-the-xml-files-on-the-server"></a>在服务器上安装 xml 文件  
   
-1.  在 **%ProgramFiles%\Windows Server\Bin\Feature Definitions** 文件夹中，创建一个名为 **MyHealthAddIn**的新文件夹。 你可以为该文件夹指定任何名称。 建议为该文件夹指定与功能名称相同的名称。  
+1. 在 **%ProgramFiles%\Windows Server\Bin\Feature Definitions** 文件夹中，创建一个名为 **MyHealthAddIn**的新文件夹。 你可以为该文件夹指定任何名称。 建议为该文件夹指定与功能名称相同的名称。  
   
-2.  将 Definition.xml 和 Definition.xml.config 文件复制到该新文件夹中。  
+2. 将 Definition.xml 和 Definition.xml.config 文件复制到该新文件夹中。  
   
-3.  如果已创建用于条件或操作的二进制文件，则还应将这些文件复制到 **%ProgramFiles%\Windows Server\Bin**。  
+3. 如果已创建用于条件或操作的二进制文件，则还应将这些文件复制到 **%ProgramFiles%\Windows Server\Bin**。  
   
- 客户端计算机每隔 6 小时运行一次计划任务，将 XML 文件放置到适当的位置。 你可以通过手动运行任务强制执行客户端计算机和服务器之间的同步操作。  
+   客户端计算机每隔 6 小时运行一次计划任务，将 XML 文件放置到适当的位置。 你可以通过手动运行任务强制执行客户端计算机和服务器之间的同步操作。  
   
 #### <a name="to-install-the-xml-files-on-the-client-computer"></a>在客户端计算机上安装 xml 文件  
   

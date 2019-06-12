@@ -12,12 +12,12 @@ ms.assetid: 119a7fbc-2c76-4aa3-8a7f-c7073d461b5b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 83a7f45e91516621400e94c873d59d7cb6976702
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4c89a508745c8db36272aa8d6c646878618656f6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846598"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432878"
 ---
 # <a name="migrate-windows-small-business-server-2003-to-windows-server-essentials"></a>将 Windows Small Business Server 2003 迁移到 Windows Server Essentials
 
@@ -27,14 +27,14 @@ ms.locfileid: "59846598"
   
 > [!IMPORTANT]
 >   Windows Server Essentials 要求 64 位环境。  Windows Server Essentials 不支持 32 位环境。  
-  
+> 
 > [!NOTE]
 >  若要避免在迁移期间出现问题，Windows Server Essentials 产品开发团队强烈建议在开始迁移之前阅读此文档。  
-  
+> 
 > [!NOTE]
-
+> 
 >  若要将你的服务器数据迁移到 Windows Server Essentials 的最新版本，请参阅[迁移到 Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md)。  
-
+> 
 >  若要将你的服务器数据迁移到 Windows Server Essentials 的最新版本，请参阅[迁移到 Windows Server Essentials](../migrate/Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md)。  
 
   
@@ -95,6 +95,6 @@ ms.locfileid: "59846598"
   
 #### <a name="to-open-a-command-prompt-window-on-the-destination-server-as-an-administrator"></a>在目标服务器上以管理员身份打开命令提示符窗口的步骤  
   
-1.  在“开始”屏幕的搜索框中，键入 **cmd**。  
+1.  在“开始”  屏幕的搜索框中，键入 **cmd**。  
   
-2.  在结果列表中，右键单击“cmd”，然后单击“以管理员身份运行”。
+2.  在结果列表中，右键单击“cmd”  ，然后单击“以管理员身份运行”  。

@@ -9,12 +9,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 220b0b72734d1456e3cf877ebc2ff267a7dd56ad
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 167f74522172790d8f5b3fc1dea46d0b7059cd20
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190651"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501683"
 ---
 # <a name="build-a-server-side-application-using-oauth-confidential-clients-with-ad-fs-2016-or-later"></a>生成服务器端应用程序使用 OAuth 机密客户端与 AD FS 2016 或更高版本
 
@@ -83,7 +83,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
 #### <a name="to-upgrade-the-database-file"></a>若要升级的数据库文件  
 
-1.  在 Visual Studio 中打开项目、 将弹出窗口，指出应用程序需要 SQL Server 2102 Express 或你将需要升级数据库。  单击确定。  
+1.  在 Visual Studio 中打开项目、 将弹出窗口，指出应用程序需要 SQL Server 2012 Express 或你将需要升级数据库。  单击确定。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_12.PNG)  
 
@@ -226,25 +226,25 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
 #### <a name="testing-the-confidential-client-solution"></a>测试机密客户端解决方案  
 
-1.  在 Visual Studio 的顶部，请确保选择 Internet Explorer 并单击绿色箭头。  
+1. 在 Visual Studio 的顶部，请确保选择 Internet Explorer 并单击绿色箭头。  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_36.png)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_36.png)  
 
-2.  一旦 ASP.Net 页出现，则单击**注册**上页面的右上方。  输入用户名和密码，然后单击**注册**按钮。  这将在 SQL 数据库中创建本地帐户。  
+2. 一旦 ASP.Net 页出现，则单击**注册**上页面的右上方。  输入用户名和密码，然后单击**注册**按钮。  这将在 SQL 数据库中创建本地帐户。  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_31.PNG)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_31.PNG)  
 
-4.  请注意，现在，ASP.NET 站点显示 Hello abby@contoso.com！。  单击**配置文件**。  
+3. 请注意，现在，ASP.NET 站点显示 Hello abby@contoso.com！。  单击**配置文件**。  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_32.PNG)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_32.PNG)  
 
-5.  这将显示不包含任何信息页面，并说，我们必须单击此处登录。  单击**此处**。  
+4. 这将显示不包含任何信息页面，并说，我们必须单击此处登录。  单击**此处**。  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_33.PNG)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_33.PNG)  
 
-6.  您现在将提示登录到的 AD FS。  
+5. 您现在将提示登录到的 AD FS。  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_35.PNG)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_35.PNG)  
 
 ## <a name="next-steps"></a>后续步骤
 [AD FS 开发](../../ad-fs/AD-FS-Development.md)  

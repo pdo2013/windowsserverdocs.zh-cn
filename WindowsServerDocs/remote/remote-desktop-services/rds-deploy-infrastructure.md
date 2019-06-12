@@ -13,16 +13,16 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: acfdd99fa67e218f58fe650de5607f2a5ba97bf8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5b9ce1bb87a7a2ad8819235edc412fd095bc2985
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833828"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805128"
 ---
 # <a name="deploy-your-remote-desktop-environment"></a>部署远程桌面环境
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server （半年频道），Windows Server 2019，Windows Server 2016
 
 使用以下步骤来部署你的环境中的远程桌面服务器。 可以在物理计算机或虚拟机，具体取决于您在创建的本地基于云或混合环境来安装服务器角色。 
 
@@ -30,11 +30,11 @@ ms.locfileid: "59833828"
   
   
 1.  添加了您将使用远程桌面服务服务器管理器的所有服务器：  
-    1.  在服务器管理器中，单击**管理 > 添加服务器**。  
+    1.  在服务器管理器中，单击**管理** > **添加服务器**。  
     2.  单击**立即查找**。  
     3.  单击部署 （例如，Contoso Cb1、 Contoso-WebGw1 和 Contoso Sh1） 中的每个服务器，然后单击**确定**。  
 2.  创建基于会话的部署来部署远程桌面服务组件：  
-    1.  在服务器管理器中，单击**管理 > 添加角色和功能**。  
+    1.  在服务器管理器中，单击**管理** > **添加角色和功能**。  
     2.  单击**远程桌面服务安装**，**标准部署**，并**基于会话的桌面部署**。  
     3.  选择用于 RD 连接代理服务器、 RD Web 访问服务器和 RD 会话主机服务器的相应服务器 (例如，Contoso Cb1、 Contoso-WebGw1 和 Contoso SH1，分别)。  
     4.  选择**如果需要自动重新启动目标服务器**，然后单击**部署**。  
@@ -79,7 +79,7 @@ ms.locfileid: "59833828"
     5.  接受证书导出向导中的默认选项接受默认值，直到你达到**导出的文件**页。  
     6.  浏览到证书，例如 \Contoso-Cb1\Certificates 创建的共享文件夹。  
     7.  输入文件名，例如 ContosoCbClientCert，然后依次**保存**。  
-    8.  单击“下一步” ，然后单击“完成” 。  
+    8.  单击“下一步”  ，然后单击“完成”  。  
     9.  重复子步骤 1-8 RD 网关和 Web 证书，(例如 contoso.westus.cloudapp.azure.com)，为导出的证书相应的文件的名称，例如**ContosoWebGwClientCert**。  
     10. 在文件资源管理器，导航到的文件夹，其中存储的证书，例如 \Contoso-Cb1\Certificates。  
     11. 选择两个导出的客户端证书，然后右键单击它们，然后单击**复制**。  
@@ -88,7 +88,7 @@ ms.locfileid: "59833828"
     1.  在服务器管理器中，单击**远程桌面服务 > 概述 > 任务 > 编辑部署属性**。  
     2.  展开**RD 网关**并清除**对于本地地址绕过 RD 网关服务器**选项。  
     3.  展开**RD 授权**，然后选择**每个用户**  
-    4.  单击 **“确定”**。  
+    4.  单击 **“确定”** 。  
 10. 创建会话集合。 这些步骤创建一个基本集合。 请查看[创建适用于桌面和应用程序以运行远程桌面服务集合](rds-create-collection.md)有关集合的详细信息。
  
     1.  在服务器管理器中，单击**远程桌面服务 > 集合 > 任务 > 创建会话集合**。  

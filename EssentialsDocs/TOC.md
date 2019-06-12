@@ -76,7 +76,7 @@
 ### [将设置和数据移到目标服务器以进行 Windows Server Essentials 迁移](migrate/Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md)
 ### [将 Windows SBS 2003 设置和数据移到目标服务器以进行 Windows Server Essentials 迁移](migrate/Move-Windows-SBS-2003-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md)
 ### [将 Windows SBS 2008 设置和数据移到目标服务器以进行 Windows Server Essentials 迁移](migrate/Move-Windows-SBS-2008-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md)
-### [将 Windows SBS 2011 Essentials 设置和数据移到目标服务器以进行 Windows Server Essentials 迁移](migrate/Move-Windows-SBS-2011-Essentials-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md)
+### [将 Windows SBS 2011 Essentials 设置和数据移到目标服务器以进行 Windows Server Essentials 迁移](migrate/Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md)
 ### [将 Windows SBS 2011 Standard 设置和数据移到目标服务器进行 Windows Server Essentials 迁移](migrate/Move-Windows-SBS-2011-Standard-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md)
 ### [将 Windows Server 2008 Foundation 设置和数据移动到目标服务器以进行 Windows Server Essentials 迁移](migrate/Move-Windows-Server-2008-Foundation-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md)
 ### [为 Windows Server Essentials 迁移执行迁移后任务](migrate/Perform-post-migration-tasks-for-Windows-Server-Essentials-migration.md)

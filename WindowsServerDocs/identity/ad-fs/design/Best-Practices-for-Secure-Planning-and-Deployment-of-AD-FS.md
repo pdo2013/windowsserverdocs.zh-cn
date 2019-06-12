@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: df1afc77afffd9b737965215a5c9d96f278c8129
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 4a2fb188bd0a46ebd54ae068e8e4eeb63788aaa0
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191666"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501582"
 ---
 # <a name="best-practices-for-secure-planning-and-deployment-of-ad-fs"></a>AD FS 安全规划和部署的最佳做法
 
@@ -23,7 +23,12 @@ ms.locfileid: "66191666"
   
 ## <a name="core-security-best-practices-for-ad-fs"></a>AD FS 的核心安全最佳实践  
 下面的核心最佳实践是普遍适用于所有 AD FS 安装你想要改进或扩展设计或部署的安全性：  
-  
+
+-   **为"第 0 层"系统保护 AD FS** 
+
+    从根本上说，AD FS 是一个身份验证系统。  因此，它应被视为"第 0 层"系统，如网络上其他标识系统。  [Microsoft Docs](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)具有 Active Directory 管理层模型的详细信息。 
+
+
 -   **使用安全配置向导对联合身份验证服务器和联合服务器代理计算机应用特定于 AD FS 的安全最佳方案**  
   
     安全配置向导 (SCW) 是预装在所有 Windows Server 2008、 Windows Server 2008 R2 和 Windows Server 2012 计算机的工具。 基于你安装的服务器角色，你可以使用该向导来应用安全最佳实践，从而帮助减少服务器攻击面。  

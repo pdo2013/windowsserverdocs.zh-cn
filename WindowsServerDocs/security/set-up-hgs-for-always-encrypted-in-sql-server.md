@@ -7,12 +7,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 11/03/2018
-ms.openlocfilehash: 2f800dfa01077287f8200dd8abea0be899776683
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 70f6f8c2db742361deecaa216b053d8b1d057a3d
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866688"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812611"
 ---
 # <a name="setting-up-the-host-guardian-service-for-always-encrypted-with-secure-enclaves-in-sql-server"></a>使用 SQL Server 中安全 enclaves Always encrypted 设置主机保护者服务 
 
@@ -31,7 +31,7 @@ ms.locfileid: "59866688"
 
 本文将帮助你设置 HGS 在推荐的配置。 
 
-## <a name="prerequisites"></a>系统必备 
+## <a name="prerequisites"></a>先决条件 
 
 本部分介绍 HGS 和主机计算机的先决条件。 
 
@@ -39,8 +39,8 @@ ms.locfileid: "59866688"
 
 - 1-3 运行 HGS 服务器。 
 
-  >[!NOTE]
-  >只有 1 HGS 服务器是必需的测试或预生产环境。
+  > [!NOTE]
+  > 只有 1 HGS 服务器是必需的测试或预生产环境。
 
   这些服务器应受到严密的保护，因为它们控制哪些计算机可以运行使用 Always Encrypted 安全 enclaves 和 SQL Server 实例。 
   建议不同管理员管理 HGS 群集并与你基础结构，或在单独的虚拟化结构或 Azure 订阅中的其余部分隔离的物理硬件上运行 HGS。
@@ -110,11 +110,13 @@ Get-CimInstance -ClassName Win32_Tpm -Namespace root/cimv2/Security/MicrosoftTpm
    对于 HgsServiceName，请指定所选的 DNN。
 
    对于 TPM 模式：
+
    ```powershell
    Initialize-HgsAttestation -HgsServiceName 'hgs' -TrustTpm
    ```
 
    对于主机密钥模式：
+
    ```powershell
    Initialize-HgsAttestation -HgsServiceName 'hgs' -TrustHostKey 
    ```
@@ -148,13 +150,13 @@ Get-CimInstance -ClassName Win32_Tpm -Namespace root/cimv2/Security/MicrosoftTpm
 
 默认情况下，当初始化 HGS 服务器时它将 IIS 网站配置为仅限 HTTP 的通信。
 
->[!NOTE]
->配置使用已知和受信任的 HGS 服务器证书的 HTTPS 需要避免拦截的攻击，因此建议对于生产部署中。
+> [!NOTE]
+> 配置使用已知和受信任的 HGS 服务器证书的 HTTPS 需要避免拦截的攻击，因此建议对于生产部署中。
 
 [!INCLUDE [Configure HTTPS](../../includes/configure-hgs-for-https.md)] 
 
->[!NOTE]
->有关使用安全 enclaves 始终加密，需要两台运行 SQL Server 的主机计算机上受信任的 SSL 证书和需要联系 HGS 运行数据库客户端应用程序的计算机。 
+> [!NOTE]
+> 有关使用安全 enclaves 始终加密，需要两台运行 SQL Server 的主机计算机上受信任的 SSL 证书和需要联系 HGS 运行数据库客户端应用程序的计算机。 
 
 ## <a name="collect-attestation-info-from-the-host-machines"></a>从主机收集证明信息
 
@@ -197,6 +199,7 @@ Get-CimInstance -ClassName Win32_Tpm -Namespace root/cimv2/Security/MicrosoftTpm
    ```powershell
    Get-ComputerInfo -Property DeviceGuard* 
    ```
+
 5. 收集的 TPM 标识符和基线：
 
    ```powershell 
@@ -216,6 +219,7 @@ Get-CimInstance -ClassName Win32_Tpm -Namespace root/cimv2/Security/MicrosoftTpm
    Add-HgsAttestationTpmPolicy -Name ServerA-Baseline -Path C:\temp\TpmBaseline-ServerA.tcglog 
    Add-HgsAttestationCiPolicy -Name AllowMicrosoft-Audit -Path C:\temp\AllowMicrosoft-Audit.bin 
    ```
+
 9. 第一台服务器现在已准备好证明 ！ 
    在主机上运行以下命令以告诉它证明 （与 HGS 群集的 DNS 名称，通常将使用 HGS 服务名称与 HGS 域名相结合的更改） 的位置。 
    如果收到 HostUnreachable 错误，请确保可以解析并 ping HGS 服务器的 DNS 名称。 
@@ -231,8 +235,8 @@ Get-CimInstance -ClassName Win32_Tpm -Namespace root/cimv2/Security/MicrosoftTpm
 
 ### <a name="collecting-host-keys"></a>收集主机密钥 
 
->[!NOTE] 
->主机密钥证明仅建议在测试环境中使用。 TPM 证明提供最强的保证 VBS enclaves 处理敏感数据在 SQL Server 上的运行受信任的代码和计算机都配置了推荐的安全设置。 
+> [!NOTE] 
+> 主机密钥证明仅建议在测试环境中使用。 TPM 证明提供最强的保证 VBS enclaves 处理敏感数据在 SQL Server 上的运行受信任的代码和计算机都配置了推荐的安全设置。 
 
 如果你选择在主机密钥证明模式下设置 HGS，将需要生成和从每台主机收集项并将它们注册到主机保护者服务。 
 

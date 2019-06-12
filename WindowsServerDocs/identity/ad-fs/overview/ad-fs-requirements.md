@@ -9,12 +9,12 @@ ms.date: 03/06/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 235030ea913f2fe1860efaa00bdb4641ac56750d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e62032533b15ec3d93896d242273612faafdca58
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188680"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444100"
 ---
 # <a name="ad-fs-requirements"></a>AD FS 要求
 
@@ -191,16 +191,16 @@ AD FS 和 Web 应用程序代理硬件要求 （物理或虚拟） 上 CPU、 �
 ## <a name="BKMK_6"></a>浏览器要求  
 通过浏览器或浏览器控件执行 AD FS 身份验证时，你的浏览器必须符合以下要求：  
   
--   必须启用 JavaScript  
+- 必须启用 JavaScript  
   
--   对于单一登录，必须配置客户端浏览器为允许 cookie  
+- 对于单一登录，必须配置客户端浏览器为允许 cookie  
   
--   服务器名称指示\(SNI\)必须支持  
+- 服务器名称指示\(SNI\)必须支持  
   
--   对于用户证书和设备证书身份验证，在浏览器必须支持 SSL 客户端证书身份验证  
+- 对于用户证书和设备证书身份验证，在浏览器必须支持 SSL 客户端证书身份验证  
 
--   以进行无缝登录使用 Windows 集成身份验证，联合身份验证服务名称 (例如 https:\/\/fs.contoso.com) 必须在本地 intranet 区域或受信任的站点区域中配置。
-## <a name="BKMK_7"></a>网络要求  
+- 以进行无缝登录使用 Windows 集成身份验证，联合身份验证服务名称 (例如 https:\/\/fs.contoso.com) 必须在本地 intranet 区域或受信任的站点区域中配置。
+  ## <a name="BKMK_7"></a>网络要求  
  
 **防火墙要求**  
   
@@ -210,7 +210,7 @@ AD FS 和 Web 应用程序代理硬件要求 （物理或虚拟） 上 CPU、 �
 
 有关其他信息混合端口要求，请参阅[混合标识端口和协议](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports)。 
 
-有关其他信息，请参阅[保护 Active Directory 联合身份验证服务的最佳做法](..\deployment\Best-Practices-Securing-AD-FS.md)
+有关其他信息，请参阅[保护 Active Directory 联合身份验证服务的最佳做法](../deployment/Best-Practices-Securing-AD-FS.md)
   
 **DNS 要求**  
   

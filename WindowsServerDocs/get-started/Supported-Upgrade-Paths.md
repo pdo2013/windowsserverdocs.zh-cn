@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 796ee001e20cff5587c5409f7571d223ff7900a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 299cf420b44e4a15985d00489edf84784316540d
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857938"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810573"
 ---
 # <a name="upgrade-and-conversion-options-for-windows-server-2016"></a>适用于 Windows Server 2016 的升级和转换选项
 
@@ -93,7 +93,7 @@ ms.locfileid: "59857938"
 
 - 在提升的命令提示符下运行 **slmgr.vbs /dlv**；评估版将在输出中包括“EVAL”。
 
-- 从“开始”屏幕中，打开**控制面板**。 打开“系统和安全” ，然后打开“系统” 。 在**系统**页的 Windows 激活区域中查看 Windows 激活状态。 单击 Windows 激活中的**查看详细信息**以了解有关 Windows 激活状态的详细信息。
+- 从“开始”屏幕中，打开**控制面板**。 打开“系统和安全”  ，然后打开“系统”  。 在**系统**页的 Windows 激活区域中查看 Windows 激活状态。 单击 Windows 激活中的**查看详细信息**以了解有关 Windows 激活状态的详细信息。
 
 如果你已经激活 Windows，则桌面会显示评估期的剩余时间。
 
@@ -109,7 +109,8 @@ ms.locfileid: "59857938"
 
 对于 Windows Server 2016 Standard 的评估版，还可以使用这一相同命令和相应的产品密钥通过一个步骤转换为 Windows Server 2016 Datacenter 零售版。
 
-> 提示 有关 Dism.exe 的详细信息，请参阅 [DISM 命令行选项](https://go.microsoft.com/fwlink/?LinkId=192466)。
+> [!TIP] 
+> 有关 Dism.exe 的详细信息，请参阅[DISM 命令行选项](https://go.microsoft.com/fwlink/?LinkId=192466)。
 
 ## <a name="converting-a-current-retail-edition-to-a-different-current-retail-edition"></a>将当前零售版转换为其他某个当前零售版
 
@@ -125,7 +126,3 @@ ms.locfileid: "59857938"
 为此，请从提升的命令提示符处，运行：**slmgr /ipk \<key\>**
 
 其中，\<key\> 是相应的批量许可证、零售或 OEM 产品密钥。
-
-
- 
-

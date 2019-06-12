@@ -13,16 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 848c57736c3530e296cffb970237149b4634de67
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 25c0f997ea0b9f97051baa291bdf87c84b6b1cbb
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266515"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811296"
 ---
 # <a name="bitsadmin-replaceremoteprefix"></a>bitsadmin replaceremoteprefix
-
-
 
 在作业中的所有文件的远程 URL 开头*OldPrefix*更改为使用*NewPrefix*。
 
@@ -43,6 +41,7 @@ bitsadmin /ReplaceRemotePrefix <Job> <OldPrefix> <NewPrefix
 ## <a name="examples"></a>示例
 
 下面的示例更改名为作业中的所有文件*myDownloadJob*其远程 URL 开头 *http://stageserver* 到 *http://prodserver* 。
+
 ```
 C:\>bitsadmin /ReplaceRemotePrefix myDownloadJob http://stageserver http://prodserver
 ```

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: e45d1abb545ad46e654c811a0347c589bd12adf0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e95671718616fc7c81977434e83a227c858fca17
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863238"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811417"
 ---
 # <a name="performance-tuning-remote-desktop-session-hosts"></a>性能优化远程桌面会话主机
 
@@ -21,13 +21,13 @@ ms.locfileid: "59863238"
 
 **本主题内容：**
 
--   [选择适当的硬件的性能](#hw)
+-   [选择适当的硬件的性能](#selecting-the-proper-hardware-for-performance)
 
--   [优化应用程序的远程桌面会话主机](#apps)
+-   [优化应用程序的远程桌面会话主机](#tuning-applications-for-remote-desktop-session-host)
 
--   [优化参数的远程桌面会话主机](#host)
+-   [优化参数的远程桌面会话主机](#remote-desktop-session-host-tuning-parameters)
 
-## <a href="" id="hw"></a>选择适当的硬件的性能
+## <a name="selecting-the-proper-hardware-for-performance"></a>根据性能选择适当的硬件
 
 
 有关 RD 会话主机服务器部署，硬件的选择依据应用程序集和用户如何使用它们。 会影响的用户和他们的体验的关键因素是 CPU、 内存、 磁盘和图形。 本部分包含特定于 RD 会话主机服务器的其他指导原则和主要与 RD 会话主机服务器的多用户环境。
@@ -72,7 +72,7 @@ RD 会话主机服务器的网络使用情况包括两个主要类别：
 
     卷和配置文件的网络流量是特定于每个部署。
 
-## <a href="" id="apps"></a>优化应用程序的远程桌面会话主机
+## <a name="tuning-applications-for-remote-desktop-session-host"></a>优化应用程序的远程桌面会话主机
 
 
 RD 会话主机服务器上的 CPU 使用率的大部分取决于应用程序。 通常，桌面应用程序进行了优化向目标是最大程度减少需要多长时间的应用程序以响应用户请求的响应能力。 但是在服务器环境中，是最大程度减少完成某项操作以避免产生负面影响其他会话所需的 CPU 使用率总量同样非常重要。
@@ -111,7 +111,7 @@ RD 会话主机服务器上的 CPU 使用率的大部分取决于应用程序。
 
     如果可能，请将类似的技术应用于其他类似的执行引擎。
 
-## <a href="" id="host"></a>优化参数的远程桌面会话主机
+## <a name="remote-desktop-session-host-tuning-parameters"></a>优化参数的远程桌面会话主机
 
 
 ### <a name="page-file"></a>页面文件

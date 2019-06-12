@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 93da32a204c42b3f4fb503349ff732c9c050db31
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: b972ab05c192dca9a9a0a2bda4f083d2906acadb
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192626"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812480"
 ---
 # <a name="change-a-drive-letter"></a>更改驱动器号
 
-> **适用于：** Windows 10、 Windows 8.1、 Windows 7、 Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
+> **适用于：** Windows 10、 Windows 8.1、 Windows 7、 Windows Server （半年频道）、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
 
 如果您不喜欢分配到的驱动器的驱动器号，或如果您有尚没有驱动器号的驱动器，可以使用磁盘管理以对其进行更改。
 

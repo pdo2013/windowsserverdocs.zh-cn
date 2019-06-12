@@ -9,12 +9,12 @@ ms.date: 01/28/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 33b782ded2ae1bdd8b00c08b81e4e0ee7f885899
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 62b366b8fa388319a758ab853d28d1c49cb1bf06
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188835"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719717"
 ---
 # <a name="configure-azure-mfa-as-authentication-provider-with-ad-fs"></a>将 Azure MFA 配置为使用 AD FS 身份验证提供程序
 
@@ -65,17 +65,14 @@ Set-AdfsClaimsProviderTrust -AnchorClaimType "http://schemas.xmlsoap.org/ws/2005
 使用 Azure MFA 进行身份验证使用 AD FS 时，以下系统必备组件是必需的：  
   
 - [Azure 订阅与 Azure Active Directory](https://azure.microsoft.com/pricing/free-trial/)。  
-- [Azure 多重身份验证](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/)  
-- Web 应用程序代理是能够通过端口 80 和 443 与以下通信：
-
-    - https://adnotifications.windowsazure.com
-    - https://login.microsoftonline.com
+- [Azure 多重身份验证](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/) 
 
 
 > [!NOTE]
 > Azure AD 和 Azure MFA 都包括在 Azure AD Premium 和企业移动性套件 (EMS)。  如果有任何一种方法不需要单独的订阅。
+
 - Windows Server 2016 AD FS 在本地环境。  
-   - 服务器需要能够通过端口 80 和 443 与以下 Url 通信。
+   - 服务器需要能够通过端口 443 与以下 Url 通信。
       - https://adnotifications.windowsazure.com
       - https://login.microsoftonline.com
 - 在本地环境是[与 Azure AD 联合。](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-get-started-custom/#configuring-federation-with-ad-fs)  

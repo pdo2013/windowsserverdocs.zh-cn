@@ -12,12 +12,12 @@ ms.assetid: ecf19216-7aac-4aca-839a-342ac28f5329
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 293b392203269a65efffcefb3744bedc659f71c9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4756d3735fd710930e0eb124b7b5c58c50078d9e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862018"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432422"
 ---
 # <a name="troubleshoot-windows-server-essentials-installation"></a>Windows Server Essentials 安装疑难解答
 
@@ -42,7 +42,7 @@ ms.locfileid: "59862018"
  如果 Windows Server Essentials 的安装失败，请执行以下步骤来帮助确定导致失败的问题。  
   
 > [!IMPORTANT]
->  非常重要，您不手动重新启动你的服务器安装 Windows Server Essentials 时。 在安装和初始配置期间，服务器将自动重新启动几次。 如果你在看到“服务器安装成功”消息之前已手动重新启动服务器，这可能会中断安装并导致安装失败。  
+>  非常重要，您不手动重新启动你的服务器安装 Windows Server Essentials 时。 在安装和初始配置期间，服务器将自动重新启动几次。 如果你在看到“服务器安装成功”  消息之前已手动重新启动服务器，这可能会中断安装并导致安装失败。  
   
 #### <a name="to-identify-issues-in-a-failed-installation-of-windows-server-essentials"></a>若要确定失败的安装的 Windows Server Essentials 中的问题  
   
@@ -79,26 +79,26 @@ ms.locfileid: "59862018"
   
 ##### <a name="to-manually-install-a-storage-controller-driver"></a>手动安装存储控制器驱动程序  
   
-1.  查找适用于你的存储控制器的驱动程序。 它们由硬件制造商提供，并且也可能位于制造商的网站上。  
+1. 查找适用于你的存储控制器的驱动程序。 它们由硬件制造商提供，并且也可能位于制造商的网站上。  
   
-2.  在软盘驱动器或 U 盘上创建一个名为 DRIVERS 的文件夹，然后将驱动程序复制到该文件夹中。  
+2. 在软盘驱动器或 U 盘上创建一个名为 DRIVERS 的文件夹，然后将驱动程序复制到该文件夹中。  
   
-3.  使用这些驱动程序将软盘驱动器或 U 盘连接到计算机  
+3. 使用这些驱动程序将软盘驱动器或 U 盘连接到计算机  
   
-4.  从 Windows Server Essentials DVD 计算机启动。  
+4. 从 Windows Server Essentials DVD 计算机启动。  
   
-     如果缺少任何存储控制器驱动程序，将显示 Windows Server Essentials 安装错误对话框。  
+    如果缺少任何存储控制器驱动程序，将显示 Windows Server Essentials 安装错误对话框。  
   
-5.  在 Windows Server Essentials 安装错误对话框中，单击**是**加载其他存储驱动程序。  
+5. 在 Windows Server Essentials 安装错误对话框中，单击**是**加载其他存储驱动程序。  
   
-6.  在“请选择驱动程序的 inf 文件”  提示下，导航到软盘驱动器或 U 盘上的 DRIVERS 文件夹中的 .inf 文件、选择该文件、右键单击文件名，然后单击“打开” 。 这将加载驱动程序。  
+6. 在“请选择驱动程序的 inf 文件”  提示下，导航到软盘驱动器或 U 盘上的 DRIVERS 文件夹中的 .inf 文件、选择该文件、右键单击文件名，然后单击“打开”  。 这将加载驱动程序。  
   
-    > [!NOTE]
-    >  在尝试加载该文件之前，请验证其文件扩展名 (.inf) 采用小写字母。 此操作区分大小写，如果文件扩展名包含大写字母，驱动程序文件将不会加载。  
+   > [!NOTE]
+   >  在尝试加载该文件之前，请验证其文件扩展名 (.inf) 采用小写字母。 此操作区分大小写，如果文件扩展名包含大写字母，驱动程序文件将不会加载。  
   
-7.  在提示下，单击“是”  ，使存储驱动程序可在安装程序的文本模式阶段内使用。  
+7. 在提示下，单击“是”  ，使存储驱动程序可在安装程序的文本模式阶段内使用。  
   
- 安装程序现在应继续正常运行。  
+   安装程序现在应继续正常运行。  
   
 ###  <a name="BKMK_AddingNICdrivers"></a> 添加网络适配器驱动程序  
  如果 Windows Server Essentials 不支持在计算机上的网络适配器，您的服务器将没有网络连接之后安装完成，并且你将无法再将计算机连接到你的服务器。  

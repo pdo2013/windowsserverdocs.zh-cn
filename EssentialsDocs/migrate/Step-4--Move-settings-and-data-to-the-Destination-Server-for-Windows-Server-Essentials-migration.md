@@ -12,12 +12,12 @@ ms.assetid: e143df43-e227-4629-a4ab-9f70d9bf6e84
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e5a8db44f80c333d589e0c1664174c394701f90d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fa6ab8e2108e569b7cef6bfbf0d20af4fa31016d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835678"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432577"
 ---
 # <a name="step-4-move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>步骤 4：将设置和数据移到目标服务器以进行 Windows Server Essentials 迁移
 
@@ -40,47 +40,47 @@ ms.locfileid: "59835678"
   
 -   使源服务器上的共享文件夹对所有用户只读，以便在将文件复制到目标服务器时，不会在硬盘驱动器上发生写入操作。  
   
--   “客户端计算机备份”文件夹不能迁移到目标服务器。 在服务器迁移之前，确保所有客户端计算机正常运行。 完成服务器迁移后，建议配置和启动客户端计算机备份，以确保对所有重要客户端计算机的数据进行备份。  
+-   “客户端计算机备份”  文件夹不能迁移到目标服务器。 在服务器迁移之前，确保所有客户端计算机正常运行。 完成服务器迁移后，建议配置和启动客户端计算机备份，以确保对所有重要客户端计算机的数据进行备份。  
   
--   **文件历史记录备份**文件夹不能直接迁移到目标服务器，由于 Windows Server Essentials 中的文件夹结构和备份元数据更改。 但是，可以为特定计算机上的特定用户迁移“文件历史记录备份”文件夹。 若要执行此操作，应在用于该用户和计算机的“文件历史记录备份”文件夹中找到“数据”文件夹，然后将该“数据”文件夹复制到目标服务器上的“文件历史记录备份”文件夹中。  
+-   **文件历史记录备份**文件夹不能直接迁移到目标服务器，由于 Windows Server Essentials 中的文件夹结构和备份元数据更改。 但是，可以为特定计算机上的特定用户迁移“文件历史记录备份”  文件夹。 若要执行此操作，应在用于该用户和计算机的“文件历史记录备份”  文件夹中找到“数据”  文件夹，然后将该“数据”  文件夹复制到目标服务器上的“文件历史记录备份”  文件夹中。  
   
 #### <a name="to-copy-data-from-the-source-server-to-the-destination-server"></a>将数据从源服务器复制到目标服务器  
   
-1.  以域管理员身份登录到目标服务器，然后打开命令提示符窗口或 Windows PowerShell 命令提示。  
+1. 以域管理员身份登录到目标服务器，然后打开命令提示符窗口或 Windows PowerShell 命令提示。  
   
-2.  如果使用命令提示符窗口，则键入以下命令，然后按 ENTER：  
+2. 如果使用命令提示符窗口，则键入以下命令，然后按 ENTER：  
   
-    `robocopy \\<SourceServerName>\<SharedSourceFolderName> "<PathOfTheDestination>\<SharedDestinationFolderName>" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
+   `robocopy \\<SourceServerName>\<SharedSourceFolderName> "<PathOfTheDestination>\<SharedDestinationFolderName>" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
   
-     其中：  
+    其中：  
   
-    -   \<SourceServerName\>是源服务器的名称  
+   - \<SourceServerName\>是源服务器的名称  
   
-    -   \<SharedSourceFolderName\>是源服务器上的共享文件夹的名称  
+   - \<SharedSourceFolderName\>是源服务器上的共享文件夹的名称  
   
-    -   \<PathOfTheDestination\>是你想要移动的文件夹的绝对路径  
+   - \<PathOfTheDestination\>是你想要移动的文件夹的绝对路径  
   
-    -   \<SharedDestinationFolderName\>是数据将复制到目标服务器上的文件夹  
+   - \<SharedDestinationFolderName\>是数据将复制到目标服务器上的文件夹  
   
      例如  `robocopy \\sourceserver\MyData "d:\ServerFolders\MyData" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`。  
   
-3.  如果使用 Windows PowerShell，则键入以下命令，然后按 Enter 键。  
+3. 如果使用 Windows PowerShell，则键入以下命令，然后按 Enter 键。  
   
-     `Add-Wssfolder  Path \ -Name  -KeepPermission`  
+    `Add-Wssfolder  Path \ -Name  -KeepPermission`  
   
-4.  对每个要从源服务器迁移的共享文件夹重复此过程。  
+4. 对每个要从源服务器迁移的共享文件夹重复此过程。  
   
 ##  <a name="BKMK_Network"></a> 配置网络  
   
 #### <a name="to-configure-the-network"></a>配置网络  
   
-1.  在目标服务器上，打开仪表板。  
+1. 在目标服务器上，打开仪表板。  
   
-2.  在仪表板“主页”  页面上，单击“设置” ，单击“设置随处访问” ，然后选择“单击以配置随处访问”  选项。  
+2. 在仪表板“主页”  页面上，单击“设置”  ，单击“设置随处访问”  ，然后选择“单击以配置随处访问”  选项。  
   
-3.  此时会出现“设置随处访问”向导。 完成向导中的说明，配置你的路由器名和域名。  
+3. 此时会出现“设置随处访问”向导。 完成向导中的说明，配置你的路由器名和域名。  
   
- 如果路由器不支持 UPnP 框架，或如果 UPnP 框架已禁用，则路由器名称旁边可能会出现一个黄色的警告图标。 请确保下列端口为打开状态，并且已定向到目标服务器的 IP 地址：  
+   如果路由器不支持 UPnP 框架，或如果 UPnP 框架已禁用，则路由器名称旁边可能会出现一个黄色的警告图标。 请确保下列端口为打开状态，并且已定向到目标服务器的 IP 地址：  
   
 -   端口 80：HTTP Web 流量  
   
@@ -96,15 +96,15 @@ ms.locfileid: "59835678"
   
 1.  打开 Windows Server Essentials 仪表板。  
   
-2.  在导航栏中，单击“用户”。  
+2.  在导航栏中，单击“用户”  。  
   
-3.  在用户帐户列表中，右键单击用户帐户，然后单击“查看帐户属性”。  
+3.  在用户帐户列表中，右键单击用户帐户，然后单击“查看帐户属性”  。  
   
-4.  单击“随处访问”  选项卡，然后单击“允许远程 Web 访问和访问 Web 服务应用程序” 。  
+4.  单击“随处访问”  选项卡，然后单击“允许远程 Web 访问和访问 Web 服务应用程序”  。  
   
-5.  依次单击“共享文件夹”、“计算机”、“主页链接”，然后单击“应用”。  
+5.  依次单击“共享文件夹”  、“计算机”  、“主页链接”  ，然后单击“应用”  。  
   
-6.  单击“计算机访问”选项卡，然后单击要允许访问的计算机的名称。  
+6.  单击“计算机访问”  选项卡，然后单击要允许访问的计算机的名称。  
   
 7.  为每个用户帐户重复步骤 3、4、5 和 6。  
   

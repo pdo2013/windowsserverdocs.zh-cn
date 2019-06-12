@@ -11,12 +11,12 @@ ms.prod: windows-server-threshold
 ms.custom: it-pro
 ms.reviewer: maheshu
 ms.technology: identity-adds
-ms.openlocfilehash: ea56c718394d145a36145d32e5769661a62efd56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: cb9b5b9448f364760c3d2a7e43edd01a5a9f7f9d
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840998"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719666"
 ---
 # <a name="forest-and-domain-functional-levels"></a>林和域功能级别
 
@@ -34,7 +34,7 @@ ms.locfileid: "59840998"
 
 没有任何新的林或此版本中添加的域功能级别。
 
-若要添加 Windows Server 2019 域控制器的最低要求是 Windows Server 2008R2 功能级别。
+若要添加 Windows Server 2019 域控制器的最低要求是 Windows Server 2008 功能级别。 域也必须使用作为引擎 DFS-R 复制 SYSVOL。
 
 ## <a name="windows-server-2016"></a>Windows Server 2016
 
@@ -139,25 +139,27 @@ ms.locfileid: "59840998"
 ### <a name="windows-server-2008-domain-functional-level-features"></a>Windows Server 2008 域功能级别的功能
 
 * 所有默认的 AD DS 功能，所有来自 Windows Server 2003 域功能级别的功能，并提供了以下功能：
-   * 分布式的文件系统 (DFS) 复制支持的 Windows Server 2003 系统卷 (SYSVOL)
-      * DFS 复制支持提供 SYSVOL 内容的更稳健更详细的复制。
-        [!NOTE]>
-        >从 Windows Server 2012 R2 开始，文件复制服务 (FRS) 已弃用。 在至少运行的域控制器创建一个新域为 Windows Server 2008 域功能级别或更高版本，必须设置 Windows Server 2012 R2。
+  * 分布式的文件系统 (DFS) 复制支持的 Windows Server 2003 系统卷 (SYSVOL)
+    * DFS 复制支持提供 SYSVOL 内容的更稳健更详细的复制。
 
-   * 基于域的 DFS 命名空间在 Windows Server 2008 模式，其中包括对基于访问的枚举以及增强的可伸缩性的支持中运行。 在 Windows Server 2008 模式下基于域的命名空间还要求要使用 Windows Server 2003 林功能级别的林中。 有关详细信息，请参阅[选择 Namespace 类型](https://go.microsoft.com/fwlink/?LinkId=180400)。
-   * Kerberos 协议的高级的加密标准 （AES 128 和 AES 256） 支持。 为了使使用 AES 要颁发的 Tgt，域功能级别必须是 Windows Server 2008 或更高版本和域密码需要更改。 
-      * 有关详细信息，请参阅[Kerberos 增强功能](https://technet.microsoft.com/library/cc749438(ws.10).aspx)。
-        [!NOTE]>
-        >身份验证错误后可能会发生在域控制器上域功能级别被提升到 Windows Server 2008 或更高版本的域控制器如果具有已复制 dfl 上更改，但不是刷新 krbtgt 密码。 在这种情况下，重新启动域控制器上的 KDC 服务将触发新的 krbtgt 密码的内存中刷新并解决相关身份验证错误。
+      > [!NOTE]
+      > 从 Windows Server 2012 R2 开始，文件复制服务 (FRS) 已弃用。 在至少运行的域控制器创建一个新域为 Windows Server 2008 域功能级别或更高版本，必须设置 Windows Server 2012 R2。
 
-   * [上次交互式登录](https://go.microsoft.com/fwlink/?LinkId=180387)信息将显示以下信息：
-      * 在已加入域的 Windows Server 2008 server 或 Windows Vista 工作站的失败的登录尝试总次数
-      * 失败的登录尝试后成功登录到 Windows Server 2008 server 或 Windows Vista 工作站的总数
-      * 在 Windows Server 2008 或 Windows Vista 工作站的最后一个失败的登录尝试的时间
-      * 在 Windows Server 2008 server 或 Windows Vista 工作站尝试的上一次成功登录时间
-   * 严格的密码策略使您可以指定域中的密码和帐户锁定策略的用户和全局安全组。 有关详细信息，请参阅[细化密码和帐户锁定策略配置的循序渐进指南](https://go.microsoft.com/fwlink/?LinkID=91477)。
-   * 个人虚拟桌面
-      * 若要使用的 Active Directory 用户和计算机中的用户帐户属性对话框中的个人虚拟桌面选项卡提供的附加的功能，你的 AD DS 架构必须扩展适用于 Windows Server 2008 R2 (架构对象版本 = 47)。 有关详细信息，请参阅[部署个人虚拟桌面通过使用 RemoteApp 和桌面连接循序渐进指南](https://go.microsoft.com/fwlink/?LinkId=183552)。
+  * 基于域的 DFS 命名空间在 Windows Server 2008 模式，其中包括对基于访问的枚举以及增强的可伸缩性的支持中运行。 在 Windows Server 2008 模式下基于域的命名空间还要求要使用 Windows Server 2003 林功能级别的林中。 有关详细信息，请参阅[选择 Namespace 类型](https://go.microsoft.com/fwlink/?LinkId=180400)。
+  * Kerberos 协议的高级的加密标准 （AES 128 和 AES 256） 支持。 为了使使用 AES 要颁发的 Tgt，域功能级别必须是 Windows Server 2008 或更高版本和域密码需要更改。 
+    * 有关详细信息，请参阅[Kerberos 增强功能](https://technet.microsoft.com/library/cc749438(ws.10).aspx)。
+
+      > [!NOTE]
+      >身份验证错误后可能会发生在域控制器上域功能级别被提升到 Windows Server 2008 或更高版本的域控制器如果具有已复制 dfl 上更改，但不是刷新 krbtgt 密码。 在这种情况下，重新启动域控制器上的 KDC 服务将触发新的 krbtgt 密码的内存中刷新并解决相关身份验证错误。
+
+  * [上次交互式登录](https://go.microsoft.com/fwlink/?LinkId=180387)信息将显示以下信息：
+     * 在已加入域的 Windows Server 2008 server 或 Windows Vista 工作站的失败的登录尝试总次数
+     * 失败的登录尝试后成功登录到 Windows Server 2008 server 或 Windows Vista 工作站的总数
+     * 在 Windows Server 2008 或 Windows Vista 工作站的最后一个失败的登录尝试的时间
+     * 在 Windows Server 2008 server 或 Windows Vista 工作站尝试的上一次成功登录时间
+  * 严格的密码策略使您可以指定域中的密码和帐户锁定策略的用户和全局安全组。 有关详细信息，请参阅[细化密码和帐户锁定策略配置的循序渐进指南](https://go.microsoft.com/fwlink/?LinkID=91477)。
+  * 个人虚拟桌面
+     * 若要使用的 Active Directory 用户和计算机中的用户帐户属性对话框中的个人虚拟桌面选项卡提供的附加的功能，你的 AD DS 架构必须扩展适用于 Windows Server 2008 R2 (架构对象版本 = 47)。 有关详细信息，请参阅[部署个人虚拟桌面通过使用 RemoteApp 和桌面连接循序渐进指南](https://go.microsoft.com/fwlink/?LinkId=183552)。
 
 ## <a name="windows-server-2003"></a>Windows Server 2003
 

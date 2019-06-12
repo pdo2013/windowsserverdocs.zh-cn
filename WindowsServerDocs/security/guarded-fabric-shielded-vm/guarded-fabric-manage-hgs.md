@@ -7,12 +7,12 @@ ms.assetid: eecb002e-6ae5-4075-9a83-2bbcee2a891c
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: ed3a3d4c5d0e55126f4dae8ecaf0ba1f32e46317
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dab27e71e42970507f321271edda90f6d161c691
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820218"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447389"
 ---
 # <a name="managing-the-host-guardian-service"></a>管理主机保护者服务
 
@@ -221,7 +221,7 @@ Get-HgsKeyProtectionCertificate | Where-Object { $_.CertificateData.GetType().Na
 这些设置是重要的一致性，但不是严重，若要在发生灾难后获取 HGS 群集重新联机。
 
 若要捕获的 HGS 服务的名称，请运行`Get-HgsServer`并记下证明和密钥保护 Url 中的平面名称。
-例如，如果证明 URL 为"http://hgs.contoso.com/Attestation"，"hgs"是 HGS 服务名称。
+例如，如果证明 URL 为"<http://hgs.contoso.com/Attestation>"，"hgs"是 HGS 服务名称。
 
 使用 HGS 的 Active Directory 域应像任何其他 Active Directory 域进行管理。
 当在发生灾难后还原 HGS，将不一定需要重新创建当前域中存在的准确对象。
@@ -702,10 +702,10 @@ HGS 节点上，执行以下步骤注册新的一对加密和签名证书。
 10. 将更新的 KP 复制回托管构造
 11. 适用于在原始 VM KP:
 
-    ```powershell
-    $updatedKP = Get-Content -Path .\updatedVM001.kp
-    Set-VMKeyProtector -VMName VM001 -KeyProtector $updatedKP
-    ```
+   ```powershell
+   $updatedKP = Get-Content -Path .\updatedVM001.kp
+   Set-VMKeyProtector -VMName VM001 -KeyProtector $updatedKP
+   ```
 12. 最后，启动 VM，并确保其成功运行。
 
 > [!NOTE]
@@ -718,10 +718,10 @@ HGS 节点上，执行以下步骤注册新的一对加密和签名证书。
 
 14. 通过运行以下命令来禁用每个证书：  
 
-    ```powershell
-    Set-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint <Thumbprint> -IsEnabled $false
-    Set-HgsKeyProtectionCertificate -CertificateType Encryption -Thumbprint <Thumbprint> -IsEnabled $false
-    ```
+   ```powershell
+   Set-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint <Thumbprint> -IsEnabled $false
+   Set-HgsKeyProtectionCertificate -CertificateType Encryption -Thumbprint <Thumbprint> -IsEnabled $false
+   ```
 
 15. 确保 Vm 都仍能开始后禁用，证书删除 HGS 通过运行以下命令的证书：
 

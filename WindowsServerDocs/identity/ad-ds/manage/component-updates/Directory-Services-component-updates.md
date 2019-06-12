@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: f3e0553b1919a7f9129d47616d0ffb66b6ff48f8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fe27b61abe196a2148ced18806be904ebd555fcc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874438"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442890"
 ---
 # <a name="directory-services-component-updates"></a>目录服务组件更新
 
@@ -161,12 +161,12 @@ FRS 是 Windows Server 2012 R2 中不推荐使用。  不推荐使用的 FRS 通
 ### <a name="overview"></a>概述  
 LDAP 查询优化器算法已重新计算，并进一步优化。  结果是 LDAP 搜索效率和 LDAP 搜索时间的复杂查询的性能改进。  
   
-> [!NOTE]  
-> **从开发人员：** ESE 查询到查询中通过 LDAP 从映射中的改进搜索性能的改进。  一定程度的复杂性之外的 LDAP 筛选器阻止经过优化的索引选择，从而导致性能显著降低 （1000 x 或以上）。 此更改会改变在其中我们选择索引 LDAP 查询，以避免此问题的方法。  
-  
-> [!NOTE]  
+> [!NOTE]
+> <strong>从开发人员：</strong>ESE 查询到查询中通过 LDAP 从映射中的改进搜索性能的改进。  一定程度的复杂性之外的 LDAP 筛选器阻止经过优化的索引选择，从而导致性能显著降低 （1000 x 或以上）。 此更改会改变在其中我们选择索引 LDAP 查询，以避免此问题的方法。  
+> 
+> [!NOTE]
 > LDAP 查询优化器算法，从而导致了彻底的革新：  
->   
+> 
 > -   缩短搜索时间  
 > -   效率提升允许域控制器来执行更多操作  
 > -   有关 AD 性能问题更少电话支持  

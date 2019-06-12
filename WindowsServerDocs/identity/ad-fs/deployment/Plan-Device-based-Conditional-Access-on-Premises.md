@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ffd7131f7f3772ab47b62c9755008fe3b1c4b274
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 3a78334f64d9e51515757b01f2d788bf87f67a35
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192066"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501607"
 ---
 # <a name="plan-device-based-conditional-access-on-premises"></a>规划基于设备的条件性访问本地
 
@@ -30,7 +30,7 @@ AD FS 提供混合方案中的条件性访问策略上的本地的组件。  与
 ### <a name="types-of-registered-devices"></a>类型的已注册的设备  
 有三种类型的已注册的设备，在 Azure AD 中表示为设备对象和可用于条件性访问与 AD FS 在本地以及所有这些。  
 
-| |添加工作或学校帐户  |加入 Azure AD  |Windows 10 Domian 联接    
+| |添加工作或学校帐户  |加入 Azure AD  |Windows 10 的域加入    
 | --- | --- |--- | --- |
 |描述    |  用户添加他们的工作或学校帐户添加到其 BYOD 设备以交互方式。  **注意：** 添加工作或学校帐户是工作区加入在 Windows 8/8.1 中的替代       | 用户将 Windows 10 工作设备加入 Azure AD。|已加入域的 Windows 10 设备自动注册到 Azure AD。|           
 |用户登录到设备的方式     |  没有登录到 Windows 的工作或学校帐户。  使用 Microsoft 帐户登录。       |   登录到 Windows 以将设备注册的 （工作或学校） 帐户。      |     使用 AD 帐户登录。|      
