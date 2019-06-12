@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 5454f91394dbdc659db85a675d1c8bfac18b2a86
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d56bc89189c3b17367549aeb076633a6ea0e1007
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853918"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442742"
 ---
 # <a name="advanced-active-directory-replication-and-topology-management-using-windows-powershell-level-200"></a>使用 Windows PowerShell 的高级 Active Directory 复制和拓扑管理（级别 200）
 
@@ -228,7 +228,7 @@ Get-ADDomainController -filter * | foreach {Sync-ADObject -object "cn=tony wang,
   
 例如，在快速扩张新的分支机构以及合并其他机构之后，你可能需要基于物理位置、网络更改和新容量要求来更改上百个站点。 可自动进行更改，而不是使用 Dssites.msc 和 Adsiedit.msc。 当你使用由网络和设施团队提供的数据电子表格开始操作时，这一点尤为引人注目。  
   
-**Get Adreplication\***  cmdlet 返回有关复制拓扑的信息，并可用于为通过管道**集 Adreplication\*** 中大容量的 cmdlet。 **获取**cmdlet 不会更改数据，它们仅显示数据或要创建 Windows PowerShell 会话对象，可以通过管道传输到**集 Adreplication\***  cmdlet。 **New** 和 **Remove** cmdlet 用于创建或删除 Active Directory 拓扑对象。  
+**Get Adreplication\\** * cmdlet 返回有关复制拓扑的信息，并可用于为通过管道**集 Adreplication\\** * 中大容量的 cmdlet。 **获取**cmdlet 不会更改数据，它们仅显示数据或要创建 Windows PowerShell 会话对象，可以通过管道传输到**集 Adreplication\\** * cmdlet。 **New** 和 **Remove** cmdlet 用于创建或删除 Active Directory 拓扑对象。  
   
 例如，你可以使用 CSV 文件创建新站点：  
   

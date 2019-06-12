@@ -13,12 +13,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
-ms.openlocfilehash: fceca3c9316cb35a76f1936072bde4225b6f24e7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e50527358dbffa36f8f14e290a548568e3d0635e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877448"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443258"
 ---
 # <a name="additional-resources"></a>其他资源
 
@@ -45,4 +45,4 @@ ms.locfileid: "59877448"
 有关如何管理和配置 Active Directory 域服务 (AD DS) 以及其工作原理的常规信息，请参阅以下资源：
 
 - [管理 Active Directory 操作](https://go.microsoft.com/fwlink/?LinkId=128798)
-- [Active Directory 集合](<https://go.microsoft.com/fwlink/?LinkId=34157)
+- [Active Directory 集合](https://go.microsoft.com/fwlink/?LinkId=34157)

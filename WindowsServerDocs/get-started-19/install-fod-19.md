@@ -9,13 +9,13 @@ author: jasongerend
 ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.date: 05/29/2019
-ms.openlocfilehash: e76b7862549814d5453717c40cec45e341141d7a
-ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.date: 06/07/2019
+ms.openlocfilehash: 747258601aa05885d209aacde6947eb7b05e8121
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66308596"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810801"
 ---
 # <a name="server-core-app-compatibility-feature-on-demand-fod"></a>服务器核心应用兼容性按需功能 (FOD)
 
@@ -64,7 +64,7 @@ ms.locfileid: "66308596"
 
         -   若要运行故障转移群集管理器中，输入**cluadmin**在命令提示符处。
 
-运行 Windows Server 的服务器，1903年和更高版本还支持以下组件：
+运行 Windows Server 的服务器，1903年和更高版本还支持以下组件 （当使用相同版本的应用程序兼容性 FOD）：
 
 - HYPER-V 管理器 (virtmgmt.msc)
 - 任务计划程序 (taskschd.msc)
@@ -104,7 +104,7 @@ ms.locfileid: "66308596"
 
 8. 进度栏完成后，重新启动操作系统。
 
- 有关 DISM 命令的详细信息，请参阅[在 Windows PowerShell 中使用 DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/use-dism-in-windows-powershell-s14)
+   有关 DISM 命令的详细信息，请参阅[在 Windows PowerShell 中使用 DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/use-dism-in-windows-powershell-s14)
 
 ## <a name="to-optionally-add-internet-explorer-11-to-server-core-after-adding-the-server-core-app-compatibility-fod"></a>若要根据需要向 Internet Explorer 11 服务器核心 （在添加服务器核心应用程序兼容性 FOD）
 
@@ -148,8 +148,8 @@ ms.locfileid: "66308596"
 
 - 按常规的点的指导，在服务器上的安装应用核心 （有或没有这些可选包） 它时，有时需要使用无提示安装选项和说明。 
     
- - 例如，SQL Server 2016 和 SQL Server 2017 的 SQL Server Management Studio 可以在 Server Core 上安装且完全正常运行存在应用程序兼容性 FOD 时。  查看，请[从命令提示符安装 SQL Server](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-from-the-command-prompt?view=sql-server-2017)。
- - 如果不需要 SQL Server Management Studio，则无需安装服务器核心应用程序兼容性 FOD。  查看，请[Server Core 上安装 SQL Server](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-on-server-core?view=sql-server-2017)。
+  - 例如，SQL Server 2016 和 SQL Server 2017 的 SQL Server Management Studio 可以在 Server Core 上安装且完全正常运行存在应用程序兼容性 FOD 时。  查看，请[从命令提示符安装 SQL Server](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-from-the-command-prompt?view=sql-server-2017)。
+  - 如果不需要 SQL Server Management Studio，则无需安装服务器核心应用程序兼容性 FOD。  查看，请[Server Core 上安装 SQL Server](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-on-server-core?view=sql-server-2017)。
 
 ## <a name="a-idadd-capabilities-adding-capabilities-and-optional-packages-to-an-offline-wim-server-core-image"></a><a id="add-capabilities"> 将功能和可选包添加到脱机 WIM Server Core 映像
 

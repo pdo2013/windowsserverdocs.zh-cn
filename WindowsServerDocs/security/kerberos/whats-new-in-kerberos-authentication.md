@@ -8,12 +8,12 @@ manager: alanth
 author: justinha
 ms.technology: security-authentication
 ms.date: 11/09/2016
-ms.openlocfilehash: 7b046490c606cdf9e1436f503bf46a9cd4280ea9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 90107bd49268f232fd6d532c304c2fdd050bcbf5
+ms.sourcegitcommit: c6acac3622e5d34714ca5c569805931681f98779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831088"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391497"
 ---
 # <a name="whats-new-in-kerberos-authentication"></a>What's New in Kerberos Authentication
 
@@ -50,6 +50,8 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Paramete
 若要在 Spn 中配置 IP 地址的主机名的支持，创建 TryIPSPN 条目。 默认情况下，注册表中不存在此项。 创建该项后，请将 DWORD 值更改为 1。 如果未配置，不会尝试 IP 地址的主机名。
 
 如果在 Active Directory 中注册 SPN，身份验证成功使用 Kerberos。 
+
+有关详细信息，请查看文档[的 IP 地址配置 Kerberos](configuring-kerberos-over-ip.md)。
 
 ## <a name="kdc-support-for-key-trust-account-mapping"></a>KDC 支持密钥信任帐户映射
 

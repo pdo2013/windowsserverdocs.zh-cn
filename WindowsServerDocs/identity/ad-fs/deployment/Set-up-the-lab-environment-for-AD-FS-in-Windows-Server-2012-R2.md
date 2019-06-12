@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: c08b5bc9917c0eee01342ce71106aae1cc00967d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: c1ead3b649b22429afd1090efecab552aef7ebf8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191950"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442423"
 ---
 # <a name="set-up-the-lab-environment-for-ad-fs-in-windows-server-2012-r2"></a>为 Windows Server 2012 R2 中的 AD FS 设置实验室环境
 
@@ -44,7 +44,7 @@ ms.locfileid: "66191950"
 4.  [步骤 4：配置客户端计算机 (Client1)](../../ad-fs/deployment/../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_10)
 
 ## <a name="BKMK_1"></a>步骤 1:配置域控制器 (DC1)
-为了完成此测试环境，可以调用根 Active Directory 域**contoso.com**并指定**pass@word1**作为管理员密码。
+为了完成此测试环境，可以调用根 Active Directory 域**contoso.com**并指定<strong>pass@word1</strong>作为管理员密码。
 
 -   安装 AD DS 角色服务并安装 Active Directory 域服务 (AD DS) 以在 Windows Server 2012 R2 使您的计算机的域控制器。 此操作将升级为域控制器创建的过程在 AD DS 架构。 有关详细信息和分步说明，请参阅[https://technet.microsoft.com/library/hh472162.aspx](https://technet.microsoft.com/library/hh472162.aspx)。
 
@@ -53,9 +53,9 @@ ms.locfileid: "66191950"
 
 创建以下帐户：
 
--   用户：**Robert Hatley** 具有以下凭据：用户名：**RobertH**和密码： **P@ssword**
+- 用户：**Robert Hatley** 具有以下凭据：用户名：**RobertH**和密码： <strong>P@ssword</strong>
 
--   组：**财务**
+- 组：**财务**
 
 有关如何创建用户和组帐户的 Active Directory (AD) 中的信息，请参阅[ https://technet.microsoft.com/library/cc783323%28v.aspx ](https://technet.microsoft.com/library/cc783323%28v=ws.10%29.aspx)。
 
@@ -96,21 +96,21 @@ ms.locfileid: "66191950"
 
 ##### <a name="to-install-the-federation-service-role-service"></a>安装联合身份验证服务角色服务
 
-1.  登录到使用域管理员帐户 server administrator@contoso.com。
+1. 登录到使用域管理员帐户 server administrator@contoso.com。
 
-2.  启动“服务器管理器”。 若要启动“服务器管理器”，请在 Windows“开始”  屏幕上单击“服务器管理器”  ，或在 Windows 桌面上的 Windows 任务栏中单击“服务器管理器”  。 在“仪表板”  页面上的“欢迎”  磁贴的“快速启动”  选项卡中，单击“添加角色和功能”  。 或者，也可以在“管理”  菜单中单击“添加角色和功能”  。
+2. 启动“服务器管理器”。 若要启动“服务器管理器”，请在 Windows“开始”  屏幕上单击“服务器管理器”  ，或在 Windows 桌面上的 Windows 任务栏中单击“服务器管理器”  。 在“仪表板”  页面上的“欢迎”  磁贴的“快速启动”  选项卡中，单击“添加角色和功能”  。 或者，也可以在“管理”  菜单中单击“添加角色和功能”  。
 
-3.  在“开始之前”  页上，单击“下一步”  。
+3. 在“开始之前”  页上，单击“下一步”  。
 
-4.  在 **“选择安装类型”** 页面上，单击 **“基于角色或基于功能的安装”** ，然后单击 **“下一步”** 。
+4. 在 **“选择安装类型”** 页面上，单击 **“基于角色或基于功能的安装”** ，然后单击 **“下一步”** 。
 
-5.  在“选择目标服务器”  页面上，单击“从服务器池中选择一个服务器”  ，验证目标计算机是否已选中，然后单击“下一步”  。
+5. 在“选择目标服务器”  页面上，单击“从服务器池中选择一个服务器”  ，验证目标计算机是否已选中，然后单击“下一步”  。
 
-6.  在“选择服务器角色”  页面上，单击“Active Directory 联合身份验证服务”  ，然后单击“下一步”  。
+6. 在“选择服务器角色”  页面上，单击“Active Directory 联合身份验证服务”  ，然后单击“下一步”  。
 
-7.  在“选择功能”  页上，单击“下一步”  。
+7. 在“选择功能”  页上，单击“下一步”  。
 
-8.  在“Active Directory 联合身份验证服务 (AD FS)”  页面上，单击“下一步”  。
+8. 在“Active Directory 联合身份验证服务 (AD FS)”  页面上，单击“下一步”  。
 
 9. 在验证“确认安装选择”  页面上的信息后，选中“必要时自动重新启动目标服务器”  复选框，然后单击“安装”  。
 
@@ -181,7 +181,7 @@ ms.locfileid: "66191950"
 
 你可以使用以下过程为联合服务器和设备注册服务将主机 (A) 资源记录添加到公司 DNS 名称服务器。
 
-管理员组中的成员身份或等效身份是完成此过程所需的最低要求。 查看详细了解如何使用适当帐户和组成员身份中的超链接"https://go.microsoft.com/fwlink/?LinkId=83477"本地和域默认组 (https://go.microsoft.com/fwlink/p/?LinkId=83477)。
+管理员组中的成员身份或等效身份是完成此过程所需的最低要求。 查看详细了解如何使用适当帐户和组成员身份中的超链接"<https://go.microsoft.com/fwlink/?LinkId=83477>"本地和域默认组 (<https://go.microsoft.com/fwlink/p/?LinkId=83477>)。
 
 ##### <a name="to-add-a-host-a-and-alias-cname-resource-records-to-dns-for-your-federation-server"></a>为联合服务器将主机 (A) 和别名 (CNAME) 资源记录添加到 DNS
 
@@ -224,24 +224,24 @@ ms.locfileid: "66191950"
 
 ### <a name="BKMK_15"></a>安装 Web 服务器角色和 Windows Identity Foundation
 
-1.  > [!NOTE]
-    > 必须具有对 Windows Server 2012 R2 安装媒体的访问。
+1. > [!NOTE]
+   > 必须具有对 Windows Server 2012 R2 安装媒体的访问。
 
-    通过使用登录到 WebServ1 **administrator@contoso.com**和密码**pass@word1**。
+   通过使用登录到 WebServ1 <strong>administrator@contoso.com</strong>和密码<strong>pass@word1</strong>。
 
-2.  从服务器管理器中，在“仪表板”  页面上的“欢迎”  磁贴的“快速启动”  选项卡上，单击“添加角色和功能”  。 或者，也可以在“管理”  菜单中单击“添加角色和功能”  。
+2. 从服务器管理器中，在“仪表板”  页面上的“欢迎”  磁贴的“快速启动”  选项卡上，单击“添加角色和功能”  。 或者，也可以在“管理”  菜单中单击“添加角色和功能”  。
 
-3.  在“开始之前”  页上，单击“下一步”  。
+3. 在“开始之前”  页上，单击“下一步”  。
 
-4.  在 **“选择安装类型”** 页面上，单击 **“基于角色或基于功能的安装”** ，然后单击 **“下一步”** 。
+4. 在 **“选择安装类型”** 页面上，单击 **“基于角色或基于功能的安装”** ，然后单击 **“下一步”** 。
 
-5.  在“选择目标服务器”  页面上，单击“从服务器池中选择一个服务器”  ，验证目标计算机是否已选中，然后单击“下一步”  。
+5. 在“选择目标服务器”  页面上，单击“从服务器池中选择一个服务器”  ，验证目标计算机是否已选中，然后单击“下一步”  。
 
-6.  在“选择服务器角色”  页面上，选中“Web 服务器 (IIS)”  旁边的复选框，单击“添加功能”  ，然后单击“下一步”  。
+6. 在“选择服务器角色”  页面上，选中“Web 服务器 (IIS)”  旁边的复选框，单击“添加功能”  ，然后单击“下一步”  。
 
-7.  在“选择功能”  页面上，选中“Windows Identity Foundation 3.5”  ，然后单击“下一步”  。
+7. 在“选择功能”  页面上，选中“Windows Identity Foundation 3.5”  ，然后单击“下一步”  。
 
-8.  在“Web 服务器角色 (IIS)”  页面上，单击“下一步”  。
+8. 在“Web 服务器角色 (IIS)”  页面上，单击“下一步”  。
 
 9. 在“选择角色服务”  页面上，选中并展开“应用程序开发”  。 选中“ASP.NET 3.5”  ，单击“添加功能”  ，然后单击“下一步”  。
 
@@ -310,7 +310,7 @@ ms.locfileid: "66191950"
 
     2.  将应用程序配置位置设置为**C:\inetput\claimapp\web.config**并将应用程序的 URI 设置为你的网站，URL  **https://webserv1.contoso.com /claimapp/** 。 单击“下一步”  。
 
-    3.  选择**使用现有 STS**并浏览到你的 AD FS 服务器的元数据 URL **https://adfs1.contoso.com/federationmetadata/2007-06/federationmetadata.xml**。 单击“下一步”  。
+    3.  选择**使用现有 STS**并浏览到你的 AD FS 服务器的元数据 URL **https://adfs1.contoso.com/federationmetadata/2007-06/federationmetadata.xml** 。 单击“下一步”  。
 
     4.  选中“禁用证书链验证”  ，然后单击“下一步”  。
 
@@ -318,7 +318,7 @@ ms.locfileid: "66191950"
 
     6.  选中“计划任务以执行每日 WS 联合身份验证元数据更新”  旁边的复选框。 单击 **“完成”** 。
 
-    7.  现在配置你的示例应用程序。 如果测试应用程序 URL **https://webserv1.contoso.com/claimapp**，它应将你重定向到联合身份验证服务器。 联合服务器应显示一个错误页面，因为你尚未配置信赖方信任。 换而言之，你尚未保护 AD FS 通过此测试应用程序。
+    7.  现在配置你的示例应用程序。 如果测试应用程序 URL **https://webserv1.contoso.com/claimapp** ，它应将你重定向到联合身份验证服务器。 联合服务器应显示一个错误页面，因为你尚未配置信赖方信任。 换而言之，你尚未保护 AD FS 通过此测试应用程序。
 
 现在必须保护与 AD FS web 服务器上运行示例应用程序。 可以通过在你的联合服务器 (ADFS1) 上添加信赖方信任执行此操作。 有关视频，请参阅[Active Directory 联合身份验证服务操作方法视频系列：添加信赖方信任](https://technet.microsoft.com/video/adfs-how-to-add-a-relying-party-trust)。
 
@@ -326,7 +326,7 @@ ms.locfileid: "66191950"
 
 1.  在你的联合服务器 (ADFS1) 上，在“AD FS 管理控制台”  中，导航到“信赖方信任”  ，然后单击“添加信赖方信任”  。
 
-2.  在“选择数据源”  页面上，选中“导入有关信赖方联机或在本地网络上发布的数据”  ，为 **claimapp**输入元数据 URL，然后单击“下一步”  。 运行 FedUtil.exe 创建了元数据 .xml 文件。 它位于**https://webserv1.contoso.com/claimapp/federationmetadata/2007-06/federationmetadata.xml**。
+2.  在“选择数据源”  页面上，选中“导入有关信赖方联机或在本地网络上发布的数据”  ，为 **claimapp**输入元数据 URL，然后单击“下一步”  。 运行 FedUtil.exe 创建了元数据 .xml 文件。 它位于 **https://webserv1.contoso.com/claimapp/federationmetadata/2007-06/federationmetadata.xml** 。
 
 3.  在“指定显示名称”  页面上，为你的信赖方信任指定“显示名称”  ， **claimapp**，然后单击“下一步”  。
 

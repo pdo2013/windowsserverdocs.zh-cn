@@ -8,18 +8,18 @@ ms.author: jol
 ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 41767b9e53c0106931e78f86f8675e413cca0d0a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 84e1ce7864f04550ee25253bcf038afdd7b919fe
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816878"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811675"
 ---
 # <a name="managing-virtual-machines-with-windows-admin-center"></a>管理虚拟机与 Windows Admin Center
 
 >适用于：Windows Admin Center，Windows Admin Center 预览版
 
-虚拟机工具现已推出[服务器](manage-servers.md)，[故障转移群集](manage-failover-clusters.md)或[Hyper-Converged 群集](manage-hyper-converged.md)连接如果服务器或群集上启用 HYPER-V 角色。 可以使用虚拟机工具来管理 HYPER-V 主机运行 Windows Server 2012 或更高版本，或者安装具有桌面体验或作为 Server Core。 此外支持 Hyper-V Server 2012 和 2016年。
+虚拟机工具现已推出[服务器](manage-servers.md)，[故障转移群集](manage-failover-clusters.md)或[Hyper-Converged 群集](manage-hyper-converged.md)连接如果服务器或群集上启用 HYPER-V 角色。 可以使用虚拟机工具来管理 HYPER-V 主机运行 Windows Server 2012 或更高版本，或者安装具有桌面体验或作为 Server Core。 Hyper-V Server 2012，也支持 2016年和 2019年。
 
 ## <a name="key-features"></a>关键功能
 
@@ -37,6 +37,8 @@ Windows Admin Center 中的虚拟机工具的亮点包括：
 - [更改虚拟机设置](#change-virtual-machine-settings)
 - [实时迁移到另一个群集节点的虚拟机](#live-migrate-a-virtual-machine-to-another-cluster-node)
 - [高级的管理和故障排除的单个虚拟机](#advanced-management-and-troubleshooting-for-a-single-virtual-machine)
+- [管理虚拟机通过 HYPER-V 主机 (VMConnect)](#manage-a-virtual-machine-through-the-hyper-v-host-vmconnect)
+- [更改的 HYPER-V 主机设置](#change-hyper-v-host-settings)
 - [查看 HYPER-V 事件日志](#view-hyper-v-event-logs)
 - [使用 Azure Site Recovery 保护虚拟机](#protect-virtual-machines-with-azure-site-recovery)
 
@@ -65,6 +67,7 @@ Windows Admin Center 中的虚拟机工具的亮点包括：
     - [更改虚拟机设置](#change-virtual-machine-settings)。
     - 连接到虚拟机控制台通过 HYPER-V 主机使用 VMConnect。
     - [使用 Azure Site Recovery 的虚拟机复制](#protect-virtual-machines-with-azure-site-recovery)。
+    - 对于操作可以在上运行多个 Vm，如 Start、 关闭、 保存、 暂停、 删除、 重置，你可以选择多个 Vm 并运行在一次操作。
 
 注意：如果连接到群集，虚拟机工具将仅显示群集的虚拟机。 我们计划在将来也显示非群集虚拟机。
 
@@ -77,6 +80,10 @@ Windows Admin Center 中的虚拟机工具的亮点包括：
 3. 输入虚拟机名称，第 1 和 2 代虚拟机之间进行选择。
 4. 如果要在群集上创建虚拟机，可以选择要首先创建虚拟机上的主机。 如果你正在运行 Windows Server 2016 或更高版本，该工具将为您提供主机的建议。
 5. 选择虚拟机文件的路径。 从下拉列表中选择一个卷，或单击**浏览**选择使用文件夹选取器的文件夹。 虚拟机配置文件和虚拟硬盘文件将保存在一个文件夹下`\Hyper-V\\[virtual machine name]`选定的卷或路径的路径。
+
+   >[!Tip]
+   > 在文件夹选取器中，您可以浏览到网络上任何可用的 SMB 共享通过输入中的路径**文件夹名称**字段作为```\\server\share```。 有关 VM 存储将需要使用网络共享[CredSSP](../understand/faq.md#does-windows-admin-center-use-credssp)。
+
 6. 是否需要启用嵌套虚拟化、 配置内存设置、 网络适配器、 虚拟硬盘和选择是否想要从.iso 映像文件或从网络安装操作系统，请选择虚拟处理器的数。
 7. 单击 **“创建”** 创建虚拟机。
 8. 虚拟机创建并显示虚拟机列表中，您可以启动虚拟机。
@@ -88,7 +95,7 @@ Windows Admin Center 中的虚拟机工具的亮点包括：
 
 1. 单击**虚拟机**从左侧导航窗格中的工具。
 2. 在虚拟机工具的顶部，选择**清单**选项卡。从列表中选择虚拟机，然后单击**更多** > **设置**。
-3. 之间进行切换**常规**，**内存**，**处理器**，**磁盘**，**网络**， **启动顺序**并**检查点**选项卡上，配置所需的设置，然后单击**保存**保存当前选项卡的设置。 可用的设置将有所不同根据虚拟机代次。 此外，不能更改某些设置正在运行的虚拟机并将需要首先停止虚拟机。
+3. 之间进行切换**常规**，**安全**，**内存**，**处理器**，**磁盘**， **网络**，**启动顺序**并**检查点**选项卡上，配置所需的设置，然后单击**保存**保存当前选项卡设置。 可用的设置将有所不同根据虚拟机代次。 此外，不能更改某些设置正在运行的虚拟机并将需要首先停止虚拟机。
 
 ## <a name="live-migrate-a-virtual-machine-to-another-cluster-node"></a>实时迁移到另一个群集节点的虚拟机
 
@@ -117,6 +124,26 @@ Windows Admin Center 中的虚拟机工具的亮点包括：
     - 连接到虚拟机控制台通过 HYPER-V 主机使用 VMConnect。
     - [将虚拟机使用 Azure Site Recovery 复制](#protect-virtual-machines-with-azure-site-recovery)。
 
+## <a name="manage-a-virtual-machine-through-the-hyper-v-host-vmconnect"></a>管理虚拟机通过 HYPER-V 主机 (VMConnect)
+
+![通过在 web 浏览器连接 VM](../media/manage-virtual-machines/vm-connect.png)
+
+1. 单击**虚拟机**从左侧导航窗格中的工具。
+2. 在虚拟机工具的顶部，选择**清单**选项卡。从列表中选择虚拟机，然后单击**更多** > **Connect**或**下载 RDP 文件**。 **连接**便可以与通过远程桌面 web 控制台中，在集成到 Windows Admin Center 在来宾 VM 进行交互。 **下载 RDP 文件**会下载.rdp 文件，可以打开与远程桌面连接应用程序 (mstsc.exe)。 这两个选项将使用 VMConnect 连接到通过 HYPER-V 主机在来宾 VM，并将要求您输入的 HYPER-V 主机服务器的管理员凭据。
+
+## <a name="change-hyper-v-host-settings"></a>更改的 HYPER-V 主机设置
+
+![HYPER-V 主机设置屏幕](../media/manage-virtual-machines/host-settings.png)
+
+1. 在服务器、 超聚合群集或故障转移群集连接上，单击**设置**左侧导航窗格底部的菜单。
+2. 在 HYPER-V 主机服务器或群集，你会看到**的 HYPER-V 主机设置**组与以下各节：
+    - 常规：更改虚拟硬盘和虚拟机文件路径和虚拟机监控程序计划类型 （如果支持）
+    - 增强的会话模式
+    - NUMA 跨越
+    - 实时迁移
+    - 存储迁移
+3. 如果你进行任何 HYPER-V 主机中的超聚合群集或故障转移群集的连接设置的更改，更改将应用到所有群集节点中。
+
 ## <a name="view-hyper-v-event-logs"></a>查看 HYPER-V 事件日志
 
 您可以查看 HYPER-V 事件日志直接从虚拟机工具。
@@ -127,21 +154,20 @@ Windows Admin Center 中的虚拟机工具的亮点包括：
 
 ## <a name="protect-virtual-machines-with-azure-site-recovery"></a>使用 Azure Site Recovery 保护虚拟机
 
-可以使用 Windows Admin Center 若要配置 Azure Site Recovery 和你的本地虚拟机复制到 Azure。 [了解详细信息](azure-services.md)
+可以使用 Windows Admin Center 若要配置 Azure Site Recovery 和你的本地虚拟机复制到 Azure。 [了解详细信息](../azure/azure-site-recovery.md)
 
 ## <a name="more-coming"></a>更多
 
 在 Windows Admin Center 中的虚拟机管理正处于开发的主动和将在不久的将来添加新功能。 可以在 UserVoice 中查看状态并进行功能投票：
 
-|功能请求|
-|-------|
-|[导入/导出虚拟机](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31481971--virtual-machines-import-export-vms)|
-|[排序文件夹中的虚拟机](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31494712--virtual-machines-ability-to-sort-vm-into-folder)|
-|[支持其他虚拟机设置](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31915264--virtual-machines-expose-all-configurable-setting)|
-|[HYPER-V 副本支持](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/32040253--virtual-machines-setup-and-manage-hyper-v-replic)|
-|[委托虚拟机的所有权](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31663837--virtual-machines-owner-delegation)|
-|[克隆虚拟机](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31783288--virtual-machines-add-a-button-to-clone-a-vm)|
-|[从现有的虚拟机创建模板](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31494649--virtual-machines-create-a-template-from-an-exist)|
-|[查看所有的 HYPER-V 主机的虚拟机](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31734559--virtual-machines-find-vms-on-host-screen)|
-|[配置新的虚拟机窗格中的 VLAN](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31710979--virtual-machines-new-new-vm-pane-need-vlan-opt)|
-|[**查看所有或提出新功能**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5Bvirtual%20machines%5D)|
+- [导入/导出虚拟机](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31481971--virtual-machines-import-export-vms)
+- [排序文件夹中的虚拟机](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31494712--virtual-machines-ability-to-sort-vm-into-folder)
+- [支持其他虚拟机设置](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31915264--virtual-machines-expose-all-configurable-setting)
+- [HYPER-V 副本支持](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/32040253--virtual-machines-setup-and-manage-hyper-v-replic)
+- [委托虚拟机的所有权](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31663837--virtual-machines-owner-delegation)
+- [克隆虚拟机](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31783288--virtual-machines-add-a-button-to-clone-a-vm)
+- [从现有的虚拟机创建模板](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31494649--virtual-machines-create-a-template-from-an-exist)
+- [查看所有的 HYPER-V 主机的虚拟机](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31734559--virtual-machines-find-vms-on-host-screen)
+- [配置新的虚拟机窗格中的 VLAN](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31710979--virtual-machines-new-new-vm-pane-need-vlan-opt)
+
+[查看所有或提出新功能](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5Bvirtual%20machines%5D)。

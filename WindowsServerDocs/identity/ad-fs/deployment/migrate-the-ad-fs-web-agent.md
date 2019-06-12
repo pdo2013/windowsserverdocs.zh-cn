@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 945a5f4cf0e6c491479b095671ff5e77416c6fa3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7cde62cb23c69a425522e40ed65ee2d40ef28268
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877588"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445589"
 ---
 # <a name="migrate-the-ad-fs-web-agent"></a>迁移 AD FS web 代理
 
@@ -21,14 +21,14 @@ ms.locfileid: "59877588"
   
 > [!IMPORTANT]
 >  迁移的 AD FS 1.1 基于 Windows 令牌的代理只能与随 Windows Server 2008 R2 或 Windows Server 2008 一起安装的 AD FS 1.1 联合身份验证服务一起使用。 有关详细信息，请参阅 [Interoperating with AD FS 1.x](Interoperating-with-AD-FS-1.x.md)。  
->   
+> 
 >  迁移的 AD FS 1.1 声明感知 Web 代理可与以下联合身份验证服务一起使用：  
->   
->  -   随 Windows Server 2008 R2 或 Windows Server 2008 一起安装的 AD FS 1.1 联合身份验证服务  
-> -   在 Windows Server 2008 R2 或 Windows Server 2008 上安装的 AD FS 2.0 联合身份验证服务  
-> -   与 Windows Server 2012 一起安装的 AD FS 联合身份验证服务  
->   
->  有关详细信息，请参阅 [Interoperating with AD FS 1.x](Interoperating-with-AD-FS-1.x.md)。  
+> 
+> - 随 Windows Server 2008 R2 或 Windows Server 2008 一起安装的 AD FS 1.1 联合身份验证服务  
+>   -   在 Windows Server 2008 R2 或 Windows Server 2008 上安装的 AD FS 2.0 联合身份验证服务  
+>   -   与 Windows Server 2012 一起安装的 AD FS 联合身份验证服务  
+> 
+>   有关详细信息，请参阅 [Interoperating with AD FS 1.x](Interoperating-with-AD-FS-1.x.md)。  
   
   
 ## <a name="next-steps"></a>后续步骤

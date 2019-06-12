@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 0ff29ef3-c458-4432-9065-e50a7de5b4b9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 08b07e902486ae633b30949270e15f8bf94afaaf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7828d75d58ff328e826cb685899a76347ce56953
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857488"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812205"
 ---
 # <a name="dynamic-host-configuration-protocol-dhcp"></a>动态主机配置协议 (DHCP)
 
@@ -21,11 +21,11 @@ ms.locfileid: "59857488"
 
 有关 Windows Server 2016 中 DHCP 的简要概述，可以使用本主题。
 
->[!NOTE]
->除了本主题提供了以下 DHCP 文档。
+> [!NOTE]
+> 除了本主题提供了以下 DHCP 文档。
 >
->- [什么是中 DHCP 的新增功能](What-s-New-in-DHCP.md)
->- [使用 Windows PowerShell 将 DHCP 部署](dhcp-deploy-wps.md)
+> - [什么是中 DHCP 的新增功能](What-s-New-in-DHCP.md)
+> - [使用 Windows PowerShell 将 DHCP 部署](dhcp-deploy-wps.md)
 
 动态主机配置协议 (DHCP) 是使用其 IP 地址和其他相关的配置信息如子网掩码和默认网关将自动提供 Internet 协议 (IP) 主机的客户端/服务器协议。 Rfc 2131 和 2132年定义 DHCP 作为 Internet 工程任务组 (IETF) 标准基于上 Bootstrap 协议 (BOOTP)，一种协议与 DHCP 共享许多实现细节。 DHCP 允许主机以从 DHCP 服务器获取所需的 TCP/IP 配置信息。
 

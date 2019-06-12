@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: c3a39f9d51ed8243118522ae37bc7d205a7ea416
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 1a7e59dd83ebc9a9eabd5bda1dc598d320f5028d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192138"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442499"
 ---
 # <a name="export-the-private-key-portion-of-a-server-authentication-certificate"></a>导出服务器身份验证证书的私钥部分
 
@@ -31,24 +31,24 @@ ms.locfileid: "66192138"
   
 ### <a name="to-export-the-private-key-portion-of-a-server-authentication-certificate"></a>导出服务器身份验证证书的私钥部分  
   
-1.  上**启动**屏幕上，键入**Internet Information Services \(IIS\) Manager**，然后按 ENTER。  
+1. 上**启动**屏幕上，键入**Internet Information Services \(IIS\) Manager**，然后按 ENTER。  
   
-2.  在控制台树中，单击“计算机名称”  。  
+2. 在控制台树中，单击“计算机名称”  。  
   
-3.  在中心窗格中，双击\-单击**服务器证书**。  
+3. 在中心窗格中，双击\-单击**服务器证书**。  
   
-4.  在中心窗格中，右键\-单击你想要导出，然后单击该证书**导出**。  
+4. 在中心窗格中，右键\-单击你想要导出，然后单击该证书**导出**。  
   
-5.  在中**导出证书**对话框中，单击 **...** 按钮。  
+5. 在中**导出证书**对话框中，单击 **...** 按钮。  
   
-6.  在中**文件名**，类型 **c:\\* * * NameofCertificate*，然后单击**打开**。  
+6. 在中**文件名**，类型**c:\\** <em>NameofCertificate</em>，然后单击**打开**。  
   
-7.  键入证书的密码、进行确认，然后单击“确定”  。  
+7. 键入证书的密码、进行确认，然后单击“确定”  。  
   
-8.  通过确认指定的文件创建在指定的位置上来验证导出成功。  
+8. 通过确认指定的文件创建在指定的位置上来验证导出成功。  
   
-    > [!IMPORTANT]  
-    > 必须将该文件传输到物理媒体，并在传输到新服务器的过程中保护其安全，以便可以将此证书导入到新服务器上的本地证书存储中。 保护私钥的安全非常重要。 如果此密钥已泄漏，整个 AD FS 部署的安全性\(包括在你的组织和资源伙伴组织中的资源\)遭到破坏。  
+   > [!IMPORTANT]  
+   > 必须将该文件传输到物理媒体，并在传输到新服务器的过程中保护其安全，以便可以将此证书导入到新服务器上的本地证书存储中。 保护私钥的安全非常重要。 如果此密钥已泄漏，整个 AD FS 部署的安全性\(包括在你的组织和资源伙伴组织中的资源\)遭到破坏。  
   
 9. 请在安装联合身份验证服务之前，将已导出的服务器身份验证证书导入到新的服务器上的证书存储区。 有关如何将证书导入的信息，请参阅导入服务器证书\( [http:\/\/go.microsoft.com\/fwlink\/？LinkId\=108283](https://go.microsoft.com/fwlink/?LinkId=108283)\)。  
   

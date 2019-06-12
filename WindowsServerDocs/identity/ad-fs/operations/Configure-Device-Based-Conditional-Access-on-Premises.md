@@ -9,12 +9,12 @@ ms.date: 08/11/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0df290248f049b3f8a823e902cefa860fa074091
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: bcb6c415aae33b9742d7a7080ec169ca947098b9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189850"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445006"
 ---
 # <a name="configure-on-premises-conditional-access-using-registered-devices"></a>使用已注册的设备配置的本地条件性访问
 
@@ -92,11 +92,11 @@ Get-ADObject "cn=schema,cn=configuration,dc=domain,dc=local" -Property objectVer
 
 ![设备注册](media/Configure-Device-Based-Conditional-Access-on-Premises/device2.png)
   
-2.  AD FS 主服务器，请确保 AD DS 企业管理员 (EA) 权限用户登录并打开提升的 powershell 提示符。  然后，执行以下 PowerShell 命令：  
+2. AD FS 主服务器，请确保 AD DS 企业管理员 (EA) 权限用户登录并打开提升的 powershell 提示符。  然后，执行以下 PowerShell 命令：  
     
-    `Import-module activedirectory`  
-    `PS C:\> Initialize-ADDeviceRegistration -ServiceAccountName "<your service account>" ` 
-3.  在弹出窗口上单击是。
+   `Import-module activedirectory`  
+   `PS C:\> Initialize-ADDeviceRegistration -ServiceAccountName "<your service account>" ` 
+3. 在弹出窗口上单击是。
 
 >注意：如果你的 AD FS 服务被配置为使用 GMSA 帐户，则以格式 "domain\accountname$" 输入帐户名称
 
@@ -111,7 +111,7 @@ Get-ADObject "cn=schema,cn=configuration,dc=domain,dc=local" -Property objectVer
 
 ![设备注册](media/Configure-Device-Based-Conditional-Access-on-Premises/device4.png)  
 
-4.  完成后，你将看到一条指示成功完成的消息。
+4. 完成后，你将看到一条指示成功完成的消息。
 
 ![设备注册](media/Configure-Device-Based-Conditional-Access-on-Premises/device5.png) 
 
@@ -131,9 +131,9 @@ Get-ADObject "cn=schema,cn=configuration,dc=domain,dc=local" -Property objectVer
 
 ![设备注册](media/Configure-Device-Based-Conditional-Access-on-Premises/device7.png) 
 
-3.  运行以下 PowerShell 命令 
+3. 运行以下 PowerShell 命令 
 
-    `PS C:>Initialize-ADSyncDomainJoinedComputerSync -AdConnectorAccount [AD connector account name] -AzureADCredentials $aadAdminCred ` 
+   `PS C:>Initialize-ADSyncDomainJoinedComputerSync -AdConnectorAccount [AD connector account name] -AzureADCredentials $aadAdminCred ` 
 
 其中，[AD connector account name] 是在添加你的本地 AD DS 目录时你在 Azure AD Connect 中配置的帐户的名称。
   
@@ -180,7 +180,7 @@ Get-ADObject "cn=schema,cn=configuration,dc=domain,dc=local" -Property objectVer
 - CN=&lt;guid&gt;, CN=Device Registration 上类型 serviceConnectionpoint 的对象
 
 - Configuration,CN=Services,CN=Configuration,DC=&lt;domain&gt;  
- - 新对象上指定的 AD 连接器帐户名称的读取/写入访问权限</br></br> 
+  - 新对象上指定的 AD 连接器帐户名称的读取/写入访问权限</br></br> 
 
 
 - 对象类型 msDS-DeviceRegistrationServiceContainer 在 CN = Device Registration Services，CN = Device Registration Configuration，CN = Services，CN = Configuration，DC = & ltdomain >  

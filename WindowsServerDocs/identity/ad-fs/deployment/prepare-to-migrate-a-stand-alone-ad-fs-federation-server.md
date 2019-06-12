@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0c1fd2bc1026d9aee25c591cf5c91a1c59f66ee0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4d2b8a9c35b106a237b47d1bd062026469af59a0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834488"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444478"
 ---
 #  <a name="prepare-to-migrate-a-stand-alone-ad-fs-federation-server-or-a-single-node-ad-fs-farm"></a>准备迁移独立 AD FS 联合服务器或单节点 AD FS 场  
  
@@ -43,14 +43,14 @@ ms.locfileid: "59834488"
 >   
 >  导出 SSL 证书是可选的，因为此证书存储在本地计算机个人证书存储中，并且在操作系统升级过程中保留。  
   
-2.  记录 AD FS 服务通信的配置、令牌解密和令牌签名证书。  若要查看使用的所有证书，请打开 Windows PowerShell 并运行以下命令，将 AD FS cmdlet 添加到你的 Windows PowerShell 会话： `PSH:>add-pssnapin “Microsoft.adfs.powershell”`。 然后运行以下命令，在文件中创建所有使用中证书的列表 `PSH:>Get-ADFSCertificate | Out-File “.\certificates.txt”`。  
+2. 记录 AD FS 服务通信的配置、令牌解密和令牌签名证书。  若要查看使用的所有证书，请打开 Windows PowerShell 并运行以下命令，将 AD FS cmdlet 添加到你的 Windows PowerShell 会话： `PSH:>add-pssnapin “Microsoft.adfs.powershell”`。 然后运行以下命令，在文件中创建所有使用中证书的列表 `PSH:>Get-ADFSCertificate | Out-File “.\certificates.txt”`。  
   
 > [!NOTE]
 >  或者，除了所有自签名证书以外，你还可以导出任何令牌签名、令牌加密或服务通信证书和非内部生成的密钥。 你可以通过使用 Windows PowerShell 查看在你的服务器上使用的所有证书。 打开 Windows PowerShell 并运行以下命令，将 AD FS cmdlet 添加到你的 Windows PowerShell 会话： `PSH:>add-pssnapin “Microsoft.adfs.powershell`。 然后运行以下命令以查看你的服务器正在使用的所有证书 `PSH:>Get-ADFSCertificate`。 此命令的输出包括指定每个证书的存储位置的 StoreLocation 和 StoreName 值。 然后，你可以使用[导出服务器身份验证证书的私钥部分](Export-the-Private-Key-Portion-of-a-Server-Authentication-Certificate.md)中的指南，将每个证书及其私钥导出到 .pfx 文件。  
 >   
 >  导出这些证书是可选的，因为在操作系统升级过程中将保留所有外部证书。  
   
-3.  将 AD FS 2.0 联合身份验证服务属性（例如联合身份验证服务名称、联合身份验证服务显示名称和联合服务器标识符）导出到文件。  
+3. 将 AD FS 2.0 联合身份验证服务属性（例如联合身份验证服务名称、联合身份验证服务显示名称和联合服务器标识符）导出到文件。  
   
 若要导出联合身份验证服务属性，请打开 Windows PowerShell 并运行以下命令，将 AD FS cmdlet 添加到你的 Windows PowerShell 会话： `PSH:>add-pssnapin “Microsoft.adfs.powershell”`。 然后运行以下命令以导出联合身份验证服务属性：`PSH:> Get-ADFSProperties | Out-File “.\properties.txt”`。  
   
@@ -63,7 +63,7 @@ ms.locfileid: "59834488"
 |标识符|联合身份验证服务标识符|  
 |DisplayName|联合身份验证服务显示名称|  
   
-4.  备份应用程序配置文件。 除了其他设置以外，此文件还包含策略数据库连接字符串。  
+4. 备份应用程序配置文件。 除了其他设置以外，此文件还包含策略数据库连接字符串。  
   
 若要备份应用程序配置文件，必须手动将 `%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config` 文件复制到备份服务器上的安全位置。  
   
@@ -72,18 +72,18 @@ ms.locfileid: "59834488"
 >   
 >  以下是 WID 连接字符串的示例：`“Data Source=\\.\pipe\mssql$microsoft##ssee\sql\query;Initial Catalog=AdfsConfiguration;Integrated Security=True"`。 以下是 SQL Server 连接字符串的示例：`"Data Source=databasehostname;Integrated Security=True"`。  
   
-5.  记录 AD FS 2.0 联合身份验证服务帐户的标识以及此帐户的密码。  
+5. 记录 AD FS 2.0 联合身份验证服务帐户的标识以及此帐户的密码。  
   
 若要查找标识值，请在“服务”  控制台中查看“AD FS 2.0 Windows 服务”  的“登录为”  列并手动记录此值。  
   
 > [!NOTE]
 >  对于独立的联合身份验证服务，将使用内置的 NETWORK SERVICE 帐户。  在此情况下，你不需要使用密码。  
   
-6.  将已启用的 AD FS 终结点列表导出到文件中。  
+6. 将已启用的 AD FS 终结点列表导出到文件中。  
   
 为此，请打开 Windows PowerShell 并运行以下命令，将 AD FS cmdlet 添加到你的 Windows PowerShell 会话： `PSH:>add-pssnapin “Microsoft.adfs.powershell”`。 然后运行以下命令，将启用的 AD FS 终结点的列表导出到文件： `PSH:> Get-ADFSEndpoint | Out-File “.\endpoints.txt”`。  
   
-7.  将所有自定义声明说明导出到文件中。  
+7. 将所有自定义声明说明导出到文件中。  
   
 为此，请打开 Windows PowerShell 并运行以下命令，将 AD FS cmdlet 添加到你的 Windows PowerShell 会话： `PSH:>add-pssnapin “Microsoft.adfs.powershell”`。 然后运行以下命令将任何自定义声明说明导出到文件：`Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`。  
   

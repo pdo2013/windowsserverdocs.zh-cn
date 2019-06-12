@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c42cffec0ddc1ae480ae67982147e9f186f0e50a
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 5cd345230ce5c0fc556bfd8b421d866bd827507b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222862"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812452"
 ---
 # <a name="convert-a-gpt-disk-into-an-mbr-disk"></a>将 GPT 磁盘转换为 MBR 磁盘
 
-> **适用于：** Windows 10、 Windows 8.1、 Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
+> **适用于：** Windows 10、 Windows 8.1、 Windows Server （半年频道）、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
 
 主启动记录 (MBR) 磁盘使用标准 BIOS 分区表。 GUID 分区表 (GPT) 磁盘使用统一可扩展固件接口 (UEFI)。 MBR 磁盘不支持每个磁盘上超过四个分区。 对于大于 2 TB 的磁盘，不建议使用 MBR 分区方法。
 
@@ -56,16 +56,12 @@ ms.locfileid: "66222862"
 
 7.  在 **DISKPART** 提示符下，键入 `convert mbr`。
 
-<br />
-
-| ReplTest1 | 描述 |
-| --- | --- |
-| <p>**list disk**</p> | <p>显示磁盘列表和有关磁盘的信息，例如磁盘大小、可用空间量、磁盘是基本磁盘还是动态磁盘，以及磁盘是使用主启动记录 (MBR) 还是 GUID 分区表 (GPT) 分区样式。 用星号 (*) 标记的磁盘具有焦点。</p> |
-| <p>**选择磁盘**</p> | <p>选择指定的磁盘（其中 <em>disknumber</em> 是磁盘编号），并赋予其焦点。</p> | <p>**clean**</p> | <p>从具有焦点的磁盘中删除所有分区或卷。</p> |
-| <p>**将 mbr 转换**</p> | <p>将具有 GUID 分区表 (GPT) 分区样式的空基本磁盘转换为具有主启动记录 (MBR) 分区样式的基本磁盘。</p>
+|                ReplTest1                  |      描述   |
+| ------------------------------------- | -----------------  |
+|  <strong>list disk</strong>  | 显示磁盘列表和有关磁盘的信息，例如磁盘大小、可用空间量、磁盘是基本磁盘还是动态磁盘，以及磁盘是使用主启动记录 (MBR) 还是 GUID 分区表 (GPT) 分区样式。 磁盘标有星号 (\*) 具有焦点。 |
+| <strong>选择磁盘</strong> |                                                                                                          选择指定的磁盘（其中 <em>disknumber</em> 是磁盘编号），并赋予其焦点。                                                                                                           |
+| <strong>将 mbr 转换</strong> |                                                                               将具有 GUID 分区表 (GPT) 分区样式的空基本磁盘转换为具有主启动记录 (MBR) 分区样式的基本磁盘。                                                                                |
 
 ## <a name="see-also"></a>请参阅
 
 -   [命令行语法表示法](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)
-
-

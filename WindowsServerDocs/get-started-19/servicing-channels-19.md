@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: 625d71edd00ce404cee9525e06a2237d8be4cfcb
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: dee19cd5a30b7d913a7faeeaa38368cee8a91895
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976463"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442295"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Windows Server 服务通道：LTSC 和 SAC
 
@@ -52,14 +52,15 @@ ms.locfileid: "65976463"
 
 下表总结了不同频道之间的主要差异：
 
-|  | 长期服务频道 (Windows Server 2019) |半年频道 (Windows Server) |
-| ------------------- | ------------------------------------ | ------------------------------------------------- |
-|建议应用场景 | 通用文件服务器、Microsoft 和非 Microsoft 工作负载、传统应用、基础架构角色、软件定义数据中心和超级集成基础架构 | 容器化应用程序、容器主机和受益于更快创新的应用程序方案 |
-| 最新发布 | 每 2 - 3 年 |每 6 个月 |
-| 支持 |5 年的主流支持和 5 年的延长支持 | 18 个月 |
-| 版本 | 所有可用的 Windows Server 版本 | 标准版和数据中心版 |
-| 谁可以使用 | 所有频道的所有客户 | 仅软件保障客户和云客户 |
-| 安装选项 | Server Core 和带桌面体验的 Server | 容器主机服务器核心、映像和 Nano Server 容器映像 |                |
+
+|                       |                                                              长期服务频道 (Windows Server 2019)                                                               |                                   半年频道 (Windows Server)                                   |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| 建议应用场景 | 通用文件服务器、Microsoft 和非 Microsoft 工作负载、传统应用、基础架构角色、软件定义数据中心和超级集成基础架构 | 容器化应用程序、容器主机和受益于更快创新的应用程序方案 |
+|     最新发布      |                                                                               每 2 - 3 年                                                                                |                                              每 6 个月                                              |
+|        支持        |                                                       5 年的主流支持和 5 年的延长支持                                                        |                                                18 个月                                                 |
+|       版本        |                                                                    所有可用的 Windows Server 版本                                                                     |                                     标准版和数据中心版                                     |
+|      谁可以使用      |                                                                      所有频道的所有客户                                                                      |                               仅软件保障客户和云客户                                |
+| 安装选项  |                                                                Server Core 和带桌面体验的 Server                                                                |                 容器主机服务器核心、映像和 Nano Server 容器映像                 |
 
 ## <a name="device-compatibility"></a>设备兼容性
 

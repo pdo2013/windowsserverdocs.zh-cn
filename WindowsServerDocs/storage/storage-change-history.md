@@ -7,14 +7,14 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.date: 03/25/2019
+ms.date: 06/04/2019
 description: 面向 IT 专业人员的本地存储空间文档适用于 Windows Server 中的新的和更新主题。
-ms.openlocfilehash: fa3da6e14c36fecfa48c3688a36518babb257920
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 3245e6bc5320cc0ffae01817a8f7b9caeaa6c685
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192685"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501490"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Windows Server 中存储主题的更改历史记录
 
@@ -22,7 +22,13 @@ ms.locfileid: "66192685"
 
 本主题列出了新的和更新主题[存储](storage.md)适用于 Windows Server 文档。
 
-> 如果您正在寻找适用于 Windows Server 更新历史记录，请参阅[Windows Server 2016 和 Windows 10 更新历史记录](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history)。
+> 如果您正在寻找适用于 Windows Server 更新历史记录，请参阅[Windows 10 和 Windows Server 2019 更新历史记录](https://support.microsoft.com/help/4464619)或[Windows Server 2016 更新历史记录](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history)。
+
+## <a name="june-2019"></a>2019 年 6 月
+
+| 新的或已更改的主题                                        | 描述|
+| ---                                                         | ---           |
+| [存储迁移服务常见问题解答](storage-migration-service/faq.md#consolidate-servers) | 已添加了性能优化信息。 |
 
 ## <a name="may-2019"></a>2019 年 5 月
 
@@ -36,7 +42,7 @@ ms.locfileid: "66192685"
 
 |新的或已更改的主题                                        |描述|
 |---                                                         |---           |
-|[使用 Azure Monitor 的监视器](storage-spaces/configure-azure-monitor.md)| 新增|
+|[使用 Azure Monitor 进行监视](storage-spaces/configure-azure-monitor.md)| 新增|
 |[将存储空间直通群集升级为 Windows Server 2019](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)| 新增        |
 |[DFS 复制](dfs-replication/dfsr-overview.md)        | 从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770278(v%3dws.11))库|
 
@@ -105,7 +111,7 @@ ms.locfileid: "66192685"
 |[在独立服务器上部署存储空间](storage-spaces/deploy-standalone-storage-spaces.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
 |[NTFS 概述](file-server/ntfs-overview.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
 |[使用 DFS 复制到预先播种文件 Robocopy](dfs-replication/preseed-dfsr-with-robocopy.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
-|[Vssadmin-以前版本的命令行工具](..\administration\windows-commands\vssadmin.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
+|[Vssadmin-以前版本的命令行工具](../administration/windows-commands/vssadmin.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
 |[文件服务器资源管理器概述](fsrm/fsrm-overview.md)| 添加了有关 Windows Server 2016，1803年版中新的注册表设置的信息。|
 |[服务器到服务器存储复制](storage-replica/server-to-server-storage-replication.md)|使用 Windows Admin Center 的添加的信息。|
 |[存储副本的已知问题](storage-replica/storage-replica-known-issues.md)|已添加新信息。|
@@ -195,13 +201,13 @@ ms.locfileid: "66192685"
 
 ## <a name="may-2017"></a>2017 年 5 月
 
-|新的或已更改的主题|描述|
-|---|---|
-|[数据重复删除概述](data-deduplication/overview.md)和 <br>[安装重复数据删除](data-deduplication/install-enable.md)|已更新系统要求以包含更新的软件更新。 |
-|[部署工作文件夹](work-folders/deploy-work-folders.md)|已添加与 Azure AD 应用程序代理支持及更新的所需步骤相关的信息。|
-|[部署存储空间直通](storage-spaces/deploy-storage-spaces-direct.md)|已将所需功能添加至步骤 1.3 并且解决了 Enable-NetAdapterQos 中作废参数的问题。||[存储副本概述](storage-replica/storage-replica-overview.md)（和其他存储副本主题）|已添加将快速、专用的存储用于存储副本日志的建议。|
-|[存储副本方面的常见问题](storage-replica/storage-replica-frequently-asked-questions.md)|已添加与如何选择不同的复制拓扑相关的信息|
-|[存储空间直通的硬件要求](storage-spaces/storage-spaces-direct-hardware-requirements.md)|已更改缓存设备的驱动器耐久性要求。|
+|                                                           新的或已更改的主题                                                           |                                          描述                                           |
+|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| [数据重复删除概述](data-deduplication/overview.md)和 <br>[安装重复数据删除](data-deduplication/install-enable.md) |              已更新系统要求以包含更新的软件更新。               |
+|                                      [部署工作文件夹](work-folders/deploy-work-folders.md)                                       |         已添加与 Azure AD 应用程序代理支持及更新的所需步骤相关的信息。          |
+|                            [部署存储空间直通](storage-spaces/deploy-storage-spaces-direct.md)                             | 已将所需功能添加至步骤 1.3 并且解决了 Enable-NetAdapterQos 中作废参数的问题。 |
+|               [存储副本方面的常见问题](storage-replica/storage-replica-frequently-asked-questions.md)                |             已添加与如何选择不同的复制拓扑相关的信息              |
+|               [存储空间直通的硬件要求](storage-spaces/storage-spaces-direct-hardware-requirements.md)               |                    已更改缓存设备的驱动器耐久性要求。                     |
 
 ## <a name="april-2017"></a>2017 年 4 月
 

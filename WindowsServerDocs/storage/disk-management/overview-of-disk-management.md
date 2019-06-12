@@ -1,23 +1,23 @@
 ---
 title: 磁盘管理概述
 description: 磁盘管理是使您可以执行高级的存储的任务，例如初始化一个新的驱动器、 扩展卷，收缩分区，并更改驱动器号的 Windows 中的系统实用程序。
-ms.date: 4/2/2018
+ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 2a467c64a3e0ff38b5165b9e001fc2deb2d92148
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a3885ae6b09ad431fd1ea5e4c593e02c7bb274d9
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819278"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812547"
 ---
 # <a name="overview-of-disk-management"></a>磁盘管理概述
 
-> **适用于：** Windows 10、 Windows 8.1、 Windows 7、 Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
+> **适用于：** Windows 10、 Windows 8.1、 Windows 7、 Windows Server （半年频道）、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
 
 磁盘管理是使您可以执行的高级的存储任务的 Windows 中的系统实用程序。 下面是一些磁盘管理是适用于的内容：
 

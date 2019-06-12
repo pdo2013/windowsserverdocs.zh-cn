@@ -7,12 +7,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 5f2c3ec4b2c434ea945d86c4b1593e2e416a5123
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 40c0f6df31061268b1e1ef8c15b0a02b0f50b0de
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819228"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447472"
 ---
 # <a name="prerequisites-for-guarded-hosts"></a>受保护的主机的先决条件
 
@@ -45,15 +45,15 @@ ms.locfileid: "59819228"
 > 主机保护者 HYPER-V 支持功能，可能与某些设备不兼容的代码完整性的基于虚拟化的保护。 我们强烈建议启用此功能前在实验室中测试此配置。 如果不这样做，可能会导致意外故障，其中包括数据丢失或蓝屏错误（也称为停止错误）。 有关详细信息，请参阅[与基于 Windows Server 虚拟化的代码完整性保护兼容的硬件](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md)。
 
 **下一步：** 
->[!div class="nextstepaction"]
-[捕获 TPM 信息](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md)
+> [!div class="nextstepaction"]
+> [捕获 TPM 信息](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md)
 
 ## <a name="host-key-attestation"></a>主机密钥证明
 
 使用主机密钥证明的受保护的主机必须满足以下先决条件：
 
 - **硬件**:任何服务器，能够使用 Windows Server 2019 运行的 HYPER-V 开始
-- **操作系统**:Windows Server 2019 Datacenter edition
+- **操作系统**:Windows Server 2019 Datacenter Edition
 - **角色和功能**:HYPER-V 角色和主机保护者 HYPER-V 支持功能 
 
 主机可以联接到域或工作组。 
@@ -61,8 +61,8 @@ ms.locfileid: "59819228"
 对主机密钥证明，必须运行 Windows Server 2019 HGS 的大小和 v2 证明操作。 有关详细信息请参阅[HGS 先决条件](guarded-fabric-prepare-for-hgs.md#prerequisites)。 
 
 **下一步：** 
->[!div class="nextstepaction"]
-[创建密钥对](guarded-fabric-create-host-key.md)
+> [!div class="nextstepaction"]
+> [创建密钥对](guarded-fabric-create-host-key.md)
 
 ## <a name="admin-trusted-attestation"></a>受信任的管理员证明
 
@@ -84,5 +84,5 @@ HYPER-V 主机必须满足 AD 模式下的以下先决条件：
 > 主机保护者 HYPER-V 支持功能，可能与某些设备不兼容的代码完整性的基于虚拟化的保护。 我们强烈建议启用此功能前在实验室中测试此配置。 如果不这样做，可能会导致意外故障，其中包括数据丢失或蓝屏错误（也称为停止错误）。 有关详细信息，请参阅[与基于 Windows Server 2016 虚拟化的代码完整性保护兼容的硬件](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md)。
 
 **下一步：** 
->[!div class="nextstepaction"]
-[安全组中置于受保护的主机](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md)
+> [!div class="nextstepaction"]
+> [安全组中置于受保护的主机](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md)

@@ -9,20 +9,20 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: a4bbeeedfb40e789a799103f9a29a848a2b32324
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6055d9b694f72a6a874acdcb5135fde61bcf0d76
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877348"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442749"
 ---
 # <a name="ca-backup-and-restore-windows-powershell-cmdlets"></a>CA 备份和还原 Windows PowerShell cmdlet
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
->
-**作者**:与 Windows 组的 Justin Turner，高级支持呈报工程师  
-  
-> [!NOTE]  
+> 适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+> 
+> **作者**:与 Windows 组的 Justin Turner，高级支持呈报工程师  
+> 
+> [!NOTE]
 > 本内容由 Microsoft 客户支持工程师编写，适用于正在查找比 TechNet 主题通常提供的内容更深入的有关 Windows Server 2012 R2 中的功能和解决方案的技术说明的有经验管理员和系统架构师。 但是，它未经过相同的编辑审批，因此某些语言可能看起来不如通常在 TechNet 上找到的内容那么精练。  
   
 ## <a name="overview"></a>概述  

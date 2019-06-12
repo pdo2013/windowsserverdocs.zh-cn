@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
-ms.openlocfilehash: 194a418fe6b33e312a3f2529e82d50d76cd15f4c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8ac4f8e7cd0aed5a81e89672354622dd81afce2a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842478"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446181"
 ---
 # <a name="netsh-interface-portproxy-commands"></a>Netsh 界面端口代理命令
 
@@ -84,13 +84,13 @@ add v4tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 ### <a name="parameters"></a>Parameters
 
 
-| | |
-|-----|--------|----------|
-| **listenport**     | 指定的 IPv4 端口，端口号或服务名称，要侦听。                                                                                                                      | 必需 |
-| **connectaddress** | 指定要连接到的 IPv4 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |          |
-| **connectport**    | 指定的 IPv4 端口，端口号或服务名称，要连接到。 如果**connectport**未指定，默认的值为**为 listenport**本地计算机上。              |          |
-| **listenaddress**  | 指定要侦听的 IPv4 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |          |
-| **protocol**       | 指定要使用的协议。                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           指定的 IPv4 端口，端口号或服务名称，要侦听。                                                            |
+| **connectaddress** | 指定要连接到的 IPv4 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |
+|  **connectport**   |       指定的 IPv4 端口，端口号或服务名称，要连接到。 如果**connectport**未指定，默认的值为**为 listenport**本地计算机上。        |
+| **listenaddress**  | 指定要侦听的 IPv4 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |
+|    **protocol**    |                                                                                  指定要使用的协议。                                                                                   |
 
 ## <a name="add-v4tov6"></a>添加 v4tov6
 
@@ -104,13 +104,13 @@ add v4tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address |
 
 ### <a name="parameters"></a>Parameters
 
-|   |   |
-|-----------|-------------|----------|
-| **listenport**     | 指定的 IPv4 端口，端口号或服务名称，要侦听。       | 必需 |
-| **connectaddress** | 指定要连接的 IPv6 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |          |
-| **connectport**    | 指定的 IPv6 端口，端口号或服务名称，要连接到。 如果**connectport**未指定，默认的值为**为 listenport**本地计算机上。              |          |
-| **listenaddress**  | 指定要侦听的 IPv4 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。  |          |
-| **protocol**       | 指定要使用的协议。                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           指定的 IPv4 端口，端口号或服务名称，要侦听。                                                            |
+| **connectaddress** | 指定要连接的 IPv6 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |
+|  **connectport**   |       指定的 IPv6 端口，端口号或服务名称，要连接到。 如果**connectport**未指定，默认的值为**为 listenport**本地计算机上。        |
+| **listenaddress**  | 指定要侦听的 IPv4 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。  |
+|    **protocol**    |                                                                                  指定要使用的协议。                                                                                   |
 
 ## <a name="add-v6tov4"></a>添加 v6tov4
 
@@ -124,13 +124,13 @@ add v6tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 
 ### <a name="parameters"></a>Parameters
 
-|   |   |
-|------------|-------------|----------|
-| **listenport**     | 指定的 IPv6 端口，端口号或服务名称，要侦听。              | 必需 |
-| **connectaddress** | 指定要连接到的 IPv4 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |          |
-| **connectport**    | 指定的 IPv4 端口，端口号或服务名称，要连接到。 如果**connectport**未指定，默认的值为**为 listenport**本地计算机上。              |          |
-| **listenaddress**  | 指定要侦听的 IPv6 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。  |          |
-| **protocol**       | 指定要使用的协议。      |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           指定的 IPv6 端口，端口号或服务名称，要侦听。                                                            |
+| **connectaddress** | 指定要连接到的 IPv4 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |
+|  **connectport**   |       指定的 IPv4 端口，端口号或服务名称，要连接到。 如果**connectport**未指定，默认的值为**为 listenport**本地计算机上。        |
+| **listenaddress**  | 指定要侦听的 IPv6 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。  |
+|    **protocol**    |                                                                                  指定要使用的协议。                                                                                   |
 
 ## <a name="add-v6tov6"></a>添加 v6tov6
 
@@ -144,13 +144,13 @@ add v6tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address |
 
 ### <a name="parameters"></a>Parameters
 
-|   |   |
-|-------------|------------------|----------|
-| **listenport**     | 指定的 IPv6 端口，端口号或服务名称，要侦听。       | 必需 |
-| **connectaddress** | 指定要连接的 IPv6 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |          |
-| **connectport**    | 指定的 IPv6 端口，端口号或服务名称，要连接到。 如果**connectport**未指定，默认的值为**为 listenport**本地计算机上。              |          |
-| **listenaddress**  | 指定要侦听的 IPv6 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。  |          |
-| **protocol**       | 指定要使用的协议。                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           指定的 IPv6 端口，端口号或服务名称，要侦听。                                                            |
+| **connectaddress** | 指定要连接的 IPv6 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |
+|  **connectport**   |       指定的 IPv6 端口，端口号或服务名称，要连接到。 如果**connectport**未指定，默认的值为**为 listenport**本地计算机上。        |
+| **listenaddress**  | 指定要侦听的 IPv6 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。  |
+|    **protocol**    |                                                                                  指定要使用的协议。                                                                                   |
 
 ## <a name="delete-v4tov4"></a>删除 v4tov4
 
@@ -164,11 +164,11 @@ delete v4tov4 listenport= {Integer | ServiceName} [[listenaddress=] {IPv4Address
 
 ### <a name="parameters"></a>Parameters
 
-|   |   |
-|-------------------|----------------------------------------------------------------------------------------------------------|----------|
-| **listenport**    | 指定要删除的 IPv4 端口。                                                                       | 必需 |
-| **listenaddress** | 指定要删除的 IPv4 地址。 如果不指定地址，则默认为本地计算机。 |          |
-| **protocol**      | 指定要使用的协议。                                                                           |          |
+|                   |                                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------------|
+|  **listenport**   |                                    指定要删除的 IPv4 端口。                                    |
+| **listenaddress** | 指定要删除的 IPv4 地址。 如果不指定地址，则默认为本地计算机。 |
+|   **protocol**    |                                      指定要使用的协议。                                      |
 
 ## <a name="delete-v4tov6"></a>delete v4tov6
 
@@ -182,11 +182,11 @@ delete v4tov6 listenport= {Integer | ServiceName} [[listenaddress=] {IPv4Address
 
 ### <a name="parameters"></a>Parameters
 
-|   |   |
-|-------------------|----------------------------------------------------------------------------------------------------------|----------|
-| **listenport**    | 指定要删除的 IPv4 端口。                                                                       | 必需 |
-| **listenaddress** | 指定要删除的 IPv4 地址。 如果不指定地址，则默认为本地计算机。 |          |
-| **protocol**      | 指定要使用的协议。                                                                           |          |
+|                   |                                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------------|
+|  **listenport**   |                                    指定要删除的 IPv4 端口。                                    |
+| **listenaddress** | 指定要删除的 IPv4 地址。 如果不指定地址，则默认为本地计算机。 |
+|   **protocol**    |                                      指定要使用的协议。                                      |
 
 ## <a name="delete-v6tov4"></a>删除 v6tov4
 
@@ -200,11 +200,11 @@ delete v6tov4 listenport= {Integer | ServiceName} [[listenaddress=] {IPv6Address
 
 ### <a name="parameters"></a>Parameters
 
-|   |   |
-|-------------------|----------------------------------------------------------------------------------------------------------|----------|
-| **listenport**    | 指定要删除的 IPv6 端口。                                                                       | 必需 |
-| **listenaddress** | 指定要删除的 IPv6 地址。 如果不指定地址，则默认为本地计算机。 |          |
-| **protocol**      | 指定要使用的协议。                                                                           |          |
+|                   |                                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------------|
+|  **listenport**   |                                    指定要删除的 IPv6 端口。                                    |
+| **listenaddress** | 指定要删除的 IPv6 地址。 如果不指定地址，则默认为本地计算机。 |
+|   **protocol**    |                                      指定要使用的协议。                                      |
 
 ## <a name="delete-v6tov6"></a>删除 v6tov6
 
@@ -218,11 +218,11 @@ delete v6tov6 listenport= {Integer | ServiceName} [[listenaddress=] {IPv6Address
 
 ### <a name="parameters"></a>Parameters
 
-|   |   |
-|-------------------|----------------------------------------------------------------------------------------------------------|----------|
-| **listenport**    | 指定要删除的 IPv6 端口。                                                                       | 必需 |
-| **listenaddress** | 指定要删除的 IPv6 地址。 如果不指定地址，则默认为本地计算机。 |          |
-| **protocol**      | 指定要使用的协议。                                                                           |          |
+|                   |                                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------------|
+|  **listenport**   |                                    指定要删除的 IPv6 端口。                                    |
+| **listenaddress** | 指定要删除的 IPv6 地址。 如果不指定地址，则默认为本地计算机。 |
+|   **protocol**    |                                      指定要使用的协议。                                      |
 
 ## <a name="reset"></a>reset
 
@@ -244,13 +244,13 @@ set v4tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 
 ### <a name="parameters"></a>Parameters
 
-|   |   |
-|--------------------|---------------------------|----------|
-| **listenport**     | 指定的 IPv4 端口，端口号或服务名称，要侦听。     | 必需 |
-| **connectaddress** | 指定要连接到的 IPv4 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |          |
-| **connectport**    | 指定的 IPv4 端口，端口号或服务名称，要连接到。 如果**connectport**未指定，默认的值为**为 listenport**本地计算机上。              |          |
-| **listenaddress**  | 指定要侦听的 IPv4 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |          |
-| **protocol**       | 指定要使用的协议。                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           指定的 IPv4 端口，端口号或服务名称，要侦听。                                                            |
+| **connectaddress** | 指定要连接到的 IPv4 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |
+|  **connectport**   |       指定的 IPv4 端口，端口号或服务名称，要连接到。 如果**connectport**未指定，默认的值为**为 listenport**本地计算机上。        |
+| **listenaddress**  | 指定要侦听的 IPv4 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |
+|    **protocol**    |                                                                                  指定要使用的协议。                                                                                   |
 
 ## <a name="set-v4tov6"></a>set v4tov6
 
@@ -264,13 +264,13 @@ set v4tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address |
 
 ### <a name="parameters"></a>Parameters
 
-|   |   |
-|--------------------|---------------------|----------|
-| **listenport**     | 指定的 IPv4 端口，端口号或服务名称，要侦听。     | 必需 |
-| **connectaddress** | 指定要连接的 IPv6 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |          |
-| **connectport**    | 指定的 IPv6 端口，端口号或服务名称，要连接到。 如果**connectport**未指定，默认的值为**为 listenport**本地计算机上。              |          |
-| **listenaddress**  | 指定要侦听的 IPv4 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。  |          |
-| **protocol**       | 指定要使用的协议。                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           指定的 IPv4 端口，端口号或服务名称，要侦听。                                                            |
+| **connectaddress** | 指定要连接的 IPv6 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |
+|  **connectport**   |       指定的 IPv6 端口，端口号或服务名称，要连接到。 如果**connectport**未指定，默认的值为**为 listenport**本地计算机上。        |
+| **listenaddress**  | 指定要侦听的 IPv4 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。  |
+|    **protocol**    |                                                                                  指定要使用的协议。                                                                                   |
 
 ## <a name="set-v6tov4"></a>set v6tov4
 
@@ -284,13 +284,13 @@ set v6tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 
 ### <a name="parameters"></a>Parameters
 
-|   |   |
-|--------------------|----------------------|----------|
-| **listenport**     | 指定的 IPv6 端口，端口号或服务名称，要侦听。      | 必需 |
-| **connectaddress** | 指定要连接到的 IPv4 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |          |
-| **connectport**    | 指定的 IPv4 端口，端口号或服务名称，要连接到。 如果**connectport**未指定，默认的值为**为 listenport**本地计算机上。              |          |
-| **listenaddress**  | 指定要侦听的 IPv6 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。  |          |
-| **protocol**       | 指定要使用的协议。                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           指定的 IPv6 端口，端口号或服务名称，要侦听。                                                            |
+| **connectaddress** | 指定要连接到的 IPv4 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。 |
+|  **connectport**   |       指定的 IPv4 端口，端口号或服务名称，要连接到。 如果**connectport**未指定，默认的值为**为 listenport**本地计算机上。        |
+| **listenaddress**  | 指定要侦听的 IPv6 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。  |
+|    **protocol**    |                                                                                  指定要使用的协议。                                                                                   |
 
 ## <a name="set-v6tov6"></a>set v6tov6
 
@@ -304,13 +304,13 @@ set v6tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address |
 
 ### <a name="parameters"></a>Parameters
 
-|   |   |
-|--------------------|-------------------------|----------|
-| **listenport**     | 指定的 IPv6 端口，端口号或服务名称，要侦听。   | 必需 |
-| **connectaddress** | 指定要连接的 IPv6 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。  |          |
-| **connectport**    | 指定的 IPv6 端口，端口号或服务名称，要连接到。 如果**connectport**未指定，默认的值为**为 listenport**本地计算机上。               |          |
-| **listenaddress**  | 指定要侦听的 IPv6 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定一个地址，则默认为本地计算机。 |          |
-| **protocol**       | 指定要使用的协议。                                                                                                                                                                     |          |
+|                    |                                                                                                                                                                                                    |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                            指定的 IPv6 端口，端口号或服务名称，要侦听。                                                            |
+| **connectaddress** | 指定要连接的 IPv6 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定地址，则默认为本地计算机。  |
+|  **connectport**   |        指定的 IPv6 端口，端口号或服务名称，要连接到。 如果**connectport**未指定，默认的值为**为 listenport**本地计算机上。        |
+| **listenaddress**  | 指定要侦听的 IPv6 地址。 可接受的值是 IP 地址、 计算机 NetBIOS 名称或计算机 DNS 名称。 如果不指定一个地址，则默认为本地计算机。 |
+|    **protocol**    |                                                                                   指定要使用的协议。                                                                                   |
 
 ## <a name="show-all"></a>显示所有
 

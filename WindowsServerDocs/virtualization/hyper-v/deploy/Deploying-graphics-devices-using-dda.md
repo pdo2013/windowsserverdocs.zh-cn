@@ -9,12 +9,12 @@ ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 67a01889-fa36-4bc6-841d-363d76df6a66
-ms.openlocfilehash: 9e9a36df39c7bd7a96cc8c5681e83bf263ee5f8e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6c528535fd34f57957a37992843933d4cd9f8824
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833868"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447868"
 ---
 # <a name="deploy-graphics-devices-using-discrete-device-assignment"></a>部署使用离散设备分配的图形设备
 
@@ -42,19 +42,19 @@ Set-VM -Name VMName -AutomaticStopAction TurnOff
 
 如果以某种方式中的 VM 配置，某些硬件更好地执行。  有关需要以下配置为你的硬件的详细信息，请联系硬件供应商联系。 可以在上找到其他详细信息[规划部署的设备使用离散设备分配](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md)和此[博客文章。](https://blogs.technet.microsoft.com/virtualization/2015/11/23/discrete-device-assignment-gpus/)
 
-1.  启用写组合在 CPU 上
-```
-Set-VM -GuestControlledCacheTypes $true -VMName VMName
-```
-2.  配置的 32 位 MMIO 空间
-```
-Set-VM -LowMemoryMappedIoSpace 3Gb -VMName VMName
-```
-3.  配置大于 32 位 MMIO 空间
-```
-Set-VM -HighMemoryMappedIoSpace 33280Mb -VMName VMName
-```
-请注意，上面的 MMIO 空间值是合理的值来对单个 GPU 进行试验。  如果在启动 VM 后, 设备报告为没有足够的资源相关的错误，可能需要修改这些值。  此外，如果您要分配多个 Gpu，需要增加这些值。
+1. 启用写组合在 CPU 上
+   ```
+   Set-VM -GuestControlledCacheTypes $true -VMName VMName
+   ```
+2. 配置的 32 位 MMIO 空间
+   ```
+   Set-VM -LowMemoryMappedIoSpace 3Gb -VMName VMName
+   ```
+3. 配置大于 32 位 MMIO 空间
+   ```
+   Set-VM -HighMemoryMappedIoSpace 33280Mb -VMName VMName
+   ```
+   请注意，上面的 MMIO 空间值是合理的值来对单个 GPU 进行试验。  如果在启动 VM 后, 设备报告为没有足够的资源相关的错误，可能需要修改这些值。  此外，如果您要分配多个 Gpu，需要增加这些值。
 
 ## <a name="dismount-the-device-from-the-host-partition"></a>卸除主分区的设备
 ### <a name="optional---install-the-partitioning-driver"></a>可选-安装分区驱动程序
@@ -69,14 +69,14 @@ PCI 位置路径需要卸载并从主机装入设备。  示例位置路径看�
 
 ### <a name="dismount-the-device"></a>卸载设备
 具体取决于供应商提供了缓解驱动程序，如果您将需要使用"-force"选项或不。
--   如果已安装缓解驱动程序
-```
-Dismount-VMHostAssignableDevice -LocationPath $locationPath
-```
--   如果未安装缓解驱动程序
-```
-Dismount-VMHostAssignableDevice -force -LocationPath $locationPath
-```
+- 如果已安装缓解驱动程序
+  ```
+  Dismount-VMHostAssignableDevice -LocationPath $locationPath
+  ```
+- 如果未安装缓解驱动程序
+  ```
+  Dismount-VMHostAssignableDevice -force -LocationPath $locationPath
+  ```
 
 ## <a name="assigning-the-device-to-the-guest-vm"></a>将设备分配给来宾 VM
 最后一步是告知 HYPER-V VM 应该有权访问设备。  除了上面找到的位置路径，将需要知道的 vm 的名称。

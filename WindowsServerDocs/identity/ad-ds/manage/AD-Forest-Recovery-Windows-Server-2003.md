@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: e2af1bfc295469d43e59593d69d4ba88f476e427
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: 1a9db8b4cdfbb4cc7d7edc2a17a3e747943fb073
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034147"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442800"
 ---
 # <a name="ad-forest-recovery---windows-server-2003-recovery"></a>AD 林恢复-Windows Server 2003 恢复
 
@@ -112,10 +112,10 @@ ms.locfileid: "65034147"
 
 10. 键入以下命令，然后按 Enter：  
 
-   **net start netlogon**
+    **net start netlogon**
 
-   > [!NOTE]
-   > Net Logon 将 DC 定位器资源记录在 DNS 中注册为此 DC。 如果在子域中的服务器上安装 DNS 服务器服务，此 DC 不能立即注册其记录。 这是因为它是当前隔离的因为恢复过程中，并将其主 DNS 服务器的一部分是林根 DNS 服务器。 使用相同的 IP 地址，因为它在发生灾难，以避免 DC 服务查找失败之前配置此计算机。
+    > [!NOTE]
+    > Net Logon 将 DC 定位器资源记录在 DNS 中注册为此 DC。 如果在子域中的服务器上安装 DNS 服务器服务，此 DC 不能立即注册其记录。 这是因为它是当前隔离的因为恢复过程中，并将其主 DNS 服务器的一部分是林根 DNS 服务器。 使用相同的 IP 地址，因为它在发生灾难，以避免 DC 服务查找失败之前配置此计算机。
 
 ## <a name="next-steps"></a>后续步骤
 

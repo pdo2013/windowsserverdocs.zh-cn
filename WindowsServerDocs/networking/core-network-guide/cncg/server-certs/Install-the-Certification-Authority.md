@@ -8,12 +8,12 @@ ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 84e4b2fe0b59820b9e51229335f3539bcbeeec90
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1774d235703bd75d810f2649cb8ed3f2f92622d5
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860738"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811595"
 ---
 # <a name="install-the-certification-authority"></a>安装证书颁发机构
 
@@ -38,21 +38,21 @@ ms.locfileid: "59860738"
   
 ### <a name="to-install-active-directory-certificate-services"></a>若要安装 Active Directory 证书服务  
 
->[!TIP]
->如果你想要使用 Windows PowerShell 来安装 Active Directory 证书服务，请参阅[Install-adcscertificationauthority](https://docs.microsoft.com/powershell/module/adcsdeployment/install-adcscertificationauthority?view=win10-ps) cmdlet 和可选参数。
+> [!TIP]
+> 如果你想要使用 Windows PowerShell 来安装 Active Directory 证书服务，请参阅[Install-adcscertificationauthority](https://docs.microsoft.com/powershell/module/adcsdeployment/install-adcscertificationauthority?view=win10-ps) cmdlet 和可选参数。
   
 1.  以 Enterprise Admins 组和根域的 Domain Admins 组的成员身份登录。  
   
-2.  在“服务器管理器”中，单击“管理”，然后单击“添加角色和功能”。 将打开“添加角色和功能向导”。  
+2.  在“服务器管理器”中，单击“管理”  ，然后单击“添加角色和功能”  。 将打开“添加角色和功能向导”。  
   
-3.  在“开始之前”中单击“下一步”。  
+3.  在“开始之前”  中单击“下一步”  。  
   
     > [!NOTE]  
-    > 如果以前运行“添加角色和功能向导”时选择了 **“默认跳过此页”**，则“添加角色和功能向导”的 **“开始之前”** 页不会显示。  
+    > 如果以前运行“添加角色和功能向导”时选择了 **“默认跳过此页”** ，则“添加角色和功能向导”的 **“开始之前”** 页不会显示。  
   
-4.  在 **“选择安装类型”** 中，确保选中 **“基于角色或基于功能的安装”**，然后单击 **“下一步”**。  
+4.  在 **“选择安装类型”** 中，确保选中 **“基于角色或基于功能的安装”** ，然后单击 **“下一步”** 。  
   
-5.  在 **“选择目标服务器”** 中，确保选中 **“从服务器池中选择一个服务器”**。 在 **“服务器池”** 中，确保选中了本地计算机。 单击“下一步” 。  
+5.  在 **“选择目标服务器”** 中，确保选中 **“从服务器池中选择一个服务器”** 。 在 **“服务器池”** 中，确保选中了本地计算机。 单击“下一步”  。  
   
 6.  在中**选择服务器角色**，在**角色**，选择**Active Directory 证书服务**。 当系统提示添加必需的功能时，单击**添加功能**，然后单击**下一步**。  
   
@@ -60,7 +60,7 @@ ms.locfileid: "59860738"
   
 8.  在中**Active Directory 证书服务**，阅读提供的信息，然后单击**下一步**。  
   
-9. 在 **“确认安装选择”** 中，单击 **“安装”**。 不要在安装过程中关闭该向导。 安装完成后，单击**配置 Active Directory 证书服务在目标服务器上**。 AD CS 配置向导将打开。 读取凭据信息和必要时，该帐户是 Enterprise Admins 组的成员提供的凭据。 单击“下一步” 。  
+9. 在 **“确认安装选择”** 中，单击 **“安装”** 。 不要在安装过程中关闭该向导。 安装完成后，单击**配置 Active Directory 证书服务在目标服务器上**。 AD CS 配置向导将打开。 读取凭据信息和必要时，该帐户是 Enterprise Admins 组的成员提供的凭据。 单击“下一步”  。  
   
 10. 在中**角色服务**，单击**证书颁发机构**，然后单击**下一步**。  
   
@@ -70,13 +70,13 @@ ms.locfileid: "59860738"
   
 13. 上**指定的类型的私匙**页上，确认**创建新的私钥**已选择，然后单击**下一步**。  
   
-14. 上**为 CA 加密**页上，保留默认设置用于 CSP (**RSA #Microsoft Software Key Storage Provider**) 和哈希算法 (**SHA2**)，并确定最佳你的部署的的密钥字符长度。 大型密钥字符长度提供最佳安全性;但是，它们可能会影响服务器性能并且可能不是与旧版应用程序兼容。 建议您保留默认设置为 2048年。 单击“下一步” 。  
+14. 上**为 CA 加密**页上，保留默认设置用于 CSP (**RSA #Microsoft Software Key Storage Provider**) 和哈希算法 (**SHA2**)，并确定最佳你的部署的的密钥字符长度。 大型密钥字符长度提供最佳安全性;但是，它们可能会影响服务器性能并且可能不是与旧版应用程序兼容。 建议您保留默认设置为 2048年。 单击“下一步”  。  
   
-15. 上**CA 名称**页上，保留 CA 的建议公用名或根据您的需求将名称更改。 请确保您已确定 CA 名称是符合命名约定和目的，因为不能在安装了 AD CS 之后更改 CA 名称。 单击“下一步” 。  
+15. 上**CA 名称**页上，保留 CA 的建议公用名或根据您的需求将名称更改。 请确保您已确定 CA 名称是符合命名约定和目的，因为不能在安装了 AD CS 之后更改 CA 名称。 单击“下一步”  。  
   
-16. 上**有效期**页上，在**指定的有效期**，键入数并选择时间值 （年、 月、 周或天）。 建议的五年的默认设置。 单击“下一步” 。  
+16. 上**有效期**页上，在**指定的有效期**，键入数并选择时间值 （年、 月、 周或天）。 建议的五年的默认设置。 单击“下一步”  。  
   
-17. 上**CA 数据库**页上，在**指定的数据库位置**，指定证书数据库和证书数据库日志的文件夹位置。 如果指定的默认位置以外的位置，请确保使用阻止未经授权的用户或计算机访问 CA 数据库和日志文件的访问控制列表 (Acl) 进行保护的文件夹。 单击“下一步” 。  
+17. 上**CA 数据库**页上，在**指定的数据库位置**，指定证书数据库和证书数据库日志的文件夹位置。 如果指定的默认位置以外的位置，请确保使用阻止未经授权的用户或计算机访问 CA 数据库和日志文件的访问控制列表 (Acl) 进行保护的文件夹。 单击“下一步”  。  
   
 18. 在中**确认**，单击**配置**以应用你的选择，然后单击**关闭**。  
   

@@ -8,12 +8,12 @@ ms.date: 01/12/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 60ecf94b72e58aed4d3718b19f6007cdad1c9578
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6410d510085d1772ca6d8ced47226e00239a1a02
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840948"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443899"
 ---
 # <a name="troubleshooting-ad-fs"></a>AD FS 疑难解答
 AD FS 具有许多移动部分、 涉及许多不同的事物和有许多不同的依赖关系。  当然，这可能导致各种问题引发。  本文档旨在帮助你开始对这些问题进行疑难解答。  本文档将向您介绍您应集中精力，如何启用的其他信息，并可用于跟踪问题的各种工具的功能的典型区域。  
@@ -27,7 +27,7 @@ AD FS 具有许多移动部分、 涉及许多不同的事物和有许多不同�
 - **DNS 配置**-可以将联合身份验证服务的名称解析？  这应解析为任一负载均衡器 IP 地址或其中一个 AD FS 服务器场中的 IP 地址。  有关详细信息请参阅[AD FS 故障排除-DNS](ad-fs-tshoot-dns.md)。
 - **AD FS 终结点**-您可以浏览到 AD FS 终结点？  通过浏览到此您可以确定在 AD FS web 服务器可以响应的请求。  可以转到此文件后，如果您知道 AD FS 用通过 443 可以很好地处理请求。  有关详细信息请参阅[AD FS 故障排除-终结点](ad-fs-tshoot-endpoints.md)。
 - **Idp 发起的登录**-你可以登录和身份验证通过 Idp-Initiated 登录页？  您需要确保已启用此页，因为默认情况下禁用。  使用`Set-AdfsProperties -EnableIdPInitiatedSignOn $true`以启用页。  如果可以登录和身份验证您知道的 AD FS 在此区域中正常工作。  有关详细信息请参阅[AD FS 故障排除-登录](ad-fs-tshoot-initiatedsignon.md)。
-##  <a name="common-troubleshooting-areas"></a>常见故障排除的区域
+  ##  <a name="common-troubleshooting-areas"></a>常见故障排除的区域
 
 |名称|描述|
 |-----|-----|

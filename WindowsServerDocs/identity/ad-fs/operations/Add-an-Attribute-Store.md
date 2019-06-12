@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 103ee707c88f4e88b231a833f739cf75b6503e18
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 8d3027c419e85d1aec4b3b0308926a86bb37620d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190096"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445091"
 ---
 # <a name="add-an-attribute-store"></a>添加属性存储
 
@@ -33,20 +33,20 @@ ms.locfileid: "66190096"
 
 ![添加属性存储](media/Add-an-Attribute-Store/addstore1.PNG)
   
-3.  在中**添加属性存储**对话框框中，配置想要添加的属性存储的以下属性：  
+3. 在中**添加属性存储**对话框框中，配置想要添加的属性存储的以下属性：  
   
-    -   在中**显示名称**，键入想要用于标识属性存储的名称。  
+   -   在中**显示名称**，键入想要用于标识属性存储的名称。  
   
-    -   在**属性存储区类型**，选择受支持的属性存储类型，即**Active Directory**， **LDAP**，或者**SQL**。  
+   -   在**属性存储区类型**，选择受支持的属性存储类型，即**Active Directory**， **LDAP**，或者**SQL**。  
   
-    -   在中**连接字符串**，如果选择了任一轻型目录访问协议\(LDAP\)应用商店或结构化查询语言\(SQL\)存储，请输入字符串用于建立与属性存储的连接。 对于 Active Directory 属性存储的连接字符串是必需的;因此，此字段已禁用。  
+   -   在中**连接字符串**，如果选择了任一轻型目录访问协议\(LDAP\)应用商店或结构化查询语言\(SQL\)存储，请输入字符串用于建立与属性存储的连接。 对于 Active Directory 属性存储的连接字符串是必需的;因此，此字段已禁用。  
   
-        > [!NOTE]  
-        > 默认情况下，AD FS 会自动创建 Active Directory 属性存储。  
+       > [!NOTE]  
+       > 默认情况下，AD FS 会自动创建 Active Directory 属性存储。  
  
 ![添加属性存储](media/Add-an-Attribute-Store/addstore2.PNG) 
 
-4.  单击 **“确定”** 。  
+4. 单击 **“确定”** 。  
   
 ## <a name="additional-references"></a>其他参考  
 

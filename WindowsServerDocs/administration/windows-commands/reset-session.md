@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 6510f8b21186b856eb489c1add0674b8984b0e56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5a0991c76ba890bb94b0dcf258df6207ed228e72
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857088"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441792"
 ---
 # <a name="reset-session"></a>reset session
 
@@ -36,6 +36,7 @@ reset session {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 ```  
 
 ## <a name="parameters"></a>Parameters  
+
 |参数|描述|  
 |-------|--------|  
 |\<SessionName>|指定你想要重置的会话的名称。 若要确定会话的名称，请使用**查询会话**命令。|  
@@ -51,15 +52,15 @@ reset session {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 -   **/Server**参数是必需的仅当你使用**重置会话**从远程服务器。  
 
 ## <a name="BKMK_examples"></a>示例  
--   若要重置指定 rdp-tcp #6 的会话，请键入：  
-    ```  
-    reset session rdp-tcp#6  
-    ```  
--   若要重置使用会话 ID 为 3 的会话，请键入：  
-    ```  
-    reset session 3  
-    ```  
+- 若要重置指定 rdp-tcp #6 的会话，请键入：  
+  ```  
+  reset session rdp-tcp#6  
+  ```  
+- 若要重置使用会话 ID 为 3 的会话，请键入：  
+  ```  
+  reset session 3  
+  ```  
 
 #### <a name="additional-references"></a>其他参考  
-[命令行语法解答](command-line-syntax-key.md)  
+[命令行语法项](command-line-syntax-key.md)  
 [远程桌面服务&#40;终端服务&#41;命令参考](remote-desktop-services-terminal-services-command-reference.md)  

@@ -8,12 +8,12 @@ ms.date: 07/10/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 18ce084ec7d1b602dfca913372d6a0e279671a6e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a2eb6c670e704564bed49486b8950dab96da8a80
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867408"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444573"
 ---
 # <a name="migrate-the-active-directory-federation-services-proxy-server-to-windows-server-2012-r2"></a>将 Active Directory 联合身份验证服务代理服务器迁移到 Windows Server 2012 R2
 
@@ -26,15 +26,15 @@ ms.locfileid: "59867408"
   
 若要规划 Web 应用程序代理部署，可以查看以下主题中的信息：  
   
--   [规划 Web 应用程序代理基础结构](https://technet.microsoft.com/library/dn383648.aspx)  
+- [规划 Web 应用程序代理基础结构](https://technet.microsoft.com/library/dn383648.aspx)  
   
--   [规划 Web 应用程序代理服务器](https://technet.microsoft.com/library/dn383647.aspx)  
+- [规划 Web 应用程序代理服务器](https://technet.microsoft.com/library/dn383647.aspx)  
   
- 若要部署 Web 应用程序代理，可以遵循以下主题中的过程：  
+  若要部署 Web 应用程序代理，可以遵循以下主题中的过程：  
   
--   [配置 Web 应用程序代理基础结构](https://technet.microsoft.com/library/dn383644.aspx)  
+- [配置 Web 应用程序代理基础结构](https://technet.microsoft.com/library/dn383644.aspx)  
   
--   [安装和配置 Web 应用程序代理服务器](https://technet.microsoft.com/library/dn383662.aspx)  
+- [安装和配置 Web 应用程序代理服务器](https://technet.microsoft.com/library/dn383662.aspx)  
   
 ## <a name="next-steps"></a>后续步骤
  [将 Active Directory 联合身份验证服务角色服务迁移到 Windows Server 2012 R2](migrate-ad-fs-service-role-to-windows-server-r2.md)   

@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f034c2eeafe9d52569e8181bbbb2e582b1059d51
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 7e6e1c97ccc903ca3aff558354941e6a84d3fb79
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188856"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444729"
 ---
 # <a name="walkthrough-guide-manage-risk-with-conditional-access-control"></a>操作实例指南：使用条件访问控制管理风险
 
@@ -57,7 +57,7 @@ ms.locfileid: "66188856"
 
 #### <a name="to-verify-the-default-ad-fs-access-control-mechanism"></a>验证默认 AD FS 访问控制机制的步骤
 
-1.  在客户端计算机上打开一个浏览器窗口，并导航到示例应用程序： **https://webserv1.contoso.com/claimapp**。
+1.  在客户端计算机上打开一个浏览器窗口，并导航到示例应用程序： **https://webserv1.contoso.com/claimapp** 。
 
     此操作会自动将请求重定向到联合服务器，并且系统会提示你使用用户名和密码登录。
 
@@ -97,14 +97,18 @@ ms.locfileid: "66188856"
 1.  在联合服务器上，打开 Windows PowerShell 命令窗口并运行以下命令：
 
 
-    `$rp = Get-AdfsRelyingPartyTrust -Name claimapp`
+~~~
+`$rp = Get-AdfsRelyingPartyTrust -Name claimapp`
+~~~
 
 
-2.  在同一个 Windows PowerShell 命令窗口中运行以下命令：
+2. 在同一个 Windows PowerShell 命令窗口中运行以下命令：
 
 
-    `$GroupAuthzRule = '@RuleTemplate = "Authorization" @RuleName = "Foo" c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "^(?i)<group_SID>$"] =>issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");'
-    Set-AdfsRelyingPartyTrust -TargetRelyingParty $rp -IssuanceAuthorizationRules $GroupAuthzRule`
+~~~
+`$GroupAuthzRule = '@RuleTemplate = "Authorization" @RuleName = "Foo" c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "^(?i)<group_SID>$"] =>issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");'
+Set-AdfsRelyingPartyTrust -TargetRelyingParty $rp -IssuanceAuthorizationRules $GroupAuthzRule`
+~~~
 
 > [!NOTE]
 > 确保将 <group_SID> 替换为 AD **Finance** 组的 SID 值。

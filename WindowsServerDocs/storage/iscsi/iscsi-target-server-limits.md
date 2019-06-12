@@ -8,12 +8,12 @@ author: JasonGerend
 manager: dougkim
 ms.author: jgerend
 ms.date: 09/11/2018
-ms.openlocfilehash: 9514392da133911c900f68fc8f1be260b6c91138
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d912047ab0e3136c6dc05064f3a28aaaafd36c79
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873028"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447722"
 ---
 # <a name="iscsi-target-server-scalability-limits"></a>iSCSI 目标服务器可伸缩性限制
 
@@ -73,7 +73,7 @@ ms.locfileid: "59873028"
 <td><p>本地装入的虚拟磁盘或快照，每个存储设备</p></td>
 <td><p>32</p></td>
 <td><p>是</p></td>
-<td><p>本地装入的虚拟磁盘不提供任何特定于 iSCSI 的功能，并已弃用-有关详细信息，请参阅<a href="https://technet.microsoft.com/library/dn303411.aspx">Features Removed or Deprecated in Windows Server 2012 R2</a>。</p></td>
+<td><p>本地装入的虚拟磁盘 don&#39;t 产品/服务的任何特定于 iSCSI 的功能和是否已弃用-有关详细信息，请参阅<a href="https://technet.microsoft.com/library/dn303411.aspx">Features Removed or Deprecated in Windows Server 2012 R2</a>。</p></td>
 </tr>
 </tbody>
 </table>
@@ -105,7 +105,7 @@ ms.locfileid: "59873028"
 <tr class="even">
 <td><p>多个活动群集节点</p></td>
 <td><p>支持</p></td>
-<td> 
+<td> 
 <p>不可用</p></td>
 <td><p>故障转移群集中的每个活动节点与其他节点作为可能的所有者节点拥有不同的 iSCSI 目标服务器的群集的实例。</p></td>
 </tr>
@@ -205,8 +205,7 @@ ms.locfileid: "59873028"
 <tr class="odd">
 <td><p>iSCSI 卸载</p></td>
 <td><p>不支持</p></td>
-<td>              
-<p>不可用</p></td>
+<td><br/><p>不可用</p></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -249,7 +248,7 @@ ms.locfileid: "59873028"
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>从 iSCSI 发起程序将虚拟磁盘从基本磁盘转换为动态磁盘 </p></td>
+<td><p>从 iSCSI 发起程序将虚拟磁盘从基本磁盘转换为动态磁盘 </p></td>
 <td><p>是</p></td>
 <td><p>否</p></td>
 <td></td>
@@ -312,7 +311,7 @@ ms.locfileid: "59873028"
 <td><p>.vhdx:是</p>
 <p>.vhd:是 （Windows Server 2012 上的否）</p></td>
 <td><p>是</p></td>
-<td><p>取消映射不受支持。</p></td>
+<td><p>取消映射并不是&#39;支持的 t。</p></td>
 </tr>
 <tr class="odd">
 <td><p>（托管的 VHD 的卷） 的 exFAT/FAT32/FAT</p></td>
@@ -348,7 +347,7 @@ ms.locfileid: "59873028"
 <td><p>精简预配</p></td>
 <td><p>否</p></td>
 <td><p>不可用</p></td>
-<td><p>支持动态 Vhd，但 Unmap 不受支持。</p></td>
+<td><p>动态 Vhd 支持，但取消映射并不是&#39;支持的 t。</p></td>
 </tr>
 <tr class="odd">
 <td><p>逻辑单元收缩</p></td>
@@ -542,9 +541,9 @@ ISCSI 目标存储提供程序是 Windows Server 2016、 Windows Server 2012 R2 
 
 以下列表提供了有关 iSCSI 目标服务器和相关技术的附加资源。
 
-  - [iSCSI 目标块存储概述](iscsi-target-server.md)
+- [iSCSI 目标块存储概述](iscsi-target-server.md)
 
-  - [iSCSI 目标启动概述](iscsi-boot-overview.md)
+- [iSCSI 目标启动概述](iscsi-boot-overview.md)
 
-  - [Windows Server 中存储](..\storage.md)
+- [Windows Server 中存储](../storage.md)
 

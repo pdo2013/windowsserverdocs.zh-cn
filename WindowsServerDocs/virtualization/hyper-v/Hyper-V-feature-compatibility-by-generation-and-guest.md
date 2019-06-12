@@ -11,12 +11,12 @@ ms.assetid: 81c1f32d-7814-4992-8a66-dd4b77c939b4
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/05/2016
-ms.openlocfilehash: 1863c1736d3c8573b3d11c6bef492c6645d28a77
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5950a75da4569979794a5848bd41ab349dc34676
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859758"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812662"
 ---
 # <a name="hyper-v-feature-compatibility-by-generation-and-guest"></a>通过生成和来宾的 HYPER-V 功能兼容性
 
@@ -27,7 +27,7 @@ ms.locfileid: "59859758"
 请记住，某些功能依赖于硬件或其他基础结构。 有关硬件的详细信息，请参阅[System requirements for Windows Server 2016 上的 HYPER-V 要求](System-requirements-for-Hyper-V-on-Windows.md)。 在某些情况下，可以使用任何受支持的来宾操作系统的系统使用一项功能。 支持操作系统的详细信息，请参阅：  
   
 * [受支持的 Linux 和 FreeBSD 虚拟机](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)  
-* [支持的 Windows 来宾操作系统](Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows.md)  
+* [受支持的 Windows 来宾操作系统](Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows.md)  
   
 ## <a name="availability-and-backup"></a>可用性和备份  
   
@@ -49,7 +49,7 @@ ms.locfileid: "59859758"
 ## <a name="development-and-test"></a>开发和测试  
 功能  | 生成 | 来宾操作系统  
 ------------- | ------------- | -----------  
-COM/串行端口 | 1 和 2 <br>**注意：** 对于第 2 代，使用 Windows PowerShell 配置。 有关详细信息，请参阅[添加 COM 端口进行内核调试](./plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v.md#BKMK_Debug)。 | 任何受支持的来宾  
+COM/串行端口 | 1 和 2 <br>**注意：** 对于第 2 代，使用 Windows PowerShell 配置。 有关详细信息，请参阅[添加 COM 端口进行内核调试](./plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v.md#add-a-com-port-for-kernel-debugging)。 | 任何受支持的来宾  
   
 ## <a name="mobility"></a>移动性  
   

@@ -8,12 +8,12 @@ ms.date: 03/01/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6f85c447ac0816c46e07145dbe9a491a29e17c0f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 228ef34ab25276c1cf98f9b2b64e997390023c87
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846468"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444008"
 ---
 # <a name="ad-fs-troubleshooting---azure-ad"></a>AD FS 故障排除-Azure AD
 与云的发展，许多公司都转而使用为其各种应用和服务使用 Azure AD。  与 Azure AD 联合已成为许多组织的标准实践。  本文档将介绍的一些故障排除此联合身份验证发生的问题的方面。  多个常规故障排除文档中的主题仍适用于本文档将重点介绍与 Azure AD 的只是具体信息以便与 Azure 联合和 AD FS 交互。
@@ -31,11 +31,11 @@ ms.locfileid: "59846468"
 
 ![](media/ad-fs-tshoot-azure/azure2.png)
 
-   2.  请确保单击旁边联合身份验证的域在 Azure 门户中验证自定义域。
-![](media/ad-fs-tshoot-azure/azure3.png)
+1. 请确保单击旁边联合身份验证的域在 Azure 门户中验证自定义域。
+   ![](media/ad-fs-tshoot-azure/azure3.png)
 
-   3. 最后，您想要检查[DNS](ad-fs-tshoot-dns.md) ，并确保你的 AD FS 服务器或 WAP 服务器从 internet 解析。  验证此方法解决并且您将能够导航到它。
-   4. 你还可以使用 PowerShell cmdlt`Get-AzureADDomain`还获取此信息。
+2. 最后，您想要检查[DNS](ad-fs-tshoot-dns.md) ，并确保你的 AD FS 服务器或 WAP 服务器从 internet 解析。  验证此方法解决并且您将能够导航到它。
+3. 你还可以使用 PowerShell cmdlt`Get-AzureADDomain`还获取此信息。
 
 ![](media/ad-fs-tshoot-azure/azure6.png)
 
@@ -48,14 +48,14 @@ ms.locfileid: "59846468"
 - 对于 WS 联合身份验证使用的 WAUTH 查询字符串来强制使用首选的身份验证方法。
 
 - 为 SAML2.0，使用以下方法：
-```
-<saml:AuthnContext>
-<saml:AuthnContextClassRef>
-urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
-</saml:AuthnContextClassRef>
-</saml:AuthnContext>
-```
-使用错误的值，发送的强制执行身份验证方法时或在 AD FS 或 STS 上不支持该身份验证方法，您收到一条错误消息之前进行身份验证。
+  ```
+  <saml:AuthnContext>
+  <saml:AuthnContextClassRef>
+  urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+  </saml:AuthnContextClassRef>
+  </saml:AuthnContext>
+  ```
+  使用错误的值，发送的强制执行身份验证方法时或在 AD FS 或 STS 上不支持该身份验证方法，您收到一条错误消息之前进行身份验证。
 
 |想要的身份验证方法|wauth URI|
 |-----|-----|
@@ -145,4 +145,4 @@ AD FS 使用的令牌签名证书以签署发送到用户或应用程序的令�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [AD FS 进行故障排除](ad-fs-tshoot-overview.md)
+- [AD FS 疑难解答](ad-fs-tshoot-overview.md)
