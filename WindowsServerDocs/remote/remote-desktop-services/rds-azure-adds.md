@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: christianmontoya
 ms.localizationpriority: medium
-ms.openlocfilehash: e60cf70f1f91ad87046bedf024fe9afc459075b6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8b1baf642ffa3c8e8a0a2cfc70d2f49b58f208b3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860508"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446581"
 ---
 # <a name="integrate-azure-ad-domain-services-with-your-rds-deployment"></a>将 Azure AD 域服务与 RDS 部署集成
 
@@ -37,7 +37,7 @@ ms.locfileid: "59860508"
 
 使用以下信息来部署 Azure AD DS 与 rds。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>系统必备
 
 你可以从 Azure AD 即可使用在 RDS 部署中，将您标识之前[配置 Azure AD，以保存用户的标识的哈希的密码](/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync)。 生成---云中的组织不需要在其目录; 中进行任何其他更改但是，在本地组织需要允许密码哈希同步并存储在 Azure AD 中，这可能不是允许对某些组织。 用户将必须进行此配置更改后重置其密码。
 
@@ -51,26 +51,26 @@ ms.locfileid: "59860508"
 2. 设置 rds。 可以使用 Azure 模板，也可以手动部署 RDS。
    - 使用[现有 AD 模板](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/)。 请确保自定义以下内容：
    
-      - **设置**
-         - **资源组**:使用你想要创建的 RDS 资源的资源组。
+     - **设置**
+       - **资源组**:使用你想要创建的 RDS 资源的资源组。
          > [!NOTE] 
          > 现在，这必须是 Azure 资源管理器虚拟网络所在的同一资源组。
 
-         - **Dns 标签前缀**:输入的 URL，你希望用户使用 RD Web 访问。
-         - **Ad 域名**:输入 Azure AD 实例，例如，"contoso.onmicrosoft.com"或"contoso.com"的完整名称。
-         - **Ad Vnet-name**并**Ad 子网名称**:输入在创建 Azure 资源管理器虚拟网络时使用的相同值。 这是 RDS 资源将连接到的子网。
-         - **管理员用户名**并**管理员密码**:输入管理员用户的成员的凭据**AAD DC 管理员**Azure AD 中的组。
+       - **Dns 标签前缀**:输入的 URL，你希望用户使用 RD Web 访问。
+       - **Ad 域名**:输入 Azure AD 实例，例如，"contoso.onmicrosoft.com"或"contoso.com"的完整名称。
+       - **Ad Vnet-name**并**Ad 子网名称**:输入在创建 Azure 资源管理器虚拟网络时使用的相同值。 这是 RDS 资源将连接到的子网。
+       - **管理员用户名**并**管理员密码**:输入管理员用户的成员的凭据**AAD DC 管理员**Azure AD 中的组。
    
-      - **模板**
-         - 删除的所有属性**dnsServers**： 选择后**编辑模板**从 Azure 快速入门模板页面中，搜索"dnsServers"并都删除的属性。 
+     - **模板**
+        - 删除的所有属性**dnsServers**： 选择后**编辑模板**从 Azure 快速入门模板页面中，搜索"dnsServers"并都删除的属性。 
 
-            例如，然后再删除**dnsServers**属性：
+           例如，然后再删除**dnsServers**属性：
       
-            ![Azure 快速入门模板与 dnsSettings 属性](media/rds-remove-dnssettings-before.png)
+           ![Azure 快速入门模板与 dnsSettings 属性](media/rds-remove-dnssettings-before.png)
 
-            和此处删除属性后是相同的文件：
+           和此处删除属性后是相同的文件：
 
-            ![使用 dnsSettings 属性已被删除的 azure 快速入门模板](media/rds-remove-dnssettings-after.png)
+           ![使用 dnsSettings 属性已被删除的 azure 快速入门模板](media/rds-remove-dnssettings-after.png)
    
    - [手动部署 RDS](rds-deploy-infrastructure.md)。 
 

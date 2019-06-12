@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 06e7aa1309b453da649537d5ae9b22acce830530
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 52568944a98bed7960b37335b2e3cbbde61479ca
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816858"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447205"
 ---
 # <a name="set-the-ordering-method-for-targets-in-referrals"></a>为引用中的目标设置排序方法
 
@@ -28,17 +28,17 @@ ms.locfileid: "59816858"
 
 按照以下过程为命名空间根目录设置排序方法：
 
-1.  单击“开始”、指向“管理工具”，然后单击“DFS 管理”。
+1.  单击“开始”  、指向“管理工具”  ，然后单击“DFS 管理”  。
 
-2.  在控制台树中的“命名空间”节点下，右键单击命名空间，然后单击“属性”。
+2.  在控制台树中的“命名空间”  节点下，右键单击命名空间，然后单击“属性”  。
 
 3.  在**引用**选项卡上，选择排序方法。
 
 > [!NOTE]
 > 若要使用 Windows PowerShell 为命名空间根目录引用中的目标设置排序方法，请将 [Set-DfsnRoot](https://technet.microsoft.com/library/jj884281.aspx) cmdlet 与以下参数之一结合使用：
-   -   **EnableSiteCosting** 指定**最低成本排序**方法
-   -   **EnableInsiteReferrals** 指定**排除客户端站点之外的目标**排序方法
-   -   无论省略哪个参数，都会指定**随机顺序**引用排序方法。 
+>    -   **EnableSiteCosting** 指定**最低成本排序**方法
+>    -   **EnableInsiteReferrals** 指定**排除客户端站点之外的目标**排序方法
+>    -   无论省略哪个参数，都会指定**随机顺序**引用排序方法。 
 
 在 Windows Server 2012 中引入的 DFSN Windows PowerShell 模块。
    
@@ -46,9 +46,9 @@ ms.locfileid: "59816858"
 
 包含目标的文件夹从命名空间根目录继承排序方法。 你可以按照以下过程替代排序方法：
 
-1.  单击“开始”、指向“管理工具”，然后单击“DFS 管理”。
+1.  单击“开始”  、指向“管理工具”  ，然后单击“DFS 管理”  。
 
-2.  在控制台树中的“命名空间”节点下，右键单击包含目标的文件夹，然后单击“属性”。
+2.  在控制台树中的“命名空间”  节点下，右键单击包含目标的文件夹，然后单击“属性”  。
 
 3.  在**引用**选项卡上，选中**排除客户端站点之外的目标**复选框。
 
@@ -91,5 +91,5 @@ ms.locfileid: "59816858"
 
 ## <a name="see-also"></a>请参阅 
 
--   [调试 DFS 命名空间](tuning-dfs-namespaces.md)
--   [为 DFS 命名空间委派管理权限](delegate-management-permissions-for-dfs-namespaces.md)
+-   [调整 DFS 命名空间](tuning-dfs-namespaces.md)
+-   [委派 DFS 命名空间的管理权限](delegate-management-permissions-for-dfs-namespaces.md)

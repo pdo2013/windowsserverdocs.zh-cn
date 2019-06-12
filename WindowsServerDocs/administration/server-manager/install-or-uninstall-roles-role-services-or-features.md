@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 18ba3517f6533a85fe7cb24f24a7f4ffdfad6991
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 526acaadc257d5e8b1dea342756cdeeec240c1dd
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222986"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435466"
 ---
 # <a name="install-or-uninstall-roles-role-services-or-features"></a>安装或卸载角色、角色服务或功能
 
@@ -100,53 +100,53 @@ ms.locfileid: "66222986"
   
 #### <a name="to-install-roles-and-features-by-using-the-install-windowsfeature-cmdlet"></a>若要使用 Install-WindowsFeature cmdlet 安装角色和功能  
   
-1.  使用提升的用户权限执行以下操作之一以打开 Windows PowerShell 会话。  
+1. 使用提升的用户权限执行以下操作之一以打开 Windows PowerShell 会话。  
   
-    > [!NOTE]  
-    > 如果在远程服务器上安装角色和功能，您不需要使用提升的用户权限运行 Windows PowerShell。  
+   > [!NOTE]  
+   > 如果在远程服务器上安装角色和功能，您不需要使用提升的用户权限运行 Windows PowerShell。  
   
-    -   在 Windows 桌面上，右键单击任务栏上的 Windows PowerShell  ，然后单击“以管理员身份运行”  。  
+   -   在 Windows 桌面上，右键单击任务栏上的 Windows PowerShell  ，然后单击“以管理员身份运行”  。  
   
-    -   在 Windows 上**启动**屏幕上，右键单击适用于 Windows PowerShell 磁贴，然后在应用栏上，单击**以管理员身份运行**。  
+   -   在 Windows 上**启动**屏幕上，右键单击适用于 Windows PowerShell 磁贴，然后在应用栏上，单击**以管理员身份运行**。  
   
-2.  键入 **Get-WindowsFeature** ，再按 **Enter** ，以查看本地服务器上可用和安装的角色和功能的列表。 如果本地计算机不是服务器，或者你想远程服务器的信息，运行**Get-windowsfeature-computerName <***computer_name***>** ，在其中*computer_name*表示正在运行 Windows Server 2016 的远程计算机的名称。 Cmdlet 的结果包含角色和功能添加到你在步骤 4 中的 cmdlet 的命令的名称。  
+2. 键入 **Get-WindowsFeature** ，再按 **Enter** ，以查看本地服务器上可用和安装的角色和功能的列表。 如果本地计算机不是服务器，或者你想远程服务器的信息，运行**Get-windowsfeature-computerName <** <em>computer_name</em> **>** ，在其中*computer_name*表示正在运行 Windows Server 2016 的远程计算机的名称。 Cmdlet 的结果包含角色和功能添加到你在步骤 4 中的 cmdlet 的命令的名称。  
   
-    > [!NOTE]  
-    > 在 Windows PowerShell 3.0 和更高版本的 Windows PowerShell 中，没有无需服务器管理器 cmdlet 模块导入到 Windows PowerShell 会话，然后再运行模块的一部分的 cmdlet。 在你首次运行 cmdlet（模块的一部分）时，模块被自动导入。 此外，Windows PowerShell cmdlet 或 cmdlet 中使用的功能名称都不是区分大小写。  
+   > [!NOTE]  
+   > 在 Windows PowerShell 3.0 和更高版本的 Windows PowerShell 中，没有无需服务器管理器 cmdlet 模块导入到 Windows PowerShell 会话，然后再运行模块的一部分的 cmdlet。 在你首次运行 cmdlet（模块的一部分）时，模块被自动导入。 此外，Windows PowerShell cmdlet 或 cmdlet 中使用的功能名称都不是区分大小写。  
   
-3.  类型**get-help Install-windowsfeature**，然后按**Enter**若要查看的语法和接受的参数`Install-WindowsFeature`cmdlet。  
+3. 类型**get-help Install-windowsfeature**，然后按**Enter**若要查看的语法和接受的参数`Install-WindowsFeature`cmdlet。  
   
-4.  键入以下内容，，然后按**Enter**，其中*feature_name*表示某个角色或功能，你想要安装 （在步骤 2 中获得），该功能的命令名称和*computer_name*表示你想要安装角色和功能的远程计算机。 使用逗号分隔多个 *feature_name* 值。 如果角色或功能安装需要，则 `Restart` 参数会自动重新启动目标服务器。  
+4. 键入以下内容，，然后按**Enter**，其中*feature_name*表示某个角色或功能，你想要安装 （在步骤 2 中获得），该功能的命令名称和*computer_name*表示你想要安装角色和功能的远程计算机。 使用逗号分隔多个 *feature_name* 值。 如果角色或功能安装需要，则 `Restart` 参数会自动重新启动目标服务器。  
   
-    ```  
-    Install-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
-    ```  
+   ```  
+   Install-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
+   ```  
   
-    若要在脱机 VHD 上安装角色和功能，请同时添加 `computerName` 参数和 `VHD` 参数。 如果未添加 `computerName` 参数，cmdlet 假定装载了本地计算机来访问 VHD。 `computerName` 参数含有安装 VHD 的服务器名称，`VHD` 参数含有 VHD 在指定服务器上的路径。  
+   若要在脱机 VHD 上安装角色和功能，请同时添加 `computerName` 参数和 `VHD` 参数。 如果未添加 `computerName` 参数，cmdlet 假定装载了本地计算机来访问 VHD。 `computerName` 参数含有安装 VHD 的服务器名称，`VHD` 参数含有 VHD 在指定服务器上的路径。  
   
-    > [!NOTE]  
-    > 必须添加`computerName`参数运行 cmdlet 的计算机上，如果正在运行 Windows 客户端操作系统。  
-    >   
-    > 若要在脱机 VHD 上安装角色和功能，目标 VHD 必须符合以下要求。  
-    >   
-    > -   Vhd 必须运行与服务器管理器的正在运行的版本匹配的 Windows Server 的版本。 请参阅注释的开头[通过使用添加角色和功能向导安装角色、 角色服务和功能](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard)。  
-    > -   VHD 不能具备多个系统卷或分区。  
-    > -   存储 VHD 文件的网络共享文件夹必须向已选择安装 VHD 的服务器的计算机（或本地系统）帐户授予以下访问权限。 仅用户帐户访问权限是不够的。 该共享可向 **“所有人”** 组授予 **“读取”** 和 **“写入”** 权限，以允许访问 VHD，但出于安全原因，不建议这样做。  
-    >   
-    >     -   “文件共享”对话框上的“读/写”权限。    
-    >     -   **完全控制**上访问**安全**选项卡、 文件或文件夹**属性**对话框。  
+   > [!NOTE]  
+   > 必须添加`computerName`参数运行 cmdlet 的计算机上，如果正在运行 Windows 客户端操作系统。  
+   >   
+   > 若要在脱机 VHD 上安装角色和功能，目标 VHD 必须符合以下要求。  
+   >   
+   > -   Vhd 必须运行与服务器管理器的正在运行的版本匹配的 Windows Server 的版本。 请参阅注释的开头[通过使用添加角色和功能向导安装角色、 角色服务和功能](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard)。  
+   > -   VHD 不能具备多个系统卷或分区。  
+   > -   存储 VHD 文件的网络共享文件夹必须向已选择安装 VHD 的服务器的计算机（或本地系统）帐户授予以下访问权限。 仅用户帐户访问权限是不够的。 该共享可向 **“所有人”** 组授予 **“读取”** 和 **“写入”** 权限，以允许访问 VHD，但出于安全原因，不建议这样做。  
+   >   
+   >     -   “文件共享”对话框上的“读/写”权限。    
+   >     -   **完全控制**上访问**安全**选项卡、 文件或文件夹**属性**对话框。  
   
-    ```  
-    Install-WindowsFeature -Name <feature_name> -VHD <path> -computerName <computer_name> -Restart  
-    ```  
+   ```  
+   Install-WindowsFeature -Name <feature_name> -VHD <path> -computerName <computer_name> -Restart  
+   ```  
   
-    **示例：** 以下 cmdlet 在远程服务器 ContosoDC1 上安装 active directory 域服务角色和组策略管理功能。 已使用 `IncludeManagementTools` 参数添加管理工具和管理单元，并且目标服务器将自动重新启动（如果安装需要重新启动服务器）。  
+   **示例：** 以下 cmdlet 在远程服务器 ContosoDC1 上安装 active directory 域服务角色和组策略管理功能。 已使用 `IncludeManagementTools` 参数添加管理工具和管理单元，并且目标服务器将自动重新启动（如果安装需要重新启动服务器）。  
   
-    ```  
-    Install-WindowsFeature -Name AD-Domain-Services,GPMC -computerName ContosoDC1 -IncludeManagementTools -Restart  
-    ```  
+   ```  
+   Install-WindowsFeature -Name AD-Domain-Services,GPMC -computerName ContosoDC1 -IncludeManagementTools -Restart  
+   ```  
   
-5.  完成安装后，验证安装，方法是打开**的所有服务器**页在服务器管理器中，选择在其上安装了角色和功能，并查看**角色和功能**所选服务器的页面上磁贴。 您还可以运行`Get-WindowsFeature`将所选服务器作为目标的 cmdlet (Get-windowsfeature-computerName <*computer_name*>) 若要查看的服务器上安装角色和功能的列表。  
+5. 完成安装后，验证安装，方法是打开**的所有服务器**页在服务器管理器中，选择在其上安装了角色和功能，并查看**角色和功能**所选服务器的页面上磁贴。 您还可以运行`Get-WindowsFeature`将所选服务器作为目标的 cmdlet (Get-windowsfeature-computerName <*computer_name*>) 若要查看的服务器上安装角色和功能的列表。  
   
 ## <a name="remove-roles-role-services-and-features-by-using-the-remove-roles-and-features-wizard"></a>删除角色、 角色服务和功能使用删除角色和功能向导  
 您必须将登录到服务器管理员在卸载角色、 角色服务和功能。 如果你登录到你在卸载目标服务器上没有管理员权限的帐户在本地计算机，右键单击中的目标服务器**服务器**磁贴，然后依次**管理方式**提供具有管理员权限的帐户。 要装载脱机 VHD 的服务器必须添加到服务器管理器，且你必须具有对该服务器的管理员权限。  
@@ -191,49 +191,49 @@ Windows PowerShell 函数类似于基于 GUI 的服务器管理器部署 cmdlet 
   
 #### <a name="to-remove-roles-and-features-by-using-the-uninstall-windowsfeature-cmdlet"></a>若要使用 Uninstall-WindowsFeature cmdlet 删除角色和功能  
   
-1.  使用提升的用户权限执行以下操作之一以打开 Windows PowerShell 会话。  
+1. 使用提升的用户权限执行以下操作之一以打开 Windows PowerShell 会话。  
   
-    > [!NOTE]  
-    > 如果要从远程服务器中卸载角色和功能，您不需要使用提升的用户权限运行 Windows PowerShell。  
+   > [!NOTE]  
+   > 如果要从远程服务器中卸载角色和功能，您不需要使用提升的用户权限运行 Windows PowerShell。  
   
-    -   在 Windows 桌面上，右键单击任务栏上的 Windows PowerShell  ，然后单击“以管理员身份运行”  。  
+   -   在 Windows 桌面上，右键单击任务栏上的 Windows PowerShell  ，然后单击“以管理员身份运行”  。  
   
-    -   在 Windows 上**启动**屏幕上，右键单击 Windows PowerShell 磁贴，并在应用栏上，单击**以管理员身份运行**。  
+   -   在 Windows 上**启动**屏幕上，右键单击 Windows PowerShell 磁贴，并在应用栏上，单击**以管理员身份运行**。  
   
-2.  键入 **Get-WindowsFeature** ，再按 **Enter** ，以查看本地服务器上可用和安装的角色和功能的列表。 如果本地计算机不是服务器，或者你想远程服务器的信息，运行**Get-windowsfeature-computerName <***computer_name***>** ，在其中*computer_name*表示正在运行 Windows Server 2016 的远程计算机的名称。 Cmdlet 的结果包含角色和功能添加到你在步骤 4 中的 cmdlet 的命令的名称。  
+2. 键入 **Get-WindowsFeature** ，再按 **Enter** ，以查看本地服务器上可用和安装的角色和功能的列表。 如果本地计算机不是服务器，或者你想远程服务器的信息，运行**Get-windowsfeature-computerName <** <em>computer_name</em> **>** ，在其中*computer_name*表示正在运行 Windows Server 2016 的远程计算机的名称。 Cmdlet 的结果包含角色和功能添加到你在步骤 4 中的 cmdlet 的命令的名称。  
   
-    > [!NOTE]  
-    > 在 Windows PowerShell 3.0 和更高版本的 Windows PowerShell 中，没有无需服务器管理器 cmdlet 模块导入到 Windows PowerShell 会话，然后再运行模块的一部分的 cmdlet。 在你首次运行 cmdlet（模块的一部分）时，模块被自动导入。 此外，Windows PowerShell cmdlet 或 cmdlet 中使用的功能名称都不是区分大小写。  
+   > [!NOTE]  
+   > 在 Windows PowerShell 3.0 和更高版本的 Windows PowerShell 中，没有无需服务器管理器 cmdlet 模块导入到 Windows PowerShell 会话，然后再运行模块的一部分的 cmdlet。 在你首次运行 cmdlet（模块的一部分）时，模块被自动导入。 此外，Windows PowerShell cmdlet 或 cmdlet 中使用的功能名称都不是区分大小写。  
   
-3.  类型**get-help Uninstall-windowsfeature**，然后按**Enter**若要查看的语法和接受的参数`Uninstall-WindowsFeature`cmdlet。  
+3. 类型**get-help Uninstall-windowsfeature**，然后按**Enter**若要查看的语法和接受的参数`Uninstall-WindowsFeature`cmdlet。  
   
-4.  键入以下项，再按 **Enter**，其中 *feature_name* 表示要删除的角色或功能（在步骤 2 中获取）的命令名称，而 *computer_name* 表示要从中删除角色和功能的远程计算机。 使用逗号分隔多个 *feature_name* 值。 `Restart` 参数会根据角色或功能删除的要求自动重新启动目标服务器。  
+4. 键入以下项，再按 **Enter**，其中 *feature_name* 表示要删除的角色或功能（在步骤 2 中获取）的命令名称，而 *computer_name* 表示要从中删除角色和功能的远程计算机。 使用逗号分隔多个 *feature_name* 值。 `Restart` 参数会根据角色或功能删除的要求自动重新启动目标服务器。  
   
-    ```  
-    Uninstall-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
-    ```  
+   ```  
+   Uninstall-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
+   ```  
   
-    若要从脱机 VHD 中删除角色和功能，请同时添加 `computerName` 参数和 `VHD` 参数。 如果未添加 `computerName` 参数，cmdlet 假定装载了本地计算机来访问 VHD。 `computerName` 参数含有安装 VHD 的服务器名称，`VHD` 参数含有 VHD 在指定服务器上的路径。  
+   若要从脱机 VHD 中删除角色和功能，请同时添加 `computerName` 参数和 `VHD` 参数。 如果未添加 `computerName` 参数，cmdlet 假定装载了本地计算机来访问 VHD。 `computerName` 参数含有安装 VHD 的服务器名称，`VHD` 参数含有 VHD 在指定服务器上的路径。  
   
-    > [!NOTE]  
-    > 必须添加`computerName`参数运行 cmdlet 的计算机上，如果正在运行 Windows 客户端操作系统。  
-    >   
-    > 存储 VHD 文件的网络共享文件夹必须向已选择安装 VHD 的服务器的计算机（或本地系统）帐户授予以下访问权限。 仅用户帐户访问权限是不够的。 该共享可向 **“所有人”** 组授予 **“读取”** 和 **“写入”** 权限，以允许访问 VHD，但出于安全原因，不建议这样做。  
-    >   
-    > -   “文件共享”对话框上的“读/写”权限。    
-    > -   **完全控制**上访问**安全**选项卡、 文件或文件夹**属性**对话框。  
+   > [!NOTE]  
+   > 必须添加`computerName`参数运行 cmdlet 的计算机上，如果正在运行 Windows 客户端操作系统。  
+   >   
+   > 存储 VHD 文件的网络共享文件夹必须向已选择安装 VHD 的服务器的计算机（或本地系统）帐户授予以下访问权限。 仅用户帐户访问权限是不够的。 该共享可向 **“所有人”** 组授予 **“读取”** 和 **“写入”** 权限，以允许访问 VHD，但出于安全原因，不建议这样做。  
+   >   
+   > -   “文件共享”对话框上的“读/写”权限。    
+   > -   **完全控制**上访问**安全**选项卡、 文件或文件夹**属性**对话框。  
   
-    ```  
-    Uninstall-WindowsFeature -Name <feature_name> -VHD <path> -computerName <computer_name> -Restart  
-    ```  
+   ```  
+   Uninstall-WindowsFeature -Name <feature_name> -VHD <path> -computerName <computer_name> -Restart  
+   ```  
   
-    **示例：** 以下 cmdlet 从远程服务器 ContosoDC1 中删除 active directory 域服务角色和组策略管理功能。 还已删除管理工具和管理单元，并且目标服务器将被自动重新启动（如果删除需要重新启动服务器）。  
+   **示例：** 以下 cmdlet 从远程服务器 ContosoDC1 中删除 active directory 域服务角色和组策略管理功能。 还已删除管理工具和管理单元，并且目标服务器将被自动重新启动（如果删除需要重新启动服务器）。  
   
-    ```  
-    Uninstall-WindowsFeature -Name AD-Domain-Services,GPMC -computerName ContosoDC1 -IncludeManagementTools -Restart  
-    ```  
+   ```  
+   Uninstall-WindowsFeature -Name AD-Domain-Services,GPMC -computerName ContosoDC1 -IncludeManagementTools -Restart  
+   ```  
   
-5.  完成删除后，验证，通过打开删除角色和功能**的所有服务器**页在服务器管理器中，选择从中删除角色和功能、 服务器和查看**角色和功能**磁贴上所选服务器的页面。 您还可以运行`Get-WindowsFeature`将所选服务器作为目标的 cmdlet (Get-windowsfeature-computerName <*computer_name*>) 若要查看的服务器上安装角色和功能的列表。  
+5. 完成删除后，验证，通过打开删除角色和功能**的所有服务器**页在服务器管理器中，选择从中删除角色和功能、 服务器和查看**角色和功能**磁贴上所选服务器的页面。 您还可以运行`Get-WindowsFeature`将所选服务器作为目标的 cmdlet (Get-windowsfeature-computerName <*computer_name*>) 若要查看的服务器上安装角色和功能的列表。  
   
 ## <a name="install-roles-and-features-on-multiple-servers-by-running-a-windows-powershell-script"></a>通过运行 Windows PowerShell 脚本在多个服务器上安装角色和功能  
 尽管不能使用添加角色和功能向导在单个向导会话中多个目标服务器上安装角色、 角色服务和功能，可以使用 Windows PowerShell 脚本在多个目标上安装角色、 角色服务和功能正在使用服务器管理器管理的服务器。 用于执行批量部署，因为此过程称为，脚本指向 XML 配置文件，可以轻松地创建使用添加角色和功能向导，并单击**导出配置设置**后通过向导为提前**确认安装选择**添加角色和功能向导的页。  
@@ -337,25 +337,25 @@ Windows PowerShell 函数类似于基于 GUI 的服务器管理器部署 cmdlet 
   
 ### <a name="to-install-net-framework-35-by-using-the-add-roles-and-features-wizard"></a>若要通过使用添加角色和功能向导安装.NET Framework 3.5  
   
-1.  上**管理**菜单中服务器管理器中，单击**添加角色和功能**。  
+1. 上**管理**菜单中服务器管理器中，单击**添加角色和功能**。  
   
-2.  选择正在运行 Windows Server 2016 的目标服务器。  
+2. 选择正在运行 Windows Server 2016 的目标服务器。  
   
-3.  上**选择的功能**的添加角色和功能向导中，选择页 **.NET Framework 3.5**。  
+3. 上**选择的功能**的添加角色和功能向导中，选择页 **.NET Framework 3.5**。  
   
-4.  如果组策略设置允许本地计算机这样做，安装进程将尝试使用 Windows 更新获取缺少的功能文件。 单击“安装”  ；你无需继续执行下一步。  
+4. 如果组策略设置允许本地计算机这样做，安装进程将尝试使用 Windows 更新获取缺少的功能文件。 单击“安装”  ；你无需继续执行下一步。  
   
-    如果组策略设置不允许这样做，或者想要使用的.NET Framework 3.5 功能文件上的其他来源**确认安装选择**页的向导中，单击**指定备用源路径**.  
+   如果组策略设置不允许这样做，或者想要使用的.NET Framework 3.5 功能文件上的其他来源**确认安装选择**页的向导中，单击**指定备用源路径**.  
   
-5.  提供并排存储区（称为 **SxS**）在安装介质的路径或 WIM 文件的路径。 在以下示例中，安装介质位于驱动器 D。  
+5. 提供并排存储区（称为 **SxS**）在安装介质的路径或 WIM 文件的路径。 在以下示例中，安装介质位于驱动器 D。  
   
-    **D:\Sources\SxS\\**  
+   **D:\Sources\SxS\\**  
   
-    若要指定 WIM 文件，请添加 **WIM:** 前缀，并添加要在 WIM 文件中用作后缀的映像索引，如以下示例所示。  
+   若要指定 WIM 文件，请添加 **WIM:** 前缀，并添加要在 WIM 文件中用作后缀的映像索引，如以下示例所示。  
   
-    **WIM:\\\\***server_name***\share\install.wim:3**  
+   **WIM:\\\\** <em>server_name</em> **\share\install.wim:3**  
   
-6.  单击“确定”  ，再单击“安装”  。  
+6. 单击“确定”  ，再单击“安装”  。  
   
 ### <a name="to-install-net-framework-35-by-using-dism"></a>使用 DISM 安装 .NET Framework 3.5  
   
@@ -395,23 +395,23 @@ Windows PowerShell 函数类似于基于 GUI 的服务器管理器部署 cmdlet 
   
 ##### <a name="to-configure-a-default-alternate-source-path-in-group-policy"></a>在组策略中配置默认备用源路径  
   
-1.  在本地组策略编辑器或组策略管理控制台中，打开以下策略设置。  
+1. 在本地组策略编辑器或组策略管理控制台中，打开以下策略设置。  
   
-    **计算机 \ 系统 \ 指定可选组件安装和组件修复的设置**  
+   **计算机 \ 系统 \ 指定可选组件安装和组件修复的设置**  
   
 2. Sselect**已启用**以启用策略设置中，如果未启用。  
   
-3.  在“选项”  区域的“备用源路径”  文本框中，指定共享文件夹或 WIM 文件的完全限定路径。 若要将 WIM 文件指定为备用源文件位置，请将前缀 **WIM:** 添加到路径，并添加要在 WIM 文件中用作后缀的映像索引。 以下是你可以指定的值示例：  
+3. 在“选项”  区域的“备用源路径”  文本框中，指定共享文件夹或 WIM 文件的完全限定路径。 若要将 WIM 文件指定为备用源文件位置，请将前缀 **WIM:** 添加到路径，并添加要在 WIM 文件中用作后缀的映像索引。 以下是你可以指定的值示例：  
   
-    -   共享文件夹路径: * *\\\\***server_name***\share\\* * * 文件夹名*  
+   - 共享文件夹路径： **\\ \\** <em>server_name</em> **\share\\** <em>folder_name</em>  
   
-    -   WIM 文件，在其中的路径**3**表示在其中找到功能文件的图像的索引：**WIM:\\\\***server_name***\share\install.wim:3**  
+   - WIM 文件，在其中的路径**3**表示在其中找到功能文件的图像的索引：**WIM:\\\\** <em>server_name</em> **\share\install.wim:3**  
   
-4.  如果不希望由要搜索缺少的功能文件在 Windows 更新中，选择此策略设置控制的计算机**永远不会尝试从 Windows 更新下载负载**。  
+4. 如果不希望由要搜索缺少的功能文件在 Windows 更新中，选择此策略设置控制的计算机**永远不会尝试从 Windows 更新下载负载**。  
   
-5.  如果此策略设置控制的计算机通常通过 WSUS 接收更新，但你首选通过 Windows 更新而非 WSUS 查找缺少的功能文件，请选择“联系 Windows 更新直接下载修复内容，而非 Windows Server 更新服务 (WSUS)”  。  
+5. 如果此策略设置控制的计算机通常通过 WSUS 接收更新，但你首选通过 Windows 更新而非 WSUS 查找缺少的功能文件，请选择“联系 Windows 更新直接下载修复内容，而非 Windows Server 更新服务 (WSUS)”  。  
   
-6.  更改此策略设置后，单击“确定”  ，再关闭组策略编辑器。  
+6. 更改此策略设置后，单击“确定”  ，再关闭组策略编辑器。  
   
 ## <a name="see-also"></a>请参阅  
 [Windows Server 安装选项](https://go.microsoft.com/fwlink/p/?LinkId=241573)  

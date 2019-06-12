@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4979010c13d78c89c9a3e4965b567f7eef1f2ede
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5bfd68dcb745ebf7ef239883aa1c5322241b32df
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841098"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438430"
 ---
 # <a name="ftp-recv"></a>ftp: recv
 
@@ -30,24 +30,26 @@ ms.locfileid: "59841098"
 recv <remoteFile> [<LocalFile>]  
 ```  
 ### <a name="parameters"></a>Parameters  
-|参数|描述|  
-|-------|--------|  
-|<remoteFile>|指定要复制的远程文件。|  
-|[<LocalFile>]|指定要在本地计算机上使用的名称。|  
+
+|   参数   |                   描述                    |
+|---------------|--------------------------------------------------|
+| <remoteFile>  |        指定要复制的远程文件。        |
+| [<LocalFile>] | 指定要在本地计算机上使用的名称。 |
+
 ## <a name="remarks"></a>备注  
--   **收到**命令等同于**获取**命令。  
--   如果*LocalFile*未指定，则指定文件*remoteFile*名称。  
-## <a name="BKMK_Examples"></a>示例  
-复制**test.txt**到本地计算机使用当前的文件传输类型。  
-```  
-recv test.txt  
-```  
-复制**test.txt**到本地计算机作为**test1.txt**使用当前的文件传输类型。  
-```  
-recv test.txt test1.txt  
-```  
-## <a name="additional-references"></a>其他参考  
--   [ftp: ascii](ftp-ascii.md)  
--   [ftp: binary](ftp-binary.md)  
--   [ftp: get](ftp-get.md)  
--   [命令行语法解答](command-line-syntax-key.md)  
+- **收到**命令等同于**获取**命令。  
+- 如果*LocalFile*未指定，则指定文件*remoteFile*名称。  
+  ## <a name="BKMK_Examples"></a>示例  
+  复制**test.txt**到本地计算机使用当前的文件传输类型。  
+  ```  
+  recv test.txt  
+  ```  
+  复制**test.txt**到本地计算机作为**test1.txt**使用当前的文件传输类型。  
+  ```  
+  recv test.txt test1.txt  
+  ```  
+  ## <a name="additional-references"></a>其他参考  
+- [ftp: ascii](ftp-ascii.md)  
+- [ftp: binary](ftp-binary.md)  
+- [ftp: get](ftp-get.md)  
+- [命令行语法项](command-line-syntax-key.md)  

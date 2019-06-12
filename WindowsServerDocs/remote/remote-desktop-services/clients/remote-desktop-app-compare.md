@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 0c10cf6c9355b5f7457a5f17babdfb44aaa679b2
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 0e001b590f524711185e3dd70db3bc52a9b8d9af
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976789"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447122"
 ---
 # <a name="compare-the-client-apps"></a>比较客户端应用程序
 
@@ -35,12 +35,13 @@ ms.locfileid: "65976789"
 
 ### <a name="input-redirection"></a>输入重定向
 
-| 重定向 | 远程桌面<br> 连接 | 通用 | Android | iOS | macOS | web 客户端 |
-|-------------|-------------------------------|-----------|---------|-----|-------|------------|
-| 键盘    | X                             | X         | X       | X   | X     | X          |
-| 鼠标       | X                             | X         | X       | X*    | X     | X          |
-| 触控       | X                             | X         | X       | X   |       | X （Edge 和 IE 不使用支持） |
-| 其他       | 笔                           |           |         |     |       |            |
+| 重定向 | 远程桌面<br> 连接 | 通用 | Android | iOS | macOS |          web 客户端           |
+|-------------|-------------------------------|-----------|---------|-----|-------|-------------------------------|
+|  键盘   |               X               |     X     |    X    |  X  |   X   |               X               |
+|    鼠标    |               X               |     X     |    X    | X\* |   X   |               X               |
+|    触控    |               X               |     X     |    X    |  X  |       | X （Edge 和 IE 不使用支持） |
+|    其他    |              笔              |           |         |     |       |                               |
+
 * 查看[的远程桌面 iOS Beta 客户端支持的输入设备的列表](remote-desktop-ios.md#supported-input-devices)。
 
 ### <a name="port-redirection"></a>端口重定向   
@@ -59,7 +60,7 @@ ms.locfileid: "65976789"
 | 重定向         | 远程桌面连接 | 通用   | Android | iOS         | macOS                                    | web 客户端    |
 |---------------------|---------------------------|-------------|---------|-------------|------------------------------------------|---------------|
 | 相机             | X                         |             |         |             |                                          |               |
-| 剪贴板           | X                         | 文本、 图像 | Text    | 文本、 图像 | X                                        | Text          |
+| 剪贴板           | X                         | 文本、 图像 | text    | 文本、 图像 | X                                        | text          |
 | 本地驱动器/存储 | X                         |             | X       |             | x                                        |               |
 | Location            | X                         |             |         |             |                                          |               |
 | 麦克风         | X                         |X            |         |             | X                                        |               |

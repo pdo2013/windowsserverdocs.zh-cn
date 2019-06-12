@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b0ebf9896621268c384ea8129d32c985028054d9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 98f42324dbd4c6b3add3333cf4687d1613b1f700
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890728"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441423"
 ---
 # <a name="select-volume"></a>select volume
 
@@ -36,10 +36,10 @@ select volume={<n>|<d>}
   
 ## <a name="parameters"></a>Parameters  
   
-|参数|描述|  
-|-------|--------|  
-|<n>|要接收焦点的卷数。 你可以通过使用当前选择的磁盘上查看所有卷的号**列出卷**DiskPart 命令。|  
-|<d>|要接收焦点的卷驱动器号或装入点路径。|  
+| 参数 |                                                                               描述                                                                                |
+|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    <n>    | 要接收焦点的卷数。 你可以通过使用当前选择的磁盘上查看所有卷的号**列出卷**DiskPart 命令。 |
+|    <d>    |                                                 要接收焦点的卷驱动器号或装入点路径。                                                 |
   
 ## <a name="remarks"></a>备注  
   
@@ -77,7 +77,7 @@ select volume
 ```  
   
 #### <a name="additional-references"></a>其他参考  
-[命令行语法解答](command-line-syntax-key.md)  
+[命令行语法项](command-line-syntax-key.md)  
   
 
   

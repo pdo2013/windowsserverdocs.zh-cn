@@ -9,12 +9,12 @@ ms.assetid: ''
 ms.author: pashort
 author: shortpatti
 ms.date: 08/08/2018
-ms.openlocfilehash: 58596387d79f3f212a472f00c2785bacc278e855
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: aab4ec7c69ec5b52eae926cd1065d777415b1124
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821908"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446217"
 ---
 # <a name="virtual-network-peering"></a>虚拟网络对等
 
@@ -36,20 +36,20 @@ ms.locfileid: "59821908"
 
 虚拟网络对等互连有几个要求和约束：
 
--   对等互连的虚拟网络必须：
+- 对等互连的虚拟网络必须：
 
-    -   具有非重叠 IP 地址空间
+  -   具有非重叠 IP 地址空间
 
-    -   由同一个网络控制器管理
+  -   由同一个网络控制器管理
 
--   一旦建立对等互连虚拟网络与另一个虚拟网络不能添加或删除地址空间中的地址范围。
+- 一旦建立对等互连虚拟网络与另一个虚拟网络不能添加或删除地址空间中的地址范围。
 
-   >[!TIP]
-   >如果你需要添加地址范围：<ol><li>删除对等互连。</li><li>添加地址空间。</li><li>添加对等互连试。</li></ol>
+  >[!TIP]
+  >如果你需要添加地址范围：<ol><li>删除对等互连。</li><li>添加地址空间。</li><li>添加对等互连试。</li></ol>
 
--   由于虚拟网络对等互连是两个虚拟网络之间，对等互连之间存在不派生可传递关系。 例如，如果建立 virtualNetworkA 与 virtualNetworkB 和 virtualNetworkB 与 virtualNetworkC 对等互连，则 virtualNetworkA 不会不获取对等互连与 virtualNetworkC。
+- 由于虚拟网络对等互连是两个虚拟网络之间，对等互连之间存在不派生可传递关系。 例如，如果建立 virtualNetworkA 与 virtualNetworkB 和 virtualNetworkB 与 virtualNetworkC 对等互连，则 virtualNetworkA 不会不获取对等互连与 virtualNetworkC。
 
-    [此处映像]
+  [此处映像]
 
 ## <a name="connectivity"></a>连接性
 

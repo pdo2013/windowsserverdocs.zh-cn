@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 23fa04b86d9c26fb30b74eebe8caef8498b90a12
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9580d725120bb32a9b915d37cdbc173bfb17b859
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879028"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438843"
 ---
 # <a name="ftp-append"></a>ftp： 追加
 
@@ -30,10 +30,12 @@ ms.locfileid: "59879028"
 append <LocalFile> [remoteFile]  
 ```  
 ### <a name="parameters"></a>Parameters  
-|参数|描述|  
-|-------|--------|  
-|<LocalFile>|指定要添加的本地文件。|  
-|[remoteFile]|指定到的远程计算机上的文件<LocalFile>添加。|  
+
+|  参数   |                               描述                                |
+|--------------|--------------------------------------------------------------------------|
+| <LocalFile>  |                     指定要添加的本地文件。                     |
+| [remoteFile] | 指定到的远程计算机上的文件<LocalFile>添加。 |
+
 ## <a name="remarks"></a>备注  
 如果*remoteFile*省略，则*LocalFile*名称用来远程文件名代替。  
 ## <a name="BKMK_Examples"></a>示例  
@@ -46,4 +48,4 @@ append file1.txt file2.txt
 append file1.txt  
 ```  
 ## <a name="additional-references"></a>其他参考  
--   [命令行语法解答](command-line-syntax-key.md)  
+-   [命令行语法项](command-line-syntax-key.md)  

@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: d6ff5b22-7695-4fee-b1bd-6c9dce5bd0e8
 author: lizap
 manager: scottman
-ms.openlocfilehash: 7cf7fdf3510fcaaa955bd0031fb3564fe4372472
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af5d5ce89561c89d8468627e20dfdb6f35eca5ef
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875798"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447110"
 ---
 # <a name="which-graphics-virtualization-technology-is-right-for-you"></a>图形虚拟化技术最适合你？
 
@@ -43,12 +43,12 @@ ms.locfileid: "59875798"
 ## <a name="remotefx-vgpu"></a>RemoteFX vGPU 
 RemoteFX vGPU 是一种图形虚拟化技术，允许处理 GPU 的强大功能拆分到不同来宾操作系统启用知识工作者方案 （请参阅上面的第一个图形）。 Windows Server 2016 中的改进允许进一步增强功能的 GPU 迸发方案，例如设计器的应用程序和数据可视化效果。 其他功能的改进包括：
 
--   支持第 2 代来宾虚拟机、 Windows Server 2016 来宾虚拟机和 Windows 客户端 HYPER-V 主机。
-   >[!NOTE] 
-   > Windows Server 2016 来宾 VM; 上不支持远程桌面会话主机只有一个会话可以承载每个 Windows Server 2016 来宾 VM。
+- 支持第 2 代来宾虚拟机、 Windows Server 2016 来宾虚拟机和 Windows 客户端 HYPER-V 主机。
+  >[!NOTE] 
+  > Windows Server 2016 来宾 VM; 上不支持远程桌面会话主机只有一个会话可以承载每个 Windows Server 2016 来宾 VM。
 
--   改进的应用程序兼容性和稳定性。
--   虚拟机连接增强会话模式，允许通过 VM 连接到启用 RemoteFX vgpu 的 VM 的 USB 和剪贴板重定向。
+- 改进的应用程序兼容性和稳定性。
+- 虚拟机连接增强会话模式，允许通过 VM 连接到启用 RemoteFX vgpu 的 VM 的 USB 和剪贴板重定向。
 
 有关详细信息，请查看[设置的安装和配置 RemoteFX vGPU 远程桌面服务](rds-remotefx-vgpu.md)。
 

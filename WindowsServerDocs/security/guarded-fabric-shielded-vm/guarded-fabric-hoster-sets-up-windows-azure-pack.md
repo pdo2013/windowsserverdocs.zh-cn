@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 9ca9f41770c977b6e7c4900b090471dbfe11a450
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 156832087bc7af0c95a92cab9a0c1501264d47a5
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855718"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447502"
 ---
 # <a name="shielded-vms---hosting-service-provider-sets-up-windows-azure-pack"></a>受防护的 VM - 主机托管服务提供商设置 Windows Azure Pack
 
@@ -52,7 +52,7 @@ ms.locfileid: "59855718"
 
 3.  打开 Web 平台安装程序并找到**Windows Azure 包：门户和 API Express**下**产品**选项卡。单击**外**，然后**安装**在窗口的底部。
 
-4.  继续执行安装。 安装完成后，配置网站 (*https://&lt;wapserver&gt;: 30101 /*) 将在 web 浏览器中打开。 此网站上提供有关您的 SQL server 的信息并完成配置 WAP。
+4.  继续执行安装。 安装完成后，配置网站 (*https://&lt;wapserver&gt;: 30101 /* ) 将在 web 浏览器中打开。 此网站上提供有关您的 SQL server 的信息并完成配置 WAP。
 
 安装 Windows Azure Pack 的帮助设置，请参阅[安装 Windows Azure Pack 的快速部署](https://technet.microsoft.com/dn296439.aspx)。
 
@@ -77,37 +77,37 @@ ms.locfileid: "59855718"
 
 若要允许租户在 WAP 中创建 Vm，必须先创建托管计划，租户可以订阅。 计划为你的租户定义允许的 VM 云、 模板、 网络和计费实体。
 
-1.  在门户的下部窗格中，单击 **+ 新建** &gt; **计划** &gt; **创建计划**。
+1. 在门户的下部窗格中，单击 **+ 新建** &gt; **计划** &gt; **创建计划**。
 
-2.  在向导的第一个步骤中，选择你的计划的名称。 这是在订阅时，将看到你的租户的名称。
+2. 在向导的第一个步骤中，选择你的计划的名称。 这是在订阅时，将看到你的租户的名称。
 
-3.  在第二个步骤中，选择**虚拟机云**作为要在计划中提供的服务之一。
+3. 在第二个步骤中，选择**虚拟机云**作为要在计划中提供的服务之一。
 
-4.  跳过有关选择任何加载项计划的步骤。
+4. 跳过有关选择任何加载项计划的步骤。
 
-5.  单击**确定**（复选标记） 以创建计划。 尽管这会创建该计划，但不是尚未处于配置状态。
+5. 单击**确定**（复选标记） 以创建计划。 尽管这会创建该计划，但不是尚未处于配置状态。
 
-    ![在 Windows Azure 中的计划包](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-02-create-plan.png)
+   ![在 Windows Azure 中的计划包](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-02-create-plan.png)
 
-6.  若要开始配置该计划，请单击其名称。
+6. 若要开始配置该计划，请单击其名称。
 
-7.  在下一页上，在**规划服务**，单击**虚拟机云**。 这会打开可在其中配置此计划的配额页。
+7. 在下一页上，在**规划服务**，单击**虚拟机云**。 这会打开可在其中配置此计划的配额页。
 
-8.  下**基本**，选择 VMM 管理服务器和你想要提供给租户的虚拟机云。 可以提供受防护的 Vm 的云将显示与 **（支持屏蔽）** 其名称旁边。
+8. 下**基本**，选择 VMM 管理服务器和你想要提供给租户的虚拟机云。 可以提供受防护的 Vm 的云将显示与 **（支持屏蔽）** 其名称旁边。
 
-9.  选择想要在此计划中应用的配额。 （例如，在上个 CPU 核心和 RAM 使用情况限制）。 请务必选中**允许虚拟机到防护**选中复选框。
+9. 选择想要在此计划中应用的配额。 （例如，在上个 CPU 核心和 RAM 使用情况限制）。 请务必选中**允许虚拟机到防护**选中复选框。
 
-    ![在 Windows Azure Pack 中的虚拟机云的设置](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-03-virtual-machine-clouds.png)
+   ![在 Windows Azure Pack 中的虚拟机云的设置](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-03-virtual-machine-clouds.png)
     
-10.  向下的滚动至一节**模板**，然后选择一个或多个模板，以提供给租户。 您可以提供受防护的同时，必须提供给租户，未受防护的模板，但受防护的模板来为租户提供有关虚拟机和自己的机密的完整性的端到端保证。
+10. 向下的滚动至一节**模板**，然后选择一个或多个模板，以提供给租户。 您可以提供受防护的同时，必须提供给租户，未受防护的模板，但受防护的模板来为租户提供有关虚拟机和自己的机密的完整性的端到端保证。
 
-11.  在中**网络**部分中，为你的租户中添加一个或多个网络。
+11. 在中**网络**部分中，为你的租户中添加一个或多个网络。
 
-12.  设置后的任何其他设置或配额的计划，单击**保存**底部。
+12. 设置后的任何其他设置或配额的计划，单击**保存**底部。
 
-13.  在屏幕的右下方，单击箭头以将您带回**计划**页。
+13. 在屏幕的右下方，单击箭头以将您带回**计划**页。
 
-14.  在屏幕的底部，从要更改计划**私有**到**公共**，以便租户可以订阅该计划。
+14. 在屏幕的底部，从要更改计划**私有**到**公共**，以便租户可以订阅该计划。
 
     ![更改 Windows Azure Pack 中的计划的访问权限](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-04-change-access.png)
 
@@ -116,4 +116,4 @@ ms.locfileid: "59855718"
 ## <a name="see-also"></a>请参阅
 
 - [托管服务提供程序的配置步骤受保护的主机和受防护的 Vm](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
-- [受保护的构造和受防护的 Vm](guarded-fabric-and-shielded-vms-top-node.md)
+- [受保护的结构和受防护的 VM](guarded-fabric-and-shielded-vms-top-node.md)

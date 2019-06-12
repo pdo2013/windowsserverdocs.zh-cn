@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: beb94475-b21f-46a9-ac51-bf2bb28ca94e
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 468854d6e03bbc2abee3b9fce7f7960c7c25cfd3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2a38e5682b03cdb37ff88332317122b6addd000c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879708"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446876"
 ---
 # <a name="monitor-connected-remote-clients-for-activity-and-status"></a>监视用于活动和状态的连接的远程客户端
 
@@ -33,7 +33,7 @@ ms.locfileid: "59879708"
   
 #### <a name="to-monitor-remote-client-activity-and-status"></a>若要监视远程客户端活动和状态  
   
-1.  在“服务器管理器”中，单击“工具”，然后单击“远程访问管理”。  
+1.  在“服务器管理器”  中，单击“工具”  ，然后单击“远程访问管理”  。  
   
 2.  单击**报告**以导航到**远程访问报告**中**远程访问管理控制台**。  
   
@@ -41,7 +41,7 @@ ms.locfileid: "59879708"
   
 4.  您将看到的用户连接到远程访问服务器，并详细的列表有关它们的统计信息。 单击对应于客户端的列表中的第一行。 当选中某行时，在预览窗格中显示的远程用户活动。  
   
-![Windows PowerShell](../../../media/Monitor-connected-remote-clients-for-activity-and-status/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![Windows PowerShell](../../../media/Monitor-connected-remote-clients-for-activity-and-status/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -51,7 +51,7 @@ PS> Get-RemoteAccessConnectionStatistics
   
 可以筛选用户统计信息，根据所选的条件，通过使用下表中的字段。  
   
-|字段名称|ReplTest1|  
+|字段名称|值|  
 |-------|-----|  
 |Username|远程用户的用户名或别名。 可以使用通配符选择一组用户，如 contoso\\* 或\*\administrator。|  
 |主机名|远程用户的计算机帐户名称。 此外可以指定 IPv4 或 IPv6 地址。|  

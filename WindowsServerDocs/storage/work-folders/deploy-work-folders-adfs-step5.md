@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: f168292b-0dbc-44b9-965f-d480e5134a0c
-ms.openlocfilehash: 4b2c771a83824318f889c955f6194bcb062761f3
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 44e3ab06ac29d770ad47b43db5eba06f0eb08a60
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976801"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447797"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>部署工作文件夹使用 AD FS 和 Web 应用程序代理：第 5 步： 设置客户端
 
@@ -75,21 +75,21 @@ ms.locfileid: "65976801"
 ### <a name="configure-work-folders-on-the-client"></a>配置客户端上的工作文件夹  
 要配置客户端计算机上的工作文件夹，请遵循以下步骤：  
   
-1.  在客户端计算机上打开**控制面板**，然后单击**工作文件夹**。  
+1. 在客户端计算机上打开**控制面板**，然后单击**工作文件夹**。  
   
-2.  单击**设置工作文件夹**。  
+2. 单击**设置工作文件夹**。  
   
-3.  上**输入你的工作电子邮件地址**页上，输入用户的电子邮件地址 (例如， user@contoso.com) 或工作文件夹 URL (在测试示例中，https:\//workfolders.contoso.com)，然后单击**下一步**。  
+3. 上**输入你的工作电子邮件地址**页上，输入用户的电子邮件地址 (例如， user@contoso.com) 或工作文件夹 URL (在测试示例中，https:\//workfolders.contoso.com)，然后单击**下一步**。  
   
-4.  如果用户连接到公司网络，则由 Windows 集成身份验证执行身份验证。 如果用户未连接到公司网络，则由 ADFS (OAuth) 执行身份验证，它将提示用户输入凭据。 输入你的凭据，然后单击**确定**。  
+4. 如果用户连接到公司网络，则由 Windows 集成身份验证执行身份验证。 如果用户未连接到公司网络，则由 ADFS (OAuth) 执行身份验证，它将提示用户输入凭据。 输入你的凭据，然后单击**确定**。  
   
-5.  进行身份验证后，**介绍工作文件夹**页面将显示，你可以在其中选择更改工作文件夹目录的位置。 单击“下一步”  。  
+5. 进行身份验证后，**介绍工作文件夹**页面将显示，你可以在其中选择更改工作文件夹目录的位置。 单击“下一步”  。  
   
-6.  **安全策略**页列出了你为工作文件夹设置的安全策略。 单击“下一步”  。  
+6. **安全策略**页列出了你为工作文件夹设置的安全策略。 单击“下一步”  。  
   
-7.  将显示一条消息，指出工作文件夹已开始与你的电脑同步。 单击 **“关闭”** 。  
+7. 将显示一条消息，指出工作文件夹已开始与你的电脑同步。 单击 **“关闭”** 。  
   
-8.  **管理工作文件夹**页可显示服务器上的可用空间量、同步状态等。 如有必要，你可以在此处重新输入凭据。 关闭窗口。  
+8. **管理工作文件夹**页可显示服务器上的可用空间量、同步状态等。 如有必要，你可以在此处重新输入凭据。 关闭窗口。  
   
 9. 你的“工作文件夹”文件夹将自动打开。 你可以向此文件夹中添加内容，并在设备之间同步。  
   

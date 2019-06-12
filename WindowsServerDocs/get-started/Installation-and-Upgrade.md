@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: f859253188c46d3e34e7a6ae504bf3eeafbae75c
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.openlocfilehash: 140f67a9dab5cf1f10cdb0c5c51a031a0dfb9dd3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613182"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443553"
 ---
 # <a name="windows-server-installation-and-upgrade"></a>Windows Server 安装和升级
 
@@ -46,10 +46,10 @@ Windows Server 迁移文档可帮助你从运行 Windows Server，相同或较�
 
 ## <a name="upgrade"></a>升级
 如果你想要保留相同硬件以及你已设置的所有服务器角色，同时不扁平化服务器，则可选择**升级**，有许多方法来执行此操作。 在典型升级中，可从更低版本的操作系统升级到更高版本的操作系统，并且使设置、服务器角色和数据保持完整。 例如，如果你的服务器运行的是 Windows Server 2012 R2，你可以将它升级到 Windows Server 2016。 但是，并非每个更低版本的操作系统都拥有升级到每个更高版本的操作系统的路径。
- 
+ 
 >[!NOTE]
 >升级最适合用于虚拟机，其中进行成功升级不需要特定 OEM 硬件驱动程序。
- 
+ 
 可以从操作系统评估版升级到零售版，从早期的零售版升级到较新版本，在某些情况下，还可以从操作系统批量授权版升级到普通零售版。
 
 开始升级之前，先看看此页面上的表，以便了解如何从你所在的位置升级到你要到达的位置。
@@ -58,14 +58,14 @@ Windows Server 迁移文档可帮助你从运行 Windows Server，相同或较�
 
 >[!NOTE]
 >每当迁移到或升级到任何版本的 Windows Server 时，都应查看并了解[支持生命周期策略](https://support.microsoft.com/lifecycle)以及该版本的时间范围，并且作出相应的计划。 你可以[搜索生命周期信息](https://support.microsoft.com/lifecycle)，以便了解你感兴趣的特定 Windows server 版本。
- 
- 
+ 
+ 
 ## <a name="upgrading-to-windows-server-2016"></a>升级到 Windows Server 2016
 有关详细信息，包括重要注意事项和升级限制、Windows Server 2016 版本之间的许可证转换，以及评估版到零售版之间的转换，请参阅 [Windows Server 2016 的受支持升级路径](https://go.microsoft.com/fwlink/?LinkId=828602)。
- 
+ 
 >[!NOTE]
 >注意：不支持从“服务器核心安装”切换到“带桌面安装的服务器”的升级（反之亦然）。 如果你正在升级或转换的更低版本操作系统是服务器核心安装，则结果仍将是更高版本操作系统的服务器核心安装。
- 
+ 
 从先前 Windows Server 零售版到 Windows Server 2016 零售版本的受支持升级路径的快速参考表：
 
 
@@ -81,7 +81,7 @@ Windows Server 迁移文档可帮助你从运行 Windows Server，相同或较�
 |Windows Storage Server 2012 Workgroup|Windows Storage Server 2016 Workgroup|
 |Windows Storage Server 2012 R2 Standard|Windows Storage Server 2016 Standard|
 |Windows Storage Server 2012 R2 Workgroup|Windows Storage Server 2016 Workgroup|
- 
+ 
 ### <a name="license-conversion"></a>许可证转换
 可以将 Windows Server 2016 Standard（零售版）转换为 Windows Server 2016 Datacenter（零售版）。
 
@@ -90,7 +90,7 @@ Windows Server 迁移文档可帮助你从运行 Windows Server，相同或较�
 可以将 Windows Server 2016 Standard 的评估版转换为 Windows Server 2016 Standard（零售版）或 Datacenter（零售版）。
 
 可以将 Windows Server 2016 Datacenter 的评估版转换为 Windows Server 2016 Datacenter（零售版）。
- 
+ 
 ## <a name="upgrading-to-windows-server-2012-r2"></a>升级到 Windows Server 2012 R2
 有关详细信息，包括重要注意事项和升级限制、Windows Server 2012 R2 版本之间的许可证转换，以及评估版到零售版之间的转换，请参阅 [Windows Server 2012 R2 的升级选项](https://technet.microsoft.com/library/dn303416.aspx)。
 
@@ -115,7 +115,7 @@ Windows Server 迁移文档可帮助你从运行 Windows Server，相同或较�
 
 ## <a name="upgrading-to-windows-server-2012"></a>升级到 Windows Server 2012
 有关详细信息，包括重要注意事项和升级限制，以及评估版到零售版之间的转换，请参阅[Windows Server 2012 的评估版和升级选项](https://technet.microsoft.com/library/jj574204.aspx)。
- 
+ 
 从先前 Windows Server 零售版到 Windows Server 2012 零售版本的受支持升级路径的快速参考表：
 
 |如果运行的是：|可以升级到这些版本：|

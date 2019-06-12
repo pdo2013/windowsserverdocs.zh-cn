@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 12bc8e11-d63c-4aef-8129-f92324b2bf1b
-ms.openlocfilehash: e832dce3eed7d0e5103254fb48683726b82af2e6
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: d03407292a797b1cd511937ba40fc0fa373f5dc0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475938"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447569"
 ---
 # <a name="frequently-asked-questions-about-storage-replica"></a>有关存储副本的常见问题
 
@@ -227,7 +227,7 @@ Update-SmbMultichannelConnection
 但是，若要获取的 Windows Server 2019 改进的复制性能，合作关系的所有成员必须都运行 Windows Server 2019 和必须删除现有的合作关系和相关联的复制组，然后使用植入的数据 （无论是重新创建它们当创建合作关系中 Windows Admin Center 或新建 SRPartnership cmdlet）。
 
 ## <a name="FAQ17"></a> 如何报告存储副本或本指南的问题？  
-如需存储副本的技术援助，可以通过 [Microsoft TechNet 论坛](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=WinServerPreview) 发布。 还可以将有关存储副本的疑问或本文档中出现的问题通过电子邮件发送至 srfeed@microsoft.com。  https://windowsserver.uservoice.com 站点是设计更改请求的首选，因为它允许客户对你的想法提供支持和反馈。
+如需存储副本的技术援助，可以通过 [Microsoft TechNet 论坛](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=WinServerPreview) 发布。 还可以将有关存储副本的疑问或本文档中出现的问题通过电子邮件发送至 srfeed@microsoft.com。 <https://windowsserver.uservoice.com> 站点是设计更改请求的首选，因为它允许客户对你的想法提供支持和反馈。
 
 
 

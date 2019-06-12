@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: e5e55ad492439fcb7150469d9a35b639f5ff9a2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: baea091482818c581414ba1d9c1c01db2a52e3d7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830508"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435662"
 ---
 # <a name="hyper-v-configuration"></a>Hyper-V 配置
 
@@ -76,31 +76,31 @@ HYPER-V 发布性能计数器来帮助描述虚拟化服务器的行为的特征
 
 始终应通过使用 HYPER-V 虚拟机监控程序逻辑处理器性能计数器来测量物理系统的 CPU 使用率。 CPU 利用率计数器根目录中的任务管理器和性能监视器报表和子分区不反映实际的物理 CPU 使用情况。 使用以下性能计数器来监视性能：
 
--   **HYPER-V 虚拟机监控程序逻辑处理器 (\*)\\总运行时间百分比**逻辑处理器的总非空闲时间
+- **HYPER-V 虚拟机监控程序逻辑处理器 (\*)\\总运行时间百分比**逻辑处理器的总非空闲时间
 
--   **HYPER-V 虚拟机监控程序逻辑处理器 (\*)\\来宾运行时间百分比**所花费的时间内主机或来宾内运行周期
+- **HYPER-V 虚拟机监控程序逻辑处理器 (\*)\\来宾运行时间百分比**所花费的时间内主机或来宾内运行周期
 
--   **HYPER-V 虚拟机监控程序逻辑处理器 (\*)\\虚拟机监控程序运行时间百分比**内虚拟机监控程序运行花费的时间
+- **HYPER-V 虚拟机监控程序逻辑处理器 (\*)\\虚拟机监控程序运行时间百分比**内虚拟机监控程序运行花费的时间
 
--   **HYPER-V 虚拟机监控程序根虚拟处理器 (\*)\\ \*** 测量根分区的 CPU 使用率
+- **HYPER-V 虚拟机监控程序根虚拟处理器 (\*)\\\\** * 测量根分区的 CPU 使用率
 
--   **HYPER-V 虚拟机监控程序虚拟处理器 (\*)\\ \*** 测量来宾分区的 CPU 使用率
+- **HYPER-V 虚拟机监控程序虚拟处理器 (\*)\\\\** * 测量来宾分区的 CPU 使用率
 
 
 ## <a name="see-also"></a>请参阅
 
--   [HYPER-V 术语](terminology.md)
+-   [Hyper-V 术语](terminology.md)
 
--   [HYPER-V 体系结构](architecture.md)
+-   [Hyper-V 体系结构](architecture.md)
 
--   [HYPER-V 处理器性能](processor-performance.md)
+-   [Hyper-V 处理器性能](processor-performance.md)
 
--   [HYPER-V 内存性能](memory-performance.md)
+-   [Hyper-V 内存性能](memory-performance.md)
 
--   [HYPER-V 存储 I/O 性能](storage-io-performance.md)
+-   [Hyper-V 存储 I/O 性能](storage-io-performance.md)
 
--   [HYPER-V 网络 I/O 性能](network-io-performance.md)
+-   [Hyper-V 网络 I/O 性能](network-io-performance.md)
 
--   [虚拟化环境中检测瓶颈](detecting-virtualized-environment-bottlenecks.md)
+-   [检测虚拟化环境中的瓶颈](detecting-virtualized-environment-bottlenecks.md)
 
 -   [Linux 虚拟机](linux-virtual-machine-considerations.md)

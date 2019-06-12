@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 65ccaf23b0e19319383952f3a1ca436aaf4d06fd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a637abc91dd3342afb3a2723d1b3a835be149122
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856458"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436326"
 ---
 # <a name="path"></a>path
 
@@ -37,12 +37,12 @@ path ;
 
 ## <a name="parameters"></a>Parameters
 
-|参数|描述|
-|---------|-----------|
-|[\<Drive>:]<Path>|指定的驱动器和目录中的命令路径设置。|
-|;|用于分隔命令路径中的目录。 如果使用不带其他参数， **;** 清除路径环境变量中的现有命令路径并指示 Cmd.exe 仅在当前目录中搜索。|
-|%PATH%|将命令路径追加到现有的 PATH 环境变量中列出的目录集。|
-|/?|在命令提示符下显示帮助。|
+|     参数     |                                                                                                     描述                                                                                                      |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [\<Drive>:]<Path> |                                                                            指定的驱动器和目录中的命令路径设置。                                                                             |
+|         ;         | 用于分隔命令路径中的目录。 如果使用不带其他参数， **;** 清除路径环境变量中的现有命令路径并指示 Cmd.exe 仅在当前目录中搜索。 |
+|      %PATH%       |                                                         将命令路径追加到现有的 PATH 环境变量中列出的目录集。                                                         |
+|        /?         |                                                                                         在命令提示符下显示帮助。                                                                                         |
 
 ## <a name="remarks"></a>备注
 
@@ -62,4 +62,4 @@ path ;
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

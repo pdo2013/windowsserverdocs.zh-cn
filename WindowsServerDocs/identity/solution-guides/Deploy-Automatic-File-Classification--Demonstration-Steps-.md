@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 77fb8cc6e13cb82e4d07808c3ae77757a4b2de79
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 8d1ea7a428b2d03649a7a9347421d717be3f468a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826778"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445830"
 ---
 # <a name="deploy-automatic-file-classification-demonstration-steps"></a>Deploy Automatic File Classification (Demonstration Steps)
 
@@ -48,15 +48,15 @@ ms.locfileid: "59826778"
   
 1.  在域控制器上，以 Domain Admins 安全组成员的身份登录到服务器。  
   
-2.  打开 Active Directory 管理中心。 在服务器管理器中，单击“工具”，然后单击“Active Directory 管理中心”。  
+2.  打开 Active Directory 管理中心。 在服务器管理器中，单击“工具”  ，然后单击“Active Directory 管理中心”  。  
   
-3.  展开“动态访问控制”，然后单击“资源属性”。  
+3.  展开“动态访问控制”  ，然后单击“资源属性”  。  
   
-4.  右键单击“影响”，然后单击“启用”。  
+4.  右键单击“影响”  ，然后单击“启用”  。  
   
-5.  右键单击“个人身份信息”，然后单击“启用”。  
+5.  右键单击“个人身份信息”  ，然后单击“启用”  。  
   
-![解决方案指南](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)****Windows PowerShell 等效命令****  
+![解决方案指南](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -76,38 +76,38 @@ Set-ADResourceProperty '"Enabled:$true '"Identity:'CN=PII_MS,CN=Resource Propert
   
 2.  在 Windows Powershell 命令提示符下，键入 **Update-FsrmClassificationPropertyDefinition**，然后按 ENTER。 这会将域控制器上创建的属性定义同步到文件服务器。  
   
-3.  打开文件服务器资源管理器。 在服务器管理器中，单击“工具”，然后单击“文件服务器资源管理器”。  
+3.  打开文件服务器资源管理器。 在服务器管理器中，单击“工具”  ，然后单击“文件服务器资源管理器”  。  
   
-4.  展开“分类管理” ，右键单击“分类规则” ，然后单击“配置分类计划” 。  
+4.  展开“分类管理”  ，右键单击“分类规则”  ，然后单击“配置分类计划”  。  
   
-5.  依次选中“启用固定计划”复选框和“允许对新文件进行连续分类”复选框，再选择一周中的某一天来运行分类，然后单击“确定”。  
+5.  依次选中“启用固定计划”  复选框和“允许对新文件进行连续分类”  复选框，再选择一周中的某一天来运行分类，然后单击“确定”  。  
   
-6.  右键单击“分类规则” ，然后单击“创建分类规则” 。  
+6.  右键单击“分类规则”  ，然后单击“创建分类规则”  。  
   
-7.  在“规则名称”框中的“常规”选项卡上，键入规则名称，如 **Contoso Confidential**。  
+7.  在“规则名称”  框中的“常规”  选项卡上，键入规则名称，如 **Contoso Confidential**。  
   
-8.  在“作用域”  选项卡上，单击“添加” ，然后选择应该包括在该规则中的文件夹，如 D:\Finance Documents。  
+8.  在“作用域”  选项卡上，单击“添加”  ，然后选择应该包括在该规则中的文件夹，如 D:\Finance Documents。  
   
     > [!NOTE]  
     > 还可以选择用于作用域的动态命名空间。 有关用于分类规则的动态命名空间的详细信息，请参阅[What's New 中文件服务器资源管理器在 Windows Server 2012\[重定向\]](assetId:///d53c603e-6217-4b98-8508-e8e492d16083)。  
   
-9. 在“分类”选项卡上，进行以下配置：  
+9. 在“分类”  选项卡上，进行以下配置：  
   
-    -   在“选择用于将属性分配给文件的方法”框中，请确保“内容分类器”处于选中状态。  
+    -   在“选择用于将属性分配给文件的方法”  框中，请确保“内容分类器”  处于选中状态。  
   
-    -   在“选择要分配给文件的属性”  框中，单击“影响” 。  
+    -   在“选择要分配给文件的属性”  框中，单击“影响”  。  
   
-    -   在“指定一个值”框中，单击“高”。  
+    -   在“指定一个值”  框中，单击“高”  。  
   
-10. 在“参数”标题下，单击“配置”。  
+10. 在“参数”  标题下，单击“配置”  。  
   
-11. 在“表达式类型”列中，选择“字符串”。  
+11. 在“表达式类型”  列中，选择“字符串”  。  
   
-12. 在“表达式”  列中，键入 **Contoso Confidential**，然后单击“确定” 。  
+12. 在“表达式”  列中，键入 **Contoso Confidential**，然后单击“确定”  。  
   
-13. 在“评估类型”选项卡上，选中“重新评估现有属性值”复选框，再单击“覆盖现有值”，然后单击“确定”。  
+13. 在“评估类型”  选项卡上，选中“重新评估现有属性值”  复选框，再单击“覆盖现有值”  ，然后单击“确定”  。  
   
-![解决方案指南](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)****Windows PowerShell 等效命令****  
+![解决方案指南](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -129,33 +129,33 @@ New-FSRMClassificationRule -Name 'Contoso Confidential' -Property "Impact_MS" -P
   
 2.  在 Windows Powershell 命令提示符下，键入 **Update-FsrmClassificationPropertyDefinition**，然后按 ENTER。 这会将域控制器上创建的属性定义同步到文件服务器。  
   
-3.  打开文件服务器资源管理器。 在服务器管理器中，单击“工具”，然后单击“文件服务器资源管理器”。  
+3.  打开文件服务器资源管理器。 在服务器管理器中，单击“工具”  ，然后单击“文件服务器资源管理器”  。  
   
-4.  右键单击“分类规则” ，然后单击“创建分类规则” 。  
+4.  右键单击“分类规则”  ，然后单击“创建分类规则”  。  
   
-5.  在“规则名称”框中的“常规”选项卡上，键入分类规则的名称，如 PII 规则。  
+5.  在“规则名称”  框中的“常规”  选项卡上，键入分类规则的名称，如 PII 规则。  
   
-6.  在“作用域”选项卡上，单击“添加”，然后选择应该包括在该规则中的文件夹，如 D:\Finance Documents。  
+6.  在“作用域”  选项卡上，单击“添加”  ，然后选择应该包括在该规则中的文件夹，如 D:\Finance Documents。  
   
-7.  在“分类”选项卡上，进行以下配置：  
+7.  在“分类”  选项卡上，进行以下配置：  
   
-    -   在“选择用于将属性分配给文件的方法”框中，请确保“内容分类器”处于选中状态。  
+    -   在“选择用于将属性分配给文件的方法”  框中，请确保“内容分类器”  处于选中状态。  
   
-    -   在“选择要分配给文件的属性”  框中，单击“个人身份信息” 。  
+    -   在“选择要分配给文件的属性”  框中，单击“个人身份信息”  。  
   
-    -   在“指定一个值”框中，单击“高”。  
+    -   在“指定一个值”  框中，单击“高”  。  
   
-8.  在“参数”标题下，单击“配置”。  
+8.  在“参数”  标题下，单击“配置”  。  
   
-9. 在“表达式类型”  列中，选择“正则表达式” 。  
+9. 在“表达式类型”  列中，选择“正则表达式”  。  
   
 10. 在中**表达式**列中，键入 **^ （？ ！000) ([0-7] \d{2}| 7([0-7]\d|7[012 ([-]？)(?!00) \d\d\3 （？ ！0000) \d{4}$**  
   
-11. 在“最少出现次数”列中，键入 **10**，然后单击“确定”。  
+11. 在“最少出现次数”  列中，键入 **10**，然后单击“确定”  。  
   
-12. 在“评估类型”选项卡上，选中“重新评估现有属性值”复选框，再单击“覆盖现有值”，然后单击“确定”。  
+12. 在“评估类型”  选项卡上，选中“重新评估现有属性值”  复选框，再单击“覆盖现有值”  ，然后单击“确定”  。  
   
-![解决方案指南](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)****Windows PowerShell 等效命令****  
+![解决方案指南](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -170,9 +170,9 @@ New-FSRMClassificationRule -Name "PII Rule" -Property "PII_MS" -PropertyValue "5
   
 1.  在文件服务器上，通过使用文件服务器资源管理器来运行分类规则。  
   
-    1.  单击“分类管理”，右键单击“分类规则”，然后单击“立即使用所有规则运行分类”。  
+    1.  单击“分类管理”  ，右键单击“分类规则”  ，然后单击“立即使用所有规则运行分类”  。  
   
-    2.  单击“等待分类完成”选项，然后单击“确定”。  
+    2.  单击“等待分类完成”  选项，然后单击“确定”  。  
   
     3.  关闭“自动分类”报告。  
   
@@ -180,13 +180,13 @@ New-FSRMClassificationRule -Name "PII Rule" -Property "PII_MS" -PropertyValue "5
   
 2.  导航至分类规则中已指定的文件夹，如 D:\Finance Documents。  
   
-3.  右键单击该文件夹中的文件，然后单击“属性”。  
+3.  右键单击该文件夹中的文件，然后单击“属性”  。  
   
 4.  单击“分类”  选项卡，并验证文件是否已正确分类。  
   
 ## <a name="BKMK_Links"></a>另请参阅  
   
--   [方案：深入了解你的数据使用分类](Scenario--Get-Insight-into-Your-Data-by-Using-Classification.md)  
+-   [方案：使用分类深入了解数据](Scenario--Get-Insight-into-Your-Data-by-Using-Classification.md)  
   
 -   [自动文件分类规划](https://docs.microsoft.com/previous-versions/orphan-topics/ws.11/jj574209(v%3dws.11))  
 

@@ -7,12 +7,12 @@ ms.assetid: 07691d5b-046c-45ea-8570-a0a85c3f2d22
 manager: dongill
 author: huu
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: c102fa0503e6aac279235e1243b55e0e3cf81e1d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0fb257f693cc27c0bc6dd18fc89e8dc6328ee638
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812408"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447338"
 ---
 # <a name="troubleshooting-using-the-guarded-fabric-diagnostic-tool"></a>使用受保护的构造诊断工具进行故障排除
 
@@ -156,9 +156,9 @@ Get-HgsTrace -Target $hgs01,$hgs02,$gh01,$gh02 -RunDiagnostics
 
 1. 每个主机管理员运行的请求`Get-HgsTrace`指定一个已知`-Path`和诊断你想要对生成的跟踪运行的列表。  例如：
 
- ```PowerShell
- Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
- ```
+   ```PowerShell
+   Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
+   ```
 2. 请求每个主机管理员包生成的跟踪文件夹并将其发送给你。  可以通过电子邮件、 文件共享或基于操作的策略和过程由你的组织建立的任何其他机制通过驱动此过程。
 
 3. 将接收到的所有跟踪都合并到一个文件夹，与任何其他内容或文件夹。
@@ -181,9 +181,9 @@ Get-HgsTrace -Target $hgs01,$hgs02,$gh01,$gh02 -RunDiagnostics
 
 4. 执行诊断，提供有关已组装的跟踪文件夹的路径`-Path`参数并指定`-RunDiagnostics`切换以及提出你的管理员以收集跟踪这些诊断。  诊断将假定它不能访问路径内找到的主机，并因此将尝试使用仅预先收集的跟踪。  如果任何跟踪丢失或损坏，诊断将仅受影响的测试失败，并继续正常工作。  例如：
 
- ```PowerShell
- Get-HgsTrace -RunDiagnostics -Diagnostic Networking,BestPractices -Path ".\FabricTraces"
- ```
+   ```PowerShell
+   Get-HgsTrace -RunDiagnostics -Diagnostic Networking,BestPractices -Path ".\FabricTraces"
+   ```
 
 ### <a name="mixing-saved-traces-with-additional-targets"></a>混合使用与其他目标一起保存的跟踪
 

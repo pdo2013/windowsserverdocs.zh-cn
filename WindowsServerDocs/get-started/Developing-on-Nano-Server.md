@@ -12,12 +12,12 @@ ms.assetid: 57079470-a1c1-4fdc-af15-1950d3381860
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: bc1930b681621d4d34c85414dbc2f97df257af20
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8d793dde9c41bc99b55eeb0da3a5ee4b025f08d6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817158"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443638"
 ---
 # <a name="developing-for-nano-server"></a>针对 Nano Server 进行开发
 
@@ -28,14 +28,14 @@ ms.locfileid: "59817158"
 
 这些主题说明了 Nano Server 上 PowerShell 的重要差异，还提供了开发自己的 PowerShell cmdlet 以用于 Nano Server 的相关指导。
 
-- [在 Nano Server 上的 PowerShell](PowerShell-on-Nano-Server.md)
-- [开发适用于 Nano Server 的 PowerShell Cmdlet](Developing-PowerShell-Cmdlets-for-Nano-Server.md)
+- [Nano Server 上的 PowerShell](PowerShell-on-Nano-Server.md)
+- [针对 Nano Server 开发 PowerShell Cmdlet](Developing-PowerShell-Cmdlets-for-Nano-Server.md)
 
 ## <a name="using-windows-powershell-remoting"></a>使用 Windows PowerShell 远程控制  
 若要使用 Windows PowerShell 远程控制管理 Nano Server，则需要将 Nano Server 的 IP 地址添加到受信任主机的管理计算机列表，将所使用的帐户添加到 Nano Server 的管理员，并启用 CredSSP（如果计划使用该功能）。  
 
- >[!NOTE]  
-    > 如果目标 Nano Server 和管理计算机是同一 AD DS 林中 （或在具有信任关系的林中），您不应将 Nano Server 添加到受信任的主机列表中-你可以连接到 Nano Server 通过使用其完全限定的域名例如：PS C:\>Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
+> [!NOTE]
+> 如果目标 Nano Server 和管理计算机是同一 AD DS 林中 （或在具有信任关系的林中），您不应将 Nano Server 添加到受信任的主机列表中-你可以连接到 Nano Server 通过使用其完全限定的域名例如：PS C:\>Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
   
   
 若要将 Nano Server 添加到受信任的主机列表，请在提升的 Windows PowerShell 提示符下运行此命令：  

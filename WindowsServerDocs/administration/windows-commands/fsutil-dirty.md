@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: c308b0497a5a39a25384b22441b733143df8727b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d8a5c4905991203a051fea360ed91c9b372f6993
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852128"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439083"
 ---
 # <a name="fsutil-dirty"></a>fsutil 脏
 >适用于：Windows Server （半年频道）、 Windows Server 2016 中，Windows 10、 Windows Server 2012 R2、 Windows 8.1、 Windows Server 2012 中，Windows 8、 Windows Server 2008 R2、 Windows 7
@@ -31,11 +31,11 @@ fsutil dirty {query | set} <VolumePath>
 
 ## <a name="parameters"></a>Parameters
 
-|参数|描述|
-|-------------|---------------|
-|查询|查询指定的卷的非正常位。|
-|设置|设置指定的卷的非正常位。|
-|\<VolumePath>|指定驱动器名称后跟冒号或 GUID 格式如下：**卷 {***GUID***}**。|
+|   参数   |                                                 描述                                                  |
+|---------------|--------------------------------------------------------------------------------------------------------------|
+|     查询     |                                  查询指定的卷的非正常位。                                   |
+|      设置      |                                    设置指定的卷的非正常位。                                    |
+| \<VolumePath> | 指定驱动器名称后跟冒号或 GUID 格式如下：**卷 {** <em>GUID</em> **}** 。 |
 
 ## <a name="remarks"></a>备注
 
@@ -71,7 +71,7 @@ fsutil dirty set C:
 ```
 
 #### <a name="additional-references"></a>其他参考
-[命令行语法解答](Command-Line-Syntax-Key.md)
+[命令行语法项](Command-Line-Syntax-Key.md)
 
 [Fsutil](Fsutil.md)
 

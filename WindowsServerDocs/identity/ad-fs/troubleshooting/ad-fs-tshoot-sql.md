@@ -8,12 +8,12 @@ ms.date: 01/12/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a4b7a568200bee7c2696c57f1dd964dd4e84ec21
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b09094b6e305bc85b38e94d11fbc8845d555437
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820258"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443932"
 ---
 # <a name="ad-fs-troubleshooting---sql-connectivity"></a>AD FS 故障排除-SQL 连接
 AD FS 提供对 AD FS 场数据使用远程 SQL Server 的功能。  如果您的服务器场中的 AD FS 服务器无法与后端 SQL server 通信，你将发现问题。  以下文档将提供一些基本步骤来测试通过后端服务器通信。
@@ -44,7 +44,7 @@ AD FS 提供对 AD FS 场数据使用远程 SQL Server 的功能。  如果您�
 ## <a name="use-sql-server-management-studio-to-test-connectivity"></a>使用 SQL Server Management Studio 来测试连接
 此外可以[下载](https://go.microsoft.com/fwlink/?linkid=864329)并安装 SSMS 测试数据库连接。
 
-###<a name="to-test-connectivity-with-ssms"></a>若要测试使用 SSMS 连接
+### <a name="to-test-connectivity-with-ssms"></a>若要测试使用 SSMS 连接
 1. 下载并安装 SQL Server Management Studio。
 ![安装](media/ad-fs-tshoot-sql/sql5.png)
 1. 打开 SSMS 中，输入服务器名称。  上面提供的数据源。
@@ -55,4 +55,4 @@ AD FS 提供对 AD FS 场数据使用远程 SQL Server 的功能。  如果您�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [AD FS 进行故障排除](ad-fs-tshoot-overview.md)
+- [AD FS 疑难解答](ad-fs-tshoot-overview.md)

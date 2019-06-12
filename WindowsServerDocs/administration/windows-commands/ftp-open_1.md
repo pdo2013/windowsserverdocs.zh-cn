@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: da7926914e2cbdbb4909093d90c33025ae5cd695
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 45de8b3c210fe0925ac3cc43c41d3e092d5dfe16
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882468"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438502"
 ---
 # <a name="ftp-open1"></a>ftp: open_1
 
@@ -30,10 +30,12 @@ ms.locfileid: "59882468"
 open <computer> [<Port>]  
 ```  
 ### <a name="parameters"></a>Parameters  
-|参数|描述|  
-|-------|--------|  
-|<computer>|指定要连接的远程计算机。|  
-|[<Port>]|指定要用于连接到 ftp 服务器的 TCP 端口号。 默认情况下使用 TCP 端口 21。|  
+
+| 参数  |                                           描述                                            |
+|------------|--------------------------------------------------------------------------------------------------|
+| <computer> |                指定要连接的远程计算机。                 |
+|  [<Port>]  | 指定要用于连接到 ftp 服务器的 TCP 端口号。 默认情况下使用 TCP 端口 21。 |
+
 ## <a name="remarks"></a>备注  
 可以使用 （在这种情况下的 DNS 服务器或主机文件必须可用） 的 IP 地址或计算机名称来指定**计算机**。  
 ## <a name="BKMK_Examples"></a>示例  
@@ -46,4 +48,4 @@ Open ftp.microsoft.com
 open ftp.microsoft.com 755  
 ```  
 ## <a name="additional-references"></a>其他参考  
--   [命令行语法解答](command-line-syntax-key.md)  
+-   [命令行语法项](command-line-syntax-key.md)  

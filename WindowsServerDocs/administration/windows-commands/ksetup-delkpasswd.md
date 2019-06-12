@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e487389e0f27f58aacaea2b81d573dc9a965e42f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a1c701707f736fe51a1f4af70a2571e63025f281
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889078"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438043"
 ---
 # <a name="ksetupdelkpasswd"></a>ksetup:delkpasswd
 
@@ -30,10 +30,12 @@ ms.locfileid: "59889078"
 ksetup /delkpasswd <RealmName> <KpasswdName>
 ```
 ### <a name="parameters"></a>Parameters
-|参数|描述|
-|-------|--------|
-|<RealmName>|领域名称表述为大写的 DNS 名称，例如 corp.CONTOSO.COM，并列出默认值为领域 = 当**ksetup**运行。|
-|<KpasswdName>|要用作 Kerberos 密码服务器的 KDC 名称表示为一个不区分大小写的完全限定域名，例如 mitkdc.contoso.com。 如果省略 KDC 名称时，可能会使用 DNS 来查找 Kdc。|
+
+|   参数   |                                                                                                   描述                                                                                                   |
+|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  <RealmName>  |                                领域名称表述为大写的 DNS 名称，例如 corp.CONTOSO.COM，并列出默认值为领域 = 当**ksetup**运行。                                |
+| <KpasswdName> | 要用作 Kerberos 密码服务器的 KDC 名称表示为一个不区分大小写的完全限定域名，例如 mitkdc.contoso.com。 如果省略 KDC 名称时，可能会使用 DNS 来查找 Kdc。 |
+
 ## <a name="remarks"></a>备注
 运行命令**ksetup**以验证 KDC 名称。 如果**kpasswd =** 不出现在输出中，那么尚未配置映射。 将列出多个映射，如果设置。
 ## <a name="BKMK_Examples"></a>示例
@@ -45,4 +47,4 @@ ksetup /delkpasswd CORP.CONTOSO.COM mitkdc.contoso.com
 ## <a name="additional-references"></a>其他参考
 -   [ksetup](ksetup.md)
 -   [ksetup:delkpasswd](ksetup-delkpasswd.md)
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)

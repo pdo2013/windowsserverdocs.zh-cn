@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3a3156eefc4af52fb7daefb618c689b78fef5efc
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: fb1bc5776ea4d24f274c79563d9e346b104de6d9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188816"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444219"
 ---
 # <a name="ad-fs-scenarios-for-developers"></a>面向开发人员的 AD FS 方案
 
@@ -115,7 +115,7 @@ AD FS 2016|在 PowerShell 中|AD FS 管理
 1.  本机客户端应用程序启动的 ADAL 库调用流。  这会触发基于浏览器到 AD FS HTTP GET 的授权终结点：  
   
 **授权请求：**  
-获取 https://fs.contoso.com/adfs/oauth2/authorize?  
+获取 <https://fs.contoso.com/adfs/oauth2/authorize?>  
   
 参数|值  
 ---------|---------  
@@ -126,9 +126,9 @@ redirect_uri|应用程序组中的本机应用程序的重定向 URI
   
 **授权请求的响应：**  
 如果用户未登录之前，系统会提示用户输入凭据。    
-AD FS 通过作为 redirect_uri 的查询组件中的"code"参数返回授权代码进行响应。  例如：HTTP/1.1 302 已找到位置：  **http://redirect_uri:80/?code=&lt; 代码&gt;。**  
+AD FS 通过作为 redirect_uri 的查询组件中的"code"参数返回授权代码进行响应。  例如：HTTP/1.1 302 找到位置：  **<http://redirect_uri:80/?code=&lt;code&gt>;。**  
   
-2.  本机客户端然后将代码，以及以下参数发送到 AD FS 令牌终结点：  
+2. 本机客户端然后将代码，以及以下参数发送到 AD FS 令牌终结点：  
   
 **令牌请求：**  
 发布 https://fs.contoso.com/adfs/oauth2/token  
@@ -144,7 +144,7 @@ redirect_uri|应用程序组中的本机应用程序的重定向 URI
 **令牌请求的响应：**  
 AD FS 使用 access_token，refresh_token，并在正文中的 id_token 使用 HTTP 200 响应。  
   
-3.  然后，本机应用程序将作为 HTTP 请求中的 Authorization 标头的 access_token，上述响应一部分发送到 web API。  
+3. 然后，本机应用程序将作为 HTTP 请求中的 Authorization 标头的 access_token，上述响应一部分发送到 web API。  
   
 ### <a name="single-sign-on-behavior"></a>在行为上的单一登录  
 （默认情况下） 的 1 小时内的 access_token 仍将有效在缓存中，以及新的请求不会触发到 AD FS 的任何流量，后续的客户端请求中。  通过 ADAL 从缓存将会自动将提取 access_token。  
@@ -154,7 +154,7 @@ AD FS 使用 access_token，refresh_token，并在正文中的 id_token 使用 H
 发布 https://fs.contoso.com/adfs/oauth2/token
    
 
-参数|ReplTest1|
+参数|值|
 ---------|---------
 grant_type|"refresh_token"|
 资源|RP ID （标识符） 的应用程序组中的 Web API|
@@ -177,11 +177,11 @@ refresh_token|初始令牌请求的响应中的 AD FS 颁发的刷新令牌
   
 ![协议流的说明](media/ADFS_DEV_4.png)  
   
-1.  授权请求中通过浏览器中，可将 HTTP GET 发送到 AD FS Web 应用程序启动的授权终结点  
-**授权请求**:  
-获取 https://fs.contoso.com/adfs/oauth2/authorize?  
+1. 授权请求中通过浏览器中，可将 HTTP GET 发送到 AD FS Web 应用程序启动的授权终结点  
+   **授权请求**:  
+   获取 <https://fs.contoso.com/adfs/oauth2/authorize?>  
   
-参数|值  
+参数|ReplTest1  
 ---------|---------  
 response_type|"代码"  
 资源|RP ID （标识符） 的应用程序组中的 Web API  
@@ -190,13 +190,13 @@ redirect_uri|应用程序组中的 web 应用 （应用程序服务器） 的重
   
 授权请求的响应：  
 如果用户未登录之前，系统会提示用户输入凭据。  
-AD FS 通过例如的 redirect_uri，查询组件中的"code"参数作为返回授权代码响应：HTTP/1.1 302 已找到位置： https://webapp.contoso.com/?code=&lt; 代码&gt;。  
+AD FS 通过例如的 redirect_uri，查询组件中的"code"参数作为返回授权代码响应：HTTP/1.1 302 找到位置： <https://webapp.contoso.com/?code=&lt;code&gt>;。  
   
-2.  由于上面的 302，而在浏览器启动 HTTP GET 到 web 应用，例如：获取 http://redirect_uri:80/?code=&lt; 代码&gt;。   
+2. 由于上面的 302，而在浏览器启动 HTTP GET 到 web 应用，例如：获取<http://redirect_uri:80/?code=&lt;code&gt>;。   
   
-3.  Web 应用，让收到代码，此时启动到的 AD FS 令牌终结点，发送以下请求  
-**令牌请求：**  
-发布 https://fs.contoso.com/adfs/oauth2/token  
+3. Web 应用，让收到代码，此时启动到的 AD FS 令牌终结点，发送以下请求  
+   **令牌请求：**  
+   发布 https://fs.contoso.com/adfs/oauth2/token  
   
 参数|ReplTest1  
 ---------|---------  
@@ -209,8 +209,8 @@ client_secret|Web 应用 （应用程序服务器） 在应用程序组中的机
   
 **令牌请求的响应：**  
 AD FS 使用 access_token，refresh_token，并在正文中的 id_token 使用 HTTP 200 响应。  
-声明  
-4.  Web 应用程序，则可以使用 access_token 一部分 （在 web 应用本身在其中托管资源的情况），上述响应或以其他方式将其作为发送 HTTP 请求中的 Authorization 标头到 web API。  
+claims  
+4. Web 应用程序，则可以使用 access_token 一部分 （在 web 应用本身在其中托管资源的情况），上述响应或以其他方式将其作为发送 HTTP 请求中的 Authorization 标头到 web API。  
   
 #### <a name="single-sign-on-behavior"></a>在行为上的单一登录  
 访问令牌将仍将有效但 1 小时 （默认） 在客户端的缓存中，您可能认为，第二个请求将正常工作的本机客户端方案更高版本的新的请求不会触发到 AD FS 的任何流量，也会自动将访问令牌将从缓存中提取的 ADAL。  但是，就可以使 web 应用程序可以发送不同的授权和令牌请求，前者通过不同的 URL 链接，如我们的示例中所示。  
@@ -245,7 +245,7 @@ client_secret|应用程序组中的 web 应用 （应用程序服务器） 机�
 1.  授权请求中通过浏览器中，可将 HTTP GET 发送到 AD FS Web 应用程序启动的授权终结点  
   
 **授权请求：**  
-获取 https://fs.contoso.com/adfs/oauth2/authorize?  
+获取 <https://fs.contoso.com/adfs/oauth2/authorize?>  
   
 参数|值  
 ---------|---------  
@@ -260,16 +260,16 @@ redirect_uri|应用程序组中的 web 应用 （应用程序服务器） 的重
 AD FS 响应使用 HTTP 200 和窗体包含以下作为隐藏元素：  
 * 代码： 授权代码  
 * id_token: JWT 令牌中包含描述用户身份验证的声明  
-2.  在窗体自动发布到 web 应用，将代码和 id_token 发送到 web 应用的 redirect_uri。  
+* 在窗体自动发布到 web 应用，将代码和 id_token 发送到 web 应用的 redirect_uri。  
   
-3.  Web 应用，让收到代码，此时启动到的 AD FS 令牌终结点，发送以下请求  
+3. Web 应用，让收到代码，此时启动到的 AD FS 令牌终结点，发送以下请求  
   
 **令牌请求：**  
 发布 https://fs.contoso.com/adfs/oauth2/token
   
   
   
-参数|ReplTest1  
+参数|值  
 ---------|---------  
 grant_type|"authorization_code"  
 code|从上面的授权代码  
@@ -281,7 +281,7 @@ client_secret|应用程序组中的 web 应用 （应用程序服务器） 机�
 **令牌请求的响应：**  
 AD FS 使用 access_token，refresh_token，并在正文中的 id_token 使用 HTTP 200 响应。  
   
-4.  Web 应用程序，则可以使用 access_token 一部分 （在 web 应用本身在其中托管资源的情况），上述响应或以其他方式将其作为发送 HTTP 请求中的 Authorization 标头到 web API。  
+4. Web 应用程序，则可以使用 access_token 一部分 （在 web 应用本身在其中托管资源的情况），上述响应或以其他方式将其作为发送 HTTP 请求中的 Authorization 标头到 web API。  
   
 #### <a name="single-sign-on-behavior"></a>在行为上的单一登录  
 在行为上的单一登录与上面的 Oauth 2.0 机密客户端流相同。  

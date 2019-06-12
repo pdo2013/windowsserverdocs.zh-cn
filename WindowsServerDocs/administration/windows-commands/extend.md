@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 84047c690006bf727bc12855576960bbf67d1617
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6fdf070a733392d89bafe5bed5a1bf23d8e24d57
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857928"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439350"
 ---
 # <a name="extend"></a>extend
 
@@ -37,12 +37,12 @@ extend filesystem [noerr]
   
 ## <a name="parameters"></a>Parameters  
   
-|参数|描述|  
-|-------|--------|  
-|size\=<n>|指定以兆字节为单位的空间量\(MB\)将添加到当前卷或分区。 如果没有给定大小，则使用所有可用的磁盘的连续可用空间。|  
-|disk\=<n>|指定在其扩展卷或分区的磁盘。 如果指定没有磁盘，则会在当前磁盘上扩展卷或分区。|  
-|文件系统|扩展具有焦点的卷的文件系统。 仅在其中的文件系统已扩展与该卷的磁盘上使用。|  
-|noerr|仅用于脚本。 当遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，错误会导致 DiskPart 退出，错误代码。|  
+| 参数  |                                                                                             描述                                                                                              |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| size\=<n>  |      指定以兆字节为单位的空间量\(MB\)将添加到当前卷或分区。 如果没有给定大小，则使用所有可用的磁盘的连续可用空间。       |
+| disk\=<n>  |                          指定在其扩展卷或分区的磁盘。 如果指定没有磁盘，则会在当前磁盘上扩展卷或分区。                          |
+| 文件系统 |                                   扩展具有焦点的卷的文件系统。 仅在其中的文件系统已扩展与该卷的磁盘上使用。                                    |
+|   noerr    | 仅用于脚本。 当遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，错误会导致 DiskPart 退出，错误代码。 |
   
 ## <a name="remarks"></a>备注  
   
@@ -72,7 +72,7 @@ extend filesystem
 ```  
   
 #### <a name="additional-references"></a>其他参考  
-[命令行语法解答](command-line-syntax-key.md)  
+[命令行语法项](command-line-syntax-key.md)  
   
 
   

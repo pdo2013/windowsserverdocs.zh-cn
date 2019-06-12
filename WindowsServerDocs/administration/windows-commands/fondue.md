@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 09708c239b5399f3284c42877970443cc2605cbe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bcbbbf80f25f77d1feb83f358401e4d14da3d354
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817148"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439221"
 ---
 # <a name="fondue"></a>fondue
 
@@ -30,11 +30,13 @@ ms.locfileid: "59817148"
 fondue.exe /enable-feature:<feature_name> [/caller-name:<program_name>] [/hide-ux:{all | rebootRequest}]
 ```
 ### <a name="parameters"></a>Parameters
-|参数|描述|
-|-------|--------|
-|/enable-feature: <*feature_name*>|指定你想要启用 Windows 可选功能的名称。 仅可以启用每个命令行的一个功能。 若要启用多个功能，请为每个功能使用 fondue.exe。|
-|/caller-name: <*program_name*>|从脚本或批处理文件调用 fondue.exe 时指定的程序或进程名称。 此选项可用于将程序名称添加到 SQM 报告，如果出现错误。|
-|/hide-ux:{all &#124; rebootRequest}|使用**所有**隐藏给包括进度和权限请求，若要访问 Windows 更新用户的所有消息。 如果权限是必需的则操作将失败。<br /><br />使用**rebootRequest**仅隐藏用户消息询问权限重新启动计算机。 如果您有一个脚本控件重新启动请求，请使用此选项。|
+
+|              参数              |                                                                                                                                                                     描述                                                                                                                                                                     |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  /enable-feature: <*feature_name*>   |                                                                               指定你想要启用 Windows 可选功能的名称。 仅可以启用每个命令行的一个功能。 若要启用多个功能，请为每个功能使用 fondue.exe。                                                                                |
+|    /caller-name: <*program_name*>    |                                                                                 从脚本或批处理文件调用 fondue.exe 时指定的程序或进程名称。 此选项可用于将程序名称添加到 SQM 报告，如果出现错误。                                                                                 |
+| /hide-ux:{all &#124; rebootRequest} | 使用**所有**隐藏给包括进度和权限请求，若要访问 Windows 更新用户的所有消息。 如果权限是必需的则操作将失败。<br /><br />使用**rebootRequest**仅隐藏用户消息询问权限重新启动计算机。 如果您有一个脚本控件重新启动请求，请使用此选项。 |
+
 ## <a name="BKMK_Examples"></a>示例
 若要启用 Microsoft.NET Framework 3.5，请键入：
 ```
@@ -45,6 +47,6 @@ fondue.exe /enable-feature:NETFX3
 fondue.exe /enable-feature:NETFX3 /caller-name:Admin.bat /hide-ux:all
 ```
 ## <a name="additional-references"></a>其他参考
--   [命令行语法解答](command-line-syntax-key.md)
-## <a name="see-also"></a>请参阅
-[Microsoft.NET Framework 3.5 部署注意事项](https://go.microsoft.com/fwlink/?LinkId=248869)
+- [命令行语法项](command-line-syntax-key.md)
+  ## <a name="see-also"></a>请参阅
+  [Microsoft.NET Framework 3.5 部署注意事项](https://go.microsoft.com/fwlink/?LinkId=248869)

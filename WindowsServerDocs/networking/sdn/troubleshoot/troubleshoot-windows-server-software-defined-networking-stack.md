@@ -9,12 +9,12 @@ ms.assetid: 9be83ed2-9e62-49e8-88e7-f52d3449aac5
 ms.author: pashort
 author: JMesser81
 ms.date: 08/14/2018
-ms.openlocfilehash: b6d4ff37186e66bec54794f8d6c9fd8a83e23e7d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eeb0c335e4afd3c6835a04421a15073aeab6cdc6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845388"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446240"
 ---
 # <a name="troubleshoot-the-windows-server-software-defined-networking-stack"></a>Windows Server 软件定义的网络堆栈疑难解答
 
@@ -34,17 +34,17 @@ ms.locfileid: "59845388"
 * **策略应用程序中的错误**  
      网络控制器中的策略未被传递到 HYPER-V 主机时，显著延迟和/或不是最新 （例如，在实时迁移） 的所有 HYPER-V 主机上。  
 * **配置偏移或软件 bug**  
- 数据路径问题导致丢弃的数据包。  
+  数据路径问题导致丢弃的数据包。  
 
 * **外部错误与 NIC 硬件 / 驱动程序或衬网络构造**  
- 产生错误行为 （如 VMQ) 任务卸载或配置错误 （如 MTU) 下衬网络构造   
+  产生错误行为 （如 VMQ) 任务卸载或配置错误 （如 MTU) 下衬网络构造   
 
- 此故障排除指南检查每个这些种类的错误和建议的最佳做法和诊断工具可用于确定并修复错误。  
+  此故障排除指南检查每个这些种类的错误和建议的最佳做法和诊断工具可用于确定并修复错误。  
 
 ## <a name="diagnostic-tools"></a>诊断工具  
 
 在讨论之前的故障排除工作流对于每个这些类型的错误，让我们检查提供的诊断工具。   
-  
+
 若要使用网络控制器 （控制路径） 的诊断工具，必须先安装 RSAT NetworkController 功能并导入``NetworkControllerDiagnostics``模块：  
 
 ```  
@@ -53,7 +53,7 @@ Import-Module NetworkControllerDiagnostics
 ```  
 
 若要使用 HNV 诊断 （数据项） 的诊断工具，必须导入``HNVDiagnostics``模块：
-  
+
 ```  
 # Assumes RSAT-NetworkController feature has already been installed
 Import-Module hnvdiagnostics   
@@ -63,12 +63,12 @@ Import-Module hnvdiagnostics
 在 TechNet 上记录了这些 cmdlet[网络控制器诊断 Cmdlet 主题](https://docs.microsoft.com/powershell/module/networkcontrollerdiagnostics/)。 它们帮助识别问题的控制路径之间的网络控制器节点和网络控制器与在 HYPER-V 主机上运行的 NC 主机代理之间的网络策略保持一致。
 
  _调试 ServiceFabricNodeStatus_并_Get NetworkControllerReplica_必须从网络控制器节点虚拟机的一个运行 cmdlet。 所有其他 NC 诊断 cmdlet 可以从已连接到网络控制器和位于在网络控制器管理安全组 (Kerberos) 或有权访问用于管理网络控制器的 X.509 证书中的任何主机运行。 
-   
+
 ### <a name="hyper-v-host-diagnostics"></a>HYPER-V 主机诊断  
 在 TechNet 上记录了这些 cmdlet [HYPER-V 网络虚拟化 (HNV) 诊断 Cmdlet 主题](https://docs.microsoft.com/powershell/module/hnvdiagnostics/)。 它们可帮助识别租户虚拟机 （东部/西部） 之间的数据路径中的问题和入口流量通过 SLB VIP （北/南）。 
 
 _调试 VirtualMachineQueueOperation_， _Get CustomerRoute_， _Get PACAMapping_， _Get ProviderAddress_， _Get VMNetworkAdapterPortId_， _Get VMSwitchExternalPortId_，并_测试 EncapOverheadSettings_是它可以从任何 HYPER-V 主机运行的所有本地测试。 其他 cmdlet 调用通过网络控制器的数据路径测试，因此需要访问作为上面 descried 网络控制器。
- 
+
 ### <a name="github"></a>GitHub
 [Microsoft/SDN GitHub 存储库](https://github.com/microsoft/sdn)具有大量的示例脚本和基于这些内置 cmdlet 生成的工作流。 具体而言中, 找到诊断的脚本[诊断](https://github.com/Microsoft/sdn/diagnostics)文件夹。 请帮助我们通过提交拉取请求参与这些脚本。
 
@@ -98,7 +98,6 @@ Fetching ResourceType:     networkInterfaces
 Fetching ResourceType:     virtualGateways
 Fetching ResourceType:     loadbalancerMuxes
 Fetching ResourceType:     Gateways
-
 ```
 
 如下所示的示例配置状态消息：
@@ -121,7 +120,7 @@ Message:          Host is not Connected.
 
 下表显示了错误代码、 消息和后续操作，以根据观察到的配置状态采取的列表。
 
-  
+
 | **Code**| **Message**| **操作**|  
 |--------|-----------|----------|  
 | Unknown| 未知的错误| |  
@@ -215,7 +214,7 @@ ReplicaStatus : Ready
 
 ```
 检查副本状态是否已准备的每个服务。
- 
+
 #### <a name="check-for-corresponding-hostids-and-certificates-between-network-controller-and-each-hyper-v-host"></a>检查相应的主机 Id 和网络控制器和每个 HYPER-V 主机之间的证书 
 在 HYPER-V 主机上运行以下命令来检查主机标识对应于在网络控制器上的服务器资源的实例 Id
 
@@ -238,7 +237,7 @@ Properties       : Microsoft.Windows.NetworkController.ServerProperties
 *修正*如果使用 SDNExpress 脚本或手动部署更新的 HostId 密钥以匹配服务器资源的实例 Id 在注册表中。 如果使用 VMM，从 VMM 删除 HYPER-V 服务器重新启动的 HYPER-V 主机 （物理服务器） 上的网络控制器主机代理并删除 HostId 注册表项。 然后，重新添加到 VMM 服务器。
 
 
-检查 (SouthBound) 之间的通信的 HYPER-V 主机 （NC 主机代理服务） 和网络控制器节点 （主机名将为证书的使用者名称） 的 HYPER-V 主机所使用的 X.509 证书的指纹相同。 此外检查网络控制器 REST 证书是否具有使用者名称*CN =<FQDN or IP>*。
+检查 (SouthBound) 之间的通信的 HYPER-V 主机 （NC 主机代理服务） 和网络控制器节点 （主机名将为证书的使用者名称） 的 HYPER-V 主机所使用的 X.509 证书的指纹相同。 此外检查网络控制器 REST 证书是否具有使用者名称*CN =<FQDN or IP>* 。
 
 ```  
 # On Hyper-V Host
@@ -272,7 +271,7 @@ Thumbprint                                Subject
 - 受信任的根证书颁发机构  
 
 *修正*如果多个证书的 HYPER-V 主机上具有相同的使用者名称，网络控制器主机代理将随机选择要向网络控制器。 这可能会与已知的网络控制器的服务器资源的指纹不匹配。 在这种情况下，删除具有相同的使用者名称的 HYPER-V 主机上的证书之一，然后重新启动网络控制器主机代理服务。 如果可以仍然建立连接，删除 HYPER-V 主机上的相同使用者名称的其他证书并删除相应的服务器资源，在 VMM 中。 然后，重新创建在其中将生成新的 X.509 证书并将其安装在 HYPER-V 主机上的 VMM 中的服务器资源。
-  
+
 
 #### <a name="check-the-slb-configuration-state"></a>检查 SLB 配置状态
 SLB 配置状态可确定作为到调试 NetworkController cmdlet 输出的一部分。 此 cmdlet 还会输出 JSON 文件、 从每个 HYPER-V 主机 （服务器） 的所有 IP 配置和主机代理数据库表中的本地网络策略中的网络控制器资源的当前集。 
@@ -305,7 +304,7 @@ SLB 配置状态信息可在_诊断 slbstateResults.Json_此目录中的文件�
    * Mux 路由-本部分将列出包含该特定 mux 路由播发的所有每个 SLB Mux 部署一个值。
  * 租户
    * VipConsolidatedState-本部分将列出每个租户 VIP，其中包括播发的路由前缀、 HYPER-V 主机和 DIP 终结点的连接状态。
-    
+
 > [!NOTE]
 > SLB 状态可以直接通过使用已确定[DumpSlbRestState](https://github.com/Microsoft/SDN/blob/master/Diagnostics/DumpSlbRestState.ps1)上提供的脚本[Microsoft SDN GitHub 存储库](https://github.com/microsoft/sdn)。 
 
@@ -486,9 +485,8 @@ ComputerName         : SA18N30-2
 IsDeleted            : False
 
 <snip> ...
-
 ```
- 
+
 #### <a name="check-mtu-and-jumbo-frame-support-on-hnv-provider-logical-network"></a>检查在 HNV 提供程序逻辑网络上的 MTU 和 Jumbo 帧支持
 
 HNV 提供程序逻辑网络中的另一个常见问题是物理网络端口和/或以太网卡不具有足够大 MTU 配置为处理从 VXLAN （或 NVGRE） 封装的开销。 
@@ -527,7 +525,6 @@ Physical Nic  <NIC> Ethernet Adapter #2 can support SDN traffic. Encapoverhead v
 Cannot send jumbo packets to the destination. Physical switch ports may not be configured to support jumbo packets.
 
 # TODO: Success Results aftering updating MTU on physical switch ports
-
 ```
 
 *修正*
@@ -550,7 +547,6 @@ CA IP Address CA MAC Address    Virtual Subnet ID PA IP Address
 10.254.254.1  40-1D-D8-B7-1C-06              4115 10.10.182.66
 192.168.1.1   40-1D-D8-B7-1C-06              4114 10.10.182.66
 192.168.1.4   00-1D-D8-B7-1C-05              4114 10.10.182.66
-
 ```
 >[!NOTE]
 > 如果希望 CA-PA 映射则不会输出有关给定租户 VM，请检查网络控制器使用的 VM NIC 和 IP 配置资源_Get NetworkControllerNetworkInterface_ cmdlet。 另外，检查 NC 主机代理和网络控制器节点之间建立的连接。
@@ -600,10 +596,10 @@ PA 路由信息：
 
     Local PA IP: 10.10.182.66
     Remote PA IP: 10.10.182.65
- 
+
  <snip> ...
 
-4.  [租户]检查存在指定的虚拟子网或 VM 网络接口以将阻止流量没有分布式的防火墙策略。    
+4. [租户]检查存在指定的虚拟子网或 VM 网络接口以将阻止流量没有分布式的防火墙策略。    
 
 查询 sa18.nttest.microsoft.com 域中找到 sa18n30nc 在演示环境中的网络控制器 REST API。
 
@@ -624,7 +620,7 @@ PA 路由信息：
 以下各节提供有关高级诊断，日志记录和跟踪信息。
 
 ### <a name="network-controller-centralized-logging"></a>网络控制器集中式日志记录 
- 
+
 网络控制器可以自动收集调试程序日志，并将其存储在一个集中位置。 为第一次或更高版本的某一时间部署网络控制器时，可以启用日志收集。 从网络控制器收集的日志并网络由网络控制器托管的元素： 托管计算机、 软件负载均衡器 (SLB) 和网关机。 
 
 这些日志包括网络控制器群集、 网络控制器应用程序、 网关日志、 SLB、 虚拟网络和分布式的防火墙的调试日志。 每当新主机/SLB/网关添加到网络控制器时，在这些计算机上启动日志记录。 同样，从网络控制器中删除主机/SLB/网关后，在这些计算机上停止日志记录。

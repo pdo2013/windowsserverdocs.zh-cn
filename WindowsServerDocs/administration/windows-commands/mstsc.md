@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 17c050a3504e763488a34bd19faad80558847965
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b6f89c1e3b0d36f14dbd55f9e6994c788305b30d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868818"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437183"
 ---
 # <a name="mstsc"></a>mstsc
 
@@ -37,19 +37,20 @@ mstsc.exe /migrate
 ```
 
 ## <a name="parameters"></a>Parameters
-|参数|描述|
-|-------|--------|
-|<Connection File>|指定用于连接的.rdp 文件的名称。|
-|/v:<Server[:<Port>]|指定远程计算机和你想要连接的端口号 （可选）。|
-|/admin|将你连接到会话中管理服务器。|
-|/f|在全屏幕模式下启动远程桌面连接。|
-|/w:<Width>|指定远程桌面窗口的宽度。|
-|/h:<Height>|指定远程桌面窗口的高度。|
-|/public|在公用模式下运行远程桌面。 在公用模式下，不缓存密码和位图。|
-|/span|匹配的远程桌面宽度和高度与本地虚拟桌面，如有必要可以扩展到多个监视器。|
-|/edit <Connection File>|打开指定的.rdp 文件进行编辑。|
-|/migrate|将迁移到新的.rdp 连接文件与客户端连接管理器中创建的旧连接文件。|
-|/?|在命令提示符下显示帮助。|
+
+|        参数        |                                                         描述                                                         |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+|    <Connection File>    |                                   指定用于连接的.rdp 文件的名称。                                    |
+|   /v:<Server[:<Port>]   |                指定远程计算机和你想要连接的端口号 （可选）。                 |
+|         /admin          |                                   将你连接到会话中管理服务器。                                   |
+|           /f            |                                    在全屏幕模式下启动远程桌面连接。                                    |
+|       /w:<Width>        |                                      指定远程桌面窗口的宽度。                                      |
+|       /h:<Height>       |                                     指定远程桌面窗口的高度。                                      |
+|         /public         |                  在公用模式下运行远程桌面。 在公用模式下，不缓存密码和位图。                  |
+|          /span          | 匹配的远程桌面宽度和高度与本地虚拟桌面，如有必要可以扩展到多个监视器。 |
+| /edit <Connection File> |                                         打开指定的.rdp 文件进行编辑。                                          |
+|        /migrate         |       将迁移到新的.rdp 连接文件与客户端连接管理器中创建的旧连接文件。       |
+|           /?            |                                            在命令提示符下显示帮助。                                             |
 
 ## <a name="remarks"></a>备注
 -   Default.rdp 存储为每个用户作为用户的 Documents 文件夹中的隐藏文件。 用户创建的.rdp 文件保存在用户的 Documents 文件夹中的默认情况下，但可以保存在任何位置。
@@ -64,7 +65,7 @@ mstsc.exe /migrate
     ```
     mstsc /edit filename.rdp
     ```
-    
+
 #### <a name="additional-references"></a>其他参考
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)
 -   [远程桌面服务&#40;终端服务&#41;命令参考](remote-desktop-services-terminal-services-command-reference.md)

@@ -13,12 +13,12 @@ author: gitmichiko
 ms.author: michikos
 manager: dongill
 ms.date: 03/06/2017
-ms.openlocfilehash: ec41e85949cb61c8130d8765b4786eefe39ebd0b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 475b6a0b24b811008ee213c1604d98d9aa9eb092
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855588"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447032"
 ---
 # <a name="whats-new-in-credential-protection"></a>什么是凭据保护中的新增功能
 
@@ -49,7 +49,7 @@ ms.locfileid: "59855588"
 
 如果已加入域的设备能够注册其绑定的公钥和 Windows Server 2016 的域控制器 (DC) 从 Windows 10 版本 1507年和 Windows Server 2016，然后设备使用进行身份验证使用 Kerberos PKINIT 的公钥对 Windows Server 2016 DC 身份验证。
 
-从 Windows Server 2016 开始，Kdc 支持使用 Kerberos 密钥信任身份验证。  
+从 Windows Server 2016 开始，Kdc 支持使用 Kerberos 密钥信任身份验证。  
 
 [要详细了解有关已加入域的设备和 Kerberos 密钥信任的公共密钥支持](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication)。
 
@@ -63,7 +63,7 @@ ms.locfileid: "59855588"
 
 ### <a name="rolling-public-key-only-users-ntlm-secrets"></a>滚动公共密钥唯一用户的 NTLM 机密
 
-从 Windows Server 2016 域功能级别 (DFL) 开始，Dc 可以支持滚动公共密钥唯一用户的 NTLM 机密。 此功能是在较低 DFLs 不可。
+从 Windows Server 2016 域功能级别 (DFL) 开始，Dc 可以支持滚动公共密钥唯一用户的 NTLM 机密。 此功能是在较低 DFLs 不可。
 
 > [!WARNING] 
 > 将域控制器添加到域，并具有滚动 DC 已将更新为至少 8 2016 年 11 月服务运行之前启用 NTLM 机密的 DC 发生故障的风险。 
@@ -73,12 +73,12 @@ ms.locfileid: "59855588"
 1. 从 Active Directory Administrative center 中，右键单击左窗格上的域，然后选择**属性**。
 
     ![域属性](../media/Credentials-Protection-And-Management/domain-properties.png)
-    
+
 2. 选择**启用滚动的即将到期的 NTLM 机密在登录过程，需要使用 Microsoft Passport 或智能卡进行交互式登录的用户的**。
 
     ![Autoroll 即将到期的 NTLM 机密](../media/Credentials-Protection-And-Management/autoroll-ntlm.png)
 
-3. 单击 **“确定”**。 
+3. 单击 **“确定”** 。 
 
 ### <a name="allowing-network-ntlm-when-user-is-restricted-to-specific-domain-joined-devices"></a>用户限制到特定的已加入域的设备时允许网络 NTLM
 

@@ -12,14 +12,14 @@ ms.assetid: 07d0c4c6-3e92-4969-82b8-105e46ab8d97
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c60e5f73c88a225fbd1067992894f9d20da745ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a99698519524c3b5050dc534d61921560522528c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860478"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433877"
 ---
-#<a name="support-for-larger-deployments"></a>对于更大部署的支持
+# <a name="support-for-larger-deployments"></a>对于更大部署的支持
 
 >适用于：Windows Server 2016 Essentials
 
@@ -34,7 +34,7 @@ Windows Server Essentials 现在支持更大部署：
 - 指定指定的域控制器功能
 - 支持最多 500 个用户和 500 台设备
 
-##<a name="support-for-multiple-domains"></a>支持多个域
+## <a name="support-for-multiple-domains"></a>支持多个域
 
 Windows server 2012 R2 Essentials 支持每个服务器是必需的只有一个域，Essentials 服务器必须是林的根。 仍然需要域和林时，现在可以在 Windows Server 2016 Standard 或数据中心，以支持多个域中部署 Windows Server 2016 Essentials 体验角色。
 
@@ -42,7 +42,7 @@ Windows server 2012 R2 Essentials 支持每个服务器是必需的只有一个�
 
  Windows Server Essentials 2012 R2 阻止利用 Azure Active Directory，例如 Office 365，其中部署多个域控制器的任何服务。 原因是，本地域控制器与 Azure Active Directory 之间的帐户和密码同步可能会导致到帐户的凭据不同步的密码。已在 Windows Server 2016 Essentials 中删除此限制。
 
-##<a name="ability-to-specify-a-designated-domain-controller"></a>指定指定的域控制器功能
+## <a name="ability-to-specify-a-designated-domain-controller"></a>指定指定的域控制器功能
 
 现在可以选择指定的域控制器，这将改善的 Active Directory 域对象的检索时间，以及在域中的其他域控制器间协调的帐户更改同步。
 
@@ -50,7 +50,7 @@ Windows server 2012 R2 Essentials 支持每个服务器是必需的只有一个�
 
 ![屏幕截图显示了设置控制面板在前台和后台中的 Windows Server Essentials 仪表板。 当前选定的设置控件面板指定域控制器页。](media/larger-deployments-1.PNG)
 
-##<a name="support-for-500-users-and-500-devices"></a>对 500 个用户和 500 台设备的支持
+## <a name="support-for-500-users-and-500-devices"></a>对 500 个用户和 500 台设备的支持
 -------------------------------------
 
 Windows Server 2012 R2 Essentials 中受支持的用户和设备的最大数目是 25 到 50 个，分别。 随着 Windows Server Essentials Experience 服务器角色，该限制提高到 100 个用户和 200 台设备。
@@ -66,4 +66,4 @@ Windows Server 2016 Essentials 支持 500 个用户和 500 台设备。 为了�
 
 <a name="see-also"></a>请参阅
 --------
-[开始使用 Windows Server Essentials](get-started.md)
+[Windows Server Essentials 入门](get-started.md)

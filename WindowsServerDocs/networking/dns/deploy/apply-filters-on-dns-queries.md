@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: b86beeac-b0bb-4373-b462-ad6fa6cbedfa
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4b00c773462569f005a73f535b1a872ae7b389db
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e9322da3142c584c7b9d0a28396a1d1fd62ce6ee
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859898"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446401"
 ---
 # <a name="use-dns-policy-for-applying-filters-on-dns-queries"></a>使用 DNS 策略在 DNS 查询上应用筛选器
 
@@ -45,7 +45,7 @@ DNS 策略中的查询筛选器，可以配置 DNS 服务器根据 DNS 查询和
 >[!NOTE]
 >本主题中的示例命令使用 Windows PowerShell 命令**添加 DnsServerQueryResolutionPolicy**。 有关详细信息，请参阅[添加 DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps)。 
 
-##<a name="bkmk_block1"></a>阻止域中的查询
+## <a name="bkmk_block1"></a>阻止域中的查询
 
 在某些情况下您可能想要阻止的域已标识为恶意的行为，或不符合你的组织使用指南的域的 DNS 名称解析。 可以使用 DNS 策略来完成域的阻塞查询。
 
@@ -60,7 +60,7 @@ Add-DnsServerQueryResolutionPolicy -Name "BlockListPolicy" -Action IGNORE -FQDN 
 >[!NOTE]
 >当配置**操作**的值的参数**忽略**，DNS 服务器配置为完全删除具有无响应的查询。 这将导致 DNS 客户端在超时对恶意域中。
 
-##<a name="bkmk_block2"></a>从子网块查询
+## <a name="bkmk_block2"></a>从子网块查询
 与此示例中，你可以阻止从子网的查询，如果它找到了一些恶意软件感染，但尝试联系恶意网站使用你的 DNS 服务器。 
 
 ` Add-DnsServerClientSubnet -Name "MaliciousSubnet06" -IPv4Subnet 172.0.33.0/24 -PassThru
@@ -73,14 +73,14 @@ Add-DnsServerQueryResolutionPolicy -Name "BlockListPolicyMalicious06" -Action IG
 Add-DnsServerQueryResolutionPolicy -Name "BlockListPolicyMalicious06" -Action IGNORE -ClientSubnet  "EQ,MaliciousSubnet06" –FQDN “EQ,*.contosomalicious.com” -PassThru
 `
 
-##<a name="bkmk_block3"></a>块类型的查询
+## <a name="bkmk_block3"></a>块类型的查询
 您可能需要阻止在服务器上的查询的某些类型的名称解析。 例如，您可以阻止 ANY 查询，而这可以恶意使用，以创建放大攻击。
 
 `
 Add-DnsServerQueryResolutionPolicy -Name "BlockListPolicyQType" -Action IGNORE -QType "EQ,ANY" -PassThru
 `
 
-##<a name="bkmk_allow1"></a>允许仅从域查询
+## <a name="bkmk_allow1"></a>允许仅从域查询
 不能仅使用 DNS 策略来阻止查询，可用于自动批准从特定域或子网的查询。 在配置允许列表时，DNS 服务器只处理查询从允许的域，同时阻止来自其他域的所有其他查询。
 
 以下示例命令只允许计算机和设备在 contoso.com 域和子域来查询 DNS 服务器。
@@ -89,7 +89,7 @@ Add-DnsServerQueryResolutionPolicy -Name "BlockListPolicyQType" -Action IGNORE -
 Add-DnsServerQueryResolutionPolicy -Name "AllowListPolicyDomain" -Action IGNORE -FQDN "NE,*.contoso.com" -PassThru 
 `
 
-##<a name="bkmk_allow2"></a>允许仅从子网的查询
+## <a name="bkmk_allow2"></a>允许仅从子网的查询
 您还可以创建允许列表的 IP 子网，以便不来自这些子网的所有查询将被都忽略。
 
 `
@@ -99,7 +99,7 @@ Add-DnsServerClientSubnet -Name "AllowedSubnet06" -IPv4Subnet 172.0.33.0/24 -Pas
 Add-DnsServerQueryResolutionPolicy -Name "AllowListPolicySubnet” -Action IGNORE -ClientSubnet  "NE, AllowedSubnet06" -PassThru
 `
 
-##<a name="bkmk_allow3"></a>允许仅特定 QTypes
+## <a name="bkmk_allow3"></a>允许仅特定 QTypes
 您可以到 QTYPEs 中应用允许列表。 
 
 例如，如果你的查询 DNS 服务器接口 164.8.1.1 的外部客户，仅某些 QTYPEs 允许其进行查询，尽管有其他 QTYPEs 等内部服务器进行名称解析或适用于监视目的使用 SRV 或 TXT 记录。

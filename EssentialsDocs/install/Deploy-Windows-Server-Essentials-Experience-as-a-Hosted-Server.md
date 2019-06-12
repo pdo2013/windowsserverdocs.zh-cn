@@ -12,12 +12,12 @@ ms.assetid: a455c6b4-b29f-4f76-8c6b-1578b6537717
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b44b395a39a53194b73a0d503c2310edcbe53a2c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 94d4040b65a63fe64e5d49d55f82c4deead5a121
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876068"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433582"
 ---
 # <a name="deploy-windows-server-essentials-experience-as-a-hosted-server"></a>将 Windows Server Essentials 体验部署为托管服务器
 
@@ -116,35 +116,35 @@ ms.locfileid: "59876068"
   
  以下是两个典型的服务器端网络拓扑，同时介绍了如何配置 VPN 和远程 Web 访问：  
   
--   **拓扑 1** （这是首选拓扑，它将所有服务器和 VPN IP 范围放置在同一子网中）：  
+- **拓扑 1** （这是首选拓扑，它将所有服务器和 VPN IP 范围放置在同一子网中）：  
   
-    -   设置在网络地址转换 (NAT) 设备下的单独虚拟网中的服务器。  
+  -   设置在网络地址转换 (NAT) 设备下的单独虚拟网中的服务器。  
   
-    -   在虚拟网中启用 DHCP 服务，或者向服务器分配静态 IP 地址。  
+  -   在虚拟网中启用 DHCP 服务，或者向服务器分配静态 IP 地址。  
   
-    -   将路由器上的公用 IP 端口 443 转发到服务器的本地网络地址。  
+  -   将路由器上的公用 IP 端口 443 转发到服务器的本地网络地址。  
   
-    -   允许 VPN 对端口 443 直通。  
+  -   允许 VPN 对端口 443 直通。  
   
-    -   将 VPN IPv4 地址池设置在与服务器地址相同的子网范围中。  
+  -   将 VPN IPv4 地址池设置在与服务器地址相同的子网范围中。  
   
-    -   向第二台服务器分配同一个子网中的静态 IP 地址，但不是 VPN 地址池中的地址。  
+  -   向第二台服务器分配同一个子网中的静态 IP 地址，但不是 VPN 地址池中的地址。  
   
--   **拓扑 2**：  
+- **拓扑 2**：  
   
-    -   向服务器分配专用 IP 地址。  
+  -   向服务器分配专用 IP 地址。  
   
-    -   允许服务器上的端口 443 达到公用端口 443 IP 地址。  
+  -   允许服务器上的端口 443 达到公用端口 443 IP 地址。  
   
-    -   允许 VPN 对端口 443 直通。  
+  -   允许 VPN 对端口 443 直通。  
   
-    -   为 VPN IPv4 地址池和服务器地址分配不同的范围。  
+  -   为 VPN IPv4 地址池和服务器地址分配不同的范围。  
   
- 通过拓扑 2，将不支持第二台服务器方案，因为无法将另一台服务器添加到同一域中。  
+  通过拓扑 2，将不支持第二台服务器方案，因为无法将另一台服务器添加到同一域中。  
   
- 可以通过使用我们的 Windows PowerShell 脚本，在无人参与部署期间启用 VPN，或者可以在初始配置后借助向导来配置 VPN。  
+  可以通过使用我们的 Windows PowerShell 脚本，在无人参与部署期间启用 VPN，或者可以在初始配置后借助向导来配置 VPN。  
   
- 若要使用 Windows PowerShell 启用 VPN，请使用管理权限在运行 Windows Server Essentials 的服务器上运行以下命令，并提供所有必要的信息。  
+  若要使用 Windows PowerShell 启用 VPN，请使用管理权限在运行 Windows Server Essentials 的服务器上运行以下命令，并提供所有必要的信息。  
   
 ```  
 ##  
@@ -177,19 +177,19 @@ Install-WssVpnServer -IPv4AddressRange ('192.168.0.160','192.168.0.240') -ApplyT
   
  如果将此项设置为 0x1，将会更改一些本地功能的行为。 这些功能更改包括：  
   
--   **客户端备份** 默认情况下将针对新加入的客户端计算机关闭客户端备份。  
+- **客户端备份** 默认情况下将针对新加入的客户端计算机关闭客户端备份。  
   
--   **客户端还原服务** 客户端还原服务 will be disabled, and the UI will be hidden from the Dashboard.  
+- **客户端还原服务** 客户端还原服务 will be disabled, and the UI will be hidden from the Dashboard.  
   
--   **文件历史记录**服务器将不会自动管理新创建用户帐户的文件历史记录设置。  
+- **文件历史记录**服务器将不会自动管理新创建用户帐户的文件历史记录设置。  
   
--   **服务器备份** 服务器备份 service will be disabled, and the 服务器备份 UI will be hidden from the Dashboard.  
+- **服务器备份** 服务器备份 service will be disabled, and the 服务器备份 UI will be hidden from the Dashboard.  
   
--   **存储空间**将在仪表板中隐藏用于创建或管理存储空间的 UI。  
+- **存储空间**将在仪表板中隐藏用于创建或管理存储空间的 UI。  
   
--   **随处访问**在运行设置随处访问向导时，默认情况下将跳过路由器和 VPN 配置。  
+- **随处访问**在运行设置随处访问向导时，默认情况下将跳过路由器和 VPN 配置。  
   
- 如果想要控制列出的每个功能的行为，你可以为每个功能设置相应的注册表项。 有关如何设置注册表项的信息，请参考 [在 Windows Server 2012 R2 中自定义和部署 Windows Server Essentials](https://technet.microsoft.com/library/dn293241.aspx)  
+  如果想要控制列出的每个功能的行为，你可以为每个功能设置相应的注册表项。 有关如何设置注册表项的信息，请参考 [在 Windows Server 2012 R2 中自定义和部署 Windows Server Essentials](https://technet.microsoft.com/library/dn293241.aspx)  
   
 ##  <a name="BKMK_AutomateDeployment"></a> 自动部署 Windows Server Essentials 体验  
  若要自动部署，需要首先部署操作系统，然后安装 Windows Server Essentials 体验角色。  
@@ -201,7 +201,7 @@ Install-WssVpnServer -IPv4AddressRange ('192.168.0.160','192.168.0.240') -ApplyT
 > [!NOTE]
 >  确保主机虚拟机和 Windows Server Essentials 体验的时区设置相同。 否则，可能会遇到一些错误。 其中包括： 在服务器的初始配置可能不会成功在证书相关的任务，该证书可能不起作用了几个小时后安装了 Windows Server Essentials 体验角色，并将不会更新设备信息正确。  
   
- 在部署之后，使用 Windows PowerShell cmdlet **Get-WssConfigurationStatus** 来验证初始配置是否已成功。 返回的状态应为以下状态之一：“Notstarted”、“FinishedWithWarning”、“Running”、“Finished”、“Failed”或“PendingReboot”。  
+ 在部署之后，使用 Windows PowerShell cmdlet **Get-WssConfigurationStatus** 来验证初始配置是否已成功。 返回的状态应为以下状态之一：“Notstarted”  、“FinishedWithWarning”  、“Running”  、“Finished”  、“Failed”  或“PendingReboot”  。  
   
  在初始配置期间，将重新启动服务器。 如果你需要防止自动重新启动，在开始初始配置之前，可以使用以下命令添加注册表项：  
   
@@ -210,16 +210,16 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
   
 ```  
   
- 开始进行初始配置后，可以使用 **Get-WssConfigurationStatus** 检查初始配置状态，当状态为“PendingReboot”时，可以重新启动服务器。  
+ 开始进行初始配置后，可以使用 **Get-WssConfigurationStatus** 检查初始配置状态，当状态为“PendingReboot”  时，可以重新启动服务器。  
   
 ##  <a name="BKMK_Migrate"></a> 将数据从 Windows Small Business Server 迁移到 Windows Server Essentials 体验  
  可以从运行 Windows Server Essentials 的服务器到运行 Windows Small Business Server 2011、 Windows Small Business Server 2008、 Windows Small Business Server 2003 或 Windows Server Essentials 的服务器迁移数据。 审阅[迁移到 Windows Server Essentials](../migrate/Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md)迁移指南的本地 2migrations 并进行必要的自定义根据托管环境。  
   
 > [!NOTE]
 >  建议将源服务器和目标服务器放在同一个子网内。 如果无法放在同一子网内，请确保：  
->   
->  -   源服务器和目标服务器可以相互访问"，s 内部 DNS 名称。  
-> -   所有必要的端口都已打开。  
+> 
+> - 源服务器和目标服务器可以相互访问"，s 内部 DNS 名称。  
+>   -   所有必要的端口都已打开。  
   
  迁移完成后，你可以升级许可证以删除锁定和限制。 有关详细信息，请参阅[从 Windows Server Essentials 过渡到 Windows Server 2012 Standard](https://technet.microsoft.com/library/jj247582.aspx)。  
   
@@ -310,7 +310,7 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
   
 -   **稳定性** 有时 Internet 连接在客户端上不稳定。 客户端备份可自动恢复的并且每完成 40 GB 的数据备份，客户端备份数据库创建一个检查点。 如果你预计 Internet 连接不可靠，则可将此容量值改小。  
   
-    -   若要启用检查点作业，请执行以下操作：在服务器上，将注册表项“HKLM\Software\Microsoft\Windows Server\Backup\GetCheckPointJobs”设置为 1。  
+    -   若要启用检查点作业，请执行以下操作：在服务器上，将注册表项“HKLM\Software\Microsoft\Windows Server\Backup\GetCheckPointJobs”  设置为 1。  
   
     -   若要更改检查点阈值，请执行以下操作：在客户端上更改**HKLM\Software\Microsoft\Windows Server\Backup\CheckPointThreshold**的 40 GB 的默认值。  
   
@@ -408,4 +408,4 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
 
 -   [安装 Windows Server Essentials](Install-Windows-Server-Essentials.md)  
 
--   [开始使用 Windows Server Essentials](../get-started/get-started.md)
+-   [Windows Server Essentials 入门](../get-started/get-started.md)

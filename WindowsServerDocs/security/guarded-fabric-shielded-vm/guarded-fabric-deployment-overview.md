@@ -9,12 +9,12 @@ author: justinha
 ms.author: justinha
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: d63726e7046896c9ef7aa0c3b3d85237bc3f788d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8e1ef34370b1459cd55705bc0069b49a572de303
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879058"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447528"
 ---
 # <a name="quick-start-for-guarded-fabric-deployment"></a>受保护的构造部署的快速入门
 
@@ -107,7 +107,7 @@ HYPER-V 主机需要运行 Windows Server 2016 Datacenter edition 或更高版�
 
 1.  一个_公共认可密钥_(或_EKpub_) 从每个 HYPER-V 主机上的 TPM 2.0。 若要捕获 EKpub，使用`Get-PlatformIdentifier`。 
 2.  一个_硬件基线_。 如果每个 HYPER-V 主机相同，则单个基线是只需要。 如果它们不是，您将需要一个用于每一类硬件。 基线是可信任计算组日志文件或 TCGlog 形式。 TCGlog 包含主机未从 UEFI 固件，通过内核，直至完全启动主机时的所有内容。 若要捕获硬件基线，请安装 HYPER-V 角色和主机保护者 HYPER-V 支持功能，并使用`Get-HgsAttestationBaselinePolicy`。 
-3.  一个_代码完整性策略_。 如果每个 HYPER-V 主机相同，然后单个 CI 策略就足够了。 如果它们不是，您将需要一个用于每一类硬件。 Windows Server 2016 和 Windows 10 这两个具有一种新式的 CI 策略，名为强制_虚拟机监控程序强制执行的代码完整性 (HVCI)_。 HVCI 提供严格的强制，并确保主机仅允许运行受信任的管理员允许其运行的二进制文件。 这些说明都包装在添加到 HGS 的 CI 策略。 HGS 测量每个主机的 CI 策略之前它们要允许运行受防护的 Vm。 若要捕获的 CI 策略，请使用`New-CIPolicy`。 然后必须将策略转换为其二进制格式使用`ConvertFrom-CIPolicy`。
+3.  一个_代码完整性策略_。 如果每个 HYPER-V 主机相同，然后单个 CI 策略就足够了。 如果它们不是，您将需要一个用于每一类硬件。 Windows Server 2016 和 Windows 10 这两个具有一种新式的 CI 策略，名为强制_虚拟机监控程序强制执行的代码完整性 (HVCI)_ 。 HVCI 提供严格的强制，并确保主机仅允许运行受信任的管理员允许其运行的二进制文件。 这些说明都包装在添加到 HGS 的 CI 策略。 HGS 测量每个主机的 CI 策略之前它们要允许运行受防护的 Vm。 若要捕获的 CI 策略，请使用`New-CIPolicy`。 然后必须将策略转换为其二进制格式使用`ConvertFrom-CIPolicy`。
 
 ![提取标识、 基线和 CI 策略](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-three-extract-identity-baseline-ci-policy.png)
 
@@ -165,5 +165,5 @@ Install-WindowsFeature RSAT-Shielded-VM-Tools -Restart
 
 ## <a name="next-step"></a>下一步
 
->[!div class="nextstepaction"]
-[HGS 先决条件](guarded-fabric-prepare-for-hgs.md)
+> [!div class="nextstepaction"]
+> [HGS 先决条件](guarded-fabric-prepare-for-hgs.md)

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: faaf936e4c23579e908e12543c07d0764a2cdcc1
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 7a602472d30f19cb2d4a802423635e5788e78a43
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192625"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434550"
 ---
 # <a name="certutil"></a>certutil
 
@@ -145,14 +145,15 @@ Certutil.exe 是一个命令行程序，证书服务的一部分安装。 可以
 
 下表介绍用来指示命令行语法表示法。
 
-|表示法|描述|
-|--------|-----------|
-|不带括号或大括号的文本|必须键入如下所示的项|
-|\<在尖括号内的文本 >|必须为其提供一个值的占位符|
-|[方括号内的文本]|可选项|
-|{大括号内的文本}|组的所需的项目;选择一个|
-|竖线 （|)|互斥项; 分隔符选择一个|
-|省略号 （...）|可以重复的项|
+
+|            表示法             |                  描述                  |
+|---------------------------------|-----------------------------------------------|
+| 不带括号或大括号的文本 |         必须键入如下所示的项          |
+|  \<在尖括号内的文本 >  | 必须为其提供一个值的占位符 |
+|  [方括号内的文本]  |                可选项                 |
+|      {大括号内的文本}       |       组的所需的项目;选择一个       |
+|         竖线 （          |                       )                       |
+|          省略号 （...）           |          可以重复的项           |
 
 返回到[菜单](#menu)
 

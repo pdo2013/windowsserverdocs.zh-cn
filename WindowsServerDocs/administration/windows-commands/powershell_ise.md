@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 03c765b276a2e61247661e132dd49434b444530c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a5619396e29b446dbc6804ece7444f355dae4c0a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817278"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436298"
 ---
 # <a name="powershellise"></a>PowerShell_ise
 
@@ -33,27 +33,27 @@ Windows PowerShell 集成脚本环境 (ISE) 是图形的主机应用程序，可
 ## <a name="using-powershelliseexe"></a>使用 PowerShell_ISE.exe
 
 可以使用**PowerShell_ISE.exe**开始和结束的 Windows PowerShell 会话，如下所示：
--   若要启动 Windows PowerShell ISE 会话，在命令提示符窗口中，在 Windows PowerShell 中，或在开始菜单中，键入：  
-    ```
-    PowerShell_Ise
-    ```  
--   若要在 Windows PowerShell ISE 中打开脚本 (.ps1)、 脚本模块 (.psm1)、 模块清单 (.psd1)、 XML 文件或任何其他受支持的文件，请使用以下命令格式：  
-    ```
-    PowerShell_Ise <FilePath>
-    ```  
-    在 Windows PowerShell 3.0 中，可以使用可选**文件**参数，如下所示：  
-    ```
-    PowerShell_Ise -File <FilePath>
-    ```  
--   若要启动 Windows PowerShell ISE 会话而无需 Windows PowerShell 配置文件，请使用**NoProfile**参数。 ( **NoProfile**参数在 Windows PowerShell 3.0 中引入的。)  
-    ```
-    PowerShell_Ise -NoProfile
-    ```  
--   若要查看**PowerShell_ISE.exe**帮助文件中的命令提示符窗口，请使用以下命令格式：  
-    ```
-    PowerShell_Ise -help, -?, /?
-    ```  
-有关完整列表**PowerShell_ISE.exe**命令行参数，请参阅[about_PowerShell_Ise.exe](https://go.microsoft.com/fwlink/?LinkId=256512)。
+- 若要启动 Windows PowerShell ISE 会话，在命令提示符窗口中，在 Windows PowerShell 中，或在开始菜单中，键入：  
+  ```
+  PowerShell_Ise
+  ```  
+- 若要在 Windows PowerShell ISE 中打开脚本 (.ps1)、 脚本模块 (.psm1)、 模块清单 (.psd1)、 XML 文件或任何其他受支持的文件，请使用以下命令格式：  
+  ```
+  PowerShell_Ise <FilePath>
+  ```  
+  在 Windows PowerShell 3.0 中，可以使用可选**文件**参数，如下所示：  
+  ```
+  PowerShell_Ise -File <FilePath>
+  ```  
+- 若要启动 Windows PowerShell ISE 会话而无需 Windows PowerShell 配置文件，请使用**NoProfile**参数。 ( **NoProfile**参数在 Windows PowerShell 3.0 中引入的。)  
+  ```
+  PowerShell_Ise -NoProfile
+  ```  
+- 若要查看**PowerShell_ISE.exe**帮助文件中的命令提示符窗口，请使用以下命令格式：  
+  ```
+  PowerShell_Ise -help, -?, /?
+  ```  
+  有关完整列表**PowerShell_ISE.exe**命令行参数，请参阅[about_PowerShell_Ise.exe](https://go.microsoft.com/fwlink/?LinkId=256512)。
 
 ## <a name="start-windows-powershell-ise-in-other-ways"></a>启动 Windows PowerShell ISE 中的其他方法
 

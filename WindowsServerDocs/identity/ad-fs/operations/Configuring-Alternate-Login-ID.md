@@ -9,12 +9,12 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 5bc43717f37fb3b14ac7f384a061ee64c734222d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 75ab011ed4931af3d5a03a38b3f7a7f0cfecbe3d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189661"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444910"
 ---
 # <a name="configuring-alternate-login-id"></a>配置备用登录 ID
 
@@ -31,9 +31,9 @@ Active Directory 联合身份验证服务 (AD FS) 启用联合应用程序使用
 
 ## <a name="alternate-id-in-azure-ad"></a>Azure AD 中的备用 id
 组织可能需要在以下方案中使用备用 ID:
-1.  在本地的域名称是不可路由，例如。 Contoso.local 和结果是不可路由的默认用户主体名称 (jdoe@contoso.local)。 由于本地应用程序依赖关系或公司策略，无法更改现有的 UPN。 Azure AD 和 Office 365 需要与完全是 internet 可路由的 Azure AD 目录相关联的所有域后缀。 
-2.  本地 UPN 与不同用户的电子邮件地址登录到 Office 365，用户使用电子邮件地址和 UPN 不能使用，因为如果组织限制。
-在上述情况下，使用 AD FS 备用 ID 使用户能够登录到 Azure AD 而无需修改本地 Upn。 
+1. 在本地的域名称是不可路由，例如。 Contoso.local 和结果是不可路由的默认用户主体名称 (jdoe@contoso.local)。 由于本地应用程序依赖关系或公司策略，无法更改现有的 UPN。 Azure AD 和 Office 365 需要与完全是 internet 可路由的 Azure AD 目录相关联的所有域后缀。 
+2. 本地 UPN 与不同用户的电子邮件地址登录到 Office 365，用户使用电子邮件地址和 UPN 不能使用，因为如果组织限制。
+   在上述情况下，使用 AD FS 备用 ID 使用户能够登录到 Azure AD 而无需修改本地 Upn。 
 
 ## <a name="end-user-experience-with-alternate-login-id"></a>使用备用登录 ID 的最终用户体验
 最终用户体验与备用登录 id 一起使用的身份验证方法而异。目前那里三种不同的方式在其中可以实现使用备用登录 id。  它们分别是：
@@ -81,7 +81,7 @@ Set-AdfsClaimsProviderTrust -TargetIdentifier "AD AUTHORITY" -AlternateLoginID <
 Set-AdfsClaimsProviderTrust -TargetIdentifier "AD AUTHORITY" -AlternateLoginID mail -LookupForests contoso.com,fabrikam.com
 ```
 
-3.  若要禁用此功能，设置为两个参数为 null 的值。
+3. 若要禁用此功能，设置为两个参数为 null 的值。
 
 ``` powershell
 Set-AdfsClaimsProviderTrust -TargetIdentifier "AD AUTHORITY" -AlternateLoginID $NULL -LookupForests $NULL
@@ -155,6 +155,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 ## <a name="applications-and-user-experience-after-the-additional-configuration"></a>应用程序和用户体验的其他配置后
 
 ### <a name="non-exchange-and-skype-for-business-clients"></a>非 Exchange 和 Skype 的业务客户端
+
 |客户端|支持声明|备注|
 | ----- | -----|-----|
 |Microsoft Teams|支持|<li>Microsoft Teams 支持 AD FS (SAML-P WS 联合身份验证、 WS 信任和 OAuth) 和现代身份验证。</li><li> 如通道、 聊天和文件功能的核心 Microsoft Teams，需使用备用登录 id。</li><li>第 1 个和第三方应用必须由客户单独调查。 这是因为每个应用程序具有其自己的可支持性身份验证协议。</li>|     
@@ -173,7 +174,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 |Outlook Web Access|支持|支持|
 |Outlook 移动适用于 Android、 IOS 和 Windows Phone 应用|支持|支持|
 |Skype for Business / Lync|受支持，无需额外提示|支持 （注明的除外） 但可能出现的用户混淆。</br></br>移动客户端上备用 Id 才支持 SIP 地址 = 电子邮件地址 = 备用 id。</br></br> 用户可能需要登录两次到 Skype for Business 桌面客户端，首先使用本地 UPN，然后使用的备用 id。 （请注意，"登录地址"与实际的 SIP 地址可能不是"用户名"相同，但通常是）。 首次出现提示时输入用户名，用户应输入 UPN，即使未正确预填充的备用 ID 或 SIP 地址。 以用户单击使用 UPN 名称提示符再次显示的用户，这一次预填充了 UPN 登录。 此时，用户必须将此替换使用备用 ID 并单击登录以完成登录过程。 在移动客户端，用户应输入的本地用户 ID 在高级页，使用 SAM 样式格式 （域 \ 用户名），不是 UPN 格式。</br></br>成功登录后，如果 Skype for Business 或 Lync 显示为"Exchange 需要你的凭据"，需要提供有效的邮箱所在的位置的凭据。 如果邮箱处于云中，你需要提供的备用 id。 如果邮箱在本地需要提供本地 UPN。| 
- 
+
 ## <a name="additional-details--considerations"></a>更多详细信息和注意事项
 
 -   备用登录 ID 功能是可用于联合的环境与 AD FS 部署。  它不支持以下方案：
@@ -211,12 +212,12 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 
 
 
-**错误案例**|**对单一登录体验的影响**|**事件**|
----------|---------|---------
-无法获取用户对象的 SAMAccountName 的值|登录失败|事件 ID 364 与异常消息 MSIS8012:找不到用户的 samAccountName:{0}。|
-CanonicalName 属性不可访问|登录失败|事件 ID 364 与异常消息 MSIS8013:CanonicalName: '{0}的用户:{1}的格式不正确。|
-在一个林中找到多个用户对象|登录失败|事件 ID 364 与异常消息 MSIS8015:找到具有标识的多个用户帐户{0}在林中{1}与标识： {2}|
-跨多个林发现多个用户对象|登录失败|事件 ID 364 与异常消息 MSIS8014:找到具有标识的多个用户帐户{0}林中： {1}|
+|                       **错误案例**                        | **对单一登录体验的影响** |                                                              **事件**                                                              |
+|--------------------------------------------------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| 无法获取用户对象的 SAMAccountName 的值 |          登录失败           |                  事件 ID 364 与异常消息 MSIS8012:找不到用户的 samAccountName:{0}。                   |
+|        CanonicalName 属性不可访问         |          登录失败           |               事件 ID 364 与异常消息 MSIS8013:CanonicalName: '{0}的用户:{1}的格式不正确。                |
+|        在一个林中找到多个用户对象        |          登录失败           | 事件 ID 364 与异常消息 MSIS8015:找到具有标识的多个用户帐户{0}在林中{1}与标识： {2} |
+|   跨多个林发现多个用户对象    |          登录失败           |           事件 ID 364 与异常消息 MSIS8014:找到具有标识的多个用户帐户{0}林中： {1}            |
 
 ## <a name="see-also"></a>请参阅
 [AD FS 操作](../../ad-fs/AD-FS-2016-Operations.md)

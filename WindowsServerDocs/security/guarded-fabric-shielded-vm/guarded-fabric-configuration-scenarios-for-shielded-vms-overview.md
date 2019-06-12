@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: fa6da3f4a98686f83fff3937c2dc44fd4d623fe3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9badbfcb709c29451425aaecc56b46ac98837e18
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871008"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443800"
 ---
 # <a name="deploy-shielded-vms"></a>部署受防护的虚拟机
 
@@ -40,9 +40,9 @@ ms.locfileid: "59871008"
 
 ## <a name="next-step"></a>下一步
 
->[!div class="nextstepaction"]
-[创建受防护的 VM 模板](guarded-fabric-create-a-shielded-vm-template.md)
+> [!div class="nextstepaction"]
+> [创建受防护的 VM 模板](guarded-fabric-create-a-shielded-vm-template.md)
 
 ## <a name="see-also"></a>请参阅
 
-- [受保护的构造和受防护的 Vm](guarded-fabric-and-shielded-vms-top-node.md)
+- [受保护的结构和受防护的 VM](guarded-fabric-and-shielded-vms-top-node.md)

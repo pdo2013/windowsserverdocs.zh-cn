@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: e0f79dd72190888340144bc5c109ee31fa301937
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0acfa6eec1d83c246c43ad32f7548ea771eb3c11
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870798"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445766"
 ---
 # <a name="deploy-implementing-retention-of-information-on-file-servers-demonstration-steps"></a>Deploy Implementing Retention of Information on File Servers (Demonstration Steps)
 
@@ -49,15 +49,15 @@ ms.locfileid: "59870798"
   
 1.  在域控制器上，以 Domain Admins 安全组成员的身份登录到服务器。  
   
-2.  打开 Active Directory 管理中心。 在服务器管理器中，单击“工具”，然后单击“Active Directory 管理中心”。  
+2.  打开 Active Directory 管理中心。 在服务器管理器中，单击“工具”  ，然后单击“Active Directory 管理中心”  。  
   
-3.  展开“动态访问控制”，然后单击“资源属性”。  
+3.  展开“动态访问控制”  ，然后单击“资源属性”  。  
   
-4.  右键单击“保留期”，然后单击“启用”。  
+4.  右键单击“保留期”  ，然后单击“启用”  。  
   
-5.  右键单击“可发现性” ，然后单击“启用” 。  
+5.  右键单击“可发现性”  ，然后单击“启用”  。  
   
-![解决方案指南](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![解决方案指南](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -77,21 +77,21 @@ Set-ADResourceProperty -Enabled:$true -Identity:'CN=Discoverability_MS,CN=Resour
   
 2.  在 Windows Powershell 命令提示符下，键入 **Update-FsrmClassificationPropertyDefinition**，然后按 ENTER。 这会将域控制器上创建的属性定义同步到文件服务器。  
   
-3.  打开文件服务器资源管理器。 在服务器管理器中，单击“工具”，然后单击“文件服务器资源管理器”。  
+3.  打开文件服务器资源管理器。 在服务器管理器中，单击“工具”  ，然后单击“文件服务器资源管理器”  。  
   
-4.  右键单击“文件服务器资源管理器(本地)”，然后单击“配置选项”。  
+4.  右键单击“文件服务器资源管理器(本地)”  ，然后单击“配置选项”  。  
   
 5.  在“电子邮件通知”  选项卡上，进行以下配置：  
   
     -   在“SMTP 服务器名称或 IP 地址”  框中，键入你网络上的 SMTP 服务器的名称。  
   
-    -   在“默认管理员收件人”框中，键入应收到通知的管理员的电子邮件地址。  
+    -   在“默认管理员收件人”  框中，键入应收到通知的管理员的电子邮件地址。  
   
     -   在中**默认 '发件人"电子邮件地址**框中，键入应该用于发送通知的电子邮件地址。  
   
-6.  单击 **“确定”**。  
+6.  单击 **“确定”** 。  
   
-![解决方案指南](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![解决方案指南](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -114,35 +114,35 @@ Set-FsrmSetting -SmtpServer IP address of SMTP server -FromEmailAddress "FromEma
   
 1.  以管理员安全组成员的身份登录到文件服务器。  
   
-2.  打开文件服务器资源管理器。 在服务器管理器中，单击“工具”，然后单击“文件服务器资源管理器”。  
+2.  打开文件服务器资源管理器。 在服务器管理器中，单击“工具”  ，然后单击“文件服务器资源管理器”  。  
   
-3.  右键单击“文件管理任务” ，然后单击“创建文件管理任务” 。  
+3.  右键单击“文件管理任务”  ，然后单击“创建文件管理任务”  。  
   
-4.  在“规则名称”框中的“常规”选项卡上，键入文件管理任务的名称，如保留任务的名称。  
+4.  在“规则名称”  框中的“常规”  选项卡上，键入文件管理任务的名称，如保留任务的名称。  
   
-5.  在“作用域”  选项卡上，单击“添加” ，然后选择应该包括在该规则中的文件夹，如 D:\Finance Documents。  
+5.  在“作用域”  选项卡上，单击“添加”  ，然后选择应该包括在该规则中的文件夹，如 D:\Finance Documents。  
   
-6.  在“类型”  框中的“操作”  选项卡上，单击“文件过期” 。 在“过期目录”  框中，键入过期文件将移动到其中的本地文件服务器上文件夹的路径。 此文件夹应具有访问控制列表，该列表仅授予文件服务器管理员访问权限。  
+6.  在“类型”  框中的“操作”  选项卡上，单击“文件过期”  。 在“过期目录”  框中，键入过期文件将移动到其中的本地文件服务器上文件夹的路径。 此文件夹应具有访问控制列表，该列表仅授予文件服务器管理员访问权限。  
   
-7.  在“通知”选项卡上，单击“添加”。  
+7.  在“通知”  选项卡上，单击“添加”  。  
   
-    -   选中“将电子邮件发送至下列管理员”复选框。  
+    -   选中“将电子邮件发送至下列管理员”  复选框。  
   
-    -   选中“向用户发送一封带有受影响的文件的电子邮件”  复选框，然后单击“确定” 。  
+    -   选中“向用户发送一封带有受影响的文件的电子邮件”  复选框，然后单击“确定”  。  
   
-8.  在“条件”选项卡上，单击“添加”并添加以下属性：  
+8.  在“条件”  选项卡上，单击“添加”  并添加以下属性：  
   
-    -   在“属性”  列表中，单击“可发现性” 。 在“运营商”列表中，单击“不等于”。 在“值”  列表中，单击“保留” 。  
+    -   在“属性”  列表中，单击“可发现性”  。 在“运营商”  列表中，单击“不等于”  。 在“值”  列表中，单击“保留”  。  
   
-    -   在“属性”  列表中，单击“保留期” 。 在“运营商”列表中，单击“等于”。 在“值”  列表中，单击“长期” 。  
+    -   在“属性”  列表中，单击“保留期”  。 在“运营商”  列表中，单击“等于”  。 在“值”  列表中，单击“长期”  。  
   
-9. 在“条件”选项卡上，选中“自上次修改文件以来的天数”复选框，并将值设置为 **3650**。  
+9. 在“条件”  选项卡上，选中“自上次修改文件以来的天数”  复选框，并将值设置为 **3650**。  
   
 10. 在“计划”  选项卡上，单击“每月”  选项，然后选中“最后一个”  复选框。  
   
-11. 单击 **“确定”**。  
+11. 单击 **“确定”** 。  
   
-![解决方案指南](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![解决方案指南](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -167,25 +167,25 @@ $fmj1=New-FSRMFileManagementJob -Name "Retention Task" -Namespace @('D:\Finance 
   
 2.  导航至已在步骤 3 中创建的文件管理任务作用域中配置的文件夹。  
   
-3.  右键单击该文件夹，然后单击 **“属性”**。  
+3.  右键单击该文件夹，然后单击 **“属性”** 。  
   
-4.  在“分类”选项卡上，单击“保留期”，再单击“长期”，然后单击“确定”。  
+4.  在“分类”  选项卡上，单击“保留期”  ，再单击“长期”  ，然后单击“确定”  。  
   
-5.  右键单击该文件夹中的文件，然后单击“属性” 。  
+5.  右键单击该文件夹中的文件，然后单击“属性”  。  
   
-6.  在“分类”  选项卡上，依次单击“可发现性 、“保留” 、“应用” 和“确定” 。  
+6.  在“分类”  选项卡上，依次单击“可发现性  、“保留”  、“应用”  和“确定”  。  
   
 7.  在文件服务器上，通过使用文件服务器资源管理器控制台来运行文件管理任务。 在文件管理任务完成后，检查该文件夹并确保该文件未移到过期目录。  
   
-8.  右键单击该文件夹中的同一文件，然后单击“属性” 。  
+8.  右键单击该文件夹中的同一文件，然后单击“属性”  。  
   
-9. 在“分类”选项卡上，依次单击“可发现性、“不适用”、“应用”和“确定”。  
+9. 在“分类”  选项卡上，依次单击“可发现性  、“不适用”  、“应用”  和“确定”  。  
   
 10. 在文件服务器上，通过使用文件服务器资源管理器控制台，再次运行该文件管理任务。 在文件管理任务完成后，检查该文件夹并确保该文件已移到过期目录。  
   
 ## <a name="BKMK_Links"></a>另请参阅  
   
--   [方案：在文件服务器上实现信息的保留期](Scenario--Implement-Retention-of-Information-on-File-Servers.md)  
+-   [方案：实现文件服务器上信息的保留](Scenario--Implement-Retention-of-Information-on-File-Servers.md)  
   
 -   [规划文件服务器上的信息的保留期](assetId:///edf13190-7077-455a-ac01-f534064a9e0c)  
   

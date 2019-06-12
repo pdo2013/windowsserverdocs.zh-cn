@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 8b3b2934e7aa177e873e19d77530b2d796ccd521
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 83dab73230737b8303660b32683a6d05322ac754
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188901"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444768"
 ---
 # <a name="walkthrough-workplace-join-with-a-windows-device"></a>操作实例：使用 Windows 设备加入工作区
 
@@ -25,19 +25,19 @@ ms.locfileid: "66188901"
 
 #### <a name="to-access-the-web-application-before-you-use-workplace-join-on-your-device"></a>在你的设备上使用“工作区加入”前访问 Web 应用程序
 
-1.  请使用你的 Microsoft 帐户登录到 Client1。
+1. 请使用你的 Microsoft 帐户登录到 Client1。
 
-2.  打开 Internet Explorer 并浏览到你的通用声明应用**https://webserv1.contoso.com/claimapp**。
+2. 打开 Internet Explorer 并浏览到你的通用声明应用 **https://webserv1.contoso.com/claimapp** 。
 
-3.  登录到网页使用公司的域帐户： **roberth@contoso.com**，密码： **P@ssword**。
+3. 登录到网页使用公司的域帐户： <strong>roberth@contoso.com</strong>，密码： <strong>P@ssword</strong>。
 
-4.  该网页列出你的安全令牌中的所有声明。 在你的安全令牌中仅存在用户声明。
+4. 该网页列出你的安全令牌中的所有声明。 在你的安全令牌中仅存在用户声明。
 
-5.  关闭 Internet Explorer。
+5. 关闭 Internet Explorer。
 
-6.  打开 Internet Explorer 并导航到相同的声明应用**https://webserv1.contoso.com/claimapp**。
+6. 打开 Internet Explorer 并导航到相同的声明应用 **https://webserv1.contoso.com/claimapp** 。
 
-7.  请注意，系统会提示再次输入你的凭据。 你无法从使用“工作区加入”的设备连接到工作区，因此不具备单一登录。
+7. 请注意，系统会提示再次输入你的凭据。 你无法从使用“工作区加入”的设备连接到工作区，因此不具备单一登录。
 
 ## <a name="join-your-device-with-workplace-join"></a>使用“工作区加入”加入你的设备
 
@@ -48,36 +48,36 @@ ms.locfileid: "66188901"
 
 #### <a name="to-join-your-device-with-workplace-join"></a>使用“工作区加入”加入你的设备
 
-1.  请使用你的 Microsoft 帐户登录到 Client1。
+1. 请使用你的 Microsoft 帐户登录到 Client1。
 
-2.  在“开始”  屏幕上，打开“超级按钮”  栏，然后选择“设置”  超级按钮。 选择“更改电脑设置”  。
+2. 在“开始”  屏幕上，打开“超级按钮”  栏，然后选择“设置”  超级按钮。 选择“更改电脑设置”  。
 
-3.  在“电脑设置”  页面上，选择“网络”  ，然后单击“工作区”  。
+3. 在“电脑设置”  页面上，选择“网络”  ，然后单击“工作区”  。
 
-4.  在中**输入用户 Id 以获取工作区访问权限或打开设备管理**框中，键入**roberth@contoso.com**，然后单击**加入**。
+4. 在中**输入用户 Id 以获取工作区访问权限或打开设备管理**框中，键入<strong>roberth@contoso.com</strong>，然后单击**加入**。
 
-5.  系统提示输入凭据，键入**roberth@contoso.com**，和密码： **P@ssword**。 单击 **“确定”** 。
+5. 系统提示输入凭据，键入<strong>roberth@contoso.com</strong>，和密码： <strong>P@ssword</strong>。 单击 **“确定”** 。
 
-6.  现在，你应看到如下消息：“此设备已加入工作区网络。”
+6. 现在，你应看到如下消息：“此设备已加入工作区网络。”
 
 ### <a name="access-the-web-application-after-joining-the-workplace"></a>加入工作区后访问 Web 应用程序
 在此部分的演示中，从与“工作区加入”连接的设备访问公司 Web 应用程序。 该网页显示你的安全令牌中所包括的声明。 请注意声明列表同时包括设备和用户信息。 你还可能会发现你现在具有单一登录。
 
 ##### <a name="to-access-the-web-application-after-joining-the-workplace"></a>在加入工作区后访问 Web 应用程序
 
-1.  请使用你的 Microsoft 帐户登录到“Client1”  。
+1. 请使用你的 Microsoft 帐户登录到“Client1”  。
 
-2.  打开 Internet Explorer 并浏览到你的通用声明应用**https://webserv1.contoso.com/claimapp**。
+2. 打开 Internet Explorer 并浏览到你的通用声明应用 **https://webserv1.contoso.com/claimapp** 。
 
-3.  登录到网页使用公司的域帐户： **roberth@contoso.com**，密码： **P@ssword**。
+3. 登录到网页使用公司的域帐户： <strong>roberth@contoso.com</strong>，密码： <strong>P@ssword</strong>。
 
-4.  该网页列出你的安全令牌中的声明。 你的令牌同时包含用户和设备声明。
+4. 该网页列出你的安全令牌中的声明。 你的令牌同时包含用户和设备声明。
 
-5.  关闭 Internet Explorer。
+5. 关闭 Internet Explorer。
 
-6.  打开 Internet Explorer 并导航到相同的声明应用**https://webserv1.contoso.com/claimapp**。
+6. 打开 Internet Explorer 并导航到相同的声明应用 **https://webserv1.contoso.com/claimapp** 。
 
-7.  请注意，系统 **不会** 提示再次输入你的凭据。 你从使用“工作区加入”的设备连接，因此具有单一登录。
+7. 请注意，系统 **不会** 提示再次输入你的凭据。 你从使用“工作区加入”的设备连接，因此具有单一登录。
 
 ## <a name="see-also"></a>请参阅
 [加入工作区以从任一设备实现 SSO 和无缝第二个身份 Authentication Across Company Applications](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)

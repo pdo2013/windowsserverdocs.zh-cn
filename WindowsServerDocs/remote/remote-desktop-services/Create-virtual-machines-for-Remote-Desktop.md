@@ -13,16 +13,16 @@ ms.topic: article
 ms.assetid: b0f62d6f-0915-44ca-afef-be44a922e20e
 author: lizap
 manager: dongill
-ms.openlocfilehash: c5147636f73e8628aba549c4e05b9f23ab4ef9a7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5c61d9f08cb799d6a63a004bedab924a6ba37fdc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873928"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446737"
 ---
 # <a name="create-virtual-machines-for-remote-desktop"></a>为远程桌面创建虚拟机
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server （半年频道），Windows Server 2019，Windows Server 2016
 
 使用以下步骤将用于运行 Windows Server 2016 角色、 服务和功能所需的桌面托管部署的租户的环境中创建虚拟机。   
   
@@ -30,57 +30,57 @@ ms.locfileid: "59873928"
   
 本部分概述了部署基于 Windows Server 映像中的每个角色的虚拟机所需的步骤[Microsoft Azure Marketplace](https://azure.microsoft.com/marketplace/)。 如果您需要创建虚拟机从一个自定义映像，需要 PowerShell，请查看[使用资源管理器和 PowerShell 创建 Windows VM](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-ps-create/)。 然后返回此处将附加的文件共享的 Azure 数据磁盘，以及为你的部署输入外部 URL。  
   
-1.  [创建 Windows 虚拟机](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/)以承载 RD 连接代理、 远程桌面许可证服务器和文件服务器。  
+1. [创建 Windows 虚拟机](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/)以承载 RD 连接代理、 远程桌面许可证服务器和文件服务器。  
   
-    对于我们的目的，我们使用以下命名约定：  
-    - RD 连接代理、 许可证服务器和文件服务器：   
-        - VM:Contoso-Cb1  
-        - 可用性集：CbAvSet    
-    - RD Web 访问和 RD 网关服务器：   
-        - VM:Contoso-WebGw1  
-        - 可用性集：WebGwAvSet  
+   对于我们的目的，我们使用以下命名约定：  
+   - RD 连接代理、 许可证服务器和文件服务器：   
+       - VM:Contoso-Cb1  
+       - 可用性集：CbAvSet    
+   - RD Web 访问和 RD 网关服务器：   
+       - VM:Contoso-WebGw1  
+       - 可用性集：WebGwAvSet  
           
-    - RD 会话主机：   
-        - VM:Contoso-Sh1  
-        - 可用性集：ShAvSet  
+   - RD 会话主机：   
+       - VM:Contoso-Sh1  
+       - 可用性集：ShAvSet  
           
-    每个 VM 使用相同的资源组。  
-2.  创建并附加用户配置文件磁盘 (UPD) 共享的 Azure 数据磁盘：  
-    1.  在 Azure 门户中，单击**浏览 > 资源组**，单击部署的资源组，然后单击为 RD 连接代理 (例如，Contoso Cb1) 创建的虚拟机。  
-    2.  单击**设置 > 磁盘 > 附加新**。  
-    3.  接受名称和类型的默认值。  
-    4.  输入是足够大以保存有关租户的环境，包括用户配置文件磁盘和证书的网络共享的大小 （以 gb 为单位）。 每个用户计划，可以接近 5 GB  
-    5.  接受位置和主机缓存的默认值，然后单击**确定**。  
-3.  创建外部负载均衡器来访问外部部署：
-    1. 在 Azure 门户中，单击**浏览 > 负载均衡器**，然后单击**添加**。
-    2. 输入**名称**，选择**公共**作为**类型**的负载均衡器，然后选择相应**订阅**， **资源组**，并**位置**。
-    3. 选择**选择公共 IP 地址**，**新建**，输入一个名称，然后选择**确定**。
-    4. 选择**创建**创建负载均衡器。
-4.  配置你的部署的外部负载均衡器
-    1. 在 Azure 门户中，单击**浏览 > 资源组**，单击部署的资源组，然后单击创建部署的负载均衡器。
-    2. 添加负载均衡器以将流量发送到后端池：
-        1. 选择**后端池**并**添加**。
-        2. 输入**名称**，然后选择**\+添加虚拟机**。
-        3. 选择**可用性集**并**WebGwAvSet**。
-        4. 选择**虚拟机**， **Contoso WebGw1**，**选择**，**确定**，并**确定**。
-    3. 将探测添加这样的负载均衡器就会知道哪些计算机处于活动状态：
-        1. 选择**探测**并**添加**。
-        2. 输入**名称**（如 HTTPS)，选择**TCP**，输入**端口**443，然后选择**确定**。
-    4. 输入负载均衡规则为传入的流量进行平衡：
-        1. 选择**负载均衡规则**和**添加**
-        2. 输入**名称**（如 HTTPS)，选择**TCP**，和两个 443**端口**并**后端端口**。
-            - 对于 Windows 10 和 Windows Server 2016 部署中，将保留**会话暂留**作为**None**，否则为请选择**客户端 IP**。
-        3. 选择**确定**接受 HTTPS 规则。
-        4. 通过选择创建新的规则**添加**。
-        5. 输入**名称**（例如 UDP)，选择**UDP**，和两个 3391 * * 端口并**后端端口**。
-            - 对于 Windows 10 和 Windows Server 2016 部署中，将保留**会话暂留**作为**None**，否则为请选择**客户端 IP**。
-        6. 选择**确定**接受 UDP 规则。
-    5. 输入直接连接到 Contoso WebGw1 入站的 NAT 规则
-        1. 选择**入站 NAT 规则**并**添加**。
-        2. 输入**名称**（如 RDP-Contoso-WebGw1)，选择**Customm**服务， **TCP**作为协议，并输入为 14000**端口**。
-        3. 选择**选择虚拟机**和 Contoso WebGw1。
-        4. 选择**自定义**端口映射，请输入的 3389**目标端口**，然后选择**确定**。
-5.  输入您的部署，从外部访问的外部 URL/DNS 名称：  
-    1.  在 Azure 门户中，单击**浏览 > 资源组**，单击部署的资源组，然后单击创建为 RD Web 访问和 RD 网关的公共 IP 地址。  
-    2.  单击**配置**，输入 DNS 名称标签 （如 contoso)，然后单击**保存**。 此 DNS 名称标签 (contoso.westus.cloudapp.azure.com) 是将用于连接到 RD Web 访问和 RD 网关服务器的 DNS 名称。  
+   每个 VM 使用相同的资源组。  
+2. 创建并附加用户配置文件磁盘 (UPD) 共享的 Azure 数据磁盘：  
+   1.  在 Azure 门户中，单击**浏览 > 资源组**，单击部署的资源组，然后单击为 RD 连接代理 (例如，Contoso Cb1) 创建的虚拟机。  
+   2.  单击**设置 > 磁盘 > 附加新**。  
+   3.  接受名称和类型的默认值。  
+   4.  输入是足够大以保存有关租户的环境，包括用户配置文件磁盘和证书的网络共享的大小 （以 gb 为单位）。 每个用户计划，可以接近 5 GB  
+   5.  接受位置和主机缓存的默认值，然后单击**确定**。  
+3. 创建外部负载均衡器来访问外部部署：
+   1. 在 Azure 门户中，单击**浏览 > 负载均衡器**，然后单击**添加**。
+   2. 输入**名称**，选择**公共**作为**类型**的负载均衡器，然后选择相应**订阅**， **资源组**，并**位置**。
+   3. 选择**选择公共 IP 地址**，**新建**，输入一个名称，然后选择**确定**。
+   4. 选择**创建**创建负载均衡器。
+4. 配置你的部署的外部负载均衡器
+   1. 在 Azure 门户中，单击**浏览 > 资源组**，单击部署的资源组，然后单击创建部署的负载均衡器。
+   2. 添加负载均衡器以将流量发送到后端池：
+       1. 选择**后端池**并**添加**。
+       2. 输入**名称**，然后选择 **\+添加虚拟机**。
+       3. 选择**可用性集**并**WebGwAvSet**。
+       4. 选择**虚拟机**， **Contoso WebGw1**，**选择**，**确定**，并**确定**。
+   3. 将探测添加这样的负载均衡器就会知道哪些计算机处于活动状态：
+       1. 选择**探测**并**添加**。
+       2. 输入**名称**（如 HTTPS)，选择**TCP**，输入**端口**443，然后选择**确定**。
+   4. 输入负载均衡规则为传入的流量进行平衡：
+      1. 选择**负载均衡规则**和**添加**
+      2. 输入**名称**（如 HTTPS)，选择**TCP**，和两个 443**端口**并**后端端口**。
+          - 对于 Windows 10 和 Windows Server 2016 部署中，将保留**会话暂留**作为**None**，否则为请选择**客户端 IP**。
+      3. 选择**确定**接受 HTTPS 规则。
+      4. 通过选择创建新的规则**添加**。
+      5. 输入**名称**（例如 UDP)，选择**UDP**，和两个 3391<strong>端口和 * * 的后端端口</strong>。
+          - 对于 Windows 10 和 Windows Server 2016 部署中，将保留**会话暂留**作为**None**，否则为请选择**客户端 IP**。
+      6. 选择**确定**接受 UDP 规则。
+   5. 输入直接连接到 Contoso WebGw1 入站的 NAT 规则
+       1. 选择**入站 NAT 规则**并**添加**。
+       2. 输入**名称**（如 RDP-Contoso-WebGw1)，选择**Customm**服务， **TCP**作为协议，并输入为 14000**端口**。
+       3. 选择**选择虚拟机**和 Contoso WebGw1。
+       4. 选择**自定义**端口映射，请输入的 3389**目标端口**，然后选择**确定**。
+5. 输入您的部署，从外部访问的外部 URL/DNS 名称：  
+   1.  在 Azure 门户中，单击**浏览 > 资源组**，单击部署的资源组，然后单击创建为 RD Web 访问和 RD 网关的公共 IP 地址。  
+   2.  单击**配置**，输入 DNS 名称标签 （如 contoso)，然后单击**保存**。 此 DNS 名称标签 (contoso.westus.cloudapp.azure.com) 是将用于连接到 RD Web 访问和 RD 网关服务器的 DNS 名称。  
 

@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 2daa2f6253a406ccad68677e1877215a1c610328
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1e844d73348ee31f309f44895831ded9a2e6365c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835288"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439059"
 ---
 # <a name="fsutil-quota"></a>fsutil 配额
 >适用于：Windows Server （半年频道）、 Windows Server 2016 中，Windows 10、 Windows Server 2012 R2、 Windows 8.1、 Windows Server 2012 中，Windows 8、 Windows Server 2008 R2、 Windows 7
@@ -36,18 +36,18 @@ fsutil quota [violations]
 
 ## <a name="parameters"></a>Parameters
 
-|参数|描述|
-|-------------|---------------|
-|禁用|禁用配额跟踪和强制指定卷上。|
-|强制实施|强制执行指定的卷上的配额使用情况。|
-|modify|修改现有的磁盘配额或创建新的配额。|
-|查询|列出现有的磁盘配额。|
-|跟踪|跟踪磁盘上的指定卷的使用情况。|
-|冲突|搜索系统和应用程序日志，并显示一条消息，以指示已检测到配额冲突或用户已达到配额阈值或配额限制。|
-|\<VolumePath>|必需。 指定后接一个冒号或格式的 GUID 的驱动器名称**卷 {***GUID***}**。|
-|\<阈值 >|设置将发出警告的限制 （以字节为单位）。 此参数是必需的**fsutil 配额修改**命令。|
-|\<限制 >|设置最大允许的磁盘使用情况 （以字节为单位）。 此参数是必需的**fsutil 配额修改**命令。|
-|\<UserName>|指定域或用户的名称。 此参数是必需的**fsutil 配额修改**命令。|
+|   参数   |                                                                                    描述                                                                                    |
+|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    禁用    |                                                         禁用配额跟踪和强制指定卷上。                                                          |
+|    强制实施    |                                                                   强制执行指定的卷上的配额使用情况。                                                                   |
+|    modify     |                                                              修改现有的磁盘配额或创建新的配额。                                                              |
+|     查询     |                                                                            列出现有的磁盘配额。                                                                            |
+|     跟踪     |                                                                    跟踪磁盘上的指定卷的使用情况。                                                                     |
+|  冲突   | 搜索系统和应用程序日志，并显示一条消息，以指示已检测到配额冲突或用户已达到配额阈值或配额限制。 |
+| \<VolumePath> |                                  必需。 指定后接一个冒号或格式的 GUID 的驱动器名称**卷 {** <em>GUID</em> **}** 。                                  |
+| \<阈值 >  |                            设置将发出警告的限制 （以字节为单位）。 此参数是必需的**fsutil 配额修改**命令。                            |
+|   \<限制 >    |                                设置最大允许的磁盘使用情况 （以字节为单位）。 此参数是必需的**fsutil 配额修改**命令。                                |
+|  \<UserName>  |                                      指定域或用户的名称。 此参数是必需的**fsutil 配额修改**命令。                                       |
 
 ## <a name="remarks"></a>备注
 
@@ -62,14 +62,14 @@ fsutil quota [violations]
 fsutil quota query Volume{928842df-5a01-11de-a85c-806e6f6e6963}
 ```
 
-若要列出的驱动器号，使用指定的磁盘卷上的现有磁盘配额**c:**，类型：
+若要列出的驱动器号，使用指定的磁盘卷上的现有磁盘配额**c:** ，类型：
 
 ```
 Fsutil quota query C:
 ```
 
 #### <a name="additional-references"></a>其他参考
-[命令行语法解答](Command-Line-Syntax-Key.md)
+[命令行语法项](Command-Line-Syntax-Key.md)
 
 [Fsutil](Fsutil.md)
 

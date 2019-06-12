@@ -7,18 +7,18 @@ ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
-ms.openlocfilehash: c48979440ab7c5cfa86aa1287b354a1e43692f48
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1644a61c87953e465895e23c3c8454bae7f3a056
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867438"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443382"
 ---
 # <a name="express-updates-for-windows-server-2016-re-enabled-for-november-2018-update"></a>Windows Server 2016 为 2018 年 11 月重新启用快速更新更新
 
->通过 Joel Frauenheim
-
->适用于：Windows Server 2016
+> 通过 Joel Frauenheim
+> 
+> 适用于：Windows Server 2016
 
 正在启动与： 2018 年 11 月 13 日更新 （星期二）、 Windows 将再次发布 Express 的更新 Windows Server 2016。 快速更新的 Windows Server 2016 在 2017 年中旬中停止后找到最重要的问题的正确安装保持更新。 虽然该问题已修复在 2017 年 11 月中，更新团队采用保守的做法所用的时间发布 Express 包，以确保大多数客户将具有 2017 年 11 月 14 日更新 ([KB 4048953](https://support.microsoft.com/help/4048953/windows-10-update-kb4048953)) 在其服务器上安装环境和不受此问题。
 

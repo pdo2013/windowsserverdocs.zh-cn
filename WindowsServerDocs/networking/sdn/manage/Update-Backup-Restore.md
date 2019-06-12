@@ -9,12 +9,12 @@ ms.assetid: e9a8f2fd-48fe-4a90-9250-f6b32488b7a4
 ms.author: grcusanz
 author: shortpatti
 ms.date: 08/27/2018
-ms.openlocfilehash: 3374d1b79b84edd78dca3b61c73ea2db1dff9561
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7916377f58261d0ccaa3fa24f135fccca3d5e79b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854458"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446333"
 ---
 # <a name="upgrade-backup-and-restore-sdn-infrastructure"></a>升级、 备份和还原 SDN 基础结构
 
@@ -45,7 +45,7 @@ SDN 基础结构可以从 Windows Server 2016 升级到 Windows Server 2019。 �
 
 3. 在前进到下一个网络控制器 VM 前, 使用`get-networkcontrollernode`cmdlet 来检查更新并重新启动的节点的状态。
 
-4. 在重新启动周期中，等待要关闭然后再回来再次的网络控制器节点。<p>后重新启动 VM，可能需要几分钟时间，它将重新进入**_向上_** 状态。 输出的示例，请参阅 
+4. 在重新启动周期中，等待要关闭然后再回来再次的网络控制器节点。<p>后重新启动 VM，可能需要几分钟时间，它将重新进入 **_向上_** 状态。 输出的示例，请参阅 
 
 5. 每个 SLB Mux VM 之一上安装更新，以确保持续可用性的负载均衡器基础结构的一次。
 
@@ -75,7 +75,7 @@ SDN 基础结构可以从 Windows Server 2016 升级到 Windows Server 2019。 �
 - NCNode3.contoso.com = Up
 
 >[!IMPORTANT]
->对更改的节点，必须等待几分钟时间，直到状态_**向上**_ 更新任何其他节点，一次一个地之前。
+>对更改的节点，必须等待几分钟时间，直到状态 _**向上**_ 更新任何其他节点，一次一个地之前。
 
 在更新后的所有网络控制器节点，网络控制器都更新网络控制器群集中运行一小时内的微服务。 
 
@@ -131,18 +131,18 @@ NetworkControllerClusterVersion NetworkControllerVersion
 
 **过程：**
 
-1.  使用所选的 VM 备份方法或使用 HYPER-V 导出每个网络控制器 VM 的副本。<p>备份网络控制器 VM 可确保必要证书用于解密该数据库存在。  
+1. 使用所选的 VM 备份方法或使用 HYPER-V 导出每个网络控制器 VM 的副本。<p>备份网络控制器 VM 可确保必要证书用于解密该数据库存在。  
 
-2.  如果使用 System Center Virtual Machine Manager (SCVMM)，停止 SCVMM 服务，并通过 SQL Server 备份它。<p>此处的目标是确保在此期间，这可能会产生不一致造成的网络控制器备份和 SCVMM 获取进行到 SCVMM 没有更新。  
+2. 如果使用 System Center Virtual Machine Manager (SCVMM)，停止 SCVMM 服务，并通过 SQL Server 备份它。<p>此处的目标是确保在此期间，这可能会产生不一致造成的网络控制器备份和 SCVMM 获取进行到 SCVMM 没有更新。  
 
    >[!IMPORTANT]
    >不要重新启动 SCVMM 服务网络控制器备份完成之前。
 
-3.  备份与网络控制器数据库`new-networkcontrollerbackup`cmdlet。
+3. 备份与网络控制器数据库`new-networkcontrollerbackup`cmdlet。
 
-4.  检查完成和成功与备份`get-networkcontrollerbackup`cmdlet。
+4. 检查完成和成功与备份`get-networkcontrollerbackup`cmdlet。
 
-5.  如果使用的 SCVMM，启动 SCVMM 服务。
+5. 如果使用的 SCVMM，启动 SCVMM 服务。
 
 
 

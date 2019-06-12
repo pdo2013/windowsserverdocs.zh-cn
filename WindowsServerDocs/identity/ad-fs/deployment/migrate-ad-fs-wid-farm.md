@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: dbef7d07041a1fd32656c95947d5202b566c068a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c85a02ae6a71cf31fd172ec012a14cd81c126e16
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868318"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445648"
 ---
 # <a name="migrate-an-ad-fs-20-wid-farm"></a>迁移 AD FS 2.0 WID 场  
 本文档提供有关迁移 AD 的详细的信息与 Windows Server 2012 的 2.0 Windows 内部 FS 数据库 (WID) 场。
@@ -30,22 +30,22 @@ ms.locfileid: "59868318"
 > [!IMPORTANT]
 >  作为操作系统升级的结果，在此服务器上的 AD FS 配置将丢失并且 AD FS 2.0 的服务器角色会被删除。 相反，安装 Windows Server 2012 AD FS 服务器角色，但未配置。 你必须创建原始 AD FS 配置并还原剩余的 AD FS 设置，以完成联合服务器迁移。  
   
-4.  在此服务器上创建原始 AD FS 配置。  
+4. 在此服务器上创建原始 AD FS 配置。  
   
 你可以通过使用“AD FS 联合服务器配置向导”  创建原始 AD FS 配置，从而将联合服务器添加到 WID 场。 有关详细信息，请参阅[将联合服务器添加到联合服务器场](add-a-federation-server-to-a-federation-server-farm.md)。  
   
 > [!NOTE]
-> 在访问“AD FS 联合服务器配置向导”  中的“指定主联合服务器和服务帐户” 页面时，输入 WID 场的主要联合服务器名称，然后确保输入你在准备 AD FS 迁移时所记录的服务帐户信息。 有关详细信息，请参阅[准备迁移 AD FS 2.0 联合身份验证服务器](prepare-to-migrate-a-wid-farm.md)。 
+> 在访问“AD FS 联合服务器配置向导”  中的“指定主联合服务器和服务帐户”  页面时，输入 WID 场的主要联合服务器名称，然后确保输入你在准备 AD FS 迁移时所记录的服务帐户信息。 有关详细信息，请参阅[准备迁移 AD FS 2.0 联合身份验证服务器](prepare-to-migrate-a-wid-farm.md)。 
 >  
 > 当到达**指定联合身份验证服务名称**页上，确保选择在"准备迁移 WID 场"记录的相同 SSL 证书中[准备迁移 AD FS 2.0 联合身份验证服务器](prepare-to-migrate-a-wid-farm.md).  
   
-5.  更新你在此服务器上的 AD FS 网页。 如果准备迁移时备份你的自定义 AD FS 网页，需要使用你的备份数据来覆盖默认 AD FS 网页在默认情况下创建 **%systemdrive%\inetpub\adfs\ls**作为目录Windows Server 2012 上的 AD FS 配置结果。  
+5. 更新你在此服务器上的 AD FS 网页。 如果准备迁移时备份你的自定义 AD FS 网页，需要使用你的备份数据来覆盖默认 AD FS 网页在默认情况下创建 **%systemdrive%\inetpub\adfs\ls**作为目录Windows Server 2012 上的 AD FS 配置结果。  
   
-6.  添加你刚升级到 Windows Server 2012 到负载均衡器的服务器。  
+6. 添加你刚升级到 Windows Server 2012 到负载均衡器的服务器。  
   
-7.  对于 WID 场中剩余的辅助服务器，请重复步骤 1 到 6。  
+7. 对于 WID 场中剩余的辅助服务器，请重复步骤 1 到 6。  
   
-8.  将升级后的一台辅助服务器升级为你的 WID 场中的主服务器。 为此，请打开 Windows PowerShell 并运行以下命令： `PSH:> Set-AdfsSyncProperties –Role PrimaryComputer`。  
+8. 将升级后的一台辅助服务器升级为你的 WID 场中的主服务器。 为此，请打开 Windows PowerShell 并运行以下命令： `PSH:> Set-AdfsSyncProperties –Role PrimaryComputer`。  
   
 9. 从负载平衡器中删除你的 WID 场的原始主服务器。  
   
@@ -61,7 +61,7 @@ ms.locfileid: "59868318"
 你可以通过使用“AD FS 联合服务器配置向导”  创建原始 AD FS 配置，从而将联合服务器添加到 WID 场。 有关详细信息，请参阅[将联合服务器添加到联合服务器场](add-a-federation-server-to-a-federation-server-farm.md)。  
   
 > [!NOTE]
-> 在访问“AD FS 联合服务器配置向导”  中的“指定主联合服务器和服务帐户” 页面时，输入你在准备 AD FS 迁移时记录的服务帐户信息。 有关详细信息，请参阅[准备迁移 AD FS 2.0 联合身份验证服务器](prepare-to-migrate-a-wid-farm.md)。 
+> 在访问“AD FS 联合服务器配置向导”  中的“指定主联合服务器和服务帐户”  页面时，输入你在准备 AD FS 迁移时记录的服务帐户信息。 有关详细信息，请参阅[准备迁移 AD FS 2.0 联合身份验证服务器](prepare-to-migrate-a-wid-farm.md)。 
 >  
 > 当到达**指定联合身份验证服务名称**页上，确保选择你在中记录的相同 SSL 证书[准备迁移 AD FS 2.0 联合身份验证服务器](prepare-to-migrate-a-wid-farm.md)。  
   

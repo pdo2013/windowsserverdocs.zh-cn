@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 76a263c82ebc42de4cc6d136f9a814c3a678666b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b1bc4e45ed2a2b06c72318e0999988ed8f016c40
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878388"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438977"
 ---
 # <a name="fsutil-sparse"></a>fsutil 稀疏
 >适用于：Windows Server （半年频道）、 Windows Server 2016 中，Windows 10、 Windows Server 2012 R2、 Windows 8.1、 Windows Server 2012 中，Windows 8、 Windows Server 2008 R2、 Windows 7
@@ -34,15 +34,15 @@ fsutil sparse [setrange] <FileName> <BeginningOffset> <Length>
 
 ## <a name="parameters"></a>Parameters
 
-|参数|描述|
-|-------------|---------------|
-|queryflag|稀疏的查询。|
-|queryrange|扫描文件，并可能包含非零值的数据的范围中搜索。|
-|setflag|将标记为稀疏所指示的文件。|
-|setrange|用零填充的文件的指定的范围。|
-|<FileName>|指定的文件包括文件名和扩展名，例如 C:\documents\filename.txt 的完整路径。|
-|<BeginningOffset>|指定要将标记为稀疏文件中的偏移量。|
-|<Length>|在要将标记为稀疏 （以字节为单位） 的文件中指定的区域的长度。|
+|     参数     |                                                    描述                                                    |
+|-------------------|-------------------------------------------------------------------------------------------------------------------|
+|     queryflag     |                                                  稀疏的查询。                                                  |
+|    queryrange     |                        扫描文件，并可能包含非零值的数据的范围中搜索。                        |
+|      setflag      |                                        将标记为稀疏所指示的文件。                                        |
+|     setrange      |                                   用零填充的文件的指定的范围。                                   |
+|    <FileName>     | 指定的文件包括文件名和扩展名，例如 C:\documents\filename.txt 的完整路径。 |
+| <BeginningOffset> |                              指定要将标记为稀疏文件中的偏移量。                              |
+|     <Length>      |                 在要将标记为稀疏 （以字节为单位） 的文件中指定的区域的长度。                 |
 
 ## <a name="remarks"></a>备注
 
@@ -62,7 +62,7 @@ fsutil sparse setflag c:\temp\sample.txt
 ```
 
 #### <a name="additional-references"></a>其他参考
-[命令行语法解答](Command-Line-Syntax-Key.md)
+[命令行语法项](Command-Line-Syntax-Key.md)
 
 [Fsutil](Fsutil.md)
 

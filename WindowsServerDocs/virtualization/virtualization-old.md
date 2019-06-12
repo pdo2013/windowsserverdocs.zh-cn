@@ -9,12 +9,12 @@ author: shortpatti
 ms.author: pashort
 ms.localizationpriority: medium
 ms.date: 03/16/2018
-ms.openlocfilehash: b3b018037d788d47fafe7d3adda50cfb5831ab56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6dbb5be6d836462c9a24078dbec3700b09b08fc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829908"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446056"
 ---
 # <a name="virtualization"></a>虚拟化
 
@@ -41,7 +41,7 @@ Windows Server 虚拟化技术包括 HYPER-V、 HYPER-V 虚拟交换机和受保
                     </div>
                     <div class="cardText">
                         <h3>受保护的构造和受防护的 VM</h3>
-                        <p>作为云服务商或企业私有云管理员，你可以使用受保护的构造为 VM 提供更安全的环境。 受保护的构造包含一个主机保护者服务\(HGS\) -通常情况下，群集的三个节点加上一个或多个受保护的主机，以及一组受防护的 Vm。</p>
+                        <p>作为云服务商或企业私有云管理员，你可以使用受保护的构造为 VM 提供更安全的环境。 受保护的构造包含一个主机保护者服务 (HGS)-通常情况下，有三个节点群集-再加上一个或多个受保护的主机和一组受防护的 Vm。</p>
                     </div>
                 </div>
             </div>
@@ -101,11 +101,11 @@ Windows Server 虚拟化技术包括 HYPER-V、 HYPER-V 虚拟交换机和受保
                     </div>
                     <div class="cardText">
                         <h3>Hyper-V 虚拟交换机</h3>
-                        <p>超\-V 虚拟交换机是一种软件\-基于层\-超的所有版本中包括的 2 个以太网网络交换机\-V。</p>
+                        <p>Hyper-V 虚拟交换机是基于软件的第 2 层以太网网络交换机，在所有 Hyper-V 版本中均有提供。</p>
 
-                        <p>超\-V 虚拟交换机是可在超\-V 管理器后安装超\-V 服务器角色。</p>
+                        <p>安装 Hyper-V 服务器角色后，Hyper-V 管理器中会显示 Hyper-V 虚拟交换机。</p>
 
-                        <p>包含在超\-V 虚拟交换机是以编程方式管理和扩展功能，可用于将虚拟机连接到虚拟网络和物理网络。</p> 
+                        <p>Hyper-V 虚拟交换机包括以编程方式管理的可扩展功能，可将虚拟机连接到虚拟网络和物理网络。</p> 
 
                         <p>此外，Hyper-V 虚拟交换机提供了安全、隔离和服务级别的策略执行。</p>
                     </div>
@@ -128,7 +128,7 @@ Windows Server 虚拟化技术包括 HYPER-V、 HYPER-V 虚拟交换机和受保
                     </div>
                     <div class="cardText">
                         <h3>Windows 容器</h3>
-                        <p>Windows 容器提供操作系统\-级别允许多个独立的应用程序在单个系统上运行的虚拟化。 该功能附带两种不同类型的容器运行时，每个都有不同程度的应用程序隔离。</p>
+                        <p>Windows 容器提供操作系统级别虚拟化，允许多个独立的应用程序在单个系统上运行。 该功能附带两种不同类型的容器运行时，每个都有不同程度的应用程序隔离。</p>
                     </div>
                 </div>
             </div>

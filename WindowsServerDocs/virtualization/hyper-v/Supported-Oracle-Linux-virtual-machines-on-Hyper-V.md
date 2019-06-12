@@ -11,12 +11,12 @@ ms.assetid: c02fdb5b-62f3-43cb-a190-ab74b3ebcf77
 author: shirgall
 ms.author: kathydav
 ms.date: 06/01/2017
-ms.openlocfilehash: c72fd2c3a72a304fe8372afb93468fc451b3f2bc
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: e353ea0b444c07557de99db4472f565decb37349
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222667"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447751"
 ---
 # <a name="supported-oracle-linux-virtual-machines-on-hyper-v"></a>受支持的 Oracle Linux 虚拟机上的 HYPER-V
 
@@ -167,10 +167,9 @@ Oracle Linux Unbreakable Enterprise Kernel (UEK) 只能是 64 位，支持内置
 
 13. 新增服务器 2012 R2Generation 2 虚拟机具有默认情况下已启用安全启动和某些 Linux 虚拟机将不会启动除非禁用安全启动选项。 可以禁用中的安全启动**固件**部分中的虚拟机的设置**Hyper-v 管理器**也可以使用 Powershell 对其禁用：
 
-   ```Powershell
-   Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
-
-   ```
+    ```Powershell
+    Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
+    ```
 
     Linux Integration Services 下载可应用于现有第 2 代 Vm，但不授予第 2 代功能。
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3b3d0591f9feb12782d0c77b6c786cfe17656ab2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d0b77aed5970c74181ba03da5e57e9b230313a15
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831158"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438111"
 ---
 # <a name="klist"></a>klist
 
@@ -120,53 +120,52 @@ klist [-lh <LogonId.HighPart>] [-li <LogonId.LowPart>] tickets | tgt | purge | s
 
 ## <a name="BKMK_Examples"></a>示例
 
-1.  在诊断时处理事件 ID 27 时票证授予服务 (TGS) 将请求目标服务器的帐户不具有合适的密钥可以生成 Kerberos 票证。 Klist 可用于查询的 Kerberos 票证缓存，以确定是否任何票证的缺失，如果目标服务器或帐户位于错误，或者不支持的加密类型。  
-    ```
-    klist 
-    ```  
-    ```
-    klist –li 0x3e7
-    ```  
-2.  时诊断错误并想要知道每个票证授予票证的登录会话在计算机上缓存的详细信息，可以使用 Klist 显示 TGT 信息。  
-    ```
-    klist tgt
-    ```  
-3.  如果无法建立连接并诊断可能要花费太长，可以清除 Kerberos 票证缓存，先注销，并再重新登录。  
-    ```
-    klist purge
-    ```  
-    ```
-    klist purge –li 0x3e7
-    ```  
-4.  当你想要诊断用户或服务的登录会话时，可以使用以下命令来查找使用 LogonID 中其他 Klist 命令。  
-    ```
-    klist sessions
-    ```  
-5.  当你想要诊断 Kerberos 约束委派失败时，可以使用以下命令以查找时遇到的最后一个错误。  
-    ```
-    klist kcd_cache
-    ```  
-6.  当你想要诊断如果某个用户或服务可以获取票证到服务器时，可以使用此命令的特定 SPN 请求票证。  
-    ```
-    klist get host/%computername%
-    ```  
-7.  当诊断域控制器的复制问题，您通常需要以面向特定的域控制器的客户端计算机。 在这些情况下，可以使用以下命令以该特定的域控制器到客户端计算机为目标。  
-    ```
-    klist add_bind CONTOSO KDC.CONTOSO.COM
-    
-    ```  
-    ```
-    klist add_bind CONTOSO.COM KDC.CONTOSO.COM
-    ```  
-8.  若要查询哪些域控制器最近联系了此计算机，可以使用以下命令。  
-    ```
-    klist query_bind
-    ```  
-9.  当你想 Kerberos 重新发现域控制器时，你可以使用以下命令。 此外可以使用此命令以使用 klist add_bind 创建新的域控制器绑定之前刷新缓存。  
-    ```
-    klist purge_bind
-    ```
+1. 在诊断时处理事件 ID 27 时票证授予服务 (TGS) 将请求目标服务器的帐户不具有合适的密钥可以生成 Kerberos 票证。 Klist 可用于查询的 Kerberos 票证缓存，以确定是否任何票证的缺失，如果目标服务器或帐户位于错误，或者不支持的加密类型。  
+   ```
+   klist 
+   ```  
+   ```
+   klist –li 0x3e7
+   ```  
+2. 时诊断错误并想要知道每个票证授予票证的登录会话在计算机上缓存的详细信息，可以使用 Klist 显示 TGT 信息。  
+   ```
+   klist tgt
+   ```  
+3. 如果无法建立连接并诊断可能要花费太长，可以清除 Kerberos 票证缓存，先注销，并再重新登录。  
+   ```
+   klist purge
+   ```  
+   ```
+   klist purge –li 0x3e7
+   ```  
+4. 当你想要诊断用户或服务的登录会话时，可以使用以下命令来查找使用 LogonID 中其他 Klist 命令。  
+   ```
+   klist sessions
+   ```  
+5. 当你想要诊断 Kerberos 约束委派失败时，可以使用以下命令以查找时遇到的最后一个错误。  
+   ```
+   klist kcd_cache
+   ```  
+6. 当你想要诊断如果某个用户或服务可以获取票证到服务器时，可以使用此命令的特定 SPN 请求票证。  
+   ```
+   klist get host/%computername%
+   ```  
+7. 当诊断域控制器的复制问题，您通常需要以面向特定的域控制器的客户端计算机。 在这些情况下，可以使用以下命令以该特定的域控制器到客户端计算机为目标。  
+   ```
+   klist add_bind CONTOSO KDC.CONTOSO.COM
+   ```  
+   ```
+   klist add_bind CONTOSO.COM KDC.CONTOSO.COM
+   ```  
+8. 若要查询哪些域控制器最近联系了此计算机，可以使用以下命令。  
+   ```
+   klist query_bind
+   ```  
+9. 当你想 Kerberos 重新发现域控制器时，你可以使用以下命令。 此外可以使用此命令以使用 klist add_bind 创建新的域控制器绑定之前刷新缓存。  
+   ```
+   klist purge_bind
+   ```
 
 #### <a name="additional-references"></a>其他参考
 
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 023bd81b93106a091fb9f26d97cf7eda75f0f633
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6c26d42410e5466950ede4f9aa059e315030588
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888458"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435036"
 ---
 # <a name="autochk"></a>autochk
 
@@ -35,12 +35,12 @@ ms.locfileid: "59888458"
 
 > -   [!WARNING]
 >     **Autochk**命令行工具不能直接从命令行运行。 请改用**Chkntfs**命令行工具来配置所需的方式**Autochk**在启动时运行。
--   可以使用**Chkntfs**与 **/x**参数，以防止**Autochk**从特定的卷或多个卷上运行。
--   使用**Chkntfs.exe**使用的命令行工具 **/t**参数 Autochk 延迟从 0 秒更改为 3 天 （259,200 秒为单位）。 但是，长时间的延迟意味着计算机无法启动或直到时间结束直到按下键可取消**Autochk**。
+> -   可以使用**Chkntfs**与 **/x**参数，以防止**Autochk**从特定的卷或多个卷上运行。
+> -   使用**Chkntfs.exe**使用的命令行工具 **/t**参数 Autochk 延迟从 0 秒更改为 3 天 （259,200 秒为单位）。 但是，长时间的延迟意味着计算机无法启动或直到时间结束直到按下键可取消**Autochk**。
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)
 
 [Chkdsk](chkdsk.md)
 

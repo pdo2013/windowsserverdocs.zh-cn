@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: cc090fa749a601e53b4347cce43245f22badc8ae
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e0c5e838290a8ebf33f0f7891dc10f8b00e5bcba
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840708"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442650"
 ---
 # <a name="event-id-2088-dns-lookup-failure-occurred-with-replication-success"></a>事件 ID 2088:DNS 查找失败，出现了复制成功
 
@@ -58,7 +58,7 @@ ms.locfileid: "59840708"
 
 2) 确认源域控制器正在运行 Active Directory，且可访问网络上通过键入"net 视图\\&lt;源 DC 名称&gt;"或"ping&lt;源 DC 名称&gt;"。 
 
-3) 验证源域控制器使用有效的 DNS 服务器的 DNS 服务和源域控制器的主机记录和 CNAME 记录是正确注册，使用 DCDIAG 的 DNS 增强版本。EXE 上可用 https://www.microsoft.com/dns 
+3) 验证源域控制器使用有效的 DNS 服务器的 DNS 服务和源域控制器的主机记录和 CNAME 记录是正确注册，使用 DCDIAG 的 DNS 增强版本。EXE 上可用 <https://www.microsoft.com/dns> 
 
 dcdiag /test:dns 
 
@@ -66,7 +66,7 @@ dcdiag /test:dns
 
 dcdiag /test:dns 
 
-5) 以便进行进一步分析 DNS 错误失败，请参阅 KB 824449: https://support.microsoft.com/?kbid=824449 
+5) 以便进行进一步分析 DNS 错误失败，请参阅 KB 824449: <https://support.microsoft.com/?kbid=824449> 
 
 其他数据错误值：11004 请求的名称是有效的但未找到所请求类型的任何数据</code> </introduction>
   <section>
@@ -78,7 +78,7 @@ dcdiag /test:dns
   <section>
     <title>解决方法</title>
     <content>
-      <para>继续进行 DNS 测试中所述"<link xlink:href="85b1d179-f53e-4f95-b0b8-5b1c096a8076">事件 ID 2087:DNS 查找失败导致复制失败</link>。"</para>
+      <para>继续进行 DNS 测试中所述&quot;<link xlink:href="85b1d179-f53e-4f95-b0b8-5b1c096a8076">事件 ID 2087:DNS 查找失败导致复制失败</link>。&quot;</para>
     </content>
   </section>
   <relatedTopics />

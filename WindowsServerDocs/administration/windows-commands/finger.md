@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 42622fdf19cdd50b76d32989769874cbd05e9f4a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 526363db3ecff4a9138c9cf13cbf330196e14ced
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826938"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439250"
 ---
 # <a name="finger"></a>finger
 
@@ -30,12 +30,14 @@ ms.locfileid: "59826938"
 finger [-l] [<User>] [@<Host>] [...]
 ```
 ### <a name="parameters"></a>Parameters
-|参数|描述|
-|-------|--------|
-|-l|以长列表格式显示用户信息。|
-|<User>|指定要信息的用户。 如果省略*用户*参数，**手指**显示指定的计算机上所有用户的相关信息。|
-|@<Host>|指定运行手指服务正在寻找用户信息的远程计算机。 您可以指定计算机名称或 IP 地址。|
-|/?|在命令提示符下显示帮助。|
+
+| 参数 |                                                                            描述                                                                            |
+|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    -l     |                                                          以长列表格式显示用户信息。                                                           |
+|  <User>   | 指定要信息的用户。 如果省略*用户*参数，**手指**显示指定的计算机上所有用户的相关信息。 |
+|  @<Host>  |        指定运行手指服务正在寻找用户信息的远程计算机。 您可以指定计算机名称或 IP 地址。        |
+|    /?     |                                                               在命令提示符下显示帮助。                                                                |
+
 ## <a name="remarks"></a>备注
 多个User@Host，可以指定参数。
 必须前缀**手指**连字符 （-），而不是个斜杠 （/） 的参数。
@@ -51,4 +53,4 @@ finger user1@users.microsoft.com
 finger @users.microsoft.com
 ```
 ## <a name="additional-references"></a>其他参考
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)

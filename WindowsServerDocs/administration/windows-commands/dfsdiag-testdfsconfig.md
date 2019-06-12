@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: affb3c879275228fa0ec17f77ad77db6fc44d6ab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 922b78b87f3bb66765b87348a3bf136e14c9e837
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814768"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436131"
 ---
 # <a name="dfsdiag-testdfsconfig"></a>Dfsdiag TestDFSConfig
 
@@ -48,9 +48,9 @@ dfsdiag /TestDFSConfig /DFSRoot:<namespace>
   
 ### <a name="parameters"></a>Parameters  
   
-|参数|描述|  
-|-------|--------|  
-|\/DFSRoot:<namespace>|命名空间\(DFS 根目录\)诊断。|  
+|       参数       |               描述               |
+|-----------------------|-----------------------------------------|
+| \/DFSRoot:<namespace> | 命名空间\(DFS 根目录\)诊断。 |
   
 ## <a name="BKMK_Examples"></a>示例  
 若要 TBD，键入：  
@@ -61,7 +61,7 @@ dfsdiag /TestDFSConfig /DFSRoot:\\Contoso.com\MyNamespace
   
 ## <a name="additional-references"></a>其他参考  
   
--   [命令行语法解答](command-line-syntax-key.md)  
+-   [命令行语法项](command-line-syntax-key.md)  
   
 -   [dfsdiag](dfsdiag.md)  
   

@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 868f7ac58a69c067681bf0597524fbaa5a25984f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d067d6a0821d9af4784c02c6a332e8eddd2352c0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842418"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434942"
 ---
-#<a name="bitsadmin-getmaxdownloadtime"></a>bitsadmin getmaxdownloadtime
+# <a name="bitsadmin-getmaxdownloadtime"></a>bitsadmin getmaxdownloadtime
 
 >适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
 
@@ -50,6 +50,6 @@ C:\>bitsadmin /GetMaxDownloadtime myDownloadJob
 ```
 
 ## <a name="additional-references"></a>其他参考
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)
 
 

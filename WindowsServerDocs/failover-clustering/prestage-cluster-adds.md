@@ -9,12 +9,12 @@ ms.manager: daveba
 ms.technology: storage-failover-clustering
 ms.date: 05/09/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 151f02572d7595776539af163831b4a7a060c1c7
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.openlocfilehash: fa240ba5fedd98f16639dd19fb8f22c10bfdd9ac
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613166"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442459"
 ---
 # <a name="prestage-cluster-computer-objects-in-active-directory-domain-services"></a>预安排群集计算机对象在 Active Directory 域服务
 
@@ -48,14 +48,14 @@ ms.locfileid: "65613166"
 3. 在控制台树中，右键单击你想要创建了 CNO 的 OU 指向**新建**，然后选择**计算机**。
 4. 在中**计算机名**框中，输入名称，用于故障转移群集，然后选择**确定**。
 
-  >[!NOTE]
-  >创建群集的用户将在创建群集向导中的“用于管理群集的访问点”  页面上指定此群集名称，或将此群集名称用作 *New-Cluster* Windows PowerShell cmdlet 的 **–Name** 参数值。
+   >[!NOTE]
+   >创建群集的用户将在创建群集向导中的“用于管理群集的访问点”  页面上指定此群集名称，或将此群集名称用作 *New-Cluster* Windows PowerShell cmdlet 的 **–Name** 参数值。
 
 5. 作为最佳实践中，右键单击刚创建的计算机帐户，选择**属性**，然后选择**对象**选项卡。上**对象**选项卡上，选择**防止对象被意外删除**复选框，并选择**确定**。
 6. 右键单击您刚的计算机帐户创建，然后依次**禁用帐户**。 选择**是**进行确认，然后选择**确定**。
 
-  >[!NOTE]
-  >必须禁用帐户，这样在群集创建期间，群集创建过程就能确认帐户当前未被域中的现有计算机或群集使用。
+   >[!NOTE]
+   >必须禁用帐户，这样在群集创建期间，群集创建过程就能确认帐户当前未被域中的现有计算机或群集使用。
 
 ![示例群集 OU 中的已禁用 CNO](media/prestage-cluster-adds/disabled-cno-in-the-example-clusters-ou.png)
 
@@ -75,9 +75,9 @@ ms.locfileid: "65613166"
 4. 在中**选择用户、 计算机或组**对话框框中，指定用户帐户或组，你想要向其授予权限，然后选择**确定**。
 5. 选中刚才添加的用户帐户或组，然后选中“完全控制”  旁边的“允许”  复选框。
   
-  ![向将要创建群集的用户或组授予“完全控制”权限](media/prestage-cluster-adds/granting-full-control-to-the-user-create-the-cluster.png)
+   ![向将要创建群集的用户或组授予“完全控制”权限](media/prestage-cluster-adds/granting-full-control-to-the-user-create-the-cluster.png)
   
-  **图 2。授予完全控制权限的用户或组，将创建群集**
+   **图 2。授予完全控制权限的用户或组，将创建群集**
 6. 选择“确定”  。
 
 完成此步骤后，你向其授予权限的用户将能够创建故障转移群集。 但是，如果 CNO 位于 OU 中，则在完成步骤 3 之前，用户将无法创建需要客户端访问点的群集角色。
@@ -113,9 +113,9 @@ ms.locfileid: "65613166"
 8. 在“权限条目”  对话框中，确保“类型”  列表设置为“允许”  , 并且“应用于”  列表设置为“这个对象及全部后代”  。
 9. 在“权限”  下，选中“创建计算机对象”  复选框。
 
-  ![向 CNO 授予创建计算机对象的权限](media/prestage-cluster-adds/granting-create-computer-objects-permission-to-the-cno.png)
+   ![向 CNO 授予创建计算机对象的权限](media/prestage-cluster-adds/granting-create-computer-objects-permission-to-the-cno.png)
 
-  **图 3。向 CNO 授予创建计算机对象的权限**
+   **图 3。向 CNO 授予创建计算机对象的权限**
 10. 选择**确定**直到返回到 Active Directory 用户和计算机管理单元中。
 
 故障转移群集管理员现在能够创建具有客户端访问点的群集角色，并让资源联机。

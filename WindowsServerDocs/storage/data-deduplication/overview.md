@@ -8,12 +8,12 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 05/09/2017
-ms.openlocfilehash: 4376dbb2c172a82c4ab64dc63acefbc37457110f
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: bf346844337740f7585070ff78de4e7f61f25624
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476035"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447260"
 ---
 # <a name="data-deduplication-overview"></a>数据重复删除概述
 
@@ -69,7 +69,7 @@ VDI 服务器（如<a href="https://technet.microsoft.com/library/cc725560.aspx"
                     <li><b>远程访问</b>:用户可以从家庭计算机、 展台、 低功率硬件以及非 Windows 操作系统等设备访问企业应用程序。</li>
                     <li><b>分支机构访问</b>:VDI 部署可以提供更好的应用程序性能的分支机构工作人员需要访问集中式的数据存储。 数据密集型应用程序有时没有针对低速连接进行优化的客户端/服务器协议。</li>
                 </ul>
-VDI 部署非常适合进行重复数据删除，因为驱动用户远程桌面的虚拟硬盘基本相同。 此外，重复数据删除还可帮助用户应对所谓的 *VDI 启动风暴*，即当多个用户在早上同时登录到各自的桌面时存储性能下降。
+VDI 部署非常适合进行重复数据删除，因为驱动用户远程桌面的虚拟硬盘基本相同。 此外，重复数据删除还可帮助用户应对所谓的 <em>VDI 启动风暴</em>，即当多个用户在早上同时登录到各自的桌面时存储性能下降。
             </td>
         </tr>
         <tr>
@@ -83,7 +83,7 @@ VDI 部署非常适合进行重复数据删除，因为驱动用户远程桌面�
             <td style="text-align:center;min-width:150px;vertical-align:center;"><img src="media/overview-other.png" alt="Illustration of other workloads" /></td>
             <td style="vertical-align:top">
                 <b>其他工作负荷</b><br />
-                [其他工作负荷也可能极其适合进行重复数据删除](install-enable.md#enable-dedup-candidate-workloads)。
+                <a href="install-enable.md#enable-dedup-candidate-workloads" data-raw-source="[Other workloads may also be excellent candidates for Data Deduplication](install-enable.md#enable-dedup-candidate-workloads)">其他工作负荷也可能极其适合进行重复数据删除</a>。
             </td>
         </tr>
     </tbody>

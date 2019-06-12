@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-spaces
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7090657a0936aed0f4b2e79007f69d7b082b0b8f
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: f9b5d2b0d5acfcbde52131c29704e38d835d048e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63750649"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447549"
 ---
 # <a name="deploy-storage-spaces-on-a-stand-alone-server"></a>在独立服务器上部署存储空间
 
@@ -150,16 +150,16 @@ Add-PhysicalDisk –StoragePoolFriendlyName StoragePool1 –PhysicalDisks $PDToA
 
 8. 上**指定预配类型**页上，选择以下选项之一，然后选择**下一步**。
     
-      - “精简” 
+   - “精简” 
         
-        若使用精简设置，将根据需要分配空间。 这将优化可用存储空间的使用情况。 但是，由于这样使你能够过量分配存储，因此必须认真监视有多少可用磁盘空间量。
+     若使用精简设置，将根据需要分配空间。 这将优化可用存储空间的使用情况。 但是，由于这样使你能够过量分配存储，因此必须认真监视有多少可用磁盘空间量。
     
-      - “固定” 
+   - “固定” 
         
-        若使用固定的设置，则在创建虚拟磁盘时，将立即分配存储容量。 因此，固定的设置从存储池中使用等于虚拟磁盘大小的空间。
+     若使用固定的设置，则在创建虚拟磁盘时，将立即分配存储容量。 因此，固定的设置从存储池中使用等于虚拟磁盘大小的空间。
     
-    >[!TIP]
-    >使用存储空间时，你可以在相同的存储池中同时创建精简和固定设置的虚拟磁盘。 例如，你可以使用精简设置的虚拟磁盘来托管一个数据库，以及使用固定设置虚拟磁盘来托管相关联的日志文件。
+     >[!TIP]
+     >使用存储空间时，你可以在相同的存储池中同时创建精简和固定设置的虚拟磁盘。 例如，你可以使用精简设置的虚拟磁盘来托管一个数据库，以及使用固定设置虚拟磁盘来托管相关联的日志文件。
 
 9. 在“指定虚拟磁盘的大小”  页面上，执行以下操作：
     

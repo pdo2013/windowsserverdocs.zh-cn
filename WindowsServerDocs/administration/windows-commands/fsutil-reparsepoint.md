@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 940131a02a5cd3a6122022cf9b0dff3281d1dabf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f66f09fa608fec10d7126e516f9cf2dd8a19bbfb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847938"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438993"
 ---
 # <a name="fsutil-reparsepoint"></a>fsutil reparsepoint
 >适用于：Windows Server （半年频道）、 Windows Server 2016 中，Windows 10、 Windows Server 2012 R2、 Windows 8.1、 Windows Server 2012 中，Windows 8、 Windows Server 2008 R2、 Windows 7，Windows 2008 中，Windows Vista
@@ -32,11 +32,11 @@ fsutil reparsepoint [delete] <FileName>
 
 ## <a name="parameters"></a>Parameters
 
-|参数|描述|
-|-------------|---------------|
-|查询|检索与指定句柄标识目录中的文件关联的重分析点数据。|
-|“删除”|从文件或目录由指定句柄，但不会删除文件或目录中删除重分析点。|
-|<FileName>|指定的文件包括文件名和扩展名，例如 C:\documents\filename.txt 的完整路径。|
+| 参数  |                                                                描述                                                                |
+|------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+|   查询    |            检索与指定句柄标识目录中的文件关联的重分析点数据。             |
+|   “删除”   | 从文件或目录由指定句柄，但不会删除文件或目录中删除重分析点。 |
+| <FileName> |             指定的文件包括文件名和扩展名，例如 C:\documents\filename.txt 的完整路径。             |
 
 ## <a name="remarks"></a>备注
 
@@ -60,7 +60,7 @@ fsutil reparsepoint delete c:\server
 ```
 
 #### <a name="additional-references"></a>其他参考
-[命令行语法解答](Command-Line-Syntax-Key.md)
+[命令行语法项](Command-Line-Syntax-Key.md)
 
 [Fsutil](Fsutil.md)
 

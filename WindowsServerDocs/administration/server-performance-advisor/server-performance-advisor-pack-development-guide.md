@@ -5,12 +5,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c647e8a335aac924067d92dcb41ab4d17e0cceef
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c27dd0602c5993fd84e6956c2f50f6e2bfec8691
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884858"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435470"
 ---
 # <a name="server-performance-advisor-pack-development-guide"></a>Server Performance Advisor 包开发指南
 
@@ -201,7 +201,7 @@ SPA 框架从脚本入口点的主存储的过程名称查找并运行安全的�
 </advisorPack>
 ```
 
-**持续时间**的属性**&lt;dataCollectorSet /&gt;** 上一示例中定义的数据收集 （时间单位为秒） 的持续时间。 **持续时间**是必需的属性。 此设置控制由性能计数器和 ETW 收集持续时间。
+**持续时间**的属性 **&lt;dataCollectorSet /&gt;** 上一示例中定义的数据收集 （时间单位为秒） 的持续时间。 **持续时间**是必需的属性。 此设置控制由性能计数器和 ETW 收集持续时间。
 
 ### <a name="collect-registry-data"></a>收集注册表数据
 
@@ -259,7 +259,7 @@ HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\db31
 
 收集的所有数据将导都入到名为的临时表 **\#registryKeys** SQL 报表之前运行脚本。 下表显示了结果例如 2:
 
-KeyName | KeytypeId | ReplTest1
+KeyName | KeytypeId | 值
 ------ | ----- | -------
 HKEY_LOCAL_MACHINE...\PowerSchemes | 1 | db310065-829b-4671-9647-2261c00e86ef
 \db310065-829b-4671-9647-2261c00e86ef\Description | 2 | |
@@ -276,6 +276,7 @@ KeytypeId | smallint NOT NULL | 内部类型 Id
 ReplTest1 | Nvarchar(4000) 不为 NULL | 所有值
 
 **KeytypeID**列可以具有以下类型之一：
+
 ID | 在任务栏的搜索框中键入
 --- | ---
 1 | 字符串
@@ -340,13 +341,13 @@ WmiqueryId | int NOT NULL | 将相关联 #WmiQueries 的键
 --- | --- | ---
 SequenceId | int NOT NULL | 关联的行和其属性
 名称 | Nvarchar(1000) 不为 NULL | 属性名
-ReplTest1 | Nvarchar(4000) NULL | 当前属性的值
+值 | Nvarchar(4000) NULL | 当前属性的值
 
 **\#WmiQueries 表架构**
 
 列名 | SQL 数据类型 | 描述
 --- | --- | ---
-ID | int NOT NULL | > 唯一的查询 ID
+Id | int NOT NULL | > 唯一的查询 ID
 查询 | Nvarchar(4000) 不为 NULL | 在设置元数据中的原始查询字符串
 
 ### <a name="collect-performance-counters"></a>收集性能计数器
@@ -363,7 +364,7 @@ ID | int NOT NULL | > 唯一的查询 ID
 
 在上一示例中，计数器\\PhysicalDisk (\*)\\avg.Disk sec/Transfer 将查询每隔一秒。
 
-可能有两个实例：**\_总**和**0 c:D:**，并且输出可能如下所示：
+可能有两个实例： **\_总**和**0 c:D:** ，并且输出可能如下所示：
 
 timestamp | CategoryName | CounterName | _Total 实例值 | 实例值为 0 的 c:D:
 ---- | ---- | ---- | ---- | ----
@@ -411,7 +412,7 @@ CounterdisplayName | Nvarchar(200) 不为 NULL | 本地化的计数器名称
 <path>%windir%\System32\inetsrv\config\applicationHost.config</path>
 ```
 
-可以在名为的表中找到结果**\#文件**，例如：
+可以在名为的表中找到结果 **\#文件**，例如：
 
 querypath | fullpath | Parentpath | FileName | 内容
 ----- | ----- | ----- | ----- | -----
@@ -449,7 +450,7 @@ FileName | Nvarchar(300) 不为 NULL | 文件名
 
 ``` syntax
 <advisorPack>
-   
+
   <reportDefinition>
     <thresholds>
       <threshold  />
@@ -589,7 +590,7 @@ Disk | 可用磁盘大小 (GB) | 总大小 (GB)
 
 单个值组和列表值表包含不同类型的数据，例如字符串、 int 和 float。 由于这些值存储在 SQL Server 数据库中，可以定义每个数据属性的 SQL 数据类型。 但是，定义 SQL 数据类型是十分复杂。 您必须指定长度或精度，可能会变化。
 
-若要定义逻辑的数据类型，可以使用的第一个子级 **&lt;reportDefinition /&gt;**，这是您可以在其中定义的 SQL 数据类型和逻辑类型的映射。
+若要定义逻辑的数据类型，可以使用的第一个子级 **&lt;reportDefinition /&gt;** ，这是您可以在其中定义的 SQL 数据类型和逻辑类型的映射。
 
 下面的示例定义两种数据类型。 一个是**字符串**，另一个是**companyCode**。
 
@@ -668,17 +669,17 @@ Disk | 可用磁盘大小 (GB) | 总大小 (GB)
 
 尽管可以定义多个单个值组，但没有两个单个值名称可以是相同的即使它们位于不同的组。 SQL 脚本报表使用的单个值名称以相应地设置值。
 
-可以定义每个单个值的数据类型。 允许的输入**类型**中定义**&lt;数据类型 /&gt;**。 最终报表可能如下所示：
+可以定义每个单个值的数据类型。 允许的输入**类型**中定义 **&lt;数据类型 /&gt;** 。 最终报表可能如下所示：
 
 **Facts**
 
-名称 | ReplTest1
+名称 | 值
 --- | ---
 操作系统 | &lt;_报表脚本时将设置一个值_&gt;
 操作系统版本 | &lt;_报表脚本时将设置一个值_&gt;
 OS 位置 | &lt;_报表脚本时将设置一个值_&gt;
 
-**标题**的属性**&lt;值 /&gt;** 第一列中显示。 通过脚本报表值列中的值设置在将来\[dbo\]。\[SetSingleValue\]。 **描述**的属性**&lt;值 /&gt;** 工具提示中所示。 通常的工具提示显示用户的数据源。 工具提示的详细信息，请参阅[工具提示](#bkmk-tooltips)。
+**标题**的属性 **&lt;值 /&gt;** 第一列中显示。 通过脚本报表值列中的值设置在将来\[dbo\]。\[SetSingleValue\]。 **描述**的属性 **&lt;值 /&gt;** 工具提示中所示。 通常的工具提示显示用户的数据源。 工具提示的详细信息，请参阅[工具提示](#bkmk-tooltips)。
 
 ### <a href="" id="bkmk-ui-lvt"></a>列出值表
 
@@ -941,7 +942,7 @@ DECLARE @freediskSize FLOat
 exec dbo.GetThreshold N freediskSize , @freediskSize output
 
 if (@freediskSizeInGB < @freediskSize)
- 
+
 ```
 
 ### <a name="set-or-remove-the-single-value"></a>设置或删除单个值
@@ -1033,7 +1034,7 @@ INSERT INTO #NetworkAdapterInformation (
   MACaddress
 )
 VALUES (
-   
+
 )
 ```
 
@@ -1079,7 +1080,7 @@ SPA 控制台可以运行在两种模式中调试或发布。 发布模式下是
 
     例如，输出可能是：
 
-    ID | SessionId | AdvisoryPackageId | ReportStatusId | LastUpdatetime | ThresholdversionId
+    Id | SessionId | AdvisoryPackageId | ReportStatusId | LastUpdatetime | ThresholdversionId
     :---: | :---: | :---: | :---: | :---: | :---:
     12 | 17 | 1 | 2 | 2011-05-11 05:35:24.387 | 1
 
@@ -1091,7 +1092,7 @@ SPA 控制台可以运行在两种模式中调试或发布。 发布模式下是
 
     **请注意**还可以按 F11 单步执行的上一条语句和调试。
 
-     
+
 
 运行\[dbo\]。\[DebugReportScript\]返回多个结果集，其中包括：
 
@@ -1109,9 +1110,9 @@ SPA 控制台可以运行在两种模式中调试或发布。 发布模式下是
 
 ### <a name="naming-convention-and-styles"></a>命名约定和样式
 
-Pascal 大小写 | 驼峰式大小写 | 大写
---- | ---- | ---
-<ul><li>ProvisionMetadata.xml 中的名称</li><li>存储的过程</li><li>函数</li><li>视图名称</li><li>临时表的名称</li></ul> | <ul><li>参数名称</li><li>本地变量</li></ul> | 用于所有 SQL 保留关键字
+|                                                                 Pascal 大小写                                                                 |                       驼峰式大小写                        |             大写             |
+|-----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------------|
+| <ul><li>ProvisionMetadata.xml 中的名称</li><li>存储的过程</li><li>函数</li><li>视图名称</li><li>临时表的名称</li></ul> | <ul><li>参数名称</li><li>本地变量</li></ul> | 用于所有 SQL 保留关键字 |
 
 ### <a name="other-recommendations"></a>其他建议
 
@@ -1143,13 +1144,13 @@ SPA 支持同时运行多个 advisor 包。 如果想要查看 Internet 信息�
 
 合并数据收集器集项仅用于收集性能计数器和 ETW 数据源。 以下合并规则适用：
 
-1.  SPA 需要为新的持续时间的最大持续时间。
+1. SPA 需要为新的持续时间的最大持续时间。
 
-2.  其中有合并冲突，应遵循以下规则：
+2. 其中有合并冲突，应遵循以下规则：
 
-    1.  将作为新的时间间隔的最小时间间隔。
+   1. 将作为新的时间间隔的最小时间间隔。
 
-    2.  需要性能计数器的超集。 例如，对于**进程 (\*)\\处理器时间百分比**和**进程 (\*)\\\*，\\进程 (\*)\\\*** 返回更多的数据，因此**过程 (\*)\\处理器时间百分比**并**进程 (\*)\\ \*** 已从合并的数据收集器集。
+   2. 需要性能计数器的超集。 例如，对于**进程 (\*)\\处理器时间百分比**和**进程 (\*)\\\*，\\进程 (\*)\\\\** * 返回更多的数据，因此**过程 (\*)\\处理器时间百分比**并**进程 (\*)\\ \\** * 已从合并的数据收集器集。
 
 ### <a name="collect-dynamic-data"></a>收集动态数据
 
@@ -1169,7 +1170,7 @@ Get-WmiObject -Namespace Root\Cimv2 -query "select PNPDeviceID FROM Win32_Networ
 ROOT\*ISatAP\0001
 PCI\VEN_8086&DEV_4238&SUBSYS_11118086&REV_35\4&372A6B86&0&00E4
 ROOT\*IPHTTPS\0000
- 
+
 ```
 
 若要查找**FriendlyName**值，打开注册表编辑器并导航到注册表的设置通过组合**HKEY\_本地\_机\\系统\\CurrentControlSet\\Enum\\** 前面的示例中的每一行。 例如：**HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Enum\\ ROOT\\\*IPHTTPS\\0000**.
@@ -1188,7 +1189,7 @@ ROOT\*IPHTTPS\0000
 </managementpaths>
 ```
 
-在此示例中，您首先添加下 managementpaths WMI 查询和定义密钥名称**网络适配器**。 然后，添加注册表项和是指**网络适配器**使用语法 **$(NetworkAdapter.PNPDeviceID)**。
+在此示例中，您首先添加下 managementpaths WMI 查询和定义密钥名称**网络适配器**。 然后，添加注册表项和是指**网络适配器**使用语法 **$(NetworkAdapter.PNPDeviceID)** 。
 
 下表定义了如果在 SPA 中的数据收集器支持动态数据和是否可以引用它的其他数据收集器：
 
@@ -1216,7 +1217,7 @@ WMI 数据收集器，对于每个 WMI 对象具有多个附加的属性。 任�
 <path name="wmi">Root\Cimv2:select PNPDeviceID FROM Win32_NetworkAdapter</path>
 ```
 
-若要定义依赖数据收集器，请使用以下语法: $(*{name}*。*{attribute}*).
+若要定义依赖数据收集器，请使用以下语法: $( *{name}* 。 *{attribute}* ).
 
 *{name}* 并 *{attribute}* 是占位符。
 

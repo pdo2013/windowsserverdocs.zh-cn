@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1bc4be8be747c31d60d75c90ad3aa831dd8dff93
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7db6caf4e63ea59fa40892679d3de0cfaca661e9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838298"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438026"
 ---
 # <a name="ksetuplistrealmflags"></a>ksetup:listrealmflags
 
@@ -40,7 +40,7 @@ ksetup /listrealmflags
 
 领域标志指定非基于 Windows 的 Kerberos 领域的其他功能。 运行 Windows Server 2003、 Windows Server 2008 或 Windows Server 2008 R2 的计算机可以使用非基于 Windows 的 Kerberos 服务器来管理身份验证而不是使用运行 Windows Server 操作系统的域。 这些系统加入 Kerberos 领域，而不是 Windows 域。 此项建立的领域的功能。 下表描述了每个。
 
-|值|领域标志|描述|
+|ReplTest1|领域标志|描述|
 |-----|----------|-----------|
 |0xF|全部|设置所有领域标志。|
 |0x00|无|未设置任何领域标志，并启用任何其他功能。|
@@ -50,7 +50,7 @@ ksetup /listrealmflags
 |0x08|NcSupported|此领域支持名称规范化，允许对 DNS 和领域命名标准。|
 |0x80|RC4|此领域支持 RC4 加密来启用跨领域信任，可以利用 TLS。|
 
-在注册表中存储领域标志**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Domains\*** 领域-名称 *。 默认情况下，注册表中不存在此项。 可以使用[Ksetup:addrealmflags](ksetup-addrealmflags.md)命令来填充注册表。
+在注册表中存储领域标志**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Domains\\** <em>领域名称</em>。 默认情况下，注册表中不存在此项。 可以使用[Ksetup:addrealmflags](ksetup-addrealmflags.md)命令来填充注册表。
 
 ## <a name="BKMK_Examples"></a>示例
 
@@ -72,4 +72,4 @@ ksetup /setrealmflags CORP.CONTOSO.COM 0xF
 -   [Ksetup:addrealmflags](ksetup-addrealmflags.md)
 -   [Ksetup:delrealmflags](ksetup-delrealmflags.md)
 -   [Ksetup](ksetup.md)
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)

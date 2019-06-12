@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: d692e58d616376149e62fbce611fe2a9ac80c743
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 4af0f96b0af3a547ab7d509d031a9e23cce8b654
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863248"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443215"
 ---
 # <a name="virtualized-domain-controller-deployment-and-configuration"></a>虚拟化域控制器部署和配置
 
@@ -196,7 +196,7 @@ get-adcomputer(Get-ADDomainController -Discover -Service "PrimaryDC").name -prop
 2.  在 **隶属于** 部分，为该域添加 **可克隆的域控制器** 组。  
   
 #### <a name="windows-powershell-method"></a>Windows PowerShell 方法  
-你可以结合以下 Active Directory Windows PowerShell 模块 cmdlet **get-adcomputer** 和 **add-adgroupmember**，将域控制器添加到“可克隆的域控制器”组：  
+你可以结合以下 Active Directory Windows PowerShell 模块 cmdlet **get-adcomputer** 和 **add-adgroupmember**，将域控制器添加到“可克隆的域控制器”  组：  
   
 ```  
 Get-adcomputer <dc name> | %{add-adgroupmember "cloneable domain controllers" $_.samaccountname}  
@@ -280,7 +280,7 @@ New-ADDCCloneConfigFile
 ||-PreferredWINSServer|指定主 WINS 服务器的静态 IPv4 地址。 字符串数据类型。|  
 ||-AlternateWINSServer|指定辅助 WINS 服务器的静态 IPv4 地址。 字符串数据类型。|  
 ||-IPv6DNSResolver|在以逗号分隔的列表中，指定克隆的计算机的静态 IPv6 DNS 条目。 无法设置虚拟化域控制器克隆中的 Ipv6 静态信息。 数组数据类型。|  
-||-Offline|不会执行验证测试并将覆盖任何现有的 dccloneconfig.xml。 无参数。 有关详细信息，请参阅[在脱机模式下运行 New-ADDCCloneConfigFile](../../../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#BKMK_OfflineMode)。|  
+||-Offline|不会执行验证测试并将覆盖任何现有的 dccloneconfig.xml。 无参数。|  
 ||*-Static*|如果指定静态 IP 参数 IPv4SubnetMask、IPv4SubnetMask 或 IPv4DefaultGateway，则需要该参数。 无参数。|  
   
 在联机模式下运行时执行的测试：  
@@ -604,7 +604,7 @@ New-VM
   
 3.  在**选择虚拟机**页面上，单击源计算机。  
   
-4.  在 **选择导入类型** 页面上，单击 **复制虚拟机（创建新的唯一 ID）**，然后单击 **完成**。  
+4.  在 **选择导入类型** 页面上，单击 **复制虚拟机（创建新的唯一 ID）** ，然后单击 **完成**。  
   
 5.  如果在同一台 Hyper-V 主机上执行导入，则重命名导入的 VM；它将具有与导出的源域控制器相同的名称。  
   
@@ -644,11 +644,11 @@ Remove-VMSnapshot
   
 ![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSGetVMSnap.png)  
   
-> [!WARNING]  
+> [!WARNING]
 > 确保导入计算机时，不会将静态 MAC 地址分配给源域控制器。 如果克隆具有静态 MAC 的源计算机，则这些复制的计算机将无法正确发送或接收任何网络流量。 如果出现这种情况，请设置新的唯一静态或动态 MAC 地址。 你可以看到 VM 是否通过该命令使用静态 MAC 地址：  
->   
+> 
 > **Get-VM -VMName**   
->  ***test-vm* | Get-VMNetworkAdapter | fl \***  
+>  ***test-vm* | Get-VMNetworkAdapter | fl \\** *  
   
 ### <a name="step-9---clone-the-new-virtual-machine"></a>步骤 9 – 克隆新的虚拟机  
 （可选）在开始克隆之前，请重启脱机克隆源域控制器。 无论如何，请确保 PDC 模拟器处于联机状态。  

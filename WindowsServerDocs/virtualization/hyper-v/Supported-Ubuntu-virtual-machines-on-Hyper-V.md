@@ -11,12 +11,12 @@ ms.assetid: 95ea5f7c-25c6-494b-8ffd-2a77f631ee94
 author: shirgall
 ms.author: shirgall
 ms.date: 11/19/2018
-ms.openlocfilehash: b58193ec570cf0d94b6c95018b8c00c813331986
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 662541658fe6e7b99e66fe31344450e0a1cbd201
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222645"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447836"
 ---
 # <a name="supported-ubuntu-virtual-machines-on-hyper-v"></a>受支持的 Ubuntu 虚拟机上的 HYPER-V
 
@@ -91,7 +91,6 @@ Ubuntu 12.04 从开始，"linux 虚拟"包加载将作为来宾虚拟机安装�
    ```bash
    # apt-get update
    # apt-get install linux-azure
-
    ```
 
    12.04 没有单独的虚拟内核。 若要安装上 12.04 泛型 HWE 内核，请为根 （sudo） 运行以下命令：
@@ -99,7 +98,6 @@ Ubuntu 12.04 从开始，"linux 虚拟"包加载将作为来宾虚拟机安装�
    ```bash
    # apt-get update
    # apt-get install linux-generic-lts-trusty
-
    ```
 
    在 Ubuntu 12.04 以下 HYPER-V 守护程序中单独安装包中：
@@ -112,7 +110,6 @@ Ubuntu 12.04 从开始，"linux 虚拟"包加载将作为来宾虚拟机安装�
 
    ```bash
    # apt-get install hv-kvp-daemon-init linux-tools-lts-trusty linux-cloud-tools-generic-lts-trusty
-
    ```
 
    每当更新内核时，必须重新启动虚拟机来使用它。
@@ -124,7 +121,6 @@ Ubuntu 12.04 从开始，"linux 虚拟"包加载将作为来宾虚拟机安装�
    ```bash
    # apt-get update
    # apt-get install linux-azure
-
    ```
 
    每当更新内核时，必须重新启动虚拟机来使用它。
@@ -143,42 +139,37 @@ Ubuntu 12.04 从开始，"linux 虚拟"包加载将作为来宾虚拟机安装�
 
 11. 在 Windows Server 2012 R2，第 2 代虚拟机具有默认情况下和某些 Linux 除非禁用安全启动选项，否则不会启动虚拟机已启用安全启动。 可以禁用中的安全启动**固件**部分中的虚拟机的设置**Hyper-v 管理器**也可以使用 Powershell 对其禁用：
 
-   ```Powershell
-   Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
-
-   ```
+    ```Powershell
+    Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
+    ```
 
 12. 然后再尝试将现有生成 2 VHD 虚拟机的 VHD 创建新的第 2 代虚拟机复制，请执行以下步骤：
 
-   1. 登录到现有的第 2 代虚拟机。
+    1. 登录到现有的第 2 代虚拟机。
 
-   2. 将目录更改为启动 EFI 目录：
+    2. 将目录更改为启动 EFI 目录：
 
-      ```bash
-      # cd /boot/efi/EFI
+       ```bash
+       # cd /boot/efi/EFI
+       ```
 
-      ```
+    3. 中的 ubuntu 目录复制到名为 boot 的新目录：
 
-   3. 中的 ubuntu 目录复制到名为 boot 的新目录：
+       ```bash
+       # sudo cp -r ubuntu/ boot
+       ```
 
-      ```bash
-      # sudo cp -r ubuntu/ boot
+    4. 将目录更改为新创建的启动目录：
 
-      ```
+       ```bash
+       # cd boot
+       ```
 
-   4. 将目录更改为新创建的启动目录：
+    5. 重命名 shimx64.efi 文件：
 
-      ```bash
-      # cd boot
-
-      ```
-
-   5. 重命名 shimx64.efi 文件：
-
-      ```bash
-      # sudo mv shimx64.efi bootx64.efi
-
-      ```
+       ```bash
+       # sudo mv shimx64.efi bootx64.efi
+       ```
 
 ## <a name="see-also"></a>请参阅
 

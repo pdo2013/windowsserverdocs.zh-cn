@@ -11,14 +11,14 @@ author: sakitong
 ms.author: coreyp
 manager: dougkim
 ms.date: 10/16/2017
-ms.openlocfilehash: c89d5eb754685fb8000ac2025af391057e77654c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 272d3865bbe1a9853f5349c5e878155351525ef0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848608"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439938"
 ---
-#<a name="monthly-delta-update-isv-support-without-wsus"></a>每月的增量更新而无需 WSUS ISV 支持
+# <a name="monthly-delta-update-isv-support-without-wsus"></a>每月的增量更新而无需 WSUS ISV 支持
 
 >适用于：Windows Server （半年频道），Windows Server 2016 中，Windows 10
 
@@ -30,7 +30,7 @@ Windows 10 更新的下载可能很大，因为每个包包含所有先前发布
 
 ![下载大小比较](../../media/express-update-delivery-isv-support/delta-1.png)
 
-##<a name="what-is-monthly-delta-update"></a>什么是每月的增量更新？
+## <a name="what-is-monthly-delta-update"></a>什么是每月的增量更新？
 
 有两种变体的每月安全更新：增量和累积。
 
@@ -49,8 +49,8 @@ Windows 10 更新的下载可能很大，因为每个包包含所有先前发布
 
 增量和累计具有相同的 KB 数，具有相同的分类，并同时发布。 更新可以通过在目录中，更新标题或 msu 的名称来区分：
 
-- 2017-02 *\***增量更新**\** 针对基于 x64 的系统 (KB1234567) 的 Windows 10 版本 1607年
-- 2017-02 *\***累积更新**\** 针对基于 x86 的系统 (KB1234567) 的 Windows 10 版本 1607年                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+- 2017-02 *\***增量更新**\**  针对基于 x64 的系统 (KB1234567) 的 Windows 10 版本 1607年
+- 2017-02 *\***累积更新**\**  针对基于 x86 的系统 (KB1234567) 的 Windows 10 版本 1607年                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 
 ### <a name="when-to-use-monthly-delta-update"></a>何时使用每月的增量更新
 
