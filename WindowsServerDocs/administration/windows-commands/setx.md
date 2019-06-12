@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a650fae246d71d8c1f9822dfa9ff8e96d855b4b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0b2caceed6962bef22e7d546fa3b4469c9682b39
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886568"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441252"
 ---
 # <a name="setx"></a>setx
 
@@ -38,21 +38,21 @@ setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <FileName>
 
 ## <a name="parameters"></a>Parameters
 
-|参数|描述|
-|---------|-----------|
-|/s\<计算机 >|指定的名称或远程计算机的 IP 地址。 不要使用反斜杠。 默认值为本地计算机的名称。|
-|/u [\<域 >\]<User name>|使用指定的用户帐户的凭据运行该脚本。 默认值为系统权限。|
-|/p [\<Password>]|指定在指定的用户帐户的密码 **/u**参数。|
-|\<变量 >|指定你想要设置的环境变量的名称。|
-|\<值 >|指定你想要设置环境变量的值。|
-|/k \<Path>|指定变量的信息从注册表项设置基于。 P*ath*使用以下语法：</br>`\\<HIVE>\<KEY>\...\<Value>`</br>例如，你可能指定以下路径：</br>`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName`|
-|/f\<文件名称 >|指定你想要使用的文件。|
-|/ a \<X >，<Y>|作为搜索参数指定绝对坐标和偏移量。|
-|/r \<X >，<Y> "<String>"|指定相对坐标和偏移量**字符串**作为搜索参数。|
-|/m|指定在系统环境中设置该变量。 默认设置为在本地环境。|
-|/x|显示文件坐标，忽略 **/a**， **/r**，并 **/d**命令行选项。|
-|/d\<分隔符 >|指定分隔符，例如"**，**"或"**\**"要使用的四个内置分隔符除了 — 空间、 选项卡、 ENTER 和换行。 有效分隔符包括任何 ASCII 字符。 分隔符的最大数目为 15，包括内置的分隔符。|
-|/?|在命令提示符下显示帮助。|
+|         参数          |                                                                                                                                              描述                                                                                                                                              |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|       /s\<计算机 >       |                                                                                  指定的名称或远程计算机的 IP 地址。 不要使用反斜杠。 默认值为本地计算机的名称。                                                                                  |
+| /u [\<域 >\]<User name> |                                                                                           使用指定的用户帐户的凭据运行该脚本。 默认值为系统权限。                                                                                            |
+|      /p [\<Password>]      |                                                                                                         指定在指定的用户帐户的密码 **/u**参数。                                                                                                         |
+|        \<变量 >         |                                                                                                                 指定你想要设置的环境变量的名称。                                                                                                                  |
+|          \<值 >          |                                                                                                                指定你想要设置环境变量的值。                                                                                                                 |
+|         /k \<Path>         | 指定变量的信息从注册表项设置基于。 P*ath*使用以下语法：</br>`\\<HIVE>\<KEY>\...\<Value>`</br>例如，你可能指定以下路径：</br>`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName` |
+|      /f\<文件名称 >       |                                                                                                                               指定你想要使用的文件。                                                                                                                                |
+|        / a \<X >，<Y>         |                                                                                                                    作为搜索参数指定绝对坐标和偏移量。                                                                                                                    |
+|   /r \<X >，<Y> "<String>"   |                                                                                                            指定相对坐标和偏移量**字符串**作为搜索参数。                                                                                                            |
+|             /m             |                                                                                                指定在系统环境中设置该变量。 默认设置为在本地环境。                                                                                                 |
+|             /x             |                                                                                                       显示文件坐标，忽略 **/a**， **/r**，并 **/d**命令行选项。                                                                                                        |
+|      /d\<分隔符 >      |                    指定分隔符，例如" **，** " **\\** "要使用的四个内置分隔符除了 — 空间、 选项卡、 ENTER 和换行。 有效分隔符包括任何 ASCII 字符。 分隔符的最大数目为 15，包括内置的分隔符。                    |
+|             /?             |                                                                                                                                 在命令提示符下显示帮助。                                                                                                                                  |
 
 ## <a name="remarks"></a>备注
 
@@ -80,7 +80,7 @@ setx MACHINE "Brand1 Computer" /m
 ```
 setx MYPATH %PATH%
 ```
-若要设置要使用替换之后在 PATH 环境变量中定义的搜索路径的本地环境中的 MYPATH 环境变量**~** 与**%**，类型：
+若要设置要使用替换之后在 PATH 环境变量中定义的搜索路径的本地环境中的 MYPATH 环境变量 **~** 与 **%** ，类型：
 ```
 setx MYPATH ~PATH~ 
 ```
@@ -116,7 +116,7 @@ setx /f ipconfig.out /x
 ```
 setx IPADDR /f ipconfig.out /a 5,11
 ```
-若要在为分隔符的文件在坐标 5,3 处找到的值在本地环境中设置 OCTET1 环境变量 **"#$\*。"**，类型：
+若要在为分隔符的文件在坐标 5,3 处找到的值在本地环境中设置 OCTET1 环境变量 **"#$\*。"** ，类型：
 ```
 setx OCTET1 /f ipconfig.out /a 5,3 /d "#$*." 
 ```
@@ -131,4 +131,4 @@ setx /s computer1 /u maindom\hiropln /p p@ssW23 /f ipconfig.out /x
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

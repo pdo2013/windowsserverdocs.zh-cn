@@ -10,12 +10,12 @@ ms.topic: landing-page
 author: shortpatti
 ms.author: pashort
 ms.localizationpriority: high
-ms.openlocfilehash: 1ae36a2e1be1559094dd55dba41fa9a468118260
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 53c927f89fd3ccaa212c998f7102d0fdb9f41bde
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840058"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447940"
 ---
 # <a name="virtualization"></a>虚拟化
 
@@ -41,7 +41,7 @@ Windows Server 中的虚拟化是创建软件定义的基础结构所需的基�
                     <div class="cardText">
                         <h3>受保护的构造和受防护的 VM</h3>
 <HR />
-                        <p>作为云服务商或企业私有云管理员，你可以使用受保护的构造为 VM 提供更安全的环境。 受保护的构造包含一个主机保护者服务\(HGS\) -通常情况下，群集的三个节点加上一个或多个受保护的主机，以及一组受防护的 Vm。</p>
+                        <p>作为云服务商或企业私有云管理员，你可以使用受保护的构造为 VM 提供更安全的环境。 受保护的构造包含一个主机保护者服务 (HGS)-通常情况下，有三个节点群集-再加上一个或多个受保护的主机和一组受防护的 Vm。</p>
                      </div>
                   </div>
               </div>

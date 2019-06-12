@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: cdd0b32b50f676007a6cc922bc15b95bb61323be
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e94b07d7fa654732526d0b43daadc9ad0ad4f3a8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189672"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444928"
 ---
 # <a name="create-a-non-claims-aware-relying-party-trust"></a>创建非声明感知信赖方信任
 
@@ -27,7 +27,7 @@ ms.locfileid: "66189672"
   
 本地计算机上的 **Administrators** 中的成员身份或等效身份是完成这些过程所需的最低要求。  可在[本地默认组和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477)中查看有关使用适合的帐户和组成员身份的详细信息。   
   
-##<a name="to-create-a-non-claims-aware-relying-party-trust-manually"></a>若要手动创建了非声明感知信赖方信任 
+## <a name="to-create-a-non-claims-aware-relying-party-trust-manually"></a>若要手动创建了非声明感知信赖方信任 
 1. 在服务器管理器中，单击**工具**，然后选择**AD FS 管理**。  
   
 2.  下**操作**，单击**添加信赖方信任**。  

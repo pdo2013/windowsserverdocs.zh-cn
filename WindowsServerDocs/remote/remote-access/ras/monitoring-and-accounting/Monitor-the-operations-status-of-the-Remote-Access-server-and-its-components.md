@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 077a3a64-2fa3-4994-9711-ec1fbdc081ba
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 83d12826bd8128bc38d84c252045d74cf416457e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7f4c7e1418e541e1f913c8a20cbda3456c1c3802
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882878"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446607"
 ---
 # <a name="monitor-the-operations-status-of-the-remote-access-server-and-its-components"></a>监视远程访问服务器及其组件的操作状态
 
@@ -33,7 +33,7 @@ ms.locfileid: "59882878"
   
 #### <a name="to-monitor-the-remote-access-server-operations-status"></a>若要监视远程访问服务器操作状态  
   
-1.  在“服务器管理器”中，单击“工具”，然后单击“远程访问管理”。  
+1.  在“服务器管理器”  中，单击“工具”  ，然后单击“远程访问管理”  。  
   
 2.  单击**仪表板**以导航到**远程访问报告**中**远程访问管理控制台**。  
   
@@ -41,7 +41,7 @@ ms.locfileid: "59882878"
   
 4.  单击**刷新**下**任务**在右窗格中重新加载操作状态。 操作状态将自动刷新每隔五分钟，这是默认刷新间隔。 若要更改默认刷新间隔，请单击**配置刷新间隔**。  
   
-![Windows PowerShell](../../../media/Monitor-the-operations-status-of-the-Remote-Access-server-and-its-components/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![Windows PowerShell](../../../media/Monitor-the-operations-status-of-the-Remote-Access-server-and-its-components/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   

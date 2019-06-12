@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: ''
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b86726fd6e9ee37dbfd43357d8040b43b8dfb200
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7fb7b5f7ae6e10d1007317949a42c48b4765f35c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853338"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446058"
 ---
-#<a name="step-1-plan-the-basic-directaccess-infrastructure"></a>步骤 1 规划基本 DirectAccess 基础结构
+# <a name="step-1-plan-the-basic-directaccess-infrastructure"></a>步骤 1 规划基本 DirectAccess 基础结构
 基本 DirectAccess 部署在单个服务器上的第一步是执行规划部署所需的基础结构。 本主题介绍基础结构规划步骤：  
   
 |任务|描述|  
@@ -116,7 +116,7 @@ IPsec 的证书要求包括 DirectAccess 客户端计算机在客户端和 Direc
   
 -   **DirectAccess 客户端请求**。 DNS 用于解析来自不位于内部网络上的 DirectAccess 客户端计算机的请求。 DirectAccess 客户端尝试连接到 DirectAccess 网络位置服务器，以确定它们是位于 Internet 上，还是位于企业网络上。如果连接成功，则确定客户端在 Intranet 上且未使用 DirectAccess，并使用客户端计算机的网络适配器上配置的 DNS 服务器解析客户端请求。 如果该连接不成功，则假定客户端在 Internet 上。 DirectAccess 客户端将使用名称解析策略表\(NRPT\)来确定解析名称请求时要使用哪个 DNS 服务器。 你可以指定客户端应使用 DirectAccess DNS64 或备用的内部 DNS 服务器来解析名称。 在执行名称解析时，将由 DirectAccess 客户端使用 NRPT 来确定如何处理请求。 客户端请求 FQDN 或单\-标签名称，例如 http:\/\/内部。 如果某个\-标签名称为请求，则将追加 DNS 后缀以产生 FQDN。 如果 DNS 查询与 NRPT 中某个条目匹配，并且为该条目指定了 DNS4 或 Intranet DNS 服务器，则将使用指定的服务器发送用于名称解析的 DNS 查询。 如果存在匹配条目，但未指定 DNS 服务器，这表示存在一条免除规则，且将应用普通的名称解析。  
   
-    将新后缀添加到 DirectAccess 管理控制台中的 NRPT 后，可通过单击“检测”按钮自动发现该后缀的默认 DNS 服务器。 自动检测的工作原理如下：  
+    将新后缀添加到 DirectAccess 管理控制台中的 NRPT 后，可通过单击“检测”  按钮自动发现该后缀的默认 DNS 服务器。 自动检测的工作原理如下：  
   
     1.  如果企业网络是 IPv4\-基于，或 IPv4 和 IPv6，则默认地址是 DirectAccess 服务器上内部适配器的 DNS64 地址。  
   
@@ -243,15 +243,15 @@ DirectAccess 使用 Active Directory 和 Active Directory 组策略对象，如�
 #### <a name="recovering-from-a-deleted-gpo"></a>从已删除的 GPO 中恢复  
 如果 DirectAccess 服务器、 客户端或应用程序服务器 GPO 已被意外删除，并且没有备份可用，则必须删除配置设置和重新\-重新配置。 如果有可用的备份，则可以从备份中还原 GPO。  
   
-“DirectAccess 管理”将显示以下错误消息：**GPO<GPO name>找不到**。 若要删除配置设置，请执行以下步骤：  
+“DirectAccess 管理”  将显示以下错误消息：**GPO<GPO name>找不到**。 若要删除配置设置，请执行以下步骤：  
   
 1.  运行 PowerShell cmdlet**卸载\-remoteaccess**。  
   
 2.  Re\-打开**DirectAccess 管理**。  
   
-3.  你将看到关于未找到 GPO 的错误消息。 单击“删除配置设置” 。 完成操作后，服务器将还原到取消\-配置状态。  
+3.  你将看到关于未找到 GPO 的错误消息。 单击“删除配置设置”  。 完成操作后，服务器将还原到取消\-配置状态。  
   
 ### <a name="BKMK_Links"></a>下一步  
   
--   [步骤 2：规划基本 DirectAccess 部署](da-basic-plan-s2-deployment.md)  
+-   [步骤 2：规划基础 DirectAccess 部署](da-basic-plan-s2-deployment.md)  
   

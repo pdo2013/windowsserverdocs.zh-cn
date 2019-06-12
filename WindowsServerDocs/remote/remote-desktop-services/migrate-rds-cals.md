@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 91bdedce-6145-469f-b72e-7e113c4391e9
 author: christianmontoya
 manager: scottman
-ms.openlocfilehash: 3b809d4d624f21eaeae5a66277db683c95c79bdd
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: c947375b58c0ad88781335b799055e101bd2a193
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034442"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447106"
 ---
 # <a name="migrate-your-remote-desktop-services-client-access-licenses-rds-cals"></a>迁移远程桌面服务客户端访问许可证 (RDS CAL)
 
@@ -70,19 +70,19 @@ ms.locfileid: "65034442"
 
 ### <a name="using-a-web-browser"></a>使用 web 浏览器
 1. 上**获取客户端许可证密钥包**页上，单击超链接可连接到远程桌面服务许可 Web 站点。
-如果未建立 Internet 连接的计算机上运行远程桌面授权管理器，记下远程桌面服务许可 Web 站点的地址，然后从已建立 Internet 连接的计算机连接到该网站。 
+   如果未建立 Internet 连接的计算机上运行远程桌面授权管理器，记下远程桌面服务许可 Web 站点的地址，然后从已建立 Internet 连接的计算机连接到该网站。 
 2. 在远程桌面服务许可 Web 页上，在**选择选项**，选择**管理 Cal**，然后单击**下一步**。
 3. 提供所需的以下信息，然后单击**下一步**:
     - **目标许可证服务器 ID**: 35 位的数字 5 个数字，将显示在一组**获取客户端许可证密钥包**管理 RDS Cal 向导中的页。
     - **用于恢复的原因**: 选择迁移 RDS Cal 的原因。
     - **许可证计划**: 选择通过其购买 RDS Cal 的程序。
 4. 提供所需的以下信息，然后单击**下一步**:
-    - 姓
-    - 第一个名称或给定名称
-    - 公司名称
-    - 国家/地区
+   - 姓
+   - 第一个名称或给定名称
+   - 公司名称
+   - 国家/地区
 
-    您还可以请求，例如公司地址、 电子邮件地址和电话号码的可选信息。 在组织单位字段中，您可以描述此许可证服务器服务在组织内。
+     您还可以请求，例如公司地址、 电子邮件地址和电话号码的可选信息。 在组织单位字段中，您可以描述此许可证服务器服务在组织内。
 
 5. 您在前一页选择向许可证计划决定你需要在下一页上提供的信息。 在大多数情况下，必须提供许可证代码或协议编号。 请查阅购买 RDS Cal 时提供的文档。 此外，您需要指定哪种类型的 RDS CAL，想要迁移到许可证服务器的数量。
 6. 在输入所需的信息后，请单击“下一步”  。

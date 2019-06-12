@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1c4a91dd3822cf4d8dd904f473f146a2f0ee54c0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 21ced4a9ef0dd7dac5f6c4fc6f171d99fa516c07
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840158"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440311"
 ---
 # <a name="waitfor"></a>waitfor
 
@@ -37,15 +37,15 @@ waitfor [/t <Timeout>] <SignalName>
 
 ## <a name="parameters"></a>Parameters
 
-|参数|描述|
-|---------|-----------|
-|/s\<计算机 >|指定的名称或远程计算机的 IP 地址 （不使用反斜杠）。 默认值为本地计算机。 此参数适用于所有文件和命令中指定的文件夹。|
-|/u [\<域 >\]<User>|运行脚本，使用指定的用户帐户的凭据。 默认情况下**waitfor**使用当前用户的凭据。|
-|/p [\<Password>]|指定在指定的用户帐户的密码 **/u**参数。|
-|/si|将通过网络发送指定的信号。|
-|/t \<Timeout>|指定的信号等待秒的数。 默认情况下**waitfor**将无限期等待。|
-|\<SignalName>|指定信号的**waitfor**等待或发送。 *信号名称*不区分大小写。|
-|/?|在命令提示符下显示帮助。|
+|       参数       |                                                                                         描述                                                                                          |
+|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    /s\<计算机 >     | 指定的名称或远程计算机的 IP 地址 （不使用反斜杠）。 默认值为本地计算机。 此参数适用于所有文件和命令中指定的文件夹。 |
+| /u [\<域 >\]<User> |                              运行脚本，使用指定的用户帐户的凭据。 默认情况下**waitfor**使用当前用户的凭据。                               |
+|   /p [\<Password>]    |                                                    指定在指定的用户帐户的密码 **/u**参数。                                                     |
+|          /si          |                                                                        将通过网络发送指定的信号。                                                                        |
+|     /t \<Timeout>     |                                              指定的信号等待秒的数。 默认情况下**waitfor**将无限期等待。                                               |
+|     \<SignalName>     |                                                指定信号的**waitfor**等待或发送。 *信号名称*不区分大小写。                                                 |
+|          /?           |                                                                             在命令提示符下显示帮助。                                                                             |
 
 ## <a name="remarks"></a>备注
 
@@ -76,4 +76,4 @@ waitfor /si espresso\build007
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

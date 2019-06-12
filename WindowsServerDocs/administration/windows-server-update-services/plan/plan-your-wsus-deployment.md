@@ -10,12 +10,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/24/2018
-ms.openlocfilehash: 4e4da87e5a2a4cd80e748a05596da3f23b5ac85f
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: a568324ba69b13c7016f4715d3c37f991ae4c1ad
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222899"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439725"
 ---
 # <a name="plan-your-wsus-deployment"></a>规划 WSUS 部署
 
@@ -94,19 +94,19 @@ ms.locfileid: "66222899"
 
 请注意，将客户端计算机（包括服务器）配置为使用 WSUS 进行更新会形成以下限制：
 
-1.  使用按需功能移除了其有效负载的服务器角色无法从 Microsoft 更新进行按需安装。 必须在尝试安装此类服务器角色时提供的安装源，或在组策略中按需功能配置源。
+1. 使用按需功能移除了其有效负载的服务器角色无法从 Microsoft 更新进行按需安装。 必须在尝试安装此类服务器角色时提供的安装源，或在组策略中按需功能配置源。
 
-2.  Windows 客户端版本无法从 Web 按需安装 .NET 3.5。 与服务器角色相同的注意事项也适用于 .NET 3.5。
+2. Windows 客户端版本无法从 Web 按需安装 .NET 3.5。 与服务器角色相同的注意事项也适用于 .NET 3.5。
 
-    > [!NOTE]
-    > 需安装源上配置功能不涉及 WSUS。 有关如何配置这些功能的信息，请参阅 [在 Windows Server 中配置按需功能](https://technet.microsoft.com/library/jj127275.aspx)。
+   > [!NOTE]
+   > 需安装源上配置功能不涉及 WSUS。 有关如何配置这些功能的信息，请参阅 [在 Windows Server 中配置按需功能](https://technet.microsoft.com/library/jj127275.aspx)。
 
 3. 企业设备运行 Windows 10，版本 1709年或版本 1803，不能按需直接从 WSUS 安装任何功能。 若要按需安装功能[创建功能文件 （的并排存储区）](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127275%28v=ws.11%29#create-a-feature-file-or-side-by-side-store)或从以下源之一获取上需包的功能：
-    - [批量许可服务中心](https://www.microsoft.com/licensing/servicecenter)(VLSC)-需要的批量许可访问
-    - OEM 门户-需要的 OEM 访问
-    - MSDN 订阅是必需的 MSDN 下载-
+   - [批量许可服务中心](https://www.microsoft.com/licensing/servicecenter)(VLSC)-需要的批量许可访问
+   - OEM 门户-需要的 OEM 访问
+   - MSDN 订阅是必需的 MSDN 下载-
 
-    可以使用安装单独获取按需包的功能[DISM 命令行选项](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options)。
+     可以使用安装单独获取按需包的功能[DISM 命令行选项](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options)。
 
 ### <a name="wsus-database-requirements"></a>WSUS 数据库要求
 WSUS 要求以下数据库之一：
@@ -319,7 +319,7 @@ WSUS 配置向导的 **“选择语言”** 页可让你获得所有语言或语
 > [!NOTE]
 > 即使你希望下游服务器下载与上游服务器相同的语言，也应执行此操作。
 
-2.  如果上游服务器配置为下载所有语言的更新文件：在 WSUS 配置向导中，单击“下载上游服务器支持的所有语言的更新”  。
+2. 如果上游服务器配置为下载所有语言的更新文件：在 WSUS 配置向导中，单击“下载上游服务器支持的所有语言的更新”  。
 
 > [!NOTE]
 > 即使你希望下游服务器下载与上游服务器相同的语言，也应执行此操作。 此设置使上游服务器下载所有语言的更新，包括最初没有为上游服务器配置的语言。 如果向上游服务器添加语言，则应将新的更新复制到其副本服务器。

@@ -9,12 +9,12 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 54b0e055d6cfde5e5c69540ac804a38cbceb1e59
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 231c8783032f51f607565922d90ea7f7eb877cfd
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188768"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444697"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>自定义 AD FS 2019 HTTP 安全响应标头 
  
@@ -39,7 +39,7 @@ ms.locfileid: "66188768"
 ## <a name="http-security-response-headers"></a>HTTP 安全响应标头 
 响应标头包含在 AD fs 发送到 web 浏览器的传出 HTTP 响应。 可以使用列出的标头`Get-AdfsResponseHeaders`cmdlet，如下所示。  
 
-![标头响应](media\customize-http-security-headers-ad-fs\header1.png)
+![标头响应](media/customize-http-security-headers-ad-fs/header1.png)
 
 `ResponseHeaders`在上面的屏幕截图中的属性标识将包括在每个 HTTP 响应中的 AD fs 的安全标头。 仅当将发送的响应标头`ResponseHeadersEnabled`设置为`True`（默认值）。 值可以设置为`False`以防止任何安全标头包括在 HTTP 响应中的 AD FS。 但是不将此建议。  为此使用：
 
@@ -218,7 +218,7 @@ Set-AdfsResponseHeaders -SetHeaderName "TestHeader" -SetHeaderValue "TestHeaderV
 
 完成设置后，将 AD FS 响应 （下面 fiddler 代码段） 中发送新的标头。  
  
-![Fiddler](media\customize-http-security-headers-ad-fs\header2.png)
+![Fiddler](media/customize-http-security-headers-ad-fs/header2.png)
 
 ## <a name="web-browswer-compatibility"></a>Web 浏览器兼容性问题
 使用下面的表和链接来确定哪些 web 浏览器兼容与每个安全响应标头。

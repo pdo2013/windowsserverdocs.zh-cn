@@ -12,12 +12,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 05/16/2018
-ms.openlocfilehash: 8053a14a74797cccce4c441d41f1f1623ba0ad6e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 872647f09898bf8ae08ee69f28b717d28abf7c78
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879438"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447303"
 ---
 # <a name="manage-transport-layer-security-tls"></a>管理传输层安全性 (TLS)
 
@@ -39,22 +39,22 @@ ms.locfileid: "59879438"
 
 可以使用的 SSL 密码套件顺序组策略设置来配置默认 TLS 密码套件顺序。
 
-1.  从组策略管理控制台中，转到**计算机配置** > **管理模板** > **网络** >  **SSL 配置设置**。
-2.  双击**SSL 密码套件顺序**，然后单击**已启用**选项。
-3.  右键单击**SSL 密码套件**框，然后选择**全**从弹出菜单。
+1. 从组策略管理控制台中，转到**计算机配置** > **管理模板** > **网络** >  **SSL 配置设置**。
+2. 双击**SSL 密码套件顺序**，然后单击**已启用**选项。
+3. 右键单击**SSL 密码套件**框，然后选择**全**从弹出菜单。
 
-    ![组策略设置](../media/Transport-Layer-Security-protocol/ssl-cipher-suite-order-gp-setting.png)
+   ![组策略设置](../media/Transport-Layer-Security-protocol/ssl-cipher-suite-order-gp-setting.png)
 
-4.  右键单击所选的文本，然后选择**复制**从弹出菜单。
-5.  将文本粘贴到文本编辑器，如 notepad.exe 和更新与新的密码套件顺序列表。
+4. 右键单击所选的文本，然后选择**复制**从弹出菜单。
+5. 将文本粘贴到文本编辑器，如 notepad.exe 和更新与新的密码套件顺序列表。
 
-    > [!NOTE]
-    > TLS 密码套件顺序列表必须采用严格的逗号分隔格式。 每个密码套件字符串将用到它的右侧逗号 （，） 结束。 
+   > [!NOTE]
+   > TLS 密码套件顺序列表必须采用严格的逗号分隔格式。 每个密码套件字符串将用到它的右侧逗号 （，） 结束。 
+   > 
+   > 此外，密码套件列表被限制为 1023 个字符。
 
-    > 此外，密码套件列表被限制为 1023 个字符。
-
-6.  替换中的列表**SSL 密码套件**与更新的排序列表。
-7.  单击“确定”或“应用”。
+6. 替换中的列表**SSL 密码套件**与更新的排序列表。
+7. 单击“确定”  或“应用”  。
 
 ### <a name="configuring-tls-cipher-suite-order-by-using-mdm"></a>通过使用 MDM 配置 TLS 密码套件顺序
 
@@ -124,7 +124,7 @@ Certutil.exe –deleteEccCurve curveName
 1.  在 Windows 10 和 Windows Server 2016 上，使用**certutil.exe**向 Windows 添加新的已注册已命名的曲线。
 2.  从该同一台计算机，打开组策略管理控制台 (GPMC)、 创建新的组策略对象，并对其进行编辑。
 3.  导航到**计算机配置 |首选项 |Windows 设置 |注册表**。  右键单击**注册表**。 将鼠标悬停**新建**，然后选择**收集项**。 重命名收集项以匹配该曲线的名称。 你将创建一个注册表收集项下每个注册表项*HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters*。
-4.  添加一个新的配置新创建的组策略首选项注册表收集**注册表项**对于每个注册表值下列出*HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters\[curveName]*。
+4.  添加一个新的配置新创建的组策略首选项注册表收集**注册表项**对于每个注册表值下列出*HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters\[curveName]* 。
 5.  部署包含到应接收新的已命名的曲线的 Windows 10 和 Windows Server 2016 计算机的组策略注册表收集项的组策略对象。
 
     ![GPP 分发曲线](../media/Transport-Layer-Security-protocol/gpp-distribute-curves.png)

@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: d53be34d04edfac9f30b6e269833be74a6ebcf22
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 541ceec25e8cb0fae0b55c3de3be269982546c54
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820348"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447661"
 ---
 # <a name="configure-e-mail-notifications"></a>配置电子邮件通知
 
@@ -25,19 +25,19 @@ ms.locfileid: "59820348"
 
 ## <a name="to-configure-e-mail-options"></a>若要配置电子邮件选项，请执行以下操作：
 
-1.  在控制台树中，右键单击**文件服务器资源管理器**，然后单击**配置选项**。 此时将打开“文件服务器资源管理器选项”  对话框。
+1. 在控制台树中，右键单击**文件服务器资源管理器**，然后单击**配置选项**。 此时将打开“文件服务器资源管理器选项”  对话框。
 
-2.  在**电子邮件通知**选项卡上的 **SMTP 服务器名称或 IP 地址**下，键入将转发电子邮件通知和存储报告的 SMTP 服务器的主机名或 IP 地址。
+2. 在**电子邮件通知**选项卡上的 **SMTP 服务器名称或 IP 地址**下，键入将转发电子邮件通知和存储报告的 SMTP 服务器的主机名或 IP 地址。
 
-3.  如果希望向特定管理员例行通知配额或文件屏蔽事件，或通过电子邮件发送存储报告，请在**默认的管理员收件人**下键入每个电子邮件地址。
+3. 如果希望向特定管理员例行通知配额或文件屏蔽事件，或通过电子邮件发送存储报告，请在**默认的管理员收件人**下键入每个电子邮件地址。
 
-    使用 *account@domain* 格式。 使用分号分隔多个帐户。
+   使用 <em>account@domain</em> 格式。 使用分号分隔多个帐户。
 
-4.  若要为文件服务器资源管理器发出的电子邮件通知和存储报告指定不同的“发件人”地址，请在**默认“发件人”电子邮件地址**下键入希望在电子邮件中显示的电子邮件地址。
+4. 若要为文件服务器资源管理器发出的电子邮件通知和存储报告指定不同的“发件人”地址，请在**默认“发件人”电子邮件地址**下键入希望在电子邮件中显示的电子邮件地址。
 
-5.  若要测试你的设置，请单击**发送测试电子邮件**。
+5. 若要测试你的设置，请单击**发送测试电子邮件**。
 
-6.  单击 **“确定”**。
+6. 单击 **“确定”** 。
 
 
 ## <a name="see-also"></a>请参阅

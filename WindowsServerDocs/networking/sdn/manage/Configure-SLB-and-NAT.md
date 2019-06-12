@@ -13,12 +13,12 @@ ms.assetid: 73bff8ba-939d-40d8-b1e5-3ba3ed5439c3
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 55847bfbc0362887497514009f6efe1312d79906
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4d53c4bcbe1f37f532f2861d5669201959a9f091
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819348"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446669"
 ---
 # <a name="configure-the-software-load-balancer-for-load-balancing-and-network-address-translation-nat"></a>为负载平衡和网络地址转换 (NAT) 配置软件负载平衡器
 
@@ -109,22 +109,22 @@ SDN 软件负载均衡器\(SLB\)到您的应用程序提供高可用性和网络
     $LoadBalancerProperties.Probes += $Probe
    ```
 
-5.  定义负载均衡规则以发送到后端 IP 的前端 IP 在到达的流量。  在此示例中后, 端池接收到端口 80 TCP 流量。<p>使用下面的示例定义负载均衡规则：
+5. 定义负载均衡规则以发送到后端 IP 的前端 IP 在到达的流量。  在此示例中后, 端池接收到端口 80 TCP 流量。<p>使用下面的示例定义负载均衡规则：
 
    ```PowerShell
-    $Rule = new-object Microsoft.Windows.NetworkController.LoadBalancingRule
-    $Rule.ResourceId = "webserver1"
+   $Rule = new-object Microsoft.Windows.NetworkController.LoadBalancingRule
+   $Rule.ResourceId = "webserver1"
 
-    $Rule.Properties = new-object Microsoft.Windows.NetworkController.LoadBalancingRuleProperties
-    $Rule.Properties.FrontEndIPConfigurations += $FrontEndIPConfig
-    $Rule.Properties.backendaddresspool = $BackEndAddressPool 
-    $Rule.Properties.protocol = "TCP"
-    $Rule.Properties.FrontEndPort = 80
-    $Rule.Properties.BackEndPort = 80
-    $Rule.Properties.IdleTimeoutInMinutes = 4
-    $Rule.Properties.Probe = $Probe
+   $Rule.Properties = new-object Microsoft.Windows.NetworkController.LoadBalancingRuleProperties
+   $Rule.Properties.FrontEndIPConfigurations += $FrontEndIPConfig
+   $Rule.Properties.backendaddresspool = $BackEndAddressPool 
+   $Rule.Properties.protocol = "TCP"
+   $Rule.Properties.FrontEndPort = 80
+   $Rule.Properties.BackEndPort = 80
+   $Rule.Properties.IdleTimeoutInMinutes = 4
+   $Rule.Properties.Probe = $Probe
 
-    $LoadBalancerProperties.loadbalancingRules += $Rule
+   $LoadBalancerProperties.loadbalancingRules += $Rule
    ```
 
 6. 将负载均衡器配置添加到网络控制器。<p>使用下面的示例将负载均衡器配置添加到网络控制器：
@@ -205,7 +205,7 @@ SDN 软件负载均衡器\(SLB\)到您的应用程序提供高可用性和网络
    ```PowerShell
    $lbresourceid = "LB2"
    $lb = get-networkcontrollerloadbalancer -connectionuri $uri -resourceID $LBResourceId -PassInnerException
-  ```
+   ```
 
 2. 获取网络接口，并将 backendaddress 池添加到 loadbalancerbackendaddresspools 数组。
 
@@ -280,17 +280,17 @@ SDN 软件负载均衡器\(SLB\)到您的应用程序提供高可用性和网络
     PreviousIpConfiguration  :
    ```
  
-1. 将 PublicIPAddress 分配给网络接口。
+3. 将 PublicIPAddress 分配给网络接口。
 
    ```PowerShell
    $nic = get-networkcontrollernetworkinterface  -connectionuri $uri -resourceid 6daca142-7d94-0000-1111-c38c0141be06
    $nic.properties.IpConfigurations[0].Properties.PublicIPAddress = $publicIP
    New-NetworkControllerNetworkInterface -ConnectionUri $uri -ResourceId $nic.ResourceId -Properties $nic.properties -PassInnerException
    ```
-## <a name="example-remove-a-publicip-address-that-is-being-used-for-forwarding-traffic-and-return-it-to-the-vip-pool"></a>例如：删除正用于转发流量的 PublicIP 地址并将其返回到 VIP 池
-此示例删除由前面的示例创建的 PublicIPAddress 资源。  一旦删除 PublicIPAddress，对 PublicIPAddress 的引用将自动从网络接口、 流量将停止正在转发和 IP 地址将返回到以便重复使用的公共 VIP 池。  
+   ## <a name="example-remove-a-publicip-address-that-is-being-used-for-forwarding-traffic-and-return-it-to-the-vip-pool"></a>例如：删除正用于转发流量的 PublicIP 地址并将其返回到 VIP 池
+   此示例删除由前面的示例创建的 PublicIPAddress 资源。  一旦删除 PublicIPAddress，对 PublicIPAddress 的引用将自动从网络接口、 流量将停止正在转发和 IP 地址将返回到以便重复使用的公共 VIP 池。  
 
-1. 删除 PublicIP
+4. 删除 PublicIP
 
    ```PowerShell
    Remove-NetworkControllerPublicIPAddress -ConnectionURI $uri -ResourceId "MyPIP"

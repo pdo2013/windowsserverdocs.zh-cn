@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 93cee5b8e3611a264119947103d22d9aa3b9a56b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 66e36a349fc6bd38a77ccf4f00d380788ea4b422
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834388"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445952"
 ---
 # <a name="develop-a-gateway-plugin"></a>开发网关插件
 
@@ -69,7 +69,7 @@ Windows 管理员进程重新启动后，你将能够执行自定义网关插件
 
 ### <a name="optional-attach-to-plugin-for-debugging"></a>可选：将附加到适用于调试插件
 
-在 Visual Studio 2017 中，从调试菜单中，选择"附加到进程"。 在下一步的窗口中，可用进程列表中滚动，选择 SMEDesktop.exe，然后单击"附加"。 一次调试器将启动，可以将断点功能代码和更高版本的 URL 格式通过然后练习中放置。 对于我们的示例项目 (功能名称："示例 Uno") 的 URL 是:"http://localhost:6516/api/nodes/fake-server.my.domain.com/features/Sample%20Uno"
+在 Visual Studio 2017 中，从调试菜单中，选择"附加到进程"。 在下一步的窗口中，可用进程列表中滚动，选择 SMEDesktop.exe，然后单击"附加"。 一次调试器将启动，可以将断点功能代码和更高版本的 URL 格式通过然后练习中放置。 对于我们的示例项目 (功能名称："示例 Uno") 的 URL 是:"<http://localhost:6516/api/nodes/fake-server.my.domain.com/features/Sample%20Uno>"
 
 ## <a name="create-a-tool-extension-with-the-windows-admin-center-cli"></a>使用 Windows Admin Center CLI 中创建的工具扩展 ##
 
@@ -104,8 +104,8 @@ npm install
 
 现在，已使用 Windows Admin Center CLI 创建一个扩展，你已准备好连接到你的自定义网关插件，您的工具扩展，通过执行以下步骤：
 
-- 添加[空模块](guides\add-module.md)
-- 使用你[自定义网关插件](guides\use-custom-gateway-plugin.md)工具扩展中
+- 添加[空模块](guides/add-module.md)
+- 使用你[自定义网关插件](guides/use-custom-gateway-plugin.md)工具扩展中
  
 ## <a name="build-and-side-load-your-extension"></a>生成和端加载您的扩展插件
 

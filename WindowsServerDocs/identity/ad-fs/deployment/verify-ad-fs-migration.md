@@ -8,12 +8,12 @@ ms.date: 07/10/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0a3e8e444f715fe2ae0f0ccd858d90e8664be00c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 38e44ab2f803d8ec8940dbba7574a9f37389112a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877768"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444459"
 ---
 # <a name="verify-the-ad-fs-20-migration-to-windows-server-2012-r2"></a>验证 AD FS 2.0 迁移到 Windows Server 2012 R2
 
@@ -27,7 +27,7 @@ ms.locfileid: "59877768"
   
 如果可以在浏览器窗口中看到联合服务器元数据且未看到任何 SSL 错误或警告，则表示联合服务器在正常运行。  
   
-2.  也可以浏览到 AD FS 登录页（联合身份验证服务名称后接 `adfs/ls/idpinitiatedsignon.htm`，例如 `https://fs.contoso.com/adfs/ls/idpinitiatedsignon.htm`）。  这样便会显示 AD FS 登录页，你可以在其中使用域管理员凭据登录。  
+2. 也可以浏览到 AD FS 登录页（联合身份验证服务名称后接 `adfs/ls/idpinitiatedsignon.htm`，例如 `https://fs.contoso.com/adfs/ls/idpinitiatedsignon.htm`）。  这样便会显示 AD FS 登录页，你可以在其中使用域管理员凭据登录。  
   
 > [!IMPORTANT]
 >  请确保将浏览器设置配置为信任联合服务器角色，方法是将你的联合身份验证服务名称（例如 `https://fs.contoso.com`）添加到浏览器的本地 Intranet 区域中。  

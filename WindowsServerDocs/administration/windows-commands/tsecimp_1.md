@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 38582706dfa5db2b5069415b81dafc533c8a89b9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a5ed2ef8b1d0238a3608dabdd165a255855a304d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822098"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440870"
 ---
 # <a name="tsecimp"></a>tsecimp
 
@@ -68,102 +68,101 @@ tsecimp /d
         每个**行**元素，可以设置**删除**属性。 如果设置此属性，用户无法再分配该线路设备。 如果未设置此属性，用户可访问该线路设备。 未向用户提供该线路设备时，会给不出任何错误。
 
 ## <a name="examples"></a>示例
--   以下 XML 代码段示例说明了上面定义的元素的正确用法。  
-    -   下面的代码中删除分配给 User1 的所有线路设备。  
-        ```
-        <UserList>
-          <User NoMerge="1">
-            <DomainUser>domain1\user1</DomainUser>
-          </User>
-        </UserList>
-        ```  
-    -   下面的代码中删除分配地址为 99999 的一行之前分配给 User1 的所有线路设备。 User1 有任何其他线路设备分配，无论是否以前分配任何线路设备。  
-        ```
-        <UserList>
-          <User NoMerge="1">
-            <DomainUser>domain1\user1</DomainUser>
-            <FriendlyName>User1</FriendlyName>
-            <LineList>
-              <Line>
-                <Address>99999</Address>
-              </Line>
-            </LineList>
-          </User>
-        </UserList>
-        
-        ```  
-    -   下面的代码而不会删除任何以前分配的线路设备，为 User1 添加一个线路设备。  
-        ```
-        <UserList>
-          <User>
-            <DomainUser>domain1\user1</DomainUser>
-            <FriendlyName>User1</FriendlyName>
-            <LineList>
-              <Line>
-                <Address>99999</Address>
-              </Line>
-            </LineList>
-          </User>
-        </UserList>
-        
-        ```  
-    -   以下代码添加了线路地址 99999，并从 User1 的访问权限中删除了线路地址 88888。  
-        ```
-        <UserList>
-          <User>
-            <DomainUser>domain1\user1</DomainUser>
-            <FriendlyName>User1</FriendlyName>
-            <LineList>
-              <Line>
-                <Address>99999</Address>
-              </Line>
-              <Line Remove="1">
-                <Address>88888</Address>
-              </Line>
-            </LineList>
-          </User>
-        </UserList>
-        
-        ```  
-    -   以下代码添加了永久性设备 1000年和 User1 的访问删除了线路地址 88888。  
-        ```
-        <UserList>
-          <User>
-            <DomainUser>domain1\user1</DomainUser>
-            <FriendlyName>User1</FriendlyName>
-            <LineList>
-              <Line>
-                <PermanentID>1000</PermanentID>
-              </Line>
-              <Line Remove="1">
-                <Address>88888</Address>
-              </Line>
-            </LineList>
-          </User>
-        </UserList>
-        
-        
-        ```  
--   以下示例输出显示后 **/d**指定命令行选项以显示当前的 TAPI 配置。 每个电话服务提供程序，均会列出关联的线路设备，以及地址和与每个线路设备关联的用户。  
+- 以下 XML 代码段示例说明了上面定义的元素的正确用法。  
+  - 下面的代码中删除分配给 User1 的所有线路设备。  
+    ```
+    <UserList>
+      <User NoMerge="1">
+        <DomainUser>domain1\user1</DomainUser>
+      </User>
+    </UserList>
+    ```  
+  - 下面的代码中删除分配地址为 99999 的一行之前分配给 User1 的所有线路设备。 User1 有任何其他线路设备分配，无论是否以前分配任何线路设备。  
+    ```
+    <UserList>
+      <User NoMerge="1">
+        <DomainUser>domain1\user1</DomainUser>
+        <FriendlyName>User1</FriendlyName>
+        <LineList>
+          <Line>
+            <Address>99999</Address>
+          </Line>
+        </LineList>
+      </User>
+    </UserList>
+    ```  
+  - 下面的代码而不会删除任何以前分配的线路设备，为 User1 添加一个线路设备。  
+    ```
+    <UserList>
+      <User>
+        <DomainUser>domain1\user1</DomainUser>
+        <FriendlyName>User1</FriendlyName>
+        <LineList>
+          <Line>
+            <Address>99999</Address>
+          </Line>
+        </LineList>
+      </User>
+    </UserList>
+    ```  
+  - 以下代码添加了线路地址 99999，并从 User1 的访问权限中删除了线路地址 88888。  
+    ```
+    <UserList>
+      <User>
+        <DomainUser>domain1\user1</DomainUser>
+        <FriendlyName>User1</FriendlyName>
+        <LineList>
+          <Line>
+            <Address>99999</Address>
+          </Line>
+          <Line Remove="1">
+            <Address>88888</Address>
+          </Line>
+        </LineList>
+      </User>
+    </UserList>
+    ```  
+  - 以下代码添加了永久性设备 1000年和 User1 的访问删除了线路地址 88888。  
+    ```
+    <UserList>
+      <User>
+        <DomainUser>domain1\user1</DomainUser>
+        <FriendlyName>User1</FriendlyName>
+        <LineList>
+          <Line>
+            <PermanentID>1000</PermanentID>
+          </Line>
+          <Line Remove="1">
+            <Address>88888</Address>
+          </Line>
+        </LineList>
+      </User>
+    </UserList>
+
+
+~~~
+    ```  
+~~~
+-   The following sample output appears after the **/d** command-line option is specified to display the current TAPI configuration. For each telephony provider, the associated line devices are listed, as well as the addresses and users associated with each line device.  
     ```
     NDIS Proxy TAPI Service Provider
             Line: "WAN Miniport (L2TP)"
                     Permanent ID: 12345678910
-    
+
     NDIS Proxy TAPI Service Provider
             Line: "LPT1DOMAIN1\User1"
                     Permanent ID: 12345678910
-    
+
     Microsoft H.323 Telephony Service Provider
             Line: "H323 Line"
                     Permanent ID: 123456
                     Addresses:
                             BLDG1-TAPI32
-    
+
     ```
 
-#### <a name="additional-references"></a>其他参考
+#### Additional references
 
-[命令行语法解答](command-line-syntax-key.md)
+[Command-Line Syntax Key](command-line-syntax-key.md)
 
-[命令行解释器概述](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)
+[Command shell overview](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)

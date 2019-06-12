@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 7ce84c9f-fd1f-4463-8fc7-d2f33344a2c9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c58ff97e286f91610a321801d177a2977349fa78
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1a289700efc35b8a515084c738746333cb0c9838
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840458"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446879"
 ---
 # <a name="identify-and-resolve-remote-access-server-operations-problems"></a>识别并解决远程访问服务器操作问题
 
@@ -57,9 +57,9 @@ IP 帮助程序服务 (IPHlpSvc) 的主机 IPv6 转换技术 （如 IP-HTTPS、 
   
 ##### <a name="to-identify-the-details-and-take-corrective-action"></a>若要标识详细信息并采取纠正措施  
   
-1.  在“服务器管理器”中，单击“工具”，然后单击“远程访问管理”。  
+1.  在“服务器管理器”  中，单击“工具”  ，然后单击“远程访问管理”  。  
   
-2.  单击“仪表板”以导航到“远程访问管理控制台”中的“远程访问仪表板”。  
+2.  单击“仪表板”  以导航到“远程访问管理控制台”  中的“远程访问仪表板”  。  
   
 3.  请确保在左侧窗格中，选择您的远程访问服务器，然后在中间窗格中，单击**操作状态**。  
   
@@ -92,7 +92,7 @@ IP 帮助程序服务 (IPHlpSvc) 的主机 IPv6 转换技术 （如 IP-HTTPS、 
   
 2.  在列表中**Services**，向下滚动并右键单击**IP 帮助程序**，然后单击**启动**。  
   
-![Windows PowerShell](../../../media/Identify-and-resolve-Remote-Access-server-operations-problems/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![Windows PowerShell](../../../media/Identify-and-resolve-Remote-Access-server-operations-problems/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   

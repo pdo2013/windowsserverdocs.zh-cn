@@ -9,12 +9,12 @@ ms.prod: windows-server-threshold
 ms.assetid: a5307da5-02ff-4c31-80f0-47cb17a87272
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: db58fcce054f34c4b0a3f6725456badae9fd0468
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 32b0d08f678e9e612bb0ce9cc38d254564bd9b2f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879308"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444088"
 ---
 # <a name="ad-fs-and-certificate-keyspec-property-information"></a>AD FS 和证书 KeySpec 属性信息
 密钥规范 ("KeySpec") 是与证书和密钥关联的属性。 它指定是否可以签名、 加密和 / 或使用与证书关联的私钥。   
@@ -53,8 +53,8 @@ KeySpec 值**1**，或**AT_KEYEXCHANGE**，可以用于签名和加密。  值�
 ### <a name="example"></a>示例
 旧 CSP 的一个示例是 Microsoft Enhanced Cryptographic Provider。 
 
-Microsoft RSA CSP 密钥 blob 格式包括算法标识符，或者**CALG_RSA_KEYX**或**CALG_RSA_SIGN**分别为请求提供服务 * * AT_KEYEXCHANGE * * 或**AT_签名**密钥。
-  
+Microsoft RSA CSP 密钥 blob 格式包括算法标识符，或者**CALG_RSA_KEYX**或**CALG_RSA_SIGN**分别为请求提供服务<strong>AT_KEYEXCHANGE * * 或 * * AT_签名</strong>密钥。
+
 RSA 密钥算法标识符映射到 KeySpec 值，如下所示
 
 | 提供程序支持算法| CAPI 调用密钥规范值 |
@@ -82,21 +82,22 @@ CALG_RSA_SIGN:RSA 签名密钥 |AT_SIGNATURE (或 KeySpec = 2)|
 
 
 1. **提供程序类型：** 这表示是否将证书使用旧的加密存储提供程序 (CSP) 或密钥存储提供程序基于上较新证书 Next Generation (CNG) Api。  任何非零值指示旧的提供程序。
-2.  **KeySpec:** 以下是有效的 AD FS 证书 KeySpec 值：
+2. **KeySpec:** 以下是有效的 AD FS 证书 KeySpec 值：
 
-    旧 CSP 提供程序 （不等于 0 提供程序类型）：
-    
-    |AD FS 证书用途|有效 KeySpec 值|
-    | --- | --- |
-    |服务通信|1|
-    |令牌解密|1|
-    |令牌签名|1 和 2|
-    |SSL|1|
+   旧 CSP 提供程序 （不等于 0 提供程序类型）：
 
-    CNG 提供程序 (提供程序类型 = 0):
-    |AD FS 证书用途|有效 KeySpec 值|
-    | --- | --- |   
-    |SSL|0|
+   |AD FS 证书用途|有效 KeySpec 值|
+   | --- | --- |
+   |服务通信|1|
+   |令牌解密|1|
+   |令牌签名|1 和 2|
+   |SSL|1|
+
+   CNG 提供程序 (提供程序类型 = 0):
+
+   |AD FS 证书用途|有效 KeySpec 值|
+   | --- | --- |   
+   |SSL|0|
 
 ## <a name="how-to-change-the-keyspec-for-your-certificate-to-a-supported-value"></a>如何为支持的值更改为证书 keyspec
 更改 KeySpec 值不需要重新生成或重新颁发的证书颁发机构的证书。  可以通过重新导入完整的证书和私钥的 PFX 文件中使用以下步骤在证书存储区更改 KeySpec:

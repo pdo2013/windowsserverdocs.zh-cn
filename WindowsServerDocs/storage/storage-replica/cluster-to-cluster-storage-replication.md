@@ -9,12 +9,12 @@ ms.assetid: 834e8542-a67a-4ba0-9841-8a57727ef876
 author: nedpyle
 ms.date: 04/26/2019
 description: 如何使用存储副本复制到运行 Windows Server 的另一个群集的一个群集中的卷。
-ms.openlocfilehash: 2e3245320b2ef7035ac600ff783684083f3f929a
-ms.sourcegitcommit: 0099873d69bd23495d275d7bcb464594de09ee3c
+ms.openlocfilehash: 9d4b7eb05576095abd5d8c905211b2a5e88555bd
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65699902"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447630"
 ---
 # <a name="cluster-to-cluster-storage-replication"></a>群集到群集存储复制
 
@@ -57,7 +57,7 @@ ms.locfileid: "65699902"
 
 ## <a name="step-1-provision-operating-system-features-roles-storage-and-network"></a>第 1 步：设置操作系统、功能、角色、存储和网络
 
-1.  Windows Server 的安装类型的所有四个服务器节点上安装 Windows Server **（桌面体验）**。 
+1.  Windows Server 的安装类型的所有四个服务器节点上安装 Windows Server **（桌面体验）** 。 
 
 2.  添加网络信息并将其添加到域，然后对其重启。  
 
@@ -139,8 +139,8 @@ ms.locfileid: "65699902"
 
 2. 确保 SR 日志卷将始终位于速度最快的闪存存储上，而数据卷位于速度较慢的高容量存储上。
 
-10. 启动 Windows PowerShell，并使用 `Test-SRTopology` cmdlet，以确定是否满足存储副本的所有要求。 可以在仅要求模式下使用 cmdlet 以用于快速测试，也可以在长时间运行的性能评估模式下使用。  
-例如，  
+3. 启动 Windows PowerShell，并使用 `Test-SRTopology` cmdlet，以确定是否满足存储副本的所有要求。 可以在仅要求模式下使用 cmdlet 以用于快速测试，也可以在长时间运行的性能评估模式下使用。  
+   例如，  
 
    ```PowerShell
    MD c:\temp
@@ -148,13 +148,13 @@ ms.locfileid: "65699902"
    Test-SRTopology -SourceComputerName SR-SRV01 -SourceVolumeName f: -SourceLogVolumeName g: -DestinationComputerName SR-SRV03 -DestinationVolumeName f: -DestinationLogVolumeName g: -DurationInMinutes 30 -ResultPath c:\temp        
    ```
 
-      > [!IMPORTANT]
-      > 在评估期间，当在指定源卷上使用无写入 IO 负载的测试服务器时，请考虑添加工作负载，否则它将不会生成有用的报表。 你应该使用与生产类似的工作负载进行测试，以便看到真实的数值和建议的日志大小。 或者，只需在测试期间将一些文件复制到源卷或下载并运行 [DISKSPD](https://gallery.technet.microsoft.com/DiskSpd-a-robust-storage-6cd2f223) 以生成写入 IO。 例如，D: 卷的五分钟的较低写入 IO 工作负载：  
-      > `Diskspd.exe -c1g -d300 -W5 -C5 -b8k -t2 -o2 -r -w5 -h d:\test.dat`  
+     > [!IMPORTANT]
+     > 在评估期间，当在指定源卷上使用无写入 IO 负载的测试服务器时，请考虑添加工作负载，否则它将不会生成有用的报表。 你应该使用与生产类似的工作负载进行测试，以便看到真实的数值和建议的日志大小。 或者，只需在测试期间将一些文件复制到源卷或下载并运行 [DISKSPD](https://gallery.technet.microsoft.com/DiskSpd-a-robust-storage-6cd2f223) 以生成写入 IO。 例如，D: 卷的五分钟的较低写入 IO 工作负载：  
+     > `Diskspd.exe -c1g -d300 -W5 -C5 -b8k -t2 -o2 -r -w5 -h d:\test.dat`  
 
-11. 检查 **TestSrTopologyReport.html** 报表以确保符合存储副本要求。  
+4. 检查 **TestSrTopologyReport.html** 报表以确保符合存储副本要求。  
 
-    ![显示复制拓扑报告结果的屏幕](./media/Cluster-to-Cluster-Storage-Replication/SRTestSRTopologyReport.png)      
+   ![显示复制拓扑报告结果的屏幕](./media/Cluster-to-Cluster-Storage-Replication/SRTestSRTopologyReport.png)      
 
 ## <a name="step-2-configure-two-scale-out-file-server-failover-clusters"></a>步骤 2：配置两个横向扩展文件服务器故障转移群集  
 现在可以创建两个常规故障转移群集。 配置、验证和测试完成后，将使用存储副本对其复制。 直接在群集节点上或从包含 Windows Server 的远程服务器管理工具的远程管理计算机，您可以执行所有以下步骤。  
@@ -212,89 +212,89 @@ ms.locfileid: "65699902"
 ## <a name="step-3-set-up-cluster-to-cluster-replication-using-windows-powershell"></a>步骤 3:设置使用 Windows PowerShell 的群集到群集复制  
 现在使用 Windows PowerShell 设置群集到群集复制。 您可以直接在节点上或从包含 Windows Server 的远程服务器管理工具的远程管理计算机执行所有以下步骤  
 
-1.  通过运行授予对另一个群集的第一个群集完全访问**授予 SRAccess** cmdlet 上的第一个群集中的任何节点或远程。  Windows Server 远程服务器管理工具
+1. 通过运行授予对另一个群集的第一个群集完全访问**授予 SRAccess** cmdlet 上的第一个群集中的任何节点或远程。  Windows Server 远程服务器管理工具
 
-    ```PowerShell
-    Grant-SRAccess -ComputerName SR-SRV01 -Cluster SR-SRVCLUSB  
-    ```  
+   ```PowerShell
+   Grant-SRAccess -ComputerName SR-SRV01 -Cluster SR-SRVCLUSB  
+   ```  
 
-2.  通过运行授予对另一个群集的第二个群集完全访问**授予 SRAccess** cmdlet 在第二个群集中的任何节点上或远程。  
+2. 通过运行授予对另一个群集的第二个群集完全访问**授予 SRAccess** cmdlet 在第二个群集中的任何节点上或远程。  
 
-    ```PowerShell
-    Grant-SRAccess -ComputerName SR-SRV03 -Cluster SR-SRVCLUSA  
-    ```  
+   ```PowerShell
+   Grant-SRAccess -ComputerName SR-SRV03 -Cluster SR-SRVCLUSA  
+   ```  
 
-3.  配置群集到群集复制、指定源和目标磁盘、源和目标日志、源和目标群集名称以及日志大小。 可以在服务器上本地执行此命令，也可以使用远程管理计算机执行。  
+3. 配置群集到群集复制、指定源和目标磁盘、源和目标日志、源和目标群集名称以及日志大小。 可以在服务器上本地执行此命令，也可以使用远程管理计算机执行。  
 
-    ```powershell  
-    New-SRPartnership -SourceComputerName SR-SRVCLUSA -SourceRGName rg01 -SourceVolumeName c:\ClusterStorage\Volume2 -SourceLogVolumeName f: -DestinationComputerName SR-SRVCLUSB -DestinationRGName rg02 -DestinationVolumeName c:\ClusterStorage\Volume2 -DestinationLogVolumeName f:  
-    ```  
+   ```powershell  
+   New-SRPartnership -SourceComputerName SR-SRVCLUSA -SourceRGName rg01 -SourceVolumeName c:\ClusterStorage\Volume2 -SourceLogVolumeName f: -DestinationComputerName SR-SRVCLUSB -DestinationRGName rg02 -DestinationVolumeName c:\ClusterStorage\Volume2 -DestinationLogVolumeName f:  
+   ```  
 
-    > [!WARNING]  
-    > 默认日志大小为 8 GB。 根据 **Test-SRTopology** cmdlet 的结果，可以决定使用具有较高值或较低值的 **LogSizeInBytes**。  
+   > [!WARNING]  
+   > 默认日志大小为 8 GB。 根据 **Test-SRTopology** cmdlet 的结果，可以决定使用具有较高值或较低值的 **LogSizeInBytes**。  
 
-4.  若要获取复制源和目标状态，请使用 **Get-SRGroup** 和 **Get-SRPartnership**，如下所示：  
+4. 若要获取复制源和目标状态，请使用 **Get-SRGroup** 和 **Get-SRPartnership**，如下所示：  
 
-    ```powershell
-    Get-SRGroup  
-    Get-SRPartnership  
-    (Get-SRGroup).replicas  
-    ```  
+   ```powershell
+   Get-SRGroup  
+   Get-SRPartnership  
+   (Get-SRGroup).replicas  
+   ```  
 
-5.  确定复制进度，如下所示：  
+5. 确定复制进度，如下所示：  
 
-    1.  在源服务器上，运行以下命令并检查事件 5015、5002、5004、1237、5001 和2200：
+   1.  在源服务器上，运行以下命令并检查事件 5015、5002、5004、1237、5001 和2200：
         
-        ```PowerShell
-        Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica -max 20
-        ```
-    2.  在目标服务器上，运行以下命令以查看显示合作关系创建的存储副本事件。 此事件会显示复制的字节数和所用的时间。 例如：  
-        
-        ```powershell
-        Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica | Where-Object {$_.ID -eq "1215"} | Format-List
-        ```
-        下面是输出示例：
-        
-        ```
-        TimeCreated  : 4/8/2016 4:12:37 PM  
-        ProviderName : Microsoft-Windows-StorageReplica  
-        Id           : 1215  
-        Message      : Block copy completed for replica.  
-            ReplicationGroupName: rg02  
-            ReplicationGroupId:  
-            {616F1E00-5A68-4447-830F-B0B0EFBD359C}  
-            ReplicaName: f:\  
-            ReplicaId: {00000000-0000-0000-0000-000000000000}  
-            End LSN in bitmap:  
-            LogGeneration: {00000000-0000-0000-0000-000000000000}  
-            LogFileId: 0  
-            CLSFLsn: 0xFFFFFFFF  
-            Number of Bytes Recovered: 68583161856  
-            Elapsed Time (seconds): 117  
-        ```
-    3. 或者，副本的目标服务器组规定要复制的剩余字节数，且可通过 PowerShell 查询。 例如：
-
        ```PowerShell
-       (Get-SRGroup).Replicas | Select-Object numofbytesremaining
+       Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica -max 20
        ```
+   2.  在目标服务器上，运行以下命令以查看显示合作关系创建的存储副本事件。 此事件会显示复制的字节数和所用的时间。 例如：  
+        
+       ```powershell
+       Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica | Where-Object {$_.ID -eq "1215"} | Format-List
+       ```
+       下面是输出示例：
+        
+       ```
+       TimeCreated  : 4/8/2016 4:12:37 PM  
+       ProviderName : Microsoft-Windows-StorageReplica  
+       Id           : 1215  
+       Message      : Block copy completed for replica.  
+           ReplicationGroupName: rg02  
+           ReplicationGroupId:  
+           {616F1E00-5A68-4447-830F-B0B0EFBD359C}  
+           ReplicaName: f:\  
+           ReplicaId: {00000000-0000-0000-0000-000000000000}  
+           End LSN in bitmap:  
+           LogGeneration: {00000000-0000-0000-0000-000000000000}  
+           LogFileId: 0  
+           CLSFLsn: 0xFFFFFFFF  
+           Number of Bytes Recovered: 68583161856  
+           Elapsed Time (seconds): 117  
+       ```
+   3. 或者，副本的目标服务器组规定要复制的剩余字节数，且可通过 PowerShell 查询。 例如：
 
-       作为进度示例（它将不会终止）：  
+      ```PowerShell
+      (Get-SRGroup).Replicas | Select-Object numofbytesremaining
+      ```
 
-       ```PowerShell
-         while($true) {  
-         $v = (Get-SRGroup -Name "Replication 2").replicas | Select-Object numofbytesremaining  
-         [System.Console]::Write("Number of bytes remaining: {0}`n", $v.numofbytesremaining)  
-         Start-Sleep -s 5  
-        }
-        ```
+      作为进度示例（它将不会终止）：  
+
+      ```PowerShell
+        while($true) {  
+        $v = (Get-SRGroup -Name "Replication 2").replicas | Select-Object numofbytesremaining  
+        [System.Console]::Write("Number of bytes remaining: {0}`n", $v.numofbytesremaining)  
+        Start-Sleep -s 5  
+       }
+       ```
 
 6. 在目标群集中的目标服务器上，运行以下命令并检查事件 5009、1237、5001、5015、5005 和 2200 以了解处理进度。 在该序列中不应有错误的警告。 将有许多 1237 事件；这些表示进度。  
     
    ```PowerShell
    Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica | FL  
    ```
-   > [!NOTE]  
-        > 在复制时，目标群集磁盘将始终显示为**联机（无访问权限）**。  
+   > [!NOTE]
+   > 在复制时，目标群集磁盘将始终显示为**联机（无访问权限）** 。  
 
 ## <a name="step-4-manage-replication"></a>步骤 4：管理复制
 
@@ -370,7 +370,7 @@ ms.locfileid: "65699902"
     检查事件日志以查看复制方向的更改和恢复恢复模式发生，然后进行协调。 写入 IO 然后可以写入到新的源服务器所拥有的存储。 更改复制方向将阻止在以前的源计算机上写入 IO。  
 
     > [!NOTE]  
-    > 在复制时，目标群集磁盘将始终显示为**联机（无访问权限）**。  
+    > 在复制时，目标群集磁盘将始终显示为**联机（无访问权限）** 。  
 
 4.  若要更改默认的 8 GB 日志大小，请使用**Set-srgroup**源和目标存储副本组上。  
 

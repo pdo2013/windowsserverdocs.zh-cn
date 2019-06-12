@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 77a4702ddab987cb3adda7627badb790e3102952
-ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.openlocfilehash: 4acc5e284d5ca7a62335a1c52f341cda3dfb547e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66308545"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439728"
 ---
 # <a name="wsus-messages-and-troubleshooting-tips"></a>WSUS 消息和疑难解答提示
 
@@ -48,13 +48,13 @@ WSUS 客户端计算机不发送到 WSUS 服务器，用于指示其当前的更
 
 ## <a name="message-id-6703---wsus-synchronization-failed"></a>消息 ID 6703-WSUS 同步失败
 > 消息：请求失败，HTTP 状态 503:服务不可用。
-
+> 
 > 源：Microsoft.UpdateServices.Administration.AdminProxy.createUpdateServer.
 
 当您尝试打开 WSUS 服务器上更新服务时您会收到以下错误：
 
 > 错误：连接错误
-
+> 
 > 尝试连接到 WSUS 服务器时出错。 多种原因，可能发生此错误。 请如果问题仍然存在，与网络管理员联系。 单击重置服务器节点，以重新连接到服务器。
 
 除此之外，尝试访问 WSUS 管理网站的 URL (即， `http://CM12CAS:8530`) 失败，出现错误：
@@ -88,8 +88,8 @@ WSUS 安装程序使用 Microsoft SQL Server 来执行安装。 因为在运行 
 
 - **SQL 服务：** 除了 selfupdate 服务的每个服务要求 SQL 服务正在运行。 如果任何日志文件指示 SQL 连接问题，请先检查 SQL 服务。 若要访问 SQL 服务，请单击**启动**，依次指向**管理工具**，单击**Services**，然后查找以下项之一：
     
-    -   **MSSQLSERver** （如果使用的 WMSDE 或 MSDE 中，或者如果您使用 SQL Server，并且使用实例名称的默认实例名称）
+  - **MSSQLSERver** （如果使用的 WMSDE 或 MSDE 中，或者如果您使用 SQL Server，并且使用实例名称的默认实例名称）
     
-    -   **MSSQL$ WSUS** （如果您使用的是 SQL Server 数据库和"WSUS"具有命名的数据库实例）
+  - **MSSQL$ WSUS** （如果您使用的是 SQL Server 数据库和"WSUS"具有命名的数据库实例）
     
     右键单击该服务，然后依次**启动**如果服务未运行，或**重新启动**时将刷新该服务正在运行。

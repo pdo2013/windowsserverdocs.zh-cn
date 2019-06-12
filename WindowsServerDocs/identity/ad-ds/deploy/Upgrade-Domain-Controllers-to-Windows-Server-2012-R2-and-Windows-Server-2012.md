@@ -9,12 +9,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: e3b44dbc1c869680db91f5e9732a50504d80e7b8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 6dda30bd15bedab8ea5ca8ca2e9597e1cc196e43
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877498"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443050"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2012-r2-and-windows-server-2012"></a>将域控制器升级到 Windows Server 2012 R2 和 Windows Server 2012
 
@@ -125,9 +125,9 @@ Windows 8 和 Windows Server 2012 引入了一种名为 [自动维护](https://m
 |||  
 |-|-|  
 |**方案**|**推荐的配置**|  
-|**托管的 WSUS**<br /><br />-安装更新一次每周<br />-在重新启动周五晚上 11 点|将计算机设置为自动安装，在所需时间之前阻止自动重新启动<br /><br />策略：配置自动更新（已启用）<br /><br />配置自动更新：4-自动下载并计划安装<br /><br />策略：不为登录的用户 （已禁用） 重新启动<br /><br />**WSUS 截止时间**：设置为周五晚上 11 点|  
+|**托管的 WSUS**<br /><br />-安装更新一次每周<br />-在重新启动周五晚上 11 点|将计算机设置为自动安装，在所需时间之前阻止自动重新启动<br /><br />策略  ：配置自动更新（已启用）<br /><br />配置自动更新：4-自动下载并计划安装<br /><br />策略  ：不为登录的用户 （已禁用） 重新启动<br /><br />**WSUS 截止时间**：设置为周五晚上 11 点|  
 |**托管的 WSUS**<br /><br />-跨不同的小时/天交错安装|为应该一起更新的计算机的不同组设置目标组<br /><br />为之前的方案使用上述步骤<br /><br />为不同的目标组设置不同的截止时间|  
-|**非 WSUS 管理-不支持的截止时间**<br /><br />-交错安装在不同的时间|策略：配置自动更新（已启用）<br /><br />配置自动更新：4-自动下载并计划安装<br /><br />**注册表项：** 启用 Microsoft 知识库文章中讨论的注册表项[2835627](https://support.microsoft.com/kb/2835627)<br /><br />**策略：** 自动维护随机延迟（已启用）<br /><br />为 6 小时随机延迟将“常规维护随机延迟”设置为 PT6H 以提供以下行为：<br /><br />-更新将安装配置的维护时间加上随机延迟<br /><br />-重新启动每台计算机将需要进行完全 3 天更高版本<br /><br />此外，为每个计算机组设置不同的维护时间|  
+|**非 WSUS 管理-不支持的截止时间**<br /><br />-交错安装在不同的时间|策略  ：配置自动更新（已启用）<br /><br />配置自动更新：4-自动下载并计划安装<br /><br />**注册表项：** 启用 Microsoft 知识库文章中讨论的注册表项[2835627](https://support.microsoft.com/kb/2835627)<br /><br />**策略：** 自动维护随机延迟（已启用）<br /><br />为 6 小时随机延迟将“常规维护随机延迟”  设置为 PT6H 以提供以下行为：<br /><br />-更新将安装配置的维护时间加上随机延迟<br /><br />-重新启动每台计算机将需要进行完全 3 天更高版本<br /><br />此外，为每个计算机组设置不同的维护时间|  
 
 有关 Windows 工程团队已实现这些更改的原因的详细信息，请参阅 [在 Windows Update 的自动更新中尽量减少重新启动](http://blogs.msdn.com/b/b8/archive/2011/11/14/minimizing-restarts-after-automatic-updating-in-windows-update.aspx)。  
 
@@ -150,8 +150,8 @@ AD DS 安装向导中的先决条件检查可以在开始安装之前识别潜�
    - Adprep.exe 只有一种版本，可以根据需要在运行 Windows Server 2008 或更高版本的 64 位服务器上运行它。 你可以远程运行 Adprep.exe，如果在 32 位操作系统或 Windows Server 2003 上托管目标操作主机角色，则必须远程运行该程序。  
 - **弃用 Dcpromo.exe**
    - 尽管 Windows Server 2012 中仅它仍可以运行使用应答文件或命令行参数为组织提供时间以现有的自动化转换为新的 Windows PowerShell 安装选项，不推荐使用 Dcpromo。  
--   **针对用户帐户禁用 lm 哈希**
-   - Windows Server 2008、Windows Server 2008 R2 和 Windows Server 2012 上安全模板中的安全默认设置均启用了 NoLMHash 策略，而该项策略在 Windows 2000 和 Windows Server 2003 域控制器的安全模板中则是被禁用的。 请参阅知识库文章 [946405](https://support.microsoft.com/kb/946405)中介绍的步骤，按照要求，禁用依赖于 LMHash 客户端的 NoLMHash 策略。  
+- **针对用户帐户禁用 lm 哈希**
+  - Windows Server 2008、Windows Server 2008 R2 和 Windows Server 2012 上安全模板中的安全默认设置均启用了 NoLMHash 策略，而该项策略在 Windows 2000 和 Windows Server 2003 域控制器的安全模板中则是被禁用的。 请参阅知识库文章 [946405](https://support.microsoft.com/kb/946405)中介绍的步骤，按照要求，禁用依赖于 LMHash 客户端的 NoLMHash 策略。  
 
 从 Windows Server 2008 开始，域控制器还包含下列安全默认设置，运行 Windows Server 2003 或 Windows 2000 的域控制器相比。
 

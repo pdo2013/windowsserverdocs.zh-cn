@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 018d94e08cc15780cf0aa861b06b915538c21122
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 249eb82bb40890e071bd7d1eca3a0201064fa01e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865858"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437947"
 ---
 # <a name="ksetupsetrealmflags"></a>ksetup:setrealmflags
 
@@ -53,7 +53,7 @@ ksetup /setrealmflags <RealmName> [sendaddress] [tcpsupported] [delegate] [ncsup
 |0x08|NcSupported|此领域支持名称规范化，允许对 DNS 和领域命名标准。|
 |0x80|RC4|此领域支持 RC4 加密来启用跨领域信任，可以利用 TLS。|
 
-注册表中存储领域标志**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Domains\*** RealmName *。 默认情况下，注册表中不存在此项。 可以使用[Ksetup:addrealmflags](ksetup-addrealmflags.md)命令来填充注册表。
+注册表中存储领域标志**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Domains\\** <em>RealmName</em>。 默认情况下，注册表中不存在此项。 可以使用[Ksetup:addrealmflags](ksetup-addrealmflags.md)命令来填充注册表。
 
 您可以看到哪些领域标志是可用，并且已设置通过查看的输出**ksetup**。
 
@@ -67,11 +67,11 @@ ksetup
 ```
 ksetup /setrealmflags CONTOSO ncsupported delegate
 ```
-运行**ksetup**命令来验证是否通过查看输出并查找设置领域标志**领域标志 =**。
+运行**ksetup**命令来验证是否通过查看输出并查找设置领域标志**领域标志 =** 。
 
 #### <a name="additional-references"></a>其他参考
 
 -   [Ksetup:listrealmflags](ksetup-listrealmflags.md)
 -   [Ksetup:addrealmflags](ksetup-addrealmflags.md)
 -   [Ksetup:delrealmflags](ksetup-delrealmflags.md)
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)

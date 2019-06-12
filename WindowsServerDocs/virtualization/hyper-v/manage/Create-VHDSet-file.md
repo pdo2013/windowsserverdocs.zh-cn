@@ -11,12 +11,12 @@ ms.technology: compute-hyper-v
 ms.assetid: 444e1496-9e5a-41cf-bfbc-306e2ed8e00a
 audience: IT Pros
 ms.reviewer: kathydav
-ms.openlocfilehash: 61f2450857cbeaffd7f75f7b259e9f9de06ba5c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a5a6f79d362b9058ca29d979457a1dcdfc0c9f82
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870398"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445688"
 ---
 # <a name="create-hyper-v-vhd-set-files"></a>创建 HYPER-V VHD 设置文件
 设置 VHD 文件是针对 Windows Server 2016 中来宾群集的新共享的虚拟磁盘模型。 VHD 设置文件支持的共享的虚拟磁盘的联机大小调整、 支持的 HYPER-V 副本和可以包括在应用程序一致的检查点。 
@@ -27,7 +27,7 @@ HYPER-V 处理管理检查点链的所有方面，并合并共享的 VHD 设置�
 
 ## <a name="create-a-vhd-set-file-from-hyper-v-manager"></a>从 Hyper-v 管理器创建的 VHD 设置文件
 
-1.  打开 Hyper-V 管理器。 单击 **“开始”**，指向 **“管理工具”**，然后单击 **“Hyper-V 管理器”**。
+1.  打开 Hyper-V 管理器。 单击 **“开始”** ，指向 **“管理工具”** ，然后单击 **“Hyper-V 管理器”** 。
 2.  在操作窗格中，单击**新建**，然后单击**硬盘**。
 3.  上**选择磁盘格式**页上，选择**VHD 设置**作为虚拟硬盘格式。
 4.  继续完成向导后，若要自定义虚拟硬盘的页。 可以单击**下一步**浏览每一页的向导中，也可以单击页面直接移至该页面的左窗格中的名称。
@@ -45,20 +45,20 @@ PS c:\>New-VHD -Path c:\base.vhds -SizeBytes 10GB
 
 将现有的共享的 VHDX 迁移到 VHD 需要使 VM 脱机。 这是使用 Windows PowerShell 的建议的过程：
 
-1.  从 VM 删除的 VHDX。 例如，运行： 
-  ``` PowerShell
-  PS c:\>Remove-VMHardDiskDrive existing.vhdx
-  ```
+1. 从 VM 删除的 VHDX。 例如，运行： 
+   ``` PowerShell
+   PS c:\>Remove-VMHardDiskDrive existing.vhdx
+   ```
   
-2.  将 VHDX 转换为 VHD。 例如，运行：
-  ``` PowerShell
-  PS c:\>Convert-VHD existing.vhdx new.vhds
-  ```
+2. 将 VHDX 转换为 VHD。 例如，运行：
+   ``` PowerShell
+   PS c:\>Convert-VHD existing.vhdx new.vhds
+   ```
   
-3.  将 VHD 添加到 VM。 例如，运行：
-  ``` PowerShell
-  PS c:\>Add-VMHardDiskDrive new.vhds
-  ```
+3. 将 VHD 添加到 VM。 例如，运行：
+   ``` PowerShell
+   PS c:\>Add-VMHardDiskDrive new.vhds
+   ```
   
 
 

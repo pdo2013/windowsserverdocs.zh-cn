@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: f51c9e38-98bb-49c1-9d39-427d07021499
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ef4f10a6ac1998850758f2c9db86bfd950c1ad70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 15da16094a47a2492dc9054e0671c3709fe23362
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833278"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446452"
 ---
 # <a name="install-the-web-server-web1"></a>安装 Web 服务器 WEB1
 
@@ -34,14 +34,14 @@ Windows Server 2016 中的 Web 服务器 (IIS) 角色以可靠地托管网站、
 >若要使用 Windows PowerShell 执行此过程，打开 PowerShell，键入以下命令，然后按 ENTER。  
 `Install-WindowsFeature Web-Server -IncludeManagementTools`  
 
-1.  在“服务器管理器”中，单击“管理”，然后单击“添加角色和功能”。 将打开“添加角色和功能向导”。  
-2.  在“开始之前”中单击“下一步”。  
+1.  在“服务器管理器”中，单击“管理”  ，然后单击“添加角色和功能”  。 将打开“添加角色和功能向导”。  
+2.  在“开始之前”  中单击“下一步”  。  
 
 **请注意**   
 **开始之前**添加角色和功能向导的页未显示如果以前运行的添加角色和功能向导并选中**默认情况下跳过此页**在该时间。  
 
-3.  在 **“安装类型”** 页上，单击 **“下一步”**。  
-4.  上**服务器选择**页上，单击**下一步**。  
-5.  上**服务器角色**页上，选择**Web 服务器 (IIS)**，然后单击**下一步**。  
-6.  单击 **“下一步”** 直到接受了所有默认的 web 服务器设置，然后单击 **“安装”**。  
-7.  验证是否所有安装都已成功，然后单击“关闭”。
+3. 在 **“安装类型”** 页上，单击 **“下一步”** 。  
+4. 上**服务器选择**页上，单击**下一步**。  
+5. 上**服务器角色**页上，选择**Web 服务器 (IIS)** ，然后单击**下一步**。  
+6. 单击 **“下一步”** 直到接受了所有默认的 web 服务器设置，然后单击 **“安装”** 。  
+7. 验证是否所有安装都已成功，然后单击“关闭”  。

@@ -9,18 +9,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1e37aded450555d293806d1ed8903a51e3df9424
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0ffa4273a2c776a16f3ea0ce77d1b3a528481468
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839138"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445159"
 ---
-#<a name="client-access-policy-claim-types-in-ad-fs"></a>客户端访问策略的声明类型中的 AD FS
+# <a name="client-access-policy-claim-types-in-ad-fs"></a>客户端访问策略的声明类型中的 AD FS
 
 若要提供额外的请求上下文信息，客户端访问策略，请使用 AD FS 生成从处理的请求标头信息的以下声明类型。  有关详细信息请参阅[声明引擎的角色](../technical-reference/the-role-of-the-claims-engine.md)。
 
-##<a name="x-ms-forwarded-client-ip"></a>X-MS-Forwarded-Client-IP
+## <a name="x-ms-forwarded-client-ip"></a>X-MS-Forwarded-Client-IP
 
 声明类型： `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`
 
@@ -32,8 +32,8 @@ ms.locfileid: "59839138"
     >![注意]企业网络上的客户端的 IP 地址将显示为组织的出站代理服务器或网关的外部接口 IP 地址。
 
 - 一个或多个 IP 地址
-    - 如果无法确定 Exchange Online 的连接的客户端的 IP 地址，它会设置值的基础 x 转发的标头，可以包含在基于 HTTP 的非标准标头请求和支持的多个客户端，负载均衡器的值和市场上的代理。
-    - 将由逗号分隔多个 IP 地址，该值指示客户端 IP 地址和每个传递请求的代理服务器的地址。
+  - 如果无法确定 Exchange Online 的连接的客户端的 IP 地址，它会设置值的基础 x 转发的标头，可以包含在基于 HTTP 的非标准标头请求和支持的多个客户端，负载均衡器的值和市场上的代理。
+  - 将由逗号分隔多个 IP 地址，该值指示客户端 IP 地址和每个传递请求的代理服务器的地址。
 
     >![注意]Exchange Online 基础结构相关的 IP 地址不会出现在列表中。
 

@@ -8,12 +8,12 @@ ms.topic: article
 author: gawatu
 ms.date: 10/17/2018
 ms.assetid: ''
-ms.openlocfilehash: ba7454f58255ba7a66624a5c59b062da9f871063
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0f4fb73941c5d6667d3c13356b6f29178d73788f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865938"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447680"
 ---
 # <a name="mirror-accelerated-parity"></a>镜像加速奇偶校验
 
@@ -100,12 +100,12 @@ ReFS 压缩可为热数据释放镜像中的空间，从而使这些性能问题
 ### <a name="performance-counters"></a>性能计数器
 
 ReFS 可维护性能计数器，以帮助评估镜像加速奇偶校验的性能。 
--   如上面的“写入奇偶校验”部分所述，ReFS 将在镜像中找不到可用空间时直接写入奇偶校验。 通常，如果镜像层的填充速度比 ReFS 可将数据旋转到奇偶校验的速度要快，则会出现这种情况。 换而言之，ReFS 旋转跟不上引入速率。 下面的性能计数器可标识 ReFS 直接写入奇偶校验的时间：
-```
-ReFS\Data allocations slow tier/sec
-ReFS\Metadata allocations slow tier/sec
-```
--   如果这些计数器非零，这表示 ReFS 无法足够快地将数据旋出镜像。 为了帮助解决这一问题，用户可以更改旋转主动性，或增加镜像层的大小。
+- 如上面的“写入奇偶校验”部分所述，ReFS 将在镜像中找不到可用空间时直接写入奇偶校验。 通常，如果镜像层的填充速度比 ReFS 可将数据旋转到奇偶校验的速度要快，则会出现这种情况。 换而言之，ReFS 旋转跟不上引入速率。 下面的性能计数器可标识 ReFS 直接写入奇偶校验的时间：
+  ```
+  ReFS\Data allocations slow tier/sec
+  ReFS\Metadata allocations slow tier/sec
+  ```
+- 如果这些计数器非零，这表示 ReFS 无法足够快地将数据旋出镜像。 为了帮助解决这一问题，用户可以更改旋转主动性，或增加镜像层的大小。
 
 ### <a name="rotation-aggressiveness"></a>旋转入侵
 

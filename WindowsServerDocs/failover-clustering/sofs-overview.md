@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 3e6d67eee496d19b216a4366af51ab5736229cf0
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: e38c53c3458c3f66f24ea2ddaa66febf508c4568
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476145"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442455"
 ---
 # <a name="scale-out-file-server-for-application-data-overview"></a>应用程序数据用横向扩展文件服务器概述
 
@@ -177,25 +177,25 @@ ms.locfileid: "65476145"
 <td>文件管理</td>
 <td>文件夹重定向</td>
 <td>是</td>
-<td>不建议*</td>
+<td>不建议这样做<em></td>
 </tr>
 <tr class="odd">
 <td>文件管理</td>
 <td>脱机文件（客户端缓存）</td>
 <td>是</td>
-<td>不建议*</td>
+<td>不建议</em></td>
 </tr>
 <tr class="even">
 <td>文件管理</td>
 <td>漫游用户配置文件</td>
 <td>是</td>
-<td>不建议*</td>
+<td>不建议这样做<em></td>
 </tr>
 <tr class="odd">
 <td>文件管理</td>
 <td>主目录</td>
 <td>是</td>
-<td>不建议*</td>
+<td>不建议</em></td>
 </tr>
 <tr class="even">
 <td>文件管理</td>
@@ -256,13 +256,13 @@ ms.locfileid: "65476145"
 <tbody>
 <tr class="odd">
 <td><a href="failover-clustering.md">故障转移群集</a></td>
-<td>故障转移群集 Windows Server 2012，以支持横向扩展文件服务器中添加了以下功能：分布式的网络名称、 横向扩展文件服务器资源类型、 群集共享卷 (CSV) 2 和横向扩展文件服务器高可用性角色。 有关这些功能的详细信息，请参阅<a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)">What's New in Windows Server 2012 [重定向] 中的故障转移群集</a>。</td>
+<td>故障转移群集 Windows Server 2012，以支持横向扩展文件服务器中添加了以下功能：分布式的网络名称、 横向扩展文件服务器资源类型、 群集共享卷 (CSV) 2 和横向扩展文件服务器高可用性角色。 有关这些功能的详细信息，请参阅<a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)">内容&#39;故障转移群集 [重定向] 的 Windows Server 2012 中新增</a>。</td>
 </tr>
 <tr class="even">
 <td><a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831795(v%3dws.11)">服务器消息块</a></td>
 <td>SMB 3.0 以支持横向扩展文件服务器的 Windows Server 2012 中添加了以下功能：SMB 透明故障转移、SMB 多通道和 SMB 直通。<br />
 <br />
-Windows Server 2012 R2 中 SMB 的新功能和更改功能的详细信息，请参阅<a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831474(v%3dws.11)">What's New in Windows Server 中 SMB</a>。</td>
+Windows Server 2012 R2 中 SMB 的新功能和更改功能的详细信息，请参阅<a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831474(v%3dws.11)">内容&#39;Windows Server 中 SMB 新增</a>。</td>
 </tr>
 </tbody>
 </table>

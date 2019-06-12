@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 6c5b9431-ede3-4438-8cf5-a0091a8633b0
-ms.openlocfilehash: fc49674d518756424acc02bd5b830c361c7400df
-ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.openlocfilehash: 9cfe587983ccce2c9f8ae0f029cf18ade7451465
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64772425"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447640"
 ---
 # <a name="stretch-cluster-replication-using-shared-storage"></a>使用共享存储拉伸群集复制
 
@@ -38,7 +38,7 @@ ms.locfileid: "64772425"
 
 **图 1:拉伸群集中的存储复制**  
 
-## <a name="prerequisites"></a>系统必备  
+## <a name="prerequisites"></a>先决条件  
 -   Active Directory 域服务林（无需运行 Windows Server 2016）。  
 -   2-64 服务器运行 Windows Server 2019 或 Windows Server 2016 Datacenter Edition。 如果您在运行 Windows Server 2019，则可以如果确定要复制单个卷使用 Standard Edition 最多 2 TB 的大小。 
 -   两组共享存储，使用 SAS JBOD（例如与存储空间配合使用）、光纤通道 SAN、共享 VHDX 或 iSCSI 目标。 存储应包含 HDD 和 SSD 媒体的组合，且必须支持永久保留。 使每个存储集仅对两台服务器可用（非对称）。  
@@ -143,80 +143,80 @@ ms.locfileid: "64772425"
 
 #### <a name="graphical-method"></a>图形方法  
 
-1.  运行 **cluadmin.msc**。  
+1. 运行 **cluadmin.msc**。  
 
-2.  验证计划群集并分析结果以确保可以继续。  
+2. 验证计划群集并分析结果以确保可以继续。  
 
-    > [!NOTE]  
-    > 由于使用非对称存储，你在群集验证过程中应该会遇到存储错误。  
+   > [!NOTE]  
+   > 由于使用非对称存储，你在群集验证过程中应该会遇到存储错误。  
 
-3.  创建 Hyper-V 计算群集。 确保群集名称为 15 个字符或更少。 以下使用的示例为 SR-SRVCLUS。 如果节点将驻留在不同的子网中，您必须为群集名称，为每个子网创建 IP 地址，并使用"或者"依赖关系。  可在找到更多信息[配置 IP 地址和多子网群集 – 第 III 部分的依赖关系](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698)。  
+3. 创建 Hyper-V 计算群集。 确保群集名称为 15 个字符或更少。 以下使用的示例为 SR-SRVCLUS。 如果节点将驻留在不同的子网中，您必须为群集名称，为每个子网创建 IP 地址，并使用"或者"依赖关系。  可在找到更多信息[配置 IP 地址和多子网群集 – 第 III 部分的依赖关系](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698)。  
 
-4.  配置文件共享见证或云见证，以在站点丢失事件中提供仲裁。  
+4. 配置文件共享见证或云见证，以在站点丢失事件中提供仲裁。  
 
-    > [!NOTE]  
-    > WIndows Server 现在针对云 (Azure) 中包含一个选项-基于见证服务器。 你可以选择此仲裁选项来替代文件共享见证。  
+   > [!NOTE]  
+   > WIndows Server 现在针对云 (Azure) 中包含一个选项-基于见证服务器。 你可以选择此仲裁选项来替代文件共享见证。  
 
-    > [!WARNING]  
-    > 有关仲裁配置的详细信息，请参阅 [在 Windows Server 2012 故障转移群集指南的见证配置中配置和管理仲裁](https://technet.microsoft.com/library/jj612870.aspx)。 有关 `Set-ClusterQuorum` cmdlet 上的详细信息，请参阅 [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum)。  
+   > [!WARNING]  
+   > 有关仲裁配置的详细信息，请参阅 [在 Windows Server 2012 故障转移群集指南的见证配置中配置和管理仲裁](https://technet.microsoft.com/library/jj612870.aspx)。 有关 `Set-ClusterQuorum` cmdlet 上的详细信息，请参阅 [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum)。  
 
-5.  查看 [在 Windows Server 2012 中的 HYPER-V 群集的网络建议](https://technet.microsoft.com/library/dn550728.aspx)，并确保以最佳方式配置了群集网络。  
+5. 查看 [在 Windows Server 2012 中的 HYPER-V 群集的网络建议](https://technet.microsoft.com/library/dn550728.aspx)，并确保以最佳方式配置了群集网络。  
 
-6.  将 Redmond 站点中的一个磁盘添加到群集 CSV。 若要执行此操作，右键单击“**存储**”部分的“**磁盘**”节点中的一个源磁盘，然后单击“**添加到群集共享卷**”。  
+6. 将 Redmond 站点中的一个磁盘添加到群集 CSV。 若要执行此操作，右键单击“**存储**”部分的“**磁盘**”节点中的一个源磁盘，然后单击“**添加到群集共享卷**”。  
 
-7.  使用[部署 Hyper-V 群集](https://technet.microsoft.com/library/jj863389.aspx)指南，按照 **Redmond** 站点中的步骤 7 至 10 仅创建测试虚拟机，以确保在第一个测试站点中共享存储的两个节点内的群集能正常运行。  
+7. 使用[部署 Hyper-V 群集](https://technet.microsoft.com/library/jj863389.aspx)指南，按照 **Redmond** 站点中的步骤 7 至 10 仅创建测试虚拟机，以确保在第一个测试站点中共享存储的两个节点内的群集能正常运行。  
 
-8.  如果要创建两个节点的拉伸群集，则必须在继续之前添加所有存储。 为此，请使用群集节点上的管理权限打开一个 PowerShell 会话，并运行以下命令：`Get-ClusterAvailableDisk -All | Add-ClusterDisk`。
+8. 如果要创建两个节点的拉伸群集，则必须在继续之前添加所有存储。 为此，请使用群集节点上的管理权限打开一个 PowerShell 会话，并运行以下命令：`Get-ClusterAvailableDisk -All | Add-ClusterDisk`。
 
-    这在 Windows Server 2016 中是按设计行为。
+   这在 Windows Server 2016 中是按设计行为。
 
 9. 启动 Windows PowerShell，并使用 `Test-SRTopology` cmdlet，以确定是否满足存储副本的所有要求。  
 
     例如，对具有 **D:** 和 **E:** 卷的每个计划拉伸群集节点进行验证并运行 30 分钟测试：
-    1. 将所有可用的存储移动到 **SR-SRV01**。
-    2. 在故障转移群集管理器的“**角色**”部分单击“**创建空角色**”。
-    3. 将联机存储添加到名为**新建角色**的空角色。
-    4. 将所有可用的存储移动到 **SR-SRV03**。
-    5. 在故障转移群集管理器的“**角色**”部分单击“**创建空角色**”。
-    6. 将空的**新建角色 (2)** 移动到 **SR-SRV03**。
-    7. 将联机存储添加到名为**新建角色 (2)** 的空角色。
-    8. 现在你已装载了所有具有驱动器字母的存储，并可使用 `Test-SRTopology` 评估群集。
+   1. 将所有可用的存储移动到 **SR-SRV01**。
+   2. 在故障转移群集管理器的“**角色**”部分单击“**创建空角色**”。
+   3. 将联机存储添加到名为**新建角色**的空角色。
+   4. 将所有可用的存储移动到 **SR-SRV03**。
+   5. 在故障转移群集管理器的“**角色**”部分单击“**创建空角色**”。
+   6. 将空的**新建角色 (2)** 移动到 **SR-SRV03**。
+   7. 将联机存储添加到名为**新建角色 (2)** 的空角色。
+   8. 现在你已装载了所有具有驱动器字母的存储，并可使用 `Test-SRTopology` 评估群集。
 
-        例如：
+       例如：
 
-            MD c:\temp  
+           MD c:\temp  
 
-            Test-SRTopology -SourceComputerName SR-SRV01 -SourceVolumeName D: -SourceLogVolumeName E: -DestinationComputerName SR-SRV03 -DestinationVolumeName D: -DestinationLogVolumeName E: -DurationInMinutes 30 -ResultPath c:\temp        
+           Test-SRTopology -SourceComputerName SR-SRV01 -SourceVolumeName D: -SourceLogVolumeName E: -DestinationComputerName SR-SRV03 -DestinationVolumeName D: -DestinationLogVolumeName E: -DurationInMinutes 30 -ResultPath c:\temp        
 
       > [!IMPORTANT]
       > 在评估期间，当在指定源卷上使用无写入 IO 负载的测试服务器时，请考虑添加工作负载，否则 Test-SRTopology 将不会生成有用的报表。 你应该使用与生产类似的工作负载进行测试，以便看到真实的数值和建议的日志大小。 或者，只需在测试期间将一些文件复制到源卷或下载并运行 DISKSPD 以生成写入 IO。 例如，D: 卷的十分钟的较低写入 IO 工作负荷：   
-        `Diskspd.exe -c1g -d600 -W5 -C5 -b4k -t2 -o2 -r -w5 -i100 d:\test.dat`  
+       `Diskspd.exe -c1g -d600 -W5 -C5 -b4k -t2 -o2 -r -w5 -i100 d:\test.dat`  
 
 10. 检查 **TestSrTopologyReport-&lt; date &gt;.html** 报表以确保满足存储副本要求，并记下初始同步时间预测和日志建议。  
 
       ![屏幕显示复制报告](./media/Stretch-Cluster-Replication-Using-Shared-Storage/SRTestSRTopologyReport.png)
 
-11.    将磁盘返回到可用存储，并删除临时空角色。
+11. 将磁盘返回到可用存储，并删除临时空角色。
 
-12.  一旦满足，即删除测试虚拟机。 向计划源节点添加进一步评估所需的任何真实的测试虚拟机。  
+12. 一旦满足，即删除测试虚拟机。 向计划源节点添加进一步评估所需的任何真实的测试虚拟机。  
 
 13. 配置拉伸群集站点感知，以便服务器 **SR-SRV01** 和 **SR-SRV02** 处于站点 **Redmond** 中，而 **SR-SRV03** 和 **SR-SRV04** 处于站点 **Bellevue** 中，且 **Redmond** 对源存储和 VM的节点所有权是首选项：  
 
-   ```PowerShell
-   New-ClusterFaultDomain -Name Seattle -Type Site -Description "Primary" -Location "Seattle Datacenter"  
+    ```PowerShell
+    New-ClusterFaultDomain -Name Seattle -Type Site -Description "Primary" -Location "Seattle Datacenter"  
    
-   New-ClusterFaultDomain -Name Bellevue -Type Site -Description "Secondary" -Location "Bellevue Datacenter"  
+    New-ClusterFaultDomain -Name Bellevue -Type Site -Description "Secondary" -Location "Bellevue Datacenter"  
    
-   Set-ClusterFaultDomain -Name sr-srv01 -Parent Seattle  
-   Set-ClusterFaultDomain -Name sr-srv02 -Parent Seattle  
-   Set-ClusterFaultDomain -Name sr-srv03 -Parent Bellevue  
-   Set-ClusterFaultDomain -Name sr-srv04 -Parent Bellevue  
+    Set-ClusterFaultDomain -Name sr-srv01 -Parent Seattle  
+    Set-ClusterFaultDomain -Name sr-srv02 -Parent Seattle  
+    Set-ClusterFaultDomain -Name sr-srv03 -Parent Bellevue  
+    Set-ClusterFaultDomain -Name sr-srv04 -Parent Bellevue  
 
-   (Get-Cluster).PreferredSite="Seattle"
-   ```
+    (Get-Cluster).PreferredSite="Seattle"
+    ```
 
-   > [!NOTE]
-   > Windows Server 2016 中没有使用故障转移群集管理器配置站点感知的选项。  
+    > [!NOTE]
+    > Windows Server 2016 中没有使用故障转移群集管理器配置站点感知的选项。  
 
 14. **（可选）** 配置群集网络和 Active Directory 以用于更快的 DNS 站点故障转移。 可以利用 Hyper-V 软件定义的网络、拉伸的 VLAN、网络抽象设备、降低的 DNS TTL 和其他常用技术。
 
@@ -233,61 +233,61 @@ ms.locfileid: "64772425"
 
 #### <a name="windows-powershell-method"></a>Windows PowerShell 方法  
 
-1.  测试计划群集并分析结果以确保可以继续：  
+1. 测试计划群集并分析结果以确保可以继续：  
 
-    ```PowerShell  
-    Test-Cluster SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04  
-    ```  
+   ```PowerShell  
+   Test-Cluster SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04  
+   ```  
 
-    > [!NOTE]
-    >  由于使用非对称存储，你在群集验证过程中应该会遇到存储错误。  
+   > [!NOTE]
+   >  由于使用非对称存储，你在群集验证过程中应该会遇到存储错误。  
 
-2.  创建 Hyper-V 计算群集（必须指定群集将使用的你自己的静态 IP 地址）。 确保群集名称为 15 个字符或更少。  如果节点位于不同子网中，比其他站点的 IP 地址必须使用创建的"OR"依赖关系。 可在找到更多信息[配置 IP 地址和多子网群集 – 第 III 部分的依赖关系](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698)。
-```PowerShell  
-New-Cluster -Name SR-SRVCLUS -Node SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04 -StaticAddress <your IP here>  
-Add-ClusterResource -Name NewIPAddress -ResourceType “IP Address” -Group “Cluster Group”
-Set-ClusterResourceDependency -Resource “Cluster Name” -Dependency “[Cluster IP Address] or [NewIPAddress]”
-```  
+2. 创建 Hyper-V 计算群集（必须指定群集将使用的你自己的静态 IP 地址）。 确保群集名称为 15 个字符或更少。  如果节点位于不同子网中，比其他站点的 IP 地址必须使用创建的"OR"依赖关系。 可在找到更多信息[配置 IP 地址和多子网群集 – 第 III 部分的依赖关系](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698)。
+   ```PowerShell  
+   New-Cluster -Name SR-SRVCLUS -Node SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04 -StaticAddress <your IP here>  
+   Add-ClusterResource -Name NewIPAddress -ResourceType “IP Address” -Group “Cluster Group”
+   Set-ClusterResourceDependency -Resource “Cluster Name” -Dependency “[Cluster IP Address] or [NewIPAddress]”
+   ```  
 
-3.  在指向托管在域控制器或某些其他独立服务器上的共享的群集中配置文件共享见证或云 (Azure) 见证。 例如：  
+3. 在指向托管在域控制器或某些其他独立服务器上的共享的群集中配置文件共享见证或云 (Azure) 见证。 例如：  
 
-    ```PowerShell  
-    Set-ClusterQuorum -FileShareWitness \\someserver\someshare  
-    ```  
+   ```PowerShell  
+   Set-ClusterQuorum -FileShareWitness \\someserver\someshare  
+   ```  
 
-    > [!NOTE]
-    > WIndows Server 现在针对云 (Azure) 中包含一个选项-基于见证服务器。 你可以选择此仲裁选项来替代文件共享见证。  
+   > [!NOTE]
+   > WIndows Server 现在针对云 (Azure) 中包含一个选项-基于见证服务器。 你可以选择此仲裁选项来替代文件共享见证。  
     
-    有关仲裁配置的详细信息，请参阅 [在 Windows Server 2012 故障转移群集指南的见证配置中配置和管理仲裁](https://technet.microsoft.com/library/jj612870.aspx)。 有关 `Set-ClusterQuorum` cmdlet 上的详细信息，请参阅 [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum)。  
+   有关仲裁配置的详细信息，请参阅 [在 Windows Server 2012 故障转移群集指南的见证配置中配置和管理仲裁](https://technet.microsoft.com/library/jj612870.aspx)。 有关 `Set-ClusterQuorum` cmdlet 上的详细信息，请参阅 [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum)。  
 
-4.  查看 [在 Windows Server 2012 中的 HYPER-V 群集的网络建议](https://technet.microsoft.com/library/dn550728.aspx)，并确保以最佳方式配置了群集网络。  
+4. 查看 [在 Windows Server 2012 中的 HYPER-V 群集的网络建议](https://technet.microsoft.com/library/dn550728.aspx)，并确保以最佳方式配置了群集网络。  
 
-5.  如果要创建两个节点的拉伸群集，则必须在继续之前添加所有存储。 为此，请使用群集节点上的管理权限打开一个 PowerShell 会话，并运行以下命令：`Get-ClusterAvailableDisk -All | Add-ClusterDisk`。
+5. 如果要创建两个节点的拉伸群集，则必须在继续之前添加所有存储。 为此，请使用群集节点上的管理权限打开一个 PowerShell 会话，并运行以下命令：`Get-ClusterAvailableDisk -All | Add-ClusterDisk`。
 
-    这在 Windows Server 2016 中是按设计行为。
+   这在 Windows Server 2016 中是按设计行为。
 
-6.  使用[部署 Hyper-V 群集](https://technet.microsoft.com/library/jj863389.aspx)指南，按照 **Redmond** 站点中的步骤 7 至 10 仅创建测试虚拟机，以确保在第一个测试站点中共享存储的两个节点内的群集能正常运行。  
+6. 使用[部署 Hyper-V 群集](https://technet.microsoft.com/library/jj863389.aspx)指南，按照 **Redmond** 站点中的步骤 7 至 10 仅创建测试虚拟机，以确保在第一个测试站点中共享存储的两个节点内的群集能正常运行。  
 
-7.  一旦满足，即删除测试 VM。 向计划源节点添加进一步评估所需的任何真实的测试虚拟机。  
+7. 一旦满足，即删除测试 VM。 向计划源节点添加进一步评估所需的任何真实的测试虚拟机。  
 
-8.  配置拉伸群集站点感知以便服务器 **SR-SRV01** 和 **SR-SRV02** 处于站点 **Redmond** 中，而 **SR-SRV03** 和 **SR-SRV04** 处于站点 **Bellevue** 中，且 **Redmond** 对源存储和虚拟机的节点所有权是首选项：  
+8. 配置拉伸群集站点感知以便服务器 **SR-SRV01** 和 **SR-SRV02** 处于站点 **Redmond** 中，而 **SR-SRV03** 和 **SR-SRV04** 处于站点 **Bellevue** 中，且 **Redmond** 对源存储和虚拟机的节点所有权是首选项：  
 
-    ```PowerShell  
-    New-ClusterFaultDomain -Name Seattle -Type Site -Description "Primary" -Location "Seattle Datacenter"  
+   ```PowerShell  
+   New-ClusterFaultDomain -Name Seattle -Type Site -Description "Primary" -Location "Seattle Datacenter"  
 
-    New-ClusterFaultDomain -Name Bellevue -Type Site -Description "Secondary" -Location "Bellevue Datacenter"  
+   New-ClusterFaultDomain -Name Bellevue -Type Site -Description "Secondary" -Location "Bellevue Datacenter"  
 
-    Set-ClusterFaultDomain -Name sr-srv01 -Parent Seattle  
-    Set-ClusterFaultDomain -Name sr-srv02 -Parent Seattle  
-    Set-ClusterFaultDomain -Name sr-srv03 -Parent Bellevue  
-    Set-ClusterFaultDomain -Name sr-srv04 -Parent Bellevue  
+   Set-ClusterFaultDomain -Name sr-srv01 -Parent Seattle  
+   Set-ClusterFaultDomain -Name sr-srv02 -Parent Seattle  
+   Set-ClusterFaultDomain -Name sr-srv03 -Parent Bellevue  
+   Set-ClusterFaultDomain -Name sr-srv04 -Parent Bellevue  
 
-    (Get-Cluster).PreferredSite="Seattle"  
-    ```  
+   (Get-Cluster).PreferredSite="Seattle"  
+   ```  
 
-9.  **（可选）** 配置群集网络和 Active Directory 以用于更快的 DNS 站点故障转移。 可以利用 Hyper-V 软件定义的网络、拉伸的 VLAN、网络抽象设备、降低的 DNS TTL 和其他常用技术。  
+9. **（可选）** 配置群集网络和 Active Directory 以用于更快的 DNS 站点故障转移。 可以利用 Hyper-V 软件定义的网络、拉伸的 VLAN、网络抽象设备、降低的 DNS TTL 和其他常用技术。  
 
-    有关详细信息，查看 Microsoft Ignite 会话：[Windows Server vNext 中拉伸故障转移群集和使用存储副本](http://channel9.msdn.com/Events/Ignite/2015/BRK3487)并[如何以及为何启用在站点之间的更改通知](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx)。  
+   有关详细信息，查看 Microsoft Ignite 会话：[Windows Server vNext 中拉伸故障转移群集和使用存储副本](http://channel9.msdn.com/Events/Ignite/2015/BRK3487)并[如何以及为何启用在站点之间的更改通知](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx)。  
 
 10. **（可选）** 配置 VM 复原，以使来宾无需在节点失败时暂停时间过长。 相反，他们在 10 秒内故障转移到新的复制源存储。  
 
@@ -309,44 +309,44 @@ Set-ClusterResourceDependency -Resource “Cluster Name” -Dependency “[Clust
 
 #### <a name="graphical-method"></a>图形方法  
 
-1.  运行 cluadmin.msc。  
+1. 运行 cluadmin.msc。  
 
-2.  验证计划群集并分析结果以确保可以继续。  
-    >[!NOTE]
-    >由于使用非对称存储，你在群集验证过程中应该会遇到存储错误。   
+2. 验证计划群集并分析结果以确保可以继续。  
+   >[!NOTE]
+   >由于使用非对称存储，你在群集验证过程中应该会遇到存储错误。   
 3. 创建用于常规使用存储群集的文件服务器。 确保群集名称为 15 个字符或更少。 以下使用的示例为 SR-SRVCLUS。  如果节点将驻留在不同的子网中，您必须为群集名称，为每个子网创建 IP 地址，并使用"或者"依赖关系。  可在找到更多信息[配置 IP 地址和多子网群集 – 第 III 部分的依赖关系](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698)。  
 
-4.  配置文件共享见证或云见证，以在站点丢失事件中提供仲裁。  
-    >[!NOTE]
-    > WIndows Server 现在针对云 (Azure) 中包含一个选项-基于见证服务器。 你可以选择此仲裁选项来替代文件共享见证。                                                                                                                                                                             
-    >[!NOTE]
-    >  有关仲裁配置的详细信息，请参阅 [在 Windows Server 2012 故障转移群集指南的见证配置中配置和管理仲裁](https://technet.microsoft.com/library/jj612870.aspx)。 有关 Set-ClusterQuorum cmdlet 上的详细信息，请参阅 [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum)。 
+4. 配置文件共享见证或云见证，以在站点丢失事件中提供仲裁。  
+   >[!NOTE]
+   > WIndows Server 现在针对云 (Azure) 中包含一个选项-基于见证服务器。 你可以选择此仲裁选项来替代文件共享见证。                                                                                                                                                                             
+   >[!NOTE]
+   >  有关仲裁配置的详细信息，请参阅 [在 Windows Server 2012 故障转移群集指南的见证配置中配置和管理仲裁](https://technet.microsoft.com/library/jj612870.aspx)。 有关 Set-ClusterQuorum cmdlet 上的详细信息，请参阅 [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum)。 
 
-5.  如果要创建两个节点的拉伸群集，则必须在继续之前添加所有存储。 为此，请使用群集节点上的管理权限打开一个 PowerShell 会话，并运行以下命令：`Get-ClusterAvailableDisk -All | Add-ClusterDisk`。
+5. 如果要创建两个节点的拉伸群集，则必须在继续之前添加所有存储。 为此，请使用群集节点上的管理权限打开一个 PowerShell 会话，并运行以下命令：`Get-ClusterAvailableDisk -All | Add-ClusterDisk`。
 
-    这在 Windows Server 2016 中是按设计行为。
+   这在 Windows Server 2016 中是按设计行为。
 
 6. 确保以最佳方式配置了群集网络。  
     >[!NOTE]
     > 在继续下一步骤前，必须在所有节点上都安装文件服务器角色。   |  
 
-7.  在“**角色**”下，单击“**配置角色**”。 查看“**开始之前**”，然后单击“**下一步**”。  
+7. 在“**角色**”下，单击“**配置角色**”。 查看“**开始之前**”，然后单击“**下一步**”。  
 
-8.  选择“**文件服务器**”，然后单击“**下一步**”。  
+8. 选择“**文件服务器**”，然后单击“**下一步**”。  
 
-9.  将“**供常规使用的文件服务器**”保留为选中状态，然后单击“**下一步**”。  
+9. 将“**供常规使用的文件服务器**”保留为选中状态，然后单击“**下一步**”。  
 
-10.  提供“**客户端访问点**”名称（15 个字符或更少），然后单击“**下一步**”。  
+10. 提供“**客户端访问点**”名称（15 个字符或更少），然后单击“**下一步**”。  
 
-11.  选择一个磁盘作为数据卷，然后单击“**下一步**”。  
+11. 选择一个磁盘作为数据卷，然后单击“**下一步**”。  
 
-12.  查看你的设置，然后单击“**下一步**”。 单击 **“完成”** 。  
+12. 查看你的设置，然后单击“**下一步**”。 单击 **“完成”** 。  
 
-13.  右键单击你的新文件服务器角色，然后单击“**添加文件共享**”。 继续执行向导以配置共享。  
+13. 右键单击你的新文件服务器角色，然后单击“**添加文件共享**”。 继续执行向导以配置共享。  
 
-14.  可选：添加另一个文件服务器角色在此站点中使用其他存储。  
+14. 可选：添加另一个文件服务器角色在此站点中使用其他存储。  
 
-15.  配置拉伸群集站点感知以便服务器 SR-SRV01 和 SR-SRV02 处于站点 Redmond 中，而 SR-SRV03 和 SR-SRV04 处于站点 Bellevue 中，且 Redmond 对源存储和 VM的节点所有权是首选项：  
+15. 配置拉伸群集站点感知以便服务器 SR-SRV01 和 SR-SRV02 处于站点 Redmond 中，而 SR-SRV03 和 SR-SRV04 处于站点 Bellevue 中，且 Redmond 对源存储和 VM的节点所有权是首选项：  
 
     ```PowerShell  
     New-ClusterFaultDomain -Name Seattle -Type Site -Description "Primary" -Location "Seattle Datacenter"  
@@ -361,10 +361,10 @@ Set-ClusterResourceDependency -Resource “Cluster Name” -Dependency “[Clust
     (Get-Cluster).PreferredSite="Seattle"  
     ```  
 
-       >[!NOTE]
-       > Windows Server 2016 中没有使用故障转移群集管理器配置站点感知的选项。  
+      >[!NOTE]
+      > Windows Server 2016 中没有使用故障转移群集管理器配置站点感知的选项。  
 
-16.  （可选）配置群集网络和 Active Directory 以用于更快的 DNS 站点故障转移。 可以利用拉伸的 VLAN、网络抽象设备、降低的 DNS TTL 和其他常用技术。  
+16. （可选）配置群集网络和 Active Directory 以用于更快的 DNS 站点故障转移。 可以利用拉伸的 VLAN、网络抽象设备、降低的 DNS TTL 和其他常用技术。  
 
 有关详细信息，请查看 Microsoft Ignite 会话 [Stretching Failover Clusters and Using Storage Replica in Windows Server vNext](http://channel9.msdn.com/events/ignite/2015/brk3487)（在 Windows Server vNext 中拉伸故障转移群集和使用存储副本），以及 [Enable Change Notifications between Sites - How and Why?](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx)（在站点间启用更改通知 - 操作方法和原因）。    
 

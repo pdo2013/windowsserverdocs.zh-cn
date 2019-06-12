@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 5201441ba884fe4658b917919e60c7d20530341b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 441dad92611e1a4a1135bd15bbcdfd05f38c1be3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835578"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445827"
 ---
 # <a name="deploy-access-denied-assistance-demonstration-steps"></a>Deploy Access-Denied Assistance (Demonstration Steps)
 
@@ -42,15 +42,15 @@ ms.locfileid: "59835578"
   
 #### <a name="to-configure-access-denied-assistance-by-using-group-policy"></a>使用组策略配置“拒绝访问”协助  
   
-1.  打开“组策略管理”。 在“服务器管理器”中，单击 **“工具”**，然后单击 **“组策略管理”**。  
+1.  打开“组策略管理”。 在“服务器管理器”中，单击 **“工具”** ，然后单击 **“组策略管理”** 。  
   
-2.  右键单击相应的组策略，然后单击“编辑” 。  
+2.  右键单击相应的组策略，然后单击“编辑”  。  
   
-3.  依次单击“计算机配置” 、“策略” 、“管理模板” 、“系统” 和“‘拒绝访问’协助” 。  
+3.  依次单击“计算机配置”  、“策略”  、“管理模板”  、“系统”  和“‘拒绝访问’协助”  。  
   
-4.  右键单击“自定义‘拒绝访问’错误的消息” ，然后单击“编辑” 。  
+4.  右键单击“自定义‘拒绝访问’错误的消息”  ，然后单击“编辑”  。  
   
-5.  选择“启用”选项。  
+5.  选择“启用”  选项。  
   
 6.  配置以下选项：  
   
@@ -70,7 +70,7 @@ ms.locfileid: "59835578"
   
     3.  保留其余默认设置。  
   
-![解决方案指南](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![解决方案指南](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -92,15 +92,15 @@ Set-GPRegistryValue -Name "Name of GPO" -key "HKLM\Software\Policies\Microsoft\W
   
 #### <a name="to-configure-access-denied-assistance-by-using-file-server-resource-manager"></a>使用文件服务器资源管理器配置“拒绝访问”协助  
   
-1.  打开文件服务器资源管理器。 在服务器管理器中，单击“工具”，然后单击“文件服务器资源管理器”。  
+1.  打开文件服务器资源管理器。 在服务器管理器中，单击“工具”  ，然后单击“文件服务器资源管理器”  。  
   
-2.  右键单击“文件服务器资源管理器(本地)”，然后单击“配置选项”。  
+2.  右键单击“文件服务器资源管理器(本地)”  ，然后单击“配置选项”  。  
   
 3.  单击“‘拒绝访问’协助”  选项卡。  
   
 4.  选中“启用‘拒绝访问’协助”  复选框。  
   
-5.  在“向拒绝访问文件夹或文件的用户显示以下消息”框中，键入用户在被拒绝访问文件或文件夹时看到的消息。  
+5.  在“向拒绝访问文件夹或文件的用户显示以下消息”  框中，键入用户在被拒绝访问文件或文件夹时看到的消息。  
   
     可以将宏添加到将插入自定义文本的消息。 这些宏包括：  
   
@@ -112,13 +112,13 @@ Set-GPRegistryValue -Name "Name of GPO" -key "HKLM\Software\Policies\Microsoft\W
   
     -   **[数据所有者电子邮件]** 数据所有者电子邮件收件人列表。  
   
-6.  单击“配置电子邮件请求”，选中“允许用户请求协助”复选框，然后单击“确定”。  
+6.  单击“配置电子邮件请求”  ，选中“允许用户请求协助”  复选框，然后单击“确定”  。  
   
 7.  如果希望查看呈现给用户的错误消息，请单击“预览”  。  
   
-8.  单击 **“确定”**。  
+8.  单击 **“确定”** 。  
   
-![解决方案指南](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![解决方案指南](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。
   
@@ -132,17 +132,17 @@ Set-FSRMAdrSetting -Event "AccessDenied" -DisplayMessage "Type the text that the
   
 #### <a name="to-configure-access-denied-assistance-for-all-file-types-by-using-group-policy"></a>使用组策略对所有文件类型配置“拒绝访问”协助  
   
-1.  打开“组策略管理”。 在“服务器管理器”中，单击 **“工具”**，然后单击 **“组策略管理”**。  
+1.  打开“组策略管理”。 在“服务器管理器”中，单击 **“工具”** ，然后单击 **“组策略管理”** 。  
   
-2.  右键单击相应的组策略，然后单击“编辑” 。  
+2.  右键单击相应的组策略，然后单击“编辑”  。  
   
-3.  依次单击“计算机配置” 、“策略” 、“管理模板” 、“系统” 和“‘拒绝访问’协助” 。  
+3.  依次单击“计算机配置”  、“策略”  、“管理模板”  、“系统”  和“‘拒绝访问’协助”  。  
   
-4.  右键单击“在客户端上对所有文件类型启用‘拒绝访问’协助” ，然后单击“编辑” 。  
+4.  右键单击“在客户端上对所有文件类型启用‘拒绝访问’协助”  ，然后单击“编辑”  。  
   
-5.  单击 **“启用”**，然后单击 **“确定”**。  
+5.  单击 **“启用”** ，然后单击 **“确定”** 。  
   
-![解决方案指南](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![解决方案指南](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。 
   
@@ -157,17 +157,17 @@ Set-GPRegistryValue -Name "Name of GPO" -key "HKLM\SOFTWARE\Policies\Microsoft\W
   
 #### <a name="to-specify-a-separate-access-denied-message-for-a-shared-folder-by-using-file-server-resource-manager"></a>使用文件服务器资源管理器为共享文件夹指定单独的拒绝访问消息  
   
-1.  打开文件服务器资源管理器。 在服务器管理器中，单击“工具”，然后单击“文件服务器资源管理器”。  
+1.  打开文件服务器资源管理器。 在服务器管理器中，单击“工具”  ，然后单击“文件服务器资源管理器”  。  
   
-2.  展开“文件服务器资源管理器(本地)” ，然后单击“分类管理” 。  
+2.  展开“文件服务器资源管理器(本地)”  ，然后单击“分类管理”  。  
   
-3.  右键单击“分类属性”，然后单击“设置文件夹管理属性”。  
+3.  右键单击“分类属性”  ，然后单击“设置文件夹管理属性”  。  
   
-4.  在“属性”框中，单击“‘拒绝访问’协助消息”，然后单击“添加”。  
+4.  在“属性”  框中，单击“‘拒绝访问’协助消息”  ，然后单击“添加”  。  
   
-5.  单击“浏览”，然后选择应具有自定义拒绝访问消息的文件夹。  
+5.  单击“浏览”  ，然后选择应具有自定义拒绝访问消息的文件夹。  
   
-6.  在“值”框中，键入在用户无法访问文件夹中的资源时应呈现给他们的消息。  
+6.  在“值”  框中，键入在用户无法访问文件夹中的资源时应呈现给他们的消息。  
   
     可以将宏添加到将插入自定义文本的消息。 这些宏包括：  
   
@@ -179,9 +179,9 @@ Set-GPRegistryValue -Name "Name of GPO" -key "HKLM\SOFTWARE\Policies\Microsoft\W
   
     -   **[数据所有者电子邮件]** 数据所有者电子邮件收件人列表。  
   
-7.  单击“确定”，然后单击“关闭”。  
+7.  单击“确定”  ，然后单击“关闭”  。  
   
-![解决方案指南](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![解决方案指南](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。 
   
@@ -194,11 +194,11 @@ Set-FSRMMgmtProperty -Namespace "folder path" -Name "AccessDeniedMessage_MS" -Va
   
 [使用 Windows PowerShell 执行此步骤](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
   
-1.  打开文件服务器资源管理器。 在服务器管理器中，单击“工具”，然后单击“文件服务器资源管理器”。  
+1.  打开文件服务器资源管理器。 在服务器管理器中，单击“工具”  ，然后单击“文件服务器资源管理器”  。  
   
-2.  右键单击“文件服务器资源管理器(本地)”，然后单击“配置选项”。  
+2.  右键单击“文件服务器资源管理器(本地)”  ，然后单击“配置选项”  。  
   
-3.  单击“电子邮件通知”选项卡。  
+3.  单击“电子邮件通知”  选项卡。  
   
 4.  配置下列设置：  
   
@@ -206,11 +206,11 @@ Set-FSRMMgmtProperty -Namespace "folder path" -Name "AccessDeniedMessage_MS" -Va
   
     -   在中**默认管理员收件人**并**默认 '发件人电子邮件地址**框中，键入文件服务器管理员的电子邮件地址。  
   
-5.  单击“发送测试电子邮件”以确保正确配置电子邮件通知。  
+5.  单击“发送测试电子邮件”  以确保正确配置电子邮件通知。  
   
-6.  单击 **“确定”**。  
+6.  单击 **“确定”** 。  
   
-![解决方案指南](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![解决方案指南](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。
   
@@ -226,7 +226,7 @@ set-FSRMSetting -SMTPServer "server1" -AdminEmailAddress "fileadmin@contoso.com"
   
 ## <a name="BKMK_Links"></a>另请参阅  
   
--   [方案：拒绝访问协助](Scenario--Access-Denied-Assistance.md)  
+-   [方案：“拒绝访问”协助](Scenario--Access-Denied-Assistance.md)  
   
 -   [拒绝访问协助的规划](assetId:///b169f0a4-8b97-4da8-ae4a-c8f1986d19e1)  
   

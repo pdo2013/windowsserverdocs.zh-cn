@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 8684926beb0f0c911ac384970d15ba7d25f84079
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: ddf6a816e417c2eddff090df8dba841a894a3255
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475937"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447672"
 ---
 # <a name="enable-always-offline-mode-for-faster-access-to-files"></a>启用更快地访问文件始终脱机模式
 
@@ -44,7 +44,7 @@ ms.locfileid: "65475937"
 6. 选择“已启用”  。
 7. 在中**选项**框中，选择**显示**。 **显示内容窗口**将出现。
 8. 在中**值名称**框中，指定你想要启用始终脱机模式下的文件共享。
-9. 若要启用始终脱机模式下的所有文件共享上，输入**\***。
+9. 若要启用始终脱机模式下的所有文件共享上，输入 * *\\* * *。
 10. 在中**值**框中，输入**延迟 = 1**以将延迟阈值设置为一毫秒，然后选择**确定**。
 
 >[!NOTE]

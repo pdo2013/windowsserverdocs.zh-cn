@@ -10,12 +10,12 @@ ms.topic: article
 author: lizap
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 241b2b776a68cf5aec68a4d331201a07f0e5ea53
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f9aafaa34d5c16e45681e88b1ce60e99a9ad2842
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844648"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447094"
 ---
 # <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>使用性能计数器来诊断在远程桌面会话主机上的应用程序性能问题
 
@@ -25,11 +25,11 @@ ms.locfileid: "59844648"
 
 下图显示的大致表示用户输入流形式从客户端向应用程序。
 
-![远程桌面-用户从用户远程桌面客户端应用程序的输入流](.\media\rds-user-input.png)
+![远程桌面-用户从用户远程桌面客户端应用程序的输入流](./media/rds-user-input.png)
 
 用户输入延迟计数器测量 （内的时间间隔） 最大增量正在排队的输入和时它将提取中的应用程序之间[传统的消息循环](https://msdn.microsoft.com/library/windows/desktop/ms644927.aspx#loop)，下面的流程图中所示：
 
-![远程桌面的用户输入延迟性能计数器流](.\media\rds-user-input-delay.png)
+![远程桌面的用户输入延迟性能计数器流](./media/rds-user-input-delay.png)
 
 此计数器的一个重要细节是它在可配置时间间隔内报告的最大用户输入的延迟。 这是以访问应用程序，可能会影响重要和可见的操作，例如键入的速度的输入所需的最长时间。
 
@@ -52,13 +52,13 @@ reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v "EnableLagCou
 
 接下来，重新启动服务器。 然后，打开性能监视器，并选择加号 （+），如以下屏幕截图中所示。
 
-![远程桌面的屏幕截图显示了如何将用户添加输入延迟性能计数器](.\media\rds-add-user-input-counter-screen.png)
+![远程桌面的屏幕截图显示了如何将用户添加输入延迟性能计数器](./media/rds-add-user-input-counter-screen.png)
 
 后执行该操作，应会看到添加计数器对话框中，可以在其中选择**每个进程的用户输入延迟**或**每个会话的用户输入延迟**。
 
-![远程桌面的屏幕截图显示如何添加每个会话的用户输入的延迟](.\media\rds-user-delay-per-session.png)
+![远程桌面的屏幕截图显示如何添加每个会话的用户输入的延迟](./media/rds-user-delay-per-session.png)
 
-![远程桌面的屏幕截图显示如何添加每个进程的用户输入的延迟](.\media\rds-user-delay-per-process.png)
+![远程桌面的屏幕截图显示如何添加每个进程的用户输入的延迟](./media/rds-user-delay-per-process.png)
 
 如果选择**每个进程的用户输入延迟**，你将看到**选定对象的实例**（换而言之，进程） 中```SessionID:ProcessID <Process Image>```格式。
 
@@ -69,7 +69,7 @@ reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v "EnableLagCou
 
 该计数器开始就立即将其添加报告用户输入的延迟。 请注意，最大的规模设置为 100 （毫秒） 默认情况下。 
 
-![远程桌面的用户输入延迟，每个性能监视器中的进程的活动的示例](.\media\rds-sample-user-input-delay-perfmon.png)
+![远程桌面的用户输入延迟，每个性能监视器中的进程的活动的示例](./media/rds-sample-user-input-delay-perfmon.png)
 
 接下来，让我们看看**每个会话的用户输入延迟**。 没有实例的每个会话 ID，并且其计数器显示在指定会话中的任何进程的用户输入的延迟。 此外，有两个名为"最大值"（最大用户输入延迟在所有会话之间） 和"Average"(平均 acorss 所有会话) 的实例。
 
@@ -89,7 +89,7 @@ reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v "EnableLagCou
 
 现在让我们看看您将看到的内容在报表中应用的性能下降，如果。 下图显示了在 Microsoft Word 中远程工作的用户的读数。 在这种情况下，在 RDSH 服务器性能下降随着时间的推移，如更多的用户登录。
 
-![远程桌面-运行 Microsoft Word 的 RDSH 服务器的示例性能图表](.\media\rds-user-input-perf-graph.png)
+![远程桌面-运行 Microsoft Word 的 RDSH 服务器的示例性能图表](./media/rds-user-input-perf-graph.png)
 
 下面介绍了如何读取关系图的行：
 
@@ -104,7 +104,7 @@ reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v "EnableLagCou
 
 在使用此性能计数器时要记住的重要一点是，它报告用户输入的延迟 1000 毫秒的时间间隔默认情况下。 如果到不同的任何内容 （如以下屏幕截图中所示） 设置性能计数器示例间隔属性，报告的值将不正确。
 
-![远程桌面的性能监视器的属性](.\media\rds-user-input-perfmon-properties.png)
+![远程桌面的性能监视器的属性](./media/rds-user-input-perfmon-properties.png)
 
 若要解决此问题，可以设置以下注册表项以匹配你想要使用的间隔 （以毫秒为单位）。 例如，如果我们将更改示例每隔 x 秒到 5 秒，我们需要将此项设置为 5000 毫秒。
 
@@ -125,7 +125,7 @@ reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v "EnableLagCou
 
 这是如果将这两个密钥打开如下所示：
 
-![远程桌面-与这两个键上的性能监视器](.\media\rds-user-input-delay-with-two-counters.png)
+![远程桌面-与这两个键上的性能监视器](./media/rds-user-input-delay-with-two-counters.png)
 
 ## <a name="using-the-new-counters-with-non-microsoft-tools"></a>与非 Microsoft 工具中使用新的计数器
 

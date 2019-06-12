@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/29/2019
-ms.openlocfilehash: e00322186ea34784048366bf17881af742cb4444
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d9f07d2e6e93d4f8d198c2fc3b62c28c940bdefb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853688"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447510"
 ---
 # <a name="create-a-windows-shielded-vm-template-disk"></a>创建 Windows 受防护的 VM 模板磁盘
 
@@ -27,7 +27,7 @@ ms.locfileid: "59853688"
 
 首先准备 OS 磁盘，然后，将运行受防护的模板磁盘创建向导。 此磁盘将用作你的租户的 Vm 中的 OS 磁盘。 可以使用任何现有的工具来创建该磁盘，如 Microsoft 桌面映像服务管理器 (DISM)，或手动设置具有空白 VHDX 的 VM 并安装到该磁盘上的操作系统。 时设置该磁盘，它必须遵循特定于第 2 代和/或受防护的 Vm 的以下要求： 
 
-| 有关 VHDX 的要求 | 原因 |
+| 有关 VHDX 的要求 | Reason |
 |-----------|----|
 |必须为 GUID 分区表 (GPT) 磁盘 | 所需的第 2 代虚拟机，从而支持 UEFI|
 |磁盘类型必须是**基本**而不是**动态**。 <br>注意：这是指逻辑磁盘类型，不"动态扩展"VHDX 支持的功能的 HYPER-V。 | BitLocker 不支持动态磁盘。|
@@ -68,7 +68,7 @@ ms.locfileid: "59853688"
 
 4. 启动**模板磁盘向导**从**管理工具**在开始菜单上或通过键入文件夹**TemplateDiskWizard.exe**到命令提示符。
 
-5. 上**证书**页上，单击**浏览**以显示证书的列表。 选择用来准备磁盘模板的证书。 单击 **“确定”**，然后单击 **“下一步”**。
+5. 上**证书**页上，单击**浏览**以显示证书的列表。 选择用来准备磁盘模板的证书。 单击 **“确定”** ，然后单击 **“下一步”** 。
 
 6. 在虚拟磁盘页上，单击**浏览**若要选择已准备好的 VHDX，然后单击**下一步**。
 
@@ -104,7 +104,7 @@ ms.locfileid: "59853688"
 
     c. 有关**操作系统**，展开列表并选择安装在磁盘上的操作系统。 选择操作系统向 VMM 指示 VHDX 不为空。
 
-    d. 更新了属性之后，单击“确定”。
+    d. 更新了属性之后，单击“确定”  。
 
 磁盘的名称旁边的小盾牌图标表示该磁盘为准备好的模板磁盘为受防护的 Vm。 您还可以右键单击列标题和切换**防护**列可以看到，该值指示是否磁盘适用于常规或受防护的 VM 部署的文本表示形式。
 
@@ -116,7 +116,7 @@ VMM 库中包含准备好的模板磁盘，已准备好为受防护的 Vm 创建
 
 1. 在中**库**工作区中，单击**创建 VM 模板**顶部的主页选项卡上。
 
-2. 在“选择源”页上，单击“使用现有 VM 模板或库中存储的虚拟硬盘”，然后单击“浏览”。
+2. 在“选择源”  页上，单击“使用现有 VM 模板或库中存储的虚拟硬盘”  ，然后单击“浏览”  。
 
 3. 在窗口中显示，从 VMM 库中选择准备好的模板磁盘。 若要更轻松地识别哪些磁盘准备，右键单击列标题，并启用**防护**列。 单击**确定**然后**下一步**。
 
@@ -163,10 +163,10 @@ Save-VolumeSignatureCatalog -TemplateDiskPath 'C:\temp\MyLinuxTemplate.vhdx' -Vo
 
 ## <a name="next-step"></a>下一步
 
->[!div class="nextstepaction"]
-[创建防护数据文件](guarded-fabric-tenant-creates-shielding-data.md)
+> [!div class="nextstepaction"]
+> [创建防护数据文件](guarded-fabric-tenant-creates-shielding-data.md)
 
 ## <a name="see-also"></a>请参阅
 
 - [托管服务提供程序的配置步骤受保护的主机和受防护的 Vm](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
-- [受保护的构造和受防护的 Vm](guarded-fabric-and-shielded-vms-top-node.md)
+- [受保护的结构和受防护的 VM](guarded-fabric-and-shielded-vms-top-node.md)

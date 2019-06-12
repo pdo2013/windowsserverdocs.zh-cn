@@ -9,12 +9,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 2da1e33d24fa6d68815f4fbc0891be0616004856
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd9b89f34a3b4af8bb98d2399a524790aa65de0e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817468"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447487"
 ---
 # <a name="shielded-vms-for-tenants---creating-a-new-shielded-vm-on-premises-and-moving-it-to-a-guarded-fabric"></a>租户-创建新的受防护的 Vm 受防护的 VM 在本地并将其移到受保护的构造
 
@@ -76,66 +76,66 @@ ms.locfileid: "59817468"
 
 说明显示密钥保护程序，这是屏蔽数据文件中的元素，请参阅[什么屏蔽数据和为什么是必要？](guarded-fabric-and-shielded-vms.md#what-is-shielding-data-and-why-is-it-necessary)。
 
-1.  租户的 HYPER-V 主机上要创建新的第 2 代虚拟机，请运行以下命令。
+1. 租户的 HYPER-V 主机上要创建新的第 2 代虚拟机，请运行以下命令。
 
-    有关&lt;ShieldedVMname&gt;，指定 VM 的名称，例如：**ShieldVM1**
+   有关&lt;ShieldedVMname&gt;，指定 VM 的名称，例如：**ShieldVM1**
     
-    有关&lt;VHDPath&gt;，指定的位置来存储的 VHDX 的 VM，例如：**C:\\Vm\\ShieldVM1\\ShieldVM1.vhdx**
+   有关&lt;VHDPath&gt;，指定的位置来存储的 VHDX 的 VM，例如：**C:\\Vm\\ShieldVM1\\ShieldVM1.vhdx**
     
-    有关&lt;nnGB&gt;，将大小指定为 VHDX，例如：**60GB**
+   有关&lt;nnGB&gt;，将大小指定为 VHDX，例如：**60GB**
 
-        New-VM -Generation 2 -Name "<ShieldedVMname>" -NewVHDPath <VHDPath>.vhdx -NewVHDSizeBytes <nnGB>
+       New-VM -Generation 2 -Name "<ShieldedVMname>" -NewVHDPath <VHDPath>.vhdx -NewVHDSizeBytes <nnGB>
 
-2.  安装受支持的操作系统 (Windows Server 2012 或更高版本，Windows 8 客户端或更高版本) 在 VM 上启用远程桌面连接和相应的防火墙规则。 记录 VM 的 IP 地址和/或 DNS 名称;你将需要它来远程连接到它。
+2. 安装受支持的操作系统 (Windows Server 2012 或更高版本，Windows 8 客户端或更高版本) 在 VM 上启用远程桌面连接和相应的防火墙规则。 记录 VM 的 IP 地址和/或 DNS 名称;你将需要它来远程连接到它。
 
-3.  使用 RDP 远程连接到 VM，并验证正确配置 RDP 和防火墙。 作为屏蔽过程的一部分，将禁用通过 HYPER-V 虚拟机的控制台访问，因此务必要确保你能够进行远程管理在网络上的系统。
+3. 使用 RDP 远程连接到 VM，并验证正确配置 RDP 和防火墙。 作为屏蔽过程的一部分，将禁用通过 HYPER-V 虚拟机的控制台访问，因此务必要确保你能够进行远程管理在网络上的系统。
 
-4.  若要创建新的密钥保护程序 （在本部分开头所述），请运行以下命令。
+4. 若要创建新的密钥保护程序 （在本部分开头所述），请运行以下命令。
 
-    有关&lt;GuardianName&gt;，使用在上一过程中，例如指定的名称：**HostingProvider1**
+   有关&lt;GuardianName&gt;，使用在上一过程中，例如指定的名称：**HostingProvider1**
 
-    包括 **-AllowUntrustedRoot**以允许自签名证书。
+   包括 **-AllowUntrustedRoot**以允许自签名证书。
 
-        $Guardian = Get-HgsGuardian -Name '<GuardianName>'
+       $Guardian = Get-HgsGuardian -Name '<GuardianName>'
 
-        $Owner = New-HgsGuardian -Name 'Owner' -GenerateCertificates
+       $Owner = New-HgsGuardian -Name 'Owner' -GenerateCertificates
 
-        $KP = New-HgsKeyProtector -Owner $Owner -Guardian $Guardian -AllowUntrustedRoot
+       $KP = New-HgsKeyProtector -Owner $Owner -Guardian $Guardian -AllowUntrustedRoot
 
-    如果你想为多个数据中心要在运行受防护的 VM （例如，灾难恢复站点和公有云提供商），可以提供一系列到 guardians **-保护者**参数。 有关详细信息，请参阅 [新建 HgsKeyProtector] (https://docs.microsoft.com/powershell/module/hgsclient/new-hgskeyprotector?view=win10-ps。
+   如果你想为多个数据中心要在运行受防护的 VM （例如，灾难恢复站点和公有云提供商），可以提供一系列到 guardians **-保护者**参数。 有关详细信息，请参阅 [新建 HgsKeyProtector] (https://docs.microsoft.com/powershell/module/hgsclient/new-hgskeyprotector?view=win10-ps。
 
-5.  若要启用 vTPM 使用密钥保护程序，请运行以下命令。 有关&lt;ShieldedVMname&gt;，使用前面步骤中使用的相同 VM 名称。
+5. 若要启用 vTPM 使用密钥保护程序，请运行以下命令。 有关&lt;ShieldedVMname&gt;，使用前面步骤中使用的相同 VM 名称。
 
-        $VMName="<ShieldedVMname>"
+       $VMName="<ShieldedVMname>"
 
-        Stop-VM -Name $VMName -Force
+       Stop-VM -Name $VMName -Force
 
-        Set-VMKeyProtector -VMName $VMName -KeyProtector $KP.RawData
+       Set-VMKeyProtector -VMName $VMName -KeyProtector $KP.RawData
 
-        Set-VMSecurityPolicy -VMName $VMName -Shielded $true
+       Set-VMSecurityPolicy -VMName $VMName -Shielded $true
 
-        Enable-VMTPM -VMName $VMName
+       Enable-VMTPM -VMName $VMName
 
-6.  若要启动 VM 后，若要验证用本地所有者的证书的密钥保护程序正常工作，请运行以下命令。
+6. 若要启动 VM 后，若要验证用本地所有者的证书的密钥保护程序正常工作，请运行以下命令。
 
-        Start-VM -Name $VMName
+       Start-VM -Name $VMName
 
-7.  验证 VM 在 HYPER-V 控制台中开始。
+7. 验证 VM 在 HYPER-V 控制台中开始。
 
-8.  使用 RDP 远程连接到 VM 并附加到受防护的 VM 的所有 Vhdx 上的所有分区上启用 BitLocker。
+8. 使用 RDP 远程连接到 VM 并附加到受防护的 VM 的所有 Vhdx 上的所有分区上启用 BitLocker。
 
-    > [!IMPORTANT]
-    > 在前进到下一步前, 等待的 BitLocker 加密，若要完成在其中启用它的所有分区。
+   > [!IMPORTANT]
+   > 在前进到下一步前, 等待的 BitLocker 加密，若要完成在其中启用它的所有分区。
 
-9.  关闭 VM，当你准备好将其移到受保护的构造。
+9. 关闭 VM，当你准备好将其移到受保护的构造。
 
-10.  在租户的 HYPER-V 服务器上，使用工具 （Windows PowerShell 或 Hyper-v 管理器） 所选的 VM 的导出。 然后排列要复制到受保护的主机由主机托管提供商或企业数据中心维护的文件。
+10. 在租户的 HYPER-V 服务器上，使用工具 （Windows PowerShell 或 Hyper-v 管理器） 所选的 VM 的导出。 然后排列要复制到受保护的主机由主机托管提供商或企业数据中心维护的文件。
 
-11.  **适用于托管提供商或企业数据中心**:
+11. **适用于托管提供商或企业数据中心**:
 
     导入受防护的 VM 使用的 HYPER-V 管理器或 Windows PowerShell。 若要启动 VM，必须从 VM 所有者导 VM 配置文件。 这是因为密钥保护程序和虚拟机的虚拟 TPM 存储在配置文件。 如果 VM 配置为在受保护的构造上运行，它应能够成功启动。
 
 ## <a name="see-also"></a>请参阅
 
 - [托管服务提供程序的配置步骤受保护的主机和受防护的 Vm](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
-- [受保护的构造和受防护的 Vm](guarded-fabric-and-shielded-vms-top-node.md)
+- [受保护的结构和受防护的 VM](guarded-fabric-and-shielded-vms-top-node.md)

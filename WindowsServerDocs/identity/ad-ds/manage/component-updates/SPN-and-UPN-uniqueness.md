@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: c9a769fdd9fb7d13c47da465b25bc59e7f55237f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 13259f7f12a37c4ceb8bdd2e35ae2fe131ec35cf
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856738"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442812"
 ---
 # <a name="spn-and-upn-uniqueness"></a>SPN 和 UPN 唯一性
 
@@ -81,7 +81,7 @@ ms.locfileid: "59856738"
   
 **图 SEQ Figure \\ \* ARABIC 2 事件 ID 2974 错误 8648**  
   
-事件 2974年列出了已被阻止的值和一个或多个对象 （最多 10 个） 已包含此值的列表。  在下图中，您可以看到该 UPN 属性值***dhunt@blue.contoso.com***上四个其他对象已存在。  由于这是 Windows Server 2012 R2 中的新功能，在混合环境中的重复 UPN 和 Spn 意外创建仍将发生时向下级别 Dc 处理写入尝试。  
+事件 2974年列出了已被阻止的值和一个或多个对象 （最多 10 个） 已包含此值的列表。  在下图中，您可以看到该 UPN 属性值 **<em>dhunt@blue.contoso.com</em>** 上四个其他对象已存在。  由于这是 Windows Server 2012 R2 中的新功能，在混合环境中的重复 UPN 和 Spn 意外创建仍将发生时向下级别 Dc 处理写入尝试。  
   
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig05_Event2974ShowAllDups.gif)  
   

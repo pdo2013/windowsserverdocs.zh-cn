@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: f9c313ac-bb86-4e48-b9b9-de5004393e06
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 1bb3e6695a7ec8fc7d950873403df023b4def3d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dca60fc0e216b1b873bd4f94dd1b01174d80fc14
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881608"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446440"
 ---
 # <a name="use-dns-policy-for-application-load-balancing"></a>使用 DNS 策略执行应用程序负载平衡
 
@@ -79,7 +79,7 @@ Contosogiftservices.com 网站托管在多个数据中心，每个包含不同�
 
 有关详细信息，请参阅[添加 DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-####<a name="bkmk_records"></a>将记录添加到区域作用域
+#### <a name="bkmk_records"></a>将记录添加到区域作用域
 
 现在，必须添加到区域作用域表示 web 服务器主机的记录。
 
@@ -100,7 +100,7 @@ Contosogiftservices.com 网站托管在多个数据中心，每个包含不同�
 
 有关详细信息，请参阅[添加 DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps)。
 
-####<a name="bkmk_policies"></a>创建 DNS 策略
+#### <a name="bkmk_policies"></a>创建 DNS 策略
 
 已创建的分区 （区域作用域），并且已将记录添加后，您必须创建跨相应范围分发传入的查询，使其 50%的 contosogiftservices.com 的查询响应的 IP 地址与 web 的 DNS 策略在芝加哥和达拉斯数据中心之间平均分发西雅图数据中心和其余部分中的服务器时。
 

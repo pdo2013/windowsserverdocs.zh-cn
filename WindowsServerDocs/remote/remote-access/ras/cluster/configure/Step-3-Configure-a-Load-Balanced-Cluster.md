@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: f000066e-7cf8-4085-82a3-4f4fe1cb3c5c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e075569f6ce5983838edde26f928d41606ac44bb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f835e27a80e661ff1f066af4779bd7c033cddc99
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824128"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446620"
 ---
 # <a name="step-3-configure-a-load-balanced-cluster"></a>步骤 3 配置负载平衡群集
 
@@ -46,23 +46,23 @@ ms.locfileid: "59824128"
   
 ### <a name="configDA"></a>若要配置前缀  
   
-1.  在远程访问服务器上，单击**启动**，然后单击**远程访问管理**。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+1.  在远程访问服务器上，单击**启动**，然后单击**远程访问管理**。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
-2.  在远程访问管理控制台中，单击“配置” 。  
+2.  在远程访问管理控制台中，单击“配置”  。  
   
 3.  在控制台中，在中间窗格中**步骤 2 DirectAccess 服务器**区域中，单击**编辑**。  
   
-4.  单击**前缀配置**。 上**前缀配置**页上，在**分配给 DirectAccess 客户端计算机的 IPv6 前缀**，输入用于子网长度为 59，例如，DirectAccess 客户端计算机的 IPv6 前缀**2001:db8:1:1000:: / 59**。 如果 VPN 已还启用了 IPv6，则会显示 IPv6 前缀，并且子网长度将需要更改到 59 之间。 单击“下一步” 。  
+4.  单击**前缀配置**。 上**前缀配置**页上，在**分配给 DirectAccess 客户端计算机的 IPv6 前缀**，输入用于子网长度为 59，例如，DirectAccess 客户端计算机的 IPv6 前缀**2001:db8:1:1000:: / 59**。 如果 VPN 已还启用了 IPv6，则会显示 IPv6 前缀，并且子网长度将需要更改到 59 之间。 单击“下一步”  。  
   
 5.  在控制台的中间窗格中，单击**完成**。  
   
-6.  上**远程访问评审**对话框中，查看配置设置，然后单击**应用**。 在 **“应用远程访问设置向导设置”** 对话框中，单击 **“关闭”**。  
+6.  上**远程访问评审**对话框中，查看配置设置，然后单击**应用**。 在 **“应用远程访问设置向导设置”** 对话框中，单击 **“关闭”** 。  
   
 ## <a name="BKMK_NLB"></a>3.2 启用负载平衡  
   
 #### <a name="to-enable-load-balancing"></a>若要启用负载平衡  
   
-1.  在配置 DirectAccess 服务器上，单击**启动**，然后单击**远程访问管理**。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+1.  在配置 DirectAccess 服务器上，单击**启动**，然后单击**远程访问管理**。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
 2.  在远程访问管理控制台中，在左窗格中，单击**配置**，然后在**任务**窗格中，单击**启用负载平衡**。  
   
@@ -70,7 +70,7 @@ ms.locfileid: "59824128"
   
 4.  根据您所选择的规划步骤：  
   
-    1.  Windows NLB:上**负载平衡方法**页上，单击**使用 Windows 网络负载平衡 (NLB)**，然后单击**下一步**。  
+    1.  Windows NLB:上**负载平衡方法**页上，单击**使用 Windows 网络负载平衡 (NLB)** ，然后单击**下一步**。  
   
     2.  外部负载均衡器：上**负载平衡方法**页上，单击**使用外部负载均衡器**，然后单击**下一步**。  
   
@@ -101,7 +101,7 @@ ms.locfileid: "59824128"
     > [!NOTE]  
     > 如果正在使用外部负载均衡，请注意虚拟 Ip，并提供与在外部负载均衡器上。  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -125,9 +125,9 @@ Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress "2.1.1.20/255.255.255.0
   
 ### <a name="IPHTTPSCert"></a>若要安装的 IP-HTTPS 证书  
   
-1.  在配置远程访问服务器上，单击**启动**，类型**mmc**然后按 ENTER。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+1.  在配置远程访问服务器上，单击**启动**，类型**mmc**然后按 ENTER。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
-2.  在 MMC 控制台中的“文件”菜单上，单击“添加/删除管理单元”。  
+2.  在 MMC 控制台中的“文件”  菜单上，单击“添加/删除管理单元”  。  
   
 3.  上**添加或删除管理单元**对话框中，单击**证书**，单击**添加**，单击**计算机帐户**，单击**下一步**，单击**完成**，然后单击**确定**。  
   
@@ -135,9 +135,9 @@ Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress "2.1.1.20/255.255.255.0
   
 5.  上**欢迎使用证书导出向导**页上，单击**下一步**。  
   
-6.  在“导出私钥”  页面上，单击“是，导出私钥” ，然后单击“下一步” 。  
+6.  在“导出私钥”  页面上，单击“是，导出私钥”  ，然后单击“下一步”  。  
   
-7.  上**导出文件格式**页上，单击**个人信息交换-PKCS #12 (。PFX)**，然后单击**下一步**。  
+7.  上**导出文件格式**页上，单击**个人信息交换-PKCS #12 (。PFX)** ，然后单击**下一步**。  
   
 8.  上**安全**页上，选择**密码**复选框，输入中的密码**密码**框并确认该密码，然后单击**下一步**.  
   
@@ -149,9 +149,9 @@ Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress "2.1.1.20/255.255.255.0
   
 12. 将证书复制到你想要成为群集成员的所有服务器。  
   
-13. 在新 DirectAccess 服务器上，单击**启动**，类型**mmc**然后按 ENTER。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+13. 在新 DirectAccess 服务器上，单击**启动**，类型**mmc**然后按 ENTER。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
-14. 在 MMC 控制台中的“文件”菜单上，单击“添加/删除管理单元”。  
+14. 在 MMC 控制台中的“文件”  菜单上，单击“添加/删除管理单元”  。  
   
 15. 上**添加或删除管理单元**对话框中，单击**证书**，单击**添加**，单击**计算机帐户**，单击**下一步**，单击**完成**，然后单击**确定**。  
   
@@ -163,9 +163,9 @@ Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress "2.1.1.20/255.255.255.0
   
 19. 上**私钥保护**页上，在**密码**框中，键入的密码，然后单击**下一步**。  
   
-20. 在“证书存储”页上，单击“下一步”。  
+20. 在“证书存储”  页上，单击“下一步”  。  
   
-21. 在“正在完成证书导入向导”页上，单击“完成”。  
+21. 在“正在完成证书导入向导”  页上，单击“完成”  。  
   
 22. 上**证书导入向导**对话框中，单击**确定**。  
   
@@ -176,15 +176,15 @@ Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress "2.1.1.20/255.255.255.0
   
 #### <a name="to-install-a-certificate-for-network-location"></a>若要为网络位置安装证书  
   
-1.  在远程访问服务器上，单击**启动**，类型**mmc**，然后按 ENTER。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+1.  在远程访问服务器上，单击**启动**，类型**mmc**，然后按 ENTER。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
 2.  单击**文件**，然后单击**添加/删除管理单元**。  
   
 3.  单击**证书**，单击**添加**，单击**计算机帐户**，单击**下一步**，单击**本地计算机**，单击**完成**，然后单击**确定**。  
   
-4.  在证书管理单元的控制台树中，依次打开“证书(本地计算机)\个人\证书”。  
+4.  在证书管理单元的控制台树中，依次打开  “证书(本地计算机)\个人\证书”。  
   
-5.  右键单击“证书”，指向“所有任务”，然后单击“申请新证书”。  
+5.  右键单击  “证书”，指向  “所有任务”，然后单击  “申请新证书”。  
   
 6.  单击“下一步”  两次。  
   
@@ -196,7 +196,7 @@ Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress "2.1.1.20/255.255.255.0
   
 9. 在中**值**，键入网络位置服务器网站 (例如，nls.corp.contoso.com) 的 intranet 名称的完全限定的域名 (FQDN)，然后单击**添加**。  
   
-10. 依次单击“确定”、“注册”和“完成”。  
+10. 依次单击  “确定”、  “注册”和  “完成”。  
   
 11. 在证书管理单元的详细信息窗格中，验证是否使用已注册的新证书，其 FQDN**预期目的**的**服务器身份验证**。  
   
@@ -214,9 +214,9 @@ Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress "2.1.1.20/255.255.255.0
   
 #### <a name="to-add-servers-to-the-cluster"></a>若要将服务器添加到群集  
   
-1.  在配置 DirectAccess 服务器上，单击**启动**，然后单击**远程访问管理**。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+1.  在配置 DirectAccess 服务器上，单击**启动**，然后单击**远程访问管理**。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
-2.  在远程访问管理控制台中，单击“配置” 。 在中**任务**窗格下**负载平衡的群集**，单击**添加或删除服务器**。  
+2.  在远程访问管理控制台中，单击“配置”  。 在中**任务**窗格下**负载平衡的群集**，单击**添加或删除服务器**。  
   
 3.  上**添加或删除服务器**对话框中，单击**添加服务器**。  
   
@@ -248,7 +248,7 @@ Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress "2.1.1.20/255.255.255.0
   
 12. 上**添加和删除服务器**对话框中，单击**关闭**。  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -264,9 +264,9 @@ Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 #### <a name="to-remove-a-server-from-the-cluster"></a>若要从群集中删除服务器  
   
-1.  在配置远程访问服务器上，单击**启动**，然后单击**远程访问管理**。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+1.  在配置远程访问服务器上，单击**启动**，然后单击**远程访问管理**。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
-2.  在远程访问管理控制台中，单击“配置” 。 在中**任务**窗格下**负载平衡的群集**，单击**添加或删除服务器**。  
+2.  在远程访问管理控制台中，单击“配置”  。 在中**任务**窗格下**负载平衡的群集**，单击**添加或删除服务器**。  
   
 3.  上**添加或删除服务器**对话框中，选择你想要删除的远程访问服务器，然后单击**删除服务器**。  
   
@@ -278,7 +278,7 @@ Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 7.  上**添加和删除服务器**对话框中，单击**关闭**。  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -291,15 +291,15 @@ Remove-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 #### <a name="to-disable-load-balancing"></a>若要禁用负载平衡  
   
-1.  在配置 DirectAccess 服务器上，单击**启动**，然后单击**远程访问管理**。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+1.  在配置 DirectAccess 服务器上，单击**启动**，然后单击**远程访问管理**。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
-2.  在远程访问管理控制台中，单击“配置” 。 在中**任务**窗格下**负载平衡的群集**，单击**禁用负载平衡**。  
+2.  在远程访问管理控制台中，单击“配置”  。 在中**任务**窗格下**负载平衡的群集**，单击**禁用负载平衡**。  
   
 3.  上**禁用负载平衡**对话框中，单击**确定**。  
   
 4.  上**禁用负载平衡**对话框中，单击**关闭**。  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   

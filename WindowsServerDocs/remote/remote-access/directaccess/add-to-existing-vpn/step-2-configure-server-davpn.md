@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: fe221fc9-c7d9-4508-b8a1-000d2515283c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 31a5310ddb59831650f6b46108d071c120116dc1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f8a6448661861fdc9f97c66fb130bfc03d0ce72c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830928"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446972"
 ---
 #  <a name="step-2-configure-the-directaccess-vpn-server"></a>步骤 2 配置 DirectAccess-VPN 服务器
 
@@ -41,27 +41,27 @@ ms.locfileid: "59830928"
 
 2. 如果向导没有自动启动，右键单击在路由和远程访问树中，服务器节点，然后单击**启用 DirectAccess**。
 
-3. 单击“下一步” 。
+3. 单击“下一步”  。
 
 ## <a name="configure-directaccess-clients"></a>配置 DirectAccess 客户端
 
 要将客户端计算机设置为使用 DirectAccess，它必须属于所选的安全组。 在配置 DirectAccess 后，将安全组中的客户端计算机设置为接收 DirectAccess 组策略。
 
-1. 在“选择组”页上，单击“添加”。
+1. 在“选择组”  页上，单击“添加”  。
 
 2. 在 **“选择组”** 对话框中，选择包含 DirectAccess 客户端计算机的安全组。
 
 3. 选中“仅为移动计算机启用 DirectAccess”  复选框以仅允许移动计算机访问内部网络。
 
-4. 选中“使用强制隧道”复选框，以通过远程访问服务器路由所有客户端通信（到内部网络和 Internet）。
+4. 选中“使用强制隧道”  复选框，以通过远程访问服务器路由所有客户端通信（到内部网络和 Internet）。
 
-5. 单击“下一步” 。
+5. 单击“下一步”  。
 
 ## <a name="configure-the-network-topology"></a>配置网络拓扑
 
 若要部署远程访问，你需要配置具有正确网络适配器的远程访问服务器、客户端计算机可以连接到的远程访问服务器的公共 URL（连接到地址），以及使用者匹配连接到地址的 IP-HTTPS 证书。
 
-1. 在“网络拓扑”  页上，单击将在你的组织中使用的部署拓扑。 在“键入客户端用于连接到远程访问服务器的公用名称或 IPv4 地址”中，输入部署的公用名称（此名称与 IP-HTTPS 证书的使用者名称相匹配，例如 edge1.contoso.com），然后单击“下一步”。
+1. 在“网络拓扑”  页上，单击将在你的组织中使用的部署拓扑。 在“键入客户端用于连接到远程访问服务器的公用名称或 IPv4 地址”  中，输入部署的公用名称（此名称与 IP-HTTPS 证书的使用者名称相匹配，例如 edge1.contoso.com），然后单击“下一步”  。
 
 ## <a name="configure-the-dns-suffix-search-list"></a>配置 DNS 后缀搜索列表
 
@@ -83,10 +83,10 @@ ms.locfileid: "59830928"
 
 如果通过附加和尝试列表中的每个后缀而形成的所有 FQDN 查询未得到解析，则查询过程失败，会产生“找不到名称”的结果。 
 
->[!WARNING]
->如果使用了域后缀列表，则在查询未得到应答或解析时，客户端将根据不同的 DNS 域名继续发送其他备选查询。 一旦使用后缀列表中的某个条目解析名称，则不会再尝试未使用的列表条目。 因此，将最常用的域后缀排在第一位的列表排序方式效率最高。
-
->仅当 DNS 名称条目不是完全限定时，才使用域名后缀搜索。 若要使 DNS 名称完全合格，请在名称末尾输入结尾句点 (.)。
+> [!WARNING]
+> 如果使用了域后缀列表，则在查询未得到应答或解析时，客户端将根据不同的 DNS 域名继续发送其他备选查询。 一旦使用后缀列表中的某个条目解析名称，则不会再尝试未使用的列表条目。 因此，将最常用的域后缀排在第一位的列表排序方式效率最高。
+> 
+> 仅当 DNS 名称条目不是完全限定时，才使用域名后缀搜索。 若要使 DNS 名称完全合格，请在名称末尾输入结尾句点 (.)。
 
 ## <a name="gpo-configuration"></a>GPO 配置
 

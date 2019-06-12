@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 77700eb5f82ea36cd484e80bd59b9296e1290177
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a9c00d65ad1c59e91f4011ab932bf9f921957c59
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851168"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446157"
 ---
 # <a name="switch-between-modes"></a>切换模式
 MultiPoint 管理器包括以下模式可帮助你执行不同类型的 MultiPoint 服务系统管理：  
@@ -27,9 +27,9 @@ MultiPoint 管理器包括以下模式可帮助你执行不同类型的 MultiPoi
   
 -   *控制台模式*:当 MultiPoint 服务系统处于控制台模式下时，可以安装和更新软件和驱动程序或执行其他维护任务。 当系统处于控制台模式时，*工作站*均不可供其他计算机用户使用。 此类工作站不会显示在 MultiPoint 管理器。 直接连接到服务器的所有监视器将被都视为此计算机系统的显示。   
   
-> [!NOTE]  
+> [!NOTE]
 > 通过更改服务器设置中的默认值，你可以强制系统在控制台模式下启动。  
-## <a name="to-switch-from-station-mode-to-console-mode"></a>从工作站模式切换到控制台模式  
+> ## <a name="to-switch-from-station-mode-to-console-mode"></a>从工作站模式切换到控制台模式  
   
 1.  在工作站模式下打开 MultiPoint Manager，然后单击**主页**选项卡。  
   
@@ -46,4 +46,4 @@ MultiPoint 管理器包括以下模式可帮助你执行不同类型的 MultiPoi
 3.  下*计算机名***任务**，单击**切换到工作站模式**。 计算机将重启，所有工作站将可用。  
   
 ## <a name="see-also"></a>请参阅  
-[管理使用 MultiPoint 管理器的系统任务](Manage-System-Tasks-Using-MultiPoint-Manager.md)
+[使用 MultiPoint 管理器管理系统任务](Manage-System-Tasks-Using-MultiPoint-Manager.md)

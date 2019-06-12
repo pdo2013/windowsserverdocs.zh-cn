@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: b6e679c6-4398-496c-88bc-115099f3a819
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 806c0cdeedb44db44fc0ec5218124f516a6f70e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9f76163e6b064ac3225ab4d755afd548e1cb720b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852548"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446410"
 ---
 # <a name="use-dns-policy-for-application-load-balancing-with-geo-location-awareness"></a>使用 DNS 策略通过地理位置感知执行应用程序负载平衡
 
@@ -45,7 +45,7 @@ DNS 管理员也想在所有其数据中心之间平均分布在世界其他位�
 >[!IMPORTANT]
 >以下部分包含示例 Windows PowerShell 命令包含多个参数的示例值。 请确保将这些命令中的示例值替换之前运行这些命令适用于你的部署的值为。
 
-###<a name="bkmk_clientsubnets"></a>创建 DNS 客户端子网
+### <a name="bkmk_clientsubnets"></a>创建 DNS 客户端子网
 
 首先必须确定子网或 IP 地址空间的北美和欧洲区域。
 
@@ -61,7 +61,7 @@ DNS 客户端子网是从中查询发送到 DNS 服务器的 IPv4 或 IPv6 子�
     
 有关详细信息，请参阅[添加 DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps)。
 
-###<a name="bkmk_zscopes2"></a>创建区域作用域
+### <a name="bkmk_zscopes2"></a>创建区域作用域
 
 客户端子网就位后，必须将区域 contosogiftservices.com 划分为不同的区域作用域，每个数据中心。
 
@@ -85,7 +85,7 @@ DNS 客户端子网是从中查询发送到 DNS 服务器的 IPv4 或 IPv6 子�
 
 有关详细信息，请参阅[添加 DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-###<a name="bkmk_records2"></a>将记录添加到区域作用域
+### <a name="bkmk_records2"></a>将记录添加到区域作用域
 
 现在，必须添加到区域作用域表示 web 服务器主机的记录。
 
@@ -98,7 +98,7 @@ DNS 客户端子网是从中查询发送到 DNS 服务器的 IPv4 或 IPv6 子�
 
 有关详细信息，请参阅[添加 DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps)。
 
-###<a name="bkmk_policies2"></a>创建 DNS 策略
+### <a name="bkmk_policies2"></a>创建 DNS 策略
 
 已创建的分区 （区域作用域），并且已将记录添加后，您必须创建跨这些作用域中分发传入的查询的 DNS 策略。
 

@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.assetid: fc239aec-e719-47ea-92fc-d82a7247b3f8
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: 781ed17fb07d2aecd4bb0b7bc672056096ab8060
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e94659c62db574dc8779c8246d471ab401414ddb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837058"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435805"
 ---
 # <a name="get-started-with-setup-and-boot-event-collection"></a>安装和启动事件收集入门
 
@@ -311,7 +311,7 @@ Nano Server 提供的最小接口有时可能会导致相关问题诊断困难�
   
 ||错误|错误说明|症状|潜在问题|  
 |-|---------|---------------------|-----------|---------------------|  
-|Dism.exe|87|在此上下文中无法识别 feature-name 选项||-   如果拼错了功能名称，可能会出现这种情况。 确认拼写正确，然后重试。<br />-   确认你正在使用的操作系统版本提供此功能。 在 Windows PowerShell 中，运行 **dism /online /get-features &#124; ?{$_ -match "boot"}**。 如果未返回匹配项，则表示正在运行的版本可能不支持此功能。|  
+|Dism.exe|87|在此上下文中无法识别 feature-name 选项||-   如果拼错了功能名称，可能会出现这种情况。 确认拼写正确，然后重试。<br />-   确认你正在使用的操作系统版本提供此功能。 在 Windows PowerShell 中，运行 **dism /online /get-features &#124; ?{$_ -match "boot"}** 。 如果未返回匹配项，则表示正在运行的版本可能不支持此功能。|  
 |Dism.exe|0x800f080c|功能\<名称 > 是未知的。||同上|  
   
 ### <a name="troubleshooting-the-collector"></a>收集器疑难解答  
@@ -335,23 +335,23 @@ Nano Server 提供的最小接口有时可能会导致相关问题诊断困难�
       
  **故障排除，收集器建议的方法：**  
    
- 1. 首先，使用以下命令验证收集器是否收到了来自目标的连接（仅在目标开始发送消息时，收集器才会创建文件）   
-```  
-Get-SbecForwarding  
-```  
-如果它返回的结果表明此目标中存在连接，则问题可能出在自动记录器设置中。 如果未返回任何结果，则问题出在要首先进行的 KDNET 连接中。 要诊断 KDNET 连接问题，请尝试从两端（即收集器和目标）检查连接。  
+1. 首先，使用以下命令验证收集器是否收到了来自目标的连接（仅在目标开始发送消息时，收集器才会创建文件）   
+   ```  
+   Get-SbecForwarding  
+   ```  
+   如果它返回的结果表明此目标中存在连接，则问题可能出在自动记录器设置中。 如果未返回任何结果，则问题出在要首先进行的 KDNET 连接中。 要诊断 KDNET 连接问题，请尝试从两端（即收集器和目标）检查连接。  
   
 2. 若要查看从收集器扩展的诊断，请将添加到\<收集器 > 元素的配置文件：  
-\<collector ... minlog="verbose">  
-这将启用有关每个收到的数据包的消息。  
+   \<collector ... minlog="verbose">  
+   这将启用有关每个收到的数据包的消息。  
 3. 检查是否确实收到了任何数据包。 （可选）你可能希望以详细模式将日志直接写入文件，而不是通过 ETW 写入文件。 若要执行此操作，将添加到\<收集器 > 元素的配置文件：  
-\<collector ... minlog="verbose" log="c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt">  
+   \<collector ... minlog="verbose" log="c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt">  
       
 4. 检查事件日志中是否有关于收到的数据包的任何消息。 检查是否确实收到了任何数据包。 如果数据包已收到但不正确，请检查事件消息以获取详细信息。  
 5. KDNET 会从目标端将一些诊断信息写入注册表。 查找范围   
-**HKLM\SYSTEM\CurrentControlSet\Services\kdnet** 中查找消息。  
-  成功时 KdInitStatus (DWORD) 将为 0，出错时会显示错误代码  
-  KdInitErrorString = 错误说明（如果没有错误，还包含信息性消息）  
+   **HKLM\SYSTEM\CurrentControlSet\Services\kdnet** 中查找消息。  
+   成功时 KdInitStatus (DWORD) 将为 0，出错时会显示错误代码  
+   KdInitErrorString = 错误说明（如果没有错误，还包含信息性消息）  
   
 6. 在目标上运行 Ipconfig.exe 并检查它所报告的设备名称。 如果正确加载了 KDNET，设备名称应该类似于“kdnic”，而不是原始供应商的卡片名称。  
 7. 检查是否为目标配置了 DHCP。 KDNET 绝对需要 DHCP。  

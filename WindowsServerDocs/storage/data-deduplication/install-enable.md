@@ -9,12 +9,12 @@ manager: klaasl
 ms.author: wgries
 ms.date: 05/09/2017
 description: 如何在 Windows Server 上安装重复数据删除，如何确定工作负荷是否适合进行重复数据删除，以及如何在卷上启用重复数据删除。
-ms.openlocfilehash: 153b064b158028c696bad4eeb00764d3e10822e1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e9ea3a144ae68ba9a51cdad66d493a7b962d3838
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814898"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447276"
 ---
 # <a name="install-and-enable-data-deduplication"></a>安装和启用重复数据删除
 > 适用于 Windows Server（半年频道）、Windows Server 2016
@@ -31,7 +31,7 @@ ms.locfileid: "59814898"
 ### <a id="install-dedup-via-server-manager"></a>使用服务器管理器安装重复数据删除
 1. 从“添加角色和功能”向导，选择“**服务器角色**”，然后选择“**重复数据删除**”。  
 ![安装重复数据删除通过服务器管理器： 从服务器角色选择重复数据删除](media/install-dedup-via-server-manager-1.png)
-2. 单击 **“下一步”** 直到 **“安装”** 按钮处于活跃状态，然后单击 **“安装”**。  
+2. 单击 **“下一步”** 直到 **“安装”** 按钮处于活跃状态，然后单击 **“安装”** 。  
 ![安装重复数据删除通过服务器管理器： 单击安装](media/install-dedup-via-server-manager-2.png)
 
 ### <a id="install-dedup-via-powershell"></a>使用 PowerShell 安装重复数据删除
@@ -46,7 +46,7 @@ ms.locfileid: "59814898"
     Install-WindowsFeature -ComputerName <MyNanoServer> -Name FS-Data-Deduplication
     ```  
     <br />
-    **-- OR --**
+    <strong>-- OR --</strong>
     <br />
     使用 PowerShell 远程处理远程连接到 Nano Server 实例并使用 DISM 安装重复数据删除：  
     

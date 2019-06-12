@@ -7,12 +7,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 76be26e107bd16165367d5432e1dd757dea2f9b4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0086edb7781a604cc90b9e76d34e5a3dc2725547
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855408"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447522"
 ---
 # <a name="create-a-shielded-vm-using-powershell"></a>创建受防护的 VM 使用 PowerShell
 
@@ -56,15 +56,15 @@ Save-VolumeSignatureCatalog -TemplateDiskPath "C:\temp\MyTemplateDisk.vhdx" -Vol
 适用于安装的受防护的 Vm 具有远程服务器管理工具的计算机上运行以下 cmdlet。
 如果要创建 PDK 适用于 Linux VM，必须执行此操作运行 Windows Server 版本 1709年或更高版本的服务器上。
 
- 
+ 
 ```powershell
 # Create owner certificate, don't lose this!
 # The certificate is stored at Cert:\LocalMachine\Shielded VM Local Certificates
 $Owner = New-HgsGuardian –Name 'Owner' –GenerateCertificates
- 
+ 
 # Import the HGS guardian for each fabric you want to run your shielded VM
 $Guardian = Import-HgsGuardian -Path C:\HGSGuardian.xml -Name 'TestFabric'
- 
+ 
 # Create the PDK file
 # The "Policy" parameter describes whether the admin can see the VM's console or not
 # Use "EncryptionSupported" if you are testing out shielded VMs and want to debug any issues during the specialization process
@@ -115,5 +115,5 @@ Add-ClusterVirtualMachineRole -VMName 'MyShieldedVM' -Cluster <Hyper-V cluster n
 
 ## <a name="next-step"></a>下一步
 
->[!div class="nextstepaction"]
-[部署受防护使用 VMM](guarded-fabric-tenant-deploys-shielded-vm-using-vmm.md)
+> [!div class="nextstepaction"]
+> [部署受防护使用 VMM](guarded-fabric-tenant-deploys-shielded-vm-using-vmm.md)

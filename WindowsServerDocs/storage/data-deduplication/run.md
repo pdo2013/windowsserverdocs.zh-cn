@@ -8,12 +8,12 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
-ms.openlocfilehash: 0421faaa910a1d679d809b88c0b4d2c94ba694b3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2e2e4975c4ab9ebb7ec68834f380255292426393
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852468"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447227"
 ---
 # <a name="running-data-deduplication"></a>运行重复数据删除
 
@@ -49,10 +49,10 @@ Start-DedupJob -Type Optimization -Volume <Your-Volume-Here> -Memory 100 -Cores 
 
 [优化作业](understand.md#job-info-optimization)失败的一个标志是呈下降趋势的优化比率，它可能指示优化作业跟不上更改或改动的速率。 可以通过使用 [`Get-DedupStatus`](https://technet.microsoft.com/library/hh848437.aspx) PowerShell cmdlet 来检查优化比率。
 
-> [!Important]  
+> [!Important]
 > `Get-DedupStatus` 有两个与优化比率相关的字段：`OptimizedFilesSavingsRate`和`SavingsRate`。 这两个都是要跟踪的重要值，但每个都具有独特的含义。
-- `OptimizedFilesSavingsRate` 仅适用于策略的文件进行优化 (`space used by optimized files after optimization / logical size of optimized files`)。
-- `SavingsRate` 适用于整个卷 (`space used by optimized files after optimization / total logical size of the optimization`)。
+> - `OptimizedFilesSavingsRate` 仅适用于策略的文件进行优化 (`space used by optimized files after optimization / logical size of optimized files`)。
+> - `SavingsRate` 适用于整个卷 (`space used by optimized files after optimization / total logical size of the optimization`)。
 
 ## <a id="disabling-dedup"></a>禁用重复数据删除
 若要关闭重复数据删除，请运行“[取消优化作业](understand.md#job-info-unoptimization)”。 要撤消卷优化，请运行以下命令：

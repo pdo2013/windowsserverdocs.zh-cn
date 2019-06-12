@@ -8,12 +8,12 @@ ms.date: 09/07/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 270fb6efd63e6355c410ee45d09e6fd16b14222b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2380060894ff2f365451bbabfd41b8aa7e6792a0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867988"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445292"
 ---
 # <a name="compound-authentication-and-ad-ds-claims-in-ad-fs"></a>复合身份验证和 AD FS 中的 AD DS 声明
 Windows Server 2012 引入了复合身份验证，从而增强了 Kerberos 身份验证。  复合身份验证，包括两个身份的 Kerberos 票证授予服务 (TGS) 请求： 
@@ -87,21 +87,21 @@ Set-AdfsGlobalAuthenticationPolicy -PrimaryIntranetAuthenticationProvider 'Windo
 >在基于 SQL 场中，可能是服务器场的成员的任何 AD FS 服务器上执行 PowerShell 命令。
 
 ### <a name="step-5--add-the-claim-description-to-ad-fs"></a>步骤 5：添加到 AD FS 声明说明
-1.  向场中添加以下声明说明。 此声明描述不存在默认情况下 ADFS 2012 R2 中，并需要手动添加。
-2.  在 AD FS 管理下**服务**，右键单击**索赔说明**，然后选择**添加声明说明**
-3.  声明说明中输入以下信息
-    - 显示名称：Windows 设备组 
-    - 声明说明:https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup'
+1. 向场中添加以下声明说明。 此声明描述不存在默认情况下 ADFS 2012 R2 中，并需要手动添加。
+2. 在 AD FS 管理下**服务**，右键单击**索赔说明**，然后选择**添加声明说明**
+3. 声明说明中输入以下信息
+   - 显示名称：Windows 设备组 
+   - 声明说明:<https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup>'
 4. 选中这两个框。
-5. 单击 **“确定”**。
+5. 单击 **“确定”** 。
 
 ![声明说明](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc6.png)
 
 6. 使用的 PowerShell 可以使用**添加 AdfsClaimDescription** cmdlet。
-``` powershell
-Add-AdfsClaimDescription -Name 'Windows device group' -ClaimType 'https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup' `
--ShortName 'windowsdevicegroup' -IsAccepted $true -IsOffered $true -IsRequired $false -Notes 'The windows group SID of the device' 
-```
+   ``` powershell
+   Add-AdfsClaimDescription -Name 'Windows device group' -ClaimType 'https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup' `
+   -ShortName 'windowsdevicegroup' -IsAccepted $true -IsOffered $true -IsRequired $false -Notes 'The windows group SID of the device' 
+   ```
 
 
 >[!NOTE]
@@ -118,10 +118,10 @@ Add-AdfsClaimDescription -Name 'Windows device group' -ClaimType 'https://schema
 ``` powershell
 Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySupported:$true 
 ```
-2.  重新启动 ADFS 服务。
+2. 重新启动 ADFS 服务。
 
 >[!NOTE]
->一旦 CompoundIdentitySupported 设置为 true，安装新服务器 (2012R2/2016) 失败并出现以下错误 – 在同一个 gMSA **Install-adserviceaccount:无法安装服务帐户。错误消息：所提供的上下文不匹配目标。**.
+>一旦 CompoundIdentitySupported 设置为 true，安装新服务器 (2012R2/2016) 失败并出现以下错误 – 在同一个 gMSA **Install-adserviceaccount:无法安装服务帐户。错误消息：所提供的上下文不匹配目标。** .
 >
 >**解决方案**：暂时将 CompoundIdentitySupported 设置为 $false。 此步骤导致 ADFS 停止发出 WindowsDeviceGroup 声明。 Set-adserviceaccount-标识 ADFS 服务帐户 CompoundIdentitySupported: $false 新服务器上安装 gMSA，然后返回到 $True 启用 CompoundIdentitySupported。
 禁用 CompoundIdentitySupported，然后重新启用不需要重新启动 ADFS 服务。
@@ -133,19 +133,19 @@ Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySuppo
 3.  上**编辑声明规则的 Active Director**单击**添加规则**。
 4.  上**添加转换声明规则向导**选择**传递或筛选传入声明**然后单击**下一步**。
 5.  添加显示名称，然后选择**Windows 设备组**从**传入声明类型**下拉列表。
-6.  单击 **“完成”**。  单击**应用**并**确定**。 
+6.  单击 **“完成”** 。  单击**应用**并**确定**。 
 ![声明说明](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc7.png)
 
 ### <a name="step-8-on-the-relying-party-where-the-windowsdevicegroup-claims-are-expected-add-a-similar-pass-through-or-transform-claim-rule"></a>步骤 8：在信赖方需要 WindowsDeviceGroup 声明的地方，添加类似直通或者转换声明规则。
-2.  在**AD FS 管理**，单击**信赖方信任**并在右窗格中，右键单击你的 RP 然后选择**编辑声明规则**。
-3.  上**颁发转换规则**单击**添加规则**。
-4.  上**添加转换声明规则向导**选择**传递或筛选传入声明**然后单击**下一步**。
-5.  添加显示名称，然后选择**Windows 设备组**从**传入声明类型**下拉列表。
-6.  单击 **“完成”**。  单击**应用**并**确定**。
-![声明说明](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc8.png)
+2. 在**AD FS 管理**，单击**信赖方信任**并在右窗格中，右键单击你的 RP 然后选择**编辑声明规则**。
+3. 上**颁发转换规则**单击**添加规则**。
+4. 上**添加转换声明规则向导**选择**传递或筛选传入声明**然后单击**下一步**。
+5. 添加显示名称，然后选择**Windows 设备组**从**传入声明类型**下拉列表。
+6. 单击 **“完成”** 。  单击**应用**并**确定**。
+   ![声明说明](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc8.png)
 
 
-##<a name="steps-for-configuring-ad-fs-in-windows-server-2016"></a>在 Windows Server 2016 中配置 AD FS 的步骤
+## <a name="steps-for-configuring-ad-fs-in-windows-server-2016"></a>在 Windows Server 2016 中配置 AD FS 的步骤
 以下情况将详细介绍适用于 Windows Server 2016 AD FS 上配置复合身份验证的步骤。
 
 ### <a name="step-1--enable-kdc-support-for-claims-compound-authentication-and-kerberos-armoring-on-the-default-domain-controller-policy"></a>第 1 步：启用 KDC 支持声明、 复合身份验证和 Kerberos 保护的默认域控制器策略
@@ -189,10 +189,10 @@ Set-AdfsGlobalAuthenticationPolicy -PrimaryIntranetAuthenticationProvider 'Windo
 ``` powershell
 Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySupported:$true 
 ```
-2.  重新启动 ADFS 服务。
+2. 重新启动 ADFS 服务。
 
 >[!NOTE]
->一旦 CompoundIdentitySupported 设置为 true，安装新服务器 (2012R2/2016) 失败并出现以下错误 – 在同一个 gMSA **Install-adserviceaccount:无法安装服务帐户。错误消息：所提供的上下文不匹配目标。**.
+>一旦 CompoundIdentitySupported 设置为 true，安装新服务器 (2012R2/2016) 失败并出现以下错误 – 在同一个 gMSA **Install-adserviceaccount:无法安装服务帐户。错误消息：所提供的上下文不匹配目标。** .
 >
 >**解决方案**：暂时将 CompoundIdentitySupported 设置为 $false。 此步骤导致 ADFS 停止发出 WindowsDeviceGroup 声明。 Set-adserviceaccount-标识 ADFS 服务帐户 CompoundIdentitySupported: $false 新服务器上安装 gMSA，然后返回到 $True 启用 CompoundIdentitySupported。
 禁用 CompoundIdentitySupported，然后重新启用不需要重新启动 ADFS 服务。
@@ -204,15 +204,15 @@ Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySuppo
 3.  上**编辑声明规则的 Active Director**单击**添加规则**。
 4.  上**添加转换声明规则向导**选择**传递或筛选传入声明**然后单击**下一步**。
 5.  添加显示名称，然后选择**Windows 设备组**从**传入声明类型**下拉列表。
-6.  单击 **“完成”**。  单击**应用**并**确定**。 
+6.  单击 **“完成”** 。  单击**应用**并**确定**。 
 
 
 ### <a name="step-6-on-the-relying-party-where-the-windowsdevicegroup-claims-are-expected-add-a-similar-pass-through-or-transform-claim-rule"></a>步骤 6：在信赖方需要 WindowsDeviceGroup 声明的地方，添加类似直通或者转换声明规则。
-2.  在**AD FS 管理**，单击**信赖方信任**并在右窗格中，右键单击你的 RP 然后选择**编辑声明规则**。
-3.  上**颁发转换规则**单击**添加规则**。
-4.  上**添加转换声明规则向导**选择**传递或筛选传入声明**然后单击**下一步**。
-5.  添加显示名称，然后选择**Windows 设备组**从**传入声明类型**下拉列表。
-6.  单击 **“完成”**。  单击**应用**并**确定**。
+2. 在**AD FS 管理**，单击**信赖方信任**并在右窗格中，右键单击你的 RP 然后选择**编辑声明规则**。
+3. 上**颁发转换规则**单击**添加规则**。
+4. 上**添加转换声明规则向导**选择**传递或筛选传入声明**然后单击**下一步**。
+5. 添加显示名称，然后选择**Windows 设备组**从**传入声明类型**下拉列表。
+6. 单击 **“完成”** 。  单击**应用**并**确定**。
 
 ## <a name="validation"></a>验证
 若要验证版本的 WindowsDeviceGroup 声明，请创建测试的声明感知应用程序使用.Net 4.6。 使用 WIF SDK 4.0。

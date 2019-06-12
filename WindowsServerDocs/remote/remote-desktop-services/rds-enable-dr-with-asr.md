@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: e3f9db4afb37452b4fd5d0229b385492b915fe45
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 7aa25602c71e5d114be7ae59c5e3ce168844d700
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859008"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446556"
 ---
 # <a name="enable-disaster-recovery-of-rds-using-azure-site-recovery"></a>启用 RDS 使用 Azure Site Recovery 的灾难恢复
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server （半年频道），Windows Server 2019，Windows Server 2016
 
 若要确保充分地进行灾难恢复配置 RDS 部署，需要保护所有构成了 RDS 部署的组件：
 
@@ -29,7 +29,7 @@ ms.locfileid: "59859008"
 - SQL Server 层
 - RDS 组件
 - 网络组件
- 
+
 ## <a name="configure-active-directory-and-dns-replication"></a>配置 Active Directory 和 DNS 复制
 
 你需要 RDS 部署在灾难恢复站点上的 Active Directory 工作。 必须根据 RDS 部署的复杂程度的两种选择：
@@ -47,9 +47,10 @@ ms.locfileid: "59859008"
 
 具体取决于您的 RDS 部署类型，可以为 Vm 启用保护不同组件 （如在下表中列出） 在 Azure Site Recovery 中。 配置相关的 Azure Site Recovery 元素基于是否已将 Vm 部署在 HYPER-V 或 VMWare 上。
 
-| 部署类型                              | 保护的步骤                                                                                                                                                                                      |
-|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 个人虚拟桌面 （非托管）         |  1.请确保所有虚拟化主机都安装了 RDVH 角色准备就绪。    </br>2.连接代理。  </br>3.个人桌面。 </br>4.黄金模板 VM。 </br>5.Web 访问，许可证服务器和网关服务器 |
-| 共用虚拟桌面 （托管与没有 UPD） |  1.所有虚拟化主机已准备安装了 RDVH 角色。  </br>2.连接代理。  </br>3.黄金模板 VM。 </br>4.Web 访问，许可证服务器和网关服务器。                                  |
-| Remoteapp 和桌面会话 (没有 UPD)     |  1.会话主机。  </br>2.连接代理。 </br>3.Web 访问，许可证服务器和网关服务器。                                                                                                          |                                                                                                                                      |
+
+|               部署类型                |                                                                                                     保护的步骤                                                                                                     |
+|----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     个人虚拟桌面 （非托管）     | 1.请确保所有虚拟化主机都安装了 RDVH 角色准备就绪。    </br>2.连接代理。  </br>3.个人桌面。 </br>4.黄金模板 VM。 </br>5.Web 访问，许可证服务器和网关服务器 |
+| 共用虚拟桌面 （托管与没有 UPD） |                    1.所有虚拟化主机已准备安装了 RDVH 角色。  </br>2.连接代理。  </br>3.黄金模板 VM。 </br>4.Web 访问，许可证服务器和网关服务器。                    |
+|   Remoteapp 和桌面会话 (没有 UPD)   |                                                          1.会话主机。  </br>2.连接代理。 </br>3.Web 访问，许可证服务器和网关服务器。                                                           |
 

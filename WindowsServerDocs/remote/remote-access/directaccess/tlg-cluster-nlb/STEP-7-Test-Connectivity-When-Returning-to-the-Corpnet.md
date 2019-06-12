@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 5a7252d0-6db8-4a9d-98ee-75082ecd2929
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c21b890523ca61b8f0821692178d050bc11efd79
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af22b1bbc923b9a06e4aebb910690050af1b7492
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890808"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446633"
 ---
 # <a name="step-7-test-connectivity-when-returning-to-the-corpnet"></a>步骤 7 测试连接返回到公司网络时
 
@@ -28,11 +28,11 @@ ms.locfileid: "59890808"
   
 ### <a name="test-connectivity-on-client1"></a>在 CLIENT1 上测试连接  
   
-1.  关闭客户端 1 从 Homenet 子网或虚拟交换机中拔出客户端 1 并将其连接到公司网络子网或虚拟交换机。 在 CLIENT1 上，打开并以 corp\user1 身份登录。  
+1. 关闭客户端 1 从 Homenet 子网或虚拟交换机中拔出客户端 1 并将其连接到公司网络子网或虚拟交换机。 在 CLIENT1 上，打开并以 corp\user1 身份登录。  
   
-2.  打开提升的 Windows PowerShell 窗口，键入**ipconfig /all**，然后按 ENTER。 输出将指示客户端 1 有本地 IP 地址，并且没有任何 active 6to4、 Teredo 或 IP-HTTPS 隧道。  
+2. 打开提升的 Windows PowerShell 窗口，键入**ipconfig /all**，然后按 ENTER。 输出将指示客户端 1 有本地 IP 地址，并且没有任何 active 6to4、 Teredo 或 IP-HTTPS 隧道。  
   
-3.  测试连接到网络共享在 APP2 上。 上**启动**屏幕上，键入**\\\APP2\Files**，然后按 ENTER。 你将能够在该文件夹中打开该文件。  
+3. 测试连接到网络共享在 APP2 上。 上**启动**屏幕上，键入<strong>\\\APP2\Files</strong>，然后按 ENTER。 你将能够在该文件夹中打开该文件。  
   
 
 

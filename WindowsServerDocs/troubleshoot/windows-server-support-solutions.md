@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: landing-page
 author: kaushika-msft
 ms.author: elizapo
-ms.openlocfilehash: 1a4d28e168e7ce328ac125d12a07cb0c133e2d0e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fc87bf87a79f5f7e13069ad1a58be0dc940a558e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852118"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447787"
 ---
 # <a name="top-support-solutions-for-windows-server"></a>适用于 Windows Server 的顶级支持解决方案
 
@@ -84,10 +84,9 @@ Microsoft 会定期为 Windows Server 发布更新和解决方案。 若要确�
                         <p><a href="https://technet.microsoft.com/library/ee939272.aspx">如何解决密钥管理服务 (KMS)</a></p>
 <hr>
                         <p><a href="https://technet.microsoft.com/library/ff793439.aspx">卷激活故障排除</a></p>
-<hr>                       
-                        <p><a href="https://technet.microsoft.com/library/ff793399.aspx">激活错误代码</a></p>
+<hr><br/>                        <p><a href="https://technet.microsoft.com/library/ff793399.aspx">激活错误代码</a></p>
 <hr>
-                        <p><a href="https://support.microsoft.com/help/2796988/windows-8-or-windows-server-2012-installation-may-fail-with-error-mess">Windows 安装可能会失败，错误"输入的产品密钥不匹配任何可用于安装的 Windows 映像。输入不同的产品密钥"</a></p>
+                        <p><a href="https://support.microsoft.com/help/2796988/windows-8-or-windows-server-2012-installation-may-fail-with-error-mess">Windows 安装可能失败，错误&quot;输入的产品密钥不匹配任何可用于安装的 Windows 映像。输入不同的产品密钥&quot;</a></p>
                     </div>
                 </div>
             </div>
@@ -138,10 +137,9 @@ Microsoft 会定期为 Windows Server 发布更新和解决方案。 若要确�
                         <a href="/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup">如何使用 Azure Active Directory 配置的 Windows 已加入域的设备自动注册</a>
 <hr>
                         <p><a href="/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup#step-2-setup-issuance-of-claims">设置声明颁发</a></p>
-<hr>  
-                        <p><a href="../identity/ad-fs/operations/configure-ad-fs-to-authenticate-users-stored-in-ldap-directories.md">配置 AD FS 进行身份验证 LDAP 目录中存储的用户</a></p>
+<hr><br/>                        <p><a href="../identity/ad-fs/operations/configure-ad-fs-to-authenticate-users-stored-in-ldap-directories.md">配置 AD FS 以对存储在 LDAP 目录中的用户进行身份验证</a></p>
 <hr>
-                        <p><a href="../identity/ad-fs/operations/ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md">AD FS 支持的证书身份验证的备用主机名绑定</a></p>
+                        <p><a href="../identity/ad-fs/operations/ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md">AD FS 对证书身份验证的备用主机名绑定的支持</a></p>
 <hr>
                         <p><a href="https://blogs.technet.microsoft.com/tspring/2017/01/20/federated-to-microsoft-cloud-and-account-lockouts/">密码攻击</a>
                         <a href="../identity/ad-fs/deployment/upgrading-to-ad-fs-in-windows-server-2016.md">升级到 Windows Server 2016 使用 WID 数据库中的 AD FS</a></p>

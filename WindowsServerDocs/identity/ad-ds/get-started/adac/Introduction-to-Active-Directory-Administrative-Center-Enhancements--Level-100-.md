@@ -9,12 +9,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: d16447425b86fef979732c4785db27d1542116b8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d3b5f3eee338128fb424c28e7280bb7f543c9f58
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840168"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442998"
 ---
 # <a name="introduction-to-active-directory-administrative-center-enhancements-level-100"></a>Introduction to Active Directory Administrative Center Enhancements (Level 100)
 
@@ -71,11 +71,11 @@ Active Directory 域服务 (AD DS) 和 Active Directory 轻型目录服务 (AD L
 
 1. 右键单击 Windows PowerShell 图标，单击**以管理员身份运行**并键入**dsac.exe**以打开 ADAC。
 
-2. 单击 **“管理”**，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”**。
+2. 单击 **“管理”** ，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”** 。
 
-3. 在左导航窗格和 **“任务”** 窗格中单击目标域，再单击 **“提升林功能级别”**。 选择的林功能级别，至少是 Windows Server 2008 R2 或更高版本，然后单击**确定**。
+3. 在左导航窗格和 **“任务”** 窗格中单击目标域，再单击 **“提升林功能级别”** 。 选择的林功能级别，至少是 Windows Server 2008 R2 或更高版本，然后单击**确定**。
 
-![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *
+![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***
 
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。
 
@@ -93,13 +93,13 @@ Set-ADForestMode -Identity contoso.com -ForestMode Windows2008R2Forest -Confirm:
 
 1. 右键单击 Windows PowerShell 图标，单击**以管理员身份运行**并键入**dsac.exe**以打开 ADAC。
 
-2. 单击 **“管理”**，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”**。
+2. 单击 **“管理”** ，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”** 。
 
-3. 在 **“任务”** 窗格中，单击 **“任务”** 窗格中的 **“启用回收站...”**，单击警告消息框中的 **“确定”**，再单击 **“确定”** 以刷新 ADAC 消息。
+3. 在 **“任务”** 窗格中，单击 **“任务”** 窗格中的 **“启用回收站...”** ，单击警告消息框中的 **“确定”** ，再单击 **“确定”** 以刷新 ADAC 消息。
 
 4. 按 F5 刷新 ADAC。
 
-![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *
+![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***
 
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。
 
@@ -115,9 +115,9 @@ Enable-ADOptionalFeature -Identity 'CN=Recycle Bin Feature,CN=Optional Features,
 
 1. 右键单击 Windows PowerShell 图标，单击**以管理员身份运行**并键入**dsac.exe**以打开 ADAC。
 
-2. 单击 **“管理”**，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”**。
+2. 单击 **“管理”** ，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”** 。
 
-3. 在 **“任务”** 窗格中，单击 **“新建”**，然后单击 **“用户”**。
+3. 在 **“任务”** 窗格中，单击 **“新建”** ，然后单击 **“用户”** 。
 
     ![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/ADDS_ADACNewUser.gif)
 
@@ -133,16 +133,16 @@ Enable-ADOptionalFeature -Identity 'CN=Recycle Bin Feature,CN=Optional Features,
 #### <a name="to-create-a-test-group-and-add-users-to-the-group"></a>创建测试组并将用户添加到该组
 
 1. 右键单击 Windows PowerShell 图标，单击**以管理员身份运行**并键入**dsac.exe**以打开 ADAC。
-2. 单击 **“管理”**，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”**。
-3. 在 **“任务”** 窗格中，单击 **“新建”**，再单击 **“组”**。
-4. 在 **“组”** 下输入以下信息，再单击 **“确定”**：
+2. 单击 **“管理”** ，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”** 。
+3. 在 **“任务”** 窗格中，单击 **“新建”** ，再单击 **“组”** 。
+4. 在 **“组”** 下输入以下信息，再单击 **“确定”** ：
 
     -   **组名称： 组 1**
 
-5. 单击**group1**，然后在 **“任务”** 窗格下，单击 **“属性”**。
-6. 单击 **“成员”**，单击 **“添加”**，键入 **test1;test2**，再单击 **“确定”**。
+5. 单击**group1**，然后在 **“任务”** 窗格下，单击 **“属性”** 。
+6. 单击 **“成员”** ，单击 **“添加”** ，键入 **test1;test2**，再单击 **“确定”** 。
 
-![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *
+![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***
 
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。
 
@@ -154,12 +154,12 @@ Add-ADGroupMember -Identity group1 -Member test1
 
 1. 右键单击 Windows PowerShell 图标，单击**以管理员身份运行**并键入**dsac.exe**以打开 ADAC。
 2. 单击**管理**，单击**添加导航节点**，然后选择相应目标域**添加导航节点**对话框，然后单击 * * 确定
-3. 在 **“任务”** 窗格中，单击 **“新建”** ，再单击 **“组织单位”**。
-4. 在 **“组织单位”** 下输入以下信息，再单击 **“确定”**：
+3. 在 **“任务”** 窗格中，单击 **“新建”** ，再单击 **“组织单位”** 。
+4. 在 **“组织单位”** 下输入以下信息，再单击 **“确定”** ：
 
    - **NameOU1**
 
-![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *
+![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***
 
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。
 
@@ -167,7 +167,6 @@ Add-ADGroupMember -Identity group1 -Member test1
 1..2 | ForEach-Object {New-ADUser -SamAccountName test$_ -Name "test$_" -Path "DC=fabrikam,DC=com" -AccountPassword (ConvertTo-SecureString -AsPlainText "p@ssword1" -Force) -Enabled $true}
 New-ADGroup -Name "group1" -SamAccountName group1 -GroupCategory Security -GroupScope Global -DisplayName "group1"
 New-ADOrganizationalUnit -Name OU1 -Path "DC=fabrikam,DC=com"
-
 ```
 
 ### <a name="bkmk_restore_del_obj"></a>步骤 4:还原删除的对象
@@ -178,11 +177,11 @@ New-ADOrganizationalUnit -Name OU1 -Path "DC=fabrikam,DC=com"
 
 1. 右键单击 Windows PowerShell 图标，单击**以管理员身份运行**并键入**dsac.exe**以打开 ADAC。
 
-2. 单击 **“管理”**，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”**。
+2. 单击 **“管理”** ，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”** 。
 
 3. 选择用户 **test1** 和 **test2**，单击 **“任务”** 窗格中的 **“删除”** ，再单击 **“是”** 确认删除。
 
-    ![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *
+    ![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***
 
     下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。
 
@@ -195,11 +194,11 @@ New-ADOrganizationalUnit -Name OU1 -Path "DC=fabrikam,DC=com"
 5. 若要确认对象已还原到原始位置，请导航到目标域并确认用户帐户已列出。
 
     > [!NOTE]
-    > 如果导航到用户帐户 **test1** 和 **test2** 的 **“属性”** ，再单击 **“成员”**，将看到该组成员身份也已还原。
+    > 如果导航到用户帐户 **test1** 和 **test2** 的 **“属性”** ，再单击 **“成员”** ，将看到该组成员身份也已还原。
 
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。
 
-![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *
+![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***
 
 ```powershell
 Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADObject
@@ -209,17 +208,17 @@ Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADOb
 
 1. 右键单击 Windows PowerShell 图标，单击**以管理员身份运行**并键入**dsac.exe**以打开 ADAC。
 
-2. 单击 **“管理”**，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”**。
+2. 单击 **“管理”** ，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”** 。
 
 3. 选择用户 **test1** 和 **test2**，单击 **“任务”** 窗格中的 **“删除”** ，再单击 **“是”** 确认删除。
 
-4. 导航到 **“Deleted Objects”** 容器，选择 **test2** 和 **test1**，再单击 **“任务”** 窗格中的 **“还原为”**。
+4. 导航到 **“Deleted Objects”** 容器，选择 **test2** 和 **test1**，再单击 **“任务”** 窗格中的 **“还原为”** 。
 
-5. 选择 **OU1**，再单击 **“确定”**。
+5. 选择 **OU1**，再单击 **“确定”** 。
 
 6. 若要确认对象已还原到 **OU1**，请导航到目标域，双击 **OU1**，再确认用户帐户已列出。
 
-![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *
+![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***
 
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。
 
@@ -270,11 +269,11 @@ Windows Server 2008 操作系统将向组织提供一种为域中不同用户集
 
 1. 右键单击 Windows PowerShell 图标，单击**以管理员身份运行**并键入**dsac.exe**以打开 ADAC。
 
-2. 单击 **“管理”**，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”**。
+2. 单击 **“管理”** ，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”** 。
 
-3. 在左导航窗格和 **“任务”** 窗格中单击目标域，再单击 **“提升域功能级别”**。 选择的林功能级别，至少是 Windows Server 2008 或更高版本，然后单击**确定**。
+3. 在左导航窗格和 **“任务”** 窗格中单击目标域，再单击 **“提升域功能级别”** 。 选择的林功能级别，至少是 Windows Server 2008 或更高版本，然后单击**确定**。
 
-![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *
+![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***
 
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。
 
@@ -294,11 +293,11 @@ Set-ADDomainMode -Identity contoso.com -DomainMode 3
 
 1. 右键单击 Windows PowerShell 图标，单击**以管理员身份运行**并键入**dsac.exe**以打开 ADAC。
 
-2. 单击 **“管理”**，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”**。
+2. 单击 **“管理”** ，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”** 。
 
 3. 在 ADAC 导航窗格中，打开**System**条目，再单击**Password Settings Container**。
 
-4. 在 **“任务”** 窗格中，单击 **“新建”**，再单击 **“密码设置”**。
+4. 在 **“任务”** 窗格中，单击 **“新建”** ，再单击 **“密码设置”** 。
 
     填写或编辑属性页中的字段，以新建 **“密码设置”** 对象。 要求 **“名称”** 和 **“优先”** 字段。
 
@@ -310,7 +309,7 @@ Set-ADDomainMode -Identity contoso.com -DomainMode 3
 
 6. 单击 **“确定”** 提交创建。
 
-![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *
+![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***
 
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。
 
@@ -327,15 +326,15 @@ Add-ADFineGrainedPasswordPolicySubject TestPswd -Subjects group1
 
 1. 右键单击 Windows PowerShell 图标，单击**以管理员身份运行**并键入**dsac.exe**以打开 ADAC。
 
-2. 单击 **“管理”**，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”**。
+2. 单击 **“管理”** ，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”** 。
 
 3. 选择一个用户**test1**属于组**group1**中的与细化密码策略相关联[步骤 3:创建新细化密码策略](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp)。
 
-4. 单击 **“任务”** 窗格中的 **“查看 Resultant 密码设置”**。
+4. 单击 **“任务”** 窗格中的 **“查看 Resultant 密码设置”** 。
 
-5. 检查密码设置策略，再单击 **“取消”**。
+5. 检查密码设置策略，再单击 **“取消”** 。
 
-![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *
+![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***
 
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。
 
@@ -343,7 +342,7 @@ Add-ADFineGrainedPasswordPolicySubject TestPswd -Subjects group1
 Get-ADUserResultantPasswordPolicy test1
 ```
 
-#### <a name="bkmk_edit_fgpp"></a>步骤 5:编辑细化密码策略
+#### <a name="bkmk_edit_fgpp"> </a>步骤 5:编辑细化密码策略
 
 在下面的过程中，您将编辑中创建的细化的密码策略[步骤 3:创建新细化密码策略](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp)
 
@@ -351,17 +350,17 @@ Get-ADUserResultantPasswordPolicy test1
 
 1. 右键单击 Windows PowerShell 图标，单击**以管理员身份运行**并键入**dsac.exe**以打开 ADAC。
 
-2. 单击 **“管理”**，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”**。
+2. 单击 **“管理”** ，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”** 。
 
-3. 在 ADAC“导航窗格”中，展开“System”，再单击“Password Settings Container”。
+3. 在 ADAC“导航窗格”  中，展开“System”  ，再单击“Password Settings Container”  。
 
 4. 选择你在中创建的细化的密码策略[步骤 3:创建新细化密码策略](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp)然后单击**属性**中**任务**窗格。
 
 5. 在 **“强制密码历史”** 下，将 **“记住密码的次数”** 更改为 **30**。
 
-6. 单击 **“确定”**。
+6. 单击 **“确定”** 。
 
-![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *
+![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***
 
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。
 
@@ -375,19 +374,19 @@ Set-ADFineGrainedPasswordPolicy TestPswd -PasswordHistoryCount:"30"
 
 1. 右键单击 Windows PowerShell 图标，单击**以管理员身份运行**并键入**dsac.exe**以打开 ADAC。
 
-2. 单击 **“管理”**，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”**。
+2. 单击 **“管理”** ，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”** 。
 
 3. 在 ADAC 导航窗格中，展开 **System** ，再单击 **Password Settings Container**。
 
 4. 选择你在中创建的细化的密码策略[步骤 3:创建新细化密码策略](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp)然后在**任务**窗格中，单击**属性**。
 
-5. 清除 **“防止意外删除”** 复选框并单击 **“确认”**。
+5. 清除 **“防止意外删除”** 复选框并单击 **“确认”** 。
 
-6. 选择细化密码策略，并在 **“任务”** 窗格中单击 **“删除”**。
+6. 选择细化密码策略，并在 **“任务”** 窗格中单击 **“删除”** 。
 
-7. 单击确认对话框中的 **“确定”**。
+7. 单击确认对话框中的 **“确定”** 。
 
-![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *
+![对 AD 管理员中心简介](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***
 
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。
 
@@ -419,7 +418,7 @@ ADAC 是构建在 Windows PowerShell 上的用户界面工具。 在 Windows Ser
 
 1. 右键单击 Windows PowerShell 图标，单击**以管理员身份运行**并键入**dsac.exe**以打开 ADAC。
 
-2. 单击 **“管理”**，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”**。
+2. 单击 **“管理”** ，单击 **“添加导航节点”** ，在 **“添加导航节点”** 对话框中选择相应目标域，再单击 **“确定”** 。
 
 3. 展开 ADAC 屏幕底部的 **“Windows PowerShell 历史记录”** 窗格。
 
@@ -427,7 +426,7 @@ ADAC 是构建在 Windows PowerShell 上的用户界面工具。 在 Windows Ser
 
 5. 单击**添加到组...** 中**任务**窗格。
 
-6. 导航到 **group1**，再单击对话框中的 **“确定”**。
+6. 导航到 **group1**，再单击对话框中的 **“确定”** 。
 
 7. 导航到 **“Windows PowerShell 历史记录”** 窗格并找到刚生成的命令。
 

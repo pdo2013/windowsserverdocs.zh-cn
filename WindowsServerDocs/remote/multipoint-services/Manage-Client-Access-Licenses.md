@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 744c2d7ff2965474b90686f88c21f7e6d87deced
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f5f78d3d2387d3b95177a6a8a40fb9b16d8ed8e2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813658"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446120"
 ---
 # <a name="manage-client-access-licenses"></a>管理客户端访问许可证
-连接到 MultiPoint 服务系统，包括运行用作工作站的 MultiPoint 服务的计算机的每个工作站必须具有有效的每个用户的远程桌面*客户端访问许可证 (CAL)*。
+连接到 MultiPoint 服务系统，包括运行用作工作站的 MultiPoint 服务的计算机的每个工作站必须具有有效的每个用户的远程桌面*客户端访问许可证 (CAL)* 。
 
 如果使用的虚拟工作站桌面而不物理的工作站，则必须安装每个工作站虚拟桌面的 CAL。  
   
@@ -39,15 +39,15 @@ ms.locfileid: "59813658"
 2. 在左窗格中，导航到**本地计算机策略-> 计算机配置-> 管理模板-> Windows 组件-> 远程桌面服务-> 远程桌面会话主机-> 许可**。
 
 3. 在右窗格中，右键单击**使用指定的远程桌面许可证服务器**，然后选择**编辑**:
-  - 在组策略编辑器对话框中，选择**已启用**
-  - 输入中的本地计算机名称**许可证服务器使用**字段。
-  - 选择**确定**
+   - 在组策略编辑器对话框中，选择**已启用**
+   - 输入中的本地计算机名称**许可证服务器使用**字段。
+   - 选择**确定**
   
 4. 在右窗格中，右键单击**设置远程桌面授权模式**，然后选择**编辑**
- - 在组策略编辑器对话框中，选择**已启用**
- - 设置**许可模式**到每个设备 / 每个用户
- - 选择**确定** 
+   - 在组策略编辑器对话框中，选择**已启用**
+   - 设置**许可模式**到每个设备 / 每个用户
+   - 选择**确定** 
 
-  
+  
 ## <a name="see-also"></a>请参阅  
-[管理使用 MultiPoint 管理器的系统任务](Manage-System-Tasks-Using-MultiPoint-Manager.md)
+[使用 MultiPoint 管理器管理系统任务](Manage-System-Tasks-Using-MultiPoint-Manager.md)

@@ -10,12 +10,12 @@ ms.date: 07/11/2018
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.openlocfilehash: af98a219a4a5aa708df9c648f1b245a21e95f016
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 425197d3462762c60a7371fc6ca529ad1b70e7ef
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827808"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443369"
 ---
 # <a name="upload-a-windows-server-20082008-r2-specialized-image-to-azure"></a>将 Windows Server 2008/2008 R2 特殊化映像上传至 Azure 
 
@@ -29,17 +29,17 @@ ms.locfileid: "59827808"
 - 如果映像中尚未安装 Windows Server 2008 Service Pack 2 (SP2)，请下载并安装。
 
 - 配置远程桌面 (RDP) 设置。
-   1. 转到**控制面板** > **系统设置**。   
-   2. 在左侧的菜单中，选择**远程设置**。
+  1. 转到**控制面板** > **系统设置**。   
+  2. 在左侧的菜单中，选择**远程设置**。
 
-   ![系统设置的屏幕截图，突出显示“远程设置”。](media/1a_remote_settings.png)
+     ![系统设置的屏幕截图，突出显示“远程设置”。](media/1a_remote_settings.png)
 
-   3. 在系统属性中选择**远程**选项卡。   
+  3. 在系统属性中选择**远程**选项卡。   
 
-   ![系统属性中“远程”选项卡的屏幕截图。](media/2c_sysprops.png)
+     ![系统属性中“远程”选项卡的屏幕截图。](media/2c_sysprops.png)
 
-   4. 选择“允许运行任意版本远程桌面的计算机连接(较不安全)”。   
-   5. 单击**应用**，然后单击**确定**。
+  4. 选择“允许运行任意版本远程桌面的计算机连接(较不安全)”。   
+  5. 单击**应用**，然后单击**确定**。
 - 配置 Windows 防火墙设置。   
    1. 在管理员模式下的命令提示符处，输入“**wf.msc**”以搜索 Windows 防火墙和高级安全设置。   
    2. 按**端口**对结果排序，选择**端口 3389**。   
@@ -96,7 +96,7 @@ Login-AzureRmAccount
      b. 输入磁盘的名称。 选择要使用的订阅，设置区域，然后选择帐户类型。   
      c. 对于“源类型”，选择存储。 浏览到使用脚本创建的 Blob VHD 的位置。  
      d. 选择 Windows 的 OS 类型和大小 (默认值：1023).   
-     e. 单击“创建”。   
+     e. 单击“创建”  。   
 
 7.  转到已创建的磁盘，单击**创建虚拟机**。   
      a. 对虚拟机命名。   
@@ -105,7 +105,7 @@ Login-AzureRmAccount
      d. 在设置页上选择一个网络接口。 确保该网络接口已指定以下规则：
  
         PORT:3389 Protocol: TCP Action: Allow Priority: 1000 Name: ‘RDP-Rule’.   
-     e. 单击“创建”。
+     e. 单击“创建”  。
 
 
 

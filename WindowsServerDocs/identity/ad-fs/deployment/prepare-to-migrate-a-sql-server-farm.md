@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 284e02174b4a8c06f114640223d289dc63ea3a26
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3f735c45582bc9d1746f18c0ac7c9888a4b3ac88
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890388"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445559"
 ---
 # <a name="prepare-to-migrate-a-sql-server-farm"></a>准备迁移 SQL Server 场  
  若要准备将属于 Windows Server 2012 到 SQL Server 场的 AD FS 2.0 联合服务器迁移，必须导出并备份 AD FS 配置数据从这些服务器。  
@@ -38,21 +38,21 @@ ms.locfileid: "59890388"
 >   
 >  此步骤是可选的，因为此证书存储在本地计算机个人证书存储中，并将在操作系统升级过程中保留。  
   
-2.  导出任何其他令牌签名、令牌加密或服务通信证书以及不由 AD FS 内部生成的密钥。  
+2. 导出任何其他令牌签名、令牌加密或服务通信证书以及不由 AD FS 内部生成的密钥。  
   
 你可以通过使用 Windows PowerShell 查看在你的服务器上由 AD FS 使用的所有证书。 打开 Windows PowerShell 并运行以下命令，将 AD FS cmdlet 添加到你的 Windows PowerShell 会话： `PSH:>add-pssnapin “Microsoft.adfs.powershell”`。 然后运行以下命令以查看你的服务器正在使用的所有证书 `PSH:>Get-ADFSCertificate`。 此命令的输出包括指定每个证书的存储位置的 StoreLocation 和 StoreName 值。  
   
 > [!NOTE]
 >  然后，你可以使用[导出服务器身份验证证书的私钥部分](Export-the-Private-Key-Portion-of-a-Server-Authentication-Certificate.md)中的指南将每个证书及其私钥导出到 .pfx 文件。 此步骤是可选的，因为在操作系统升级过程中将保留所有外部证书。  
   
-3.  备份应用程序配置文件。 除了其他设置以外，此文件还包含策略数据库连接字符串。  
+3. 备份应用程序配置文件。 除了其他设置以外，此文件还包含策略数据库连接字符串。  
   
 若要备份应用程序配置文件，必须手动将 `%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config` 文件复制到备份服务器上的安全位置。  
   
 > [!NOTE]
 >  请在以下文件中的“policystore connectionstring =”后记录 SQL Server 连接字符串：  `%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config`。 当你在联合服务器上还原原始 AD FS 配置时，需要此字符串。  
   
-4.  记录 AD FS 2.0 联合身份验证服务帐户的标识以及此帐户的密码。  
+4. 记录 AD FS 2.0 联合身份验证服务帐户的标识以及此帐户的密码。  
   
 若要查找标识值，请在“服务”  控制台中查看“AD FS 2.0 Windows 服务”  中的“登录为”  列，并手动记录此值。  
   

@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.reviewer: anandy
 ms.technology: identity-adfs
-ms.openlocfilehash: c4f9a2880aa91b7a600cdb40238bead7d565e6bc
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 04573aa13689a0e6744b01a0fbf8b11b622b2706
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976887"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445473"
 ---
 # <a name="customize-claims-to-be-emitted-in-idtoken-when-using-openid-connect-or-oauth-with-ad-fs-2016-or-later"></a>自定义声明为与 AD FS 2016 使用 OpenID Connect 或 OAuth 时的 id_token 中发出或更高版本
 
@@ -57,29 +57,29 @@ Grant-AdfsApplicationPermission -ClientRoleIdentifier "https://my/privateclient"
 
 2. 在应用程序组向导中，为名称输入**ADFSSSO**应用程序在客户端-服务器下选择**本机应用程序访问 web 应用程序**模板。 单击“下一步”  。
 
-  ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap1.png)
+   ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap1.png)
 
 3. 复制**客户端标识符**值。  它将用作更高版本作为值 ida： 应用程序 web.config 文件中的 ClientId。
 
 4. 输入的以下**重定向 URI:**  -  **https://localhost:44320/** 。  单击**添加**。 单击“下一步”  。
 
-  ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap2.png)
+   ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap2.png)
 
 5. 上**配置 Web API**屏幕中，输入以下**标识符** -  **https://contoso.com/WebApp** 。  单击**添加**。 单击“下一步”  。  此值将用于更高版本**ida: ResourceID**应用程序 web.config 文件中。
 
-  ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap3.png)
+   ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap3.png)
 
 6. 上**选择访问控制策略**屏幕上，选择**授权所有人**然后单击**下一步**。
 
-  ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap4.png)
+   ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap4.png)
 
 7. 上**配置应用程序权限**屏幕上，请确保**openid**并**allatclaims**未选中，单击**下一步**。
 
-  ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap5.png)
+   ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap5.png)
 
 8. 上**摘要**屏幕上，单击**下一步**。  
 
-  ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap6.png)
+   ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap6.png)
 
 9. 上**完成**屏幕上，单击**关闭**。
 
@@ -89,20 +89,20 @@ Grant-AdfsApplicationPermission -ClientRoleIdentifier "https://my/privateclient"
 
 11. 上**ADFSSSO-Web API 属性**屏幕上，选择**颁发转换规则**选项卡，单击**添加规则...**
 
-  ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap8.png)
+    ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap8.png)
 
 12. 上**添加转换声明规则向导**屏幕上，选择**使用自定义规则发送声明**从下拉列表单击**下一步**
 
-  ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap9.png)
+    ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap9.png)
 
 13. 上**添加转换声明规则向导**屏幕中，输入**ForCustomIDToken**中**声明规则名称**以下声明中的规则和**自定义规则**. 单击“完成” 
 
-  ```  
-  x:[]
-  => issue(claim=x);  
-  ```
+    ```  
+    x:[]
+    => issue(claim=x);  
+    ```
 
-  ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap10.png)
+    ![客户端](media/Custom-Id-Tokens-in-AD-FS/clientsnap10.png)
 
 ```
 

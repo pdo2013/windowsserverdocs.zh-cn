@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ad44ba4bbe0b31f423a4ae4593e349571d838de2
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 89506d0f7445f0df230945f45a31d4f58390c5c1
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475924"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812422"
 ---
 # <a name="folder-redirection-offline-files-and-roaming-user-profiles-overview"></a>文件夹重定向、脱机文件和漫游用户配置文件概述
 
@@ -46,11 +46,11 @@ ms.locfileid: "65475924"
 
 下表描述了“文件夹重定向”、“脱机文件”和在本版本中可用的“漫游用户配置文件”中的一些主要更改。
 
-|特性/功能|新功能或更新的功能？|描述|
-|---|---|---|
-|“始终脱机”模式|新增|通过始终脱机工作的方式，更快速地访问文件并降低带宽使用率，即使连接高速网络。|
-|感知成本的同步|新增|帮助用户在使用带有使用率限制的按流量计费的连接或在其他提供程序的网络上漫游时，避免同步产生的高数据使用费用。|
-|主计算机支持|新增|可让你只对用户的主计算机使用“文件夹重定向”、“漫游用户配置文件”或这两项。|
+| 特性/功能 | 新功能或更新的功能？ | 描述 |
+| --- | --- | --- |
+| “始终脱机”模式 | 新增 | 通过始终脱机工作的方式，更快速地访问文件并降低带宽使用率，即使连接高速网络。 |
+| 感知成本的同步 | 新增 | 帮助用户在使用带有使用率限制的按流量计费的连接或在其他提供程序的网络上漫游时，避免同步产生的高数据使用费用。 |
+| 主计算机支持 | 新增 | 可让你只对用户的主计算机使用“文件夹重定向”、“漫游用户配置文件”或这两项。 |
 
 ## <a name="always-offline-mode"></a>“始终脱机”模式
 
@@ -75,8 +75,8 @@ ms.locfileid: "65475924"
 
 利用感知成本的同步，当用户使用按流量计费的网络连接（例如 4G 移动网络）时，Windows 禁用背景同步，如果计算机在其他提供程序的网络上漫游，则接近用户的带宽限制或超过限制。
 
->[!NOTE]
->按流量计费的网络连接通常具有往返网络延迟，该转换为 Windows 8、 Windows Server 2019、 Windows Server 2016 和 Windows Server 中的脱机 （慢速连接） 模式的默认 35 毫秒延迟值比延迟2012。 因此，这些连接通常自动转换为“脱机”（慢速连接）模式。
+> [!NOTE]
+> 按流量计费的网络连接通常具有往返网络延迟，该转换为 Windows 8、 Windows Server 2019、 Windows Server 2016 和 Windows Server 中的脱机 （慢速连接） 模式的默认 35 毫秒延迟值比延迟2012。 因此，这些连接通常自动转换为“脱机”（慢速连接）模式。
 
 ### <a name="what-value-does-cost-aware-synchronization-add"></a>感知成本的同步增添了什么价值？
 
@@ -129,10 +129,10 @@ ms.locfileid: "65475924"
 
 有关其他相关信息，请参阅以下资源。
 
-|内容类型|参考|
-|---|---|
-|产品评估|[信息工作者提供可靠文件服务和存储支持](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831495(v%3dws.11)>)<br>[什么是新脱机文件中](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff183315(v=ws.10)>)（Windows 7 和 Windows Server 2008 R2）<br>[新功能适用于 Windows Vista 脱机文件](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749449(v=ws.10)>)<br>[对 Windows Vista 中脱机文件更改](<https://technet.microsoft.com/library/2007.11.offline.aspx>)（TechNet 杂志）|
-|部署|[部署文件夹重定向、 脱机文件和漫游用户配置文件](deploy-folder-redirection.md)<br>[实现最终用户数据集中化解决方案：文件夹重定向和脱机文件技术验证和部署](http://download.microsoft.com/download/3/0/1/3019A3DA-2F41-4F2D-BBC9-A6D24C4C68C4/Implementing%20an%20End-User%20Data%20Centralization%20Solution.docx)<br>[管理漫游用户数据部署指南](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10)>)<br>[为 Windows 7 计算机配置新增脱机文件功能循序渐进指南](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff633429(v=ws.10)>)<br>[使用文件夹重定向](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753996(v=ws.11)>)<br>[实施文件夹重定向](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc737434(v=ws.10)>)(Windows Server 2003)|
-|工具和设置|[MSDN 上的脱机文件](https://msdn.microsoft.com/library/cc296092.aspx)<br>[脱机文件组策略参考](https://msdn.microsoft.com/library/ms878937.aspx)(Windows 2000)|
-|社区资源|[文件服务和存储论坛](https://social.technet.microsoft.com/forums/windowsserver/home?forum=winserverfiles)<br>[您好，脚本专家 ！如何可以使用 Windows 中的脱机文件功能？](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>)<br>[您好，脚本专家 ！如何启用和禁用脱机文件？](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>)|
-相关技术|[标识和访问 Windows Server 中](../../identity/identity-and-access.md)<br>[Windows Server 中存储](../storage.md)<br>[远程访问和服务器管理](../../remote/index.md)|
+| 内容类型 | 参考 |
+| --- | --- |
+| 产品评估 | [信息工作者提供可靠文件服务和存储支持](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831495(v%3dws.11)>)<br>[什么是新脱机文件中](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff183315(v=ws.10)>)（Windows 7 和 Windows Server 2008 R2）<br>[新功能适用于 Windows Vista 脱机文件](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749449(v=ws.10)>)<br>[对 Windows Vista 中脱机文件更改](<https://technet.microsoft.com/library/2007.11.offline.aspx>)（TechNet 杂志） |
+| 部署 | [部署文件夹重定向、 脱机文件和漫游用户配置文件](deploy-folder-redirection.md)<br>[实现最终用户数据集中化解决方案：文件夹重定向和脱机文件技术验证和部署](http://download.microsoft.com/download/3/0/1/3019A3DA-2F41-4F2D-BBC9-A6D24C4C68C4/Implementing%20an%20End-User%20Data%20Centralization%20Solution.docx)<br>[管理漫游用户数据部署指南](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10)>)<br>[为 Windows 7 计算机配置新增脱机文件功能循序渐进指南](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff633429(v=ws.10)>)<br>[使用文件夹重定向](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753996(v=ws.11)>)<br>[实施文件夹重定向](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc737434(v=ws.10)>)(Windows Server 2003) |
+| 工具和设置 | [MSDN 上的脱机文件](https://msdn.microsoft.com/library/cc296092.aspx)<br>[脱机文件组策略参考](https://msdn.microsoft.com/library/ms878937.aspx)(Windows 2000) |
+| 社区资源 | [文件服务和存储论坛](https://social.technet.microsoft.com/forums/windowsserver/home?forum=winserverfiles)<br>[您好，脚本专家 ！如何可以使用 Windows 中的脱机文件功能？](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>)<br>[您好，脚本专家 ！如何启用和禁用脱机文件？](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>) |
+| 相关技术|[标识和访问 Windows Server 中](../../identity/identity-and-access.md)<br>[Windows Server 中存储](../storage.md)<br>[远程访问和服务器管理](../../remote/index.md) |

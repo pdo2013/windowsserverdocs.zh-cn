@@ -9,12 +9,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 4577e65fe5dd2193fe7256cc555e859a78824b4b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 35d6322f053c7a02dc1df5430b28f771f57a1ad7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867938"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442577"
 ---
 # <a name="mapping-design-requirements-to-forest-design-models"></a>设计要求映射到林设计模型
 
@@ -89,13 +89,13 @@ ms.locfileid: "59867938"
 
 - 针对数据隔离创建的组织林可以信任来自其他林的域，但其他林中的用户必须不包含以下任何方面：  
 
-   - 负责服务管理或组可以管理服务管理员组的成员身份的组  
+  - 负责服务管理或组可以管理服务管理员组的成员身份的组  
 
-   - 具有对计算机上存储受保护的数据的管理控制的组  
+  - 具有对计算机上存储受保护的数据的管理控制的组  
 
-   - 组有权访问受保护的数据或组负责的用户对象或有权访问的组对象管理的受保护的数据  
+  - 组有权访问受保护的数据或组负责的用户对象或有权访问的组对象管理的受保护的数据  
 
-   如果任何这些组中包含来自另一个林的用户，另一个林的安全威胁可能会导致危及安全的独立的林和受保护数据的泄露。  
+    如果任何这些组中包含来自另一个林的用户，另一个林的安全威胁可能会导致危及安全的独立的林和受保护数据的泄露。  
 
 - 可以配置其他林信任组织的林，以便在独立的林的用户可以访问其他林中的资源创建的数据隔离。 但是，从独立的林的用户必须永远不会以交互方式登录到在信任林的工作站。 信任林中的计算机可能会泄露了恶意软件，并可用于捕获用户的登录凭据。  
 

@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 42df338ee5a5aecb3cf32f91a2b1aedae1210164
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: b000d4cfd4ded7ad37dbb235a9d33c83d8951707
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189508"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444358"
 ---
 # <a name="create-a-relying-party-trust"></a>创建信赖方信任
 
@@ -74,22 +74,22 @@ ms.locfileid: "66189508"
 
 1. 在服务器管理器中，单击**工具**，然后选择**AD FS 管理**。  
   
-2.  下**操作**，单击**添加信赖方信任**。  
-![信赖方](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
+2. 下**操作**，单击**添加信赖方信任**。  
+   ![信赖方](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
 
-3.  上**欢迎**页上，选择**声明感知**然后单击**启动**。  
-![信赖方](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
+3. 上**欢迎**页上，选择**声明感知**然后单击**启动**。  
+   ![信赖方](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
   
-4.  上**选择数据源**页上，单击 **导入数据有关信赖方联机或本地网络上发布*。 在“联合元数据地址(主机名或 URL)”中，  键入伙伴的联合元数据 URL 或主机名，然后单击“下一步”  。  
-![信赖方](media/Create-a-Relying-Party-Trust/addtrust12.PNG) 
+4. 上**选择数据源**页上，单击<strong>联机或在本地网络 * 上发布的有关信赖方的导入数据。在 * * （主机名或 URL） 的联合身份验证元数据地址</strong>、 键入合作伙伴的联合身份验证元数据 URL 或主机名，然后单击**下一步**。  
+   ![信赖方](media/Create-a-Relying-Party-Trust/addtrust12.PNG) 
 
-5.  在指定显示名称页中键入一个名称**显示名称**，在说明下键入此信赖方信任的说明，然后单击**下一步**。
+5. 在指定显示名称页中键入一个名称**显示名称**，在说明下键入此信赖方信任的说明，然后单击**下一步**。
 
-6.  在选择颁发授权规则页上选择任一**允许所有用户访问此信赖方**或**拒绝所有用户访问此信赖方**，然后单击**下一步**.
+6. 在选择颁发授权规则页上选择任一**允许所有用户访问此信赖方**或**拒绝所有用户访问此信赖方**，然后单击**下一步**.
 
-7.  在已准备好添加信任页上，查看设置，并单击**下一步**来保存信赖方信任信息。
+7. 在已准备好添加信任页上，查看设置，并单击**下一步**来保存信赖方信任信息。
 
-8.  在完成页上，单击**关闭**。 此操作将自动显示编辑声明规则对话框。 有关如何为此信赖方信任添加声明规则的详细信息，请参阅“其他参考”。
+8. 在完成页上，单击**关闭**。 此操作将自动显示编辑声明规则对话框。 有关如何为此信赖方信任添加声明规则的详细信息，请参阅“其他参考”。
 
 
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2e3a3cf3baf2a3469560b90bed30c6813284a8bc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 65f7505dfcb3677fcaace9bd645cca7e7ba70b7d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866448"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438590"
 ---
 # <a name="ftp-prompt1"></a>ftp: prompt_1
 
@@ -32,12 +32,12 @@ prompt
 ### <a name="parameters"></a>Parameters  
 无  
 ## <a name="remarks"></a>备注  
--   默认情况下**提示符**上。  
--   **ftp**提示在多个文件传输过程允许您以有选择地检索或存储文件。  **Mget**并**mput**的所有文件都传输，如果**提示符**处于关闭状态。  
-## <a name="BKMK_Examples"></a>示例  
-打开和关闭提示模式。  
-```  
-prompt  
-```  
-## <a name="additional-references"></a>其他参考  
--   [命令行语法解答](command-line-syntax-key.md)  
+- 默认情况下**提示符**上。  
+- **ftp**提示在多个文件传输过程允许您以有选择地检索或存储文件。  **Mget**并**mput**的所有文件都传输，如果**提示符**处于关闭状态。  
+  ## <a name="BKMK_Examples"></a>示例  
+  打开和关闭提示模式。  
+  ```  
+  prompt  
+  ```  
+  ## <a name="additional-references"></a>其他参考  
+- [命令行语法项](command-line-syntax-key.md)  

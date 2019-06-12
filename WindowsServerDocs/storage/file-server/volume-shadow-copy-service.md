@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 7b61a0494b8a63168b40bfaed42dedf0fff40c35
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d67f15d65feb28fb05fc056fd3c34c04cee80d09
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887258"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447764"
 ---
 # <a name="volume-shadow-copy-service"></a>卷影复制服务
 
@@ -97,7 +97,7 @@ Windows 功能和使用 VSS 的应用程序包括：
 > 如果处于冻结状态的时间超过 60 秒或如果提供程序花费的时间超过 10 秒提交的卷影复制进行编写器，可以中止卷影副本创建。 
 <br>
 
-9.  请求者可以重试过程 （请回到步骤 1），或者通知管理员稍后重试。  
+9. 请求者可以重试过程 （请回到步骤 1），或者通知管理员稍后重试。  
       
 10. 如果已成功创建卷影副本，卷影复制服务将返回给请求者的卷影副本的位置信息。 在某些情况下，卷影副本可以暂时可为读写卷以便该 VSS 和一个或多个应用程序的卷影复制完成之前，可以更改此卷影副本的内容。 VSS 和应用程序进行更改后，卷影副本由只读的。 此阶段称为自动恢复，它用于撤消文件系统或应用程序的任何事务在卷影副本卷上创建卷影副本之前未完成。  
       
@@ -136,7 +136,7 @@ Windows 功能和使用 VSS 的应用程序包括：
 </colgroup>
 <thead>
 <tr class="header">
-<th>时间</th>
+<th>Time</th>
 <th>源数据 （状态和数据）</th>
 <th>卷影副本 （状态和数据）</th>
 </tr>
@@ -177,7 +177,7 @@ Windows 功能和使用 VSS 的应用程序包括：
 </colgroup>
 <thead>
 <tr class="header">
-<th>时间</th>
+<th>Time</th>
 <th>源数据 （状态和数据）</th>
 <th>卷影副本 （状态和数据）</th>
 </tr>
@@ -376,12 +376,12 @@ VSS 旨在创建整个卷的卷影副本。 临时文件，如分页文件，将
 
 > [!NOTE]
 > <STRONG>FilesNotToSnapshot</STRONG>旨在只能由应用程序使用的注册表项。 尝试使用它的用户将会遇到限制如下所示：
-<br>
-<UL>
-<LI>从 Windows Server 使用以前的版本功能创建的卷影副本，而不能删除文件。<BR><BR>
-<LI>从共享文件夹的卷影副本，而不能删除文件。<BR><BR>
-<LI>它可以从已通过使用卷影副本中删除文件[Diskshadow](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow)实用工具，但它不能从已通过使用卷影副本中删除文件[Vssadmin](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin)实用程序。<BR><BR>
-<LI>从最大程度上的卷影副本会删除文件。 这意味着，它们不保证被删除。<BR><BR></LI></UL>
+> <br>
+> <UL>
+> <LI>从 Windows Server 使用以前的版本功能创建的卷影副本，而不能删除文件。<BR><BR>
+> <LI>从共享文件夹的卷影副本，而不能删除文件。<BR><BR>
+> <LI>它可以从已通过使用卷影副本中删除文件<a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow" data-raw-source="[Diskshadow](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow)">Diskshadow</a>实用工具，但它不能从已通过使用卷影副本中删除文件<a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin" data-raw-source="[Vssadmin](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin)">Vssadmin</a>实用程序。<BR><BR>
+> <LI>从最大程度上的卷影副本会删除文件。 这意味着，它们不保证被删除。<BR><BR></LI></UL>
 
 
 有关详细信息，请参阅[不包括文件从卷影副本](http://go.microsoft.com/fwlink/?linkid=180904)(http://go.microsoft.com/fwlink/?LinkId=180904) MSDN 上。

@@ -8,12 +8,12 @@ ms.assetid: 7ebaa271-2557-4c24-a679-c3d863e6bf9e
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e5e8abbc19482bcd0dd5670065cde59d5be3169a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bcb0c1c5a08a306fbd9b419d0c458c3bc54e1786
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824348"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446202"
 ---
 # <a name="network-related-performance-counters"></a>网络相关的性能计数器
 
@@ -31,43 +31,43 @@ ms.locfileid: "59824348"
 
 以下性能计数器是与网络资源利用率。  
   
--   IPv4, IPv6  
+- IPv4, IPv6  
   
-    -   每秒接收数据报  
+  -   每秒接收数据报  
   
-    -   每秒发送的数据报  
+  -   每秒发送的数据报  
   
--   TCPv4, TCPv6  
+- TCPv4, TCPv6  
   
-    -   Segments Received/sec  
+  -   Segments Received/sec  
   
-    -   发送的段数/秒  
+  -   发送的段数/秒  
   
-    -   Segments Retransmitted/sec  
+  -   Segments Retransmitted/sec  
   
--   网络 Interface(*)，网络适配器 (\*)  
+- 网络 Interface(*)，网络适配器 (\*)  
   
-    -   Bytes Received/sec  
+  - Bytes Received/sec  
   
-    -   发送的字节数/秒  
+  - 发送的字节数/秒  
   
-    -   Packets Received/sec  
+  - Packets Received/sec  
   
-    -   发送的数据包数/秒  
+  - 发送的数据包数/秒  
   
-    -   输出队列长度  
+  - 输出队列长度  
   
-     此计数器是输出数据包队列的长度\(数据包中\)。 如果这是时间超过 2，则会发生延迟。 应查找瓶颈和如果可以消除它。 NDIS 队列请求，因为此长度应始终为 0。  
+    此计数器是输出数据包队列的长度\(数据包中\)。 如果这是时间超过 2，则会发生延迟。 应查找瓶颈和如果可以消除它。 NDIS 队列请求，因为此长度应始终为 0。  
   
--   处理器信息  
+- 处理器信息  
   
-    -   % Processor Time  
+  - % Processor Time  
   
-    -   Interrupts/sec  
+  - Interrupts/sec  
   
-    -   DPCs Queued/sec  
+  - DPCs Queued/sec  
   
-     此计数器是 dpc 进行标记添加到逻辑处理器的 DPC 队列的平均速率。 每个逻辑处理器都有其自身的 DPC 队列。 此计数器测量 dpc 进行标记添加到队列，而不是数字的 Dpc 队列中的速率。 它将显示在最后两个示例中，使其除以示例间隔期间观察到的值之间的差异。  
+    此计数器是 dpc 进行标记添加到逻辑处理器的 DPC 队列的平均速率。 每个逻辑处理器都有其自身的 DPC 队列。 此计数器测量 dpc 进行标记添加到队列，而不是数字的 Dpc 队列中的速率。 它将显示在最后两个示例中，使其除以示例间隔期间观察到的值之间的差异。  
   
 ##  <a name="bkmk_np"></a> 潜在的网络问题  
 

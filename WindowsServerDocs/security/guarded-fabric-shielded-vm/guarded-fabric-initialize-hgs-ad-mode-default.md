@@ -7,12 +7,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 4ef70ab9ce8150a9a3ed774d6df407da097880e9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7a3d38818bfdaa48f53ca7a54bf10b68e4e4a7d3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865668"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447441"
 ---
 # <a name="initialize-the-hgs-cluster-using-ad-mode-in-a-new-dedicated-forest-default"></a>初始化 HGS 群集在新的专用林 （默认值） 中使用 AD 模式
 
@@ -47,5 +47,5 @@ ms.locfileid: "59865668"
 
 ## <a name="next-step"></a>下一步
 
->[!div class="nextstepaction"]
-[配置 DNS 结构](guarded-fabric-configuring-fabric-dns-ad.md)
+> [!div class="nextstepaction"]
+> [配置结构 DNS](guarded-fabric-configuring-fabric-dns-ad.md)

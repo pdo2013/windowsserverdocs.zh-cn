@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 454d261aa520778a6129ac9809f53894937b036a
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 1023ca7da02d2a1f6af42f68892dc4c5c8f1a2bf
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190141"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444376"
 ---
 # <a name="add-a-claim-description"></a>添加声明说明
 
@@ -31,27 +31,29 @@ ms.locfileid: "66190141"
 
 1. 在服务器管理器中，单击**工具**，然后选择**AD FS 管理**。 
 
-2.  展开**服务**并在右侧，单击**添加声明说明**。
-![添加声明说明](media\Add-a-Claim-Description\claimdesc1.png)
+2. 展开**服务**并在右侧，单击**添加声明说明**。
+   ![添加声明说明](media/Add-a-Claim-Description/claimdesc1.png)
 
-3.  在添加声明说明对话框中，在**显示名称**，键入用于标识组或此声明的角色的唯一名称。
+3. 在添加声明说明对话框中，在**显示名称**，键入用于标识组或此声明的角色的唯一名称。
 
-4.  添加**简短名称**。
+4. 添加**简短名称**。
 
-5.  在中**声明标识符**，键入与组或你将使用的声明的角色相关联的 URI。
+5. 在中**声明标识符**，键入与组或你将使用的声明的角色相关联的 URI。
 
-6.  下**说明**，键入最适当地描述此声明的用途的文本。
+6. 下**说明**，键入最适当地描述此声明的用途的文本。
 
-7.  具体取决于你组织的需要，可以选择以下复选框，根据需要，若要为联合身份验证元数据中发布此声明：
+7. 具体取决于你组织的需要，可以选择以下复选框，根据需要，若要为联合身份验证元数据中发布此声明：
 
 
-    - 若要发布此声明以确保合作伙伴注意此服务器可以接受此声明，请单击**联合身份验证元数据中发布此声明，作为此联合身份验证服务可以接受的声明类型**。
-    - 若要发布此声明以确保合作伙伴注意此服务器可以颁发此声明，请单击**联合身份验证元数据中发布此声明，作为此联合身份验证服务可以发送的声明类型**。
+~~~
+- To publish this claim to make partners aware that this server can accept this claim, click **Publish this claim in federation metadata as a claim type that this Federation Service can accept**.
+- To publish this claim to make partners aware that this server can issue this claim, click **Publish this claim in federation metadata as a claim type that this Federation Service can send**.
+~~~
 
-8.  单击 **“确定”** 。
+8. 单击 **“确定”** 。
 
-![添加声明说明](media\Add-a-Claim-Description\claimdesc2.png)
+![添加声明说明](media/Add-a-Claim-Description/claimdesc2.png)
 
-  
+
 ## <a name="see-also"></a>请参阅  
 [AD FS 操作](../../ad-fs/AD-FS-2016-Operations.md) 

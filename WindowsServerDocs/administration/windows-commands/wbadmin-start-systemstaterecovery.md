@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c99a934987e320baaec0e56c69f36eda5a32819
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4282da2011c39daec0315a7f3836d5517f29debb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852678"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440203"
 ---
 # <a name="wbadmin-start-systemstaterecovery"></a>Wbadmin start systemstaterecovery
 
@@ -74,17 +74,17 @@ wbadmin start systemstaterecovery
 
 ## <a name="BKMK_examples"></a>示例
 
--   若要执行的备份系统状态恢复 03/31/2013年从上午 9:00，请键入：  
-    ```
-    wbadmin start systemstaterecovery -version:03/31/2013-09:00
-    ```  
--   若要执行系统状态恢复的备份从 2013 年 04 月 30 日上午 9:00 存储对共享资源\\ \\servername\share server01，类型：  
-    ```
-    wbadmin start systemstaterecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
-    ```
+- 若要执行的备份系统状态恢复 03/31/2013年从上午 9:00，请键入：  
+  ```
+  wbadmin start systemstaterecovery -version:03/31/2013-09:00
+  ```  
+- 若要执行系统状态恢复的备份从 2013 年 04 月 30 日上午 9:00 存储对共享资源\\ \\servername\share server01，类型：  
+  ```
+  wbadmin start systemstaterecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
+  ```
 
 #### <a name="additional-references"></a>其他参考
 
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Start-WBSystemStateRecovery](https://technet.microsoft.com/library/jj902449.aspx) cmdlet

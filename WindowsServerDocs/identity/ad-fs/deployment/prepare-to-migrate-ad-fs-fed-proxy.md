@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f207993580e6fd06c9ff185e58e5b7e81af60252
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2b2275af0934413fa2de02de720d609feda7392c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847828"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444448"
 ---
 # <a name="prepare-to-migrate-the-ad-fs-20-federation-server-proxy"></a>准备迁移 AD FS 2.0 联合服务器代理
 
@@ -35,13 +35,13 @@ ms.locfileid: "59847828"
 > [!NOTE]
 >  此步骤是可选的，因为在操作系统升级过程中将保留此证书。  
   
-2.  将 AD FS 2.0 联合代理属性导出到文件。 可以使用 Windows PowerShell 执行该操作。  
+2. 将 AD FS 2.0 联合代理属性导出到文件。 可以使用 Windows PowerShell 执行该操作。  
   
 打开 Windows PowerShell 并运行以下命令，将 AD FS cmdlet 添加到你的 Windows PowerShell 会话： `PSH:>add-pssnapin “Microsoft.adfs.powershell”`。 然后运行以下命令以将联合代理属性导出到文件： `PSH:> Get-ADFSProxyProperties | out-file “.\proxyproperties.txt”`。  
   
-3.  确保你知道某个帐户的凭据，该帐户要么是 AD FS 联合服务器的管理员，要么是 AD FS 联合身份验证服务运行所使用的服务帐户。  代理信任设置需要此信息。  
+3. 确保你知道某个帐户的凭据，该帐户要么是 AD FS 联合服务器的管理员，要么是 AD FS 联合身份验证服务运行所使用的服务帐户。  代理信任设置需要此信息。  
   
- 完成此步骤会收集配置 AD FS 联合服务器代理所需的以下信息：  
+   完成此步骤会收集配置 AD FS 联合服务器代理所需的以下信息：  
   
 -   AD FS 联合身份验证服务名称  
   

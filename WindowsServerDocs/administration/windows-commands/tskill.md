@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 59958481a7c832aca7bc25d7d4d3ebbf4e8ef80c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b582334d7b79b2badbb86818be1093b6a5f55080
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835038"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440813"
 ---
 # <a name="tskill"></a>tskill
 
@@ -36,6 +36,7 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
 ```
 
 ## <a name="parameters"></a>Parameters
+
 |参数|描述|
 |-------|--------|
 |\<ProcessID>|指定你想要结束的进程 ID。|
@@ -47,19 +48,19 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
--   可以使用**tskill**结束仅属于你，这些进程，除非你是管理员。 管理员可以完全访问所有**tskill**函数，而可以结束其他用户会话中运行的进程。
--   当在会话中运行的所有进程都结束时，会话也将结束。
--   如果您使用*ProcessName*和 **/server: * * * ServerName*参数，则还必须指定 **/i d: * * * SessionID*或  **/a**参数。
+- 可以使用**tskill**结束仅属于你，这些进程，除非你是管理员。 管理员可以完全访问所有**tskill**函数，而可以结束其他用户会话中运行的进程。
+- 当在会话中运行的所有进程都结束时，会话也将结束。
+- 如果您使用*ProcessName*并 **/server:** <em>ServerName</em>参数，您还必须指定 **/id:** <em>SessionID</em>或 **/a**参数。
 
 ## <a name="BKMK_examples"></a>示例
--   若要结束进程 6543，请键入：
-    ```
-    tskill 6543
-    ```
--   若要结束进程"explorer"会话 5 上运行，请键入：
-    ```
-    tskill explorer /id:5
-    ```
-#### <a name="additional-references"></a>其他参考
-[命令行语法解答](command-line-syntax-key.md)
-[远程桌面服务 & #40;终端服务和 #41;命令参考](remote-desktop-services-terminal-services-command-reference.md)
+- 若要结束进程 6543，请键入：
+  ```
+  tskill 6543
+  ```
+- 若要结束进程"explorer"会话 5 上运行，请键入：
+  ```
+  tskill explorer /id:5
+  ```
+  #### <a name="additional-references"></a>其他参考
+  [命令行语法解答](command-line-syntax-key.md)
+  [远程桌面服务 & #40;终端服务和 #41;命令参考](remote-desktop-services-terminal-services-command-reference.md)

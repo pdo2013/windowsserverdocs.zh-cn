@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: c0257b98-5633-4264-9df6-b6ffae80592c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a99a2667733c1a23bcba1134d59223044dc000b7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 85bc7385fc3413bedb539cdbe9982b33dc653d6f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845528"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446897"
 ---
 # <a name="step-2-configure-the-remote-access-server"></a>步骤 2 配置远程访问服务器
 
@@ -58,11 +58,11 @@ ms.locfileid: "59845528"
   
 6.  选择**路由**，选择**Web 应用程序代理**，单击**添加功能**，然后单击**下一步**。  
   
-7. 单击 **“下一步”**，然后单击 **“安装”**。  
+7. 单击 **“下一步”** ，然后单击 **“安装”** 。  
   
-8.  在“安装进度”对话框中，验证安装是否成功，然后单击“关闭”。  
+8.  在“安装进度”  对话框中，验证安装是否成功，然后单击“关闭”  。  
   
-![Windows PowerShell](../../../../media/Step-2-Configure-the-Remote-Access-Server/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![Windows PowerShell](../../../../media/Step-2-Configure-the-Remote-Access-Server/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -84,9 +84,9 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 #### <a name="to-configure-the-deployment-type"></a>配置部署类型  
   
-1.  在远程访问服务器上，打开远程访问管理控制台：上**启动**屏幕、 类型、 类型**远程访问管理控制台**，然后按 ENTER。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+1.  在远程访问服务器上，打开远程访问管理控制台：上**启动**屏幕、 类型、 类型**远程访问管理控制台**，然后按 ENTER。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
-2.  在远程访问管理控制台的中间窗格内，单击“运行远程访问设置向导”。  
+2.  在远程访问管理控制台的中间窗格内，单击“运行远程访问设置向导”  。  
   
 3.  在中**配置的远程访问**对话框中，选择 DirectAccess 和 VPN、 仅 DirectAccess 或仅 VPN。  
   
@@ -95,15 +95,15 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 #### <a name="to-configure-directaccess-clients"></a>配置 DirectAccess 客户端  
   
-1.  在远程访问管理控制台的中间窗格中，在“步骤 1 远程客户端”区域中单击“配置”。  
+1.  在远程访问管理控制台的中间窗格中，在  “步骤 1 远程客户端”区域中单击  “配置”。  
   
 2.  在 DirectAccess 客户端安装程序向导中，在**部署方案**页上，单击**仅针对远程管理部署 DirectAccess**，然后单击**下一步**。  
   
-3.  在“选择组”页上，单击“添加”。  
+3.  在“选择组”  页上，单击“添加”  。  
   
 4.  在中**选择组**对话框框中，选择安全组，包含 DirectAccess 客户端计算机，然后单击**下一步**。  
   
-5.  在“网络连接助手”页上：  
+5.  在  “网络连接助手”页上：  
   
     -   在表中，添加将用于确定连接到内部网络的资源。 如果未配置任何其他资源，则将自动创建默认 Web 探测。 在配置用于确定到企业网络的连接的 web 探测位置时，请确保你已配置的至少一个基于 HTTP 探测。 配置仅 ping 探测是不够的并可能导致不准确确定连接状态。 这是因为从 IPsec 免除 ping。 因此，ping 不能确保已正确建立 IPsec 隧道。  
   
@@ -111,12 +111,12 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
     -   提供 DirectAccess 连接的友好名称。  
   
-    -   如有必要，选中“允许 DirectAccess 客户端使用本地名称解析”复选框。  
+    -   如有必要，选中  “允许 DirectAccess 客户端使用本地名称解析”复选框。  
   
         > [!NOTE]  
         > 启用本地名称解析后，运行 NCA 的用户可以通过使用 DirectAccess 客户端计算机配置的 DNS 服务器解析名称。  
   
-6.  单击 **“完成”**。  
+6.  单击 **“完成”** 。  
   
 ## <a name="BKMK_Server"></a>配置远程访问服务器  
 若要部署远程访问，需要配置将充当远程访问服务器提供以下服务器：  
@@ -133,9 +133,9 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 #### <a name="to-configure-the-remote-access-server"></a>配置远程访问服务器  
   
-1.  在远程访问管理控制台的中间窗格中，在“步骤 2 远程访问服务器”区域中单击“配置”。  
+1.  在远程访问管理控制台的中间窗格中，在  “步骤 2 远程访问服务器”区域中单击  “配置”。  
   
-2.  在远程访问服务器安装向导的“网络拓扑”页上，单击将在你的组织中使用的部署拓扑。 在“键入客户端用于连接到远程访问服务器的公用名称或 IPv4 地址”中，输入部署的公用名称（此名称与 IP-HTTPS 证书的使用者名称相匹配，例如 edge1.contoso.com），然后单击“下一步”。  
+2.  在远程访问服务器安装向导的  “网络拓扑”页上，单击将在你的组织中使用的部署拓扑。 在“键入客户端用于连接到远程访问服务器的公用名称或 IPv4 地址”  中，输入部署的公用名称（此名称与 IP-HTTPS 证书的使用者名称相匹配，例如 edge1.contoso.com），然后单击“下一步”  。  
   
 3.  上**网络适配器**页上，向导会自动检测：  
   
@@ -143,17 +143,17 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
     -   IP-HTTPS 证书。 这基于向导的上一步骤中设置的部署的公共名称。 如果向导没有检测到正确 IP-HTTPS 证书，单击**浏览**手动选择正确的证书。  
   
-4.  单击“下一步” 。  
+4.  单击“下一步”  。  
   
 5.  上**前缀配置**（此页面时才会显示 IPv6 检测到内部网络中） 的页上，向导会自动检测到内部网络使用的 IPv6 设置。 如果你的部署需要其他前缀，请配置用于内部网络的 IPv6 前缀、要分配给 DirectAccess 客户端计算机的 IPv6 前缀，以及要分配给 VPN 客户端计算机的 IPv6 前缀。  
   
-6.  在“身份验证”页上：  
+6.  在  “身份验证”页上：  
   
     -   对于多站点和双重身份验证部署，必须使用计算机证书身份验证。 选择**使用计算机证书**复选框以使用计算机证书身份验证，然后选择 IPsec 根证书。  
   
     -   若要启用客户端计算机运行 Windows 7 通过 DirectAccess 进行连接，请选择**使 Windows 7 客户端计算机能够通过 DirectAccess 进行连接**复选框。 在这种类型的部署中，还必须使用计算机证书身份验证。  
   
-7.  单击 **“完成”**。  
+7.  单击 **“完成”** 。  
   
 ## <a name="BKMK_Infra"></a>配置基础结构服务器  
 若要在远程访问部署中配置的基础结构服务器，必须进行下列配置：  
@@ -166,27 +166,27 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 #### <a name="to-configure-the-infrastructure-servers"></a>配置基础结构服务器  
   
-1.  在远程访问管理控制台的中间窗格中，在“步骤 3 基础结构服务器”区域中单击“配置”。  
+1.  在远程访问管理控制台的中间窗格中，在“步骤 3 基础结构服务器”  区域中单击  “配置”。  
   
-2.  在基础结构服务器设置向导的“网络位置服务器”页上，单击与你部署中网络位置服务器的位置相对应的选项。  
+2.  在基础结构服务器设置向导的“网络位置服务器”  页上，单击与你部署中网络位置服务器的位置相对应的选项。  
   
     -   如果网络位置服务器位于远程 web 服务器上，输入 URL，然后依次**验证**，并继续。  
   
-    -   如果网络位置服务器位于远程访问服务器上，则单击“浏览”以查找相关的证书，然后单击“下一步”。  
+    -   如果网络位置服务器位于远程访问服务器上，则单击  “浏览”以查找相关的证书，然后单击  “下一步”。  
   
-3.  上**DNS**页上，在表中，输入其他名称后缀，将应用为名称解析策略表 (NRPT) 免除。 选择本地名称解析选项，然后单击“下一步”。  
+3.  上**DNS**页上，在表中，输入其他名称后缀，将应用为名称解析策略表 (NRPT) 免除。 选择本地名称解析选项，然后单击“下一步”  。  
   
-4.  上**DNS 后缀搜索列表**页上，远程访问服务器自动检测部署中的域后缀。 使用**外**并**删除**按钮，以创建你想要使用的域后缀的列表。 若要添加新的域后缀，请在“新后缀”中输入该后缀，然后单击“添加”。 单击“下一步” 。  
+4.  上**DNS 后缀搜索列表**页上，远程访问服务器自动检测部署中的域后缀。 使用**外**并**删除**按钮，以创建你想要使用的域后缀的列表。 若要添加新的域后缀，请在  “新后缀”中输入该后缀，然后单击  “添加”。 单击“下一步”  。  
   
 5.  上**管理**页上，将不会自动检测到的管理服务器添加，然后单击**下一步**。 远程访问将自动添加域控制器和 System Center Configuration Manager 服务器。  
   
-6.  单击 **“完成”**。  
+6.  单击 **“完成”** 。  
   
 ## <a name="BKMK_App"></a>配置应用程序服务器  
 在完整的远程访问部署中，配置应用程序服务器是可选的任务。 在此方案中的远程管理 DirectAccess 客户端，都不能使用应用程序服务器和此步骤中灰显，以指示未处于活动状态。 单击**完成**以应用配置。  
   
 ## <a name="BKMK_GPO"></a>配置摘要和备用 Gpo  
-远程访问配置完成后，将显示“远程访问审阅”。 你可以审阅之前选择的所有设置，包括：  
+远程访问配置完成后，将显示  “远程访问审阅”。 你可以审阅之前选择的所有设置，包括：  
   
 -   **GPO 设置**  
   

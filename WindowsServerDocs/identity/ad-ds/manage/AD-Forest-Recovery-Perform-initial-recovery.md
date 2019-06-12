@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: 8e05043d029636ddeb3a24349897ac61a713b2a7
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: 9883d337520c3920f8638ddfe5f6bd393e31fd2f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034119"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442858"
 ---
 # <a name="perform-initial-recovery"></a>执行初始恢复  
 
@@ -126,7 +126,7 @@ ms.locfileid: "65034119"
 
 - 若要修复名称解析，创建 DNS 委派记录，并配置 DNS 转发和根提示根据需要。 运行**repadmin /replsum**检查 Dc 之间进行复制。 
 - 如果已还原的 DC 不是直接复制伙伴，复制恢复会快得多通过创建它们之间的临时连接对象。 
-- 若要验证元数据清除，请运行**Repadmin /viewlist \*** 有关在林中所有域控制器的列表。 运行**Nltest /DCList:** *< 域\>* 有关域中的所有域控制器的列表。 
+- 若要验证元数据清除，请运行**Repadmin /viewlist \\** * 有关在林中所有域控制器的列表。 运行**Nltest /DCList:** *< 域\>* 有关域中的所有域控制器的列表。 
 - 若要检查 DC 和 DNS 的运行状况，请在林中所有域控制器上运行报告错误 DCDiag /v。 
 
 ## <a name="add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain"></a>将全局编录添加到林根级域中的域控制器

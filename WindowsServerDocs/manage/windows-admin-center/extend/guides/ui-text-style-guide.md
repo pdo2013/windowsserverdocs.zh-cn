@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.date: 10/17/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: ab5bee55975b803a77db0b6cdb179b76590e1d83
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: be41267d6584002ebf87e5fe828a41575d305e1b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826048"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445913"
 ---
 # <a name="windows-admin-center-ui-text-and-design-style-guide"></a>Windows Admin Center UI 文本和设计风格指南
 
@@ -199,12 +199,12 @@ Null 状态时发生的客户数据或内容不存在从应用或功能之后搜
 
 ### <a name="guidelines"></a>指南
 
- - 如果可能，这个机会，将使用 null 状态的情况下要向他人传授关于如何使用功能 （例如，如何添加音乐，何处进行查找图片，等等。）  
-- 如果在 UI 中有一个标题，解释要采取的"修复"null 状态 （例如，"添加一些音乐"） 的操作 
-- 文本的乐趣。 此空间可以是提供兴致勃勃，因为它可能不会看到几次的机会。 
-- 避免"It's 孤独在此处。" 这是很遗憾，被过度使用。 
-- 避免问题，例如"尚未连接您的打印机？" 好的用于一次，但此格式往往获取过度使用，并且问题给客户额外负担/带来压力。 它可以感觉表现优劣的用。 
-- Null 状态文本中的各种是件好事。 
+- 如果可能，这个机会，将使用 null 状态的情况下要向他人传授关于如何使用功能 （例如，如何添加音乐，何处进行查找图片，等等。）  
+  - 如果在 UI 中有一个标题，解释要采取的"修复"null 状态 （例如，"添加一些音乐"） 的操作 
+  - 文本的乐趣。 此空间可以是提供兴致勃勃，因为它可能不会看到几次的机会。 
+  - 避免"It's 孤独在此处。" 这是很遗憾，被过度使用。 
+  - 避免问题，例如"尚未连接您的打印机？" 好的用于一次，但此格式往往获取过度使用，并且问题给客户额外负担/带来压力。 它可以感觉表现优劣的用。 
+  - Null 状态文本中的各种是件好事。 
 
 ### <a name="examples"></a>示例
 

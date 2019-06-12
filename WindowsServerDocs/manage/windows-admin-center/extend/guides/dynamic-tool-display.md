@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: f3f34b4c86854bfc55cf4b1b57a0fd3c2baf2ffc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3cce07ba5b3d2cc89f1363bbb2af5acd048c0466
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839248"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445938"
 ---
 # <a name="control-your-tools-visibility-in-a-solution"></a>控制在解决方案中的工具的可见性 #
 
@@ -27,7 +27,7 @@ ms.locfileid: "59839248"
 
 * localhost
 * 清单 （一个属性的数组）
-* 脚本 (script)
+* script
 
 ### <a name="localhost"></a>LocalHost ###
 
@@ -90,10 +90,10 @@ SDK 包含一组预先特选的清单属性可用来生成条件以决定时所�
 | operatingSystemVersion | version_string (例如："10.1.*") |
 | productType | 数字 |
 | clusterFqdn | string |
-| isHyperVRoleInstalled | 布尔值 |
-| isHyperVPowershellInstalled | 布尔值 |
-| isManagementToolsAvailable | 布尔值 |
-| isWmfInstalled | 布尔值 |
+| isHyperVRoleInstalled | boolean |
+| isHyperVPowershellInstalled | boolean |
+| isManagementToolsAvailable | boolean |
+| isWmfInstalled | boolean |
 
 清单数组中的每个对象必须符合以下 json 结构：
 
@@ -129,7 +129,7 @@ Type 属性的可用选项包括：
 | version | 版本号 (例如：10.1.*) |
 | 数字 | 数字值 |
 | string | 一个字符串值 |
-| 布尔值 | true 或 false |
+| boolean | true 或 false |
 
 #### <a name="value-types"></a>值类型 ####
 
@@ -137,7 +137,7 @@ Value 属性接受这些类型：
 
 * string
 * 数字
-* 布尔值
+* boolean
 
 格式正确的清单条件集如下所示：
 
@@ -194,6 +194,7 @@ Value 属性接受这些类型：
 }
 ```
 State 属性是将控制决策以显示或隐藏您的扩展工具列表中的重要值。  允许的值包括：
+
 | 值 | 描述 |
 | ---- | ----------- |
 | 可用 | 该扩展应显示在工具列表。 |

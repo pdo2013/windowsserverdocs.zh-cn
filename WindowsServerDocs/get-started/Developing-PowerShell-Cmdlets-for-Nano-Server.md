@@ -12,12 +12,12 @@ author: jaimeo
 ms.author: jaimeo
 ms.date: 09/06/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 4c669db414c4f12b6145a26a75b83449f43e8918
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c3376d03a2e9f02b20aba608de0228efd7dfddea
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887678"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443626"
 ---
 # <a name="developing-powershell-cmdlets-for-nano-server"></a>开发 Nano Server 的 PowerShell Cmdlet
 
@@ -36,8 +36,8 @@ ms.locfileid: "59887678"
   
 从 5.1 版本开始，PowerShell 在具有不同功能集和平台兼容性的不同版本中可用。  
   
-- **桌面版：**.NET Framework 上构建，并提供与面向新版的 Server Core 等的 Windows 和 Windows 桌面的完整占用空间减小版本上运行的 PowerShell 脚本和模块的兼容性。  
-- **核心版：**.NET Core 上生成，并提供与面向版本的 Nano Server 等的 Windows 和 Windows IoT 的占用空间减少的版本上运行的 PowerShell 脚本和模块的兼容性。  
+- **桌面版：** .NET Framework 上构建，并提供与面向新版的 Server Core 等的 Windows 和 Windows 桌面的完整占用空间减小版本上运行的 PowerShell 脚本和模块的兼容性。  
+- **核心版：** .NET Core 上生成，并提供与面向版本的 Nano Server 等的 Windows 和 Windows IoT 的占用空间减少的版本上运行的 PowerShell 脚本和模块的兼容性。  
   
 当前运行的 PowerShell 版本显示在 $PSVersionTable 的 PSEdition 属性中。  
 ```powershell  
@@ -127,9 +127,9 @@ PowerShell 支持多种 cmdlet 实现类型，你使用的类型决定其创建�
 * %UserProfile%\Documents\WindowsPowerShell\Modules   
 * \<产品安装位置 >   
     
- 检查这些位置以获取详细信息：  
- * CIM cmdlet 具有.cdxml 文件扩展名。  
- * .NET cmdlet 具有.dll 文件扩展名，或具有安装到 RootModule、ModuleToProcess 或 NestedModules 字段下 .psd1 文件中所列出的 GAC 的程序集。  
+  检查这些位置以获取详细信息：  
+  * CIM cmdlet 具有.cdxml 文件扩展名。  
+  * .NET cmdlet 具有.dll 文件扩展名，或具有安装到 RootModule、ModuleToProcess 或 NestedModules 字段下 .psd1 文件中所列出的 GAC 的程序集。  
 * PowerShell 脚本 cmdlet 具有.psm1 或.ps1 文件扩展名。   
   
 ## <a name="porting-cim-cmdlets"></a>移植 CIM cmdlet  
@@ -182,7 +182,7 @@ PowerShell Core SDK 模块包括以下 cmdlet：
   
 ### <a name="building-c-for-nano-server"></a>生成适用于 Nano Server 的 C#  
   
-通过使用 `New-NanoCSharpProject` 在 Visual Studio 2015 中创建 C# 项目后，只需单击“生成”菜单并选择“生成项目”或“生成解决方案”便可生成项目。 生成的程序集将面向 Nano Server 中正确的 CoreCLR 和 PowerShell Core，只需将这些程序集复制到运行 Nano Server 的计算机便可使用。  
+通过使用 `New-NanoCSharpProject` 在 Visual Studio 2015 中创建 C# 项目后，只需单击“生成”  菜单并选择“生成项目”  或“生成解决方案”  便可生成项目。 生成的程序集将面向 Nano Server 中正确的 CoreCLR 和 PowerShell Core，只需将这些程序集复制到运行 Nano Server 的计算机便可使用。  
   
 ### <a name="building-managed-c-cppcli-for-nano-server"></a>生成适用于 Nano Server 的托管 C++ (CPP/CLI)  
 托管 C++ 不支持 CoreCLR。 移植到 CoreCLR 后，使用 C# 重新编写托管 C++ 代码，并通过 PInvoke 进行所有的本机调用。  

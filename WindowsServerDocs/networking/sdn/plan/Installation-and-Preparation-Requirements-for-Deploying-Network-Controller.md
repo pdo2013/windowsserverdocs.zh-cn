@@ -9,12 +9,12 @@ ms.assetid: 7f899e62-6e5b-4fca-9a59-130d4766ee2f
 ms.author: pashort
 author: shortpatti
 ms.date: 08/10/2018
-ms.openlocfilehash: 9db7609f6f1273c46cba1dd29f81c297bb26f94b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 51ba991397a7c35ee0198f8e75c67b2f99b7c7bc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829858"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446316"
 ---
 # <a name="requirements-for-deploying-network-controller"></a>部署网络控制器的要求
 
@@ -31,13 +31,13 @@ ms.locfileid: "59829858"
 - 任何计算机或虚拟机 (VM) 在其安装网络控制器必须运行 Windows Server 2016 Datacenter edition。 
 - 管理客户端计算机或为网络控制器的虚拟机必须运行 Windows 10。 
 
-  
+
 ## <a name="configuration-requirements"></a>配置需求
 
 部署网络控制器之前, 必须配置安全组、 日志文件位置 （如果需要） 和动态 DNS 注册。
-  
+
 ### <a name="step-1-configure-your-security-groups"></a>步骤 1： 配置安全组
-  
+
 想要执行的第一件事是创建两个安全组的 Kerberos 身份验证。 
 
 创建具有权限的用户的组为： 
@@ -57,32 +57,34 @@ ms.locfileid: "59829858"
 
 
 ### <a name="step-3-configure-dynamic-dns-registration-for-network-controller"></a>步骤 3： 为网络控制器配置动态 DNS 注册
-  
+
 最后，想要执行的下一步就是部署网络控制器上的同一子网或不同的子网的群集节点。 
 
-|如果...  |则...  |
-|---------|---------|
-|在同一子网上， |必须提供网络控制器 REST IP 地址。 |
-|在不同子网上， |必须提供在部署过程中创建的网络控制器 REST DNS 名称。 您必须执行以下操作：<ul><li>DNS 服务器上配置网络控制器 DNS 名称的 DNS 动态更新。</li><li>将 DNS 动态更新限制为仅限网络控制器节点。</li></ul> |
+
+|         如果...         |                                                                                                                                                         则...                                                                                                                                                         |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  在同一子网上，  |                                                                                                                                必须提供网络控制器 REST IP 地址。                                                                                                                                 |
+| 在不同子网上， | 必须提供在部署过程中创建的网络控制器 REST DNS 名称。 您必须执行以下操作：<ul><li>DNS 服务器上配置网络控制器 DNS 名称的 DNS 动态更新。</li><li>将 DNS 动态更新限制为仅限网络控制器节点。</li></ul> |
+
 ---
 
 > [!NOTE]
 > 中的成员身份**Domain Admins**，或等效身份是执行这些过程所需的最小。
-  
+
 1. 允许区域的 DNS 动态更新。
 
    a. 打开 DNS 管理器，并在控制台树中，右键单击适用区域，然后单击**属性**。 
-      
+
    b. 上**常规**选项卡上，验证区域类型是否**主**或**Active Directory 集成**。
 
    c. 在中**动态更新**，确认**仅限 Secure**已选择，然后单击**确定**。
 
 2. 配置网络控制器节点的 DNS 区域安全权限
 
-   a.  单击“安全”选项卡，然后单击“高级”。 
+   a.  单击“安全”  选项卡，然后单击“高级”  。 
 
    b. 在中**高级安全设置**，单击**添加**。 
-  
+
    c. 单击**选择主体**。 
 
    d. 在中**选择用户、 计算机、 服务帐户或组**对话框中，单击**对象类型**。 
@@ -95,7 +97,7 @@ ms.locfileid: "59829858"
 
       - **类型**= 允许
       - **适用于**= 此对象及全部后代
-  
+
    h. 在中**权限**，选择**写入所有属性**并**删除**，然后单击**确定**。
 
 3. 网络控制器群集中重复的所有计算机和虚拟机。
@@ -115,19 +117,19 @@ ms.locfileid: "59829858"
 ### <a name="network-controller-and-software-load-balancer-deployment"></a>网络控制器和软件负载平衡器部署
 
 以实现高可用性，有两个或多个 SLB/MUX 节点。
-   
+
 ![SDN NC 规划](../../media/Plan-a-Software-Defined-Network-Infrastructure/SDN-SLB-Deployment.png)
-  
+
 ### <a name="network-controller-software-load-balancer-and-ras-gateway-deployment"></a>网络控制器、 软件负载平衡器和 RAS 网关部署
 
 有三个网关虚拟机;两个处于活动状态，而且其中一个是冗余。
 
 ![SDN NC 规划](../../media/Plan-a-Software-Defined-Network-Infrastructure/SDN-GW-Deployment.png)  
-  
-  
-  
+
+
+
 对于基于 TP5 中的部署自动化，Active Directory 必须可用且可从这些子网访问。 有关 Active Directory 的详细信息，请参阅[Active Directory 域服务概述](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)。  
-  
+
 >[!IMPORTANT] 
 >如果使用 VMM 部署，请确保你的基础结构虚拟机 (VMM 服务器，AD/DNS，SQL Server 等) 未托管在任何关系图所示的四个主机上。  
 
@@ -138,5 +140,5 @@ ms.locfileid: "59829858"
 ## <a name="related-topics"></a>相关主题
 - [网络控制器](../technologies/network-controller/Network-Controller.md) 
 - [网络控制器的高可用性](../technologies/network-controller/network-controller-high-availability.md) 
-- [部署网络控制器使用 Windows PowerShell](../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)   
-- [安装网络控制器服务器角色使用服务器管理器](../technologies/network-controller/Install-the-Network-Controller-server-role-using-Server-Manager.md)   
+- [使用 Windows PowerShell 部署网络控制器](../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)   
+- [使用服务器管理器安装网络控制器服务器角色](../technologies/network-controller/Install-the-Network-Controller-server-role-using-Server-Manager.md)   

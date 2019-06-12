@@ -8,12 +8,12 @@ ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 769a4165cfd82056a904c79c41e96fb666d05e43
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2d4cdcd11e0eb334064ddefec0eda775ffccff2c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842268"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446470"
 ---
 # <a name="deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>为 802.1X 有线和无线部署部署服务器证书
 
@@ -66,8 +66,8 @@ ms.locfileid: "59842268"
 本指南将说明了如何将服务器证书部署在 Windows Server 2016 中使用 AD CS 和 Web 服务器 (IIS) 服务器角色。 以下是执行本指南中的过程的先决条件。  
 
 - 必须部署核心网络使用 Windows Server 2016 核心网络指南，或必须已安装并正常网络上核心网络指南中提供的技术。 这些技术包括 TCP/IP v4，DHCP，Active Directory 域服务 (AD DS)、 DNS 和 NPS。  
->[!NOTE]
->Windows Server 2016 核心网络指南现已推出 Windows Server 2016 技术库。 有关详细信息，请参阅[核心网络指南](../../../core-network-guide/Core-Network-Guide.md)。
+  >[!NOTE]
+  >Windows Server 2016 核心网络指南现已推出 Windows Server 2016 技术库。 有关详细信息，请参阅[核心网络指南](../../../core-network-guide/Core-Network-Guide.md)。
 
 - 您必须阅读本指南，以确保在执行部署之前准备为此部署的规划部分。  
 - 本指南中所出现的顺序，必须执行步骤。 不要跳转和部署您的 CA 没有执行到部署服务器或你的部署步骤将失败。  

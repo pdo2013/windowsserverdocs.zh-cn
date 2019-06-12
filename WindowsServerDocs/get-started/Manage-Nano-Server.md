@@ -12,12 +12,12 @@ ms.assetid: 599d6438-a506-4d57-a0ea-1eb7ec19f46e
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 8973302fc8a0c6bdb5b19f9296e711dcc6465589
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cc535934705878c7f2b7fdc4e655ab5c853e4f96
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826798"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443530"
 ---
 # <a name="manage-nano-server"></a>管理 Nano Server
 
@@ -34,13 +34,13 @@ Nano Server 进行远程管理。 其不具备本地登录功能，亦不支持�
   
 -   将串行电缆连接到计算机并使用 EMS。  
   
--   通过使用在配置 Nano Server 时分配给它的计算机名称，可以使用 ping 获取 IP 地址。 例如，`ping NanoServer-PC /4`。  
+-   通过使用在配置 Nano Server 时分配给它的计算机名称，可以使用 ping 获取 IP 地址。 例如， `ping NanoServer-PC /4` 。  
   
 ## <a name="using-windows-powershell-remoting"></a>使用 Windows PowerShell 远程控制  
 若要使用 Windows PowerShell 远程控制管理 Nano Server，则需要将 Nano Server 的 IP 地址添加到受信任主机的管理计算机列表，将所使用的帐户添加到 Nano Server 的管理员，并启用 CredSSP（如果计划使用该功能）。  
 
- >[!NOTE]  
-    > 如果目标 Nano Server 和管理计算机是同一 AD DS 林中 （或在具有信任关系的林中），您不应将 Nano Server 添加到受信任的主机列表中-你可以连接到 Nano Server 通过使用其完全限定的域名例如：PS C:\>Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
+> [!NOTE]
+> 如果目标 Nano Server 和管理计算机是同一 AD DS 林中 （或在具有信任关系的林中），您不应将 Nano Server 添加到受信任的主机列表中-你可以连接到 Nano Server 通过使用其完全限定的域名例如：PS C:\>Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
   
   
 若要将 Nano Server 添加到受信任的主机列表，请在提升的 Windows PowerShell 提示符下运行此命令：  
@@ -51,7 +51,7 @@ Nano Server 进行远程管理。 其不具备本地登录功能，亦不支持�
   
   
 ```  
-$ip = "\<IP address of Nano Server>"  
+$ip = "<IP address of Nano Server>"  
 $user = "$ip\Administrator"  
 Enter-PSSession -ComputerName $ip -Credential $user  
 ```  
@@ -72,7 +72,7 @@ Enter-PSSession -ComputerName $ip -Credential $user
   
 ```  
 $ip = "<IP address of the Nano Server\>"  
-$ip\Administrator  
+$user = $ip\Administrator  
 $cim = New-CimSession -Credential $user -ComputerName $ip  
 ```  
   
@@ -89,15 +89,17 @@ Get-CimInstance -CimSession $Cim -Query "SELECT * from Win32_Process WHERE name 
 ## <a name="windows-remote-management"></a>Windows 远程管理  
 可以使用 Windows 远程管理 (WinRM) 在 Nano Server 上远程运行程序。 若要使用 WinRM，首先配置服务并在提升的命令提示符下使用以下命令设置代码页：  
   
-**winrm quickconfig**  
-  
-**winrm 设置 winrm/config/客户端 @{TrustedHosts ="< Nano 服务器的 ip 地址"}**  
-  
-**chcp 65001**  
+```
+winrm quickconfig
+winrm set winrm/config/client @{TrustedHosts="<ip address of Nano Server>"}
+chcp 65001
+```
   
 现在可以在 Nano Server 上远程运行命令。 例如：  
-  
-**winrs-:\<Nano 服务器的 IP 地址 >-u： 管理员-p:\<Nano Server 管理员密码 > ipconfig**  
+
+```
+winrs -r:<IP address of Nano Server> -u:Administrator -p:<Nano Server administrator password> ipconfig
+```
   
 有关 Windows 远程管理的详细信息，请参阅 [Windows 远程管理 (WinRM) 概述](https://technet.microsoft.com/library/dn265971.aspx)。  
    
@@ -115,7 +117,7 @@ Stop-NetEventSession [-Name]
 ```  
 [Windows PowerShell 中的网络事件数据包捕获 Cmdlet](https://technet.microsoft.com/library/dn268520(v=wps.630).aspx) 详细记录了这些 cmdlet  
 
-##<a name="installing-servicing-packages"></a>安装服务包  
+## <a name="installing-servicing-packages"></a>安装服务包  
 如果想要安装服务包，请使用 -ServicingPackagePath 参数（可以向 .cab 文件传递一系列路径）：  
   
 `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath \\path\to\kb123456.cab`  
@@ -133,8 +135,8 @@ C:>dir C:\KB3157663_expanded
    
       C:\KB3157663_expanded 的目录  
    
-      04/19/2016  01:17 PM    \<DIR>            
-      04/19/2016  01:17 PM    \<DIR>            
+      04/19/2016  01:17 PM    \<DIR>  
+      04/19/2016  01:17 PM    \<DIR>  
         04/17/2016  12:31 AM               517 Windows10.0-KB3157663-x64-pkgProperties.txt  
 04/17/2016  12:30 AM        93,886,347 Windows10.0-KB3157663-x64.cab  
 04/17/2016  12:31 AM               454 Windows10.0-KB3157663-x64.xml  
@@ -158,7 +160,7 @@ $sess = New-CimInstance -Namespace root/Microsoft/Windows/WindowsUpdate -ClassNa
 
 $scanResults = Invoke-CimMethod -InputObject $sess -MethodName ScanForUpdates -Arguments @{SearchCriteria="IsInstalled=0";OnlineScan=$true}  
 ```  
-**注意：**   
+**注意：**  
 如果没有更新可用，则此命令将返回以下错误：  
 ```  
 Invoke-CimMethod : A general error occurred that is not covered by a more specific error code.  
@@ -189,7 +191,7 @@ $scanResults = Invoke-CimMethod -InputObject $sess -MethodName ApplyApplicableUp
 
 Restart-Computer  
 ```  
-**注意：**   
+**注意：**  
 Windows Defender 将阻止安装更新。 若要解决此问题，卸载 Windows Defender、安装更新，然后重新安装 Windows Defender。 或者，可以在另一台计算机上下载更新，将更新复制到 Nano Server 上，然后使用 DISM.exe 应用更新。  
 
 
@@ -202,7 +204,7 @@ $sess = New-CimInstance -Namespace root/Microsoft/Windows/WindowsUpdate -ClassNa
 $scanResults = Invoke-CimMethod -InputObject $sess -MethodName ScanForUpdates -Arguments @{SearchCriteria="IsInstalled=1";OnlineScan=$true}  
 ```  
 
-**注意：**   
+**注意：**  
 这些命令将列出已安装的内容，但不会在输出中专门引用“安装”。 如果需要包括“安装”的输出，例如对于报表，则可以运行  
 ```  
 Get-WindowsPackage--Online  
@@ -378,7 +380,7 @@ The command completed successfully.
 
 使用其他命令行选项可以指定配置文件中感兴趣的性能计数器名称，同时将输出重定向到日志文件等。 请参阅 [typeperf.exe 文档](https://technet.microsoft.com/library/bb490960.aspx) 了解详细信息。
 
-还可以远程结合使用 Perfmon.exe 的图形界面和 Nano Server 目标。 当向视图添加性能计数器时，在计算机名称中指定 Nano Server 目标，而不是默认的 *<Local computer>*。
+还可以远程结合使用 Perfmon.exe 的图形界面和 Nano Server 目标。 当向视图添加性能计数器时，在计算机名称中指定 Nano Server 目标，而不是默认的 *<Local computer>* 。
 
 ### <a name="interact-with-the-windows-event-log"></a>与 Windows 事件日志进行交互
 

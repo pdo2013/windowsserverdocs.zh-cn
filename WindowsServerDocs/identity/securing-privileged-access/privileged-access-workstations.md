@@ -4,23 +4,23 @@ description: PAW 如何提高组织的安全状况
 ms.prod: windows-server-threshold
 ms.topic: article
 ms.assetid: 93589778-3907-4410-8ed5-e7b6db406513
-ms.date: 02/14/2019
+ms.date: 03/13/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: fd87ef674fcfefa8e2dc1d7122de64ed8f5510a0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 846307e19324ab18f8bbfd84971108871b677aeb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891258"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445886"
 ---
 # <a name="privileged-access-workstations"></a>特权访问工作站
 
 >适用于：Windows Server
 
-特权访问工作站 (PAW) 为免受 Internet 攻击和威胁媒介的敏感任务提供专用操作系统。 将这些敏感任务和帐户与日常使用的工作站和设备分开，可提供很强的保护功能，免受仿冒攻击、应用程序和操作系统漏洞、各种假冒攻击及凭据被盗攻击（例如击键记录、[哈希传递](https://www.microsoft.com/en-us/download/details.aspx?id=36036)及[票证传递](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf)）。
+特权访问工作站 (PAW) 为免受 Internet 攻击和威胁媒介的敏感任务提供专用操作系统。 分离这些敏感任务和帐户与日常使用的工作站和设备提供了从网页仿冒攻击、 应用程序和操作系统漏洞、 各种模拟攻击和凭据被盗攻击如击键很强的保护日志记录[传递的哈希](https://aka.ms/pth)，和票证传递。
 
 ## <a name="what-is-a-privileged-access-workstation"></a>什么是特权访问工作站？
 
@@ -29,42 +29,42 @@ ms.locfileid: "59891258"
 > [!NOTE]
 > PAW 体系结构不需要将帐户 1:1 映射到工作站，虽然这是一种常见配置。 PAW 可创建由一个或多个帐户使用的受信任的工作站环境。
 
-为了提供最高级别的安全性，Paw 应始终运行最新和最安全操作系统可用：Microsoft 强烈建议 Windows 10 企业版，其中包括大量的其他版本中不可用的其他安全功能 (特别是， [Credential Guard](https://technet.microsoft.com/library/mt483740%28v=vs.85%29.aspx)并[Device Guard](https://technet.microsoft.com/library/dn986865(v=vs.85).aspx))。
+为了提供最高级别的安全性，Paw 应始终运行最新和最安全操作系统可用：Microsoft 强烈建议 Windows 10 企业版，其中包括在其他版本中不可用的几个其他安全功能 (特别是， [Credential Guard](https://technet.microsoft.com/library/mt483740%28v=vs.85%29.aspx)并[Device Guard](https://technet.microsoft.com/library/dn986865(v=vs.85).aspx))。
 
 > [!NOTE]
 > 没有 Windows 10 企业版访问权限的组织可以使用 Windows 10 专业版，其中包括 PAW 的许多关键基础技术，包括受信任的引导、BitLocker 和远程桌面。  教育客户可以使用 Windows 10 教育版。  Windows 10 家庭版不应用于 PAW。
 >
 > 对于 Windows 10 不同版本的比较矩阵，请参阅[此文章](https://www.microsoft.com/en-us/WindowsForBusiness/Compare)。
 
-PAW 中的安全控件专注于缓解影响最大、最有可能造成入侵的风险。 这包括缓解对环境的攻击及可能会随着时间推移而降级的 PAW 控件：
+PAW 安全控件专注于缓解高影响和很有可能造成入侵的风险。 其中包括缓解对环境和风险，这可以降低随着时间的推移的 PAW 控件的有效性的攻击：
 
 * **Internet 攻击** - 大多数攻击直接或间接地源于 Internet 源，并使用 Internet 进行渗透及命令和控制 (C2)。 将 PAW 与开放的 Internet 隔离是确保 PAW 不会被入侵的关键因素。
-* **可用性风险** - 如果 PAW 因太难而无法在日常任务中使用，管理员将积极创建变通方法，以使他们的作业变得简单。 通常情况下，这些变通方法会使管理工作站和帐户面临重大安全风险，因此，安全地使 PAW 用户参与并授权其来缓解这些可用性问题很重要。 这通常通过听取他们的反馈意见，安装所需的工具和脚本以执行其作业，确保所有员工意识到为什么他们需要 PAW、PAW 是什么以及如何正确成功地使用它。
-* **环境风险** - 由于环境中的很多其他计算机和帐户直接或间接地暴露在 Internet 风险中，必须保护 PAW 免受生产环境中被入侵的资产攻击。 这要求将对 PAW 有访问权限的管理工具和帐户按要求限制到最低，以保护和监控这些专用的工作站。
-* **供应链篡改** - 虽然不可能清除硬件和软件供应链中所有可能的篡改风险，但是执行一些关键操作可以缓解攻击者现已可用的关键攻击媒介。 这些操作包括验证所有安装介质的完整性（[清洁源原则](http://aka.ms/cleansource)），以及使用受信任且信誉好的供应商提供的硬件和软件。
+* **可用性风险** - 如果 PAW 因太难而无法在日常任务中使用，管理员将积极创建变通方法，以使他们的作业变得简单。 通常情况下，这些变通方法会使管理工作站和帐户面临重大安全风险，因此，安全地使 PAW 用户参与并授权其来缓解这些可用性问题很重要。 这可以通过侦听到他们的反馈意见，安装工具来实现，并了解为什么他们需要 paw，什么 PAW 执行它们的作业，并确保所有员工所需的脚本，以及如何正确成功地使用它。
+* **环境风险** - 由于环境中的很多其他计算机和帐户直接或间接地暴露在 Internet 风险中，必须保护 PAW 免受生产环境中被入侵的资产攻击。 这要求最小化使用的管理工具和帐户有权访问 Paw 以保护和监控这些专用的工作站。
+* **供应链篡改** - 虽然不可能清除硬件和软件供应链中所有可能的篡改风险，但是执行一些关键操作可以缓解攻击者现已可用的关键攻击媒介。 这些操作包括验证所有安装介质的完整性（[清洁源原则](https://aka.ms/cleansource)），以及使用受信任且信誉好的供应商提供的硬件和软件。
 * **物理攻击** - PAW 可以物理方式移动，并可用于物理安全设施的外部，因此，必须保护它们免受利用未经授权的计算机物理访问权限的攻击。
 
 > [!NOTE]
 > PAW 不会保护已通过 Active Directory 林获得管理权限的环境的免受攻击者攻击。
 > 因为现有许多已实现的 Active Directory 域服务在凭据被盗的风险中已运行数年，组织应假定存在漏洞，并考虑其可能具有未检测到的域或企业管理员凭据被入侵的可能性。 怀疑域被入侵的组织应考虑使用专业事件响应服务。
 >
-> 有关响应和恢复指南的详细信息，请参阅[缓解哈希传递和其他凭据被盗](https://www.microsoft.com/pth)第 2 版中的“对可疑活动进行响应”和“从漏洞中恢复”部分。
+> 有关响应和恢复指南的详细信息，请参阅[缓解哈希传递和其他凭据被盗](https://aka.ms/pth)第 2 版中的“对可疑活动进行响应”和“从漏洞中恢复”部分。
 >
 > 有关详细信息，请访问 [Microsoft 事件响应和恢复服务](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx)页。
 
 ### <a name="paw-hardware-profiles"></a>PAW 硬件配置文件
 
-管理人员也是标准用户，他们不仅需要 PAW，而且需要标准用户工作站来查看电子邮件、浏览 Web 及访问企业业务线应用程序。  确保管理员的工作效率和安全是任何 PAW 部署成功的基本条件。  用户会放弃严重限制工作效率的安全解决方案，而青睐于可提升工作效率的解决方案（即使它是通过不安全的方式来提升工作效率）。
+管理人员也是标准用户-他们需要 PAW，以及标准用户工作站来检查电子邮件、 浏览 web，以及访问企业业务线应用程序。  确保管理员的工作效率和安全是任何 PAW 部署成功的基本条件。  用户会放弃严重限制工作效率的安全解决方案，而青睐于可提升工作效率的解决方案（即使它是通过不安全的方式来提升工作效率）。
 
 为平衡安全需要与工作效率需要，Microsoft 建议使用其中一个 PAW 硬件配置文件：
 
-* **专用硬件** - 将用户任务与管理任务的专用设备分离
+* **专用硬件**-用户任务与管理任务的专用的设备分离。
 * **同时使用** - 利用操作系统或演示虚拟化，可以同时运行用户任务和管理任务的单个设备。
 
 组织可以仅使用一个配置文件，也可以同时使用两个配置文件。 硬件配置文件之间没有互操作性问题，组织可以灵活地将硬件配置文件与具有特定需要和情况的指定管理员相匹配。
 
 > [!NOTE]
-> 这一点至关重要，在所有这些方案中，管理人员创建了一个与专用管理帐户分开的标准用户帐户。 管理帐户应仅在 PAW 管理操作系统上使用。
+> 很重要，在所有这些情况下，管理人员向颁发是分开的专用管理帐户的标准用户帐户。 管理帐户应仅在 PAW 管理操作系统上使用。
 
 此表从操作易用性、工作效率和安全性的角度总结了每个硬件配置文件的相对优点和缺点。  两种硬件方法均可提供强大的安全功能，使管理帐户免于凭据被盗及重复使用。
 
@@ -96,7 +96,7 @@ PAW 中的安全控件专注于缓解影响最大、最有可能造成入侵的�
 
 若要对此进行配置，按照本指南中对 PAW 主机的说明进行操作，添加客户端 Hyper-V 功能、创建用户虚拟机，然后在用户虚拟机上安装 Windows 10 企业映像。
 
-请参阅文章[客户端 Hyper-V](https://technet.microsoft.com/library/hh857623.aspx)，获取有关此功能的详细信息。 请注意，来宾虚拟机中的操作系统需要按 [Microsoft 产品许可](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx)进行授权，我们还在[此处](https://www.microsoft.com/en-us/Licensing/learn-more/brief-windows-virtual-machine.aspx)进行了说明。
+请参阅文章[客户端 Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/index)，获取有关此功能的详细信息。 请注意，来宾虚拟机中的操作系统需要按 [Microsoft 产品许可](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx)进行授权，我们还在[此处](https://download.microsoft.com/download/9/8/D/98D6A56C-4D79-40F4-8462-DA3ECBA2DC2C/Licensing_Windows_Desktop_OS_for_Virtual_Machines.pdf)进行了说明。
 
 #### <a name="simultaneous-use---adding-remoteapp-rdp-or-a-vdi"></a>同时使用-添加 RemoteApp、 RDP 或 VDI
 
@@ -118,11 +118,11 @@ PAW 中的安全控件专注于缓解影响最大、最有可能造成入侵的�
 
 ## <a name="how-microsoft-is-using-administrative-workstations"></a>Microsoft 如何使用管理工作站
 
-Microsoft 同时在内部系统和客户系统中使用 PAW 体系结构方法。 Microsoft 通过多种功能在内部使用管理工作站，包括管理 Microsoft IT 基础结构，Microsoft 云构造基础结构开发和操作以及其他高值资产。
+Microsoft 同时在内部系统和客户系统中使用 PAW 体系结构方法。 Microsoft 使用多个包括的 Microsoft IT 基础结构、 Microsoft 云构造基础结构开发和操作和其他高值资产管理的容量在内部管理工作站。
 
 本指南的直接依据是我们的网络安全专业服务团队部署的特权访问工作站 (PAW) 参考体系结构，能够保护客户免受网络安全攻击。 管理工作站还是为域管理任务、增强的安全管理环境 (ESAE) 管理林参考体系结构提供最强保护的关键元素。
 
-有关 ESAE 管理林的详细信息，请参阅[保护特权访问参考资料](../securing-privileged-access/securing-privileged-access-reference-material.md)中的 [ESAE 管理林设计方法](http://aka.ms/ESAE)部分。
+有关 ESAE 管理林的详细信息，请参阅*ESAE 管理林设计方法*主题中[保护特权访问参考资料](../securing-privileged-access/securing-privileged-access-reference-material.md#esae-administrative-forest-design-approach)。
 
 ## <a name="architecture-overview"></a>体系结构概述
 
@@ -152,7 +152,7 @@ Microsoft 同时在内部系统和客户系统中使用 PAW 体系结构方法�
 
 组织当前的威胁环境是存在大量可对 Internet 暴露帐户和工作站构成持续安全入侵的复杂仿冒攻击及其他 Internet 攻击。
 
-此威胁环境要求组织在为高值资产（例如管理帐户和敏感商业资产）设计保护功能时，能够采用“假定违反”的安全状态。 需要保护这些高值资产免受直接 Interne t威胁，以及来自环境中其他工作站、服务器和设备的攻击。
+此威胁环境要求组织设计为高价值资产，例如管理帐户和敏感商业资产保护功能时采用"假定违反"的安全状况。 需要保护这些高值资产免受直接 Interne t威胁，以及来自环境中其他工作站、服务器和设备的攻击。
 
 ![显示如果攻击者获取了使用敏感凭据的用户工作站的控制权限，托管资产会遭遇的风险的图](../media/privileged-access-workstations/PAWFig2.JPG)
 
@@ -171,11 +171,11 @@ PAW 方法是管理人员使用单独的管理员和用户帐户时广为接受�
 
 ### <a name="alternate-approaches"></a>备用方法
 
-本部分包含与 PAW 相比，备选方法安全性的信息，以及如何如何在 PAW 体系结构中正确集成这些方法的信息。 如果单独执行这些方法中的一种，那么所有方法都有重大风险，但在某些方案中，可为 PAW 实施增加价值。
+本部分包含与 PAW 相比，备选方法安全性的信息，以及如何如何在 PAW 体系结构中正确集成这些方法的信息。 所有这些方法具有重大风险隔离中, 实现时，但可以将值添加到在某些情况下的 PAW 实现。
 
 #### <a name="credential-guard-and-windows-hello-for-business"></a>Credential Guard 和 Windows hello 企业版
 
-在 Windows 10 中引入的[凭据保护](https://technet.microsoft.com/library/mt483740%28v=vs.85%29.aspx)使用基于硬件和虚拟化的安全性，通过保护派生的凭据来缓解常见的凭据被盗攻击（例如哈希传递）。 使用凭据的私钥[Windows hello 企业版](http://aka.ms/passport)可以是也由受信任的平台模块 (TPM) 硬件保护。
+在 Windows 10 中引入的[凭据保护](https://technet.microsoft.com/library/mt483740%28v=vs.85%29.aspx)使用基于硬件和虚拟化的安全性，通过保护派生的凭据来缓解常见的凭据被盗攻击（例如哈希传递）。 使用凭据的私钥[Windows hello 企业版](https://aka.ms/passport)可以是也由受信任的平台模块 (TPM) 硬件保护。
 
 这些是功能强大的缓解措施，但工作站仍可以是容易遭受某些攻击即使 Credential Guard 或 Windows hello 企业版保护凭据。 攻击包括滥用特权及使用直接从受威胁的设备，重复使用先前盗取的凭据之前启用 Credential Guard 和滥用管理工具和工作站上的弱应用程序配置的凭据。
 
@@ -191,11 +191,23 @@ PAW 体系结构不允许用于托管用户工作站上的管理员 VM，但具�
 
 ![PAW 体系结构关系图](../media/privileged-access-workstations/PAWFig9.JPG)
 
+#### <a name="shielded-vm-based-paws"></a>受防护的 VM 基于 Paw
+
+管理虚拟机模型的安全的变体是使用[受防护的虚拟机](../../security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms.md)托管一个或多个管理员 Vm，以及用户虚拟机。
+受防护的 Vm 旨在运行其中可能不受信任的用户或代码上可能运行在物理计算机的标准用户桌面环境中安全工作负荷。
+受防护的 VM 具有虚拟 TPM 这使它可以加密其自身的数据进行加密，并且多个管理的控件，如基本的控制台访问、 PowerShell Direct 和调试 VM 的能力将被禁用，若要进一步隔离虚拟机与标准用户桌面和其他 Vm。
+受防护的 VM 的密钥存储在受信任的密钥管理服务器上，这需要物理设备来释放某个键启动 VM 之前证明其身份识别和运行状况。
+这可确保受防护的 Vm 仅可以在目标设备上启动，并且这些设备正在运行已知和受信任的软件配置。
+
+受防护的 Vm 彼此之间相互和标准用户桌面，因为它是可以接受一台主机上运行多个受防护的 PAW Vm，即使这些管理员 Vm 管理不同的层。
+
+请参阅[部署 Paw 使用受保护的构造](#deploy-paws-using-a-guarded-fabric)部分获取详细信息。
+
 #### <a name="jump-server"></a>跳转服务器
 
 管理“跳转服务器”体系结构设置少量管理控制服务器，并限制员工使用这些服务器执行执行管理任务。 这通常取决于远程桌面服务、第三方演示虚拟化解决方案或虚拟桌面基础结构 (VDI) 技术。
 
-此方法经常建议用于缓解风险管理，并且提供了一些安全保证，但跳转服务器方法本身容易遭受某些攻击，因为它违反了[“清洁源”原则](http://aka.ms/cleansource)。 “清洁源”原则要求所有安全依赖关系与受保护的对象一样可信。
+此方法经常建议用于缓解风险管理，并且提供了一些安全保证，但跳转服务器方法本身容易遭受某些攻击，因为它违反了[“清洁源”原则](../securing-privileged-access/securing-privileged-access-reference-material.md#clean-source-principle)。 “清洁源”原则要求所有安全依赖关系与受保护的对象一样可信。
 
 ![显示简单的控制关系的图](../media/privileged-access-workstations/PAWFig3.JPG)
 
@@ -227,7 +239,7 @@ PAW 体系结构不允许用于托管用户工作站上的管理员 VM，但具�
 
 这些解决方案通常使用灵活的工作流来授予访问权限，其中许多方案具有其他安全功能（例如服务帐户密码管理及与管理跳转服务器集成）。 市场上能提供特权管理功能的解决方案有许多，其中之一就是 Microsoft 标识管理器 (MIM) 特权访问管理 (PAM)。
 
-Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授予这些解决方案的访问权限。 Microsoft 不建议将这些解决方案用作 PAW 的替代方案，因为从可能被入侵的用户桌面使用这些解决方案访问特权违反了如下图中所示的[清洁源](http://aka.ms/cleansource)原则：
+Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授予这些解决方案的访问权限。 Microsoft 不建议将这些解决方案用作 PAW 的替代方案，因为从可能被入侵的用户桌面使用这些解决方案访问特权违反了如下图中所示的[清洁源](https://aka.ms/cleansource)原则：
 
 ![显示 Microsoft 不建议将这些解决方案用作 PAW 的替代方案的原因的图，因为从可能被入侵的用户桌面使用这些解决方案访问特权违反了清洁源原则](../media/privileged-access-workstations/PAWFig7.JPG)
 
@@ -237,9 +249,9 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
 
 > [!NOTE]
 > 这些系统应在它们所管理特权的最高层进行分类，并受到此安全级别或更高级别的保护。 这些系统通常被配置为管理第 0 层解决方案和第 0 层资产，因此，应在第 0 层进行分类。
-> 层模型的详细信息，请参阅[ http://aka.ms/tiermodel ](http://aka.ms/tiermodel)第 0 层组的详细信息，请参阅中的第 0 层等效性[保护特权访问参考资料](../securing-privileged-access/securing-privileged-access-reference-material.md)。
+> 层模型的详细信息，请参阅[ https://aka.ms/tiermodel ](https://aka.ms/tiermodel)第 0 层组的详细信息，请参阅中的第 0 层等效性[保护特权访问参考资料](../securing-privileged-access/securing-privileged-access-reference-material.md)。
 
-有关部署 Microsoft 标识管理器 (MIM) 特权访问管理 (PAM) 的详细信息，请参阅 [http://aka.ms/mimpamdeploy](http://aka.ms/mimpamdeploy)
+有关部署 Microsoft 标识管理器 (MIM) 特权访问管理 (PAM) 的详细信息，请参阅 [https://aka.ms/mimpamdeploy](https://aka.ms/mimpamdeploy)
 
 ## <a name="paw-scenarios"></a>PAW 方案
 
@@ -250,18 +262,18 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
 > [!NOTE]
 > 本指南明确区分需要访问 internet （如 Azure 和 Office 365 管理门户） 和"开放式 Internet"上的特定服务的所有主机和服务。
 
-请参阅[层模型页](http://aka.ms/tiermodel)，获取有关层指定的详细信息。
+请参阅[层模型页](https://aka.ms/tiermodel)，获取有关层指定的详细信息。
 
 |**方案**|**使用 PAW？**|**作用域和安全注意事项**|
 |---------|--------|---------------------|
-|Active Directory 管理员 - 第 0 层|是|使用阶段 1 指南构建的 PAW 对此角色来说已足够。<br /><br />- 可以添加管理林来为此方案提供最强的保护。 有关 ESAE 管理林的详细信息，请参阅 [ESAE 管理林设计方法](http://aka.ms/esae)<br />- PAW 可用于管理多个域或多个林。<br />-如果域控制器位于基础结构即服务 (IaaS) 或本地虚拟化解决方案，您应该优先实现 Paw 为这些解决方案中的管理员。|
+|Active Directory 管理员 - 第 0 层|是|使用阶段 1 指南构建的 PAW 对此角色来说已足够。<br /><br />- 可以添加管理林来为此方案提供最强的保护。 有关 ESAE 管理林的详细信息，请参阅 [ESAE 管理林设计方法](../securing-privileged-access/securing-privileged-access-reference-material.md#esae-administrative-forest-design-approach)<br />- PAW 可用于管理多个域或多个林。<br />-如果域控制器位于基础结构即服务 (IaaS) 或本地虚拟化解决方案，您应该优先实现 Paw 为这些解决方案中的管理员。|
 |Azure IaaS 和 PaaS 服务管理员 - 第 0 层或第 1 层（请参阅“范围和设计注意事项”）|是|使用阶段 2 中提供的指南构建的 PAW 对于此角色来说已足够。<br /><br />- PAW 应至少用于全局管理员和订阅计费管理员。 PAW 还应用于关键或敏感服务器的委派管理员。<br />-Paw 应该用于管理操作系统和应用程序提供目录同步和联合身份验证的云服务，如[Azure AD Connect](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect/)和 Active Directory 联合身份验证服务 (ADFS)。<br />- 出站网络限制必须仅允许连接至使用阶段 2 中指南的已授权云服务。 PAW 不允许任何开放 Internet 接入。<br />应在工作站上配置 Windows Defender 攻击防护**注意：**   订阅被视为林的第 0 层如果域控制器或其他第 0 层主机正在订阅中。 如果没有第 0 层服务器托管在 Azure 中，则订阅将是第 1 层。|
 |管理 Office 365 租户 <br />- 第 1 层|是|使用阶段 2 中提供的指南构建的 PAW 对于此角色来说已足够。<br /><br />- PAW 应至少用于订阅计费管理员、全局管理员、Exchange 管理员、SharePoint 管理员及用户管理管理员角色。 你还应认真考虑将 PAW 用于极为关键或敏感数据的委派管理员。<br />应在工作站上配置 Windows Defender 攻击防护。<br />- 出站网络限制必须仅允许连接至使用阶段 2 中的指南的 Microsoft 服务。 PAW 不允许任何开放 Internet 接入。|
-|其他 IaaS 或 PaaS 云服务管理员<br />- 第 0 层或第 1 层（请参阅“范围和设计注意事项”）||使用阶段 2 中提供的指南构建的 PAW 对于此角色来说已足够。<br /><br />- PAW 应该用于具有云托管虚拟机管理权限的任意角色，包括安装代理、导出硬盘文件，或访问包含操作系统信息、敏感数据或关键业务数据的硬盘驱动器的存储等功能。<br />- 出站网络限制必须仅允许连接至使用阶段 2 中的指南的 Microsoft 服务。 PAW 不允许任何开放 Internet 接入。<br />应在工作站上配置 Windows Defender 攻击防护。 **注意：** 如果域控制器或其他第 0 层主机位于订阅，订阅将是林的第 0 层。 如果没有第 0 层服务器托管在 Azure 中，则订阅将是第 1 层。|
+|其他 IaaS 或 PaaS 云服务管理员<br />- 第 0 层或第 1 层（请参阅“范围和设计注意事项”）|是|使用阶段 2 中提供的指南构建的 PAW 对于此角色来说已足够。<br /><br />- PAW 应该用于具有云托管虚拟机管理权限的任意角色，包括安装代理、导出硬盘文件，或访问包含操作系统信息、敏感数据或关键业务数据的硬盘驱动器的存储等功能。<br />- 出站网络限制必须仅允许连接至使用阶段 2 中的指南的 Microsoft 服务。 PAW 不允许任何开放 Internet 接入。<br />应在工作站上配置 Windows Defender 攻击防护。 **注意：** 如果域控制器或其他第 0 层主机位于订阅，订阅将是林的第 0 层。 如果没有第 0 层服务器托管在 Azure 中，则订阅将是第 1 层。|
 |虚拟化管理员<br />- 第 0 层或第 1 层（请参阅“范围和设计注意事项”）|是|使用阶段 2 中提供的指南构建的 PAW 对于此角色来说已足够。<br /><br />- PAW 应该用于具有虚拟机管理权限的任意角色，包括安装代理、导出虚拟硬盘文件，或访问包含操作系统信息、敏感数据或关键业务数据的硬盘驱动器的存储等功能。 **注意：** 如果域控制器或其他第 0 层主机正在订阅中的虚拟化系统 （和其管理员） 被视为林的第 0 层。 如果没有第 0 层服务器托管在虚拟化系统中，则订阅将是第 1 层。|
 |服务器维护管理员<br />- 第 1 层|是|使用阶段 2 中提供的指南构建的 PAW 对于此角色来说已足够。<br /><br />- PAW 应该用于更新、修补及检修运行 Windows Server、Linux 和其他操作系统的企业服务器和应用程序的管理员。<br />- 可能需要为 PAW 添加专用管理工具，以便供更多管理员使用。|
 |用户工作站管理员 <br />- 第 2 层|是|使用阶段 2 中提供的指南构建的 PAW 对于具有最终用户设备管理权限的角色（例如支持人员和桌端支持角色）来说已足够。<br /><br />- 可能需要在 PAW 上安装其他应用程序，以便启用票证管理及其他支持功能。<br />应在工作站上配置 Windows Defender 攻击防护。<br />    可能需要为 PAW 添加专用管理工具，以便供更多管理员使用。|
-|SQL、SharePoint 或业务线 (LOB) 管理员<br />- 第 1 层||使用阶段 2 指南构建的 PAW 对于此角色来说已足够。<br /><br />- 可能需要在 PAW 上安装其他管理工具，使管理员无需使用远程桌面连接服务器，即可管理应用程序。|
+|SQL、SharePoint 或业务线 (LOB) 管理员<br />- 第 1 层|是|使用阶段 2 指南构建的 PAW 对于此角色来说已足够。<br /><br />- 可能需要在 PAW 上安装其他管理工具，使管理员无需使用远程桌面连接服务器，即可管理应用程序。|
 |管理社交媒体状态的用户|部分|使用阶段 2 中提供的指南构建的 PAW 可以用作为这些角色提供安全功能的起点。<br /><br />- 使用 Azure Active Directory (AAD) 保护和管理社交媒体帐户以共享、保护和跟踪社交媒体帐户的访问权限。<br />    有关此功能的详细信息，请参阅[此博客文章](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)。<br />- 出站网络限制必须允许连接到这些服务。 这可通过允许开放的 Internet 连接（否定许多 PAW 保证的更高安全风险）或仅允许服务所需的 DNS 地址（可能比较难于获取）完成。|
 |标准用户|否|尽管许多强化步骤可为标准用户所用，但 PAW 设计为将帐户与多数用户完成工作职责所需的开放 Internet 接入隔离。|
 |来宾 VDI/网亭|否|虽然许多强化步骤可为来宾用于网亭系统，PAW 体系结构旨在为高敏感度帐户而非较低敏感度帐户提供更高的安全性。|
@@ -271,7 +283,7 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
 
 > [!NOTE]
 > **组合方案**某些员工可能具有跨越多个方案的管理职责。
-> 在这些情况下，需要记住的关键规则是必须始终遵守层模型规则。 请参阅层模型页获取详细信息。
+> 在这些情况下，需要注意的关键规则是必须始终遵守层模型规则。 请参阅层模型页获取详细信息。
 
 > [!NOTE]
 > **缩放 PAW 程序** 随着 PAW 程序的缩放以包含更多管理员和角色，需要继续确保持续符合安全标准及可用性。 这就要求你更新 IT 支持结构或创建新的结构来应对 PAW 特定挑战（例如 PAW 载入进程、事件管理、配置管理及收集反馈以解决可用性挑战）。  举例来说，组织决定为管理员启用在家工作方案，这就势必会造成从桌面 PAW 到笔记本电脑 PAW 的转变，这种转变可能会使其他安全注意事项成为必然考虑因素。  另一个常见示例是为新管理员创建或更新培训，培训内容现在必须包括正确使用 PAW（包括为什么 PAW 的正确使用很重要以及什么是 PAW，什么不是 PAW）。  有关在缩放 PAW 程序时需要考虑的更多注意事项，请参阅本说明的阶段 2。
@@ -300,12 +312,12 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
 
 阶段 1 重点介绍管理你的本地 Active Directory 域的管理员，他们是经常成为攻击者目标的关键角色。 无论 Active Directory 域控制器 (DC) 是托管于本地数据中心、Azure 基础设施即服务 (IaaS) 中还是托管给其他 IaaS 供应商，这些标识系统都可以有效地保护这些管理员。
 
-在此阶段，你可以创建安全管理 Active Directory 组织单位 (OU) 体系结构，以托管特权访问工作站 (PAW)，并使工作站自行部署 PAW。  此体系结构还包括支持 PAW 所需的组策略和组。  你可以使用 [TechNet 库](http://aka.ms/pawmedia)中的 PowerShell 脚本创建结构的大部分。
+在此阶段，你可以创建安全管理 Active Directory 组织单位 (OU) 体系结构，以托管特权访问工作站 (PAW)，并使工作站自行部署 PAW。  此体系结构还包括支持 PAW 所需的组策略和组。  你可以使用 [TechNet 库](https://aka.ms/pawmedia)中的 PowerShell 脚本创建结构的大部分。
 
 这些脚本将创建以下 OU 和安全组：
 
 * 组织单位 (OU)
-   * 六个新的顶级 Ou:Admin;组;第 1 层服务器;工作站;用户帐户;和计算机隔离。  每个顶级 OU 将包含数个子 OU。
+   * 六个新的顶级 Ou:Admin;组;第 1 层服务器;工作站;用户帐户;和计算机隔离。  每个顶级 OU 将包含若干子 Ou。
 * 组
    * 六个新启用安全的全局组：第 0 层复制维护;第 1 层服务器维护;服务台操作员;工作站维护;PAW 用户;PAW 维护。
 
@@ -330,14 +342,14 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
    >
    > 有关供应链安全的重要性的详细背景信息，请访问[本站点](https://www.microsoft.com/security/cybersecurity/)。
 
-4. **获取和验证所需的 Windows 10 企业版和应用程序软件**。 获取 PAW 所需的软件，并使用[安装介质的清洁源](http://aka.ms/cleansource)中的指南进行验证。
+4. **获取和验证所需的 Windows 10 企业版和应用程序软件**。 获取 PAW 所需的软件，并使用[安装介质的清洁源](https://aka.ms/cleansource)中的指南进行验证。
 
    * Windows 10 企业版
-   * 适用于 Windows 10 的 [远程服务器管理工具](https://www.microsoft.com/en-us/download/details.aspx?id=45520.)
-   * [Windows 10 安全基线](http://aka.ms/win10baselines)
+   * 适用于 Windows 10 的 [远程服务器管理工具](https://www.microsoft.com/en-us/download/details.aspx?id=45520)
+   * [Windows 10 安全基线](https://aka.ms/win10baselines)
 
       > [!NOTE]
-      > Microsoft 在 MSDN 上为所有操作系统和应用程序发布了 MD5 哈希值，但并不是所有软件供应商都提供类似文档。  在这些情况下将需要其他策略。  有关验证软件的其他信息，请参阅[安装介质的清洁源](http://aka.ms/cleansource)。
+      > Microsoft 在 MSDN 上为所有操作系统和应用程序发布了 MD5 哈希值，但并不是所有软件供应商都提供类似文档。  在这些情况下将需要其他策略。  有关验证软件的其他信息，请参阅[安装介质的清洁源](https://aka.ms/cleansource)。
 
 5. **确保 Intranet 上有可用的 WSUS 服务器**。 在 Intranet 上需要有 WSUS 服务器，以便下载并安装 PAW 更新程序。 此 WSUS 服务器应配置为自动批准所有 Windows 10 安全更新程序，或管理人员应有责任和义务快速批准软件更新程序。
 
@@ -346,10 +358,10 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
 
 #### <a name="deploy-the-admin-ou-framework-to-host-the-paws"></a>部署管理员 OU 框架来托管 PAW
 
-1. 从 [TechNet 库](http://aka.ms/PAWmedia)中下载 PAW 脚本库
+1. 从 [TechNet 库](https://aka.ms/PAWmedia)中下载 PAW 脚本库
 
    > [!NOTE]
-   > 下载所有文件并将其保存到同一目录，然后按照下面指定的顺序运行这些文件。  Create-PAWGroup 依赖于通过 Create-PAWOU 创建的 OU 结构，Set-PAWOUDelegation 依赖于通过 Create-PAWGroup 创建的组。
+   > 下载所有文件并将其保存到同一个目录，并运行这些下面指定的顺序。  Create-PAWGroup 依赖于通过 Create-PAWOU 创建的 OU 结构，Set-PAWOUDelegation 依赖于通过 Create-PAWGroup 创建的组。
    > 不要修改任何脚本或逗号分隔值 (CSV) 文件。
 
 2. **运行 Create-PAWOUs.ps1 脚本**。  此脚本将在 Active Directory 中创建新的组织单位 (OU) 结构，并在新 OU 上酌情阻止 GPO 继承。
@@ -419,11 +431,11 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
          1. 右键单击“具有高级安全性的 Windows 防火墙”，然后选择“**导入策略**”。
          2. 单击“**是**”接受此设置将替代任何现有的防火墙策略。
          3. 浏览到 PAWFirewall.wfw，然后选择“**打开**”。
-         4. 单击 **“确定”**。
+         4. 单击 **“确定”** 。
 
             > [!NOTE]
             > 此时可以添加必须通过未经请求的流量连接 PAW 的地址或子网（例如安全扫描或管理软件）。
-            > WFW 文件中的设置将为所有防火墙配置文件启用防火墙“阻止 - 默认值”模式、关闭规则合并启用记录被丢弃的和成功的数据包。 这些设置在允许从 PAW 发起的双向通信时仍会阻止未经请求的流量，阻止具有本地管理访问权限的用户创建可以替代 GPO 设置的本地防火墙规则，并确保记录进入和退出 PAW 的流量。
+            > WFW 文件中的设置将为所有防火墙配置文件启用防火墙“阻止 - 默认值”模式、关闭规则合并启用记录被丢弃的和成功的数据包。 这些设置将阻止未经请求的流量，同时仍然允许从 PAW 发起的连接上的双向通信，阻止具有本地管理访问权限的用户创建本地防火墙规则，将会替代 GPO 设置和请确保记录传入和传出 PAW 的流量。
             > **打开此防火墙将扩大 PAW 的攻击面，并增加安全风险。添加任何地址前，请参阅本指南中的“管理和操作 PAW”部分**。
 
    5. **为 WSUS 配置 Windows 更新** - 按照以下步骤更改设置，为 PAW 配置 Windows 更新：
@@ -572,7 +584,7 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
    >
    > 如果自动部署 PAW，你必须：
    >
-   > * 使用经[安装介质的清洁源](http://aka.ms/cleansource)验证的安装介质构建系统。
+   > * 使用经[安装介质的清洁源](https://aka.ms/cleansource)验证的安装介质构建系统。
    > * 在操作系统构建过程中，确保自动部署系统与网络断开连接。
 
 2. 为本地 Administrator 帐户设置唯一的复杂密码。  不要使用在相应环境中任何其他帐户已用过的密码。
@@ -594,50 +606,50 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
    酌情将对 *Fabrikam* 的引用替换为你的域名。  如果你的域名扩展到多个级别（例如 child.fabrikam.com），使用“DC=”标识符以域的完全限定的域名中出现的顺序添加其他名称。
 
    > [!NOTE]
-   > 如果你已部署了 [ESAE 管理林](http://aka.ms/esae)（适用于阶段 1 中的第 0 层管理员）或 [Microsoft 标识管理器 (MIM) 特权访问管理 (PAM)](http://aka.ms/mimpamdeploy)（适用于阶段 2 中的第 1 层和第 2 层管理员），你应把 PAW 联接到此处环境中的域，而不是生产域中。
+   > 如果你已部署了 [ESAE 管理林](https://aka.ms/esae)（适用于阶段 1 中的第 0 层管理员）或 [Microsoft 标识管理器 (MIM) 特权访问管理 (PAM)](https://aka.ms/mimpamdeploy)（适用于阶段 2 中的第 1 层和第 2 层管理员），你应把 PAW 联接到此处环境中的域，而不是生产域中。
 
 7. 在安装任何其他软件（包括管理工具、代理等）前，应用所有关键且重要的 Windows 更新。
 8. 强制安装组策略应用程序。
    1. 打开提升的命令提示符并输入以下命令： `Gpupdate /force /sync`
    2. 重启计算机
 
-9. （可选）为 Active Directory 管理员安装其他所需的工具。 安装执行作业职责所需的任何其他工具或脚本。 将凭据添加到 PAW 之前，确保使用任意工具评估凭据在目标计算机上泄露的风险。 访问[此页面](http://aka.ms/logontypes)获取评估凭据暴露风险的管理工具和连接方法的详细信息。 确保使用[安装介质的清洁源](http://aka.ms/cleansource)中的指南获取全部安装介质。
+9. （可选）为 Active Directory 管理员安装其他所需的工具。 安装执行作业职责所需的任何其他工具或脚本。 将凭据添加到 PAW 之前，确保使用任意工具评估凭据在目标计算机上泄露的风险。 访问[此页面](https://aka.ms/logontypes)获取评估凭据暴露风险的管理工具和连接方法的详细信息。 确保使用[安装介质的清洁源](https://aka.ms/cleansource)中的指南获取全部安装介质。
 
    > [!NOTE]
    > 即使不会作为安全边界，为这些工具在中心位置使用跳转服务器也可以降低复杂性。
 
 10. （可选）下载并安装所需的远程访问软件。 如果管理员远程使用 PAW 进行管理使用，则使用远程访问解决方案供应商所提供的安全指南安装远程访问软件。 确保使用“安装介质的清洁源”中的指南获取全部安装介质。
 
-   > [!NOTE]
-   > 仔细考虑允许通过 PAW 远程访问所涉及的全部风险。  虽然移动 PAW 可使用多种重要方案（包括在家办公），远程访问软件可能会容易受到攻击，并被用于入侵 PAW。
+    > [!NOTE]
+    > 请仔细考虑允许通过 PAW 远程访问的风险。  虽然移动 PAW 可使用多种重要方案（包括在家办公），远程访问软件可能会容易受到攻击，并被用于入侵 PAW。
 
 11. 通过使用以下步骤，查看并确认所有相应设置均已就绪的方式，验证 PAW 系统的完整性：
-   1. 确认仅将 PAW 特定的组策略应用于 PAW
-      1. 打开提升的命令提示符并输入以下命令： `Gpresult /scope computer /r`
-      2. 查看生成的列表，并确保出现的唯一组策略是你在上述步骤中创建的。
-   2. 使用以下步骤确认没有其他用户帐户是 PAW 上的特权组成员：
-      1. 打开“**编辑本地用户和组**”(lusrmgr.msc)，选择“**组**”，并确认只有本地管理员组的成员是本地 Administrator 帐户和 PAW 维护全局安全组。
+    1. 确认仅将 PAW 特定的组策略应用于 PAW
+       1. 打开提升的命令提示符并输入以下命令： `Gpresult /scope computer /r`
+       2. 查看生成的列表，并确保出现的唯一组策略是你在上述步骤中创建的。
+    2. 使用以下步骤确认没有其他用户帐户是 PAW 上的特权组成员：
+       1. 打开“**编辑本地用户和组**”(lusrmgr.msc)，选择“**组**”，并确认只有本地管理员组的成员是本地 Administrator 帐户和 PAW 维护全局安全组。
 
-         > [!NOTE]
-         > PAW 用户组不应该是本地管理员组的成员。  成员只能是本地 Administrator 帐户和 PAW 维护全局安全组（PAW 用户也不应是该全局组的成员）。
+          > [!NOTE]
+          > PAW 用户组不应该是本地管理员组的成员。  成员只能是本地 Administrator 帐户和 PAW 维护全局安全组（PAW 用户也不应是该全局组的成员）。
 
-      2. 此外，使用“**编辑本地用户和组**”，确保下列组没有任何成员：备份操作员加密运算符的 HYPER-V 管理员的网络配置运算符 Power 用户远程桌面用户复制器
+       2. 此外，使用“**编辑本地用户和组**”，确保下列组没有任何成员：备份操作员加密运算符的 HYPER-V 管理员的网络配置运算符 Power 用户远程桌面用户复制器
 
 12. （可选）如果你的组织使用的安全信息和事件管理 (SIEM) 解决方案，请确保 paw[配置为将事件转发到使用 Windows 事件转发 (WEF) 的系统](http://blogs.technet.com/b/jepayne/archive/2015/11/24/monitoring-what-matters-windows-event-forwarding-for-everyone-even-if-you-already-have-a-siem.aspx)或否则注册解决方案，以便 SIEM 主动接收事件和信息来自 PAW。  此操作的详细信息将因 SIEM 解决方案不同而有所不同。
 
-   > [!NOTE]
-   > 如果 SIEM 需要作为系统运行的代理或 PAW 上的本地管理帐户，请确保通过与域控制器和标识系统同一级别的信任来管理 SIEM。
+    > [!NOTE]
+    > 如果 SIEM 需要作为系统运行的代理或 PAW 上的本地管理帐户，请确保通过与域控制器和标识系统同一级别的信任来管理 SIEM。
 
 13. （可选）如果你选择部署 LAPS 来管理 PAW 上的本地管理员帐户的密码，请验证密码已成功注册。
 
-   * 使用具有读取 LAPS 管理的密码权限的帐户，打开“**Active Directory 用户和计算机**”(dsa.msc)。  确保已启用“高级功能”，然后右键单击相应的计算机对象。  选择“属性编辑器”选项卡，确认 msSVSadmPwd 的值使用有效密码填充。
+    * 使用具有读取 LAPS 管理的密码权限的帐户，打开“**Active Directory 用户和计算机**”(dsa.msc)。  确保已启用“高级功能”，然后右键单击相应的计算机对象。  选择“属性编辑器”选项卡，确认 msSVSadmPwd 的值使用有效密码填充。
 
 ### <a name="phase-2-extend-paw-to-all-administrators"></a>阶段 2:将 PAW 扩展至所有管理员
 
 作用域：使用管理权限的任务关键型应用程序和依赖项的所有用户。  这至少应包含应用程序服务器、运行状况和安全监视解决方案、虚拟化解决方案、存储系统及网络设备的管理员。
 
 > [!NOTE]
-> 本阶段中的说明假定阶段 1 步骤已全部执行。  在阶段 1 中的步骤全部完成之前，不要开始阶段 2。
+> 本阶段中的说明假定阶段 1 步骤已全部执行。  在完成第 1 阶段中的所有步骤之前，不要开始阶段 2。
 
 确认已完成所有步骤后，请执行以下步骤来完成阶段 2:
 
@@ -645,7 +657,7 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
 
 启用此功能在你的现有服务器和工作站，然后强制执行此功能的使用。 此功能要求目标服务器正在运行 Windows Server 2008 R2 或更高版本，目标工作站运行 Windows 7 或更高版本。
 
-1. 按照[此页面](http://aka.ms/rdpra)中的说明，在服务器和工作站上启用 **RestrictedAdmin** 模式。
+1. 按照[此页面](https://aka.ms/rdpra)中的说明，在服务器和工作站上启用 **RestrictedAdmin** 模式。
 
    > [!NOTE]
    > 在为面向 Internet 的服务器启用此功能前，你应考虑攻击者可利用以前被盗的密码哈希通过这些服务器进行身份验证的风险。
@@ -671,7 +683,7 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
       * 对企业应用程序的管理访问权限
 2. 将第 1 层帐户移动到 Admin\Tier 1\Accounts OU。 将是第 1 层组成员（包括嵌套的成员身份）的全部帐户移动到此 OU。
 3. 将相应成员添加到相关组
-   * **第 1 层管理员** - 此组将包括被限制不能登录第 2 层主机的第 1 层管理员。 添加所有具有服务器或 Internet 服务管理权限的第 1 层管理组。
+   * **第 1 层管理员** - 此组将包括被限制不能登录第 2 层主机的第 1 层管理员。 添加所有第 1 层管理组具有对服务器或 internet 服务管理权限。
 
       > [!NOTE]
       > 如果管理人员有责任管理多个层上的资产，则需要在每层创建独立的管理员帐户。
@@ -691,8 +703,8 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
 
    1. 配置 PAW 以仅允许已授权的 Internet 目标。  扩展 PAW 部署以启用云管理时，从攻击者可以更轻松地攻击管理员的开放 Internet 筛选访问权限的同时，需要允许访问已授权的服务。
 
-      1. 创建“**云服务管理员**”组，并将 Internet 上所有需要访问云服务的帐户添加到此组。
-      2. 从 [TechNet 库](http://aka.ms/pawmedia)下载 PAW *proxy.pac* 文件，并发布在内部网站上。
+      1. 创建**云服务管理员**组，并将所有帐户都添加到它需要访问 internet 上的云服务。
+      2. 从 [TechNet 库](https://aka.ms/pawmedia)下载 PAW *proxy.pac* 文件，并发布在内部网站上。
 
          > [!NOTE]
          > 下载后需要更新 *proxy.pac* 文件，以确保文件为最新且完整。  
@@ -770,7 +782,7 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
          > [!NOTE]
          > “SCM Windows 10 - 域安全”GPO 可能链接到独立于 PAW 的域，但会影响整个域。
 
-6. （可选）为第 1 层管理员安装其他所需的工具。 安装执行作业职责所需的任何其他工具或脚本。 将凭据添加到 PAW 之前，确保使用任意工具评估凭据在目标计算机上泄露的风险。 有关评估凭据暴露风险的管理工具和连接方法的详细信息，请访问[此页面](http://aka.ms/logontypes)。 确保使用“安装介质的清洁源”中的指南获取全部安装介质
+6. （可选）为第 1 层管理员安装其他所需的工具。 安装执行作业职责所需的任何其他工具或脚本。 将凭据添加到 PAW 之前，确保使用任意工具评估凭据在目标计算机上泄露的风险。 有关评估凭据暴露风险的管理工具和连接方法的详细信息，请访问[此页面](https://aka.ms/logontypes)。 确保使用“安装介质的清洁源”中的指南获取全部安装介质
 7. 标识并安全地获取管理所需的软件和应用程序。  这与阶段 1 执行的工作类似，但由于要保护的应用程序、服务和系统数量的增加，因而范围更广。
 
    > [!NOTE]
@@ -808,8 +820,8 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
 
 10. 制定在组织中大规模部署 PAW 的请求和分发方法。  视阶段 2 中所选择要部署的 PAW 数量而定，可能需要自动执行此流程。
 
-   * 考虑制定一个管理员用于获取 PAW 的正式请求和审批流程。  此流程有助于标准化部署过程，明确 PAW 设备责任，并帮助确定 PAW 部署过程中的差距。
-   * 如前面所述，此部署解决方案应该与现有的自动化方法（可能已被入侵）分开，并且应遵循阶段 1 中列出的原则。
+    * 考虑制定一个管理员用于获取 PAW 的正式请求和审批流程。  此流程有助于标准化部署过程，明确 PAW 设备责任，并帮助确定 PAW 部署过程中的差距。
+    * 如前面所述，此部署解决方案应该与现有的自动化方法（可能已被入侵）分开，并且应遵循阶段 1 中列出的原则。
 
         > [!NOTE]
         > 管理资源的任何系统自身托管的级别应与信任级别相同或更高。
@@ -817,13 +829,13 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
 11. 进行检查并根据需要部署其他 PAW 硬件配置文件。  为阶段 1 部署所选择的硬件配置文件可能不适合所有管理员。  查看硬件配置文件，并根据需要选择其他 PAW 硬件配置文件来满足管理员需求。  例如，专用硬件配置文件（独立的 PAW 和日常使用工作站）可能并不适合经常出差的管理员，在这种情况下，可以选择为该管理员部署“同时使用”配置文件（带有用户虚拟机的 PAW）。
 12. 考虑伴有扩展 PAW 部署的文化、操作、通信和培训需求。   管理模型的这种重大改变自然要求一定程度的管理改变，将这种改变构建到部署项目自身中很有必要。  至少考虑下列问题：
 
-   * 通过何种方式将这些改变传达给高层领导，以确保获得他们的支持？  没有高层领导支持，任何项目都很有可能失败，或至少要努力筹措资金并获得广泛接受。
-   * 如何为管理员记录新流程？  这些改变必须记录，并且不仅要传达给现有管理员（他们必须改变自己的习惯并以不同方式管理资源），也要传达给新管理员（内部提升或从外部组织聘用的管理员）。  文档必须能清晰完整地阐述威胁的重要性、PAW 保护管理员的角色及如何正确使用 PAW。
+    * 通过何种方式将这些改变传达给高层领导，以确保获得他们的支持？  没有高层领导支持，任何项目都很有可能失败，或至少要努力筹措资金并获得广泛接受。
+    * 如何为管理员记录新流程？  这些改变必须记录，并且不仅要传达给现有管理员（他们必须改变自己的习惯并以不同方式管理资源），也要传达给新管理员（内部提升或从外部组织聘用的管理员）。  文档必须能清晰完整地阐述威胁的重要性、PAW 保护管理员的角色及如何正确使用 PAW。
 
       > [!NOTE]
       > 这对于离职率较高的角色尤为重要，包括但不限于支持人员。
 
-   * 如何确保遵循新流程？  虽然 PAW 模型包括大量技术控件，可防止特权凭据泄露，但单纯使用技术控件无法彻底避免所有可能存在的泄露。  例如，虽然可以阻止管理员使用特权凭据成功登录到用户桌面，但简单的尝试登录行为会将凭据暴露给安装在相应用户桌面上的恶意软件。  因此，明确阐述 PAW 模型优势及不遵守新流程的风险非常重要。  这可以通过审核和警报实现，这样就可以快速检测到凭据泄露并予以解决。
+    * 如何确保遵循新流程？  虽然 PAW 模型包含多个技术控制来防止特权凭据泄露，就无法彻底避免所有可能存在的风险单纯使用技术控件。  例如，虽然可以阻止管理员使用特权凭据成功登录到用户桌面，但简单的尝试登录行为会将凭据暴露给安装在相应用户桌面上的恶意软件。  因此，明确阐述 PAW 模型优势及不遵守新流程的风险非常重要。  这可以通过审核和警报实现，这样就可以快速检测到凭据泄露并予以解决。
 
 ### <a name="phase-3-extend-and-enhance-protection"></a>阶段 3:扩展和增强保护
 
@@ -856,7 +868,7 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
 
 PAW 必须具有反恶意软件功能，且软件更新必须得到快速应用，以便维护这些工作站的完整性。
 
-其他配置管理、操作监控和安全管理也可以用于 PAW，但这些功能的集成必须经过慎重考虑，因为引入每个管理功能的同时，也会通过相应工具给 PAW 带来入侵风险。 是否需要引入高级管理功能取决于多个因素，包括：
+其他配置管理、操作监控和安全管理也可以用于 PAW，但这些功能的集成必须经过慎重考虑，因为引入每个管理功能的同时，也会通过相应工具给 PAW 带来入侵风险。 是否有意义引入高级的管理功能取决于许多因素，包括：
 
 * 管理功能的安全状态与做法（包括工具的软件更新做法、管理角色及这些角色中的帐户、工具托管或受管于的操作系统及相应工具的任何其他硬件或软件相关项）
 * PAW 上软件部署和更新的频率与数量
@@ -873,14 +885,118 @@ PAW 必须具有反恶意软件功能，且软件更新必须得到快速应用�
 |PAW 中的默认值<br /><br />- Windows Server Update Services<br />- Windows Defender|- 无需额外付费<br />- 执行所需的基本安全功能<br />- 本指南中的说明|
 |使用 [Intune](https://technet.microsoft.com/library/jj676587.aspx) 进行管理|<ul><li>提供了基于云的可见性和控制<br /><br /><ul><li>软件部署</li><li>管理软件更新</li><li>Windows 防火墙策略管理</li><li>反恶意软件保护</li><li>远程协助</li><li>软件许可证管理。</li></ul></li><li>不需要服务器基础结构</li><li>需要执行阶段 2 中的“启用云服务连接”步骤</li><li>如果 PAW 计算机未加入域，这就要求使用安全基线下载中提供的工具，将 SCM 基线应用于逻辑映像。</li></ul>|
 |用于管理 PAW 的新 System Center 实例|- 提供配置、软件部署和安全更新的可见性和控制<br />- 需要单独的服务器基础结构，以保护其达到 PAW 级别，并为高权限员工配备技术|
-|使用现有管理工具管理 PAW|-除非现有管理基础结构提升到 Paw 安全级别入侵 Paw 的重大风险，创建**注意：**   Microsoft 将通常不鼓励此方法，除非你的组织有特定原因要使用它。 根据我们的经验，将所有这些工具（及其安全依赖关系）提升到 PAW 的安全级别通常需要花费高昂的成本。<br />- 其中大部分工具提供配置、软件部署和安全更新的可见性和控制|
+|使用现有管理工具管理 PAW|-除非现有管理基础结构提升到 Paw 安全级别入侵 Paw 的重大风险，创建**注意：**   Microsoft 将通常不鼓励此方法，除非你的组织有特定原因要使用它。 在我们的经验，没有通常使所有这些工具 （和及其安全依赖关系） 的成本非常高到 Paw 的安全级别。<br />- 其中大部分工具提供配置、软件部署和安全更新的可见性和控制|
 |安全扫描或监控工具需要管理员访问权限|包括安装代理或要求具有本地管理访问权限的帐户的所有工具。<br /><br />- 要求将工具安全保证提升至 PAW 的级别。<br />- 可能需要下调 PAW 的安全态势来支持工具功能（打开端口、安装 Java 或其他中间件等），以制定安全权衡决策|
 |安全信息和事件管理 (SIEM)|<ul><li>如果 SIEM 无代理<br /><br /><ul><li>使用 **Event Log Readers** 组中的帐户，无需管理权限即可访问 PAW 上的事件</li><li>将要求打开网络端口，以便允许来自 SIEM 服务器的入站流量</li></ul></li><li>如果 SIEM 需要代理，请参阅其他行**安全扫描或控视工具需要管理员访问权限**。</li></ul>|
 |Windows 事件转发|- 提供一种将来自 PAW 的安全事件转发到外部收集器或 SIEM 的无代理方法<br />-可以访问 Paw 上无需管理权限的事件<br />- 不要求打开网络端口，即可允许来自 SIEM 服务器的入站流量|
 
 ## <a name="operating-paws"></a>操作 PAW
 
-PAW 解决方案应使用基于清洁源原则的[操作标准](http://aka.ms/securitystandards)中的标准进行操作。
+PAW 解决方案应使用基于清洁源原则的[操作标准](https://aka.ms/securitystandards)中的标准进行操作。
+
+## <a name="deploy-paws-using-a-guarded-fabric"></a>部署 Paw 使用受保护的构造
+
+一个[受保护的构造](https://aka.ms/shieldedvms)可用于在便携式计算机上运行受防护的虚拟机的 PAW 工作负载或跳转服务器。
+采用此方法需要额外的基础结构和操作步骤，但可以轻松地在时间间隔来定期重新部署 PAW 图像并允许您将多个不同的分层 （或分类） Paw 整合到运行的虚拟机--同时在一台设备上。
+受保护的构造拓扑和安全承诺的完整说明，请查阅[受保护的构造文档](https://aka.ms/shieldedvms)。
+
+### <a name="changes-to-the-paw-gpos"></a>对 PAW Gpo 的更改
+
+当使用受防护的 VM 基于 Paw[推荐的 GPO 设置](#create-paw-configuration---computer-group-policy-object-gpo)定义更高版本将需要进行修改，以支持使用虚拟机。
+
+1. 为物理 PAW 主机创建一个新的 OU。 物理和虚拟 Paw 具有不同的安全要求，且应相应地以在 Active Directory 中。
+2. PAW 计算机 GPO 应链接到这两个物理和虚拟 PAW Ou。
+3. 创建一个新的 GPO 物理 paw 将 PAW 用户添加到 HYPER-V 管理员组。 要使管理员能够连接到管理员 Vm，并根据需要将其打开/关闭，这被必需。 用户登录到物理 PAW 不具有管理员权限，访问 internet 或从网络共享或到物理 PAW 上的外部存储设备复制恶意虚拟机数据的能力至关重要。
+4. 创建一个新的 GPO 将 PAW 用户添加到 Remote Desktop Users 组的 Vm 的管理员。 这将允许用户使用的 HYPER-V 增强控制台会话，这些工具提供了更好的用户体验，并使智能卡直接传递到 VM。
+
+### <a name="set-up-the-host-guardian-service"></a>设置主机保护者服务
+
+主机保护者服务负责证明身份识别和物理的 PAW 设备的运行状况。
+HGS 到已知的计算机和运行的可信[代码完整性策略](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control)允许启动受防护的 Vm。
+这有助于防止受防护的 Vm，运行受信任的工作负荷管理分层的资源，从用户的桌面环境的威胁。
+
+HGS 负责确定哪些设备可以运行 PAW 的 Vm，因为它是被视为第 0 层资源。
+它应与其他第 0 层资源一起部署并防止未经授权的物理和逻辑访问。
+HGS 是群集的角色，因此易于将横向扩展的任何规模的部署。
+一般规则是计划为每个 1,000 台设备必须至少包含 3 个节点 1 HGS 服务器。
+
+1. 若要安装第一个 HGS 服务器，请使用启动[安装 HGS 的堡垒林](../../security/guarded-fabric-shielded-vm/guarded-fabric-install-hgs-in-a-bastion-forest.md)一文，HGS 加入第 0 层域。
+
+2. 然后，[创建证书以 HGS](../../security/guarded-fabric-shielded-vm/guarded-fabric-obtain-certs.md)使用企业证书颁发机构。
+拥有 HGS 加密和签名证书的任何人都可以解密受防护的 VM，因此如果你有权访问要保护私钥的硬件安全模块，建议生成使用 HSM 这些证书。
+为了提高安全性，选择大于或等于 4096 位的密钥大小。
+
+3. 最后，请按照步骤进行[初始化 HGS 服务器](../../security/guarded-fabric-shielded-vm/guarded-fabric-initialize-hgs-tpm-mode-bastion.md)中**TPM 模式**。
+初始化设置了证明和密钥保护 web 服务使用的 Paw。
+应为 HGS[配置为使用 TLS 证书](../../security/guarded-fabric-shielded-vm/guarded-fabric-configure-hgs-https.md)来保护这些通信，并仅端口 443 应从打开不受信任网络到 HGS。
+
+4. 请按照步骤进行[添加其他节点](../../security/guarded-fabric-shielded-vm/guarded-fabric-configure-additional-hgs-nodes.md)在第二个，第三个和其他 HGS 节点。
+
+5. 如果 HGS 服务器正在运行 Windows Server 2019 或更高版本，可以启用受防护的 Vm 在 Paw 上缓存密钥，因此可以脱机使用可选的功能。 密钥都被密封的系统，以防止有人在另一台计算机或在不安全状态在同一台计算机上使用缓存的键的当前安全配置。 如果 PAW 用户旅行到 Internet 而无需访问，但仍需要能登录到其 PAW 的 Vm，这可能是有用的解决方案。 若要使用此功能，任何 HGS 服务器上运行以下命令：
+
+      ```powershell
+      Set-HgsKeyProtectionConfiguration -AllowKeyMaterialCaching:$true
+      ```
+
+### <a name="set-up-the-physical-paw-device"></a>设置物理 PAW 设备
+
+物理 PAW 设备被视为不受信任的受保护的构造解决方案中的默认情况下。
+它可以证明它值得在证明过程中，此后它可以获取所需启动受防护的管理员虚拟机的密钥。
+设备必须能够运行 HYPER-V 且具有安全引导和 TPM 2.0 启用以满足[受保护的主机的先决条件](../../security/guarded-fabric-shielded-vm/guarded-fabric-guarded-host-prerequisites.md)。
+要支持 PAW 的所有功能的最低操作系统版本是**Windows 10 版本 1803年**。
+
+物理 PAW 应设置任何其他的与任何 PAW 用户将需要是 HYPER-V 管理员能够打开管理员虚拟机并连接到该异常。
+在清洁的房间环境中，需要创建要部署为受保护的主机管理虚拟机的每个唯一硬件/软件组合的黄金配置。
+在每个黄金配置中，完成以下任务：
+
+1. 为 Windows、 驱动程序和固件的计算机，以及任何第三方管理或监视代理上安装最新的更新。
+2. [将所需的基线的信息捕获](../../security/guarded-fabric-shielded-vm/guarded-fabric-tpm-trusted-attestation-capturing-hardware.md)、 唯一的 TPM 标识符 （认可密钥） 中，包括启动量化指标 （TCG 日志） 和代码完整性策略的计算机。
+3. 将这些项目复制到一个 HGS 服务器并在前一篇文章中，若要注册该主机中运行的 HGS 证明命令。 如果所有主机使用相同的代码完整性策略和/或使用相同的硬件配置，只需要一次注册代码完整性策略/TCG 日志。
+
+### <a name="create-the-signed-template-disk"></a>创建已签名的模板磁盘
+
+使用已签名的模板磁盘创建受防护的 Vm。
+在部署时，若要发布到 VM 的机密，例如管理员密码之前先验证磁盘完整性和真实性验证的签名。
+
+若要创建已签名的模板磁盘，按照常规，第 2 代虚拟机上的阶段 1 部署步骤。
+此计算机将成为管理员虚拟机的黄金映像。
+您可以创建多个模板磁盘具有一定的专业工具在不同的上下文中可用。
+
+当 VM 被配置为需要，请运行`C:\Windows\System32\sysprep\sysprep.exe`，然后选择**Generalize**磁盘。 **关闭**泛化完成时的操作系统。
+
+最后，运行[模板磁盘向导](../../security/guarded-fabric-shielded-vm/guarded-fabric-create-a-shielded-vm-template.md)上从虚拟机安装 BitLocker 组件并生成磁盘签名的 VHDX 文件。
+
+#### <a name="create-the-shielding-data-file"></a>创建防护数据文件
+
+通用的模板磁盘配对防护数据文件，其中包含预配受防护的 VM 所需的机密。
+防护数据文件包括：
+   - 监护人，定义其中允许 VM 运行的构造的列表。 每个 HGS 群集是它保护的 PAW 设备监护人。
+   - 部署受信任的磁盘签名的列表。 屏蔽数据文件将只释放其机密的使用授权的源媒体创建的 Vm。
+   - 安全策略，用于指示是否应额外保护措施落实到位，来从主机保护的 VM，以及是否允许 VM 将移动到另一台计算机。 应始终完全屏蔽 PAW 管理 Vm。
+   - Unattend.xml 专用化文件，这允许 Windows 以自动完成安装，包括像本地管理员密码的机密。
+   - 其他文件，如 RDP 或 VPN 证书。
+
+请参阅[屏蔽数据文件文章](../../security/guarded-fabric-shielded-vm/guarded-fabric-tenant-creates-shielding-data.md)有关如何创建防护数据文件的步骤。
+
+受防护的 Vm 的所有者密钥极其敏感和应该保留在 HSM 中或脱机存储在安全位置。
+它们可以用于在紧急 break glass 方案中启动不存在 HGS 受防护的 VM。
+
+强烈建议，屏蔽数据的 PAW 管理 Vm 包括要锁定 VM 启动时与第一个物理主机的设置。
+这将防止有人管理员虚拟机从一个 PAW 移至同一环境中的另一个 PAW。
+若要使用此功能，使用 PowerShell 创建防护数据文件，并包含**BindToHostTpm**参数：
+
+```powershell
+New-ShieldingDataFile -Policy Shielded -BindToHostTpm [...]
+```
+
+#### <a name="deploy-an-admin-vm"></a>部署 VM 的管理员
+
+准备好的模板磁盘和屏蔽数据文件后，你可以部署管理员向 HGS 注册任何 PAW 上的虚拟机。
+
+1. 将模板磁盘 (.vhdx) 和防护数据文件 (.pdk) 复制到受信任的 PAW 设备。
+2. 按照说明[部署新的受防护的 VM 使用 PowerShell](../../security/guarded-fabric-shielded-vm/guarded-fabric-create-a-shielded-vm-using-powershell.md)
+3. 在部署过程，以保护 VM 操作系统并将其配置为根据其预期角色的第 1 阶段完成的剩余步骤。
+
 
 ## <a name="related-topics"></a>相关主题
 
@@ -888,7 +1004,7 @@ PAW 解决方案应使用基于清洁源原则的[操作标准](http://aka.ms/se
 
 [新品尝鲜：如何缓解传递哈希和其他形式的凭据被盗](https://channel9.msdn.com/Blogs/Taste-of-Premier/Taste-of-Premier-How-to-Mitigate-Pass-the-Hash-and-Other-Forms-of-Credential-Theft)
 
-[Microsoft 高级威胁分析](http://aka.ms/ata)
+[Microsoft 高级威胁分析](https://aka.ms/ata)
 
 [使用 Credential Guard 保护派生的域凭据](https://technet.microsoft.com/library/mt483740%28v=vs.85%29.aspx)
 
@@ -910,4 +1026,4 @@ PAW 解决方案应使用基于清洁源原则的[操作标准](http://aka.ms/se
 
 [适用于在 Windows Server 2008 R2 循序渐进指南中的 AD DS 身份验证机制保证](https://technet.microsoft.com/library/dd378897(v=ws.10).aspx)
 
-[受信任的平台模块](C:\sd\docs\p_ent_keep_secure\p_ent_keep_secure\trusted_platform_module_technology_overview.xml)
+[受信任的平台模块](C:/sd/docs/p_ent_keep_secure/p_ent_keep_secure/trusted_platform_module_technology_overview.xml)

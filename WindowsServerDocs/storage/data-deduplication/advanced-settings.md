@@ -8,12 +8,12 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
-ms.openlocfilehash: 15cfc054810a2cab85aae9a04d6195c3ae6fe0b9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af977519b5e77eb768fdf8de1e6a34f7c8274666
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861208"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447239"
 ---
 # <a name="advanced-data-deduplication-settings"></a>高级重复数据删除设置
 
@@ -97,7 +97,7 @@ ms.locfileid: "59861208"
                     <li>低</li>
                 </ul>
             </td>
-            <td>该值帮助系统确定如何分配 CPU 时间。 *高*将使用更多 CPU 时间，*低*将使用更少 CPU 时间。</td>
+            <td>该值帮助系统确定如何分配 CPU 时间。 <em>高</em>将使用更多 CPU 时间，<em>低</em>将使用更少 CPU 时间。</td>
         </tr>
         <tr>
             <td>天</td>
@@ -123,7 +123,7 @@ ms.locfileid: "59861208"
             <td>DurationHours</td>
             <td>允许作业应运行的最大小时数</td>
             <td>正整数</td>
-            <td>若要防止作业在工作负荷的非空闲时间运行</td>
+            <td>若要防止作业运行到工作负荷&#39;s 非空闲时间</td>
         </tr>
         <tr>
             <td>Enabled</td>
@@ -141,7 +141,7 @@ ms.locfileid: "59861208"
             <td>InputOutputThrottle</td>
             <td>指定适用于作业的输入/输出限制量。</td>
             <td>整数 0-100（表示百分比）</td>
-            <td>限制确保作业不会干扰其他 I/O 密集型进程。</td>
+            <td>限制确保作业失效的&#39;t 会干扰其他 O 密集型进程。</td>
         </tr>
         <tr>
             <td>内存</td>
@@ -164,8 +164,8 @@ ms.locfileid: "59861208"
         <tr>
             <td>开始时间</td>
             <td>指定作业应开始的时间</td>
-            <td>`System.DateTime`</td>
-            <td>为*开始*提供的 `System.Datetime` 的*日期*部分不相关（只要它处于过去），但*时间*部分指定作业应该启动的时间。</td>
+            <td><code>System.DateTime</code></td>
+            <td><em>日期</em>的一部分<code>System.Datetime</code>提供给<em>启动</em>是不相关 (只要它&#39;中过去)，但<em>时间</em>部分指定作业应该启动.</td>
         </tr>
         <tr>
             <td>StopWhenSystemBusy</td>
@@ -208,9 +208,9 @@ ms.locfileid: "59861208"
     <tbody>
         <tr>
             <td>ChunkRedundancyThreshold</td>
-            <td>区块在复制到区块存储的热点区域前被引用的次数。 热点区域的价值在于被频繁引用的所谓的“热点”区块具有提升访问时间的多个访问路径。</td>
+            <td>区块在复制到区块存储的热点区域前被引用的次数。 热点区域的值是这种所谓&quot;热&quot;被频繁引用的区块具有提升访问时间的多个访问路径。</td>
             <td>正整数</td>
-            <td>修改此数量的主要原因是为具有高重复的卷增加节约率。 通常情况下，默认值 (100) 是推荐的设置，你无需修改此值。</td>
+            <td>修改此数量的主要原因是为具有高重复的卷增加节约率。 一般情况下，默认值 (100) 是推荐的设置，并且不应&#39;无需修改此。</td>
         </tr>
         <tr>
             <td>ExcludeFileType</td>
@@ -228,13 +228,13 @@ ms.locfileid: "59861208"
             <td>InputOutputScale</td>
             <td>为重复数据删除指定 IO 并行化级别（IO 队列）以供其在后处理作业期间的卷上使用。</td>
             <td>正整数的范围是 1-36</td>
-            <td>修改该值的主要原因是通过限制允许重复数据删除在卷上使用的 IO 队列数来减少对高 IO 工作负荷性能的影响。 请注意，修改此默认设置可能导致重复数据删除的后处理作业运行缓慢。</td>
+            <td>修改该值的主要原因是通过限制允许重复数据删除在卷上使用的 IO 队列数来减少对高 IO 工作负荷性能的影响。 请注意，修改此默认设置可能会导致重复数据删除&#39;s 后处理作业运行缓慢。</td>
         </tr>
         <tr>
             <td>MinimumFileAgeDays</td>
             <td>文件创建后，在它被视为符合策略可进行优化之前的天数。</td>
             <td>正整数（包括零）</td>
-            <td>**默认**和 **HyperV** 使用类型将此值设置为 3 以使热点文件或最近创建的文件的性能最大化。 如果你想要重复数据删除具有更高性能或你并不在意与删除重复相关的额外延迟，则可能想要对其修改。</td>
+            <td><strong>默认</strong>和 <strong>HyperV</strong> 使用类型将此值设置为 3 以使热点文件或最近创建的文件的性能最大化。 如果你想要重复数据删除具有更高性能或你并不在意与删除重复相关的额外延迟，则可能想要对其修改。</td>
         </tr>
         <tr>
             <td>MinimumFileSize</td>
@@ -258,7 +258,7 @@ ms.locfileid: "59861208"
             <td>OptimizeInUseFiles</td>
             <td>启用时，对其具有活动句柄的文件将被视为符合策略可进行优化。</td>
             <td>True/false</td>
-            <td>如果你的工作负荷使文件在较长时间处于打开状态，则启用此设置。 如果该设置未启用，则文件将永远不会被优化（如果工作负荷对其具有开放的句柄），即使它只是偶尔在结尾处追加数据。</td>
+            <td>如果你的工作负荷使文件在较长时间处于打开状态，则启用此设置。 如果未启用此设置，如果工作负荷的打开句柄，将永远不会被优化的文件即使它&#39;s 只是偶尔追加数据末尾。</td>
         </tr>
         <tr>
             <td>OptimizePartialFiles</td>
@@ -310,9 +310,9 @@ ms.locfileid: "59861208"
         </tr>
         <tr>
             <td>DeepGCInterval</td>
-            <td>此设置配置常规垃圾回收作业变为[完整垃圾回收作业](advanced-settings.md#faq-full-v-regular-gc)的时间间隔。 如果设置为 n，则意味着每 n<sup></sup> 个作业均为完整的垃圾回收作业。 请注意，对于具有[备份用途类型](understand.md#usage-type-backup)的卷，完整的垃圾回收始终处于禁用状态（与注册表值无关）。 `Start-DedupJob -Type GarbageCollection -Full` 如果备份卷上需要完整的垃圾回收，则可以使用。</td>
+            <td>此设置配置常规垃圾回收作业变为<a href="advanced-settings.md#faq-full-v-regular-gc" data-raw-source="[full Garbage Collection jobs](advanced-settings.md#faq-full-v-regular-gc)">完整垃圾回收作业</a>的时间间隔。 如果设置为 n，则意味着每 n<sup></sup> 个作业均为完整的垃圾回收作业。 请注意，对于具有<a href="understand.md#usage-type-backup" data-raw-source="[Backup Usage Type](understand.md#usage-type-backup)">备份用途类型</a>的卷，完整的垃圾回收始终处于禁用状态（与注册表值无关）。 <code>Start-DedupJob -Type GarbageCollection -Full</code> 如果备份卷上需要完整的垃圾回收，则可以使用。</td>
             <td>整数（-1 表示禁用）</td>
-            <td>请参阅[此常见问题](advanced-settings.md#faq-why-disable-full-gc)</td>
+            <td>请参阅<a href="advanced-settings.md#faq-why-disable-full-gc" data-raw-source="[this frequently asked question](advanced-settings.md#faq-why-disable-full-gc)">此常见问题</a></td>
         </tr>
     </tbody>
 </table>

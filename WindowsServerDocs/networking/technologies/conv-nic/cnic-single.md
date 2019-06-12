@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/14/2018
-ms.openlocfilehash: 7777278f374984f242e44fd8a8fa94388df88a30
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93d317534af46c87c4b2e874a5a5475687e2efa0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836468"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447065"
 ---
 # <a name="converged-nic-configuration-with-a-single-network-adapter"></a>聚合的 NIC 配置具有单个网络适配器
 
@@ -36,12 +36,14 @@ ms.locfileid: "59836468"
    ```PowerShell
    Get-NetAdapter
    ```
-   
-   _**结果：**_  
 
-   |名称|InterfaceDescription|ifIndex|状态|MacAddress|LinkSpeed|
-   |-----|--------------------|-------|-----|----------|---------|
-   |M1|Mellanox ConnectX 3 Pro...| 4| 向上|7C-FE-90-93-8F-A1|40 Gbps|
+   _**结果：** _  
+
+
+   | 名称 |    InterfaceDescription     | ifIndex | 状态 |    MacAddress     | LinkSpeed |
+   |------|-----------------------------|---------|--------|-------------------|-----------|
+   |  M1  | Mellanox ConnectX 3 Pro... |    4    |   向上   | 7C-FE-90-93-8F-A1 |  40 Gbps  |
+
    ---
 
 2. 查看其他适配器的属性，其中包括 IP 地址。
@@ -50,7 +52,7 @@ ms.locfileid: "59836468"
    Get-NetAdapter M1 | fl *
    ```
 
-   _**结果：**_
+   _**结果：** _
 
    ```PowerShell   
     MacAddress   : 7C-FE-90-93-8F-A1
@@ -108,19 +110,21 @@ ms.locfileid: "59836468"
    ```PowerShell
    Test-NetConnection 192.168.1.5
    ```
-   
-   _**结果：**_
 
-   |参数|值|
-   |---------|-----|
-   |ComputerName|192.168.1.5|
-   |RemoteAddress|192.168.1.5|
-   |InterfaceAlias|M1|
-   |SourceAddress|192.168.1.3|
-   |PingSucceeded|True|
-   |PingReplyDetails \(RTT\)|0 毫秒|
+   _**结果：** _
+
+
+   |        参数         |    ReplTest1    |
+   |--------------------------|-------------|
+   |       ComputerName       | 192.168.1.5 |
+   |      RemoteAddress       | 192.168.1.5 |
+   |      InterfaceAlias      |     M1      |
+   |      SourceAddress       | 192.168.1.3 |
+   |      PingSucceeded       |    True     |
+   | PingReplyDetails \(RTT\) |    0 毫秒     |
+
    ---
-   
+
    在某些情况下，可能需要禁用 Windows 防火墙高级安全，若要成功执行此测试。 如果禁用防火墙，请记住的安全，并确保你的配置符合你组织的安全要求。
 
 2. 禁用所有防火墙配置文件。
@@ -128,23 +132,25 @@ ms.locfileid: "59836468"
    ```PowerShell
    Set-NetFirewallProfile -All -Enabled False
    ```
-    
+
 3. 禁用防火墙配置文件之后, 再次测试连接。 
 
    ```PowerShell
    Test-NetConnection 192.168.1.5
    ```
 
-   _**结果：**_
+   _**结果：** _
 
-   |参数|值|
-   |---------|-----|
-   |ComputerName|192.168.1.5|
-   |RemoteAddress|192.168.1.5|
-   |InterfaceAlias|测试-40 G-1|
-   |SourceAddress|192.168.1.3|
-   |PingSucceeded|False|
-   |PingReplyDetails \(RTT\)|0 毫秒|
+
+   |        参数         |    ReplTest1    |
+   |--------------------------|-------------|
+   |       ComputerName       | 192.168.1.5 |
+   |      RemoteAddress       | 192.168.1.5 |
+   |      InterfaceAlias      | 测试-40 G-1  |
+   |      SourceAddress       | 192.168.1.3 |
+   |      PingSucceeded       |    False    |
+   | PingReplyDetails \(RTT\) |    0 毫秒     |
+
    ---
 
 
@@ -173,17 +179,19 @@ ms.locfileid: "59836468"
 
    >[!IMPORTANT]
    >不运行此命令到主机远程连接通过此接口，因为这会导致无法访问主机。
-    
+
    ```PowerShell
    Set-NetAdapterAdvancedProperty -Name M1 -RegistryKeyword VlanID -RegistryValue "101"
    Get-NetAdapterAdvancedProperty -Name M1 | Where-Object {$_.RegistryKeyword -eq "VlanID"} 
    ```
 
-   _**结果：**_
+   _**结果：** _
 
-   |名称 |DisplayName| DisplayValue| RegistryKeyword |RegistryValue|
-   |----|-----------|------------|---------------|-------------|
-   |M1|VLAN ID|101|VlanID|{101}|
+
+   | 名称 | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
+   |------|-------------|--------------|-----------------|---------------|
+   |  M1  |   VLAN ID   |     101      |     VlanID      |     {101}     |
+
    ---
 
 2. 重新启动的网络适配器应用 VLAN id。
@@ -197,12 +205,14 @@ ms.locfileid: "59836468"
    ```PowerShell
    Get-NetAdapter -Name "M1"
    ```
-   
-   _**结果：**_
 
-   |名称|InterfaceDescription|ifIndex| 状态|MacAddress|LinkSpeed|
-   |----|--------------------|-------|------|----------| ---------|
-   |M1|Mellanox ConnectX 3 Pro 以太网 Ada...|4|向上|7C-FE-90-93-8F-A1|40 Gbps|
+   _**结果：** _
+
+
+   | 名称 |          InterfaceDescription           | ifIndex | 状态 |    MacAddress     | LinkSpeed |
+   |------|-----------------------------------------|---------|--------|-------------------|-----------|
+   |  M1  | Mellanox ConnectX 3 Pro 以太网 Ada... |    4    |   向上   | 7C-FE-90-93-8F-A1 |  40 Gbps  |
+
    ---
 
    >[!IMPORTANT]
@@ -213,7 +223,7 @@ ms.locfileid: "59836468"
    ```PowerShell
    Test-NetConnection 192.168.1.5
    ```
-    
+
 ## <a name="step-4-configure-quality-of-service-qos"></a>步骤 4： 配置服务质量\(QoS\)
 
 >[!NOTE]
@@ -232,25 +242,27 @@ ms.locfileid: "59836468"
 
    - **可选**用于使用 iWarp 的网络配置。
    - **所需**用于使用 RoCE 的网络配置。
-   
+
    在以下示例命令中，"3"的值是任意的。 只要您一直使用相同的值在整个配置 QoS 策略，可以使用 1 到 7 之间的任何值。
 
    ```PowerShell
    New-NetQosPolicy "SMB" -NetDirectPortMatchCondition 445 -PriorityValue8021Action 3
    ```
 
-   _**结果：**_
+   _**结果：** _
 
-   |参数|ReplTest1|
-   |---------|-----|
-   |名称 |SMB|
-   |所有者|组策略\(机\)|
-   |NetworkProfile|全部|
-   |优先级|127|
-   |JobObject|&nbsp;| 
-   |NetDirectPort|445 |
-   |PriorityValue|3 |
- ---
+
+   |   参数    |          值           |
+   |----------------|--------------------------|
+   |      名称      |           SMB            |
+   |     所有者      | 组策略\(机\) |
+   | NetworkProfile |           全部            |
+   |   优先级   |           127            |
+   |   JobObject    |          &nbsp;          |
+   | NetDirectPort  |           445            |
+   | PriorityValue  |            3             |
+
+   ---
 
 3. 对于 RoCE 部署，开启**优先级流控制**对于 SMB 流量，这不需要 iWarp。
 
@@ -259,18 +271,20 @@ ms.locfileid: "59836468"
    Get-NetQosFlowControl
    ```
 
-   _**结果：**_
+   _**结果：** _
 
-   |Priority|Enabled|PolicySet|IfIndex|IfAlias|
-   |---------|-----|--------- |-------| -------|
-   |0 |False |全局|&nbsp;|&nbsp;|
-   |1 |False |全局|&nbsp;|&nbsp;|
-   |2 |False |全局|&nbsp;|&nbsp;|
-   |3 |True  |全局|&nbsp;|&nbsp;|
-   |4 |False |全局|&nbsp;|&nbsp;|
-   |5 |False |全局|&nbsp;|&nbsp;|
-   |6 |False |全局|&nbsp;|&nbsp;|
-   |7 |False |全局|&nbsp;|&nbsp;|
+
+   | Priority | Enabled | PolicySet | ifIndex | IfAlias |
+   |----------|---------|-----------|---------|---------|
+   |    0     |  False  |  全局   | &nbsp;  | &nbsp;  |
+   |    1     |  False  |  全局   | &nbsp;  | &nbsp;  |
+   |    2     |  False  |  全局   | &nbsp;  | &nbsp;  |
+   |    3     |  True   |  全局   | &nbsp;  | &nbsp;  |
+   |    4     |  False  |  全局   | &nbsp;  | &nbsp;  |
+   |    5     |  False  |  全局   | &nbsp;  | &nbsp;  |
+   |    6     |  False  |  全局   | &nbsp;  | &nbsp;  |
+   |    7     |  False  |  全局   | &nbsp;  | &nbsp;  |
+
    ---
 
 4. 适用于本地和目标网络适配器启用 QoS。
@@ -283,38 +297,44 @@ ms.locfileid: "59836468"
    Get-NetAdapterQos -Name "M1"
    ```
 
-   _**结果：**_
+   _**结果：** _
 
    **名称**：M1  
    **已启用**：True  
 
-   _**功能：**_   
+   _**功能：** _   
 
-   |参数|硬件|当前|
-   |---------|--------|-------|
-   |MacSecBypass|NotSupported|NotSupported|
-   |DcbxSupport|无|无|
-   |NumTCs(Max/ETS/PFC)|8/8/8|8/8/8|
-   ---
- 
-   _**OperationalTrafficClasses:**_ 
 
-   |TC|TSA|带宽|优先级|
-   |----|-----|--------|-------|
-   |0| ETS|70%|0-2,4-7|
-   |1|ETS|30%|3 |
+   |      参数      |   硬件   |   当前    |
+   |---------------------|--------------|--------------|
+   |    MacSecBypass     | NotSupported | NotSupported |
+   |     DcbxSupport     |     无     |     无     |
+   | NumTCs(Max/ETS/PFC) |    8/8/8     |    8/8/8     |
+
    ---
 
-   _**OperationalFlowControl:**_  
-   
+   _**OperationalTrafficClasses:** _ 
+
+
+   | TC | TSA | 带宽 | 优先级 |
+   |----|-----|-----------|------------|
+   | 0  | ETS |    70%    |  0-2,4-7   |
+   | 1  | ETS |    30%    |     3      |
+
+   ---
+
+   _**OperationalFlowControl:** _  
+
    优先级为 3 已启用  
 
-   _**OperationalClassifications:**_  
+   _**OperationalClassifications:** _  
 
-   |协议|端口/类型|Priority|
-   |--------|---------|--------|
-   |默认|&nbsp;|0|
-   |NetDirect| 445|3|
+
+   | Protocol  | 端口/类型 | Priority |
+   |-----------|-----------|----------|
+   |  默认  |  &nbsp;   |    0     |
+   | NetDirect |    445    |    3     |
+
    ---
 
 5. 用于 SMB 直通保留带宽的百分比\(RDMA\)。
@@ -325,11 +345,13 @@ ms.locfileid: "59836468"
    New-NetQosTrafficClass "SMB" -Priority 3 -BandwidthPercentage 30 -Algorithm ETS
    ```
 
-   _**结果：**_
+   _**结果：** _
 
-   |名称|算法 |Bandwidth(%)| Priority |PolicySet |IfIndex |IfAlias |
-   |----|---------| ------------ |--------| ---------|------- |------- |
-   |SMB | ETS     | 30 |3 |全局 |&nbsp;|&nbsp;|
+
+   | 名称 | 算法 | Bandwidth(%) | Priority | PolicySet | ifIndex | IfAlias |
+   |------|-----------|--------------|----------|-----------|---------|---------|
+   | SMB  |    ETS    |      30      |    3     |  全局   | &nbsp;  | &nbsp;  |
+
    ---                                      
 
 6. 查看带宽保留设置。  
@@ -338,12 +360,14 @@ ms.locfileid: "59836468"
    Get-NetQosTrafficClass
    ```
 
-   _**结果：**_
- 
-   |名称|算法 |Bandwidth(%)| Priority |PolicySet |IfIndex |IfAlias |
-   |----|---------| ------------ |--------| ---------|------- |------- |
-   |[默认]|ETS|70 |0-2,4-7| 全局|&nbsp;|&nbsp;| 
-   |SMB      |ETS|30 |3 |全局|&nbsp;|&nbsp;| 
+   _**结果：** _
+
+
+   |   名称    | 算法 | Bandwidth(%) | Priority | PolicySet | ifIndex | IfAlias |
+   |-----------|-----------|--------------|----------|-----------|---------|---------|
+   | [默认] |    ETS    |      70      | 0-2,4-7  |  全局   | &nbsp;  | &nbsp;  |
+   |    SMB    |    ETS    |      30      |    3     |  全局   | &nbsp;  | &nbsp;  |
+
    ---
 
 ## <a name="step-5-optional-resolve-the-mellanox-adapter-debugger-conflict"></a>步骤 5： （可选）解决 Mellanox 适配器调试器冲突 
@@ -367,11 +391,13 @@ ms.locfileid: "59836468"
    ```PowerShell
    Get-NetAdapterRdma
    ```
-   _**结果：**_
+   _**结果：** _
 
-   |名称 |InterfaceDescription |Enabled|
-   |----|--------------------|-------|
-   |M1| Mellanox ConnectX 3 Pro 以太网适配器 |True|
+
+   | 名称 |           InterfaceDescription           | Enabled |
+   |------|------------------------------------------|---------|
+   |  M1  | Mellanox ConnectX 3 Pro 以太网适配器 |  True   |
+
    ---
 
 2. 确定**ifIndex**目标适配器的值。<p>运行下载的脚本时，可以在后续步骤中使用此值。
@@ -380,11 +406,13 @@ ms.locfileid: "59836468"
    Get-NetIPConfiguration -InterfaceAlias "M*" | ft InterfaceAlias,InterfaceIndex,IPv4Address
    ```
 
-   _**结果：**_ 
+   _**结果：** _ 
 
-   |InterfaceAlias |InterfaceIndex |IPv4Address|
-   |-------------- |-------------- |-----------|
-   |M2 |14 |{192.168.1.5}|
+
+   | InterfaceAlias | InterfaceIndex |  IPv4Address  |
+   |----------------|----------------|---------------|
+   |       M2       |       14       | {192.168.1.5} |
+
    ---
 
 3. 下载[DiskSpd.exe 实用工具](https://aka.ms/diskspd)并将其解压缩到 C:\TEST\.
@@ -392,10 +420,10 @@ ms.locfileid: "59836468"
 4. 下载[测试 RDMA powershell 脚本](https://github.com/Microsoft/SDN/blob/master/Diagnostics/Test-Rdma.ps1)到本地驱动器中，例如，C:\TEST 上的测试文件夹\.
 
 5. 运行**测试 Rdma.ps1** PowerShell 脚本，以将 ifIndex 值传递给脚本，以及与同一 VLAN 上的远程适配器的 IP 地址。<p>在此示例中，脚本会将**ifIndex**上的远程网络适配器 IP 地址为 192.168.1.5 14 的值。
-   
+
    ```PowerShell
     C:\TEST\Test-RDMA.PS1 -IfIndex 14 -IsRoCE $true -RemoteIpAddress 192.168.1.5 -PathToDiskspd C:\TEST\Diskspd-v2.0.17\amd64fre\
-    
+
     VERBOSE: Diskspd.exe found at C:\TEST\Diskspd-v2.0.17\amd64fre\\diskspd.exe
     VERBOSE: The adapter M2 is a physical adapter
     VERBOSE: Underlying adapter is RoCE. Checking if QoS/DCB/PFC is configured on each physical adapter(s)
@@ -423,7 +451,7 @@ ms.locfileid: "59836468"
 供将来创建的 HYPER-V 交换机，则必须删除您在上面安装的 VLAN 设置。  
 
 1. 从物理 NIC，以防止自动标记不正确的 VLAN id 的出口流量 NIC 中删除访问 VLAN 设置<p>删除此设置还会阻止它从筛选入口流量不与匹配访问 VLAN id。
-    
+
    ```PowerShell
    Set-NetAdapterAdvancedProperty -Name M1 -RegistryKeyword VlanID -RegistryValue "0"
    ```    
@@ -447,11 +475,13 @@ ms.locfileid: "59836468"
    ```PowerShell
    New-VMSwitch -Name VMSTEST -NetAdapterName "M1" -AllowManagementOS $true
    ```
-   _**结果：**_
+   _**结果：** _
 
-   |名称 |SwitchType |NetAdapterInterfaceDescription|
-   |---- |---------- |------------------------------|
-   |VMSTEST |外部 |Mellanox ConnectX 3 Pro 以太网适配器|
+
+   |  名称   | SwitchType |      NetAdapterInterfaceDescription      |
+   |---------|------------|------------------------------------------|
+   | VMSTEST |  外部  | Mellanox ConnectX 3 Pro 以太网适配器 |
+
    ---
 
 2. 查看网络适配器属性。
@@ -460,11 +490,13 @@ ms.locfileid: "59836468"
    Get-NetAdapter | ft -AutoSize
    ```
 
-   _**结果：**_
+   _**结果：** _
 
-   |名称 |InterfaceDescription | ifIndex |状态 |MacAddress |LinkSpeed|
-   |---- |-------------------- |-------| ------|----------|---------|
-   |vEthernet \(VMSTEST\) |Hyper V 虚拟以太网适配器 #2|27 |向上 |E4-1D-2D-07-40-71 |40 Gbps|
+
+   |         名称          |        InterfaceDescription         | ifIndex | 状态 |    MacAddress     | LinkSpeed |
+   |-----------------------|-------------------------------------|---------|--------|-------------------|-----------|
+   | vEthernet \(VMSTEST\) | Hyper V 虚拟以太网适配器 #2 |   27    |   向上   | E4-1D-2D-07-40-71 |  40 Gbps  |
+
    ---
 
 3. 管理主机 vNIC 中两种方式之一。 
@@ -476,12 +508,14 @@ ms.locfileid: "59836468"
    Get-VMNetworkAdapter –ManagementOS | ft -AutoSize
    ```
 
-   _**结果：**_
+   _**结果：** _
 
-   |名称 |IsManagementOs |VMName |SwitchName |MacAddress |状态 |IPAddresses|
-   |----|-------------- |------ |----------|----------|------ |-----------|
-   |CORP-External-Switch |True |CORP-External-Switch| 001B785768AA |{确定} |&nbsp;|
-   |VMSTEST |True |VMSTEST | E41D2D074071| {确定} | &nbsp;| 
+
+   |         名称         | IsManagementOs |        VMName        |  SwitchName  | MacAddress | 状态 | IPAddresses |
+   |----------------------|----------------|----------------------|--------------|------------|--------|-------------|
+   | CORP-External-Switch |      True      | CORP-External-Switch | 001B785768AA |    {确定}    | &nbsp; |             |
+   |       VMSTEST        |      True      |       VMSTEST        | E41D2D074071 |    {确定}    | &nbsp; |             |
+
    ---
 
 4. 测试连接。
@@ -490,7 +524,7 @@ ms.locfileid: "59836468"
    Test-NetConnection 192.168.1.5
    ```
 
-   _**结果：**_ 
+   _**结果：** _ 
 
    ```
     ComputerName   : 192.168.1.5
@@ -502,27 +536,29 @@ ms.locfileid: "59836468"
    ```
 
 5. 分配并查看网络适配器的 VLAN 设置。
-    
+
    ```PowerShell
    Set-VMNetworkAdapterVlan -VMNetworkAdapterName "VMSTEST" -VlanId "101" -Access -ManagementOS
    Get-VMNetworkAdapterVlan -ManagementOS -VMNetworkAdapterName "VMSTEST"
    ```    
 
-   _**结果：**_
+   _**结果：** _
 
-   |VMName |VMNetworkAdapterName |模式 |VlanList|
-   |------ |-------------------- |---- |--------|
-   |&nbsp;|VMSTEST |访问 |101   |
+
+   | VMName | VMNetworkAdapterName |  模式  | VlanList |
+   |--------|----------------------|--------|----------|
+   | &nbsp; |       VMSTEST        | 访问 |   101    |
+
    ---  
- 
+
 6. 测试连接。<p>可能需要几秒钟即可完成之前可以成功地 ping 其他适配器。  
 
    ```PowerShell    
    Test-NetConnection 192.168.1.5
    ```
 
-   _**结果：**_
-     
+   _**结果：** _
+
    ```
     ComputerName   : 192.168.1.5
     RemoteAddress  : 192.168.1.5
@@ -545,8 +581,8 @@ ms.locfileid: "59836468"
    Set-VMNetworkAdapter -ManagementOS -Name "VMSTEST" -IeeePriorityTag on
    Get-VMNetworkAdapter -ManagementOS -Name "VMSTEST" | fl Name,IeeePriorityTag
    ```  
-   
-   _**结果：**_
+
+   _**结果：** _
 
     名称：VMSTEST IeeePriorityTag:开
 
@@ -557,16 +593,18 @@ ms.locfileid: "59836468"
    Get-NetAdapterRdma
    ```   
 
-   _**结果：**_
+   _**结果：** _
 
-   |名称 |InterfaceDescription |Enabled |
-   |---- |-------------------- |-------|
-   |vEthernet \(VMSTEST\)| Hyper V 虚拟以太网适配器 #2|False|
+
+   |         名称          |        InterfaceDescription         | Enabled |
+   |-----------------------|-------------------------------------|---------|
+   | vEthernet \(VMSTEST\) | Hyper V 虚拟以太网适配器 #2 |  False  |
+
    ---
 
    >[!NOTE]
    >如果将参数**已启用**具有值**False**，则表示未启用 RDMA。
-    
+
 
 3. 查看网络适配器信息。
 
@@ -574,11 +612,13 @@ ms.locfileid: "59836468"
    Get-NetAdapter
    ```
 
-   _**结果：**_   
- 
-   |名称 |InterfaceDescription |ifIndex |状态 |MacAddress |LinkSpeed|
-   |----|--------------------|-------|------|----------|---------|
-   |vEthernet (VMSTEST)|Hyper V 虚拟以太网适配器 #2|27|向上|E4-1D-2D-07-40-71|40 Gbps|
+   _**结果：** _   
+
+
+   |        名称         |        InterfaceDescription         | ifIndex | 状态 |    MacAddress     | LinkSpeed |
+   |---------------------|-------------------------------------|---------|--------|-------------------|-----------|
+   | vEthernet (VMSTEST) | Hyper V 虚拟以太网适配器 #2 |   27    |   向上   | E4-1D-2D-07-40-71 |  40 Gbps  |
+
    ---
 
 
@@ -589,11 +629,13 @@ ms.locfileid: "59836468"
    Get-NetAdapterRdma -Name "vEthernet (VMSTEST)"
    ```
 
-   _**结果：**_
+   _**结果：** _
 
-   |名称 |InterfaceDescription |Enabled |
-   |---- |-------------------- |-------|
-   |vEthernet \(VMSTEST\)| Hyper V 虚拟以太网适配器 #2|True|
+
+   |         名称          |        InterfaceDescription         | Enabled |
+   |-----------------------|-------------------------------------|---------|
+   | vEthernet \(VMSTEST\) | Hyper V 虚拟以太网适配器 #2 |  True   |
+
    ---
 
    >[!NOTE]

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 37568998d6d5870d2c97dbd487c5708b1e1e5a51
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a03bb9766ffe62a80e8661bf8ce2a8eea2ce536b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830238"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438566"
 ---
 # <a name="ftp-mkdir"></a>ftp: mkdir
 
@@ -30,13 +30,15 @@ ms.locfileid: "59830238"
 mkdir <directory>  
 ```  
 ### <a name="parameters"></a>Parameters  
-|参数|描述|  
-|-------|--------|  
-|<directory>|指定新的远程目录的名称。|  
+
+|  参数  |                   描述                   |
+|-------------|-------------------------------------------------|
+| <directory> | 指定新的远程目录的名称。 |
+
 ## <a name="BKMK_Examples"></a>示例  
 创建一个名为目录**dir1**远程计算机上。  
 ```  
 mkdir dir1  
 ```  
 ## <a name="additional-references"></a>其他参考  
--   [命令行语法解答](command-line-syntax-key.md)  
+-   [命令行语法项](command-line-syntax-key.md)  

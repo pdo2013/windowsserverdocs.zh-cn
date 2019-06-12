@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 161446ff-a072-4cc4-b339-00a04857ff3a
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 33fd9447a79346127714a5e5e73977611eba483c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c36475dacb8664352f4ab270878357118d281c60
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829468"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446420"
 ---
 # <a name="use-dns-policy-for-intelligent-dns-responses-based-on-the-time-of-day"></a>使用针对基于时间的智能 DNS 响应的 DNS 策略
 
@@ -107,7 +107,7 @@ Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "DublinZoneScop
 #### <a name="bkmk_records"></a>将记录添加到区域作用域  
 现在，必须添加到了两个区域范围表示 web 服务器主机的记录。  
   
-例如，在**SeattleZoneScope**，记录**www.contosogiftservices.com**添加 IP 地址 192.0.0.1，位于西雅图数据中心。 同样，在**DublinZoneScope**，记录**www.contosogiftservices.com**都柏林的数据中心中的 IP 地址 141.1.0.3 添加  
+例如，在**SeattleZoneScope**，记录<strong>www.contosogiftservices.com</strong>添加 IP 地址 192.0.0.1，位于西雅图数据中心。 同样，在**DublinZoneScope**，记录<strong>www.contosogiftservices.com</strong>都柏林的数据中心中的 IP 地址 141.1.0.3 添加  
   
 可以使用以下 Windows PowerShell 命令将记录添加到区域作用域。  
   

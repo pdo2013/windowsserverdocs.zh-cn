@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/07/2018
-ms.openlocfilehash: 5b9343dc2f6b4c74da5a9d89a2ea804b702248cc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: aadb3a77cda7f1403cd2f04ced12c17617f046df
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841168"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439568"
 ---
 # <a name="diskcopy"></a>diskcopy
 
@@ -84,9 +84,9 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
 > [!NOTE]
 > 不能使用**xcopy**要复制的启动磁盘。
--   了解**diskcopy**退出代码
+> -   了解**diskcopy**退出代码
 
-    下表说明了每个退出代码。  
+    The following table explains each exit code.  
     |退出代码|描述|
     |---------|-----------|
     |0|复制操作已成功|
@@ -94,7 +94,7 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
     |3|发生致命硬件错误|
     |4|出现初始化错误|
 
-    若要处理返回的退出代码**diskcomp**，可以使用*ERRORLEVEL*上的环境变量**如果**命令行中的批处理程序。
+    To process the exit codes that are returned by **diskcomp**, you can use the *ERRORLEVEL* environment variable on the **if** command line in a batch program.
 
 ## <a name="BKMK_examples"></a>示例
 
@@ -108,4 +108,4 @@ diskcopy 答： 答：
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

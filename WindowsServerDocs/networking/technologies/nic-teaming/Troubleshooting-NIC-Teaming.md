@@ -14,12 +14,12 @@ ms.assetid: fdee02ec-3a7e-473e-9784-2889dc1b6dbb
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: d39dc6a4dcf5dca8186b0599fb479ed5ae684e0f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a6af3cbd038e97d889269b83d72c77c50680e513
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856248"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446168"
 ---
 # <a name="troubleshooting-nic-teaming"></a>NIC 组合疑难解答
 
@@ -44,7 +44,7 @@ ms.locfileid: "59856248"
 
 NIC 组失败的常见原因是，禁用组接口，在许多情况下，意外时运行一系列命令。  此特定命令序列不会启用所有禁用，因为禁用所有 Nic 的基础物理成员中都删除 NIC 团队接口 NetAdapters。 
 
-在这种情况下，NIC 组接口不再显示在 Get-netadapter，并正因为如此，**启用 NetAdapter \*** 不会启用 NIC 组。 **启用 NetAdapter \*** 命令，但是，启用的成员的 Nic，然后 （后短时间） 重新创建组接口。 团队接口处于"已禁用"状态，直到重新启用，允许网络流量，以便开始流动。 
+在这种情况下，NIC 组接口不再显示在 Get-netadapter，并正因为如此，**启用 NetAdapter \\** * 不会启用 NIC 组。 **启用 NetAdapter \\** * 命令，但是，启用的成员的 Nic，然后 （后短时间） 重新创建组接口。 团队接口处于"已禁用"状态，直到重新启用，允许网络流量，以便开始流动。 
 
 以下 Windows PowerShell 命令序列可能会无意中禁用组接口：  
   

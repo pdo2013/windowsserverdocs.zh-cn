@@ -9,12 +9,12 @@ manager: dongill
 ms.author: jgerend
 ms.date: 4/5/2017
 description: 如何计划工作文件夹部署（包括系统要求）和如何准备网络环境。
-ms.openlocfilehash: 2ac52b15f266fce7202df4c9c76e774fca4098cc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 06d56df7ce9ddb8c9822f62de383ccad0394b4f3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824638"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447845"
 ---
 # <a name="planning-a-work-folders-deployment"></a>计划工作文件夹部署
 
@@ -22,17 +22,17 @@ ms.locfileid: "59824638"
 
 本主题介绍工作文件夹实施方案的设计过程，这些内容假设你已拥有以下知识背景：  
   
--   基本了解工作文件夹（参阅[工作文件夹](work-folders-overview.md)中的介绍）  
+- 基本了解工作文件夹（参阅[工作文件夹](work-folders-overview.md)中的介绍）  
   
--   基本了解 Active Directory 域服务 (AD DS) 的概念  
+- 基本了解 Active Directory 域服务 (AD DS) 的概念  
   
--   基本了解 Windows 文件共享和相关技术  
+- 基本了解 Windows 文件共享和相关技术  
   
--   基本了解 SSL 证书用法  
+- 基本了解 SSL 证书用法  
   
--   基本了解如何通过 Web 反向代理启用对内部资源的 Web 访问  
+- 基本了解如何通过 Web 反向代理启用对内部资源的 Web 访问  
   
- 下列部分将会帮助你设计工作文件夹实施方案。 下一主题[部署工作文件夹](deploy-work-folders.md)中介绍了工作文件夹的部署。  
+  下列部分将会帮助你设计工作文件夹实施方案。 下一主题[部署工作文件夹](deploy-work-folders.md)中介绍了工作文件夹的部署。  
   
 ##  <a name="BKMK_SOFT"></a> 软件要求  
 
@@ -119,16 +119,16 @@ ms.locfileid: "59824638"
 ###  <a name="GroupPolicy"></a> 组策略  
  如果在你的环境中有 Windows 7 电脑，我们的建议如下：  
   
--   使用组策略控制使用工作文件夹的所有加入域电脑的密码策略。  
+- 使用组策略控制使用工作文件夹的所有加入域电脑的密码策略。  
   
--   在未加入域的电脑上使用工作文件夹**自动锁定屏幕，并要求输入密码**策略。  
+- 在未加入域的电脑上使用工作文件夹**自动锁定屏幕，并要求输入密码**策略。  
   
- 同时可以使用组策略将工作文件夹服务器指定到已加入域的电脑。 这在一定程度上简化了工作文件夹的设置 – 否则，用户需要输入其工作电子邮件地址来查找设置（假设已正确设置工作文件夹），或者输入你通过电子邮件或其他通信方式明确提供给他们的工作文件夹 URL。  
+  同时可以使用组策略将工作文件夹服务器指定到已加入域的电脑。 这在一定程度上简化了工作文件夹的设置 – 否则，用户需要输入其工作电子邮件地址来查找设置（假设已正确设置工作文件夹），或者输入你通过电子邮件或其他通信方式明确提供给他们的工作文件夹 URL。  
   
- 你还可以使用组策略强制基于用户或计算机设置工作文件夹，不过，这样做会导致工作文件夹在用户登录到的每台电脑上同步（使用按用户策略设置时），并且会阻止用户为其电脑上的工作文件夹指定备用位置（例如，在 microSD 卡上指定一个位置，以节省主驱动器上的空间）。 我们建议你在强制自动设置之前仔细评估用户的需求。  
+  你还可以使用组策略强制基于用户或计算机设置工作文件夹，不过，这样做会导致工作文件夹在用户登录到的每台电脑上同步（使用按用户策略设置时），并且会阻止用户为其电脑上的工作文件夹指定备用位置（例如，在 microSD 卡上指定一个位置，以节省主驱动器上的空间）。 我们建议你在强制自动设置之前仔细评估用户的需求。  
   
 ### <a name="windows-intune"></a>Windows Intune  
- Windows Intune 还为未加入域的设备（这些设备只有在未加入域的情况下才能存在）提供了安全性与可管理性层。 你可以使用 Windows Intune 来配置和管理用户的个人设备，例如，通过 Internet 连接到工作文件夹的平板电脑。 Windows Intune 可以提供具有要使用的同步服务器 URL 的设备 – 否则用户必须输入其工作电子邮件地址才能查找设置 (如果发布公用工作文件夹 URL 中的窗体 https://workfolders。*contoso.com*)，或直接输入同步服务器 URL。  
+ Windows Intune 还为未加入域的设备（这些设备只有在未加入域的情况下才能存在）提供了安全性与可管理性层。 你可以使用 Windows Intune 来配置和管理用户的个人设备，例如，通过 Internet 连接到工作文件夹的平板电脑。 Windows Intune 可以提供具有要使用的同步服务器 URL 的设备 – 否则用户必须输入其工作电子邮件地址才能查找设置 (如果发布公用工作文件夹 URL 中的窗体 https://workfolders。<em>contoso.com</em>)，或直接输入同步服务器 URL。  
   
  如果不部署 Windows Intune，用户必须手动配置外部设备，这可能会导致对客户技术支持工作人员的要求提高。  
   
@@ -149,16 +149,16 @@ ms.locfileid: "59824638"
 ### <a name="number-of-sync-servers"></a>同步服务器数目  
  客户可以在一个环境中运行多个同步服务器。 出于下列多种原因，可能需要采用此配置：  
   
--   用户的地理位置分散 – 例如，存在多个分支机构文件服务器或区域数据中心  
+- 用户的地理位置分散 – 例如，存在多个分支机构文件服务器或区域数据中心  
   
--   数据存储要求 – 某些业务部门可能使用了特定的数据存储，或者需要使用专用服务器来更方便地达到处理要求  
+- 数据存储要求 – 某些业务部门可能使用了特定的数据存储，或者需要使用专用服务器来更方便地达到处理要求  
   
--   负载平衡 – 在大型环境中，将用户数据存储在多个服务器上可以提高服务器性能和运行时间。  
+- 负载平衡 – 在大型环境中，将用户数据存储在多个服务器上可以提高服务器性能和运行时间。  
   
- 有关工作文件夹服务器调整和性能的信息，请参阅 [有关工作文件夹部署的性能注意事项](http://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)。  
+  有关工作文件夹服务器调整和性能的信息，请参阅 [有关工作文件夹部署的性能注意事项](http://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)。  
   
 > [!NOTE]
->  使用多个同步服务器时，我们建议为用户设置自动服务器发现。 此过程依赖于 AD DS 中每个用户帐户的某个属性的配置。 该属性名为 **msDS-SyncServerURL**，将 Windows Server 2012 R2 域控制器添加到域或者应用 Active Directory 架构更新后，便可以在用户帐户上使用该属性。 应该为每个用户设置此属性，以确保用户连接到正确的同步服务器。 通过使用自动服务器发现，组织可以后面发布工作文件夹的"友好"URL 如*https://workfolders.contoso.com*，无论在操作中同步服务器数目。  
+>  使用多个同步服务器时，我们建议为用户设置自动服务器发现。 此过程依赖于 AD DS 中每个用户帐户的某个属性的配置。 该属性名为 **msDS-SyncServerURL**，将 Windows Server 2012 R2 域控制器添加到域或者应用 Active Directory 架构更新后，便可以在用户帐户上使用该属性。 应该为每个用户设置此属性，以确保用户连接到正确的同步服务器。 通过使用自动服务器发现，组织可以后面发布工作文件夹的"友好"URL 如 *https://workfolders.contoso.com* ，无论在操作中同步服务器数目。  
   
 ### <a name="number-of-sync-shares"></a>同步共享数目  
  单个同步服务器可以维护多个同步共享。 这对于以下情况可能十分有用：  

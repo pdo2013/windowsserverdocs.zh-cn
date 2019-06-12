@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a7e96391ee8dce0b77f00f51d7cb78ff9b8bf242
-ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.openlocfilehash: 893bcd3b28aaa5d501017fe65b7b5205e9452693
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65564657"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440688"
 ---
 # <a name="using-the-add-driverpackage-command"></a>使用添加 DriverPackage 命令
 
@@ -34,13 +34,13 @@ WDSUTIL /Add-DriverPackage /InfFile:<Inf File path> [/Server:<Server name>] [/Ar
 
 ## <a name="parameters"></a>Parameters
 
-|参数|描述|
-|---------|-----------|
-|InfFile:\<Inf 文件路径 >|指定要添加的.inf 文件的完整路径。|
-|/ 服务器：\<服务器名称 >|指定的服务器的名称。 这可以是 NetBIOS 名称或 FQDN。 如果指定没有服务器名称，则使用本地服务器。|
-|/ 体系结构: {x86 | ia64 | x64}|指定驱动程序包的体系结构。|
-|[/ DriverGroup:\<组名称 >]|指定可向其添加包的驱动程序组的名称。|
-|[/Name:\<友好名称 >]|状态为驱动程序包的友好名称。|
+|          参数           |                                                              描述                                                              |
+|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+|   InfFile:\<Inf 文件路径 >   |                                           指定要添加的.inf 文件的完整路径。                                            |
+|    / 服务器：\<服务器名称 >    | 指定的服务器的名称。 这可以是 NetBIOS 名称或 FQDN。 如果指定没有服务器名称，则使用本地服务器。 |
+|      / 体系结构: {x86      |                                                                 ia64                                                                  |
+| [/ DriverGroup:\<组名称 >] |                             指定可向其添加包的驱动程序组的名称。                              |
+|   [/Name:\<友好名称 >]   |                                           状态为驱动程序包的友好名称。                                            |
 
 ## <a name="BKMK_examples"></a>示例
 

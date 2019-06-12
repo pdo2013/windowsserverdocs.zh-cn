@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 69b433ee3e0f57398db1e7814d2de24df7dd1696
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 9205565486b75edcd550174fc89990a5aa2d69b7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222926"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439853"
 ---
 # <a name="step-4-configure-group-policy-settings-for-automatic-updates"></a>步骤 4：配置为自动更新的组策略设置
 
@@ -420,10 +420,11 @@ ms.locfileid: "66222926"
 
 **选项：** 启用此策略设置后，必须指定的 intranet 更新服务时检测更新，WSUS 客户端将使用和 Internet 统计服务器向其更新 WSUS 客户端将上传的统计信息。 示例值：
 
-|设置选项：|示例值：|
-|----------|---------|
-|设置检测更新的 intranet 更新服务|http://wsus01:8530|
-|设置 intranet 统计服务器|http://IntranetUpd01|
+
+|                    设置选项：                    |    示例值：    |
+|-------------------------------------------------------|----------------------|
+| 设置检测更新的 intranet 更新服务 |  http://wsus01:8530  |
+|          设置 intranet 统计服务器           | http://IntranetUpd01 |
 
 #### <a name="turn-on-recommended-updates-via-automatic-updates"></a>启用通过自动更新的建议更新
 指定是否自动更新将提供重要信息和建议从 WSUS 的更新。
@@ -586,7 +587,7 @@ ms.locfileid: "66222926"
 |**已禁用**|指定是否**安装更新并关机**选项将中的默认选项**关闭 Windows**是否可用于在用户选择关闭的时间安装更新对话框向下关闭计算机的选项。|
 
 **选项：** 没有为此设置的选项。
-    
+
 #### <a name="remove-access-to-use-all-windows-update-features"></a>删除使用所有 Windows 更新功能的访问权限
 此设置，可删除对 Windows 更新 WSUS 客户端访问权限。
 

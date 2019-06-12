@@ -8,12 +8,12 @@ ms.date: 07/13/2016
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: web-app-proxy
-ms.openlocfilehash: c7dab1dbf97d2dcbda1fe0375e61300f2a1cc373
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ca4d8661f8f0252334bdecbde85603d8af5e2d2a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862238"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446810"
 ---
 # <a name="publishing-applications-using-ad-fs-preauthentication"></a>使用 AD FS 预身份验证发布应用程序
 
@@ -101,34 +101,34 @@ ms.locfileid: "59862238"
   
 1.  在 Web 应用程序代理服务器上，在远程访问管理控制台中，在**导航**窗格中，单击**Web 应用程序代理**，然后在**任务**窗格中，单击**发布**。  
   
-2.  在“发布新应用程序向导”上的“欢迎”页面上单击“下一步”。  
+2.  在“发布新应用程序向导”  上的“欢迎”  页面上单击“下一步”  。  
   
-3.  上**预身份验证**页上，单击**Active Directory 联合身份验证服务 (AD FS)**，然后单击**下一步**。  
+3.  上**预身份验证**页上，单击**Active Directory 联合身份验证服务 (AD FS)** ，然后单击**下一步**。  
   
-4.  在“支持的客户端”页面上选择“Web 和 MSOFBA”，然后单击“下一步”。  
+4.  在“支持的客户端”  页面上选择“Web 和 MSOFBA”  ，然后单击“下一步”  。  
   
-5.  在“信赖方”页面上的信赖方列表中，选择要发布的应用程序的信赖方，然后单击“下一步”。  
+5.  在“信赖方”  页面上的信赖方列表中，选择要发布的应用程序的信赖方，然后单击“下一步”  。  
   
-6.  在“发布设置”  页面上执行以下操作，然后单击“下一步” 。  
+6.  在“发布设置”  页面上执行以下操作，然后单击“下一步”  。  
   
-    -   在“名称”框中输入应用程序的友好名称。  
+    -   在“名称”框中输入应用程序的友好名称  。  
   
         此名称仅在远程访问管理控制台的已发布应用程序列表中使用。  
   
-    -   在“外部 URL”框中输入此应用程序的外部 URL，例如 https://sp.contoso.com/app1/。  
+    -   在“外部 URL”  框中输入此应用程序的外部 URL，例如 https://sp.contoso.com/app1/。  
   
     -   在“外部证书”列表中，选择其使用者包含外部 URL 的证书  。  
   
-    -   在“后端服务器 URL”框中，输入后端服务器的 URL。 请注意当你输入外部 URL 和后端服务器 URL 是不同的; 如果只应将其更改时将自动输入此值例如， https://sp/app1/。  
+    -   在“后端服务器 URL”框中，输入后端服务器的 URL  。 请注意当你输入外部 URL 和后端服务器 URL 是不同的; 如果只应将其更改时将自动输入此值例如， https://sp/app1/。  
   
         > [!NOTE]  
         > Web 应用程序代理可将转换为 Url，主机名，但无法转换路径名。 因此，你可以输入不同的主机名，但必须输入相同的路径名。 例如，可以输入的外部 URL https://apps.contoso.com/app1/和后端服务器 URL 的 https://app-server/app1/。 但是，不能输入的外部 URL https://apps.contoso.com/app1/和后端服务器 URL 的 https://apps.contoso.com/internal-app1/。  
   
-7.  在“确认”  页面上复查设置，然后单击“发布” 。 你可以复制 PowerShell 命令来设置其他发布的应用程序。  
+7.  在“确认”  页面上复查设置，然后单击“发布”  。 你可以复制 PowerShell 命令来设置其他发布的应用程序。  
   
-8.  在“结果”页面上，确保已成功发布该应用程序，然后单击“关闭”。  
+8.  在“结果”  页面上，确保已成功发布该应用程序，然后单击“关闭”  。  
   
-![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -181,36 +181,36 @@ Add-WebApplicationProxyApplication
   
 1.  在 Web 应用程序代理服务器上，在远程访问管理控制台中，在**导航**窗格中，单击**Web 应用程序代理**，然后在**任务**窗格中，单击**发布**。  
   
-2.  在“发布新应用程序向导”上的“欢迎”页面上单击“下一步”。  
+2.  在“发布新应用程序向导”  上的“欢迎”  页面上单击“下一步”  。  
   
-3.  上**预身份验证**页上，单击**Active Directory 联合身份验证服务 (AD FS)**，然后单击**下一步**。  
+3.  上**预身份验证**页上，单击**Active Directory 联合身份验证服务 (AD FS)** ，然后单击**下一步**。  
   
-4.  在“支持的客户端”页面上选择“Web 和 MSOFBA”，然后单击“下一步”。  
+4.  在“支持的客户端”  页面上选择“Web 和 MSOFBA”  ，然后单击“下一步”  。  
   
-5.  在“信赖方”页面上的信赖方列表中，选择要发布的应用程序的信赖方，然后单击“下一步”。  
+5.  在“信赖方”  页面上的信赖方列表中，选择要发布的应用程序的信赖方，然后单击“下一步”  。  
   
-6.  在“发布设置”  页面上执行以下操作，然后单击“下一步” 。  
+6.  在“发布设置”  页面上执行以下操作，然后单击“下一步”  。  
   
-    -   在“名称”框中输入应用程序的友好名称。  
+    -   在“名称”框中输入应用程序的友好名称  。  
   
         此名称仅在远程访问管理控制台的已发布应用程序列表中使用。  
   
-    -   在“外部 URL”框中输入此应用程序的外部 URL，例如 https://owa.contoso.com/。  
+    -   在“外部 URL”  框中输入此应用程序的外部 URL，例如 https://owa.contoso.com/。  
   
     -   在“外部证书”列表中，选择其使用者包含外部 URL 的证书  。  
   
-    -   在“后端服务器 URL”框中，输入后端服务器的 URL。 请注意当你输入外部 URL 和后端服务器 URL 是不同的; 如果只应将其更改时将自动输入此值例如， https://owa/。  
+    -   在“后端服务器 URL”框中，输入后端服务器的 URL  。 请注意当你输入外部 URL 和后端服务器 URL 是不同的; 如果只应将其更改时将自动输入此值例如， https://owa/。  
   
         > [!NOTE]  
         > Web 应用程序代理可将转换为 Url，主机名，但无法转换路径名。 因此，你可以输入不同的主机名，但必须输入相同的路径名。 例如，可以输入的外部 URL https://apps.contoso.com/app1/和后端服务器 URL 的 https://app-server/app1/。 但是，不能输入的外部 URL https://apps.contoso.com/app1/和后端服务器 URL 的 https://apps.contoso.com/internal-app1/。  
   
     -   在“后端服务器 SPN”  框中输入后端服务器的服务主体名称，例如 HTTP/owa.contoso.com。  
   
-7.  在“确认”  页面上复查设置，然后单击“发布” 。 你可以复制 PowerShell 命令来设置其他发布的应用程序。  
+7.  在“确认”  页面上复查设置，然后单击“发布”  。 你可以复制 PowerShell 命令来设置其他发布的应用程序。  
   
-8.  在“结果”页面上，确保已成功发布该应用程序，然后单击“关闭”。  
+8.  在“结果”  页面上，确保已成功发布该应用程序，然后单击“关闭”  。  
   
-![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -235,7 +235,7 @@ Web 应用程序代理在后端服务器上支持从 Microsoft Word 等 Microsof
   
 下面描述了使用 MS OFBA 协议使用基于声明的身份验证的客户端的身份验证流。 对于此方案，身份验证可以使用 URL 中或正文中的应用程序令牌。  
   
-1.  用户正在操作一个 Office 程序，并从“最近使用的文档”列表中打开了 SharePoint 站点上的某个文件。  
+1.  用户正在操作一个 Office 程序，并从“最近使用的文档”列表中打开了 SharePoint 站点上的某个文件  。  
   
 2.  该 Office 程序显示了一个窗口，其中包含的浏览器控件要求用户输入凭据。  
   
@@ -284,19 +284,19 @@ HTTP 基本身份验证是许多协议，用来连接丰富客户端，包括智
   
 1.  在 Web 应用程序代理服务器上，在远程访问管理控制台中，在**导航**窗格中，单击**Web 应用程序代理**，然后在**任务**窗格中，单击**发布**。  
   
-2.  在“发布新应用程序向导”上的“欢迎”页面上单击“下一步”。  
+2.  在“发布新应用程序向导”  上的“欢迎”  页面上单击“下一步”  。  
   
-3.  上**预身份验证**页上，单击**Active Directory 联合身份验证服务 (AD FS)**，然后单击**下一步**。  
+3.  上**预身份验证**页上，单击**Active Directory 联合身份验证服务 (AD FS)** ，然后单击**下一步**。  
   
 4.  上**支持的客户端**页上，选择**HTTP Basic** ，然后单击**下一步**。  
   
     如果你想要启用对 Exchange 的访问，只能从已加入工作区的设备，选择**工作区启用访问已加入设备**框。 有关详细信息请参阅[加入工作区以从任一设备实现 SSO 和无缝第二因素身份验证跨公司应用程序](https://technet.microsoft.com/library/dn280945.aspx)。  
   
-5.  在“信赖方”页面上的信赖方列表中，选择要发布的应用程序的信赖方，然后单击“下一步”。 请注意，此列表仅包含在声明的信赖方。  
+5.  在“信赖方”  页面上的信赖方列表中，选择要发布的应用程序的信赖方，然后单击“下一步”  。 请注意，此列表仅包含在声明的信赖方。  
   
-6.  在“发布设置”  页面上执行以下操作，然后单击“下一步” 。  
+6.  在“发布设置”  页面上执行以下操作，然后单击“下一步”  。  
   
-    -   在“名称”框中输入应用程序的友好名称。  
+    -   在“名称”框中输入应用程序的友好名称  。  
   
         此名称仅在远程访问管理控制台的已发布应用程序列表中使用。  
   
@@ -304,13 +304,13 @@ HTTP 基本身份验证是许多协议，用来连接丰富客户端，包括智
   
     -   在“外部证书”列表中，选择其使用者包含外部 URL 的证书  。  
   
-    -   在“后端服务器 URL”框中，输入后端服务器的 URL。 请注意当你输入外部 URL 和后端服务器 URL 是不同的; 如果只应将其更改时将自动输入此值例如，mail.contoso.com。  
+    -   在“后端服务器 URL”框中，输入后端服务器的 URL  。 请注意当你输入外部 URL 和后端服务器 URL 是不同的; 如果只应将其更改时将自动输入此值例如，mail.contoso.com。  
   
-7.  在“确认”  页面上复查设置，然后单击“发布” 。 你可以复制 PowerShell 命令来设置其他发布的应用程序。  
+7.  在“确认”  页面上复查设置，然后单击“发布”  。 你可以复制 PowerShell 命令来设置其他发布的应用程序。  
   
-8.  在“结果”页面上，确保已成功发布该应用程序，然后单击“关闭”。  
+8.  在“结果”  页面上，确保已成功发布该应用程序，然后单击“关闭”  。  
   
-![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -347,7 +347,7 @@ Add-WebApplicationProxyApplication
 > [!NOTE]  
 > Web 应用程序代理发布只支持使用 OAuth 2.0 协议的 Microsoft Store 应用。  
   
-在 AD FS 管理控制台中，必须确保为 OAuth 终结点是启用的代理。 若要检查是否为 OAuth 终结点启用了代理，请打开 AD FS 管理控制台，展开“服务” ，单击“终结点” ，在“终结点”  列表中找到 OAuth 终结点，并确保“已启用代理”  列中的值为“是” 。  
+在 AD FS 管理控制台中，必须确保为 OAuth 终结点是启用的代理。 若要检查是否为 OAuth 终结点启用了代理，请打开 AD FS 管理控制台，展开“服务”  ，单击“终结点”  ，在“终结点”  列表中找到 OAuth 终结点，并确保“已启用代理”  列中的值为“是”  。  
   
 使用 Microsoft Store 应用的客户端的身份验证流如下所述：  
   
@@ -389,34 +389,34 @@ Add-WebApplicationProxyApplication
   
 1.  在 Web 应用程序代理服务器上，在远程访问管理控制台中，在**导航**窗格中，单击**Web 应用程序代理**，然后在**任务**窗格中，单击**发布**。  
   
-2.  在“发布新应用程序向导”上的“欢迎”页面上单击“下一步”。  
+2.  在“发布新应用程序向导”  上的“欢迎”  页面上单击“下一步”  。  
   
-3.  上**预身份验证**页上，单击**Active Directory 联合身份验证服务 (AD FS)**，然后单击**下一步**。  
+3.  上**预身份验证**页上，单击**Active Directory 联合身份验证服务 (AD FS)** ，然后单击**下一步**。  
   
 4.  上**支持的客户端**页上，选择**OAuth2** ，然后单击**下一步**。  
   
-5.  在“信赖方”页面上的信赖方列表中，选择要发布的应用程序的信赖方，然后单击“下一步”。  
+5.  在“信赖方”  页面上的信赖方列表中，选择要发布的应用程序的信赖方，然后单击“下一步”  。  
   
-6.  在“发布设置”  页面上执行以下操作，然后单击“下一步” 。  
+6.  在“发布设置”  页面上执行以下操作，然后单击“下一步”  。  
   
-    -   在“名称”框中输入应用程序的友好名称。  
+    -   在“名称”框中输入应用程序的友好名称  。  
   
         此名称仅在远程访问管理控制台的已发布应用程序列表中使用。  
   
-    -   在“外部 URL”框中输入此应用程序的外部 URL，例如 https://server1.contoso.com/app1/。  
+    -   在“外部 URL”  框中输入此应用程序的外部 URL，例如 https://server1.contoso.com/app1/。  
   
     -   在“外部证书”列表中，选择其使用者包含外部 URL 的证书  。  
   
         若要确保你的用户可以访问你的应用，即使他们忽略键入 HTTPS URL 中，选择**启用 HTTP 到 HTTPS 重定向**框。  
   
-    -   在“后端服务器 URL”框中，输入后端服务器的 URL。 请注意当你输入外部 URL 和后端服务器 URL 是不同的; 如果只应将其更改时将自动输入此值例如， https://sp/app1/。  
+    -   在“后端服务器 URL”框中，输入后端服务器的 URL  。 请注意当你输入外部 URL 和后端服务器 URL 是不同的; 如果只应将其更改时将自动输入此值例如， https://sp/app1/。  
   
         > [!NOTE]  
         > Web 应用程序代理可将转换为 Url，主机名，但无法转换路径名。 因此，你可以输入不同的主机名，但必须输入相同的路径名。 例如，可以输入的外部 URL https://apps.contoso.com/app1/和后端服务器 URL 的 https://app-server/app1/。 但是，不能输入的外部 URL https://apps.contoso.com/app1/和后端服务器 URL 的 https://apps.contoso.com/internal-app1/。  
   
-7.  在“确认”  页面上复查设置，然后单击“发布” 。 你可以复制 PowerShell 命令来设置其他发布的应用程序。  
+7.  在“确认”  页面上复查设置，然后单击“发布”  。 你可以复制 PowerShell 命令来设置其他发布的应用程序。  
   
-8.  在“结果”页面上，确保已成功发布该应用程序，然后单击“关闭”。  
+8.  在“结果”  页面上，确保已成功发布该应用程序，然后单击“关闭”  。  
   
 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -441,7 +441,7 @@ Add-WebApplicationProxyApplication
   
 ## <a name="BKMK_Links"></a>另请参阅  
   
--   [Web 应用程序代理故障排除](https://technet.microsoft.com/library/dn770156.aspx)  
+-   [Web 应用程序代理疑难解答](https://technet.microsoft.com/library/dn770156.aspx)  
   
 -   [通过 Web 应用程序代理发布应用程序](https://technet.microsoft.com/library/dn383659.aspx)  
   

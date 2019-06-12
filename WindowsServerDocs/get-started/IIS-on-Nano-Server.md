@@ -12,12 +12,12 @@ ms.assetid: 16984724-2d77-4d7b-9738-3dff375ed68c
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 1461f3e3266d77d2510aba37208347253a8f78e7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 54c8d05c028cbca364b6a46052d12cdcb12c01b0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851618"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443613"
 ---
 # <a name="iis-on-nano-server"></a>Nano Server 上的 IIS
 
@@ -82,7 +82,7 @@ ms.locfileid: "59851618"
 3.  .\Tools\dism.exe /Add-Package /PackagePath:.\packages\Microsoft-NanoServer-IIS-Package.cab /Image:.\mountdir
 4.  .\Tools\dism.exe /Add-Package /PackagePath:.\packages\en-us\Microsoft-NanoServer-IIS-Package_en-us.cab /Image:.\mountdir
 5.  .\Tools\dism.exe /Unmount-Image /MountDir:.\MountDir /Commit
- 
+
 
 > [!NOTE]  
 > 请注意，步骤 4 添加了语言包，此示例安装的是 EN-US。  
@@ -99,7 +99,7 @@ ms.locfileid: "59851618"
 
 
 ```  
-   
+
     <unattend xmlns="urn:schemas-microsoft-com:unattend">  
     <servicing>  
         <package action="install">  
@@ -118,20 +118,20 @@ ms.locfileid: "59851618"
 
 
 
-3.  在创建（或复制）的新 XML 文件中，将 C:\packages 编辑为程序包内容复制到的目录。  
+3. 在创建（或复制）的新 XML 文件中，将 C:\packages 编辑为程序包内容复制到的目录。  
 
-4.  使用新创建的 XML 文件切换到目录并运行  
+4. 使用新创建的 XML 文件切换到目录并运行  
 
-    **dism /online /apply-unattend:.\unattend.xml**  
+   **dism /online /apply-unattend:.\unattend.xml**  
 
 
-5.  通过运行以下命令确定 IIS 程序包及其关联的语言包已正确安装：  
+5. 通过运行以下命令确定 IIS 程序包及其关联的语言包已正确安装：  
 
-    **dism /online /get-packages**  
+   **dism /online /get-packages**  
 
-    应会看到"包标识：Microsoft NanoServer IIS 包 ~ 31bf3856ad364e35 ~ amd64 ~ ~ 10.0.14393.1000"两次列出，一次用于发布类型：语言包和一次用于发布类型：功能包。  
+   应会看到"包标识：Microsoft NanoServer IIS 包 ~ 31bf3856ad364e35 ~ amd64 ~ ~ 10.0.14393.1000"两次列出，一次用于发布类型：语言包和一次用于发布类型：功能包。  
 
-6.  使用 **net start w3svc** 或通过重新启动 Nano Server 启动 W3SVC 服务。  
+6. 使用 **net start w3svc** 或通过重新启动 Nano Server 启动 W3SVC 服务。  
 
 ## <a name="starting-iis"></a>启动 IIS  
 安装 IIS 后并且运行时，它已准备好为 Web 请求提供服务。 通过浏览默认的 IIS 网页（网址： http://\<IP address of Nano Server> 验证 IIS 是否在运行。 在物理计算机上，可以通过使用恢复控制台确定 IP 地址。 在虚拟计算机上，通过使用 Windows PowerShell 提示符和运行以下各项可获得 IP 地址：  
@@ -152,7 +152,7 @@ IIS 的每个功能作为一组配置元素存在。 例如，Windows 身份验�
 |`<windowsAuthentication>`|`<windowsAuthentication enabled="false" authPersistNonNTLM\="true"><providers><add value="Negotiate" /><add value="NTLM" /><br /></providers><br /></windowsAuthentication>`|  
 
 本主题的附录 1 中包含完整的 IIS 子功能集，其相应的配置元素包含在本主题的附录 2 中。  
- 
+
 
 ### <a name="example-installing-windows-authentication"></a>示例：安装 Windows 身份验证  
 
@@ -381,11 +381,12 @@ IIS 的每个功能作为一组配置元素存在。 本附录列出了此版本
 ### <a name="security"></a>安全性  
 **请求筛选**  
 
-|部分|配置元素|  
-|----------------|--------------------------|  
-|`<globalModules>`|`<add name="RequestFilteringModule" image="%windir%\System32\inetsrv\modrqflt.dll" />`|  
-|`<modules>`|`<add name="RequestFilteringModule" lockItem="true" />`|  
-|`<requestFiltering>|`<requestFiltering><br />    <fileExtensions allowUnlisted="true" applyToWebDAV="true" /><br />    <verbs allowUnlisted="true" applyToWebDAV="true" /><br />    <hiddenSegments applyToWebDAV="true"><br />        <add segment="web.config" /><br />    </hiddenSegments><br /></requestFiltering>`|  
+
+|       部分        |                                                                                                                                        配置元素                                                                                                                                        |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  `<globalModules>`   |                                                                                                        `<add name="RequestFilteringModule" image="%windir%\System32\inetsrv\modrqflt.dll" />`                                                                                                        |
+|     `<modules>`      |                                                                                                                       `<add name="RequestFilteringModule" lockItem="true" />`                                                                                                                        |
+| \`<requestFiltering> | `<requestFiltering><br />    <fileExtensions allowUnlisted="true" applyToWebDAV="true" /><br />    <verbs allowUnlisted="true" applyToWebDAV="true" /><br />    <hiddenSegments applyToWebDAV="true"><br />        <add segment="web.config" /><br />    </hiddenSegments><br /></requestFiltering>` |
 
 **基本身份验证**  
 
@@ -413,11 +414,12 @@ IIS 的每个功能作为一组配置元素存在。 本附录列出了此版本
 
 **IIS 客户端证书映射身份验证**  
 
-|部分|配置元素|  
-|----------------|--------------------------|   
-|`<globalModules>`|`<add name="CertificateMappingAuthenticationModule" image="%windir%\System32\inetsrv\authcert.dll" />`|  
-|`<modules>`|`<add name="CertificateMappingAuthenticationModule" lockItem="true" `/>`|  
-|`<clientCertificateMappingAuthentication>`|`<clientCertificateMappingAuthentication enabled="false" />`|  
+
+|                  部分                   |                                         配置元素                                         |
+|--------------------------------------------|--------------------------------------------------------------------------------------------------------|
+|             `<globalModules>`              | `<add name="CertificateMappingAuthenticationModule" image="%windir%\System32\inetsrv\authcert.dll" />` |
+|                `<modules>`                 |               `<add name="CertificateMappingAuthenticationModule" lockItem="true" `/>\`                |
+| `<clientCertificateMappingAuthentication>` |                      `<clientCertificateMappingAuthentication enabled="false" />`                      |
 
 **IP 和域限制**  
 

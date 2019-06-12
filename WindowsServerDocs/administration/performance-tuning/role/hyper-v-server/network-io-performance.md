@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 6dd9d03cce71c42e2ecc1388519de049a5e4e8dd
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 9f576963a93c8c0b9d6c05f406cc3331c407ceb9
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266716"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811519"
 ---
 # <a name="hyper-v-network-io-performance"></a>HYPER-V 网络 I/O 性能
 
@@ -22,7 +22,7 @@ Server 2016 包含几项改进和新功能，以优化网络性能下的 HYPER-V
 
 实时迁移可让你以透明方式将运行的虚拟机从故障转移群集的一个节点移到另一个节点，而无需断开的网络连接和假设停机时间在同一群集中。
 
-> [!Note]
+> [!NOTE]
 > 故障转移群集的群集节点需要共享的存储。
 
 移动正在运行的虚拟机的过程可以分为两个主要阶段。 第一阶段将复制到新的主机的当前主机的虚拟机的内存。 第二个阶段将从当前主机到新主机传输虚拟机状态。 可以上从当前主机到新的主机中传输数据的速度大大取决于这两个阶段的持续时间。

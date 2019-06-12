@@ -9,12 +9,12 @@ ms.date: 07/17/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: e85a97fa08e4c77588b17aee08ee03e0b897a74c
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 15bb6f1e39f64ff19ebb5515188ee944e277d3b7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976857"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445486"
 ---
 # <a name="build-a-native-client-application-using-oauth-public-clients-with-ad-fs-2016-or-later"></a>生成本机客户端应用程序使用 OAuth 公共客户端与 AD FS 2016 或更高版本
 
@@ -163,7 +163,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-native-deskto
 
 在此步骤中，本机应用程序重定向到 AD FS，并有一个 ID 令牌和访问令牌的 Web API
 
-3.  输入要执行项在文本框中，然后单击添加项。 在此步骤中，应用程序访问 Web API 添加到待办事项，并为此，向从 AD FS 获取 WebAPI 提供访问令牌。 Web API 与受众值以确保令牌发送给它和验证令牌签名时使用来自联合身份验证元数据的信息相匹配。
+3. 输入要执行项在文本框中，然后单击添加项。 在此步骤中，应用程序访问 Web API 添加到待办事项，并为此，向从 AD FS 获取 WebAPI 提供访问令牌。 Web API 与受众值以确保令牌发送给它和验证令牌签名时使用来自联合身份验证元数据的信息相匹配。
 
 ![登录](media/native-client-with-ad-fs-2016/clienttodoadd.png)
 

@@ -12,16 +12,16 @@ author: lizap
 ms.author: elizapo
 ms.date: 11/08/2016
 manager: dongill
-ms.openlocfilehash: fa09532e0b327b24ebb1c0e155c26c25d1043b63
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 4e185e51b09d2e2f8ac4527f9de339de27e02f24
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854598"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805146"
 ---
 # <a name="add-high-availability-to-the-rd-web-and-gateway-web-front"></a>将可用性组添加到 RD Web 和网关的 web 前端
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server （半年频道），Windows Server 2019，Windows Server 2016
 
 
 可以部署远程桌面 Web 访问 （RD Web 访问） 和远程桌面网关 （RD 网关） 场以提高可用性和 Windows Server 远程桌面服务 (RDS) 部署的规模 
@@ -46,15 +46,15 @@ ms.locfileid: "59854598"
     4. 在确认页上选择**根据需要重新启动远程计算机**，然后单击**添加**。  
     5. 重复上述步骤，添加 RD 网关服务器，但选择**RD 网关服务器**在步骤 b 中。
 4. 重新安装 RD 网关服务器的证书：
-    1.  在服务器管理器 RDMS 服务器上，单击**远程桌面服务 > 概述 > 任务 > 编辑部署属性**。  
-    2.  展开**证书**。  
-    3.  向下滚动到表。 单击 RD**网关角色服务 > 选择现有证书。**  
-    4.  单击**选择其他证书**，然后浏览到证书位置。 例如，\Contoso-CB1\Certificates)。 选择在系统必备组件 (例如 ContosoRdGwCert) 期间创建的 RD Web 和网关服务器的证书文件，然后单击**打开**。  
-    5.  输入选择的证书的密码**允许证书添加到目标计算机上的受信任的根证书颁发机构证书存储**，然后单击**确定**。  
-    6.  单击 **“应用”**。
-    > [!Note] 
-    > 您可能需要手动重新启动每个 RD 网关服务器，通过服务器管理器或任务管理器上运行的 TSGateway 服务。
-    7.  重复步骤 a 到 f 的 RD Web 访问角色服务。
+   1. 在服务器管理器 RDMS 服务器上，单击**远程桌面服务 > 概述 > 任务 > 编辑部署属性**。  
+   2. 展开**证书**。  
+   3. 向下滚动到表。 单击 RD**网关角色服务 > 选择现有证书。**  
+   4. 单击**选择其他证书**，然后浏览到证书位置。 例如，\Contoso-CB1\Certificates)。 选择在系统必备组件 (例如 ContosoRdGwCert) 期间创建的 RD Web 和网关服务器的证书文件，然后单击**打开**。  
+   5. 输入选择的证书的密码**允许证书添加到目标计算机上的受信任的根证书颁发机构证书存储**，然后单击**确定**。  
+   6. 单击 **“应用”** 。
+      > [!NOTE] 
+      > 您可能需要手动重新启动每个 RD 网关服务器，通过服务器管理器或任务管理器上运行的 TSGateway 服务。
+   7. 重复步骤 a 到 f 的 RD Web 访问角色服务。
 
 ## <a name="step-2-configure-rd-web-and-rd-gateway-properties-on-the-new-server"></a>步骤 2：在新服务器上配置 RD Web 和 RD 网关属性
 1. 服务器配置为 RD 网关场的一部分：
@@ -80,7 +80,7 @@ ms.locfileid: "59854598"
     10.  最小化此 RD Web 服务器的远程桌面连接窗口。  
     11.  对于第二个 RD Web 访问服务器，结束时间的功能视图重复步骤 b 到 e**计算机密钥**。
     12. 对于验证密钥，清除**运行时自动生成**，然后将粘贴在步骤 g 中复制的密钥。
-    13. 单击 **“应用”**。
+    13. 单击 **“应用”** 。
     14. 完成此过程**RDWeb**，**馈送**， **FeedLogon**并**页**页。
     15. 最小化到第二个 RD Web 访问服务器，远程桌面连接窗口，然后使第一台 RD Web 访问服务器的远程桌面连接窗口最大化。  
     16. 重复步骤 g，通过 n 以通过解密密钥。
@@ -90,7 +90,7 @@ ms.locfileid: "59854598"
 
 如果使用 Azure 基础结构，可以创建外部 Azure 负载均衡器;如果没有，可以设置单独的硬件或软件负载均衡器。 负载平衡是键，以便流量将均匀分布的生存期较长的连接从远程桌面客户端，通过 RD 网关，用户将运行其工作负荷的服务器。
 
-> [!Note] 
+> [!NOTE] 
 > 如果以前运行 RD Web 和 RD 网关的服务器已设置了外部负载均衡器后，跳过一些步骤 4 中，选择现有的后端池，并将新服务器添加到池。
 
 1.  创建 Azure 负载均衡器：  
@@ -98,7 +98,7 @@ ms.locfileid: "59854598"
     2.  输入一个名称，例如**WebGwLB**。  
     3.  选择**公共**有关**方案**，**公共 IP 地址**，和一个**公共 IP 地址**。 可以选择现有的公共 IP 地址，也可以创建一个新。 
     4.  选择适当**订阅**，**资源组**，并**位置**。
-    5.  单击“创建”。  
+    5.  单击“创建”  。  
 2. 创建[探测](https://azure.microsoft.com/documentation/articles/load-balancer-custom-probe-overview/)到哪些服务器处于活动状态的监视器：  
     1.  在 Azure 门户中，单击**浏览 > 负载平衡器**。，负载均衡器是刚刚创建，例如 WebGwLB，设置  
     2.  单击**探测 > 添加**。  

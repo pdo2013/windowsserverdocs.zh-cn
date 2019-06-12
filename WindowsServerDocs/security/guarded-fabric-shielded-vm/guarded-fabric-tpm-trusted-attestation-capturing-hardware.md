@@ -7,13 +7,13 @@ ms.assetid: 915b1338-5085-481b-8904-75d29e609e93
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 12/12/2018
-ms.openlocfilehash: 82171eee10a06cad6bb3ac30e8f771086975c242
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.date: 04/01/2019
+ms.openlocfilehash: 61f56eea59d11264047a9c7b8b6734617ad1802f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841658"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447328"
 ---
 # <a name="authorize-guarded-hosts-using-tpm-based-attestation"></a>授权受保护的主机使用基于 TPM 的认证
 
@@ -99,8 +99,11 @@ Windows Server 2019 中引入新方法进行证明，称为*v2 证明*，TPM 证
 
 3.  将 CI 策略应用于引用主机：
 
-    1.  将二进制的 CI 策略文件 (HW1CodeIntegrity.p7b) 复制到引用主机 （必须完全匹配文件名） 上的以下位置：<br>
-        **C:\\Windows\\System32\\CodeIntegrity\\SIPolicy.p7b**
+    1.  运行以下命令以配置要使用你的 CI 策略的计算机。 您还可以部署具有的 CI 策略[组策略](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/deploy-windows-defender-application-control-policies-using-group-policy)或[System Center Virtual Machine Manager](https://docs.microsoft.com/en-us/system-center/vmm/guarded-deploy-host?view=sc-vmm-2019#manage-and-deploy-code-integrity-policies-with-vmm)。
+
+        ```powershell
+        Invoke-CimMethod -Namespace root/Microsoft/Windows/CI -ClassName PS_UpdateAndCompareCIPolicy -MethodName Update -Arguments @{ FilePath = "C:\temp\HW1CodeIntegrity.p7b" }
+        ```
 
     2.  重新启动主机来应用策略。
 
@@ -117,8 +120,8 @@ Windows Server 2019 中引入新方法进行证明，称为*v2 证明*，TPM 证
 5.  CI 将策略应用到所有主机 （使用相同的硬件和软件配置） 使用以下命令：
 
     ```powershell
-    Copy-Item -Path '<Path to HW1CodeIntegrity\_enforced.p7b>' -Destination 'C:\Windows\System32\CodeIntegrity\SIPolicy.p7b'
-
+    Invoke-CimMethod -Namespace root/Microsoft/Windows/CI -ClassName PS_UpdateAndCompareCIPolicy -MethodName Update -Arguments @{ FilePath = "C:\temp\HW1CodeIntegrity.p7b" }
+    
     Restart-Computer
     ```
 
@@ -167,5 +170,5 @@ Windows Server 2019 中引入新方法进行证明，称为*v2 证明*，TPM 证
 
 ## <a name="next-step"></a>下一步
 
->[!div class="nextstepaction"]
-[确认证明](guarded-fabric-confirm-hosts-can-attest-successfully.md)
+> [!div class="nextstepaction"]
+> [确认证明](guarded-fabric-confirm-hosts-can-attest-successfully.md)

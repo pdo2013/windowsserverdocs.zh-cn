@@ -8,12 +8,12 @@ ms.date: 11/09/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d66cfde20060229844c34abeea85dd83b802ddad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: f52d3d237573e4ed0028e228ff80273862a0aaf2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822818"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444640"
 ---
 # <a name="device-authentication-controls-in-ad-fs"></a>设备控制 AD FS 中的身份验证
 以下文档介绍如何启用 Windows Server 2016 和 2012 R2 中的设备身份验证控件。
@@ -43,7 +43,7 @@ PS:\>Set-AdfsGlobalAuthenticationPolicy –DeviceAuthenticationEnabled $true
 它具有以下值：
  - SignedToken:仅 PRT
  - PKeyAuth:PRT + PKeyAuth
- - 进行 ClientTLS:PRT + 进行 clientTLS 
+ - 进行 ClientTLS:PRT + 进行 clientTLS
  - 所有：上述全部
 
 如您所见，PRT 属于的所有设备身份验证方法，使之成为中效果始终是默认方法启用何时`DeviceAuthenticationEnabled`设置为`$true`。
@@ -53,6 +53,14 @@ PS:\>Set-AdfsGlobalAuthenticationPolicy –DeviceAuthenticationEnabled $true
 ``` powershell
 PS:\>Set-AdfsGlobalAuthenticationPolicy –DeviceAuthenticationEnabled $true
 ```
+
+>[!NOTE]
+> 在 ADFS 2019`DeviceAuthenticationMethod`可与`Set-AdfsRelyingPartyTrust`命令。
+
+``` powershell
+PS:\>Set-AdfsRelyingPartyTrust -DeviceAuthenticationMethod ClientTLS
+```
+
 >[!NOTE]
 > 启用设备身份验证 (设置`DeviceAuthenticationEnabled`到`$true`) 意味着`DeviceAuthenticationMethod`隐式设置为`SignedToken`，其相当于**PRT**。
 
@@ -60,8 +68,8 @@ PS:\>Set-AdfsGlobalAuthenticationPolicy –DeviceAuthenticationEnabled $true
 ``` powershell
 PS:\>Set-AdfsGlobalAuthenticationPolicy –DeviceAuthenticationMethod All
 ```
->[!NOTE]
->默认设备身份验证方法是`SignedToken`。  其他值都**PKeyAuth，* * * 进行 ClientTLS，** 并**所有**。
+> [!NOTE]
+> 默认设备身份验证方法是`SignedToken`。  其他值都**PKeyAuth，** <strong>进行 ClientTLS，</strong>并**所有**。
 
 含义`DeviceAuthenticationMethod`值已略有更改，因为 AD FS 2016 已发布。  请参阅下表中的每个值，具体取决于更新级别的含义：
 

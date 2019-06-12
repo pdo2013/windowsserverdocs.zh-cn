@@ -7,12 +7,12 @@ author: daniellee-msft
 ms.author: jol
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: c775dd5a3011115bbb031c0b9e4e24a8911d378e
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 9038fd480ed105aed3949b0c48dffc7eab94f970
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63748403"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445895"
 ---
 # <a name="install-and-manage-extensions"></a>安装和管理扩展
 
@@ -58,7 +58,7 @@ Windows Admin Center 支持多个馈送，您可以查看和管理包从一次�
 
 1. 在已建立 internet 连接的另一台计算机，打开 web 浏览器并导航到以下 URL: [https://msft-sme.myget.org/gallery/windows-admin-center-feed](https://msft-sme.myget.org/gallery/windows-admin-center-feed) 
 
-  * 您可能需要 msft sme.myget.org 和登录名可以查看扩展包上创建一个帐户。
+   * 您可能需要 msft sme.myget.org 和登录名可以查看扩展包上创建一个帐户。
 
 2. 单击你想要安装若要查看包详细信息页的包的名称。
 3. 单击**下载**包详细信息页的右侧窗格中的链接并下载该扩展的.nupkg 文件。

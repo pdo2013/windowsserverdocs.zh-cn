@@ -11,12 +11,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: e7b1128d93912f724225905bedd38131f8aab0b2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a4cab0246226cf22a1b7212b832a902783952407
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854838"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446502"
 ---
 # <a name="customize-the-active-directory-administrative-center-navigation-pane"></a>自定义 Active Directory 管理中心导航窗格
 
@@ -33,21 +33,21 @@ ms.locfileid: "59854838"
 
 ### <a name="to-customize-the-active-directory-administrative-center-navigation-pane"></a>若要自定义 Active Directory 管理中心导航窗格
 
-1.  在 Active Directory 管理中心导航窗格中，右键\-单击你想要修改的节点。 可以修改节点的位置和名称，还可以创建节点的副本。
+1. 在 Active Directory 管理中心导航窗格中，右键\-单击你想要修改的节点。 可以修改节点的位置和名称，还可以创建节点的副本。
 
-2.  单击以下命令之一：
+2. 单击以下命令之一：
 
-    -   **重命名**
+   -   **重命名**
 
-    -   **创建重复的节点**
+   -   **创建重复的节点**
 
-    -   **删除**
+   -   **删除**
 
-    -   **上移**
+   -   **上移**
 
-    -   **向下移动**
+   -   **向下移动**
 
- 通过使用列表视图，您可以利用的最近使用过\(MRU\)列表。 访问此导航节点中的至少一个容器时，MRU 列表自动显示在导航节点下。 此外可以通过展开 Active Directory 管理中心窗口顶部的痕迹导航栏来查看当前的 MRU 列表。 MRU 列表始终包含在某个特定导航节点中访问的最后三个容器。 在每次选择特定容器时，该容器会被添加至 MRU 列表的顶部，并从 MRU 列表中删除最后一个容器。
+   通过使用列表视图，您可以利用的最近使用过\(MRU\)列表。 访问此导航节点中的至少一个容器时，MRU 列表自动显示在导航节点下。 此外可以通过展开 Active Directory 管理中心窗口顶部的痕迹导航栏来查看当前的 MRU 列表。 MRU 列表始终包含在某个特定导航节点中访问的最后三个容器。 在每次选择特定容器时，该容器会被添加至 MRU 列表的顶部，并从 MRU 列表中删除最后一个容器。
 
   
 

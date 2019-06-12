@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: c71b96f6c44cfc2b14b4c5d203f876e55cc728ec
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e90c2c075ba2dc2b63e9a18c9eba192116265b90
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855628"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443523"
 ---
 # <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>附录 i:为受保护的帐户和组在 Active Directory 中的创建管理帐户
 
@@ -60,7 +60,7 @@ ms.locfileid: "59855628"
   
     ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_116.png)  
   
-3.  右键单击刚创建的组，单击“属性”，然后单击“对象”选项卡。在组的**对象属性**对话框中，选择**防止对象被意外删除**，这不会仅阻止以其他方式授权的用户删除组，还可以从将其移到另一个 OU 除非该属性第一个被取消选择。  
+3.  右键单击刚创建的组，单击“属性”  ，然后单击“对象”  选项卡。在组的**对象属性**对话框中，选择**防止对象被意外删除**，这不会仅阻止以其他方式授权的用户删除组，还可以从将其移到另一个 OU 除非该属性第一个被取消选择。  
   
     ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_117.png)  
   
@@ -71,7 +71,7 @@ ms.locfileid: "59855628"
   
     ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_118.png)  
   
-5.  如果你具有尚未这样做，在**Active Directory 用户和计算机**控制台中，单击**视图**，然后选择**高级功能**。 右键单击刚刚创建的组，单击**属性**，然后单击**安全**选项卡。在“安全”  选项卡中，单击“高级” 。  
+5.  如果你具有尚未这样做，在**Active Directory 用户和计算机**控制台中，单击**视图**，然后选择**高级功能**。 右键单击刚刚创建的组，单击**属性**，然后单击**安全**选项卡。在“安全”  选项卡中，单击“高级”  。  
   
     ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_119.png)  
   
@@ -150,35 +150,35 @@ ms.locfileid: "59855628"
   
 10. 上**对象**选项卡上，选择**防止对象被意外删除**。 这不会仅阻止对象被删除 （即使由授权用户），但将其阻止被移到另一个管理单元中 AD DS 层次结构，除非由具有权限才能更改该属性的用户先清除该复选框。  
 
-   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_125.png)  
+    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_125.png)  
 
 11. 单击**遥控器**选项卡。  
 
 12. 清除**启用远程控制**标志。 它不应是必需的支持人员以连接到此帐户的会话进行修补。  
 
-   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_126.png)  
+    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_126.png)  
 
-   > [!NOTE]  
-   > 在 Active Directory 中的每个对象应具有指定的 IT 所有者和指定的业务所有者中所述[规划泄露](../../../ad-ds/plan/security-best-practices/Planning-for-Compromise.md)。 如果要跟踪的 Active Directory 中 （而不是外部数据库） 的 AD DS 对象的所有权，则应在此对象的属性中输入相应所有权信息。  
-   >
-   > 在这种情况下，业务所有者很有可能是 IT 部门，andthere 是对业务所有者也正在 IT 所有者没有禁止。 建立对象的所有权的点是可用于标识联系人时需要对对象，可能是年从其初始创建更改。  
+    > [!NOTE]  
+    > 在 Active Directory 中的每个对象应具有指定的 IT 所有者和指定的业务所有者中所述[规划泄露](../../../ad-ds/plan/security-best-practices/Planning-for-Compromise.md)。 如果要跟踪的 Active Directory 中 （而不是外部数据库） 的 AD DS 对象的所有权，则应在此对象的属性中输入相应所有权信息。  
+    >
+    > 在这种情况下，业务所有者很有可能是 IT 部门，andthere 是对业务所有者也正在 IT 所有者没有禁止。 建立对象的所有权的点是可用于标识联系人时需要对对象，可能是年从其初始创建更改。  
 
 13. 单击**组织**选项卡。  
 
 14. 在 AD DS 对象标准中输入所需的任何信息。  
 
-   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_127.png)  
+    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_127.png)  
 
 15. 单击**拨入**选项卡。  
 
 16. 在中**网络访问权限**字段中，选择**拒绝访问**。此帐户应永远不需要通过远程连接进行连接。  
 
-   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_128.png)  
+    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_128.png)  
 
-   > [!NOTE]  
-   > 不太可能此帐户将用于登录到你的环境中的只读域控制器 (Rodc) 上。 但是，应情况曾经需要用于登录的帐户到 RODC，你应将此帐户添加到拒绝的 RODC 密码复制组，以便不在 RODC 上缓存其密码。  
-   >
-   > 虽然每次使用后应重置帐户的密码，并且此帐户应被禁用，实现此设置不具有对该帐户的负面影响和管理员忘记重置的帐户的情况下，它可能会帮助密码，将其禁用。  
+    > [!NOTE]  
+    > 不太可能此帐户将用于登录到你的环境中的只读域控制器 (Rodc) 上。 但是，应情况曾经需要用于登录的帐户到 RODC，你应将此帐户添加到拒绝的 RODC 密码复制组，以便不在 RODC 上缓存其密码。  
+    >
+    > 虽然每次使用后应重置帐户的密码，并且此帐户应被禁用，实现此设置不具有对该帐户的负面影响和管理员忘记重置的帐户的情况下，它可能会帮助密码，将其禁用。  
 
 17. 单击 **“隶属于”** 选项卡。  
 
@@ -186,44 +186,44 @@ ms.locfileid: "59855628"
 
 19. 类型**Denied RODC Password Replication Group**中**选择用户、 联系人、 计算机**对话框中，单击**检查名称**。 在对象选取器中带下划线的组的名称，单击**确定**和验证该帐户现在是否显示以下屏幕截图中的两个组的成员。 不向任何受保护组添加帐户。  
 
-20. 单击 **“确定”**。  
+20. 单击 **“确定”** 。  
 
-   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_129.png)  
+    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_129.png)  
 
 21. 单击**安全**选项卡，单击**高级**。  
 
 22. 在中**高级安全设置**对话框中，单击**禁用继承**并将复制为显式权限是继承的权限，然后单击**添加**。  
 
-   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_130.png)  
+    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_130.png)  
 
 23. 在中 **[Account] 的权限条目**对话框中，单击**选择主体**并添加前面步骤中创建的组。 滚动到底部的对话框中，单击**清除所有**要删除所有默认权限。  
 
-   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_131.png)  
+    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_131.png)  
 
 24. 滚动到顶部**权限条目**对话框。 絋粄**类型**下拉列表设置为**允许**，然后在**适用于**下拉列表中，选择**仅此对象**。  
 
 25. 在中**权限**字段中，选择**读取所有属性**，**都读取权限**，以及**重置密码**。  
 
-   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_132.png)  
+    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_132.png)  
 
 26. 在中**属性**字段中，选择**读取 userAccountControl**并**编写 userAccountControl**。  
 
 27. 单击**确定**，**确定**中再次**高级安全设置**对话框。  
 
-   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_133.png)  
+    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_133.png)  
 
-   > [!NOTE]  
-   > **UserAccountControl**属性控制多个帐户配置选项。 不能授予权限以授予对属性的写入权限时，只有某些配置选项的更改。  
+    > [!NOTE]  
+    > **UserAccountControl**属性控制多个帐户配置选项。 不能授予权限以授予对属性的写入权限时，只有某些配置选项的更改。  
 
 28. 在中**组或用户名**字段**安全**选项卡上，删除任何不应允许访问或管理帐户的组。 不要删除任何已配置了拒绝 Ace 的组，例如 Everyone 组和自助计算帐户 (时设置该 ACE**用户不能更改密码**帐户的创建过程中启用标志。 也不要删除刚添加的组、 SYSTEM 帐户或组如 EA、 DA、 BA 或 Windows Authorization Access Group。  
 
-   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_134.png)  
+    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_134.png)  
 
 29. 单击**高级**并验证高级安全设置对话框中看起来类似于以下屏幕截图。  
 
 30. 单击**确定**，并**确定**以关闭该帐户的属性对话框。  
 
-   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_135.png)  
+    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_135.png)  
 
 31. 第一个管理帐户的安装程序现已完成。 在更高版本的过程中，将测试帐户。  
 
@@ -251,56 +251,56 @@ SIEM 解决方案所涉及的安全源 （例如，事件日志、 应用程序�
   
 在这种情况下，您将会向新创建的管理帐户以允许它们以供阅读和组对象上的写入成员属性。 但是，AdminSDHolder 对象不是组对象和图形的 ACL 编辑器中未公开属性进行分组。 正是出于此原因，您将实现通过 Dsacls 命令行实用程序的权限更改。 若要授予 （已禁用） 管理帐户权限来修改受保护组的成员身份，请执行以下步骤：  
   
-1.  登录到域控制器，最好是包含具有已 DA 组的成员在域中的用户帐户的凭据的 PDC 模拟器 (PDCE) 角色的域控制器上。  
+1. 登录到域控制器，最好是包含具有已 DA 组的成员在域中的用户帐户的凭据的 PDC 模拟器 (PDCE) 角色的域控制器上。  
   
-    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_136.png)  
+   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_136.png)  
   
-2.  通过右键单击打开提升的命令提示符**命令提示符**然后单击**以管理员身份运行**。  
+2. 通过右键单击打开提升的命令提示符**命令提示符**然后单击**以管理员身份运行**。  
   
-    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_137.gif)  
+   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_137.gif)  
   
-3.  当系统提示您批准提升，请单击**是**。  
+3. 当系统提示您批准提升，请单击**是**。  
   
-    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_138.gif)  
+   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_138.gif)  
   
-    > [!NOTE]  
-    > 有关在 Windows 中的提升和用户帐户控制 (UAC) 的详细信息，请参阅[UAC 进程和交互](https://technet.microsoft.com/library/dd835561(v=WS.10).aspx)TechNet 网站上。  
+   > [!NOTE]  
+   > 有关在 Windows 中的提升和用户帐户控制 (UAC) 的详细信息，请参阅[UAC 进程和交互](https://technet.microsoft.com/library/dd835561(v=WS.10).aspx)TechNet 网站上。  
   
-4.  在命令提示符下键入 （替换为你的特定于域的信息） **Dsacls [你的域中的 AdminSDHolder 对象的可分辨名称] [管理帐户 UPN] /G: RPWP; 成员**。  
+4. 在命令提示符下键入 （替换为你的特定于域的信息） **Dsacls [你的域中的 AdminSDHolder 对象的可分辨名称] [管理帐户 UPN] /G: RPWP; 成员**。  
   
-    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_139.gif)  
+   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_139.gif)  
   
-    前一命令 （这是不区分大小写） 的工作方式如下：  
+   前一命令 （这是不区分大小写） 的工作方式如下：  
   
-    -   Dsacls 设置或显示目录对象上的 Ace  
+   - Dsacls 设置或显示目录对象上的 Ace  
   
-    -   CN = AdminSDHolder，CN = System，DC = TailSpinToys，DC = msft 标识要修改的对象  
+   - CN = AdminSDHolder，CN = System，DC = TailSpinToys，DC = msft 标识要修改的对象  
   
-    -   /G 指示正在配置授予 ACE  
+   - /G 指示正在配置授予 ACE  
   
-    -   PIM001@tailspintoys.msft 是用户将向其授予 Ace 的安全主体的主体名称 (UPN)  
+   - PIM001@tailspintoys.msft 是用户将向其授予 Ace 的安全主体的主体名称 (UPN)  
   
-    -   RPWP 授予读取属性和写入属性权限  
+   - RPWP 授予读取属性和写入属性权限  
   
-    -   成员是属性 （属性） 的名称上设置的权限  
+   - 成员是属性 （属性） 的名称上设置的权限  
   
-    有关使用的详细信息**Dsacls**，不带任何参数在命令提示符下键入 Dsacls。  
+   有关使用的详细信息**Dsacls**，不带任何参数在命令提示符下键入 Dsacls。  
   
-    如果已创建的域的多个管理帐户，应运行的每个帐户的 Dsacls 命令。 完成的 AdminSDHolder 对象上的 ACL 配置后，应强制 SDProp 运行，或等待，直到其计划的运行完成。 有关如何强制 SDProp 运行信息，请参阅"手动运行 SDProp"中[附录 c:受保护帐户和 Active Directory 中的组](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md)。  
+   如果已创建的域的多个管理帐户，应运行的每个帐户的 Dsacls 命令。 完成的 AdminSDHolder 对象上的 ACL 配置后，应强制 SDProp 运行，或等待，直到其计划的运行完成。 有关如何强制 SDProp 运行信息，请参阅"手动运行 SDProp"中[附录 c:受保护帐户和 Active Directory 中的组](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md)。  
   
-    SDProp 开始运行后，可以验证具有已对 AdminSDHolder 对象所做的更改应用到域中的受保护组。 您不能通过 AdminSDHolder 对象上的 ACL 查看前面所述，出于对此进行验证，但您可以验证已将权限应用通过查看受保护组的 Acl。  
+   SDProp 开始运行后，可以验证具有已对 AdminSDHolder 对象所做的更改应用到域中的受保护组。 您不能通过 AdminSDHolder 对象上的 ACL 查看前面所述，出于对此进行验证，但您可以验证已将权限应用通过查看受保护组的 Acl。  
   
-5.  在中**Active Directory 用户和计算机**，验证是否已启用**高级功能**。 若要执行此操作，请单击**视图**，找到**Domain Admins**组中，右键单击组，然后单击**属性**。  
+5. 在中**Active Directory 用户和计算机**，验证是否已启用**高级功能**。 若要执行此操作，请单击**视图**，找到**Domain Admins**组中，右键单击组，然后单击**属性**。  
   
-6.  单击**安全**选项卡，单击**高级**以打开**域管理员的高级安全设置**对话框。  
+6. 单击**安全**选项卡，单击**高级**以打开**域管理员的高级安全设置**对话框。  
   
-    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_140.gif)  
+   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_140.gif)  
   
-7.  选择**管理帐户的允许 ACE**然后单击**编辑**。 验证该帐户授予仅**读取成员**并**写入成员**DA 组，然后单击权限**确定**。  
+7. 选择**管理帐户的允许 ACE**然后单击**编辑**。 验证该帐户授予仅**读取成员**并**写入成员**DA 组，然后单击权限**确定**。  
   
-8.  单击**确定**中**高级安全设置**对话框中，然后单击**确定**以关闭 DA 组的属性对话框。  
+8. 单击**确定**中**高级安全设置**对话框中，然后单击**确定**以关闭 DA 组的属性对话框。  
   
-    ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_141.gif)  
+   ![创建管理帐户](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_141.gif)  
   
 9. 可以为域; 中其他受保护组重复前面的步骤权限应为相同的受保护的所有组。 现在已完成创建和配置此域中的受保护组的管理帐户。  
   

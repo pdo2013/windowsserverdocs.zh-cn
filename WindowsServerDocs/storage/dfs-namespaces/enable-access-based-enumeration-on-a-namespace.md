@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e9a2b2162fcf11385a5a866372e57338df87c541
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7e9a5b397127e9eb88352fb4d7bc28955023d4b7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850588"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447212"
 ---
 # <a name="enable-access-based-enumeration-on-a-namespace"></a>对命名空间启用基于访问的枚举
 
@@ -66,7 +66,7 @@ ms.locfileid: "59850588"
 
 1.  在控制台树中的**命名空间**节点下，找到要控制其可见性的文件夹（包含目标），右键单击该文件夹，然后单击**属性**。
 
-2.  单击“高级”选项卡。
+2.  单击“高级”  选项卡。
 
 3.  单击**设置 DFS 文件夹的显式查看权限**，然后再单击**配置查看权限**。
 
@@ -78,15 +78,15 @@ ms.locfileid: "59850588"
 
 ## <a name="to-control-folder-visibility-by-using-a-command-line"></a>使用命令行控制文件夹的可见性
 
-1.  在安装有**分布式文件系统**角色服务或**分布式文件系统工具**功能的服务器上打开命令提示符窗口。
+1. 在安装有**分布式文件系统**角色服务或**分布式文件系统工具**功能的服务器上打开命令提示符窗口。
 
-2.  键入以下命令，其中*&lt;DFSPath&gt;* 是 DFS 文件夹 （链接） 的路径 *< 域\\帐户 >* 是组或用户帐户的名称和 *（...）* 将被替换为其他访问控制项 (Ace):
+2. 键入以下命令，其中 *&lt;DFSPath&gt;* 是 DFS 文件夹 （链接） 的路径 *< 域\\帐户 >* 是组或用户帐户的名称和 *（...）* 将被替换为其他访问控制项 (Ace):
 
-    ```
-    dfsutil property sd grant <DFSPath> DOMAIN\Account:R (...) Protect Replace
-    ```
+   ```
+   dfsutil property sd grant <DFSPath> DOMAIN\Account:R (...) Protect Replace
+   ```
 
-    例如，将现有的权限替换权限，允许 Domain Admins 和 CONTOSO\\培训师组 Read (R) 访问\\contoso.office\public\training 文件夹中，键入以下命令：
+   例如，将现有的权限替换权限，允许 Domain Admins 和 CONTOSO\\培训师组 Read (R) 访问\\contoso.office\public\training 文件夹中，键入以下命令：
 
    ```
    dfsutil property sd grant \\contoso.office\public\training "CONTOSO\Domain Admins":R CONTOSO\Trainers:R Protect Replace 
@@ -103,7 +103,7 @@ ms.locfileid: "59850588"
 
 ## <a name="see-also"></a>请参阅
 
--   [创建 DFS Namespace](create-a-dfs-namespace.md)
--   [为 DFS 命名空间委派管理权限](delegate-management-permissions-for-dfs-namespaces.md)
+-   [创建 DFS 命名空间](create-a-dfs-namespace.md)
+-   [委派 DFS 命名空间的管理权限](delegate-management-permissions-for-dfs-namespaces.md)
 -   [安装 DFS](https://technet.microsoft.com/library/cc731089(v=ws.11).aspx)
 -   [基于访问的枚举中使用继承的权限](using-inherited-permissions-with-access-based-enumeration.md)

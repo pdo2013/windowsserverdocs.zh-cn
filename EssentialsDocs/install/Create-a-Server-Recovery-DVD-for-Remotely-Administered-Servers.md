@@ -12,12 +12,12 @@ ms.assetid: 6141fa69-5952-4e3c-a868-40ef3f4badd2
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 7bfe1686ac84962cdb4ab1cde8d6ca5226cb9d44
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 999887f09c27c1df481cb5e46579942424a2847b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844348"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433620"
 ---
 # <a name="create-a-server-recovery-dvd-for-remotely-administered-servers"></a>为远程管理的服务器创建服务器恢复 DVD
 
@@ -83,11 +83,11 @@ ms.locfileid: "59844348"
 ####  <a name="BKMK_Collecting"></a> 步骤 2:收集出厂重置映像和 XML 文件  
  要为服务器重设出厂默认值，需要截取以下两个映像：  
   
--   系统驱动器映像  
+- 系统驱动器映像  
   
--   系统保留分区  
+- 系统保留分区  
   
- GenDiskXML.exe 工具可用于截取这些映像。 GenDiskXML.exe 还会收集在恢复过程中用于重新创建磁盘配置的文件，名为 disk.xml。  
+  GenDiskXML.exe 工具可用于截取这些映像。 GenDiskXML.exe 还会收集在恢复过程中用于重新创建磁盘配置的文件，名为 disk.xml。  
   
 1.  在 Sysprep 之后，使用任意 64 位版 Windows PE 重新启动系统。  
   
@@ -117,29 +117,29 @@ ms.locfileid: "59844348"
 > [!NOTE]
 >  所列文件名要完全匹配。  
   
-1.  向导页面提供了获取更多帮助的链接。 如果此 .chm 文件存在，则会覆盖 Web 帮助的 FWLink。 帮助文件位于：  
+1. 向导页面提供了获取更多帮助的链接。 如果此 .chm 文件存在，则会覆盖 Web 帮助的 FWLink。 帮助文件位于：  
   
-     < DVD 根目录\>\\$OEM$ \Customization\\< 区域性名称\>\RestartHelp.chm  
+    < DVD 根目录\>\\$OEM$ \Customization\\< 区域性名称\>\RestartHelp.chm  
   
-2.  该文件包含客户在向导页面看到的文本。 文本应该说明如何以恢复模式启动服务器。 控件是可滚动的，这就为可添加的文本量设置了实际的限制。  
+2. 该文件包含客户在向导页面看到的文本。 文本应该说明如何以恢复模式启动服务器。 控件是可滚动的，这就为可添加的文本量设置了实际的限制。  
   
-     如下描述的文件用于替换向导中的示例图片，此文件主要与商标有关。 此文件必须为 .png 文件。 文件大小必须为 256 x 256 像素，否则在向导中显示时会被剪切。  
+    如下描述的文件用于替换向导中的示例图片，此文件主要与商标有关。 此文件必须为 .png 文件。 文件大小必须为 256 x 256 像素，否则在向导中显示时会被剪切。  
   
-     < DVD 根目录\>\\$OEM$ \Customization\\< 区域性名称\>\RestartInstructions.rtf  
+    < DVD 根目录\>\\$OEM$ \Customization\\< 区域性名称\>\RestartInstructions.rtf  
   
-3.  < DVD 根目录\>\\$OEM$ \Customization\\< 区域性名称\>\ServerImage.png  
+3. < DVD 根目录\>\\$OEM$ \Customization\\< 区域性名称\>\ServerImage.png  
   
- 将服务器恢复 DVD 转变为支持多个语言的时候，请确保完成以下操作：  
+   将服务器恢复 DVD 转变为支持多个语言的时候，请确保完成以下操作：  
   
-1.  必须始终保留 en-us 文件夹。 如果服务器恢复应用程序找不到与运行应用程序的客户端计算机匹配的区域特定的文件，则会返回到 en-us。  
+4. 必须始终保留 en-us 文件夹。 如果服务器恢复应用程序找不到与运行应用程序的客户端计算机匹配的区域特定的文件，则会返回到 en-us。  
   
-2.  在创建的每个语言文件夹中，添加三个自定义文件（.png、.chm 和 .rtf）。  
+5. 在创建的每个语言文件夹中，添加三个自定义文件（.png、.chm 和 .rtf）。  
   
-3.  从语言包复制这两个区域性文件夹\\< CultureName\>\Server 恢复到服务器恢复 DVD 的根目录。 例如：ES 和 ES-ES 文件夹都要复制到 DVD 的根目录以支持西班牙语。  
+6. 从语言包复制这两个区域性文件夹\\< CultureName\>\Server 恢复到服务器恢复 DVD 的根目录。 例如：ES 和 ES-ES 文件夹都要复制到 DVD 的根目录以支持西班牙语。  
   
-4.  完成 ISO 文件。  
+7. 完成 ISO 文件。  
   
- 支持的语言名称包括：  
+   支持的语言名称包括：  
 
 |-|-|  
 |- cs-CZ<br /><br /> -DE-DE<br /><br /> -EN-US<br /><br /> - es-ES<br /><br /> - fr-FR<br /><br /> -hu HU<br /><br /> -it IT<br /><br /> -JA-JP<br /><br /> - ko-KR<br /><br /> - nl-NL|- pl-PL<br /><br /> - pt-BR<br /><br /> - pt-PT<br /><br /> -ru RU<br /><br /> - sv-SE<br /><br /> - tr-TR<br /><br /> - zh-CN<br /><br /> - zh-HK<br /><br /> - zh-TW
@@ -166,7 +166,7 @@ ms.locfileid: "59844348"
   
 2.  双击 **setup.exe**。 服务器恢复向导会提示你完成客户将会遵循的相同流程。  
   
-3.  单击 **“从备份还原服务器”**，然后按照向导中的说明执行操作。  
+3.  单击 **“从备份还原服务器”** ，然后按照向导中的说明执行操作。  
   
 ## <a name="see-also"></a>请参阅  
  [创建和自定义映像](Creating-and-Customizing-the-Image.md)   

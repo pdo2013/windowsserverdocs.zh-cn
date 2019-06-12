@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 4235231c-4732-4ea9-9330-2a8c8a616d39
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: dc2cb29f0f00c04c4208bd83d70bc4d966bbad00
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 54991b343623b934118bb62af1bd91871a726996
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839348"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446480"
 ---
 # <a name="deploy-branchcache-hosted-cache-mode"></a>部署 BranchCache 托管缓存模式
 
@@ -63,8 +63,8 @@ Windows Server 2016 核心网络指南提供有关规划和部署完全正常运
     - Windows 8.1 企业版
     - Windows 8 企业版
 
->[!NOTE]
->在以下操作系统中，BranchCache 不支持 HTTP 和 SMB 功能，但支持 BranchCache BITS 功能。
+> [!NOTE]
+> 在以下操作系统中，BranchCache 不支持 HTTP 和 SMB 功能，但支持 BranchCache BITS 功能。
 >     - Windows 10 专业版，BITS 仅支持
 >     - Windows 8.1 Pro BITS 仅支持
 >     - Windows 8 专业版，BITS 仅支持

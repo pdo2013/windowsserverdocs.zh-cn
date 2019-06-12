@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: a255a4a5-c1a0-4edc-b41a-211bae397e3c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4ec4bc8e77e8411101b9a2b83a85ad5e1a0765b2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c74bb2ee2f1647716c8c38e392434a5b7f01805f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873498"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446390"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-deployment"></a>使用 DNS 策略执行拆分\-澍 DNS 部署
 
@@ -33,7 +33,7 @@ ms.locfileid: "59873498"
 - [拆分式 DNS 部署示例](#bkmk_sbexample)
 - [DNS 选择性递归控件的示例](#bkmk_recursion)
 
-##<a name="bkmk_sbexample"></a>拆分式 DNS 部署示例
+## <a name="bkmk_sbexample"></a>拆分式 DNS 部署示例
 下面是举例说明如何使用 DNS 策略来完成的拆分式 DNS 前面所述的方案。
 
 本部分包含以下主题。
@@ -57,7 +57,7 @@ ms.locfileid: "59873498"
 ![拆分式 DNS 部署](../../media/DNS-Split-Brain/Dns-Split-Brain-01.jpg)  
 
 
-##<a name="bkmk_sbhow"></a>拆分式 DNS 部署的工作原理
+## <a name="bkmk_sbhow"></a>拆分式 DNS 部署的工作原理
 
 与所需的 DNS 策略配置 DNS 服务器，会针对 DNS 服务器上的策略评估每个名称解析请求。
 
@@ -67,7 +67,7 @@ ms.locfileid: "59873498"
 
 因此，在本例中为专用 IP (10.0.0.56) 收到的 DNS 查询的 www.career.contoso.com 接收 DNS 响应，其中包含内部 IP 地址;和公共网络接口接收的 DNS 查询收到包含 （这是正常的查询解析相同） 的默认区域作用域中的公共 IP 地址的 DNS 响应。  
 
-##<a name="bkmk_sbconfigure"></a>如何配置拆分式 DNS 部署
+## <a name="bkmk_sbconfigure"></a>如何配置拆分式 DNS 部署
 若要使用 DNS 策略配置 DNS Split-Brain 部署，必须使用以下步骤。
 
 - [创建区域作用域](#bkmk_zscopes)  
@@ -79,12 +79,12 @@ ms.locfileid: "59873498"
 >[!IMPORTANT]
 >以下部分包含示例 Windows PowerShell 命令包含多个参数的示例值。 请确保将这些命令中的示例值替换之前运行这些命令适用于你的部署的值为。 
 
-###<a name="bkmk_zscopes"></a>创建区域作用域
+### <a name="bkmk_zscopes"></a>创建区域作用域
 
 区域作用域是该区域的唯一实例。 DNS 区域可以有多个区域作用域，包含其自己的 DNS 记录集的每个区域作用域。 同一条记录可出现在多个作用域，使用不同的 IP 地址或相同的 IP 地址。 
 
->[!NOTE]
->默认情况下，区域作用域的 DNS 区域上存在。 此区域作用域为该区域具有相同的名称和旧的 DNS 操作适用于此作用域。 此默认区域作用域将承载 www.career.contoso.com 外部版本。
+> [!NOTE]
+> 默认情况下，区域作用域的 DNS 区域上存在。 此区域作用域为该区域具有相同的名称和旧的 DNS 操作适用于此作用域。 此默认区域作用域将承载 www.career.contoso.com 外部版本。
 
 可以使用下面的示例命令进行分区区域作用域 contoso.com，若要创建的内部区域作用域。 内部区域作用域将用于保留 www.career.contoso.com 的内部版本。
 
@@ -92,11 +92,11 @@ ms.locfileid: "59873498"
 
 有关详细信息，请参阅[添加 DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-###<a name="bkmk_records"></a>将记录添加到区域作用域
+### <a name="bkmk_records"></a>将记录添加到区域作用域
 
 下一步是添加表示 Web 服务器主机到两个区域作用域的内部和默认值 （对于外部客户端） 的记录。 
 
-在内部区域范围内，记录**www.career.contoso.com** 10.0.0.39，这是一个专用 IP; 的 IP 地址和默认区域作用域在同一个记录，添加**www.career.contoso.com**，是添加使用 65.55.39.10 的 IP 地址。
+在内部区域范围内，记录<strong>www.career.contoso.com</strong> 10.0.0.39，这是一个专用 IP; 的 IP 地址和默认区域作用域在同一个记录，添加<strong>www.career.contoso.com</strong>，是添加使用 65.55.39.10 的 IP 地址。
 
 否 **– 区域范围区域**记录被添加到默认区域作用域时，在下面的示例命令中提供的参数。 这是类似于将记录添加到普通的区域。
 
@@ -109,7 +109,7 @@ Add-DnsServerResourceRecord -ZoneName "contoso.com" -A -Name "www.career" -IPv4A
 
 有关详细信息，请参阅[添加 DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps)。
 
-###<a name="bkmk_policies"></a>创建 DNS 策略
+### <a name="bkmk_policies"></a>创建 DNS 策略
 
 您确定了外部网络和内部网络的服务器接口，并且已创建的区域作用域后，必须创建连接的内部和外部区域作用域的 DNS 策略。
 

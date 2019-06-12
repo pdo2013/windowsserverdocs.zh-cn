@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: d011eaad-f72a-4a83-8099-8589c4ee8994
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0257c4d15db4fc54e55ef430f6f2eea9cea2ec4d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 65a272873a60d74efcf417a16fdc84670f5878da
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882818"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447001"
 ---
 # <a name="realm-names"></a>领域名称
 
@@ -28,7 +28,7 @@ ms.locfileid: "59882818"
 
 - **Example\user1**。 在此示例中，领域名称**示例**是前缀; 并且它也是 Active Directory 名称&reg;域服务\(AD DS\)域。
 
-- **user1@example.com**. 在此示例中，领域名称**example.com**是后缀; 并且它是 DNS 域名或 AD DS 域的名称。
+- <strong>user1@example.com</strong>. 在此示例中，领域名称**example.com**是后缀; 并且它是 DNS 域名或 AD DS 域的名称。
 
 可以使用在设计和部署 RADIUS 基础结构的同时在连接请求策略中配置的领域名称以确保连接请求路由从 RADIUS 客户端，也称为网络访问服务器，到可的 RADIUS 服务器身份验证和授权连接请求。
 

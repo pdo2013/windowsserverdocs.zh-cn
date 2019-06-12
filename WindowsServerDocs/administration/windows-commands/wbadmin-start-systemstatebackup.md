@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 591ff7caa554a892bda0bc0e888bd89a87d8b0ef
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d98ba295b2a76baf98e85a01a02677d57922877d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863548"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440262"
 ---
 # <a name="wbadmin-start-systemstatebackup"></a>Wbadmin start systemstatebackup
 
@@ -43,10 +43,10 @@ wbadmin start systemstatebackup
 
 ## <a name="parameters"></a>Parameters
 
-|参数|描述|
-|---------|-----------|
-|-backupTarget|指定你想要存储备份的位置。 存储位置需要驱动器号或基于 GUID 的格式的卷： \\ \\？ \Volume {*GUID*}。</br>运行 Windows Server 2008 的计算机上不支持系统状态备份到共享的网络文件夹。 如果你的服务器正在运行 Windows Server 2008 R2 或更高版本可以使用命令 **-backuptarget:\\\\servername\sharedFolder\** 来存储系统状态备份。|
-|-quiet|向用户使用无提示运行子命令。|
+|   参数   |                                                                                                                                                                                                                      描述                                                                                                                                                                                                                      |
+|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -backupTarget | 指定你想要存储备份的位置。 存储位置需要驱动器号或基于 GUID 的格式的卷： \\ \\？ \Volume {*GUID*}。</br>运行 Windows Server 2008 的计算机上不支持系统状态备份到共享的网络文件夹。 如果你的服务器正在运行 Windows Server 2008 R2 或更高版本可以使用命令 **-backuptarget:\\\\servername\sharedFolder\\** 来存储系统状态备份。 |
+|    -quiet     |                                                                                                                                                                                                   向用户使用无提示运行子命令。                                                                                                                                                                                                    |
 
 ## <a name="remarks"></a>备注
 
@@ -61,6 +61,6 @@ wbadmin start systemstatebackup -backupTarget:f:
 
 #### <a name="additional-references"></a>其他参考
 
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Start-wbbackup](https://technet.microsoft.com/library/jj902459.aspx) cmdlet

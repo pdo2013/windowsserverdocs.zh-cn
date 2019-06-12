@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4985a8d16614bd12bce991e196d105464d37634d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a0e4bb77003ab24e0e31268509fb8667a671bea6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845058"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445534"
 ---
 # <a name="prepare-to-migrate-an-ad-fs-20-wid-farm"></a>准备迁移 AD FS 2.0 WID 场  
  若要准备将属于 Windows Server 2012 的 Windows 内部数据库 (WID) 场的 AD FS 2.0 联合服务器迁移，必须导出并备份 AD FS 配置数据从这些服务器。  
@@ -38,14 +38,14 @@ ms.locfileid: "59845058"
 >   
 >  此步骤是可选的，因为此证书存储在本地计算机个人证书存储中，并将在操作系统升级过程中保留。  
   
-2.  除了自签名证书以外，请导出任何令牌签名、令牌加密或服务通信证书和非内部生成的密钥。  
+2. 除了自签名证书以外，请导出任何令牌签名、令牌加密或服务通信证书和非内部生成的密钥。  
   
 你可以通过使用 Windows PowerShell 查看在你的服务器上使用的所有证书。 打开 Windows PowerShell 并运行以下命令，将 AD FS cmdlet 添加到你的 Windows PowerShell 会话： `PSH:>add-pssnapin “Microsoft.adfs.powershell”`。 然后运行以下命令以查看你的服务器正在使用的所有证书 `PSH:>Get-ADFSCertificate`。 此命令的输出包括指定每个证书的存储位置的 StoreLocation 和 StoreName 值。  然后，你可以使用[导出服务器身份验证证书的私钥部分](Export-the-Private-Key-Portion-of-a-Server-Authentication-Certificate.md)中的指南，将每个证书及其私钥导出到 .pfx 文件。  
   
 > [!NOTE]
 >  此步骤是可选的，因为在操作系统升级过程中将保留所有外部证书。  
   
-3.  记录 AD FS 2.0 联合身份验证服务帐户的标识以及此帐户的密码。  
+3. 记录 AD FS 2.0 联合身份验证服务帐户的标识以及此帐户的密码。  
   
 若要查找标识值，请在“服务”  控制台中查看“AD FS 2.0 Windows 服务”  中的“登录为”  列，并手动记录此值。  
   

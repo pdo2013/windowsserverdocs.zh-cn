@@ -13,12 +13,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 05/16/2018
-ms.openlocfilehash: 48dabb5ad83b82f0a93992ad8c24456a8a8e7ef5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b1af556200c9dd497bac835f1480479cca075dab
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873088"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447282"
 ---
 # <a name="overview-of-tls---ssl-schannel-ssp"></a>TLS 的 SSL (Schannel SSP) 的概述
 
@@ -31,7 +31,7 @@ Schannel 是实现 SSL、TLS 和 DTLS Internet 标准身份验证协议的安全
 TLS 和 SSL 在 Schannel SSP 中的 Microsoft 实现的详细信息，请参阅[TLS/SSL 技术参考 (2003)](https://technet.microsoft.com/library/cc784149(v=ws.10).aspx)。
 
 
-##<a name="tlsssl-schannel-ssp-features"></a>TLS/SSL (Schannel SSP) 功能
+## <a name="tlsssl-schannel-ssp-features"></a>TLS/SSL (Schannel SSP) 功能
 下面描述了 Schannel SSP 中的 TLS 的功能
 
 ### <a name="tls-session-resumption"></a>TLS 会话恢复
@@ -84,7 +84,7 @@ Windows Server 2012 中使用的证书存储; 配置受信任的颁发者列表�
 
 -   如果为站点配置了特定凭据存储，则它会用作源
 
--   如果应用程序定义的存储中不存在任何证书，则 Schannel 会检查本地计算机上的“客户端身份验证颁发者”存储，如果证书存在，则使用该存储作为源。 如果未在任一存储中找到证书，则检查受信任根存储。
+-   如果应用程序定义的存储中不存在任何证书，则 Schannel 会检查本地计算机上的“客户端身份验证颁发者”  存储，如果证书存在，则使用该存储作为源。 如果未在任一存储中找到证书，则检查受信任根存储。
 
 -   如果全局和本地存储都不包含证书，则 Schannel 提供程序将使用**受信任的根证书颁发机构**存储作为受信任的颁发者列表的源。 （这是 Windows Server 2008 R2 的行为）。
 
@@ -104,7 +104,7 @@ Windows Server 2012 中的 Schannel SSP 体系结构将默认使用上文所述�
 
 Schannel 提供程序支持三种客户端身份验证信任模式。 信任模式控制如何执行验证的客户端的证书链和由 REG_DWORD"clientauthtrustmode"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\Schannel 下进行控制的系统范围设置.
 
-|ReplTest1|信任模式|描述|
+|值|信任模式|描述|
 |-----|-------|--------|
 |0|计算机信任（默认值）|需要由受信任颁发者列表中的证书颁发客户端证书。|
 |1|独占根信任|需要客户端证书链接到调用方指定的受信任颁发者存储中包含的根证书。 也必须由受信任颁发者列表中的颁发者颁发证书|

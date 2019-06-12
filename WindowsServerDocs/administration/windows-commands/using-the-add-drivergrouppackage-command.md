@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b32d72a1317683e4c1bbeb2d6101d1315b69148e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ad9d180e2cf2110d36ebc82211af3a495a0e0b6b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862638"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440728"
 ---
 # <a name="using-the-add-drivergrouppackage-command"></a>使用添加 DriverGroupPackage 命令
 
@@ -30,12 +30,14 @@ ms.locfileid: "59862638"
 wdsutil /add-DriverGroupPackage /DriverGroup:<Group Name> [/Server:<Server Name>] {/DriverPackage:<Name> | /PackageId:<ID>}
 ```
 ## <a name="parameters"></a>Parameters
-|参数|描述|
-|-------|--------|
-|/DriverGroup:<Group Name>|指定的驱动程序组的名称。|
-|/ 服务器：<Server name>|指定的服务器的名称。 这可以是 NetBIOS 名称或 FQDN。 如果指定没有服务器名称，则使用本地服务器。|
-|/DriverPackage:<Name>|指定要添加到组的驱动程序包的名称。 如果不能由名称唯一地标识驱动程序包，必须指定此选项。|
-|/PackageId:<ID>|指定包的 ID。 若要查找程序包 ID，请单击包中的驱动程序组 (或**的所有包**节点)，右键单击包，然后单击**属性**。 上列出包 ID**常规**选项卡中，例如： **{DD098D20-1850-4fc8-8E35-EA24A1BEFF5E}**。|
+
+|         参数         |                                                                                                                                               描述                                                                                                                                               |
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| /DriverGroup:<Group Name> |                                                                                                                                 指定的驱动程序组的名称。                                                                                                                                 |
+|   / 服务器：<Server name>   |                                                                                  指定的服务器的名称。 这可以是 NetBIOS 名称或 FQDN。 如果指定没有服务器名称，则使用本地服务器。                                                                                  |
+|   /DriverPackage:<Name>   |                                                                      指定要添加到组的驱动程序包的名称。 如果不能由名称唯一地标识驱动程序包，必须指定此选项。                                                                       |
+|      /PackageId:<ID>      | 指定包的 ID。 若要查找程序包 ID，请单击包中的驱动程序组 (或**的所有包**节点)，右键单击包，然后单击**属性**。 上列出包 ID**常规**选项卡中，例如： **{DD098D20-1850-4fc8-8E35-EA24A1BEFF5E}** 。 |
+
 ## <a name="BKMK_examples"></a>示例
 若要添加驱动程序包，请键入以下项之一：
 ```

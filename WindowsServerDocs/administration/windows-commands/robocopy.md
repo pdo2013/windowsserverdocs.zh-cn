@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 07/25/2018
-ms.openlocfilehash: a10b3d3877e9511164d298bcc1dab11540e6f596
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 7ab2eff32b105916d979a954275e9c9122a06903
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188205"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441721"
 ---
 # <a name="robocopy"></a>robocopy
 
@@ -32,12 +32,12 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 
 ## <a name="parameters"></a>Parameters
 
-|参数|描述|
-|---------|-----------|
-|\<源 >|指定源目录的路径。|
-|\<目标 >|指定目标目录的路径。|
-|\<文件 >|指定要复制的文件。 可以使用通配符 (**&#42;** 或 **？** )，如果你想。 如果**文件**未指定参数，  **\*。\*** 用作默认值。|
-|\<Options>|指定要与一起使用的选项**robocopy**命令。|
+|   参数    |                                                                                            描述                                                                                             |
+|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   \<源 >    |                                                                            指定源目录的路径。                                                                             |
+| \<目标 > |                                                                          指定目标目录的路径。                                                                          |
+|    \<文件 >     | 指定要复制的文件。 可以使用通配符 ( **&#42;** 或 **？** )，如果你想。 如果**文件**未指定参数，  **\*。\\** \*用作默认值。 |
+|   \<Options>   |                                                                    指定要与一起使用的选项**robocopy**命令。                                                                     |
 
 ### <a name="copy-options"></a>复制选项
 
@@ -90,7 +90,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/m|仅复制的文件为其**存档**属性设置，并将重置**存档**属性。|
 |/ia:[RASHCNETO]|包括仅为其设置任何指定的特性的文件。|
 |/xa:[RASHCNETO]|排除设置指定任何的特性文件。|
-|/xf \<FileName>[ ...]|排除与指定的名称或路径相匹配的文件。 请注意，*文件名*可包含通配符 (**&#42;** 并 **？** )。|
+|/xf \<FileName>[ ...]|排除与指定的名称或路径相匹配的文件。 请注意，*文件名*可包含通配符 ( **&#42;** 并 **？** )。|
 |/xd \<Directory>[ ...]|不包括匹配的指定的名称和路径的目录。|
 |/xc|不包括已更改的文件。|
 |/xn|排除较新的文件。|
@@ -157,7 +157,8 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/if|包含指定的文件。|
 
 ### <a name="exit-return-codes"></a>（返回） 的退出代码
-值 | Description
+
+ReplTest1 | Description
 -- | --
 0 | 没有复制文件。 不遇到任何错误。  不匹配任何文件。 文件已存在于目标目录中;因此，复制操作已跳过。
 1 | 已成功复制的所有文件。

@@ -9,12 +9,12 @@ ms.date: 10/18/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 42b71667758f392d641c5262e34322f8b21cfad9
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 979802469737066612bc6242f942fd3acd077479
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188910"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444790"
 ---
 # <a name="walkthrough-workplace-join-with-an-ios-device"></a>操作实例：使用 iOS 设备加入工作区
 
@@ -37,23 +37,23 @@ ms.locfileid: "66188910"
 
 #### <a name="to-join-an-ios-device-to-a-workplace"></a>将 iOS 设备加入到工作区
 
-1.  -   **如果已配置的 DRS 是 Azure Active Directory 设备注册服务：** 打开 Apple Safari 并导航到 iOS 设备的 Azure Active Directory 设备注册服务无线配置文件终结点 <`https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/<yourdomainname` >，<`yourdomainname`> 是你使用 Azure Active Directory 配置的域名。 例如，如果你的域名为 contoso.com，则 URL 将为：`https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com`
+1. -   **如果已配置的 DRS 是 Azure Active Directory 设备注册服务：** 打开 Apple Safari 并导航到 iOS 设备的 Azure Active Directory 设备注册服务无线配置文件终结点 <`https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/<yourdomainname` >，<`yourdomainname`> 是你使用 Azure Active Directory 配置的域名。 例如，如果你的域名为 contoso.com，则 URL 将为：`https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com`
 
-    -   **如果已配置的 DRS 是本地 DRS**：打开 Apple Safari 并导航到 iOS 设备的设备注册服务 (DRS) 无线配置文件终结点 `https://adf1s.contoso.com/enrollmentserver/otaprofile`
+   -   **如果已配置的 DRS 是本地 DRS**：打开 Apple Safari 并导航到 iOS 设备的设备注册服务 (DRS) 无线配置文件终结点 `https://adf1s.contoso.com/enrollmentserver/otaprofile`
 
-    将此 URL 传播给用户的方式有很多。 其中一种建议的方式是在 AD FS 中的自定义应用程序访问被拒消息中发布此 URL。 后面的部分中介绍了此方式：[创建应用程序访问策略和自定义访问被拒消息](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup#create-an-application-access-policy-and-custom-access-denied-message)
+   将此 URL 传播给用户的方式有很多。 其中一种建议的方式是在 AD FS 中的自定义应用程序访问被拒消息中发布此 URL。 后面的部分中介绍了此方式：[创建应用程序访问策略和自定义访问被拒消息](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup#create-an-application-access-policy-and-custom-access-denied-message)
 
-2.  登录到网页使用公司的域帐户： **roberth@contoso.com**和密码： **P@ssword**。
+2. 登录到网页使用公司的域帐户： <strong>roberth@contoso.com</strong>和密码： <strong>P@ssword</strong>。
 
-3.  系统会提示你安装配置文件。 在“安装配置文件”  屏幕上，单击“安装”  。
+3. 系统会提示你安装配置文件。 在“安装配置文件”  屏幕上，单击“安装”  。
 
-4.  当系统提示确认安装配置文件时，请单击“立即安装”  。
+4. 当系统提示确认安装配置文件时，请单击“立即安装”  。
 
-5.  如果你的设备需要一个 PIN 来解锁，系统会提示你输入 PIN。
+5. 如果你的设备需要一个 PIN 来解锁，系统会提示你输入 PIN。
 
-6.  当你看到“配置文件已安装”  屏幕时，表示配置文件安装已完成。 单击 **“完成”** 。
+6. 当你看到“配置文件已安装”  屏幕时，表示配置文件安装已完成。 单击 **“完成”** 。
 
-    返回到 Safari。 显示一条消息，通知你可以关闭或退出 Safari。
+   返回到 Safari。 显示一条消息，通知你可以关闭或退出 Safari。
 
 > [!TIP]
 > 若要查看或删除“工作区加入”配置文件，请浏览到“设置”  ，单击“常规”  ，然后单击 iOS 设备上的“配置文件”  。

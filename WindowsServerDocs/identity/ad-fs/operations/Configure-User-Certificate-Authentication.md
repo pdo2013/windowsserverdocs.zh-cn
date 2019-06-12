@@ -9,19 +9,19 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2d819ea036029fbe7cfde9ad5a445db6b2b42c96
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: c69192a4223379b896a57eb04a38e37863c1366e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189701"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444317"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>为用户证书身份验证配置 AD FS
 
 
 可以为 x509 用户证书身份验证使用一种模式中所述配置 AD FS[这篇文章](ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md)。 可以使用此功能[与 Azure Active Directory](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/)或本身要使客户端和设备预配用户证书访问 AD FS 与从 intranet 或 extranet 资源。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>系统必备
 - 确保用户证书受信任的所有 AD FS 和 WAP 服务器
 - 请确保对用户证书的信任链的根证书处于 NTAuth 存储在 Active Directory 中
 - 如果使用备用证书身份验证模式中的 AD FS，确保你的 AD FS 和 WAP 服务器具有包含"certauth"，例如"certauth.fs.contoso.com"，带有前缀的 AD FS 主机名的 SSL 证书并允许该流量与此主机名通过防火墙
@@ -51,23 +51,22 @@ ms.locfileid: "66189701"
 
 ## <a name="reference-complete-list-of-user-certificate-claim-types-and-example-values"></a>参考：用户证书的完整列表声明类型和示例值
 
-|声明类型|示例值
-|-----|-----
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/x509version | 3
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/signaturealgorithm | sha256RSA
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/issuer | CN=entca, DC=domain, DC=contoso, DC=com
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/issuername | CN=entca, DC=domain, DC=contoso, DC=com
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/notbefore | 12/05/2016 20:50:18
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/notafter | 12/05/2017 20:50:18
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/subject | E=user@contoso.com, CN=user, CN=Users, DC=domain, DC=contoso, DC=com
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/subjectname | E=user@contoso.com, CN=user, CN=Users, DC=domain, DC=contoso, DC=com
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/rawdata | {Base64 编码的数字证书数据}
-|https://schemas.microsoft.com/2012/12/certificatecontext/extension/keyusage | DigitalSignature
-|https://schemas.microsoft.com/2012/12/certificatecontext/extension/keyusage | KeyEncipherment
-|https://schemas.microsoft.com/2012/12/certificatecontext/extension/subjectkeyidentifier | 9D11941EC06FACCCCB1B116B56AA97F3987D620A
-|https://schemas.microsoft.com/2012/12/certificatecontext/extension/authoritykeyidentifier | KeyID = d6 13 e3 6b bc e5 d8 15 52 0a fd 36 6a d5 0b 51 f3 0b 25 7f
-|https://schemas.microsoft.com/2012/12/certificatecontext/extension/certificatetemplatename | “用户”
-|https://schemas.microsoft.com/2012/12/certificatecontext/extension/san | 其他主体名称： 名称 =user@contoso.com，RFC822 名称 =user@contoso.com
-|https://schemas.microsoft.com/2012/12/certificatecontext/extension/eku | 1.3.6.1.4.1.311.10.3.4
-
+|                                         声明类型                                         |                              示例值                               |
+|--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+|         https://schemas.microsoft.com/2012/12/certificatecontext/field/x509version         |                                    3                                     |
+|     https://schemas.microsoft.com/2012/12/certificatecontext/field/signaturealgorithm      |                                sha256RSA                                 |
+|           https://schemas.microsoft.com/2012/12/certificatecontext/field/issuer            |                 CN=entca, DC=domain, DC=contoso, DC=com                  |
+|         https://schemas.microsoft.com/2012/12/certificatecontext/field/issuername          |                 CN=entca, DC=domain, DC=contoso, DC=com                  |
+|          https://schemas.microsoft.com/2012/12/certificatecontext/field/notbefore          |                           12/05/2016 20:50:18                            |
+|          https://schemas.microsoft.com/2012/12/certificatecontext/field/notafter           |                           12/05/2017 20:50:18                            |
+|           https://schemas.microsoft.com/2012/12/certificatecontext/field/subject           |   E=user@contoso.com, CN=user, CN=Users, DC=domain, DC=contoso, DC=com   |
+|         https://schemas.microsoft.com/2012/12/certificatecontext/field/subjectname         |   E=user@contoso.com, CN=user, CN=Users, DC=domain, DC=contoso, DC=com   |
+|           https://schemas.microsoft.com/2012/12/certificatecontext/field/rawdata           |                {Base64 编码的数字证书数据}                 |
+|        https://schemas.microsoft.com/2012/12/certificatecontext/extension/keyusage         |                             DigitalSignature                             |
+|        https://schemas.microsoft.com/2012/12/certificatecontext/extension/keyusage         |                             KeyEncipherment                              |
+|  https://schemas.microsoft.com/2012/12/certificatecontext/extension/subjectkeyidentifier   |                 9D11941EC06FACCCCB1B116B56AA97F3987D620A                 |
+| https://schemas.microsoft.com/2012/12/certificatecontext/extension/authoritykeyidentifier  |    KeyID = d6 13 e3 6b bc e5 d8 15 52 0a fd 36 6a d5 0b 51 f3 0b 25 7f     |
+| https://schemas.microsoft.com/2012/12/certificatecontext/extension/certificatetemplatename |                                   “用户”                                   |
+|           https://schemas.microsoft.com/2012/12/certificatecontext/extension/san           | 其他主体名称： 名称 =user@contoso.com，RFC822 名称 =user@contoso.com |
+|           https://schemas.microsoft.com/2012/12/certificatecontext/extension/eku           |                          1.3.6.1.4.1.311.10.3.4                          |
 

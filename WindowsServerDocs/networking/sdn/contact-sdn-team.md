@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: f9945c55-c2d0-448f-86dd-8c734e1b2987
 ms.author: pashort
 author: kallie-b
-ms.openlocfilehash: ff102fc02208bc12b99b50c3b16e3dc51f397d76
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd67fe27c048a15903d18dca43cf331a025933b3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884488"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446378"
 ---
 # <a name="contact-the-datacenter-and-cloud-networking-team"></a>联系数据中心和云网络团队
 
@@ -37,8 +37,8 @@ Microsoft 的**软件定义的网络\(SDN\)** 并**容器网络**解决方案创
 我们[容器网络文档](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-networking)上可以找到[Microsoft Docs (docs.microsoft.com)](https://docs.microsoft.com/)，其中包含**内置评论功能**。 若要保留或答复评论 Microsoft Docs 上只需登录，向下滚动到你想要引用的 Microsoft 文档页的底部，然后进行并提交您的评论存在。
 
 > [Microsoft Docs](https://docs.microsoft.com/)是 Microsoft 的新的统一的文档站点。 尽管我们团队的大部分[SDN 文档](https://technet.microsoft.com/windows-server-docs/networking/sdn/software-defined-networking)保留在 TechNet 上我们[容器网络文档](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-networking)现已在 Microsoft Docs 上。
-
->*一般情况下，如果在 Microsoft 文档，在其中激发了某个问题或会使你想详细上运行到主题，只留下评论在该页上，可帮助 Microsoft 团队提供反馈。*
+> 
+> *一般情况下，如果在 Microsoft 文档，在其中激发了某个问题或会使你想详细上运行到主题，只留下评论在该页上，可帮助 Microsoft 团队提供反馈。*
 
 ## <a name="container-specific-forums"></a>特定于容器论坛
 随意使用此页上的任何途径来提供对容器和容器网络相关的反馈。 但是，如果您正在寻找 Microsoft 的主要论坛中的容器社区具体而言，请参阅以下：

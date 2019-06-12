@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2033cbc9b3d9127249656c3e0dcf95d872229797
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a1b5fca329864ebed9eab66671a17493f0fc3ca8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842538"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440909"
 ---
 # <a name="tsdiscon"></a>tsdiscon
 
@@ -36,6 +36,7 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
 ```
 
 ## <a name="parameters"></a>Parameters
+
 |参数|描述|
 |-------|--------|
 |\<SessionId>|指定要断开连接的会话 ID。|
@@ -52,18 +53,18 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
 -   无法断开连接的控制台会话。
 
 ## <a name="BKMK_examples"></a>示例
--   若要断开当前会话，请键入：
-    ```
-    tsdiscon
-    ```
--   若要断开连接会话 10，请键入：
-    ```
-    tsdiscon 10
-    ```
--   若要断开名为 TERM04 会话的连接，请键入：
-    ```
-    tsdiscon TERM04
-    ```
-#### <a name="additional-references"></a>其他参考
-[命令行语法解答](command-line-syntax-key.md)
-[远程桌面服务 & #40;终端服务和 #41;命令参考](remote-desktop-services-terminal-services-command-reference.md)
+- 若要断开当前会话，请键入：
+  ```
+  tsdiscon
+  ```
+- 若要断开连接会话 10，请键入：
+  ```
+  tsdiscon 10
+  ```
+- 若要断开名为 TERM04 会话的连接，请键入：
+  ```
+  tsdiscon TERM04
+  ```
+  #### <a name="additional-references"></a>其他参考
+  [命令行语法解答](command-line-syntax-key.md)
+  [远程桌面服务 & #40;终端服务和 #41;命令参考](remote-desktop-services-terminal-services-command-reference.md)

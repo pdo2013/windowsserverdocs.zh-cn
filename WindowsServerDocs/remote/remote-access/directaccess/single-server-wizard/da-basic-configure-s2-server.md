@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 82bf5fed-93b3-4fa6-8e71-522146eccdb1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fc0abf849d43c8ba6ec86e17b9ed86fce573ed47
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9983fb475143109d191f3b6d69afef48d109472a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813378"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446948"
 ---
 # <a name="step-2-configure-the-basic-directaccess-server"></a>步骤 2 配置基本 DirectAccess 服务器
 
@@ -44,17 +44,17 @@ ms.locfileid: "59813378"
   
 2.  单击 **“下一步”** 三次以打开服务器角色选择屏幕。  
   
-3.  在“选择服务器角色”  对话框中选择“远程访问” ，然后单击“下一步” 。  
+3.  在“选择服务器角色”  对话框中选择“远程访问”  ，然后单击“下一步”  。  
   
-4.  在“选择功能”对话框上，单击“下一步”。  
+4.  在“选择功能”  对话框上，单击“下一步”  。  
   
 5.  单击**下一步**，然后在**选择角色服务**对话框中，单击**DirectAccess 和 VPN (RAS)** 复选框。  
   
 6.  单击**添加功能**，单击**下一步**，然后单击**安装**。  
   
-7.  在“安装进度”对话框中，验证安装是否成功，然后单击“关闭”。  
+7.  在“安装进度”  对话框中，验证安装是否成功，然后单击“关闭”  。  
   
-![Windows PowerShell](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![Windows PowerShell](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 以下 Windows PowerShell cmdlet 安装远程访问角色： 
 
@@ -85,22 +85,22 @@ ms.locfileid: "59813378"
   
 #### <a name="to-configure-directaccess-using-the-getting-started-wizard"></a>使用开始向导配置 DirectAccess 的步骤  
   
-1.  在服务器管理器中单击 **“工具”**，然后单击 **“远程访问管理”**。  
+1.  在服务器管理器中单击 **“工具”** ，然后单击 **“远程访问管理”** 。  
   
 2.  在远程访问管理控制台中，选择要在左侧的导航窗格中，配置的角色服务，然后单击**运行开始向导**。  
   
-3.  单击 **“仅部署 DirectAccess”**。  
+3.  单击 **“仅部署 DirectAccess”** 。  
   
-4.  选择网络配置拓扑，并键入远程访问客户端将连接到的公用名称。 单击“下一步” 。  
+4.  选择网络配置拓扑，并键入远程访问客户端将连接到的公用名称。 单击“下一步”  。  
   
     > [!NOTE]  
     > 默认情况下，通过将 WMI 筛选器应用到客户端设置 GPO，开始向导将 DirectAccess 部署到域中所有便携式计算机和笔记本计算机。  
   
-5.  单击 **“完成”**。  
+5.  单击 **“完成”** 。  
   
-6.  因为在此部署中未使用 PKI，所以如果找不到证书，则向导将自动为 IP-HTTPS 和网络位置服务器准备自签名证书，并且将自动启用 Kerberos 代理。 该向导还将为仅 IPv4 环境中的协议转换启用 NAT64 和 DNS64。 向导成功完成应用配置后，单击 **“关闭”**。  
+6.  因为在此部署中未使用 PKI，所以如果找不到证书，则向导将自动为 IP-HTTPS 和网络位置服务器准备自签名证书，并且将自动启用 Kerberos 代理。 该向导还将为仅 IPv4 环境中的协议转换启用 NAT64 和 DNS64。 向导成功完成应用配置后，单击 **“关闭”** 。  
   
-7.  在“远程访问管理”控制台的控制台树中，选择 **“操作状态”**。 等待，直到所有监视器的状态都显示为“正在工作”。 在“监视”下的“任务”窗格中，单击 **“刷新”** 定时更新显示。  
+7.  在“远程访问管理”控制台的控制台树中，选择 **“操作状态”** 。 等待，直到所有监视器的状态都显示为“正在工作”。 在“监视”下的“任务”窗格中，单击 **“刷新”** 定时更新显示。  
   
 ## <a name="update-clients-with-the-directaccess-configuration"></a>使用 DirectAccess 配置更新客户端  
   
@@ -118,7 +118,7 @@ ms.locfileid: "59813378"
   
 5.  输入 **Get-NCSIPolicyConfiguration**，然后按 **Enter**。 会显示向导部署的网络连接状态指示器设置。 记录 DomainLocationDeterminationURL 的值。 只要可以访问此网络位置服务器 URL，客户端就会确定它是否在公司网络内部，且不会应用 NRPT 设置。  
   
-6.  输入 **Get-DAConnectionStatus**，然后按 **Enter**。 因为客户端可以访问网络位置服务器 URL，状态会显示为 **“已本地连接”**。  
+6.  输入 **Get-DAConnectionStatus**，然后按 **Enter**。 因为客户端可以访问网络位置服务器 URL，状态会显示为 **“已本地连接”** 。  
   
 ## <a name="BKMK_Links"></a>上一步  
   

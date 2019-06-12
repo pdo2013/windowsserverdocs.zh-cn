@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: faec70ac-88c0-4b0a-85c7-f0fe21e28257
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: beecef692b2ac01e6cb6c36892fec16e55b08209
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f3b2eb55c11348c3abcb1ef9e234cd19ba727758
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835168"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446588"
 ---
 # <a name="step-2-configure-the-multisite-infrastructure"></a>步骤 2 配置多站点基础结构
 
@@ -61,7 +61,7 @@ ms.locfileid: "59835168"
   
 8.  关闭 Active Directory 站点和服务。  
   
-![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -108,7 +108,7 @@ New-ADReplicationSubnet -Name "2001:db8:2::/64" -Site "Second-Site"
   
 3.  上**选择服务器角色**页上，选择**Active Directory 域服务**。 单击**添加功能**当系统提示，然后单击**下一步**三次。  
   
-4.  在“确认”页上，单击“安装”。  
+4.  在“确认”  页上，单击“安装”  。  
   
 5.  安装成功完成后，单击**提升此服务器的域控制器到**。  
   
@@ -116,7 +116,7 @@ New-ADReplicationSubnet -Name "2001:db8:2::/64" -Site "Second-Site"
   
 7.  在中**域**，输入域名称; 例如，corp.contoso.com。  
   
-8.  下**提供凭据以执行此操作**，单击**更改**。 上**Windows 安全**对话框框中，可以安装其他域控制器的帐户提供的用户名和密码。 若要安装其他域控制器，你必须是 Enterprise Admins 组或 Domain Admins 组的成员。 提供凭据后，单击 **“下一步”**。  
+8.  下**提供凭据以执行此操作**，单击**更改**。 上**Windows 安全**对话框框中，可以安装其他域控制器的帐户提供的用户名和密码。 若要安装其他域控制器，你必须是 Enterprise Admins 组或 Domain Admins 组的成员。 提供凭据后，单击 **“下一步”** 。  
   
 9. 上**域控制器选项**页上，执行以下操作：  
   
@@ -129,9 +129,9 @@ New-ADReplicationSubnet -Name "2001:db8:2::/64" -Site "Second-Site"
             > [!NOTE]  
             > 如果选择此选项以安装 DNS 服务器，可能会收到此消息，指明无法创建 DNS 服务器的 DNS 委派和应手动创建 DNS 委派到 DNS 服务器，以确保名称解析可靠。 如果在目录林根域或树的根域中安装其他域控制器，你无需创建 DNS 委派。 在这种情况下，单击**是**并忽略此消息。  
   
-        -   **全局编录 (GC)**"默认情况下选择此选项。 它会将全局编录、只读目录分区添加到域控制器，并且将启用全局编录搜索功能。  
+        -   **全局编录 (GC)** "默认情况下选择此选项。 它会将全局编录、只读目录分区添加到域控制器，并且将启用全局编录搜索功能。  
   
-        -   **只读域控制器 (RODC)**"未默认情况下选择此选项。 它使其他域控制器为只读;也就是说，它使域控制器将 RODC。  
+        -   **只读域控制器 (RODC)** "未默认情况下选择此选项。 它使其他域控制器为只读;也就是说，它使域控制器将 RODC。  
   
     2.  在中**站点名称**，从列表中选择一个站点。  
   
@@ -156,7 +156,7 @@ New-ADReplicationSubnet -Name "2001:db8:2::/64" -Site "Second-Site"
   
 1.  在主域控制器上，单击**启动**，然后单击**Active Directory 用户和计算机**。  
   
-2.  在控制台树中，右键单击想要添加新组，例如，corp.contoso.com/Users 的文件夹。 指向“新建”，然后单击“组”。  
+2.  在控制台树中，右键单击想要添加新组，例如，corp.contoso.com/Users 的文件夹。 指向“新建”  ，然后单击“组”  。  
   
 3.  上**新建对象-组**对话框中的**组名称**，键入新组，例如，Win7_Clients_Entrypoint1 的名称。  
   
@@ -164,13 +164,13 @@ New-ADReplicationSubnet -Name "2001:db8:2::/64" -Site "Second-Site"
   
 5.  若要将计算机添加到新的安全组中，双击安全组，然后在 **< 组名 > 属性**对话框中，单击**成员**选项卡。  
   
-6.  在“成员”  选项卡上，单击“添加” 。  
+6.  在“成员”  选项卡上，单击“添加”  。  
   
 7.  选择要添加到此安全组，并单击的 Windows 7 计算机**确定**。  
   
 8.  重复此过程以创建所需的每个入口点的安全组。  
   
-![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -301,7 +301,7 @@ Add-ADGroupMember -Identity Win7_Clients_Entrypoint1 -Members CLIENT2$
     ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssocFinal.png)  
   
 ### <a name="ConfigDistOptimization"></a>配置分发的优化  
-进行配置更改时，只有在服务器 Gpo 传播到远程访问服务器后，才应用所做的更改。 若要减少配置分发时，远程访问，会自动选择为超链接的可写域控制器"https://technet.microsoft.com/library/cc978016.aspx"远程访问服务器创建其服务器 GPO 时最接近。  
+进行配置更改时，只有在服务器 Gpo 传播到远程访问服务器后，才应用所做的更改。 若要减少配置分发时，远程访问，会自动选择为超链接的可写域控制器"<https://technet.microsoft.com/library/cc978016.aspx>"远程访问服务器创建其服务器 GPO 时最接近。  
   
 在某些情况下，它可能需要手动修改才能优化配置分发时间管理服务器 GPO 的域控制器：  
   

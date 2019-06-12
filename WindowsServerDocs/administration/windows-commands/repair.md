@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 940b0931671d5f3c2137fafe4ae73b7cecd0160e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1e4b9cde10e11558aaa95edda94921144dac1f86
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821188"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441803"
 ---
 # <a name="repair"></a>修复
 
@@ -36,11 +36,11 @@ repair disk=<n> [align=<n>] [noerr]
   
 ## <a name="parameters"></a>Parameters  
   
-|参数|描述|  
-|-------|--------|  
-|disk\=<n>|指定将替换出现故障的磁盘区域的动态磁盘。|  
-|align\=<n>|将所有卷或分区范围为最接近的对齐边界都对齐。 *n*是千字节数\(KB\)从一开始为最接近的对齐边界的磁盘。|  
-|noerr|仅用于脚本。 当遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，错误会导致 DiskPart 退出，错误代码。|  
+| 参数  |                                                                                             描述                                                                                              |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| disk\=<n>  |                                                                 指定将替换出现故障的磁盘区域的动态磁盘。                                                                 |
+| align\=<n> |          将所有卷或分区范围为最接近的对齐边界都对齐。 *n*是千字节数\(KB\)从一开始为最接近的对齐边界的磁盘。           |
+|   noerr    | 仅用于脚本。 当遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，错误会导致 DiskPart 退出，错误代码。 |
   
 ## <a name="remarks"></a>备注  
   
@@ -56,7 +56,7 @@ repair disk=4
 ```  
   
 #### <a name="additional-references"></a>其他参考  
-[命令行语法解答](command-line-syntax-key.md)  
+[命令行语法项](command-line-syntax-key.md)  
   
 
   

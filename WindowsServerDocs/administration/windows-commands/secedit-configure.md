@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8285c22c3c64b4f056124d8a1bb02297c7aea3c8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9420945dca9b72de1937258201e7072d2bb115b2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853388"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441522"
 ---
 # <a name="seceditconfigure"></a>secedit： 配置
 
@@ -45,7 +45,7 @@ Secedit /configure /db <database file name> [/cfg <configuration file name>] [/o
 
 ## <a name="remarks"></a>备注
 
-如果日志文件的路径未提供，默认日志文件 (*systemroot*\Users \*UserAccount*\My Documents\Security\Logs\*DatabaseName*.log) 使用。
+如果日志文件的路径未提供，默认日志文件 (*systemroot*\Users \*UserAccount<em>\My Documents\Security\Logs\*DatabaseName</em>.log) 使用。
 
 从 Windows Server 2008 开始`Secedit /refreshpolicy`已替换为`gpupdate`。 有关如何刷新的安全设置的信息，请参阅[Gpupdate](gpupdate.md)。
 
@@ -64,4 +64,4 @@ Secedit /configure /db C:\Security\FY11\SecDbContoso.sdb /cfg SecContoso.inf /ov
 
 -   [Secedit](secedit.md)
 -   [Secedit:analyze](secedit-analyze.md)
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)

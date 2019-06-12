@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 94be02aa25867845436b83d052c4990ff9212975
-ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.openlocfilehash: 8aee4ecca85c7d5f46ee79f3ad928b746c02e7bb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65564676"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439985"
 ---
 # <a name="writer"></a>编写器
 
@@ -35,11 +35,11 @@ writer exclude [<Writer> | <Component>]
 
 ## <a name="parameters"></a>Parameters
 
-|参数|描述|
-|---------|-----------|
-|verify|验证包含在备份或还原过程中指定的编写器或组件。 如果编写器或组件不包括，在备份或还原过程将失败。|
-|exclude|从备份或还原过程中排除指定的编写器或组件。|
-|[\<Writer> | <Component>]|指定要验证或排除的编写器或组件。 编写器指定的编写器 GUID 或通过编写器名称，例如"系统编写器。"|
+| 参数  |                                                                                      描述                                                                                      |
+|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   verify   | 验证包含在备份或还原过程中指定的编写器或组件。 如果编写器或组件不包括，在备份或还原过程将失败。 |
+|  exclude   |                                                   从备份或还原过程中排除指定的编写器或组件。                                                    |
+| [\<Writer> |                                                                                     <Component>]                                                                                      |
 
 ## <a name="BKMK_examples"></a>示例
 

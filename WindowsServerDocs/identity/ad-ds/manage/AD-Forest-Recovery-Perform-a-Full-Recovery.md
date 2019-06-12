@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 1a1182a6-4462-4a13-806e-0e642a0d5db2
 ms.technology: identity-adds
-ms.openlocfilehash: 6f600ade3d07130d4e1fb3b1a254cb1073f592e9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9cf89c9f4875f602abea89e366cadfba8d0599c3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874228"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443012"
 ---
 # <a name="ad-forest-recovery---performing-a-full-server-recovery"></a>AD 林恢复-执行整个服务器恢复 
 
@@ -51,8 +51,8 @@ ms.locfileid: "59874228"
    -  安装驱动程序
    -  取消选中**高级**功能自动重新启动并检查磁盘错误。 默认情况下启用这些策略。
    ![服务器还原](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore6.png)
-8. 单击“下一步” 。
-9. 单击 **“完成”**。 系统将提示询问您是否确定要继续。 单击 **“是”**。 
+8. 单击“下一步”  。
+9. 单击 **“完成”** 。 系统将提示询问您是否确定要继续。 单击 **“是”** 。 
    ![服务器还原](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore11.png) 
 10. 此操作完成后执行 SYSVOL 的权威还原，如中所述[AD 林恢复-执行 DFSR 复制的 SYSVOL 的权威同步](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md)。
 
@@ -69,15 +69,15 @@ ms.locfileid: "59874228"
    ![服务器还原](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore8.png)
 8. 键入备份共享位置的 UNC 路径 (例如， \\\server1\backups)，单击**确定**。 此外可以如键入目标服务器的 IP 地址\\\192.168.1.3\backups。 
    ![服务器还原](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore9.png)
-10. 键入凭据即可访问该共享，然后单击确定。 
-11. 现在**选择要还原的日期和时间的系统映像**然后单击**下一步**。
-12. 系统现在将提供一个选项为：
-   - 格式化并重新分区磁盘
-   - 安装驱动程序
-   - 取消选中**高级**功能自动重新启动并检查磁盘错误。 默认情况下启用这些策略。
-13. 单击“下一步” 。
-14. 单击 **“完成”**。 系统将提示询问您是否确定要继续。 单击 **“是”**。  
-15. 此操作完成后执行 SYSVOL 的权威还原，如中所述[AD 林恢复-执行 DFSR 复制的 SYSVOL 的权威同步](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md)。
+9. 键入凭据即可访问该共享，然后单击确定。 
+10. 现在**选择要还原的日期和时间的系统映像**然后单击**下一步**。
+11. 系统现在将提供一个选项为：
+    - 格式化并重新分区磁盘
+    - 安装驱动程序
+    - 取消选中**高级**功能自动重新启动并检查磁盘错误。 默认情况下启用这些策略。
+12. 单击“下一步”  。
+13. 单击 **“完成”** 。 系统将提示询问您是否确定要继续。 单击 **“是”** 。  
+14. 此操作完成后执行 SYSVOL 的权威还原，如中所述[AD 林恢复-执行 DFSR 复制的 SYSVOL 的权威同步](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md)。
 
 ## <a name="enabling-the-network-adapter-for-a-network-backup"></a>启用网络备份的网络适配器
 
@@ -133,4 +133,4 @@ ms.locfileid: "59874228"
 ## <a name="next-steps"></a>后续步骤
 
 - [AD 林恢复指南](AD-Forest-Recovery-Guide.md)
-- [AD 林恢复的过程](AD-Forest-Recovery-Procedures.md)
+- [AD 林恢复 - 过程](AD-Forest-Recovery-Procedures.md)

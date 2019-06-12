@@ -9,12 +9,12 @@ author: eldenchristensen
 ms.date: 10/25/2017
 description: 如何在虚拟机来宾群集-例如，在 Microsoft Azure 中部署存储空间直通。
 ms.localizationpriority: medium
-ms.openlocfilehash: a741475d09ab7f7ab29f158ef55378ca9a37beac
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b99e750b78654df48ad3b412269511d047e3057c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841018"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447808"
 ---
 # <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>在来宾虚拟机群集中使用存储空间直通
 
@@ -81,4 +81,4 @@ ms.locfileid: "59841018"
 
 [部署存储空间直通、 视频和分步指南的其他 Azure Iaas VM 模板](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/)。
 
-[其他存储空间直通概述](https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+[额外的存储空间直通概述](https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview)

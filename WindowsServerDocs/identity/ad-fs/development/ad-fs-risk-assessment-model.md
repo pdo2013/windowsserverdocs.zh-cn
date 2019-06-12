@@ -9,12 +9,12 @@ ms.date: 04/16/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 80f42695af917084ee63297df052adc069340bb3
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e43f505a02ec2241a84f74ff57e217c2fb95157b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190520"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445351"
 ---
 # <a name="build-plug-ins-with-ad-fs-2019-risk-assessment-model"></a>构建插件与 AD FS 2019 风险评估模型
 
@@ -26,7 +26,7 @@ ms.locfileid: "66190520"
 
 在 AD FS 身份验证管道，如下所示的三个任何的阶段模型允许插件代码
 
-![模型](media\ad-fs-risk-assessment-model\risk1.png)
+![模型](media/ad-fs-risk-assessment-model/risk1.png)
 
 1.  **请求收到阶段**– 允许构建插件，以允许或阻止请求时 AD FS 身份验证请求即之前接收用户输入凭据。 可以使用的请求上下文 (例如，客户端 IP、 Http 方法、 代理服务器 DNS 等) 可在此阶段执行风险评估。 例如，可以生成插件以从请求上下文中读取 IP 和阻止身份验证请求，如果 IP 风险 Ip 的预定义列表中。 
 
@@ -51,57 +51,57 @@ ms.locfileid: "66190520"
 ### <a name="build-plug-in-dll"></a>构建插件 dll
 以下过程将引导您完成生成示例插件 dll。
 
- 1. 下载插件示例、 使用 Git Bash 并键入以下命令： 
+1. 下载插件示例、 使用 Git Bash 并键入以下命令： 
 
    ```
    git clone https://github.com/Microsoft/adfs-sample-RiskAssessmentModel-RiskyIPBlock
    ```
 
- 2. 创建 **.csv** AD FS 服务器上的任何位置的文件 (在本例中，我创建了**authconfigdb.csv**文件**C:\extensions**)，并添加你想要阻止对此文件的 Ip。 
+2. 创建 **.csv** AD FS 服务器上的任何位置的文件 (在本例中，我创建了**authconfigdb.csv**文件**C:\extensions**)，并添加你想要阻止对此文件的 Ip。 
 
    插件示例会阻止来自任何身份验证请求**Extranet Ip**此文件中列出。 
 
    >{!请注意] 如果你有 AD FS 场，可以创建任何或所有 AD FS 服务器上的文件。 可以使用的任何文件导入 AD FS 的风险的 Ip。 导入过程中的详细信息中，我们将讨论[向 AD FS 注册插件 dll](#register-the-plug-in-dll-with-ad-fs)下面一节。 
 
- 3. 打开项目`ThreatDetectionModule.sln`使用 Visual Studio
+3. 打开项目`ThreatDetectionModule.sln`使用 Visual Studio
 
- 4. 删除`Microsoft.IdentityServer.dll`从解决方案资源管理器，如下所示：</br>
- ![model](media\ad-fs-risk-assessment-model\risk2.png)
+4. 删除`Microsoft.IdentityServer.dll`从解决方案资源管理器，如下所示：</br>
+   ![model](media/ad-fs-risk-assessment-model/risk2.png)
 
- 5. 将引用添加到`Microsoft.IdentityServer.dll`的 AD FS，如下所示
+5. 将引用添加到`Microsoft.IdentityServer.dll`的 AD FS，如下所示
 
    a.   右键单击**引用**中**解决方案资源管理器**，然后选择**添加引用...**</br> 
-   ![模型](media\ad-fs-risk-assessment-model\risk3.png)
+   ![模型](media/ad-fs-risk-assessment-model/risk3.png)
    
    b.   上**引用管理器**窗口中选择**浏览**。 在**选择要引用的文件...** 对话框中，选择`Microsoft.IdentityServer.dll`从你的 AD FS 安装文件夹 (在我的示例**C:\Windows\ADFS**)，单击**添加**。
    
    >[!NOTE]
-    >在本例中我要构建该插件在 AD FS 服务器本身上。 如果你的开发环境位于不同服务器上，复制`Microsoft.IdentityServer.dll`到开发环境中的 AD FS 服务器上的 AD FS 安装文件夹中。</br> 
+   >在本例中我要构建该插件在 AD FS 服务器本身上。 如果你的开发环境位于不同服务器上，复制`Microsoft.IdentityServer.dll`到开发环境中的 AD FS 服务器上的 AD FS 安装文件夹中。</br> 
    
-   ![模型](media\ad-fs-risk-assessment-model\risk4.png)
+   ![模型](media/ad-fs-risk-assessment-model/risk4.png)
    
    c.   单击**确定**上**引用管理器**后确保窗口`Microsoft.IdentityServer.dll`选中复选框</br>
-   ![model](media\ad-fs-risk-assessment-model\risk5.png)
+   ![model](media/ad-fs-risk-assessment-model/risk5.png)
  
- 6. 所有类和引用都现到位，才能执行的生成。   但是，由于此项目的输出是一个 dll，它必须将安装到**全局程序集缓存**，或 GAC 中，AD FS 服务器和 dll 的需要进行第一次签名。 这可以按如下所示：
+6. 所有类和引用都现到位，才能执行的生成。   但是，由于此项目的输出是一个 dll，它必须将安装到**全局程序集缓存**，或 GAC 中，AD FS 服务器和 dll 的需要进行第一次签名。 这可以按如下所示：
 
    a.   **右键单击**ThreatDetectionModule 项目的名称。 从菜单中，单击**属性**。</br>
-   ![model](media\ad-fs-risk-assessment-model\risk6.png)
+   ![model](media/ad-fs-risk-assessment-model/risk6.png)
    
    b.   从**属性**页上，单击**签名**，在左侧，然后检查相应的复选框标记**程序集签名**。 从**选择强名称密钥文件**： 展开下拉列表菜单中，选择 **< 新建...>**</br>
-   ![model](media\ad-fs-risk-assessment-model\risk7.png)
+   ![model](media/ad-fs-risk-assessment-model/risk7.png)
 
    c.   在中**创建强名称密钥对话框**中，键入密钥 （可以选择任何名称） 的名称，请取消选中该复选框**保护密钥文件与密码**。 然后，单击**确定**。
-   ![model](media\ad-fs-risk-assessment-model\risk8.png)</br>
+   ![model](media/ad-fs-risk-assessment-model/risk8.png)</br>
  
    d.   保存项目，如下所示</br>
-   ![model](media\ad-fs-risk-assessment-model\risk9.png)
+   ![model](media/ad-fs-risk-assessment-model/risk9.png)
 
- 7. 通过单击生成项目**构建**，然后**重新生成解决方案**，如下所示</br>
- ![model](media\ad-fs-risk-assessment-model\risk10.png)
+7. 通过单击生成项目**构建**，然后**重新生成解决方案**，如下所示</br>
+   ![model](media/ad-fs-risk-assessment-model/risk10.png)
  
- 检查**输出窗口**，在屏幕上，若要查看是否有任何错误发生的底部</br>
- ![model](media\ad-fs-risk-assessment-model\risk11.png)
+   检查**输出窗口**，在屏幕上，若要查看是否有任何错误发生的底部</br>
+   ![model](media/ad-fs-risk-assessment-model/risk11.png)
 
 
 插件 (dll) 现已准备好使用和处于 **\bin\Debug**项目文件夹的文件夹 (在本例中，这**C:\extensions\ThreatDetectionModule\bin\Debug\ThreatDetectionModule.dll**)。 
@@ -112,35 +112,35 @@ ms.locfileid: "66190520"
 
 我们需要使用在 AD FS 中注册该 dll `Register-AdfsThreatDetectionModule` PowerShell 命令在 AD FS 服务器上，但是，我们注册之前，我们需要先获取公钥标记。 我们创建了密钥密钥和签名使用该密钥的 dll 时创建此公钥标记。 若要了解什么公钥标记的 dll 是，可以使用**SN.exe** ，如下所示
 
- 1. 从 dll 文件复制 **\bin\Debug**到另一个位置的文件夹 (在本例中复制到**C:\extensions**)
+1. 从 dll 文件复制 **\bin\Debug**到另一个位置的文件夹 (在本例中复制到**C:\extensions**)
 
- 2. 启动**开发人员命令提示**for Visual Studio 和转到目录包含**sn.exe** (在本例中的目录是**C:\Program Files (x86) \Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.7.2 工具**)![模型](media\ad-fs-risk-assessment-model\risk12.png)
+2. 启动**开发人员命令提示**for Visual Studio 和转到目录包含**sn.exe** (在本例中的目录是**C:\Program Files (x86) \Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.7.2 工具**)![模型](media/ad-fs-risk-assessment-model/risk12.png)
 
- 3. 运行**SN**命令 **-T**参数和文件的位置 (在我的示例`SN -T “C:\extensions\ThreatDetectionModule.dll”`)![模型](media\ad-fs-risk-assessment-model\risk13.png)</br>
- 该命令将提供的公钥标记 (对于我来说，**公钥标记是 714697626ef96b35**)
+3. 运行**SN**命令 **-T**参数和文件的位置 (在我的示例`SN -T “C:\extensions\ThreatDetectionModule.dll”`)![模型](media/ad-fs-risk-assessment-model/risk13.png)</br>
+   该命令将提供的公钥标记 (对于我来说，**公钥标记是 714697626ef96b35**)
 
- 4. 添加到 dll**全局程序集缓存**我们最佳的做法是 AD FS 服务器为你的项目创建正确的安装程序，并使用安装程序将文件添加到 gac 中。 另一种解决方案是使用**Gacutil.exe** (的详细信息**Gacutil.exe**可用[此处](https://docs.microsoft.com/dotnet/framework/tools/gacutil-exe-gac-tool)) 在开发计算机上。  由于我在 AD FS 所在的同一服务器上有 visual studio，我将使用**Gacutil.exe** ，如下所示
+4. 添加到 dll**全局程序集缓存**我们最佳的做法是 AD FS 服务器为你的项目创建正确的安装程序，并使用安装程序将文件添加到 gac 中。 另一种解决方案是使用**Gacutil.exe** (的详细信息**Gacutil.exe**可用[此处](https://docs.microsoft.com/dotnet/framework/tools/gacutil-exe-gac-tool)) 在开发计算机上。  由于我在 AD FS 所在的同一服务器上有 visual studio，我将使用**Gacutil.exe** ，如下所示
 
    a.   在开发人员命令提示符处为 Visual Studio，然后转到目录包含**Gacutil.exe** (在本例中的目录是**C:\Program Files (x86) \Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.7.2 Tools**)
 
-   b.   运行**Gacutil**命令 (在我的示例`Gacutil /IF C:\extensions\ThreatDetectionModule.dll`)![模型](media\ad-fs-risk-assessment-model\risk14.png)
+   b.   运行**Gacutil**命令 (在我的示例`Gacutil /IF C:\extensions\ThreatDetectionModule.dll`)![模型](media/ad-fs-risk-assessment-model/risk14.png)
  
- >[!NOTE]
- >如果有更高版本的 AD FS 场需要在场中每个 AD FS 服务器上执行。 
+   >[!NOTE]
+   >如果有更高版本的 AD FS 场需要在场中每个 AD FS 服务器上执行。 
 
- 5. 打开**Windows PowerShell**并运行以下命令以注册 dll
-    ```
-    Register-AdfsThreatDetectionModule -Name "<Add a name>" -TypeName "<class name that implements interface>, <dll name>, Version=10.0.0.0, Culture=neutral, PublicKeyToken=< Add the Public Key Token from Step 2. above>" -ConfigurationFilePath "<path of the .csv file>”
-    ```
-    在本例中，该命令是： 
-    ```
-    Register-AdfsThreatDetectionModule -Name "IPBlockPlugin" -TypeName "ThreatDetectionModule.UserRiskAnalyzer, ThreatDetectionModule, Version=10.0.0.0, Culture=neutral, PublicKeyToken=714697626ef96b35" -ConfigurationFilePath "C:\extensions\authconfigdb.csv”
-    ```
+5. 打开**Windows PowerShell**并运行以下命令以注册 dll
+   ```
+   Register-AdfsThreatDetectionModule -Name "<Add a name>" -TypeName "<class name that implements interface>, <dll name>, Version=10.0.0.0, Culture=neutral, PublicKeyToken=< Add the Public Key Token from Step 2. above>" -ConfigurationFilePath "<path of the .csv file>”
+   ```
+   在本例中，该命令是： 
+   ```
+   Register-AdfsThreatDetectionModule -Name "IPBlockPlugin" -TypeName "ThreatDetectionModule.UserRiskAnalyzer, ThreatDetectionModule, Version=10.0.0.0, Culture=neutral, PublicKeyToken=714697626ef96b35" -ConfigurationFilePath "C:\extensions\authconfigdb.csv”
+   ```
  
-    >[!NOTE]
-    >需要注册 dll，一次，即使具有 AD FS 场。 
+   >[!NOTE]
+   >需要注册 dll，一次，即使具有 AD FS 场。 
 
- 6. 注册 dll 后重新启动 AD FS 服务
+6. 注册 dll 后重新启动 AD FS 服务
 
 Dll 现在注册以及 AD FS 并使用准备好，就这么简单 ！
 
@@ -155,38 +155,38 @@ Dll 现在注册以及 AD FS 并使用准备好，就这么简单 ！
 
 ### <a name="testing-the-plug-in"></a>测试插件
 
- 1. 打开**authconfig.csv**我们之前创建的文件 (在我的示例位置**C:\extensions**)，并添加**Extranet Ip**你想要阻止。 在单独的行应为每个 IP 和结束时应没有空格</br>
- ![model](media\ad-fs-risk-assessment-model\risk18.png)
+1. 打开**authconfig.csv**我们之前创建的文件 (在我的示例位置**C:\extensions**)，并添加**Extranet Ip**你想要阻止。 在单独的行应为每个 IP 和结束时应没有空格</br>
+   ![model](media/ad-fs-risk-assessment-model/risk18.png)
  
- 2. 保存并关闭文件
+2. 保存并关闭文件
 
- 3. 通过运行以下 PowerShell 命令导入 AD FS 中更新的文件 
+3. 通过运行以下 PowerShell 命令导入 AD FS 中更新的文件 
 
-  ```
-  Import-AdfsThreatDetectionModuleConfiguration -name "<name given while registering the dll>" -ConfigurationFilePath "<path of the .csv file>"
-  ```
+   ```
+   Import-AdfsThreatDetectionModuleConfiguration -name "<name given while registering the dll>" -ConfigurationFilePath "<path of the .csv file>"
+   ```
  
-  在本例中，该命令是： 
-  ```
+   在本例中，该命令是： 
+   ```
    Import-AdfsThreatDetectionModuleConfiguration -name "IPBlockPlugin" -ConfigurationFilePath "C:\extensions\authconfigdb.csv")
- ```
+   ```
  
- 4. 启动身份验证请求中具有相同的 IP 中添加的服务器**authconfig.csv**。
+4. 启动身份验证请求中具有相同的 IP 中添加的服务器**authconfig.csv**。
 
- 对于本演示中，我将使用[AD FS 帮助 Claims X-Ray 工具](https://adfshelp.microsoft.com/ClaimsXray/TokenRequest)来启动一个请求。 如果你想要使用 x 射线工具，请按照的说明 
+   对于本演示中，我将使用[AD FS 帮助 Claims X-Ray 工具](https://adfshelp.microsoft.com/ClaimsXray/TokenRequest)来启动一个请求。 如果你想要使用 x 射线工具，请按照的说明 
 
- 输入联合身份验证服务器实例和命中**测试身份验证**按钮。</br> 
- ![模型](media\ad-fs-risk-assessment-model\risk15.png) 
+   输入联合身份验证服务器实例和命中**测试身份验证**按钮。</br> 
+   ![模型](media/ad-fs-risk-assessment-model/risk15.png) 
 
- 5. 身份验证被阻止，如下所示。</br>
- ![model](media\ad-fs-risk-assessment-model\risk16.png)
+5. 身份验证被阻止，如下所示。</br>
+   ![model](media/ad-fs-risk-assessment-model/risk16.png)
  
 现在，我们知道如何生成和注册插件，让我们演练插件代码，以了解使用新的接口和类的实现中引入了该模型。 
 
 ## <a name="plug-in-code-walkthrough"></a>插件代码演练
 
 打开项目`ThreatDetectionModule.sln`使用 Visual Studio，然后打开主文件**UserRiskAnalyzer.cs**从**解决方案资源管理器**在屏幕的右侧</br>
-![model](media\ad-fs-risk-assessment-model\risk17.png)
+![model](media/ad-fs-risk-assessment-model/risk17.png)
  
 该文件包含主类可实现抽象类 UserRiskAnalyzer [ThreatDetectionModule](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule?view=adfs-2019)和界面[IRequestReceivedThreatDetectionModule](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.irequestreceivedthreatdetectionmodule?view=adfs-2019)以从请求中读取 IP上下文中，比较从 AD FS 数据库中加载的 ip 的获得的 IP，并阻止请求，如果 IP 匹配项。 这些类型更详细地介绍一下
 

@@ -11,12 +11,12 @@ ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
-ms.openlocfilehash: b32b4879ad454d1154c3d65dbf690cdaae73d76c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fed0587b74873005f14a216bac22f952bcc65a4f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827218"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447293"
 ---
 # <a name="security-and-assurance-in-windows-server"></a>Windows Server 中的安全和保障 
 
@@ -71,7 +71,7 @@ Windows Server 安全团队的这篇博客文章重点介绍了 Windows Server �
 本白皮书概述了受防护的 VM 如何提供增强的总体安全性以防止篡改。                                         
 
 ## <a name="privileged-access-management"></a>保护 Windows 和 Microsoft Azure Active Directory
-### <a name="securing-privileged-accesshttpstechnetmicrosoftcomwindows-server-docssecuritysecuring-privileged-accesssecuring-privileged-access"></a>[保护特权的访问](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access)
+### <a name="securing-privileged-accesshttpstechnetmicrosoftcomwindows-server-docssecuritysecuring-privileged-accesssecuring-privileged-access"></a>[保护特权访问](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access)
 有关如何保护特权访问的道路地图。 此道路地图基于服务器安全团队、Microsoft IT、Azure 团队和 Microsoft 咨询服务部门的综合专业知识建立而成                           
 
 ### <a name="just-in-time-administration-with-microsoft-identity-managerhttpstechnetmicrosoftcomlibrarymt150258aspx"></a>[进行实时管理与 Microsoft 标识管理器](https://technet.microsoft.com/library/mt150258.aspx)
@@ -90,7 +90,7 @@ Just Enough Administration 演示演练。
 ### <a name="protect-derived-domain-credentials-with-credential-guardhttpsdocsmicrosoftcomwindowssecurityidentity-protectioncredential-guardcredential-guard"></a>[使用 Credential Guard 保护派生的域凭据](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard)
 凭据保护使用基于虚拟化的安全性来隔离密钥，以便只有特权系统软件可以访问它们。 在未授权的情况下访问这些密钥将导致凭据盗窃攻击，例如哈希传递或票证传递。 Credential Guard 通过保护 NTLM 密码哈希和 Kerberos 票证授予票证来防止这些攻击。
 
-### <a name="protect-remote-desktop-credentials-with-remote-credential-guardhttpsdocsmicrosoftcomwindowssecurityidentity-protectionremote-credential-guard"></a>[保护远程 Credential Guard 与远程桌面凭据](https://docs.microsoft.com/windows/security/identity-protection/remote-credential-guard)
+### <a name="protect-remote-desktop-credentials-with-remote-credential-guardhttpsdocsmicrosoftcomwindowssecurityidentity-protectionremote-credential-guard"></a>[使用远程 Credential Guard 来保护远程桌面凭据](https://docs.microsoft.com/windows/security/identity-protection/remote-credential-guard)
 远程凭据保护可通过将 Kerberos 请求重定向回请求连接的设备，通过远程桌面连接帮助保护凭据。 它还提供远程桌面会话的单一登录体验。                                                                                                        |
 ### <a name="credential-guard-demo-videohttpswwwyoutubecomwatchveupkogsl7yk"></a>[Credential Guard 演示视频](https://www.youtube.com/watch?v=eUpKOGSl7yk)
 这段时长 5 分钟的视频演示了 Credential Guard 和远程 Credential Guard。         
@@ -111,7 +111,7 @@ Device Guard 是 WDAC 和虚拟机监控程序保护的代码完整性 (HVCI) �
 ### <a name="windows-defenderhttpstechnetmicrosoftcomwindows-server-docssecuritywindows-defenderwindows-defender-overview-windows-server"></a>[Windows Defender](https://technet.microsoft.com/windows-server-docs/security/windows-defender/windows-defender-overview-windows-server)
 Windows Defender 提供阻止已知恶意软件的活动检测功能。 Windows Defender 在默认情况下启用，经过优化，可在 Windows Server 中支持各种服务器角色。
 
-##<a name="detecting-and-responding-to-threats"></a>检测和响应威胁
+## <a name="detecting-and-responding-to-threats"></a>检测和响应威胁
 ### <a name="security-threat-analysis-using-microsoft-operations-management-suitehttpschannel9msdncomeventsignite2015brk3464"></a>[使用 Microsoft Operations Management Suite 的安全威胁分析](https://channel9.msdn.com/events/ignite/2015/brk3464)
 此 Ignite 演示文稿讨论如何使用操作见解执行安全威胁分析。
 

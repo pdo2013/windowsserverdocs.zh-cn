@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 3782667e54f5e6b52c07645704b95fc9e7409a27
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 280104977e295ce0c9ccb05b806442ccaa73667b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476071"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447228"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>DFS 复制：常见问题 (FAQ)
 
@@ -431,9 +431,9 @@ DFS 复制将在下一步复制期间重命名的复制组的所有其他成员�
 <tbody>
 <tr class="even">
 <td><p>Windows Server 2012 R2</p></td>
-<td><p>是*</p></td>
+<td><p>是的<em></p></td>
 <td><p>未推出</p></td>
-<td><p>是*</p></td>
+<td><p>是</em></p></td>
 </tr>
 <tr class="odd">
 <td><p>Windows Server 2012</p></td>

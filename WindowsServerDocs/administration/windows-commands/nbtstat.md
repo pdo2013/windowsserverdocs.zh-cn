@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0193152674dc934aa4f2d3be4dec54afc3066951
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e670b1490f1c4c54b8cf377d48755849faa16f8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867698"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437118"
 ---
 # <a name="nbtstat"></a>nbtstat
 
@@ -34,19 +34,19 @@ nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
 
 ### <a name="parameters"></a>Parameters
 
-|参数|描述|
-|-------|--------|
-|/a <remoteName>|显示远程计算机的 NetBIOS 名称表其中*remoteName*是远程计算机的 NetBIOS 计算机名。 NetBIOS 名称表是对应于该计算机上运行的 NetBIOS 应用程序的 NetBIOS 名称的列表。|
-|/A <IPaddress>|显示远程计算机的 IP 地址 （采用点分十进制表示法） 由指定的远程计算机的 NetBIOS 名称表。|
-|/c|显示内容上的 NetBIOS 命名缓存、 NetBIOS 名称的表和其解析的 IP 地址。|
-|/n|显示本地计算机的 NetBIOS 名称表。 状态**注册**指示通过广播或与 WINS 服务器注册的名称。|
-|/r|显示 NetBIOS 名称解析统计信息。 在运行 Windows XP 或 Windows Server 2003 配置为使用 WINS 的计算机，此参数返回的已解决的名称数和已注册使用广播和 WINS。|
-|/R|清除 NetBIOS 名称缓存的内容，然后重新加载 # 预 tagged 中的条目**Lmhosts**文件。|
-|/RR|释放，然后刷新通过 WINS 服务器注册的本地计算机的 NetBIOS 名称。|
-|/s|显示 NetBIOS 客户端和服务器会话，尝试将目标 IP 地址转换为一个名称。|
-|/S|显示 NetBIOS 客户端和服务器会话，按目标 IP 地址列出的远程计算机。|
-|<Interval>|重新显示所选的统计信息，暂停中指定的秒数*间隔*之间每个显示器。 按 CTRL + C 停止重新显示统计信息。 如果省略此参数，则**nbtstat**打印一次的当前配置信息。|
-|/?|在命令提示符下显示帮助。|
+|    参数    |                                                                                                                         描述                                                                                                                         |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| /a <remoteName> |    显示远程计算机的 NetBIOS 名称表其中*remoteName*是远程计算机的 NetBIOS 计算机名。 NetBIOS 名称表是对应于该计算机上运行的 NetBIOS 应用程序的 NetBIOS 名称的列表。     |
+| /A <IPaddress>  |                                                           显示远程计算机的 IP 地址 （采用点分十进制表示法） 由指定的远程计算机的 NetBIOS 名称表。                                                            |
+|       /c        |                                                                        显示内容上的 NetBIOS 命名缓存、 NetBIOS 名称的表和其解析的 IP 地址。                                                                         |
+|       /n        |                                            显示本地计算机的 NetBIOS 名称表。 状态**注册**指示通过广播或与 WINS 服务器注册的名称。                                             |
+|       /r        |      显示 NetBIOS 名称解析统计信息。 在运行 Windows XP 或 Windows Server 2003 配置为使用 WINS 的计算机，此参数返回的已解决的名称数和已注册使用广播和 WINS。       |
+|       /R        |                                                                      清除 NetBIOS 名称缓存的内容，然后重新加载 # 预 tagged 中的条目**Lmhosts**文件。                                                                      |
+|       /RR       |                                                                           释放，然后刷新通过 WINS 服务器注册的本地计算机的 NetBIOS 名称。                                                                            |
+|       /s        |                                                                          显示 NetBIOS 客户端和服务器会话，尝试将目标 IP 地址转换为一个名称。                                                                           |
+|       /S        |                                                                          显示 NetBIOS 客户端和服务器会话，按目标 IP 地址列出的远程计算机。                                                                          |
+|   <Interval>    | 重新显示所选的统计信息，暂停中指定的秒数*间隔*之间每个显示器。 按 CTRL + C 停止重新显示统计信息。 如果省略此参数，则**nbtstat**打印一次的当前配置信息。 |
+|       /?        |                                                                                                            在命令提示符下显示帮助。                                                                                                             |
 
 ## <a name="remarks"></a>备注
 
@@ -130,6 +130,6 @@ nbtstat /S 5
 
 ## <a name="additional-references"></a>其他参考
 
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)
 
 

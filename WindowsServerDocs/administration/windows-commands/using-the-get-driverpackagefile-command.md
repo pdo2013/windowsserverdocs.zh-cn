@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ed9518fae07745502d01dc0084b7443a1332db83
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 264bdb6d51622e6323be00b44014b86cd9662e61
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859798"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440500"
 ---
 # <a name="using-the-get-driverpackagefile-command"></a>使用 get DriverPackageFile 命令
 
@@ -34,11 +34,11 @@ WDSUTIL /Get-DriverPackageFile /InfFile:<Inf File path> [/Architecture:{x86 | ia
 
 ## <a name="parameters"></a>Parameters
 
-|参数|描述|
-|---------|-----------|
-|/ InfFile:\<Inf 文件路径 >|指定驱动程序包.inf 文件的完整路径和文件名。|
-|[/ 体系结构: {x86 | ia64 | x64}]|指定驱动程序包的体系结构。|
-|[/ 显示: {驱动程序 | 文件 | All}]|指示要显示的包信息。 如果 **/ 显示**未指定，默认值为返回包的元数据的只有驱动程序。 **驱动程序**显示包中的驱动程序的列表。 **文件**包中显示的文件列表。 **所有**显示驱动程序和文件。|
+|         参数         |                              描述                               |
+|---------------------------|------------------------------------------------------------------------|
+| / InfFile:\<Inf 文件路径 > | 指定驱动程序包.inf 文件的完整路径和文件名。 |
+|    [/ 体系结构: {x86    |                                  ia64                                  |
+|     [/ 显示: {驱动程序      |                                 文件                                  |
 
 ## <a name="BKMK_examples"></a>示例
 
@@ -49,4 +49,4 @@ WDSUTIL /Get-DriverPackageFile /InfFile:"C:\temp\1394.inf" /Architecture:x86
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)
