@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 529000c60a80ee33fc2aa7d09370d8ac1e06311c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8e454a9b1a7375be5cfdbc1e76316ad62ff40067
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850228"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445805"
 ---
 # <a name="deploy-encryption-of-office-files-demonstration-steps"></a>Deploy Encryption of Office Files (Demonstration Steps)
 
@@ -27,7 +27,7 @@ Contoso 的财务部门具有多个存储其文档的文件服务器。 这些�
 |任务|描述|  
 |--------|---------------|  
 |[启用资源属性](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_1.1)|启用“影响”  和“个人身份信息”  资源属性。|  
-|[创建分类规则](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_2)|创建以下分类规则：“HBI 分类规则”和“PII 分类规则”。|  
+|[创建分类规则](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_2)|创建以下分类规则：“HBI 分类规则”  和“PII 分类规则”  。|  
 |[使用文件管理任务来通过 AD RMS 自动保护文档](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_3)|创建文件管理任务，该任务自动使用 AD RMS 来保护具有高个人身份信息 (PII) 的文档。 只有 FinanceAdmin 组的成员才有权访问包含高 PII 的文档。|  
 |[查看结果](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_4)|检查文档的分类，并在更改文档内容时观察它们如何更改。 还要验证文档如何通过 AD RMS 获取保护。|  
 |[验证 AD RMS 保护](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_5)|验证是否已使用 AD RMS 保护文档。|  
@@ -37,21 +37,21 @@ Contoso 的财务部门具有多个存储其文档的文件服务器。 这些�
   
 #### <a name="to-enable-resource-properties"></a>启用资源属性  
   
-1.  在 Hyper-V 管理器中，连接到服务器 ID_AD_DC1。 通过使用 Contoso\Administrator 和密码登录到服务器**pass@word1**。  
+1. 在 Hyper-V 管理器中，连接到服务器 ID_AD_DC1。 通过使用 Contoso\Administrator 和密码登录到服务器<strong>pass@word1</strong>。  
   
-2.  打开 Active Directory 管理中心，然后单击“树视图”。  
+2. 打开 Active Directory 管理中心，然后单击“树视图”  。  
   
-3.  展开“动态访问控制” ，并选择“资源属性” 。  
+3. 展开“动态访问控制”  ，并选择“资源属性”  。  
   
-4.  在“显示名称”列中，向下滚动到“影响”属性。 右键单击“影响”，然后单击“启用”。  
+4. 在“显示名称”  列中，向下滚动到“影响”  属性。 右键单击“影响”  ，然后单击“启用”  。  
   
-5.  在“显示名称”列中，向下滚动到“个人身份信息”属性。 右键单击“个人身份信息”，然后单击“启用”。  
+5. 在“显示名称”  列中，向下滚动到“个人身份信息”  属性。 右键单击“个人身份信息”  ，然后单击“启用”  。  
   
-6.  若要发布“全局资源列表”中的资源属性，请在左窗格中单击“资源属性列表”，然后双击“全局资源属性列表”。  
+6. 若要发布“全局资源列表”  中的资源属性，请在左窗格中单击“资源属性列表”  ，然后双击“全局资源属性列表”  。  
   
-7.  单击“添加”，然后向下滚动到“影响”并单击它以将其添加到该列表。 对于“个人身份信息” ，请执行相同的步骤。 单击“确定”  两次以完成操作。  
+7. 单击“添加”  ，然后向下滚动到“影响”  并单击它以将其添加到该列表。 对于“个人身份信息”  ，请执行相同的步骤。 单击“确定”  两次以完成操作。  
   
-![解决方案指南](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![解决方案指南](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -63,39 +63,39 @@ Set-ADResourceProperty -Enabled:$true -Identity:"CN=PII_MS,CN=Resource Propertie
 ## <a name="BKMK_2"></a>步骤 2:创建分类规则  
 此步骤介绍如何创建“高影响”  分类规则。 此规则将搜索的文档的内容，如果找到字符串"Contoso 机密"，则它将此文档归类为具有高业务影响。 此分类将覆盖之前分配的低业务影响的分类。  
   
-你还将创建“高 PII”规则。 此规则将搜索文档的内容，并且如果找到身份证号，则它将此文档归类为具有高 PII 的文档。  
+你还将创建“高 PII”  规则。 此规则将搜索文档的内容，并且如果找到身份证号，则它将此文档归类为具有高 PII 的文档。  
   
 #### <a name="to-create-the-high-impact-classification-rule"></a>创建高影响分类规则  
   
-1.  在 Hyper-V 管理器中，连接到服务器 ID_AD_FILE1。 通过使用 Contoso\Administrator 和密码登录到服务器**pass@word1**。  
+1. 在 Hyper-V 管理器中，连接到服务器 ID_AD_FILE1。 通过使用 Contoso\Administrator 和密码登录到服务器<strong>pass@word1</strong>。  
   
-2.  你需要通过 Active Directory 刷新全局资源属性。 在 Windows PowerShell 上，键入 `Update-FSRMClassificationPropertyDefinition`，然后按 ENTER。 关闭 Windows PowerShell。  
+2. 你需要通过 Active Directory 刷新全局资源属性。 在 Windows PowerShell 上，键入 `Update-FSRMClassificationPropertyDefinition`，然后按 ENTER。 关闭 Windows PowerShell。  
   
-3.  打开文件服务器资源管理器。 若要打开文件服务器资源管理器，请单击“开始” ，然后键入“文件服务器资源管理器” ，最后单击“文件服务器资源管理器” 。  
+3. 打开文件服务器资源管理器。 若要打开文件服务器资源管理器，请单击“开始”  ，然后键入“文件服务器资源管理器”  ，最后单击“文件服务器资源管理器”  。  
   
-4.  在“文件服务器资源管理器”的左窗格中，展开“分类管理” ，然后选择“分类规则” 。  
+4. 在“文件服务器资源管理器”的左窗格中，展开“分类管理”  ，然后选择“分类规则”  。  
   
-5.  在“操作”  窗格中，单击“配置分类计划” 。 在“自动分类”选项卡上，选择“启用固定日程安排”，选择“星期几”，然后选中“允许对新文件进行连续分类”复选框。 单击 **“确定”**。  
+5. 在“操作”  窗格中，单击“配置分类计划”  。 在“自动分类”  选项卡上，选择“启用固定日程安排”  ，选择“星期几”  ，然后选中“允许对新文件进行连续分类”  复选框。 单击 **“确定”** 。  
   
-6.  在“操作”窗格中，单击“创建分类规则”。 此操作将打开“创建分类规则”对话框。  
+6. 在“操作”  窗格中，单击“创建分类规则”  。 此操作将打开“创建分类规则”  对话框。  
   
-7.  在“规则名称”框中，键入**高业务影响**。  
+7. 在“规则名称”  框中，键入**高业务影响**。  
   
-8.  在中**描述**框中，键入**确定文档是否具有基于字符串"Contoso 机密"的状态显示为高业务影响**  
+8. 在中**描述**框中，键入**确定文档是否具有基于字符串"Contoso 机密"的状态显示为高业务影响**  
   
-9. 在“作用域”  选项卡上，单击“设置文件夹管理属性” ，选择“文件夹用途” ，单击“添加” ，再单击“浏览” 以浏览到作为路径的 D:\Finance Documents，单击“确定” ，然后选择名为“组文件”  的属性值，最后单击“关闭” 。 在设置管理属性之后，在“规则作用域”  选项卡上选择“组文件” 。  
+9. 在“作用域”  选项卡上，单击“设置文件夹管理属性”  ，选择“文件夹用途”  ，单击“添加”  ，再单击“浏览”  以浏览到作为路径的 D:\Finance Documents，单击“确定”  ，然后选择名为“组文件”  的属性值，最后单击“关闭”  。 在设置管理属性之后，在“规则作用域”  选项卡上选择“组文件”  。  
   
 10. 单击“分类”  选项卡。在“选择用于将属性分配给文件的方法” 下，从下拉列表中选择“内容分类器”  。  
   
-11. 在“选择要分配给文件的属性”下，从下拉列表中选择“影响”。  
+11. 在“选择要分配给文件的属性”  下，从下拉列表中选择“影响”  。  
   
-12. 在“指定一个值” 下，从下拉列表中选择“高”  。  
+12. 在“指定一个值”  下，从下拉列表中选择“高”  。  
   
-13. 在“参数”  下单击“配置” 。  在“分类参数”  对话框中，在“表达式类型”  列表中选择“字符串” 。 在“表达式”框中，键入：Contoso 机密，然后单击“确定”。  
+13. 在“参数”  下单击“配置”  。  在“分类参数”  对话框中，在“表达式类型”  列表中选择“字符串”  。 在“表达式”  框中，键入：Contoso 机密，然后单击“确定”  。  
   
-14. 单击“评估类型”  选项卡。依次单击“重新评估现有的属性值” 、“覆盖现有值” 和“确定”  来完成操作。  
+14. 单击“评估类型”  选项卡。依次单击“重新评估现有的属性值” 、“覆盖现有值”  和“确定”  来完成操作。  
   
-![解决方案指南](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![解决方案指南](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -109,35 +109,35 @@ New-FSRMClassificationRule -Name "High Business Impact" -Property "Impact_MS" -D
   
 #### <a name="to-create-the-high-pii-classification-rule"></a>创建高 PII 分类规则  
   
-1.  在 Hyper-V 管理器中，连接到服务器 ID_AD_FILE1。 通过使用 Contoso\Administrator 和密码登录到服务器**pass@word1**。  
+1. 在 Hyper-V 管理器中，连接到服务器 ID_AD_FILE1。 通过使用 Contoso\Administrator 和密码登录到服务器<strong>pass@word1</strong>。  
   
-2.  在桌面上，打开名为“正则表达式”的文件夹，然后打开名为“RegEx-SSN”的文本文档。 突出显示并复制以下正则表达式字符串： **^ （？ ！000) ([0-7] \d{2}| 7([0-7]\d|7[012 ([-]？)(?!00) \d\d\3 （？ ！0000) \d{4}$**。 在本步骤的后面部分会使用此字符串，因此请将它保留在你的剪贴板上。  
+2. 在桌面上，打开名为“正则表达式”  的文件夹，然后打开名为“RegEx-SSN”  的文本文档。 突出显示并复制以下正则表达式字符串： **^ （？ ！000) ([0-7] \d{2}| 7([0-7]\d|7[012 ([-]？)(?!00) \d\d\3 （？ ！0000) \d{4}$** 。 在本步骤的后面部分会使用此字符串，因此请将它保留在你的剪贴板上。  
   
-3.  打开文件服务器资源管理器。 若要打开文件服务器资源管理器，请单击“开始” ，然后键入“文件服务器资源管理器” ，最后单击“文件服务器资源管理器” 。  
+3. 打开文件服务器资源管理器。 若要打开文件服务器资源管理器，请单击“开始”  ，然后键入“文件服务器资源管理器”  ，最后单击“文件服务器资源管理器”  。  
   
-4.  在“文件服务器资源管理器”的左窗格中，展开“分类管理” ，然后选择“分类规则” 。  
+4. 在“文件服务器资源管理器”的左窗格中，展开“分类管理”  ，然后选择“分类规则”  。  
   
-5.  在“操作”  窗格中，单击“配置分类计划” 。 在“自动分类”选项卡上，选择“启用固定日程安排”，选择“星期几”，然后选中“允许对新文件进行连续分类”复选框。 单击“确定”。  
+5. 在“操作”  窗格中，单击“配置分类计划”  。 在“自动分类”  选项卡上，选择“启用固定日程安排”  ，选择“星期几”  ，然后选中“允许对新文件进行连续分类”  复选框。 单击“确定”。  
   
-6.  在“规则名称”  框中，键入 **高 PII**。 在“描述”  框中，键入 **根据是否存在身份证号来确定文档是否为高 PII 的文档。**  
+6. 在“规则名称”  框中，键入 **高 PII**。 在“描述”  框中，键入 **根据是否存在身份证号来确定文档是否为高 PII 的文档。**  
   
-7.  单击“作用域”  选项卡，然后选中“组文件”  复选框。  
+7. 单击“作用域”  选项卡，然后选中“组文件”  复选框。  
   
-8.  单击“分类”  选项卡。在“选择用于将属性分配给文件的方法” 下，从下拉列表中选择“内容分类器”  。  
+8. 单击“分类”  选项卡。在“选择用于将属性分配给文件的方法” 下，从下拉列表中选择“内容分类器”  。  
   
-9. 在“选择要分配给文件的属性”下，从下拉列表中选择“个人身份信息”。  
+9. 在“选择要分配给文件的属性”  下，从下拉列表中选择“个人身份信息”  。  
   
-10. 在“指定一个值” 下，从下拉列表中选择“高”  。  
+10. 在“指定一个值”  下，从下拉列表中选择“高”  。  
   
-11. 在“参数”  下单击“配置” 。   
-    在中**分类参数**窗口，请在**表达式类型**列表中，选择**正则表达式**。 在中**表达式**框中，从剪贴板粘贴以下文本： **^ （？ ！000) ([0-7] \d{2}| 7([0-7]\d|7[012 ([-]？)(?!00) \d\d\3 （？ ！0000) \d{4}$**，然后单击**确定**。  
+11. 在“参数”  下单击“配置”  。   
+    在中**分类参数**窗口，请在**表达式类型**列表中，选择**正则表达式**。 在中**表达式**框中，从剪贴板粘贴以下文本： **^ （？ ！000) ([0-7] \d{2}| 7([0-7]\d|7[012 ([-]？)(?!00) \d\d\3 （？ ！0000) \d{4}$** ，然后单击**确定**。  
   
     > [!NOTE]  
     > 此表达式将允许无效的身份证号。 这使得我们可以在演示中使用虚构的身份证号。  
   
-12. 单击“评估类型”  选项卡。依次选择“重新评估现有的属性值” 和“覆盖现有值” ，然后单击“确定”  来完成操作。  
+12. 单击“评估类型”  选项卡。依次选择“重新评估现有的属性值” 和“覆盖现有值”  ，然后单击“确定”  来完成操作。  
   
-![解决方案指南](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![解决方案指南](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -156,25 +156,25 @@ New-FSRMClassificationRule -Name "High PII" -Description "Determines if the docu
   
 #### <a name="to-protect-documents-with-ad-rms"></a>使用 AD RMS 保护文档  
   
-1.  在 Hyper-V 管理器中，连接到服务器 ID_AD_FILE1。 通过使用 Contoso\Administrator 和密码登录到服务器**pass@word1**。  
+1. 在 Hyper-V 管理器中，连接到服务器 ID_AD_FILE1。 通过使用 Contoso\Administrator 和密码登录到服务器<strong>pass@word1</strong>。  
   
-2.  打开文件服务器资源管理器。 若要打开文件服务器资源管理器，请单击“开始” ，然后键入“文件服务器资源管理器” ，最后单击“文件服务器资源管理器” 。  
+2. 打开文件服务器资源管理器。 若要打开文件服务器资源管理器，请单击“开始”  ，然后键入“文件服务器资源管理器”  ，最后单击“文件服务器资源管理器”  。  
   
-3.  在左窗格中，选择“文件管理任务”。 在“操作”  窗格中，选择“创建文件管理任务” 。  
+3. 在左窗格中，选择“文件管理任务”  。 在“操作”  窗格中，选择“创建文件管理任务”  。  
   
-4.  在“任务名称:”  字段中，键入 **高 PII**。 在“描述”字段中，键入**高 PII 文档的自动 RMS 保护**。  
+4. 在“任务名称:”  字段中，键入 **高 PII**。 在“描述”  字段中，键入**高 PII 文档的自动 RMS 保护**。  
   
-5.  单击“作用域”  选项卡，然后选中“组文件”  复选框。  
+5. 单击“作用域”  选项卡，然后选中“组文件”  复选框。  
   
-6.  单击“操作”  选项卡。在“类型” 下，选择“RMS 加密” 。 单击“浏览”以选择模板，然后选择“仅限 Contoso 财务管理员”模板。  
+6. 单击“操作”  选项卡。在“类型” 下，选择“RMS 加密”  。 单击“浏览”  以选择模板，然后选择“仅限 Contoso 财务管理员”  模板。  
   
-7.  单击“条件”选项卡，然后单击“添加”。 在“属性”下，选择“个人身份信息”。 在“运营商”下，选择“等于”。 在“值”下，选择“高”。 单击 **“确定”**。  
+7. 单击“条件”  选项卡，然后单击“添加”  。 在“属性”  下，选择“个人身份信息”  。 在“运营商”  下，选择“等于”  。 在“值”  下，选择“高”  。 单击 **“确定”** 。  
   
-8.  单击“计划”  选项卡。在“计划”部分中，单击“每周”，然后选择“周日”。 通过每周运行一次该任务，可确保你捕获由于服务中断或其他破坏性事件而错过的任何文档。  
+8. 单击“计划”  选项卡。在“计划”部分中，单击“每周”  ，然后选择“周日”  。 通过每周运行一次该任务，可确保你捕获由于服务中断或其他破坏性事件而错过的任何文档。  
   
-9. 在“连续运行”  部分中，选择“持续在新文件上运行任务” ，然后单击“确定” 。 现在，应该具有一个名为“高 PII”的文件管理任务。  
+9. 在“连续运行”  部分中，选择“持续在新文件上运行任务”  ，然后单击“确定”  。 现在，应该具有一个名为“高 PII”的文件管理任务。  
   
-![解决方案指南](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![解决方案指南](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -191,42 +191,42 @@ $fmj1=New-FSRMFileManagementJob -Name "High PII" -Description "Automatic RMS pro
   
 #### <a name="to-view-the-results"></a>查看结果  
   
-1.  在 Hyper-V 管理器中，连接到服务器 ID_AD_FILE1。 通过使用 Contoso\Administrator 和密码登录到服务器**pass@word1**。  
+1. 在 Hyper-V 管理器中，连接到服务器 ID_AD_FILE1。 通过使用 Contoso\Administrator 和密码登录到服务器<strong>pass@word1</strong>。  
   
-2.  在 Windows 资源管理器中，导航到 D:\Finance Documents。  
+2. 在 Windows 资源管理器中，导航到 D:\Finance Documents。  
   
-3.  右键单击“财务备注”文档，单击“属性” 。单击“分类”  选项卡，请注意，“影响”属性当前没有任何值。 单击“取消” 。  
+3. 右键单击“财务备注”文档，单击“属性”  。单击“分类”  选项卡，请注意，“影响”属性当前没有任何值。 单击“取消”  。  
   
-4.  右键单击“‘请求批准聘用’文档” ，然后选择“属性” 。  
+4. 右键单击“‘请求批准聘用’文档”  ，然后选择“属性”  。  
   
-5.  单击“分类”选项卡，请注意，“个人身份信息”属性当前当前没有任何值。 单击“取消” 。  
+5. 单击“分类”  选项卡，请注意，“个人身份信息”  属性当前当前没有任何值。 单击“取消”  。  
   
-6.  切换到 CLIENT1。 注销的任何用户都已登录，登录，然后以 contoso\mreid 身份登录的密码**pass@word1**。  
+6. 切换到 CLIENT1。 注销的任何用户都已登录，登录，然后以 contoso\mreid 身份登录的密码<strong>pass@word1</strong>。  
   
-7.  从桌面上，打开“财务文档”  共享文件夹。  
+7. 从桌面上，打开“财务文档”  共享文件夹。  
   
-8.  打开“财务备注”文档。 在接近文档底部处，会看到 **机密**一词。 将其修改为：**Contoso 机密**。 保存该文档并将其关闭。  
+8. 打开“财务备注”  文档。 在接近文档底部处，会看到 **机密**一词。 将其修改为：**Contoso 机密**。 保存该文档并将其关闭。  
   
-9. 打开“请求批准聘用”文档。 在“身份证号:”部分中，键入：777-77-7777。 保存该文档并将其关闭。  
+9. 打开“请求批准聘用”  文档。 在“身份证号:”  部分中，键入：777-77-7777。 保存该文档并将其关闭。  
   
     > [!NOTE]  
     > 可能需要等待 30 秒才会进行分类。  
   
 10. 重新切换到 ID_AD_FILE1。 在 Windows 资源管理器中，导航到 D:\Finance Documents。  
   
-11. 右键单击“财务备注”文档，然后单击“属性” 。 单击“分类”  选项卡。请注意，现已将“影响”属性设置为“高”。 单击“取消” 。  
+11. 右键单击“财务备注”文档，然后单击“属性”  。 单击“分类”  选项卡。请注意，现已将“影响”属性设置为“高”  。 单击“取消”  。  
   
-12. 右键单击“请求批准聘用”文档，然后单击“属性” 。  
+12. 右键单击“请求批准聘用”文档，然后单击“属性”  。  
   
-13. . 单击“分类”  选项卡。请注意，现已将“个人身份信息”属性设置为“高”。 单击“取消” 。  
+13. . 单击“分类”  选项卡。请注意，现已将“个人身份信息”属性设置为“高”  。 单击“取消”  。  
   
-## <a name="BKMK_5"></a>步骤 5:验证使用 AD RMS 的保护  
+## <a name="BKMK_5"> </a>步骤 5:验证使用 AD RMS 的保护  
   
 #### <a name="to-verify-that-the-document-is-protected"></a>验证文档是否受保护  
   
 1.  重新切换到 ID_AD_CLIENT1。  
   
-2.  打开“请求批准聘用”文档。  
+2.  打开“请求批准聘用”  文档。  
   
 3.  单击“确定”  以允许该文档连接到 AD RMS 服务器。  
   

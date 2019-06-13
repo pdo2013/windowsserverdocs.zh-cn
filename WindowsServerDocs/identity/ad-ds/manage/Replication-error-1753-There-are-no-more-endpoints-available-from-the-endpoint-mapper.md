@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: a280d540d09c6fdcb7846d1cf545856869be1152
-ms.sourcegitcommit: b190fac4bfa5599751a60d3fc3b4c4a64dd9afd7
+ms.openlocfilehash: e7d2b47c9c14af22cdcf29fb388779e7639e38cb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66008965"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442776"
 ---
 # <a name="replication-error-1753-there-are-no-more-endpoints-available-from-the-endpoint-mapper"></a>复制错误 1753：端点映射程序中没有更多可用的端点
 
@@ -46,10 +46,10 @@ ms.locfileid: "66008965"
   <section address="BKMK_Symptoms">
     <title>症状</title>
     <content>
-      <para>本指南介绍了症状、 原因以及解决方法步骤失败，出现 Win32 错误 1753年的 Active Directory 操作："没有更多的终结点可从终结点映射程序。"</para>
+      <para>本指南介绍了症状、 原因以及解决方法步骤失败，出现 Win32 错误 1753年的 Active Directory 操作：&quot;提供的终结点映射程序没有更多的终结点。&quot;</para>
       <list class="ordered">
         <listItem>
-          <para>连接测试、 Active Directory 复制测试或 KnowsOfRoleHolders 测试失败，出现错误 1753 DCDIAG 报表："没有更多的终结点可从终结点映射程序。"</para>
+          <para>连接测试、 Active Directory 复制测试或 KnowsOfRoleHolders 测试失败，出现错误 1753 DCDIAG 报表：&quot;提供的终结点映射程序没有更多的终结点。&quot;</para>
           <code>Testing server: &lt;site&gt;&lt;DC Name&gt;
 Starting test: Connectivity
 * Active Directory LDAP Services Check
@@ -85,7 +85,7 @@ of starting up or shutting down, and is not available.
 Verify machine is not hung during boot.
 </code>
         </listItem>
-<listItem><para>REPADMIN。EXE 报告该复制尝试失败，状态为 1753年。</para><para>REPADMIN 命令，通常涉及 1753年状态包括但不限于：</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><tbody><tr><TD><list class="bullet"><listItem><para>REPADMIN /REPLSUM</para></listItem><listItem><para>REPADMIN /SHOWREPL</para></listItem></list></TD><TD><list class="bullet"><listItem><para>REPADMIN /SHOWREPS</para></listItem><listItem><para>REPADMIN /SYNCALL</para></listItem></list></TD></tr></tbody></table><para>从"REPADMIN /SHOWREPS"进行描述从 CONTOSO DC2 到 CONTOSO-DC1 失败，"复制访问被拒绝"错误的入站的复制的示例输出如下所示：</para><code>Default-First-Site-NameCONTOSO-DC1
+<listItem><para>REPADMIN。EXE 报告该复制尝试失败，状态为 1753年。</para><para>REPADMIN 命令，通常涉及 1753年状态包括但不限于：</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><tbody><tr><TD><list class="bullet"><listItem><para>REPADMIN /REPLSUM</para></listItem><listItem><para>REPADMIN /SHOWREPL</para></listItem></list></TD><TD><list class="bullet"><listItem><para>REPADMIN /SHOWREPS</para></listItem><listItem><para>REPADMIN /SYNCALL</para></listItem></list></TD></tr></tbody></table><para>示例的输出&quot;REPADMIN /SHOWREPS&quot;描述到 CONTOSO-DC1 而失败的入站的复制 CONTOSO DC2&quot;复制访问被拒绝&quot;错误如下所示：</para><code>Default-First-Site-NameCONTOSO-DC1
 DSA Options: IS_GC 
 Site Options: (none)
 DSA object GUID: b6dc8589-7e00-4a5d-b688-045aef63ec01
@@ -99,7 +99,7 @@ There are no more endpoints available from the endpoint mapper.</codeFeaturedEle
 &lt;#&gt; consecutive failure(s).
 Last success @ &lt;date&gt; &lt;time&gt;.
 
-</code></listItem><listItem><para><ui>检查复制拓扑</ui>Active Directory 站点和服务中的命令将返回"有没有更多的终结点可从终结点映射程序。"</para><para>中的源 DC 的连接对象上右键单击并选择<ui>检查复制拓扑</ui>失败，出现"没有更多终结点可从终结点映射程序。" 错误消息如下所示的屏幕：</para><para>对话框标题文本：检查复制拓扑</para><para>对话框消息文本： </para><para>在尝试联系域控制器期间出现以下错误：端点映射程序中未提供更多端点。</para></listItem><listItem><para><ui>立即复制副本</ui>Active Directory 站点和服务中的命令将返回"有没有更多的终结点可从终结点映射程序。"</para><para>中的源 DC 的连接对象上右键单击并选择<ui>立即复制副本</ui>失败，出现"没有更多终结点可从终结点映射程序。" 错误消息如下所示的屏幕：</para><para>对话框标题文本：立即复制副本</para><para>对话框消息文本：尝试命名上下文进行同步期间出现以下错误&lt;%目录分区名称 %&gt;从域控制器&lt;源 DC&gt;到域控制器&lt;目标 DC&gt;:</para><para>
+</code></listItem><listItem><para><ui>检查复制拓扑</ui>Active Directory 站点和服务中的命令将返回&quot;提供的终结点映射程序有没有更多的终结点。&quot;</para><para>中的源 DC 的连接对象上右键单击并选择<ui>检查复制拓扑</ui>失败，出现&quot;提供的终结点映射程序有没有更多的终结点。&quot;错误消息如下所示的屏幕：</para><para>对话框标题文本：检查复制拓扑</para><para>对话框消息文本： </para><para>在尝试联系域控制器期间出现以下错误：端点映射程序中未提供更多端点。</para></listItem><listItem><para><ui>立即复制副本</ui>Active Directory 站点和服务中的命令将返回&quot;提供的终结点映射程序有没有更多的终结点。&quot;</para><para>中的源 DC 的连接对象上右键单击并选择<ui>立即复制副本</ui>失败，出现&quot;提供的终结点映射程序有没有更多的终结点。&quot;错误消息如下所示的屏幕：</para><para>对话框标题文本：立即复制副本</para><para>对话框消息文本：尝试命名上下文进行同步期间出现以下错误&lt;%目录分区名称 %&gt;从域控制器&lt;源 DC&gt;到域控制器&lt;目标 DC&gt;:</para><para>
 
 端点映射程序中未提供更多端点。</para><para>将继续操作</para></listItem><listItem><para>在事件查看器中的目录服务日志记录-2146893022： 状态 NTDS KCC、 NTDS 常规或 Microsoft Windows ActiveDirectory_DomainService 事件。</para><para>Active Directory 事件通常涉及-2146893022： 状态，包括但不限于：</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><thead><tr><TD><para>事件 ID</para></TD><TD><para>事件来源</para></TD><TD><para>事件字符串</para></TD></tr></thead><tbody><tr><TD><para>1655</para></TD><TD><para>NTDS 常规</para></TD><TD><para>Active Directory 尝试与以下全局编录进行通信，但尝试成功。</para></TD></tr><tr><TD><para>1925</para></TD><TD><para>NTDS KCC</para></TD><TD><para>尝试建立以下的可写目录分区的复制链接失败。</para></TD></tr><tr><TD><para>1265</para></TD><TD><para>NTDS KCC</para></TD><TD><para>尝试通过知识一致性检查器 (KCC) 将添加下列目录分区和源域控制器的复制协议失败。</para></TD></tr></tbody></table></listItem>
 </list>
@@ -122,7 +122,7 @@ Last success @ &lt;date&gt; &lt;time&gt;.
           <para>客户端 RPC 联系目标计算机 EPM，并请求以完成客户端调用的终结点 </para>
         </listItem>
         <listItem>
-          <para>与终结点的服务器计算机的企业项目管理响应 </para>
+          <para>服务器计算机&#39;s EPM 响应的终结点 </para>
         </listItem>
         <listItem>
           <para>客户端 RPC 联系服务器应用 </para>
@@ -138,13 +138,13 @@ Last success @ &lt;date&gt; &lt;time&gt;.
       <para>1753 错误的特定根本原因包括： </para>
       <list class="ordered">
         <listItem>
-          <para>永远不会启动服务器应用 （即如果从未尝试在上方的"详细信息"关系图中的步骤 #1）。</para>
+          <para>永远不会启动服务器应用 (即中的步骤 #1&quot;的详细信息&quot;永远不会尝试位于上面的关系图)。</para>
         </listItem>
         <listItem>
-          <para>服务器应用程序启动，但阻止其注册到 RPC 终点映射程序 （即在上面的"详细信息"关系图中的步骤 #1 已尝试但失败） 的初始化期间出现一些错误。</para>
+          <para>服务器应用程序启动，但阻止其注册到 RPC 终点映射程序的初始化期间出现一些错误 (即中的步骤 #1&quot;的详细信息&quot;图已尝试但失败)。</para>
         </listItem>
         <listItem>
-          <para>服务器应用程序启动，但随后死了。 （即在上面的"详细信息"关系图中的步骤 #1 已成功完成，但因为撤消更高版本服务器已停机）。</para>
+          <para>服务器应用程序启动，但随后死了。 (即中的步骤 #1&quot;的详细信息&quot;图已成功完成，但因为撤消更高版本服务器已停机)。</para>
         </listItem>
         <listItem>
           <para>服务器应用手动注销其终结点 （类似于但有意 3。 不太可能，但包含出于完整性的考虑。）</para>
@@ -193,17 +193,17 @@ Last success @ &lt;date&gt; &lt;time&gt;.
           <para>目标 DC 上对源 Dc 完全限定的 DC CNAME 记录运行 NSLOOKUP:</para>
           <code>c:&gt;nslookup -type=cname &lt;fully qualified cname of source DC&gt; &lt;destination DCs primary DNS Server IP &gt;
 c:&gt;nslookup -type=cname &lt;fully qualified cname of source DC&gt; &lt;destination DCs secondary DNS Server IP&gt;</code>
-          <para>验证是否返回 NSLOOKUP 的 IP 地址"拥有"的主机名 / 源 DC 的安全标识：</para>
+          <para>验证 IP 地址返回的 NSLOOKUP&quot;拥有&quot;的主机名 / 源 DC 的安全标识：</para>
           <code>C:&gt;NBTSTAT -A &lt;IP address returned by NSLOOKUP in the step above&gt;</code>
           <para>或</para>
-          <para>登录到源 DC 的控制台，请在命令提示符处运行"IPCONFIG"并验证源 DC 拥有上述 NSLOOKUP 命令返回的 IP 地址</para>
+          <para>源 DC，运行在控制台上的日志&quot;IPCONFIG&quot;从 cmd 运行提示，并验证源 DC 拥有上述 NSLOOKUP 命令返回的 IP 地址</para>
           <para>检查过时 / 重复主机 IP 在 DNS 中映射到</para>
           <code>NSLOOKUP -type=hostname &lt;single label hostname of source DC&gt; &lt;primary DNS Server IP on destination DC&gt;
 NSLOOKUP -type=hostname &lt;single label hostname of source DC&gt; &lt;secondary DNS Server IP on destination DC&gt;
 
 NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;primary DNS Server IP on destination DC&gt;
 NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;secondary DNS Server IP on dest. DC&gt;</code>
-<para>如果主机记录中存在无效的 IP 地址，请调查是否 DNS 清理已启用并正确配置。 </para><para>如果上面测试或网络跟踪不会显示返回无效的 IP 地址的名称查询，请考虑在主机文件、 LMHOSTS 文件和 WINS 服务器中的过时条目。 请注意，DNS 服务器可以还配置为执行 WINS 回退名称解析。</para>
+<para>如果主机记录中存在无效的 IP 地址，请调查是否 DNS 清理已启用并正确配置。 </para><para>如果上面测试或网络跟踪不是&#39;显示名称查询返回无效的 IP 地址，请考虑在主机文件、 LMHOSTS 文件和 WINS 服务器中的过时条目。 请注意，DNS 服务器可以还配置为执行 WINS 回退名称解析。</para>
 </listItem>
         <listItem>
           <para>
@@ -329,11 +329,11 @@ NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;s
             </tbody>
           </table>
           <para>终结点映射程序未向注册已知端口。 </para>
-          <para>Active Directory 和其他应用程序也注册接收动态分配的端口的 RPC 临时端口范围的服务。 此类 RPC 服务器应用程序动态分配 1024年和 Windows 2000 和 Windows Server 2003 计算机上的 5000 之间的 TCP 端口以及 Windows Server 2008 和 Windows Server 2008 R2 计算机上的 49152 和 65535 范围之间的端口。 复制使用的 RPC 端口可以是硬编码在注册表中所述的步骤<externalLink><linkText>知识库文章 224196</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink>。 Active Directory 会继续向 EPM 配置为使用硬编码的端口注册。 </para>
+          <para>Active Directory 和其他应用程序也注册接收动态分配的端口的 RPC 临时端口范围的服务。 此类 RPC 服务器应用程序动态分配 1024年和 Windows 2000 和 Windows Server 2003 计算机上的 5000 之间的 TCP 端口以及 Windows Server 2008 和 Windows Server 2008 R2 计算机上的 49152 和 65535 范围之间的端口。 复制使用的 RPC 端口可以是硬编码在注册表中所述的步骤<externalLink><linkText>知识库文章 224196</linkText> <linkUri> <a href="https://support.microsoft.com/kb/224196" data-raw-source="https://support.microsoft.com/kb/224196"> https://support.microsoft.com/kb/224196 </a> </linkUri> </externalLink>. Active Directory 会继续向 EPM 配置为使用硬编码的端口注册。 </para>
           <para>验证的 RPC 服务器应用程序所需的注册其自身的 RPC 端点映射程序 RPC 服务器 （源 DC 在 AD 复制的情况下） 上。 </para>
           <para>有多种方法来完成此任务，但其中一个是安装并在控制台上的源 DC 使用语法从特权的管理员命令提示符处运行 PORTQRY: </para>
-          <code>c:\&gt;portquery -n &lt;source DC&gt; -e 135 &gt;file.txt</code>
-          <para>在 portqry 输出中，请注意动态注册的"MS NT 目录 DRS 接口"的端口号 (UUID = 351...) 用于<embeddedLabel>ncacn_ip_tcp 协议</embeddedLabel>。 下面的代码段显示了从 Windows Server 2008 R2 DC 和 UUID 的示例是 portquery 输出 / 协议对，专门用于由 Active Directory 中突出显示<embeddedLabel>粗体</embeddedLabel>: </para>
+          <code>c:&amp;gt;portquery -n &lt;source DC&gt; -e 135 &gt;file.txt</code>
+          <para>在 portqry 输出中，请注意由动态注册的端口号&quot;MS NT 目录 DRS 接口&quot;(UUID = 351...) 用于<embeddedLabel>ncacn_ip_tcp 协议</embeddedLabel>。 下面的代码段显示了从 Windows Server 2008 R2 DC 和 UUID 的示例是 portquery 输出 / 协议对，专门用于由 Active Directory 中突出显示<embeddedLabel>粗体</embeddedLabel>: </para>
           <code>UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
 ncacn_np:CONTOSO-DC01[\pipe\lsass] 
 UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
@@ -407,7 +407,7 @@ ncacn_http:CONTOSO-DC01[6004]</code>
             </listItem>
             <listItem>
               <para>验证 KB 224196 中定义的硬编码的端口定义在动态端口范围内，对于源 Dc OS 版本。</para>
-              <para>审阅<externalLink><linkText>知识库文章 224196</linkText> <linkUri> https://support.microsoft.com/kb/224196 </linkUri> </externalLink> ，并确保硬编码的端口处于临时端口范围内，对于源 DC 的操作系统版本。</para>
+              <para>审阅<externalLink><linkText>知识库文章 224196</linkText> <linkUri> <a href="https://support.microsoft.com/kb/224196" data-raw-source="https://support.microsoft.com/kb/224196"> https://support.microsoft.com/kb/224196 </a> </linkUri> </externalLink>和确保硬编码的端口内的临时端口范围源 DC&#39;s 操作系统版本。</para>
             </listItem>
             <listItem>
               <para>验证 ClientProtocols 密钥下 HKLM\Software\Microsoft\Rpc 存在并且包含以下 5 个默认值：</para>
@@ -428,7 +428,7 @@ ncacn_ip_udp REG_SZ rpcrt4.dll</code>
       <para>
         <embeddedLabel>映射导致 RPC 错误 1753年-2146893022： 与 IP 名称不正确的示例： 目标主体名称不正确</embeddedLabel>
       </para>
-      <para>Contoso.com 域包含具有 IP 地址 x.x.1.1 和 x.x.1.2 的 DC1 和 DC2。 "A"的主机 / DC2 的"AAAA"记录正确注册所有针对 DC1 配置的 DNS 服务器上。 此外，在 DC1 上的主机文件包含将 dc2 完全限定的主机名映射到 IP 地址 x.x.1.2 的条目。 更高版本，DC2 的 IP 地址从变为 X.X.1.2 X.X.1.3 和新的成员计算机加入到与 IP 地址 x.x.1.2 域。 AD 复制由触发尝试<ui>立即复制副本</ui>在 Active Directory 站点和服务管理单元中的命令失败，出现错误 1753： 下面的跟踪中所示：</para>
+      <para>Contoso.com 域包含具有 IP 地址 x.x.1.1 和 x.x.1.2 的 DC1 和 DC2。 主机&quot;A&quot; / &quot;AAAA&quot; DC2 的记录都正确注册所有针对 DC1 配置的 DNS 服务器上。 此外，在 DC1 上的主机文件包含将 dc2 完全限定的主机名映射到 IP 地址 x.x.1.2 的条目。 更高版本，DC2&#39;IP 地址从 X.X.1.2 更改为 X.X.1.3 和新的成员计算机加入到与 IP 地址 x.x.1.2 域。 AD 复制由触发尝试<ui>立即复制副本</ui>在 Active Directory 站点和服务管理单元中的命令失败，出现错误 1753： 下面的跟踪中所示：</para>
       <code>F# SRC    DEST    Operation 
 1 x.x.1.1 x.x.1.2 ARP:Request, x.x.1.1 asks for x.x.1.2
 2 x.x.1.2 x.x.1.1 ARP:Response, x.x.1.2 at 00-13-72-28-C8-5E
@@ -443,22 +443,22 @@ ncacn_ip_udp REG_SZ rpcrt4.dll</code>
 <codeFeaturedElement>11</codeFeaturedElement> x.x.1.2 x.x.1.1 EPM:Response: ept_map: 0x16C9A0D6 - EP_S_NOT_REGISTERED
 </code>
       <para>在帧<embeddedLabel>10</embeddedLabel>，目标 DC 通过端口 135 的 Active Directory 复制服务类 UUID E351 查询源 Dc 终结点映射程序... </para>
-      <para>在帧<embeddedLabel>11</embeddedLabel>，源 DC，在这种情况下不托管 DC 角色，因此尚未注册 E351 的成员计算机...复制服务使用其本地企业项目管理的 UUID 使用符号错误 EP_S_NOT_REGISTERED 映射到十进制错误 1753年、 十六进制错误 0x6d9 和友好的错误响应"没有更多终结点可从终结点映射程序"。</para>
-      <para>更高版本，具有 IP 地址 x.x.1.2 的成员计算机获取升级为 contoso.com 域中的"MayberryDC"的副本。 同样，<ui>立即复制副本</ui>命令用于触发复制，但这一次失败并且具有屏幕上错误"的目标主体名称不正确。" 计算机的网络适配器分配 IP 地址 x.x.1.2<placeholder>是</placeholder>是域控制器时，当前启动进入正常模式并注册了 E351...复制服务使用其本地企业项目管理，但它的 UUID 不拥有 DC2 的名称或安全标识，而且不能解密从 DC1 Kerberos 请求，因此请求现在会失败，错误"的目标主体名称不正确。" 错误映射到十进制错误-2146893022： 十六进制错误 0x80090322 /。 </para>
+      <para>在帧<embeddedLabel>11</embeddedLabel>，源 DC，在这种情况下不托管 DC 角色，因此尚未注册 E351 的成员计算机...UUID 为使用其本地企业项目管理在复制服务响应的符号错误 EP_S_NOT_REGISTERED 映射到十进制错误 1753 年十六进制错误 0x6d9 和友好的错误&quot;提供的终结点映射程序有没有更多的终结点&quot;.</para>
+      <para>更高版本，具有 IP 地址 x.x.1.2 的成员计算机作为副本会得到提升&quot;MayberryDC&quot; contoso.com 域中。 同样，<ui>立即复制副本</ui>命令用于触发复制，但这一次失败并且具有屏幕上错误&quot;目标主体名称不正确。&quot;计算机的网络适配器分配 IP 地址 x.x.1.2<placeholder>是</placeholder>是域控制器时，当前启动进入正常模式并注册了 E351...复制服务使用其本地企业项目管理，但它的 UUID 不拥有 DC2 的名称或安全标识，而且不能解密从 DC1 Kerberos 请求，因此请求立即失败且错误&quot;目标主体名称不正确。&quot;错误映射到十进制错误-2146893022： 十六进制错误 0x80090322 /。 </para>
       <para>此类无效的主机 IP 映射可能由主机中的过时条目 / lmhost 文件主机 A / AAAA DNS 或 WINS 中的注册。 </para>
-      <para>摘要：此示例中失败，因为 （在本例中为主机文件） 的无效主机 IP 映射导致目标 DC 来解析到"源"没有 Active Directory 域服务的 DC 服务正在运行 （或甚至安装就此而言） 因此复制不尚未注册 SPN，源 DC 返回错误 1753:。 在第二种情况下，（再次在主机文件中） 的无效主机 IP 映射导致目标 DC 连接到的 DC，必须注册 E351...复制 SPN，但该源有比预期的源 DC 不同的主机名和安全标识，因此这些尝试失败，出现错误-2146893022::目标主体名称不正确。</para>
+      <para>摘要：此示例中失败，因为 （在本例中为主机文件） 的无效主机 IP 映射导致目标 DC 将解析为&quot;源&quot;DC 没有 Active Directory 域服务服务正在运行 （或甚至为安装就此而言） 以便返回错误 1753： 未尚未注册 SPN 的复制和源 DC。 在第二种情况下，（再次在主机文件中） 的无效主机 IP 映射导致目标 DC 连接到的 DC，必须注册 E351...复制 SPN，但该源有比预期的源 DC 不同的主机名和安全标识，因此这些尝试失败，出现错误-2146893022::目标主体名称不正确。</para>
     </content>
   </section>
   <relatedTopics>
     <externalLink>
       <linkText>故障排除 Active Directory 操作，因错误 1753年:提供的终结点映射程序没有更多的终结点。</linkText> 
-      <linkUri> https://support.microsoft.com/kb/2089874 </linkUri> 
+      <linkUri> <a href="https://support.microsoft.com/kb/2089874" data-raw-source="https://support.microsoft.com/kb/2089874"> https://support.microsoft.com/kb/2089874 </a> </linkUri> 
     </externalLink> 
-<externalLink> <linkText>KB 文章 839880 故障排除 RPC 端点映射程序错误，使用 Windows Server 2003 支持工具从产品 CD</linkText> <linkUri> https://support.microsoft.com/kb/839880 </linkUri> </externalLink> 
-<externalLink> <linkText>KB 文章 832017 服务概述和网络端口要求 Windows Server 系统</linkText><linkUri>https://support.microsoft.com/kb/832017/ </linkUri> </externalLink> 
-<externalLink> <linkText>KB 文章 224196 限制 Active Directory 复制流量和客户端 RPC 流量流向特定端口</linkText><linkUri> https://support.microsoft.com/kb/224196/ </linkUri> </externalLink> 
-<externalLink><linkText>知识库文章 154596 如何配置与防火墙一起使用的 RPC 动态端口分配</linkText><linkUri> https://support.microsoft.com/kb/154596 </linkUri> </externalLink> <externalLink> <linkText>RPC 的工作原理</linkText><linkUri>https://msdn.microsoft.com/library/aa373935(VS.85).aspx</linkUri></externalLink><externalLink><linkText>服务器用于为连接的准备</linkText><linkUri> https://msdn.microsoft.com/library/aa373938(VS.85).aspx </linkUri> </externalLink> 
-<externalLink><linkText>客户端如何建立的连接</linkText><linkUri> https://msdn.microsoft.com/library/aa373937(VS.85).aspx </linkUri> </externalLink><externalLink><linkText>注册界面</linkText><linkUri>https://msdn.microsoft.com/library/aa375357(VS.85).aspx</linkUri></externalLink><externalLink><linkText>从而使该服务器在网络上可用</linkText><linkUri>https://msdn.microsoft.com/library/aa373974(VS.85).aspx</linkUri></externalLink><externalLink><linkText>注册终结点</linkText><linkUri>https://msdn.microsoft.com/library/aa375255(VS.85).aspx </linkUri> </externalLink> <externalLink><linkText>侦听客户端调用</linkText><linkUri> https://msdn.microsoft.com/library/aa373966(VS.85).aspx </linkUri> </externalLink><externalLink><linkText>客户端如何建立的连接</linkText><linkUri>https://msdn.microsoft.com/library/aa373937(VS.85).aspx</linkUri></externalLink><externalLink><linkText>限制Active Directory 复制流量和客户端 RPC 流量到特定端口</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink><externalLink><linkText>对于在目标 DC 的 SPNAD DS</linkText><linkUri>https://msdn.microsoft.com/library/dd207688(PROT.13).aspx</linkUri></externalLink></relatedTopics>
+<externalLink> <linkText>KB 文章 839880 使用 Windows Server 2003 支持的故障排除 RPC 端点映射程序错误从产品 CD tools</linkText><linkUri><a href="https://support.microsoft.com/kb/839880" data-raw-source="https://support.microsoft.com/kb/839880">https://support.microsoft.com/kb/839880</a></linkUri></externalLink>
+<externalLink><linkText>KB 文章 832017 服务概述和网络端口Windows Server 系统要求</linkText><linkUri><a href="https://support.microsoft.com/kb/832017/" data-raw-source="https://support.microsoft.com/kb/832017/">https://support.microsoft.com/kb/832017/</a></linkUri></externalLink>
+<externalLink><linkText>KB 文章 224196 限制活动目录复制流量和客户端 RPC 流量到特定端口</linkText><linkUri><a href="https://support.microsoft.com/kb/224196/" data-raw-source="https://support.microsoft.com/kb/224196/">https://support.microsoft.com/kb/224196/</a></linkUri></externalLink>
+<externalLink><linkText>知识库文章154596 如何配置与防火墙一起使用的 RPC 动态端口分配</linkText><linkUri><a href="https://support.microsoft.com/kb/154596" data-raw-source="https://support.microsoft.com/kb/154596">https://support.microsoft.com/kb/154596</a></linkUri></externalLink><externalLink><linkText>如何 RPC工作原理</linkText><linkUri><a href="https://msdn.microsoft.com/library/aa373935(VS.85).aspx" data-raw-source="https://msdn.microsoft.com/library/aa373935(VS.85).aspx">https://msdn.microsoft.com/library/aa373935(VS.85).aspx</a></linkUri></externalLink><externalLink><linkText>服务器用于为连接的准备</linkText><linkUri> <a href="https://msdn.microsoft.com/library/aa373938(VS.85).aspx" data-raw-source="https://msdn.microsoft.com/library/aa373938(VS.85).aspx"> https://msdn.microsoft.com/library/aa373938(VS.85).aspx </a> </linkUri> </externalLink> 
+<externalLink><linkText>客户端如何建立的连接</linkText><linkUri><a href="https://msdn.microsoft.com/library/aa373937(VS.85).aspx" data-raw-source="https://msdn.microsoft.com/library/aa373937(VS.85).aspx"> https://msdn.microsoft.com/library/aa373937(VS.85).aspx </a> </linkUri> </externalLink> <externalLink><linkText>注册接口</linkText><linkUri> <a href="https://msdn.microsoft.com/library/aa375357(VS.85).aspx" data-raw-source="https://msdn.microsoft.com/library/aa375357(VS.85).aspx">https://msdn.microsoft.com/library/aa375357(VS.85).aspx </a> </linkUri> </externalLink> <externalLink><linkText>使服务器在网络上可用</linkText><linkUri> <a href="https://msdn.microsoft.com/library/aa373974(VS.85).aspx" data-raw-source="https://msdn.microsoft.com/library/aa373974(VS.85).aspx"> https://msdn.microsoft.com/library/aa373974(VS.85).aspx</a> </linkUri> </externalLink> <externalLink><linkText>注册终结点</linkText><linkUri> <a href="https://msdn.microsoft.com/library/aa375255(VS.85).aspx" data-raw-source="https://msdn.microsoft.com/library/aa375255(VS.85).aspx"> https://msdn.microsoft.com/library/aa375255(VS.85).aspx </a></linkUri> </externalLink> <externalLink><linkText>侦听客户端调用</linkText><linkUri> <a href="https://msdn.microsoft.com/library/aa373966(VS.85).aspx" data-raw-source="https://msdn.microsoft.com/library/aa373966(VS.85).aspx"> https://msdn.microsoft.com/library/aa373966(VS.85).aspx </a> </linkUri></externalLink> <externalLink><linkText>客户端如何建立的连接</linkText><linkUri><a href="https://msdn.microsoft.com/library/aa373937(VS.85).aspx" data-raw-source="https://msdn.microsoft.com/library/aa373937(VS.85).aspx">https://msdn.microsoft.com/library/aa373937(VS.85).aspx</a></linkUri></externalLink><span class=" class=""></span class="></linkText><linkUri><a href="https://msdn.microsoft.com/library/dd207688(PROT.13).aspx" data-raw-source="https://msdn.microsoft.com/library/dd207688(PROT.13).aspx">https://msdn.microsoft.com/library/dd207688(PROT.13).aspx</a></linkUri></externalLink></relatedTopics>
 </developerConceptualDocument>
 
 
