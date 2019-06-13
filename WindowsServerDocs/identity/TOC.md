@@ -462,6 +462,10 @@
 #### [AD FS 密码攻击保护](ad-fs/technical-reference/ad-fs-password-protection.md)
 ### [AD FS 2016 常见问题解答](ad-fs/overview/AD-FS-FAQ.md)
 
+## Active Directory Rights Management Service
+### [将 AD RMS 升级到 Windows Server 2016](ad-rms/adrms-deploy.md)
+
+
 ## [保护特权访问](securing-privileged-access/securing-privileged-access.md)
 ### [特权访问工作站](securing-privileged-access/privileged-access-workstations.md)
 ### [保护特权访问参考资料](securing-privileged-access/securing-privileged-access-reference-material.md)

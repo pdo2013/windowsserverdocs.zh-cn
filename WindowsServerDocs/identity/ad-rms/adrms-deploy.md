@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.author: esaggese
 ms.date: 05/30/2019
 ms.topic: article
-ms.openlocfilehash: ce058a2885315c84d2c1c6701ad2801790d3c590
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: HT
+ms.openlocfilehash: f5d621a0ba06f5b1beb97ccdbffb8376b5503168
+ms.sourcegitcommit: 927adf32faa6052234ad08f21125906362e593dc
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66814070"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67033350"
 ---
 # <a name="upgrading-ad-rms-to-windows-server-2016"></a>将 AD RMS 升级到 Windows Server 2016
 
@@ -257,7 +257,7 @@ AD RMS 和 ADFS 数据库保存到 AD RMS，公钥的服务器许可方证书、
 
 13. 一旦登录后，打开**服务器管理器**选择**工具**，然后**Active Directory Rights Management**。 管理窗口应出现，并且指示该群集在群集中拥有其他服务器。
 
-14. 14. 如果 AD RMS 移动设备扩展安装在原始的 AD RMS 群集，需要已更新的群集节点中还安装 MDE。 按照 MDE 文档中的说明将 MDE 添加到你的 AD RMS 群集。 此时，可以重新调整其用途预先存在的所有节点或将其升级到 Windows Server 2016 并重新将其联接到 AD RMS 群集使用上面所述的相同过程。 
+14. 如果 AD RMS 移动设备扩展安装在原始的 AD RMS 群集，需要已更新的群集节点中还安装 MDE。 按照 MDE 文档中的说明将 MDE 添加到你的 AD RMS 群集。 此时，可以重新调整其用途预先存在的所有节点或将其升级到 Windows Server 2016 并重新将其联接到 AD RMS 群集使用上面所述的相同过程。 
 
 ### <a name="configuring-windows-server-2016-web-application-proxy-wap"></a>配置 Windows Server 2016 Web 应用程序代理 (WAP)
 

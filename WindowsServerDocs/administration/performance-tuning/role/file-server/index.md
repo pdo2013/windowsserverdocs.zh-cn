@@ -7,19 +7,18 @@ ms.topic: article
 author: phstee
 ms.author: NedPyle; Danlo; DKruse
 ms.date: 4/14/2017
-ms.openlocfilehash: ed9e9c6e2280aa69408455a111eddb3af7f88750
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: dc8a845a6d352fa03517e2a092c44b6d1c1def4b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266696"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811464"
 ---
 # <a name="performance-tuning-for-file-servers"></a>文件服务器的性能优化
 
 考虑到平均负载、峰值负载、容量、增长计划和响应时间，应选择适当的硬件来满足要求的文件服务器负载。 硬件瓶颈会限制软件优化的有效性。
 
 ## <a name="general-tuning-parameters-for-clients"></a>客户端的常规优化参数
-
 
 以下 REG\_DWORD 注册表设置可能会影响与 SMB 文件服务器交互的客户端计算机的性能：
 
@@ -94,9 +93,9 @@ ms.locfileid: "66266696"
 
     默认值为 10 秒。 这是目录缓存超时。
 
-    > [!Note]  此参数控制在缺少目录租约时的目录元数据缓存。
-
-     
+    > [!NOTE]
+    > 此参数控制缓存的目录元数据中不存在目录租用。
+     
 
 -   **DirectoryCacheEntrySizeMax**
 
@@ -222,7 +221,7 @@ ms.locfileid: "66266696"
 | FileNotFoundCacheEntriesMax | 32768 | 128     |
 | MaxCmds                     | 32768 | 15      |
 
- 
+ 
 
 从 Windows 8 开始，可使用 Set-SmbClientConfiguration 和 Set-SmbServerConfiguration Windows PowerShell cmdlet 配置其中的许多 SMB 设置   。 也可以使用 Windows PowerShell 配置只与注册表相关的设置。
 

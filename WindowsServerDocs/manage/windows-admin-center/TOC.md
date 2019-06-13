@@ -11,34 +11,46 @@
 ## 规划
 ### [哪种安装类型适合你？](plan/installation-options.md)
 ### [用户访问选项](plan/user-access-options.md)
-### [Azure 集成选项](plan/azure-integration-options.md)
 
 ## 部署
 ### [准备你的环境](deploy/prepare-environment.md)
 ### [安装 Windows Admin Center](deploy/install.md)
 ### [高可用性](deploy/high-availability.md)
 
+
 ## 配置
 ### [Windows Admin Center 设置](configure/settings.md)
 ### [用户访问控制和权限](configure/user-access-control.md)
 ### [使用扩展](configure/using-extensions.md)
-### [配置 Azure 集成](configure/azure-integration.md)
-### [通过 Windows Admin Center 管理 Azure 虚拟机](configure/manage-azure-vms.md)
+### [共享的连接](configure/shared-connections.md)
 
-## 使用
-### [入门](use/get-started.md)
+## 将
+### [开始行动](use/get-started.md)
 ### [管理服务器](use/manage-servers.md)
 ### [管理超融合基础设施](use/manage-hyper-converged.md)
 ### [管理故障转移群集](use/manage-failover-clusters.md)
 ### [管理 Hyper-V 虚拟机](use/manage-virtual-machines.md)
-### [配置 Azure 服务](use/azure-services.md)
-#### [使用 Azure Site Recovery 保护 Hyper-V 虚拟机](use/azure-site-recovery.md)
-#### [使用 Azure 更新管理更新你的服务器](use/azure-update-management.md)
 ### [日志记录](use/logging.md)
-### [常见疑难解答步骤](use/troubleshooting.md)
-### [已知问题](use/known-issues.md)
 
-## 扩展
+
+## 连接到 Azure
+### [Azure 混合服务](azure/index.md)
+#### [Azure Backup](azure/azure-backup.md)
+#### [Azure Site Recovery](azure/azure-site-recovery.md)
+#### [Azure 文件同步](azure/azure-file-sync.md)
+#### [Azure Monitor](azure/azure-monitor.md)
+#### [Azure 更新管理](azure/azure-update-management.md)
+### [Windows Admin Center 连接到 Azure](azure/azure-integration.md)
+### [部署在 Azure 中 Windows Admin Center](azure/deploy-wac-in-azure.md)
+### [通过 Windows Admin Center 管理 Azure 虚拟机](azure/manage-azure-vms.md)
+
+## 支持
+### [支持策略](support/index.md)
+### [常见疑难解答步骤](support/troubleshooting.md)
+### [已知问题](support/known-issues.md)
+
+
+## Extend
 ### [扩展概述](extend/extensibility-overview.md)
 ### [了解扩展](extend/understand-extensions.md)
 ### [开发扩展](extend/developing-extensions.md)
@@ -59,10 +71,14 @@
 #### [在扩展中使用 PowerShell](extend/guides/powershell.md)
 #### [CSS 图标指南](extend/guides/cssicons.md)
 #### [迁移到最新 SDK](extend/guides/migration-guide-0_1-1_0.md)
+#### [启用扩展发现横幅](extend/guides/extension-discovery-banner.md)
 ### [发布扩展](extend/publish-extensions.md)
 ### 案例研究
 #### [DataON](extend/case-studies/dataon.md)
 #### [Fujitsu](extend/case-studies/fujitsu.md)
 #### [Lenovo](extend/case-studies/lenovo.md)
+#### [NEC](extend/case-studies/nec.md)
 #### [Pure Storage](extend/case-studies/purestorage.md)
 #### [Squared Up](extend/case-studies/squared-up.md)
+
+

@@ -84,6 +84,7 @@
 ### [已加入域的设备公钥身份验证](kerberos/domain-joined-device-public-key-authentication.md)
 ### [Kerberos 约束委派](kerberos/kerberos-constrained-delegation-overview.md)
 ### [阻止使用 RC4 密钥的 Kerberos 更改密码](kerberos/preventing-kerberos-change-password-that-uses-rc4-secret-keys.md)
+### [为 IP 地址配置 Kerberos](kerberos/configuring-kerberos-over-ip.md)
 ## [NTLM](kerberos/ntlm-overview.md)
 ## [密码](kerberos/passwords-overview.md)
 ## [TLS - SSL (Schannel SSP)](tls/tls-ssl-schannel-ssp-overview.md)
