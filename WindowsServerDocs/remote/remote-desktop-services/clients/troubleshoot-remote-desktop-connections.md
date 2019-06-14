@@ -12,12 +12,12 @@ manager: ''
 ms.author: kaushika; rklemen; josh.bender; v-tea
 ms.date: 02/22/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 4bbdd17f5e6e2b161e0dda0e172ea862a9107841
-ms.sourcegitcommit: 564158d760f902ced7f18e6d63a9daafa2a92bd4
+ms.openlocfilehash: 43e40f8442600dfc66dafd6b8b210274908b4595
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64988339"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446719"
 ---
 # <a name="troubleshooting-remote-desktop-connections"></a>远程桌面连接故障排除
 有关的几个最常见的远程桌面服务 (RDS) 问题的简短说明，请参阅[有关远程桌面客户端常见问题](https://review.docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-client-faq)。 本文介绍排查连接问题的几个更高级的方法。 这些过程的许多应用是否正在排查的简单配置，如一台物理计算机连接到另一台物理计算机或更复杂的配置。 某些过程解决问题，仅在更复杂的多用户方案中出现。 有关远程桌面组件以及它们如何协同工作的详细信息，请参阅[远程桌面服务体系结构](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)。
@@ -68,7 +68,7 @@ ms.locfileid: "64988339"
 2. 在注册表编辑器中，选择**文件**，然后选择**连接网络注册表**。
 3. 在中**选择计算机**对话框框中，输入远程计算机的名称，选择**检查名称**，然后选择**确定**。
 4. 导航到**HKEY\_本地\_机\\系统\\CurrentControlSet\\控制\\终端服务器**。  
-   ![注册表编辑器中，显示 fDenyTSConnections 条目](..\media\troubleshoot-remote-desktop-connections\RegEntry_fDenyTSConnections.png)
+   ![注册表编辑器中，显示 fDenyTSConnections 条目](../media/troubleshoot-remote-desktop-connections/RegEntry_fDenyTSConnections.png)
    - 如果的值**fDenyTSConnections**该键**0**，则启用 RDP
    - 如果的值**fDenyTSConnections**该键**1**，则禁用 RDP
 5. 若要启用 RDP，更改的值**fDenyTSConnections**从**1**到**0**。
@@ -85,9 +85,9 @@ gpresult /H c:\gpresult.html
 
 - 如果为此策略设置为**已启用**，组策略不会阻止 RDP 连接。
 - 如果为此策略设置为**已禁用**，检查**入选 GPO**。 这是正在阻止 RDP 连接的 GPO。
-![Gpresult.html，在其中一个示例段域级别 GPO * * 块 RDP * * 正在禁用 RDP。](..\media\troubleshoot-remote-desktop-connections\GPResult_RDSH_Connections_GP.png)
+  ![Gpresult.html，在其中一个示例段域级别 GPO * * 块 RDP * * 正在禁用 RDP。](../media/troubleshoot-remote-desktop-connections/GPResult_RDSH_Connections_GP.png)
    
-  ![Gpresult.html，在其中一个示例段 * * 本地组策略 * * 正在禁用 RDP。](..\media\troubleshoot-remote-desktop-connections\GPResult_RDSH_Connections_LGP.png)
+  ![Gpresult.html，在其中一个示例段 * * 本地组策略 * * 正在禁用 RDP。](../media/troubleshoot-remote-desktop-connections/GPResult_RDSH_Connections_LGP.png)
 
 #### <a name="check-whether-a-gpo-is-blocking-rdp-on-a-remote-computer"></a>检查 GPO 是否阻止远程计算机上的 RDP
 
@@ -117,7 +117,7 @@ gpresult /S <computer name> /H c:\gpresult-<computer name>.html
 
 可以使用服务 MMC 管理单元用于本地或远程管理的服务。 本地或远程方式，还可以使用 PowerShell （如果远程计算机配置为接受远程 PowerShell 命令）。
 
-![在服务 MMC 管理单元中的远程桌面服务。 不要修改默认服务设置。](..\media\troubleshoot-remote-desktop-connections\RDSServiceStatus.png)
+![在服务 MMC 管理单元中的远程桌面服务。 不要修改默认服务设置。](../media/troubleshoot-remote-desktop-connections/RDSServiceStatus.png)
 
 在任何一台计算机，如果一个或两个服务未运行，启动它们。
 
@@ -135,7 +135,7 @@ gpresult /S <computer name> /H c:\gpresult-<computer name>.html
 
 1. 打开 PowerShell 窗口。 若要连接到远程计算机，请输入**Enter-pssession-ComputerName\<计算机名\>** 。
 2. 输入**qwinsta**。 
-    ![Qwinsta 命令将列出计算机的端口上侦听的进程。](..\media\troubleshoot-remote-desktop-connections\WPS_qwinsta.png)
+    ![Qwinsta 命令将列出计算机的端口上侦听的进程。](../media/troubleshoot-remote-desktop-connections/WPS_qwinsta.png)
 3. 如果列表中包含**rdp tcp**状态为**侦听**，RDP 侦听器是否正常工作。 请继续执行[检查 RDP 侦听器端口](#check-the-rdp-listener-port)。 否则，继续执行步骤 4。
 4. 从工作的计算机导出 RDP 侦听器配置。
     1. 登录到具有相同的操作系统版本，因为受影响的计算机，计算机并访问该计算机的注册表 （例如，通过使用注册表编辑器）。
@@ -171,7 +171,7 @@ gpresult /S <computer name> /H c:\gpresult-<computer name>.html
 
 1. 如果仍然无法连接，打开证书 MMC 管理单元中。 当提示选择要管理中，选择的证书存储**计算机帐户**，然后选择受影响的计算机。
 2. 在中**证书**下的文件夹**远程桌面**，删除 RDP 自签名的证书。 
-    ![在 MMC 证书管理单元中的远程桌面证书。](..\media\troubleshoot-remote-desktop-connections\MMCCert_Delete.png)
+    ![在 MMC 证书管理单元中的远程桌面证书。](../media/troubleshoot-remote-desktop-connections/MMCCert_Delete.png)
 3. 在受影响的计算机上重新启动远程桌面服务服务。
 4. 证书管理单元中的刷新。
 5. 如果尚未重新创建 RDP 自签名的证书[检查的 MachineKeys 文件夹权限](#check-the-permissions-of-the-machinekeys-folder)。
@@ -197,7 +197,7 @@ gpresult /S <computer name> /H c:\gpresult-<computer name>.html
       - 若要连接到远程计算机，请选择**文件**，然后选择**连接网络注册表**。
       - 在中**选择计算机**对话框框中，输入远程计算机的名称，选择**检查名称**，然后选择**确定**。
 2. 打开注册表并导航到**HKEY\_本地\_机\\系统\\CurrentControlSet\\控制\\终端服务器\\WinStations\\\<侦听器\>** 。 
-    ![RDP 协议在端口号子项。](..\media\troubleshoot-remote-desktop-connections\RegEntry_PortNumber.png)
+    ![RDP 协议在端口号子项。](../media/troubleshoot-remote-desktop-connections/RegEntry_PortNumber.png)
 3. 如果**PortNumber**而不具有值**3389**，将其更改为**3389**。 
    > [!IMPORTANT]  
     > 可以运行远程桌面服务使用另一个端口。 但是，我们不建议执行此操作。 解决此类配置不属于本文的讨论范围。
@@ -214,19 +214,19 @@ gpresult /S <computer name> /H c:\gpresult-<computer name>.html
     cmd /c 'netstat -ano | find "3389"'  
     ```
   
-    ![Netstat 命令生成端口和侦听这些服务的列表。](..\media\troubleshoot-remote-desktop-connections\WPS_netstat.png)
-1. 查找状态为“正在监听”  的 TCP 端口 3389（或分配的 RDP 端口）条目。 
+    ![Netstat 命令生成端口和侦听这些服务的列表。](../media/troubleshoot-remote-desktop-connections/WPS_netstat.png)
+3. 查找状态为“正在监听”  的 TCP 端口 3389（或分配的 RDP 端口）条目。 
     > [!NOTE]  
    > 使用此端口的服务或进程的 PID（进程标识符）将出现在 PID 列下。
-1. 若要确定哪个应用程序正在使用端口 3389 （或分配的 RDP 端口），请输入以下命令：  
+4. 若要确定哪个应用程序正在使用端口 3389 （或分配的 RDP 端口），请输入以下命令：  
    
      ```powershell  
     cmd /c 'tasklist /svc | find "<pid listening on 3389>"'  
     ```  
   
-    ![Tasklist 命令会报告特定过程的详细信息。](..\media\troubleshoot-remote-desktop-connections\WPS_tasklist.png)
-1. 查找与端口相关联的 PID 号条目 (从**netstat**输出)。 服务或与该 PID 关联的进程显示在右侧。
-1. 如果应用程序或远程桌面服务 (TermServ.exe) 以外的服务正在使用该端口，可以通过使用以下方法之一来解决冲突：
+    ![Tasklist 命令会报告特定过程的详细信息。](../media/troubleshoot-remote-desktop-connections/WPS_tasklist.png)
+5. 查找与端口相关联的 PID 号条目 (从**netstat**输出)。 服务或与该 PID 关联的进程显示在右侧。
+6. 如果应用程序或远程桌面服务 (TermServ.exe) 以外的服务正在使用该端口，可以通过使用以下方法之一来解决冲突：
       - 配置的其他应用程序或服务以使用其他端口 （推荐）。
       - 卸载其他应用程序或服务。
       - 配置 RDP 使用其他端口，然后重新启动远程桌面服务服务 （不推荐）。
@@ -295,7 +295,7 @@ gpresult /S <computer name> /H c:\gpresult-<computer name>.html
 3. 选择**RD 授权**，然后选择你的部署的适当授权模式 (**每个设备**或**每用户**)。
 4. 输入您的远程桌面许可证服务器的完全限定的域名 (FQDN)，然后选择**添加**。
 5. 如果你有多个远程桌面许可证服务器，每个服务器重复步骤 4。 
-    ![远程桌面许可证服务器配置选项在服务器管理器。](..\media\troubleshoot-remote-desktop-connections\RDLicensing_Configure.png)
+    ![远程桌面许可证服务器配置选项在服务器管理器。](../media/troubleshoot-remote-desktop-connections/RDLicensing_Configure.png)
 
 ### <a name="refresh-the-x509-certificate-registry-keys"></a>刷新 X509 证书的注册表项
 
@@ -440,12 +440,12 @@ gpresult /S <computer name> /H c:\gpresult-<computer name>.html
 
 若要解决此问题，直到完成更新后，检查 KB 4093492 对于允许类型的连接。 如果不可行的替代方案可以考虑以下方法之一：
 
-  - 对于受影响的客户端计算机中，设置**加密 Oracle 修正**策略回**易受攻击**。
-  - 修改在以下策略**计算机配置\\管理模板\\Windows 组件\\远程桌面服务\\远程桌面会话主机\\安全**组策略文件夹：  
-      - **对远程 (RDP) 连接要求使用特定的安全层**： 设置为**已启用**，然后选择**RDP**。
-      - **需要进行用户身份验证的远程连接使用网络级别身份验证**： 设置为**禁用**。
-      > [!IMPORTANT]  
-      > 这些修改降低你的部署的安全性。 只应临时的如果在所有使用。
+- 对于受影响的客户端计算机中，设置**加密 Oracle 修正**策略回**易受攻击**。
+- 修改在以下策略**计算机配置\\管理模板\\Windows 组件\\远程桌面服务\\远程桌面会话主机\\安全**组策略文件夹：  
+  - **对远程 (RDP) 连接要求使用特定的安全层**： 设置为**已启用**，然后选择**RDP**。
+  - **需要进行用户身份验证的远程连接使用网络级别身份验证**： 设置为**禁用**。
+    > [!IMPORTANT]  
+    > 这些修改降低你的部署的安全性。 只应临时的如果在所有使用。
 
 有关使用组策略的详细信息，请参阅[修改阻止 GPO](#modifying-a-blocking-gpo)。
 
@@ -493,7 +493,7 @@ gpresult /S <computer name> /H c:\gpresult-<computer name>.html
 
 若要解决此问题，请重新启动 RDSH 服务器。
 
-若要解决此问题，请应用知识库 4093114 [2018 年 4 月 10 日-KB4093114 （每月汇总）] (c:file:///\\用户\\v jesits\\AppData\\本地\\Microsoft\\Windows\\INetCache\\Content.Outlook\\FUB8OO45\\年 4 月 %2010，%202018 — KB4093114 %20\(每月 %20rollup\))，到 RDSH 服务器。
+若要解决此问题，请应用知识库 4093114 [2018 年 4 月 10 日-KB4093114 (每月 Rollup)](file:///C:/Users/v-jesits/AppData/Local/Microsoft/Windows/INetCache/Content.Outlook/FUB8OO45/April%2010,%202018—KB4093114%20(Monthly%20Rollup)) 到RDSH 服务器。
 
 ### <a name="rd-listener-issue"></a>RD 侦听器问题
 

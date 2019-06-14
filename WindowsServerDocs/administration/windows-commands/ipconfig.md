@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: babcdaf6ae35770d48176c7c391fa41e295ce5d5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fff4e5088e3e08cf2e9e742d8fb6aa2187bb9e83
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825048"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438130"
 ---
 # <a name="ipconfig"></a>ipconfig
 
@@ -45,15 +45,15 @@ ipconfig [/allcompartments] [/all] [/renew [<Adapter>]] [/release [<Adapter>]] [
 |/release6[\<Adapter>]|将 DHCPRELEASE 消息发送到 DHCPv6 服务器以释放当前的 DHCP 配置并放弃所有适配器的 IPv6 地址配置 （如果未指定适配器） 或为特定的适配器上，如果*适配器*包含参数。 此参数禁用 TCP/IP 的适配器配置为自动获取 IP 地址。 若要指定适配器名称，键入将显示当你使用的适配器名称**ipconfig**不带参数。|
 |/ 续订 [\<适配器 >]|如果将续订所有适配器 （如果未指定适配器） 或为特定的适配器的 DHCP 配置*适配器*参数会包括在内。 此参数是仅在具有配置为自动获取 IP 地址的适配器的计算机上可用。 若要指定适配器名称，键入将显示当你使用的适配器名称**ipconfig**不带参数。|
 |/renew6 [\<Adapter>]|如果将续订所有适配器 （如果未指定适配器） 或为特定的适配器的 DHCPv6 配置*适配器*参数会包括在内。 此参数是仅在具有配置为自动获取 IPv6 地址的适配器的计算机上可用。 若要指定适配器名称，键入将显示当你使用的适配器名称**ipconfig**不带参数。|
-|/setclassid \<Adapter>[ <ClassID>]|配置指定的适配器的 DHCP 类 ID。 若要设置所有适配器的 DHCP 类 ID，请使用星号 (**&#42;**) 来代替通配符*适配器*。 此参数是仅在具有配置为自动获取 IP 地址的适配器的计算机上可用。 如果未指定 DHCP 类 ID，将删除当前的类 ID。|
-|/showclassid\<适配器 >|显示指定的适配器的 DHCP 类 ID。 若要查看所有适配器的 DHCP 类 ID，请使用星号 (**&#42;**) 来代替通配符*适配器*。 此参数是仅在具有配置为自动获取 IP 地址的适配器的计算机上可用。|
+|/setclassid \<Adapter>[ <ClassID>]|配置指定的适配器的 DHCP 类 ID。 若要设置所有适配器的 DHCP 类 ID，请使用星号 ( **&#42;** ) 来代替通配符*适配器*。 此参数是仅在具有配置为自动获取 IP 地址的适配器的计算机上可用。 如果未指定 DHCP 类 ID，将删除当前的类 ID。|
+|/showclassid\<适配器 >|显示指定的适配器的 DHCP 类 ID。 若要查看所有适配器的 DHCP 类 ID，请使用星号 ( **&#42;** ) 来代替通配符*适配器*。 此参数是仅在具有配置为自动获取 IP 地址的适配器的计算机上可用。|
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
 
--   此命令为配置为自动获取 IP 地址的计算机上最有用。 这使用户能够确定 DHCP、 自动专用 IP 寻址 (APIPA) 或备用的配置已配置的 TCP/IP 配置值。
--   如果您为提供的名称*适配器*包含任何空格，使用引号将适配器名称 (示例：**"***适配器名称***"**)。
--   对于适配器名称， **ipconfig**支持使用星号 （*） 通配符来指定有适配器，以指定的字符串或适配器名称包含指定的字符串开头的名称。 例如，**本地\*** 匹配本地的字符串开头的所有适配器和**\*Con\*** 都匹配所有包含字符串 Con 的适配器。
+- 此命令为配置为自动获取 IP 地址的计算机上最有用。 这使用户能够确定 DHCP、 自动专用 IP 寻址 (APIPA) 或备用的配置已配置的 TCP/IP 配置值。
+- 如果您为提供的名称*适配器*包含任何空格，使用引号将适配器名称 (示例： **"** <em>适配器名称</em> **"** )。
+- 对于适配器名称， **ipconfig**支持使用星号 ( *) 通配符来指定有适配器，以指定的字符串或适配器名称包含指定的字符串开头的名称。例如，**本地\\** * 匹配本地的字符串开头的所有适配器并 **\*Con\\** * 都匹配包含的所有适配器Con 的字符串。
 
 ## <a name="examples"></a>示例
 
@@ -84,4 +84,4 @@ ipconfig /setclassid "Local Area Connection" TEST
 
 #### <a name="additional-references"></a>其他参考
 
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)

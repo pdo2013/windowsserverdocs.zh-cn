@@ -9,12 +9,12 @@ ms.assetid: 244a4b48-06e5-4796-8750-a50e4f88ac72
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: d0cf1e1d6b1681a0f18908b08cd17572159e0462
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 0ea129fe2230332c0099d735f064768bce9fc50c
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881748"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812275"
 ---
 # <a name="network-load-balancing"></a>网络负载平衡
 
@@ -22,8 +22,8 @@ ms.locfileid: "59881748"
 
 在本主题中，我们为你提供的网络负载平衡概述\(NLB\) Windows Server 2016 中的功能。 可以使用 NLB 作为单个虚拟群集管理两个或多个服务器。 NLB 增强了可用性和可伸缩性的 Internet 服务器应用程序，如用于 web、 FTP、 防火墙、 代理、 虚拟专用网络\(VPN\)，和其他关键任务\-关键服务器。  
 
->[!NOTE]
->Windows Server 2016 包含新的 Azure 启发软件负载均衡器\(SLB\)作为软件定义网络的组件\(SDN\)基础结构。 使用而不是 NLB SLB 使用 SDN 的信息，如果使用非 Windows 工作负荷，需要出站网络地址转换\(NAT\)，或需要第 3 层\(L3\)或非基于 TCP 负载均衡。 您可以继续使用 Windows Server 2016 中使用 NLB，对于非 SDN 部署。 有关 SLB 的详细信息，请参阅[软件负载平衡 (SLB) 用于 SDN](../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md)。
+> [!NOTE]
+> Windows Server 2016 包含新的 Azure 启发软件负载均衡器\(SLB\)作为软件定义网络的组件\(SDN\)基础结构。 使用而不是 NLB SLB 使用 SDN 的信息，如果使用非 Windows 工作负荷，需要出站网络地址转换\(NAT\)，或需要第 3 层\(L3\)或非基于 TCP 负载均衡。 您可以继续使用 Windows Server 2016 中使用 NLB，对于非 SDN 部署。 有关 SLB 的详细信息，请参阅[软件负载平衡 (SLB) 用于 SDN](../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md)。
 
 网络负载平衡\(NLB\)功能使用 TCP 在多台服务器之间分配流量\/IP 网络协议。 通过组合到单个虚拟群集正在运行应用程序的两个或多台计算机，NLB 可向提供可靠性和性能的 web 服务器和其他关键任务\-关键服务器。  
   
@@ -145,7 +145,7 @@ NLB 可用于确保无状态应用程序，如运行 Internet Information Servic
 有关详细信息，请参阅 [Install-WindowsFeature](https://docs.microsoft.com/powershell/module/servermanager/install-windowsfeature?view=win10-ps)。
 
 ### <a name="network-load-balancing-manager"></a>网络负载平衡管理器
-若要在服务器管理器中打开网络负载平衡管理器，请单击“工具”，然后单击“网络负载平衡管理器”。
+若要在服务器管理器中打开网络负载平衡管理器，请单击“工具”  ，然后单击“网络负载平衡管理器”  。
   
 ## <a name="additional-resources"></a>其他资源  
 下表提供了有关 NLB 功能的其他信息的链接。  

@@ -12,12 +12,12 @@ ms.assetid: f5fe1088-ebe7-4799-a47d-075b0048dea1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d740b71a2c3b9ed8ddb0ecfae6da2cf7d4f689a5
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: a66f98b0896e706f520aa057b91cce2fe662d22d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63720414"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433320"
 ---
 # <a name="manage-devices-in-windows-server-essentials"></a>管理 Windows Server Essentials 中的设备
 
@@ -64,13 +64,13 @@ ms.locfileid: "63720414"
   
 #### <a name="to-view-the-status-of-network-computers"></a>查看网络计算机的状态  
   
-1.  打开 Windows Server Essentials 仪表板。  
+1. 打开 Windows Server Essentials 仪表板。  
   
-2.  在导航栏上，单击“设备”  。  
+2. 在导航栏上，单击“设备”  。  
   
-3.  在列表窗格中查看网络中所有计算机的状态。  
+3. 在列表窗格中查看网络中所有计算机的状态。  
   
- 下表介绍了 Windows Server Essentials 仪表板中可用的各种计算机和备份任务。 某些任务特定于计算机，它们仅在选择列表中的某个计算机时才可见。  
+   下表介绍了 Windows Server Essentials 仪表板中可用的各种计算机和备份任务。 某些任务特定于计算机，它们仅在选择列表中的某个计算机时才可见。  
   
 ### <a name="computer-tasks-in-the-dashboard"></a>仪表板中的计算机任务  
   

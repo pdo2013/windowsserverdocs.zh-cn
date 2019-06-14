@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 09f3f738d5a7ba7f7c40cb4eb2ce043856b378cc
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: ba411cf73026afe9990e5c32824e3dc277507891
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63718259"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437228"
 ---
 # <a name="msdt"></a>msdt
 
@@ -36,10 +36,12 @@ msdt </id <name> | /path <name> | /cab < name>> <</parameter> [options] … <par
 
 下表包含的参数和 msdt.exe 支持选项。
 
-|参数|描述|
-|---------|-----------|
-|/id\<包名称 >|指定要运行的诊断程序包。 有关可用包的列表，请参阅"可用故障排除程序包中疑难解答包 ID？ 本主题后面的部分。|
-|/path \<directory | .diagpkg 文件 | .diagcfg 文件 >|指定诊断程序包的完整路径。 如果指定目录，该目录必须包含诊断程序包。 不能结合使用 /path 参数 */i d*， */dci*，或 */cab*参数。|
-|/dci \<passkey>|预填充 msdt 中的密钥字段。 支持提供商已提供密钥时，才使用此参数。|
-|/dt \<directory>|显示故障排除历史记录中指定的目录。 诊断结果存储在用户的 **%LOCALAPPDATA%\Diagnostics**或 **%LOCALAPPDATA%\ElevatedDiagnostics**目录。|
-|/af\<答案文件 >|指定包含对一个或多个诊断交互的响应的 XML 格式的应答文件。|
+
+|      参数      |                                                                                            描述                                                                                             |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| /id\<包名称 > |        指定要运行的诊断程序包。 有关可用包的列表，请参阅"可用故障排除程序包中疑难解答包 ID？ 本主题后面的部分。         |
+|  /path \<directory  |                                                                                           .diagpkg 文件                                                                                            |
+|   /dci \<passkey>   |                                        预填充 msdt 中的密钥字段。 支持提供商已提供密钥时，才使用此参数。                                         |
+|  /dt \<directory>   | 显示故障排除历史记录中指定的目录。 诊断结果存储在用户的 **%LOCALAPPDATA%\Diagnostics**或 **%LOCALAPPDATA%\ElevatedDiagnostics**目录。 |
+| /af\<答案文件 >  |                                               指定包含对一个或多个诊断交互的响应的 XML 格式的应答文件。                                               |
+

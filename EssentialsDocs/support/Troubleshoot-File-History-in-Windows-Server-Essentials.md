@@ -12,12 +12,12 @@ ms.assetid: ed062945-27e9-4572-b1bb-6c8cf1b9c2f4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 12a9ba285757a37a8fc32a73e52ac3003db80a6d
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: f080bed5714ae4426cc6d0ca8edb5fab2d3c65b2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63721025"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432471"
 ---
 # <a name="troubleshoot-file-history-in-windows-server-essentials"></a>解决 Windows Server Essentials 中的文件历史记录问题
 
@@ -29,11 +29,11 @@ ms.locfileid: "63721025"
 ### <a name="file-history-data-is-not-automatically-deleted"></a>文件历史记录数据没有自动删除  
  在以下情况下，文件历史记录数据可能不会被自动删除：  
   
--   正在删除用户帐户，选择不删除用户帐户的文件历史记录数据，并选择手动删除这些数据。  
+- 正在删除用户帐户，选择不删除用户帐户的文件历史记录数据，并选择手动删除这些数据。  
   
--   当你尝试删除文件历史记录数据时，文件历史记录数据正由其他进程使用。  
+- 当你尝试删除文件历史记录数据时，文件历史记录数据正由其他进程使用。  
   
- 若要解决此问题，你必须使用以下过程手动删除文件历史记录：  
+  若要解决此问题，你必须使用以下过程手动删除文件历史记录：  
   
 ####  <a name="BKMK_manuallyDelete"></a> 若要手动删除用户或计算机的文件历史记录备份  
   
@@ -78,7 +78,7 @@ ms.locfileid: "63721025"
 ### <a name="a-user-account-was-removed-but-the-users-file-history-remains"></a>用户帐户已删除，但用户的文件历史记录仍保留  
  在某些情况下，网络管理员可以选择从服务器中删除用户或计算机，但保留文件历史记录备份以供将来使用。 当不再需要文件历史记录时，请从服务器上的共享文件夹中删除用户或计算机的文件历史记录备份文件夹。 若要执行此操作，请参阅 [To manually delete File History backups for a user or a computer](Troubleshoot-File-History-in-Windows-Server-Essentials.md#BKMK_manuallyDelete)。  
 
-5.  现在可以添加新用户。 有关说明，请参阅添加用户帐户？在中[管理用户帐户](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md)。  
+5. 现在可以添加新用户。 有关说明，请参阅添加用户帐户？在中[管理用户帐户](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md)。  
   
 ### <a name="a-user-account-was-removed-but-the-users-file-history-remains"></a>用户帐户已删除，但用户的文件历史记录仍保留  
  在某些情况下，网络管理员可以选择从服务器中删除用户或计算机，但保留文件历史记录备份以供将来使用。 当不再需要文件历史记录时，请从服务器上的共享文件夹中删除用户或计算机的文件历史记录备份文件夹。 若要执行此操作，请参阅 [To manually delete File History backups for a user or a computer](../support/Troubleshoot-File-History-in-Windows-Server-Essentials.md#BKMK_manuallyDelete)。  

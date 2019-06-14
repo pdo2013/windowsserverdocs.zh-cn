@@ -12,12 +12,12 @@ ms.assetid: d09dd82f-f7d2-47ce-862d-fd9869f2021c
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 413c1d5d3bec7f002b73e9861aa119d495c5cfb2
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 502e54cf719895dd11030cf163159f6cdda47164
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63717126"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433729"
 ---
 # <a name="add-windows-server-essentials-as-a-member-server"></a>将 Windows Server Essentials 添加为成员服务器
 
@@ -49,23 +49,23 @@ ms.locfileid: "63717126"
   
 #### <a name="to-join-windows-server-essentials-to-a-workgroup-or-domain"></a>将 Windows Server Essentials 加入工作组或域  
   
-1.  在第二台服务器上完成 Windows Server Essentials 的安装后，关闭配置 Windows Server Essentials 向导。  
+1. 在第二台服务器上完成 Windows Server Essentials 的安装后，关闭配置 Windows Server Essentials 向导。  
   
-2.  在“搜索”  框中，键入 **System Settings**，然后在搜索结果中，单击“查看高级系统设置”  。  
+2. 在“搜索”  框中，键入 **System Settings**，然后在搜索结果中，单击“查看高级系统设置”  。  
   
-3.  在“系统属性”  中，单击“计算机名称”  选项卡。  
+3. 在“系统属性”  中，单击“计算机名称”  选项卡。  
   
-4.  在“计算机名称”  的“域”  部分中，单击“更改”  。  
+4. 在“计算机名称”  的“域”  部分中，单击“更改”  。  
   
-5.  在中**计算机名/域更改**，在**成员**部分中，选择你想要运行到 Windows Server Essentials 的服务器加入**工作组**或**域**。  
+5. 在中**计算机名/域更改**，在**成员**部分中，选择你想要运行到 Windows Server Essentials 的服务器加入**工作组**或**域**。  
   
-    -   若要将服务器添加到工作组，请键入 **workgroup**，然后单击“确定”  。  
+   -   若要将服务器添加到工作组，请键入 **workgroup**，然后单击“确定”  。  
   
-    -   若要将此服务器加入到现有 Active Directory 域，请键入域的名称，然后单击“确定”  。  
+   -   若要将此服务器加入到现有 Active Directory 域，请键入域的名称，然后单击“确定”  。  
   
-6.  重新启动服务器以应用这些更改。  
+6. 重新启动服务器以应用这些更改。  
   
- 将服务器加入到你的主服务器的域后，你可以继续通过运行配置 Windows Server Essentials 向导从服务器管理器配置 Windows Server Essentials。  
+   将服务器加入到你的主服务器的域后，你可以继续通过运行配置 Windows Server Essentials 向导从服务器管理器配置 Windows Server Essentials。  
   
 #### <a name="to-configure-windows-server-essentials-experience-on-a-member-server"></a>在成员服务器上配置 Windows Server Essentials 体验  
   

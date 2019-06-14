@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: ea7ecd52-4c12-4a49-92fd-b8c08cec42a9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5c74a9277af3853d709a8ecd58c1e53e1bccc719
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 009ded50b156162ad1f3397fc0708ef8075c6a6f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812508"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446832"
 ---
 # <a name="step-3-configure-the-multisite-deployment"></a>步骤 3 配置多站点部署
 
@@ -62,12 +62,12 @@ ms.locfileid: "59812508"
   
 9.  选择**路由**，选择**Web 应用程序代理**，单击**添加功能**，然后单击**下一步**。  
   
-10. 单击 **“下一步”**，然后单击 **“安装”**。  
+10. 单击 **“下一步”** ，然后单击 **“安装”** 。  
   
-11.  在“安装进度”对话框中，验证安装是否成功，然后单击“关闭”。  
+11.  在“安装进度”  对话框中，验证安装是否成功，然后单击“关闭”  。  
   
   
-![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
 
   
 步骤 1-3 必须手动执行，且不使用此 Windows PowerShell cmdlet 完成。  
@@ -105,15 +105,15 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 #### <a name="to-obtain-an-ip-https-certificate"></a>若要获取的 IP-HTTPS 证书  
   
-1.  每个远程访问在服务器上：上**启动**屏幕上，键入**mmc**，然后按 ENTER。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+1.  每个远程访问在服务器上：上**启动**屏幕上，键入**mmc**，然后按 ENTER。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
 2.  单击**文件**，然后单击**添加/删除管理单元**。  
   
 3.  单击**证书**，单击**添加**，单击**计算机帐户**，单击**下一步**，选择**本地计算机**，单击**完成**，然后单击**确定**。  
   
-4.  在证书管理单元的控制台树中，依次打开“证书(本地计算机)\个人\证书”。  
+4.  在证书管理单元的控制台树中，依次打开  “证书(本地计算机)\个人\证书”。  
   
-5.  右键单击“证书”，指向“所有任务”，然后单击“申请新证书”。  
+5.  右键单击  “证书”，指向  “所有任务”，然后单击  “申请新证书”。  
   
 6.  单击“下一步”  两次。  
   
@@ -125,7 +125,7 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 9. 在中**值**的远程访问服务器 (例如，Europe.contoso.com) 的 Internet 名称键入的完全限定的域名 (FQDN)，然后单击**添加**。  
   
-10. 依次单击“确定”、“注册”和“完成”。  
+10. 依次单击  “确定”、  “注册”和  “完成”。  
   
 11. 在证书管理单元的详细信息窗格中，验证是否使用已注册的新证书，其 FQDN**预期目的**的**服务器身份验证**。  
   
@@ -143,15 +143,15 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 #### <a name="to-install-a-certificate-for-network-location"></a>若要为网络位置安装证书  
   
-1.  在远程访问服务器上：上**启动**屏幕上，键入**mmc**，然后按 ENTER。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+1.  在远程访问服务器上：上**启动**屏幕上，键入**mmc**，然后按 ENTER。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
 2.  单击**文件**，然后单击**添加/删除管理单元**。  
   
 3.  单击**证书**，单击**添加**，单击**计算机帐户**，单击**下一步**，选择**本地计算机**，单击**完成**，然后单击**确定**。  
   
-4.  在证书管理单元的控制台树中，依次打开“证书(本地计算机)\个人\证书”。  
+4.  在证书管理单元的控制台树中，依次打开  “证书(本地计算机)\个人\证书”。  
   
-5.  右键单击“证书”，指向“所有任务”，然后单击“申请新证书”。  
+5.  右键单击  “证书”，指向  “所有任务”，然后单击  “申请新证书”。  
   
     > [!NOTE]  
     > 此外可以导入第一个远程访问服务器的网络位置服务器使用的相同证书。  
@@ -166,7 +166,7 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 9. 在中**值**，键入已配置的网络位置服务器证书的第一台远程访问服务器 (例如，nls.corp.contoso.com)，完全限定的域名称 (FQDN)，然后单击**添加**.  
   
-10. 依次单击“确定”、“注册”和“完成”。  
+10. 依次单击  “确定”、  “注册”和  “完成”。  
   
 11. 在证书管理单元的详细信息窗格中，验证是否使用已注册的新证书，其 FQDN**预期目的**的**服务器身份验证**。  
   
@@ -183,15 +183,15 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 1.  在 DNS 服务器上：上**启动**屏幕上，键入**dnsmgmt.msc**，然后按 ENTER。  
   
-2.  在左窗格中**DNS 管理器**控制台中，打开内部网络的正向查找区域。 右键单击相关的区域，然后单击**新建主机 （A 或 AAAA）**。  
+2.  在左窗格中**DNS 管理器**控制台中，打开内部网络的正向查找区域。 右键单击相关的区域，然后单击**新建主机 （A 或 AAAA）** 。  
   
-3.  上**新的主机**对话框中**名称 （使用父域名称如果为空）** 框中，输入网络位置服务器第一台远程访问服务器使用的名称。 在中**IP 地址**框中，输入远程访问服务器的面向 intranet 的 IPv4 地址，然后单击**添加主机**。 在“DNS”对话框中，单击“确定”。  
+3.  上**新的主机**对话框中**名称 （使用父域名称如果为空）** 框中，输入网络位置服务器第一台远程访问服务器使用的名称。 在中**IP 地址**框中，输入远程访问服务器的面向 intranet 的 IPv4 地址，然后单击**添加主机**。 在“DNS”  对话框中，单击“确定”  。  
   
-4.  上**新的主机**对话框中**名称 （使用父域名称如果为空）** 框中，输入网络位置服务器第一台远程访问服务器使用的名称。 在中**IP 地址**框中，输入远程访问服务器的面向 intranet 的 IPv6 地址，然后单击**添加主机**。 在“DNS”对话框中，单击“确定”。  
+4.  上**新的主机**对话框中**名称 （使用父域名称如果为空）** 框中，输入网络位置服务器第一台远程访问服务器使用的名称。 在中**IP 地址**框中，输入远程访问服务器的面向 intranet 的 IPv6 地址，然后单击**添加主机**。 在“DNS”  对话框中，单击“确定”  。  
   
 5.  有关在部署中的每个远程访问服务器重复步骤 3 和 4。  
   
-6.  单击 **“完成”**。  
+6.  单击 **“完成”** 。  
   
 7.  重复此过程之前将服务器添加为部署中的其他入口点。  
   
@@ -222,7 +222,7 @@ DirectAccess Windows 客户端计算机必须是定义其 DirectAccess 关联的
   
 ### <a name="EnabledMultisite"></a>若要启用多站点配置  
   
-1.  在现有的远程访问服务器：上**启动**屏幕上，键入**RAMgmtUI.exe**，然后按 ENTER。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+1.  在现有的远程访问服务器：上**启动**屏幕上，键入**RAMgmtUI.exe**，然后按 ENTER。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
 2.  在远程访问管理控制台中，单击**配置**，然后在**任务**窗格中，单击**启用多站点**。  
   
@@ -232,7 +232,7 @@ DirectAccess Windows 客户端计算机必须是定义其 DirectAccess 关联的
   
 5.  上**入口点选择**页上，执行下列操作之一：  
   
-    -   单击**自动分配入口点，并允许客户端手动选择**自动路由到最合适的入口点，同时还允许客户端计算机手动选择的入口点的客户端计算机。 手动输入点的选择是仅适用于 Windows 8 计算机。 单击“下一步” 。  
+    -   单击**自动分配入口点，并允许客户端手动选择**自动路由到最合适的入口点，同时还允许客户端计算机手动选择的入口点的客户端计算机。 手动输入点的选择是仅适用于 Windows 8 计算机。 单击“下一步”  。  
   
     -   单击**自动分配入口点**自动路由到最合适的入口点，客户端计算机，然后单击**下一步**。  
   
@@ -261,7 +261,7 @@ DirectAccess Windows 客户端计算机必须是定义其 DirectAccess 关联的
   
 10. 上**启用多站点部署**对话框中，单击**关闭**，然后在启用多站点部署向导中，单击**关闭**。  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -290,7 +290,7 @@ Add-DAClient -EntrypointName 'Edge1-US' -DownlevelSecurityGroupNameList @('corp.
   
 ### <a name="AddEP"></a>若要添加到多站点部署的入口点  
   
-1.  在现有的远程访问服务器：上**启动**屏幕上，键入**RAMgmtUI.exe**，然后按 ENTER。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+1.  在现有的远程访问服务器：上**启动**屏幕上，键入**RAMgmtUI.exe**，然后按 ENTER。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
 2.  在远程访问管理控制台中，单击**配置**，然后在**任务**窗格中，单击**添加一个入口点**。  
   
@@ -303,7 +303,7 @@ Add-DAClient -EntrypointName 'Edge1-US' -DownlevelSecurityGroupNameList @('corp.
   
 5.  上**网络拓扑**页上，单击您要添加，然后单击的远程访问服务器的网络拓扑与相对应的拓扑**下一步**。  
   
-6.  上**网络名称或 IP 地址**页上，在**中的公用名称或 IP 地址由客户端用于连接到远程访问服务器类型**，输入公用名称或客户端用于连接到的 IP 地址远程访问服务器。 公共名称与 IP-HTTPS 证书的使用者名称相对应。 在边缘网络拓扑实现的位置的情况下，IP 地址是远程访问服务器的外部适配器。 单击“下一步” 。  
+6.  上**网络名称或 IP 地址**页上，在**中的公用名称或 IP 地址由客户端用于连接到远程访问服务器类型**，输入公用名称或客户端用于连接到的 IP 地址远程访问服务器。 公共名称与 IP-HTTPS 证书的使用者名称相对应。 在边缘网络拓扑实现的位置的情况下，IP 地址是远程访问服务器的外部适配器。 单击“下一步”  。  
   
 7.  上**网络适配器**页上，执行以下操作之一：  
   
@@ -311,7 +311,7 @@ Add-DAClient -EntrypointName 'Edge1-US' -DownlevelSecurityGroupNameList @('corp.
   
     -   如果您要在中，使用一个网络适配器部署拓扑**网络适配器**，选择连接到内部网络适配器。  
   
-8.  上**网络适配器**页上，在**选择使用 IP-HTTPS 连接进行身份验证的证书**，单击**浏览**以查找和选择 IP-HTTPS 证书。 单击“下一步” 。  
+8.  上**网络适配器**页上，在**选择使用 IP-HTTPS 连接进行身份验证的证书**，单击**浏览**以查找和选择 IP-HTTPS 证书。 单击“下一步”  。  
   
 9. 如果 IPv6 配置企业网络上**前缀配置**页上，在**分配给客户端计算机的 IPv6 前缀**，输入要将 IPv6 地址分配给 DirectAccess 客户端的 IP-HTTPS 前缀计算机，然后单击**下一步**。  
   
@@ -343,7 +343,7 @@ Add-DAClient -EntrypointName 'Edge1-US' -DownlevelSecurityGroupNameList @('corp.
   
 16. 为你想要添加到多站点部署中每个入口点重复步骤 2 中的此步骤。  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)Windows PowerShell 等效命令 * * *  
+![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   

@@ -12,12 +12,12 @@ ms.assetid: 0d115697-532b-48c2-a659-9f889e235326
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 008e614ca7ae202d575d2c3e5976ed3d5544b6ea
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 1cce047c45279f7116e0e8a256633df06344e13c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63720704"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433139"
 ---
 # <a name="manage-user-accounts-in-windows-server-essentials"></a>管理 Windows Server Essentials 中的用户帐户
 
@@ -63,8 +63,8 @@ Windows Server Essentials 仪表板的“用户”页面可集中管理信息和
 -   分配用户组 (仅限 Windows Server Essentials)。  
   
 > [!NOTE]
->  -   在 Microsoft Azure Active Directory (Azure AD) 中不支持非 ASCII 字符。 如果你的服务器与 Azure AD 集成，则不使用你的密码中的任何非 ASCII 字符。  
-> -   电子邮件选项仅在安装了可提供电子邮件服务的加载项时才可用。  
+> - 在 Microsoft Azure Active Directory (Azure AD) 中不支持非 ASCII 字符。 如果你的服务器与 Azure AD 集成，则不使用你的密码中的任何非 ASCII 字符。  
+>   -   电子邮件选项仅在安装了可提供电子邮件服务的加载项时才可用。  
   
 ##### <a name="to-add-a-user-account"></a>添加用户帐户  
   
@@ -200,38 +200,38 @@ Windows Server Essentials 仪表板的“用户”页面可集中管理信息和
  通过 Windows Server Essentials，可以使用 Windows Server Essentials 仪表板执行常见管理任务。 默认情况下**用户**仪表板的页面包含两个选项卡**用户**并**用户组**。  
   
 > [!NOTE]
->  -   如果集成与 Office 365 运行 Windows Server Essentials 的服务器，名为的新选项卡**通讯组**还新增了内**用户**仪表板页。  
-> -   在 Windows Server Essentials**用户**仪表板页面仅包含单个选项卡-**用户**。  
+> - 如果集成与 Office 365 运行 Windows Server Essentials 的服务器，名为的新选项卡**通讯组**还新增了内**用户**仪表板页。  
+>   -   在 Windows Server Essentials**用户**仪表板页面仅包含单个选项卡-**用户**。  
   
  “用户”  选项卡包含以下内容：  
   
--   可显示以下内容的用户帐户列表：  
+- 可显示以下内容的用户帐户列表：  
   
-    -   用户名。  
+  -   用户名。  
   
-    -   用户帐户的登录名。  
+  -   用户帐户的登录名。  
   
-    -   用户帐户是否具有“随处访问”权限。 用户帐户的“随处访问”权限为“允许”  或“不允许”  。  
+  -   用户帐户是否具有“随处访问”权限。 用户帐户的“随处访问”权限为“允许”  或“不允许”  。  
   
-    -   此用户帐户的文件历史记录是否由运行 Windows Server Essentials 的服务器托管。 用户帐户的文件历史记录状态为“托管”  或“非托管”  。  
+  -   此用户帐户的文件历史记录是否由运行 Windows Server Essentials 的服务器托管。 用户帐户的文件历史记录状态为“托管”  或“非托管”  。  
   
-    -   分配给用户帐户的访问级别。 你可以为用户帐户分配“标准用户”  访问权限或“管理员”  访问权限。  
+  -   分配给用户帐户的访问级别。 你可以为用户帐户分配“标准用户”  访问权限或“管理员”  访问权限。  
   
-    -   用户帐户状态。 用户帐户可以是“活动”  、“非活动”  或“不完整”  。  
+  -   用户帐户状态。 用户帐户可以是“活动”  、“非活动”  或“不完整”  。  
   
-    -   在 Windows Server Essentials 中，如果服务器与 Office 365 或 Windows Intune 集成将显示 Microsoft 联机帐户。  
+  -   在 Windows Server Essentials 中，如果服务器与 Office 365 或 Windows Intune 集成将显示 Microsoft 联机帐户。  
   
-    -   在 Windows Server Essentials 中，如果服务器与 Microsoft Office 365 集成的用户帐户的 Office 365 帐户 （称为 Microsoft 联机帐户的 Windows Server Essentials 中） 的状态将显示。  
+  -   在 Windows Server Essentials 中，如果服务器与 Microsoft Office 365 集成的用户帐户的 Office 365 帐户 （称为 Microsoft 联机帐户的 Windows Server Essentials 中） 的状态将显示。  
   
--   具有有关选定用户帐户的其他信息的详细信息窗格。  
+- 具有有关选定用户帐户的其他信息的详细信息窗格。  
   
--   包含以下内容的任务窗格：  
+- 包含以下内容的任务窗格：  
   
-    -   一组用户帐户管理任务，例如查看和删除用户帐户，以及更改密码。  
+  -   一组用户帐户管理任务，例如查看和删除用户帐户，以及更改密码。  
   
-    -   允许你全局设置或更改网络中所有用户帐户的设置的任务。  
+  -   允许你全局设置或更改网络中所有用户帐户的设置的任务。  
   
- 下表介绍了在“用户”  选项卡中可用的各种用户帐户任务。某些任务特定于用户帐户，它们仅在选择列表中的某个用户帐户时才可见。  
+  下表介绍了在“用户”  选项卡中可用的各种用户帐户任务。某些任务特定于用户帐户，它们仅在选择列表中的某个用户帐户时才可见。  
   
 > [!NOTE]
 >  如果将 Office 365 集成与 Windows Server Essentials，其他任务将变为可用。 有关详细信息，请参阅[管理的用户的联机帐户](Manage-Online-Accounts-for-Users.md)。  
@@ -286,55 +286,55 @@ Windows Server Essentials 仪表板的“用户”页面可集中管理信息和
   
 ##### <a name="to-reset-the-password-for-a-user-account"></a>重置用户帐户的密码  
   
-1.  打开 Windows Server Essentials 仪表板。  
+1. 打开 Windows Server Essentials 仪表板。  
   
-2.  在导航栏上，单击“用户”  。  
+2. 在导航栏上，单击“用户”  。  
   
-3.  在用户帐户列表中，选择要重置的用户帐户。  
+3. 在用户帐户列表中，选择要重置的用户帐户。  
   
-4.  在中 **< 用户帐户\>任务**窗格中，单击**更改用户帐户密码**。 这将显示“更改用户帐户密码”向导。  
+4. 在中 **< 用户帐户\>任务**窗格中，单击**更改用户帐户密码**。 这将显示“更改用户帐户密码”向导。  
   
-5.  为用户帐户键入一个新密码，然后再次键入该密码以进行确认。  
+5. 为用户帐户键入一个新密码，然后再次键入该密码以进行确认。  
   
-6.  单击“更改密码”  。  
+6. 单击“更改密码”  。  
   
-7.  向用户提供新密码。  
+7. 向用户提供新密码。  
   
-    > [!IMPORTANT]
-    >  -   如果你的帐户的密码策略已设置为“密码永不过期”  ，则你可能无法更改密码。  
-    > -   在 Azure AD 中不支持非 ASCII 字符。 因此，如果你的服务器与 Azure AD 集成，请不使用任何非 ASCII 字符在密码中。  
-    > -   如果 Microsoft 联机帐户 （在 Windows Server Essentials 与 Office 365 帐户中称为） 分配给用户，密码与联机帐户密码同步。 用户将使用新密码登录服务器或 Office 365。 有关详细信息，请参阅[管理的用户的联机帐户](Manage-Online-Accounts-for-Users.md)。  
+   > [!IMPORTANT]
+   > - 如果你的帐户的密码策略已设置为“密码永不过期”  ，则你可能无法更改密码。  
+   >   -   在 Azure AD 中不支持非 ASCII 字符。 因此，如果你的服务器与 Azure AD 集成，请不使用任何非 ASCII 字符在密码中。  
+   >   -   如果 Microsoft 联机帐户 （在 Windows Server Essentials 与 Office 365 帐户中称为） 分配给用户，密码与联机帐户密码同步。 用户将使用新密码登录服务器或 Office 365。 有关详细信息，请参阅[管理的用户的联机帐户](Manage-Online-Accounts-for-Users.md)。  
   
 ###  <a name="BKMK_Access3"></a> 您应了解的有关密码策略  
  密码策略是一组用于定义用户如何创建和使用密码的规则。 该策略有助于防止在未经授权的情况下访问用户数据和存储在服务器上的其他信息。 密码策略适用于可访问网络的所有用户帐户。  
   
  Windows Server Essentials 密码策略包含三个主要元素，如下所示：  
   
--   **密码长度**。  密码越长越安全。 空白密码是不安全的。  
+- **密码长度**。  密码越长越安全。 空白密码是不安全的。  
   
--   **密码复杂性**。  复杂密码包含大写字母和小写字母（a-z、A-Z）、基本数字 (0-9) 以及非字母符号（例如 ;、!、@、#、_、-）组合。 复杂密码不易遭到未经授权的访问。 包含用户名、出生日期或其他个人信息的密码不能提供足够的安全性。  
+- **密码复杂性**。  复杂密码包含大写字母和小写字母（a-z、A-Z）、基本数字 (0-9) 以及非字母符号（例如 ;、!、@、#、_、-）组合。 复杂密码不易遭到未经授权的访问。 包含用户名、出生日期或其他个人信息的密码不能提供足够的安全性。  
   
--   **密码使用期限**。  Windows Server Essentials 要求用户至少每隔 180 天更改一次密码。 作为选项，你可以选择将密码设置为永不过期。  
+- **密码使用期限**。  Windows Server Essentials 要求用户至少每隔 180 天更改一次密码。 作为选项，你可以选择将密码设置为永不过期。  
   
- 若要更加轻松地在你的计算机网络上实现密码策略，Windows Server Essentials 提供了一个简单工具，你可以使用该工具将密码策略设置或更改为以下四个预定义的策略配置文件之一：  
+  若要更加轻松地在你的计算机网络上实现密码策略，Windows Server Essentials 提供了一个简单工具，你可以使用该工具将密码策略设置或更改为以下四个预定义的策略配置文件之一：  
   
--   **弱**。  用户可以指定任何不为空的密码。  
+- **弱**。  用户可以指定任何不为空的密码。  
   
--   **中**。  这些密码必须包含至少 5 个字符。 无需使用复杂密码。  
+- **中**。  这些密码必须包含至少 5 个字符。 无需使用复杂密码。  
   
--   **中强**。  这些密码必须包含至少 5 个字符，并且必须包含字母、数字和符号。  
+- **中强**。  这些密码必须包含至少 5 个字符，并且必须包含字母、数字和符号。  
   
--   **强**。  这些密码必须包含至少 7 个字符，并且必须包含字母、数字和符号。 这些密码更安全，但用户可能更难以记住它们。  
+- **强**。  这些密码必须包含至少 7 个字符，并且必须包含字母、数字和符号。 这些密码更安全，但用户可能更难以记住它们。  
   
-    > [!NOTE]
-    >  密码不能包含用户名或电子邮件地址。  
-    >   
-    >  如果与 Office 365 集成，则该集成将强制使用“强”  密码策略，并更新该策略来包含以下要求：  
-    >   
-    >  -   密码必须包含 8 16 个字符。  
-    > -   密码不能包含空格或 Office 365 电子邮件名称。  
+  > [!NOTE]
+  >  密码不能包含用户名或电子邮件地址。  
+  > 
+  >  如果与 Office 365 集成，则该集成将强制使用“强”  密码策略，并更新该策略来包含以下要求：  
+  > 
+  > - 密码必须包含 8 16 个字符。  
+  >   -   密码不能包含空格或 Office 365 电子邮件名称。  
   
- 默认情况下，服务器安装将默认密码策略设置为**强**选项。  
+  默认情况下，服务器安装将默认密码策略设置为**强**选项。  
   
 ###  <a name="BKMK_Access4"></a> 更改密码策略  
  使用以下过程，将密码策略设置或更改为四个预定义策略配置文件中的任意一个。  
@@ -373,21 +373,21 @@ Windows Server Essentials 仪表板的“用户”页面可集中管理信息和
   
 ##### <a name="to-remove-a-user-account-but-retain-access-to-the-user-s-files"></a>若要删除用户帐户，但保留对用户的文件的访问  
   
-1.  打开 Windows Server Essentials 仪表板。  
+1. 打开 Windows Server Essentials 仪表板。  
   
-2.  在导航栏上，单击“用户”  。  
+2. 在导航栏上，单击“用户”  。  
   
-3.  在用户帐户列表中，选择要删除的用户帐户。  
+3. 在用户帐户列表中，选择要删除的用户帐户。  
   
-4.  在中 **< 用户帐户\>任务**窗格中，单击**删除用户帐户**。 这将显示“删除用户帐户”向导。  
+4. 在中 **< 用户帐户\>任务**窗格中，单击**删除用户帐户**。 这将显示“删除用户帐户”向导。  
   
-5.  在“是否保留这些文件？”  页面上，确保清除“删除此用户帐户的文件(包括文件历史记录备份和重定向文件夹)”  复选框，然后单击“下一步”  。  
+5. 在“是否保留这些文件？”  页面上，确保清除“删除此用户帐户的文件(包括文件历史记录备份和重定向文件夹)”  复选框，然后单击“下一步”  。  
   
-     将显示一个确认页面，警告你删除帐户，但保留这些文件。  
+    将显示一个确认页面，警告你删除帐户，但保留这些文件。  
   
-6.  单击“删除帐户”  以删除用户帐户。  
+6. 单击“删除帐户”  以删除用户帐户。  
   
- 删除用户帐户后，管理员可以向其他用户帐户提供对共享文件夹的访问权限。  
+   删除用户帐户后，管理员可以向其他用户帐户提供对共享文件夹的访问权限。  
   
 ##### <a name="to-give-a-user-account-permission-to-access-a-shared-folder"></a>提供用户帐户权限以访问共享文件夹  
   
@@ -414,15 +414,15 @@ Windows Server Essentials 仪表板的“用户”页面可集中管理信息和
   
 ##### <a name="to-manually-synchronize-the-dsrm-password-to-a-network-administrator-account"></a>手动将 DSRM 密码同步到网络管理员帐户  
   
-1.  在命令提示符下，运行 `ntdsutil.exe` 打开 ntdsutil 工具。  
+1. 在命令提示符下，运行 `ntdsutil.exe` 打开 ntdsutil 工具。  
   
-2.  若要重置 DSRM 密码，请键入 **set dsrm password**。  
+2. 若要重置 DSRM 密码，请键入 **set dsrm password**。  
   
-3.  若要与当前网络管理员的帐户同步的域控制器上的 DSRM 密码，请键入：  
+3. 若要与当前网络管理员的帐户同步的域控制器上的 DSRM 密码，请键入：  
   
-     **从域帐户同步** *< current_network_administrator_account >* ，然后按 Enter。  
+    **从域帐户同步** *< current_network_administrator_account >* ，然后按 Enter。  
   
- 因为你将定期更改网络管理员帐户的密码，以确保 DSRM 密码始终与网络管理员的当前密码相同，因此我们建议你创建一个定期任务，以便每日自动将 DSRM 密码同步到网络管理员密码。  
+   因为你将定期更改网络管理员帐户的密码，以确保 DSRM 密码始终与网络管理员的当前密码相同，因此我们建议你创建一个定期任务，以便每日自动将 DSRM 密码同步到网络管理员密码。  
   
 ##### <a name="to-automatically-synchronize-the-dsrm-password-to-a-network-administrator-account"></a>自动将 DSRM 密码同步到网络管理员帐户  
   
@@ -460,15 +460,15 @@ Windows Server Essentials 仪表板的“用户”页面可集中管理信息和
   
  “设置随处访问”向导允许你启用远程访问的两种方法：  
   
--   虚拟专用网络 (VPN)  
+- 虚拟专用网络 (VPN)  
   
--   远程 Web 访问  
+- 远程 Web 访问  
   
- 运行该向导时，你还可以选择允许将“随处访问”用于所有当前和新添加的用户帐户。  
+  运行该向导时，你还可以选择允许将“随处访问”用于所有当前和新添加的用户帐户。  
   
- 若要设置“随处访问”，请打开仪表板“主页”  页面、单击“安装”  ，然后单击“设置随处访问”  。  
+  若要设置“随处访问”，请打开仪表板“主页”  页面、单击“安装”  ，然后单击“设置随处访问”  。  
   
- 有关随处访问的详细信息，请参阅[Manage Anywhere Access](Manage-Anywhere-Access-in-Windows-Server-Essentials.md)。  
+  有关随处访问的详细信息，请参阅[Manage Anywhere Access](Manage-Anywhere-Access-in-Windows-Server-Essentials.md)。  
   
 ###  <a name="BKMK_Access9"></a> 使用户能够访问服务器上的资源  
   本部分适用于运行 Windows Server Essentials 或 Windows Server Essentials 的服务器或到安装了 Windows Server Essentials 体验角色运行 Windows Server 2012 R2 Standard 或 Windows Server 2012 R2 Datacenter 的服务器。  
