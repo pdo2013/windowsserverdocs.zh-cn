@@ -38,7 +38,7 @@ ms.locfileid: "66462166"
                                         </div>
                                         <div class="cardText">
                                             <h2>新增功能</h2>
-                                            <p>了解&#39;s Windows Server 中的新增功能</p>
+                                            <p>了解 Windows Server 中的新增功能</p>
                                         </div>
                                     </div>
                                 </div>
@@ -135,8 +135,8 @@ ms.locfileid: "66462166"
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h2>连接到 Azure 的混合服务</h2>
-                                            <p>连接到 Azure 的混合服务，以结合了优秀的本地和云服务器或群集。</p>
+                                            <h2>连接到 Azure 混合服务</h2>
+                                            <p>将服务器或群集连接到 Azure 混合服务，以结合本地和云的优点。</p>
             </li>
                     <li class="fullSpan">
                     <HR COLOR="purple" SIZE="6" WIDTH="60%">
@@ -280,7 +280,7 @@ ms.locfileid: "66462166"
        <hr width="80%">
             <li>2. <a href="https://docs.microsoft.com/windows-server/failover-clustering/failover-cluster-csvs">在故障转移群集中使用群集共享卷</a></li>
        <hr width="80%">
-            <li>3. <a href="https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering">什么&#39;s 中故障转移群集的新增功能</a></li>
+            <li>3. <a href="https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering">故障转移群集中的新增功能</a></li>
             </ol>
         </td>
     </tr>
@@ -451,7 +451,7 @@ ms.locfileid: "66462166"
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings">传输层安全性 (TLS) 注册表设置</a></li>
        <hr width="80%">
-            <li>2. <a href="https://docs.microsoft.com/windows-server/security/windows-services/security-guidelines-for-disabling-system-services-in-windows-server">禁用带桌面体验的 Windows Server 2016 上的系统服务的指南 </a></li>
+            <li>2. <a href="https://docs.microsoft.com/windows-server/security/windows-services/security-guidelines-for-disabling-system-services-in-windows-server">有关在带有桌面体验的 Windows Server 2016 上禁用系统服务的指南</a></li>
        <hr width="80%">
             <li>3. <a href="https://docs.microsoft.com/windows-server/security/windows-authentication/credentials-processes-in-windows-authentication">Windows 身份验证中的凭据进程</a></li>
             </ol>

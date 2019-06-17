@@ -11,12 +11,12 @@ ms.assetid: 92bb573b-03b7-470e-b72e-e35edf52b349
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 3591e17c9485fc8f9e365f6322c4f48e783db8ce
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: cf1144886ec5ae723b7747bb7dd72f235944d06c
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442219"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67141350"
 ---
 # <a name="choose-between-standard-or-production-checkpoints-in-hyper-v"></a>在 HYPER-V 中的标准或生产检查点之间选择
 
@@ -48,7 +48,7 @@ ms.locfileid: "66442219"
 
 ## <a name="see-also"></a>请参阅  
   
--   [生产检查点](../What-s-new-in-Hyper-V-on-Windows.md#BKMK_check)  
+-   [生产检查点](../What-s-new-in-Hyper-V-on-Windows.md#production-checkpoints-new)  
   
 -   [启用或禁用检查点](Enable-or-disable-checkpoints-in-Hyper-V.md)  
   

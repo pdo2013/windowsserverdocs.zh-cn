@@ -22,7 +22,7 @@
 ### [Windows Admin Center 设置](configure/settings.md)
 ### [用户访问控制和权限](configure/user-access-control.md)
 ### [使用扩展](configure/using-extensions.md)
-### [共享的连接](configure/shared-connections.md)
+### [共享连接](configure/shared-connections.md)
 
 ## 将
 ### [开始行动](use/get-started.md)
@@ -35,13 +35,13 @@
 
 ## 连接到 Azure
 ### [Azure 混合服务](azure/index.md)
-#### [Azure Backup](azure/azure-backup.md)
+#### [Azure 备份](azure/azure-backup.md)
 #### [Azure Site Recovery](azure/azure-site-recovery.md)
 #### [Azure 文件同步](azure/azure-file-sync.md)
 #### [Azure Monitor](azure/azure-monitor.md)
 #### [Azure 更新管理](azure/azure-update-management.md)
-### [Windows Admin Center 连接到 Azure](azure/azure-integration.md)
-### [部署在 Azure 中 Windows Admin Center](azure/deploy-wac-in-azure.md)
+### [将 Windows Admin Center 连接到 Azure](azure/azure-integration.md)
+### [在 Azure 中部署 Windows Admin Center](azure/deploy-wac-in-azure.md)
 ### [通过 Windows Admin Center 管理 Azure 虚拟机](azure/manage-azure-vms.md)
 
 ## 支持
