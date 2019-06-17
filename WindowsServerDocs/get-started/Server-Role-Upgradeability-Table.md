@@ -15,11 +15,11 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 9f8310baf659810d5d51587bafcc868c59ace61a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852048"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63687277"
 ---
 # <a name="server-role-upgrade-and-migration-matrix-for-windows-server-2016"></a>用于 Windows Server 2016 的服务器角色升级和迁移矩阵
 
@@ -42,7 +42,7 @@ ms.locfileid: "59852048"
 |打印和传真服务|    否| 否| 是 (Printbrm.exe)| 否|
 |远程桌面服务|   是，对于所有子角色，但不支持混合模式场|   是，对于所有子角色，但不支持混合模式场|   是|    否|
 |Web 服务器 (IIS)|  是|    是|    是|    否|
-|Windows Server Essentials 体验|  是|    N/A - 新功能|  是|    否|
+|Windows Server Essentials 体验|  是|    N/A - 新功能|  是|    否|
 |Windows Server 更新服务|    是|    是|    是|    否|
 |工作文件夹|  是|    是|    是|    是，使用[群集操作系统滚动升级](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade)从 WS 2012 R2 群集进行操作时。|
 
