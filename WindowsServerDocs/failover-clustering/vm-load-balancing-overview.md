@@ -9,10 +9,10 @@ manager: eldenc
 ms.author: subhatt
 ms.date: 09/19/2016
 ms.openlocfilehash: 125dd7421cc1876c07983016498a9689d8a507ac
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.sourcegitcommit: 6fec3ca19ddaecbc936320d98cca0736dd8505d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/18/2019
 ms.locfileid: "65475991"
 ---
 # <a name="virtual-machine-load-balancing-overview"></a>虚拟机负载平衡概述
