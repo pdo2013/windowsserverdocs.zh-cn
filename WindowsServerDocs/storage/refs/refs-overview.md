@@ -6,13 +6,13 @@ ms.manager: mchad
 ms.technology: storage-file-systems
 ms.topic: article
 author: gawatu
-ms.date: 06/07/2019
-ms.openlocfilehash: fed23c999c67ba81b3bbb821170a748ed5eaa7b8
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.date: 06/17/2019
+ms.openlocfilehash: 133358e959e24abc506be13259d750753d3727f7
+ms.sourcegitcommit: 6fec3ca19ddaecbc936320d98cca0736dd8505d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812014"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67196175"
 ---
 # <a name="resilient-file-system-refs-overview"></a>复原文件系统 (ReFS) 概述
 
@@ -168,6 +168,7 @@ Microsoft 制定了 NTFS 专门用于一般用途广泛的配置和工作负荷�
 
 ## <a name="see-also"></a>请参阅
 
--   [存储空间直通概述](../storage-spaces/storage-spaces-direct-overview.md)
--   [ReFS 块克隆](block-cloning.md)
--   [ReFS 的完整性流](integrity-streams.md)
+- [建议对 ReFS 和 NTFS 群集大小](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
+- [存储空间直通概述](../storage-spaces/storage-spaces-direct-overview.md)
+- [ReFS 块克隆](block-cloning.md)
+- [ReFS 的完整性流](integrity-streams.md)
