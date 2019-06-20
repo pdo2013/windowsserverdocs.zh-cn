@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: 6722d537c85ce913080224f229f2889e47f41274
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 721816c650adc21109cbfd065f29b694fb6c830f
+ms.sourcegitcommit: a3c9a7718502de723e8c156288017de465daaf6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812352"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67263039"
 ---
 # <a name="windows-time-service-tools-and-settings"></a>Windows 时间服务工具和设置
 >适用于：Windows Server 2016 中，Windows Server 2012 R2，Windows Server 2012 中，Windows 10 或更高版本
@@ -199,25 +199,30 @@ W32time 密钥创建的策略。  在删除策略，然后还会删除此密钥�
 #### <a name="maxallowedphaseoffset-information"></a>MaxAllowedPhaseOffset 信息
 为了使 W32Time 逐渐设置计算机时钟，偏移量必须为小于**MaxAllowedPhaseOffset**值，并满足以下公式在同一时间：  
 
-```  
-|CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) < SystemClockRate / 2  
-``` 
-CurrentTimeOffset 以时钟计时周期，其中 1 毫秒 = 10,000 时钟计时周期的 Windows 系统上。  
+* Windows Server 2016 及更高版本：
+   ```  
+    |CurrentTimeOffset| / (16*PhaseCorrectRate*pollIntervalInSeconds) <= SystemClockRate / 2  
+   ``` 
+* Windows Server 2012 R2 和更早版本：
+   ```  
+   |CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) <= SystemClockRate / 2  
+   ``` 
+**CurrentTimeOffset**值以时钟计时周期，其中 1 毫秒 = 10,000 时钟的 Windows 系统上的计时周期为单位。  
 
-SystemClockRate 和 PhaseCorrectRate 还会以时钟计时周期的影响。 若要获取 SystemClockRate，可以使用以下命令，并将其转换秒时钟计时周期使用的秒的公式从 * 1000年\*10000:  
+**SystemClockRate**并**PhaseCorrectRate**还以时钟计时周期。 若要获取**SystemClockRate**值，可以使用以下命令并从到时钟计时周期秒使用的秒的公式转换 * 1000年\*10000:  
 
 ```  
 W32tm /query /status /verbose  
 ClockRate: 0.0156000s  
 ```  
 
-SystemclockRate 是时钟的在系统上的速率。 例如使用 156000 秒，SystemclockRate 会为 = 0.0156000 \* 1000年\*10000 = 156000 时钟计时周期数。  
+**SystemclockRate**是在系统上的时钟的速率。 例如，使用 156000 秒**SystemclockRate**值将 = 0.0156000 \* 1000年\*10000 = 156000 时钟计时周期数。  
 
-MaxAllowedPhaseOffset 也是以秒为单位。 若要将其转换为时钟计时周期，乘 MaxAllowedPhaseOffset * 1000年\*10000。  
+**MaxAllowedPhaseOffset**也是以秒为单位。 若要将其转换为时钟计时周期，乘**MaxAllowedPhaseOffset**\*1000年\*10000。  
 
-以下两个示例演示如何将应用  
+以下示例演示如何使用 Windows Server 2012 R2 或更早版本时应用这些计算。
 
-**示例 1**：4 分钟的时间不同 （例如，时间为上午 11:05，并且时间示例接收来自对等方和公认为是正确为 11:09 AM）。
+**示例 1**：4 分钟的时间不同 （例如，在时间为 11:05，接收来自对等方和认为是正确的时间示例 11:09）。
   
 ```
 phasecorrectRate = 1  
@@ -230,19 +235,19 @@ MaxAllowedPhaseOffset = 10min = 600 seconds = 600*1000\*10000=6000000000 clock t
 
 |currentTimeOffset| = 4mins = 4*60\*1000\*10000 = 2400000000 ticks  
 
-Is CurrentTimeOffset < MaxAllowedPhaseOffset?  
+Is CurrentTimeOffset <= MaxAllowedPhaseOffset?  
 
-2400000000 < 6000000000 = TRUE  
+2400000000 <= 6000000000 = TRUE  
 ```
 
 它满足上述公式？ 
 
 ```
-(|CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) < SystemClockRate / 2)  
+(|CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) <= SystemClockRate / 2)  
 
-Is 2,400,000,000 / (30000*1) < 156000/2  
+Is 2,400,000,000 / (30000*1) <= 156000/2  
 
-Is 80,000 < 78,000  
+Is 80,000 <= 78,000  
 
 NO/FALSE  
 ```  
@@ -250,7 +255,7 @@ NO/FALSE
 因此 W32tm 将时钟重新设置立即。  
 
 > [!NOTE]  
-> 在这种情况下，如果你想要缓慢重新设置时钟，你需要调整 PhaseCorrectRate 或 updateInterval 注册表中的也要确保公式结果 true 的值。  
+> 在这种情况下，如果你想要缓慢重新设置时钟，你还必须调整的值**PhaseCorrectRate**或**updateInterval**中注册表，以确保公式结果 **，则返回 TRUE**。  
 
 **示例 2**：时间与按 3 分钟。 
  
@@ -265,19 +270,19 @@ MaxAllowedPhaseOffset = 10min = 600 seconds = 600*1000\*10000=6000000000 clock t
 
 currentTimeOffset = 3mins = 3*60\*1000\*10000 = 1800000000 clock ticks  
 
-Is CurrentTimeOffset < MaxAllowedPhaseOffset?  
+Is CurrentTimeOffset <= MaxAllowedPhaseOffset?  
 
-1800000000 < 6000000000 = TRUE  
+1800000000 <= 6000000000 = TRUE  
 ```  
 
 它满足上述公式？
 
 ```
-(|CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) < SystemClockRate / 2)  
+(|CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) <= SystemClockRate / 2)  
 
-Is 3 mins (1,800,000,000) / (30000*1) < 156000/2  
+Is 3 mins (1,800,000,000) / (30000*1) <= 156000/2  
 
-Is 60,000 < 78,000  
+Is 60,000 <= 78,000  
 
 YES/TRUE  
 ```  

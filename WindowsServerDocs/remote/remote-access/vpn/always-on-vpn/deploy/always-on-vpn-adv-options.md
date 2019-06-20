@@ -10,12 +10,12 @@ ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 7534f631cf0ac3f8230ea12e790dcd946da0ffbd
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: 5f43d64dc7642ef67da03fec989909bc4f2f14ae
+ms.sourcegitcommit: a3c9a7718502de723e8c156288017de465daaf6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749522"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67263026"
 ---
 # <a name="advanced-features-of-always-on-vpn"></a>Always On VPN 的高级的功能
 
@@ -54,6 +54,88 @@ ms.locfileid: "66749522"
 |应用程序触发的 VPN     |你可以配置某些应用程序或类型的应用程序启动时自动连接的 VPN 配置文件。<p>有关此设置和其他触发选项的详细信息，请参阅[VPN 自动触发的配置文件选项](https://docs.microsoft.com/windows/access-protection/vpn/vpn-auto-trigger-profile)。         |
 |VPN 条件性访问   |条件性访问和设备符合性可以要求要符合标准，才能连接到 VPN 的托管的设备。 VPN 条件性访问的高级功能之一，可限制为仅 VPN 连接的客户端身份验证证书，包含 AAD 条件性访问的对象 ID 的"1.3.6.1.4.1.311.87。<p>若要限制 VPN 连接，需要：<ol><li>在 NPS 服务器上，打开**网络策略服务器**管理单元中。</li><li>展开**策略** > **网络策略**。</li><li>右键单击**虚拟专用网络 (VPN) 连接**网络策略，然后选择**属性**。</li><li>选择**设置**选项卡。</li><li>选择**供应商特定**，然后选择**添加**。</li><li>选择**允许证书 OID**选项，然后选择**添加**。</li><li>粘贴的 AAD 条件性访问 OID **1.3.6.1.4.1.311.87**作为属性值，然后选择**确定**两次。</li><li>选择**关闭**，然后**应用**。<p>现在当 VPN 客户端尝试使用生存期较短的云证书以外的任何证书进行连接，则连接将失败。</li></ol>有关条件性访问的详细信息，请参阅[VPN 和条件性访问](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access)。   |
 
+
+---
+## <a name="blocking-vpn-clients-that-use-revoked-certificates"></a>阻止使用吊销的证书的 VPN 客户端
+  
+安装更新后，RRAS 服务器可以使用 IKEv2 的 vpn 强制执行证书吊销和计算机证书进行身份验证，如设备处理始终在 Vpn 隧道。 这意味着，此类 Vpn RRAS 服务器可以拒绝对 VPN 连接到尝试使用已吊销的证书的客户端。
+
+**可用性**
+
+下表列出了每个版本的 Windows 修补程序的近似发行日期。
+
+|操作系统版本 |发布日期 * |
+|---------|---------|
+|Windows Server 版本 1903  |第 2 季度 2019  |
+|Windows Server 2019<br />Windows Server 版本 1809  |第 3 季度 2019  |
+|Windows Server 版本 1803  |第 3 季度 2019  |
+|Windows Server 版本 1709  |第 3 季度 2019  |
+|Windows Server 2016 中，版本 1607  |第 2 季度 2019  |
+  
+\* 日历季度列出了所有的发布日期。 日期是近似和更改，恕不另行通知。
+
+**如何配置系统必备组件** 
+
+1. 可用时安装的 Windows 更新。
+1. 请确保所有的 VPN 客户端和您使用的 RRAS 服务器证书包含 CDP 的条目，并在 RRAS 服务器可访问各自的 Crl。
+1. 在 RRAS 服务器上，使用**集 VpnAuthProtocol** PowerShell cmdlet 来配置**RootCertificateNameToAccept**参数。<br /><br />
+   下面的示例列出了要执行此操作的命令。 在示例中， **CN = Contoso 根证书颁发机构**表示根证书颁发机构的可分辨的名称。 
+   ``` powershell
+   $cert1 = ( Get-ChildItem -Path cert:LocalMachine\root | Where-Object -FilterScript { $_.Subject -Like "*CN=Contoso Root Certification Authority,*" } )
+   Set-VpnAuthProtocol -RootCertificateNameToAccept $cert1 -PassThru
+   ```
+**如何配置 RRAS 服务器，以强制实施基于 IKEv2 计算机证书的 VPN 连接的证书吊销**
+
+1. 在命令提示符窗口中，运行以下命令： 
+   ```
+   reg add HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Parameters\Ikev2 /f /v CertAuthFlags /t REG_DWORD /d "4"
+   ```
+
+1. 重新启动**路由和远程访问**服务。
+  
+若要禁用这些 VPN 连接的证书吊销，设置**CertAuthFlags = 2**或删除**CertAuthFlags**值，并重新启动**路由和远程访问**服务。 
+
+**如何撤消基于 IKEv2 计算机证书的 VPN 连接的 VPN 客户端证书**
+1. 撤消 VPN 客户端证书从证书颁发机构。
+1. 发布新的 CRL 从证书颁发机构。
+1. 在 RRAS 服务器上，打开管理命令提示符窗口，并运行以下命令：
+   ```
+   certutil -urlcache * delete
+   certutil -setreg chain\ChainCacheResyncFiletime @now
+   ```
+
+**如何验证该证书吊销的 IKEv2 计算机基于证书的 VPN 连接正常**  
+>[!Note]  
+> 使用此过程之前，请确保启用 CAPI2 操作事件日志。
+1. 按照前面的步骤，若要撤消 VPN 客户端证书。
+1. 尝试使用具有吊销的证书的客户端连接到 VPN。 RRAS 服务器应拒绝连接并显示一条消息，如"IKE 身份验证凭据是不可接受。"
+1. 在 RRAS 服务器上，打开事件查看器并导航到**应用程序和服务日志/Microsoft/Windows/CAPI2**。 
+1. 搜索事件，其中包含以下信息：
+   * 日志名称：**Microsoft-Windows-CAPI2/Operational Microsoft-Windows-CAPI2/Operational**
+   * 事件ID：**41** 
+   * 该事件包含以下文本： **subject ="*客户端 FQDN*"** (*客户端 FQDN*表示已吊销的客户端的完全限定的域名证书。） 
+
+   **<Result>** 的事件数据的字段应包括**吊销了证书**。 例如，请参阅以下部分内容摘自一个事件：
+   ```xml
+   Log Name:      Microsoft-Windows-CAPI2/Operational Microsoft-Windows-CAPI2/Operational  
+   Source:        Microsoft-Windows-CAPI2  
+   Date:          5/20/2019 1:33:24 PM  
+   Event ID:      41  
+   ...  
+   Event Xml:
+   <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <UserData>  
+     <CertVerifyRevocation>  
+      <Certificate fileRef="C97AE73E9823E8179903E81107E089497C77A720.cer" subjectName="client01.corp.contoso.com" />  
+      <IssuerCertificate fileRef="34B1AE2BD868FE4F8BFDCA96E47C87C12BC01E3A.cer" subjectName="Contoso Root Certification Authority" />
+      ...
+      <Result value="80092010">The certificate is revoked.</Result>
+     </CertVerifyRevocation>
+    </UserData>
+   </Event>
+   ```
+
+---
 ## <a name="additional-protection"></a>额外的保护
 
 ### <a name="trusted-platform-module-tpm-key-attestation"></a>受信任的平台模块 (TPM) 密钥证明
