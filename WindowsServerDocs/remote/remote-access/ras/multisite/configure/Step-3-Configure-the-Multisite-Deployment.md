@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ea7ecd52-4c12-4a49-92fd-b8c08cec42a9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 009ded50b156162ad1f3397fc0708ef8075c6a6f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9c746e95efeb5d2e4a5bb5183cd3642e50901158
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446832"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282611"
 ---
 # <a name="step-3-configure-the-multisite-deployment"></a>步骤 3 配置多站点部署
 
@@ -139,7 +138,7 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
 14. 重复此过程在部署中的所有远程访问服务器上。  
   
 ## <a name="BKMK_NLS"></a>3.4. 配置多站点部署网络位置服务器  
-如果你选择设置远程访问服务器上的网络位置服务器网站，设置第一台服务器时，添加需要使用 Web 服务器证书进行配置每个新的远程访问服务器具有相同使用者名称匡  璶 t他第一台服务器的网络位置服务器。 每个服务器需要证书进行身份验证连接到网络位置服务器，并位于内部网络中的客户端计算机必须能够解析在 DNS 中网站的名称。  
+如果你选择设置远程访问服务器上的网络位置服务器网站，设置第一台服务器时，添加需要使用 Web 服务器证书进行配置每个新的远程访问服务器具有相同使用者名称他第一台服务器的网络位置服务器。 每个服务器需要证书进行身份验证连接到网络位置服务器，并位于内部网络中的客户端计算机必须能够解析在 DNS 中网站的名称。  
   
 #### <a name="to-install-a-certificate-for-network-location"></a>若要为网络位置安装证书  
   

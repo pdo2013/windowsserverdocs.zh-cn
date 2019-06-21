@@ -11,12 +11,12 @@ ms.assetid: 1a65a98e-54b6-4c41-9732-1e3d32fe3a5f
 author: KBDAzure
 ms.author: kathydav
 ms.date: 09/21/2017
-ms.openlocfilehash: 8b7d9233b105f710d620b5142205fb2eadd0248a
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 6ec5db82ecae2fb74731f3c52b9113325837a2fb
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67141372"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280009"
 ---
 # <a name="whats-new-in-hyper-v-on-windows-server"></a>什么是 Windows Server 上的 HYPER-V 中的新增功能
 
@@ -113,7 +113,7 @@ Set-VMFirmware TestVM -SecureBootTemplate MicrosoftUEFICertificateAuthority
 
 ### <a name="more-memory-and-processors-for-generation-2-virtual-machines-and-hyper-v-hosts-updated"></a>更多内存和处理器，用于第 2 代虚拟机和 HYPER-V 主机\(更新\)
 
-从版本 8 开始，第 2 代虚拟机可以使用更多内存和虚拟处理器。 主机还可以配置具有显著更多内存和虚拟处理器不是以前支持。 这些更改支持新方案，例如运行用于联机事务处理 (OLTP) 和数据仓库 (DW) 的大型内存中数据库的电子商务。 Windows Server 博客最近发布的虚拟机的 5.5 万亿字节的内存和 128 个虚拟处理器运行 4 TB 内存中数据库的性能结果。 性能   95%的物理服务器的性能。 有关详细信息，请参阅[内存中事务处理的 Windows Server 2016 HYPER-V 大规模 VM 性能](https://blogs.technet.microsoft.com/windowsserver/2016/09/28/windows-server-2016-hyper-v-large-scale-vm-performance-for-in-memory-transaction-processing/)。 有关虚拟机版本的详细信息，请参阅[在 Windows 10 或 Windows Server 2016 上的 HYPER-V 中的升级虚拟机版本](./deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md)。 有关支持的最大配置的完整列表，请参阅[规划 Windows Server 2016 中的 HYPER-V 可伸缩性](./plan/plan-hyper-v-scalability-in-windows-server.md)。 
+从版本 8 开始，第 2 代虚拟机可以使用更多内存和虚拟处理器。 主机还可以配置具有显著更多内存和虚拟处理器不是以前支持。 这些更改支持新方案，例如运行用于联机事务处理 (OLTP) 和数据仓库 (DW) 的大型内存中数据库的电子商务。 Windows Server 博客最近发布的虚拟机的 5.5 万亿字节的内存和 128 个虚拟处理器运行 4 TB 内存中数据库的性能结果。 95%的物理服务器的性能。 有关详细信息，请参阅[内存中事务处理的 Windows Server 2016 HYPER-V 大规模 VM 性能](https://blogs.technet.microsoft.com/windowsserver/2016/09/28/windows-server-2016-hyper-v-large-scale-vm-performance-for-in-memory-transaction-processing/)。 有关虚拟机版本的详细信息，请参阅[在 Windows 10 或 Windows Server 2016 上的 HYPER-V 中的升级虚拟机版本](./deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md)。 有关支持的最大配置的完整列表，请参阅[规划 Windows Server 2016 中的 HYPER-V 可伸缩性](./plan/plan-hyper-v-scalability-in-windows-server.md)。 
 
 ### <a name="nested-virtualization-new"></a>嵌套虚拟化\(新\)
 
@@ -212,7 +212,7 @@ Set-VMFirmware TestVM -SecureBootTemplate MicrosoftUEFICertificateAuthority
   
 ### <a name="virtual-machine-configuration-version-updated"></a>虚拟机配置版本\(更新\)
 
-配置版本表示虚拟机的配置，使用的版本的 HYPER-V 保存状态和快照文件的兼容性。 版本 5 的虚拟机与 Windows Server 2012 R2 兼容，并可以在 Windows Server 2012 R2 和 Windows Server 2016 上运行。 虚拟机与 Windows Server 2016 中引入的版本和 Windows Server 2019 无法在 Windows Server 2012 R2 上运行的 HYPER-V。   
+配置版本表示虚拟机的配置，使用的版本的 HYPER-V 保存状态和快照文件的兼容性。 版本 5 的虚拟机与 Windows Server 2012 R2 兼容，并可以在 Windows Server 2012 R2 和 Windows Server 2016 上运行。 与版本在 Windows Server 2016 和 Windows Server 2019 中引入的虚拟机不会在 HYPER-V 中运行 Windows Server 2012 R2 上。   
   
 如果移动或导入虚拟机运行 Windows Server 2016 上的 HYPER-V 的服务器或 Windows Server 2019 从 Windows Server 2012 R2，不会自动更新虚拟机的配置。 这意味着可以将虚拟机移动回运行 Windows Server 2012 R2 的服务器。 但这也意味着在你手动更新虚拟机配置的版本前，不能使用新的虚拟机功能。  
   
