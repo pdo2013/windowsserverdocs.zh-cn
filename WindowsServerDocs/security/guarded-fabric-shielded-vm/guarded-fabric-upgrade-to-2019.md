@@ -6,12 +6,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 11/21/2018
-ms.openlocfilehash: 274bdf027947ffb6fe807d4acd0a3b2174c20e28
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 39974806c02e55b37d3d16748c4ca0e3f361ee45
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867448"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284111"
 ---
 # <a name="upgrade-a-guarded-fabric-to-windows-server-2019"></a>将受保护的结构升级到 Windows Server 2019
 
@@ -52,7 +52,7 @@ ms.locfileid: "59867448"
 
 升级 HGS 群集需要暂时一个节点从群集中删除一次升级时。 这将减少你的群集的容量，以便响应来自 HYPER-V 主机的请求，并可能会导致响应时间很长或服务中断的租户。 确保有足够的容量来处理证明和密钥版本的请求，然后再升级 HGS 服务器。
 
-若要升级 HGS 群集，群集，每次一个节点的每个节点上执行以下步骤：
+若要升级 HGS 群集，群集，一次一个节点的每个节点上执行以下步骤：
 
 1.  通过运行从群集中删除 HGS 服务器`Clear-HgsServer`在提升的 PowerShell 提示符。 此 cmdlet 将从故障转移群集中删除复制的 HGS 应用商店、 HGS 网站和节点。
 2.  如果 HGS 服务器是域控制器 （默认配置），你将需要运行`adprep /forestprep`和`adprep /domainprep`正在升级以准备进行 OS 升级域的第一个节点上。 请参阅[Active Directory 域服务升级文档](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/upgrade-domain-controllers#supported-in-place-upgrade-paths)有关详细信息。
@@ -69,9 +69,9 @@ Set-HgsServerVersion  v2
 
 在升级到 Windows Server 2019 的 HYPER-V 主机之前，请确保 HGS 群集已升级到 Windows Server 2019，并且已将关闭 HYPER-V 服务器的所有 Vm。
 
-1.  如果你的服务器 （始终的情况下使用 TPM 证明时） 上使用 Windows Defender 应用程序控制代码完整性策略，请确保策略处于审核模式，或尝试将服务器升级之前禁用。 [了解如何禁用 WDAC 策略](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/disable-windows-defender-application-control-policies)
+1.  如果你的服务器 （始终的情况下使用 TPM 证明时） 上使用 Windows Defender 应用程序控制代码完整性策略，请确保策略处于审核模式，或尝试将服务器升级之前禁用。 [了解如何禁用 WDAC 策略](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/disable-windows-defender-application-control-policies)
 2.  遵循中的指导[Windows Server 升级中心](http://aka.ms/upgradecenter)升级到 Windows Server 2019 主机。 如果你的 HYPER-V 主机故障转移群集的一部分，请考虑使用[群集操作系统滚动升级](../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md)。
-3.  [测试和重新启用](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/audit-windows-defender-application-control-policies)Windows Defender 应用程序控制策略，如果你有一个在升级之前已启用。
+3.  [测试和重新启用](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/audit-windows-defender-application-control-policies)Windows Defender 应用程序控制策略，如果你有一个在升级之前已启用。
 4.  运行`Get-HgsClientConfiguration`检查是否**IsHostGuarded = True**，这意味着在主机成功地通过证明与 HGS 服务器。
 5.  如果使用 TPM 证明，可能需要[重新捕获的 TPM 基线或代码完整性策略](guarded-fabric-add-host-information-for-tpm-trusted-attestation.md)之后升级以通过认证。
 6.  开始运行受防护的 Vm 在主机上再次 ！
