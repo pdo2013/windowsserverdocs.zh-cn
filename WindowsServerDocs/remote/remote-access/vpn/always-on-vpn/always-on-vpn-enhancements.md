@@ -9,12 +9,12 @@ ms.author: pashort
 author: shortpatti
 ms.date: 11/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 0b4dd78e0e88678d4570d408b3dcd472bddc88ba
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: e7cbe64609e30b042df70020896aebd85b7d22b9
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749669"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280777"
 ---
 # <a name="always-on-vpn-enhancements"></a>始终启用 VPN 增强功能
 
@@ -27,7 +27,7 @@ Always On VPN 通过过去的 Windows VPN 解决方案有许多优点。 以下�
 
 - **平台集成：** Always On VPN 已使用 Windows 操作系统和第三方解决方案来为无数高级的连接方案提供强大的平台改进的集成。
 
-- **安全性：** Always On VPN 具有新的高级安全功能，可限制类型的流量，哪些应用程序可以使用 VPN 连接，并可用来启动连接的身份验证方法。 当连接处于活动状态大多数情况下时，是特别重要的安全连接。 有关更多详细信息，请参阅[VPN 身份验证选项](https://docs.microsoft.com/en-us/windows/security/identity-protection/vpn/vpn-authentication)。
+- **安全性：** Always On VPN 具有新的高级安全功能，可限制类型的流量，哪些应用程序可以使用 VPN 连接，并可用来启动连接的身份验证方法。 当连接处于活动状态大多数情况下时，是特别重要的安全连接。 有关更多详细信息，请参阅[VPN 身份验证选项](https://docs.microsoft.com/windows/security/identity-protection/vpn/vpn-authentication)。
 
 - **VPN 连接：** Always On VPN，无论设备隧道提供自动触发功能。 在 Always On VPN 之前, 能够触发自动连接通过用户或设备身份验证是不可能的。  
 

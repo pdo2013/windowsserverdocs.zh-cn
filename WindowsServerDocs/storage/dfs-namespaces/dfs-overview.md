@@ -8,12 +8,12 @@ ms.topic: article
 author: jasongerend
 ms.date: 06/07/2019
 description: 本主题介绍 DFS 命名空间，这是 Windows Server 中的一个角色服务，可用于将不同服务器上的共享文件夹组合到一个或多个逻辑结构的命名空间中。
-ms.openlocfilehash: b16d8145d766cbb9b12feaaa2e5e9443813a69f2
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 2d91cb7197d2deecd96ebb29a951ef96ceefd9aa
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812578"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284287"
 ---
 # <a name="dfs-namespaces-overview"></a>DFS 命名空间概述
 
@@ -126,6 +126,6 @@ Install-WindowsFeature "FS-DFS-Namespace", "RSAT-DFS-Mgmt-Con"
 | **部署**    | [DFS Namespace 可扩展性考虑事项](http://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx) |
 | **操作**    | [DFS 命名空间：常见问题解答](https://technet.microsoft.com/library/ee404780.aspx) |
 | **社区资源** | [文件服务和存储 TechNet 论坛](https://social.technet.microsoft.com/forums/winserverfiles/threads/) |
-| **协议**        | [文件服务 Windows Server 中的协议](https://msdn.microsoft.com/en-us/library/cc239318.aspx)（已弃用） |
+| **协议**        | [文件服务 Windows Server 中的协议](https://msdn.microsoft.com/library/cc239318.aspx)（已弃用） |
 | **相关技术** | [故障转移群集](../../failover-clustering/failover-clustering-overview.md)|
 | **支持** | [Windows IT 专业人员支持](https://www.microsoft.com/itpro/windows/support)|

@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ipam
+ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 77b6ac92-eaff-46d7-95db-ee6fc96742ed
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4fdefab9cb51e3c521ca7cc68c882632178a5d18
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ac0e18c1ecc4e787c043d437538fab2d0f39f341
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827758"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283886"
 ---
 # <a name="manage-role-based-access-control-with-server-manager"></a>使用服务器管理器管理基于角色的访问控制
 

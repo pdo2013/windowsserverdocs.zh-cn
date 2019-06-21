@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 70357156-fcb0-4346-a61e-4ea963e3ffb0
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e7f907c3bf463e3a90d413e5b167a70051057f06
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 108e517923c75f685d817cdf9fad9b14132e3bb0
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876768"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281433"
 ---
 # <a name="step-5-configure-dc1"></a>步骤 5 配置 DC1
 
@@ -40,11 +39,11 @@ DC1 将充当域控制器、 DNS 服务器和为 corp.contoso.com 域的 DHCP �
   
 2.  在网络连接窗口中，右键单击**有线以太网连接**，然后单击**属性**。  
   
-3.  单击 **“Internet 协议版本 4 (TCP/IPv4)”**，然后单击 **“属性”**。  
+3.  单击 **“Internet 协议版本 4 (TCP/IPv4)”** ，然后单击 **“属性”** 。  
   
 4.  在中**默认网关**，类型**10.0.0.254**，然后在**备用 DNS 服务器**，类型**10.2.0.1**，然后单击**确定**.  
   
-5.  单击“Internet 协议版本 6 (TCP/IPv6)” ，然后单击“属性” 。  
+5.  单击“Internet 协议版本 6 (TCP/IPv6)”  ，然后单击“属性”  。  
   
 6.  在中**默认网关**，类型**2001:db8:1::fe**，然后在**备用 DNS 服务器**，类型**2001:db8:2::1**，然后单击**确定**。  
   
@@ -65,11 +64,11 @@ DC1 将充当域控制器、 DNS 服务器和为 corp.contoso.com 域的 DHCP �
   
 3.  上**新建对象-组**对话框中的**组名称**，输入**Win7_Clients_Site1**。  
   
-4.  在“组范围”下单击“全局”，在“组类型”下单击“安全”，然后单击“确定”。  
+4.  在  “组范围”下单击  “全局”，在  “组类型”下单击“安全”  ，然后单击“确定”  。  
   
 5.  双击**Win7_Clients_Site1**安全组，然后在**Win7_Clients_Site1 属性**对话框中，单击**成员**选项卡。  
   
-6.  在“成员”  选项卡上，单击“添加” 。  
+6.  在“成员”  选项卡上，单击“添加”  。  
   
 7.  上**选择用户、 联系人、 计算机或服务帐户**对话框中，单击**对象类型**。 上**对象类型**对话框中，选择**计算机**，然后单击**确定**。  
   
@@ -79,7 +78,7 @@ DC1 将充当域控制器、 DNS 服务器和为 corp.contoso.com 域的 DHCP �
   
 10. 上**新建对象-组**对话框中的**组名称**，输入**Win7_Clients_Site2**。  
   
-11. 在“组范围”下单击“全局”，在“组类型”下单击“安全”，然后单击“确定”。  
+11. 在  “组范围”下单击  “全局”，在  “组类型”下单击“安全”  ，然后单击“确定”  。  
   
 12. 关闭 **“Active Directory 用户和计算机”** 控制台。  
   

@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 25ed17d964f12c2f497ccde443dad9f8bc253b20
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: 3c36eff8aabd1fa1c6456dce1d08ebe504102e8c
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034671"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284167"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>租户-创建防护数据来定义受防护的 VM 的受防护的 Vm
 
@@ -199,7 +199,7 @@ Export-PfxCertificate -Cert $RdpCertificate -FilePath .\rdpCert.pfx -Password $p
 作为屏蔽数据文件向导的替代方法，你可以运行[新建 ShieldingDataFile](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/new-shieldingdatafile?view=win10-ps)创建防护数据文件。
 
 所有的防护数据文件需要使用正确的所有者和保护者证书来授权对受保护的构造运行受防护的 Vm 配置。
-您可以检查您是否具有通过运行在本地安装任何监护人[Get HgsGuardian](https://docs.microsoft.com/en-us/powershell/module/hgsclient/get-hgsguardian?view=win10-ps)。 所有者 guardians 具有私钥，而你的数据中心的 guardians 通常不能。
+您可以检查您是否具有通过运行在本地安装任何监护人[Get HgsGuardian](https://docs.microsoft.com/powershell/module/hgsclient/get-hgsguardian?view=win10-ps)。 所有者 guardians 具有私钥，而你的数据中心的 guardians 通常不能。
 
 如果需要创建所有者保护者，运行以下命令：
 
@@ -238,7 +238,7 @@ New-ShieldingDataFile -ShieldingDataFilePath "C:\temp\Marketing-LBI.pdk" -Policy
 可以通过提供逗号分隔的卷列表 ID 限定符到信任多个模板磁盘`-VolumeIDQualifier`参数。
 最后，如果您有其他文件需要附带有 VM，使用在答案文件的`-OtherFile`参数，并提供以逗号分隔的文件路径的列表。
 
-请参阅的 cmdlet 文档[新建 ShieldingDataFile](https://docs.microsoft.com/en-us/powershell/module/shieldedvmdatafile/New-ShieldingDataFile?view=win10-ps)并[新建 VolumeIDQualifier](https://docs.microsoft.com/en-us/powershell/module/shieldedvmdatafile/New-VolumeIDQualifier?view=win10-ps)若要了解如何配置你的防护数据文件的其他方法。
+请参阅的 cmdlet 文档[新建 ShieldingDataFile](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-ShieldingDataFile?view=win10-ps)并[新建 VolumeIDQualifier](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-VolumeIDQualifier?view=win10-ps)若要了解如何配置你的防护数据文件的其他方法。
 
 ## <a name="see-also"></a>请参阅
 

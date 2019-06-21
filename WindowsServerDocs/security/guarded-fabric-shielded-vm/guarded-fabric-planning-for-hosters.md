@@ -8,12 +8,12 @@ manager: dongill
 author: nirb-ms
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: f280fbe682ebf706ce6ea5b53ea8af5e6f39d75d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 320723f7a0a25784180b232ce05d42c2ced933c8
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857808"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284179"
 ---
 # <a name="guarded-fabric-and-shielded-vm-planning-guide-for-hosters"></a>受保护的构造和受防护的 VM 规划托管商的指南
 
@@ -64,7 +64,7 @@ ms.locfileid: "59857808"
 | 大小调整 | 每个中等规模 (8 核/4 GB) HGS 服务器节点可处理 1,000 的 HYPER-V 主机。 |
 | Management | 指定将管理 HGS 特定人员。 它们应该是独立于结构管理员。 有关比较，HGS 群集可以被认为是相同的方式为证书颁发机构 (CA) 管理隔离、 物理部署和整体安全敏感度级别方面。 |
 | 主机保护者服务 Active Directory | 默认情况下，HGS 安装管理其自身内部 Active Directory。 这是自包含、 自我管理的林，是推荐的配置，以帮助隔离 HGS 从你的结构。<br><br>如果已有用于隔离高特权 Active Directory 林，你可以使用该林而不是 HGS 默认的林。 请务必 HGS 未加入到域中的 HYPER-V 主机或在结构管理工具所在的林。 执行此操作可能允许构造管理员 HGS 对其进行控制。 |
-| 灾难恢复 | 有以下三个选项：<br><ol><li>在每个数据中心中安装单独的 HGS 群集并授权受防护的 Vm，若要在主数据库和备份数据中心中运行。 这就无需通过 WAN 拉伸群集，并允许您将虚拟机隔离，以便它们仅在其指定站点中运行。</li><li>在两个 （或多个） 的数据中心之间拉伸群集上安装 HGS。 如果 WAN 出现故障，但推送故障转移群集的限制，这可以提供复原能力。 不能隔离到一个站点; 的工作负荷在任何其他可以运行授权在一个站点中运行的 VM。</li><li>向另一个 HGS 注册 HYPER-V 主机，为故障转移。</li></ol>此外应通过将其配置导出，以便始终可以恢复本地备份每个 HGS。 有关详细信息，请参阅[导出 HgsServerState](https://technet.microsoft.com/library/mt652164.aspx)并[导入 HgsServerState](https://technet.microsoft.com/library/mt652168.aspx)。 |
+| 灾难恢复 | 有以下三个选项：<br><ol><li>在每个数据中心中安装单独的 HGS 群集并授权受防护的 Vm，若要在主数据库和备份数据中心中运行。 这就无需通过 WAN 拉伸群集，并允许您将虚拟机隔离，以便它们仅在其指定站点中运行。</li><li>在两个 （或多个） 的数据中心之间拉伸群集上安装 HGS。 如果 WAN 出现故障，但推送故障转移群集的限制，这可以提供复原能力。 不能隔离到一个站点; 的工作负荷在任何其他可以运行授权在一个站点中运行的 VM。</li><li>向另一个 HGS 注册 HYPER-V 主机，为故障转移。</li></ol>此外应通过将其配置导出，以便始终可以恢复本地备份每个 HGS。 有关详细信息，请参阅[导出 HgsServerState](https://docs.microsoft.com/powershell/module/hgsserver/export-hgsserverstate)并[导入 HgsServerState](https://docs.microsoft.com/powershell/module/hgsserver/import-hgsserverstate)。 |
 | 主机保护者服务密钥 | 主机保护者服务使用两个非对称密钥对，加密密钥和签名密钥，每个所表示的 SSL 证书。 有两个选项来生成这些密钥：<br><ol><li>内部证书颁发机构 – 你可以生成这些密钥使用内部 PKI 基础结构。 这是适用于数据中心环境。</li><li>公开受信任的证书颁发机构 – 使用一组从可公开受信任的证书颁发机构获取的密钥。 这是托管方应使用的选项。</li></ol>请注意，虽然可能要使用自签名的证书，但不建议用于概念证明实验以外的部署方案。<br><br>除了拥有 HGS 密钥，宿主可以使用"自带你自己的密钥，"，租户可以提供其自己的密钥，以便某些 （或所有） 租户可以有其自己特定的 HGS 密钥。 此选项是适用于托管商可提供一个带外过程，用于租户能够上传其密钥。 |
 | 主机保护者服务密钥存储 | 有关可能的最强安全，我们建议 HGS 密钥将创建并存储以独占方式在硬件安全模块 (HSM)。 如果不使用 Hsm，强烈建议将 BitLocker 应用 HGS 服务器上。 |
 

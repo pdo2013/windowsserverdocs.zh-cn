@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ipam
+ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2cfe4e40-ec6d-4541-baa9-d772409fe27c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 18a593a82a9b9fd0d8f2e59d1bb9da971856ad17
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 22d00865d1fb30faa2cf9cd79479772f768bfbbe
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841518"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283781"
 ---
 # <a name="view-dns-zones"></a>查看 DNS 区域
 
@@ -26,7 +25,7 @@ ms.locfileid: "59841518"
 
 本主题可用于在 IPAM 客户端控制台中查看 DNS 区域。  
   
-Administrators组成员或同等身份是执行此过程的最低要求。  
+Administrators  组成员或同等身份是执行此过程的最低要求。  
   
 ### <a name="to-view-dns-zones-in-the-ipam-client-console"></a>若要在 IPAM 客户端控制台中查看 DNS 区域  
   

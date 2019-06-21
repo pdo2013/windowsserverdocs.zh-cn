@@ -7,12 +7,12 @@ author: jwwool
 ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: a0062230dd3d9e9c52aa317f87e06b0e84507dc4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ad8e2a8eade1ea9d3faaba8f387b1f489854e589
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861058"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280634"
 ---
 # <a name="deploy-windows-admin-center-with-high-availability"></a>将 Windows Admin Center 部署具有高可用性
 
@@ -22,7 +22,7 @@ ms.locfileid: "59861058"
 
 [详细了解其他 Windows Admin Center 部署选项。](../plan/installation-options.md)
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>系统必备
 
 - 2 个或多个节点上 Windows Server 2016 或 2019年的故障转移群集。 [详细了解如何部署故障转移群集](../../../failover-clustering/failover-clustering-overview.md)。
 - 群集共享卷 (CSV) 的 Windows Admin Center 来存储可由群集中的所有节点访问的持久性数据。 10 GB 将足以满足你的 CSV。
@@ -74,7 +74,7 @@ Windows Admin Center 的新版本发布时，只需运行```Install-WindowsAdmin
 
 ### <a name="update-the-certificate-used-by-windows-admin-center"></a>更新 Windows Admin Center 使用的证书
 
-可以更新通过提供新证书的.pfx 文件的 Windows Admin Center HA 部署在任何时间使用的证书和密码。
+可以更新通过提供新证书的.pfx 文件和密码的 Windows Admin Center HA 部署在任何时间使用的证书。
 
 ```powershell
 $certPassword = Read-Host -AsSecureString

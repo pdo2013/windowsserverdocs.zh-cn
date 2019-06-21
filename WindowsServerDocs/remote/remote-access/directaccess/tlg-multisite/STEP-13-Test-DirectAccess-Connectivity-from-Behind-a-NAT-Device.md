@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 796825c3-5e3e-4745-a921-25ab90b95ede
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2d1661d43cd45614dfabc66fd9a737c55ab388ed
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 34a65434a0035c60c888170e779496653ad0ab6d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446925"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283202"
 ---
 # <a name="step-13-test-directaccess-connectivity-from-behind-a-nat-device"></a>从 NAT 设备后面的步骤 13 测试 DirectAccess 连接
 
@@ -32,7 +31,7 @@ ms.locfileid: "66446925"
   
 2. 测试 IP-HTTPS 连接。 DirectAccess 客户端配置为使用 IP-HTTPS 时执行第二组测试。 为了演示 IP-HTTPS 连接，在客户端计算机上禁用 Teredo。 首先在客户端 1 上运行测试并 CLIENT2 上运行测试。  
   
-## <a name="prerequisites"></a>系统必备  
+## <a name="prerequisites"></a>先决条件  
 如果它们尚未运行，并确保它们已连接到 Internet 子网，请启动 EDGE1 和 2 EDGE1。  
   
 在执行这些测试之前, 从 Internet 交换机中拔出 CLIENT1 和 CLIENT2 并将它们连接到 Homenet 交换机。 如果系统询问你希望将当前网络定义中，选择的网络类型**家庭网络**。  

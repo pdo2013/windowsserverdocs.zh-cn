@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f3f84a5c18589d38606825ee064cfb729003a05d
-ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.openlocfilehash: fc92e8b30d6b4c0c765333d3e22311e551d3365d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66719692"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280495"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS Frequently Asked Questions (FAQ)
 
@@ -138,9 +138,9 @@ Apple 已发布一的组要求调用应用程序传输安全 (ATS) 可能会影�
 服务器 2019年中的 AD FS 支持证明密钥，为 Code Exchange (PKCE) 用于 OAuth 授权代码授予流
 
 ### <a name="what-permitted-scopes-are-supported-by-ad-fs"></a>AD FS 支持哪些允许的作用域？
-- aza-如果使用[Broker 客户端的 OAuth 2.0 协议扩展](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706)和作用域参数包含作用域"aza"，如果服务器发出新的主刷新令牌，并将其设置的响应，以及设置的 refresh_token 字段中如果一个新的主刷新令牌的生存期 refresh_token_expires_in 字段会强制实施。
+- aza-如果使用[Broker 客户端的 OAuth 2.0 协议扩展](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706)和作用域参数包含作用域"aza"，如果服务器发出新的主刷新令牌，并将其设置的响应，以及设置的 refresh_token 字段中如果一个新的主刷新令牌的生存期 refresh_token_expires_in 字段会强制实施。
 - openid-允许应用程序请求使用 OpenID Connect 授权协议。
-- logon_cert-logon_cert 范围允许应用程序请求登录证书，可用于以交互方式登录身份验证的用户。 AD FS 服务器忽略响应中的 access_token 参数，并改为提供的 base64 编码 CMS 证书链或 CMC 完整 PKI 响应。 更多详细信息可用[此处](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e)。 
+- logon_cert-logon_cert 范围允许应用程序请求登录证书，可用于以交互方式登录身份验证的用户。 AD FS 服务器忽略响应中的 access_token 参数，并改为提供的 base64 编码 CMS 证书链或 CMC 完整 PKI 响应。 更多详细信息可用[此处](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e)。 
 - user_impersonation-user_impersonation 作用域，才可成功请求从 AD FS 上的委托访问令牌。 有关如何使用此作用域的详细信息，请参阅[构建多层应用程序使用代理 (OBO) 与 AD FS 2016 使用 OAuth](../../ad-fs/development/ad-fs-on-behalf-of-authentication-in-windows-server.md)。
 - vpn_cert-vpn_cert 范围允许应用程序可用于建立 VPN 连接使用 EAP-TLS 身份验证的请求 VPN 证书。 这是不再支持。
 - 电子邮件-允许应用程序请求已登录用户的电子邮件声明。 这是不再支持。 

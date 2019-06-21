@@ -9,16 +9,16 @@ manager: daveba
 ms.author: jgerend
 ms.date: 03/08/2019
 description: Windows Server 2016 故障转移群集文档中的新增和更新主题
-ms.openlocfilehash: 4044475995175ea527a1ecc487bc0e1cc6f75003
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6dd5c98b14134d42901fad79a375298ad0e7e23
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861218"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280183"
 ---
 # <a name="change-history-for-failover-clustering-topics"></a>故障转移群集主题的更改历史记录
 
->适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
+>适用于：Windows Server 2019、Windows Server 2016
 
 本主题列出了新的和更新主题[故障转移群集](failover-clustering-overview.md)适用于 Windows Server 文档。
 
@@ -34,21 +34,21 @@ ms.locfileid: "59861218"
 
 |新的或已更改的主题                                    |描述 |
 |--------------------------------------------------------|------------|
-| [升级在同一硬件上的故障转移群集](upgrade-option-same-hardware.md)| 新增 |
+| [在同一硬件上升级故障转移群集](upgrade-option-same-hardware.md)| 新增 |
 |[部署双节点文件服务器](deploy-two-node-clustered-file-server.md)| 新增 |
 
 ## <a name="january-2019"></a>2019 年 1 月
 
 |新的或已更改的主题                                    |描述 |
 |--------------------------------------------------------|------------|
-|[部署的文件共享见证](file-share-witness.md)    | 新增        |
+|[部署文件共享见证](file-share-witness.md)    | 新增        |
 |[群集域迁移](cluster-domain-migration.md) | 新增        |
 
 ## <a name="november-2018"></a>2018 年 11 月
 
 |新的或已更改的主题|描述|
 |---|---|
-|[在 Active Directory 中配置群集帐户](configure-ad-accounts.md)|从迁移[以前的版本](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)库|
+|[在 Active Directory 中配置群集帐户](configure-ad-accounts.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)库|
 
 ## <a name="october-2018"></a>2018 年 10 月
 
@@ -60,7 +60,7 @@ ms.locfileid: "59861218"
 
 |新的或已更改的主题|描述|
 |---|---|
-|[群集设置](../storage/storage-spaces/cluster-sets.md)| 新主题|
+|[群集集](../storage/storage-spaces/cluster-sets.md)| 新主题|
 
 ## <a name="may-2018"></a>2018 年 5 月
 
@@ -72,12 +72,12 @@ ms.locfileid: "59861218"
 
 |新的或已更改的主题|描述|
 |---|---|
-|[使用 Windows 错误报告的故障转移群集进行故障排除](troubleshooting-using-WER-reports.md)| 新主题。 |
-|[应用程序数据的横向扩展文件服务器](sofs-overview.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
+|[使用 Windows 错误报告排查故障转移群集问题](troubleshooting-using-WER-reports.md)| 新主题。 |
+|[横向扩展应用程序数据文件服务器](sofs-overview.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
 |[硬件要求](clustering-requirements.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
-|[使用群集共享卷 (Csv)](failover-cluster-csvs.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
+|[使用群集共享卷 (CSV)](failover-cluster-csvs.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
 |[创建故障转移群集](create-failover-cluster.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
-|[预安排在 AD DS 中的群集](prestage-cluster-adds.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
+|[在 AD DS 中预留群集](prestage-cluster-adds.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
 |[部署故障转移群集的云见证](deploy-cloud-witness.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库。|
 
 ## <a name="june-2017"></a>2017 年 6 月

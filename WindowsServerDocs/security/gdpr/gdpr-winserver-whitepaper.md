@@ -5,18 +5,17 @@ keywords: 隐私, GDPR
 ms.custom: na
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- techgroup-security
+ms.technology: techgroup-security
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: nirb
-ms.openlocfilehash: be9509de0291924bb95733f995b447230bb75214
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1c374c00573e87594eeeab620face9ea9acaa531
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870128"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284204"
 ---
 # <a name="beginning-your-general-data-protection-regulation-gdpr-journey-for-windows-server"></a>对于 Windows Server 从开始，一般数据保护条例 (GDPR) 之旅 
 
@@ -112,7 +111,7 @@ GDPR 要求您实现适当的技术和组织安全措施来保护个人数据和
 
 Microsoft 一直坚定针对最近由 Microsoft 的首席执行官 Satya Nadella 记下这些原则 
 
-> "_随着世界上不断变化和业务需求的发展，是一致的一些事项： 对安全和隐私的客户的需求。_"
+> "_随着世界上不断变化和业务需求的发展，是一致的一些事项： 对安全和隐私的客户的需求。_ "
 
 在遵守 GDPR，了解角色中创建、 访问、 处理、 存储和管理可能会被视为个人数据的物理和虚拟服务器和潜在的敏感数据在 GDPR 下都很重要。 Windows Server 提供了功能，可帮助你符合 GDPR 要求才能实现适当的技术和组织安全措施来保护个人数据。
 
@@ -194,7 +193,7 @@ Windows Server 2016 致力于帮助保护标识、 操作系统和虚拟化层�
 
 如中所述[Windows 凭据被盗缓解指南](https://www.microsoft.com/en-us/download/confirmation.aspx?id=54095)， 
 
-> "_工具和技术罪犯使用来执行凭据被盗和重复使用攻击改进、 恶意攻击者发现，在具有更轻松地实现其目标。凭据被盗通常依赖于操作实践或用户凭据公开，因此有效的缓解措施需要解决了人员、 流程和技术的整体方法。此外，这些攻击取决于攻击者破坏系统展开或一直持续访问权限，因此，组织必须通过实现策略，阻止攻击者自由地移动中未检测到快速包含违规后窃取的凭据受攻击的网络。_"
+> "_工具和技术罪犯使用来执行凭据被盗和重复使用攻击改进、 恶意攻击者发现，在具有更轻松地实现其目标。凭据被盗通常依赖于操作实践或用户凭据公开，因此有效的缓解措施需要解决了人员、 流程和技术的整体方法。此外，这些攻击取决于攻击者破坏系统展开或一直持续访问权限，因此，组织必须通过实现策略，阻止攻击者自由地移动中未检测到快速包含违规后窃取的凭据受攻击的网络。_ "
 
 Windows Server 的一个重要的设计考虑因素缓解凭据被盗，特别是，派生的凭据。 Credential Guard 通过在设计用于帮助消除基于硬件的隔离攻击的 Windows 中实现显著的体系结构更改而不只尝试提供显著改进了的安全性，以防止派生的凭据被盗和重复使用对其进行保护。
 
@@ -307,11 +306,11 @@ Windows Server 2016 支持 TPM 的虚拟机，以便您可以在虚拟机中支�
 提高虚拟化环境中的保护一种方法是，Vm 就可以仅与函数所需的特定系统的方式对网络进行分割。 例如，如果你的应用程序不需要与 Internet 连接，可以分区，其关闭，消除这些系统作为从外部攻击者的目标。 软件定义的网络 (SDN) Windows Server 2016 中包括分布式的网络防火墙，您可以动态创建可从来自内部或外部网络的攻击保护您的应用程序的安全策略。 此分布式的网络防火墙将层添加到你的安全，通过使您能够隔离网络中的应用程序。 在虚拟网络基础结构，如有必要 – 隔离 VM 到 VM 的流量、 VM 主机流量或 VM 到 Internet 流量可以任意位置应用策略的可能已泄露的单个系统或以编程方式跨多个子网。 Windows Server 2016 软件定义网络功能还使您能够路由或镜像到非 Microsoft 虚拟设备的传入流量。 例如，你可以选择通过其他垃圾邮件筛选保护 Barracuda 虚拟设备发送所有电子邮件流量。 因此，您可以轻松地层中其他安全在本地或云中。
 
 ### <a name="other-gdpr-considerations-for-servers"></a>有关服务器的其他 GDPR 注意事项
-GDPR 包含显式要求违规通知，其中的个人数据泄露事件表示，"_出现导致意外的或非法破坏、 丢失、 更改、 未经授权的泄漏或访问、 个人的安全违规数据传输、 存储或处理。_"  显然，您不能开始向前移动以满足严格的 GDPR 通知要求在 72 小时内，如果不能在第一时间检测安全违规。
+GDPR 包含显式要求违规通知，其中的个人数据泄露事件表示，"_出现导致意外的或非法破坏、 丢失、 更改、 未经授权的泄漏或访问、 个人的安全违规数据传输、 存储或处理。_ "  显然，您不能开始向前移动以满足严格的 GDPR 通知要求在 72 小时内，如果不能在第一时间检测安全违规。
 
 Windows 安全中心白皮书中所述[Post 违规：面对的高级威胁](http://wincom.blob.core.windows.net/documents/Post_Breach_Dealing_with_Advanced_Threats_Whitepaper.pdf)
 
-> "_违规后假定已发生违规 – 充当网络流量记录器和犯罪场景调查者 (CSI) 与预违规行为不同。违规后提供安全团队的信息和工具集需要以标识，请调查并做出受到攻击，否则将保持未检测到和雷达图下方。_"
+> "_违规后假定已发生违规 – 充当网络流量记录器和犯罪场景调查者 (CSI) 与预违规行为不同。违规后提供安全团队的信息和工具集需要以标识，请调查并做出受到攻击，否则将保持未检测到和雷达图下方。_ "
 
 在本部分中，我们将介绍 Windows Server 可以如何帮助你满足 GDPR 违反通知义务。 这首先需要了解基础的威胁数据供 Microsoft 收集和分析你的权益的方式，通过 Windows Defender 高级威胁防护 (ATP)，该数据可以是很重要，则。
 
@@ -354,15 +353,15 @@ ATA 可用于帮助检测攻击者尝试破坏特权的标识。 部署 ATA 的�
 
 ## <a name="related-content-for-associated-windows-server-2016-solutions"></a>关联的 Windows Server 2016 解决方案的相关的内容
 
-- **Windows Defender 防病毒：** https://www.youtube.com/watch?v=P1aNEy09NaI和 https://docs.microsoft.com/windows/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10
+- **Windows Defender 防病毒：** https://www.youtube.com/watch?v=P1aNEy09NaI 和 https://docs.microsoft.com/windows/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10
 
-- **Windows Defender 高级威胁防护：** https://www.youtube.com/watch?v=qxeGa3pxIwg和 https://docs.microsoft.com/windows/threat-protection/windows-defender-atp/configure-server-endpoints-windows-defender-advanced-threat-protection
+- **Windows Defender 高级威胁防护：** https://www.youtube.com/watch?v=qxeGa3pxIwg 和 https://docs.microsoft.com/windows/threat-protection/windows-defender-atp/configure-server-endpoints-windows-defender-advanced-threat-protection
 
-- **Windows Defender Device Guard:** https://www.youtube.com/watch?v=F-pTkesjkhI和 https://docs.microsoft.com/windows/device-security/device-guard/device-guard-deployment-guide
+- **Windows Defender Device Guard:** https://www.youtube.com/watch?v=F-pTkesjkhI 和 https://docs.microsoft.com/windows/device-security/device-guard/device-guard-deployment-guide
 
-- **Windows Defender Credential Guard:** https://www.youtube.com/watch?v=F-pTkesjkhI和 https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard
+- **Windows Defender Credential Guard:** https://www.youtube.com/watch?v=F-pTkesjkhI 和 https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard
 
-- **控制流防护：** https://msdn.microsoft.com/en-us/library/windows/desktop/mt637065(v=vs.85).aspx
+- **控制流防护：** https://msdn.microsoft.com/library/windows/desktop/mt637065(v=vs.85).aspx
 
 - **安全和保障：** https://docs.microsoft.com/windows-server/security/security-and-assurance
 

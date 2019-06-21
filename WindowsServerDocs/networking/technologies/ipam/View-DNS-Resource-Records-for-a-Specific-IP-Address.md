@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ipam
+ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f590fb86-4195-4f90-98cb-e90459d4c1e3
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 8f0840cc6e87b2a4c087b889ec939242dae9343b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7436a41e167b4d01af0ff9cf294aaf4e5a2d8393
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845818"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282069"
 ---
 # <a name="view-dns-resource-records-for-a-specific-ip-address"></a>查看用于特定 IP 地址的 DNS 资源记录
 
@@ -26,7 +25,7 @@ ms.locfileid: "59845818"
 
 本主题可用于查看与所选 IP 地址相关联的 DNS 资源记录。  
   
-Administrators组成员或同等身份是执行此过程的最低要求。  
+Administrators  组成员或同等身份是执行此过程的最低要求。  
   
 ### <a name="to-view-resource-records-for-an-ip-address"></a>若要查看 IP 地址资源记录  
   

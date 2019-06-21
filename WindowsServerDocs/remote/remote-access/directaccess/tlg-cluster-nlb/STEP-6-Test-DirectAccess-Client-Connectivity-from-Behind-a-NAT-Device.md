@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aded2881-99ed-4f18-868b-b765ab926597
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d61bf2ec9abb6d54617f624f26680263d761e5b6
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5512f2b150af5b4e2cd5409524af8fec4be478a7
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446080"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281563"
 ---
 # <a name="step-6-test-directaccess-client-connectivity-from-behind-a-nat-device"></a>从 NAT 设备后面的步骤 6 测试 DirectAccess 客户端连接
 
@@ -39,7 +38,7 @@ ms.locfileid: "66446080"
 > [!TIP]  
 > 建议您在执行这些过程，以确保进行连接测试并不从缓存中检索网页之前清除 Internet Explorer 缓存。  
   
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>系统必备
 
 在执行这些测试之前，将 CLIENT1 从 Internet 交换机中拔出并将其连接到 Homenet 交换机。 如果系统询问你希望将当前网络定义为哪种类型的网络，请选择“家庭网络”  。  
   

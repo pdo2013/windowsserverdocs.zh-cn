@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 4af0f96b0af3a547ab7d509d031a9e23cce8b654
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 059bb3c1b15afdc579ba048b8bbb02ed185f3d42
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66443215"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280948"
 ---
 # <a name="virtualized-domain-controller-deployment-and-configuration"></a>虚拟化域控制器部署和配置
 
@@ -153,7 +153,7 @@ ms.locfileid: "66443215"
     >   
     > 因为此 RPC 方法是新方法，所以你的网络分析软件需要更新的分析程序，以囊括现有 UUID E3514235-4B06-11D1-AB04-00C04FC2DCD2 中关于新 Opnum 28 的字段。 否则，你无法分析该流量。  
     >   
-    > 有关详细信息，请参阅 [4.1.29 IDL_DRSAddCloneDC (Opnum 28)](https://msdn.microsoft.com/en-us/library/hh554213(v=prot.13).aspx)。  
+    > 有关详细信息，请参阅 [4.1.29 IDL_DRSAddCloneDC (Opnum 28)](https://msdn.microsoft.com/library/hh554213(v=prot.13).aspx)。  
   
 ***也就是说，当使用非完全路由的网络时，虚拟化域控制器克隆需要有权访问 PDCE 的网络段***。 只要你非常小心地更新 AD DS 逻辑站点信息，在克隆后可以将克隆的域控制器移到另一个网络（类似于物理域控制器）。  
   

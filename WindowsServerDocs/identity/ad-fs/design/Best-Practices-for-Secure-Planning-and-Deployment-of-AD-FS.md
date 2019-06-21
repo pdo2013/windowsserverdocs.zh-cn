@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4a2fb188bd0a46ebd54ae068e8e4eeb63788aaa0
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 95f9fd468df39525a2fe7d18647f399214486bbb
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501582"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280601"
 ---
 # <a name="best-practices-for-secure-planning-and-deployment-of-ad-fs"></a>AD FS 安全规划和部署的最佳做法
 
@@ -26,7 +26,7 @@ ms.locfileid: "66501582"
 
 -   **为"第 0 层"系统保护 AD FS** 
 
-    从根本上说，AD FS 是一个身份验证系统。  因此，它应被视为"第 0 层"系统，如网络上其他标识系统。  [Microsoft Docs](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)具有 Active Directory 管理层模型的详细信息。 
+    从根本上说，AD FS 是一个身份验证系统。  因此，它应被视为"第 0 层"系统，如网络上其他标识系统。  [Microsoft Docs](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)具有 Active Directory 管理层模型的详细信息。 
 
 
 -   **使用安全配置向导对联合身份验证服务器和联合服务器代理计算机应用特定于 AD FS 的安全最佳方案**  
@@ -117,11 +117,11 @@ ms.locfileid: "66501582"
 当这些数据库技术用于管理 AD FS 设计和部署中的数据时，下列最佳安全方案是特定于使用 Microsoft SQL Server® 或 Windows 内部数据库 (WID)。  
   
 > [!NOTE]  
-> 这些建议旨在扩展但不能替代 SQL Server 产品安全指南。 有关规划安全 SQL Server 安装的详细信息，请参阅[安全 SQL 安装的安全注意事项](https://go.microsoft.com/fwlink/?LinkID=139831)(https://go.microsoft.com/fwlink/?LinkID=139831)。  
+> 这些建议旨在扩展但不能替代 SQL Server 产品安全指南。 有关规划安全 SQL Server 安装的详细信息，请参阅[安全 SQL 安装的安全注意事项](https://go.microsoft.com/fwlink/?LinkID=139831)(https://go.microsoft.com/fwlink/?LinkID=139831) 。  
   
 -   **始终在物理上安全网络环境中防火墙后面部署 SQL Server。**  
   
-    SQL Server 安装应永远不直接公开到 Internet 上。 数据中心中的计算机应能够访问 SQL server 安装，支持的 AD FS。 有关详细信息，请参阅[安全最佳实践清单](https://go.microsoft.com/fwlink/?LinkID=189229)(https://go.microsoft.com/fwlink/?LinkID=189229)。  
+    SQL Server 安装应永远不直接公开到 Internet 上。 数据中心中的计算机应能够访问 SQL server 安装，支持的 AD FS。 有关详细信息，请参阅[安全最佳实践清单](https://go.microsoft.com/fwlink/?LinkID=189229)(https://go.microsoft.com/fwlink/?LinkID=189229) 。  
   
 -   **而不是使用内置的默认系统服务帐户为服务帐户下运行 SQL Server。**  
   
@@ -129,11 +129,11 @@ ms.locfileid: "66501582"
   
 -   **最小化 SQL Server 的图面区域。**  
   
-    只启用那些必需的 SQL Server 终结点。 默认情况下，SQL Server 提供了一个不能删除的内置 TCP 终结点。 对于 AD FS，则应启用 Kerberos 身份验证此 TCP 终结点。 若要查看当前的 TCP 终结点，以查看其他用户定义的 TCP 端口是否已添加到 SQL 安装，可以在 Transact-SQL (T-SQL) 会话中使用“SELECT * FROM sys.tcp_endpoints”查询语句。 有关 SQL Server 终结点配置的详细信息，请参阅[How To:将数据库引擎配置为侦听多个 TCP 端口](https://go.microsoft.com/fwlink/?LinkID=189231)(https://go.microsoft.com/fwlink/?LinkID=189231)。  
+    只启用那些必需的 SQL Server 终结点。 默认情况下，SQL Server 提供了一个不能删除的内置 TCP 终结点。 对于 AD FS，则应启用 Kerberos 身份验证此 TCP 终结点。 若要查看当前的 TCP 终结点，以查看其他用户定义的 TCP 端口是否已添加到 SQL 安装，可以在 Transact-SQL (T-SQL) 会话中使用“SELECT * FROM sys.tcp_endpoints”查询语句。 有关 SQL Server 终结点配置的详细信息，请参阅[How To:将数据库引擎配置为侦听多个 TCP 端口](https://go.microsoft.com/fwlink/?LinkID=189231)(https://go.microsoft.com/fwlink/?LinkID=189231) 。  
   
 -   **避免使用基于 SQL 的身份验证。**  
   
-    若要避免通过网络以明文形式传输密码或将密码存储在配置设置中，请仅对你的 SQL Server 安装使用 Windows 身份验证。 SQL Server 身份验证是一种传统的身份验证模式。 当你使用 SQL Server 身份验证时，不建议存储结构化查询语言 (SQL) 登录凭据（SQL 用户名和密码）。 有关详细信息，请参阅[身份验证模式](https://go.microsoft.com/fwlink/?LinkID=189232)(https://go.microsoft.com/fwlink/?LinkID=189232)。  
+    若要避免通过网络以明文形式传输密码或将密码存储在配置设置中，请仅对你的 SQL Server 安装使用 Windows 身份验证。 SQL Server 身份验证是一种传统的身份验证模式。 当你使用 SQL Server 身份验证时，不建议存储结构化查询语言 (SQL) 登录凭据（SQL 用户名和密码）。 有关详细信息，请参阅[身份验证模式](https://go.microsoft.com/fwlink/?LinkID=189232)(https://go.microsoft.com/fwlink/?LinkID=189232) 。  
   
 -   **仔细评估对 SQL 安装中的其他通道安全需求。**  
   

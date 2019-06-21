@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ipam
+ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: da8dce90-b54c-4ded-a48a-0cda5ccf1d8a
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4061aa5218d8595ab518496b071b85feb2eaea32
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8277c7f1a30d07bb3f040666cfd624b8831fd8c6
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885198"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282057"
 ---
 # <a name="view-roles-and-role-permissions"></a>查看角色和角色权限
 
@@ -26,7 +25,7 @@ ms.locfileid: "59885198"
 
 本主题可用于在 IPAM 客户端控制台中查看访问控制用户角色。  
   
-Administrators组成员或同等身份是执行此过程的最低要求。  
+Administrators  组成员或同等身份是执行此过程的最低要求。  
   
 ### <a name="to-view-access-control-roles"></a>若要查看访问控制角色  
   

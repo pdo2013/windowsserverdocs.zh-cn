@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 6f3907426fd1124c5ed0a411a155490a2a537239
-ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.openlocfilehash: 572f923c33739b854808372a826e9c9bbc6aaca3
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66719679"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280854"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2016"></a>将域控制器升级到 Windows Server 2016
 
@@ -27,7 +27,7 @@ ms.locfileid: "66719679"
 1. 验证目标服务器是否满足系统要求。 
 2. 验证应用程序兼容性。 
 3. 查看移动到 Windows Server 2016 的建议 
-4. 验证安全设置。 有关详细信息，请参阅[与 Windows Server 2016 中的 AD DS 有关的弃用功能及行为变化](https://docs.microsoft.com/en-us/windows-server/get-started/deprecated-features)。 
+4. 验证安全设置。 有关详细信息，请参阅[与 Windows Server 2016 中的 AD DS 有关的弃用功能及行为变化](https://docs.microsoft.com/windows-server/get-started/deprecated-features)。 
 5. 从计划运行安装的计算机上检查与目标服务器的连接性。 
 6. 检查所需操作主机角色的可用性： 
    - 若要安装在现有域和林中运行 Windows Server 2016 的第一个 DC，运行安装的计算机需要连接到**架构主机**才能运行 adprep/forestprep 和基础结构主机若要运行 adprep /domainprep。 

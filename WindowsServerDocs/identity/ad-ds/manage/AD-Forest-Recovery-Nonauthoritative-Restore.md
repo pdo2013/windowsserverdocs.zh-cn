@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: e4ce1d18-d346-492a-8bca-f85513aa3ac1
 ms.technology: identity-adds
-ms.openlocfilehash: eae4cab2bd709097fe0efd0745baeb0ec685abc7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 65e33e6507d2affc4d07cc0780a7baf91a170a09
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829608"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280589"
 ---
 # <a name="performing-a-nonauthoritative-restore-of-active-directory-domain-services"></a>执行 Active Directory 域服务非权威还原 
 
@@ -24,7 +24,7 @@ ms.locfileid: "59829608"
   
 以下过程使用 Wbadmin.exe 来执行非权威还原的 Active Directory 或 Active Directory 域服务 (AD DS)。 如果使用不同的备份解决方案，或如果你想要完成权威 SYSVOL 还原林恢复过程中更高版本，您可以通过使用这些备选方法执行 SYSVOL 的权威还原：  
   
-- 如果使用文件复制服务 (FRS) 来复制 SYSVOL，请按照中的步骤[一文 290762](https://go.microsoft.com/fwlink/?LinkId=148443)在 Microsoft 知识库文章中，使用**BurFlags**注册表项以重新初始化 FRS 副本设置，或如有必要，文章 315457 [315457](https://support.microsoft.com/kb/315457)重新生成 SYSVOL 树。 若要确定是否由 FRS 复制 SYSVOL，请参阅[确定是否在域控制器的 SYSVOL 文件夹复制 DFSR 或 FRS](https://msdn.microsoft.com/en-us/library/windows/desktop/cc507518.aspx#determining_whether_a_domain_controller_s_sysvol_folder_is_replicated_by_dfsr_or_frs)。  
+- 如果使用文件复制服务 (FRS) 来复制 SYSVOL，请按照中的步骤[一文 290762](https://go.microsoft.com/fwlink/?LinkId=148443)在 Microsoft 知识库文章中，使用**BurFlags**注册表项以重新初始化 FRS 副本设置，或如有必要，文章 315457 [315457](https://support.microsoft.com/kb/315457)重新生成 SYSVOL 树。 若要确定是否由 FRS 复制 SYSVOL，请参阅[确定是否在域控制器的 SYSVOL 文件夹复制 DFSR 或 FRS](https://msdn.microsoft.com/library/windows/desktop/cc507518.aspx#determining_whether_a_domain_controller_s_sysvol_folder_is_replicated_by_dfsr_or_frs)。  
 - 如果使用分布式文件系统 (DFS) 复制来复制 SYSVOL，请参阅[执行 DFSR 复制的 SYSVOL 的权威同步](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md)。  
 
 ## <a name="performing-a-nonauthoritative-restore"></a>执行非权威还原
@@ -50,4 +50,4 @@ ms.locfileid: "59829608"
 ## <a name="next-steps"></a>后续步骤
 
 - [AD 林恢复指南](AD-Forest-Recovery-Guide.md)
-- [AD 林恢复的过程](AD-Forest-Recovery-Procedures.md)
+- [AD 林恢复 - 过程](AD-Forest-Recovery-Procedures.md)

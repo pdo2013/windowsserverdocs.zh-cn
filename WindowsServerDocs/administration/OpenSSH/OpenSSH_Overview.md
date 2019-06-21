@@ -5,12 +5,12 @@ author: maertendMSFT
 keywords: OpenSSH, SSH, Win32-OpenSSH
 title: 在 Windows 中的 OpenSSH
 ms.product: w10
-ms.openlocfilehash: 68ced1ff133495d7658e486e7e72321e18857b21
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c6563fbe4fe69acad4d295a3f7fe166e92d38444
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843358"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280050"
 ---
 # <a name="openssh-in-windows"></a>在 Windows 中的 OpenSSH
 
@@ -32,5 +32,5 @@ SSH 基于其中用户正在处理的系统是客户端，正在管理的远程�
 
 常见 OpenSSH 功能的更多详细的文档提供了在线[OpenSSH.com](https://www.openssh.com/manual.html)。 
 
-主[OpenSSH 开源项目](https://www.openssh.com)由开发者在最初是 OpenBSD 项目管理。 此项目的 Microsoft 分叉处于[Github](https://github.com/PowerShell/openssh-portable)。
-在 Windows OpenSSH 的反馈欢迎，可以通过创建 Github 问题中的提供我们[OpenSSH Github 存储库](https://github.com/PowerShell/openssh-portable)。 
+主[OpenSSH 开源项目](https://www.openssh.com)由开发者在最初是 OpenBSD 项目管理。 此项目的 Microsoft 分叉处于[GitHub](https://github.com/PowerShell/openssh-portable)。
+在 Windows OpenSSH 的反馈欢迎，可以通过创建 GitHub 问题中的提供我们[OpenSSH GitHub 存储库](https://github.com/PowerShell/openssh-portable)。 

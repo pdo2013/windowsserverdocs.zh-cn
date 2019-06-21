@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 43abc30a-300d-4752-b845-10a6b9f32244
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 9d19ac813280981341019330470cc5d53ee00778
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 42cec0d2e6ded443d24d787191bcb72a17a92306
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446111"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283533"
 ---
 # <a name="step-1-configure-advanced-directaccess-infrastructure"></a>步骤 1 配置高级的 DirectAccess 基础结构
 
@@ -176,7 +175,7 @@ DirectAccess 服务器以及所有要使用 IPsec 身份验证的 DirectAccess �
   
 在你使用专用证书时，以下内容是必需的（如果它们尚不存在）：  
   
--   用于进行 IP-HTTPS 身份验证的网站证书。 证书使用者应该是可从 Internet 访问的、可在外部解析的 FQDN。 1.5.2 中的说明创建的证书模板上基于证书配置证书模板。  
+-   用于进行 IP-HTTPS 身份验证的网站证书。 证书使用者应该是可从 Internet 访问的、可在外部解析的 FQDN。 1\.5.2 中的说明创建的证书模板上基于证书配置证书模板。  
   
 -   能够从可公开解析的 FQDN 访问的证书吊销列表 (CRL) 分发点。  
   

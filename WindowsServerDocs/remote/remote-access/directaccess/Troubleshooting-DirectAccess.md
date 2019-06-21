@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 61040e19-5960-4eb0-b612-d710627988f7
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ec725eea286c359461b0f4a7b8763b97464e7067
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f49d9ab0e28e84cbb46015d50778653b35f5ea85
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867088"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281939"
 ---
 # <a name="troubleshooting-directaccess"></a>DirectAccess 疑难解答
 
@@ -35,7 +34,7 @@ ms.locfileid: "59867088"
 |遇到与多站点配置 （例如，启用多站点、 添加入口点，或设置一个入口点域控制器） 相关的问题|按照中的步骤[多站点部署故障排除](https://technet.microsoft.com/library/jj554657(v=ws.11).aspx)。|  
 |配置状态磁贴的仪表板上显示的警告或错误|按照中的步骤[监视远程访问服务器的配置分发状态](https://technet.microsoft.com/library/jj574221(v=ws.11).aspx)。|  
 |遇到与配置负载平衡 （例如，配置会在启用负载平衡，或有问题时添加或从群集中删除服务器时失败） 相关的问题|如果已启用负载平衡或添加节点，并在配置刷新时单击了**Apply**，但群集未正确构成的服务器上，运行以下命令： **cmd.exe /c"reg add HKLM\SYSTEM\CurrentControlSet\Services\RaMgmtSvc\Parameters /f /v DebugFlag /t REG_DWORD /d""0xffffffff"""** 收集用户界面日志在新服务器上。|  
-|以下步骤解决此问题后，操作状态将显示错误或警告|如果操作状态 （例如，错误，甚至在您修复这些） 显示不正确的信息：<br /><br />-   Enable the registry key **cmd.exe /c "reg add HKLM\SYSTEM\CurrentControlSet\Services\RaMgmtSvc\Parameters /f /v EnableTracing /t REG_DWORD /d ""5"" "**.<br />-刷新的操作状态和收集日志 **%windir%/tracing**。|  
+|以下步骤解决此问题后，操作状态将显示错误或警告|如果操作状态 （例如，错误，甚至在您修复这些） 显示不正确的信息：<br /><br />-   Enable the registry key **cmd.exe /c "reg add HKLM\SYSTEM\CurrentControlSet\Services\RaMgmtSvc\Parameters /f /v EnableTracing /t REG_DWORD /d ""5"" "** .<br />-刷新的操作状态和收集日志 **%windir%/tracing**。|  
 |Windows 8 和更高版本的 DirectAccess 客户端计算机与 DirectAccess 连接的状态报告"无 Internet"和网络连接状态指示器 (NCSI) 报告有限的连接。|这可以在 DirectAccess 配置中启用强制隧道，因此，使用仅 IPHTTPS 发生。 若要解决此问题，可以创建和配置代理服务器。 NCSI 然后使用代理服务器进行 Internet 连接性检查。 它被建议您添加静态代理到名称解析策略表 (NRPT) 通过使用以下过程。<br /><br />在此过程中运行命令之前，请确保使用适合你的部署的值替换所有域名、 计算机名称和其他 Windows PowerShell 命令变量。<br /><br />**配置 NRPT 规则的静态代理**<br />1.显示"。"NRPT 规则： `Get-DnsClientNrptRule -GpoName "corp.example.com\DirectAccess Client Settings" -Server <DomainControllerNetBIOSName>`<br />2.请记下名称 (GUID) 的"。"NRPT 规则。 名称 (GUID) 应以开头**DA-{。}**<br />3.设置的代理"。"NRPT 规则应用于**proxy.corp.example.com:8080**:  `Set-DnsClientNrptRule -Name "DA-{..}" -Server <DomainControllerNetBIOSName> -GPOName "corp.example.com\DirectAccess Client Settings" -DAProxyServerName "proxy.corp.example.com:8080" -DAProxyType "UseProxyName"`<br />4.显示"。"通过再次运行的 NRPT 规则`Get-DnsClientNrptRule`，并确认**ProxyFQDN:port**现已正确配置。<br />5.通过运行刷新组策略`gpupdate /force`DirectAccess 客户端上当客户端连接时在内部，然后显示使用 NRPT `Get-DnsClientNrptPolicy` ，并验证"。"规则显示**ProxyFQDN:port**。|  
   
 

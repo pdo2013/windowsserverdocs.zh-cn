@@ -11,12 +11,12 @@ ms.assetid: a08648eb-eea0-4e2b-87fb-52bfe8953491
 author: shirgall
 ms.author: kathydav
 ms.date: 3/1/2019
-ms.openlocfilehash: 190a5e5d32140d6fa688bb9de98d05ec2f9783c3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a24e2b1a1d79d52c1cc16f9e7c1b253d9b477aae
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838678"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284443"
 ---
 # <a name="best-practices-for-running-linux-on-hyper-v"></a>HYPER-V 上运行 Linux 的最佳做法
 
@@ -102,6 +102,6 @@ HYPER-V 允许收缩而不考虑任何分区、 卷或文件系统数据结构�
 
 * [部署的 HYPER-V 群集](https://technet.microsoft.com/library/jj863389.aspx)
 
-* [创建适用于 Azure 的 Linux 映像](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/create-upload-generic)
+* [创建适用于 Azure 的 Linux 映像](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)
 
-* [优化 Azure 上 Linux VM](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/optimization)
+* [优化 Azure 上 Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/optimization)

@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aa3174f3-42af-4511-ac2d-d8968b66da87
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c3b7751ca6d0b62ee078d5da7084cbc007edc155
-ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.openlocfilehash: 339189928d3ce5403d0fca4a06efc36b867e2a50
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66805178"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281783"
 ---
 # <a name="step-1-plan-the-advanced-directaccess-infrastructure"></a>步骤 1 计划高级 DirectAccess 基础结构
 

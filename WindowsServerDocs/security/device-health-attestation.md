@@ -4,19 +4,18 @@ H1: na
 ms.custom: na
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- techgroup-security
+ms.technology: techgroup-security
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8e7b77a4-1c6a-4c21-8844-0df89b63f68d
 author: brianlic-msft
 ms.date: 10/12/2016
-ms.openlocfilehash: 7c2d7113847cc44f18c5234502b58becde1dcb9f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4ee77fba1e82179f6998959b494628e97ac23390
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446511"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284229"
 ---
 # <a name="device-health-attestation"></a>设备运行状况证明
 
@@ -109,7 +108,7 @@ AIKCert 验证模式为有权访问 Internet 的运行环境进行了优化。 �
 
 使用下列部分，在 Windows Server 2016 上安装和配置 DHA。
 
-### <a name="prerequisites"></a>系统必备
+### <a name="prerequisites"></a>先决条件
 
 为了设置和验证 DHA 本地服务，需要：
 

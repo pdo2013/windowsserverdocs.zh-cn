@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7000e80f-31b1-43c5-b51e-1469d26909e5
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ccfac583f64d40012881a2d3f6a0897beb16c02a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 208839b827965d5fdbef4927f25a2477e117999b
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867218"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283193"
 ---
 # <a name="step-4-configure-app1"></a>步骤 4 配置 APP1
 
@@ -34,11 +33,11 @@ ms.locfileid: "59867218"
   
 2.  在中**网络连接**窗口中，右键单击**有线以太网连接**，然后单击**属性**。  
   
-3.  上**有线以太网连接属性**对话框中，单击**Internet 协议版本 4 (TCP/IPv4)**，然后单击**属性**。  
+3.  上**有线以太网连接属性**对话框中，单击**Internet 协议版本 4 (TCP/IPv4)** ，然后单击**属性**。  
   
 4.  在中**默认网关**，类型**10.0.0.254**，然后在**备用 DNS 服务器**，类型**10.2.0.1**，然后单击**确定**.  
   
-5.  上**有线以太网连接属性**对话框中，单击**Internet 协议版本 6 (Tcp/ipv6)**，然后单击**属性**。  
+5.  上**有线以太网连接属性**对话框中，单击**Internet 协议版本 6 (Tcp/ipv6)** ，然后单击**属性**。  
   
 6.  在中**默认网关**，类型**2001:db8:1::fe**。 在中**备用 DNS 服务器**，类型**2001:db8:2::1**，然后单击**确定**。  
   

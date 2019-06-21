@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: beb94475-b21f-46a9-ac51-bf2bb28ca94e
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2a38e5682b03cdb37ff88332317122b6addd000c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bf7aed239eb56eae599078a6088cbb2971c45821
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446876"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282741"
 ---
 # <a name="monitor-connected-remote-clients-for-activity-and-status"></a>监视用于活动和状态的连接的远程客户端
 
@@ -51,7 +50,7 @@ PS> Get-RemoteAccessConnectionStatistics
   
 可以筛选用户统计信息，根据所选的条件，通过使用下表中的字段。  
   
-|字段名称|值|  
+|字段名称|ReplTest1|  
 |-------|-----|  
 |Username|远程用户的用户名或别名。 可以使用通配符选择一组用户，如 contoso\\* 或\*\administrator。|  
 |主机名|远程用户的计算机帐户名称。 此外可以指定 IPv4 或 IPv6 地址。|  

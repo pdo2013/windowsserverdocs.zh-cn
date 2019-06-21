@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e834c50965c3af569dbe3756d677ec4cb2372542
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c1153cd81185dcfe83d291161a85481e5a7d0700
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883918"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280548"
 ---
 # <a name="managing-ssltls-protocols-and-cipher-suites-for-ad-fs"></a>适用于 AD FS 管理 SSL/TLS 协议和密码套件
 以下文档提供有关如何禁用和启用特定 TLS/SSL 协议和密码套件使用 AD FS 的信息
@@ -256,7 +256,7 @@ Write-Host 'SSL 2.0 has been disabled.'
 
 若要启用密码套件，请添加函数多字符串值项为其字符串值。  例如，如果我们想要启用 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P521 然后我们会将其添加到字符串。
 
-有关受支持的密码的完整列表请参阅套件[TLS/SSL (Schannel SSP) 中的密码套件](https://msdn.microsoft.com/en-us/library/windows/desktop/aa374757.aspx)。  本文档提供套件的启用默认情况下和受支持，但默认情况下不启用的那些的表。  若要确定优先级的密码套件请参阅[Prioritizing Schannel 密码套件](https://msdn.microsoft.com/en-us/library/windows/desktop/bb870930.aspx)。
+有关受支持的密码的完整列表请参阅套件[TLS/SSL (Schannel SSP) 中的密码套件](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx)。  本文档提供套件的启用默认情况下和受支持，但默认情况下不启用的那些的表。  若要确定优先级的密码套件请参阅[Prioritizing Schannel 密码套件](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx)。
 
 ## <a name="enabling-strong-authentication-for-net-applications"></a>为.NET 应用程序中启用强身份验证
 .NET Framework 3.5/4.0/4.5.x 应用程序可通过启用 SchUseStrongCrypto 注册表项可以切换到 TLS 1.2 的默认协议。  此注册表项会强制使用 TLS 1.2 的.NET 应用程序。
@@ -280,7 +280,7 @@ Write-Host 'SSL 2.0 has been disabled.'
 
 ## <a name="additional-information"></a>其他信息
 
-- [TLS/SSL (Schannel SSP) 中的密码套件](https://msdn.microsoft.com/en-us/library/windows/desktop/aa374757.aspx)
-- [Windows 8.1 中的 TLS 密码套件](https://msdn.microsoft.com/en-us/library/windows/desktop/mt767781.aspx)
-- [Prioritizing Schannel 密码套件](https://msdn.microsoft.com/en-us/library/windows/desktop/bb870930.aspx)
+- [TLS/SSL (Schannel SSP) 中的密码套件](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx)
+- [Windows 8.1 中的 TLS 密码套件](https://msdn.microsoft.com/library/windows/desktop/mt767781.aspx)
+- [Prioritizing Schannel 密码套件](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx)
 - [而言加密法和其他神秘的位置的语言所编写](https://blogs.technet.microsoft.com/askds/2015/12/08/speaking-in-ciphers-and-other-enigmatic-tonguesupdate/)

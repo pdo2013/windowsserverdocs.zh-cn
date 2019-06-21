@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6b71d18e-1939-4fc0-bb42-29e0e5ffc8da
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 608d6b4dd3d5e894b28e767164b9370de9cb59ec
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 11c5aa093ddd5aa4777e88c536195bb70bd846db
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869568"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281924"
 ---
 # <a name="directaccess"></a>DirectAccess
 
@@ -38,7 +37,7 @@ ms.locfileid: "59869568"
 > -   [DirectAccess 脱机加入域](DirectAccess-Offline-Domain-Join.md)  
 > -   [DirectAccess 疑难解答](Troubleshooting-DirectAccess.md)  
 > -   [部署单个 DirectAccess 服务器使用开始的向导](single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)  
-> -   [部署单个 DirectAccess 服务器使用高级设置](single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md)  
+> -   [使用高级设置部署单台 DirectAccess 服务器](single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md)  
 > -   [将 DirectAccess 添加到现有的远程访问 (VPN) 部署](add-to-existing-vpn/Add-DirectAccess-to-an-Existing-Remote-Access-VPN-Deployment.md)  
   
 通过 DirectAccess，远程用户与组织网络资源，而无需对传统的虚拟专用网络 (VPN) 连接的连接。 使用 DirectAccess 连接，远程客户端计算机始终连接到你的组织-无需为远程用户可以启动和停止的连接，因为需要使用 VPN 连接。 此外，你的 IT 管理员可以管理 DirectAccess 客户端计算机，只要它们正在运行并连接到 Internet。

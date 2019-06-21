@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ''
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ab2b0731a5673e14fb130d539324701a336f30ac
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 853788f20c452391c802f0681fa23978b4892c6a
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863628"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281230"
 ---
 # <a name="deploy-remote-access-in-a-cluster"></a>在群集中部署远程访问
 
@@ -29,7 +28,7 @@ Windows Server 2016 和 Windows Server 2012 将 DirectAccess 和远程访问服�
 ## <a name="BKMK_OVER"></a>应用场景说明  
 群集部署将多个远程访问服务器汇总为单个单元，然后充当单点联系远程客户端计算机通过 DirectAccess 或 VPN 连接到企业内部网络使用的外部虚拟 IP \(VIP\)远程访问群集的地址。  到群集的流量进行负载平衡使用 Windows NLB 或外部负载均衡器\(如 F5 大\-IP\)。  
 
-## <a name="prerequisites"></a>先决条件  
+## <a name="prerequisites"></a>系统必备  
 在开始部署此方案之前，请查看此列表以了解重要要求：  
 
 -   默认通过 Windows NLB 进行负载平衡。  
@@ -104,7 +103,7 @@ Windows Server 2016 和 Windows Server 2012 将 DirectAccess 和远程访问服�
 ## <a name="KnownIssues"></a>已知的问题  
 下面是配置群集方案时的已知问题：  
 
--   之后在 IPv4 中配置 DirectAccess\-部署使用单个网络适配器及默认的 DNS64 \(IPv6 地址，其中包含": 3333::"\)网络适配器上自动配置尝试启用负载\-平衡通过远程访问管理控制台将导致为用户提供 IPv6 DIP 的提示。 如果提供的是 IPv6 DIP，则单击“提交”后配置将失败，并出现以下错误：参数不正确。  
+-   之后在 IPv4 中配置 DirectAccess\-部署使用单个网络适配器及默认的 DNS64 \(IPv6 地址，其中包含": 3333::"\)网络适配器上自动配置尝试启用负载\-平衡通过远程访问管理控制台将导致为用户提供 IPv6 DIP 的提示。 如果提供的是 IPv6 DIP，则单击“提交”  后配置将失败，并出现以下错误：参数不正确。  
 
     解决此问题：  
 

@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 55528736-6c19-40bd-99e8-5668169ef3c7
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a9cd811c680f15d53ecbd28d9201f28d9cb8af2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 59b5933a81c7021e58ea14e6ea4c4da374ce35cb
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853058"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283661"
 ---
 # <a name="directaccess-offline-domain-join"></a>DirectAccess 脱机加入域
 
@@ -77,7 +76,7 @@ DirectAccess 脱机加入域是一个过程，运行 Windows Server 2016、 Wind
 #### <a name="granting-user-rights-to-join-workstations-to-the-domain"></a>授予用户权限，以便将工作站加入到域  
 可以使用组策略管理控制台 (GPMC) 来修改域策略或创建新的策略具有授予用户权限，将工作站添加到域的设置。  
   
-中的成员身份**Domain Admins**，或等效身份是授予用户权限所需的最低。  查看详细了解如何使用适当帐户和组成员身份[本地和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477)(https://go.microsoft.com/fwlink/?LinkId=83477)。   
+中的成员身份**Domain Admins**，或等效身份是授予用户权限所需的最低。  查看详细了解如何使用适当帐户和组成员身份[本地和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477)(https://go.microsoft.com/fwlink/?LinkId=83477) 。   
   
 ###### <a name="to-grant-rights-to-join-workstations-to-a-domain"></a>若要授予权限以加入域的工作站  
   
@@ -96,7 +95,7 @@ DirectAccess 脱机加入域是一个过程，运行 Windows Server 2016、 Wind
 ## <a name="BKMK_ODKSxS"></a>脱机域加入过程  
 若要预配计算机帐户元数据的提升命令提示符下运行 Djoin.exe。 运行预配命令时，指定为命令的一部分的二进制文件中创建计算机帐户元数据。  
   
-有关 NetProvisionComputerAccount 函数，它用于在脱机域加入期间设置的计算机帐户的详细信息，请参阅[NetProvisionComputerAccount 函数](https://go.microsoft.com/fwlink/?LinkId=162426)(https://go.microsoft.com/fwlink/?LinkId=162426)。 有关在目标计算机本地运行 NetRequestOfflineDomainJoin 函数的详细信息，请参阅[NetRequestOfflineDomainJoin 函数](https://go.microsoft.com/fwlink/?LinkId=162427)(https://go.microsoft.com/fwlink/?LinkId=162427)。  
+有关 NetProvisionComputerAccount 函数，它用于在脱机域加入期间设置的计算机帐户的详细信息，请参阅[NetProvisionComputerAccount 函数](https://go.microsoft.com/fwlink/?LinkId=162426)(https://go.microsoft.com/fwlink/?LinkId=162426) 。 有关在目标计算机本地运行 NetRequestOfflineDomainJoin 函数的详细信息，请参阅[NetRequestOfflineDomainJoin 函数](https://go.microsoft.com/fwlink/?LinkId=162427)(https://go.microsoft.com/fwlink/?LinkId=162427) 。  
   
 ## <a name="BKMK_ODJSteps"></a>执行 DirectAccess 脱机加入域的步骤  
 脱机域加入过程包括以下步骤：  
@@ -139,7 +138,7 @@ DirectAccess 脱机加入域是一个过程，运行 Windows Server 2016、 Wind
   
 3.  在细节窗格中，右键单击**DirectAccessClients**，然后单击**属性**。  
   
-4.  在“成员”  选项卡上，单击“添加” 。  
+4.  在“成员”  选项卡上，单击“添加”  。  
   
 5.  单击**对象类型**，选择**计算机**，然后单击**确定**。  
   

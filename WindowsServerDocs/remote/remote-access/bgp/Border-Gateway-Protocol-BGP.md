@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 78cc2ce3-a48e-45db-b402-e480b493fab1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 65af14e3adfacd96334e2326f8dd0b346e27034a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 655a7b02468db4246b85b495289806a3f9735a95
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850178"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282005"
 ---
 # <a name="border-gateway-protocol-bgp"></a>边界网关协议 (BGP)
 
@@ -150,7 +149,7 @@ Enable-RemoteAccessRoutingDomain -Name $Fabrikam_RoutingDomain -Type All -PassTh
   
 **BGP 路由作为远程访问角色服务**。 现在可以安装**路由**而无需安装远程访问服务器角色的角色服务**远程访问服务 (RAS)** 时想要为 BGP LAN 路由器使用远程访问角色服务。  这可以减少 BGP 路由器内存占用量，而只安装动态 BGP 路由所需的组件。 当只 BGP 路由器 VM 是必需的并且不需要使用 DirectAccess 或 VPN 路由角色服务将非常有用。 此外，作为使用 BGP 的 LAN 路由器使用远程访问你提供在内部网络上的 BGP 动态路由优势。  
   
-**BGP 统计信息（消息计数器、路由计数器）**。 BGP 路由器支持使用 **Get-BgpStatistics** Windows PowerShell 命令显示消息和路由统计信息（如果需要）。  
+**BGP 统计信息（消息计数器、路由计数器）** 。 BGP 路由器支持使用 **Get-BgpStatistics** Windows PowerShell 命令显示消息和路由统计信息（如果需要）。  
   
 **相等成本多路径路由 (ECMP) 支持**。 BGP 路由器支持 ECMP，可以将多个相等成本的路由插入到 BGP 路由表和堆栈中。 用于传输数据包的路由的 BGP 路由器在启用了 ECMP 时是随机的。  
   
@@ -162,7 +161,7 @@ Enable-RemoteAccessRoutingDomain -Name $Fabrikam_RoutingDomain -Type All -PassTh
   
 **IPv4 和 IPv6 传输对等互连支持**。 BGP 路由器同时支持 IPv4 和 IPv6 对等互连。 但是，必须将 BGP 标识符配置为 BGP 路由器的 IPv4 地址。 对于所有 BGP 路由器部署拓扑，可以使用两种对等互连类型 (IPV4/IPv6) 中的任一种。  
   
-**IPv4 和 IPv6 单播路由学习和播发功能（多协议网络层可访问性信息 [NLRI]）**。 无论使用什么传输，BGP 路由器都可以交换 IPv4 和 IPv6 路由（如果其他 BGP 路由器在建立会话的同时公告相应的功能）。 若要配置 IPv6 路由，必须启用参数 IPv6Routing，并且必须在路由器级别配置本地全局 IPv6 地址。  
+**IPv4 和 IPv6 单播路由学习和播发功能（多协议网络层可访问性信息 [NLRI]）** 。 无论使用什么传输，BGP 路由器都可以交换 IPv4 和 IPv6 路由（如果其他 BGP 路由器在建立会话的同时公告相应的功能）。 若要配置 IPv6 路由，必须启用参数 IPv6Routing，并且必须在路由器级别配置本地全局 IPv6 地址。  
   
 **混合模式和被动模式对等互连**。 你可以配置对等互连的 BGP 会话中任何一种混合的模式-其中 BGP 路由器充当发起方和响应方-或被动模式，其中 BGP 路由器不发起对等互连，但需要响应传入的请求。 混合模式是默认模式，建议用于 BGP 对等互连。 除非你要使用被动模式进行调试或诊断，否则情况都是如此。 对于所有 BGP 路由器部署拓扑，混合模式对等互连需要在发生失败事件的情况下实现自动重新启动。  
   

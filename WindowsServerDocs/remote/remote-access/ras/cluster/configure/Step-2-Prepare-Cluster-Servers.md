@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 35d68abb-6914-42e0-91e8-803933cf785e
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ab08c4ced9431fe17a4876f6df471624f22a6c44
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 10a40b30acbf022ed34f454d753884cb8c5c97d4
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836588"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281200"
 ---
 # <a name="step-2-prepare-cluster-servers"></a>第 2 步准备群集服务器
 
@@ -60,9 +59,9 @@ ms.locfileid: "59836588"
   
 6.  选择**路由**，选择**Web 应用程序代理**，单击**添加功能**，然后单击**下一步**。  
   
-7. 单击 **“下一步”**，然后单击 **“安装”**。  
+7. 单击 **“下一步”** ，然后单击 **“安装”** 。  
   
-8.  在“安装进度”对话框中，验证安装是否成功，然后单击“关闭”。  
+8.  在“安装进度”  对话框中，验证安装是否成功，然后单击“关闭”  。  
   
 9.  重复此过程在你想要成为群集成员的所有服务器上。  
   
@@ -80,7 +79,7 @@ ms.locfileid: "59836588"
   
 3.  上**选择的功能**对话框中，选择**网络负载平衡**，单击**添加功能**，单击**下一步**，然后单击**安装**。  
   
-4.  在“安装进度”对话框中，验证安装是否成功，然后单击“关闭”。  
+4.  在“安装进度”  对话框中，验证安装是否成功，然后单击“关闭”  。  
   
 5.  重复此过程在你想要成为群集成员的所有服务器上。  
   

@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ipam
+ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6a6291ba-0d39-4434-a8c5-0f0369860faa
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d2d1533d2b442068a926ea73336407616cd75e38
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dbd574413d1917cbb49419aff5a53f00a31bc47c
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816398"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282042"
 ---
 # <a name="ip-address-management-ipam"></a>IP 地址管理 (IPAM)
 

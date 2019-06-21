@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1459819a-b1b6-4800-8770-4a85d02c7a2b
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b992f302378c103b242537c97e5d4b41e382b9cd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3b2c251f99be455ec11e3ea3ef25ca14c8399de2
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876228"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282971"
 ---
 # <a name="manage-remote-access"></a>管理远程访问
 

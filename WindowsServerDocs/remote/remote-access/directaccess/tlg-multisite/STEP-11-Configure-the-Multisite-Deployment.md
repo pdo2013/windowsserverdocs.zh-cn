@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8cbdeb1d-5f7c-4360-bcc1-ab40d3cd8040
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2dc70d9c89b19a3e38d7f6cd682f047530f87cc6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c95fb641c0d0fa3161caadfa2eb769e12b47672d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839518"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283225"
 ---
 # <a name="step-11-configure-the-multisite-deployment"></a>步骤 11 配置多站点部署
 
@@ -34,9 +33,9 @@ ms.locfileid: "59839518"
   
 ## <a name="configDA"></a>EDGE1 上配置远程访问  
   
-1.  上**启动**屏幕上，键入**RAMgmtUI.exe**，然后按 ENTER。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+1.  上**启动**屏幕上，键入**RAMgmtUI.exe**，然后按 ENTER。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
-2.  在远程访问管理控制台中，单击“配置” 。  
+2.  在远程访问管理控制台中，单击“配置”  。  
   
 3.  在控制台中，在中间窗格中**步骤 2 远程访问服务器**区域中，单击**编辑**。  
   
@@ -48,7 +47,7 @@ ms.locfileid: "59839518"
   
 7.  在控制台的中间窗格中，单击**完成**。  
   
-8.  上**远程访问评审**对话框中，查看配置设置，然后单击**应用**。 在 **“应用远程访问设置向导设置”** 对话框中，单击 **“关闭”**。  
+8.  上**远程访问评审**对话框中，查看配置设置，然后单击**应用**。 在 **“应用远程访问设置向导设置”** 对话框中，单击 **“关闭”** 。  
   
 9. 在中**任务**窗格中，单击**刷新管理服务器**，然后单击**关闭**时完成。  
   

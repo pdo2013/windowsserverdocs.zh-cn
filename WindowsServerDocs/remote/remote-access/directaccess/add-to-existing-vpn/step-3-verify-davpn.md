@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 43ac612e-2e77-418c-8171-ebb2086b7cb6
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4e3ad9f742443771ece7061259a44e69a252d4a6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 639431405635b7b0792b7a73bd9bb524e0827832
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890028"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281819"
 ---
 # <a name="step-3-verify-the-deployment"></a>步骤 3 验证部署
 
@@ -32,7 +31,7 @@ ms.locfileid: "59890028"
   
 2.  单击通知区域中的“网络连接”  图标以访问 DA 媒体管理器。  
   
-3.  单击“DirectAccess 连接”，你会看到状态是“本地连接”。  
+3.  单击“DirectAccess 连接”  ，你会看到状态是“本地连接”  。  
   
 4.  将客户端计算机连接到外部网络并尝试访问内部资源。  
   

@@ -10,12 +10,12 @@ ms.topic: article
 author: adagashe
 ms.date: 3/26/2019
 ms.localizationpriority: ''
-ms.openlocfilehash: 908e4a7a75606905caebfa4b79168b3976982e6d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6b229696e796f176fe89ab250ab48f1d9f0d5666
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447592"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280204"
 ---
 ---
 # <a name="use-azure-monitor-to-send-emails-for-health-service-faults"></a>使用 Azure Monitor 将电子邮件发送运行状况服务故障
@@ -31,11 +31,11 @@ Azure 监视器，从而最大化可用性和性能的应用程序提供全面�
 
 Azure Monitor 收集的所有数据都放到两种基本类型之一： 指标和日志。
 
-1. [指标](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collection#metrics)是在时间中描述的特定点的系统的某些方面的数字值。 它们是轻量和能够支持附近实时方案。 你将看到收集的 Azure Monitor 直接在 Azure 门户中其概述页中的数据。
+1. [指标](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics)是在时间中描述的特定点的系统的某些方面的数字值。 它们是轻量和能够支持附近实时方案。 你将看到收集的 Azure Monitor 直接在 Azure 门户中其概述页中的数据。
 
 ![指标在指标资源管理器中引入的图像](media/configure-azure-monitor/metrics.png)
 
-2. [日志](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collection#logs)包含不同类型的数据组织到具有不同的每种类型的属性集的记录。 如事件和跟踪遥测数据存储为日志此外的性能数据，以便它都可以合并以进行分析。 可以使用分析日志数据由 Azure Monitor 收集[查询](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/log-query-overview)用于快速检索、 整合和分析收集的数据。 可以创建和测试使用的查询[Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/portals)在 Azure 门户，然后将其直接使用这些工具分析数据或保存查询供[可视化效果](https://docs.microsoft.com/en-us/azure/azure-monitor/visualizations)或[警报规则](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-overview)。
+2. [日志](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#logs)包含不同类型的数据组织到具有不同的每种类型的属性集的记录。 如事件和跟踪遥测数据存储为日志此外的性能数据，以便它都可以合并以进行分析。 可以使用分析日志数据由 Azure Monitor 收集[查询](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)用于快速检索、 整合和分析收集的数据。 可以创建和测试使用的查询[Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/portals)在 Azure 门户，然后将其直接使用这些工具分析数据或保存查询供[可视化效果](https://docs.microsoft.com/azure/azure-monitor/visualizations)或[警报规则](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)。
 
 ![日志引入 log analytics 中的图像](media/configure-azure-monitor/logs.png)
 
@@ -64,9 +64,9 @@ get-storagesubsystem clus* | Set-StorageHealthSetting -Name "Platform.ETW.MasTyp
 
 现在，你已安装程序在群集上正确日志的记录下, 一步是正确配置 log analytics。
 
-若要提供概述， [Azure Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agent-windows)可以收集数据直接从你的数据中心或其他云环境中物理或虚拟 Windows 计算机到单个存储库进行详细的分析和关联。
+若要提供概述， [Azure Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows)可以收集数据直接从你的数据中心或其他云环境中物理或虚拟 Windows 计算机到单个存储库进行详细的分析和关联。
 
-若要了解受支持的配置，请查看[受支持的 Windows 操作系统](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems)并[网络防火墙配置](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent#network-firewall-requirements)。
+若要了解受支持的配置，请查看[受支持的 Windows 操作系统](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems)并[网络防火墙配置](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-firewall-requirements)。
 
 如果还没有 Azure 订阅，创建[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)在开始之前。
 
@@ -76,7 +76,7 @@ get-storagesubsystem clus* | Set-StorageHealthSetting -Name "Platform.ETW.MasTyp
 
 ### <a name="create-a-workspace"></a>创建工作区
 
-下面列出的步骤的更多详细信息，请参阅[Azure Monitor 文档](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/quick-collect-windows-computer)。
+下面列出的步骤的更多详细信息，请参阅[Azure Monitor 文档](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-windows-computer)。
 
 1. 在 Azure 门户中，单击**所有服务**。 在资源列表中，键入**Log Analytics**。 开始键入时，列表筛选器基于您的输入。 选择**的 Log Analytics**。<br><br> 
 
@@ -123,7 +123,7 @@ get-storagesubsystem clus* | Set-StorageHealthSetting -Name "Platform.ETW.MasTyp
 
 ![MMA 到 Log Analytics 的连接状态](media/configure-azure-monitor/log-analytics-mma-laworkspace-status.png)
 
-若要了解受支持的配置，请查看[受支持的 Windows 操作系统](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems)并[网络防火墙配置](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent#network-firewall-requirements)。
+若要了解受支持的配置，请查看[受支持的 Windows 操作系统](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems)并[网络防火墙配置](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-firewall-requirements)。
 
 ## <a name="collecting-event-and-performance-data"></a>收集事件和性能数据
 
@@ -212,4 +212,4 @@ Event | where (EventLevelName == "Error")
 ## <a name="see-also"></a>请参阅
 
 - [存储空间直通概述](storage-spaces-direct-overview.md)
-- 有关详细信息，请阅读[Azure Monitor 文档](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/tutorial-viewdata)。
+- 有关详细信息，请阅读[Azure Monitor 文档](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata)。

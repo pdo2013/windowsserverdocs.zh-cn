@@ -9,12 +9,12 @@ ms.date: 03/06/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e62032533b15ec3d93896d242273612faafdca58
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1e72556f9a630e188b59722e09650f9e48fb6852
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444100"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280471"
 ---
 # <a name="ad-fs-requirements"></a>AD FS 要求
 
@@ -110,7 +110,7 @@ AD FS 和 Web 应用程序代理硬件要求 （物理或虚拟） 上 CPU、 �
   
 -   必须将 Web 应用程序代理角色服务部署为 extranet 访问\-远程访问服务器角色的一部分。 
 
--   第三方代理必须支持[MS ADFSPIP 协议](https://msdn.microsoft.com/en-us/library/dn392811.aspx)作为 AD FS 代理支持。  列表的第三方供应商请参阅[常见问题解答](AD-FS-FAQ.md#what-third-party-proxies-are-available-for-ad-fs-that-support-ms-adfspip)。
+-   第三方代理必须支持[MS ADFSPIP 协议](https://msdn.microsoft.com/library/dn392811.aspx)作为 AD FS 代理支持。  列表的第三方供应商请参阅[常见问题解答](AD-FS-FAQ.md#what-third-party-proxies-are-available-for-ad-fs-that-support-ms-adfspip)。
 
 -   AD FS 2016 要求 Windows Server 2016 上的 Web 应用程序代理服务器。  下层代理不能配置为在 2016年场行为级别运行的 AD FS 2016 场。
   

@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 140e8e4204148dd8862385054554d7b8336856ec
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 7253502390db004747d3732cf3d288a51afdaaf1
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192008"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280691"
 ---
 # <a name="set-a-service-communications-certificate"></a>设置服务通信证书
 
@@ -22,7 +22,7 @@ ms.locfileid: "66192008"
 Active Directory 联合身份验证服务中的联合身份验证服务器\(AD FS\)使用服务通信证书来保护 Web 服务通信的安全套接字层\(SSL\)与 Web 通信客户端或与联合服务器代理。
 
 > [!NOTE]  
-> 服务通信证书不是与 SSL 证书相同。 若要更改 AD FS SSL 证书，你将需要使用 Powershell。 请按照此指南[一文](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap)。
+> 服务通信证书不是与 SSL 证书相同。 若要更改 AD FS SSL 证书，你将需要使用 Powershell。 请按照此指南[一文](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap)。
 
 
 可以使用以下过程来更改与 AD FS 管理管理单元的服务通信证书\-中。  

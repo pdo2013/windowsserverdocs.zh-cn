@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ipam
+ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a96a8752-5678-49c5-b069-d2cce8042a51
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2e63c82ef0c58a9b4392ad8b9b1fc896d075ab71
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c79e1f63b9bcb43520a57defca8228b76db68a31
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882908"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283873"
 ---
 # <a name="set-access-scope-for-dns-resource-records"></a>为 DNS 资源记录设置访问范围
 
@@ -26,7 +25,7 @@ ms.locfileid: "59882908"
 
 可以使用本主题使用 IPAM 客户端控制台设置的访问作用域的 DNS 资源记录。  
   
-Administrators组成员或同等身份是执行此过程的最低要求。  
+Administrators  组成员或同等身份是执行此过程的最低要求。  
   
 ### <a name="to-set-access-scope-for-dns-resource-records"></a>若要设置访问作用域的 DNS 资源记录  
   

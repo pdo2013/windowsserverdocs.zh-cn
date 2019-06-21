@@ -6,20 +6,19 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-nict
+ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a4caaa86-5799-4580-8775-03ee213784a3
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: d4dc7e0795d1f1d0b2a8bc18a6df12c683ef037d
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 5380cb2007bab1a296e0facc12885d47c6afc708
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812333"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282096"
 ---
 # <a name="create-a-new-nic-team-on-a-host-computer-or-vm"></a>在主计算机或 VM 上创建新的 NIC 组
 
@@ -142,7 +141,7 @@ _**祝贺您 ！** _  物理和虚拟网络配置。  现在可以转到创建�
 
 有关这些设置的更多详细信息，请参阅[NIC 组合设置](nic-teaming-settings.md)。
 
-### <a name="prerequisites"></a>系统必备
+### <a name="prerequisites"></a>先决条件
 
 您必须拥有成员身份**管理员**，或等效。  
 

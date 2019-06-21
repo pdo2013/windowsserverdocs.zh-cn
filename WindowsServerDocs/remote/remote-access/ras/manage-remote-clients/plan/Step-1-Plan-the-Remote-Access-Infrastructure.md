@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a1ce7af5-f3fe-4fc9-82e8-926800e37bc1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f0a7d19ff571a5172d2dbd9a3d11584581c00370
-ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.openlocfilehash: 9a3ee39736fb4ee2eb41162db27fed2299c204e5
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66805039"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281187"
 ---
 # <a name="step-1-plan-the-remote-access-infrastructure"></a>步骤 1 规划远程访问基础结构
 

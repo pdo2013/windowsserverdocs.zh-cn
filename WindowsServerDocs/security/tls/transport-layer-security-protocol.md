@@ -13,12 +13,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 05/16/2018
-ms.openlocfilehash: 77e3ee9d89bff7ab6e95ea47ffa141e6e1004ba4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0a3b241fe0d2a61361d551b7f515507ad55d71cd
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853018"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284231"
 ---
 # <a name="transport-layer-security-protocol"></a>传输层安全协议
 
@@ -41,7 +41,7 @@ TLS 和 SSL 协议可以分为两个层。 应用程序协议和三个握手协�
 **TLS 和 SSL 协议层**
 
 
-Schannel SSP 实现 TLS 和 SSL 协议而无需修改。 SSL 协议是专有的但 Internet 工程任务组会产生公共 TLS 规范。 有关哪些 TLS 或 SSL 版本支持 Windows 版本中的信息，请参阅[TLS/SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/en-us/library/windows/desktop/mt808159(v=vs.85).aspx)。 下表列出了为每个 TLS 版本规范。 每个规范包含以下信息：
+Schannel SSP 实现 TLS 和 SSL 协议而无需修改。 SSL 协议是专有的但 Internet 工程任务组会产生公共 TLS 规范。 有关哪些 TLS 或 SSL 版本支持 Windows 版本中的信息，请参阅[TLS/SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159(v=vs.85).aspx)。 下表列出了为每个 TLS 版本规范。 每个规范包含以下信息：
 
 -   TLS 记录协议
 

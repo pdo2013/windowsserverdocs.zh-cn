@@ -9,12 +9,12 @@ ms.date: 05/20/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7a4ad8c0199f0f62d7cd69a43897cb4608ddb365
-ms.sourcegitcommit: ccc802338b163abdad2e53b55f39addcfea04603
+ms.openlocfilehash: eb31a76dbd7ccdff3ea3ee0d6bb26f9ee16ae93f
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687369"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280707"
 ---
 # <a name="ad-fs-extranet-lockout-and-extranet-smart-lockout"></a>AD FS Extranet 锁定和 Extranet 的智能锁定
 
@@ -237,7 +237,7 @@ AD FS 提供了三个 cmdlet 来管理帐户的活动数据。 这些 cmdlet 自
 ## <a name="event-logging--user-activity-information-for-ad-fs-extranet-lockout"></a>事件日志记录和 AD FS Extranet 锁定的用户活动信息
 
 ### <a name="connect-health"></a>连接运行状况
-监视用户帐户活动的建议的方法是通过连接运行状况。 连接运行状况生成可下载报告风险 Ip 和错误密码尝试次数。 有风险 IP 报表中的每个项将显示有关失败的 AD FS 登录活动的次数超出指定的阈值的聚合的信息。 使用可自定义电子邮件设置将发生这种情况时，就立即可以设置电子邮件通知来提醒管理员。 有关其他信息和设置说明，请访问[Connect Health 文档](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-health-adfs)。
+监视用户帐户活动的建议的方法是通过连接运行状况。 连接运行状况生成可下载报告风险 Ip 和错误密码尝试次数。 有风险 IP 报表中的每个项将显示有关失败的 AD FS 登录活动的次数超出指定的阈值的聚合的信息。 使用可自定义电子邮件设置将发生这种情况时，就立即可以设置电子邮件通知来提醒管理员。 有关其他信息和设置说明，请访问[Connect Health 文档](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)。
 
 ### <a name="ad-fs-extranet-smart-lockout-events"></a>AD FS Extranet 智能锁定事件。
 Extranet 的智能锁定事件能够进行编写，必须在仅日志或强制模式下启用 ESL 和启用了 ADFS 安全审核。

@@ -9,12 +9,12 @@ author: eldenchristensen
 ms.date: 10/25/2017
 description: 如何在虚拟机来宾群集-例如，在 Microsoft Azure 中部署存储空间直通。
 ms.localizationpriority: medium
-ms.openlocfilehash: b99e750b78654df48ad3b412269511d047e3057c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d05afb5ee564b866dcd15ec6aa473cee608dbd8f
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447808"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284406"
 ---
 # <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>在来宾虚拟机群集中使用存储空间直通
 
@@ -49,7 +49,7 @@ ms.locfileid: "66447808"
 
     -   Hyper-v – 若要在节点上分隔的 Vm 的 Vm 上配置 AntiAffinityClassNames
 
-    -   VMware — 通过创建 DRS 规则类型的配置 VM 虚拟机反相关性规则单独的虚拟机"以在 ESX 主机上分隔的 Vm。 提供用于使用存储空间直通的磁盘应使用 Paravirtual SCSI (PVSCSI) 适配器。 有关 Windows Server PVSCSI 支持，请查阅 https://kb.vmware.com/s/article/1010398。
+    -   VMware — 通过创建 DRS 规则类型的配置 VM 虚拟机反相关性规则单独的虚拟机"以在 ESX 主机上分隔的 Vm。 提供用于使用存储空间直通的磁盘应使用 Paravirtual SCSI (PVSCSI) 适配器。 有关 Windows Server PVSCSI 支持，请查阅 https://kb.vmware.com/s/article/1010398 。
 
 -   利用低延迟 / 托管的高性能存储-Azure 高级存储磁盘所需
 
@@ -79,6 +79,6 @@ ms.locfileid: "66447808"
 
 ## <a name="see-also"></a>请参阅
 
-[部署存储空间直通、 视频和分步指南的其他 Azure Iaas VM 模板](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/)。
+[部署存储空间直通、 视频和分步指南的其他 Azure Iaas VM 模板](https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126)。
 
-[额外的存储空间直通概述](https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+[额外的存储空间直通概述](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)

@@ -8,12 +8,12 @@ ms.author: jol
 ms.date: 03/01/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: fe00072932d9c7f283ebd887a5292ac9a9d0e37f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4d156820781d2a9defc989fa1acf35d4289fb24f
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446028"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284082"
 ---
 # <a name="manage-hyper-converged-infrastructure-with-windows-admin-center"></a>管理超聚合基础结构与 Windows Admin Center
 
@@ -21,7 +21,7 @@ ms.locfileid: "66446028"
 
 ## <a name="what-is-hyper-converged-infrastructure"></a>什么是 Hyper-Converged 基础结构
 
-软件定义的计算、 存储和网络连接到一个群集以提供高性能、 经济高效，并可轻松缩放的虚拟化将合并超聚合基础结构。 此功能在 Windows Server 2016 中引入[存储空间直通](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)，[软件定义的网络](https://docs.microsoft.com/en-us/windows-server/networking/sdn/software-defined-networking)并[HYPER-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server)。
+软件定义的计算、 存储和网络连接到一个群集以提供高性能、 经济高效，并可轻松缩放的虚拟化将合并超聚合基础结构。 此功能在 Windows Server 2016 中引入[存储空间直通](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)，[软件定义的网络](https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking)并[HYPER-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server)。
 
 > [!Tip]
 > 为希望获得 Hyper-Converged 基础结构？ Microsoft 建议这些[Windows Server 软件定义](https://microsoft.com/wssd)从我们的合作伙伴解决方案。 它们是设计、 组装和根据我们的参考体系结构，以确保兼容性和可靠性，因此你和快速运行验证。

@@ -9,12 +9,12 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 06/13/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: f6b93b55d8685180de8eafff5e8a3d5ca33e5fb5
-ms.sourcegitcommit: 3fe551f99c58ac232a9df72aaca55187118eac3b
+ms.openlocfilehash: 7fa4560e0c050c8decbcb4e9456a884976e447e2
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67132925"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284421"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>存储空间直通的硬件要求
 
@@ -22,7 +22,7 @@ ms.locfileid: "67132925"
 
 本主题介绍存储空间直通的最低硬件要求。
 
-对于生产环境，Microsoft 建议从我们的合作伙伴购买的已验证的硬件/软件解决方案的其中包括部署工具和过程。 这些解决方案设计、 组装和根据我们的参考体系结构，以确保兼容性和可靠性，因此你和快速运行验证。 对于 Windows Server 2019 解决方案，请访问[Azure Stack HCI solutions 网站](https://azure.microsoft.com/overview/azure-stack/hci)。 对于 Windows Server 2016 的解决方案，了解详细信息，请[Windows Server 软件定义](https://microsoft.com/wssd)。
+对于生产环境，Microsoft 建议在我们的合作伙伴，包括部署工具和过程购买已验证的硬件/软件解决方案。 这些解决方案设计、 组装和根据我们的参考体系结构，以确保兼容性和可靠性，因此你和快速运行验证。 对于 Windows Server 2019 解决方案，请访问[Azure Stack HCI solutions 网站](https://azure.microsoft.com/overview/azure-stack/hci)。 对于 Windows Server 2016 的解决方案，了解详细信息，请[Windows Server 软件定义](https://microsoft.com/wssd)。
 
    > [!TIP]
    > 想要评估存储空间直通，但没有硬件？ 使用 HYPER-V 或 Azure 虚拟机中所述[使用存储空间直通中来宾虚拟机群集](storage-spaces-direct-in-vm.md)。

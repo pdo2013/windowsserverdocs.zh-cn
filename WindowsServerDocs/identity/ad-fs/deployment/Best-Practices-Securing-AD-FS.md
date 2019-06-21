@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 958bf8455d03ddc04395fafe83e70a49c7659c96
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: a7f4f29b37793b45a614bd592feddb339dd05c3d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192441"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280604"
 ---
 ## <a name="best-practices-for-securing-active-directory-federation-services"></a>保护 Active Directory 联合身份验证服务的最佳做法
 
@@ -109,7 +109,7 @@ TCP|49443 (TCP)|使用证书身份验证。
 3.  从其默认值来更改拥塞控制设置<congestionControl latencyThresholdInMSec="8000" minCongestionWindowSize="64" enabled="true" />。
 4.  保存并关闭该文件。
 5.  通过运行 net stop adfssrv，然后 net start adfssrv 重新启动 AD FS 服务。
-可供你参考，找到此功能的指导[此处](https://msdn.microsoft.com/en-us/library/azure/dn528859.aspx )。
+可供你参考，找到此功能的指导[此处](https://msdn.microsoft.com/library/azure/dn528859.aspx )。
 
 ### <a name="standard-http-request-checks-at-the-proxy"></a>在代理处检查标准 HTTP 请求
 代理还执行以下标准检查对所有流量：

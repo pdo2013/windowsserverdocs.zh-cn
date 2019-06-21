@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 846307e19324ab18f8bbfd84971108871b677aeb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9ac591d65fb84f3c0a8bbd33ca71c93daf892ced
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445886"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280729"
 ---
 # <a name="privileged-access-workstations"></a>特权访问工作站
 
@@ -96,7 +96,7 @@ PAW 安全控件专注于缓解高影响和很有可能造成入侵的风险。 
 
 若要对此进行配置，按照本指南中对 PAW 主机的说明进行操作，添加客户端 Hyper-V 功能、创建用户虚拟机，然后在用户虚拟机上安装 Windows 10 企业映像。
 
-请参阅文章[客户端 Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/index)，获取有关此功能的详细信息。 请注意，来宾虚拟机中的操作系统需要按 [Microsoft 产品许可](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx)进行授权，我们还在[此处](https://download.microsoft.com/download/9/8/D/98D6A56C-4D79-40F4-8462-DA3ECBA2DC2C/Licensing_Windows_Desktop_OS_for_Virtual_Machines.pdf)进行了说明。
+请参阅文章[客户端 Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/index)，获取有关此功能的详细信息。 请注意，来宾虚拟机中的操作系统需要按 [Microsoft 产品许可](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx)进行授权，我们还在[此处](https://download.microsoft.com/download/9/8/D/98D6A56C-4D79-40F4-8462-DA3ECBA2DC2C/Licensing_Windows_Desktop_OS_for_Virtual_Machines.pdf)进行了说明。
 
 #### <a name="simultaneous-use---adding-remoteapp-rdp-or-a-vdi"></a>同时使用-添加 RemoteApp、 RDP 或 VDI
 
@@ -138,7 +138,7 @@ Microsoft 同时在内部系统和客户系统中使用 PAW 体系结构方法�
 * **高敏感度信息工作者**-PAW 中使用的方法还可以提供高度敏感信息工作者的任务和涉及预公告合并和收购活动，预发行版的保护财务报告、 组织的社交媒体状态显示、 管理层通信、 专利的商业秘密、 敏感研究或其他专有或敏感数据。 本指南不深入讨论这些信息工作者方案的配置，也不在技术说明中包含此种情况。
 
     > [!NOTE]
-    > Microsoft IT 使用 PAW （内部称为“安全管理工作站”或 SAW）来管理对 Microsoft 内部的内部高值系统的安全访问权限。 在下方的“Microsoft 如何使用管理工作站”部分，本指南还包括了针对 PAW 使用方法的其他信息。 有关此高值资产环境的详细信息，请参阅文章[使用安全管理工作站保护高值资产](https://msdn.microsoft.com/en-us/library/mt186538.aspx)。
+    > Microsoft IT 使用 PAW （内部称为“安全管理工作站”或 SAW）来管理对 Microsoft 内部的内部高值系统的安全访问权限。 在下方的“Microsoft 如何使用管理工作站”部分，本指南还包括了针对 PAW 使用方法的其他信息。 有关此高值资产环境的详细信息，请参阅文章[使用安全管理工作站保护高值资产](https://msdn.microsoft.com/library/mt186538.aspx)。
 
 本文档将介绍为什么推荐这种做法来保护高影响力特权帐户、保护管理权限的这些 PAW 解决方案是怎样的，以及如何为域和云服务管理快速部署 PAW 解决方案。
 
@@ -727,7 +727,7 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
                > 不要选择值名称左侧的“**默认值**”框。
 
             5. 值类型：REG_SZ
-            6. 值数据： 输入到完整的 URL *proxy.pac*文件，包括 http:// 和文件的名称-例如 http://proxy.fabrikam.com/proxy.pac。  URL 还可以是单标签 URL-例如， http://proxy/proxy.pac
+            6. 值数据： 输入到完整的 URL *proxy.pac*文件，包括 http:// 和文件的名称-例如 http://proxy.fabrikam.com/proxy.pac 。  URL 还可以是单标签 URL-例如， http://proxy/proxy.pac
 
                > [!NOTE]
                > PAC 文件还可托管于文件共享上，语法为 file://server.fabrikan.com/share/proxy.pac，但这需要允许 file:// 协议。 请参阅"注意：File://-based 代理脚本已弃用"节中的第[了解 Web 代理配置](http://blogs.msdn.com/b/ieinternals/archive/2013/10/11/web-proxy-configuration-and-ie11-changes.aspx)博客上配置所需的注册表值的更多详细信息。
@@ -857,7 +857,7 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
 2. **列入允许列表受信任的应用程序使用 Windows Defender 应用程序和/或 AppLocker**。  通过限制不受信任或未签署的代码在 PAW 上运行的功能，可以进一步降低恶意活动和入侵的可能性。  针对应用程序控制，Windows 包括两种主要选项：
 
    * **AppLocker**:AppLocker 可帮助管理员控制哪些应用程序可以在给定系统上运行。  AppLocker 可通过组策略进行集中控制，也可应用到特定的用户或组（针对 PAW 用户的目标应用程序）。  有关 AppLocker 的详细信息，请参阅 TechNet 文章 [AppLocker 概述](https://technet.microsoft.com/library/hh831440.aspx)。
-   * **Windows Defender 应用程序控制**： 新的 Windows Defender 应用程序控制功能提供增强基于硬件的应用程序控制，与 AppLocker，无法重写受影响的设备上。  与 AppLocker 类似，可以通过组策略控制并针对特定用户的 Windows Defender 应用程序控制。  有关限制了 Windows Defender 应用程序控制的应用程序使用情况的详细信息，请参阅[Windows Defender 应用程序控制部署指南](https://docs.microsoft.com/en-gb/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-deployment-guide)。
+   * **Windows Defender 应用程序控制**： 新的 Windows Defender 应用程序控制功能提供增强基于硬件的应用程序控制，与 AppLocker，无法重写受影响的设备上。  与 AppLocker 类似，可以通过组策略控制并针对特定用户的 Windows Defender 应用程序控制。  有关限制了 Windows Defender 应用程序控制的应用程序使用情况的详细信息，请参阅[Windows Defender 应用程序控制部署指南](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-deployment-guide)。
 
 3. **使用受保护用户、身份验证策略和身份验证接收器来进一步保护特权帐户**。  受保护用户的成员受制于其他安全策略，这些策略可保护存储在本地安全代理 (LSA) 中的凭据，并可大大降低凭据被盗和重复使用的风险。  身份验证策略和接收器控制特权用户如何访问域中的资源。  总体来说，这些保护功能极大地增强了特权用户的帐户安全性。  有关这些功能的其他详细信息，请参阅 Web 文章[如何配置受保护的帐户](https://technet.microsoft.com/library/dn518179.aspx)。
 
@@ -912,7 +912,7 @@ PAW 解决方案应使用基于清洁源原则的[操作标准](https://aka.ms/s
 ### <a name="set-up-the-host-guardian-service"></a>设置主机保护者服务
 
 主机保护者服务负责证明身份识别和物理的 PAW 设备的运行状况。
-HGS 到已知的计算机和运行的可信[代码完整性策略](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control)允许启动受防护的 Vm。
+HGS 到已知的计算机和运行的可信[代码完整性策略](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control)允许启动受防护的 Vm。
 这有助于防止受防护的 Vm，运行受信任的工作负荷管理分层的资源，从用户的桌面环境的威胁。
 
 HGS 负责确定哪些设备可以运行 PAW 的 Vm，因为它是被视为第 0 层资源。
@@ -1010,7 +1010,7 @@ New-ShieldingDataFile -Policy Shielded -BindToHostTpm [...]
 
 [设备保护概述](https://technet.microsoft.com/library/dn986865(v=vs.85).aspx)
 
-[使用安全管理工作站保护高值资产](https://msdn.microsoft.com/en-us/library/mt186538.aspx)
+[使用安全管理工作站保护高值资产](https://msdn.microsoft.com/library/mt186538.aspx)
 
 [Windows 10 中具有 Dave Probert （第 9 信道） 的隔离的用户模式](https://channel9.msdn.com/Blogs/Seth-Juarez/Isolated-User-Mode-in-Windows-10-with-Dave-Probert)
 

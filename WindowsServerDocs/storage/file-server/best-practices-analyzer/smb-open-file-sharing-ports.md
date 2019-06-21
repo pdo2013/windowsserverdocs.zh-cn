@@ -7,12 +7,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: d761e4532a5be92d43e09904e9df8f2aa61b6bb8
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: fae579347a43dfa361206e65032b1f3da512ec4a
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63738469"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284367"
 ---
 # <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB:文件和打印机共享端口应该已打开
 
@@ -75,5 +75,5 @@ ms.locfileid: "63738469"
 
 ## <a name="additional-references"></a>其他参考
 
-[了解共享文件夹和 Windows 防火墙](http://technet.microsoft.com/en-us/library/cc731402.aspx)(http://technet.microsoft.com/en-us/library/cc731402.aspx)
+[了解共享文件夹和 Windows 防火墙](https://technet.microsoft.com/library/cc731402.aspx)(https://technet.microsoft.com/library/cc731402.aspx)
 

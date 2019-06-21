@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 509eaa08-c49d-448d-a71e-c1c45519ccd5
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 11f4fe7b68f69b00ec0f8fb9764e0fb4460a2851
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b8e6defc6cc8579f18df2f9636383c65c9a18eb
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845948"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281613"
 ---
 # <a name="step-4-create-the-network-load-balanced-remote-access-cluster"></a>步骤 4 创建网络负载平衡的远程访问群集
 
@@ -63,7 +62,7 @@ ms.locfileid: "59845948"
   
 3.  上**选择的功能**对话框中，选择**网络负载平衡**，单击**添加功能**，单击**下一步**，然后单击**安装**。  
   
-4.  在“安装进度”对话框中，验证安装是否成功，然后单击“关闭”。  
+4.  在“安装进度”  对话框中，验证安装是否成功，然后单击“关闭”  。  
   
 5.  重复此过程在 EDGE2。  
   
@@ -72,13 +71,13 @@ ms.locfileid: "59845948"
   
 ### <a name="enable-load-balancing"></a>启用负载平衡  
   
-1.  在 EDGE1，单击**启动**，类型**RAMgmtUI.exe**，然后按 ENTER。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+1.  在 EDGE1，单击**启动**，类型**RAMgmtUI.exe**，然后按 ENTER。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
 2.  在远程访问管理控制台中，在左窗格中，单击**配置**，然后在**任务**窗格中，单击**启用负载平衡**。  
   
 3.  启用负载平衡向导中，单击**下一步**。  
   
-4.  上**负载平衡方法**页上，单击**使用 Windows 网络负载平衡 (NLB)**，然后单击**下一步**。  
+4.  上**负载平衡方法**页上，单击**使用 Windows 网络负载平衡 (NLB)** ，然后单击**下一步**。  
   
 5.  上**外部的专用 IP 地址**页上，在**IPv4 地址**框中，键入**131.107.0.10**，在**子网掩码**框中，验证子网前缀**255.255.255.0**，然后单击**下一步**。  
   
@@ -118,7 +117,7 @@ ms.locfileid: "59845948"
   
 8.  上**添加和删除服务器**对话框中，单击**关闭**。  
   
-9. 上**启动**屏幕上，键入**nlbmgr.exe**，然后按 ENTER。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+9. 上**启动**屏幕上，键入**nlbmgr.exe**，然后按 ENTER。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
 10. 在中**网络负载平衡管理器**，单击**内部 DA 群集**。 在细节窗格中，请确保同时**EDGE1(Corpnet)** 并**EDGE2(Corpnet)** 具有状态**聚合**。  
   

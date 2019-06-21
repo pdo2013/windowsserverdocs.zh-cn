@@ -11,12 +11,12 @@ author: sakitong
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: 7331418c1926958da07c94bca9ff9f871134f3fa
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5f2a99bb69fd41c05013788187838f8fceb5f69a
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439868"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280451"
 ---
 # <a name="express-update-delivery-isv-support"></a>Express 更新传递 ISV 支持
 
@@ -66,7 +66,7 @@ WSUS 用作到 Windows 更新的接口，并管理描述需要将下载的 Expre
 
 #### <a name="specify-the-isv-file-cache"></a>指定 ISV 文件缓存
 
-新客户端的组策略和移动设备管理 (MDM) 设置中详细介绍[**配置服务提供程序参考**](https://msdn.microsoft.com/en-us/windows/hardware/commercialize/customize/mdm/configuration-service-provider-reference)定义 ISV 文件缓存的位置。
+新客户端的组策略和移动设备管理 (MDM) 设置中详细介绍[**配置服务提供程序参考**](https://msdn.microsoft.com/windows/hardware/commercialize/customize/mdm/configuration-service-provider-reference)定义 ISV 文件缓存的位置。
 
 | **名称**                                              | **说明**                                                                                                                                                      |
 |-------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -93,7 +93,7 @@ ISV 文件缓存必须填充要在托管客户端上安装的更新与关联的�
 
 **若要填充 ISV 文件缓存：**
 
-1. 使用[WSUS Api](https://msdn.microsoft.com/en-us/library/windows/desktop/microsoft.updateservices.administration.updatefile(v=vs.85).aspx)访问更新的文件路径和文件名为 MU 服务。
+1. 使用[WSUS Api](https://msdn.microsoft.com/library/windows/desktop/microsoft.updateservices.administration.updatefile(v=vs.85).aspx)访问更新的文件路径和文件名为 MU 服务。
 
     WSUS 服务器上每个更新的元数据包含在更新的文件路径和 Microsoft Update 上的文件名称，如下所示 (Microsoft Update 中的主机名以粗体显示后, 跟文件路径和文件名): **<http://download.windowsupdate.com>** /c/msdownload/更新 /software/updt/2016/09/windows10.0-kb3195781-x64_0c06079bccc35cba35a48bd2b1ec46f818bd2e74.msu
 
@@ -119,7 +119,7 @@ ISV 客户端代理会安排下载和使用以下建议的工作流的已批准�
 
 5.  ISV 客户端代理下载更新后调用 WU 客户端安装已批准的更新
 
-请参阅[搜索、 下载，以及安装更新](https://msdn.microsoft.com/en-us/library/windows/desktop/aa387102(v=vs.85).aspx)有关使用 WU 客户端要扫描的其他信息，下载并安装更新。
+请参阅[搜索、 下载，以及安装更新](https://msdn.microsoft.com/library/windows/desktop/aa387102(v=vs.85).aspx)有关使用 WU 客户端要扫描的其他信息，下载并安装更新。
 
 ### <a name="download-workflow-options"></a>下载工作流选项
 

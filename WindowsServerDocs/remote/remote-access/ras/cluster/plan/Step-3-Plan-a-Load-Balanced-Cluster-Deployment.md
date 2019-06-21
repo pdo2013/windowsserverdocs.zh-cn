@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7540c17b-81de-47de-a04f-3247afa26f70
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 12485ddb9cbb70766c018e8f99caa91cfa6ee9da
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8efeb29bf07b572d5e2faef677349690d4282b4d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861328"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281183"
 ---
 # <a name="step-3-plan-a-load-balanced-cluster-deployment"></a>步骤 3 规划负载平衡的群集部署
 
@@ -40,7 +39,7 @@ ms.locfileid: "59861328"
   
 -   **外部负载均衡器**-使用外部负载均衡器需要外部硬件来管理远程访问群集服务器之间的流量负载。 此外，使用外部负载均衡器支持最多 32 个远程访问服务器在群集中。 要配置外部负载均衡时请记住的一些要点包括：  
   
-    -   管理员必须确保通过远程访问负载平衡向导配置虚拟 Ip （例如 F5 Big-ip 本机流量管理器系统） 的外部负载均衡器上使用。 启用外部负载均衡时，外部和内部接口上的 IP 地址将提升为虚拟 IP 地址，并且需要负载均衡器上进行检测。 这样，以便管理员无需更改群集部署的公共名称的 DNS 条目。 此外，IPsec 隧道终结点派生自服务器 Ip。 如果管理员提供了单独的虚拟 Ip，客户端将无法连接到服务器。 3.1.1 中使用外部负载平衡配置 DirectAccess 的示例，请参阅外部负载均衡器的配置示例。  
+    -   管理员必须确保通过远程访问负载平衡向导配置虚拟 Ip （例如 F5 Big-ip 本机流量管理器系统） 的外部负载均衡器上使用。 启用外部负载均衡时，外部和内部接口上的 IP 地址将提升为虚拟 IP 地址，并且需要负载均衡器上进行检测。 这样，以便管理员无需更改群集部署的公共名称的 DNS 条目。 此外，IPsec 隧道终结点派生自服务器 Ip。 如果管理员提供了单独的虚拟 Ip，客户端将无法连接到服务器。 3\.1.1 中使用外部负载平衡配置 DirectAccess 的示例，请参阅外部负载均衡器的配置示例。  
   
     -   许多外部负载均衡器 （包括 F5） 不支持 6to4 和 ISATAP 的负载均衡。 如果远程访问服务器是一个 ISATAP 路由器，ISATAP 函数应移到另一台计算机。 此外，当 ISATAP 函数另一台计算机上时，DirectAccess 服务器必须具有向 ISATAP 路由器的本机 IPv6 连接。 请注意，这种连接之前，必须存在配置 DirectAccess。  
   

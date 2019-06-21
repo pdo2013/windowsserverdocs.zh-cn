@@ -6,20 +6,19 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-nict
+ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a4caaa86-5799-4580-8775-03ee213784a3
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: 57957e88ff4c398be23355534d5cc0ad7f920bb1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd222cdbcd8b4eee19da6b79e12bd11f6bdd8629
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877928"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283730"
 ---
 # <a name="nic-teaming-settings"></a>NIC 组合设置
 在本主题中，我们为您提供的 NIC 组属性，如组合概述和负载平衡模式。 我们还会为您提供的备用适配器设置和主要组接口属性的详细信息。 如果 NIC 组中具有至少两个网络适配器，您不需要指定的容错能力的备用适配器。
@@ -29,7 +28,7 @@ ms.locfileid: "59877928"
 ![NIC 组属性](../../media/Create-a-New-NIC-Team-on-a-Host-Computer-or-VM/nict_06_properties.jpg)  
 
 ## <a name="teaming-modes"></a>组合模式 
-组合模式的选项都**独立于交换机**并**交换机依赖**。 依赖交换机的模式包括**静态组合**并**链接聚合控制协议 (LACP)**。 
+组合模式的选项都**独立于交换机**并**交换机依赖**。 依赖交换机的模式包括**静态组合**并**链接聚合控制协议 (LACP)** 。 
 
 >[!TIP]
 >为了获得最佳的 NIC 组性能，我们建议使用动态通讯的负载平衡模式。  

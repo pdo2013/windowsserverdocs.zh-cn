@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 85b75d0039fec1b2ad9982d6ae9bf83fa8da2fdf
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: bf854418e9efb7dbb5bd07ba86f29d84ba54d68a
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810984"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280376"
 ---
 # <a name="configure-and-manage-quorum"></a>配置和管理仲裁
 
@@ -67,7 +67,7 @@ Windows Server 中的仲裁模型非常灵活。 如果需要修改群集的仲�
 
 你可能希望从某些灾难恢复配置中的节点删除投票。 例如，在多站点群集中，你可以从备份站点中的节点删除投票，以便这些节点不会影响仲裁计算。 对于跨站点的手动故障转移，仅建议使用此配置。 有关详细信息，请参阅本主题后面的[灾难恢复配置的仲裁注意事项](#quorum-considerations-for-disaster-recovery-configurations)。
 
-可以通过查找来验证节点的已配置的投票**NodeWeight**通过使用群集节点的常见属性[Get-clusternode](http://technet.microsoft.com/library/hh847268.aspx)Windows PowerShell cmdlet。 值为 0 指示该节点没有配置仲裁投票。 值为 1 指示已分配该节点的仲裁投票，并且它由该群集管理。 有关节点投票管理的详细信息，请参阅本主题后面的 [动态仲裁管理](#dynamic-quorum-management) 。
+可以通过查找来验证节点的已配置的投票**NodeWeight**通过使用群集节点的常见属性[Get-clusternode](https://technet.microsoft.com/library/hh847268.aspx)Windows PowerShell cmdlet。 值为 0 指示该节点没有配置仲裁投票。 值为 1 指示已分配该节点的仲裁投票，并且它由该群集管理。 有关节点投票管理的详细信息，请参阅本主题后面的 [动态仲裁管理](#dynamic-quorum-management) 。
 
 通过使用“验证群集仲裁”  验证测试，可以验证所有群集节点的投票分配。
 

@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 01/18/2019
 description: 本文介绍将 Windows Server 2019 群集从一个域移到另一个
 ms.localizationpriority: medium
-ms.openlocfilehash: 1054de942e807f00586903683faeaf695ec2f033
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 5d5aaa333d2e20fa25e4738e343f326d63f75c6b
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66452927"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280214"
 ---
 # <a name="failover-cluster-domain-migration"></a>故障转移群集域迁移
 
@@ -61,7 +61,7 @@ Microsoft 不会尝试将资源从一个域移到另一个如果基础的应用�
 如动画所示，此选项不是破坏性，但确实需要不同的硬件或从现有群集节点不是已删除。
 
 1. 同时仍可在旧群集中创建新 clusterin 新域。
-2. 使用[群集迁移向导](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754481(v=ws.10))将迁移到新群集的所有资源。 请注意，这不复制数据，因此将需要单独完成。
+2. 使用[群集迁移向导](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754481(v=ws.10))将迁移到新群集的所有资源。 请注意，这不复制数据，因此将需要单独完成。
 3. 解除授权或销毁旧群集。
 
 在这两个选项，在新群集将需要具有所有[群集感知应用程序](https://technet.microsoft.com/aa369082(v=vs.90))安装，驱动程序最新版本，并且可能测试，以确保所有将正常运行。  如果还需要移动数据，这是一个耗时的过程。

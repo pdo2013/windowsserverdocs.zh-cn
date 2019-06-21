@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0305467b-ce39-4532-a05a-2cc5ff946f55
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fa82ba8e2fc3fe19b9e73f602605d3ef76f4b9a5
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: cfbac18f64123f97c54b29c1aeef7364af55e49a
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446898"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281124"
 ---
 # <a name="generate-a-usage-report-for-remote-clients-using-historical-data"></a>使用历史数据为远程客户端生成使用情况报告
 

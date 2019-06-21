@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 19a7a4a6-9a04-42ea-a5d0-ecb28a34dbaa
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 612d3f4e9be71f60811b4499d9bdb8ae3bd217e8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 093f8215691b21d7b7fefc3b1c51f3a41af9bea6
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847488"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283136"
 ---
 # <a name="step-2-configure-app1"></a>步骤 2 配置 APP1
 
@@ -45,9 +44,9 @@ ms.locfileid: "59847488"
   
 5.  上**常规**选项卡上，在**模板显示名称**，类型**DAOTPRA**。 设置**有效期**为 2 天，并将**续订期**为 1 天。 如果**证书模板**就会显示警告，单击**确定**。  
   
-6.  单击“安全性”  选项卡，然后单击“添加” 。  
+6.  单击“安全性”  选项卡，然后单击“添加”  。  
   
-7.  上**选择用户、 计算机、 服务帐户或组**对话框中，单击**对象类型**。 上**对象类型**对话框中，选择**计算机**，然后单击**确定**。 在中**输入要选择的对象名称**框中，键入**EDGE1**，单击**确定**，然后在**允许**列中，选择**读取**，**注册**，和**自动注册**复选框。 单击**Authenticated Users**，选择**读取**下的复选框**允许**列，并清除其他所有复选框。 单击**域的计算机**，并取消选中**注册**下**允许**列。 单击**Domain Admins**并**Enterprise Admins**然后单击**完全控制**下**允许**两个列。 单击 **“应用”**。  
+7.  上**选择用户、 计算机、 服务帐户或组**对话框中，单击**对象类型**。 上**对象类型**对话框中，选择**计算机**，然后单击**确定**。 在中**输入要选择的对象名称**框中，键入**EDGE1**，单击**确定**，然后在**允许**列中，选择**读取**，**注册**，和**自动注册**复选框。 单击**Authenticated Users**，选择**读取**下的复选框**允许**列，并清除其他所有复选框。 单击**域的计算机**，并取消选中**注册**下**允许**列。 单击**Domain Admins**并**Enterprise Admins**然后单击**完全控制**下**允许**两个列。 单击 **“应用”** 。  
   
 8.  单击**使用者名称**选项卡，然后依次**中的 Active Directory 信息生成**。 在中**使用者名称格式：** 列表中选择**DNS 名称**，请确保**DNS 名称**框处于选中状态，然后单击**应用**。  
   
@@ -68,7 +67,7 @@ ms.locfileid: "59847488"
     >   
     > **Windows Server 2008 R2 CA**。 如果你已部署运行 Windows Server 2008 R2 的证书颁发机构 (CA)，则必须配置证书模板**续订期**为 1 或 2 个小时并**有效期**到能长于**续订期**，但不是超过 4 小时。 如果你配置证书模板**有效期**的时间超过 4 小时与正在运行 Windows Server 2008 R2 的 CA，DirectAccess 安装向导无法检测到的证书模板和 DirectAccess安装将失败。  
   
-5.  单击**安全**选项卡上，选择**Authenticated Users**，在**允许**列中，然后选择**读取**和**注册**复选框。 单击 **“确定”**。 单击**Domain Admins**并**Enterprise Admins**，然后单击**完全控制**下**允许**两个列。 单击 **“应用”**。  
+5.  单击**安全**选项卡上，选择**Authenticated Users**，在**允许**列中，然后选择**读取**和**注册**复选框。 单击 **“确定”** 。 单击**Domain Admins**并**Enterprise Admins**，然后单击**完全控制**下**允许**两个列。 单击 **“应用”** 。  
   
 6.  单击**使用者名称**选项卡，然后依次**中的 Active Directory 信息生成**。 在中**使用者名称格式：** 列表中选择**完全可分辨的名称**，请确保**用户主体名称 (UPN)** 框处于选中状态，并单击**应用**.  
   

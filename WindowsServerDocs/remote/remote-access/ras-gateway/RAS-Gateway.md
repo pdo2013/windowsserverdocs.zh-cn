@@ -9,12 +9,12 @@ ms.assetid: acaa46b7-09b1-4707-9562-116df8db17eb
 ms.author: pashort
 author: shortpatti
 ms.date: 05/23/2018
-ms.openlocfilehash: 8fc1c97d7c2a8694e56cc36b5501a82081b3db23
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d61dcdbb61449bd2af57b8e2c99ced6235c4deca
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812338"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281265"
 ---
 # <a name="ras-gateway"></a>RAS 网关
 
@@ -109,9 +109,9 @@ RAS 网关包括以下功能。
   
 -   **点到站点 VPN**。 此 RAS 网关功能，组织员工或管理员就可以从远程位置连接到你组织的网络。 对于 RAS 网关的单个租户部署，远程员工可以通过使用 VPN 连接连接到你的组织网络。 此连接允许它们使用的内部网络资源，例如 intranet 网站和文件服务器。 对于多租户部署，租户网络管理员可以使用点到站点 VPN 连接来访问在 CSP 数据中心的虚拟网络资源。  
   
--   **动态路由与边界网关协议 (BGP)**。 BGP 可减少对在路由器上进行手动路由配置的需要，因为它是一种动态路由协议，可自动了解使用站点到站点 VPN 连接进行连接的站点之间的路由。 如果你的组织有多个使用如 RAS 网关启用 BGP 的路由器连接的站点，BGP 允许自动计算并使用彼此发生网络中断或故障时的有效路由的路由器。 有关详细信息，请参阅[RFC 4271](https://tools.ietf.org/html/rfc4271)。  
+-   **动态路由与边界网关协议 (BGP)** 。 BGP 可减少对在路由器上进行手动路由配置的需要，因为它是一种动态路由协议，可自动了解使用站点到站点 VPN 连接进行连接的站点之间的路由。 如果你的组织有多个使用如 RAS 网关启用 BGP 的路由器连接的站点，BGP 允许自动计算并使用彼此发生网络中断或故障时的有效路由的路由器。 有关详细信息，请参阅[RFC 4271](https://tools.ietf.org/html/rfc4271)。  
   
--   **网络地址转换 (NAT)**。 网络地址转换 (NAT)，可与单个公共 IP 地址共享通过单个界面公共 Internet 的连接。 专用网络上的计算机使用专用的不可路由的地址。 NAT 将专用地址映射到公共地址。 此 RAS 网关功能允许具有单个租户部署的组织员工访问从网关后面的 Internet 资源。 适用于 Csp，此功能允许租户 Vm 可以访问 Internet 运行的应用程序。 例如，租户配置为 Web 服务器的 VM 可以与外部财务资源来处理信用卡交易。  
+-   **网络地址转换 (NAT)** 。 网络地址转换 (NAT)，可与单个公共 IP 地址共享通过单个界面公共 Internet 的连接。 专用网络上的计算机使用专用的不可路由的地址。 NAT 将专用地址映射到公共地址。 此 RAS 网关功能允许具有单个租户部署的组织员工访问从网关后面的 Internet 资源。 适用于 Csp，此功能允许租户 Vm 可以访问 Internet 运行的应用程序。 例如，租户配置为 Web 服务器的 VM 可以与外部财务资源来处理信用卡交易。  
 
   
 ## <a name="bkmk_deploy"></a>RAS 网关部署方案  
@@ -124,9 +124,9 @@ RAS 网关包括以下功能。
 ## <a name="bkmk_manage"></a>RAS 网关管理工具  
 以下是 RAS 网关的管理工具。  
   
--   在 Windows Server 2016 中，若要部署 RAS 网关路由器，您必须使用 Windows PowerShell 命令。 有关详细信息，请参阅[的远程访问 Cmdlet](https://technet.microsoft.com/library/hh918399.aspx)适用于 Windows Server 2016 和 Windows 10。  
+-   在 Windows Server 2016 中，若要部署 RAS 网关路由器，您必须使用 Windows PowerShell 命令。 有关详细信息，请参阅[的远程访问 Cmdlet](https://docs.microsoft.com/powershell/module/remoteaccess)适用于 Windows Server 2016 和 Windows 10。  
   
--   在 System Center 2012 R2 Virtual Machine Manager (VMM)，RAS 网关名为 Windows Server 网关。 一组有限的边界网关协议 (BGP) 配置选项可在 VMM 软件界面中，包括**BGP 本地 IP 地址**并**自治系统编号 (ASN)**， **BGP 对等 IP 地址的列表**，并**ASN 值**。 但是，你可以使用远程访问 Windows PowerShell BGP 命令来配置 Windows Server 网关的所有其他功能。 有关详细信息，请参阅[Virtual Machine Manager (VMM)](https://technet.microsoft.com/system-center-docs/vmm/vmm)并[的远程访问 Cmdlet](https://technet.microsoft.com/library/hh918399.aspx)适用于 Windows Server 2016 和 Windows 10。  
+-   在 System Center 2012 R2 Virtual Machine Manager (VMM)，RAS 网关名为 Windows Server 网关。 一组有限的边界网关协议 (BGP) 配置选项可在 VMM 软件界面中，包括**BGP 本地 IP 地址**并**自治系统编号 (ASN)** ， **BGP 对等 IP 地址的列表**，并**ASN 值**。 但是，你可以使用远程访问 Windows PowerShell BGP 命令来配置 Windows Server 网关的所有其他功能。 有关详细信息，请参阅[Virtual Machine Manager (VMM)](https://technet.microsoft.com/system-center-docs/vmm/vmm)并[的远程访问 Cmdlet](https://technet.microsoft.com/library/hh918399.aspx)适用于 Windows Server 2016 和 Windows 10。  
   
 ## <a name="related-topics"></a>相关主题
 - [RAS 网关高可用性](../../../networking/sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md)  

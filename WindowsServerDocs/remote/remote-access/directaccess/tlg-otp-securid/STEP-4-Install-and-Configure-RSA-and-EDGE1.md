@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d46ede6f-1a21-414d-b8c3-6b5c87344b9d
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: db0318f1306102bf19c82012f57e78ce2852d288
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5280a02568305512f868f559fe35d11dc618f2b4
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446612"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283071"
 ---
 # <a name="step-4-install-and-configure-rsa-and-edge1"></a>步骤 4： 安装和配置 RSA 和 EDGE1
 

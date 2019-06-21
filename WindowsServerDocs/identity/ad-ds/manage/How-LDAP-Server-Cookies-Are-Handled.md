@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: e9c293d04f1fd1b8091b768e49db554a23e7ce95
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 873953155d22bafef5b042887b22e953ff580b5c
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846558"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280573"
 ---
 # <a name="how-ldap-server-cookies-are-handled"></a>如何处理 LDAP 服务器 Cookie
 
@@ -128,7 +128,7 @@ The client should consider a more efficient search filter.  The limit for Maximu
   
 如果你在使用 250MB 或更大容量的池时仍看到事件 2899，则你很可能正在使用许多客户端非常频繁地查询大量对象并返回这些对象。 使用 [Active Directory 数据收集器集](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) 可以帮你查找使 LDAP 服务器繁忙的重复性分页查询。 这些查询都会显示与所使用的页大小匹配的"返回的条目"数。  
   
-如果可能，应检查应用程序设计和实现较低的频率、 数据量和/或更少的客户端实例查询此数据的不同方法。如果您有源代码访问，本指南的应用程序[创建高效 AD-Enabled 应用程序](https://msdn.microsoft.com/en-us/library/ms808539.aspx)可帮助你了解应用程序访问 AD 的最佳方式。  
+如果可能，应检查应用程序设计和实现较低的频率、 数据量和/或更少的客户端实例查询此数据的不同方法。如果您有源代码访问，本指南的应用程序[创建高效 AD-Enabled 应用程序](https://msdn.microsoft.com/library/ms808539.aspx)可帮助你了解应用程序访问 AD 的最佳方式。  
   
 如果不能更改查询行为，一种方法也会添加更多复制的实例所需命名上下文，还可以重新分发客户端，并最终降低单个 LDAP 服务器上的负载。  
   

@@ -8,15 +8,15 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: 31a38eacea3af3c0a288d61a77a24b4fa45a1932
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 72b1593503db75aa275b9eb45c8342cee6724001
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843368"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280391"
 ---
 # <a name="health-service-faults"></a>运行状况服务故障
-> 适用于 Windows Server 2016
+> 适用于：Windows Server 2019、Windows Server 2016
 
 ## <a name="what-are-faults"></a>故障有哪些？
 
@@ -24,7 +24,7 @@ ms.locfileid: "59843368"
 
 每个故障包含五个重要的字段：  
 
--   严重性
+-   Severity
 -   问题的描述
 -   用于解决问题的建议后续步骤
 -   故障实体的标识信息
@@ -136,7 +136,7 @@ public void DiscoverObjects(CimSession Session)
 
 这些是你在 PowerShell 中获取使用等 cmdlet 的相同对象**Get-storagesubsystem**， **Get-storagenode**，并**Get-volume**。
 
-您可以访问所有相同的属性中所述[存储管理 API 类](https://msdn.microsoft.com/en-us/library/windows/desktop/hh830612(v=vs.85).aspx)。
+您可以访问所有相同的属性中所述[存储管理 API 类](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx)。
 
 ```
 ...
@@ -291,7 +291,7 @@ class FaultsObserver : IObserver
 |---------------------------|-----------------------------------------------------------------|
 | FaultId                   | {12345-12345-12345-12345-12345}                                 |
 | FaultType                 | Microsoft.Health.FaultType.Volume.Capacity                      |
-| 原因                    | "卷可用空间不足。"                 |
+| Reason                    | "卷可用空间不足。"                 |
 | PerceivedSeverity         | 5                                                               |
 | FaultingObjectDescription | Contoso XYZ9000 S.N. 123456789                                  |
 | FaultingObjectLocation    | Rack A06, RU 25, Slot 11                                        |
@@ -318,7 +318,7 @@ class FaultsObserver : IObserver
 | ChangeType                | 0                                                               |
 | FaultId                   | {12345-12345-12345-12345-12345}                                 |
 | FaultType                 | Microsoft.Health.FaultType.Volume.Capacity                      |
-| 原因                    | "卷可用空间不足。"                 |
+| Reason                    | "卷可用空间不足。"                 |
 | PerceivedSeverity         | 5                                                               |
 | FaultingObjectDescription | Contoso XYZ9000 S.N. 123456789                                  |
 | FaultingObjectLocation    | Rack A06, RU 25, Slot 11                                        |
@@ -334,186 +334,186 @@ class FaultsObserver : IObserver
 
 #### <a name="faulttype-microsofthealthfaulttypephysicaldiskfailedmedia"></a>FaultType:Microsoft.Health.FaultType.PhysicalDisk.FailedMedia
 * 严重性：警告
-* 原因：*"物理磁盘已失败。"*
-* RecommendedAction:*"替换物理磁盘"。*
+* 原因： *"物理磁盘已失败。"*
+* RecommendedAction: *"替换物理磁盘"。*
 
 #### <a name="faulttype-microsofthealthfaulttypephysicaldisklostcommunication"></a>FaultType:Microsoft.Health.FaultType.PhysicalDisk.LostCommunication
 * 严重性：警告
-* 原因：*"连接已丢失和物理磁盘。"*
-* RecommendedAction:*"检查物理磁盘是工作并已正确连接。"*
+* 原因： *"连接已丢失和物理磁盘。"*
+* RecommendedAction: *"检查物理磁盘是工作并已正确连接。"*
 
 #### <a name="faulttype-microsofthealthfaulttypephysicaldiskunresponsive"></a>FaultType:Microsoft.Health.FaultType.PhysicalDisk.Unresponsive
 * 严重性：警告
-* 原因：*"物理磁盘暴露定期无响应。"*
-* RecommendedAction:*"替换物理磁盘"。*
+* 原因： *"物理磁盘暴露定期无响应。"*
+* RecommendedAction: *"替换物理磁盘"。*
 
 #### <a name="faulttype-microsofthealthfaulttypephysicaldiskpredictivefailure"></a>FaultType:Microsoft.Health.FaultType.PhysicalDisk.PredictiveFailure
 * 严重性：警告
-* 原因：*"被预测很快就会发生故障的物理磁盘"。*
-* RecommendedAction:*"替换物理磁盘"。*
+* 原因： *"被预测很快就会发生故障的物理磁盘"。*
+* RecommendedAction: *"替换物理磁盘"。*
 
 #### <a name="faulttype-microsofthealthfaulttypephysicaldiskunsupportedhardware"></a>FaultType:Microsoft.Health.FaultType.PhysicalDisk.UnsupportedHardware
 * 严重性：警告
-* 原因：*"物理磁盘被隔离，因为它不支持你解决方案的供应商。"*
-* RecommendedAction:*"替换为物理磁盘支持的硬件。"*
+* 原因： *"物理磁盘被隔离，因为它不支持你解决方案的供应商。"*
+* RecommendedAction: *"替换为物理磁盘支持的硬件。"*
 
 #### <a name="faulttype-microsofthealthfaulttypephysicaldiskunsupportedfirmware"></a>FaultType:Microsoft.Health.FaultType.PhysicalDisk.UnsupportedFirmware
 * 严重性：警告
-* 原因：*"物理磁盘是在隔离区因为其固件版本不支持你解决方案的供应商。"*
-* RecommendedAction:*"更新到的目标版本的物理磁盘上的固件。"*
+* 原因： *"物理磁盘是在隔离区因为其固件版本不支持你解决方案的供应商。"*
+* RecommendedAction: *"更新到的目标版本的物理磁盘上的固件。"*
 
 #### <a name="faulttype-microsofthealthfaulttypephysicaldiskunrecognizedmetadata"></a>FaultType:Microsoft.Health.FaultType.PhysicalDisk.UnrecognizedMetadata
 * 严重性：警告
-* 原因：*"物理磁盘有无法识别的元数据。"*
-* RecommendedAction:*"此磁盘可能包含从未知的存储池的数据。首先请确保此磁盘上没有任何有用数据然后重设盘。"*
+* 原因： *"物理磁盘有无法识别的元数据。"*
+* RecommendedAction: *"此磁盘可能包含从未知的存储池的数据。首先请确保此磁盘上没有任何有用数据然后重设盘。"*
 
 #### <a name="faulttype-microsofthealthfaulttypephysicaldiskfailedfirmwareupdate"></a>FaultType:Microsoft.Health.FaultType.PhysicalDisk.FailedFirmwareUpdate
 * 严重性：警告
-* 原因：*"尝试失败的物理磁盘上的固件更新。"*
-* RecommendedAction:*"请尝试使用不同的固件二进制"。*
+* 原因： *"尝试失败的物理磁盘上的固件更新。"*
+* RecommendedAction: *"请尝试使用不同的固件二进制"。*
 
 ### <a name="virtual-disk-2"></a>**虚拟磁盘 (2)**
 
 #### <a name="faulttype-microsofthealthfaulttypevirtualdisksneedsrepair"></a>FaultType:Microsoft.Health.FaultType.VirtualDisks.NeedsRepair
 * 严重性：信息性
-* 原因：*"在此卷上的某些数据不是完全可复原的。它仍可访问。"*
-* RecommendedAction:*"还原数据的复原能力。"*
+* 原因： *"在此卷上的某些数据不是完全可复原的。它仍可访问。"*
+* RecommendedAction: *"还原数据的复原能力。"*
 
 #### <a name="faulttype-microsofthealthfaulttypevirtualdisksdetached"></a>FaultType:Microsoft.Health.FaultType.VirtualDisks.Detached
 * 严重性：严重
-* 原因：*"卷不可访问。某些数据可能会丢失。"*
-* RecommendedAction:*"检查物理和/或网络连接的所有存储设备。您可能需要从备份中还原。"*
+* 原因： *"卷不可访问。某些数据可能会丢失。"*
+* RecommendedAction: *"检查物理和/或网络连接的所有存储设备。您可能需要从备份中还原。"*
 
 ### <a name="pool-capacity-1"></a>**池容量 (1)**
 
 #### <a name="faulttype-microsofthealthfaulttypestoragepoolinsufficientreservecapacityfault"></a>FaultType:Microsoft.Health.FaultType.StoragePool.InsufficientReserveCapacityFault
 * 严重性：警告
-* 原因：*"存储池没有最小建议的保留容量。这可能会限制你能够还原数据时的驱动器故障还原能力。"*
-* RecommendedAction:*"添加到存储池的更多的容量或释放的容量。最小建议保留因部署，但容量的大约 2 个驱动器的价值。"*
+* 原因： *"存储池没有最小建议的保留容量。这可能会限制你能够还原数据时的驱动器故障还原能力。"*
+* RecommendedAction: *"添加到存储池的更多的容量或释放的容量。最小建议保留因部署，但容量的大约 2 个驱动器的价值。"*
 
-### <a name="volume-capacity-2sup1sup"></a>**卷容量 (2)**<sup>1</sup>
+### <a name="volume-capacity-2sup1sup"></a>**卷容量 (2)** <sup>1</sup>
 
 #### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>FaultType:Microsoft.Health.FaultType.Volume.Capacity
 * 严重性：警告
-* 原因：*"卷可用空间不足。"*
-* RecommendedAction:*"扩展卷或将工作负荷迁移到其他卷。"*
+* 原因： *"卷可用空间不足。"*
+* RecommendedAction: *"扩展卷或将工作负荷迁移到其他卷。"*
 
 #### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>FaultType:Microsoft.Health.FaultType.Volume.Capacity
 * 严重性：严重
-* 原因：*"卷可用空间不足。"*
-* RecommendedAction:*"扩展卷或将工作负荷迁移到其他卷。"*
+* 原因： *"卷可用空间不足。"*
+* RecommendedAction: *"扩展卷或将工作负荷迁移到其他卷。"*
 
 ### <a name="server-3"></a>**Server (3)**
 
 #### <a name="faulttype-microsofthealthfaulttypeserverdown"></a>FaultType:Microsoft.Health.FaultType.Server.Down
 * 严重性：严重
-* 原因：*"无法连接到服务器"。*
-* RecommendedAction:*"启动或替换服务器"。*
+* 原因： *"无法连接到服务器"。*
+* RecommendedAction: *"启动或替换服务器"。*
 
 #### <a name="faulttype-microsofthealthfaulttypeserverisolated"></a>FaultType:Microsoft.Health.FaultType.Server.Isolated
 * 严重性：严重
-* 原因：*"服务器是独立于连接问题所导致的群集"。*
-* RecommendedAction:*"如果隔离仍然存在，检查多个网络或工作负荷迁移到其他节点。"*
+* 原因： *"服务器是独立于连接问题所导致的群集"。*
+* RecommendedAction: *"如果隔离仍然存在，检查多个网络或工作负荷迁移到其他节点。"*
 
 #### <a name="faulttype-microsofthealthfaulttypeserverquarantined"></a>FaultType:Microsoft.Health.FaultType.Server.Quarantined
 * 严重性：严重
-* 原因：*"服务器隔离的定期故障导致群集中"。*
-* RecommendedAction:*"替换服务器或修复网络"。*
+* 原因： *"服务器隔离的定期故障导致群集中"。*
+* RecommendedAction: *"替换服务器或修复网络"。*
 
 ### <a name="cluster-1"></a>**群集 (1)**
 
 #### <a name="faulttype-microsofthealthfaulttypeclusterquorumwitnesserror"></a>FaultType:Microsoft.Health.FaultType.ClusterQuorumWitness.Error
 * 严重性：严重
-* 原因：*"群集是离开停运的一次服务器失败。"*
-* RecommendedAction:*"检查见证资源，并根据需要重新启动。启动或替换发生故障的服务器"。*
+* 原因： *"群集是离开停运的一次服务器失败。"*
+* RecommendedAction: *"检查见证资源，并根据需要重新启动。启动或替换发生故障的服务器"。*
 
 ### <a name="network-adapterinterface-4"></a>**网络适配器/接口 (4)**
 
 #### <a name="faulttype-microsofthealthfaulttypenetworkadapterdisconnected"></a>FaultType:Microsoft.Health.FaultType.NetworkAdapter.Disconnected
 * 严重性：警告
-* 原因：*"网络接口已断开连接。"*
-* RecommendedAction:*"重新连接网络电缆。"*
+* 原因： *"网络接口已断开连接。"*
+* RecommendedAction: *"重新连接网络电缆。"*
 
 #### <a name="faulttype-microsofthealthfaulttypenetworkinterfacemissing"></a>FaultType:Microsoft.Health.FaultType.NetworkInterface.Missing
 * 严重性：警告
-* 原因：*"{Server} 的服务器为缺少的网络适配器连接到群集网络 {群集网络}。"*
-* RecommendedAction:*"将服务器连接到缺失的群集网络。"*
+* 原因： *"{Server} 的服务器为缺少的网络适配器连接到群集网络 {群集网络}。"*
+* RecommendedAction: *"将服务器连接到缺失的群集网络。"*
 
 #### <a name="faulttype-microsofthealthfaulttypenetworkadapterhardware"></a>FaultType:Microsoft.Health.FaultType.NetworkAdapter.Hardware
 * 严重性：警告
-* 原因：*"网络接口已有了硬件故障。"*
-* RecommendedAction:*"替换网络接口适配器"。*
+* 原因： *"网络接口已有了硬件故障。"*
+* RecommendedAction: *"替换网络接口适配器"。*
 
 #### <a name="faulttype-microsofthealthfaulttypenetworkadapterdisabled"></a>FaultType:Microsoft.Health.FaultType.NetworkAdapter.Disabled
 * 严重性：警告
-* 原因：*"网络接口 {网络接口} 未启用，未被使用。"*
-* RecommendedAction:*"启用网络接口"。*
+* 原因： *"网络接口 {网络接口} 未启用，未被使用。"*
+* RecommendedAction: *"启用网络接口"。*
 
 ### <a name="enclosure-6"></a>**主机箱 (6)**
 
 #### <a name="faulttype-microsofthealthfaulttypestorageenclosurelostcommunication"></a>FaultType:Microsoft.Health.FaultType.StorageEnclosure.LostCommunication
 * 严重性：警告
-* 原因：*"通信已丢失到存储机箱。"*
-* RecommendedAction:*"启动或替换存储机箱。"*
+* 原因： *"通信已丢失到存储机箱。"*
+* RecommendedAction: *"启动或替换存储机箱。"*
 
 #### <a name="faulttype-microsofthealthfaulttypestorageenclosurefanerror"></a>FaultType:Microsoft.Health.FaultType.StorageEnclosure.FanError
 * 严重性：警告
-* 原因：*"在位置 {位置} 的存储机箱风扇已失败。"*
-* RecommendedAction:*"替换在存储机箱风扇。"*
+* 原因： *"在位置 {位置} 的存储机箱风扇已失败。"*
+* RecommendedAction: *"替换在存储机箱风扇。"*
 
 #### <a name="faulttype-microsofthealthfaulttypestorageenclosurecurrentsensorerror"></a>FaultType:Microsoft.Health.FaultType.StorageEnclosure.CurrentSensorError
 * 严重性：警告
-* 原因：*"在位置 {位置} 的存储机箱电流传感器已失败。"*
-* RecommendedAction:*"替换在存储机箱电流传感器"。*
+* 原因： *"在位置 {位置} 的存储机箱电流传感器已失败。"*
+* RecommendedAction: *"替换在存储机箱电流传感器"。*
 
 #### <a name="faulttype-microsofthealthfaulttypestorageenclosurevoltagesensorerror"></a>FaultType:Microsoft.Health.FaultType.StorageEnclosure.VoltageSensorError
 * 严重性：警告
-* 原因：*"在位置 {位置} 的存储机箱电压传感器已失败。"*
-* RecommendedAction:*"替换电压传感器的存储机箱中。"*
+* 原因： *"在位置 {位置} 的存储机箱电压传感器已失败。"*
+* RecommendedAction: *"替换电压传感器的存储机箱中。"*
 
 #### <a name="faulttype-microsofthealthfaulttypestorageenclosureiocontrollererror"></a>FaultType:Microsoft.Health.FaultType.StorageEnclosure.IoControllerError
 * 严重性：警告
-* 原因：*"在位置 {位置} 的存储机箱的 IO 控制器已失败。"*
-* RecommendedAction:*"替换存储机箱中的 IO 控制器"。*
+* 原因： *"在位置 {位置} 的存储机箱的 IO 控制器已失败。"*
+* RecommendedAction: *"替换存储机箱中的 IO 控制器"。*
 
 #### <a name="faulttype-microsofthealthfaulttypestorageenclosuretemperaturesensorerror"></a>FaultType:Microsoft.Health.FaultType.StorageEnclosure.TemperatureSensorError
 * 严重性：警告
-* 原因：*"在位置 {位置} 的存储机箱温度传感器已失败。"*
-* RecommendedAction:*"替换存储机箱中的温度传感器"。*
+* 原因： *"在位置 {位置} 的存储机箱温度传感器已失败。"*
+* RecommendedAction: *"替换存储机箱中的温度传感器"。*
 
 ### <a name="firmware-rollout-3"></a>**固件推出 (3)**
 
 #### <a name="faulttype-microsofthealthfaulttypefaultdomainfailedmaintenancemode"></a>FaultType:Microsoft.Health.FaultType.FaultDomain.FailedMaintenanceMode
 * 严重性：警告
-* 原因：*"当前无法执行固件推出时取得进展。"*
-* RecommendedAction:*"验证所有存储空间运行正常，并且任何容错域当前处于维护模式"。*
+* 原因： *"当前无法执行固件推出时取得进展。"*
+* RecommendedAction: *"验证所有存储空间运行正常，并且任何容错域当前处于维护模式"。*
 
 #### <a name="faulttype-microsofthealthfaulttypefaultdomainfirmwareverifyversionfaile"></a>FaultType:Microsoft.Health.FaultType.FaultDomain.FirmwareVerifyVersionFaile
 * 严重性：警告
-* 原因：*"固件推出已取消由于应用固件更新后不可读或意外的固件版本信息。"*
-* RecommendedAction:*"重新启动固件推出后固件问题已解决。"*
+* 原因： *"固件推出已取消由于应用固件更新后不可读或意外的固件版本信息。"*
+* RecommendedAction: *"重新启动固件推出后固件问题已解决。"*
 
 #### <a name="faulttype-microsofthealthfaulttypefaultdomaintoomanyfailedupdates"></a>FaultType:Microsoft.Health.FaultType.FaultDomain.TooManyFailedUpdates
 * 严重性：警告
-* 原因：*"固件推出已取消由于太多物理磁盘固件更新尝试失败。"*
-* RecommendedAction:*"重新启动固件推出后固件问题已解决。"*
+* 原因： *"固件推出已取消由于太多物理磁盘固件更新尝试失败。"*
+* RecommendedAction: *"重新启动固件推出后固件问题已解决。"*
 
-### <a name="storage-qos-3sup2sup"></a>**存储 QoS (3)**<sup>2</sup>
+### <a name="storage-qos-3sup2sup"></a>**存储 QoS (3)** <sup>2</sup>
 
 #### <a name="faulttype-microsofthealthfaulttypestorqosinsufficientthroughput"></a>FaultType:Microsoft.Health.FaultType.StorQos.InsufficientThroughput
 * 严重性：警告
-* 原因：*"存储吞吐量不足，无法满足预留。"*
-* RecommendedAction:*"重新配置存储 QoS 策略。"*
+* 原因： *"存储吞吐量不足，无法满足预留。"*
+* RecommendedAction: *"重新配置存储 QoS 策略。"*
 
 #### <a name="faulttype-microsofthealthfaulttypestorqoslostcommunication"></a>FaultType:Microsoft.Health.FaultType.StorQos.LostCommunication
 * 严重性：警告
-* 原因：*"存储 QoS 策略管理器与该卷的通信已丢失"。*
-* RecommendedAction:*"请重新启动节点 {节点}"*
+* 原因： *"存储 QoS 策略管理器与该卷的通信已丢失"。*
+* RecommendedAction: *"请重新启动节点 {节点}"*
 
 #### <a name="faulttype-microsofthealthfaulttypestorqosmisconfiguredflow"></a>FaultType:Microsoft.Health.FaultType.StorQos.MisconfiguredFlow
 * 严重性：警告
-* 原因：*"一个或多个存储使用者 （通常为虚拟机） 使用不存在的策略 id 为 {id}"。*
-* RecommendedAction:*"重新创建缺少的任何存储 QoS 策略。"*
+* 原因： *"一个或多个存储使用者 （通常为虚拟机） 使用不存在的策略 id 为 {id}"。*
+* RecommendedAction: *"重新创建缺少的任何存储 QoS 策略。"*
 
 <sup>1</sup>指示该卷已达到 80%已满 （次要严重性） 或 90%已满 （主要严重性）。  
 <sup>2</sup>指示卷上的某些.vhd(s) 尚未达到其最小 IOPS，超过 10%（次要）、 30%（主要） 或 50%（严重） 的滚动 24 小时时间窗口。  

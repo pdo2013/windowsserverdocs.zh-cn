@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4781df0a-158b-4562-b8f5-32b27615a4f8
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f110ad945139da3b07b33bbb0adb3e8084743fdb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7cbcc844c356978f5bb5f34b66aa36dec9b163c1
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812238"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283007"
 ---
 # <a name="deploy-remote-access-in-an-enterprise"></a>在企业中部署远程访问
 
@@ -46,7 +45,7 @@ ms.locfileid: "59812238"
   
 -   [在群集中部署远程访问](cluster/Deploy-Remote-Access-In-Cluster.md)  
   
--   [部署多站点部署中的多个远程访问服务器](multisite/Deploy-Multiple-Remote-Access-Servers-in-a-Multisite-Deployment.md)  
+-   [在多站点部署中部署多台远程访问服务器](multisite/Deploy-Multiple-Remote-Access-Servers-in-a-Multisite-Deployment.md)  
   
 -   [部署带有 OTP 身份验证的远程访问](otp/Deploy-RA-OTP.md)  
   

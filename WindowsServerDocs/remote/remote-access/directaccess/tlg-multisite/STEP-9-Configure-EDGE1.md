@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f6e8d85b-de65-43b3-bf3e-ec84471a1fcc
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f5d216934f0d09cdef97ce4405161862b112d632
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b0a47a436bbd11c795caa8b402054ae0d2c3282f
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864868"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281367"
 ---
 # <a name="step-9-configure-edge1"></a>步骤 9 配置 EDGE1
 
@@ -36,11 +35,11 @@ EDGE1 服务器上执行以下过程：
   
 2.  在网络连接窗口中，右键单击**Corpnet**，然后单击**属性**。  
   
-3.  单击 **“Internet 协议版本 4 (TCP/IPv4)”**，然后单击 **“属性”**。  
+3.  单击 **“Internet 协议版本 4 (TCP/IPv4)”** ，然后单击 **“属性”** 。  
   
-4.  在中**备用 DNS 服务器**，类型**10.2.0.1**。 然后单击 **“确定”**。  
+4.  在中**备用 DNS 服务器**，类型**10.2.0.1**。 然后单击 **“确定”** 。  
   
-5.  单击“Internet 协议版本 6 (TCP/IPv6)” ，然后单击“属性” 。  
+5.  单击“Internet 协议版本 6 (TCP/IPv6)”  ，然后单击“属性”  。  
   
 6.  在中**备用 DNS 服务器**，类型**2001:db8:2::1** ，然后单击**确定**。  
   
@@ -50,7 +49,7 @@ EDGE1 服务器上执行以下过程：
   
 ## <a name="ConfigRouting"></a>配置子网之间路由  
   
-1.  上**启动**屏幕上，键入**cmd.exe**，右键单击**cmd**，单击**高级**，然后单击**以运行管理员**。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+1.  上**启动**屏幕上，键入**cmd.exe**，右键单击**cmd**，单击**高级**，然后单击**以运行管理员**。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
 2.  在命令提示符窗口中，输入以下命令。 输入每个命令后, 按 ENTER。  
   

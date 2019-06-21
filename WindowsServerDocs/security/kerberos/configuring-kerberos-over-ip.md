@@ -1,12 +1,12 @@
 ---
 title: 为 IP 地址配置 Kerberos
 description: 基于 IP 的 Spn 的 Kerberos 支持
-ms.openlocfilehash: 30741f7a0f1978fcaa6ac83c98a54c07e1ef25c5
-ms.sourcegitcommit: c6acac3622e5d34714ca5c569805931681f98779
+ms.openlocfilehash: aa2685fcff2fdf231e5e5884d25885585f0bd6c9
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391518"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67279969"
 ---
 # <a name="kerberos-clients-allow-ipv4-and-ipv6-address-hostnames-in-service-principal-names-spns"></a>Kerberos 客户端允许在服务主体名称 (Spn) 中使用 IPv4 和 IPv6 地址的主机名
 
@@ -30,7 +30,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos
 
 IP 地址通常不使用主机名代替因为 IP 地址通常是临时。 这可能导致的冲突和身份验证失败，因为地址租约过期和续订。 因此注册 IP 地址基于 SPN 是一个手动过程，并仅用于时就无法切换到基于 DNS 的主机名。
 
-建议的方法是使用[Setspn.exe](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11))工具。 请注意，一个 SPN 只能注册到 Active Directory 中的单个帐户一次因此建议 IP 地址具有静态租约，如果使用 DHCP。
+建议的方法是使用[Setspn.exe](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11))工具。 请注意，一个 SPN 只能注册到 Active Directory 中的单个帐户一次因此建议 IP 地址具有静态租约，如果使用 DHCP。
 
 ```
 Setspn -s <service>/ip.address> <domain-user-account>  

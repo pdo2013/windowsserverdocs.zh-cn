@@ -9,12 +9,12 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 10/08/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: d16a9ddea96760b41c6cd2e4239b9bb51c8b3b38
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 8bdce646c631b56309f86292f0895fe80b0adf31
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501639"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284503"
 ---
 # <a name="choosing-drives-for-storage-spaces-direct"></a>选择存储空间直通驱动器
 

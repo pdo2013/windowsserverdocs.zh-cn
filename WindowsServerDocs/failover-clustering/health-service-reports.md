@@ -8,15 +8,15 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: bc21b9fdec5700fec23dc6af7ca15873ded34bea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e018c0270a0bf410dada9c05d2c25e51fdfac1d8
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821958"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280156"
 ---
 # <a name="health-service-reports"></a>运行状况服务报告
-> 适用于 Windows Server 2016
+> 适用于：Windows Server 2019、Windows Server 2016
 
 ## <a name="what-are-reports"></a>报表有哪些？  
 
@@ -110,7 +110,7 @@ public void DiscoverObjects(CimSession Session)
 
 这些是你在 PowerShell 中获取使用等 cmdlet 的相同对象**Get-storagesubsystem**， **Get-storagenode**，并**Get-volume**。
 
-您可以访问所有相同的属性中所述[存储管理 API 类](https://msdn.microsoft.com/en-us/library/windows/desktop/hh830612(v=vs.85).aspx)。
+您可以访问所有相同的属性中所述[存储管理 API 类](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx)。
 
 ```
 ...
@@ -131,7 +131,7 @@ foreach (CimInstance Node in Nodes)
 
 ### <a name="iobserveronnext"></a>IObserver.OnNext()
 
-此代码示例使用[观察者设计模式](https://msdn.microsoft.com/en-us/library/ee850490(v=vs.110).aspx)若要实现观察程序其**OnNext()** 度量值的每个新示例到达时，将调用方法。 其**OnCompleted()** 方法时将调用如果/流式处理结束。 例如，您可能会使用它来重新启动流式处理，因此它将无限期地继续。
+此代码示例使用[观察者设计模式](https://msdn.microsoft.com/library/ee850490(v=vs.110).aspx)若要实现观察程序其**OnNext()** 度量值的每个新示例到达时，将调用方法。 其**OnCompleted()** 方法时将调用如果/流式处理结束。 例如，您可能会使用它来重新启动流式处理，因此它将无限期地继续。
 
 ```
 class MetricsObserver<T> : IObserver<T>
@@ -216,7 +216,7 @@ public void BeginStreamingMetrics(CimSession Session, CimInstance HealthService,
 | **属性** | **示例**       |
 | -------------|-------------------|
 | 名称         | IOLatencyAverage  |
-| 值        | 0.00021           |
+| ReplTest1        | 0.00021           |
 | 单位        | 3                 |
 
 单位 = {0、 1、 2、 3、 4}，其中 0 ="Bytes"，1 ="BytesPerSecond"，2 ="CountPerSecond"，3 ="Seconds"或 4 ="百分比"。

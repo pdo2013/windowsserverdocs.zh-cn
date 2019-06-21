@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6a78a078-d2e7-4cbd-b8d5-20cfb6d1524b
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 89b9e53b7321ebeddda50a448829ad73395eeed0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8d2b0b27d4b1d33971564672954667b49a87a4e0
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835608"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282770"
 ---
 # <a name="step-3-verify-the-deployment"></a>步骤 3 验证部署
 
@@ -36,7 +35,7 @@ ms.locfileid: "59835608"
   
 4.  从企业网络中删除计算机并将其连接到公用网络。  
   
-5.  在命令提示符下键入**nltest /dsgetdc: [完全限定的域名]**。 此命令将验证向客户端可以访问公司网络。 如果域控制器不可访问，将显示以下错误消息，报告的域不存在：ERROR_NO_SUCH_DOMAIN。  
+5.  在命令提示符下键入**nltest /dsgetdc: [完全限定的域名]** 。 此命令将验证向客户端可以访问公司网络。 如果域控制器不可访问，将显示以下错误消息，报告的域不存在：ERROR_NO_SUCH_DOMAIN。  
   
 
 

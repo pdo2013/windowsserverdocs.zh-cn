@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7ddcb162-dd92-406c-acab-d3de7239c644
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 8c21b7fa62246170caeb07cb5865c1ff311e0f09
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c82d5e48f26d9defceb3b7583e06eeedbc71a082
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848748"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281664"
 ---
 # <a name="step-2-plan-the-basic-directaccess-deployment"></a>步骤 2 规划基本 DirectAccess 部署
 
@@ -53,7 +52,7 @@ ms.locfileid: "59848748"
   
 -   **网络适配器**-DirectAccess 向导会自动检测 DirectAccess 服务器上配置的网络适配器。 您可以确保从是否选择了正确的适配器**评审**页。  
   
--   **IP-HTTPS 证书**-由于未在此部署所需的 PKI，该向导会自动为 IP-HTTPS 和网络位置服务器 （如果不不存在任何证书），预配自签名的证书，并会自动启用Kerberos 代理。 向导还会仅使用 IPv4 的环境中的协议转换启用 NAT64 和 DNS64。 向导成功完成应用配置后，单击 **“关闭”**。  
+-   **IP-HTTPS 证书**-由于未在此部署所需的 PKI，该向导会自动为 IP-HTTPS 和网络位置服务器 （如果不不存在任何证书），预配自签名的证书，并会自动启用Kerberos 代理。 向导还会仅使用 IPv4 的环境中的协议转换启用 NAT64 和 DNS64。 向导成功完成应用配置后，单击 **“关闭”** 。  
   
 -   **Windows 7 客户端**-无法启用对从入门向导的 Windows 7 客户端的支持。 可以从高级安装向导中启用此项。 有关更多详细信息，请参阅[部署单个 DirectAccess 服务器使用高级设置](../single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md)。  
   
@@ -63,7 +62,7 @@ ms.locfileid: "59848748"
   
 ## <a name="BKMK_Links"></a>上一步  
   
--   [步骤 1：规划基本 DirectAccess 基础结构](da-basic-plan-s1-infrastructure.md)  
+-   [步骤 1：规划基础 DirectAccess 基础结构](da-basic-plan-s1-infrastructure.md)  
   
 
 

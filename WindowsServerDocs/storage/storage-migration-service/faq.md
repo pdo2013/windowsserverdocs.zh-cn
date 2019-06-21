@@ -8,12 +8,12 @@ ms.date: 06/04/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 258f25a7e1ec5c796c15450625397e96db25d693
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 8f0f16f14ccf9099af8ff8bb8b27209c75c87cfc
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501524"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284471"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>存储迁移服务方面的常见问题 (FAQ)
 
@@ -131,7 +131,7 @@ ms.locfileid: "66501524"
 
 - **启用高性能的处理。** 确保服务器的 BIOS/UEFI 设置启用高性能，例如禁用 C-State、设置 QPI 速度、启用 NUMA 和设置最高内存频率。 确保 Windows Server 中的电源管理设置为高性能。 根据需要重启。 别忘了在完成迁移之后返回到相应的状态。 
 
-- **优化硬件**评审[性能优化指南 Windows Server 2016 的](https://docs.microsoft.com/en-us/windows-server/administration/performance-tuning/)进行优化的业务流程协调程序和目标计算机运行 Windows Server 2019 及 Windows Server 2016。 [网络子系统性能调整](https://docs.microsoft.com/en-us/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics)部分包含尤其有价值的信息。
+- **优化硬件**评审[性能优化指南 Windows Server 2016 的](https://docs.microsoft.com/windows-server/administration/performance-tuning/)进行优化的业务流程协调程序和目标计算机运行 Windows Server 2019 及 Windows Server 2016。 [网络子系统性能调整](https://docs.microsoft.com/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics)部分包含尤其有价值的信息。
 
 - **使用较快的存储。** 尽管它可能很难进行升级源计算机存储的速度，应确保目标存储已至少为快地写入 IO 性能的源是在读取 IO 性能以确保在传输中不存在任何不必要的瓶颈。 如果目标是 VM，请确保，至少对于迁移而言，它在运行最快的存储层的虚拟机监控程序主机，如闪存层上或存储空间直通 HCI 群集使用镜像的所有闪存或混合空格。 SMS 迁移完成后 VM 可以在实时迁移到速度较慢的层或主机。
 

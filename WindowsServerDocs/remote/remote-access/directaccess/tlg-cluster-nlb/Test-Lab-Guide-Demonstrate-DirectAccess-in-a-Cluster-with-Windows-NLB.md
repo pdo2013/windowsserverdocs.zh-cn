@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: db15dcf5-4d64-48d7-818a-06c2839e1289
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 910afa78553c828aff954f7677869569068198aa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2318fa58a343b24ec401390b3cbbd6f22fe86870
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869518"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281592"
 ---
 # <a name="test-lab-guide-demonstrate-directaccess-in-a-cluster-with-windows-nlb"></a>测试实验指南：使用 Windows NLB 群集中演示 DirectAccess
 
@@ -35,7 +34,7 @@ ms.locfileid: "59869518"
 ## <a name="KnownIssues"></a>已知的问题  
 下面是配置群集方案时的已知问题：  
   
--   使用单个网络适配器在仅使用 IPv4 的部署中配置 DirectAccess，并在网络适配器上自动配置默认的 DNS64（包含“:3333::”的 IPv6 地址）后，尝试通过远程访问管理控制台启用负载平衡会导致出现要求用户提供 IPv6 DIP 的提示。 如果提供的是 IPv6 DIP，则单击“提交”后配置将失败，并出现以下错误：参数不正确。  
+-   使用单个网络适配器在仅使用 IPv4 的部署中配置 DirectAccess，并在网络适配器上自动配置默认的 DNS64（包含“:3333::”的 IPv6 地址）后，尝试通过远程访问管理控制台启用负载平衡会导致出现要求用户提供 IPv6 DIP 的提示。 如果提供的是 IPv6 DIP，则单击“提交”  后配置将失败，并出现以下错误：参数不正确。  
   
     解决此问题：  
   
@@ -43,7 +42,7 @@ ms.locfileid: "59869518"
   
     2.  使用下载的脚本 Backup-RemoteAccess.ps1 备份远程访问 GPO  
   
-    3.  尝试启用负载平衡，直至达到失败的步骤。 在“启用负载平衡”对话框中，展开详细信息区域，在详细信息区域中右键单击，然后单击“复制脚本” 。  
+    3.  尝试启用负载平衡，直至达到失败的步骤。 在“启用负载平衡”对话框中，展开详细信息区域，在详细信息区域中右键单击，然后单击“复制脚本”  。  
   
     4.  打开记事本，然后粘贴剪贴板的内容。 例如：  
   

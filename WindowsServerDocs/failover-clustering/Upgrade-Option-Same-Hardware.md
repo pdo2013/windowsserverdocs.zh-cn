@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 02/28/2019
 description: 本指南介绍了升级使用相同的硬件的 2 节点故障转移群集
 ms.localizationpriority: medium
-ms.openlocfilehash: 77cde9e64fda385facd91d86483f4d7f749f30a1
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 6787d852cc5075e306373a163814135190f27fd6
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453048"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280246"
 ---
 # <a name="upgrading-failover-clusters-on-the-same-hardware"></a>在同一硬件上升级故障转移群集
 
@@ -25,7 +25,7 @@ ms.locfileid: "66453048"
 
 ## <a name="overview"></a>概述
 
-升级操作系统上将现有故障转移群集时才支持从 Windows Server 2016 转到 Windows 2019。  如果故障转移群集正在运行较早版本，例如如 Windows Server 2012 R2 及更早版本，升级将群集服务运行时将不允许节点联接在一起。  如果使用的相同硬件，可以采取步骤来获取到较新版本。  
+升级操作系统上将现有故障转移群集时才支持从 Windows Server 2016 转到 Windows 2019。  如果故障转移群集正在运行较早版本，例如 Windows Server 2012 R2 及更早版本，升级将群集服务运行时将不允许节点联接在一起。  如果使用的相同硬件，可以采取步骤来获取到较新版本。  
 
 在之前故障转移群集的任何升级，请查阅[Windows 升级 Center](https://www.microsoft.com/upgradecenter)。  Windows Server 的就地升级时，你将从现有的操作系统版本到较新的发行版，同时在同一硬件上。 Windows Server 可以升级后的就地至少一个，并有时两个版本前滚。 例如，可以升级 Windows Server 2012 R2 和 Windows Server 2016 位置到 Windows Server 2019。  此外请记住[群集迁移向导](https://blogs.msdn.microsoft.com/clustering/2012/06/25/how-to-move-highly-available-clustered-vms-to-windows-server-2012-with-the-cluster-migration-wizard/)可用，但仅支持最多返回两个版本。 下图显示了适用于 Windows Server 的升级路径。 向下指向箭头表示移动到 Windows Server 2019 的早期版本中支持的升级路径。
 

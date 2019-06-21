@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f009fdd1-94e6-4ccb-8c6e-609a5394db53
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d19f204e139433d11cf674c4ec39a134cde7eefa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2c7ff4953fd4369340f55f40f93cfc01d4240b26
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813168"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281460"
 ---
 # <a name="step-3-install-and-configure-client2"></a>步骤 3 的安装和配置客户端 2
 
@@ -51,17 +50,17 @@ CLIENT2 是 Windows 7&reg;用于演示的计算机向后兼容性的 Windows Ser
   
 ## <a name="to-join-client2-to-the-corp-domain"></a>若要将客户端 2 加入到 CORP 域  
   
-1.  单击“开始” 、右键单击“计算机” ，然后单击“属性” 。  
+1.  单击“开始”  、右键单击“计算机”  ，然后单击“属性”  。  
   
 2.  上**系统**页上，在**计算机名称、 域和工作组设置**区域中，单击**更改设置**。  
   
-3.  在 **“系统属性”** 对话框上的 **“计算机名称”** 选项卡上，单击 **“更改”**。  
+3.  在 **“系统属性”** 对话框上的 **“计算机名称”** 选项卡上，单击 **“更改”** 。  
   
 4.  上**计算机名/域更改**对话框中，单击**域**，类型**corp.contoso.com**，然后单击**确定**。  
   
 5.  当系统提示输入用户名和密码的值时，键入用户名称和 User1 域帐户的密码，然后单击**确定**。  
   
-6.  在出现欢迎使用 corp.contoso.com 域的对话框时，单击 **“确定”**。  
+6.  在出现欢迎使用 corp.contoso.com 域的对话框时，单击 **“确定”** 。  
   
 7.  当看到一个对话框，框，提示您重新启动计算机，单击**确定**。  
   

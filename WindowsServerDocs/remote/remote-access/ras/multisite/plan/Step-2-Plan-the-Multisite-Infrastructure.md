@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 64c10107-cb03-41f3-92c6-ac249966f574
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 771df80fc3130b5c4c03bf628a95d67b7df04b36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a2655f4de83576ef62b113419a69badaacc868f9
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888198"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280999"
 ---
 # <a name="step-2-plan-the-multisite-infrastructure"></a>步骤 2 计划多站点基础结构
 
@@ -116,7 +115,7 @@ ms.locfileid: "59888198"
   
     -   **服务器 GPO**每个入口点的服务器 GPO （中的入口点所在的域）。 将每个入口点中的远程访问服务器上应用此 GPO。  
   
-    -   **客户端 GPO (Windows 7)**-A GPO 为每个入口点和每个域包含 Windows 7 客户端计算机将连接到多站点部署中的入口点。 例如 Domain1\DA_W7_Clients_GPO_Europe;Domain2\DA_W7_Clients_GPO_Europe;Domain1\DA_W7_Clients_GPO_US;Domain2\DA_W7_Clients_GPO_US。 如果没有 Windows 7 客户端计算机将连接到入口点，则不需要的 Gpo。  
+    -   **客户端 GPO (Windows 7)** -A GPO 为每个入口点和每个域包含 Windows 7 客户端计算机将连接到多站点部署中的入口点。 例如 Domain1\DA_W7_Clients_GPO_Europe;Domain2\DA_W7_Clients_GPO_Europe;Domain1\DA_W7_Clients_GPO_US;Domain2\DA_W7_Clients_GPO_US。 如果没有 Windows 7 客户端计算机将连接到入口点，则不需要的 Gpo。  
   
 -   没有任何要求，若要创建其他 Gpo 适用于 Windows 8 客户端计算机。 部署单一远程访问服务器时，已创建用于包含客户端计算机的每个域的 GPO。 在多站点部署中这些客户端 Gpo 将用作 Gpo 适用于 Windows 8 的客户端。  
   

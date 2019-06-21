@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dcc1037f-1a65-4497-99e6-0df9aef748a8
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d4dfd37e2e8d87dafe6de4e03caf7464e3f0ee6c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 51f49364aa4e7a6da6c51b1d8b7da7e37f842190
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820458"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282567"
 ---
 # <a name="troubleshooting-adding-entry-points"></a>添加入口点疑难解答
 
@@ -128,7 +127,7 @@ ConnectTo 地址应当可以通过 Internet 解析，以允许客户端计算机
   
 **解决方案**  
   
-在远程访问管理控制台的 **“步骤 2 远程访访问服务器”** 中，单击 **“编辑”**，然后在 **“身份验证”** 页的 **“使用计算机证书”** 中确保所选的证书是有效的。 如果证书有效，请确保其位于你要添加的服务器的受信根 CA 下并重试一次。  
+在远程访问管理控制台的 **“步骤 2 远程访访问服务器”** 中，单击 **“编辑”** ，然后在 **“身份验证”** 页的 **“使用计算机证书”** 中确保所选的证书是有效的。 如果证书有效，请确保其位于你要添加的服务器的受信根 CA 下并重试一次。  
   
 > [!NOTE]  
 > 证书必须相同，并有着同样的指纹。  
@@ -227,11 +226,11 @@ ConnectTo 地址应当可以通过 Internet 解析，以允许客户端计算机
   
 要免除 NRPT 规则中的地址，请执行以下操作：  
   
-1.  在远程访问管理控制台的 **“步骤 3 基础结构服务器”** 中，单击 **“编辑”**。  
+1.  在远程访问管理控制台的 **“步骤 3 基础结构服务器”** 中，单击 **“编辑”** 。  
   
 2.  在 **“基础结构服务器设置”** 向导的 **“DNS”** 页面上，双击表格，输入新的名称后缀。  
   
-3.  在 **“DNS 服务器地址”** 对话框中的 DNS 后缀中，输入入口点的 ConnectTo 地址，然后单击 **“应用”**。  
+3.  在 **“DNS 服务器地址”** 对话框中的 DNS 后缀中，输入入口点的 ConnectTo 地址，然后单击 **“应用”** 。  
   
 如果你在未指定服务器地址的情况下添加名称后缀，该后缀便会被视为 NRPT 免除条目。  
   

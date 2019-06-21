@@ -9,16 +9,16 @@ manager: brianlic
 ms.author: jgerend
 ms.date: 06/04/2019
 description: 面向 IT 专业人员的本地存储空间文档适用于 Windows Server 中的新的和更新主题。
-ms.openlocfilehash: 3245e6bc5320cc0ffae01817a8f7b9caeaa6c685
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 442d640809d3ae9cf4a11feb646fbbd566e6e3fa
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501490"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284461"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Windows Server 中存储主题的更改历史记录
 
-> 适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
+> 适用于：Windows Server 2019、Windows Server 2016、Windows Server（半年频道）
 
 本主题列出了新的和更新主题[存储](storage.md)适用于 Windows Server 文档。
 
@@ -73,10 +73,10 @@ ms.locfileid: "66501490"
 |---                                                         |---           |
 |[嵌套复原](storage-spaces/nested-resiliency.md)    | 新主题    |
 |[存储迁移服务的已知问题](storage-migration-service/known-issues.md)   | 新主题    |
-|[DFS 复制：常见问题解答 (FAQ)](dfs-replication/dfsr-faq.md)|从迁移[以前的版本](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/)库|
-|[将 SYSVOL 复制迁移到 DFS 复制](dfs-replication/migrate-sysvol-to-dfsr.md)|从迁移[以前的版本](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)库|
-|[SMB：文件和打印机共享端口应打开](file-server/best-practices-analyzer/smb-open-file-sharing-ports.md)|从迁移[以前的版本](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)库|
-|[卷影复制服务](file-server/volume-shadow-copy-service.md)|从迁移[以前的版本](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)库|
+|[DFS 复制：常见问题解答 (FAQ)](dfs-replication/dfsr-faq.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/)库|
+|[将 SYSVOL 复制迁移到 DFS 复制](dfs-replication/migrate-sysvol-to-dfsr.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)库|
+|[SMB：文件和打印机共享端口应打开](file-server/best-practices-analyzer/smb-open-file-sharing-ports.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)库|
+|[卷影复制服务](file-server/volume-shadow-copy-service.md)|从迁移[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)库|
 
 ## <a name="october-2018"></a>2018 年 10 月
 

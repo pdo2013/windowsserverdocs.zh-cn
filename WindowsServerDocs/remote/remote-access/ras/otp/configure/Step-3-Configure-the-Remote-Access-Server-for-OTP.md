@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: df1e87f2-6a0f-433b-8e42-816ae75395f9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5e192c062e8ecd18128109321058ddc58b6b1e4a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 093877657f19006bba2b80c10b92db1fb3b40fde
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839838"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280867"
 ---
 # <a name="step-3-configure-the-remote-access-server-for-otp"></a>步骤 3： 为 OTP 配置远程访问服务器
 
@@ -66,7 +65,7 @@ RADIUS 服务器配置与软件分发令牌之后，通信的端口已打开、 
   
 4.  如果需要 Windows 7 支持，则选择**使 Windows 7 客户端计算机能够通过 DirectAccess 进行连接**复选框。 注意：如在规划部分中所述，Windows 7 客户端必须安装以支持使用 OTP 的 DirectAccess 的 DCA 2.0。  
   
-5.  单击“下一步” 。  
+5.  单击“下一步”  。  
   
 6.  在中**OTP RADIUS 服务器**部分中，双击空白**服务器名称**字段。  
   
@@ -75,14 +74,14 @@ RADIUS 服务器配置与软件分发令牌之后，通信的端口已打开、 
     > [!NOTE]  
     > 如果 RADIUS 服务器位于域不同于远程访问服务器，则**服务器名称**字段必须指定 RADIUS 服务器的 FQDN。  
   
-8.  在中**OTP CA 服务器**部分，选择 CA 服务器以用于注册 OTP 客户端身份验证证书，然后单击**添加**。 单击“下一步” 。  
+8.  在中**OTP CA 服务器**部分，选择 CA 服务器以用于注册 OTP 客户端身份验证证书，然后单击**添加**。 单击“下一步”  。  
   
 9. 在中**OTP 证书模板**部分中，单击**浏览**选择用于进行 OTP 身份验证颁发的证书注册的证书模板。  
   
     > [!NOTE]  
     > 如果不使用"不包含吊销信息中颁发的证书"选项，必须配置 OTP 证书由企业 CA 颁发的证书模板。 如果在证书模板创建期间选择此选项，然后 OTP 客户端计算机将无法正确登录。  
   
-    单击**浏览**选择用于注册远程访问服务器使用 OTP 证书注册请求进行签名的证书的证书模板。 单击 **“确定”**。 单击“下一步” 。  
+    单击**浏览**选择用于注册远程访问服务器使用 OTP 证书注册请求进行签名的证书的证书模板。 单击 **“确定”** 。 单击“下一步”  。  
   
 10. 如果豁免某些特定用户使用 OTP 的 DirectAccess 的方式是必需的然后在**OTP 免除**部分中，选择**不要求使用双因素身份验证进行身份验证的指定的安全组中的用户**. 单击**安全组**，然后选择已创建的 OTP 免除安全组。  
   
@@ -100,7 +99,7 @@ RADIUS 服务器配置与软件分发令牌之后，通信的端口已打开、 
   
 17. 上**远程访问评审**对话框中，单击**应用**，等待 DirectAccess 策略更新，然后单击**关闭**。  
   
-18. 上**启动**屏幕上，键入**powershell.exe**，右键单击**powershell**，单击**高级**，然后单击**以运行管理员**。 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
+18. 上**启动**屏幕上，键入**powershell.exe**，右键单击**powershell**，单击**高级**，然后单击**以运行管理员**。 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
   
 19. 在 Windows PowerShell 窗口中，键入**gpupdate /force**然后按 ENTER。  
   

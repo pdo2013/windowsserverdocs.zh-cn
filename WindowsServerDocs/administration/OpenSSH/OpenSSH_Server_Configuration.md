@@ -6,12 +6,12 @@ contributor: maertendMSFT
 ms.product: w10
 author: maertendMSFT
 title: 用于 Windows OpenSSH 服务器配置
-ms.openlocfilehash: 8e6476e4005bd5bbc2d40c8a59d39510ca1beb70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7eff3d3e1af67c9daf7a68c67c3609c0ee89fc93
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827278"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280038"
 ---
 # <a name="openssh-server-configuration-for-windows-10-1809-and-server-2019"></a>用于 Windows 10 1809年和 Server 2019 # OpenSSH 服务器配置
 
@@ -28,7 +28,7 @@ OpenSSH 维护详细的文档中的配置选项联机处[OpenSSH.com](https://ww
 命令行界面 | 若要使用的命令
 ------------- | -------------- 
 Command | path
-PowerShell | $env:\path
+PowerShell | $env： 路径
 
 配置默认的 ssh 命令行程序是通过 Windows 注册表中添加到 shell 中的字符串值 DefaultShell Computer\HKEY_LOCAL_MACHINE\SOFTWARE\OpenSSH 到可执行的完整路径。 
 
@@ -53,7 +53,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Wi
 当配置用户/组基于与域用户或组的规则时，请使用以下格式： ``` user?domain* ```。
 Windows 允许的格式的多个用于指定域主体，但许多与标准 Linux 模式发生冲突。 为此，* 添加以涵盖 Fqdn。 此外，此方法使用"？"，而不是 @，以避免与冲突username@host格式。 
 
-工作组用户/组和连接到 internet 的客户始终解析为其本地帐户名称 （没有域部分，类似于标准 Unix 名称） 中。 域用户和组将严格解析为[NameSamCompatible](https://docs.microsoft.com/en-us/windows/desktop/api/secext/ne-secext-extended_name_format)格式-domain_short_name\user_name。 所有用户/组都基于规则需要符合此格式的配置。
+工作组用户/组和连接到 internet 的客户始终解析为其本地帐户名称 （没有域部分，类似于标准 Unix 名称） 中。 域用户和组将严格解析为[NameSamCompatible](https://docs.microsoft.com/windows/desktop/api/secext/ne-secext-extended_name_format)格式-domain_short_name\user_name。 所有用户/组都基于规则需要符合此格式的配置。
 
 为域用户和组的示例 
 
