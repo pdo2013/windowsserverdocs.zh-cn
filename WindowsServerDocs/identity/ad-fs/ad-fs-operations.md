@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 72266dcedcda080ee98dd7bc90da8db1a27255b4
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: aa7fae25f68030702aecd378d797301d5cb83186
+ms.sourcegitcommit: 6b6c3601fb7493ab145ccff02db26d7123df9a3d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192530"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316347"
 ---
 # <a name="ad-fs-operations"></a>AD FS 操作
 
@@ -53,13 +53,13 @@ ms.locfileid: "66192530"
 - [自定义 AD FS 2019 HTTP 安全响应标头](../ad-fs/operations/customize-http-security-headers-ad-fs.md)
 - [向非管理员用户委派 AD FS Powershell Commandlet 访问权限](../ad-fs/operations/delegate-ad-fs-pshell-access.md)
 - [AD FS 中的设备身份验证控件](../ad-fs/operations/device-authentication-controls-in-AD-FS.md) 
-
 - [SAML 2.0 改进的互操作性](../ad-fs/operations/Improved-interoperability-with-SAML-2.0.md)
 - [工作区从任何设备加入实现 SSO 和无缝第二重身份验证跨公司应用程序](../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
 - [使用针对敏感应用程序的附加多重身份验证管理风险](../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 - [使用条件访问控制管理风险](../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md)
 - [管理 AD FS 和 WAP 2016 中的 SSL 证书](../ad-fs/operations/Manage-SSL-Certificates-AD-FS-WAP-2016.md)
 - [设置 AD FS 实验室环境](../ad-fs/operations/Set-up-an-AD-FS-lab-environment.md)
+- [SQL 正常优化和寻址延迟](../ad-fs/operations/adfs-sql-latency.md) 
 - [操作实例指南：使用针对敏感应用程序的附加多重身份验证管理风险](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 - [操作实例指南：使用条件访问控制管理风险](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
 - [演练：使用 Windows 设备加入工作区](../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
