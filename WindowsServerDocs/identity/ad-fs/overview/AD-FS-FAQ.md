@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fc92e8b30d6b4c0c765333d3e22311e551d3365d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 1fe73df2ce209fc47c7414d33cb1e0a83d31dcd7
+ms.sourcegitcommit: 9bece8049b1766bd9bb0d5eb5921413a2de2ca61
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280495"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67351284"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS Frequently Asked Questions (FAQ)
 
@@ -300,3 +300,6 @@ ADFS 和 Web 应用程序服务器支持不会在终结点执行 SSL 终止的�
 在 AD FS 2016 中的标记绑定会自动启用，会导致多个已知的问题与代理和联合身份验证方案的结果中此错误。 若要解决此问题，运行以下 Powershell 命令并删除令牌绑定支持。
 
 `Set-AdfsProperties -IgnoreTokenBinding $true`
+
+### <a name="i-have-upgraded-my-farm-from-ad-fs-in-windows-server-2016-to-ad-fs-in-windows-server-2019-the-farm-behavior-level-for-the-ad-fs-farm-has-been-successfully-raised-to-2019-but-the-web-application-proxy-configuration-is-still-displayed-as-windows-server-2016"></a>Windows Server 2019 中的 AD FS，我已从 Windows Server 2016 中的 AD FS 升级我的服务器场。 AD FS 场的场行为级别已成功提升为 2019年但仍显示为 Windows Server 2016 Web 应用程序代理配置？
+升级到 Windows Server 2019 之后, 的 Web 应用程序代理的配置版本将继续显示为 Windows Server 2016。 Web 应用程序代理的 Windows Server 2019 没有新版本的特定功能，如果已在 AD FS 上成功引发场行为级别，Web 应用程序代理将继续显示为 Windows Server 2016 的设计。 

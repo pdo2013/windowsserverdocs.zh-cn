@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a7f4f29b37793b45a614bd592feddb339dd05c3d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 3cc4194b562dad17d0c2021f4aaf061114e2c94b
+ms.sourcegitcommit: 9bece8049b1766bd9bb0d5eb5921413a2de2ca61
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280604"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67351300"
 ---
 ## <a name="best-practices-for-securing-active-directory-federation-services"></a>保护 Active Directory 联合身份验证服务的最佳做法
 
@@ -34,6 +34,9 @@ ms.locfileid: "67280604"
 >请注意，端口 49443 才需要如果使用用户证书身份验证，是可选的 Azure ad 和 Office 365。
 
 ![AD FS 标准拓扑](media/Best-Practices-Securing-AD-FS/adfssec2.png)
+
+>[!NOTE]
+> 端口 808 (Windows Server 2012R2) 或端口 1501 （Windows Server 2016 及更高） 为 Net.TCP 端口 AD FS 使用本地 WCF 终结点的配置数据传送到服务进程和 Powershell。 此端口可以通过运行 Get-adfsproperties 看到 |选择 NetTcpPort。 这是一个本地端口，将不需要在防火墙中打开，但将会显示在端口扫描。 
 
 ### <a name="azure-ad-connect-and-federation-serverswap"></a>Azure AD Connect 和联合身份验证服务器 /WAP
 下表介绍的端口和协议所需的 Azure AD Connect 服务器和联合服务器 /WAP 服务器之间的通信。  
