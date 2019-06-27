@@ -6,13 +6,13 @@ ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 09/11/2018
-ms.openlocfilehash: 65c5eb25f7a98e4db6a44e705a2968f185f3f962
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.date: 06/21/2019
+ms.openlocfilehash: 211d2f24b01d1e308f012df681f9e16a2190449f
+ms.sourcegitcommit: 260b1d78cb28b88b876579e1ac9a41a74e8752fd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447380"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67398799"
 ---
 # <a name="install-trusted-tpm-root-certificates"></a>安装受信任的 TPM 根证书
 
@@ -35,7 +35,7 @@ Microsoft 发布的受信任的 TPM 根和中间证书集合为方便起见。
 
 在重复以下步骤**的每个 HGS 服务器**:
 
-1.  从最新的包下载[ https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab ](https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab)。
+1.  从最新的包下载[ https://tpmsec.microsoft.com/TPMCerts/TrustedTPM.cab ](https://tpmsec.microsoft.com/TPMCerts/TrustedTPM.cab)。
 
 2.  展开 cab 文件。
 

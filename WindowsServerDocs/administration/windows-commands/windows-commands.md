@@ -1,24 +1,20 @@
 ---
 title: Windows 命令
 description: Windows 命令
-ms.custom: na
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c703d07c-8227-4e86-94a6-8ef390f94cdc
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 manager: dongill
-ms.date: 05/22/2018
+ms.date: 06/26/2019
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 861c8f35cf57fc7c8d03914dba2d971d50b66fc5
-ms.sourcegitcommit: 078304c4b92bb57eb85ba29634afc92cc028c644
+ms.openlocfilehash: d0cf58ea8d37efccf80ce262b64e604218bd8d0b
+ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67298168"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67407650"
 ---
 # <a name="windows-commands"></a>Windows 命令
 
@@ -53,8 +49,9 @@ ms.locfileid: "67298168"
  [W](#w) | 
 [X](#x) |Y |Z
 
-## <a name="prerequisites"></a>先决条件
-此 PDF 中包含的信息适用于：
+## <a name="prerequisites"></a>系统必备
+
+本主题中包含的信息适用于：
 
 -   Windows Server 2019
 -   Windows Server（半年频道）
@@ -67,6 +64,7 @@ ms.locfileid: "67298168"
 -   Windows 8.1
 
 ### <a name="command-shell-overview"></a>命令行解释器概述
+
 命令行界面已内置到 Windows，若要使用批处理 (.bat) 文件自动执行日常任务，如用户帐户管理或每夜备份，第一个命令行程序。 与 Windows 脚本宿主可以在命令行界面中运行更复杂的脚本。 有关详细信息，请参阅[cscript](cscript.md)或[wscript](wscript.md)。 可以通过使用脚本不是您可以通过使用用户界面更高效地执行操作。 脚本接受命令行中提供的所有命令。
 
 Windows 具有两个命令 shell:命令行界面和[PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6)。 每个 shell 是可提供您与操作系统或应用程序，提供用于自动执行 IT 操作的环境之间直接通信的软件程序。
@@ -88,6 +86,7 @@ PowerShell 设计为扩展命令行界面的功能，以运行 PowerShell 命令
 > 若要设置**reg_DWOrd**值，请使用特定函数的控制字符的十六进制值 (例如， **0 9**选项卡和**0 08**是退格符)。 用户指定的设置优先于计算机设置和命令行选项优先于注册表设置。
 
 ## <a name="command-line-reference-a-z"></a>命令行参考 A-Z
+
 若要了解特定的 Windows 命令，以下 A 到 Z 菜单中，单击命令开头的字母，然后单击命令名称。
 
 [一个](#a) |
@@ -225,7 +224,7 @@ PowerShell 设计为扩展命令行界面的功能，以运行 PowerShell 命令
 - [chkntfs](chkntfs.md)
 - [choice](choice.md)
 - [cipher](cipher.md)
-- [cleanmgr](clean-mgr.md)
+- [cleanmgr](cleanmgr.md)
 - [clip](clip.md)
 - [cls](cls.md)
 - [Cmd](Cmd.md)

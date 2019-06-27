@@ -7,17 +7,18 @@ ms.manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: JasonGerend
-ms.date: 08/24/2016
+ms.date: 06/25/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 0c39d704056c4ae6935f3be9c521c12ca1014820
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4ebec8618c79c43816680387ae5e495f125b3c54
+ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870548"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67407555"
 ---
 # <a name="storage-class-memory-nvdimm-n-health-management-in-windows"></a>Windows 中的存储类内存 (NVDIMM N) 的运行状况管理
-> 适用于：Windows Server 2016 中，Windows 10 （1607年版）
+
+> 适用于：Windows Server 2019，Windows Server 2016、 Windows Server （半年频道），Windows 10
 
 针对 Windows 中的存储类内存 (NVDIMM N) 设备，本文向系统管理员和 IT 专业人员提供了有关错误处理和运行状况管理的信息，重点强调存储类内存设备和传统存储设备之间的差异。
 
@@ -25,6 +26,8 @@ ms.locfileid: "59870548"
 - [将非易失性内存 (NVDIMM N) 用作 Windows Server 2016 中的块存储](https://channel9.msdn.com/Events/Build/2016/P466)
 - [使用作为 Windows Server 2016 中的字节寻址存储的非易失性内存 (NVDIMM N)](https://channel9.msdn.com/Events/Build/2016/P470)
 - [提高 SQL Server 2016 性能与 Windows Server 2016 中的永久性内存](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-Windows-Server-2016-SCM--FAST)
+
+另请参阅[了解和部署存储空间直通中的永久性内存](deploy-pmem.md)。
 
 自 Windows Server 2016 和 Windows 10（1607 版）起，具有本机驱动程序的 Windows 支持符合 JEDEC 的 NVDIMM-N 存储类内存设备。 虽然这些设备的行为与其他磁盘 （HDD 和 SSD）类似，但也存在一些差异。
 
@@ -48,10 +51,10 @@ PS C:\> Get-PhysicalDisk | where BusType -eq "SCM" | select SerialNumber, Health
 
 执行此操作将生成此示例输出：
 
-|SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
-|---|---|---|---|
-|802c-01-1602-117cb5fc|正常|确定||
-|802c-01-1602-117cb64f|警告|预计故障|{Threshold Exceeded,NVDIMM\_N Error}|
+| SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
+| --- | --- | --- | --- |
+| 802c-01-1602-117cb5fc | 正常 | 确定 | |
+| 802c-01-1602-117cb64f | 警告 | 预计故障 | {Threshold Exceeded,NVDIMM\_N Error} |
 
 > [!NOTE]
 > 若要查找事件中指定的 NVDIMM-N 设备的物理位置，请在事件查看器中事件的**详细信息**选项卡上，转到 **EventData** > **位置**。 请注意，Windows Server 2016 列出的 NVDIMM N 设备位置不正确，但 Windows Server 版本 1709 中对此进行了修复。
@@ -62,36 +65,36 @@ PS C:\> Get-PhysicalDisk | where BusType -eq "SCM" | select SerialNumber, Health
 
 这种情况即：检查存储类内存设备的运行状况时，发现它的“运行状况状态”显示为“**警告**”，如此示例输出中所示：
 
-|SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
-|---|---|---|---|
-|802c-01-1602-117cb5fc|正常|确定||
-|802c-01-1602-117cb64f|警告|预计故障|{Threshold Exceeded,NVDIMM\_N Error}|
+| SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
+| --- | --- | --- | --- |
+| 802c-01-1602-117cb5fc | 正常 | 确定 | |
+| 802c-01-1602-117cb64f | 警告 | 预计故障 | {Threshold Exceeded,NVDIMM\_N Error} |
 
 下表列出了一些有关这种情况的信息。
 
-||描述|
-|---|---|
-|可能的情况|NVDIMM-N 警告阈值违例|
-|根本原因|NVDIMM-N 设备追踪各种阈值，例如温度、NVM 生存期和/或能量源生存期。 当超出其中一个阈值时，操作系统将会收到通知。|
-|常规特性|设备保持完全正常运行。 这是警告，不是错误。|
-|存储空间性能|设备保持完全正常运行。 这是警告，不是错误。|
-|详细信息|PhysicalDisk 对象的 OperationalStatus 字段。 EventLog – Microsoft-Windows-ScmDisk0101/Operational|
-|要执行的操作|视警告阈值违例而定，可能需要谨慎考虑是替换整个 NVDIMM-N 还是替换其中某些部分。 例如，如果 NVM 生存期阈值已经违例，那么替换 NVDIMM-N 是可以的。|
+| | 描述 |
+| --- | --- |
+| 可能的情况 | NVDIMM-N 警告阈值违例 |
+| 根本原因 | NVDIMM-N 设备追踪各种阈值，例如温度、NVM 生存期和/或能量源生存期。 当超出其中一个阈值时，操作系统将会收到通知。 |
+| 常规特性 | 设备保持完全正常运行。 这是警告，不是错误。 |
+| 存储空间性能 | 设备保持完全正常运行。 这是警告，不是错误。 |
+| 详细信息 | PhysicalDisk 对象的 OperationalStatus 字段。 EventLog – Microsoft-Windows-ScmDisk0101/Operational |
+| 要执行的操作 | 视警告阈值违例而定，可能需要谨慎考虑是替换整个 NVDIMM-N 还是替换其中某些部分。 例如，如果 NVM 生存期阈值已经违例，那么替换 NVDIMM-N 是可以的。 |
 
 ## <a name="writes-to-an-nvdimm-n-fail"></a>写入 NVDIMM-N 失败
 
 这种情况即：检查存储类内存设备的运行状况时，发现“运行状况状态”显示为“**不正常**”，“操作状态”显示为“**IO 错误**”，如此示例输出中所示：
 
-|SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
-|---|---|---|---|
-|802c-01-1602-117cb5fc|正常|确定||
-|802c-01-1602-117cb64f|Unhealthy|{元数据已过时, IO 错误, 暂时性错误}|{丢失数据持久性, 丢失数据, NV...}|
+| SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
+| --- | --- | --- | --- |
+| 802c-01-1602-117cb5fc | 正常 | 确定 | |
+| 802c-01-1602-117cb64f | Unhealthy | {元数据已过时, IO 错误, 暂时性错误} | {丢失数据持久性, 丢失数据, NV...} |
 
 下表列出了一些有关这种情况的信息。
 
-||描述|
-|---|---|
-|可能的情况|持久性丢失/备份电源|
+| | 描述 |
+| --- | --- |
+| 可能的情况 | 持久性丢失/备份电源 |
 |根本原因|NVDIMM-N 设备依赖备份电源（通常是电池或超级电容）获得持久性。 如果此备份电源的源不可用或设备出于任何原因（控制器/闪存错误）无法执行备份，那么数据将处于危险之中，Windows 将阻止对受影响设备的任何进一步写入操作。 仍有可能执行“读取”操作以疏散数据。|
 |常规特性|NTFS 卷将被卸除。<br>所有受影响的 NVDIMM-N 设备的 PhysicalDisk 运行状况状态字段将显示为“不正常”。|
 |存储空间性能|只有一个 NVDIMM-N 受影响的情况下，存储空间仍可正常运行。 如果多个设备受到影响，则将无法写入到存储空间。 <br>所有受影响的 NVDIMM-N 设备的 PhysicalDisk 运行状况状态字段将显示为“不正常”。|
@@ -102,8 +105,8 @@ PS C:\> Get-PhysicalDisk | where BusType -eq "SCM" | select SerialNumber, Health
 
 这种情况即：存储类内存设备显示 0 字节容量，无法初始化或公开为操作状态显示“**通信中断**”的“通用物理磁盘”对象，如此示例输出中所示：
 
-|SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
-|---|---|---|---|
+| SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
+| --- | --- | --- | --- |
 |802c-01-1602-117cb5fc|正常|确定||
 ||警告|通信中断||
 
@@ -122,8 +125,8 @@ PS C:\> Get-PhysicalDisk | where BusType -eq "SCM" | select SerialNumber, Health
 
 这种情况即：检查存储类内存设备的运行状况时，发现“运行状况状态”显示为“**不正常**”，“操作状态”显示为“**无法识别的元数据**”，如此示例输出中所示：
 
-|SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
-|---|---|---|---|
+| SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
+| --- | --- | --- | --- |
 |802c-01-1602-117cb5fc|正常|确定|{未知}|
 |802c-01-1602-117cb64f|Unhealthy|{无法识别的元数据, 元数据已过时}|{未知}|
 

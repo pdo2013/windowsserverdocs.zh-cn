@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 4423bcc5357dd3010c63208afbcb0c9620e5b82f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6a4bfa6d59bd8049d39106a4cbd4f8a4dee8ba8
+ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830428"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67407676"
 ---
 # <a name="appendix-b-privileged-accounts-and-groups-in-active-directory"></a>附录 B：权限的帐户和 Active Directory 中的组
 
@@ -191,8 +191,8 @@ Administrators 组是域的内置容器中的域本地组。 默认情况下，�
 |RDS 管理服务器 (Windows Server 2012)|内置容器<br /><br />域本地安全组|此组中的服务器可以运行远程桌面服务的服务器上执行日常管理操作。 需要在远程桌面服务部署中的所有服务器上填充此组。 运行 RDS 中央管理服务的服务器必须包含在该组中。<br /><br />**直接的用户权限：** 无<br /><br />**继承的用户权限：**<br /><br />从网络访问此计算机<br /><br />将工作站添加到域<br /><br />跳过遍历检查<br /><br />增加进程工作集|  
 |RDS 的远程访问服务器 (Windows Server 2012)|内置容器<br /><br />域本地安全组|此组中的服务器启用 RemoteApp 程序和个人虚拟桌面访问这些资源的用户。 在面向 Internet 的部署中，这些服务器通常部署在边界网络中。 需要运行 RD 连接代理的服务器上填充此组。 RD 网关服务器和 RD Web 访问服务器部署中使用需要是此组中。<br /><br />**直接的用户权限：** 无<br /><br />**继承的用户权限：**<br /><br />从网络访问此计算机<br /><br />将工作站添加到域<br /><br />跳过遍历检查<br /><br />增加进程工作集|  
 |只读域控制器|用户容器<br /><br />全局安全组|此组包含域中的所有只读域控制器。<br /><br />**直接的用户权限：** 无<br /><br />**继承的用户权限：**<br /><br />从网络访问此计算机<br /><br />将工作站添加到域<br /><br />跳过遍历检查<br /><br />增加进程工作集|  
-|远程桌面服务用户|内置容器<br /><br />域本地安全组|此组的成员授予远程使用 RDP 登录的权限。<br /><br />**直接的用户权限：** 无<br /><br />**继承的用户权限：**<br /><br />从网络访问此计算机<br /><br />将工作站添加到域<br /><br />跳过遍历检查<br /><br />增加进程工作集|  
-|远程管理服务器 (Windows Server 2012)|内置容器<br /><br />域本地安全组|此组的成员可以通过管理协议 （如 WS 管理通过 Windows 远程管理服务） 访问 WMI 资源。 这仅适用于向用户授予访问权限的 WMI 命名空间。<br /><br />**直接的用户权限：** 无<br /><br />**继承的用户权限：**<br /><br />从网络访问此计算机<br /><br />将工作站添加到域<br /><br />跳过遍历检查<br /><br />增加进程工作集|  
+|Remote Desktop Users|内置容器<br /><br />域本地安全组|此组的成员授予远程使用 RDP 登录的权限。<br /><br />**直接的用户权限：** 无<br /><br />**继承的用户权限：**<br /><br />从网络访问此计算机<br /><br />将工作站添加到域<br /><br />跳过遍历检查<br /><br />增加进程工作集|  
+|远程管理用户 (Windows Server 2012)|内置容器<br /><br />域本地安全组|此组的成员可以通过管理协议 （如 WS 管理通过 Windows 远程管理服务） 访问 WMI 资源。 这仅适用于向用户授予访问权限的 WMI 命名空间。<br /><br />**直接的用户权限：** 无<br /><br />**继承的用户权限：**<br /><br />从网络访问此计算机<br /><br />将工作站添加到域<br /><br />跳过遍历检查<br /><br />增加进程工作集|  
 |Replicator|内置容器<br /><br />域本地安全组|支持域中的旧文件复制。<br /><br />**直接的用户权限：** 无<br /><br />**继承的用户权限：**<br /><br />从网络访问此计算机<br /><br />将工作站添加到域<br /><br />跳过遍历检查<br /><br />增加进程工作集|  
 |架构管理员 （仅在目录林根域中存在）|用户容器<br /><br />通用安全组|架构管理员都可以进行到 Active Directory 架构，且仅当修改架构的唯一用户是启用写操作的。<br /><br />**直接的用户权限：** 无<br /><br />**继承的用户权限：**<br /><br />从网络访问此计算机<br /><br />将工作站添加到域<br /><br />跳过遍历检查<br /><br />增加进程工作集|  
 |Server Operators|内置容器<br /><br />域本地安全组|此组的成员可以管理域服务器。<br /><br />**直接的用户权限：**<br /><br />允许本地登录<br /><br />备份文件和目录<br /><br />更改系统时间<br /><br />更改时区<br /><br />从远程系统强制关机<br /><br />还原文件和目录<br /><br />关闭系统<br /><br />**继承的用户权限：**<br /><br />从网络访问此计算机<br /><br />将工作站添加到域<br /><br />跳过遍历检查<br /><br />增加进程工作集|  

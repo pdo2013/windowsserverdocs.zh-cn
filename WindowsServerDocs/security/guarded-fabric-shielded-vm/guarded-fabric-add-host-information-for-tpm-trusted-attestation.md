@@ -7,13 +7,13 @@ ms.assetid: f0aa575b-b34e-4f6c-8416-ed3e398e0ad2
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 08/29/2018
-ms.openlocfilehash: 3647c9708ad68dec0ac13c85fced2b12150ccf60
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.date: 06/21/2019
+ms.openlocfilehash: 99be11bfec02924f93d9f759676e1eea364daa18
+ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447189"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67407630"
 ---
 >适用于：Windows Server 2019，Windows Server （半年频道），Windows Server 2016
 
@@ -27,7 +27,7 @@ ms.locfileid: "66447189"
 
 在构造之后管理员捕获的信息，将其添加到 HGS 配置，如下面的过程中所述。
 
-1.  获取包含 EKpub 信息并将其复制到 HGS 服务器的 XML 文件。 将每个主机的一个 XML 文件。 然后，在提升的 Windows PowerShell 控制台 HGS 服务器上，运行以下命令。 每个 XML 文件重复该命令。
+1. 获取包含 EKpub 信息并将其复制到 HGS 服务器的 XML 文件。 将每个主机的一个 XML 文件。 然后，在提升的 Windows PowerShell 控制台 HGS 服务器上，运行以下命令。 每个 XML 文件重复该命令。
 
     ```powershell
     Add-HgsAttestationTpmHost -Path <Path><Filename>.xml -Name <HostName>
@@ -39,13 +39,17 @@ ms.locfileid: "66447189"
     > 您可以检查是否 EKCert 缺少通过如记事本编辑器中打开 XML 文件，检查错误消息指示没有 EKCert 未找到。
     > 如果这种情况，并且在你的计算机 TPM 是否可信，则可以使用信任`-Force`重写此安全检查，并将主机标识符添加到 HGS 的标志。
 
-2. 对于主机，以二进制格式 (*.p7b) 获取构造管理员创建的代码完整性策略。 将其复制到一个 HGS 服务器。 然后运行以下命令。
+2. 获取的二进制格式中的主机，构造管理员创建的代码完整性策略 (\*.p7b)。 将其复制到一个 HGS 服务器。 然后运行以下命令。
 
     有关`<PolicyName>`，指定描述适用于主机的类型的 CI 策略的名称。 最佳做法是在你的计算机和在其上运行的任何特殊软件配置的制造商/型号后将其命名。<br>有关`<Path>`，指定的路径和文件名的代码完整性策略。
 
     ```powershell
     Add-HgsAttestationCIPolicy -Path <Path> -Name '<PolicyName>'
     ```
+    
+    > [!NOTE]
+    > 如果您使用的已签名的代码完整性策略，向 HGS 注册相同的策略的未签名的副本。
+    > 上代码完整性策略的签名用于控制更新策略，但不是到主机 TPM 测量，因此不能证明到由 HGS。
 
 3. 获取引用主机中的构造管理员捕获 TCGlog 文件。 将文件复制到一个 HGS 服务器。 然后运行以下命令。 通常情况下，将 （例如，"制造商模型修订版本"） 的硬件，它表示类进行仿造命名策略。
 

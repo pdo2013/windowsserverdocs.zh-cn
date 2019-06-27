@@ -8,12 +8,12 @@ ms.author: jol
 ms.date: 09/17/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: fa3d7e75b32f0195346e58db54b7932c8d2fd3b9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: beb2b3d1eefc5d70e39baa461708938ac9c17be5
+ms.sourcegitcommit: 3be280c8638214857dc355b201eb56a04499a5e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884998"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67396692"
 ---
 # <a name="extensions-for-windows-admin-center"></a>Windows Admin Center 的扩展
 
@@ -44,16 +44,21 @@ Windows Admin Center 扩展使用 HTML5、CSS、Angular、TypeScript 和 jQuery 
 
 - [了解如何扩展工作](understand-extensions.md)
 - [开发扩展](developing-extensions.md)
-- [参考线](guides.md)
+- [指南](guides.md)
 - [发布扩展](publish-extensions.md)
 
 ## <a name="partner-spotlight"></a>合作伙伴聚焦
 
 了解我们的合作伙伴已开始为 Windows Admin Center 生态系统带来的令人惊叹的价值，并立即试用这些扩展。 了解如何安装 Windows Admin Center 的[扩展](../configure/using-extensions.md)的详细信息。
 
+### <a name="biitops"></a>BiitOps
+BiitOps 更改扩展提供了更改跟踪，将 Windows Server 物理/虚拟机的硬件、 软件和配置设置。 BiitOps 更改扩展将显示准确地说有哪些新增、 所发生的更改和单一窗格-的-虚拟管理平台来帮助跟踪问题中已被删除，什么相关法规遵从性、 可靠性和安全性。 [了解有关 BiitOps 更改扩展的详细信息](case-studies/biitops.md)。
+
+![BiitOps 扩展](../media/extensibility-overview/biitops-1.png)
+
 ### <a name="dataon"></a>DataON
 
-DataON 的必须扩展提供监视、 管理和端到端深入 DataON 的超聚合基础结构和存储系统基于 Windows Server。 必须扩展添加唯一的值如历史数据报表、 磁盘映射、 系统警报和类似于 SAN 的调用主服务，借助 Windows Admin Center 服务器和超聚合基础结构管理功能，通过无缝的统一的体验。 [了解有关 DataON 的 MUST 扩展及其开发体验的详细信息](case-studies/dataon.md)。
+监视、 管理和端到端了解 DataON 的超聚合基础结构和存储系统基于 Windows Server 带来了 DataON 必须扩展。 必须扩展添加唯一的值如历史数据报表、 磁盘映射、 系统警报和类似于 SAN 的调用主服务，借助 Windows Admin Center 服务器和超聚合基础结构管理功能，通过无缝的统一的体验。 [了解有关 DataON 的 MUST 扩展及其开发体验的详细信息](case-studies/dataon.md)。
 
 ![DataON MUST 扩展](../media/extensibility-overview/dataon-must-extension.png)
 
@@ -65,7 +70,7 @@ Fujitsu 的 ServerView 运行状况和对 Windows Admin Center RAID 运行状况
 
 ### <a name="lenovo"></a>Lenovo
 
-Lenovo XClarity 集成器扩展都将通过无缝集成到 Windows Admin Center 中的各种体验一层楼硬件管理。 XClarity 系统集成商解决方案提供的所有 Lenovo 服务器、 简要概述和不同的工具扩展提供硬件的详细信息，无论您连接到一台服务器、 故障转移群集或超聚合群集。 [了解有关 Lenovo XClarity 系统集成商扩展的详细信息](case-studies/lenovo.md)。
+Lenovo XClarity 集成器扩展通过无缝集成到 Windows Admin Center 中的各种体验将硬件管理带到下一级别。 XClarity 系统集成商解决方案提供的所有 Lenovo 服务器、 简要概述和不同的工具扩展提供硬件的详细信息，无论您连接到一台服务器、 故障转移群集或超聚合群集。 [了解有关 Lenovo XClarity 系统集成商扩展的详细信息](case-studies/lenovo.md)。
 
 ![Lenovo 扩展](../media/extensibility-overview/lenovo-extension.png)
 
@@ -74,6 +79,12 @@ Lenovo XClarity 集成器扩展都将通过无缝集成到 Windows Admin Center 
 纯粹的存储提供了企业，提供以数据为中心的体系结构，以提升你的业务的竞争优势的所有闪存数据存储解决方案。 适用于 Windows Admin Center 的纯存储扩展提供到纯 FlashArray 的产品中的单一窗格视图，使用户能够执行监视任务、 查看实时性能度量值和管理存储卷和通过单一用户界面的发起程序体验。 [了解有关纯的扩展和他们的开发体验的详细信息](case-studies/purestorage.md)。
 
 ![纯存储扩展](../media/extensibility-overview/purestorage-extension.png)
+
+### <a name="qct"></a>QCT
+
+QCT Management Suite 扩展是通过物理服务器监视和管理 QCT Azure Stack HCI 认证的系统提供的补充 Windows Admin Center。 QCT Management Suite 扩展显示服务器硬件信息，并提供直观的向导 UI，以帮助将物理磁盘有效地，硬件事件日志工具和 S.M.A.R.T. 基于预测磁盘管理。 [了解有关 QCT Management Suite 扩展](case-studies/qct.md)。
+
+![QCT 扩展](../media/extensibility-overview/qct-extension.png)
 
 ### <a name="squared-up"></a>Squared Up
 
