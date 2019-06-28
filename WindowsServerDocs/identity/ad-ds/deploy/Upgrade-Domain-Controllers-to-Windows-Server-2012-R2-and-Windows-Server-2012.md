@@ -26,7 +26,7 @@ ms.locfileid: "66443050"
 升级域的推荐方法是根据需要提升运行较新版本 Windows Server 的域控制器并降级较旧的域控制器。 该方法优于升级现有域控制器的操作系统。 此列表包括要执行之前将提升运行较新版本的 Windows Server 的域控制器的常规步骤：  
   
 1. 验证目标服务器是否满足 [系统要求](https://technet.microsoft.com/library/dn303418.aspx)。  
-2. 验证 [Application compatibility](../../ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md#BKMK_AppCompat)。  
+2. 验证是否[应用程序兼容性](../../ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md#BKMK_AppCompat)。  
 3. 验证安全设置。 有关详细信息，请参阅 [与 Windows Server 2012 中 AD DS 有关的弃用功能及行为变化](../../ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md#BKMK_DeprecatedFeatures) 和 [Secure default settings in Windows Server 2008 和 Windows Server 2008 R2](https://technet.microsoft.com/library/upgrade-domain-controllers-to-windows-server-2008-r2(WS.10).aspx#BKMK_SecureDefault)。  
 4. 从计划运行安装的计算机上检查与目标服务器的连接性。  
 5. 检查所需操作主机角色的可用性：  
@@ -158,9 +158,9 @@ AD DS 安装向导中的先决条件检查可以在开始安装之前识别潜�
 |||||  
 |-|-|-|-|  
 |加密类型或策略|Windows Server 2008 默认设置|Windows Server 2012 和 Windows Server 2008 R2 默认设置|备注|  
-|AllowNT4Crypto|Disabled|Disabled|第三方服务器消息块 (SMB) 客户端可能与域控制器上的安全默认设置不兼容。 在所有情况下，可以通过放宽这些设置来允许交互操作，但这终将是以牺牲安全性为代价。 有关详细信息，请参阅[文章 942564](https://go.microsoft.com/fwlink/?LinkId=164558)在 Microsoft 知识库文章 (https://go.microsoft.com/fwlink/?LinkId=164558)。|  
+|AllowNT4Crypto|Disabled|Disabled|第三方服务器消息块 (SMB) 客户端可能与域控制器上的安全默认设置不兼容。 在所有情况下，可以通过放宽这些设置来允许交互操作，但这终将是以牺牲安全性为代价。 有关详细信息，请参阅[文章 942564](https://go.microsoft.com/fwlink/?LinkId=164558)在 Microsoft 知识库文章 (https://go.microsoft.com/fwlink/?LinkId=164558) 。|  
 |DES|Enabled|Disabled|[文章 977321](https://go.microsoft.com/fwlink/?LinkId=177717)在 Microsoft 知识库文章 （ https://go.microsoft.com/fwlink/?LinkId=177717)|  
-|集成身份验证的 CBT/扩展保护|不可用|Enabled|请参阅[Microsoft 安全公告 (937811)](https://go.microsoft.com/fwlink/?LinkId=164559) (https://go.microsoft.com/fwlink/?LinkId=164559)并[文章 976918](https://go.microsoft.com/fwlink/?LinkId=178251) Microsoft 知识库中的文章 (https://go.microsoft.com/fwlink/?LinkId=178251)。<br /><br />查看并安装的修补程序[文章 977073](https://go.microsoft.com/fwlink/?LinkId=186394) (https://go.microsoft.com/fwlink/?LinkId=186394)根据需要在 Microsoft 知识库。|  
+|集成身份验证的 CBT/扩展保护|不可用|Enabled|请参阅[Microsoft 安全公告 (937811)](https://go.microsoft.com/fwlink/?LinkId=164559) (https://go.microsoft.com/fwlink/?LinkId=164559) 并[文章 976918](https://go.microsoft.com/fwlink/?LinkId=178251) Microsoft 知识库中的文章 (https://go.microsoft.com/fwlink/?LinkId=178251) 。<br /><br />查看并安装的修补程序[文章 977073](https://go.microsoft.com/fwlink/?LinkId=186394) (https://go.microsoft.com/fwlink/?LinkId=186394) 根据需要在 Microsoft 知识库。|  
 |LMv2|Enabled|Disabled|[文章 976918](https://go.microsoft.com/fwlink/?LinkId=178251)在 Microsoft 知识库文章 （ https://go.microsoft.com/fwlink/?LinkId=178251)|  
 
 ## <a name="BKMK_SysReqs"></a>操作系统要求

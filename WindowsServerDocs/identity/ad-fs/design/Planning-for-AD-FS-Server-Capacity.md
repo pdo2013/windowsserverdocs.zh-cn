@@ -36,9 +36,9 @@ Active Directory 联合身份验证服务的容量规划\(AD FS\)是为你的联
 |建议的任务|描述|参考|  
 |--------------------|---------------|-------------|  
 |了解有关部署 AD FS 联合身份验证服务器和联合服务器代理的要求|查看部署联合服务器和联合服务器代理所需的重要硬件和软件要求。|[附录 A：查看 AD FS 要求](Appendix-A--Reviewing-AD-FS-Requirements.md)|  
-|选择将在你的组织中部署的 AD FS 配置数据库的类型|在可以开始使用本部分中的容量规划数据之前，首先需要确定哪些 AD FS 配置数据库的类型将部署这两个 Windows 内部数据库\(WID\)或结构化查询语言\(SQL\)数据库。|[The Role of the AD FS Configuration Database](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)；<br /><br />[AD FS 部署拓扑注意事项](AD-FS-Deployment-Topology-Considerations.md)|  
+|选择将在你的组织中部署的 AD FS 配置数据库的类型|在可以开始使用本部分中的容量规划数据之前，首先需要确定哪些 AD FS 配置数据库的类型将部署这两个 Windows 内部数据库\(WID\)或结构化查询语言\(SQL\)数据库。|[AD FS 配置数据库的角色](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[AD FS 部署拓扑注意事项](AD-FS-Deployment-Topology-Considerations.md)|  
 |确定可用于新的 AD FS 配置数据库选择的拓扑布局的类型。|一旦你已决定要在部署中使用的 AD FS 配置数据库的类型，你将需要考虑在生产环境中哪种部署拓扑最匹配将需要放置联合服务器和联合服务器代理的位置。|[确定 AD FS 部署拓扑](Determine-Your-AD-FS-Deployment-Topology.md)|  
-|了解关键 AD FS 相关容量规划术语|查看常见容量规划 AD FS 容量规划讨论中使用的术语的定义。|请参阅本主题中的 [AD FS capacity planning terms](Planning-for-AD-FS-Server-Capacity.md#bk_terms) 部分|  
+|了解关键 AD FS 相关容量规划术语|查看常见容量规划 AD FS 容量规划讨论中使用的术语的定义。|请参阅以下节[AD FS 容量规划术语](Planning-for-AD-FS-Server-Capacity.md#bk_terms)本主题中|  
   
 在查看完上一个表中的内容后，现在就可以完成下一个表中的必备任务。  
   
@@ -49,7 +49,7 @@ Active Directory 联合身份验证服务的容量规划\(AD FS\)是为你的联
 |AD FS 容量规划电子表格适用于 Windows Server 2016|Windows Server 2016 的更新的规划工作表|[AD FS Windows Server 2016 容量规划](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx)  
   
 ## <a name="bk_terms"></a>AD FS 容量规划术语  
-下表描述了容量规划部分中的 AD FS 设计指南中经常使用的重要术语。 有关更完整的 AD FS 术语列表，请参阅[Understanding Key AD FS Concepts](../../ad-fs/technical-reference/Understanding-Key-AD-FS-Concepts.md)。  
+下表描述了容量规划部分中的 AD FS 设计指南中经常使用的重要术语。 有关更完整的 AD FS 术语列表，请参阅[了解关键的 AD FS 概念](../../ad-fs/technical-reference/Understanding-Key-AD-FS-Concepts.md)  
   
 |术语|定义|  
 |--------|--------------|  
