@@ -9,12 +9,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 609ea0bd796a4d3696e14c7499be047ebdd83183
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 01113b957c6b0be4e18955b5ddc78be3f463abe4
+ms.sourcegitcommit: 236a8ae1da12cea1acfff3f306246db0f022354d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868848"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67412212"
 ---
 # <a name="implementing-least-privilege-administrative-models"></a>实现最小特权的管理模型
 
@@ -37,7 +37,7 @@ ms.locfileid: "59868848"
 
 遗憾的是，在许多环境中的最轻松的路径已被证明是过度使用具有各种广泛而深入的特权的帐户。 广泛的权限是权限，并且允许跨大型横跨多个环境-例如执行特定活动的帐户的权限，技术支持人员可能会被授予权限，允许他们重置多个用户帐户的密码。  
 
-深度权限应用于总体的窄段的强大权限，此类授予一名工程师管理员权限的服务器上，以便他们可以执行修复。 广泛特权和深度权限都不一定是危险的但当域中的多个帐户永久授予各种广泛而深入的特权，如果只有一个帐户被泄露，它可以快速可用来重新配置到环境攻击者的目的或甚至要销毁大段的基础结构。  
+深度特权是填充的功能强大的权限应用于，例如可以使工程师管理员权限的服务器上，以便他们可以执行修复的窄段。 广泛特权和深度权限都不一定是危险的但当域中的多个帐户永久授予各种广泛而深入的特权，如果只有一个帐户被泄露，它可以快速可用来重新配置到环境攻击者的目的或甚至要销毁大段的基础结构。  
 
 传递哈希攻击，这是一种类型的凭据窃取攻击，无处，因为可用于执行这些免费可用且易于使用并且许多环境中很容易受到攻击。 但是，传递哈希攻击中，不是真正的问题。 此问题的关键是双重的：  
 
@@ -276,7 +276,7 @@ Enterprise Admins 组的情况一样，应仅在生成或灾难恢复方案中�
 
 在管理特权的帐户的挑战之一是，默认情况下，可以管理特权和受保护的帐户的帐户和拥有的特权组和受保护的帐户。 如果你的 Active Directory 安装实现相应的 RBAC 和 PIM 解决方案，解决方案可能包括可用于有效地 depopulate 填充组仅在目录中，最高特权组的成员身份的方法暂时并在需要时。  
 
-如果你实现本机 RBAC 和 PIM，但是，应考虑在需要时的 Active Directory 中创建帐户没有权限且使用的填充和 depopulating 特权的唯一函数进行分组。 [附录 i:为受保护的帐户和组在 Active Directory 中的创建管理帐户](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md)提供可用来实现此目的创建帐户的分步说明。  
+如果你实现本机 RBAC 和 PIM，但是，应考虑在需要时的 Active Directory 中创建帐户没有权限且使用的填充和 depopulating 特权的唯一函数进行分组。 [附录 I：为受保护的帐户和组在 Active Directory 中的创建管理帐户](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md)提供可用来实现此目的创建帐户的分步说明。  
 
 ### <a name="implementing-robust-authentication-controls"></a>实施可靠的身份验证控制
 
