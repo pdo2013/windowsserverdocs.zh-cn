@@ -9,12 +9,12 @@ ms.topic: article
 author: vpetter
 ms.date: 03/27/2018
 ms.localizationpriority: ''
-ms.openlocfilehash: 6e301b8c46041f107739bbcdb09c2eb0c8252ebb
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 0b0c75f8e2d09a1fc17374428c48fb856465bb5a
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66452903"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469539"
 ---
 # <a name="troubleshooting-a-failover-cluster-using-windows-error-reporting"></a>使用 Windows 错误报告的故障转移群集进行故障排除 
 
@@ -75,13 +75,6 @@ Microsoft-Windows-Kernel-LiveDump/Analytic
 ```
 
 将每个群集节点上启用这些事件通道，群集服务启动时，或者每当**EnabledEventLogs**属性更改。
-
-
-<!--
-## Collecting live dumps
-
-Windows will trigger the collection of a ``` LiveDump ``` when there are known resources that are hanging in kernel calls. ``` RHS ``` will trigger ```LiveDump``` collection if both the resource type and cluster ``` DumpPolicy ``` are set to 1. For physical disk it is set out of the box
--->
 
 ## <a name="gathering-logs"></a>正在收集日志
 
@@ -167,20 +160,6 @@ Directory of c:\ProgramData\Microsoft\Windows\WER\ReportArchive
                3 Dir(s)  23,291,658,240 bytes free
 
 ```
-
-<!--
-If your report has been uploaded to Watson, a Microsoft Employee might be able to get your reports from [https://watson/](https://watson) by searching for your report ID and/or bucket ID (these can be found in Report.wer).
-
-```
-OriginalFilename=PowerShell.EXE.MUI
-Response.BucketId=f4bbb1850ee0c2c8ad7231a4f1c7aa8a
-Response.BucketTable=5
-Response.LegacyBucketId=2121812958945716874
-Response.type=4
-Response.CabId=2154498584323680636
-Response.CabGuid=1701c157-8fe6-4c22-9de6-510c23b1e97c 
-```
--->
 
 Windows 错误报告提供很多设置自定义报告体验的问题。 有关详细信息，请参阅 Windows 错误报告[文档](https://msdn.microsoft.com/library/windows/desktop/bb513638(v=vs.85).aspx)。
 

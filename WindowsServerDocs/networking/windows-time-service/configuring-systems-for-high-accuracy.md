@@ -8,12 +8,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: 2a5a7a6bd6313f7a4eadd827e3d754c1e467c3bc
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 9bfa4e7d4f8777f8fef299cf3991238e31564ace
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63745415"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469599"
 ---
 # <a name="configuring-systems-for-high-accuracy"></a>配置系统的高精度
 >适用于：Windows Server 2016 和 Windows 10 版本 1607年或更高版本
@@ -91,7 +91,6 @@ Windows 时间服务 (W32Time) 必须连续运行。  若要执行此操作，�
 - 时间服务器 A 和源
 
 可以使用收件箱 w32tm.exe 工具获取此测量值。  要实现此目的，请执行以下操作：
-<!-- Use PowerShell to import the CSV then average the RTT Column -->
 
 1. 从目标和时间服务器 b。 执行计算
     

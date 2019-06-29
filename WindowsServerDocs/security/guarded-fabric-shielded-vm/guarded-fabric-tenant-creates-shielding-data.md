@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 3c36eff8aabd1fa1c6456dce1d08ebe504102e8c
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: d1d269ecdbfd4803c51da4817b62caf01d2091ae
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284167"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469615"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>租户-创建防护数据来定义受防护的 VM 的受防护的 Vm
 
@@ -43,8 +43,6 @@ ms.locfileid: "67284167"
 由于租户均能够连接到其受防护的 Vm 使用远程桌面连接或其他远程管理工具，务必确保租户可以验证它们是否连接到的相应终结点 （即，没有"中间人"截获连接）。
 
 若要验证连接到目标服务器的一种方法是安装和配置用于远程桌面服务来启动连接时提供的证书。 连接到服务器的客户端计算机将检查是否它信任的证书和显示一条警告是否不是。 通常情况下，若要确保连接的客户端信任的证书，RDP 颁发的证书从租户的 PKI。 有关详细信息[在远程桌面服务中使用证书](https://technet.microsoft.com/library/dn781533.aspx)TechNet 上可以找到。
-
-<!-- The previous link comes from Windows 2012 R2 content, but as of Sept 2016, there isn't a more recent link that covers the same information. -->
 
 > [!NOTE]
 > 当选择要包括在你的防护数据文件中的 RDP 证书，请务必使用通配符证书。 一个屏蔽数据文件可能用于创建无限的数量的 Vm。 因为每个 VM 将共享相同的证书，可确保通配符证书，证书将是有效的而不考虑 VM 的主机名。
@@ -142,8 +140,6 @@ Export-PfxCertificate -Cert $RdpCertificate -FilePath .\rdpCert.pfx -Password $p
         $relecloudmetadata = Get-SCGuardianConfiguration
 
         $relecloudmetadata.InnerXml | Out-File .\RelecloudGuardian.xml -Encoding UTF8
-
-<!-- Note that the VMM PowerShell cmdlets aren't Windows PowerShell, so "VMM PowerShell" is the correct terminology for them. -->
 
 为你想要授权受防护的 Vm 以继续操作之前，在运行每个受保护的构造获取保护者元数据文件。
 

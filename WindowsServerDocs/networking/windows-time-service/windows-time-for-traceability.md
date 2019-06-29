@@ -9,12 +9,12 @@ ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: e25217feba45516cd0e9a3aa2bf1a2581d2087f5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3256ff55ec8f293cd37acbea6122584a63847284
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838038"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469579"
 ---
 # <a name="windows-time-for-traceability"></a>Windows 时间可跟踪性
 >适用于：Windows Server 2016 版本 1709年或更高版本、 和 Windows 10 版本 1703年或更高版本
@@ -41,7 +41,6 @@ ms.locfileid: "59838038"
 
 以下部分概述了用于可跟踪性方案中记录的事件。
 
-<!-- use tabs like the group policies -->
 # <a name="257tab257"></a>[257](#tab/257)
 当 Windows 时间服务 (W32Time) 已启动并记录有关当前时间、 当前滴答计数、 运行时配置、 时间提供程序和当前时钟速率的信息时，将记录此事件。
 
@@ -82,7 +81,7 @@ w32tm.exe /query /status /verbose
 |记录数据 |<ul><li>Utc 格式的当前时间</li><li>当前的计时周期计数</li></ul> |
 |阻止机制  |无。 每次服务停止时，将引发此事件。 |
 
-**示例文本：**
+**示例文本：** 
 `W32time service is stopping at 2018-03-01T05:42:13.944Z (UTC), System Tick Count 6370250.`
 
 # <a name="259tab259"></a>[259](#tab/259)

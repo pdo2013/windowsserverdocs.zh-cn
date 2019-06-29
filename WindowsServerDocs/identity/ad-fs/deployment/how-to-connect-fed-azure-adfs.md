@@ -16,12 +16,12 @@ ms.date: 10/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 588bc3f87c78feccac47d18d31d37be3b1a02d2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f075f91e97f806555507bfc0e0c5f3d1589a71e6
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835098"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469652"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>在 Azure 中部署 Active Directory 联合身份验证服务
 AD FS 提供简化、 安全的标识联合身份验证和 Web 单一登录 (SSO) 功能。 使用 Azure AD 的联合身份验证或 O365 使用户能够使用本地凭据进行身份验证和访问云中的所有资源。 因此，就务必建立高度可用的 AD FS 基础结构，确保这两个本地的资源的访问权限、 在云中。 Azure 中部署 AD FS 有助于实现高可用性所需的最少量的工作。
@@ -63,7 +63,7 @@ AD FS 提供简化、 安全的标识联合身份验证和 Web 单一登录 (SSO
 * 在子网面板中单击添加按钮
 * 提供要创建子网的子网名称和地址空间信息
 
-![子网](./media/how-to-connect-fed-azure-adfs/deploynetwork2.png)
+![Subnet](./media/how-to-connect-fed-azure-adfs/deploynetwork2.png)
 
 ![子网外围网络](./media/how-to-connect-fed-azure-adfs/deploynetwork3.png)
 
@@ -115,7 +115,7 @@ AD FS 提供简化、 安全的标识联合身份验证和 Web 单一登录 (SSO
 
 创建以下可用性集
 
-| 可用性集 | 角色 | 容错域 | 更新域 |
+| 可用性集 | Role | 容错域 | 更新域 |
 |:---:|:---:|:---:|:--- |
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
@@ -123,7 +123,7 @@ AD FS 提供简化、 安全的标识联合身份验证和 Web 单一登录 (SSO
 ### <a name="4-deploy-virtual-machines"></a>4.部署虚拟机
 下一步是部署将承载您的基础结构中的不同角色的虚拟机。 建议使用最少两台计算机中每个可用性集。 创建为基本部署的四个虚拟机。
 
-| 计算机 | 角色 | 子网 | 可用性集 | 存储帐户 | IP 地址 |
+| Machine | Role | Subnet | 可用性集 | 存储帐户 | IP 地址 |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | contosodc1 |DC/ADFS |INT |contosodcset |contososac1 |Static |
 | contosodc2 |DC/ADFS |INT |contosodcset |contososac2 |Static |
@@ -139,7 +139,7 @@ AD FS 提供简化、 安全的标识联合身份验证和 Web 单一登录 (SSO
 ### <a name="5-configuring-the-domain-controller--ad-fs-servers"></a>5.配置域控制器 / AD FS 服务器
  为了对任何传入的请求进行身份验证，AD FS 将需要联系域控制器。 若要从 Azure 的成本高昂的行程保存到本地 DC 进行身份验证中，建议部署在 Azure 中的域控制器的副本。 为了实现高可用性，建议创建至少 2 个域控制器的可用性集。
 
-| 域控制器 | 角色 | 存储帐户 |
+| 域控制器 | Role | 存储帐户 |
 |:---:|:---:|:---:|
 | contosodc1 |副本 |contososac1 |
 | contosodc2 |副本 |contososac2 |
@@ -193,7 +193,7 @@ AD FS 提供简化、 安全的标识联合身份验证和 Web 单一登录 (SSO
 
 ![配置 ILB 探测](./media/how-to-connect-fed-azure-adfs/ilbdeployment4.png)
 
-我们将使用在 AD FS 环境中创建运行状况检查的显式 /adfs/probe 终结点位置的完整 HTTPS 路径检查不会发生。  这是大大优于基本端口 443 检查，不能准确反映最新的 AD FS 部署的状态。  对此的详细信息可从 https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/。
+我们将使用在 AD FS 环境中创建运行状况检查的显式 /adfs/probe 终结点位置的完整 HTTPS 路径检查不会发生。  这是大大优于基本端口 443 检查，不能准确反映最新的 AD FS 部署的状态。  对此的详细信息可从 https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/ 。
 
 **6.4.创建负载均衡规则**
 
@@ -277,11 +277,6 @@ AD FS 提供简化、 安全的标识联合身份验证和 Web 单一登录 (SSO
 
 ![INT 访问规则 （入站）](./media/how-to-connect-fed-azure-adfs/nsg_int.png)
 
-<!--
-[comment]: <> (![INT access rules (inbound)](./media/how-to-connect-fed-azure-adfs/nsgintinbound.png))
-[comment]: <> (![INT access rules (outbound)](./media/how-to-connect-fed-azure-adfs/nsgintoutbound.png))
--->
-
 **9.2.保护外围网络子网**
 
 | 规则 | 描述 | 流 |
@@ -290,11 +285,6 @@ AD FS 提供简化、 安全的标识联合身份验证和 Web 单一登录 (SSO
 | DenyInternetOutbound |所有非 HTTPS 到互联网被阻止 |出站 |
 
 ![EXT 访问规则 （入站）](./media/how-to-connect-fed-azure-adfs/nsg_dmz.png)
-
-<!--
-[comment]: <> (![EXT access rules (inbound)](./media/how-to-connect-fed-azure-adfs/nsgdmzinbound.png))
-[comment]: <> (![EXT access rules (outbound)](./media/how-to-connect-fed-azure-adfs/nsgdmzoutbound.png))
--->
 
 > [!NOTE]
 > 如果客户端用户证书身份验证 (进行 clientTLS 身份验证使用 X509 用户证书) 是必需的则 AD FS 需要 TCP 端口 49443 启用为入站访问。

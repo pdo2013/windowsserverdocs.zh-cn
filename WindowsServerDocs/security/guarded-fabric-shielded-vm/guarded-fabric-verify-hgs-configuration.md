@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 954393126333bf04d2aa46a01089d88bc91151cb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8098edd1eea475cea1face5541459b262364a07b
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447320"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469547"
 ---
 # <a name="verify-the-hgs-configuration"></a>验证 HGS 配置
 
@@ -29,10 +29,6 @@ Get-HgsTrace -RunDiagnostics
 HGS 配置尚未包含有关将受保护的构造中的主机的信息，因为诊断将指示没有主机将能够尚未成功证明。 忽略此结果，并查看诊断提供的其他信息。
 
 [!INCLUDE [Guarded fabric diagnostics tool](../../../includes/guarded-fabric-diagnostics-tool.md)] 
-
-<!-- When a link is available for an updated troubleshooting guide, add a sentence like the following and create a link to the troubleshooting guide:
-If failures did occur, please review the remediation steps provided or see the Troubleshooting Guide.
--->
 
 HGS 群集中每个节点上运行诊断程序。
 

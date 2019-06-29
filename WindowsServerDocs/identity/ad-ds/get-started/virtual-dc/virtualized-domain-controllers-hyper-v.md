@@ -6,12 +6,12 @@ ms.author: joflore
 ms.date: 04/19/2018
 ms.topic: article
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 8a1775a40761e4a489cc39535514d75174edffa5
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 297c2a26f10503cb68ae241576a72e08aa4e55a0
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442996"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469571"
 ---
 # <a name="virtualizing-domain-controllers-using-hyper-v"></a>使用 HYPER-V 的虚拟化域控制器
 
@@ -82,7 +82,6 @@ HYPER-V 将合并到单一物理计算机上的不同服务器角色。 本指�
 ## <a name="rodcs"></a>RODCs
 
 Rodc 的一个好处是能够将它们放在物理安全性不能保证的位置，例如在分支机构。 可以使用 Windows BitLocker 驱动器加密来保护自己的 VHD 文件 (不是文件系统其中) 不会受到攻击的被盗的物理磁盘的主机上。 
-<!-- Removed link to Windows Server 2008 Hyper-V and BitLocker Drive Encryption (http://go.microsoft.com/fwlink/?linkid=123534). Link is dead. -->
 
 ## <a name="performance"></a>性能
 
@@ -176,10 +175,8 @@ Rodc 的一个好处是能够将它们放在物理安全性不能保证的位置
 当监视的虚拟机的性能与可靠性和性能管理器 (Perfmon.msc) 时，虚拟机中的 CPU 信息不会由于虚拟 CPU 计划物理处理器的方法完全准确。 当你想要获取的 HYPER-V 服务器运行的虚拟机的 CPU 信息时，请在主分区中使用的 HYPER-V 虚拟机监控程序逻辑处理器计数器。
 
 有关性能优化的 AD DS 和 HYPER-V，请参阅[性能优化指南 Windows Server 2016 的](../../../../administration/performance-tuning/index.md)。
-<!-- Updated to 2016 perf guidance -->
 
 此外，不打算使用差异磁盘 VHD，因为差异磁盘 VHD 可能会降低性能配置为域控制器的虚拟机上。 若要详细了解 HYPER-V 磁盘类型，包括差异磁盘，请参阅[新的虚拟硬盘向导](http://go.microsoft.com/fwlink/?linkid=137279)。
-<!-- Couldn't find an equivalent WS 2016 Hyper-V article. -->
 
 托管的虚拟环境中的 AD DS 有关的其他信息，请参阅[Active Directory 域控制器托管的虚拟环境中的主机时应考虑的事项](https://go.microsoft.com/fwlink/?linkid=141292)Microsoft 知识库中。
 
@@ -384,8 +381,6 @@ System Center Virtual Machine Manager (VMM) 2008年提供了统一的管理物�
 ## <a name="usn-and-usn-rollback"></a>USN 和 USN 回滚
 
 本部分介绍可导致不正确使用还原操作的 Active Directory 数据库的较旧版本的虚拟机的复制问题。 有关 Active Directory 复制过程的其他详细信息，请参阅[Active Directory 复制概念](../replication/active-directory-replication-concepts.md)
-
-<!-- Replaced this link with 2016 article: [How the Active Directory Replication Model Works](http://go.microsoft.com/fwlink/?linkid=27636) (http://go.microsoft.com/fwlink/?LinkID=27636). -->
 
 ## <a name="usns"></a>Usn
 

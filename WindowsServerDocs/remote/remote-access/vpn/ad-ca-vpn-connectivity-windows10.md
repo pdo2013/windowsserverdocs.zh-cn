@@ -4,33 +4,34 @@ description: 在此可选步骤中，可以微调如何授权的 VPN 用户访�
 ms.prod: windows-server-threshold
 ms.technology: networking-ras
 ms.topic: article
-ms.assetid: ''
 ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
-ms.date: 07/13/2018
+ms.date: 06/28/2019
 ms.reviewer: deverette
-ms.openlocfilehash: c87d0075696bf8ab5794667d42c40829c3eb61bd
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: f6383030f70dd7c0487edd534bcc0ad42010f409
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749530"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469312"
 ---
 # <a name="step-7-optional-conditional-access-for-vpn-connectivity-using-azure-ad"></a>步骤 7： （可选）针对 VPN 连接使用 Azure AD 条件性访问
 
 - [**上一：** 步骤 6：配置 Windows 10 客户端始终启用 VPN 连接](always-on-vpn/deploy/vpn-deploy-client-vpn-connections.md)
 - [**下一步：** 步骤 7.1：配置 EAP-TLS 以忽略证书吊销列表 (CRL) 检查](vpn-config-eap-tls-to-ignore-crl-checking.md)
 
-在此可选步骤中，可以微调 VPN 用户访问你使用的资源的方式[Azure Active Directory (Azure AD) 条件性访问](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)。 使用针对虚拟专用网络 (VPN) 连接的 Azure AD 条件性访问，可帮助保护 VPN 连接。 条件访问是基于策略的评估引擎，允许你为任何 Active Directory (Azure AD) 连接的应用程序创建访问规则。 
+在此可选步骤中，可以微调 VPN 用户访问你使用的资源的方式[Azure Active Directory (Azure AD) 条件性访问](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)。 使用针对虚拟专用网络 (VPN) 连接的 Azure AD 条件性访问，可帮助保护 VPN 连接。 条件访问是基于策略的评估引擎，允许你为任何 Active Directory (Azure AD) 连接的应用程序创建访问规则。
 
 ## <a name="prerequisites"></a>先决条件
 
 您熟悉以下主题：
+
 - [Azure Active Directory 中条件性访问](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 - [VPN 和条件性访问](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access)
 
 若要配置针对 VPN 连接的 Azure Active Directory 条件性访问，需要具有以下配置：
+
 - [服务器基础结构](always-on-vpn/deploy/vpn-deploy-server-infrastructure.md)
 - [为 Always On VPN 的远程访问服务器](always-on-vpn/deploy/vpn-deploy-ras.md)
 - [网络策略服务器](always-on-vpn/deploy/vpn-deploy-nps.md)
@@ -48,9 +49,13 @@ EAP-TLS 客户端无法连接，除非在 NPS 服务器完成 （包括根证书
 在此步骤中，与 Azure AD，会自动在租户中创建 VPN 服务器云应用程序配置用于 VPN 身份验证的根证书。  
 
 若要配置针对 VPN 连接的条件性访问，需要：
-1. （您可以创建多个证书） 在 Azure 门户中创建 VPN 证书。
+
+1. 在 Azure 门户中创建 VPN 证书。
 2. 下载该 VPN 证书。
 3. 将证书部署到你的 VPN 服务器。
+
+> [!IMPORTANT]
+> 在 Azure 门户中创建 VPN 证书后，Azure AD 将开始立即使用它来向 VPN 客户端颁发短生存期的证书。 VPN 证书可立即部署到 VPN 服务器以避免进行凭据验证的 VPN 客户端的任何问题至关重要。
 
 ## <a name="step-73-configure-the-conditional-access-policyvpn-config-conditional-access-policymd"></a>[步骤 7.3.配置条件访问策略](vpn-config-conditional-access-policy.md)
 
@@ -67,13 +72,14 @@ EAP-TLS 客户端无法连接，除非在 NPS 服务器完成 （包括根证书
 在此步骤中，您可以将 VPN 身份验证的受信任的根证书部署到你的本地 AD。
 
 若要部署受信任的根证书，需要：
+
 1. 添加为下载的证书*VPN 身份验证的受信任的根 CA*。
 2. 根证书导入到的 VPN 服务器和 VPN 客户端。
 3. 验证证书是否存在，并显示为受信任。
 
 ## <a name="step-75-create-oma-dm-based-vpnv2-profiles-to-windows-10-devicesvpn-create-oma-dm-based-vpnv2-profilesmd"></a>[步骤 7.5.向 Windows 10 设备创建基于 OMA-DM 的 VPNv2 配置文件](vpn-create-oma-dm-based-vpnv2-profiles.md)
 
-在此步骤中，您可以创建 OMA DM 基于 VPNv2 配置文件使用 Intune 部署的 VPN 设备配置策略。 如果你想要使用 SCCM 或 PowerShell 脚本创建 VPNv2 配置文件，请参阅[VPNv2 CSP 设置](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp)的更多详细信息。 
+在此步骤中，您可以创建 OMA DM 基于 VPNv2 配置文件使用 Intune 部署的 VPN 设备配置策略。 如果你想要使用 SCCM 或 PowerShell 脚本创建 VPNv2 配置文件，请参阅[VPNv2 CSP 设置](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp)的更多详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -81,7 +87,7 @@ EAP-TLS 客户端无法连接，除非在 NPS 服务器完成 （包括根证书
 
 ## <a name="related-topics"></a>相关主题
 
-- [配置配置文件 VPNv2](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access):VPN 客户端现在能够与基于云的条件访问平台集成，为远程客户端提供设备合规性选项。 在此步骤中，配置的 VPNv2 配置文件 **\<DeviceCompliance >\<已启用 > true\<启用 >** 。 
+- [配置配置文件 VPNv2](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access):VPN 客户端现在能够与基于云的条件访问平台集成，为远程客户端提供设备合规性选项。 在此步骤中，配置的 VPNv2 配置文件 **\<DeviceCompliance >\<已启用 > true\<启用 >** 。
 
 - [加强 Windows 10 中使用自动 VPN 配置文件的远程访问](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile):了解 Microsoft 如何实现针对 VPN 连接的条件性访问。 VPN 配置文件包含设备连接到公司网络，包括支持的身份验证方法和该设备应连接到 VPN 服务器所需的所有信息。 在 Windows 10 周年更新中，包括条件性访问和单一登录，更改使其可以为我们创建我们 Always-On VPN 连接配置文件。 我们创建的连接配置文件已加入域的和使用 System Center Configuration Manager 控制台的 Microsoft Intune 管理设备。
 

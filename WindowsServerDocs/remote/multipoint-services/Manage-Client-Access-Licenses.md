@@ -13,19 +13,19 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: f5f78d3d2387d3b95177a6a8a40fb9b16d8ed8e2
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 42b943ed5e0066f1f810efaba9e65a529ac25f00
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446120"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469344"
 ---
 # <a name="manage-client-access-licenses"></a>管理客户端访问许可证
 连接到 MultiPoint 服务系统，包括运行用作工作站的 MultiPoint 服务的计算机的每个工作站必须具有有效的每个用户的远程桌面*客户端访问许可证 (CAL)* 。
 
 如果使用的虚拟工作站桌面而不物理的工作站，则必须安装每个工作站虚拟桌面的 CAL。  
   
-1.  购买每个工作站连接到 MultiPoint 服务计算机或服务器的客户端许可证。 有关购买 Cal 的详细信息，请访问远程桌面授权的文档。 <!--@Liza: add link to RDS licensing here-->
+1.  购买每个工作站连接到 MultiPoint 服务计算机或服务器的客户端许可证。 有关购买 Cal 的详细信息，请访问远程桌面授权的文档。 
 
 2.  从**启动**屏幕上，打开**MultiPoint 管理器**。  
   

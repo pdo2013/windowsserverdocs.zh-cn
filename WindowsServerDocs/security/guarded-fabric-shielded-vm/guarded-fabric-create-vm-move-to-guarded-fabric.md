@@ -9,21 +9,16 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: dd9b89f34a3b4af8bb98d2399a524790aa65de0e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9601145048b8798cfb102757384da49bed16a538
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447487"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469628"
 ---
 # <a name="shielded-vms-for-tenants---creating-a-new-shielded-vm-on-premises-and-moving-it-to-a-guarded-fabric"></a>租户-创建新的受防护的 Vm 受防护的 VM 在本地并将其移到受保护的构造
 
 >适用于：Windows Server 2019，Windows Server （半年频道），Windows Server 2016
-
-
-<!-- NOTE THAT THIS FILE HAS A "redirect_url" LINE IN THE METADATA. EVENTUALLY WE WILL PROBABLY STRIP OUT THE DETAILED METADATA AND THE CONTENT BELOW, SO IT'S PURELY A REDIRECTED TOPIC. However, as of mid-November 2016, we're still deciding. -->
-
-
 
 本主题介绍的步骤来创建受防护的 VM 使用仅 HYPER-V;也就是说，无需 Virtual Machine Manager、 模板磁盘或防护数据文件。 这是大多数公共云托管环境中，一个常见方案但测试受保护的构造时可能有用或企业中方案从部门结构中移动 VM 在其中共享 IT 基础结构和必须在迁移之前进行加密。
 
@@ -33,7 +28,7 @@ ms.locfileid: "66447487"
 
 1.  开始过程之前，请确保您具有以下角色和功能安装运行 Windows Server 2016 的 HYPER-V 主机上：
 
-    - 角色
+    - Role
 
         - Hyper-V
 
@@ -102,7 +97,7 @@ ms.locfileid: "66447487"
 
        $KP = New-HgsKeyProtector -Owner $Owner -Guardian $Guardian -AllowUntrustedRoot
 
-   如果你想为多个数据中心要在运行受防护的 VM （例如，灾难恢复站点和公有云提供商），可以提供一系列到 guardians **-保护者**参数。 有关详细信息，请参阅 [新建 HgsKeyProtector] (https://docs.microsoft.com/powershell/module/hgsclient/new-hgskeyprotector?view=win10-ps。
+   如果你想为多个数据中心要在运行受防护的 VM （例如，灾难恢复站点和公有云提供商），可以提供一系列到 guardians **-保护者**参数。 有关详细信息，请参阅 [新建 HgsKeyProtector] (https://docs.microsoft.com/powershell/module/hgsclient/new-hgskeyprotector?view=win10-ps 。
 
 5. 若要启用 vTPM 使用密钥保护程序，请运行以下命令。 有关&lt;ShieldedVMname&gt;，使用前面步骤中使用的相同 VM 名称。
 
