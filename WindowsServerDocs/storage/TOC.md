@@ -40,6 +40,7 @@
 ### [部署网络文件系统](nfs/deploy-nfs.md)
 ### [NTFS 概述](file-server/ntfs-overview.md)
 ### [卷影复制服务](file-server/volume-shadow-copy-service.md)
+### [使用磁盘清理](file-server/disk-cleanup.md)
 ## [文件服务器资源管理器](fsrm/fsrm-overview.md)
 ### [清单：将配额应用于卷或文件夹](fsrm/checklist-apply-quota-to-volume-or-folder.md)
 ### [清单：将文件屏蔽应用于卷或文件夹](fsrm/checklist-apply-file-screen-to-volume-or-folder.md)
@@ -128,7 +129,9 @@
 #### [创建卷](storage-spaces/create-volumes.md)
 #### [嵌套复原](storage-spaces/nested-resiliency.md)
 #### [配置仲裁](../failover-clustering/manage-cluster-quorum.md)
-#### [将存储空间直通群集升级为 Windows Server 2019](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)
+#### [升级存储空间直通群集](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)
+#### [了解和部署永久性内存](storage-spaces/deploy-pmem.md)
+
 ### 管理
 #### [使用 Windows Admin Center 管理](../manage/windows-admin-center/use/manage-hyper-converged.md)
 #### [添加服务器或驱动器](storage-spaces/add-nodes.md)
@@ -148,11 +151,14 @@
 ##### [脚本示例](storage-spaces/performance-history-scripting.md)
 #### [分隔卷的分配](storage-spaces/delimit-volume-allocation.md)
 #### [使用 Azure Monitor 进行监视](storage-spaces/configure-azure-monitor.md)
+
 ### 排除故障
 #### [故障排除方案](storage-spaces/troubleshooting-storage-spaces.md)
 #### [运行状况和操作状态](storage-spaces/storage-spaces-states.md)
 #### [收集数据](storage-spaces/data-collection.md)
 #### [常见问题解答](storage-spaces/storage-spaces-direct-faq.md)
+#### [存储类内存运行状况管理](storage-spaces/Storage-class-memory-health.md)
+
 ## [工作文件夹](work-folders/work-folders-overview.md)
 ### [设计工作文件夹实现方案](work-folders/plan-work-folders.md)
 ### [部署工作文件夹](work-folders/deploy-work-folders.md)
@@ -163,6 +169,5 @@
 #### [步骤 4：设置 WAP](work-folders/deploy-work-folders-adfs-step4.md)
 #### [步骤 5：设置客户端](work-folders/deploy-work-folders-adfs-step5.md)
 ## [存储 QoS](storage-qos/storage-qos-overview.md)
-## [存储类内存运行状况管理](storage-spaces/Storage-class-memory-health.md)
 ## [存储主题的更改历史记录](storage-change-history.md)
 

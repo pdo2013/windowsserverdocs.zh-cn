@@ -11,10 +11,10 @@ author: shortpatti
 ms.author: pashort
 ms.localizationpriority: high
 ms.openlocfilehash: 53c927f89fd3ccaa212c998f7102d0fdb9f41bde
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66447940"
 ---
 # <a name="virtualization"></a>虚拟化
@@ -24,7 +24,7 @@ ms.locfileid: "66447940"
 
 <HR />
 
-Windows Server 中的虚拟化是创建软件定义的基础结构所需的基础技术之一。 除网络和存储外，虚拟化功能还可以提供支持客户工作负载所需的灵活性。
+Windows Server 中的虚拟化是创建软件定义的基础结构所需的基础技术之一。 除网络和存储外，虚拟化功能还可以提供支持客户工作负荷所需的灵活性。
 
 <HR />
 <ul class="cardsI panelContent">
@@ -41,7 +41,7 @@ Windows Server 中的虚拟化是创建软件定义的基础结构所需的基�
                     <div class="cardText">
                         <h3>受保护的构造和受防护的 VM</h3>
 <HR />
-                        <p>作为云服务商或企业私有云管理员，你可以使用受保护的构造为 VM 提供更安全的环境。 受保护的构造包含一个主机保护者服务 (HGS)-通常情况下，有三个节点群集-再加上一个或多个受保护的主机和一组受防护的 Vm。</p>
+                        <p>作为云服务商或企业私有云管理员，你可以使用受保护的构造为 VM 提供更安全的环境。 受保护的构造包括一项主机保护者服务 (HGS)（通常是由三个节点组成的群集）外加一个或多个受保护的主机以及一组受防护的 VM。</p>
                      </div>
                   </div>
               </div>
@@ -61,7 +61,7 @@ Windows Server 中的虚拟化是创建软件定义的基础结构所需的基�
                     <div class="cardText">
                         <h3>Microsoft Hyper-V Server</h3>
 <HR />
-                        <p>Hyper-V 技术可通过硬件虚拟化提供计算资源。 Hyper-V 可创建软件版本的计算机（称为虚拟机），可以用于运行操作系统和应用程序。 你可以同时运行多个虚拟机，也可以按需要创建和删除虚拟机。</p>
+                        <p>Hyper-V 技术可通过硬件虚拟化提供计算资源。 Hyper-V 可创建软件版本的计算机（称为虚拟机），可以用于运行操作系统和应用程序。 可以同时运行多个虚拟机，也可以按需要创建和删除虚拟机。</p>
                      </div>
                   </div>
               </div>
@@ -81,7 +81,7 @@ Windows Server 中的虚拟化是创建软件定义的基础结构所需的基�
                     <div class="cardText">
                         <h3>Windows 容器</h3>
 <HR />
-                        <p>Windows 容器提供操作系统级别虚拟化，允许多个独立的应用程序在单个系统上运行。 该功能附带两种不同类型的容器运行时，每个都有不同程度的应用程序隔离。</p>
+                        <p>Windows 容器提供操作系统级别的虚拟化，允许多个独立的应用程序在单个系统上运行。 该功能附带两种不同类型的容器运行时，每个都有不同程度的应用程序隔离。</p>
                      </div>
                   </div>
               </div>
@@ -99,9 +99,9 @@ Windows Server 中的虚拟化是创建软件定义的基础结构所需的基�
                         </div>
                     </div>
                     <div class="cardText">
-                       <h3>适用于企业的 Windows 10:使用设备的工作方式</h3>
+                       <h3>企业版 Windows 10：使用设备工作的方式</h3>
 <HR />
-                       <p>Hyper-V 技术可通过硬件虚拟化提供计算资源。 Hyper-V 可创建软件版本的计算机（称为虚拟机），可以用于运行操作系统和应用程序。 你可以同时运行多个虚拟机，也可以按需要创建和删除虚拟机。</p>
+                       <p>Hyper-V 技术可通过硬件虚拟化提供计算资源。 Hyper-V 可创建软件版本的计算机（称为虚拟机），可以用于运行操作系统和应用程序。 可以同时运行多个虚拟机，也可以按需要创建和删除虚拟机。</p>
                      </div>
                   </div>
               </div>

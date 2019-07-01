@@ -10,18 +10,18 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 2546322d6c6dbc4d64f18fc62366c698885108d8
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.openlocfilehash: b2be54748a36f97a11796ebfa16701baac1c612d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810625"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280646"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Windows Server 2016 中的新增功能
 
 >适用于：Windows Server 2016
 
-![图标显示报纸](media/whats-new.png)若要了解有关 Windows 中的最新功能的信息，请参阅[What's New in Windows Server](whats-new-in-windows-server.md)。 本部分的内容将介绍 Windows Server&reg; 2016 中的新增功能和更改的功能。 此处列出的新功能和更改在你使用此版本时最可能具有最大影响力。
+![显示报纸的图标](media/whats-new.png)若要了解 Windows 中的最新功能，请参阅 [Windows Server 中的新增功能](whats-new-in-windows-server.md)。 本部分的内容将介绍 Windows Server&reg; 2016 中的新增功能和更改的功能。 此处列出的新功能和更改在你使用此版本时最可能具有最大影响力。
 
 ## <a name="computevirtualizationvirtualizationmd"></a>[Compute](../virtualization/virtualization.md)
 
@@ -33,7 +33,7 @@ ms.locfileid: "66810625"
 ### <a name="hyper-v"></a>Hyper-V  
 -   [Windows Server 2016 上的 Hyper-V 中的新增功能](../virtualization/hyper-v/What-s-new-in-Hyper-V-on-Windows.md)。 本主题介绍了 Windows Server 2016 中的 Hyper-V 角色、运行在 Windows 10 上的客户端 Hyper-V 和 Microsoft Hyper-V Server 2016 中的新增和更改的功能。  
 
--   [Windows 容器](https://msdn.microsoft.com/virtualization/windowscontainers/containers_welcome):Windows Server 2016 容器支持增加了 Windows 10 上的性能改进，简化了的网络管理和支持 Windows 容器。 在容器上一些其他信息，请参阅[容器：Docker、 Windows 和趋势](https://azure.microsoft.com/blog/2015/08/17/containers-docker-windows-and-trends/)。  
+-   [Windows 容器](https://msdn.microsoft.com/virtualization/windowscontainers/containers_welcome)：Windows Server 2016 容器支持增加了性能改进，简化了网络管理，并在 Windows 10 上支持 Windows 容器。 有关容器的某些其他信息，请参阅[容器：Docker、Windows 和趋势](https://azure.microsoft.com/blog/2015/08/17/containers-docker-windows-and-trends/)。  
 
 ### <a name="nano-server"></a>Nano Server  
 [Nano Server](getting-started-with-nano-server.md) 的新增功能。 Nano Server 具有一个已更新的模块，用于构建 Nano Server 映像，包括物理主机和来宾虚拟机功能的更大分离度，以及对不同 Windows Server 版本的支持。   
@@ -63,7 +63,7 @@ Windows Server 2016 提供新的基于 Hyper-V 的受防护的虚拟机，以保
 身份标识中的新功能提高了组织保护 Active Directory 环境的能力，并帮助他们迁移到仅限云的部署和混合部署，其中某些应用程序和服务托管在云中，其他的则托管在本地。  
 
 ### <a name="active-directory-certificate-services"></a>Active Directory 证书服务  
-Windows Server 2016 中 active Directory 证书服务 (AD CS) 增加了对 TPM 密钥证明的支持：现在可以使用智能卡 KSP 进行密钥证明，而未加入域的设备现在可以使用 NDES 注册以获得可证明 TPM 中密钥的证书。  
+Windows Server 2016 中的 Active Directory 证书服务 (AD CS) 增加了对 TPM 密钥证明的支持：现可使用智能卡 KSP 进行密钥证明，而未加入域的设备现在可以使用 NDES 注册，以获得可证明 TPM 中密钥的证书。  
 
 ### <a name="active-directory-domain-services"></a>Active Directory 域服务  
 Active Directory 域服务包括可帮助组织保护 Active Directory 环境并为公司和个人设备提供更好的标识管理体验的改进。 有关详细信息，请参阅 [What's new in Active Directory Domain Services (AD DS) in Windows Server 2016](../identity/whats-new-active-directory-domain-services.md)（Windows Server 2016 中 Active Directory 域服务 (AD DS) 中的新增功能）。   
@@ -96,7 +96,7 @@ Windows Server 2016 和 Windows 10 引入了一种新的 PackageManagement 功�
 ### <a name="powershell-enhancements-to-assist-digital-forensics-and-help-reduce-security-breaches"></a>有助于数字取证和减少安全漏洞的 PowerShell 增强功能
 为了帮助负责调查受损系统的团队（有时称为“蓝队”），我们已添加其他 PowerShell 日志记录和其他数字取证功能，并且已添加有助于在脚本中减少漏洞的功能，例如受限的 PowerShell 和安全 CodeGeneration API。
 
-有关详细信息，请参阅 [PowerShell ♥ 红心大战蓝队](https://blogs.msdn.microsoft.com/powershell/2015/06/09/powershell-the-blue-team/)。
+有关详细信息，请参阅 [PowerShell ♥ 蓝队](https://blogs.msdn.microsoft.com/powershell/2015/06/09/powershell-the-blue-team/)。
 
 ## <a name="networkingnetworkingnetworkingmd"></a>[网络](../networking/Networking.md)  
 本部分论述了适用于 IT 专业人员的网络产品和功能，可用于设计、部署和维护 Windows Server 2016。  
@@ -128,7 +128,7 @@ Device Guard 通过创建指定哪些代码可以在服务器上运行的策略�
 ### <a name="windows-defender"></a>Windows Defender  
 [Windows Server 2016 的 Windows Defender 概述](../security/windows-defender/windows-defender-overview-windows-server.md)。 默认情况下，Windows Server Antimalware 已在 Windows Server 2016 中安装并处于启用状态，但是 Windows Server Antimalware 的用户界面尚未安装。 但是，Windows Server Antimalware 会在没有用户界面的情况下更新反恶意软件定义并保护计算机。 如果需要 Windows Server Antimalware 的用户界面，则可以使用“添加角色和功能向导”在操作系统安装之后安装它。
 
-### <a name="control-flow-guard"></a>控制流保护
+### <a name="control-flow-guard"></a>控制流防护
 控制流防护 (CFG) 是一种平台安全功能，旨在防止内存损坏漏洞。 有关详细信息，请参阅 [Control Flow Guard](https://msdn.microsoft.com/library/windows/desktop/mt637065(v=vs.85).aspx)（控制流防护）。
 
 
@@ -178,12 +178,12 @@ Windows Server 2016 中包括多个服务器的新功能和增强功能，它们
 
 ## <a name="application-development"></a>应用程序开发
 
-### <a name="internet-information-services-iis-100"></a>Internet 信息服务 (IIS) 10.0
+### <a name="internet-information-services-iis-100"></a>Internet Information Services (IIS) 10.0
 Windows Server 2016 中的 IIS 10.0 Web 服务器提供的新增功能包括：
 
 - 在网络堆栈中支持 HTTP/2 协议，并与 IIS 10.0 集成，允许 IIS 10.0 网站针对支持的配置为 HTTP/2 请求自动提供服务。 与 HTTP/1.1 相比，这会有大量的增强功能，例如，更有效地重用连接和减少延迟、提高网页的加载速度。 
 - 在 Nano Server 中运行和管理 IIS 10.0 的功能。 请参阅 [Nano Server 上的 IIS](iis-on-nano-server.md)。
-- 支持通配符主机标头，使管理员能够设置 web 服务器的域，然后为任何子域的请求提供服务的 web 服务器。
+- 支持通配符主机头，使管理员能够为域设置 Web 服务器，然后让 Web 服务器为任何子域的请求提供服务。
 - 一个用于管理 IIS 的新 PowerShell 模块 (IISAdministration)。 
 
 有关更多详细信息，请参阅 [IIS](https://iis.net/learn)。
@@ -191,14 +191,14 @@ Windows Server 2016 中的 IIS 10.0 Web 服务器提供的新增功能包括：
 ### <a name="distributed-transaction-coordinator-msdtc"></a>分布式事务处理协调器 (MSDTC)
 Microsoft Windows 10 和 Windows Server 2016 中添加了三个新功能：
 
-- 资源管理器可以使用资源管理器重新加入的新界面，以在数据库由于错误重启后确定未决事务的结果。 有关详细信息，请参阅 [IResourceManagerRejoinable::Rejoin](https://msdn.microsoft.com/en-us/library/mt203799(v=vs.85).aspx)。
+- 资源管理器可以使用资源管理器重新加入的新界面，以在数据库由于错误重启后确定未决事务的结果。 有关详细信息，请参阅 [IResourceManagerRejoinable::Rejoin](https://msdn.microsoft.com/library/mt203799(v=vs.85).aspx)。
 
-- DSN 名称限制从 256 字节扩大到 3072 字节。 有关详细信息，请参阅 [IDtcToXaHelperFactory::Create](https://msdn.microsoft.com/en-us/library/ms686861(v=vs.85).aspx)、[IDtcToXaHelperSinglePipe::XARMCreate](https://msdn.microsoft.com/en-us/library/ms679248(v=vs.85).aspx) 或 [IDtcToXaMapper::RequestNewResourceManager](https://msdn.microsoft.com/en-us/library/ms680310(v=vs.85).aspx)。
+- DSN 名称限制从 256 字节扩大到 3072 字节。 有关详细信息，请参阅 [IDtcToXaHelperFactory::Create](https://msdn.microsoft.com/library/ms686861(v=vs.85).aspx)、[IDtcToXaHelperSinglePipe::XARMCreate](https://msdn.microsoft.com/library/ms679248(v=vs.85).aspx) 或 [IDtcToXaMapper::RequestNewResourceManager](https://msdn.microsoft.com/library/ms680310(v=vs.85).aspx)。
 
-- 利用改进的跟踪功能，你可以设置注册表项以在跟踪日志文件名中包括图像文件路径，以便能够告知要检查的跟踪日志文件。 有关为 MSDTC 配置跟踪的详细信息，请参阅[如何在基于 Windows 的计算机上为 MS DTC 启用诊断跟踪](https://support.microsoft.com/en-us/kb/926099)。
+- 利用改进的跟踪功能，可以设置注册表项以在跟踪日志文件名中包括映像文件路径，以便能够告知要检查的跟踪日志文件。 有关为 MSDTC 配置跟踪的详细信息，请参阅[如何在基于 Windows 的计算机上为 MS DTC 启用诊断跟踪](https://support.microsoft.com/en-us/kb/926099)。
 
 
 
-## <a name="see-also"></a>请参阅  
+## <a name="see-also"></a>另请参阅  
 -   [发行说明：Windows Server 2016 中的重要问题](Windows-Server-2016-GA-Release-Notes.md)  
 

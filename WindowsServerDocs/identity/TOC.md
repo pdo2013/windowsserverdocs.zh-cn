@@ -421,6 +421,7 @@
 #### [规划基于设备的本地条件访问](ad-fs/deployment/Plan-Device-based-Conditional-Access-on-Premises.md)
 
 #### [设置 AD FS 实验室环境](ad-fs/operations/Set-up-an-AD-FS-lab-environment.md)
+#### [SQL 微调和寻址延迟](ad-fs/operations/adfs-sql-latency.md)
 #### [操作实例指南：使用适用于敏感应用程序的附加多重身份验证管理风险](ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 #### [操作实例指南：使用条件访问控制管理风险](ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
 #### [演练：使用 Windows 设备加入工作区](ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)

@@ -1,6 +1,6 @@
 ---
-title: 远程桌面连接故障排除
-description: 故障排除过程按症状排列
+title: 排查远程桌面连接问题
+description: 按症状列出的故障排除过程
 ms.custom: na
 ms.reviewer: rklemen; josh.bender
 ms.suite: na
@@ -12,139 +12,139 @@ manager: ''
 ms.author: kaushika; rklemen; josh.bender; v-tea
 ms.date: 02/22/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 43e40f8442600dfc66dafd6b8b210274908b4595
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.openlocfilehash: c6ce719ffa24cfc6704348c17548fe5cf33d9271
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446719"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284140"
 ---
-# <a name="troubleshooting-remote-desktop-connections"></a>远程桌面连接故障排除
-有关的几个最常见的远程桌面服务 (RDS) 问题的简短说明，请参阅[有关远程桌面客户端常见问题](https://review.docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-client-faq)。 本文介绍排查连接问题的几个更高级的方法。 这些过程的许多应用是否正在排查的简单配置，如一台物理计算机连接到另一台物理计算机或更复杂的配置。 某些过程解决问题，仅在更复杂的多用户方案中出现。 有关远程桌面组件以及它们如何协同工作的详细信息，请参阅[远程桌面服务体系结构](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)。
+# <a name="troubleshooting-remote-desktop-connections"></a>排查远程桌面连接问题
+有关几种最常见远程桌面服务 (RDS) 问题的简要说明，请参阅[有关远程桌面客户端的常见问题解答](https://review.docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-client-faq)。 本文介绍排查连接问题的几种高级方法。 不管要排查的是简单配置（例如，一台物理计算机连接到另一台物理计算机）还是较复杂的配置，其中的许多故障排除过程都适用。 某些过程可以解决只会在更复杂的多用户方案中出现的问题。 有关远程桌面组件及其如何协同工作的详细信息，请参阅[远程桌面服务体系结构](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)。
 
 > [!NOTE]  
-> 本文中介绍的过程的许多要求访问多个计算机，其中一些您可能需要远程访问。 有关远程管理工具以及如何将其配置的详细信息，请参阅[远程服务器管理工具 (RSAT) 的 Windows 操作系统](https://support.microsoft.com/en-us/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems)。
+> 本文所述的许多过程要求访问多台计算机，而且需要远程访问其中的某些计算机。 有关远程管理工具及其配置方式的详细信息，请参阅[适用于 Windows 操作系统的远程服务器管理工具 (RSAT)](https://support.microsoft.com/en-us/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems)。
 
-在以下列表中，确定你 （或你的用户） 遇到的症状的类型。
+在以下列表中，找到你（或你的用户）当前遇到的症状类型。
 
-- [远程桌面客户端无法连接到远程桌面，但没有任何具体的症状或消息 （常规故障排除步骤）](#no-specific-symptoms-or-messages-general-troubleshooting-steps)
-- [远程桌面客户端无法连接到远程桌面，并收到"未注册类"消息](#client-cannot-connect-class-not-registered)
-- [远程桌面客户端无法连接到远程桌面，并收到"无可用的许可证"或"安全错误"消息](#client-cannot-connect-no-licenses-available)
-- [用户收到"拒绝访问"消息时，或者必须两次提供凭据](#user-cannot-authenticate-or-must-authenticate-twice)
-- [在连接时，收到"远程桌面服务是当前正忙"消息](#on-connecting-user-receives-remote-desktop-service-is-currently-busy-message)
-- [远程桌面客户端断开连接，并不能重新连接到同一个会话](#rd-client-disconnects-and-cannot-reconnect-to-the-same-session)
-- [用户通过无线网络连接到远程的便携式计算机和便携式计算机然后从网络断开连接](#remote-laptop-disconnects-from-wireless-network)。
-- [用户感觉到性能不佳或远程应用程序的问题](#user-experiences-poor-performance-or-application-problems)
+- [远程桌面客户端无法连接到远程桌面，但没有任何具体症状或消息（常规故障排除步骤）](#no-specific-symptoms-or-messages-general-troubleshooting-steps)
+- [远程桌面客户端无法连接到远程桌面，并收到“类未注册”消息](#client-cannot-connect-class-not-registered)
+- [远程桌面客户端无法连接到远程桌面，并收到“没有可用的许可证”或“安全错误”消息](#client-cannot-connect-no-licenses-available)
+- [用户收到“拒绝访问”消息，或必须提供凭据两次](#user-cannot-authenticate-or-must-authenticate-twice)
+- [连接时收到“远程桌面服务当前繁忙”消息](#on-connecting-user-receives-remote-desktop-service-is-currently-busy-message)
+- [远程桌面客户端断开连接且无法重新连接到同一会话](#rd-client-disconnects-and-cannot-reconnect-to-the-same-session)
+- [用户通过无线网络连接到远程笔记本电脑，但随后笔记本电脑断开网络连接](#remote-laptop-disconnects-from-wireless-network)。
+- [用户在使用远程应用程序时遇到性能不佳的情况或问题](#user-experiences-poor-performance-or-application-problems)
 
 > [!NOTE]  
-> 有关 RDP 断开连接代码的当前列表，请参阅[ExtendedDisconnectReasonCode 枚举](https://docs.microsoft.com/en-us/windows/desktop/TermServ/extendeddisconnectreasoncode)。 
+> 有关最新的 RDP 断开连接代码列表，请参阅 [ExtendedDisconnectReasonCode 枚举](https://docs.microsoft.com/windows/desktop/TermServ/extendeddisconnectreasoncode)。 
 
-## <a name="no-specific-symptoms-or-messages-general-troubleshooting-steps"></a>没有具体的症状或消息 （常规故障排除步骤）
+## <a name="no-specific-symptoms-or-messages-general-troubleshooting-steps"></a>没有具体的症状或消息（常规故障排除步骤）
 
-远程桌面客户端无法连接到远程桌面，但不提供消息或其他症状会帮助确定原因时，请使用以下步骤。 若要解决许多这类问题的最常见原因，请使用以下方法：
+如果远程桌面客户端无法连接到远程桌面，但未提供可帮助识别原因的消息或其他症状，请使用以下步骤。 若要解决此类问题的许多最常见原因，请使用以下方法：
 
 - [检查 RDP 协议的状态](#check-the-status-of-the-rdp-protocol)
-- [检查的 RDP 服务的状态](#check-the-status-of-the-rdp-services)
-- [检查 RDP 侦听器正常工作](#check-that-the-rdp-listener-is-functioning)
+- [检查 RDP 服务的状态](#check-the-status-of-the-rdp-services)
+- [检查 RDP 侦听器是否正常运行](#check-that-the-rdp-listener-is-functioning)
 - [检查 RDP 侦听器端口](#check-the-rdp-listener-port)
 
 ### <a name="check-the-status-of-the-rdp-protocol"></a>检查 RDP 协议的状态
 
-#### <a name="check-the-status-of-the-rdp-protocol-on-a-local-computer"></a>检查本地计算机上的 RDP 协议的状态
+#### <a name="check-the-status-of-the-rdp-protocol-on-a-local-computer"></a>检查本地计算机上 RDP 协议的状态
 
-若要检查并更改本地计算机上的 RDP 协议的状态，请参阅[如何启用远程桌面](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access#how-to-enable-remote-desktop)。
+若要检查和更改本地计算机上 RDP 协议的状态，请参阅[如何启用远程桌面](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access#how-to-enable-remote-desktop)。
 
 > [!NOTE]  
-> 如果远程桌面选项不可用，请参阅[检查组策略对象是否阻止 RDP](#check-whether-a-group-policy-object-gpo-is-blocking-rdp-on-a-local-computer)。
+> 如果远程桌面选项不可用，请参阅[检查组策略对象是否正在阻止 RDP](#check-whether-a-group-policy-object-gpo-is-blocking-rdp-on-a-local-computer)。
 
-#### <a name="check-the-status-of-the-rdp-protocol-on-a-remote-computer"></a>检查远程计算机上的 RDP 协议的状态
+#### <a name="check-the-status-of-the-rdp-protocol-on-a-remote-computer"></a>检查远程计算机上 RDP 协议的状态
 
 > [!IMPORTANT]  
-> 请仔细按照本部分中的步骤。 如果注册表修改不正确，可能会发生严重问题。 在修改之前[备份注册表以进行还原](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22)在出现问题时。
+> 请认真遵循本部分所述的步骤。 如果注册表修改不正确，可能会发生严重问题。 在修改注册表之前，请[备份注册表](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22)，以便在出现问题时可以还原。
 
-若要检查并更改远程计算机上的 RDP 协议的状态，使用网络注册表连接：
+若要检查和更改远程计算机上 RDP 协议的状态，请使用网络注册表连接：
 
-1. 选择**启动**，选择**运行**，然后输入**regedt32**。
-2. 在注册表编辑器中，选择**文件**，然后选择**连接网络注册表**。
-3. 在中**选择计算机**对话框框中，输入远程计算机的名称，选择**检查名称**，然后选择**确定**。
-4. 导航到**HKEY\_本地\_机\\系统\\CurrentControlSet\\控制\\终端服务器**。  
-   ![注册表编辑器中，显示 fDenyTSConnections 条目](../media/troubleshoot-remote-desktop-connections/RegEntry_fDenyTSConnections.png)
-   - 如果的值**fDenyTSConnections**该键**0**，则启用 RDP
-   - 如果的值**fDenyTSConnections**该键**1**，则禁用 RDP
-5. 若要启用 RDP，更改的值**fDenyTSConnections**从**1**到**0**。
+1. 依次选择“开始”、“运行”，然后输入 **regedt32**。  
+2. 在注册表编辑器中，依次选择“文件”、“连接网络注册表”。  
+3. 在“选择计算机”对话框中输入远程计算机的名称，然后依次选择“检查名称”、“确定”。   
+4. 导航到“HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server”。   
+   ![注册表编辑器，其中显示了 fDenyTSConnections 条目](../media/troubleshoot-remote-desktop-connections/RegEntry_fDenyTSConnections.png)
+   - 如果 **fDenyTSConnections** 项的值为 **0**，则表示已启用 RDP
+   - 如果 **fDenyTSConnections** 项的值为 **1**，则表示已禁用 RDP
+5. 若要启用 RDP，请将 **fDenyTSConnections** 的值从 **1** 更改为 **0**。
 
-#### <a name="check-whether-a-group-policy-object-gpo-is-blocking-rdp-on-a-local-computer"></a>检查组策略对象 (GPO) 是否阻止本地计算机上的 RDP
+#### <a name="check-whether-a-group-policy-object-gpo-is-blocking-rdp-on-a-local-computer"></a>检查组策略对象 (GPO) 是否正在阻止本地计算机上的 RDP
 
-如果你不能启用的用户界面中的 RDP 或如果的值**fDenyTSConnections**将恢复为**1** GPO 已更改后，可能会覆盖计算机级别设置。
+如果无法在用户界面中启用 RDP，或者在更改 **fDenyTSConnections** 的值后该值恢复为 **1**，则可能表示某个 GPO 取代了计算机级别的设置。
 
-若要检查本地计算机上的组策略配置，请打开命令提示符窗口，以管理员身份，并输入以下命令：
+若要检查本地计算机上的组策略配置，请以管理员身份打开命令提示符窗口，然后输入以下命令：
 ```
 gpresult /H c:\gpresult.html
 ```
-此命令完成后，打开 gpresult.html。 在中**计算机配置\\管理模板\\Windows 组件\\远程桌面服务\\远程桌面会话主机\\连接**，查找**允许用户使用远程桌面服务连接远程**策略。
+完成此命令后，打开 gpresult.html。 在“计算机配置”\\“管理模板”\\“Windows 组件”\\“远程桌面服务”\\“远程桌面会话主机”\\“连接”中，找到“允许用户通过使用远程桌面服务进行远程连接”策略。  
 
-- 如果为此策略设置为**已启用**，组策略不会阻止 RDP 连接。
-- 如果为此策略设置为**已禁用**，检查**入选 GPO**。 这是正在阻止 RDP 连接的 GPO。
-  ![Gpresult.html，在其中一个示例段域级别 GPO * * 块 RDP * * 正在禁用 RDP。](../media/troubleshoot-remote-desktop-connections/GPResult_RDSH_Connections_GP.png)
+- 如果此策略的设置为“已启用”，则表示组策略未阻止 RDP 连接。 
+- 如果此策略的设置为“已禁用”，请检查“入选的 GPO”。   正在此 GPO 在阻止 RDP 连接。
+  ![gpresult.html 的示例片段，其中的域级别 GPO“阻止 RDP”正在禁用 RDP。](../media/troubleshoot-remote-desktop-connections/GPResult_RDSH_Connections_GP.png)
    
-  ![Gpresult.html，在其中一个示例段 * * 本地组策略 * * 正在禁用 RDP。](../media/troubleshoot-remote-desktop-connections/GPResult_RDSH_Connections_LGP.png)
+  ![gpresult.html 的示例片段，其中的“本地组策略”正在禁用 RDP。](../media/troubleshoot-remote-desktop-connections/GPResult_RDSH_Connections_LGP.png)
 
-#### <a name="check-whether-a-gpo-is-blocking-rdp-on-a-remote-computer"></a>检查 GPO 是否阻止远程计算机上的 RDP
+#### <a name="check-whether-a-gpo-is-blocking-rdp-on-a-remote-computer"></a>检查 GPO 是否正在阻止远程计算机上的 RDP
 
-若要检查远程计算机上的组策略配置，该命令与本地计算机几乎相同：
+若要检查远程计算机上的组策略配置，所用的命令基本上与本地计算机相同：
 ```
 gpresult /S <computer name> /H c:\gpresult-<computer name>.html
 ```
-此命令将生成的文件 (**gpresult-\<计算机名\>.html**) 作为本地计算机版本使用相同的信息格式 (**gpresult.html**) 使用。
+此命令生成的文件 (**gpresult-\<computer name\>.html**) 使用的信息格式与本地计算机版本 (**gpresult.html**) 使用的格式相同。
 
-#### <a name="modifying-a-blocking-gpo"></a>修改阻塞的 GPO
+#### <a name="modifying-a-blocking-gpo"></a>修改阻止 GPO
 
-可以修改的组策略对象编辑器 (GPE) 和组策略管理控制台 (GPM) 中的这些设置。 有关如何使用组策略的详细信息，请参阅[高级组策略管理](https://docs.microsoft.com/en-us/microsoft-desktop-optimization-pack/agpm/)。
+可以在组策略对象编辑器 (GPE) 和组策略管理控制台 (GPM) 中修改这些设置。 有关如何使用组策略的详细信息，请参阅[高级组策略管理](https://docs.microsoft.com/microsoft-desktop-optimization-pack/agpm/)。
 
-若要修改的阻止策略，请使用以下方法之一：
+若要修改阻止策略，请使用以下方法之一：
 
-- 在 GPE，访问 （例如本地或域） 的适当级别的 GPO，并导航到**计算机配置\\管理模板\\Windows 组件\\远程桌面服务\\远程桌面会话主机\\连接**\\**允许用户使用远程桌面服务连接远程**。  
-   1. 将策略设置为**已启用**或**未配置**。
-   2. 在受影响的计算机上打开命令提示符窗口，以管理员身份，并运行**gpupdate /force**命令。
-- 在 GPM，导航到在其中阻止策略应用于受影响的计算机的 OU 删除和策略的 OU。
+- 在 GPE 中访问 GPO 的相应级别（例如本地或域），然后导航到“计算机配置”\\“管理模板”\\“Windows 组件”\\“远程桌面服务”\\“远程桌面会话主机”\\“连接”\\“允许用户通过使用远程桌面服务进行远程连接”。    
+   1. 将策略设置为“已启用”或“未配置”。  
+   2. 在受影响的计算机上，以管理员身份打开命令提示符窗口，然后运行 **gpupdate /force** 命令。
+- 在 GPM 中，导航到其中的阻止策略已应用到受影响计算机的 OU，并从该 OU 中删除该策略。
 
-### <a name="check-the-status-of-the-rdp-services"></a>检查的 RDP 服务的状态
+### <a name="check-the-status-of-the-rdp-services"></a>检查 RDP 服务的状态
 
-在本地 （客户端） 计算机和远程 （目标） 计算机上，应运行以下服务：
+在本地（客户端）计算机和远程（目标）计算机上，以下服务应该正在运行：
 
 - 远程桌面服务 (TermService)
-- 远程桌面服务 UserMode 端口重定向程序 (UmRdpService)
+- 远程桌面服务用户模式端口重定向程序 (UmRdpService)
 
-可以使用服务 MMC 管理单元用于本地或远程管理的服务。 本地或远程方式，还可以使用 PowerShell （如果远程计算机配置为接受远程 PowerShell 命令）。
+可以使用“服务”MMC 管理单元在本地或远程管理这些服务。 还可以在本地或远程使用 PowerShell（如果远程计算机配置为接受远程 PowerShell 命令）。
 
-![在服务 MMC 管理单元中的远程桌面服务。 不要修改默认服务设置。](../media/troubleshoot-remote-desktop-connections/RDSServiceStatus.png)
+![“服务”MMC 管理单元中的远程桌面服务。 不要修改默认服务设置。](../media/troubleshoot-remote-desktop-connections/RDSServiceStatus.png)
 
-在任何一台计算机，如果一个或两个服务未运行，启动它们。
+在任一计算机上，如果上述一个或两个服务未运行，请启动它们。
 
 > [!NOTE]  
-> 如果您启动远程桌面服务的服务，请单击**是**自动重新启动远程桌面服务 UserMode 端口重定向程序服务。
+> 如果启动了“远程桌面服务”服务，请单击“是”自动重启“远程桌面服务用户模式端口重定向程序”服务。 
 
-### <a name="check-that-the-rdp-listener-is-functioning"></a>检查 RDP 侦听器正常工作
+### <a name="check-that-the-rdp-listener-is-functioning"></a>检查 RDP 侦听器是否正常运行
 
 > [!IMPORTANT]  
-> 请仔细按照本部分中的步骤。 如果注册表修改不正确，可能会发生严重问题。 在修改之前[备份注册表以进行还原](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22)在出现问题时。
+> 请认真遵循本部分所述的步骤。 如果注册表修改不正确，可能会发生严重问题。 在修改注册表之前，请[备份注册表](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22)，以便在出现问题时可以还原。
 
 #### <a name="check-the-status-of-the-rdp-listener"></a>检查 RDP 侦听器的状态
 
-对于此过程，使用具有管理权限的 PowerShell 实例。 对于本地计算机，您还可以使用具有管理权限的命令提示符。 但是，此过程使用 PowerShell，因为相同的命令都能正常工作本地和远程。
+请使用具有管理权限的 PowerShell 实例完成此过程。 对于本地计算机，还可以使用具有管理权限的命令提示符。 但是，此过程使用 PowerShell，因为相同的命令可以在本地和远程运行。
 
-1. 打开 PowerShell 窗口。 若要连接到远程计算机，请输入**Enter-pssession-ComputerName\<计算机名\>** 。
-2. 输入**qwinsta**。 
-    ![Qwinsta 命令将列出计算机的端口上侦听的进程。](../media/troubleshoot-remote-desktop-connections/WPS_qwinsta.png)
-3. 如果列表中包含**rdp tcp**状态为**侦听**，RDP 侦听器是否正常工作。 请继续执行[检查 RDP 侦听器端口](#check-the-rdp-listener-port)。 否则，继续执行步骤 4。
-4. 从工作的计算机导出 RDP 侦听器配置。
-    1. 登录到具有相同的操作系统版本，因为受影响的计算机，计算机并访问该计算机的注册表 （例如，通过使用注册表编辑器）。
+1. 打开 PowerShell 窗口。 若要连接到远程计算机，请输入 **Enter-PSSession -ComputerName \<计算机名\>** 。
+2. 输入 **qwinsta**。 
+    ![qwinsta 命令会列出在计算机端口上侦听的进程。](../media/troubleshoot-remote-desktop-connections/WPS_qwinsta.png)
+3. 如果列表中包含状态为 **Listen** 的 **rdp-tcp**，则表示 RDP 侦听器正在运行。 继续[检查 RDP 侦听器端口](#check-the-rdp-listener-port)。 否则，请继续执行步骤 4。
+4. 从工作计算机导出 RDP 侦听器配置。
+    1. 登录到操作系统版本与受影响计算机相同的计算机，并访问该计算机的注册表（例如，使用注册表编辑器）。
     2. 导航到以下注册表项：  
         **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp**
-    3. 将条目导出到.reg 文件。 例如，在注册表编辑器中，右键单击该条目，选择**导出**，并在导出的设置中输入文件名。
-    4. 将导出的.reg 文件复制到受影响的计算机。
-5. 若要导入 RDP 侦听器配置，请打开 PowerShell 窗口，在受影响的计算机上具有管理权限 （或打开 PowerShell 窗口并远程连接到受影响的计算机）。
-   1. 若要备份的现有的注册表项，请输入以下命令：  
+    3. 将该项导出到 .reg 文件。 例如，在注册表编辑器中，右键单击该项，选择“导出”，然后输入所导出设置的文件名。 
+    4. 将导出的 .reg 文件复制到受影响的计算机。
+5. 若要导入 RDP 侦听器配置，请在受影响的计算机上打开具有管理权限的 PowerShell 窗口（或打开 PowerShell 窗口并远程连接到受影响的计算机）。
+   1. 若要备份现有的注册表项，请输入以下命令：  
    
       ```powershell  
       cmd /c 'reg export "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-tcp" C:\Rdp-tcp-backup.reg'   
@@ -157,467 +157,467 @@ gpresult /S <computer name> /H c:\gpresult-<computer name>.html
       Remove-Item -path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-tcp' -Recurse -Force  
       ```
    
-   3. 若要导入新的注册表条目，然后重新启动该服务，请输入以下命令：  
+   3. 若要导入新的注册表项并重启服务，请输入以下命令：  
    
       ```powershell  
       cmd /c 'regedit /s c:\<filename>.reg'  
       Restart-Service TermService -Force  
       ```   
-      其中\<文件名\>是导出的.reg 文件的名称。
-6. 尝试远程桌面连接再次测试配置。 如果仍然无法连接，请重新启动受影响的计算机。
-7. 如果仍然无法连接，[检查 RDP 自签名证书的状态](#check-the-status-of-the-rdp-self-signed-certificate)。
+      其中，\<filename\> 是导出的 .reg 文件的名称。
+6. 通过再次尝试远程桌面连接来测试配置。 如果仍然无法连接，请重启受影响的计算机。
+7. 如果仍然无法连接，请[检查 RDP 自签名证书的状态](#check-the-status-of-the-rdp-self-signed-certificate)。
 
 #### <a name="check-the-status-of-the-rdp-self-signed-certificate"></a>检查 RDP 自签名证书的状态
 
-1. 如果仍然无法连接，打开证书 MMC 管理单元中。 当提示选择要管理中，选择的证书存储**计算机帐户**，然后选择受影响的计算机。
-2. 在中**证书**下的文件夹**远程桌面**，删除 RDP 自签名的证书。 
-    ![在 MMC 证书管理单元中的远程桌面证书。](../media/troubleshoot-remote-desktop-connections/MMCCert_Delete.png)
-3. 在受影响的计算机上重新启动远程桌面服务服务。
-4. 证书管理单元中的刷新。
-5. 如果尚未重新创建 RDP 自签名的证书[检查的 MachineKeys 文件夹权限](#check-the-permissions-of-the-machinekeys-folder)。
+1. 如果仍然无法连接，请打开“证书”MMC 管理单元。 根据提示选择要管理的证书存储，选择“计算机帐户”，然后选择受影响的计算机。 
+2. 在“远程桌面”下的“证书”文件夹中，删除 RDP 自签名证书。   
+    ![“证书”MMC 管理单元中的远程桌面证书。](../media/troubleshoot-remote-desktop-connections/MMCCert_Delete.png)
+3. 在受影响的计算机上，重启“远程桌面服务”服务。
+4. 刷新“证书”管理单元。
+5. 如果尚未重新创建 RDP 自签名证书，请[检查 MachineKeys 文件夹的权限](#check-the-permissions-of-the-machinekeys-folder)。
 
-#### <a name="check-the-permissions-of-the-machinekeys-folder"></a>检查的 MachineKeys 文件夹的权限
+#### <a name="check-the-permissions-of-the-machinekeys-folder"></a>检查 MachineKeys 文件夹的权限
 
-1. 在受影响的计算机中，打开资源管理器，，然后导航到**c:\\ProgramData\\Microsoft\\Crypto\\RSA\\** 。
-2. 右键单击**MachineKeys**，选择**属性**，选择**安全**，然后选择**高级**。
-3. 请确保配置以下权限：
-      - 内置\\管理员：完全控制
-      - 任何人：读取、 写入
+1. 在受影响的计算机上打开“资源管理器”，然后导航到 **C:\\ProgramData\\Microsoft\\Crypto\\RSA\\** 。
+2. 右键单击“MachineKeys”，依次选择“属性”、“安全性”、“高级”。    
+3. 确保已配置以下权限：
+      - Builtin\\Administrators：完全控制
+      - Everyone：读取、写入
 
 ### <a name="check-the-rdp-listener-port"></a>检查 RDP 侦听器端口
 
-在本地 （客户端） 计算机和远程 （目标） 计算机上，应在端口 3389 上侦听 RDP 侦听器。 任何其他应用程序应不使用此端口。
+在本地（客户端）计算机和远程（目标）计算机上，RDP 侦听器应在端口 3389 上运行。 不应有任何其他应用程序正在使用此端口。
 
 > [!IMPORTANT]  
-> 请仔细按照本部分中的步骤。 如果注册表修改不正确，可能会发生严重问题。 在修改之前[备份注册表以进行还原](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22)在出现问题时。
+> 请认真遵循本部分所述的步骤。 如果注册表修改不正确，可能会发生严重问题。 在修改注册表之前，请[备份注册表](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22)，以便在出现问题时可以还原。
 
 若要检查或更改 RDP 端口，请使用注册表编辑器：
 
-1. 选择开始，选择**运行**，然后输入**regedt32**。
-      - 若要连接到远程计算机，请选择**文件**，然后选择**连接网络注册表**。
-      - 在中**选择计算机**对话框框中，输入远程计算机的名称，选择**检查名称**，然后选择**确定**。
-2. 打开注册表并导航到**HKEY\_本地\_机\\系统\\CurrentControlSet\\控制\\终端服务器\\WinStations\\\<侦听器\>** 。 
-    ![RDP 协议在端口号子项。](../media/troubleshoot-remote-desktop-connections/RegEntry_PortNumber.png)
-3. 如果**PortNumber**而不具有值**3389**，将其更改为**3389**。 
+1. 依次选择“开始”、“运行”，然后输入 **regedt32**。 
+      - 若要连接到远程计算机，请依次选择“文件”、“连接网络注册表”。  
+      - 在“选择计算机”对话框中输入远程计算机的名称，然后依次选择“检查名称”、“确定”。   
+2. 打开注册表并导航到“HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\\<侦听器\>”。  
+    ![RDP 协议的 PortNumber 子项。](../media/troubleshoot-remote-desktop-connections/RegEntry_PortNumber.png)
+3. 如果 **PortNumber** 的值不是 **3389**，请将其更改为 **3389**。 
    > [!IMPORTANT]  
-    > 可以运行远程桌面服务使用另一个端口。 但是，我们不建议执行此操作。 解决此类配置不属于本文的讨论范围。
-4. 更改端口号后，重新启动远程桌面服务服务。
+    > 可以使用另一个端口来操作远程桌面服务。 但是，我们不建议这样做。 排查此类配置问题不属于本文的讨论范围。
+4. 更改端口号后，重启“远程桌面服务”服务。
 
-#### <a name="check-that-another-application-is-not-trying-to-use-the-same-port"></a>检查另一个应用程序未尝试使用相同的端口
+#### <a name="check-that-another-application-is-not-trying-to-use-the-same-port"></a>检查另一个应用程序是否未尝试使用同一端口
 
-对于此过程，使用具有管理权限的 PowerShell 实例。 对于本地计算机，您还可以使用具有管理权限的命令提示符。 但是，此过程使用 PowerShell，因为相同的命令处理本地和远程。
+请使用具有管理权限的 PowerShell 实例完成此过程。 对于本地计算机，还可以使用具有管理权限的命令提示符。 但是，此过程使用 PowerShell，因为相同的命令可以在本地和远程运行。
 
-1. 打开 PowerShell 窗口。 若要连接到远程计算机，请输入**Enter-pssession-ComputerName\<计算机名\>** 。
+1. 打开 PowerShell 窗口。 若要连接到远程计算机，请输入 **Enter-PSSession -ComputerName \<计算机名\>** 。
 2. 输入以下命令：  
    
      ```powershell  
     cmd /c 'netstat -ano | find "3389"'  
     ```
   
-    ![Netstat 命令生成端口和侦听这些服务的列表。](../media/troubleshoot-remote-desktop-connections/WPS_netstat.png)
+    ![netstat 命令会生成端口列表以及正在侦听这些端口的服务列表。](../media/troubleshoot-remote-desktop-connections/WPS_netstat.png)
 3. 查找状态为“正在监听”  的 TCP 端口 3389（或分配的 RDP 端口）条目。 
     > [!NOTE]  
    > 使用此端口的服务或进程的 PID（进程标识符）将出现在 PID 列下。
-4. 若要确定哪个应用程序正在使用端口 3389 （或分配的 RDP 端口），请输入以下命令：  
+4. 若要确定哪个应用程序正在使用端口 3389（或分配的 RDP 端口），请输入以下命令：  
    
      ```powershell  
     cmd /c 'tasklist /svc | find "<pid listening on 3389>"'  
     ```  
   
-    ![Tasklist 命令会报告特定过程的详细信息。](../media/troubleshoot-remote-desktop-connections/WPS_tasklist.png)
-5. 查找与端口相关联的 PID 号条目 (从**netstat**输出)。 服务或与该 PID 关联的进程显示在右侧。
-6. 如果应用程序或远程桌面服务 (TermServ.exe) 以外的服务正在使用该端口，可以通过使用以下方法之一来解决冲突：
-      - 配置的其他应用程序或服务以使用其他端口 （推荐）。
-      - 卸载其他应用程序或服务。
-      - 配置 RDP 使用其他端口，然后重新启动远程桌面服务服务 （不推荐）。
+    ![tasklist 命令会报告特定进程的详细信息。](../media/troubleshoot-remote-desktop-connections/WPS_tasklist.png)
+5. 查找与该端口关联的 PID 号条目（查看 **netstat** 输出）。 右侧将会显示与该 PID 关联的服务或进程。
+6. 如果除远程桌面服务 (TermServ.exe) 以外的某个应用程序或服务正在使用该端口，你可以使用以下方法之一来解决冲突：
+      - 将该应用程序或服务配置为使用其他端口（建议）。
+      - 卸载该应用程序或服务。
+      - 将 RDP 配置为使用其他端口，然后重启“远程桌面服务”服务（不建议）。
 
-#### <a name="check-whether-a-firewall-is-blocking-the-rdp-port"></a>检查防火墙是否阻止 RDP 端口
+#### <a name="check-whether-a-firewall-is-blocking-the-rdp-port"></a>检查防火墙是否正在阻止 RDP 端口
 
-使用**psping**工具以测试是否可以通过使用端口 3389 来访问受影响的计算机。
+使用 **psping** 工具测试是否可以通过端口 3389 访问受影响的计算机。
 
-1. 不同于受影响的计算机的计算机上, 下载**psping**从<https://live.sysinternals.com/psping.exe>。
-2. 打开命令提示符窗口，以管理员身份，更改到在其中安装目录**psping**，然后输入以下命令：  
+1. 在非影响的计算机上，从 <https://live.sysinternals.com/psping.exe> 下载 **psping**。
+2. 以管理员身份打开命令提示符窗口，切换到安装了 **psping** 的目录，然后输入以下命令：  
    
    ```  
    psping -accepteula <computer IP>:3389  
    ```
    
-3. 检查的输出**psping**命令的结果如下所示：  
-      - **连接到\<计算机 IP\>** :访问远程计算机。
-      - **(0 %loss)** :所有连接尝试成功。
-      - **在远程计算机被拒绝的网络连接**:在远程计算机不可访问。
-      - **（100%丢失）** :所有连接尝试失败。
-1. 运行**psping**多台计算机来测试其能否连接到受影响的计算机上。
-1. 请注意是否受影响的计算机上阻止从所有其他计算机、 某些其他计算机或只有一台其他计算机的连接。
+3. 在 **psping** 命令的输出中检查如下所示的结果：  
+      - **Connecting to \<计算机 IP\>** ：远程计算机可访问。
+      - **(0% loss)** ：所有连接尝试均成功。
+      - **The remote computer refused the network connection**：远程计算机不可访问。
+      - **(100% loss)** ：所有连接尝试均失败。
+1. 在多台计算机上运行 **psping**，以测试它们是否能够连接到受影响的计算机。
+1. 请注意受影响的计算机是阻止了来自所有其他计算机的连接、来自某些其他计算机的连接，还是仅来自其他一台计算机的连接。
 1. 建议的后续步骤：
-      - 请咨询你的网络管理员以验证网络允许 RDP 流量传输到受影响的计算机。
-      - 调查源计算机与受影响的计算机 （包括在受影响的计算机上的 Windows 防火墙） 之间的任何防火墙的配置以确定防火墙是否阻止 RDP 端口。
+      - 咨询网络管理员，验证网络是否允许 RDP 流量传输到受影响的计算机。
+      - 调查源计算机与受影响计算机之间的任何防火墙配置（包括受影响计算机上的 Windows 防火墙），以确定防火墙是否正在阻止 RDP 端口。
 
-## <a name="client-cannot-connect-class-not-registered"></a>客户端无法连接，"未注册类"
+## <a name="client-cannot-connect-class-not-registered"></a>客户端无法连接并出现“类未注册”错误
 
-当你尝试使用正在运行 Windows 10 版本 1709年的客户端连接到远程计算机或更高版本，客户端可能无法连接到远程桌面会话主机服务器报告一条消息时，包含"类未注册 (0x80040154)"错误代码。
+当你尝试使用运行 Windows 10 版本 1709 或更高版本的客户端连接到远程计算机时，该客户端无法连接，同时，远程桌面会话主机服务器报告一条包含“类未注册(0x80040154)”错误代码的消息。
 
-如果尝试连接的用户具有强制用户配置文件，会发生此问题。 若要解决此问题，请安装[2018 年 7 月 24 日 — KB4338817 (OS 生成 16299.579)](https://support.microsoft.com/en-us/help/4338817/windows-10-update-kb4338817) Windows 10 更新。
+如果尝试建立连接的用户必须要提供某个用户配置文件，则会发生此问题。 若要解决此问题，请安装 [2018 年 7 月 24 日 — KB4338817（OS 内部版本 16299.579）](https://support.microsoft.com/en-us/help/4338817/windows-10-update-kb4338817)Windows 10 更新。
 
-## <a name="client-cannot-connect-no-licenses-available"></a>客户端无法连接，无可用的许可证
+## <a name="client-cannot-connect-no-licenses-available"></a>客户端无法连接并出现“没有可用的许可证”错误
 
-这种情况下应用于包括 RDSH 服务器和远程桌面授权服务器的部署。
+这种情况应用于包含 RDSH 服务器和远程桌面许可服务器的部署。
 
-确定哪种类型的用户看到的行为：
+识别用户看到的行为种类：
 
-- 由于没有许可证可用，或没有许可证可用服务器的会话已断开连接
-- 由于安全错误，访问被拒绝
+- 由于没有可用的许可证或者没有可用的许可证服务器，会话已断开连接
+- 安全错误导致访问被拒绝
 
-登录到 RD 会话主机以域管理员，并打开远程桌面许可诊断程序。 查找消息如下所示：
+以域管理员身份登录到 RD 会话主机，然后打开 RD 许可证诊断程序。 找到如下所示的消息：
 
-  - 在宽限期内的远程桌面会话主机服务器已过期，但尚未与任何许可证服务器配置的 RD 会话主机服务器。 除非许可证服务器配置为 RD 会话主机服务器将拒绝连接到 RD 会话主机服务器。
-  - 许可证服务器\<计算机名\>不可用。 这可能引起网络连接问题、 远程桌面授权服务已停止在许可证服务器上，或在计算机上不再安装 RD 授权。
+  - 远程桌面会话主机服务器的宽限期已过，但未使用任何许可证服务器配置 RD 会话主机服务器。 除非为 RD 会话主机服务器配置了许可证服务器，否则将拒绝与 RD 会话主机服务器建立连接。
+  - 许可证服务器 \<计算机名\> 不可用。 原因可能是出现网络连接问题、远程桌面许可服务已在许可证服务器上停止，或者 RD 许可服务不再安装在计算机上。
 
-这些问题往往能够与以下用户消息相关联：
+这些问题往往与以下用户消息相关联：
 
-  - 远程会话已断开连接，因为此计算机没有远程桌面客户端访问许可证。
-  - 由于没有可用于提供许可证没有远程桌面许可证服务器，远程会话已断开连接。
+  - 由于此计算机没有可用的远程桌面客户端访问许可证，远程会话已断开连接。
+  - 由于没有远程桌面许可证服务器可以提供许可证，远程会话已断开连接。
 
-在这种情况下，[配置的 RD 授权服务](#configure-the-rd-licensing-service)。
+对于这种情况，请[配置 RD 许可服务](#configure-the-rd-licensing-service)。
 
-如果远程桌面许可诊断程序列出其他问题，如"RDP 协议组件 X.224 协议流中检测到错误，并且已断开连接的客户端，"可能会影响许可证证书有问题。 此类问题往往与用户消息，如下所示：
+如果 RD 许可证诊断程序列出了其他问题，例如“RDP 协议组件 X.224 在协议流中检测到了错误，并已断开连接客户端”，则可能是出现了影响许可证证书的问题。 此类问题往往与如下所示的用户消息相关联：
 
-由于安全错误，导致客户端无法连接到终端服务器。 确保你登录到网络之后, 再次尝试连接到服务器。
+由于出现安全错误，客户端无法连接到终端服务器。 确保已登录到网络后，重试连接到服务器。
 
-在这种情况下，[刷新 X509 证书的注册表项](#refresh-the-x509-certificate-registry-keys)。
+对于这种情况，请[刷新 X509 证书注册表项](#refresh-the-x509-certificate-registry-keys)。
 
-### <a name="configure-the-rd-licensing-service"></a>配置 RD 授权服务
+### <a name="configure-the-rd-licensing-service"></a>配置 RD 许可服务
 
-以下过程使用服务器管理器进行配置更改。 有关如何配置和使用服务器管理器的信息，请参阅[服务器管理器](https://docs.microsoft.com/en-us/windows-server/administration/server-manager/server-manager)。
+以下过程使用服务器管理器进行配置更改。 有关如何配置和使用服务器管理器的信息，请参阅[服务器管理器](https://docs.microsoft.com/windows-server/administration/server-manager/server-manager)。
 
-1. 打开服务器管理器，然后导航到**远程桌面服务**。
-2. 上**部署概述**，选择**任务**，然后选择**编辑部署属性**。
-3. 选择**RD 授权**，然后选择你的部署的适当授权模式 (**每个设备**或**每用户**)。
-4. 输入您的远程桌面许可证服务器的完全限定的域名 (FQDN)，然后选择**添加**。
-5. 如果你有多个远程桌面许可证服务器，每个服务器重复步骤 4。 
-    ![远程桌面许可证服务器配置选项在服务器管理器。](../media/troubleshoot-remote-desktop-connections/RDLicensing_Configure.png)
+1. 打开服务器管理器并导航到“远程桌面服务”。 
+2. 在“部署概述”中，依次选择“任务”、“编辑部署属性”。   
+3. 选择“RD 许可”，然后选择部署的相应许可模式（“按设备”或“按用户”）。   
+4. 输入 RD 许可证服务器的完全限定域名 (FQDN)，然后选择“添加”。 
+5. 如果你有多个 RD 许可证服务器，请针对每个服务器重复步骤 4。 
+    ![服务器管理器中的 RD 许可证服务器配置选项。](../media/troubleshoot-remote-desktop-connections/RDLicensing_Configure.png)
 
-### <a name="refresh-the-x509-certificate-registry-keys"></a>刷新 X509 证书的注册表项
+### <a name="refresh-the-x509-certificate-registry-keys"></a>刷新 X509 证书注册表项
 
 > [!IMPORTANT]  
-> 请仔细按照本部分中的步骤。 如果注册表修改不正确，可能会发生严重问题。 在修改之前[备份注册表以进行还原](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22)在出现问题时。
+> 请认真遵循本部分所述的步骤。 如果注册表修改不正确，可能会发生严重问题。 在修改注册表之前，请[备份注册表](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22)，以便在出现问题时可以还原。
 
-若要解决此问题，备份，然后删除 X509 证书的注册表项，重新启动计算机，然后重新激活 RD 授权服务器。 为此，请按照以下步骤操作。
+若要解决此问题，请备份然后删除 X509 证书注册表项，重启计算机，然后重新激活 RD 许可服务器。 为此，请按照以下步骤操作。
 
 > [!NOTE]  
-> 每台 RDSH 服务器上执行以下过程。
+> 在每个 RDSH 服务器上执行以下过程。
 
-1. 打开注册表编辑器并导航到**HKEY\_本地\_机\\系统\\CurrentControlSet\\控制\\终端服务器\\RCM**.
-2. 在注册表菜单中，选择**导出注册表文件**。
-3. 类型**导出证书**中**文件名**框，并选择**保存**。
-4. 右键单击每个以下值，选择**删除**，然后选择**是**以确认删除：  
+1. 打开注册表编辑器，导航到“HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\RCM”。 
+2. 在“注册表”菜单中，选择“导出注册表文件”。 
+3. 在“文件名”框中键入 **exported- Certificate**，然后选择“保存”。  
+4. 右键单击以下每个值，选择“删除”，然后选择“是”以确认删除：    
       - **Certificate**
       - **X509 Certificate**
       - **X509 Certificate ID**
       - **X509 Certificate2**
-5. 退出注册表编辑器，然后重新 RDSH 服务器。
+5. 退出注册表编辑器，然后重启 RDSH 服务器。
 
-## <a name="user-cannot-authenticate-or-must-authenticate-twice"></a>用户无法进行身份验证，或必须进行身份验证两次
+## <a name="user-cannot-authenticate-or-must-authenticate-twice"></a>用户无法完成身份验证或必须完成身份验证两次
 
-有可能会导致影响用户身份验证的问题的几个问题。 本部分解决以下用例：
+有几个问题可能会导致用户身份验证出现问题。 本部分讨论如何解决以下情况：
 
-  - [用户被拒绝访问"受限的登录类型"的消息](#access-denied-restricted-type-of-logon)
-  - [用户或应用程序被拒绝访问与事件 16965，"远程调用在 SAM 数据库已被拒绝"](#access-denied-a-remote-call-to-the-sam-database-has-been-denied)
-  - [用户不能使用智能卡登录](#a-user-cannot-sign-in-by-using-a-smart-card)
-  - [如果远程 PC 处于锁定状态，用户需要进行两次输入密码](#if-the-remote-pc-is-locked-a-user-needs-to-enter-a-password-twice)
-  - [用户无法登录并收到"身份验证错误"和"CredSSP 加密 oracle 修正"消息](#user-cannot-sign-in-and-receives-authentication-error-and-credssp-encryption-oracle-remediation-messages)
-  - [更新客户端计算机后，某些用户需要进行两次登录](#after-you-update-client-computers-some-users-need-to-sign-in-twice)。
-  - [用户被拒绝使用 RemoteGuard 与多个 RD 连接代理的部署上的访问](#users-are-denied-access-on-a-deployment-that-uses-remote-credential-guard-with-multiple-rd-connection-brokers)
+  - [拒绝用户访问并出现“受限制的登录类型”消息](#access-denied-restricted-type-of-logon)
+  - [拒绝用户或应用程序访问并发生事件 16965“已拒绝远程调用 SAM 数据库”](#access-denied-a-remote-call-to-the-sam-database-has-been-denied)
+  - [用户无法使用智能卡登录](#a-user-cannot-sign-in-by-using-a-smart-card)
+  - [如果远程电脑已锁定，则用户需要输入密码两次](#if-the-remote-pc-is-locked-a-user-needs-to-enter-a-password-twice)
+  - [用户无法登录并收到“身份验证错误”和“CredSSP 加密 Oracle 修正”消息](#user-cannot-sign-in-and-receives-authentication-error-and-credssp-encryption-oracle-remediation-messages)
+  - [更新客户端计算机后，某些用户需要登录两次](#after-you-update-client-computers-some-users-need-to-sign-in-twice)。
+  - [在使用 RemoteGuard 且包含多个 RD 连接代理的部署中，用户被拒绝访问](#users-are-denied-access-on-a-deployment-that-uses-remote-credential-guard-with-multiple-rd-connection-brokers)
 
-### <a name="access-denied-restricted-type-of-logon"></a>访问被拒绝，受限制的登录类型
+### <a name="access-denied-restricted-type-of-logon"></a>拒绝访问并出现“受限制的登录类型”消息
 
-在此情况下，尝试连接到 Windows 10 或 Windows Server 2016 计算机的 Windows 10 用户被拒绝访问并显示以下消息：
+在此情况下，尝试连接到 Windows 10 或 Windows Server 2016 计算机的 Windows 10 用户被拒绝访问并会收到以下消息：
 
 > 远程桌面连接：  
-> 系统管理员具有受限的登录类型 (网络或交互式)，可以使用。 要获得帮助，请与系统管理员或技术支持联系。
+> 系统管理员限制了可以使用的登录类型（网络或交互式）。 如需帮助，请与系统管理员或技术支持人员联系。
 
-网络级别身份验证 (NLA) RDP 连接所必需的并且用户不是的成员时，会出现此问题**Remote Desktop Users**组。 如果它也会发生**Remote Desktop Users**尚未分配给组**从网络访问这台计算机**用户权限。
+如果 RDP 连接需要网络级别身份验证 (NLA)，而用户不是“远程桌面用户”组的成员，则会出现此问题。  如果没有为“远程桌面用户”组分配“从网络访问此计算机”用户权限，则也会出现此问题。  
 
 若要解决此问题，请执行以下步骤之一：
 
   - [修改用户的组成员身份或用户权限分配](#modify-the-users-group-membership-or-user-rights-assignment)。
-  - 关闭 NLA （不推荐）。
-  - 使用 Windows 10 以外的远程桌面客户端。 例如，Windows 7 客户端不具有此问题。
+  - 禁用 NLA（不建议）。
+  - 使用除 Windows 10 以外的远程桌面客户端。 例如，Windows 7 客户端就不会出现此问题。
 
 #### <a name="modify-the-users-group-membership-or-user-rights-assignment"></a>修改用户的组成员身份或用户权限分配
 
-如果此问题会影响单个用户，此问题的最简单解决方案是将用户添加到**Remote Desktop Users**组。
+如果此问题只是影响一个用户，则最直接的解决方法就是将该用户添加到“远程桌面用户”组。 
 
-如果用户已经是此组的成员 （或如果多个组成员具有相同的问题），，检查远程 Windows 10 或 Windows Server 2016 计算机上的用户权限配置。
+如果该用户已是此组的成员（或者多个组成员遇到相同的问题），请检查远程 Windows 10 或 Windows Server 2016 计算机上的用户权限配置。
 
 1. 打开组策略对象编辑器 (GPE) 并连接到远程计算机的本地策略。
-2. 导航到**计算机配置\\Windows 设置\\安全设置\\本地策略\\用户权限分配**，右键单击**访问此从网络计算机**，然后选择**属性**。
-3. 检查用户和组的列表**Remote Desktop Users** （或父组）。
-4. 如果列表不包括**Remote Desktop Users** (或其父组，如**每个人都**) 需要将其添加到列表 （如果您在部署中的多个或两个计算机，使用组策略对象）.  
-    例如的默认成员身份**从网络访问这台计算机**包括**每个人都**。 如果你的部署使用组策略对象以删除**每个人都**，可能需要通过更新要添加的组策略对象来恢复访问权限**Remote Desktop Users**。
+2. 导航到“计算机配置”\\“Windows 设置”\\“安全设置”\\“本地策略”\\“用户权限分配”，右键单击“从网络访问此计算机”，然后选择“属性”。   
+3. 检查“远程桌面用户”（或父组）的用户和组列表。 
+4. 如果该列表不包含“远程桌面用户”（或类似于“任何人”的父组），则需要将它添加到列表（如果部署中有一台或两台计算机，请使用组策略对象）。    
+    例如，“从网络访问此计算机”的默认成员身份包括“任何人”。   如果部署使用组策略对象来删除“任何人”，则你可能需要通过更新组策略对象来添加“远程桌面用户”，以还原访问权限。  
 
-### <a name="access-denied-a-remote-call-to-the-sam-database-has-been-denied"></a>访问被拒绝，到 SAM 数据库的远程调用已被拒绝
+### <a name="access-denied-a-remote-call-to-the-sam-database-has-been-denied"></a>拒绝访问并出现“已拒绝远程调用 SAM 数据库”消息
 
-此行为是最有可能发生，如果你的域控制器运行 Windows Server 2016 或更高版本，以及用户尝试通过使用自定义的连接应用程序连接。 具体而言，应用程序来访问 Active Directory 中的用户的配置文件信息将被拒绝访问。
+如果域控制器运行 Windows Server 2016 或更高版本，而用户使用自定义的连接应用尝试建立连接，则很有可能会出现此行为。 具体而言，访问 Active Directory 中用户配置文件信息的应用程序将被拒绝访问。
 
-此行为进行更改将导致到 Windows。 在 Windows Server 2012 R2 及更早版本中，当用户登录到远程桌面，远程连接管理器 (RCM) 联系人域控制器 (DC) 来查询特定于远程桌面在 Active Directory 域的用户对象的配置服务 (AD DS)。 此信息显示在用户的对象属性中的 Active Directory 用户和计算机 MMC 管理单元中的远程桌面服务配置文件选项卡。
+此行为是 Windows 中的一项更改造成的。 在 Windows Server 2012 R2 和更低版本中，当用户登录到远程桌面时，远程连接管理器 (RCM) 会联系域控制器 (DC)，以查询特定于远程桌面的有关 Active Directory 域服务 (AD DS) 中的用户对象的配置。 此信息显示在“Active Directory 用户和计算机”MMC 管理单元中用户对象属性的“远程桌面服务配置文件”选项卡上。
 
-从 Windows Server 2016 开始，RCM 不再会查询 AD DS 中的用户对象。 如果您需要 RCM 查询 AD DS，因为正在使用远程桌面服务属性，必须手动启用以前的 RCM 行为。
+从 Windows Server 2016 开始，RCM 不再查询 AD DS 中的用户对象。 如果你由于使用的是远程桌面服务属性而需要 RCM 查询 AD DS，必须手动启用以前的 RCM 行为。
 
 > [!IMPORTANT]  
-> 请仔细按照本部分中的步骤。 如果注册表修改不正确，可能会发生严重问题。 在修改之前[备份注册表以进行还原](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22)在出现问题时。
+> 请认真遵循本部分所述的步骤。 如果注册表修改不正确，可能会发生严重问题。 在修改注册表之前，请[备份注册表](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22)，以便在出现问题时可以还原。
 
-若要启用远程桌面会话主机服务器上的旧 RCM 行为，请配置以下注册表项，然后重新启动**远程桌面服务**服务：  
-  - **HKEY\_本地\_MACHINE\\软件\\策略\\Microsoft\\Windows NT\\终端服务**
-  - **HKEY\_本地\_MACHINE\\系统\\CurrentControlSet\\控制\\终端服务器\\WinStations\\\<Winstation 名称\>\\**  
-      - 名称： **fQueryUserConfigFromDC**
+若要在 RD 会话主机服务器上启用旧的 RCM 行为，请配置以下注册表项，然后重启“远程桌面服务”服务：   
+  - **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services**
+  - **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\\<Winstation name\>\\**  
+      - Name：**fQueryUserConfigFromDC**
       - 键入：**Reg\_DWORD**
-      - 值：**1** （十进制）
+      - 值：**1**（十进制）
 
-若要启用旧版 RCM 行为以外的 RD 会话主机服务器的服务器上，配置以下注册表项和以下其他注册表项 （，然后重新启动服务）：
+若要在除 RD 会话主机服务器以外的服务器上启用旧的 RCM 行为，请配置上述注册表项和以下附加的注册表项（然后重启该服务）：
   - **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server**
 
-有关此行为的详细信息，请参阅 KB 3200967[更改为远程连接管理器在 Windows Server 中](https://support.microsoft.com/en-us/help/3200967/changes-to-remote-connection-manager-in-windows-server)。
+有关此行为的详细信息，请参阅 KB 3200967 [Windows Server 中远程连接管理器的更改](https://support.microsoft.com/en-us/help/3200967/changes-to-remote-connection-manager-in-windows-server)。
 
-### <a name="a-user-cannot-sign-in-by-using-a-smart-card"></a>用户不能使用智能卡登录
+### <a name="a-user-cannot-sign-in-by-using-a-smart-card"></a>用户无法使用智能卡登录
 
-本文介绍三个常见的情况下在其中用户无法登录到远程桌面使用智能卡：  
-  - [用户无法登录到分支机构使用只读域控制器 (RODC)](#cannot-sign-in-with-a-smart-card-in-a-branch-office-with-a-rodc)
+本文将介绍如何解决用户无法使用智能卡登录到远程桌面的三种常见情况：  
+  - [用户无法登录到使用只读域控制器 (RODC) 的分支机构](#cannot-sign-in-with-a-smart-card-in-a-branch-office-with-a-rodc)
   - [用户无法登录到最近已更新的 Windows Server 2008 SP2 计算机](#cannot-sign-in-with-a-smart-card-to-a-windows-server-2008-sp2-computer)
-  - [用户不能保持登录到已于最近更新，在 Windows 计算机和远程桌面服务服务变得无响应 （挂起）](#cannot-stay-signed-in-with-a-smart-card-and-remote-desktop-services-service-hangs)
+  - [用户无法在最近更新的 Windows 计算机上保持登录状态，且“远程桌面服务”服务无响应（挂起）](#cannot-stay-signed-in-with-a-smart-card-and-remote-desktop-services-service-hangs)
 
-#### <a name="cannot-sign-in-with-a-smart-card-in-a-branch-office-with-a-rodc"></a>不能使用与 RODC 分支机构中的智能卡登录
+#### <a name="cannot-sign-in-with-a-smart-card-in-a-branch-office-with-a-rodc"></a>无法通过智能卡登录到使用 RODC 的分支机构
 
-在使用 RODC 的分支站点将 RDSH 服务器的部署中会出现此问题。 在 RDSH 服务器承载根域中。 分支站点上的用户属于一个子域，并且使用智能卡进行身份验证。 RODC 配置为缓存用户密码 (在 RODC 所属**允许的 RODC 密码复制组**)。 当用户尝试登录到 RDSH 服务器上的会话时，他们可以接收消息，如"有人尝试的登录无效。 这是由于错误的用户名或身份验证信息。"
+使用 RODC 的分支站点中包含 RDSH 服务器的部署会出现此问题。 RDSH 服务器托管在根域中。 分支站点上的用户属于一个子域，并使用智能卡进行身份验证。 RODC 配置为缓存用户密码（RODC 属于“允许的 RODC 密码复制组”）。  当用户尝试登录到 RDSH 服务器上的会话时，他们会收到类似于“尝试的登录无效。 原因是用户名或身份验证信息错误”的消息。
 
-这是一个已知的问题的方式的根域控制器和 RODC 管理用户凭据进行加密。 根 DC 使用加密密钥来加密凭据，并在 RODC 向客户端提供的解密密钥。 但是，两个键不匹配。
+这是一个与根 DC 和 RODC 管理用户凭据加密的方式相关的已知问题。 根 DC 使用加密密钥来加密凭据，RODC 为客户端提供解密密钥。 但是，这两个密钥不匹配。
 
-若要解决此问题，请考虑更改你的 DC 拓扑关闭密码缓存在 RODC 上或通过将可写 DC 部署到分支站点。 一种替代方法是将 RDSH 服务器移动到同一个子域的用户。 另一种方法是允许用户不含智能卡登录。 任何这些解决方案可能需要折中的方案中性能或安全级别。
+若要解决此问题，请考虑通过在 RODC 上禁用密码缓存或者将可写 DC 部署到分支站点，来更改 DC 拓扑。 一种替代方法是将 RDSH 服务器移到用户所在的同一个子域。 另一种替代方法是允许用户不使用智能卡登录。 上述任意解决方法都可能需要降低性能或安全级别。
 
-#### <a name="cannot-sign-in-with-a-smart-card-to-a-windows-server-2008-sp2-computer"></a>无法使用 Windows Server 2008 SP2 计算机到智能卡登录
+#### <a name="cannot-sign-in-with-a-smart-card-to-a-windows-server-2008-sp2-computer"></a>无法使用智能卡登录到 Windows Server 2008 SP2 计算机
 
-当用户登录到已使用 KB4093227 更新的 Windows Server 2008 SP2 计算机时，会出现此问题 (2018.4B)。 当用户尝试使用智能卡登录时，在被拒绝访问消息，如"找到任何有效证书。 检查卡已正确插入和紧密。" 同时，Windows Server 计算机应用程序都会将事件记录"检索数字证书中插入的智能卡时出现错误。 无效的签名。"
+当用户登录到已使用 KB4093227 (2018.4B) 更新的 Windows Server 2008 SP2 计算机时，会出现此问题。 当用户尝试使用智能卡登录时，他们被拒绝访问并收到类似于“找不到有效的证书。 请检查卡是否已正确稳固地插入”的消息。 同时，Windows Server 计算机会记录应用程序事件“从插入的智能卡检索数字证书时出错。 签名无效。”
 
-若要解决此问题，请使用 2018.06 B 重新发布 KB 4093227 更新 Windows Server 计算机[Windows 远程桌面协议 (RDP) 拒绝服务漏洞在 Windows Server 2008 中的安全更新说明：2018 年 4 月 10 日](https://support.microsoft.com/en-us/help/4093227/security-update-for-vulnerabilities-in-windows-server-2008)。
+若要解决此问题，请使用 KB 4093227 的 2018.06 B 再发行版 [Windows Server 2008 中 Windows 远程桌面协议 (RDP) 拒绝服务漏洞的安全更新说明：2018 年 4 月 10 日](https://support.microsoft.com/en-us/help/4093227/security-update-for-vulnerabilities-in-windows-server-2008)更新 Windows Server 计算机。
 
-#### <a name="cannot-stay-signed-in-with-a-smart-card-and-remote-desktop-services-service-hangs"></a>不能保持登录使用智能卡和远程桌面服务服务挂起状态
+#### <a name="cannot-stay-signed-in-with-a-smart-card-and-remote-desktop-services-service-hangs"></a>无法使用智能卡保持登录状态且“远程桌面服务”服务挂起
 
-当用户登录到已使用 KB 4056446 更新的 Windows 或 Windows Server 计算机时，将出现此问题。 首先，用户可能能够通过使用智能卡登录到系统，但然后接收"放弃\_E\_否\_服务"错误消息。 在远程计算机可能无响应。
+当用户登录到已使用 KB 4056446 更新的 Windows 或 Windows Server 计算机时，会出现此问题。 一开始，用户也许可以使用智能卡登录到该系统，但随后会接收“SCARD\_E\_NO\_SERVICE”错误消息。 远程计算机可能无响应。
 
-若要解决此问题，请重新启动远程计算机。
+若要解决此问题，请重启远程计算机。
 
-若要解决此问题，请使用相应的修补程序更新远程计算机：
+若要解决此问题，请使用相应的修复程序更新远程计算机：
 
-  - Windows Server 2008 SP2:KB 4090928， [Windows 泄漏 lsm.exe 过程中的句柄和智能卡应用程序可能会显示"放弃\_E\_否\_服务"错误](https://support.microsoft.com/en-us/help/4090928/scard-e-no-service-errors-when-windows-leaks-handles-in-the-lsm-exe)
-  - Windows Server 2012 R2：KB 4103724， [2018 年 5 月 17，— KB4103724 （月度汇总预览）](https://support.microsoft.com/en-us/help/4103724/windows-81-update-kb4103724)
-  - Windows Server 2016 和 Windows 10，版本 1607年:KB 4103720， [2018 年 5 月 17，— KB4103720 （OS 内部版本 14393.2273）](https://support.microsoft.com/en-us/help/4103720/windows-10-update-kb4103720)
+  - Windows Server 2008 SP2：KB 4090928 [Windows 泄漏 lsm.exe 进程中的句柄，智能卡应用程序可能会显示“SCARD\_E\_NO\_SERVICE”错误](https://support.microsoft.com/en-us/help/4090928/scard-e-no-service-errors-when-windows-leaks-handles-in-the-lsm-exe)
+  - Windows Server 2012 R2：KB 4103724 [2018 年 5 月 17 — KB4103724（月度汇总预览）](https://support.microsoft.com/en-us/help/4103724/windows-81-update-kb4103724)
+  - Windows Server 2016 和 Windows 10 版本 1607：KB 4103720 [2018 年 5 月 17 — KB4103720（OS 内部版本 14393.2273）](https://support.microsoft.com/en-us/help/4103720/windows-10-update-kb4103720)
 
-### <a name="if-the-remote-pc-is-locked-a-user-needs-to-enter-a-password-twice"></a>如果远程 PC 处于锁定状态，用户需要进行两次输入密码
+### <a name="if-the-remote-pc-is-locked-a-user-needs-to-enter-a-password-twice"></a>如果远程电脑已锁定，则用户需要输入密码两次
 
-当用户尝试连接到 RDP 连接不需要 NLA 部署中运行 Windows 10 版本 1709年的远程桌面时，可能出现此问题。 上述情况下，如果远程桌面已被锁定，用户需要在连接时两次输入其凭据。
+当用户尝试连接到部署中运行 Windows 10 版本 1709 的远程桌面，而该部署中的 RDP 连接不需要 NLA 时，可能会出现此问题。 在这种情况下，如果远程桌面已锁定，则用户在连接时需要输入其凭据两次。
 
-若要解决此问题，请更新 Windows 10 版本 1709年计算机与 KB 4343893 [2018 年 8 月 30 日-KB4343893 (OS 生成 16299.637)](https://support.microsoft.com/en-us/help/4343893/windows-10-update-kb4343893)。
+若要解决此问题，请使用 KB 4343893 [2018 年 8 月 30 日 - KB4343893（OS 内部版本 16299.637）](https://support.microsoft.com/en-us/help/4343893/windows-10-update-kb4343893)更新 Windows 10 版本 1709 计算机。
 
-### <a name="user-cannot-sign-in-and-receives-authentication-error-and-credssp-encryption-oracle-remediation-messages"></a>用户无法登录并收到"身份验证错误"和"CredSSP 加密 oracle 修正"消息
+### <a name="user-cannot-sign-in-and-receives-authentication-error-and-credssp-encryption-oracle-remediation-messages"></a>用户无法登录并收到“身份验证错误”和“CredSSP 加密 Oracle 修正”消息
 
-当用户尝试登录使用任何版本的 Windows 从 Windows Vista SP2 和更高版本或 Windows Server 2008 SP2 和更高版本时，它们将被拒绝访问和接收消息如下所示：
+当用户尝试从任何 Windows Vista SP2 和更高版本或者 Windows Server 2008 SP2 和更高版本登录时，他们被拒绝访问并收到如下所示的消息：
 
-  - 身份验证出错。 不支持所请求的函数。
-  - 这可能是由于 CredSSP 加密 oracle 修正
+  - 发生身份验证错误。 不支持请求的功能。
+  - 原因可能是需要进行 CredSSP 加密 Oracle 修正
 
-"CredSSP 加密 oracle 修正"是指一组在年 3 月、 年 4 月和 2018 年 5 月发布的安全更新。 CredSSP 是处理其他应用程序的身份验证请求的身份验证提供程序。 2018 年 3 月 13，，"3B"以及后续更新解决了的攻击的攻击者可以在其中中继用户凭据在目标系统上执行代码。
+“CredSSP 加密 Oracle 修正”是指在 2018 年 3 月、4 月和 5 月发布的一组安全更新。 CredSSP 是一个身份验证提供程序，用于处理其他应用程序的身份验证请求。 在 2018 年 3 月 13 日，“3B”和后续更新解决了一个漏洞，攻击者可能会利用该漏洞来中继用户凭据，以在目标系统上执行代码。
 
-初始更新添加了对新的组策略对象，支持**加密 Oracle 修正**，具有以下可能的设置：
+初始更新添加了对新的组策略对象“加密 Oracle 修正”的支持，该对象的可能设置如下： 
 
-  - **易受攻击**。 客户端应用程序使用 CredSSP 可以回退到不安全的版本中，但此行为会公开受到攻击的远程桌面。 使用 CredSSP 服务接受尚未更新的客户端。
-  - **缓解**。 客户端应用程序使用 CredSSP 无法回退到不安全的版本中，但使用 CredSSP 服务接受尚未更新的客户端。
-  - **强制更新客户端**。 客户端应用程序使用 CredSSP 无法回退到不安全的版本中，而使用 CredSSP 的服务不会接受未安装修补程序的客户端。 
-    注意：直到所有远程主机支持的最新版本，则不应部署此设置。
+  - **有漏洞**。 使用 CredSSP 的客户端应用程序可以回退到不安全的版本，但此行为会将远程桌面透露给攻击者。 使用 CredSSP 的服务接受尚未更新的客户端。
+  - **已缓解**。 使用 CredSSP 的客户端应用程序无法回退到不安全的版本，但使用 CredSSP 的服务接受尚未更新的客户端。
+  - **强制更新的客户端**。 使用 CredSSP 的客户端应用程序无法回退到不安全的版本，使用 CredSSP 的服务不会接受未修补的客户端。 
+    注意：在所有远程主机支持最新版本之前，不应部署此设置。
 
-8，2018 年 5 月更新更改了默认值**加密 Oracle 修正**设置从**易受攻击**到**缓解**。 此更改后，使用远程桌面客户端安装的更新无法连接到不具有 （或更新尚未重启的服务器） 的服务器。 有关效果的更新和在一直进行阻止的通信的类型的详细信息，请参阅 KB 4093492 [CredSSP 更新 CVE 2018 0886年](https://support.microsoft.com/en-us/help/4093492/credssp-updates-for-cve-2018-0886-march-13-2018)。
+2018 年 5 月 8 日更新已将默认的“加密 Oracle 修正”设置从“有漏洞”更改为“已缓解”。    进行此项更改后，包含更新的远程桌面客户端无法连接到不包含更新的服务器（或尚未重启的已更新服务器）。 有关更新的影响及其阻止的通信类型的详细信息，请参阅 KB 4093492 [CVE-2018-0886 的 CredSSP 更新](https://support.microsoft.com/en-us/help/4093492/credssp-updates-for-cve-2018-0886-march-13-2018)。
 
-若要解决此问题，请确保所有系统完全更新并重新启动。 有关更新和的漏洞相关的详细信息的完整列表，请参阅[CVE 2018 0886年 |CredSSP 远程代码执行漏洞](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-0886)。
+若要解决此问题，请确保所有系统已完全更新并已重启。 有关更新的完整列表以及有关漏洞的详细信息，请参阅 [CVE-2018-0886 | CredSSP 远程代码执行漏洞](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-0886)。
 
-若要解决此问题，直到完成更新后，检查 KB 4093492 对于允许类型的连接。 如果不可行的替代方案可以考虑以下方法之一：
+在完成更新之前若要解决此问题，请在 KB 4093492 中查看允许的连接类型。 如果没有可行的替代方法，可以考虑以下方法之一：
 
-- 对于受影响的客户端计算机中，设置**加密 Oracle 修正**策略回**易受攻击**。
-- 修改在以下策略**计算机配置\\管理模板\\Windows 组件\\远程桌面服务\\远程桌面会话主机\\安全**组策略文件夹：  
-  - **对远程 (RDP) 连接要求使用特定的安全层**： 设置为**已启用**，然后选择**RDP**。
-  - **需要进行用户身份验证的远程连接使用网络级别身份验证**： 设置为**禁用**。
+- 对于受影响的客户端计算机，将“加密 Oracle 修正”策略设置回到“有漏洞”。  
+- 在“计算机配置”\\“管理模板”\\“Windows 组件”\\“远程桌面服务”\\“远程桌面会话主机”\\“安全性”组策略文件夹中修改以下策略：   
+  - 将“要求对远程(RDP)连接使用特定的安全层”设置为“已启用”，并选择“RDP”。   
+  - 将“要求使用网络级别身份验证来远程连接的用户进行身份验证”设置为“已禁用”。  
     > [!IMPORTANT]  
-    > 这些修改降低你的部署的安全性。 只应临时的如果在所有使用。
+    > 这些修改会降低部署安全性。 如果确实需要使用这些设置，也只能暂时性地使用。
 
 有关使用组策略的详细信息，请参阅[修改阻止 GPO](#modifying-a-blocking-gpo)。
 
-### <a name="after-you-update-client-computers-some-users-need-to-sign-in-twice"></a>更新客户端计算机后，某些用户需要进行两次登录
+### <a name="after-you-update-client-computers-some-users-need-to-sign-in-twice"></a>更新客户端计算机后，某些用户需要登录两次
 
-某些 Windows 7 或 Windows 10 版本 1709年上的用户登录到远程桌面会话，并立即看到第二个登录屏幕。 如果客户端计算机收到了以下更新，会发生此问题：
+某些 Windows 7 或 Windows 10 版本 1709 上的用户在登录到远程桌面会话时，会立即看到再次登录的屏幕。 如果客户端计算机收到了以下更新，则会出现此问题：
 
-  - Windows 7：KB 4103718， [，2018 年 5 月 8 日-KB4103718 （每月汇总）](https://support.microsoft.com/en-us/help/4103718/windows-7-update-kb4103718)
-  - Windows 10 1709年:KB 4103727， [，2018 年 5 月 8 日-KB4103727 （OS 内部版本 16299.431）](https://support.microsoft.com/en-us/help/4103727/windows-10-update-kb4103727)
+  - Windows 7：KB 4103718 [2018 年 5 月 8 日 - KB4103718（每月汇总）](https://support.microsoft.com/en-us/help/4103718/windows-7-update-kb4103718)
+  - Windows 10 1709：KB 4103727 [2018 年 5 月 8 日 - KB4103727（OS 内部版本 16299.431）](https://support.microsoft.com/en-us/help/4103727/windows-10-update-kb4103727)
 
-若要解决此问题，请确保用户想要连接到 （以及 RDSH 或 RDVI 服务器） 的计算机都完全更新通过 2018 年 6 月。 这包括以下更新：
+若要解决此问题，请确保用户要连接到的计算机（以及 RDSH 或 RDVI 服务器）已完全通过 2018 年 6 月更新包更新。 这包括以下更新：
 
-  - Windows Server 2016:KB 4284880， [2018 年 6 月 12 日 — KB4284880 （OS 内部版本 14393.2312）](https://support.microsoft.com/en-us/help/4284880/windows-10-update-kb4284880)
-  - Windows Server 2012 R2：KB 4284815， [2018 年 6 月 12 日 — KB4284815 （每月汇总）](https://support.microsoft.com/en-us/help/4284815/windows-81-update-kb4284815)
-  - Windows Server 2012:KB 4284855， [2018 年 6 月 12 日 — KB4284855 （每月汇总）](https://support.microsoft.com/en-us/help/4284855/windows-server-2012-update-kb4284855)
-  - Windows Server 2008 R2：KB 4284826， [2018 年 6 月 12 日 — KB4284826 （每月汇总）](https://support.microsoft.com/en-us/help/4284826/windows-7-update-kb4284826)
-  - Windows Server 2008 SP2:KB4056564，[在 Windows Server 2008、 Windows Embedded POSReady 2009 和 Windows Embedded Standard 2009、windows CredSSP 远程代码执行漏洞的安全更新说明：2018 年 3 月 13日日](https://support.microsoft.com/en-us/help/4056564/security-update-for-vulnerabilities-in-windows-server-2008)
+  - Windows Server 2016：KB 4284880 [2018 年 6 月 12 日 - KB4284880（OS 内部版本 14393.2312）](https://support.microsoft.com/en-us/help/4284880/windows-10-update-kb4284880)
+  - Windows Server 2012 R2：KB 4284815 [2018 年 6 月 12 日 - KB4284815（每月汇总）](https://support.microsoft.com/en-us/help/4284815/windows-81-update-kb4284815)
+  - Windows Server 2012：KB 4284855 [2018 年 6 月 12 日 - KB4284855（每月汇总）](https://support.microsoft.com/en-us/help/4284855/windows-server-2012-update-kb4284855)
+  - Windows Server 2008 R2：KB 4284826 [2018 年 6 月 12 日 - KB4284826（每月汇总）](https://support.microsoft.com/en-us/help/4284826/windows-7-update-kb4284826)
+  - Windows Server 2008 SP2：KB4056564 [Windows Server 2008、Windows Embedded POSReady 2009 和 Windows Embedded Standard 2009 中 CredSSP 远程代码执行漏洞的安全更新说明：2018 年 3 月 13 日](https://support.microsoft.com/en-us/help/4056564/security-update-for-vulnerabilities-in-windows-server-2008)
 
-### <a name="users-are-denied-access-on-a-deployment-that-uses-remote-credential-guard-with-multiple-rd-connection-brokers"></a>用户被拒绝访问上使用远程 Credential Guard 与多个 RD 连接代理的部署
+### <a name="users-are-denied-access-on-a-deployment-that-uses-remote-credential-guard-with-multiple-rd-connection-brokers"></a>在使用 Remote Credential Guard 且包含多个 RD 连接代理的部署中，用户被拒绝访问
 
-如果 Windows Defender 远程 Credential Guard 正在使用中，在高可用性部署中使用两个或多个远程桌面连接代理，将出现此问题。 用户无法登录到远程桌面。
+如果使用了 Windows Defender Remote Credential Guard，使用两个或更多个远程桌面连接代理的高可用性部署中会出现此问题。 用户无法登录到远程桌面。
 
-因为远程 Credential Guard 使用 Kerberos 进行身份验证，并限制 NTLM，会出现此问题。 但是，在具有负载均衡的高可用性配置，RD 连接代理不能支持 Kerberos 操作。
+出现此问题的原因是 Remote Credential Guard 使用 Kerberos 进行身份验证，并限制 NTLM。 但是，在使用负载均衡的高可用性配置中，RD 连接代理无法支持 Kerberos 操作。
 
-如果您需要使用与负载平衡的 RD 连接代理高可用性配置，可以通过禁用远程 Credential Guard 来解决此问题。 有关如何管理 Windows Defender 远程 Credential Guard 的详细信息，请参阅[与 Windows Defender 远程 Credential Guard 保护远程桌面凭据](https://docs.microsoft.com/en-us/windows/security/identity-protection/remote-credential-guard#enable-windows-defender-remote-credential-guard)。
+如果需要将高可用性配置与负载均衡的 RD 连接代理配合使用，可以通过禁用 Remote Credential Guard 来解决此问题。 有关如何管理 Windows Defender Remote Credential Guard 的详细信息，请参阅[使用 Windows Defender Remote Credential Guard 保护远程桌面凭据](https://docs.microsoft.com/windows/security/identity-protection/remote-credential-guard#enable-windows-defender-remote-credential-guard)。
 
-## <a name="on-connecting-user-receives-remote-desktop-service-is-currently-busy-message"></a>在连接时，用户会收到"远程桌面服务是当前正忙"消息
+## <a name="on-connecting-user-receives-remote-desktop-service-is-currently-busy-message"></a>连接时用户收到“远程桌面服务当前繁忙”消息
 
-若要确定相应的响应与此问题，请使用以下步骤：
+若要确定此问题的相应对策，请使用以下步骤：
 
-1. 没有远程桌面服务服务无响应 （例如，远程桌面客户端显示为"挂起"在欢迎屏幕上）。  
-      - 如果该服务变得无响应，请参阅[RDSH 服务器内存问题](#rdsh-server-memory-issue)。
-      - 如果客户端似乎通常与服务交互，继续下一步。
-2. 如果一个或多个用户断开连接其远程桌面会话，可以用户再次连接？  
-   - 如果该服务将继续拒绝无论多少用户的连接断开其会话的连接，请参阅[RD 侦听器问题](#rd-listener-issue)。
-   - 如果服务开始接受其会话已断开连接后的用户数[检查连接限制策略](#check-the-connection-limit-policy)。
+1. “远程桌面服务”服务是否无响应（例如，远程桌面客户端在“欢迎”屏幕上呈“挂起”状态）。  
+      - 如果该服务无响应，请参阅 [RDSH 服务器内存问题](#rdsh-server-memory-issue)。
+      - 如果客户端似乎能够正常地与该服务交互，请继续执行下一步骤。
+2. 如果一个或多个用户断开其远程桌面会话的连接，这些用户是否可以再次连接？  
+   - 如果不管有多少个用户断开连接其会话，该服务仍会不断地拒绝连接，请参阅 [RD 侦听器问题](#rd-listener-issue)。
+   - 如果在一些用户断开连接其会话后，该服务再次开始接受连接，请[检查连接限制策略](#check-the-connection-limit-policy)。
 
 ### <a name="rdsh-server-memory-issue"></a>RDSH 服务器内存问题
 
-在某些 Windows Server 2012 R2 RDSH 服务器上找到了内存泄漏。 随着时间推移，这些服务器开始拒绝远程桌面连接和本地控制台登录名与如下所示的消息：
+在某些 Windows Server 2012 R2 RDSH 服务器上发现了内存泄漏。 一段时间后，这些服务器会开始拒绝远程桌面连接和本地控制台登录，并显示如下所示的消息：
 
-> 因为远程桌面服务当前正忙，无法完成想要执行的任务。 请在几分钟后重试。 其他用户仍应能够登录。
+> 由于远程桌面服务当前繁忙，无法完成你要执行的任务。 请过几分钟重试。 其他用户应该仍可登录。
 
-远程桌面客户端尝试连接也会变得无响应。
+尝试连接的远程桌面客户端也无响应。
 
-若要解决此问题，请重新启动 RDSH 服务器。
+若要解决此问题，请重启 RDSH 服务器。
 
-若要解决此问题，请应用知识库 4093114 [2018 年 4 月 10 日-KB4093114 (每月 Rollup)](file:///C:/Users/v-jesits/AppData/Local/Microsoft/Windows/INetCache/Content.Outlook/FUB8OO45/April%2010,%202018—KB4093114%20(Monthly%20Rollup)) 到RDSH 服务器。
+若要解决此问题，请向 RDSH 服务器应用 KB 4093114 [2018 年 4 月 10 日 - KB4093114（每月汇总）](file:///C:/Users/v-jesits/AppData/Local/Microsoft/Windows/INetCache/Content.Outlook/FUB8OO45/April%2010,%202018—KB4093114%20(Monthly%20Rollup))。
 
 ### <a name="rd-listener-issue"></a>RD 侦听器问题
 
-已直接从 Windows Server 2008 R2 到 Windows Server 2012 R2 升级某些 RDSH 服务器或 Windows Server 2016 上记录了一个问题。 当远程桌面客户端连接到 RDSH 服务器时，RDSH 服务器创建为用户会话的 RD 侦听器。 受影响的服务器将保留数增加会导致用户连接时，RD 侦听器，但永远不会减少。
+在直接从 Windows Server 2008 R2 升级到 Windows Server 2012 R2 或 Windows Server 2016 的某些 RDSH 服务器上注意到了一个问题。 当远程桌面客户端连接到 RDSH 服务器时，RDSH 服务器会为用户会话创建一个 RD 侦听器。 受影响的服务器将统计每次用户连接时都会递增，但永远不会递减的 RD 侦听器计数。
 
-若要解决此问题，可以使用以下方法：
+若要解决此问题，可使用以下方法：
 
-  - 重新启动 RDSH 服务器 RD 侦听器将计数重置
-  - 修改连接限制策略，将其设置为太大的值。 有关管理连接限制策略的详细信息，请参阅[检查连接限制策略](#check-the-connection-limit-policy)。
+  - 重启 RDSH 服务器，以重置 RD 侦听器的计数
+  - 修改连接限制策略，将其设置为很大的值。 有关管理连接限制策略的详细信息，请参阅[检查连接限制策略](#check-the-connection-limit-policy)。
 
-若要解决此问题，请到 RDSH 服务器应用以下更新：
+若要解决此问题，请将以下更新应用到 RDSH 服务器：
 
-  - Windows Server 2012 R2：KB 4343891， [2018 年 8 月 30 日-KB4343891 （月度汇总预览）](https://support.microsoft.com/en-us/help/4343891/windows-81-update-kb4343891)
-  - Windows Server 2016:KB 4343884， [2018 年 8 月 30 日-KB4343884 （OS 内部版本 14393.2457）](https://support.microsoft.com/en-us/help/4343884/windows-10-update-kb4343884)
+  - Windows Server 2012 R2：KB 4343891 [2018 年 8 月 30 日 - KB4343891（月度汇总预览）](https://support.microsoft.com/en-us/help/4343891/windows-81-update-kb4343891)
+  - Windows Server 2016：KB 4343884 [2018 年 8 月 30 日 - KB4343884（OS 内部版本 14393.2457）](https://support.microsoft.com/en-us/help/4343884/windows-10-update-kb4343884)
 
 ### <a name="check-the-connection-limit-policy"></a>检查连接限制策略
 
-在单台计算机级别或通过配置组策略对象 (GPO)，可以同时进行的远程桌面连接数设置限制。 默认情况下，不设置限制。
+可以在单个计算机级别或者通过配置组策略对象 (GPO) 来设置同时建立的远程桌面连接数限制。 默认未设置该项限制。
 
-若要检查的当前设置，并确定在 RDSH 服务器上的任何现有 Gpo，打开命令提示符窗口，以管理员身份，并输入以下命令：
+若要检查当前设置并识别 RDSH 服务器上的任何现有 GPO，请以管理员身份打开命令提示符窗口，然后输入以下命令：
   
 ```
 gpresult /H c:\gpresult.html
 ```
    
-此命令执行完毕后，打开 gpresult.html 后并在**计算机配置\\管理模板\\Windows 组件\\远程桌面服务\\远程桌面会话主机\\连接**，找到**限制连接数**策略。
+完成此命令后，打开 gpresult.html，在“计算机配置”\\“管理模板”\\“Windows 组件”\\“远程桌面服务”\\“远程桌面会话主机”\\“连接”中，找到“限制连接数”策略。  
 
-  - 如果为此策略设置为**禁用**，则组策略不受限制的 RDP 连接。
-  - 如果为此策略设置为**已启用**，然后检查**入选 GPO**。 如果需要删除或更改连接限制，编辑此 GPO。
+  - 如果此策略的设置为“已禁用”，则表示组策略未限制 RDP 连接数。 
+  - 如果此策略的设置为“已启用”，请检查“入选的 GPO”。   如果需要删除或更改连接限制，请编辑此 GPO。
 
-若要强制实施策略更改，请打开受影响的计算机上的命令提示符窗口并输入以下命令：
+若要强制实施策略更改，请在受影响的计算机上打开命令提示符窗口并输入以下命令：
   
 ```
 gpupdate /force
 ```
   
-## <a name="rd-client-disconnects-and-cannot-reconnect-to-the-same-session"></a>远程桌面客户端断开连接，并不能重新连接到同一个会话
+## <a name="rd-client-disconnects-and-cannot-reconnect-to-the-same-session"></a>RD 客户端断开连接且无法重新连接到同一会话
 
-远程桌面客户端将失去其连接到的远程桌面后，客户端不能立即重新连接。 用户会收到错误消息如下所示：
+在远程桌面客户端从远程桌面断开连接后，该客户端无法立即重新连接。 用户会收到如下所示的错误消息：
 
-  - 由于安全错误，导致客户端无法连接到终端服务器。 确保你登录到网络之后, 再次尝试连接到服务器。
-  - 远程桌面断开连接。 由于安全错误，导致客户端无法连接到远程计算机。 验证已登录到网络，然后再次尝试连接。
+  - 由于出现安全错误，客户端无法连接到终端服务器。 确保已登录到网络后，重试连接到服务器。
+  - 远程桌面已断开连接。 由于出现安全错误，客户端无法连接到远程计算机。 请验证是否已登录到网络，然后重试连接。
 
-在更高版本时，远程桌面客户端重新连接到远程桌面。 但是，而不是客户端连接到原始会话，RDSH 服务器将客户端连接到的新会话。 正在检查 RDSH 服务器显示的原始会话没有输入断开连接的状态，但改为将保持活动状态。
+在一段时间后，远程桌面客户端将重新连接到远程桌面。 但是，RDSH 服务器不会将客户端连接到原始会话，而将其连接到新的会话。 检查 RDSH 服务器可以发现，原始会话并未进入断开连接状态，而是保持活动状态。
 
-若要解决此问题，可以启用**配置保持活动状态的连接时间间隔**中的策略**计算机配置\\管理模板\\Windows 组件\\远程桌面服务\\远程桌面会话主机\\连接**组策略文件夹。 如果启用此策略，则必须输入保持活动状态的时间间隔。 保持活动状态的时间间隔确定何种频率，以分钟为单位，服务器将检查会话状态。
+若要解决此问题，可以在“计算机配置”\\“管理模板”\\“Windows 组件”\\“远程桌面服务”\\“远程桌面会话主机”\\“连接”组策略文件夹中启用“配置 keep-alive 连接间隔”策略。   如果启用此策略，则必须输入 keep-alive 间隔。 keep-alive 间隔确定服务器检查会话状态的频率（以分钟为单位）。
 
-可以通过您的身份验证和配置设置的配置错误导致此问题。 在服务器级别，或通过使用 Gpo，您可以配置这些设置。 组策略设置位于**计算机配置\\管理模板\\Windows 组件\\远程桌面服务\\远程桌面会话主机\\安全**组策略文件夹。
+此问题可能是错误的身份验证配置和不当的配置设置造成的。 可以在服务器级别或通过使用 GPO 配置这些设置。 “计算机配置”\\“管理模板”\\“Windows 组件”\\“远程桌面服务”\\“远程桌面会话主机”\\“安全性”组策略文件夹中提供了组策略设置。 
 
-1. 许可证服务器未正确配置为自动发现
-2. 下**连接**，右键单击该连接的名称，然后单击**属性**。
-3. 在中**属性**连接对话框上**常规**选项卡上，在**安全**层中，选择一种安全方法。
-4. 在中**加密级别**，单击你想要的级别。 可以选择**低**，**客户端兼容**，**高**，或者**符合 FIPS**。
+1. 在 RD 会话主机服务器上，打开“远程桌面会话主机配置”。
+2. 在“连接”下，右键单击连接的名称，然后单击“属性”。  
+3. 在该连接的“属性”对话框中的“常规”选项卡上，在“安全”层中选择一种安全方法。   
+4. 在“加密级别”中，单击所需的级别。  可以选择“低”、“客户端兼容”、“高”或“符合 FIPS”。    
 
 > [!NOTE]  
->  - 当客户端和 RD 会话主机服务器之间的通信需要最高级别的加密时，使用符合 FIPS 的加密。
->  - 在组策略中配置的任何加密级别设置重写使用远程桌面服务配置工具设置的配置。 此外，如果启用[系统加密：对加密、 哈希和签名使用 FIPS 兼容算法](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc780081\(v=ws.10\))策略，此设置将替代**设置客户端连接加密级别**策略。 系统加密策略处于**计算机配置\\Windows 设置\\安全设置\\本地策略\\安全选项**文件夹。
->  - 更改加密级别后，新的加密级别将在用户下一次登录时生效。 如果需要多个在一台服务器上的加密级别，多个网络适配器单独安装和配置每个适配器。
->  - 若要验证该证书具有相应的私钥，在远程桌面服务配置中，右键单击你想要查看证书，请选择的连接**常规**，选择**编辑**，选择你想要查看，然后选择的证书**查看证书**。 在底部**常规**选项卡上，该语句中，"您有对应于此证书的私钥"应显示。 此外可以通过使用证书管理单元中查看此信息。
->  - 符合 FIPS 标准的加密 (**系统加密：对加密、 哈希和签名使用 FIPS 兼容算法**策略或**符合 FIPS**在远程桌面服务器配置中设置) 进行加密和解密服务器与从客户端发送的数据服务器到客户端，使用联邦信息处理标准 (FIPS) 140-1 加密算法，使用 Microsoft 加密模块。 有关详细信息，请参阅[FIPS 140 验证](https://docs.microsoft.com/en-us/windows/security/threat-protection/fips-140-validation)。
->  - **高**设置从服务器到客户端和服务器到客户端使用发送的强 128 位加密的数据进行加密。
->  - **客户端兼容**设置对客户端和服务器上的客户端支持的最大密钥强度之间发送的数据进行加密。
->  - **低**设置对从客户端发送到服务器使用 56 位加密的数据进行加密。
+>  - 如果客户端与 RD 会话主机服务器之间的通信需要最高级别的加密，请使用“符合 FIPS”加密。
+>  - 在“组策略”中配置的任何加密级别设置会替代使用远程桌面服务配置工具设置的配置。 此外，如果启用[系统加密:使用符合 FIPS 的算法进行加密、哈希处理和签名](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc780081\(v=ws.10\))策略，则此设置会替代“设置客户端连接加密级别”策略。  系统加密策略位于“计算机配置”\\“Windows 设置”\\“安全设置”\\“本地策略”\\“安全选项”文件夹中。 
+>  - 更改加密级别后，新的加密级别将在用户下一次登录时生效。 如果需要在一台服务器上使用多个加密级别，请安装多个网络适配器并单独配置每个适配器。
+>  - 若要验证证书是否有相应的私钥，请在远程桌面服务配置中，右键单击要查看其证书的连接，然后依次选择“常规”、“编辑”、要查看的证书、“查看证书”。    在“常规”选项卡的底部，应会显示“你已有对应于此证书的私钥”语句。  也可以使用“证书”管理单元查看此信息。
+>  - “符合 FIPS”加密（远程桌面服务器配置中的“系统加密:  使用符合 FIPS 的算法进行加密、哈希处理和签名”策略或“符合 FIPS”设置）将使用 Microsoft 加密模块通过联邦信息处理标准 (FIPS) 140-1 加密算法，对从客户端发送到服务器以及从服务器发送到客户端的数据进行加密和解密。  有关详细信息，请参阅 [FIPS 140 验证](https://docs.microsoft.com/windows/security/threat-protection/fips-140-validation)。
+>  - “高”设置使用强式 128 位加密算法对从客户端发送到服务器以及从服务器发送到客户端的数据进行加密。 
+>  - “客户端兼容”设置以客户端支持的最大密钥强度加密客户端与服务器之间发送的数据。 
+>  - “低”设置使用 56 位加密算法对从客户端发送到服务器的数据进行加密。 
 
-## <a name="remote-laptop-disconnects-from-wireless-network"></a>远程便携式计算机断开与无线网络的连接
+## <a name="remote-laptop-disconnects-from-wireless-network"></a>远程笔记本电脑从无线网络断开连接
 
-远程桌面客户端连接到便携式计算机使用 802.1x 无线网络时，可能出现此问题。 间歇性，便携式计算机断开与无线网络的连接并不会自动重新连接。
+当远程桌面客户端使用 802.1x 无线网络连接到笔记本电脑时，可能会出现此问题。 笔记本电脑间歇性地从无线网络断开连接，并不会自动重新连接。
 
-这是无线网络连接的网络身份验证设置时出现一个已知的问题**用户身份验证**。
+当无线网络连接的网络身份验证设置为“用户身份验证”时，会发生这种已知问题。 
 
-若要解决此问题，请设置网络身份验证设置为**用户或计算机身份验证**或**计算机身份验证**。
+若要解决此问题，请将网络身份验证设置指定为“用户或计算机身份验证”或者“计算机身份验证”。  
 
  > [!NOTE]  
-> 若要更改一台计算机上的网络身份验证设置，可能需要使用网络和共享中心控制面板以使用新的设置创建新的无线连接。
+> 若要更改一台计算机上的网络身份验证设置，可能需要使用“网络和共享中心”控制面板来以新的设置创建新的无线连接。
 
-有关如何使用 Gpo 配置无线网络设置的完整说明，请参阅[配置无线网络 (IEEE 802.11) 策略](https://docs.microsoft.com/en-us/windows-server/networking/core-network-guide/cncg/wireless/e-wireless-access-deployment#bkmk_policies)。
+有关如何使用 GPO 配置无线网络设置的完整说明，请参阅[配置无线网络 (IEEE 802.11) 策略](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/wireless/e-wireless-access-deployment#bkmk_policies)。
 
-## <a name="user-experiences-poor-performance-or-application-problems"></a>用户体验不佳的性能或应用程序问题
+## <a name="user-experiences-poor-performance-or-application-problems"></a>用户遇到性能不佳的情况或应用程序问题
 
-本部分讲述的用户在使用远程桌面功能时可能会遇到几个常见问题：
+本部分介绍如何解决用户在使用远程桌面功能时可能会遇到的几种常见问题：
 
-  - [间歇性地连接到 Microsoft Azure 的新虚拟机的用户体验问题](#intermittent-problems-with-new-microsoft-azure-virtual-machines)。
-  - [连接到 Windows 10 版本 1709年远程桌面用户可能会有播放视频问题](#video-playback-issues-on-windows-10-version-1709)。
-  - [使用只读的用户配置文件连接到 Windows 10 的远程桌面的用户不能共享其桌面。](#desktop-sharing-issues-on-windows-10)
-  - [NLA 处于禁用状态时，连接到 Windows 10 的远程桌面使用较旧版本的 Windows 10 上运行的客户端的用户体验不佳的性能](#performance-issues-when-mixing-versions-of-windows-10-if-nla-is-disabled)
-  - [当用户在远程桌面会话中运行多个应用程序和断开连接并频繁地重新连接时，它们可能会遇到黑屏重新连接。](#black-screen-issue)
+  - [连接到 Microsoft Azure 新虚拟机的用户间歇性地遇到问题](#intermittent-problems-with-new-microsoft-azure-virtual-machines)。
+  - [连接到 Windows 10 版本 1709 远程桌面的用户在播放视频时可能会遇到问题](#video-playback-issues-on-windows-10-version-1709)。
+  - [连接到 Windows 10 远程桌面且具有只读用户配置文件的用户无法共享其桌面。](#desktop-sharing-issues-on-windows-10)
+  - [在禁用 NLA 的情况下，使用早期 Windows 10 版本上运行的客户端连接到 Windows 10 远程桌面的用户遇到性能不佳的问题](#performance-issues-when-mixing-versions-of-windows-10-if-nla-is-disabled)
+  - [当用户在远程桌面会话中运行多个应用程序并频繁地断开连接和重新连接时，他们在重新连接时可能会遇到黑屏。](#black-screen-issue)
 
-### <a name="intermittent-problems-with-new-microsoft-azure-virtual-machines"></a>使用新的 Microsoft Azure 虚拟机的间歇性问题
+### <a name="intermittent-problems-with-new-microsoft-azure-virtual-machines"></a>使用 Microsoft Azure 新虚拟机时出现的间歇性问题
 
-此问题会影响已最近预配的虚拟机。 远程桌面会话在用户连接到虚拟机后，可能无法加载用户的所有设置正确。
+此问题影响最近已预配的虚拟机。 在用户连接到虚拟机后，远程桌面会话可能无法正确加载该用户的所有设置。
 
-若要解决此问题，断开与虚拟机的连接，等待至少 20 分钟，然后再次连接。
+若要解决此问题，请从虚拟机断开连接，等待至少 20 分钟，然后再次连接。
 
-若要解决此问题，请为虚拟机，根据需要应用以下更新：
+若要解决此问题，请适当地将以下更新应用到虚拟机：
 
-  - Windows 10 和 Windows Server 2016:KB 4343884， [2018 年 8 月 30 日-KB4343884 （OS 内部版本 14393.2457）](https://support.microsoft.com/en-us/help/4343884/windows-10-update-kb4343884)
-  - Windows Server 2012 R2：KB 4343891， [2018 年 8 月 30 日-KB4343891 （月度汇总预览）](https://support.microsoft.com/en-us/help/4343891/windows-81-update-kb4343891)
+  - Windows 10 和 Windows Server 2016：KB 4343884 [2018 年 8 月 30 日 - KB4343884（OS 内部版本 14393.2457）](https://support.microsoft.com/en-us/help/4343884/windows-10-update-kb4343884)
+  - Windows Server 2012 R2：KB 4343891 [2018 年 8 月 30 日 - KB4343891（月度汇总预览）](https://support.microsoft.com/en-us/help/4343891/windows-81-update-kb4343891)
 
-### <a name="video-playback-issues-on-windows-10-version-1709"></a>Windows 10 版本 1709年上的视频播放问题
+### <a name="video-playback-issues-on-windows-10-version-1709"></a>Windows 10 版本 1709 上的视频播放问题
 
-当用户连接到运行 Windows 10，版本 1709年的远程计算机时，将出现此问题。 当这些用户播放视频使用 VMR9 编解码器 (视频混合使用呈现器 9)，播放机显示仅一个黑色的窗口。
+当用户连接到运行 Windows 10 版本 1709 的远程计算机时，会出现此问题。 当这些用户使用 VMR9（视频混合渲染器 9）编解码器播放视频时，播放器只会显示黑屏。
 
-这是 Windows 10 版本 1709年中的已知的问题。 Windows 10 版本 1703年中不会出现此问题。
+这是 Windows 10 版本 1709 中的一个已知问题。 Windows 10 版本 1703 中不会出现此问题。
 
-### <a name="desktop-sharing-issues-on-windows-10"></a>桌面共享 Windows 10 上的问题
+### <a name="desktop-sharing-issues-on-windows-10"></a>Windows 10 上的桌面共享问题
 
-如果用户的只读的用户配置文件 （和相关的注册表配置单元） 中，如网亭方案中，将出现此问题。 当此类用户连接到远程计算机运行 Windows 10，版本 1803，它们不能共享其桌面。
+如果用户具有只读的用户配置文件和关联的注册表配置单元（例如在网亭方案中），则会出现此问题。 当此类用户连接到运行 Windows 10 版本 1803 的远程计算机时，他们无法共享其桌面。
 
-若要解决此问题，请将 Windows 10 更新 4340917，应用[2018 年 7 月 24 日 — KB4340917 (OS 生成 17134.191)](https://support.microsoft.com/en-us/help/4340917/windows-10-update-kb4340917)。
+若要解决此问题，请应用 Windows 10 更新 4340917 [2018 年 7 月 24 日 - KB4340917（OS 内部版本 17134.191）](https://support.microsoft.com/en-us/help/4340917/windows-10-update-kb4340917)。
 
-### <a name="performance-issues-when-mixing-versions-of-windows-10-if-nla-is-disabled"></a>如果禁用 NLA 混合版本的 Windows 10 时的性能问题
+### <a name="performance-issues-when-mixing-versions-of-windows-10-if-nla-is-disabled"></a>在禁用 NLA 的情况下混合 Windows 10 版本时的性能问题
 
-NLA 处于禁用状态，并运行 Windows 10 的远程桌面客户端计算机连接到运行不同版本的 Windows 10 的远程桌面时，会出现此问题。 在连接到运行 Windows 10，1803年版或更高版本的远程桌面时，运行 Windows 10，版本 1709年或更早版本的计算机上的远程桌面客户端用户遇到性能不佳。
+如果已禁用 NLA，并且运行 Windows 10 的远程桌面客户端计算机连接到运行不同 Windows 10 版本的远程桌面，则会出现此问题。 运行 Windows 10 版本 1709 或更低版本的计算机上的远程桌面客户端用户在连接到运行 Windows 10 版本 1803 或更高版本的远程桌面时，会遇到性能不佳的问题。
 
-这是因为在连接到 Windows 10、 1803年版或更高版本时，较旧的客户端计算机时 NLA 处于禁用状态，使用速度较慢的协议。
+此问题的原因是，当禁用了 NLA 时，旧式客户端计算机在连接到 Windows 10 版本 1803 或更高版本时，会使用速度较慢的协议。
 
-若要解决此问题，请应用知识库 4340917 [2018 年 7 月 24 日 — KB4340917 (OS 生成 17134.191)](https://support.microsoft.com/en-us/help/4340917/windows-10-update-kb4340917)。
+若要解决此问题，请应用 KB 4340917 [2018 年 7 月 24 日 - KB4340917（OS 内部版本 17134.191）](https://support.microsoft.com/en-us/help/4340917/windows-10-update-kb4340917)。
 
-### <a name="black-screen-issue"></a>黑色屏幕问题
+### <a name="black-screen-issue"></a>黑屏问题
 
-在 Windows 8.0、 Windows 8.1、 Windows 10 RTM 和 Windows Server 2012 R2 中会出现此问题。 用户启动远程桌面中的多个应用程序，然后从会话断开连接。 我们会定期用户重新连接到远程桌面进行交互的应用程序，并再次然后断开的连接。 在某些时候，当用户重新连接，远程桌面会话只会显示黑色屏幕。 用户必须结束从远程计算机的控制台 （或 RDSH 服务器控制台） 的远程桌面会话。 此操作将停止应用程序。
+此问题出现在 Windows 8.0、Windows 8.1、Windows 10 RTM 和 Windows Server 2012 R2 中。 用户在远程桌面中启动多个应用程序，然后从会话断开连接。 用户定期重新连接到远程桌面以便与应用程序交互，然后再次断开连接。 当用户在某个时间重新连接时，远程桌面会话只显示黑屏。 用户必须从远程计算机的控制台（或 RDSH 服务器控制台）结束远程桌面会话。 此操作会停止应用程序。
 
-若要解决此问题，应用根据以下更新：
+若要解决此问题，请适当地应用以下更新：
 
-  - Windows 8 和 Windows Server 2012:KB4103719， [2018 年 5 月 17，— KB4103719 （月度汇总预览）](https://support.microsoft.com/en-us/help/4103719/windows-server-2012-update-kb4103719)
-  - Windows 8.1 和 Windows Server 2012 R2:KB4103724， [2018 年 5 月 17，— KB4103724 （月度汇总预览）](https://support.microsoft.com/en-us/help/4103724/windows-81-update-kb4103724)和 KB 4284863， [2018 年 6 月 21 日-KB4284863 （月度汇总预览）](https://support.microsoft.com/en-us/help/4284863/windows-81-update-kb4284863)
-  - Windows 10：修复了在 KB4284860， [2018 年 6 月 12 日 — KB4284860 （OS 内部版本 10240.17889）](https://support.microsoft.com/en-us/help/4284860/windows-10-update-kb4284860)
+  - Windows 8 和 Windows Server 2012：KB4103719 [2018 年 5 月 17 日 - KB4103719（月度汇总预览）](https://support.microsoft.com/en-us/help/4103719/windows-server-2012-update-kb4103719)
+  - Windows 8.1 和 Windows Server 2012 R2：KB4103724 [2018 年 5 月 17 日 - KB4103724（月度汇总预览）](https://support.microsoft.com/en-us/help/4103724/windows-81-update-kb4103724)和 KB 4284863 [2018 年 6 月 21 日 - KB4284863（月度汇总预览）](https://support.microsoft.com/en-us/help/4284863/windows-81-update-kb4284863)
+  - Windows 10：已在 KB4284860 [2018 年 6 月 12 日 - KB4284860（OS 内部版本 10240.17889）](https://support.microsoft.com/en-us/help/4284860/windows-10-update-kb4284860)中予以修复

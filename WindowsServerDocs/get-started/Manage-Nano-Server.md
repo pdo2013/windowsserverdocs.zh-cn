@@ -12,19 +12,19 @@ ms.assetid: 599d6438-a506-4d57-a0ea-1eb7ec19f46e
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: cc535934705878c7f2b7fdc4e655ab5c853e4f96
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.openlocfilehash: 165b7e7aea7a7d0bb56d21f350f6ee646d5fa973
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66443530"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280407"
 ---
 # <a name="manage-nano-server"></a>管理 Nano Server
 
 >适用于：Windows Server 2016
 
 > [!IMPORTANT]
-> 自 Windows Server 版本 1709 开始，Nano Server 将仅用作[容器基本操作系统映像](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image)。 查看[对 Nano Server 进行的更改](nano-in-semi-annual-channel.md)以了解这意味着什么。   
+> 自 Windows Server 版本 1709 开始，Nano Server 将仅用作[容器基本 OS 映像](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image)。 查看[对 Nano Server 进行的更改](nano-in-semi-annual-channel.md)以了解这意味着什么。   
 
 Nano Server 进行远程管理。 其不具备本地登录功能，亦不支持终端服务。 但是，有多种选项来远程管理 Nano Server，包括 Windows PowerShell、Windows Management Instrumentation (WMI)、Windows 远程管理和紧急管理服务 (EMS)。  
 
@@ -34,13 +34,13 @@ Nano Server 进行远程管理。 其不具备本地登录功能，亦不支持�
   
 -   将串行电缆连接到计算机并使用 EMS。  
   
--   通过使用在配置 Nano Server 时分配给它的计算机名称，可以使用 ping 获取 IP 地址。 例如， `ping NanoServer-PC /4` 。  
+-   通过使用在配置 Nano Server 时分配给它的计算机名称，可以使用 ping 获取 IP 地址。 例如，`ping NanoServer-PC /4`。  
   
 ## <a name="using-windows-powershell-remoting"></a>使用 Windows PowerShell 远程控制  
 若要使用 Windows PowerShell 远程控制管理 Nano Server，则需要将 Nano Server 的 IP 地址添加到受信任主机的管理计算机列表，将所使用的帐户添加到 Nano Server 的管理员，并启用 CredSSP（如果计划使用该功能）。  
 
 > [!NOTE]
-> 如果目标 Nano Server 和管理计算机是同一 AD DS 林中 （或在具有信任关系的林中），您不应将 Nano Server 添加到受信任的主机列表中-你可以连接到 Nano Server 通过使用其完全限定的域名例如：PS C:\>Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
+> 如果目标 Nano Server 和管理计算机处于相同的 AD DS 林中（或处于具有信任关系的林中），则不应将 Nano Server 添加到受信任的主机列表中 - 可以通过使用其完全限定的域名（例如：PS C:\>Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)）连接到 Nano Server
   
   
 若要将 Nano Server 添加到受信任的主机列表，请在提升的 Windows PowerShell 提示符下运行此命令：  
@@ -60,9 +60,9 @@ Enter-PSSession -ComputerName $ip -Credential $user
 现在可以在 Nano Server 上正常运行 Windows PowerShell 命令。  
   
 > [!NOTE]  
-> 并非所有的 Windows PowerShell 命令都在此版本的 Nano Server 中可用。 若要查看其可用，请运行 `Get-Command -CommandType Cmdlet`  
+> 并非所有的 Windows PowerShell 命令都在此版本的 Nano Server 中可用。 若要查看可用的命令，请运行 `Get-Command -CommandType Cmdlet`  
   
-停止远程会话使用命令 `Exit-PSSession`  
+使用命令 `Exit-PSSession` 停止远程会话  
   
 ## <a name="using-windows-powershell-cim-sessions-over-winrm"></a>通过 WinRM 使用 Windows PowerShell CIM 会话  
 可以在 Windows PowerShell 中使用 CIM 会话和实例通过 Windows 远程管理 (WinRM) 来运行 WMI 命令。  
@@ -126,7 +126,7 @@ Stop-NetEventSession [-Name]
   
 1.  下载服务包（从关联的知识库文章或从 [Microsoft 更新目录](https://catalog.update.microsoft.com/v7/site/home.aspx)）。 将其保存到本地目录或网络共享，例如：C:\ServicingPackages  
 2.  创建将在其中保存提取的服务包的文件夹。  示例：c:\KB3157663_expanded  
-3.  打开 Windows PowerShell 控制台，然后使用 `Expand` 命令指定到服务包的 .msu 文件的路径，包括 `-f:*` 参数和将服务包提取到的路径。  例如：  `Expand "C:\ServicingPackages\Windows10.0-KB3157663-x64.msu" -f:* "C:\KB3157663_expanded"`  
+3.  打开 Windows PowerShell 控制台，然后使用 `Expand` 命令指定到服务包的 .msu 文件的路径，包括 `-f:*` 参数和将服务包提取到的路径。  例如：`Expand "C:\ServicingPackages\Windows10.0-KB3157663-x64.msu" -f:* "C:\KB3157663_expanded"`  
   
     展开的文件应如下所示：  
 C:>dir C:\KB3157663_expanded   
@@ -143,7 +143,7 @@ C:>dir C:\KB3157663_expanded
 04/17/2016  12:36 AM           185,818 WSUSSCAN.cab  
                4 个文件     94,073,136 字节  
                2 个目录  328,559,427,584 字节可用  
-4.  运行`New-NanoServerImage`使用-ServicingPackagePath 参数指向此目录中的.cab 文件为例： `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath C:\KB3157663_expanded\Windows10.0-KB3157663-x64.cab`  
+4.  结合指向此目录中的 .cab 文件的 -ServicingPackagePath 参数运行 `New-NanoServerImage`，例如：`New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath C:\KB3157663_expanded\Windows10.0-KB3157663-x64.cab`  
 
 ## <a name="managing-updates-in-nano-server"></a>管理 Nano Server 中的更新
 
@@ -237,7 +237,7 @@ Nano Server 完全支持 [Windows 事件跟踪](https://aka.ms/u2pa0i) (ETW) 框
 以下部分列出了最常见的性能数据收集活动以及在 Nano Server 上实现这些活动的受支持的方法。
 
 ### <a name="query-available-event-providers"></a>查询可用事件提供程序
-[Windows Performance Recorder](https://msdn.microsoft.com/en-us/library/hh448229.aspx) 是用于查询可用事件提供程序的工具，如下所示：
+[Windows Performance Recorder](https://msdn.microsoft.com/library/hh448229.aspx) 是用于查询可用事件提供程序的工具，如下所示：
 ```
 wpr.exe -providers
 ```

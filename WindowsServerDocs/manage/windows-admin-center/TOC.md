@@ -48,7 +48,7 @@
 ### [支持策略](support/index.md)
 ### [常见疑难解答步骤](support/troubleshooting.md)
 ### [已知问题](support/known-issues.md)
-
+### [Windows Admin Center 许可条款](../../windows-server-licensing/windows-admin-center-licensing.md)
 
 ## Extend
 ### [扩展概述](extend/extensibility-overview.md)
@@ -74,6 +74,7 @@
 #### [启用扩展发现横幅](extend/guides/extension-discovery-banner.md)
 ### [发布扩展](extend/publish-extensions.md)
 ### 案例研究
+#### [BiitOps](extend/case-studies/biitops.md)
 #### [DataON](extend/case-studies/dataon.md)
 #### [Fujitsu](extend/case-studies/fujitsu.md)
 #### [Lenovo](extend/case-studies/lenovo.md)
@@ -81,5 +82,6 @@
 #### [Pure Storage](extend/case-studies/purestorage.md)
 #### [QCT](extend/case-studies/qct.md)
 #### [Squared Up](extend/case-studies/squared-up.md)
+#### [Thomas-Krenn](extend/case-studies/thomas-krenn.md)
 
 

@@ -11,11 +11,11 @@ ms.topic: landing-page
 ms.author: billmath
 ms.localizationpriority: high
 ms.openlocfilehash: 161840d86cae6b688e3e7a877c7c44b17aefd432
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824238"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63684213"
 ---
 # <a name="identity--access"></a>标识 | 访问
 
@@ -80,7 +80,7 @@ ms.locfileid: "59824238"
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>适用于企业的 Windows 10:使用设备的工作方式</h3><hr />
+                        <h3>企业版 Windows 10：使用设备工作的方式</h3><hr />
                         <p>Windows 10 提供了利用 Azure Active Directory 的功能。 Windows 10 设备可以连接到 Azure AD，并且用户可以使用 Azure AD 帐户登录到 Windows，或添加其 Azure ID 以访问业务应用和资源。</p>
                     </div>
                 </div>
@@ -131,7 +131,7 @@ ms.locfileid: "59824238"
 ---
 
 ## <a name="solutions-and-scenario-guides"></a>解决方案和方案指南  
-* [从任何设备上的任何位置安全访问公司资源](https://technet.microsoft.com/library/dn550982.aspx)  
-*  [工作区从任何设备加入实现 SSO 和无缝第二重身份验证跨公司应用程序](https://technet.microsoft.com/library/dn280945.aspx)  
-* [使用针对敏感应用程序的附加多重身份验证管理风险](https://technet.microsoft.com/library/dn280949.aspx)  
-* [使用条件性访问控制管理风险](https://technet.microsoft.com/library/dn280937.aspx)
+* [在任何设备上从任何位置安全访问公司资源](https://technet.microsoft.com/library/dn550982.aspx)  
+*  [跨公司应用程序从任一设备加入工作区以实现 SSO 和无缝第二重身份验证](https://technet.microsoft.com/library/dn280945.aspx)  
+* [使用适用于敏感应用程序的附加多重身份验证管理风险](https://technet.microsoft.com/library/dn280949.aspx)  
+* [使用条件访问控制管理风险](https://technet.microsoft.com/library/dn280937.aspx)
