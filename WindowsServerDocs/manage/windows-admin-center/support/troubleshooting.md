@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 06/07/2019
-ms.openlocfilehash: 8e718eda7859c5e0b6949829c225b28e882525ad
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 4d108161dd4f6b57d4a86cbcaa5852aff53f0ac3
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811705"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469514"
 ---
 # <a name="troubleshooting-windows-admin-center"></a>Windows Admin Center 疑难解答
 
@@ -98,7 +98,6 @@ ms.locfileid: "66811705"
 
 ## <a name="i-get-the-message-cant-connect-securely-to-this-page-this-might-be-because-the-site-uses-outdated-or-unsafe-tls-security-settings"></a>我收到消息："无法安全地连接到此页。 这可能是因为该站点使用过时或不安全的 TLS 安全性设置。
 
-<!--REF: https://docs.microsoft.com/iis/get-started/whats-new-in-iis-10/http2-on-iis#when-is-http2-not-supported -->
 只有 HTTP/2 连接到你的计算机。 Windows Admin Center 使用集成的 Windows 身份验证，不支持 HTTP/2。 添加以下两个注册表值下的```HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Http\Parameters```密钥上**运行浏览器的计算机**删除 HTTP/2 限制：
 
 ```
@@ -198,14 +197,14 @@ netsh http delete urlacl url=https://+:443/
 
 ## <a name="azure-features-dont-work-properly-in-edge"></a>在 Edge 中 azure 功能未正常运行
 
-边缘已[已知问题](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Known-issues-on-Edge)到会影响 Windows Admin Center 中的 Azure 登录名的安全区域相关。 如果在使用 Edge 时使用的 Azure 功能时遇到问题，请尝试添加 https://login.microsoftonline.com， https://login.live.com并为你网关的 URL 受信任的站点和到允许的站点的客户端浏览器上的 Edge 弹出窗口阻止程序设置。 
+边缘已[已知问题](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Known-issues-on-Edge)到会影响 Windows Admin Center 中的 Azure 登录名的安全区域相关。 如果在使用 Edge 时使用的 Azure 功能时遇到问题，请尝试添加 https://login.microsoftonline.com ， https://login.live.com 并为你网关的 URL 受信任的站点和到允许的站点的客户端浏览器上的 Edge 弹出窗口阻止程序设置。 
 
 要实现此目的，请执行以下操作：
 1. 搜索**Internet 选项**在 Windows 开始菜单
 2. 转到**安全**选项卡
-3. 下**受信任的站点**选项，请单击**站点**按钮，然后在打开的对话框中添加 Url。 将需要添加网关 URL，以及 https://login.microsoftonline.com和 https://login.live.com。
+3. 下**受信任的站点**选项，请单击**站点**按钮，然后在打开的对话框中添加 Url。 将需要添加网关 URL，以及 https://login.microsoftonline.com 和 https://login.live.com 。
 4. 转到**隐私**选项卡
-5. 下**弹出窗口阻止程序**部分中，单击**设置**按钮，然后在打开的对话框中添加 Url。 将需要添加网关 URL，以及 https://login.microsoftonline.com和 https://login.live.com。
+5. 下**弹出窗口阻止程序**部分中，单击**设置**按钮，然后在打开的对话框中添加 Url。 将需要添加网关 URL，以及 https://login.microsoftonline.com 和 https://login.live.com 。
 
 ## <a name="having-an-issue-with-an-azure-related-feature"></a>出现问题。 Azure 相关的功能？
 
