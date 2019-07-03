@@ -5,16 +5,16 @@ description: ''
 author: billmath
 ms.author: billmath
 manager: femila
-ms.date: 04/01/2019
+ms.date: 07/02/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a831154a8b1e84f5ed879375980882e208c33d73
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 525ba403473a9de522d9ab30662adc868b17b88d
+ms.sourcegitcommit: c02756b7f5c92bf5018e17192f6fffb4754b0f06
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190349"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67533510"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>AD FS 快速还原工具
 
@@ -213,6 +213,13 @@ RngCryptoServiceProvider 用于生成 AES 和 Rfc2898DeriveBytes 类使用的 sa
 > 当执行的还原 PostRestore_Instructions 文件可能会创建包含附加身份验证提供程序的概述，属性存储和本地声明提供方信任，若要启动的 AD FS 服务之前手动安装。
 
 ## <a name="version-release-history"></a>版本发行历史记录
+
+### <a name="version-10820"></a>版本 1.0.82.0
+版本：2019 年 7 月
+
+**修复了问题：**
+- Bug 修复，适用于 AD FS 服务帐户名称包含 LDAP 转义字符
+
 
 ### <a name="version-10810"></a>版本：1.0.81.0
 版本：2019 年 4 月
