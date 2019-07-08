@@ -1,5 +1,5 @@
 ---
-title: 什么是用于在 Android 上的远程桌面的新功能？
+title: Android 上的远程桌面有哪些新增功能？
 description: 了解适用于 Android 的远程桌面客户端的最新更改
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -14,74 +14,74 @@ ms.author: elizapo
 ms.date: 06/05/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: 7730790495babf4a70fb5a70ce93464faa86f1e3
-ms.sourcegitcommit: 1102e91571c88c7a1a2e021a6c53af1def7bb0a4
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66736528"
 ---
-# <a name="whats-new-for-the-remote-desktop-client-on-android"></a>什么是用于在 Android 上的远程桌面客户端的新功能？
+# <a name="whats-new-for-the-remote-desktop-client-on-android"></a>Android 上的远程桌面客户端有哪些新增功能？
 
-我们会定期更新[适用于 Android 的远程桌面客户端](remote-desktop-android.md)、 添加新功能和修复问题。 请查看以下最新的更新。
+我们会定期更新[适用于 Android 的远程桌面客户端](remote-desktop-android.md)，添加新功能并修复问题。 请查看以下最新更新。
 
 ## <a name="updates-for-version-8171"></a>针对版本 8.1.71 的更新
 
-*发布的日期：06/05/2019*
+发布日期：  06/05/2019
 
-- 删除了对 4.0.3 和 4.0.4 的 Android 版本的支持。
-- 修复了具有相同名称的远程资源未正确显示。
-- 更新应用图标。
-- 次要 bug 修复和改进。
+- 删除了对 Android 版本 4.0.3 和 4.0.4 的支持。
+- 修复了同名远程资源不能正常显示的问题。
+- 更新了应用图标。
+- 次要的 bug 修复和改进。
 
 ## <a name="updates-for-version-8170"></a>针对版本 8.1.70 的更新
 
-*发布的日期：05/06/2019*
+发布日期：  05/06/2019
 
-- 解决了导致会话内容不进行大小调整正确使用齿格显示在设备的问题。
-- 修复了 Enter 键不其中某些 Chromebook 设备上起作用。
-- 修复了其中一些远程资源源 URL 未加载。
+- 解决了在使用刘海显示屏的设备上无法正常调整会话内容大小的问题。
+- 修复了某些 Chromebook 设备上 Enter 键不起作用的问题。
+- 修复了无法加载某些远程资源馈送 URL 的问题。
 
 ## <a name="updates-for-version-8169"></a>针对版本 8.1.69 的更新
 
-*发布的日期：04/22/2019*
+发布日期：  04/22/2019
 
-- 次要 bug 修复和改进。
+- 次要的 bug 修复和改进。
 
 ## <a name="updates-for-version-8168"></a>针对版本 8.1.68 的更新
 
-*发布的日期：04/15/2019*
+发布日期：  04/15/2019
 
-- 修复了远程资源源 URL 未加载其中。
-- 修复了在应用中首次启动时在运行 Android 9.0 Samsung DeX phone 大小的起始位置。
-- 更新应用图标。
-- 附加 bug 修复程序。
+- 修复了无法加载远程资源馈送 URL 的问题。
+- 修复了在运行 Android 9.0 的 Samsung DeX 上首次启动时，应用以手机全屏大小启动的问题。
+- 更新了应用图标。
+- 其他 bug 修复。
 
 ## <a name="updates-for-version-8167"></a>针对版本 8.1.67 的更新
 
-*发布的日期：03/28/2019*
+发布日期：  03/28/2019
 
-- 修复了其中的远程会话中键入时重复按键。
+- 修复了键入远程会话时重复按键的问题。
 
 ## <a name="updates-for-version-8166"></a>针对版本 8.1.66 的更新
 
-*发布的日期：03/19/2019*
+发布日期：  03/19/2019
 
-- 添加了对初始支持[Windows 虚拟桌面](https://aka.ms/wvd)。
-- 修复了导致要显示的屏幕上某些 Chromebook 设备和 DeX 方案底部的黑色区域。
-- 添加了对 Samsung DeX，隐藏底部任务栏的沉浸式模式下支持。
-- 添加了的支持的 Samsung DeX 元和 Alt 键从物理键盘发送到远程会话。
-- 鼠标指针现在更新基于内容的远程会话 （Android 7.0 +）
-- 附加 bug 修复程序。
+- 添加了对 [Windows 虚拟桌面](https://aka.ms/wvd)的初始支持。
+- 修复了导致在某些 Chromebook 设备和 DeX 方案的屏幕底部显示黑色区域的问题。
+- 添加了对 Samsung DeX 的沉浸模式支持，并隐藏了底部任务栏。
+- 添加了从物理键盘向 Samsung DeX 远程会话发送 Meta 和 Alt 键的支持。
+- 现在，鼠标指针会根据远程会话的内容更新 (Android 7.0+)
+- 其他 bug 修复。
 
 ## <a name="updates-for-version-8161"></a>针对版本 8.1.61 的更新
 
-*发布的日期：07/05/2018*
+发布日期：  07/05/2018
 
-- 添加了对 Samsung DeX （Android 8.0 +） 的初始支持。
+- 添加了对 Samsung DeX 的初始支持 (Android 8.0+)。
 
 ## <a name="updates-for-version-8160"></a>针对版本 8.1.60 的更新
 
-*发布的日期：04/30/2018*
+发布日期：  04/30/2018
 
-- 用于解决 CredSSP 加密 oracle 修正 CVE 2018 0886年中所述的更新。
-- 修复崩溃时启动的连接能从以前的版本。
+- 用于解决 CVE-2018-0886 中所述的 CredSSP 加密 Oracle 修正的更新。
+- 修复了启动前一版本留下的连接时发生崩溃的问题。

@@ -11,10 +11,10 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: e7ff669b1a1ca3bed5d7c827c40bc46e81ea3f02
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66810598"
 ---
 # <a name="get-started-with-windows-server-2016"></a>Windows Server 2016 入门
@@ -24,7 +24,7 @@ ms.locfileid: "66810598"
 > [!TIP]
 > 要查找有关较旧版 Windows Server 的信息？ 在 docs.microsoft.com 上查看我们的其他 [Windows Server 库](/previous-versions/windows/)。 也可以[搜索此站点](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions)了解具体信息。
 
-![显示具有一个复选标记的框图标](../media/landing-icons/getstarted.png)此集合包含可帮助您确定您是否准备好移动到 Windows Server 2016 的详细的信息。 一旦检查了移动到 Windows Server 2016 的系统要求、升级选项和其他信息，你就可以返回到主 [Windows Server 2016](Windows-Server-2016.md) 集线器，并开始在路径下安装满足你需要的最佳版本和安装选项。 
+![显示了已勾选的框的图标](../media/landing-icons/getstarted.png)此集合包含详细的信息，可帮助确定你是否准备好移动到 Windows Server 2016。 一旦检查了移动到 Windows Server 2016 的系统要求、升级选项和其他信息，你就可以返回到主 [Windows Server 2016](Windows-Server-2016.md) 集线器，并开始在路径下安装满足你需要的最佳版本和安装选项。 
 
 > [!Note]
 > 若要下载 Windows Server 2016，请参阅 [Windows Server 评估](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016)。
@@ -39,7 +39,7 @@ ms.locfileid: "66810598"
 ## <a name="recommendations-for-moving-to-windows-server-2016recommendations-moving-to-server2016md"></a>[有关移动到 Windows Server 2016 的建议](Recommendations-moving-to-Server2016.md)
 可在各种情况下获取 Windows Server 2016 的方法综合表。
 
-## <a name="features-removed-or-deprecated-in--windows-server-2016deprecated-featuresmd"></a>[已删除或 Windows Server 2016 中弃用的功能](deprecated-features.md)
+## <a name="features-removed-or-deprecated-in--windows-server-2016deprecated-featuresmd"></a>[Windows Server 2016 中已删除或弃用的功能](deprecated-features.md)
 已从 Windows Server 2016 中删除或已指定未来可能删除的功能。
 
 ## <a name="upgrade-and-conversion-optionssupported-upgrade-pathsmd"></a>[升级和转换选项](Supported-Upgrade-Paths.md)

@@ -15,11 +15,11 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 2f05bcffa7c8c4f9e74f3699b9838b8a627af1b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837718"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63688677"
 ---
 # <a name="whats-new-in-the-windows-console-in-windows-server-2016"></a>Windows Server 2016 中 Windows 控制台的新增功能
 >适用于：Windows Server 2016
@@ -66,7 +66,7 @@ ms.locfileid: "59837718"
 ## <a name="selection"></a>选择  
 有许多新的选项用于选择文本和行，以及用于标记文本和使用缓冲区历史记录。 控制台将尝试避免与可能正在使用相同键的应用程序发生冲突。  
 
-**面向开发人员：** 如果发生冲突，则通常可以控制应用程序的使用行输入、 处理的输入和回显输入模式的使用通过 setconsolemode （) API 的行为。 如果在处理输入模式下运行，可使用下面的快捷方式，但在其他模式下，应用程序必须对其进行处理。 任何未在此处列出的组合键与在旧版控制台中的功能相同。 还可以尝试使用“**选项**”选项卡上的不同设置来解决冲突。如果所有其他方法均失败，可以随时恢复到原始控制台。  
+**对于开发人员：** 如果发生冲突，通常可以通过 SetConsoleMode() API 控制应用程序的行输入、处理输入和回显输入模式的使用行为。 如果在处理输入模式下运行，可使用下面的快捷方式，但在其他模式下，应用程序必须对其进行处理。 任何未在此处列出的组合键与在旧版控制台中的功能相同。 还可以尝试使用“**选项**”选项卡上的不同设置来解决冲突。如果所有其他方法均失败，可以随时恢复到原始控制台。  
 
 现在，可以使用 QuickEdit 模式外部的“单击拖动”选项，此选项可以选择记事本而不仅仅是矩形块中的跨行文本。 复制操作不再需要删除换行符。 除了“单击拖动”选项，这些组合键还可用于：  
 

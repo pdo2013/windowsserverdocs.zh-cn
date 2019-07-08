@@ -1,6 +1,6 @@
 ---
-title: 升级远程桌面服务部署到 Windows Server 2016
-description: 本文介绍如何升级现有的远程桌面服务部署到 Windows Server 2016。
+title: 将远程桌面服务部署升级到 Windows Server 2016
+description: 本文介绍如何将现有的远程桌面服务部署升级到 Windows Server 2016。
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,60 +14,60 @@ ms.assetid: f7b1f1f6-57c8-40ab-a235-e36240dcc1f8
 author: spatnaik
 manager: scottman
 notes: https://social.technet.microsoft.com/wiki/contents/articles/22069.remote-desktop-services-upgrade-guidelines-for-windows-server-2012-r2.aspx
-ms.openlocfilehash: f683a7d9346494e7f1fb6faf716ca9c90cfef8d3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d39361c62d71f9a804087e62936d2cf8c646917a
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875748"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63711802"
 ---
-# <a name="upgrading-your-remote-desktop-services-deployments-to-windows-server-2016"></a>升级远程桌面服务部署到 Windows Server 2016
+# <a name="upgrading-your-remote-desktop-services-deployments-to-windows-server-2016"></a>将远程桌面服务部署升级到 Windows Server 2016
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2019、Windows Server 2016
 
-## <a name="supported-os-upgrades-with-rds-role-installed"></a>已安装 RDS 角色支持 OS 升级
-仅从 Windows Server 2012 R2 和 Windows Server 2016 支持的升级到 Windows Server 2016。
+## <a name="supported-os-upgrades-with-rds-role-installed"></a>支持的装有 RDS 角色的 OS 升级
+仅支持从 Windows Server 2012 R2 和 Windows Server 2016 升级到 Windows Server 2016。
 
-## <a name="flow-for-deployment-upgrades"></a>部署升级的流
-为了保持在最低限度的停机时间，最好遵循以下步骤：
+## <a name="flow-for-deployment-upgrades"></a>部署升级的流程
+为了尽量减少停机时间，最好是遵循以下步骤：
 
-1. **RD 连接代理服务器**应为要升级的第一个。 如果没有主动/主动设置在部署中，从部署中删除所有但一个服务器并且执行就地升级。 剩余的 RD 连接代理服务器脱机上执行升级以及然后重新将其添加到部署。 部署 RD 连接代理服务器升级过程将不可用。
+1. 应该先升级 **RD 连接代理服务器**。 如果部署中采用了主动/主动设置，请在部署中保留一个服务器并删除所有其他服务器，然后执行就地升级。 针对剩余的 RD 连接代理服务器执行脱机升级，然后将其重新添加到部署中。 在升级 RD 连接代理服务器期间，部署将不可用。
 
    > [!NOTE] 
-   > 它是必须升级 RD 连接代理服务器。 我们不支持在具有 Windows Server 2016 的服务器的混合部署中的 Windows Server 2012 R2 RD 连接代理服务器。 RD 连接代理服务器运行 Windows Server 2016 后的部署将会正常运行，即使在部署中的服务器的其余部分仍在运行 Windows Server 2012 R2。
+   > 必须升级 RD 连接代理服务器。 不支持在包含 Windows Server 2016 服务器的混合部署中使用 Windows Server 2012 R2 RD 连接代理服务器。 RD 连接代理服务器在运行 Windows Server 2016 后，部署将会正常运行，即使部署中的剩余服务器仍在运行 Windows Server 2012 R2。
 
-2. **远程桌面许可证服务器**之前升级 RD 会话主机服务器应升级。
+2. 应该先升级 **RD 许可证服务器**，然后再升级 RD 会话主机服务器。
    > [!NOTE] 
-   > Windows Server 2012 和 2012 R2 远程桌面许可证服务器将使用 Windows Server 2016 的部署，但它们只能处理从 Windows Server 2012 R2 和较旧的 Cal。 它们不能使用 Windows Server 2016 Cal。 请参阅[与客户端访问许可证 (Cal) 许可 RDS 部署](rds-client-access-license.md)的远程桌面许可证服务器的详细信息。
+   > Windows Server 2012 和 2012 R2 RD 许可证服务器可与 Windows Server 2016 部署配合工作，但它们只能处理来自 Windows Server 2012 R2 和更低版本的 CAL。 它们不能使用 Windows Server 2016 CAL。 有关 RD 许可证服务器的详细信息，请参阅[使用客户端访问许可证 (CAL) 为 RDS 部署授权](rds-client-access-license.md)。
 
-3. **RD 会话主机服务器**接下来可以升级。 若要避免故障时间在升级过程中管理员可以拆分如下所示的 2 个步骤中要升级的服务器。 在升级后，所有将能正常运行。 若要升级，请使用中所述的步骤[到 Windows Server 2016 的升级远程桌面会话主机服务器](upgrade-to-rdsh.md)。
+3. 接下来可以升级 **RD 会话主机服务器**。 为了避免升级过程中停机，管理员可按下面的详述，以 2 个步骤分批升级服务器。 升级后，所有服务器可正常运行。 若要升级，请使用[将远程桌面会话主机服务器升级到 Windows Server 2016](upgrade-to-rdsh.md) 中所述的步骤。
 
-4. **RD 虚拟化主机服务器**接下来可以升级。 若要升级，请使用中所述的步骤[到 Windows Server 2016 的升级远程桌面虚拟化主机服务器](upgrade-to-rdvh.md)。
+4. 接下来可以升级 **RD 虚拟化主机服务器**。 若要升级，请使用[将远程桌面虚拟化主机服务器升级到 Windows Server 2016](upgrade-to-rdvh.md) 中所述的步骤。
 
-5. **RD Web 访问服务器**可以随时升级。
+5. 随时可以升级 **RD Web 访问服务器**。
    > [!NOTE]
-   > 升级 RD Web 可能会重置 IIS 属性 （如任何配置文件）。 若要不会丢失所做的更改，请说明或对 IIS 中的 RD Web 站点的自定义项的副本。
+   > 升级 RD Web 可能会重置 IIS 属性（例如任何配置文件）。 为确保更改不会丢失，请记下或复制对 IIS 中的 RD Web 站点所做的自定义设置。
 
    > [!NOTE] 
-   > Windows Server 2012 和 2012 R2 RD Web 访问服务器将使用 Windows Server 2016 部署。
+   > Windows Server 2012 和 2012 R2 RD Web 访问服务器可与 Windows Server 2016 部署配合工作。
 
-6. **RD 网关服务器**可以随时升级。
+6. 随时可以升级 **RD 网关服务器**。
    > [!NOTE]
-   > Windows Server 2016 不包括网络访问保护 (NAP) 策略-它们将需要删除。 若要删除的正确策略的最简单方法是通过运行升级向导。 如果必须删除任何 NAP 策略，升级将阻止，并创建一个文本文件，其中包括特定的策略在桌面上。 若要管理 NAP 策略，请打开网络策略服务器工具。 删除后它们，单击**刷新**安装工具以继续升级过程中。 
+   > Windows Server 2016 不包含网络访问保护 (NAP) 策略 - 必须删除这些策略。 删除适当策略的最简单方法是运行升级向导。 如果必须删除某些 NAP 策略，升级过程将会阻塞，并在桌面上创建一个包含特定策略的文本文件。 若要管理 NAP 策略，请打开网络策略服务器工具。 删除策略后，单击安装程序工具中的“刷新”以继续升级。  
 
    > [!NOTE] 
-   > Windows Server 2012 和 2012 R2 远程桌面网关服务器会使用 Windows Server 2016 部署。
+   > Windows Server 2012 和 2012 R2 RD 网关服务器可与 Windows Server 2016 部署配合工作。
 
-## <a name="vdi-deployment--supported-guest-os-upgrade"></a>VDI 部署 – 受支持的来宾 OS 升级
-管理员将具有以下选项来升级的虚拟机集合：
+## <a name="vdi-deployment--supported-guest-os-upgrade"></a>VDI 部署 – 支持的来宾 OS 升级
+管理员可使用以下选项升级 VM 集合：
 
-### <a name="upgrade-managed-shared-vm-collections"></a>升级托管共享 VM 集合 
-管理员需要创建具有所需的操作系统版本的虚拟机模板并使用它来修补在池中的所有 Vm。 
+### <a name="upgrade-managed-shared-vm-collections"></a>升级托管的共享 VM 集合 
+管理员需要使用所需的 OS 版本创建 VM 模板，并使用它来修补池中的所有 VM。 
 
-我们支持以下修补方案：
-- Windows 7 SP1 可以修补的 Windows 8 或 Windows 8.1
-- Windows 8 可以修补到 Windows 8.1
-- Windows 8.1 可修补到 Windows 10
+支持以下修补方案：
+- Windows 7 SP1 可修补为 Windows 8 或 Windows 8.1
+- Windows 8 可修补为 Windows 8.1
+- Windows 8.1 可修补为 Windows 10
 
-### <a name="upgrade-unmanaged-shared-vm-collections"></a>升级共享的非托管的 VM 集合 
-最终用户不能升级其个人桌面。 管理员应执行升级。 确切步骤仍是确定。
+### <a name="upgrade-unmanaged-shared-vm-collections"></a>升级非托管的共享 VM 集合 
+最终用户无法升级其个人桌面。 应该由管理员执行这种升级。 确切的步骤有待确定。

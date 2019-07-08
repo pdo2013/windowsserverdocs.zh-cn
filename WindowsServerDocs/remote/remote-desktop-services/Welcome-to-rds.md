@@ -1,5 +1,5 @@
 ---
-title: Windows Server 2016 中的欢迎使用远程桌面服务
+title: 欢迎使用 Windows Server 2016 中的远程桌面服务
 description: 提供远程桌面服务的概述
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -15,38 +15,38 @@ author: christianmontoya
 manager: scottman
 ms.localizationpriority: medium
 ms.openlocfilehash: 3d148c99911be0cebfc29429d93241f24c2b9606
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66453014"
 ---
 # <a name="welcome-to-remote-desktop-services"></a>欢迎使用远程桌面服务 
 
-远程桌面服务 (RDS) 是用于构建每个最终客户需求，包括提供单个虚拟化应用程序、 提供移动和远程桌面访问的安全性，并提供最终用户的虚拟化解决方案选择的平台若要从在云中运行其应用程序和桌面的功能。
+远程桌面服务 (RDS) 是一个卓越的平台，可以生成虚拟化解决方案来满足每个最终客户的需求，包括交付独立的虚拟化应用程序、提供安全的移动和远程桌面访问，使最终用户能够从云运行其应用程序和桌面。
 
 ![远程桌面服务概述](./media/rds-overview.png)
 
-RDS 提供了部署灵活性，成本效率和可扩展性-全部通过各种部署选项，包括 Windows Server 2016 的本地部署，Microsoft Azure 的云部署，以及合作伙伴的可靠数组解决方案。
+RDS 提供部署灵活性、高成本效益和可扩展性 - 各种部署选项都能提供所有这些优势，包括使用 Windows Server 2016 进行本地部署、使用 Microsoft Azure 进行云部署，以及可靠的合作伙伴解决方案阵容。
 
-具体取决于您的环境和首选项，您可以设置基于会话的虚拟化的 RDS 解决方案作为虚拟桌面基础结构 (VDI) 或两者的组合：
+根据你的环境和偏好，可为基于会话的虚拟化设置 RDS 解决方案、将 RDS 解决方案设置为虚拟桌面基础结构 (VDI)，或者结合这两种设置：
 
-- **基于会话的虚拟化**:利用 Windows Server 的计算能力，以提供经济高效的多会话环境来驱动用户的日常工作负荷
-- **VDI**:利用 Windows 客户端提供的高性能、 应用程序兼容性和用户都希望能其 Windows 桌面体验的熟悉程度。
+- **基于会话的虚拟化**：利用 Windows Server 的计算能力提供经济高效的多会话环境，以驱动用户的日常工作负荷
+- **VDI**：利用 Windows 客户端为用户提供他们在 Windows 桌面体验中所预期的高性能、应用兼容性和顺手性。
 
-在这些虚拟化环境中，你有更灵活地向用户发布的内容：
+在这些虚拟化环境中，可以更灵活地自定义向用户发布的内容：
 
-- **桌面**:为用户提供与各种安装和管理应用程序的完整的桌面体验。 适用于依赖于这些计算机作为其主工作站或，即将从瘦客户端，如与 MultiPoint 服务的用户。
-- **RemoteApps**:指定的虚拟机上托管/运行单个应用程序，但出现像它们类似于本地应用程序的用户的桌面上运行。 应用有其自己的任务栏条目和可调整大小和移动的监视器。 用于部署和管理，从而允许用户从工作和自定义他们自己的台式机安全的远程环境中的关键应用程序的理想选择。
+- **桌面**：包含你安装和管理的各种应用程序，为用户提供完整的桌面体验。 对于依赖于使用这些计算机作为其主要工作站，或者当前正在使用瘦客户端（例如 MultiPoint 服务）的用户而言，此解决方案非常理想。
+- **RemoteApp**：指定在虚拟化计算机上托管/运行的，但看上去如同本地应用程序一样在用户桌面上运行的各个应用程序。 应用有其自身的任务栏条目，并可调整大小以及在监视器之间移动。 非常适合用于在安全的远程环境中部署和管理关键应用程序，同时可让用户在其自己的桌面中工作以及自定义其桌面。
 
-对于环境是至关重要的成本效益，以及你想要扩展部署在基于会话的虚拟化环境中的完整桌面的优势，可以使用[MultiPoint 服务](../multipoint-services/multipoint-services.md)以提供最佳价值。 
+对于成本效益至关重要的环境，以及当你希望在基于会话的虚拟化环境中部署完整桌面后能够扩大收益时，可以使用 [MultiPoint 服务](../multipoint-services/multipoint-services.md)来实现最大价值。 
 
-使用这些选项和配置，可以灵活地部署桌面和您的用户需要远程，安全和经济高效的方式中的应用程序。
+使用这些选项和配置可以在远端以安全且经济高效的方式灵活部署用户所需的桌面和应用程序。
 
 ## <a name="next-steps"></a>后续步骤
 
-下面是一些后续步骤可帮助您更好地了解 RDS 和甚至开始部署您自己的环境：
--   了解[支持的配置](rds-supported-config.md)rds 与各种 Windows 和 Windows Server 版本
--   [规划和设计](rds-plan-and-design.md)RDS 环境，以适应各种要求，如高可用性和多重身份验证。
--   审阅[远程桌面服务体系结构模型](desktop-hosting-logical-architecture.md)适合于您所需的环境。
--   启动到[部署 ARM 和 Azure Marketplace 中的对 RDS 环境](rds-in-azure.md)。
+以下后续步骤可帮助你更好地了解 RDS，甚至可帮助你开始部署自己的环境：
+-   了解各种 Windows 和 Windows Server 版本中的 RDS [支持的配置](rds-supported-config.md)
+-   [规划和设计](rds-plan-and-design.md)一个 RDS 环境来满足各种要求，例如高可用性和多重身份验证。
+-   查看最适合所需环境的[远程桌面服务体系结构模型](desktop-hosting-logical-architecture.md)。
+-   开始[使用 ARM 和 Azure 市场部署 RDS 环境](rds-in-azure.md)。

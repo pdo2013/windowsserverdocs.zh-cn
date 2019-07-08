@@ -1,6 +1,6 @@
 ---
-title: RDS-生成和部署
-description: 若要生成的远程桌面部署的步骤
+title: RDS - 生成和部署
+description: 生成远程桌面部署的步骤
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,36 +14,36 @@ ms.assetid: 176ae424-96e9-4c78-88f5-da418e76c3d7
 author: lizap
 manager: dongill
 ms.openlocfilehash: 309ea068488d005eabfe22f8ea055f85dd098452
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66453069"
 ---
 # <a name="build-and-deploy-your-remote-desktop-services-deployment"></a>生成和部署远程桌面服务部署
 
-远程桌面服务部署是用于与用户共享应用和资源的基础结构。 具体取决于您想要提供的体验，您可以使其作为小型或复杂所需。 能够轻松地缩放远程桌面部署。 可以增加和减少远程桌面 Web 访问，将在网关、 连接代理和会话主机服务器。 可以使用远程桌面连接代理分配工作负荷。 Active Directory 基于身份验证提供了高度安全环境。 
+远程桌面服务部署是用来与用户共享应用和资源的基础结构。 根据你要提供的体验，可视需要生成小型部署或复杂部署。 可以轻松缩放远程桌面部署。 可按需增加和减少远程桌面 Web 访问、网关、连接代理和会话主机服务器的数目。 可以使用远程桌面连接代理来分配工作负荷。 基于 Active Directory 的身份验证提供高度安全的环境。 
 
-[远程桌面客户端](clients/remote-desktop-clients.md)启用访问权限从任何 Windows、 Apple 或 Android 计算机、 平板电脑或电话。
+使用[远程桌面客户端](clients/remote-desktop-clients.md)可从任何 Windows、Apple 或 Android 计算机、平板电脑或手机进行访问。
 
-请参阅[远程桌面服务体系结构](desktop-hosting-logical-architecture.md)有关的不同部分，它们共同协作以组成一个远程桌面服务部署的详细讨论。
+有关相互协作以构成远程桌面服务部署的各个组成部分的详细介绍，请参阅[远程桌面服务体系结构](desktop-hosting-logical-architecture.md)。
 
-拥有现有的远程桌面部署基于早期版本的 Windows Server？ 请查看迁移到 WIndows Server 2016，其中您可以充分利用新功能和更好功能在性能和规模的选项：
+现有的远程桌面部署是否是在旧版 Windows Server 上生成的？ 请查看以下用于过渡到 WIndows Server 2016 的选项，以利用对性能与规模有利的新功能和改进的功能：
 
-- [RDS 部署迁移到 Windows Server 2016](migrate-rds-role-services.md)
+- [将 RDS 部署迁移到 Windows Server 2016](migrate-rds-role-services.md)
 - [将 RDS 部署升级到 Windows Server 2016](upgrade-to-rds-2016.md)
 
-要创建新的远程桌面部署？ 使用以下信息来部署 Windows Server 2016 中的远程桌面：
+想要创建新的远程桌面部署？ 请使用以下信息在 Windows Server 2016 中部署远程桌面：
 
 - [部署远程桌面服务基础结构](rds-deploy-infrastructure.md)
-- [创建会话集合来保存应用和你想要共享的资源](rds-create-collection.md)
-- [许可证 RDS 部署](rds-client-access-license.md)
-- 让用户安装[远程桌面客户端](clients/remote-desktop-clients.md)以便他们可以访问应用和资源。 
-- 通过添加其他连接代理和会话主机启用高可用性：
+- [创建一个会话集合用于保存你要共享的应用和资源](rds-create-collection.md)
+- [为 RDS 部署授权](rds-client-access-license.md)
+- 让用户安装[远程桌面客户端](clients/remote-desktop-clients.md)，以便可以访问应用和资源。 
+- 添加其他连接代理和会话主机来实现高可用性：
    - [通过 RD 会话主机场横向扩展现有 RDS 集合](rds-scale-rdsh-farm.md)
    - [为 RD 连接代理基础结构提供高可用性](rds-connection-broker-cluster.md)
    - [向 RD Web 和 RD 网关 Web 前端添加高可用性](rds-rdweb-gateway-ha.md)
    - [为 UPD 存储部署两个节点的存储空间直通文件系统](rds-storage-spaces-direct-deployment.md)
 
 
-如果您希望使用远程桌面与客户或查找的人来承载您的应用程序的客户提供应用和资源的托管合作伙伴，请查看[远程桌面服务托管合作伙伴](rds-hosting-partners.md)有关的信息评估您可能需要在 Azure 中使用 RDS，作为宿主环境，以及已传递它的合作伙伴的列表。
+如果你是一家托管合作伙伴并想要使用远程桌面向客户提供应用和资源，或者，如果你正在寻找某家提供商来托管你的应用，请查看[远程桌面服务托管合作伙伴](rds-hosting-partners.md)，了解在使用 Azure 中的 RDS 作为托管环境时可以做出的评估，以及已通过该项评估的合作伙伴列表。

@@ -15,10 +15,10 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: cf67a1c9675191936a6150bb950c59e6f99b54ad
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66810702"
 ---
 # <a name="install-server-with-desktop-experience"></a>安装具有桌面体验的服务器
@@ -39,15 +39,15 @@ ms.locfileid: "66810702"
 
 **远程安装、配置、卸载服务器角色：** 使用服务器管理器、远程服务器、RSAT 或 Windows PowerShell 进行
 
-**Microsoft 管理控制台： 安装**
+**Microsoft 管理控制台：已安装**
 
 ## <a name="installation-scenarios"></a>安装方案
 
 ### <a name="evaluation"></a>评估
-可以从 [Windows Server 评估](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016) 获取 Windows Server 的 180 天许可证评估副本。 选择 **Windows Server 2016 | 64 位 ISO 选项**下载，或访问 **Windows Server 2016 | 虚拟实验室**。
+可以从 [Windows Server 评估](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016)获取 Windows Server 的 180 天许可证评估副本。 选择 **Windows Server 2016 | 64 位 ISO 选项**下载，或访问 **Windows Server 2016 | 虚拟实验室**。
 
 > [!IMPORTANT]  
-> 对于 14393.0.161119-1705.RS1_REFRESH 之前的 Windows Server 2016 版本，只能将使用“桌面体验”选项（非“服务器核心”选项）安装的 Windows Server 2016 从评估版转换为零售版。 从 14393.0.161119-1705.RS1_REFRESH 版本和更高版本开始，无论使用哪个安装选项，你都可以将评估版本转换为零售版本。
+> 对于 14393.0.161119-1705.RS1_REFRESH 之前的 Windows Server 2016 版本，只能将使用“桌面体验”选项（非“Server Core”选项）安装的 Windows Server 2016 从评估版转换为零售版。 从 14393.0.161119-1705.RS1_REFRESH 版本和更高版本开始，无论使用哪个安装选项，你都可以将评估版本转换为零售版本。
 
 
 ### <a name="clean-installation"></a>全新安装
@@ -75,7 +75,7 @@ ms.locfileid: "66810702"
 |如果运行此版本：|可以升级到这些版本：|  
 |-------------------|----------|  
 |Windows Server 2012 Standard|Windows Server 2016 Standard 或 Datacenter|
-|Windows Server 2012 Datacenter|Windows Server 2016 Datacenter|
+|Windows Server 2012 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Standard|Windows Server 2016 Standard 或 Datacenter|
 |Windows Server 2012 R2 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Essentials|Windows Server 2016 Essentials|
@@ -103,7 +103,7 @@ ms.locfileid: "66810702"
 |打印和传真服务|    否| 否| 是 (Printbrm.exe)| 否|
 |远程桌面服务|   是，对于所有子角色，但不支持混合模式场|   是，对于所有子角色，但不支持混合模式场|   是|    否|
 |Web 服务器 (IIS)|  是|    是|    是|    否|
-|Windows Server Essentials 体验|  是|    N/A - 新功能|  是|    否|
+|Windows Server Essentials 体验|  是|    N/A - 新功能|  是|    否|
 |Windows Server 更新服务|    是|    是|    是|    否|
 |工作文件夹|  是|    是|    是|    是，使用[群集操作系统滚动升级](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade)从 WS 2012 R2 群集进行操作时。|
 

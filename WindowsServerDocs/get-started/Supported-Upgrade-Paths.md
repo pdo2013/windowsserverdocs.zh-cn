@@ -15,10 +15,10 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 299cf420b44e4a15985d00489edf84784316540d
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66810573"
 ---
 # <a name="upgrade-and-conversion-options-for-windows-server-2016"></a>适用于 Windows Server 2016 的升级和转换选项
@@ -43,7 +43,7 @@ ms.locfileid: "66810573"
 > 升级最适合用于虚拟机，其中进行成功升级不需要特定 OEM 硬件驱动程序。  
 
 > [!IMPORTANT]  
-> 对于 14393.0.161119-1705.RS1_REFRESH 之前的 Windows Server 2016 版本，只能将使用“桌面体验”选项（非“服务器核心”选项）安装的 Windows Server 2016 **从评估版转换为零售版**。 从 14393.0.161119-1705.RS1_REFRESH 版本和更高版本开始，无论使用哪个安装选项，你都可以将评估版本转换为零售版本。
+> 对于 14393.0.161119-1705.RS1_REFRESH 之前的 Windows Server 2016 版本，只能将使用“桌面体验”选项（非“Server Core”选项）安装的 Windows Server 2016 **从评估版转换为零售版**。 从 14393.0.161119-1705.RS1_REFRESH 版本和更高版本开始，无论使用哪个安装选项，你都可以将评估版本转换为零售版本。
 
 > [!IMPORTANT]  
 > 如果服务器使用 NIC 组合，请在升级前禁用 NIC 组合，然后在升级完成后重新启用该组合。 请参阅 [NIC 组合概述](https://technet.microsoft.com/library/hh831648(v=ws.11).aspx) 了解详细信息。
@@ -68,7 +68,7 @@ ms.locfileid: "66810573"
 |如果运行此版本：|可以升级到这些版本：|  
 |-------------------|----------|  
 |Windows Server 2012 Standard|Windows Server 2016 Standard 或 Datacenter|
-|Windows Server 2012 Datacenter|Windows Server 2016 Datacenter|
+|Windows Server 2012 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Standard|Windows Server 2016 Standard 或 Datacenter|
 |Windows Server 2012 R2 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Essentials|Windows Server 2016 Essentials|
@@ -87,7 +87,7 @@ ms.locfileid: "66810573"
 可以将 Windows Server 2016 Standard 的评估版转换为 Windows Server 2016 Standard（零售版）或 Datacenter（零售版）。 同样，可以将 Windows Server 2016 Datacenter 的评估版转换为零售版。
 
 > [!IMPORTANT]  
-> 对于 14393.0.161119-1705.RS1_REFRESH 之前的 Windows Server 2016 版本，只能将使用“桌面体验”选项（非“服务器核心”选项）安装的 Windows Server 2016 从评估版转换为零售版。 从 14393.0.161119-1705.RS1_REFRESH 版本和更高版本开始，无论使用哪个安装选项，你都可以将评估版本转换为零售版本。
+> 对于 14393.0.161119-1705.RS1_REFRESH 之前的 Windows Server 2016 版本，只能将使用“桌面体验”选项（非“Server Core”选项）安装的 Windows Server 2016 从评估版转换为零售版。 从 14393.0.161119-1705.RS1_REFRESH 版本和更高版本开始，无论使用哪个安装选项，你都可以将评估版本转换为零售版本。
 
 在尝试从评估版转换为零售版之前，请验证你的服务器是否确实在运行评估版。 为此，请执行下列两项操作之一：
 
@@ -99,7 +99,7 @@ ms.locfileid: "66810573"
 
 如果服务器运行的是零售版而不是评估版，请参阅本主题的“将以前的 Windows Server 零售版升级到 Windows Server 2016”部分，了解升级到 Windows Server 2016 的说明。
 
-有关**Windows Server 2016 Essentials**:可以通过在命令中输入零售批量许可证或 OEM 密钥转换为完整零售版本**slmgr.vbs**。
+对于 **Windows Server 2016 Essentials**：可以通过在命令 **slmgr.vbs** 中输入零售批量许可证或 OEM 密钥来转换为完整的零售版本。
 
 如果服务器正在运行 Windows Server 2016 Standard 或 Windows Server 2016 Datacenter 评估版，可以将其转换为零售版，如下所示：
 
@@ -110,14 +110,14 @@ ms.locfileid: "66810573"
 对于 Windows Server 2016 Standard 的评估版，还可以使用这一相同命令和相应的产品密钥通过一个步骤转换为 Windows Server 2016 Datacenter 零售版。
 
 > [!TIP] 
-> 有关 Dism.exe 的详细信息，请参阅[DISM 命令行选项](https://go.microsoft.com/fwlink/?LinkId=192466)。
+> 有关 Dism.exe 的详细信息，请参阅 [DISM 命令行选项](https://go.microsoft.com/fwlink/?LinkId=192466)。
 
 ## <a name="converting-a-current-retail-edition-to-a-different-current-retail-edition"></a>将当前零售版转换为其他某个当前零售版
 
 在安装 Windows Server 2016 后，随时可以运行“Setup”来修复安装（有时称为“就地修复”）或在某些情况下，转换为另一版本。
 可以运行“Setup”以在任何版本的 Windows Server 2016 上执行“就地修复”；结果将是开始使用的同一版本。
 
-对于 Windows Server 2016 标准版，你可以将系统转换为 Windows Server 2016 Datacenter，如下所示：在提升的命令提示符下使用命令 **DISM /online /Get-CurrentEdition**确定当前的版本名称。 对于 Windows Server 2016 Standard 这将是`ServerStandard`。 运行命令**DISM /online /enable-feature /Get-TargetEditions**获取可以升级到的版本的 ID。 记下此版本 ID，版本名称的缩写形式。 然后运行**DISM /online /Set-Edition:\<版本 ID\> /productkey:-XXXXX-XXXXX-XXXXX-XXXXX /AcceptEula**，提供你的目标和其零售产品密钥的版本 ID。 服务器将重启两次。
+例如，对于 Windows Server 2016 Standard，可按如下所述将系统转换为 Windows Server 2016 Datacenter：在提升的命令提示符下使用命令 **DISM /online /Get-CurrentEdition**确定当前的版本名称。 对于 Windows Server 2016 Standard，此参数为 `ServerStandard`。 运行命令 **DISM /online /Get-TargetEditions** 以获取可升级到的版本的 ID。 记下此版本 ID（版本名称的缩写格式）。 然后运行 **DISM /online /Set-Edition:\<edition ID\> /ProductKey:XXXXX-XXXXX-XXXXX-XXXXX-XXXXX /AcceptEula**，同时提供目标的版本 ID 及其零售产品密钥。 服务器将重启两次。
 
 ## <a name="converting-a-current-retail-version-to-a-current-volume-licensed-version"></a>将当前零售版转换为当前批量授权版
 

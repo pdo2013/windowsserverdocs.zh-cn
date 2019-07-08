@@ -1,6 +1,6 @@
 ---
-title: 远程桌面服务-适用于不同类型的用户
-description: 介绍不同类型的用户了 rds。
+title: 远程桌面服务 - 适应不同类型的用户
+description: 介绍 RDS 的不同类型的用户。
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: spatnaik
 ms.author: spatnaik
 ms.date: 09/23/2016
 manager: scottman
-ms.openlocfilehash: e602f41c19f38878925552a4bf173b7f3e36e796
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9d16989cc3ecbf0170081bb8cb52a9103f979741
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848118"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743469"
 ---
-# <a name="remote-desktop-services---cater-to-different-kinds-of-users"></a>远程桌面服务-适用于不同类型的用户
+# <a name="remote-desktop-services---cater-to-different-kinds-of-users"></a>远程桌面服务 - 适应不同类型的用户
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2019、Windows Server 2016
 
-具体取决于每种类型的用户预期需要更改部署规模。
-例如，用户可能执行的轻型应用程序上的数据输入、 操作与 Office，等生产力应用程序的大型数据集或使用繁重的工程或图形应用程序。
+根据每类用户的预期需求缩放部署。
+例如，用户可能会在轻型应用中输入数据，使用 Office 等生产力应用处理大型数据集，或者使用重负荷的工程或图形设计应用。
 
-建议以加载测试的压力测试和模拟的实际使用情况的部署。 改变负载大小，以避免意外情况 ！ 请确保响应能力满足用户需求，并灵活处理整个系统。 使用模拟工具，如 LoginVSI，检查你的部署能力满足用户的需求，创建负载测试。 
+建议使用压力测试和实际用法模拟对部署进行负载测试。 改变负载大小以避免意外情况！ 确保响应能力满足用户需求，并确保整个系统可复原。 使用 LoginVSI 等模拟工具创建负载测试，以检查部署能否满足用户需求。 
