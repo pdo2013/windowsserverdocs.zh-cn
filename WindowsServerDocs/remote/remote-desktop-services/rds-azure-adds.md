@@ -13,64 +13,64 @@ ms.topic: article
 author: christianmontoya
 ms.localizationpriority: medium
 ms.openlocfilehash: 8b1baf642ffa3c8e8a0a2cfc70d2f49b58f208b3
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66446581"
 ---
 # <a name="integrate-azure-ad-domain-services-with-your-rds-deployment"></a>将 Azure AD 域服务与 RDS 部署集成
 
-可以使用[Azure AD 域服务](/azure/active-directory-domain-services/active-directory-ds-overview)(Azure AD DS) 在远程桌面服务部署到 Windows Server Active Directory 位置中。 Azure AD DS，可以使用现有 Azure AD 标识使用经典 Windows 工作负荷。
+可以在远程桌面服务部署中使用 [Azure AD 域服务](/azure/active-directory-domain-services/active-directory-ds-overview) (Azure AD DS) 代替 Windows Server Active Directory。 Azure AD DS 允许你将现有 Azure AD 标识与经典 Windows 工作负载一起使用。
 
-与 Azure AD DS，你可以： 
-- 使用生成---云中的组织的本地域中创建的 Azure 环境。 
-- 使用用于本地和联机环境中，而无需创建站点到站点 VPN 或 ExpressRoute 的同一标识创建一个独立的 Azure 环境。 
+与 Azure AD DS 一起使用时可以： 
+- 为云中生成的组织创建一个具有本地域的 Azure 环境。 
+- 使用用于本地和在线环境的同一标识，创建一个隔离的 Azure 环境，无需创建站点到站点 VPN 或 ExpressRoute。 
 
-完成将 Azure AD DS 集成到你的远程桌面部署后，您的体系结构将如下所示：
+将 Azure AD DS 集成到你的远程桌面部署后，你的体系结构将如下所示：
 
-![显示与 Azure AD DS 的 RDS 体系结构图示](media/aadds-rds.png)
+![显示使用 Azure AD DS 的 RDS 体系结构图示](media/aadds-rds.png)
 
-若要查看其他 RDS 部署方案时，此体系结构的进行比较，请查看[远程桌面服务体系结构](desktop-hosting-logical-architecture.md)。
+要了解此体系结构与其他 RDS 部署方案的比较，请查看[远程桌面服务体系结构](desktop-hosting-logical-architecture.md)。
 
-若要获取更好地了解 Azure AD DS，请查看[Azure AD DS 概述](/azure/active-directory-domain-services/active-directory-ds-overview)并[如何确定 Azure AD DS 是否适合你的用例](/azure/active-directory-domain-services/active-directory-ds-comparison)。
+若要更好地了解 Azure AD DS，请查看 [Azure AD DS 概述](/azure/active-directory-domain-services/active-directory-ds-overview)和[如何确定 Azure AD DS 是否适合你的用例](/azure/active-directory-domain-services/active-directory-ds-comparison)。
 
-使用以下信息来部署 Azure AD DS 与 rds。
+使用以下信息通过 RDS 部署 Azure AD DS。
 
-## <a name="prerequisites"></a>系统必备
+## <a name="prerequisites"></a>必备条件
 
-你可以从 Azure AD 即可使用在 RDS 部署中，将您标识之前[配置 Azure AD，以保存用户的标识的哈希的密码](/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync)。 生成---云中的组织不需要在其目录; 中进行任何其他更改但是，在本地组织需要允许密码哈希同步并存储在 Azure AD 中，这可能不是允许对某些组织。 用户将必须进行此配置更改后重置其密码。
+在将 Azure AD 的标识用于 RDS 部署之前，请[配置 Azure AD 以保存用户标识的哈希密码](/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync)。 云中生成的组织不需要在其目录中进行任何其他更改，但是，本地组织需要允许密码哈希在 Azure AD 中同步并存储，对于某些组织而言，这可能是不允许的。 进行此配置更改后，用户必须重置密码。
 
-## <a name="deploy-azure-ad-ds-and-rds"></a>将 Azure AD DS 和 RDS 部署 
-使用以下步骤来部署 Azure AD DS 和 rds。
+## <a name="deploy-azure-ad-ds-and-rds"></a>部署 Azure AD DS 和 RDS 
+使用以下步骤来部署 Azure AD DS 和 RDS。
 
-1. 启用[Azure AD DS](/azure/active-directory-domain-services/active-directory-ds-getting-started)。 请注意链接的文章，以下任务：
-   - 逐步创建相应域管理的 Azure AD 组。
-   - 突出显示时可能需要强制用户更改其密码，以便其帐户能够使用 Azure AD DS。
+1. 启用 [Azure AD DS](/azure/active-directory-domain-services/active-directory-ds-getting-started)。 请注意，链接的文章将：
+   - 引导用户创建合适的 Azure AD 组以管理域。
+   - 在可能需要强制用户更改其密码，以便其帐户能够使用 Azure AD DS 时突出显示。
    
-2. 设置 rds。 可以使用 Azure 模板，也可以手动部署 RDS。
-   - 使用[现有 AD 模板](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/)。 请确保自定义以下内容：
+2. 设置 RDS。 你可以使用 Azure 模板，也可以手动部署 RDS。
+   - 使用[现有 AD 模板](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/)。 确保自定义以下内容：
    
      - **设置**
-       - **资源组**:使用你想要创建的 RDS 资源的资源组。
+       - **资源组 **：使用要在其中创建 RDS 资源的资源组。
          > [!NOTE] 
          > 现在，这必须是 Azure 资源管理器虚拟网络所在的同一资源组。
 
-       - **Dns 标签前缀**:输入的 URL，你希望用户使用 RD Web 访问。
-       - **Ad 域名**:输入 Azure AD 实例，例如，"contoso.onmicrosoft.com"或"contoso.com"的完整名称。
-       - **Ad Vnet-name**并**Ad 子网名称**:输入在创建 Azure 资源管理器虚拟网络时使用的相同值。 这是 RDS 资源将连接到的子网。
-       - **管理员用户名**并**管理员密码**:输入管理员用户的成员的凭据**AAD DC 管理员**Azure AD 中的组。
+       - **Dns 标签前缀**：输入你希望用户用于访问 RD Web 的 URL。
+       - **Ad 域名**：输入 Azure AD 实例的全名，例如“contoso.onmicrosoft.com”或“contoso.com”。
+       - **Ad Vnet 名称**和 **Ad 子网名称**：输入在创建 Azure 资源管理器虚拟网络时使用的相同值。 这是 RDS 资源将连接到的子网。
+       - **管理员用户名**和**管理员密码**：输入管理员用户的凭据，该用户是 Azure AD 中 AAD DC 管理员  组的成员。
    
      - **模板**
-        - 删除的所有属性**dnsServers**： 选择后**编辑模板**从 Azure 快速入门模板页面中，搜索"dnsServers"并都删除的属性。 
+        - 删除 dnsServers  的所有属性：从 Azure 快速入门模板页面中选择“编辑模板”  后，搜索“dnsServers”并删除该属性。 
 
-           例如，然后再删除**dnsServers**属性：
+           例如，在删除 dnsServers  属性之前：
       
-           ![Azure 快速入门模板与 dnsSettings 属性](media/rds-remove-dnssettings-before.png)
+           ![具有 dnsSettings 属性的 Azure 快速入门模板](media/rds-remove-dnssettings-before.png)
 
-           和此处删除属性后是相同的文件：
+           下面是删除属性之后的同一文件：
 
-           ![使用 dnsSettings 属性已被删除的 azure 快速入门模板](media/rds-remove-dnssettings-after.png)
+           ![删除了 dnsSettings 属性的 Azure 快速入门模板](media/rds-remove-dnssettings-after.png)
    
    - [手动部署 RDS](rds-deploy-infrastructure.md)。 
 
