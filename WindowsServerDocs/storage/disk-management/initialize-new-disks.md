@@ -1,6 +1,6 @@
 ---
 title: 初始化新磁盘
-description: 如何初始化新磁盘使用磁盘管理，让用户可供使用。 此外包括指向故障排除问题。
+description: 如何使用磁盘管理初始化新磁盘，使其可供使用。 还包括指向解决问题的链接。
 ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,45 +9,45 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 7a275c372e1486b26821f797a7663eecbc3e8784
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66812425"
 ---
 # <a name="initialize-new-disks"></a>初始化新磁盘
 
-> **适用于：** Windows 10、 Windows 8.1、 Windows 7、 Windows Server （半年频道）、 Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012
+> **适用于：** Windows 10、Windows 8.1、Windows 7、Windows Server（半年频道）、Windows Server 2019、Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
-如果将新磁盘添加到您的 PC，并且它不会显示在文件资源管理器，您可能需要[添加驱动器号](change-a-drive-letter.md)，或对其进行初始化，然后再使用它。 仅可以初始化尚不支持格式的驱动器。 初始化磁盘会删除包含的所有信息，使其准备好以供 Windows 之后, 可以将其格式化，然后将其上的文件存储。
+如果向电脑添加新磁盘，但它没有显示在文件资源管理器中，可能需要[添加驱动器号](change-a-drive-letter.md)，或者在使用之前对其进行初始化。 只能初始化尚未格式化的驱动器。 初始化磁盘会擦除磁盘上的所有内容，并为 Windows 使用磁盘做好准备，之后可以对磁盘进行格式化，然后在其中存储文件。
 
 > [!WARNING]
-> 如果已在磁盘上它你关注的信息的文件，不将其初始化-将丢失所有文件。 相反，我们建议进行故障排除该磁盘要了解是否可以读取文件-请参阅[磁盘的状态为未初始化或磁盘丢失完全](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing)。
+> 如果磁盘上已经有你关注的文件，不要初始化它 - 否则将丢失所有文件。 相反，建议对磁盘进行故障排除以了解是否可以读取文件 - 请参阅[磁盘状态为未初始化或磁盘完全丢失](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing)。
 
 ## <a name="to-initialize-new-disks"></a>初始化新磁盘
 
-下面介绍了如何初始化新的磁盘使用磁盘管理。 如果想要使用 PowerShell，使用[初始化磁盘](https://docs.microsoft.com/powershell/module/storage/initialize-disk)cmdlet 相反。
+下面介绍了如何使用磁盘管理初始化新磁盘。 如果想要使用 PowerShell，则改用 [initialize-disk](https://docs.microsoft.com/powershell/module/storage/initialize-disk) cmdlet。
 
 1. 使用管理员权限打开磁盘管理。 
  
-    为此，请在任务栏上的搜索框中，键入**磁盘管理**、 选择和保存 （或右键单击）**磁盘管理**，然后选择**以管理员身份运行** > **是**。 如果您不能以管理员身份打开它，请键入**计算机管理**相反，然后转到**存储** > **磁盘管理**。
-1. 在磁盘管理，右键单击的磁盘需要进行初始化，然后依次**初始化磁盘**（如下所示）。 如果磁盘被列为*脱机*，首先右键单击它并选择**联机**。
+    为此，请在任务栏上的搜索框中键入“磁盘管理”  ，选择并按住（或右键单击）“磁盘管理”  ，然后选择“以管理员身份运行”   > “是”  。 如果不能以管理员身份打开它，请键入“计算机管理”  ，然后转到“存储”   > “磁盘管理”  。
+1. 在“磁盘管理”中，右键单击想要初始化的磁盘，然后单击“初始化磁盘”  （如下所示）。 如果磁盘被列为“脱机”  ，首先右键单击它并选择“联机”  。
 
-     请注意，某些 USB 驱动器没有要初始化的选项，它们只是获取格式和一个[驱动器号](change-a-drive-letter.md)。
+     请注意，某些 USB 驱动器没有初始化选项，它们只是格式化并获取一个[驱动器号](change-a-drive-letter.md)。
 
-    ![使用显示的初始化磁盘快捷方式菜单显示无格式的磁盘的磁盘管理](media/uninitialized-disk.PNG)
-2. 在中**初始化磁盘**（如下所示） 的对话框中，检查以确保选择正确的磁盘，然后单击**确定**以接受默认分区形式。 如果你需要更改分区样式 （GPT 或 MBR），请参阅[分区形式的 GPT 和 MBR](#about-partition-styles---gpt-and-mbr)。
+    ![显示未格式化磁盘的磁盘管理，并显示“初始化磁盘”快捷菜单](media/uninitialized-disk.PNG)
+2. 在“初始化磁盘”  对话框中（如下所示），检查以确保选择了正确磁盘，然后单击“确定”  接受默认分区样式。 如果需要更改分区样式（GPT 或 MBR），请参阅[关于分区样式 - GPT 和 MBR](#about-partition-styles---gpt-and-mbr)。
 
-     磁盘状态简要变为**正在初始化**然后**联机**状态。 如果出于某种原因初始化失败，请参阅[磁盘的状态为未初始化或磁盘丢失完全](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing)。
+     磁盘状态暂时变为“正在初始化”  ，然后变为“联机”  状态。 如果出于某种原因初始化失败，请参阅[磁盘状态为未初始化或磁盘完全丢失](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing)。
 
-    ![与所选的 GPT 分区形式初始化磁盘对话框](media/initialize-disk.PNG)
+    ![选择了 GPT 分区样式的“初始化磁盘”对话框](media/initialize-disk.PNG)
 
-## <a name="about-partition-styles---gpt-and-mbr"></a>有关分区样式的 GPT 和 MBR
+## <a name="about-partition-styles---gpt-and-mbr"></a>关于分区样式 - GPT 和 MBR
 
-磁盘可以划分为多调用分区的多个块区。 每个分区中-即使只有一个-必须具有分区形式的 GPT 或 MBR。 Windows 使用的分区形式来了解如何访问磁盘上的数据。
+磁盘可以划分为多个区块，称为“分区”。 每个分区（即使只有一个分区）都必须具有分区样式 - GPT 或 MBR。 Windows 使用分区样式来了解如何访问磁盘上的数据。
 
-因为这可能不是为着迷，底线是，如今，你通常不必担心如何分区形式-Windows 将自动使用相应的磁盘类型。
+尽管这可能不是很有趣，但重要的是，现在通常不必担心分区样式 - Windows 会自动使用适当的磁盘类型。
 
-大多数 Pc 硬盘驱动器和 Ssd 中用于 GUID 分区表 (GPT) 磁盘类型。 GPT 更加可靠和允许大于 2 TB 的卷。 32 位电脑、 旧 Pc 和可移动驱动器，比如内存卡使用较旧的主启动记录 (MBR) 磁盘类型。
+大多数电脑对硬盘驱动器和 SSD 使用 GUID 分区表 (GPT) 磁盘类型。 GPT 更可靠，且允许大于 2 TB 的卷。 旧的主启动记录 (MBR) 磁盘类型由 32 位电脑、旧电脑和可移动驱动器（如存储卡）使用。
 
-若要将磁盘从 MBR 为 GPT，反之亦然，首先需要从磁盘中删除所有卷擦除磁盘上的所有内容。 有关详细信息，请参阅[MBR 磁盘转换为 GPT 磁盘](change-an-mbr-disk-into-a-gpt-disk.md)，或[GPT 磁盘转换为 MBR 磁盘](change-a-gpt-disk-into-an-mbr-disk.md)。
+要将磁盘从 MBR 转换为 GPT，首先必须从磁盘删除所有卷，擦除磁盘上的所有内容，反之亦然。 有关详细信息，请参阅[将 MBR 磁盘转换为 GPT 磁盘](change-an-mbr-disk-into-a-gpt-disk.md)，或[将 GPT 磁盘转换为 MBR 磁盘](change-a-gpt-disk-into-an-mbr-disk.md)。

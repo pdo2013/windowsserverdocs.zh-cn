@@ -1,6 +1,6 @@
 ---
 title: Windows Admin Center 视频
-description: Windows Admin Center 视频 (项目 Honolulu)
+description: Windows Admin Center 视频 (Project Honolulu)
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -9,15 +9,15 @@ ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: b5e712d5b6284517547e6ce4dea87f066f7e6cb4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876998"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63747897"
 ---
 # <a name="windows-admin-center-videos"></a>Windows Admin Center 视频
 
->适用于：Windows Admin Center，Windows Admin Center 预览版
+>适用于：Windows Admin Center、Windows Admin Center 预览版
 
 ## <a name="introduction-to-windows-admin-center"></a>Windows Admin Center 简介
 >[!VIDEO https://www.youtube.com/embed/WCWxAp27ERk]

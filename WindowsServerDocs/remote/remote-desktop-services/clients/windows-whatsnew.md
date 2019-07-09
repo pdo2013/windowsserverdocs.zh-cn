@@ -1,6 +1,6 @@
 ---
-title: 什么是 Windows 上的远程桌面的新增功能？
-description: 了解 Windows 远程桌面客户端的最新更改
+title: Windows 上的远程桌面的新增功能
+description: 了解适用于 Windows 的远程桌面客户端的最新更改
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -11,45 +11,54 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 11/06/2018
+ms.date: 03/19/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 8fb66d3578156eb0d0d37edeee02cd2b4d4288c8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 18c14da5b5b16ed20005515fde46235e4cf27331
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839548"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63748840"
 ---
-# <a name="whats-new-for-the-remote-desktop-client-on-windows"></a>什么是新的 Windows 上的远程桌面客户端？
+# <a name="whats-new-for-the-remote-desktop-client-on-windows"></a>Windows 上的远程桌面客户端的新增功能
 
-我们会定期更新[适用于 Windows 的远程桌面客户端](windows.md)、 添加新功能和修复问题。 请查看以下最新的更新。
+我们会定期更新[适用于 Windows 的远程桌面客户端](windows.md)，添加新功能并修复问题。 请查看以下最新更新。
+
+## <a name="updates-for-version-1011098"></a>针对版本 10.1.1098 的更新
+*发布日期：2019 年 3 月 15 日*
+
+- 现在可以设置用户帐户的显示名称，这样可以用不同的密码保存相同用户名。
+- 添加远程资源时，现在可以选择现有用户帐户。
+- 修复了客户端未正确终止的问题。
+- 客户端现在可以正确处理辅助窗口打开时的挂起问题。
+- 其他 bug 修复。
 
 ## <a name="updates-for-version-1011088"></a>针对版本 10.1.1088 的更新
-*发布的日期：11/06/2018*
+*发布日期：2018 年 11 月 6 日*
 
-- 连接的显示名称是现在更容易被发现。
-- 修复了故障，连接仍处于活动状态时关闭客户端窗口时。
-- 修复了挂起时重新连接后客户端最小化。
-- 允许在组中任意位置拖动的桌面。
-- 请确保启动从 jumplist 结果在单独的窗口时所需的连接。
-- 附加 bug 修复程序。
+- 连接显示名称现在更易于发现。
+- 修复了连接仍处于活动状态期间关闭客户端窗口时崩溃的问题。
+- 修复了客户端最小化后重新连接时的挂起问题。
+- 允许将桌面拖放到组中的任何位置。
+- 确保在需要时从跳转列表启动连接会生成一个单独的窗口。
+- 其他 bug 修复。
 
 ## <a name="updates-for-version-1011060"></a>针对版本 10.1.1060 的更新
-*发布的日期：09/14/2018*
+*发布日期：2018 年 9 月 14 日*
 
-- 解决其中双击桌面连接导致两个会话要启动的问题。
-- 本地虚拟机之间进行切换时，修复了故障。
-- 现在将会话移动到另一个监视器还会更新会话缩放比例。 
-- 处理额外的系统密钥像 AltGr 一样。
-- 附加 bug 修复程序。
+- 解决了双击桌面连接导致启动两个会话的问题。
+- 修复了在本地虚拟桌面之间进行切换时的崩溃问题。
+- 现将会话移动到另一个监视器还会更新会话比例系数。 
+- 处理其他系统密钥，如 AltGr。
+- 其他 bug 修复。
 
 ## <a name="updates-for-version-1011046"></a>针对版本 10.1.1046 的更新
-*发布的日期：06/20/2018*
+*发布日期：2018 年 6 月 20 日*
 
 - Bug 修复。
 
 ## <a name="updates-for-version-1011042"></a>针对版本 10.1.1042 的更新
-*发布的日期：04/02/2018*
+*发布日期：2018 年 4 月 2 日*
 
-- 用于解决 CredSSP 加密 oracle 修正 CVE 2018 0886年中所述的更新。
-- 附加 bug 修复程序。
+- 用于解决 CVE-2018-0886 中所述的 CredSSP 加密 Oracle 修正的更新。
+- 其他 bug 修复。

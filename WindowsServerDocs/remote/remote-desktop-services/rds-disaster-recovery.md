@@ -1,6 +1,6 @@
 ---
-title: 保护 RDS 部署的灾难恢复
-description: 了解远程桌面服务在灾难恢复选项
+title: 保护 RDS 部署 - 灾难恢复
+description: 了解远程桌面服务的灾难恢复选项
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,23 +13,23 @@ author: lizap
 ms.author: elizapo
 ms.date: 06/12/2017
 ms.openlocfilehash: a6eac3a50999633d15b1b6dc28608f60f6fef6c7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834078"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743816"
 ---
 # <a name="configure-disaster-recovery-for-remote-desktop-services"></a>为远程桌面服务配置灾难恢复
 
-在远程桌面服务部署到您的环境时，它将成为基础结构，特别是应用程序和与用户共享的资源的关键部分。 如果 RDS 部署发生故障由于任何内容从网络故障到自然灾难，用户无法访问这些应用和资源，和你的业务产生负面影响。 若要避免此问题，可以配置灾难恢复解决方案，允许你向故障转移你的部署-如果由于任何原因而不可用，RDS 部署，则备份中自动接管。
+将远程桌面服务部署到你的环境中时，它将成为基础结构的重要组成部分，特别是与用户共享的应用和资源。 如果 RDS 部署由于从网络故障到自然灾难的任何原因而不可用，则用户无法访问这些应用和资源，并且你的业务受到负面影响。 若要避免此问题，可以配置允许你故障转移部署的灾难恢复解决方案 - 如果 RDS 部署由于任何原因而不可用，则可以自动进行备份。
 
-若要保留在 RDS 部署中运行在单个组件或计算机宕机的情况下，我们建议配置 RDS 部署，以实现高可用性。 您可以执行此操作通过设置[RDSH 服务器场](rds-scale-rdsh-farm.md)，并确保你[连接代理群集以实现高可用性](rds-connection-broker-cluster.md)。 
+若要在单个组件或计算机不可用的情况下使 RDS 部署继续运行，我们建议配置 RDS 部署以实现高可用性。 可以通过设置 [RDSH 场](rds-scale-rdsh-farm.md)并确保[群集连接代理以实现高可用性](rds-connection-broker-cluster.md)来实现此目的。 
 
-我们在此推荐的灾难恢复解决方案是从灾难性灾难的内容都会关闭整个 RDS 部署 （包括配置以实现高可用性的冗余角色） 保护你的部署。 如果遇到此类灾难时，你的部署中内置的灾难恢复解决方案将允许您为故障转移整个部署和快速应用和资源并为你的用户运行。
+此处推荐的灾难恢复解决方案是保护部署免受毁灭性灾难，这些灾难会关闭整个 RDS 部署（包括配置以实现高可用性的冗余角色）。 如果遇到此类灾难，将灾难恢复解决方案内置于部署中将允许你故障转移整个部署并快速为用户启动并运行应用和资源。
 
-使用以下信息来部署 RDS 中的灾难恢复解决方案：
+使用以下信息可部署 RDS 中的灾难恢复解决方案：
 
-- [利用多个 Azure 数据中心，以确保用户可以访问您的 RDS 部署，即使一个 Azure 数据中心发生服务中断 （异地冗余）](rds-multi-datacenter-deployment.md)
-- [部署 Azure Site Recovery 为 RDS 组件在站点到站点或站点到 Azure 故障转移提供故障转移](rds-disaster-recovery-with-azure.md)
+- [利用多个 Azure 数据中心确保用户可以访问 RDS 部署，即使一个 Azure 数据中心不可用（异地冗余）时也是如此](rds-multi-datacenter-deployment.md)
+- [部署 Azure Site Recovery 以在站点到站点或站点到 Azure 故障转移中提供 RDS 组件的故障转移](rds-disaster-recovery-with-azure.md)
 
 
