@@ -13,10 +13,10 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 54c8d05c028cbca364b6a46052d12cdcb12c01b0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66443613"
 ---
 # <a name="iis-on-nano-server"></a>Nano Server 上的 IIS
@@ -24,7 +24,7 @@ ms.locfileid: "66443613"
 >适用于：Windows Server 2016
 
 > [!IMPORTANT]
-> 自 Windows Server 版本 1709 开始，Nano Server 将仅用作[容器基本操作系统映像](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image)。 查看[对 Nano Server 进行的更改](nano-in-semi-annual-channel.md)以了解这意味着什么。 
+> 自 Windows Server 版本 1709 开始，Nano Server 将仅用作[容器基本 OS 映像](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image)。 查看[对 Nano Server 进行的更改](nano-in-semi-annual-channel.md)以了解这意味着什么。 
 
 也可以通过结合使用 -Package 参数和 Microsoft-NanoServer-IIS-Package 在 Nano Server 上安装 Internet Information Services (IIS) 服务器角色。 有关配置 Nano Server 的信息，包括安装程序包，请参阅[安装 Nano Server](Getting-Started-with-Nano-Server.md)。  
 
@@ -32,7 +32,7 @@ ms.locfileid: "66443613"
 
 |功能|默认情况下启用|  
 |-----------|----------------------|  
-|**常见 HTTP 功能**||  
+|**常用 HTTP 功能**||  
 |默认文档|x|  
 |目录浏览|x|  
 |HTTP 错误|x|  
@@ -65,7 +65,7 @@ ms.locfileid: "66443613"
 |**管理工具**||  
 |Windows PowerShell 的 IISAdministration 模块|x|  
 
-一系列的文章其他配置上的 IIS （例如，使用 ASP.NET、 PHP 和 Java），以及其他相关内容发布在[ http://iis.net/learn ](http://iis.net/learn)。  
+有关 IIS 的其他配置（例如使用 ASP.NET、PHP 和 Java）的一系列文章以及其他相关内容发布在 [http://iis.net/learn](http://iis.net/learn)。  
 
 ## <a name="installing-iis-on-nano-server"></a>在 Nano Server 上安装 IIS  
 可以脱机（Nano Server 断开时）或联机（Nano Server 运行时）安装此服务器角色；脱机安装是推荐选项。  
@@ -129,7 +129,7 @@ ms.locfileid: "66443613"
 
    **dism /online /get-packages**  
 
-   应会看到"包标识：Microsoft NanoServer IIS 包 ~ 31bf3856ad364e35 ~ amd64 ~ ~ 10.0.14393.1000"两次列出，一次用于发布类型：语言包和一次用于发布类型：功能包。  
+   应会看到“程序包标识符:Microsoft-NanoServer-IIS-Package~31bf3856ad364e35~amd64~~10.0.14393.1000”列出两次，一次用于”发布类型:语言包”，一次用于“发布类型:功能包”。  
 
 6. 使用 **net start w3svc** 或通过重新启动 Nano Server 启动 W3SVC 服务。  
 
@@ -185,7 +185,7 @@ IIS 的每个功能作为一组配置元素存在。 例如，Windows 身份验�
 
 然后可以运行 `Get-IISSite` 以验证该站点的状态（返回网站名称、ID、状态、物理路径和绑定）。  
 
-**正在删除网站**  
+**删除网站**  
 
 运行 `Remove-IISSite -Name TestSite -Confirm:$false`。  
 
@@ -242,9 +242,9 @@ PS C:\> $sm.ApplicationPools.Add("DemoAppPool")
     $sm.CommitChanges()  
     ```  
 
-    此外可以使用此语法与特定主机名使用服务器名称指示 (SNI): `$sm.Sites["Default Web Site"].Bindings.Add("*:443:www.foo.bar.com", $hash, "My", "Sni".`  
+    还可以使用此语法将服务器名称指示 (SNI) 和特定主机名配合使用：`$sm.Sites["Default Web Site"].Bindings.Add("*:443:www.foo.bar.com", $hash, "My", "Sni".`  
 
-## <a name="appendix-1-list-of-iis-sub-features"></a>附录 1：IIS 子功能的列表
+## <a name="appendix-1-list-of-iis-sub-features"></a>附录 1：IIS 子功能列表
 
 - IIS-WebServer
 - IIS-CommonHttpFeatures

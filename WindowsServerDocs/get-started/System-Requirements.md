@@ -15,15 +15,15 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: d089af3562467aa1c222b17d9a1ad69d9c1b5008
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66810586"
 ---
 # <a name="system-requirements"></a>系统要求
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 
+>适用于：Windows Server（半年频道）、Windows Server 2016 
 
 本主题介绍运行 Windows Server&reg; 2016 或 Windows Server 版本 1709 的最低系统要求。
 
@@ -53,7 +53,7 @@ ms.locfileid: "66810586"
 - 支持 CMPXCHG16b、LAHF/SAHF 和 PrefetchW  
 - 支持二级地址转换（EPT 或 NPT）  
 
-[Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx)是一种工具可用于确认其 CPU 具有这些功能。
+[Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) 是可用于确认 CPU 具有这些功能中的哪种功能的工具。
 
 ## <a name="ram"></a>RAM  
 以下是本产品对 RAM 的预计要求：  
@@ -78,7 +78,7 @@ ms.locfileid: "66810586"
 **最低**：32 GB  
 
 > [!NOTE]
-> 请注意，32 GB 应视为确保成功安装的*绝对最低*值。 满足此最低值应该能够以“服务器核心”模式安装包含 Web 服务 (IIS) 服务器角色的 Windows Server 2016。 “服务器核心”模式下的服务器容量比 GUI 模式下的同一服务器要小 4 GB 左右。 
+> 请注意，32 GB 应视为确保成功安装的*绝对最低*值。 满足此最低值应该能够以“服务器核心”模式安装包含 Web 服务 (IIS) 服务器角色的 Windows Server 2016。 “服务器核心”模式中的服务器比带有 GUI 模式的服务器中的相同服务器大约 4 GB。 
 > 
 > 系统分区在以下任何情形中将需要额外空间：  
 > 
@@ -89,7 +89,7 @@ ms.locfileid: "66810586"
 
 与此版本一起使用的网络适配器应包含以下特征：  
 
-**最低**：  
+**最低要求**：  
 - 至少有千兆位吞吐量的以太网适配器。  
 - 符合 PCI Express 体系结构规范。  
 - 支持预启动执行环境 (PXE)。  
@@ -118,7 +118,7 @@ ms.locfileid: "66810586"
 >  
 > - 基于硬件的 TPM 必须实现的 TPM 规范的版本 2.0。  
 > - 实现 2.0 版的 TPM 必须具有符合以下条件之一的 EK 证书：由硬件供应商预配到 TPM 或在首次启动期间能够由设备进行检索。  
-> - 实现 2.0 版的 TPM 必须随附有 SHA 256 PCR 库并且对 SHA 256 实现 PCR 0 到 23。 可以接受将 TPM 随附可用于 SHA-1 和 SHA-256 度量值的单个可切换 PCR 库。  
+> - 实现 2.0 版的 TPM 必须随附有 SHA 256 PCR 库并且对 SHA 256 实现 PCR 0 到 23。 可以将 TPM 与单个可切换 PCR 库一起寄送，后者可用于 SHA-1 和 SHA-256 度量。  
 > - 不要求用于关闭 TPM 的 UEFI 选项。  
 
 ## <a name="installation-of-nano-server"></a>Nano Server 安装  
@@ -127,5 +127,5 @@ ms.locfileid: "66810586"
 ## <a name="additional-resources"></a>其他资源
 - [Windows 处理器要求](https://docs.microsoft.com/windows-hardware/design/minimum/windows-processor-requirements)
 - [Windows Server 2016 Standard 和 Datacenter 版本的比较](https://docs.microsoft.com/windows-server/get-started/2016-edition-comparison)
-- [Windows 10 的系统要求](https://www.microsoft.com/windows/windows-10-specifications#system-specifications)
+- [Windows 10 系统要求](https://www.microsoft.com/windows/windows-10-specifications#system-specifications)
 - [下载 Windows Server 2016 许可数据表](http://download.microsoft.com/download/7/2/9/7290EA05-DC56-4BED-9400-138C5701F174/WS2016LicensingDatasheet.pdf)

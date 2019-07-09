@@ -1,6 +1,6 @@
 ---
 title: Windows Server 2016 中已删除或弃用的功能
-description: 功能和 Windows Server 2016 中的功能已从当前版本的产品中删除或计划在 （已弃用） 的后续版本中可能删除的列表。 本文档面向在商业环境中更新操作系统的 IT 专业人员。
+description: Windows Server 2016 中已从当前版本的产品中删除或计划在后续版本中可能删除（“已弃用”）的特性和功能列表。 本文档面向在商业环境中更新操作系统的 IT 专业人员。
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
@@ -11,10 +11,10 @@ ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: 83855cf7e4fa86a932298dd15735dc5bf7277dfb
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65976598"
 ---
 # <a name="features-removed-or-deprecated-in--windows-server-2016"></a>Windows Server 2016 中已删除或弃用的功能
@@ -23,7 +23,7 @@ ms.locfileid: "65976598"
 
 以下是 Windows Server 2016 中已从当前版本的产品中删除或计划在后续版本中可能删除（“已弃用”）的特性和功能列表。 本文档面向在商业环境中更新操作系统的 IT 专业人员。 在后续的版本中可能会对该列表进行更改，并且可能不包含任何已弃用的特性或功能。 有关特定特性或功能及其替代项的详细信息，请参阅相应特性或功能的文档。
 
-有关什么已卸下或更高版本中不推荐使用的信息，请参见[功能已删除或计划来启动 Windows Server 2019 更换](../get-started-19/removed-features-19.md)。
+有关在较新版本中删除或弃用的功能的信息，请参阅[从 Windows Server 2019 开始已删除或计划取代的功能](../get-started-19/removed-features-19.md)。
 
 ## <a name="features-removed-from-windows-server-2016"></a>从 Windows Server 2016 中删除的功能
 
@@ -52,7 +52,7 @@ Journal.dll 已从 Windows Server 2016 中删除。 没有替换。
 管理参与客户体验改进计划的选择加入组件已被删除。 
 
 ### <a name="windows-update"></a>Windows 更新
-**wuauclt.exe /detectnow** 命令已删除，并且不再受支持。 要触发更新扫描，请执行以下任一操作：
+wuauclt.exe /detectnow  命令已删除，并且不再受支持。 要触发更新扫描，请执行以下任一操作：
 
 - 运行这些 PowerShell 命令：
     ````powershell
@@ -71,9 +71,9 @@ Journal.dll 已从 Windows Server 2016 中删除。 没有替换。
 
 ### <a name="configuration-tools"></a>配置工具  
 
--   **Scregedit.exe**已弃用。 如果有依赖于 Scregedit.exe 的脚本，请调整这些脚本以使用 Reg.exe 或 Windows PowerShell 方法。  
+-   Scregedit.exe  已弃用。 如果有依赖于 Scregedit.exe 的脚本，请调整这些脚本以使用 Reg.exe 或 Windows PowerShell 方法。  
 
--   **Sconfig.exe**已弃用。 使用 Windows PowerShell 代替。  
+-   Sconfig.exe  已弃用。 使用 Windows PowerShell 代替。  
 
 ### <a name="netcfg-custom-apis"></a>NetCfg 自定义 API  
 NetCfg 自定义 API 的 PrintProvider、NetClient 和 ISDN 安装已弃用。  

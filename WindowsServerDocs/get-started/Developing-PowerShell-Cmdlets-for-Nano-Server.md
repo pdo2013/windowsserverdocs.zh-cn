@@ -1,6 +1,6 @@
 ---
 title: 开发 Nano Server 的 PowerShell Cmdlet
-description: '移植 CIM, NET cmdlet, C++ '
+description: '移植 CIM、NET cmdlet、C++ '
 ms.prod: windows-server-threshold
 ms.service: na
 manager: DonGill
@@ -13,10 +13,10 @@ ms.author: jaimeo
 ms.date: 09/06/2017
 ms.localizationpriority: medium
 ms.openlocfilehash: c3376d03a2e9f02b20aba608de0228efd7dfddea
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66443626"
 ---
 # <a name="developing-powershell-cmdlets-for-nano-server"></a>开发 Nano Server 的 PowerShell Cmdlet
@@ -24,7 +24,7 @@ ms.locfileid: "66443626"
 >适用于：Windows Server 2016
 
 > [!IMPORTANT]
-> 自 Windows Server 版本 1709 开始，Nano Server 将仅用作[容器基本操作系统映像](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image)。 查看[对 Nano Server 进行的更改](nano-in-semi-annual-channel.md)以了解这意味着什么。 
+> 自 Windows Server 版本 1709 开始，Nano Server 将仅用作[容器基本 OS 映像](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image)。 查看[对 Nano Server 进行的更改](nano-in-semi-annual-channel.md)以了解这意味着什么。 
   
 ## <a name="overview"></a>概述  
 默认情况下，Nano Server 在所有 Nano Server 安装中都包括 PowerShell Core。 PowerShell Core 是基于 .NET Core 构建的 PowerShell 占用空间减小版本，在占用空间减小版本的 Windows （例如，Nano Server 和 Windows IoT Core）上运行。 PowerShell Core 与其他 PowerShell 版本（例如 Windows Server 2016 上运行的 Windows PowerShell）运行方式相同。 然而，Nano Server 占用空间减少意味着不是所有 Windows Server 2016 中的 PowerShell 功能都在 Nano Server 上的 PowerShell Core 中可用。  
@@ -36,8 +36,8 @@ ms.locfileid: "66443626"
   
 从 5.1 版本开始，PowerShell 在具有不同功能集和平台兼容性的不同版本中可用。  
   
-- **桌面版：** .NET Framework 上构建，并提供与面向新版的 Server Core 等的 Windows 和 Windows 桌面的完整占用空间减小版本上运行的 PowerShell 脚本和模块的兼容性。  
-- **核心版：** .NET Core 上生成，并提供与面向版本的 Nano Server 等的 Windows 和 Windows IoT 的占用空间减少的版本上运行的 PowerShell 脚本和模块的兼容性。  
+- 桌面版：  基于 .NET Framework 而构建，兼容面向在 Windows 完整占用空间版本（例如，Server Core 和 Windows Desktop）上运行的 PowerShell 版本的脚本和模块。  
+- 核心版：  基于 .NET Core 而构建，兼容面向在 Windows 占用空间减小版本（例如，Nano Server 和 Windows IoT）上运行的 PowerShell 版本的脚本和模块。  
   
 当前运行的 PowerShell 版本显示在 $PSVersionTable 的 PSEdition 属性中。  
 ```powershell  
@@ -117,7 +117,7 @@ At line:1 char:1
 ## <a name="determining-the-type-of-cmdlet-implementation"></a>决定 cmdlet 实现类型  
 PowerShell 支持多种 cmdlet 实现类型，你使用的类型决定其创建或移植相关的过程和工具，以使其在 Nano Server 上运行。 支持的实现类型包括：  
 * CIM - 由分层置放在 CIM (WMIv2) 提供程序上的 CDXML 文件组成   
-* .NET - 由实现托管的 cmdlet 接口的 .NET 程序集组成，通常使用 C# 语言编写   
+* .NET - 由实现托管的 cmdlet 接口组成，通常使用 C# 语言编写   
 * PowerShell 脚本 - 由 PowerShell 语言编写的脚本模块 (.psm1) 或脚本 (.ps1) 组成   
   
 如果不确定要移植的现有 cmdlet 已使用的实现，请安装产品或功能，然后在以下位置中查找 PowerShell 模块文件：   
@@ -160,11 +160,11 @@ PowerShell Core SDK 模块需要 Visual Studio 2015 Update 2。 如未安装 Vis
 使用此 SDK 模块之前请检查 Visual Studio 安装，以确保满足这些先决条件。 安装 Visual Studio 过程中，请务必选择安装上述功能，或修改现有 Visual Studio 2015 安装以进行安装。  
   
 PowerShell Core SDK 模块包括以下 cmdlet：  
-- New-NanoCSharpProject:创建新的 Visual StudioC#项目面向 CoreCLR 和 PowerShell Core 包含在 Windows Server 2016 版本的 Nano Server。  
-- Show-SdkSetupReadMe:在文件资源管理器中打开 SDK 根文件夹并打开用于手动设置的 README.txt 文件。  
-- Install-remotedebugger:安装和配置 Nano Server 计算机上的 Visual Studio 远程调试器。  
-- Start-remotedebugger:在运行 Nano Server 的远程计算机上启动远程调试器。  
-- 停止 RemoteDebugger:在运行 Nano Server 的远程计算机上停止远程调试器。  
+- New-NanoCSharpProject：创建新的 Visual Studio C# 项目，该项目面向 Nano Server 的 Windows Server 2016 版本中包含的 CoreCLR 和 PowerShell Core。  
+- Show-SdkSetupReadMe：在文件资源管理器中打开 SDK 根文件夹并打开用于手动设置的 README.txt 文件。  
+- Install-RemoteDebugger：在 Nano Server 计算机上安装和配置 Visual Studio 远程调试程序。  
+- Start-RemoteDebugger：在运行 Nano Server 的远程计算机上启动远程调试程序。  
+- Stop-RemoteDebugger：在运行 Nano Server 的远程计算机上停止远程调试程序。  
   
 有关如何使用这些 cmdlet 的详细信息，请在安装和导入该模块后，在每个 cmdlet 上运行 Get-Help，如下所示：  
   
@@ -242,7 +242,7 @@ $result.RemoteAddress = 1.1.1.1
   
 ### <a name="migrating-from-wmi-net-to-mi-net"></a>从 WMI .NET 迁移到 MI .NET  
   
-[WMI.NET](https://msdn.microsoft.com/library/mt481551(v=vs.110).aspx)不支持，因此，使用旧 API 的所有 cmdlet 必须在都迁移到受支持的 WMI API:[MI。NET](https://msdn.microsoft.com/library/dn387184(v=vs.85).aspx) 中。 可通过 C# 或 CimCmdlets 模块中的 cmdlet 直接访问 MI .NET。   
+由于不支持 [WMI .NET](https://msdn.microsoft.com/library/mt481551(v=vs.110).aspx)，因此必须将所有使用旧版 API 的 cmdlet 迁移到受支持的 WMI API:[MI.NET](https://msdn.microsoft.com/library/dn387184(v=vs.85).aspx) 中。 可通过 C# 或 CimCmdlets 模块中的 cmdlet 直接访问 MI .NET。   
   
 ### <a name="cimcmdlets-module"></a>CimCmdlets 模块  
   

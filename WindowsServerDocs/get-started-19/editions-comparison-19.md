@@ -1,5 +1,5 @@
 ---
-title: Standard 和 Datacenter 版本的 Windows Server 2019 比较
+title: Windows Server 2019 Standard 和 Datacenter 版本的比较
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,14 +12,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: ba7487a7e063775219182645a273d49c473f52e2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6ec6934b5c2cfcc33a95a0336e22a20dbd60d82
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854128"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64772394"
 ---
-# <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2019"></a>Standard 和 Datacenter 版本的 Windows Server 2019 比较
+# <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2019"></a>Windows Server 2019 Standard 和 Datacenter 版本的比较
 
 > 适用于：Windows Server 2019
   
@@ -66,7 +66,6 @@ ms.locfileid: "59854128"
 |文件和存储服务|存储服务|是|是|
 |主机保护者服务| |是|是|
 |Hyper-V| |是|是；包括受防护的虚拟机|
-|MultiPoint 服务| |是|是|
 |网络控制器| |否|是|
 |网络策略和访问服务| |是，在安装为具有桌面体验的服务器时|是，在安装为具有桌面体验的服务器时|
 |打印和文档服务| |是|是|
@@ -78,7 +77,7 @@ ms.locfileid: "59854128"
 |Windows Server Essentials 体验| |是|是|
 |Windows Server 更新服务| |是|是|
 
-* WDS 传输服务器是新的服务器核心安装在 Windows Server 2019 （也在使用 Windows Server，版本 1803年启动半年通道）
+*WDS 传输服务器是 Windows Server 2019（还有从 Windows Server 版本 1803 开始的半年频道）中服务器核心安装的新功能
 
 
 ## <a name="features"></a>功能
@@ -125,7 +124,7 @@ ms.locfileid: "59854128"
 |SMTP 服务器|是|是|
 |SNMP 服务|是|是|
 |软件负载平衡器|是|是|
-|存储副本|否|是|
+|存储副本|是|是|
 |Telnet 客户端|是|是|
 |TFTP 客户端|是，在安装为具有桌面体验的服务器时|是，在安装为具有桌面体验的服务器时|
 |用于结构管理的 VM 防护工具|是|是|
@@ -150,7 +149,7 @@ ms.locfileid: "59854128"
 |通常可用的功能|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
 |最佳做法分析器|是|是|
-|受约束的存储副本|是的 （1 合作关系和 1 资源组与单个 2 TB 的卷）|是的不受限制|
+|受约束的存储副本|是（1 种合作关系和 1 个具有单个 2TB 卷的资源组）|是，无限制|
 |直接访问|是|是|
 |动态内存（虚拟化）|是|是|
 |热添加/替换 RAM|是|是|

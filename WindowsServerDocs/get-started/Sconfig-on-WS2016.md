@@ -15,19 +15,19 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 617005fd2d4e63c3cfc11bed28404656b2a81d6e
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66749582"
 ---
-# <a name="configure-a-server-core-installation-of-windows-server-2016-or-windows-server-version-1709-with-sconfigcmd"></a>通过 Sconfig.cmd 配置 Windows Server 的服务器核心安装
+# <a name="configure-a-server-core-installation-of-windows-server-2016-or-windows-server-version-1709-with-sconfigcmd"></a>通过 Sconfig.cmd 配置 Windows Server 2016 或 Windows Server 版本 1709 的服务器核心安装
 
-> 适用于：Windows Server （半年频道） 和 Windows Server 2016
+> 适用于：Windows Server（半年频道）和 Windows Server 2016
 
 在 Windows Server 2016 和 Windows Server 版本 1709 中，可以使用服务器配置工具 (Sconfig.cmd) 配置和管理服务器核心安装的几个常见方面。 必须是管理员组的成员才能使用此工具。
 
-你可以在服务器核心和带桌面体验的服务器（仅限于 Windows Server 2016）安装中使用 Sconfig.cmd。
+可以在服务器核心和带桌面体验的服务器（仅限于 Windows Server 2016）安装中使用 Sconfig.cmd。
 
 ## <a name="start-the-server-configuration-tool"></a>启动服务器配置工具
 
@@ -39,21 +39,21 @@ ms.locfileid: "66749582"
 
 ## <a name="domainworkgroup-settings"></a>域/工作组设置
 
-当前域/工作组设置在默认服务器配置工具屏幕中显示。 您可以通过访问加入某个域或工作组**域/工作组**设置页面，从主菜单，并按照的说明，提供所需的信息。
+当前域/工作组设置在默认服务器配置工具屏幕中显示。 可以通过从主菜单访问“域/工作组”设置页，并按照说明执行操作（提供所需的信息），加入某个域或工作组  。
 
-如果未尚未域用户添加到本地管理员组，你将无法进行系统更改，如更改计算机名称，通过使用域用户。 若要将域用户添加到本地管理员组，允许计算机重启。 接下来，登录到计算机以本地管理员身份，并按照中的步骤[本地管理员设置](#local-administrator-settings)本文后面的部分。
+如果域用户尚未添加到本地管理员组，则不能使用域用户进行系统更改，例如更改计算机名称。 若要将域用户添加到本地管理员组，允许计算机重启。 然后，以本地管理员身份登录计算机，并按照本文后面的[本地管理员设置](#local-administrator-settings)部分中的步骤进行操作。
 
 > [!NOTE]
-> 必须先重新启动服务器以将任何更改应用到域或工作组成员身份。 不过，你还可以进行其他更改，并在所有更改完成之后再重启服务器，以免需要多次重启服务器。 默认情况下，重启 Hyper-V 服务器之前，正在运行的虚拟机会自动保存。
+> 需要重启服务器，以便将更改应用到域或工作组成员。 不过，你还可以进行其他更改，并在所有更改完成之后再重启服务器，以免需要多次重启服务器。 默认情况下，重启 Hyper-V 服务器之前，正在运行的虚拟机会自动保存。
 
 ## <a name="computer-name-settings"></a>计算机名称设置
 
-当前计算机名称在默认服务器配置工具屏幕中显示。 可以通过访问更改的计算机名称**计算机名**设置页面，从主菜单，并按照的说明。
+当前计算机名称在默认服务器配置工具屏幕中显示。 可以通过从主菜单访问“计算机名称”设置页并按照说明进行操作，来更改计算机名称  。
 
 > [!NOTE]
-> 必须先重新启动服务器以将任何更改应用到域或工作组成员身份。 不过，你还可以进行其他更改，并在所有更改完成之后再重启服务器，以免需要多次重启服务器。 默认情况下，重启 Hyper-V 服务器之前，正在运行的虚拟机会自动保存。
+> 需要重启服务器，以便将更改应用到域或工作组成员。 不过，你还可以进行其他更改，并在所有更改完成之后再重启服务器，以免需要多次重启服务器。 默认情况下，重启 Hyper-V 服务器之前，正在运行的虚拟机会自动保存。
 
-## <a name="local-administrator-settings"></a>本地管理员设置
+## <a name="local-administrator-settings"></a>“本地管理员设置”
 
 若要将其他用户添加到本地管理员组，请使用主菜单上的 **“添加本地管理员”** 选项。 在加入域的计算机上，以下面的格式输入用户：域\用户名。 在非加入域的计算机（工作组计算机）上，仅输入用户名。 更改会立即生效。
 
@@ -72,7 +72,7 @@ ms.locfileid: "66749582"
 
 你可以随时从主菜单的 **“下载和安装更新”** 选项下载和安装适用的更新。
 
-**仅下载**选项将扫描更新、下载任何可用更新，然后在操作中心中通知你这些更新已准备好进行安装。 这是默认选项。
+“仅下载”选项将扫描更新、下载任何可用更新，然后在操作中心中通知你这些更新已准备好进行安装  。 这是默认选项。
 
 ## <a name="remote-desktop-settings"></a>远程桌面设置
 
@@ -86,7 +86,7 @@ ms.locfileid: "66749582"
 
 ## <a name="date-and-time-settings"></a>日期和时间设置
 
-您可以访问和更改日期和时间设置通过访问**日期和时间**主菜单选项。
+可以通过访问“日期和时间”主菜单选项来访问和更改日期和时间设置  。
 
 ## <a name="telemetry-settings"></a>遥测设置
 
@@ -108,7 +108,7 @@ ms.locfileid: "66749582"
 
 ## <a name="to-log-off-restart-or-shut-down-the-server"></a>注销、重启或关闭服务器的步骤
 
-若要注销、重启或关闭服务器，请访问主菜单相应的菜单项。 这些选项也是可从**Windows 安全**菜单可从任何应用程序在任何时间访问通过按 CTRL + ALT + DEL。  
+若要注销、重启或关闭服务器，请访问主菜单相应的菜单项。 这些选项在“Windows 安全”菜单中也可用，可通过按 CTRL+ALT+DEL 随时从任何应用程序进行访问  。  
 
 ## <a name="to-exit-to-the-command-line"></a>退出命令行的步骤
   

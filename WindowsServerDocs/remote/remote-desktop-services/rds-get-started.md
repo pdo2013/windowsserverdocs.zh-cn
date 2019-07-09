@@ -1,6 +1,6 @@
 ---
 title: 开始使用远程桌面服务
-description: 提供信息以帮助你开始使用 Windows Server 2016 中的 RDS。
+description: 提供帮助在 Windows Server 2016 中开始使用 RDS 的信息。
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,21 +13,21 @@ ms.topic: article
 ms.assetid: e8f8cfd2-c62e-4f9b-b843-099fd37c6d58
 author: lizap
 manager: dongill
-ms.openlocfilehash: 3e7dd00e9c5e0c15d8d7ab229e1383ad7051b3cc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.openlocfilehash: 6b429cf5e0313c061b4e3718146f9aa69544692e
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814758"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63713058"
 ---
-# <a name="get-started-with-remote-desktop-services-in-windows-server-2016"></a>开始使用 Windows Server 2016 中的远程桌面服务
+# <a name="get-started-with-remote-desktop-services-in-windows-server-2016"></a>在 Windows Server 2016 中开始使用远程桌面服务
 
 > 适用于：Windows Server 2016
 
-使用以下信息开始探索和使用远程桌面服务 Windows Server 2016 中。
+使用以下信息在 Windows Server 2016 中开始探索和使用远程桌面服务。
 
-- [什么是远程桌面服务中的新增功能？](rds-whats-new.md) -请查看添加在 Windows Server 2016 中，以及改进现有功能和方案的新功能。
-- [远程桌面服务规划海报](rds-poster.md)-我们已经创建了将指导你完成所有的注意事项规划远程桌面部署一张海报。
-- [托管 Windows 桌面和应用程序的学习路径](rds-hosting-partners.md)-需要创建的桌面托管虚拟机上的解决方案？ 了解有关新的远程桌面服务学习路径，以及确定可帮助您构建您的环境的合作伙伴。
+- [远程桌面服务有哪些新增功能？](rds-whats-new.md) - 查看 Windows Server 2016 中增加的新功能，以及对现有功能和方案的改进。
+- [远程桌面服务规划海报](rds-poster.md) - 我们制作了一张海报，可引导你思考规划远程桌面部署的所有注意事项。
+- [托管 Windows 桌面和应用程序 - 学习路径](rds-hosting-partners.md) - 需要在虚拟机上创建桌面托管解决方案？ 了解新的“远程桌面服务”学习路径，以及确定可帮助生成环境的合作伙伴。
 
-一旦你已查看有关的信息，请执行下一步并[开始规划部署](rds-plan-and-design.md)。
+查看相关信息后，请执行下一步并[开始规划部署](rds-plan-and-design.md)。

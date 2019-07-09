@@ -1,6 +1,6 @@
 ---
 title: 安装服务器核心
-description: 如何获取并安装服务器核心安装上 Windows Server 2019、 Windows Server 2016 或 Windows Server （半年频道）。
+description: 如何在 Windows Server 2019、Windows Server 2016 或 Windows Server（半年频道）上获取并安装服务器核心安装。
 ms.prod: windows-server-threshold
 ms.date: 05/21/2019
 ms.technology: server-general
@@ -12,17 +12,17 @@ ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: 6f685ce29088b56bb243d21315787ab90e6863a4
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65976720"
 ---
 # <a name="install-server-core"></a>安装服务器核心
 
-> 适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
+> 适用于：Windows Server 2019、Windows Server 2016、Windows Server（半年频道）
   
-第一次安装 Windows Server 时可以以下安装选项：
+首次安装 Windows Server 时，你可以使用以下安装选项：
 
 >[!NOTE]
 > 在以下列表中，不带“桌面体验”的版本是服务器核心安装选项
@@ -32,7 +32,7 @@ ms.locfileid: "65976720"
 -   Windows Server Datacenter
 -   带桌面体验的 Windows Server Datacenter
 
-在安装 Windows Server （半年频道） 时，你具有以下安装选项：
+安装 Windows Server（半年频道）时，你可以使用以下安装选项：
 
 -   Windows Server Standard 
 -   Windows Server Datacenter
@@ -49,14 +49,14 @@ ms.locfileid: "65976720"
 
 **在本地安装、配置、卸载服务器角色：** 在 Windows PowerShell 的命令提示符下进行。
 
-**安装、 配置、 从 Windows 客户端计算机 （或具有桌面体验安装的服务器） 远程卸载服务器角色：** 使用服务器管理器、 远程服务器管理工具 (RSAT)、 Windows PowerShell 或 Windows Admin Center.
+从 Windows 客户端计算机（或安装了桌面体验的服务器）中远程安装、配置、卸载服务器角色：  利用服务器管理器、远程服务器管理工具 (RSAT)、Windows PowerShell 或 Windows Admin Center 来进行。
 
 >[!NOTE]
 >
 >对于 RSAT，必须使用 Windows 10 版本。
 >Microsoft 管理控制台在本地不可用。
 
-**可用的示例服务器角色：**
+可用的服务器角色示例： 
 
 - Active Directory 证书服务
 - Active Directory 域服务
@@ -76,21 +76,21 @@ ms.locfileid: "65976720"
    - 虚拟化
    - 批量激活服务
 
-对于未包含在服务器核心角色，请参阅[角色、 角色服务和功能不在 Windows Server 的服务器核心](../administration/server-core/server-core-removed-roles.md)。
+对于未包含在服务器核心中的角色，请参阅[不在 Windows Server 中的角色、角色服务和功能 - 服务器核心](../administration/server-core/server-core-removed-roles.md)。
 
 ## <a name="installing-on-windows-server-2019-or-windows-server-2016"></a>在 Windows Server 2019 或 Windows Server 2016 上安装
 
-常规安装步骤和适用于 Windows Server （long 类型的值术语维护服务频道） 选项，请参阅[Windows Server 安装和升级](installation-and-upgrade.md)。
+有关适用于 Windows Server（长期服务频道）的常规安装步骤和选项，请参阅 [Windows Server 安装和升级](installation-and-upgrade.md)。
 
-## <a name="installing-on-windows-server-semi-annual-channel"></a>Windows Server （半年频道） 上安装
+## <a name="installing-on-windows-server-semi-annual-channel"></a>在 Windows Server（半年频道）上安装
 
-适用于 Windows Server （半年频道） 的安装步骤将与安装的 Windows Server 的以前版本相同 (从。ISO 映像），但存在以下例外：
+适用于 Windows Server（半年频道）的安装步骤与（从 .ISO 映像）安装以前版本的 Windows Server 相同，但也存在以下例外：
 
 - 不支持将以前版本的 Windows Server 升级到 Windows Server 版本 1709。 始终需要进行重新安装。
-   这意味着从 Windows 计算机的桌面上运行 setup.exe 时，安装体验不允许升级选项 （它将灰显）。
-- 没有适用于 Windows Server （半年频道） 评估版本
-- 没有任何 OEM 或零售版本。 仅可以通过软件保障常客或獎授予许可 Windows Server （半年频道）。
+   这意味着从 Windows 计算机的桌面运行 setup.exe 时，安装体验不允许使用升级选项（升级选项将显示为灰色）。
+- Windows Server（半年频道）没有评估版本
+- 没有任何 OEM 或零售版本。 Windows Server（半年频道）只能通过软件保障或会员计划获得授权。
 
-有关半年频道的详细信息，请参阅[比较的维护服务频道](../get-started-19/servicing-channels-19.md)。
+有关半年频道的更多信息，请参阅[服务频道的比较](../get-started-19/servicing-channels-19.md)。
 
-若要查看 Windows Server 半年频道中的新增功能，请参阅[What's New in Windows Server](whats-new-in-windows-server.md)
+若要了解 Windows Server 半年频道中的新增功能，请参阅 [Windows Server 中的新增功能](whats-new-in-windows-server.md)

@@ -1,6 +1,6 @@
 ---
-title: 远程桌面-允许对您的 PC 从网络外部进行访问
-description: 了解用于远程访问您的 PC 免受外部 PC 的网络选项
+title: 远程桌面 - 允许从你的网络外部访问你的电脑
+description: 了解用于从电脑网络外部远程访问电脑的选项
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,46 +14,46 @@ ms.author: elizapo
 ms.date: 04/04/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: 9e90a2faa14b65bc766c7d7ec47d5e815658c06e
-ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66805057"
 ---
-# <a name="remote-desktop---allow-access-to-your-pc-from-outside-your-pcs-network"></a>远程桌面-允许对您的 PC 从你的电脑的网络外部进行访问
+# <a name="remote-desktop---allow-access-to-your-pc-from-outside-your-pcs-network"></a>远程桌面 - 允许从电脑网络外部访问电脑
 
->适用于：Windows 10,  Windows Server 2016
+>适用于：Windows 10、Windows Server 2016
 
-当使用远程桌面客户端连接到您的 PC 时，您创建的对等连接。 这意味着您需要直接访问权限 （有时称为"主机"） 的 PC。 如果需要连接到您的 PC 从网络运行您的 PC 之外，您需要启用该访问权限。 有几个选项： 使用端口转发或设置 VPN。
+当你使用远程桌面客户端连接到你的电脑时，将创建对等连接。 这意味着你需要直接访问电脑（有时称为“主机”）。 如果需要从运行电脑所在的网络外部连接到电脑，则需要启用该访问。 你有两种选择：使用端口转移或设置 VPN。
 
-## <a name="enable-port-forwarding-on-your-router"></a>在路由器上启用端口转发
+## <a name="enable-port-forwarding-on-your-router"></a>在路由器上启用端口转移
 
-端口转发只需将路由器的 IP 地址 (公共 IP) 上的端口映射到的端口和想要访问的 pc 的 IP 地址。 
+端口转移直接将路由器 IP 地址（公共 IP）上的端口映射到要访问的电脑的端口和 IP 地址。 
 
-启用端口转发的特定步骤取决于的路由器使用的，因此将需要在线搜索您的路由器的说明。 有关步骤的一般讨论，请参阅[wikiHow 到设置了端口转发的路由器上](https://www.wikihow.com/Set-Up-Port-Forwarding-on-a-Router)。
+启用端口转移的具体步骤取决于所使用的路由器，因此需要在线搜索路由器说明。 有关这些步骤的一般性讨论，请查看 [wikiHow to Set Up Port Forwarding on a Router](https://www.wikihow.com/Set-Up-Port-Forwarding-on-a-Router)（如何在路由器上设置端口转移）。
 
-将端口映射之前你将需要以下各项：
+在映射端口之前，需提供以下各项：
 
-- PC 内部 IP 地址：查找范围**设置 > 网络和 Internet > 状态 > 查看您的网络属性**。 查找"操作"状态的网络配置，然后获取**IPv4 地址**。
+- 电脑内部 IP 地址：查看“设置”>“网络和 Internet”>“状态”>“查看网络属性”  。 找到状态为“可操作”的网络配置，然后获取 **IPv4 地址**。
 
-   ![操作网络配置](../media/rdclient-operational-network.png)
+   ![可操作的网络配置](../media/rdclient-operational-network.png)
 
-- 公共 IP 地址 (路由器的 IP)。 有很多种，若要查找此-您可以搜索 （在必应或 Google）"我的 IP"或查看[Wi-fi 网络属性](https://binged.it/2Gwob34)（适用于 Windows 10)。
-- 要映射的端口号。 在大多数情况下，这是 3389-这是使用远程桌面连接的默认端口。
-- 对你的路由器的管理员访问权限。  
+- 公共 IP 地址（路由器的 IP）。 可通过多种方式查找此信息 - 可以搜索（在必应或 Google 中）“我的 IP”或查看 [Wi-Fi 网络属性](https://binged.it/2Gwob34)（适用于 Windows 10）。
+- 要映射的端口号。 大多数情况下为 3389 - 这是远程桌面连接使用的默认端口。
+- 对路由器的管理员访问权限。  
 
    >[!WARNING]
-   > 正在打开您到 internet 的电脑-请确保已为您的 PC 设置了强密码。
+   > 你正在向 Internet 开放你的电脑 - 请确保为电脑设置了强密码。
 
-将端口映射后，您可以通过连接到你的路由器 （上面的第二项） 的公共 IP 地址连接到您的主机 PC 从本地网络之外。
+映射端口后，将能够通过连接到路由器的公共 IP 地址（上面第二项），从本地网络外部连接到你的主机。
 
-可以更改路由器的 IP 地址-internet 服务提供商 (ISP) 可以分配一个新的 IP 在任何时间。 为了避免遇到此问题，请考虑使用动态 DNS-这样就可以连接到 PC 使用容易记住的域名，而不是 IP 地址。 你的路由器会自动更新 DDNS 服务使用新 IP 地址、 它应更改。
+路由器的 IP 地址可以更改 - 你的 Internet 服务提供商 (ISP) 可以随时为你分配新的 IP。 为避免遇到此问题，请考虑使用动态 DNS - 这样就可以使用容易记住的域名而不是 IP 地址连接到电脑。 如果 IP 地址发生更改，路由器会自动使用新的 IP 地址更新 DDNS 服务。
 
-与大多数路由器可以定义的源 IP 或源网络可以使用端口的映射。 因此，如果您知道您只打算从工作进行连接，可以为您工作的网络-添加 IP 地址，可以让你避免打开到整个公共 internet 的端口。 如果你要用于连接的主机使用动态 IP 地址，设置源限制允许从该特定的 ISP 的整个范围进行访问。
+对于大多数路由器，你可以定义哪个源 IP 或源网络可以使用端口映射。 因此，如果你知道自己只打算在工作时进行连接，则可以添加工作网络的 IP 地址 - 这样就可以避免向整个公共 Internet 开放端口。 如果用于连接的主机使用动态 IP 地址，请设置源限制，以允许从该特定 ISP 的整个范围进行访问。
 
-您还可以考虑设置[静态 IP 地址](/windows-hardware/customize/mobile/mcsf/enable-static-ip)使内部 IP 地址不会更改在 PC 上。 如果这样做，则路由器的端口转发将始终指向正确的 IP 地址。
+还可以考虑在电脑上设置[静态 IP 地址](/windows-hardware/customize/mobile/mcsf/enable-static-ip)，以使内部 IP 地址不发生更改。 如果这样做，那么路由器的端口转移将始终指向正确的 IP 地址。
 
 
 ## <a name="use-a-vpn"></a>使用 VPN
 
-如果使用虚拟专用网络 (VPN) 连接到本地网络，你无需打开您的 PC 到公共 internet。 相反，当连接到 VPN，远程桌面客户端的作用像它是同一网络的一部分，将无法访问您的 PC。 有多个 VPN 服务-你可以查找和使用者为准最适合您。
+如果使用虚拟专用网 (VPN) 连接到局域网，则无需向公共 Internet 开放你的电脑。 相反，当你连接到 VPN 时，RD 客户端就像属于同一网络一样，将能够访问你的电脑。 有许多 VPN 服务可供使用 - 你可以找到并使用最适合你的服务。
