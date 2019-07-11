@@ -9,12 +9,12 @@ manager: dongill
 ms.author: jgerend
 ms.date: 6/24/2017
 description: 如何部署工作文件夹（包括安装服务器角色）、创建同步共享和创建 DNS 记录。
-ms.openlocfilehash: 1ed26c9949fa3f4b53b9f650ca5a3649d5261d65
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d2ba117a021cfc7361c0f7c8df2ed9f3c4bc9d94
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447849"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792343"
 ---
 # <a name="deploying-work-folders"></a>部署工作文件夹
 
@@ -26,14 +26,14 @@ ms.locfileid: "66447849"
   
 > [!TIP]
 >  最简单的工作文件夹部署是不支持通过 Internet 同步的单一文件服务器（通常称为同步服务器），这种部署对于测试实验室而言可能非常有用，也可以用作已加入域的客户端计算机的同步解决方案。 若要创建简单部署，至少需要执行以下步骤： 
->  -   第 1 步：获取 SSL 证书  
+>  -   步骤 1：获取 SSL 证书  
 >  -   步骤 2：创建 DNS 记录 
->  -   步骤 3:在文件服务器上安装工作文件夹  
+>  -   步骤 3：在文件服务器上安装工作文件夹  
 >  -   步骤 4：在同步服务器上绑定 SSL 证书
 >  -   步骤 5：创建工作文件夹的安全组  
 >  -   步骤 7：为用户数据创建同步共享  
   
-## <a name="step-1-obtain-ssl-certificates"></a>第 1 步：获取 SSL 证书  
+## <a name="step-1-obtain-ssl-certificates"></a>步骤 1：获取 SSL 证书  
  工作文件夹使用 HTTPS 以在工作文件夹客户端和工作文件夹服务器之间安全同步文件。 工作文件夹使用的 SSL 证书的要求如下：  
   
 - 该证书必须由受信任的证书颁发机构颁发。 对于大多数工作文件夹实施方案，建议使用公众信任的 CA，因为证书将由未加入域的、基于 Internet 的设备使用。  
@@ -51,9 +51,9 @@ ms.locfileid: "66447849"
 ## <a name="step-2-create-dns-records"></a>步骤 2：创建 DNS 记录  
  若要允许用户通过 Internet 同步，必须在公用 DNS 中创建一个主机 (A) 记录，使 Internet 客户端能够解析你的工作文件夹 URL。 此 DNS 记录应解析为反向代理服务器的外部接口。  
   
- 在内部网络上，在名为 workfolders 的 DNS 中创建 CNAME 记录，该 DNS 解析为工作文件夹服务器的 FDQN。 在工作文件夹客户端使用自动发现，用于发现工作文件夹服务器 URL 是 https://workfolders.domain.com。 如果计划使用自动发现，则 DNS 中必须存在 workfolders CNAME 记录。  
+ 在内部网络上，在名为 workfolders 的 DNS 中创建 CNAME 记录，该 DNS 解析为工作文件夹服务器的 FDQN。 在工作文件夹客户端使用自动发现，用于发现工作文件夹服务器的 URL 为 https:\//workfolders.domain.com。 如果计划使用自动发现，则 DNS 中必须存在 workfolders CNAME 记录。  
   
-## <a name="step-3-install-work-folders-on-file-servers"></a>步骤 3:在文件服务器上安装工作文件夹  
+## <a name="step-3-install-work-folders-on-file-servers"></a>步骤 3：在文件服务器上安装工作文件夹  
  可以使用服务器管理器或 Windows PowerShell，于本地或者通过网络以远程方式在已加入域的服务器上安装工作文件夹。 如果你要通过网络配置多个同步服务器，则这种做法将十分有效。  
   
 若要在服务器管理器中部署角色，请执行以下操作：  
@@ -110,7 +110,7 @@ Add-WindowsFeature FS-SyncShareService
 
 4.  在“创建组”  窗口的“组”  部分，指定以下设置：
 
-    -   在“组名”  中，键入安全组的名称，例如：HR 同步共享用户或**工作文件夹管理员**。  
+    -   在“组名”  中，键入安全组的名称，例如：**HR 同步共享用户**或**工作文件夹管理员**。  
   
     -   在“组作用域”中单击“安全”，然后单击“全局”    。  
   
@@ -251,7 +251,7 @@ New-SyncShare "HR Sync Share" K:\Share-1 –User "HR Sync Share Users"
 6.  在“要添加的值”框中，键入要与此用户同步的同步服务器的 URL，然后依次单击“添加”、“确定”、“确定”     。  
   
     > [!NOTE]
-    >  同步服务器 URL 无非是 `https://` 或 `http://`（取决于你是否需要使用安全连接）后接同步服务器的完全限定域名。 例如， **https://sync1.contoso.com** 。
+    >  同步服务器 URL 无非是 `https://` 或 `http://`（取决于你是否需要使用安全连接）后接同步服务器的完全限定域名。 例如， **https:\//sync1.contoso.com**。
 
 若要填充多个用户的该属性，请使用 Active Directory PowerShell。 下面是填充步骤 5 中所述的 *HR Sync Share Users* 组的所有成员的该属性的示例。
   
@@ -292,7 +292,7 @@ Set-ADUser –Add @{"msDS-SyncServerURL"=$SyncServerURL}
 ##  <a name="BKMK_LINKS"></a> 另请参阅  
  有关其他相关信息，请参阅以下资源。  
   
-|内容类型|参考|  
+|内容类型|参考资料|  
 |------------------|----------------|  
 |**了解**|-   [工作文件夹](work-folders-overview.md)|  
 |**规划**|-   [设计工作文件夹实施方案](plan-work-folders.md)|
