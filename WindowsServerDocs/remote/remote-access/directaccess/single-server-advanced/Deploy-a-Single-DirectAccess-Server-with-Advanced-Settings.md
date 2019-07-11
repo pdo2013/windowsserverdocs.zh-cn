@@ -36,7 +36,7 @@ ms.locfileid: "67283603"
 在此方案中，运行 Windows Server 2016、 Windows Server 2012 R2 或 Windows Server 2012 中，一台计算机配置为 DirectAccess 服务器使用高级设置。  
   
 > [!NOTE]  
-> 如果你仅希望使用简单的设置来配置基本部署，请参阅 [Deploy a Single DirectAccess Server Using the Getting Started Wizard](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)。 在简单的方案中，将通过向导使用默认设置配置 DirectAccess，而无需配置基础结构设置，例如，证书颁发机构 (CA) 或 Active Directory 安全组。  
+> 如果你想要使用简单的设置配置基本部署，请参阅[部署单个 DirectAccess 服务器使用开始向导](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)。 在简单的方案中，将通过向导使用默认设置配置 DirectAccess，而无需配置基础结构设置，例如，证书颁发机构 (CA) 或 Active Directory 安全组。  
   
 ## <a name="in-this-scenario"></a>本方案内容  
 若要使用高级设置来设置单个 DirectAccess 服务器，必须完成几个规划和部署步骤。  

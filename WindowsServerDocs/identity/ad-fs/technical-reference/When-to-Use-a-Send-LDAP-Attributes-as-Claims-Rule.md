@@ -45,7 +45,7 @@ ms.locfileid: "66188248"
   
 通过使用此模板，可以从一个规则添加多个属性（将作为多个声明发送）。 例如，可以使用此规则模板创建一个规则，该规则会从 **company** 和 **department** Active Directory 属性查找经过身份验证的用户的属性值，然后将这些值作为两个不同的传出声明发送。  
   
-还可以使用此规则发送所有用户的组成员身份。 如果要仅发送单个组成员身份，请使用“以声明方式发送组成员身份”规则模板。 有关详细信息，请参阅 [When to Use a Send Group Membership as a Claim Rule](When-to-Use-a-Send-Group-Membership-as-a-Claim-Rule.md)。  
+还可以使用此规则发送所有用户的组成员身份。 如果要仅发送单个组成员身份，请使用“以声明方式发送组成员身份”规则模板。 有关详细信息，请参阅[何时使用发送组成员身份作为声明规则](When-to-Use-a-Send-Group-Membership-as-a-Claim-Rule.md)。  
   
 ## <a name="how-to-create-this-rule"></a>如何创建此规则  
 可以通过使用声明规则语言创建此规则，也可以通过使用发送 LDAP 属性作为声明规则模板位于 AD FS 管理管理单元\-中。 此规则模板提供以下配置选项：  

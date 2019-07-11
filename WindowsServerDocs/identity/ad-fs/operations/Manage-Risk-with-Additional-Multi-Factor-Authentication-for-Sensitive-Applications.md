@@ -72,7 +72,7 @@ Windows Server 2012 R2 中 active Directory 联合身份验证服务 (AD FS) 提
 
 -   MFA 的设置和方法
 
--   是否启用设备身份验证。 有关详细信息，请参阅 [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)。
+-   是否启用设备身份验证。 有关详细信息，请参阅[加入工作区以从任一设备实现 SSO 和无缝第二因素身份验证跨公司应用程序](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)。
 
 按信赖方信任身份验证策略专门应用到访问该信赖方信任（应用程序或服务）的企图。 可将以下设置配置为按信赖方信任身份验证策略的一部分：
 

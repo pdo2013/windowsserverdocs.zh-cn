@@ -69,7 +69,7 @@ ms.locfileid: "66812422"
 
 始终脱机模式下，计算机永远不会转换到联机模式下时**配置慢速链接模式**配置组策略设置并**延迟**阈值参数设置为 1 毫秒。 默认情况下，每隔 120 分钟在后台对更改进行一次同步，但使用 **Configure Background Sync** 组策略设置可配置同步。
 
-有关详细信息，请参阅 [Enable the Always Offline Mode to Provide Faster Access to Files](enable-always-offline.md)。
+有关详细信息，请参阅[启用“始终脱机”模式，加快文件访问速度](enable-always-offline.md)。
 
 ## <a name="cost-aware-synchronization"></a>感知成本的同步
 
@@ -112,7 +112,7 @@ ms.locfileid: "66812422"
     1. 如果该计算机是用户的主计算机之一，则 Windows 应用“漫游用户配置文件”和“文件夹重定向”设置。
     2. 如果该计算机不是用户的主计算机之一，则 Windows 加载该用户缓存的本地配置文件（如果存在），或创建新的本地配置文件。 Windows 还根据之前应用的组策略设置（保留在本地“文件夹重定向”配置中）指定的删除操作删除任何现有的重定向文件夹。
 
-有关详细信息，请参阅 [Deploy Primary Computers for Folder Redirection and Roaming User Profiles](deploy-primary-computers.md)。
+有关详细信息，请参阅[为主计算机部署文件夹重定向和漫游用户配置文件](deploy-primary-computers.md)
 
 ## <a name="hardware-requirements"></a>硬件要求
 
