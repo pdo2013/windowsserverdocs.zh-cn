@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: a1ce7af5-f3fe-4fc9-82e8-926800e37bc1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 9a3ee39736fb4ee2eb41162db27fed2299c204e5
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: f3b1837145dee5767741052c548a4b44da56659b
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281187"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792333"
 ---
 # <a name="step-1-plan-the-remote-access-infrastructure"></a>步骤 1 规划远程访问基础结构
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
 > [!NOTE]
 > Windows Server 2016 将 DirectAccess 以及路由和远程访问服务 (RRAS) 合并到单个远程访问角色。  
@@ -270,7 +270,7 @@ DNS 用于解析来自不位于内部网络上的 DirectAccess 客户端计算�
   
 对于拆分式 DNS 部署，则必须列出在 Internet 和 intranet，会有重复，并决定哪些资源的 Fqdn DirectAccess 客户端应市场宣传 intranet 或 Internet 版本。 当你想 DirectAccess 客户端访问 Internet 版本时，必须将相应 FQDN 作为免除规则添加到每个资源的 NRPT。  
   
-在拆分式 DNS 环境中，如果你想要在可用的资源的两个版本，intranet 资源使用配置名称不重复使用在 Internet 的名称。 然后指示用户能够访问 intranet 上的资源时使用的备用名称。 例如，配置为 www.contoso.com 的内部名称 www.internal.contoso.com。  
+在拆分式 DNS 环境中，如果你想要在可用的资源的两个版本，intranet 资源使用配置名称不重复使用在 Internet 的名称。 然后指示用户能够访问 intranet 上的资源时使用的备用名称。 例如，配置 www\.www 的内部名称的 internal.contoso.com\.contoso.com。  
   
 在非拆分式 DNS 环境中，Internet 命名空间不同于 Intranet 命名空间。 例如，Contoso 公司在 Internet 上使用 contoso.com，在 Intranet 上使用 corp.contoso.com。 因为所有 Intranet 资源都使用 corp.contoso.com DNS 后缀，所以 corp.contoso.com 的 NRPT 规则会将针对所有 Intranet 资源的 DNS 名称查询都路由到 Intranet DNS 服务器。 带有 contoso.com 后缀的名称的 DNS 查询与 NRPT 中的 corp.contoso.com intranet 命名空间规则不匹配并向其发送到 Internet DNS 服务器。 对于非拆分式 DNS 部署，由于 Intranet 和 Internet 资源的 FQDN 互不重复，因此无需对 NRPT 进行其他配置。 DirectAccess 客户端可以访问其组织的 Internet 和 intranet 资源。  
   

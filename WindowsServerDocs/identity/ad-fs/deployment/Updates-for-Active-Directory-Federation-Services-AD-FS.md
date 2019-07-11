@@ -9,12 +9,12 @@ ms.date: 3/29/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 071017d05b288a70592af9203fedc72f699d18e0
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 2336847825cfb3f232674a1e39d3bab7953a32c0
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191937"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792299"
 ---
 # <a name="required-updates-for-active-directory-federation-services-ad-fs-and-web-application-proxy-wap"></a>有关 Active Directory 联合身份验证服务 (AD FS) 和 Web 应用程序代理 (WAP) 所需的更新
 
@@ -29,6 +29,7 @@ Windows Server 2016 的更新通过 Windows Update 每月会传递，并且具�
 
 |KB # |描述|发布日期
 |----- | ----- |-----
+|[CVE-2019-1126](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1126) | 此安全更新解决了 Active Directory 联合身份验证服务 (AD FS) 这可能允许攻击者绕过 extranet 锁定策略中的漏洞。 |2019 年 7 月|
 |[4489889 （OS 内部版本 14393.2879）](https://support.microsoft.com/help/4489889/windows-10-update-kb4489889) | 解决了在 Active Directory 联合身份验证服务 (AD FS) 会导致重复信赖方信任 AD FS 管理控制台中显示的问题。 发生这种情况时创建或查看信赖方信任使用的 AD FS 管理控制台。 |2019 年 3 月|
 |[4487006 （OS 内部版本 14393.2828）](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) | 解决了导致更新失败时使用 PowerShell 或 Active Directory 联合身份验证服务 (AD FS) 管理控制台的信赖方信任的问题。 如果配置为使用发布多个 PassiveRequestorEndpoint 联机元数据 URL 的信赖方信任，会发生此问题。 错误是，"MSIS7615:信赖方信任中指定的受信任终结点必须是唯一的该信赖方信任。"  </br></br>解决了因 Azure 密码保护策略而显示的特定错误消息的复杂性外部密码更改的问题。 |2019 年 2 月|
 |[4462928 （OS 内部版本 14393.2580）](https://support.microsoft.com/help/4462928/windows-10-update-kb4462928)|解决了 Active Directory 联合身份验证服务 (ADFS) Extranet 智能锁定 (ESL) 和备用登录 ID 之间的互操作问题 启用备用登录 ID 后，调用到 AD FS Powershell cmdlet、 Get AdfsAccountActivity 和重置 AdfsAccountLockout，返回"找不到帐户"错误。 当调用集 AdfsAccountActivity 时，而不是编辑一个现有添加新条目。|2018 年 10 月|
@@ -50,11 +51,12 @@ Windows Server 2016 的更新通过 Windows Update 每月会传递，并且具�
 
 |KB # |描述|发布日期
 |----- | ----- |-----
-|[4041685](https://support.microsoft.com/kb/4041685)|解决 AD FS 问题其中 MSISConext 请求标头中的 cookie 可以最终溢出的标头大小限制并导致未能通过身份验证与 HTTP 状态代码 400"错误请求-标头太长"。</br></br>解决了问题，ADFS 无法再忽视"prompt = 登录名"身份验证过程。 添加了"已禁用"选项，以还原的方案使用非密码身份验证的位置。|2017 年 10 月更新汇总预览|
-|[4019217](https://support.microsoft.com/kb/4019217)|工作的文件夹使用 Server 2012 R2 AD FS 服务器将使用令牌代理的客户端不起作用|2017 年 5 月预览版的更新汇总|
-|[4015550](https://support.microsoft.com/kb/4015550)|解决了与 AD FS 不进行身份验证的外部用户和 AD FS WAP 随机失败的请求转发问题|2017 年 4 月更新汇总|
-|[4015547](https://support.microsoft.com/kb/4015547)|解决了与 AD FS 不进行身份验证的外部用户和 AD FS WAP 随机失败的请求转发问题|2017 年 4 月安全更新|
-|[4012216](https://support.microsoft.com/kb/4009970)|MS17 019 此安全更新解决的漏洞在 Active Directory 联合身份验证服务 (ADFS)。 如果攻击者将特别是特制的请求发送到 AD FS 服务器，从而允许攻击者能够读取有关目标系统的机密信息的漏洞可能导致信息泄露。|2017 年 3 月更新汇总|
+|[4507448](https://support.microsoft.com/help/4507448/windows-8-1-update-kb4507448)| 此安全更新解决了 Active Directory 联合身份验证服务 (AD FS) 这可能允许攻击者绕过 extranet 锁定策略中的漏洞。 |2019 年 7 月
+|[4041685](https://support.microsoft.com/kb/4041685)|解决 AD FS 问题其中 MSISConext 请求标头中的 cookie 可以最终溢出的标头大小限制并导致未能通过身份验证与 HTTP 状态代码 400"错误请求-标头太长"。</br></br>解决了问题，ADFS 无法再忽视"prompt = 登录名"身份验证过程。 添加了"已禁用"选项，以还原的方案使用非密码身份验证的位置。|2017 年 10 月更新汇总预览
+|[4019217](https://support.microsoft.com/kb/4019217)|工作的文件夹使用 Server 2012 R2 AD FS 服务器将使用令牌代理的客户端不起作用|2017 年 5 月预览版的更新汇总
+|[4015550](https://support.microsoft.com/kb/4015550)|解决了与 AD FS 不进行身份验证的外部用户和 AD FS WAP 随机失败的请求转发问题|2017 年 4 月更新汇总
+|[4015547](https://support.microsoft.com/kb/4015547)|解决了与 AD FS 不进行身份验证的外部用户和 AD FS WAP 随机失败的请求转发问题|2017 年 4 月安全更新
+|[4012216](https://support.microsoft.com/kb/4009970)|MS17 019 此安全更新解决的漏洞在 Active Directory 联合身份验证服务 (ADFS)。 如果攻击者将特别是特制的请求发送到 AD FS 服务器，从而允许攻击者能够读取有关目标系统的机密信息的漏洞可能导致信息泄露。|2017 年 3 月更新汇总
 |[3179574](https://support.microsoft.com/kb/3179574)|与 AD FS extranet 密码更新中修复的问题。 |2016 年 8 月更新汇总
 |[3172614](https://support.microsoft.com/kb/3172614)|引入了的提示符 = 登录名[支持](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-faq#BKMK_7)，使用 AD FS 管理控制台和 AlwaysRequireAuthentication 设置修复的问题。 |2016 年 7 月更新汇总
 |[3163306](https://support.microsoft.com/kb/3163306)|Active Directory 联合身份验证服务 (AD FS) 3.0 无法连接到配置为使用安全套接字层 (SSL) 端口 636 或 3269 连接字符串中的轻型目录访问协议 (LDAP) 属性存储。 |2016 年 6 月更新汇总

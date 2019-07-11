@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: e5ea9d22-a503-4ed4-96b3-0ee2ccf4fd17
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 16a2dcdc573fac2631b5a9890ee04f2efb08d90a
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 973ef70614f056adac1463918cc425d82b21ac62
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282531"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792314"
 ---
 # <a name="step-3-plan-the-multisite-deployment"></a>步骤 3 计划多站点部署
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
 在计划的多站点基础结构之后, 计划的任何其他证书要求，客户端计算机如何选择入口点，并在部署中分配的 IPv6 地址。  
 
@@ -162,11 +162,11 @@ ms.locfileid: "67282531"
   
    3. Teredo 前缀 （可选）。 此前缀是只使用两个连续公用 IPv4 地址的外部适配器上配置远程访问服务器时才适用。 前缀基于的地址对的第一个公共 IPv4 地址。 例如，如果外部地址：  
   
-      1. www.xxx.yyy.zzz  
+      1. www\.xxx.yyy.zzz  
   
-      2. www.xxx.yyy.zzz+1  
+      2. www\.xxx.yyy.zzz+1  
   
-      若要配置的 Teredo 前缀为 2001:0:WWXX:YYZZ:: / 64，其中 WWXX:YYZZ 是 IPv4 地址 www.xxx.yyy.zzz 的十六进制表示形式。  
+      若要配置的 Teredo 前缀为 2001:0:WWXX:YYZZ:: / 64，WWXX:YYZZ 所在的十六进制表示形式 IPv4 地址 www\.xxx.yyy.zzz。  
   
       请注意，可以使用以下脚本来计算 Teredo 前缀：  
   

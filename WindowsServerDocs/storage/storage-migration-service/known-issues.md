@@ -4,16 +4,16 @@ description: 已知的问题和故障排除支持存储迁移服务，例如，�
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 05/14/2019
+ms.date: 07/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: e1cfd2b0ea3bc4d7802cb4a6d2a8c1493d5511a1
-ms.sourcegitcommit: 0099873d69bd23495d275d7bcb464594de09ee3c
+ms.openlocfilehash: 08156a09491d66016b5fcfe6056ed318d682b987
+ms.sourcegitcommit: 514d659c3bcbdd60d1e66d3964ede87b85d79ca9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65699696"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67735156"
 ---
 # <a name="storage-migration-service-known-issues"></a>存储迁移服务的已知问题
 
@@ -70,7 +70,7 @@ Windows Admin Center 存储迁移服务扩展是仅用来管理 Windows Server 2
 
 在使用 Windows Admin Center 或 PowerShell 下载传输操作详细错误仅 CSV 日志，你将收到错误：
 
- >   传输日志-请检查在防火墙中允许文件共享。 ：此请求操作发送到 net.tcp: //localhost: 28940/sms/service/1/传输未收到已配置的超时时间内回复 (00: 01:00)。 分配给此操作的时间可能是更长超时的一部分。 这可能是由于服务仍在处理该操作，或因为该服务无法发送回复消息。 请考虑增加操作超时值 （通过强制转换将通道/代理分配给 IContextChannel 并设置 OperationTimeout 属性），确保服务能够连接到客户端。
+ >   传输日志-请检查在防火墙中允许文件共享。 :此请求操作发送到 net.tcp: //localhost: 28940/sms/service/1/传输未收到已配置的超时时间内回复 (00: 01:00)。 分配给此操作的时间可能是更长超时的一部分。 这可能是由于服务仍在处理该操作，或因为该服务无法发送回复消息。 请考虑增加操作超时值 （通过强制转换将通道/代理分配给 IContextChannel 并设置 OperationTimeout 属性），确保服务能够连接到客户端。
 
 此问题引起的传输中允许的存储迁移服务的默认值一分钟超时不能筛选的文件数量非常多。 
 
@@ -173,12 +173,39 @@ DFSR 调试日志：
 
 ## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transfering-from-windows-server-2008-r2"></a>错误"无法将传输存储上的任何终结点"时从 Windows Server 2008 R2 的传输
 
-在尝试从 Windows Server 2008 R2 源计算机传输数据时，没有数据 trasnfers 并且您将收到错误：  
+在尝试从 Windows Server 2008 R2 源计算机传输数据时，没有数据传输，你将收到错误：  
 
   无法传输在任一终结点上的存储。
 0x9044
 
 如果您的 Windows Server 2008 R2 计算机不完全修补，并从 Windows 更新的所有关键和重要更新的则会出现此错误。 而不考虑存储迁移服务，我们始终建议修补 Windows Server 2008 R2 计算机出于安全目的，因为该操作系统不会包含较新版本的 Windows Server 的安全改进。
+
+## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-and-check-if-the-source-device-is-online---we-couldnt-access-it"></a>错误"无法将传输存储上的任何终结点"和"检查源设备处于联机状态-是否我们无法访问它。"
+
+在尝试从此源计算机传输数据时，某些或所有共享，不会传输，摘要错误：
+
+   无法传输在任一终结点上的存储。
+0x9044
+
+检查 SMB 传输详细信息显示了错误：
+
+   检查源设备处于联机状态-是否我们无法访问它。
+
+检查 StorageMigrationService/管理事件日志显示了：
+
+   无法传输存储。
+
+   作业：Job1 ID:  
+   状态：失败，错误：36931 出现错误消息： 
+
+   指南：检查详细的错误，并确保满足传输要求。 传输作业无法传输任何源和目标计算机。 这可能是因为业务流程协调程序计算机无法访问任何源或目标的计算机，可能是由于防火墙规则，或缺少权限。
+
+检查 StorageMigrationService 代理/Debug 日志所示：
+
+   [错误] 07/02/2019-13:35:57.231 传输验证失败。 错误代码：40961，源终结点不可访问，或不存在，或源的凭据无效，或经过身份验证的用户不具有足够权限来访问它。
+在 Microsoft.StorageMigration.Proxy.Service.Transfer.TransferOperation.Validate() 在 Microsoft.StorageMigration.Proxy.Service.Transfer.TransferRequestHandler.ProcessRequest （FileTransferRequest fileTransferRequest，Guid operationId）   [d:\os\src\base\dms\proxy\transfer\transferproxy\TransferRequestHandler.cs::
+
+会出现此错误，如果你迁移的帐户不在至少具有对 SMB 共享的读取访问权限。 解决此错误，添加包含源迁移的帐户与 SMB 共享源计算机上的安全组，并授予它读取、 更改或完全控制。 在迁移完成后，可以删除此组。 Windows Server 的未来版本可能会更改此行为以不再需要源共享的显式权限。
 
 ## <a name="see-also"></a>请参阅
 
