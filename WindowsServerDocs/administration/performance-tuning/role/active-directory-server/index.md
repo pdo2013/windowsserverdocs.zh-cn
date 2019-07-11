@@ -4,15 +4,15 @@ description: Active Directory 服务器的性能优化
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: landing-page
-ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
+ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab; v-tea
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 04c9683c3d14291d5dc2682c6836657313865866
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b06875f0fa175c1fcf4f60cbba9de3dbd10d06b1
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891938"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792161"
 ---
 # <a name="performance-tuning-active-directory-servers"></a>Active Directory 服务器的性能优化
 
@@ -26,10 +26,10 @@ Active Directory 的性能优化侧重于两个目标：
 - Active Directory 客户端/应用程序优化 – 确保客户端和应用程序以最佳方式使用 Active Directory
 
 ## <a name="start-with-capacity-planning"></a>开始容量计划
-在正确的域、正确的区域设置中正确地部署足够数量的域控制器并提供冗余对于确保及时为客户端请求提供服务至关重要。 这是一个深入的主题，不在本指南的范围内。 建议读者先阅读并理解 [Active Directory 域服务的容量计划](https://go.microsoft.com/fwlink/?LinkId=324566)中的建议和指南，然后开始其 Active Directory 性能优化。
+在正确的域、正确的区域设置中正确地部署足够数量的域控制器并提供冗余对于确保及时为客户端请求提供服务至关重要。 这是一个深入的主题，不在本指南的范围内。 建议读者先阅读并理解 [Active Directory 域服务的容量计划](capacity-planning-for-active-directory-domain-services.md)中的建议和指南，然后开始其 Active Directory 性能优化。
 
 >[!Important]
-> 正确配置 Active Directory 以及设置其大小对整个系统和工作负荷性能有重大的潜在影响。 强烈建议读者首先阅读 [Active Directory 域服务的容量计划](https://go.microsoft.com/fwlink/?LinkId=324566)。
+> 正确配置 Active Directory 以及设置其大小对整个系统和工作负荷性能有重大的潜在影响。 强烈建议读者首先阅读 [Active Directory 域服务的容量计划](capacity-planning-for-active-directory-domain-services.md)。
 
 ## <a name="updates-and-evolving-recommendations"></a>更新和不断演变的建议
 
@@ -41,11 +41,14 @@ Active Directory 的性能优化侧重于两个目标：
 
 但是，我们知道这需要时间，并且许多环境的运行场景不可能完全采用最新平台。 较旧版本的平台中也添加了一些改进，我们将继续添加更多改进。
 
-我们建议你关注我们的团队博客[“向目录服务团队提问”](https://blogs.technet.microsoft.com/askds)来了解有关管理 ADDS 的最新新闻、指南和最佳做法。
+我们建议你关注我们的团队博客[“向目录服务团队提问”](https://techcommunity.microsoft.com/t5/Ask-the-Directory-Services-Team/bg-p/AskDS)来了解有关管理 ADDS 的最新新闻、指南和最佳做法。
 
 ## <a name="see-also"></a>另请参阅
+
+- [AD DS 容量计划](capacity-planning-for-active-directory-domain-services.md)
 - [硬件注意事项](hardware-considerations.md)
+- [内存使用情况注意事项](memory-usage-considerations.md)
 - [LDAP 注意事项](ldap-considerations.md)
 - [域控制器的正确放置和站点注意事项](site-definition-considerations.md)
-- [ADDS 性能疑难解答](troubleshoot.md) 
-- [Active Directory 域服务的容量计划](https://go.microsoft.com/fwlink/?LinkId=324566)
+- [AD DS 性能疑难解答](troubleshoot.md)  
+  

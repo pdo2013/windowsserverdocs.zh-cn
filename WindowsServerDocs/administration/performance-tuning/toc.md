@@ -7,8 +7,10 @@
 #### [建议的平衡电源计划参数](hardware/power/recommended-balanced-plan-parameters.md)
 ## 服务器角色优化
 ### [Active Directory Server](role/active-directory-server/index.md)
+#### [AD DS 容量计划](role/active-directory-server/capacity-planning-for-active-directory-domain-services.md)
 #### [站点定义注意事项](role/active-directory-server/site-definition-considerations.md)
 #### [硬件注意事项](role/active-directory-server/hardware-considerations.md)
+#### [内存使用情况注意事项](role/active-directory-server/memory-usage-considerations.md)
 #### [LDAP 注意事项](role/active-directory-server/ldap-considerations.md)
 #### [ADDS 性能疑难解答](role/active-directory-server/troubleshoot.md)
 ### [文件服务器](role/file-server/index.md)
