@@ -83,7 +83,7 @@ ms.locfileid: "66811776"
 
 - 使用 Azure Active Directory 作为标识提供者并且使用自签名证书或其他不受信任的证书配置 Windows Admin Center 时，无法在 Microsoft Edge 中完成 AAD 身份验证。  [15968377]
 
-- 如果你有作为服务部署到 Windows Admin Center 和 Microsoft Edge 使用作为你的浏览器，连接到 Azure 网关后生成新的浏览器窗口可能会失败。 尝试添加来解决此问题 https://login.microsoftonline.com， https://login.live.com，为你网关的 URL 是受信任的站点并允许客户端浏览器上的弹出窗口阻止程序设置的站点。 有关更多指导修复这[故障排除指南](troubleshooting.md#azure-features-dont-work-properly-in-edge)。 [17990376]
+- 如果你有作为服务部署到 Windows Admin Center 和 Microsoft Edge 使用作为你的浏览器，连接到 Azure 网关后生成新的浏览器窗口可能会失败。 尝试添加来解决此问题 https://login.microsoftonline.com ， https://login.live.com ，为你网关的 URL 是受信任的站点并允许客户端浏览器上的弹出窗口阻止程序设置的站点。 有关更多指导修复这[故障排除指南](troubleshooting.md#azure-features-dont-work-properly-in-edge)。 [17990376]
 
 - 如果必须在桌面模式下安装 Windows Admin Center，在 Microsoft Edge 浏览器选项卡不会显示 favicon。 [17665801]
 
