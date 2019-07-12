@@ -24,7 +24,7 @@ ms.locfileid: "66433640"
 >适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
 
 ##  <a name="BKMK_AddIns"></a> 在安装过程中自动安装加载项  
- 若要在设置期间安装加载项，请使用在本文档的 [Create the PostIC.cmd File for Running Post Initial Configuration Tasks](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) 部分中介绍的 PostIC.cmd 方法。  
+ 若要在设置期间安装加载项，请使用在本文档的 [创建用于运行后初始配置任务的 PostIC.cmd 文件](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) 部分中介绍的 PostIC.cmd 方法。  
   
  将以下项添加到你的 PostIC.cmd：  
   
