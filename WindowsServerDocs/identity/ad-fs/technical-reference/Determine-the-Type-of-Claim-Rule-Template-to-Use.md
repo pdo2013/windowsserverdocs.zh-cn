@@ -46,12 +46,12 @@ ms.locfileid: "66188650"
   
 |规则模板类型|描述|优点|缺点|  
 |----------------------|---------------|--------------|-----------------|  
-|通过或筛选传入声明|用于创建一项规则，该规则将传递所选声明类型的所有声明值，或者根据声明值筛选声明，以便仅传递所选声明类型的某些声明值。<br /><br />有关详细信息，请参阅 [When to Use a Pass Through or Filter Claim Rule](When-to-Use-a-Pass-Through-or-Filter-Claim-Rule.md)。|-可用于选择要在接受或发出的特定声明不变|的不能更改类型和值声明|  
-|转换传入声明|用于创建一项规则，该规则可以选择一个传入声明并将其映射到不同的声明类型或将其声明值映射到新的声明值。<br /><br />有关详细信息，请参阅 [When to Use a Transform Claim Rule](When-to-Use-a-Transform-Claim-Rule.md)。|-可以用于规范化声明类型或值<br />-可以替换电子\-传入声明的邮件后缀|-更复杂的字符串替换需要自定义规则|  
-|以声明方式发送 LDAP 属性|用于创建一项规则，该规则将从 LDAP 属性存储中选择要以声明方式发送给信赖方的属性。<br /><br />有关详细信息，请参阅 [When to Use a Send LDAP Attributes as Claims Rule](When-to-Use-a-Send-LDAP-Attributes-as-Claims-Rule.md)。|-可以从发出声明任何 AD DS\/AD LDS 属性存储<br />的可以使用单个规则发出多个声明|-性能 — 因帐户查找而速度缓慢<br />-不能使用自定义 LDAP 筛选器进行查询|  
-|以声明方式发送组成员身份|用于创建一项规则，当用户是 Active Directory 安全组的成员时，该规则可以发送指定的声明类型和值。 根据所选择的组，将使用此规则仅发送一个声明。<br /><br />有关详细信息，请参阅 [When to Use a Send Group Membership as a Claim Rule](When-to-Use-a-Send-Group-Membership-as-a-Claim-Rule.md)。|-发出组声明-无帐户查找快速性能|用户必须是本地 Active Directory 组的成员|  
-|使用自定义规则发送声明|用于创建一项自定义规则，该规则将提供比标准规则模板更高级的选项。 您编写自定义规则与 AD FS 声明规则语言。<br /><br />有关详细信息，请参阅 [When to Use a Custom Claim Rule](When-to-Use-a-Custom-Claim-Rule.md)。|-可用于从 SQL 属性存储发出声明<br />-可以用于指定自定义 LDAP 筛选器<br />-可以用于发出 PPID<br />-可用于自定义属性存储<br />-可以使用仅向输入的声明集添加声明<br />-可以用于发送基于多个传入声明的声明|-更难配置\-开始接触声明规则语言可能需要一些技能强化时间|  
-|根据传入声明允许或拒绝用户|用于创建创建一项规则，该规则将根据传入声明的类型和值，允许或拒绝用户访问信赖方。<br /><br />有关详细信息，请参阅 [When to Use an Authorization Claim Rule](When-to-Use-an-Authorization-Claim-Rule.md)。|-简化了授权过程|-要求只有一个声明类型，另一个声明值指定<br />-不支持声明值的模式匹配|  
-|允许所有用户|用于创建一项规则，该规则将允许所有用户访问信赖方。<br /><br />有关详细信息，请参阅 [When to Use an Authorization Claim Rule](When-to-Use-an-Authorization-Claim-Rule.md)。|-简单配置|-比使用允许或拒绝用户基于传入声明模板不太安全，|  
+|通过或筛选传入声明|用于创建一项规则，该规则将传递所选声明类型的所有声明值，或者根据声明值筛选声明，以便仅传递所选声明类型的某些声明值。<br /><br />有关详细信息，请参阅[何时使用经历或筛选声明规则](When-to-Use-a-Pass-Through-or-Filter-Claim-Rule.md)。|-可用于选择要在接受或发出的特定声明不变|的不能更改类型和值声明|  
+|转换传入声明|用于创建一项规则，该规则可以选择一个传入声明并将其映射到不同的声明类型或将其声明值映射到新的声明值。<br /><br />有关详细信息，请参阅[何时使用转换声明规则](When-to-Use-a-Transform-Claim-Rule.md)。|-可以用于规范化声明类型或值<br />-可以替换电子\-传入声明的邮件后缀|-更复杂的字符串替换需要自定义规则|  
+|以声明方式发送 LDAP 属性|用于创建一项规则，该规则将从 LDAP 属性存储中选择要以声明方式发送给信赖方的属性。<br /><br />有关详细信息，请参阅[何时发送 LDAP 属性用作声明规则](When-to-Use-a-Send-LDAP-Attributes-as-Claims-Rule.md)。|-可以从发出声明任何 AD DS\/AD LDS 属性存储<br />的可以使用单个规则发出多个声明|-性能 — 因帐户查找而速度缓慢<br />-不能使用自定义 LDAP 筛选器进行查询|  
+|以声明方式发送组成员身份|用于创建一项规则，当用户是 Active Directory 安全组的成员时，该规则可以发送指定的声明类型和值。 根据所选择的组，将使用此规则仅发送一个声明。<br /><br />有关详细信息，请参阅[何时使用发送组成员身份作为声明规则](When-to-Use-a-Send-Group-Membership-as-a-Claim-Rule.md)。|-发出组声明-无帐户查找快速性能|用户必须是本地 Active Directory 组的成员|  
+|使用自定义规则发送声明|用于创建一项自定义规则，该规则将提供比标准规则模板更高级的选项。 您编写自定义规则与 AD FS 声明规则语言。<br /><br />有关详细信息，请参阅[何时使用自定义声明规则](When-to-Use-a-Custom-Claim-Rule.md)。|-可用于从 SQL 属性存储发出声明<br />-可以用于指定自定义 LDAP 筛选器<br />-可以用于发出 PPID<br />-可用于自定义属性存储<br />-可以使用仅向输入的声明集添加声明<br />-可以用于发送基于多个传入声明的声明|-更难配置\-开始接触声明规则语言可能需要一些技能强化时间|  
+|根据传入声明允许或拒绝用户|用于创建创建一项规则，该规则将根据传入声明的类型和值，允许或拒绝用户访问信赖方。<br /><br />有关详细信息，请参阅[何时使用授权声明规则](When-to-Use-an-Authorization-Claim-Rule.md)。|-简化了授权过程|-要求只有一个声明类型，另一个声明值指定<br />-不支持声明值的模式匹配|  
+|允许所有用户|用于创建一项规则，该规则将允许所有用户访问信赖方。<br /><br />有关详细信息，请参阅[何时使用授权声明规则](When-to-Use-an-Authorization-Claim-Rule.md)。|-简单配置|-比使用允许或拒绝用户基于传入声明模板不太安全，|  
   
 
