@@ -4,22 +4,29 @@ description: 你的应用在 RDS 上是否运行缓慢？ 了解可用于诊断 
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: elizapo
-ms.date: 09/19/2018
+ms.date: 07/11/2019
 ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: f9aafaa34d5c16e45681e88b1ce60e99a9ad2842
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: a302e775d3304db9304cc51e09ede19fa2eba802
+ms.sourcegitcommit: f75d9496f345d73fdda88037617763e7a2f614b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66447094"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67863106"
 ---
 # <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>使用性能计数器来诊断远程桌面会话主机上的应用性能问题
 
-最难以诊断的问题之一是应用程序性能 — 应用程序运行缓慢或没有响应。 传统上，通过收集 CPU、内存、磁盘输入/输出和其他指标来启动诊断，然后使用 Windows Performance Analyzer 等工具来尝试找出问题的原因。 遗憾的是，在大多数情况下，此数据无法帮助你确定根本原因，因为资源消耗计数器具有频繁且较大的变化。 这样就难以读取数据并将其与报告的问题相关联。 若要帮助你更快地解决应用性能问题，我们添加了可测量用户输入流的一些新性能计数器（可通过 [Windows 预览体验计划](https://insider.windows.com)[下载](#download-windows-server-insider-software)）。
+> 适用于：Windows Server 2019、Windows 10
+
+最难以诊断的问题之一是应用程序性能 — 应用程序运行缓慢或没有响应。 传统上，通过收集 CPU、内存、磁盘输入/输出和其他指标来启动诊断，然后使用 Windows Performance Analyzer 等工具来尝试找出问题的原因。 遗憾的是，在大多数情况下，此数据无法帮助你确定根本原因，因为资源消耗计数器具有频繁且较大的变化。 这样就难以读取数据并将其与报告的问题相关联。 为了帮助你快速解决应用性能问题，我们添加了可测量用户输入流的一些新性能计数器（可通过 [Windows 预览体验计划](https://insider.windows.com)[下载](#download-windows-server-insider-software)）。
+
+>[!NOTE]
+>“用户输入延迟”计数器仅与以下操作系统版本兼容：
+> - Windows Server 2019 或更高版本
+> - Windows 10 版本 1809 或更高版本
 
 用户输入延迟计数器可以帮助你快速确定最终用户 RDP 不良体验的根本原因。 此计数器可测量任何用户输入（如鼠标或键盘使用）在被进程选取之前在队列中停留的时间，并且计数器同时可在本地和远程会话中运行。
 
