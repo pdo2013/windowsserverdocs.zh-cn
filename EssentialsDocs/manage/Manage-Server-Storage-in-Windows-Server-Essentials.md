@@ -234,7 +234,7 @@ ms.locfileid: "66433235"
   
 3. 按照说明完成向导。  
   
-   有关增加存储池容量的信息，请参阅 [Use the new hard drive to increase storage pool capacity](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c)。  
+   有关增加存储池容量信息，请参阅[使用新的硬盘驱动器来增加存储池容量](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c)。  
   
 ## <a name="see-also"></a>请参阅  
   

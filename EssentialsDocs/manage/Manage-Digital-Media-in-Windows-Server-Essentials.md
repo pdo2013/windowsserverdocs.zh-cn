@@ -78,7 +78,7 @@ ms.locfileid: "66433301"
 |视频流质量|下拉箭头使你能够选择从服务器播放的视频的视频流质量。|  
 |媒体库|显示媒体库的名称。 此库的默认名称为 **“数字媒体库”** ，它在你打开媒体流时创建。 若要更改媒体库名称，请参阅[重命名媒体库](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_8)。 你可以单击 **“自定义”** 自定义共享到媒体库中的文件夹。|  
   
- 有关详细信息，请参阅 [Allow or restrict access to a media library on the server](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_6) 和 [Sharing copy-protected media](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_1.5)。  
+ 有关详细信息，请参阅[允许或限制对服务器上的媒体库的访问](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_6)并[共享受版权保护的媒体](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_1.5)。  
   
 ##  <a name="BKMK_3"></a> 媒体流式处理的工作原理  
  媒体流式处理 Windows Server Essentials 中的新功能使联网的计算机和某些联网数字媒体设备可以播放存储在服务器的数字媒体文件。  
