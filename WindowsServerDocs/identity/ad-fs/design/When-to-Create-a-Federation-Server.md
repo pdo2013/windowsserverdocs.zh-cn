@@ -29,9 +29,9 @@ ms.locfileid: "66190586"
 ## <a name="determine-the-organizational-role-for-the-federation-server"></a>确定联合服务器的组织角色  
 若要做出明智的决策有关何时创建新的联合身份验证服务器，必须首先确定服务器所处的组织。 联合身份验证服务器的组织中所扮演的角色取决于是否是帐户伙伴组织或资源伙伴组织中放置联合身份验证服务器。  
   
-当联合身份验证服务器放置在帐户伙伴的企业网络中时，其作用是对浏览器、 Web 服务或标识选择器客户端的用户凭据进行身份验证，并将安全令牌发送到客户端。 有关详细信息，请参阅 [Review the Role of the Federation Server in the Account Partner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md)。  
+当联合身份验证服务器放置在帐户伙伴的企业网络中时，其作用是对浏览器、 Web 服务或标识选择器客户端的用户凭据进行身份验证，并将安全令牌发送到客户端。 有关详细信息，请参阅[查看帐户伙伴中的联合身份验证服务器的角色](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md)。  
   
-当联合身份验证服务器放置在资源伙伴的企业网络中时，它的作用是用户，基于由资源伙伴组织中的联合服务器颁发的安全令牌进行身份验证或它的作用是从令牌请求重定向配置 Web 应用程序或 Web 服务添加到客户端属于在帐户伙伴组织。 有关详细信息，请参阅 [Review the Role of the Federation Server in the Resource Partner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md)。  
+当联合身份验证服务器放置在资源伙伴的企业网络中时，它的作用是用户，基于由资源伙伴组织中的联合服务器颁发的安全令牌进行身份验证或它的作用是从令牌请求重定向配置 Web 应用程序或 Web 服务添加到客户端属于在帐户伙伴组织。 有关详细信息，请参阅[查看资源伙伴中的联合身份验证服务器的角色](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md)。  
   
 ## <a name="determine-which-ad-fs-design-to-deploy"></a>确定要部署的 AD FS 设计  
 只要您想要部署任何以下 AD FS 设计你的组织中创建联合身份验证服务器：  
@@ -66,13 +66,13 @@ ms.locfileid: "66190586"
   
 -   在联合服务器场中创建第一个联合服务器  
   
-    有关如何设置第一个联合服务器或向场中添加联合服务器的详细信息，请参阅 [Create the First Federation Server in a Federation Server Farm](../../ad-fs/deployment/Create-the-First-Federation-Server-in-a-Federation-Server-Farm.md)。  
+    有关如何设置第一个联合服务器或向场中添加联合身份验证服务器的详细信息，请参阅[联合服务器场中创建第一个联合身份验证服务器](../../ad-fs/deployment/Create-the-First-Federation-Server-in-a-Federation-Server-Farm.md)。  
   
 -   将联合服务器添加到联合服务器场  
   
-    有关如何向场中添加联合服务器的详细信息，请参阅 [Add a Federation Server to a Federation Server Farm](../../ad-fs/deployment/Add-a-Federation-Server-to-a-Federation-Server-Farm.md)。  
+    有关如何向场中添加联合身份验证服务器的详细信息，请参阅[将联合身份验证服务器添加到联合服务器场](../../ad-fs/deployment/Add-a-Federation-Server-to-a-Federation-Server-Farm.md)。  
   
-有关这些选项各自的工作原理的更多详细信息，请参阅 [The Role of the AD FS Configuration Database](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)。  
+详细信息，其中每个选项的工作原理的详细信息，请参阅[AD FS 配置数据库的角色](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)。  
   
 有关如何设置部署联合服务器所需的所有先决条件的详细信息，请参阅[核对清单：设置联合身份验证服务器](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md)。  
   

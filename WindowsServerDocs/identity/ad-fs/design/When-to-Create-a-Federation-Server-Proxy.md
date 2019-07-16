@@ -28,10 +28,10 @@ ms.locfileid: "66190645"
   
 联合服务器代理在组织中所扮演的角色取决于是否是帐户伙伴组织或资源伙伴组织中放置联合服务器代理。 例如，当联合服务器代理放在帐户伙伴的外围网络中时，其作用是从浏览器客户端收集用户凭据信息。 当联合服务器代理放置在资源伙伴的外围网络中时，中继安全令牌要求传递到资源联合身份验证服务器，并生成组织的安全令牌来响应由提供的安全令牌及其帐户伙伴。  
   
-有关详细信息，请参阅 [Review the Role of the Federation Server Proxy in the Account Partner](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Account-Partner.md) 和 [Review the Role of the Federation Server Proxy in the Resource Partner](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md)。  
+有关详细信息，请参阅[查看的帐户伙伴中联合服务器代理角色](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Account-Partner.md)和[查看的资源伙伴中联合服务器代理角色](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md)  
   
 ## <a name="how-to-create-a-federation-server-proxy"></a>如何创建联合服务器代理  
-可以创建联合服务器代理使用 AD FS 联合服务器代理配置向导或 Fsconfig.exe 命令\-行工具。 有关如何执行此操作的说明，请参阅 [Configure a Computer for the Federation Server Proxy Role](../../ad-fs/deployment/Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md)。  
+可以创建联合服务器代理使用 AD FS 联合服务器代理配置向导或 Fsconfig.exe 命令\-行工具。 有关如何执行此操作的说明，请参阅[将计算机配置为联合服务器代理角色](../../ad-fs/deployment/Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md)。  
   
 有关如何设置部署联合服务器代理所需的所有先决条件的常规信息，请参阅[核对清单：设置联合服务器代理](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server-Proxy.md)。  
   
