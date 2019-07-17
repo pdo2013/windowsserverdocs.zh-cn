@@ -94,7 +94,7 @@ CAU 需要安装故障转移群集功能和故障转移群集工具。 故障转
 > [!NOTE]  
 > **Remote Shutdown** Windows 防火墙规则组在与为 Windows 防火墙配置的组策略设置发生冲突时无法启用。    
 
-**远程关机**防火墙规则组也启用通过指定 **– EnableFirewallRules**参数运行以下 CAU cmdlet 时：Add-CauClusterRole、[Invoke-CauRun](https://docs.microsoft.com/powershell/module/clusterawareupdating/Invoke-CauRun?view=win10-ps) 和 [SetCauClusterRole](https://docs.microsoft.com/powershell/module/clusterawareupdating/Set-CauClusterRole?view=win10-ps)。  
+**远程关机**防火墙规则组也启用通过指定 **– EnableFirewallRules**参数运行以下 CAU cmdlet 时：[Add-CauClusterRole](https://docs.microsoft.com/powershell/module/clusterawareupdating/Add-CauClusterRole?view=win10-ps)、[Invoke-CauRun](https://docs.microsoft.com/powershell/module/clusterawareupdating/Invoke-CauRun?view=win10-ps) 和 [SetCauClusterRole](https://docs.microsoft.com/powershell/module/clusterawareupdating/Set-CauClusterRole?view=win10-ps)。  
 
 以下 PowerShell 示例显示了其他方法来实现自动重新启动群集节点上。  
 
