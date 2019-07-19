@@ -7,14 +7,14 @@ ms.manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
-ms.date: 07/18/2017
+ms.date: 07/17/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 62fa33d08af25c424c786c10191fe6ae2b3d02bc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0050a8931162e37408895ef664293be2349d1bde
+ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855508"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68315000"
 ---
 # <a name="understanding-the-cache-in-storage-spaces-direct"></a>了解存储空间直通中的缓存
 
@@ -25,7 +25,7 @@ ms.locfileid: "59855508"
 
 以下视频将详细介绍缓存如何用于存储空间直通，及其他设计注意事项。
 
-<strong>存储空间直通的设计注意事项</strong><br>（20 分钟）<br>
+<strong>存储空间直通设计注意事项</strong><br>（20 分钟）<br>
 <iframe src="https://channel9.msdn.com/Blogs/windowsserver/Design-Considerations-for-Storage-Spaces-Direct/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## <a name="drive-types-and-deployment-options"></a>驱动器类型和部署选项
@@ -88,7 +88,7 @@ ms.locfileid: "59855508"
    >[!NOTE]
    > 缓存驱动器不构成可用的存储容量。 存储在缓存中的所有数据也会存储在其他位置，或在取消暂存后立即存储到其他位置。 这意味着部署的总原始存储容量仅为容量驱动器的总和。
 
-当所有驱动器的类型相同时，不会自动配置缓存。 你可以选择手动配置耐用性较高的驱动器，使其为相同类型但耐用性较低的驱动器提供缓存，请参阅[手动配置](#manual)一节了解操作方法。
+当所有驱动器的类型相同时，不会自动配置缓存。 你可以选择手动配置耐用性较高的驱动器，使其为相同类型但耐用性较低的驱动器提供缓存，请参阅[手动配置](#manual-configuration)一节了解操作方法。
 
    >[!TIP]
    > 在全 NVMe 或全 SSD 部署中（特别是在规模非常小的部署中），不将任何驱动器“耗费”在缓存上可以极大地提高存储效率。
@@ -109,7 +109,7 @@ ms.locfileid: "59855508"
 
 ### <a name="readwrite-caching-for-hybrid-deployments"></a>混合部署的读取/写入缓存
 
-为硬盘驱动器 (HDD) 提供缓存时可以缓存读取*和*写入，为两者提供了类似闪存的低延迟（速度通常高出 ~10 倍）。 读取缓存存储最近和常用的读取数据以进行快速访问，可最大限度地减少 HDD 的随机流量。 （由于定位和旋转的延迟，延迟和丢失的时所产生的 HDD 的随机访问至关重要。）将写入缓存以消减量激增并且，与之前一样，可联合写入和重写，并尽量减少对容量驱动器的累积流量。
+为硬盘驱动器 (HDD) 提供缓存时可以缓存读取*和*写入，为两者提供了类似闪存的低延迟（速度通常高出 ~10 倍）。 读取缓存存储最近和常用的读取数据以进行快速访问，可最大限度地减少 HDD 的随机流量。 (由于寻找和旋转延迟, 随机访问 HDD 产生的延迟和丢失时间都很重要。)写入缓存可吸收突发, 并与之前一样, 用于合并写入并重新写入数据, 并最大程度地减少到容量驱动器的累计流量。
 
 存储空间直通实现了一种算法，即在取消暂存之前取消随机的写入以模拟磁盘的 IO 模式，即使在来自工作负荷（例如虚拟机）的实际 IO 是随机的情况下，这种模式也似乎是序列化的， 这可以实现 IOPS 和 HDD 吞吐量的最大化。
 
@@ -121,13 +121,13 @@ ms.locfileid: "59855508"
 
 此表总结了哪些驱动器用于缓存、哪些驱动器用作容量空间，以及每个部署可能性对应于哪些缓存行为。
 
-| 部署       | 缓存驱动器                        | 容量驱动器 | 缓存行为（默认）                  |
-|------------------|-------------------------------------|-----------------|-------------------------------------------|
-| 所有 NVMe         | 无（可选：手动配置） | NVMe            | 只写（如果已配置）                |
-| 所有 SSD          | 无（可选：手动配置） | SSD             | 只写（如果已配置）                |
-| NVMe + SSD       | NVMe                                | SSD             | 只写                                |
-| NVMe + HDD       | NVMe                                | HDD             | 读取 + 写入                              |
-| SSD + HDD        | SSD                                 | HDD             | 读取 + 写入                              |
+| 部署     | 缓存驱动器                        | 容量驱动器 | 缓存行为（默认）  |
+| -------------- | ----------------------------------- | --------------- | ------------------------- |
+| 所有 NVMe         | 无（可选：手动配置） | NVMe            | 只写（如果已配置）  |
+| 所有 SSD          | 无（可选：手动配置） | SSD             | 只写（如果已配置）  |
+| NVMe + SSD       | NVMe                                | SSD             | 只写                  |
+| NVMe + HDD       | NVMe                                | HDD             | 读取 + 写入                |
+| SSD + HDD        | SSD                                 | HDD             | 读取 + 写入                |
 | NVMe + SSD + HDD | NVMe                                | SSD + HDD       | HDD 为读取 + 写入，SSD 为只写  |
 
 ## <a name="server-side-architecture"></a>服务器端体系结构
@@ -171,11 +171,13 @@ Windows 软件定义存储堆栈中有多个其他无关的缓存。 示例包�
 
 如果具有存储空间直通，不应从其默认行为中修改存储空间回写缓存。 例如，不应使用 **New-Volume** cmdlet 上的 **-WriteCacheSize** 等参数。
 
-你可以选择是否使用 CSV 缓存，由你决定。 存储空间直通中的 CSV 缓存默认关闭，但它们不会以任何方式与本主题中描述的新缓存冲突。 在某些情况下，这可以提供有价值的性能改善。 有关详细信息，请参阅[如何启用 CSV 缓存](https://blogs.msdn.microsoft.com/clustering/2013/07/19/how-to-enable-csv-cache/)。
+你可以选择是否使用 CSV 缓存，由你决定。 存储空间直通中的 CSV 缓存默认关闭，但它们不会以任何方式与本主题中描述的新缓存冲突。 在某些情况下，这可以提供有价值的性能改善。 有关详细信息，请参阅[如何启用 CSV 缓存](../../failover-clustering/failover-cluster-csvs.md#enable-the-csv-cache-for-read-intensive-workloads-optional)。
 
-## <a name="manual"></a> 手动配置
+## <a name="manual-configuration"></a>手动配置
 
-大多数部署无需进行手动配置。 如果你需要手动配置，请继续阅读！
+大多数部署无需进行手动配置。 如果需要, 请参阅以下各节。 
+
+如果需要在安装后更改缓存设备模型, 请编辑运行状况服务的支持组件文档, 如[运行状况服务概述](../../failover-clustering/health-service-overview.md#supported-components-document)中所述。
 
 ### <a name="specify-cache-drive-model"></a>指定缓存驱动器模型
 
@@ -188,18 +190,28 @@ Windows 软件定义存储堆栈中有多个其他无关的缓存。 示例包�
 
 ####  <a name="example"></a>示例
 
-```
-PS C:\> Get-PhysicalDisk | Group Model -NoElement
+首先, 获取物理磁盘列表:
 
+```PowerShell
+Get-PhysicalDisk | Group Model -NoElement
+```
+
+下面是一些示例输出：
+
+```
 Count Name
 ----- ----
     8 FABRIKAM NVME-1710
    16 CONTOSO NVME-1520
-
-PS C:\> Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
 ```
 
-通过在 PowerShell 中运行 **Get-PhysicalDisk** 并验证其 **Usage** 属性是否显示 **"Journal"**，你可以验证预期的驱动器是否用于缓存。
+然后输入以下命令, 并指定缓存设备模型:
+
+```PowerShell
+Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
+```
+
+通过在 PowerShell 中运行 **Get-PhysicalDisk** 并验证其 **Usage** 属性是否显示 **"Journal"** ，你可以验证预期的驱动器是否用于缓存。
 
 ### <a name="manual-deployment-possibilities"></a>手动部署可能性
 
@@ -211,26 +223,38 @@ PS C:\> Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
 
 可以替代默认缓存行为。 例如，即使在全闪存部署中，你也可以将默认缓存行为设置为缓存读取。 除非确定默认缓存行为不适用于你的工作负荷，否则我们不鼓励修改默认行为。
 
-若要替代行为，请使用 **Set-ClusterS2D** cmdlet 及其 **-CacheModeSSD** 和 **-CacheModeHDD** 参数。 为固态硬盘提供缓存时，**CacheModeSSD** 参数设为缓存行为。 为硬盘驱动器提供缓存时，**CacheModeHDD** 参数设为缓存行为。 启用存储空间直通后可以随时进行设置。
+若要重写此行为, 请使用**ClusterStorageSpacesDirect** cmdlet 及其 **-CacheModeSSD**和 **-CacheModeHDD**参数。 为固态硬盘提供缓存时，**CacheModeSSD** 参数设为缓存行为。 为硬盘驱动器提供缓存时，**CacheModeHDD** 参数设为缓存行为。 启用存储空间直通后可以随时进行设置。
 
-你可以使用 **Get-ClusterS2D** 验证是否设置行为。
+你可以使用**ClusterStorageSpacesDirect**来验证是否已设置了行为。
 
 #### <a name="example"></a>示例
 
-```
-PS C:\> Get-ClusterS2D
+首先, 获取存储空间直通设置:
 
+```PowerShell
+Get-ClusterStorageSpacesDirect
+```
+
+下面是一些示例输出：
+
+```
 CacheModeHDD : ReadWrite
 CacheModeSSD : WriteOnly
-...
+```
 
-PS C:\> Set-ClusterS2D -CacheModeSSD ReadWrite
+然后, 执行以下操作:
 
-PS C:\> Get-ClusterS2D
+```PowerShell
+Set-ClusterStorageSpacesDirect -CacheModeSSD ReadWrite
 
+Get-ClusterS2D
+```
+
+下面是一些示例输出：
+
+```
 CacheModeHDD : ReadWrite
 CacheModeSSD : ReadWrite
-...
 ```
 
 ## <a name="sizing-the-cache"></a>调整缓存大小
@@ -250,5 +274,5 @@ CacheModeSSD : ReadWrite
 ## <a name="see-also"></a>请参阅
 
 - [选择驱动器和复原类型](choosing-drives.md)
-- [故障容错和存储效率](storage-spaces-fault-tolerance.md)
-- [存储空间直通的硬件要求](storage-spaces-direct-hardware-requirements.md)
+- [容错和存储效率](storage-spaces-fault-tolerance.md)
+- [存储空间直通硬件要求](storage-spaces-direct-hardware-requirements.md)

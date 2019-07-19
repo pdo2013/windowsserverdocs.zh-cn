@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: cb4432084386cb3296163f24c801be1c74b379df
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a7fec85301e2b70fb64f35f0b6e345adde29eed0
+ms.sourcegitcommit: 67833e36b8b2c6194a1426a974c5ad9c859fa4c9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883038"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68329654"
 ---
 # <a name="install-a-replica-windows-server-2012-domain-controller-in-an-existing-domain-level-200"></a>在现有域中安装副本 Windows Server 2012 域控制器（级别 200）
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
 本主题介绍使用服务器管理器或 Windows PowerShell 将现有林或域升级到 Windows Server 2012 的必要步骤。 它介绍如何将运行 Windows Server 2012 的域控制器添加到现有域。  
   
@@ -31,14 +31,14 @@ ms.locfileid: "59883038"
 ## <a name="BKMK_Workflow"></a>升级和副本工作流  
 下图阐述了以下情况中的 Active Directory 域服务配置进程：你之前已安装 AD DS 角色，并且已使用服务器管理器启动 Active Directory 域服务配置向导以在现有域中创建新域控制器。  
   
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/adds_forestupgrade.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/adds_forestupgrade.png)  
   
 ## <a name="BKMK_PS"></a>升级和副本 Windows PowerShell  
   
 |||  
 |-|-|  
 |**ADDSDeployment Cmdlet**|参数（需要**加粗**参数。 *斜体*参数可以通过使用 Windows PowerShell 或 AD DS 配置向导来指定。）|  
-|Install-AddsDomainController|-SkipPreChecks<br /><br />***-DomainName***<br /><br />*-SafeModeAdministratorPassword*<br /><br />*-SiteName*<br /><br />*-ADPrepCredential*<br /><br />-ApplicationPartitionsToReplicate<br /><br />*-AllowDomainControllerReinstall*<br /><br />-Confirm<br /><br />*-CreateDNSDelegation*<br /><br />***-Credential***<br /><br />-CriticalReplicationOnly<br /><br />*-DatabasePath*<br /><br />*-DNSDelegationCredential*<br /><br />-Force<br /><br />*-InstallationMediaPath*<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />-MoveInfrastructureOperationMasterRoleIfNecessary<br /><br />-NoDnsOnNetwork<br /><br />*-NoGlobalCatalog*<br /><br />-Norebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />-SkipAutoConfigureDNS<br /><br />-SiteName<br /><br />*-SystemKey*<br /><br />*-SYSVOLPath*<br /><br />*-UseExistingAccount*<br /><br />*-Whatif*|  
+|Install-AddsDomainController|-Skipprechecks 不可<br /><br />***-DomainName***<br /><br />*-SafeModeAdministratorPassword*<br /><br />*-SiteName*<br /><br />*-ADPrepCredential*<br /><br />-ApplicationPartitionsToReplicate<br /><br />*-AllowDomainControllerReinstall*<br /><br />-Confirm<br /><br />*-CreateDNSDelegation*<br /><br />***-Credential***<br /><br />-CriticalReplicationOnly<br /><br />*-DatabasePath*<br /><br />*-DNSDelegationCredential*<br /><br />-Force<br /><br />*-InstallationMediaPath*<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />-MoveInfrastructureOperationMasterRoleIfNecessary<br /><br />-NoDnsOnNetwork<br /><br />*-NoGlobalCatalog*<br /><br />-Norebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />-SkipAutoConfigureDNS<br /><br />-SiteName<br /><br />*-SystemKey*<br /><br />*-SYSVOLPath*<br /><br />*-UseExistingAccount*<br /><br />*-Whatif*|  
   
 > [!NOTE]  
 > 仅在你尚未作为 Enterprise Admins 和 Schema Admins 组（如果你要升级该林）或者 Domain Admins 组（如果你要将新 DC 添加到现有域）的成员登录时，需要 **-credential** 参数。  
@@ -46,11 +46,11 @@ ms.locfileid: "59883038"
 ## <a name="BKMK_Dep"></a>部署  
   
 ### <a name="deployment-configuration"></a>部署配置  
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeDeployConfig.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeDeployConfig.png)  
   
 服务器管理器从“部署配置”  页开始进行每个域控制器升级。 其余选项和必填字段在此页面和后续页面上会有所变化，这视所选部署操作而定。  
   
-若要升级现有林或者将可写域控制器添加到现有域，请单击“向现有域添加域控制器”  并单击“选择”  以“指定此域的域信息” 。 服务器管理器将根据需要提示你提供有效凭据。  
+若要升级现有林或者将可写域控制器添加到现有域，请单击“向现有域添加域控制器”  并单击“选择”  以“指定此域的域信息”  。 服务器管理器将根据需要提示你提供有效凭据。  
   
 升级林需要包括 Windows Server 2012 中 Enterprise Admins 和 Schema Admins 组中组成员身份的凭据。 如果当前凭据没有足够权限或组成员身份，Active Directory 域服务配置向导将在稍后给出提示。  
   
@@ -64,23 +64,23 @@ Install-AddsDomainController
 -credential <pscredential>  
 ```  
   
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeCreds.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeCreds.png)  
   
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeSelectDomain.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeSelectDomain.png)  
   
 某些测试在每个页面上执行，其中一些之后将作为离散的先决条件检查重复进行。 例如，如果选定的域不符合最小的功能级别，无需完成升级到先决条件检查的全过程，即可了解：  
   
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeFFLError.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeFFLError.png)  
   
 ### <a name="domain-controller-options"></a>域控制器选项  
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeDCOptions.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeDCOptions.png)  
   
-“域控制器选项”页面指定用于新域控制器的域控制器功能。 可配置的域控制器功能为“DNS 服务器”、“全局编录”和“只读域控制器”。 Microsoft 建议所有域控制器提供 DNS 和 GC 服务以实现分布式环境中的高可用性。 始终默认选中 GC；如果当前域托管的 DNS 已在其 DC 上（基于起始授权机构查询），则默认选中 DNS 服务器。 “域控制器选项”页还让你可以从林配置中选择相应的 Active Directory 逻辑“站点名称”。 默认情况下，将选择具有最合适子网的站点。 如果仅有一个站点，它将自动选择。  
+“域控制器选项”  页面指定用于新域控制器的域控制器功能。 可配置的域控制器功能为“DNS 服务器”  、“全局编录”  和“只读域控制器”  。 Microsoft 建议所有域控制器提供 DNS 和 GC 服务以实现分布式环境中的高可用性。 始终默认选中 GC；如果当前域托管的 DNS 已在其 DC 上（基于起始授权机构查询），则默认选中 DNS 服务器。 “域控制器选项”  页还让你可以从林配置中选择相应的 Active Directory 逻辑“站点名称”  。 默认情况下，将选择具有最合适子网的站点。 如果仅有一个站点，它将自动选择。  
   
 > [!NOTE]  
-> 如果该服务器不属于 Active Directory 子网，并且有多个 Active Directory 站点，则不选择任何内容且“下一步”按钮不可用，直到你从列表选择一个站点。  
+> 如果该服务器不属于 Active Directory 子网，并且有多个 Active Directory 站点，则不选择任何内容且“下一步”  按钮不可用，直到你从列表选择一个站点。  
   
-指定的“目录服务还原模式密码”必须遵守应用到服务器的密码策略。 总是选择复杂强密码或首选密码。  
+指定的“目录服务还原模式密码”  必须遵守应用到服务器的密码策略。 总是选择复杂强密码或首选密码。  
   
 “域控制器选项”  ADDSDeployment 参数是：  
   
@@ -142,14 +142,14 @@ ADDSDeployment cmdlet 提供其他选项以跳过 DNS 客户端设置、转发�
 -SkipAutoConfigureDNS  
 ```  
   
-“域控制器选项”页会警告你如果你的现有域控制器运行 Windows Server 2003，你将无法创建只读域控制器。 这是预期行为，而且你可以取消该警告。  
+“域控制器选项”  页会警告你如果你的现有域控制器运行 Windows Server 2003，你将无法创建只读域控制器。 这是预期行为，而且你可以取消该警告。  
   
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeDCOptionsError.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeDCOptionsError.png)  
   
 ### <a name="dns-options-and-dns-delegation-credentials"></a>DNS 选项和 DNS 委派凭据  
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeDNSOptions.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeDNSOptions.png)  
   
-如果已选择“域控制器选项”页面上的“DNS 服务器”，并且如果指向允许 DNS 委派的区域，则“DNS 选项”页允许你配置 DNS 委派。 你可能需要提供作为“DNS Admins”  组成员的用户的备用凭据。  
+如果已选择“域控制器选项”  页面上的“DNS 服务器”  ，并且如果指向允许 DNS 委派的区域，则“DNS 选项”  页允许你配置 DNS 委派。 你可能需要提供作为“DNS Admins”  组成员的用户的备用凭据。  
   
 “DNS 选项”  ADDSDeployment cmdlet 参数是：  
   
@@ -158,18 +158,18 @@ ADDSDeployment cmdlet 提供其他选项以跳过 DNS 客户端设置、转发�
 -dnsdelegationcredential <pscredential>  
 ```  
   
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeCreds.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeCreds.png)  
   
 有关是否需要创建 DNS 委派的详细信息，请参阅 [了解区域委派](https://technet.microsoft.com/library/cc771640.aspx)。  
   
 ### <a name="additional-options"></a>其他选项  
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeAdditionalOptions.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeAdditionalOptions.png)  
   
 “其他选项”  页面提供用于将域控制器命名为复制源的配置选项，或者你可以将任何域控制器用作复制源。  
   
 你还可以使用“从媒体安装 (IFM)”选项选择使用备份的媒体安装域控制器。 选中后，“从媒体安装”  复选框提供浏览器选项，而且你必须单击“验证”  以确保所提供的路径是有效的媒体。 仅从另一个现有 Windows Server 2012 计算机使用 Windows Server Backup 或 Ntdsutil.exe 创建由 IFM 选项使用的媒体；无法使用 Windows Server 2008 R2 或之前的操作系统为 Windows Server 2012 域控制器创建媒体。 有关 IFM 中的更改的详细信息，请参阅[简化管理附录](../../ad-ds/deploy/Simplified-Administration-Appendix.md)。 如果使用受 SYSKEY 保护的媒体，服务器管理器将在验证期间提示输入图像的密码。  
   
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_NtdsutilIFM.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_NtdsutilIFM.png)  
   
 **其他选项** ADDSDeployment cmdlet 参数是：  
   
@@ -180,9 +180,9 @@ ADDSDeployment cmdlet 提供其他选项以跳过 DNS 客户端设置、转发�
 ```  
   
 ### <a name="paths"></a>路径  
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradePaths.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradePaths.png)  
   
-“路径”页可以用于覆盖 AD DS 数据库、数据库事务日志和 SYSVOL 共享的默认文件夹位置。 默认位置始终位于 %systemroot% 的子目录中。  
+“路径”  页可以用于覆盖 AD DS 数据库、数据库事务日志和 SYSVOL 共享的默认文件夹位置。 默认位置始终位于 %systemroot% 的子目录中。  
   
 Active Directory 路径 ADDSDeployment cmdlet 参数是：  
   
@@ -193,15 +193,15 @@ Active Directory 路径 ADDSDeployment cmdlet 参数是：
 ```  
   
 ### <a name="preparation-options"></a>准备选项  
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradePrepOptions.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradePrepOptions.png)  
   
 “准备选项”  页面提示你 AD DS 配置包括扩展架构 (forestprep) 和更新该域 (domainprep)。  仅当之前的 Windows Server 2012 域控制器安装未准备好林和域或者手动运行 Adprep.exe 时，你才会看到此页面。 例如，如果你将新域控制器添加到现有 Windows Server 2012 目录林根级域，Active Directory 域服务配置向导将取消此页面。  
   
-当你单击“下一步” 时，扩展架构和更新域操作不会发生。 这些事件仅在安装阶段发生。 此页面只是为了使你注意到稍后将在安装中发生的事件。  
+当你单击“下一步”  时，扩展架构和更新域操作不会发生。 这些事件仅在安装阶段发生。 此页面只是为了使你注意到稍后将在安装中发生的事件。  
   
-此页面还验证当前用户凭据是 Schema Admin 和 Enterprise Admins 组的成员，因为你需要这些组的成员身份以扩展架构或准备域。 如果该页面通知你当前凭据未提供足够的权限，单击“更改”以提供足够的用户凭据。  
+此页面还验证当前用户凭据是 Schema Admin 和 Enterprise Admins 组的成员，因为你需要这些组的成员身份以扩展架构或准备域。 如果该页面通知你当前凭据未提供足够的权限，单击“更改”  以提供足够的用户凭据。  
   
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradePrepOptionsCreds.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradePrepOptionsCreds.png)  
   
 “其他选项”ADDSDeployment cmdlet 参数是：  
   
@@ -215,7 +215,7 @@ Active Directory 路径 ADDSDeployment cmdlet 参数是：
 > 自动 RODCPrep 将在你升级域中第一个未分步的 RODC 时运行。 当你升级第一个可写 Windows Server 2012 域控制器时，它不会发生。 如果你计划部署只读域控制器，你仍然可以手动执行 **adprep.exe /rodcprep** 。  
   
 ### <a name="review-options-and-view-script"></a>审查选项和查看脚本  
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeReviewOptions.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeReviewOptions.png)  
   
 “审查” 选项  页可以用于验证设置并确保在开始安装前满足要求。 这不是停止使用服务器管理器安装的最后一次机会。 此页只是让你先查看和确认设置，然后再继续配置。  
   
@@ -247,16 +247,16 @@ Install-ADDSDomainController `
 >   
 > 将可选 **Whatif** 参数与 **Install-ADDSDomainController** cmdlet 一起使用以查看配置信息。 这使你可以查看 cmdlet 的参数的显式和隐式值。  
   
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSWhatIf.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSWhatIf.png)  
   
 ### <a name="prerequisites-check"></a>先决条件检查  
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradePrereqCheck.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradePrereqCheck.png)  
   
 “先决条件检查”  是 AD DS 域配置中的新功能。 此新阶段验证域和林是否能够支持新的 Windows Server 2012 域控制器。  
   
 安装新的域控制器时，服务器管理器 Active Directory 域服务配置向导调用一系列序列化的模块化测试。 这些测试向你提出警告并提供建议的修复选项。 你可以根据需要多次运行测试。 域控制器进程在所有先决条件测试通过前无法继续。  
   
-“先决条件检查”还显示相关的信息，例如影响较早版本的操作系统的安全性更改。  
+“先决条件检查”  还显示相关的信息，例如影响较早版本的操作系统的安全性更改。  
   
 有关特定的先决条件检查的详细信息，请参阅[先决条件检查](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking)。  
   
@@ -270,10 +270,10 @@ Install-ADDSDomainController `
 > [!WARNING]  
 > Microsoft 不鼓励跳过先决条件检查，因为它可能导致部分域控制器升级或 AD DS 林损坏。  
   
-单击“安装”以开始域控制器升级进程。 这是取消安装的最后机会。 一旦开始升级过程，你无法取消它。 无论升级结果如何，计算机将在升级结束时自动重新启动。“先决条件检查”  页面会显示任何它在进程期间遇到的问题以及解决该问题的指南。  
+单击“安装”  以开始域控制器升级进程。 这是取消安装的最后机会。 一旦开始升级过程，你无法取消它。 无论升级结果如何，计算机将在升级结束时自动重新启动。“先决条件检查”  页面会显示任何它在进程期间遇到的问题以及解决该问题的指南。  
   
 ### <a name="installation"></a>安装  
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeInstallProgress.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeInstallProgress.png)  
   
 当“安装”  页显示时，域控制器配置将开始，并且无法暂停或取消。 详细操作显示在此页面上并将写入日志：  
   
@@ -295,18 +295,18 @@ Install-addsdomaincontroller
   
 **Install-AddsDomainController** cmdlet 仅有两个阶段（先决条件检查和安装）。 下面两个图片显示安装阶段，并带有最少的所需参数 **-domainname** 和 **-credential**。 请注意 Adprep 操作如何作为将第一个 Windows Server 2012 域控制器添加到现有 Windows Server 2003 林的一部分自动进行。  
   
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSGetCred.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSGetCred.png)  
   
 请注意 **Install-ADDSDomainController** 如何提醒你升级将自动重新启动服务器，就像服务器管理器一样。 若要自动接受重新启动提示，请将 **-force** 或 **-confirm:$false** 参数与任何 ADDSDeployment Windows PowerShell cmdlet 一起使用。 若要防止服务器在升级结束时自动重新启动，请使用 **-norebootoncompletion** 参数。  
   
 > [!WARNING]  
 > 不建议重写重新启动。 域控制器必须重新启动才能正常工作。  
   
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSUpgradeConfirm.gif)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSUpgradeConfirm.gif)  
   
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSUpgradeProgress.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSUpgradeProgress.png)  
   
-若要使用 Windows PowerShell 远程运行域控制器，请将 **install-adddomaincontroller** cmdlet 包装在 *invoke-command* cmdlet **内**。 这需要使用大括号。  
+若要使用 Windows PowerShell 远程配置域控制器, 请将**install-addsdomaincontroller** cmdlet 包装在**调用-command** cmdlet*内*。 这需要使用大括号。  
   
 ```  
 invoke-command {install-addsdomaincontroller "domainname <domain> -credential (get-credential)} -computername <dc name>  
@@ -314,13 +314,13 @@ invoke-command {install-addsdomaincontroller "domainname <domain> -credential (g
   
 例如：  
   
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSUpgradeExample.gif)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSUpgradeExample.gif)  
   
 > [!NOTE]  
 > 有关安装和 Adprep 进程的工作原理的详细信息，请参阅 [Troubleshooting Domain Controller Deployment](../../ad-ds/deploy/Troubleshooting-Domain-Controller-Deployment.md)。  
   
 ### <a name="results"></a>结果  
-![安装一个副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_ForestSignOff.png)  
+![安装副本](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_ForestSignOff.png)  
   
 “结果”  页面显示升级是成功还是失败以及任何重要的管理信息。 如果成功，则域控制器将自动在 10 秒后重新启动。  
   
