@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 45164e9eca0873c82148aa3b7baa179a3f626dd7
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 02c7098c8e3f93ce315e7d9a881613a03924e78b
+ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66804971"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68300699"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>为用户设置远程桌面 Web 客户端
 
@@ -259,7 +259,7 @@ ms.locfileid: "66804971"
 作为管理员，可以使用以下 PowerShell cmdlet 选择对部署禁止遥测收集：
 
    ```PowerShell
-    Set-RDWebClientDeploymentSetting -SuppressTelemetry $true
+    Set-RDWebClientDeploymentSetting -Name "SuppressTelemetry" $true
    ```
 
 默认情况下，用户可以选择启用或禁用遥测。 布尔值 $false  会与默认客户端行为匹配。 布尔值 $true  会禁用遥测，并限制用户启用遥测。
@@ -268,15 +268,15 @@ ms.locfileid: "66804971"
 默认情况下，用户可以选择通过以下方法启动远程资源：(1) 在浏览器中或 (2) 下载 .rdp 文件以处理安装在其计算机上的另一个客户端。 作为管理员，可以使用以下 Powershell 命令选择对部署限制远程资源启动方法：
 
    ```PowerShell
-    Set-RDWebClientDeploymentSetting -LaunchResourceInBrowser ($true|$false)
+    Set-RDWebClientDeploymentSetting -Name "LaunchResourceInBrowser" ($true|$false)
    ```
  默认情况下，用户可以选择任一启动方法。 布尔值 $true  会强制用户在浏览器中启动资源。 布尔值 $false  会强制用户通过下载 .rdp 文件以处理本地安装的 RDP 客户端来启动资源。
 
 ### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>将 RDWebClientDeploymentSetting 配置重置为默认值
-若要将所有部署级别 Web 客户端设置都重置为默认值，请运行以下 PowerShell cmdlet：
-
+若要将部署级 Web 客户端设置重置为默认配置，请运行以下 PowerShell cmdlet，并使用 --Name 参数指定要重置的设置：
    ```PowerShell
-    Reset-RDWebClientDeploymentSetting 
+    Reset-RDWebClientDeploymentSetting -Name "LaunchResourceInBrowser"
+    Reset-RDWebClientDeploymentSetting -Name "SuppressTelemetry"
    ```
 
 ## <a name="troubleshooting"></a>疑难解答

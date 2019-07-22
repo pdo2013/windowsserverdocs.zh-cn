@@ -13,16 +13,18 @@ manager: dongill
 ms.author: helohr
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: fbec5c27b7cb3ef0ef750a5ebd7d7ea2654c47b3
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 37ba3ca343eadf1bde5f75993ac2dbbb0ec05bad
+ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65983457"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68300702"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>受支持的远程桌面 RDP 文件设置
 
 下表包含可与 Windows 和 HTML 客户端配合使用的受支持 RDP 文件设置的列表。 平台列中的“x”表示支持该设置。 但是，此列表不是 Windows 和 HTML5 客户端所支持的设置的完整列表。 我们将继续更新此表，以包含更多受支持的 Windows 和 HTML5 客户端以及 macOS、iOS 和 Android 客户端的 RDP 设置。
+
+若要详细了解如何使用 PowerShell 自定义 RDP 属性，请参阅[自定义主机池的远程桌面协议属性](https://docs.microsoft.com/azure/virtual-desktop/customize-rdp-properties)。
 
 | RDP 设置                        | 描述            | 值                 | 默认值          | Windows 虚拟桌面 | Windows | HTML5   |
 |------------------------------------|------------------------|------------------------|:----------------------:|:-----------------------:|:-------:|:-------:|
