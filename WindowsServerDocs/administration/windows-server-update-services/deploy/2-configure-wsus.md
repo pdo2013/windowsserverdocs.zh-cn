@@ -389,11 +389,11 @@ WSUS 需要将两个端口用于 SSL：一个端口使用 HTTPS 发送加密的�
 
 2.  转到**启动**，类型**CMD**，右键单击**命令提示符下**，然后单击**以管理员身份运行**。
 
-3.  导航到 *%ProgramFiles%***\Update Services\Tools\\* * 文件夹。
+3.  导航到 *%ProgramFiles%* **\Update Services\Tools\\* * 文件夹。
 
 4.  在命令提示符窗口中，键入以下命令：
 
-    **Wsusutil configuressl***certificateName*
+    **Wsusutil configuressl** *certificateName*
 
     其中：
 

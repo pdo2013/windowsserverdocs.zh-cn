@@ -78,7 +78,7 @@ call [Drive:][Path]<FileName> [<BatchParameters>] [:<Label> [<Arguments>]]
 |%~dp$PATH:1|搜索的 PATH 环境变量中列出的目录 **%1**，，然后扩展到的驱动器号和路径找到的第一个目录。|
 |%~ftza1|展开 **%1**显示输出类似于**dir**命令。|
 
-在上述示例中， **%1**和路径可由其他有效的值替换。 <strong>%~</strong>语法终止通过有效的参数数目。 <strong>%~</strong>修饰符不能用于 * * %\\* * *。
+在上述示例中， **%1**和路径可由其他有效的值替换。 <strong>%~</strong>语法终止通过有效的参数数目。 <strong>%~</strong>修饰符不能用于 **%\\** *。
 
 ## <a name="remarks"></a>备注
 
