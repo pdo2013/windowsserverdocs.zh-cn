@@ -43,7 +43,7 @@ ms.locfileid: "66444619"
 必须将联合身份验证服务使用的 SSL 证书及其私钥导出到 .pfx 文件。 有关详细信息，请参阅 [导出服务器身份验证证书的私钥部分](export-the-private-key-portion-of-a-server-authentication-certificate.md)。  
   
 > [!NOTE]
->  如果你打算部署 Device Registration Service 作为运行 Windows Server 2012 R2 中 AD FS 的一部分，你必须获取新的 SSL 证书。有关详细信息，请参阅 [Enroll an SSL Certificate for AD FS](enroll-an-ssl-certificate-for-ad-fs.md) 和 [Configure a federation server with Device Registration Service](configure-a-federation-server-with-device-registration-service.md)。  
+>  如果你打算部署 Device Registration Service 作为运行 Windows Server 2012 R2 中 AD FS 的一部分，你必须获取新的 SSL 证书。有关详细信息，请参阅[适用于 AD FS 注册 SSL 证书](enroll-an-ssl-certificate-for-ad-fs.md)并[使用 Device Registration Service 配置联合身份验证服务器](configure-a-federation-server-with-device-registration-service.md)。  
   
 若要查看使用的令牌签名、令牌解密和服务通信证书，请运行以下 Windows PowerShell 命令，以便在文件中创建使用的所有证书的列表：  
   
