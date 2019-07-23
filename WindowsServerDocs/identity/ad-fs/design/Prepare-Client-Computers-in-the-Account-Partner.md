@@ -24,7 +24,7 @@ ms.locfileid: "66190988"
   
 -   每个客户端计算机信任的帐户联合身份验证服务器上配置 Internet Explorer。  
   
-    有关详细信息，请参阅 [Configure Client Computers to Trust the Account Federation Server](../../ad-fs/deployment/Configure-Client-Computers-to-Trust-the-Account-Federation-Server.md)。  
+    有关详细信息，请参阅 [配置客户端计算机信任的帐户联合身份验证服务器](../../ad-fs/deployment/Configure-Client-Computers-to-Trust-the-Account-Federation-Server.md)。  
   
 -   安装相应的帐户联合身份验证服务器、 资源联合身份验证服务器和 Web 服务器安全套接字层\(SSL\)证书\(等效项链接到受信任的根证书或\)上每个客户端计算机。  
   

@@ -31,13 +31,13 @@ ms.locfileid: "66445661"
 > [!IMPORTANT]
 >  作为操作系统升级的结果，此服务器上的 AD FS 代理配置将丢失并且 AD FS 2.0 的服务器角色会被删除。 相反，安装 Windows Server 2012 AD FS 服务器角色，但未配置。 你必须手动创建原始 AD FS 代理配置并还原剩余的 AD FS 代理设置，以完成联合服务器代理迁移。  
   
-4. 通过使用“AD FS 联合服务器代理配置向导”  创建原始 AD FS 代理配置。 有关详细信息，请参阅 [Configure a Computer for the Federation Server Proxy Role](configure-a-computer-for-the-federation-server-proxy-role.md)。 执行该向导时，请按如下所示使用在“准备迁移 AD FS 2.0 联合服务器代理”中收集的信息：  
+4. 通过使用“AD FS 联合服务器代理配置向导” 创建原始 AD FS 代理配置。 有关详细信息，请参阅[将计算机配置为联合服务器代理角色](configure-a-computer-for-the-federation-server-proxy-role.md)。 执行该向导时，请按如下所示使用在“准备迁移 AD FS 2.0 联合服务器代理”中收集的信息：  
   
  
 |**联合服务器代理向导输入选项**|**使用以下值**|
 |-----|-----|  
 |**联合身份验证服务名称**|输入 proxyproperties.txt 文件中的 BaseHostName 值|  
-|“将请求发送到此联合身份验证服务时使用 HTTP 代理服务器”  复选框|如果 proxyproperties.txt 文件包含 ForwardProxyUrl 属性的值，则选中此框|  
+|“将请求发送到此联合身份验证服务时使用 HTTP 代理服务器”复选框|如果 proxyproperties.txt 文件包含 ForwardProxyUrl 属性的值，则选中此框|  
 |**HTTP 代理服务器地址**|输入 proxyproperties.txt 文件中的 ForwardProxyUrl 值|  
 |凭据提示|输入某个帐户的凭据，该帐户要么是 AD FS 联合服务器的管理员，要么是 AD FS 联合身份验证服务运行所使用的服务帐户。|  
   

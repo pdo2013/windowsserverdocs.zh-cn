@@ -50,7 +50,7 @@ AD FS 的总体功能是颁发一个包含一组声明的访问令牌。 AD FS �
 
 -   针对高级条件访问控制方案提供丰富的声明语言和 Windows PowerShell 支持
 
--   自定义 (按照信赖方应用程序) 拒绝访问消息。 有关详细信息，请参阅 [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx)。 由于能够自定义这些消息，你可以解释为何用户被拒绝访问，并尽可能协助进行自助式补救，例如，提示用户将其设备加入工作区。 有关详细信息，请参阅 [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)。
+-   自定义 (按照信赖方应用程序) 拒绝访问消息。 有关详细信息，请参阅 [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx)。 由于能够自定义这些消息，你可以解释为何用户被拒绝访问，并尽可能协助进行自助式补救，例如，提示用户将其设备加入工作区。 有关详细信息，请参阅[跨公司应用程序从任一设备加入工作区以实现 SSO 和无缝第二重身份验证](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)。
 
 下表包含要用于实施条件访问控制的 Windows Server 2012 R2 中 AD FS 中提供的所有声明类型。
 
