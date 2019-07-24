@@ -739,7 +739,7 @@ CertificateStoreName:证书存储区名称。 示例：
 - ldap(AD 计算机对象证书)
 - -用户 ldap:(AD 用户对象证书)
 
-证书 id证书或 CRL 匹配令牌。  这可以是序列号、SHA-1 证书、CRL、CTL 或公钥哈希、数字证书索引 (0、1等等)、数字 CRL 索引 (.0、.1 等等)、数字 CTL 索引 (.)0、.。1等)、公钥、签名或扩展 ObjectId、证书使用者公用名、电子邮件地址、UPN 或 DNS 名称、密钥容器名称或 CSP 名称、模板名称或 ObjectId、EKU 或应用程序策略 ObjectId 或 CRL 颁发者公用名。 其中许多项可能会导致多个匹配项。
+证书 id证书或 CRL 匹配令牌。  这可以是序列号、SHA-1 证书、CRL、CTL 或公钥哈希、数字证书索引 (0、1等等)、数字 CRL 索引 (.0、.1 等等)、数字 CTL 索引 (.)0、。1等)、公钥、签名或扩展 ObjectId、证书使用者公用名、电子邮件地址、UPN 或 DNS 名称、密钥容器名称或 CSP 名称、模板名称或 ObjectId、EKU 或应用程序策略 ObjectId 或 CRL 颁发者公用名。 其中许多项可能会导致多个匹配项。
 
 OutputFile: 保存匹配证书的文件
 
@@ -859,7 +859,7 @@ CertificateStoreName:证书存储区名称。 示例：
 - ldap(AD 计算机对象证书)
 - -用户 ldap:(AD 用户对象证书)
 
-证书 id证书或 CRL 匹配令牌。 这可以是序列号、SHA-1 证书、CRL、CTL 或公钥哈希、数字证书索引 (0、1等等)、数字 CRL 索引 (.0、.1 等等)、数字 CTL 索引 (.)0、.。1等)、公钥、签名或扩展 ObjectId、证书使用者公用名、电子邮件地址、UPN 或 DNS 名称、密钥容器名称或 CSP 名称、模板名称或 ObjectId、EKU 或应用程序策略 ObjectId 或 CRL 颁发者公用名。 其中许多项可能会导致多个匹配项。
+证书 id证书或 CRL 匹配令牌。 这可以是序列号、SHA-1 证书、CRL、CTL 或公钥哈希、数字证书索引 (0、1等等)、数字 CRL 索引 (.0、.1 等等)、数字 CTL 索引 (.)0、。1等)、公钥、签名或扩展 ObjectId、证书使用者公用名、电子邮件地址、UPN 或 DNS 名称、密钥容器名称或 CSP 名称、模板名称或 ObjectId、EKU 或应用程序策略 ObjectId 或 CRL 颁发者公用名。 其中许多项可能会导致多个匹配项。
 
 OutputFile: 保存匹配证书的文件
 
@@ -898,7 +898,7 @@ CertificateStoreName:证书存储区名称。 示例：
 - ldap(AD 计算机对象证书)
 - -用户 ldap:(AD 用户对象证书)
 
-证书 id证书或 CRL 匹配令牌。 这可以是序列号、SHA-1 证书、CRL、CTL 或公钥哈希、数字证书索引 (0、1等等)、数字 CRL 索引 (.0、.1 等等)、数字 CTL 索引 (.)0、.。1等)、公钥、签名或扩展 ObjectId、证书使用者公用名、电子邮件地址、UPN 或 DNS 名称、密钥容器名称或 CSP 名称、模板名称或 ObjectId、EKU 或应用程序策略 ObjectId 或 CRL 颁发者公用名。 其中许多项可能会导致多个匹配项。
+证书 id证书或 CRL 匹配令牌。 这可以是序列号、SHA-1 证书、CRL、CTL 或公钥哈希、数字证书索引 (0、1等等)、数字 CRL 索引 (.0、.1 等等)、数字 CTL 索引 (.)0、。1等)、公钥、签名或扩展 ObjectId、证书使用者公用名、电子邮件地址、UPN 或 DNS 名称、密钥容器名称或 CSP 名称、模板名称或 ObjectId、EKU 或应用程序策略 ObjectId 或 CRL 颁发者公用名。 其中许多项可能会导致多个匹配项。
 
 OutputFile: 保存匹配证书的文件
 
