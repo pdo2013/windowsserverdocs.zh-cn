@@ -9,29 +9,29 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b5aa22ad99529d99e2d7381a434916e8e749f185
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 7f990c3412707e38a00110ac4d3cb3787fa18ee3
+ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188762"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476534"
 ---
 # <a name="ad-fs-customization-in-windows-server-2016"></a>Windows Server 2016 中的 AD FS 自定义
 
 
-在响应中使用 AD FS 的组织的反馈，我们添加了其他工具自定义用户的登录体验为受 AD FS 的单个应用程序。  
-除了指定每个应用程序 web 内容，例如说明文本和链接，现在还可以指定每个应用程序的整个 web 主题。  这包括徽标、 插图、 样式表或整个 onload.js 文件。  
+为了响应来自使用 AD FS 的组织的反馈, 我们添加了其他工具来自定义由 AD FS 保护的单个应用程序的用户登录体验。  
+除了指定基于应用程序的 web 内容 (如说明文本和链接) 外, 现在可以为每个应用程序指定整个 web 主题。  这包括徽标、插图、样式表或整个 onload 文件。  
   
 ## <a name="global-settings"></a>全局设置    
-有关常规的全局设置您可以访问[自定义 AD FS 登录页](https://technet.microsoft.com/library/dn280950.aspx)，随 Windows Server 2012 R2 中的 AD FS。  
+对于常规全局设置, 可以参阅自定义 Windows Server 2012 R2 中 AD FS 附带的[AD FS 登录页](https://technet.microsoft.com/library/dn280950.aspx)。  
   
 ## <a name="pre-requisites"></a>先决条件  
-尝试此文档中所述的过程之前，需要进行以下系统必备组件。  
+尝试本文档中所述的过程之前, 需要满足以下先决条件。  
   
--   在 Windows Server 2016 TP4 或更高版本的 AD FS  
+-   Windows Server 2016 TP4 或更高版本中的 AD FS  
   
 ## <a name="configure-ad-fs-relying-parties"></a>配置 AD FS 信赖方  
-每个信赖方登录 web 元素和主题可以配置使用以下 PowerShell 示例：  
+可以使用下面的 PowerShell 示例配置每个信赖方登录 web 元素和主题:  
   
 ### <a name="customize-messages"></a>自定义消息  
   
@@ -43,7 +43,7 @@ PS C:\>Set-AdfsRelyingPartyWebContent
     -SignInPageDescription "This text appears below the credential prompt"  
 ```  
   
-### <a name="customize-company-name-logo-and-image"></a>自定义公司名称、 徽标和图像  
+### <a name="customize-company-name-logo-and-image"></a>自定义公司名称、徽标和图像  
   
 ```  
 PS C:\>Set-AdfsRelyingPartyWebTheme  
@@ -52,7 +52,7 @@ PS C:\>Set-AdfsRelyingPartyWebTheme
     -Illustration @{path="C:\Images\appillustration.jpg"}  
 ```  
   
-### <a name="customize-entire-page"></a>自定义整个页面  
+### <a name="customize-entire-page"></a>自定义整页  
   
 ```  
 PS C:\>Set-AdfsRelyingPartyWebTheme  
@@ -62,29 +62,29 @@ PS C:\>Set-AdfsRelyingPartyWebTheme
   
 ## <a name="custom-themes-and-advanced-custom-themes"></a>自定义主题和高级自定义主题  
   
-有关自定义主题，请参阅[自定义 AD FS 登录页](https://technet.microsoft.com/library/dn280950.aspx)和[Advanced Customization of AD FS 登录页。](https://technet.microsoft.com/library/dn636121.aspx)  
+对于自定义主题, 请参阅[自定义 AD FS 登录页](https://technet.microsoft.com/library/dn280950.aspx)和[AD FS 登录页的高级自定义。](https://technet.microsoft.com/library/dn636121.aspx)  
   
-## <a name="assigning-custom-web-themes-per-rp"></a>分配每个 RP 的自定义 web 主题  
+## <a name="assigning-custom-web-themes-per-rp"></a>为每个 RP 分配自定义 web 主题  
   
-若要分配每个 RP 自定义主题，请使用以下过程：  
+若要为每个 RP 分配自定义主题, 请使用以下过程:  
   
-1. 默认情况下，AD FS 中的全局主题的副本作为创建新的主题  
-<code>New-AdfsWebTheme -Name AppSpecificTheme -SourceName default</code> 2.  导出自定义主题 <code>Export-AdfsWebTheme -Name AppSpecificTheme -DirectoryPath c:\appspecifictheme</code>  
-3. 在你喜爱的编辑器中自定义主题文件 （图像、 css、 onload.js）-或替换第 4 个文件。 从文件系统的自定义的文件导入 AD FS （面向新主题） <code>Set-AdfsWebTheme -TargetName AppSpecificTheme -AdditionalFileResource @{Uri='/adfs/portal/script/onload.js';Path="c:\appspecifictheme\script\onload.js"}</code>  
-5. 将新的自定义主题应用到特定 RP （或 RP 的） <code>Set-AdfsRelyingPartyWebTheme -TargetRelyingPartyName urn:app1 -SourceWebThemeName AppSpecificTheme</code>  
+1. 在 AD FS 中创建一个新主题作为默认全局主题的副本  
+<code>New-AdfsWebTheme -Name AppSpecificTheme -SourceName default</code>2.导出自定义主题<code>Export-AdfsWebTheme -Name AppSpecificTheme -DirectoryPath c:\appspecifictheme</code>  
+3.自定义主题文件 (图像、css、onload)-在最喜爱的编辑器中, 或将4.文件导入自定义文件从文件系统中替换为 AD FS (面向新主题)<code>Set-AdfsWebTheme -TargetName AppSpecificTheme -AdditionalFileResource @{Uri='/adfs/portal/script/onload.js';Path="c:\appspecifictheme\script\onload.js"}</code>  
+5.向特定 RP (或 RP) 应用新的自定义主题<code>Set-AdfsRelyingPartyWebTheme -TargetRelyingPartyName urn:app1 -SourceWebThemeName AppSpecificTheme</code>  
   
 ## <a name="home-realm-discovery"></a>主领域发现  
-有关主领域发现自定义请参见[自定义 AD FS 登录页](https://technet.microsoft.com/library/dn280950.aspx)。  
+对于 home 领域发现自定义, 请参阅[自定义 AD FS 登录页](https://technet.microsoft.com/library/dn280950.aspx)。  
   
-## <a name="updated-password-page"></a>更新的密码页面  
-有关自定义更新密码页面信息，请参阅[自定义 AD FS 登录页](https://technet.microsoft.com/library/dn280950.aspx)。  
+## <a name="updated-password-page"></a>已更新密码页  
+有关自定义 "更新密码" 页的信息, 请参阅[自定义 AD FS 登录页](https://technet.microsoft.com/library/dn280950.aspx)。  
   
 ## <a name="customizing-and-alternate-ids"></a>自定义和备用 Id  
-用户可以登录到 Active Directory 联合身份验证服务 (AD FS)-已启用应用程序使用任何形式的接受的 Active Directory 域服务 (AD DS) 的用户标识符。 其中包括用户主体名称 (Upn) (johndoe@contoso.com) 或域限定 sam 帐户名 （contoso\johndoe 或 contoso.com\johndoe）。  有关详细信息，在此，请参阅[配置备用登录 id。](Configuring-Alternate-Login-ID.md)  
+用户可以使用 Active Directory 域服务 (AD DS) 所接受的任意形式的用户标识符登录到已启用 Active Directory 联合身份验证服务 (AD FS) 的应用程序。 其中包括用户主体名称 (upn) (johndoe@contoso.com) 或域限定 sam 帐户名称 (contoso\johndoe 或 com\johndoe)。  有关详细信息, 请参阅[配置备用登录 ID。](Configuring-Alternate-Login-ID.md)  
   
-另外要自定义 AD FS 登录页后，可以为最终用户提供一些提示有关备用登录 id。 可以通过添加详细信息，请参阅自定义登录页说明操作即可[自定义 AD FS 登录页。](https://technet.microsoft.com/library/dn280950.aspx)   
+你可能还需要自定义 AD FS 登录页面, 以便向最终用户授予有关备用登录 ID 的一些提示。 可以通过添加自定义登录页说明来完成此操作。有关详细信息, 请参阅[自定义 AD FS 登录页。](https://technet.microsoft.com/library/dn280950.aspx)   
   
-您还可以执行此操作通过自定义用户名字段的上面"使用组织帐户登录"的字符串。  为此，请参阅上的信息[Advanced Customization of AD FS 登录页](https://technet.microsoft.com/library/dn636121.aspx)。  
+还可以通过在用户名字段上自定义 "使用组织帐户登录" 字符串来实现此目的。  有关详细信息, 请参阅[AD FS 登录页的高级自定义](https://technet.microsoft.com/library/dn636121.aspx)。  
 
 ## <a name="additional-references"></a>其他参考 
 [AD FS 用户登录自定义](AD-FS-user-sign-in-customization.md)  
