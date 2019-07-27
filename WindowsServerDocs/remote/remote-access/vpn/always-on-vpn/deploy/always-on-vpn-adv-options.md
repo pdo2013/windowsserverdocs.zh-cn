@@ -5,17 +5,17 @@ ms.assetid: 51a1ee61-3ffe-4f65-b8de-ff21903e1e74
 ms.prod: windows-server-threshold
 ms.technology: networking-ras
 ms.topic: article
-ms.date: 11/05/2018
-ms.author: pashort
+ms.date: 07/24/19
+ms.author: pashort, v-tea
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: c238e44b538a31be7b21d2e75f41ebbf7ec7a1c8
-ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
+ms.openlocfilehash: ae3c088122a0100f94b4d9bca41078d901487237
+ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314335"
+ms.lasthandoff: 07/27/2019
+ms.locfileid: "68590412"
 ---
 # <a name="advanced-features-of-always-on-vpn"></a>Always On VPN 的高级功能
 
@@ -24,7 +24,7 @@ ms.locfileid: "68314335"
 - [**以前**了解 Always On VPN 技术](../always-on-vpn-technology-overview.md)
 - [**一个**开始规划 Always On 的 VPN 部署](always-on-vpn-deploy-planning.md)
 
-除了提供的部署方案之外, 你还可以添加其他高级 VPN 功能, 以提高 VPN 连接的安全性和可用性。 例如, 在允许连接之前, 此类组件可帮助确保正在连接的客户端正常运行。
+除了提供的部署方案之外, 你还可以添加其他高级 VPN 功能, 以提高 VPN 连接的安全性和可用性。 例如, VPN 服务器可以使用这些功能来帮助确保连接客户端在允许连接之前正常运行。
 
 ## <a name="high-availability"></a>高可用性
 
@@ -32,7 +32,7 @@ ms.locfileid: "68314335"
 
 |Option  |描述  |
 |---------|---------|
-|服务器复原能力和负载均衡     |在需要高可用性或支持大量请求的环境中, 你可以使用运行网络策略服务器 (NPS) 的多台服务器之间的负载均衡来提高远程访问的性能和复原能力, 并启用远程访问服务器群集。<p>相关文档:<ul><li>[NPS 代理服务器负载平衡](../../../../../networking/technologies/nps/nps-manage-proxy-lb.md)</li><li>[在群集中部署远程访问](https://docs.microsoft.com/windows-server/remote/remote-access/ras/cluster/deploy-remote-access-in-cluster)</li></ul>        |
+|服务器复原能力和负载均衡     |在需要高可用性或支持大量请求的环境中, 你可以通过在运行网络策略服务器 (NPS) 的多台服务器之间使用负载均衡来提高远程访问的性能和复原能力, 并启用远程访问服务器群集。<p>相关文档:<ul><li>[NPS 代理服务器负载平衡](../../../../../networking/technologies/nps/nps-manage-proxy-lb.md)</li><li>[在群集中部署远程访问](https://docs.microsoft.com/windows-server/remote/remote-access/ras/cluster/deploy-remote-access-in-cluster)</li></ul>        |
 |地理站点复原     |对于基于 IP 的地理位置, 你可以在 Windows Server 2016 中将全局流量管理器与 DNS 一起使用。 若要实现更可靠的地理负载平衡, 可以使用全局服务器负载均衡解决方案, 如 Microsoft Azure 流量管理器。<p>相关文档:<ul><li>[流量管理器概述](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)</li><li>[Microsoft Azure 流量管理器](https://azure.microsoft.com/services/traffic-manager)</li></ul>         |
 
 ## <a name="advanced-authentication"></a>高级身份验证
@@ -41,7 +41,7 @@ ms.locfileid: "68314335"
 
 |Option  |描述  |
 |---------|---------|
-|Windows Hello 企业版     |在 Windows 10 中，Windows Hello 企业版在电脑和移动设备上使用强大的双因素身份验证替换密码。 此身份验证包含一种新类型的用户凭据, 该凭据绑定到设备并使用生物识别号或个人标识号 (PIN)。<p>Windows 10 VPN 客户端与 Windows Hello 企业版兼容。 用户使用手势登录后, VPN 连接将使用 Windows Hello 企业版证书进行基于证书的身份验证。<p>相关文档:<ul><li>[Windows Hello 企业版](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)</li><li>技术案例研究:[在 Windows 10 中启用与 Windows Hello 企业版的远程访问](https://msdn.microsoft.com/library/mt728163.aspx)</li></ul>         |
+|Windows Hello 企业版     |在 Windows 10 中, Windows Hello 企业版通过在电脑和移动设备上提供强双重身份验证来替换密码。 此身份验证包含一种新类型的用户凭据, 该凭据绑定到设备并使用生物识别号或个人标识号 (PIN)。<p>Windows 10 VPN 客户端与 Windows Hello 企业版兼容。 用户使用手势登录后, VPN 连接将使用 Windows Hello 企业版证书进行基于证书的身份验证。<p>相关文档:<ul><li>[Windows Hello 企业版](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)</li><li>技术案例研究:[在 Windows 10 中启用与 Windows Hello 企业版的远程访问](https://msdn.microsoft.com/library/mt728163.aspx)</li></ul>         |
 |Azure 多重身份验证 (MFA)     |Azure MFA 有云和本地版本, 你可以将其与 Windows VPN 身份验证机制集成。<p>有关此机制的工作原理的详细信息, 请参阅将[RADIUS 身份验证与 Azure 多重身份验证服务器集成](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server-radius)。         |
 
 ## <a name="advanced-vpn-features"></a>高级 VPN 功能
@@ -50,9 +50,9 @@ ms.locfileid: "68314335"
 
 |Option  |描述  |
 |---------|---------|
-|流量筛选     |如果需要强制执行 VPN 客户端可以访问的应用程序, 可以启用 VPN 流量筛选器。<p>有关详细信息, 请参阅[VPN 安全功能](https://docs.microsoft.com/windows/access-protection/vpn/vpn-security-features)。         |
+|流量筛选     |如果必须强制选择 VPN 客户端可以访问的应用程序, 则可以启用 VPN 流量筛选器。<p>有关详细信息, 请参阅[VPN 安全功能](https://docs.microsoft.com/windows/access-protection/vpn/vpn-security-features)。         |
 |应用触发的 VPN     |可以配置 VPN 配置文件, 以便在启动某些应用程序或类型的应用程序时自动连接。<p>有关此事件和其他触发选项的详细信息, 请参阅[VPN 自动触发的配置文件选项](https://docs.microsoft.com/windows/access-protection/vpn/vpn-auto-trigger-profile)。         |
-|VPN 条件性访问   |条件性访问和设备符合性可以要求托管设备满足标准, 然后才能连接到 VPN。 使用 VPN 条件性访问的高级功能之一, 可以将 VPN 连接限制为仅限客户端身份验证证书包含 "1.3.6.1.4.1.311.87" 的 "AAD 条件访问" OID 的连接。<p>若要限制 VPN 连接, 需要:<ol><li>在 NPS 服务器上, 打开 "**网络策略服务器**" 管理单元。</li><li>展开 "**策略** > " "**网络策略**"。</li><li>右键单击**虚拟专用网络 (VPN) 连接**网络策略, 然后选择 "**属性**"。</li><li>选择 "**设置**" 选项卡。</li><li>选择 "**特定供应商**", 然后选择 "**添加**"。</li><li>选择 "**允许的证书-OID** " 选项, 然后选择 "**添加**"。</li><li>将**1.3.6.1.4.1.311.87**的 AAD 条件访问 OID 粘贴为属性值, 然后选择 **"确定"** 两次。</li><li>选择 "**关闭**", 然后单击 "**应用**"。<p>现在, 当 VPN 客户端尝试使用不是生存期较短的云证书的任何证书进行连接时, 连接将失败。</li></ol>有关条件性访问的详细信息, 请参阅[VPN 和条件性访问](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access)。   |
+|VPN 条件性访问   |条件性访问和设备符合性可以要求托管设备满足标准, 然后才能连接到 VPN。 使用 VPN 条件性访问的高级功能之一, 你可以将 VPN 连接限制为仅限客户端身份验证证书包含**1.3.6.1.4.1.311.87**的 "AAD 条件访问" OID 的连接。<p>若要限制 VPN 连接, 必须执行以下操作:<ol><li>在 NPS 服务器上, 打开 "**网络策略服务器**" 管理单元。</li><li>展开 "**策略** > " "**网络策略**"。</li><li>右键单击**虚拟专用网络 (VPN) 连接**网络策略, 然后选择 "**属性**"。</li><li>选择 "**设置**" 选项卡。</li><li>选择 "**特定于供应商**", 然后选择 "**添加**"。</li><li>选择 "**允许的证书-OID** " 选项, 然后选择 "**添加**"。</li><li>将**1.3.6.1.4.1.311.87**的 AAD 条件访问 OID 粘贴为属性值, 然后选择 **"确定"** 两次。</li><li>选择 "**关闭**", 然后选择 "**应用**"。<p>执行这些步骤后, 当 VPN 客户端尝试使用不是生存期较短的云证书的任何证书进行连接时, 连接将失败。</li></ol>有关条件性访问的详细信息, 请参阅[VPN 和条件性访问](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access)。   |
 
 
 ---
@@ -66,11 +66,11 @@ ms.locfileid: "68314335"
 
 |操作系统版本 |发布日期或发布日期 * |
 |---------|---------|
-|Windows Server 版本 1903  |[KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375)  |
+|Windows Server 版本 1903  |[KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375) |
 |Windows Server 2019<br />Windows Server 版本 1809  |2019年3季度  |
 |Windows Server 版本 1803  |2019年3季度  |
 |Windows Server 版本 1709  |2019年3季度  |
-|Windows Server 2016, 版本1607  |[KB4503294](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294)  |
+|Windows Server 2016, 版本1607  |[KB4503294](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) |
   
 \*所有发布日期都列在 "日历季度" 中。 日期为近似值, 可能更改, 恕不另行通知。 发布更新时, 发布的链接将替换发布日期。
 
@@ -146,7 +146,7 @@ ms.locfileid: "68314335"
 
 ## <a name="next-step"></a>下一步
 
-[开始规划 ALWAYS ON VPN 部署](always-on-vpn-deploy-planning.md):在作为 VPN 服务器使用的计算机上安装远程访问服务器角色之前, 请执行以下任务。 进行适当规划后, 可以部署 Always On VPN, 还可以选择使用 Azure AD 配置 VPN 连接的条件性访问。  
+[开始规划 ALWAYS ON VPN 部署](always-on-vpn-deploy-planning.md):在计划用作 VPN 服务器的计算机上安装远程访问服务器角色之前, 请执行以下任务。 适当规划后, 可以部署 Always On VPN, 还可以选择使用 Azure AD 配置 VPN 连接的条件性访问。  
 
 ## <a name="related-topics"></a>相关主题
 - [NPS 代理服务器负载平衡](../../../../../networking/technologies/nps/nps-manage-proxy-lb.md):远程身份验证拨入用户服务 (RADIUS) 客户端是网络访问服务器, 例如虚拟专用网络 (VPN) 服务器和无线访问点, 创建连接请求并将其发送到 NPS 等 RADIUS 服务器。 在某些情况下, NPS 服务器一次可能会收到太多连接请求, 从而导致性能下降或过载。

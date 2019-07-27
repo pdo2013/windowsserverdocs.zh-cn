@@ -1,6 +1,6 @@
 ---
 ms.assetid: d562ef46-f240-48be-bbd4-fd88fc6bbbdc
-title: 配置 intranet 基于窗体的身份验证不支持 WIA 的设备
+title: 为不支持 WIA 的设备配置基于 intranet 窗体的身份验证
 description: ''
 author: billmath
 ms.author: billmath
@@ -9,65 +9,69 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: c79524a011336d676fa2e80936e1254a8d2dd6b2
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 6a730483f99e1c937c3618853ee6d3dbd175356b
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189687"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544583"
 ---
-# <a name="configuring-intranet-forms-based-authentication-for-devices-that-do-not-support-wia"></a>配置 intranet 基于窗体的身份验证不支持 WIA 的设备
+# <a name="configuring-intranet-forms-based-authentication-for-devices-that-do-not-support-wia"></a>为不支持 WIA 的设备配置基于 intranet 窗体的身份验证
 
 
-默认情况下，Active Directory 联合身份验证服务 (AD FS) 在 Windows Server 2012 R2 中的组织的内部网络 (intranet) 内发生的任何应用程序使用的身份验证请求中启用 Windows 集成身份验证 (WIA)其身份验证的浏览器。 例如，这些可以是基于浏览器的应用程序使用 WS 联合身份验证或 SAML 协议和丰富的应用程序使用 OAuth 协议。 WIA 为最终用户提供无缝登录到应用程序，而不必手动输入其凭据。 但是，某些设备和浏览器不能够支持 WIA，因此从这些设备的身份验证请求失败。 此外，不应在协商到 NTLM 某些浏览器上的体验。 建议的方法是回退到此类设备和浏览器的基于窗体的身份验证。
+默认情况下, 在 Windows Server 2012 R2 的 Active Directory 联合身份验证服务 (AD FS) 中启用 Windows 集成身份验证 (WIA), 以便在组织的内部网络 (intranet) 内发生身份验证请求, 这些请求使用用于身份验证的浏览器。 例如, 这些应用程序可以是基于浏览器的应用程序, 它们使用 WS 联合身份验证或 SAML 协议以及使用 OAuth 协议的丰富应用程序。 WIA 向最终用户提供无缝登录到应用程序, 而无需手动输入其凭据。 但是, 某些设备和浏览器不能支持 WIA, 因此这些设备发出的身份验证请求会失败。 此外, 在某些与 NTLM 协商的浏览器上的体验并不理想。 推荐的方法是回退到此类设备和浏览器的基于窗体的身份验证。
 
-Windows Server 2016 和 Windows Server 2012 R2 中的 AD FS 为管理员提供配置支持回退到基于窗体的身份验证的用户代理列表中的功能。 回退可通过两种配置：
+Windows Server 2016 和 Windows Server 2012 R2 中的 AD FS 使管理员能够配置支持回退到基于窗体的身份验证的用户代理列表。 可以通过两个配置进行回退:
 
 
-- **WIASupportedUserAgentStrings**属性的`Set-ADFSProperties`commandlet
-- **WindowsIntegratedFallbackEnabled**属性的`Set-AdfsGlobalAuthenticationPolicy`commandlet
+- `Set-ADFSProperties` Commandlet 的**WIASupportedUserAgentStrings**属性
+- `Set-AdfsGlobalAuthenticationPolicy` Commandlet 的**WindowsIntegratedFallbackEnabled**属性
 
-**WIASupportedUserAgentStrings**定义支持 WIA 的用户代理。 在浏览器或浏览器控件中执行的登录名时，AD FS 将分析用户代理字符串。 如果用户代理字符串的组件不匹配任何配置中的用户代理字符串组成部分**WIASupportedUserAgentStrings**属性，AD FS 将回退到提供基于表单的身份验证，前提**WindowsIntegratedFallbackEnabled**标志设置为 True。
+**WIASupportedUserAgentStrings**定义了支持 WIA 的用户代理。 当在浏览器或浏览器控件中执行登录名时, AD FS 会分析用户代理字符串。 如果用户代理字符串的组件与在**WIASupportedUserAgentStrings**属性中配置的用户代理字符串的任何组件都不匹配, AD FS 将回退到提供基于窗体的身份验证, 前提是**WindowsIntegratedFallbackEnabled**标志设置为 True。
 
-默认情况下，安装新的 AD FS 具有一系列创建的用户代理字符串匹配项。 但是，这些可能是过期的基于浏览器和设备的更改。 具体来说，是 Windows 设备的令牌中具有类似用户代理字符串与次要变体。 以下 Windows PowerShell 示例提供了针对当前集是当今市场支持无缝 WIA 的设备的最佳指导：
+默认情况下, 新的 AD FS 安装会创建一组用户代理字符串匹配项。 但是, 这些更改可能基于对浏览器和设备的更改而过期。 尤其是, Windows 设备具有类似的用户代理字符串, 这些字符串在令牌中具有较小的变化。 以下 Windows PowerShell 示例为当前在市场上支持无缝 WIA 的一组设备提供了最佳指导:
 
     Set-AdfsProperties -WIASupportedUserAgents @("MSIE 6.0", "MSIE 7.0; Windows NT", "MSIE 8.0", "MSIE 9.0", "MSIE 10.0; Windows NT 6", "Windows NT 6.3; Trident/7.0", "Windows NT 6.3; Win64; x64; Trident/7.0", "Windows NT 6.3; WOW64; Trident/7.0", "Windows NT 6.2; Trident/7.0", "Windows NT 6.2; Win64; x64; Trident/7.0", "Windows NT 6.2; WOW64; Trident/7.0", "Windows NT 6.1; Trident/7.0", "Windows NT 6.1; Win64; x64; Trident/7.0", "Windows NT 6.1; WOW64; Trident/7.0", "MSIPC", "Windows Rights Management Client")
 
-上面的命令将确保 AD FS 仅对于 WIA 涉及以下用例：
+上述命令将确保 AD FS 仅涵盖 WIA 的以下用例:
 
 用户代理|用例|
 -----|-----|
-MSIE 6.0|IE 6.0|
-MSIE 7.0; Windows NT|IE 7，IE intranet 区域中。 "Windows NT"片段桌面操作系统，即可发送。|
-MSIE 8.0|IE 8.0 （没有设备发送这，因此需要进行更具体）|
-MSIE 9.0|IE 9.0 （没有设备发送，因此不需要将此更具体）|
-MSIE 10.0; Windows NT 6|Windows XP 和更高版本的桌面操作系统的 IE 10.0</br></br>排除 Windows Phone 8.0 设备 （具有设置到移动设备的首选项），因为它们会将发送</br></br>用户代理：Mozilla/5.0 （兼容;MSIE 10.0;Windows Phone 8.0;Trident/6.0;IEMobile/10.0;ARM;接触;NOKIA;Lumia 920)|
-Windows NT 6.3;Trident/7.0</br></br>Windows NT 6.3;Win64;x64;Trident/7.0</br></br>Windows NT 6.3;WOW64;Trident/7.0| Windows 8.1 桌面操作系统，不同的平台|
-Windows NT 6.2;Trident/7.0</br></br>Windows NT 6.2;Win64;x64;Trident/7.0</br></br>Windows NT 6.2;WOW64;Trident/7.0|Windows 8 桌面操作系统，不同的平台|
-Windows NT 6.1; Trident/7.0</br></br>Windows NT 6.1;Win64;x64;Trident/7.0</br></br>Windows NT 6.1;WOW64;Trident/7.0|Windows 7 桌面操作系统，不同的平台|
-“MSIPC”| Microsoft 信息保护和控制客户端|
-Windows 权限管理客户端|Windows 权限管理客户端|
+MSIE 6。0|IE 6。0|
+MSIE 7.0;Windows NT|IE 7、IE 在 intranet 区域中。 桌面操作系统发送 "Windows NT" 片段。|
+MSIE 8。0|IE 8.0 (无设备发送此信息, 因此需要更具体的信息)|
+MSIE 9。0|IE 9.0 (无设备发送此信息, 因此无需再进行此操作)|
+MSIE 10.0;Windows NT 6|适用于 Windows XP 和更高版本的桌面操作系统的 IE 10。0</br></br>将排除 Windows Phone 8.0 设备 (将首选项设置为 "移动"), 因为它们发送</br></br>用户代理:Mozilla/5.0 (兼容;MSIE 10.0;Windows Phone 8.0;Trident/6.0;IEMobile/10.0;单臂接触NOKIALumia 920)|
+Windows NT 6.3;Trident/7。0</br></br>Windows NT 6.3;Win6464Trident/7。0</br></br>Windows NT 6.3;WOW64Trident/7。0| Windows 8.1 桌面操作系统, 不同的平台|
+Windows NT 6.2;Trident/7。0</br></br>Windows NT 6.2;Win6464Trident/7。0</br></br>Windows NT 6.2;WOW64Trident/7。0|Windows 8 桌面操作系统, 不同平台|
+Windows NT 6.1;Trident/7。0</br></br>Windows NT 6.1;Win6464Trident/7。0</br></br>Windows NT 6.1;WOW64Trident/7。0|Windows 7 桌面操作系统, 不同平台|
+“MSIPC”| Microsoft Information Protection and Control 客户端|
+Windows Rights Management 客户端|Windows Rights Management 客户端|
 
-若要启用回退到 WIASupportedUserAgents 字符串中提及的其他用户代理的基于窗体身份验证，将 WindowsIntegratedFallbackEnabled 标志设置为 true
+若要为用户代理启用回退到基于窗体的身份验证, 而不是在 WIASupportedUserAgents 字符串中提到的身份验证, 请将 WindowsIntegratedFallbackEnabled 标志设置为 true
 
     Set-AdfsGlobalAuthenticationPolicy -WindowsIntegratedFallbackEnabled $true
 
-此外请确保 intranet 中启用了基于窗体身份验证。
+还要确保为 intranet 启用了基于窗体的身份验证。
 
 ## <a name="configuring-wia-for-chrome"></a>为 Chrome 配置 WIA
-可以向支持 WIA 的 AD FS 配置中添加 Chrome 或其他用户代理。 这样，无缝登录到应用程序而无需访问 AD FS 保护的资源时手动输入凭据。 请执行以下步骤来启用 WIA 在 Chrome 上：
+你可以将 Chrome 或其他用户代理添加到支持 WIA 的 AD FS 配置。 这样就可以无缝登录到应用程序, 而无需在访问受 AD FS 保护的资源时手动输入凭据。 按照以下步骤在 Chrome 上启用 WIA:
 
-在 AD FS 配置中为 Chrome 添加用户代理字符串
+在 AD FS 配置中, 在基于 Windows 的平台上添加 Chrome 的用户代理字符串:
 
-    Set-AdfsProperties -WIASupportedUserAgents ((Get-ADFSProperties | Select -ExpandProperty WIASupportedUserAgents) + “Chrome”)
-    
-确认现在中 AD FS 属性设置为 Chrome 用户代理字符串
+    Set-AdfsProperties -WIASupportedUserAgents ((Get-ADFSProperties | Select -ExpandProperty WIASupportedUserAgents) + "Mozilla/5.0 (Windows NT")
+
+同样, 在 Apple macOS 上, 将以下用户代理字符串添加到 AD FS 配置中:
+
+    Set-AdfsProperties -WIASupportedUserAgents ((Get-ADFSProperties | Select -ExpandProperty WIASupportedUserAgents) + "Mozilla/5.0 (Macintosh; Intel Mac OS X")
+
+确认 "Chrome" 的用户代理字符串现在已在 "AD FS 属性" 中设置:
 
     Get-AdfsProperties | Select -ExpandProperty WIASupportedUserAgents
 
-![配置身份验证](media/Configure-intranet-forms-based-authentication-for-devices-that-do-not-support-WIA/chrome1.png) 
+(此处需要一个新屏幕快照)![配置身份验证](media/Configure-intranet-forms-based-authentication-for-devices-that-do-not-support-WIA/chrome1.png) 
 
 >[!NOTE]   
-> 发布新的浏览器和设备，建议您协调这些用户代理的功能，并相应地更新 AD FS 配置时使用浏览器和设备所说优化用户的身份验证体验。 具体而言，建议重新评估**WIASupportedUserAgents**为 WIA 到您的支持矩阵中添加新设备或浏览器类型时，在 AD FS 中设置。
+> 当新浏览器和设备发布时, 建议您协调这些用户代理的功能, 并相应地更新 AD FS 配置, 以优化用户使用的浏览器和设备时的身份验证体验。 更具体地说, 建议您在将新设备或浏览器类型添加到 WIA 的支持矩阵时, 重新评估 AD FS 中的**WIASupportedUserAgents**设置。
 
 

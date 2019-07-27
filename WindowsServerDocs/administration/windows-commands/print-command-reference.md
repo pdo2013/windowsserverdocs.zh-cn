@@ -1,6 +1,6 @@
 ---
 title: 打印命令参考
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,31 +13,31 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e2321b3fef67cfcbc5f7d0bbafe4650a8ec31207
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8a9b0ab1e3e9ecb170eb4535cb7e4e643d791e5b
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436267"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544539"
 ---
 # <a name="print-command-reference"></a>打印命令参考
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server (半年频道), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 下面是打印命令行工具的列表。
 
 |                         Command                          |                                                                描述                                                                 |
 |----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-|                       [lpq]lpq.md)                       |                           显示运行行式打印机后台程序 (LPD) 的计算机上的打印队列的状态。                            |
-|                      [lpr](lpr.md)                       |      将文件发送到计算机或打印机共享中用于打印准备运行行式打印机后台程序 (LPD) 服务的设备。       |
-|                [Net print](net-print.md)                 | 显示有关指定的打印机队列的信息、 显示有关指定的打印作业的信息或控件指定打印作业。 |
-|                    [print](print.md)                     |                                                      将文本文件发送到打印机。                                                       |
+|                       [lpq](lpq.md)                       |                           显示运行 Line printer Daemon (LPD) 的计算机上打印队列的状态。                            |
+|                      [lpr](lpr.md)                       |      将文件发送到运行行打印机后台程序 (LPD) 服务的计算机或打印机共享设备, 以便为打印做准备。       |
+|                [Net print](net-print.md)                 | 显示有关指定打印机队列的信息、显示有关指定打印作业的信息, 或控制指定的打印作业。 |
+|                    [print](print.md)                     |                                                      向打印机发送文本文件。                                                       |
 |                  [prncnfg](prncnfg.md)                   |                                     配置或显示有关打印机的配置信息。                                      |
-|                  [prndrvr](prndrvr.md)                   |                                                 添加、 删除和列出了打印机驱动程序。                                                  |
-|                  [prnjobs](prnjobs.md)                   |                                              暂停、 恢复、 取消，并列出了打印作业。                                               |
-|                  [prnmngr](prnmngr.md)                   |            添加、 删除和列出打印机或打印机连接，以及设置和显示默认打印机。            |
-|                  [prnport](prnport.md)                   |           创建、 删除和列出了标准 TCP/IP 打印机端口，以及显示和更改端口配置。            |
-|                  [prnqctl](prnqctl.md)                   |                                打印测试页、 暂停或继续打印，并清除打印机队列。                                |
+|                  [prndrvr](prndrvr.md)                   |                                                 添加、删除和列出打印机驱动程序。                                                  |
+|                  [prnjobs](prnjobs.md)                   |                                              暂停、恢复、取消和列出打印作业。                                               |
+|                  [prnmngr](prnmngr.md)                   |            除了设置和显示默认打印机外, 还可以添加、删除和列出打印机或打印机连接。            |
+|                  [prnport](prnport.md)                   |           除了显示和更改端口配置之外, 还可以创建、删除和列出标准 TCP/IP 打印机端口。            |
+|                  [prnqctl](prnqctl.md)                   |                                打印测试页、暂停或恢复打印机以及清除打印机队列。                                |
 |                   [pubprn](pubprn.md)                    |                                       将打印机发布到 active directory 目录服务。                                       |
-| [rundll32 printui.dll,printUIEntry](rundll32-printui.md) |                使您能够自动安装和配置打印机使用脚本或命令提示符。                 |
+| [rundll32.exe printui.dll, printUIEntry](rundll32-printui.md) |                使你能够使用脚本或命令提示符自动安装和配置打印机。                 |
 

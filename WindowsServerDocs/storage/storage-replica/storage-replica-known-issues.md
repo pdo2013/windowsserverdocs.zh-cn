@@ -8,18 +8,18 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 06/25/2019
 ms.assetid: ceddb0fa-e800-42b6-b4c6-c06eb1d4bc55
-ms.openlocfilehash: 7659446f57aaad3827cc722c735a31a5194f30e2
-ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
+ms.openlocfilehash: ad08d8716819773484fc1d1fbe3cc79dd203c498
+ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67407621"
+ms.lasthandoff: 07/27/2019
+ms.locfileid: "68590564"
 ---
 # <a name="known-issues-with-storage-replica"></a>存储副本的已知问题
 
 >适用于：Windows Server 2019、Windows Server 2016、Windows Server（半年频道）
 
-本主题讨论 Windows Server 中的存储副本的已知的问题。
+本主题讨论 Windows Server 中存储副本的已知问题。
 
 ## <a name="after-removing-replication-disks-are-offline-and-you-cannot-configure-replication-again"></a>删除复制后，磁盘处于脱机状态，且不能再次配置复制
 
@@ -146,7 +146,7 @@ SC config storqosflt start= disabled
 
 即使你使用 `Set-SRGroup -Name rg01 -AllowVolumeResize $TRUE` 在源服务器上正确地启用了调整卷大小，仍将发生此问题。 
 
-累积更新适用于 Windows 10，版本 1607年 （周年更新） 和 Windows Server 2016 中已修复此问题：2016 年 12 月 9 日 (KB3201845)。 
+此问题已在 Windows 10 版本 1607 (周年更新) 和 Windows Server 2016 的累积更新中解决:2016年12月9日 (KB3201845)。 
 
 ## <a name="attempting-to-grow-a-replicated-volume-fails-due-to-missing-step"></a>尝试增大复制卷因缺少步骤而失败
 
@@ -155,13 +155,14 @@ SC config storqosflt start= disabled
     PS C:\> Resize-Partition -DriveLetter I -Size 8GB
     Resize-Partition : Failed
 
-活动 ID: {87aebbd6-4f47-4621-8aa4-5328dfa6c3be} 行： 1 字符： 1
+    Activity ID: {87aebbd6-4f47-4621-8aa4-5328dfa6c3be}
+    At line:1 char:1
     + Resize-Partition -DriveLetter I -Size 8GB
     + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         + CategoryInfo          : NotSpecified: (StorageWMI:ROOT/Microsoft/.../MSFT_Partition) [Resize-Partition], CimException
         + FullyQualifiedErrorId : StorageWMI 4,Resize-Partition
 
-Storage Replica Event log error 10307:
+    Storage Replica Event log error 10307:
 
     Attempted to resize a partition that is protected by Storage Replica .
 
@@ -175,17 +176,17 @@ Storage Replica Event log error 10307:
 
     Before you grow the source data partition, ensure that the destination data partition has enough space to grow to an equal size. Shrinking of data partition protected by Storage Replica is blocked.
 
-Disk Management Snap-in Error: 
+磁盘管理管理单元错误： 
 
     An unexpected error has occurred 
 
-After resizing the volume, remember to disable resizing with `Set-SRGroup -Name rg01 -AllowVolumeResize $FALSE`. This parameter prevents admins from attempting to resize volumes prior to ensuring that there is sufficient space on the destination volume, typically because they were unaware of Storage Replica's presence. 
+调整卷大小后，请记住使用 `Set-SRGroup -Name rg01 -AllowVolumeResize $FALSE` 禁用调整大小。 此参数可阻止管理员在确保目标卷上有足够空间（通常是因为他们不知道存在存储副本）之前尝试调整卷大小。 
 
-## Attempting to move a PDR resource between sites on an asynchronous stretch cluster fails
+## <a name="attempting-to-move-a-pdr-resource-between-sites-on-an-asynchronous-stretch-cluster-fails"></a>尝试在异步拉伸群集上的站点间移动 PDR 资源失败
 
-When attempting to move a physical disk resource-attached role - such as a file server for general use - in order to move the associated storage in an asynchronous stretch cluster, you receive an error.
+尝试移动附加了物理磁盘资源的角色（如常规用途的文件服务器），以在异步拉伸群集中移动关联存储时，收到了一个错误。
 
-If using the Failover Cluster Manager snap-in:
+如果使用故障转移群集管理器管理单元：
 
     Error
     The operation has failed.
@@ -193,7 +194,7 @@ If using the Failover Cluster Manager snap-in:
     Error Code: 0x80071398
     The operation failed because either the specified cluster node is not the owner of the group, or the node is not a possible owner of the group
 
-If using the Cluster powershell cmdlet:
+如果使用群集 Powershell cmdlet：
 
     PS C:\> Move-ClusterGroup -Name sr-fs-006 -Node sr-srv07
     Move-ClusterGroup : An error occurred while moving the clustered role 'sr-fs-006'.
@@ -205,35 +206,35 @@ If using the Cluster powershell cmdlet:
     + CategoryInfo          : NotSpecified: (:) [Move-ClusterGroup], ClusterCmdletException
     + FullyQualifiedErrorId : Move-ClusterGroup,Microsoft.FailoverClusters.PowerShell.MoveClusterGroupCommand
 
-This occurs due to a by-design behavior in Windows Server 2016. Use `Set-SRPartnership` to move these PDR disks in an asynchronous stretched cluster.  
+这归因于 Windows Server 2016 中的按设计行为。 使用 `Set-SRPartnership` 在异步拉伸群集中移动这些 PDR 磁盘。  
 
-This behavior has been changed in Windows Server, version 1709 to allow manual and automated failovers with asynchronous replication, based on customer feedback.
+此行为已在 Windows Server 版本1709中进行了更改, 以允许根据客户反馈进行手动和自动故障转移。
 
-## Attempting to add disks to a two-node asymmetric cluster returns "No disks suitable for cluster disks found"
+## <a name="attempting-to-add-disks-to-a-two-node-asymmetric-cluster-returns-no-disks-suitable-for-cluster-disks-found"></a>尝试将磁盘添加到两个节点的非对称群集时，返回了“没有发现适用于群集磁盘的磁盘”
 
-When attempting to provision a cluster with only two nodes, prior to adding Storage Replica stretch replication, you attempt to add the disks in the second site to the Available Disks. You receive the following error:
+在添加存储副本拉伸复制之前，尝试预配只有两个节点的群集时，尝试将第二个站点中的磁盘添加到可用磁盘。 收到以下错误:
 
     "No disks suitable for cluster disks found. For diagnostic information about disks available to the cluster, use the Validate a Configuration Wizard to run Storage tests." 
 
-This does not occur if you have at least three nodes in the cluster. This issue occurs because of a by-design code change in Windows Server 2016 for asymmetric storage clustering behaviors. 
+如果群集中至少有三个节点，就不会发生这种情况。 由于 Windows Server 2016 中非对称存储群集行为的按设计代码更改，于是发生了此问题。 
 
-To add the storage, you can run the following command on the node in the second site:
+若要添加存储，可以在第二个站点中的节点上运行以下命令：
 
 `Get-ClusterAvailableDisk -All | Add-ClusterDisk`
 
-This will not work with node local storage. You can use Storage Replica to replicate a stretch cluster between two total nodes, **each one using its own set of shared storage.** 
+这不适用于节点本地存储。 你可以使用存储副本在两个总节点之间复制拉伸群集，**每个群集都使用其自己的共享存储集**。 
 
-## The SMB Bandwidth limiter fails to throttle Storage Replica bandwidth
+## <a name="the-smb-bandwidth-limiter-fails-to-throttle-storage-replica-bandwidth"></a>SMB 带宽限制无法限制存储副本带宽
 
-When specifying a bandwidth limit to Storage Replica, the limit is ignored and full bandwidth used. For example:
+指定存储副本的带宽限制时，会忽略限制并使用完整带宽。 例如：
 
 `Set-SmbBandwidthLimit  -Category StorageReplication -BytesPerSecond 32MB`
 
-This issue occurs because of an interoperability issue between Storage Replica and SMB. This issue was first fixed in the July 2017 Cumulative Update of Windows Server 2016 and in Windows Server, version 1709.
+出现此问题是由于存储副本和 SMB 之间的互操作性问题。 此问题是在 Windows Server 2016 的2017年7月累积更新和 Windows Server 1709 版本中首先修复的。
 
-## Event 1241 warning repeated during initial sync
+## <a name="event-1241-warning-repeated-during-initial-sync"></a>在初始同步期间重复事件 1241 警告
 
-When specifying a replication partnership is asynchronous, the source computer repeatedly logs warning event 1241 in the Storage Replica Admin channel. For example:
+指定复制合作关系为异步时，源计算机会在存储副本管理通道中重复记录警告事件 1241。 例如：
 
     Log Name:      Microsoft-Windows-StorageReplica/Admin
     Source:        Microsoft-Windows-StorageReplica
@@ -258,15 +259,15 @@ When specifying a replication partnership is asynchronous, the source computer r
 
     Guidance: This is typically due to one of the following reasons: 
 
-The asynchronous destination is currently disconnected. The RPO may become available after the connection is restored.
+异步目标当前断开连接。 恢复连接后可能会支持 RPO。
 
     The asynchronous destination is unable to keep pace with the source such that the most recent destination log record is no longer present in the source log. The destination will start block copying. The RPO should become available after block copying completes.
 
-This is expected behavior during initial sync and can safely be ignored. This behavior may change in a later release. If you see this behavior during ongoing asynchronous replication, investigate the partnership to determine why replication is delayed beyond your configured RPO (30 seconds, by default).
+这是初始同步期间的预期行为，可以安全地忽略。 此行为可能会在后续版本中更改。 如果在正在进行的异步复制过程中看到此行为，请调查合作关系，以确定复制延迟并超出配置的 RPO（默认情况下为 30 秒）的原因。
 
-## Event 4004 warning repeated after rebooting a replicated node
+## <a name="event-4004-warning-repeated-after-rebooting-a-replicated-node"></a>重新启动复制节点后会重复事件 4004 警告
 
-Under rare and usually unreproducable circumstances, rebooting a server that is in a partnership leads to replication failing and the rebooted node logging warning event 4004 with an access denied error.
+在少数通常无法再现的情况下，重启合作关系中的服务器会导致复制失败，且重启的节点会记录带有拒绝访问错误的警告事件 4004。
 
     Log Name:      Microsoft-Windows-StorageReplica/Admin
     Source:        Microsoft-Windows-StorageReplica
@@ -292,11 +293,11 @@ Under rare and usually unreproducable circumstances, rebooting a server that is 
 
     Guidance: Possible causes include network failures, share creation failures for the remote replication group, or firewall settings. Make sure SMB traffic is allowed and there are no connectivity issues between the local computer and the remote computer. You should expect this event when suspending replication or removing a replication partnership.
 
-Note the `Status: "{Access Denied}"` and the message `A process has requested access to an object, but has not been granted those access rights.` This is a known issue within Storage Replica and was fixed in Quality Update September 12, 2017—KB4038782 (OS Build 14393.1715) https://support.microsoft.com/help/4038782/windows-10-update-kb4038782 
+`A process has requested access to an object, but has not been granted those access rights.`请注意`Status: "{Access Denied}"` , 此消息是存储副本中已知的问题, 已在2017年9月12日的质量更新中修复-KB4038782 (OS Build 14393.1715)https://support.microsoft.com/help/4038782/windows-10-update-kb4038782 
 
-## Error "Failed to bring the resource 'Cluster Disk x' online." with a stretch cluster
+## <a name="error-failed-to-bring-the-resource-cluster-disk-x-online-with-a-stretch-cluster"></a>“无法使资源‘Cluster Disk x’联机。”错误 具有拉伸群集
 
-When attempting to bring a cluster disk online after a successful failover, where you are attempting to make the original source site primary again, you receive an error in Failover Cluster Manager. For example:
+在成功故障转移后尝试使群集磁盘联机时（你会尝试使初始源站点重新成为主站点），你会在故障转移群集管理器中收到错误。 例如：
 
     Error
     The operation has failed.
@@ -305,7 +306,7 @@ When attempting to bring a cluster disk online after a successful failover, wher
     Error Code: 0x80071397
     The operation failed because either the specified cluster node is not the owner of the resource, or the node is not a possible owner of the resource.
 
-If you attempt to move the disk or CSV manually, you receive an additional error. For example:
+如果你尝试手动移动磁盘或 CSV，你将收到其他错误。 例如：
 
     Error
     The operation has failed.
@@ -314,13 +315,13 @@ If you attempt to move the disk or CSV manually, you receive an additional error
     Error Code: 0x8007138d
     A cluster node is not available for this operation
 
-This issue is caused by one or more uninitialized disks being attached to one or more cluster nodes. To resolve the issue, initialize all attached storage using DiskMgmt.msc, DISKPART.EXE, or the Initialize-Disk PowerShell cmdlet.
+此问题是由一个或多个未初始化磁盘附加到一个或多个群集节点引起的。 要解决此问题，请使用 DiskMgmt.msc、DISKPART.EXE 或 Initialize-Disk PowerShell cmdlet 初始化所有附加的存储。
 
-We are working on providing an update that permanently resolves this issue. If you are interested in assisting us and you have a Microsoft Premier Support agreement, please email SRFEED@microsoft.com so that we can work with you on filing a backport request.
+我们正致力于提供可永久解决此问题的更新。 如果你有兴趣协助我们并拥有 Microsoft 高级支持协议，请发送电子邮件到 SRFEED@microsoft.com，以便我们与你一同提出反向移植请求。
 
-## GPT error when attempting to create a new SR partnership
+## <a name="gpt-error-when-attempting-to-create-a-new-sr-partnership"></a>尝试创建新的 SR 合作关系时出现的 GPT 错误
 
-When running New-SRPartnership, it fails with error:
+运行 New-SRPartnership 时失败，并出现以下错误：
 
     Disk layout type for volume \\?\Volume{GUID}\ is not a valid GPT style layout.
     New-SRPartnership : Unable to create replication group SRG01, detailed reason: Disk layout type for volume
@@ -332,9 +333,9 @@ When running New-SRPartnership, it fails with error:
     , CimException
     + FullyQualifiedErrorId : Windows System Error 5078,New-SRPartnership
 
-In the Failover Cluster Manager GUI, there is no option to setup Replication for the disk.
+在故障转移群集管理器 GUI 中，没有为磁盘设置复制的选项。
 
-When running Test-SRTopology, it fails with: 
+运行 Test-SRTopology 时失败，并出现以下内容： 
 
     WARNING: Object reference not set to an instance of an object.
     WARNING: System.NullReferenceException
@@ -348,46 +349,46 @@ When running Test-SRTopology, it fails with:
     + CategoryInfo : InvalidArgument: (:) [Test-SRTopology], NullReferenceException
     + FullyQualifiedErrorId : TestSRTopologyFailure,Microsoft.FileServices.SR.Powershell.TestSRTopologyCommand 
 
-This is caused by the cluster functional level still being set to Windows Server 2012 R2 (i.e. FL 8). Storage Replica is supposed to return a specific error here but instead returns an incorrect error mapping.
+这是由于群集功能级别仍然设置为 Windows Server 2012 R2（即 FL 8）导致的。 存储副本应该将特定错误返回到此处，而不是返回不正确的错误映射。
 
-Run Get-Cluster | fl * on each node.
+在每个节点上运行 Get-Cluster | fl *。
 
-If ClusterFunctionalLevel = 9, that is the Windows 2016 ClusterFunctionalLevel version needed to implement Storage Replica on this node.
-If ClusterFunctionalLevel is not 9, the ClusterFunctionalLevel will need to be updated in order to implement Storage Replica on this node.
+如果 ClusterFunctionalLevel = 9，即为在此节点上实现存储副本所需的 Windows 2016 ClusterFunctionalLevel 版本。
+如果 ClusterFunctionalLevel 是不 9，则需要更新 ClusterFunctionalLevel 才能在此节点上实现存储副本。
 
-To resolve the issue, raise the cluster functional level by running the PowerShell cmdlet: [Update-ClusterFunctionalLevel](https://docs.microsoft.com/powershell/module/failoverclusters/update-clusterfunctionallevel)
+若要解决此问题, 请运行 PowerShell cmdlet, 提高群集功能级别:[更新-Update-clusterfunctionallevel](https://docs.microsoft.com/powershell/module/failoverclusters/update-clusterfunctionallevel)
 
-## Small unknown partition listed in DISKMGMT for each replicated volume
+## <a name="small-unknown-partition-listed-in-diskmgmt-for-each-replicated-volume"></a>DISKMGMT 中列出的针对每个已复制卷的小未知分区
 
-When running the Disk Management snap-in (DISKMGMT.MSC), you notice one or more volumes listed with no label or drive letter and 1MB in size. You may be able to delete the unknown volume or you may receive:
+当运行磁盘管理管理单元 (DISKMGMT.MSC) 时，你会注意到会列出没有标签或驱动器号且大小为 1 MB 的一个或多个卷。 你可能能够删除未知卷，或者你可能会收到：
 
     "An Unexpected Error has Occurred"  
 
-This behavior is by design. This not a volume, but a partition. Storage Replica creates a 512KB partition as a database slot for replication operations (the legacy DiskMgmt.msc tool rounds to the nearest MB). Having a partition like this for each replicated volume is normal and desirable. When no longer in use, you are free to delete this 512KB partition; in-use ones cannot be deleted. The partition will never grow or shrink. If you are recreating replication we recommend leaving the partition as Storage Replica will claim unused ones.
+此行为是设计使然。 这不是一个卷，而是一个分区。 存储副本创建一个 512 KB 的分区作为复制操作的数据库槽（旧版 DiskMgmt.msc 工具四舍五入到最接近的 MB）。 使每个已复制的卷都有一个像这样的分区是正常和可取的做法。 当不再使用时，你可以自由删除此 512 KB 分区；不能删除正在使用的分区。 此分区不会增加或缩小。 如果你正在重新创建我们建议的复制，则将此分区保留为存储副本将声明未使用的分区。
 
-To view details, use the DISKPART tool or Get-Partition cmdlet. These partitions will have a GPT Type of `558d43c5-a1ac-43c0-aac8-d1472b2923d1`.
+要查看详细信息，请使用 DISKPART 工具或 Get-Partition cmdlet。 这些分区将具有 `558d43c5-a1ac-43c0-aac8-d1472b2923d1` 的 GPT 类型。
 
-## A Storage Replica node hangs when creating snapshots
+## <a name="a-storage-replica-node-hangs-when-creating-snapshots"></a>创建快照时存储副本节点挂起
 
-When creating a VSS snapshot (through backup, VSSADMIN, etc) a Storage Replica node hangs, and you must force a restart of the node to recover. There is no error, just a hard hang of the server.
+创建 VSS 快照时 (通过备份、VSSADMIN 等) 存储副本节点挂起时, 必须重新启动该节点才能进行恢复。 没有错误, 只是服务器的硬挂起。
 
-This issue occurs when you create a VSS snapshot of the log volume. The underlying cause is a legacy design aspect of VSS, not Storage Replica. The resulting behavior when you snapshot the Storage Replica log volume is a VSS I/O queing mechanism deadlocks the server.
+当你创建日志卷的 VSS 快照时, 会出现此问题。 根本原因是 VSS 的传统设计方面, 而不是存储副本。 快照存储副本日志卷时产生的行为是 VSS i/o 队列机制使服务器死锁。
 
-To prevent this behavior, do not snapshot Storage Replica log volumes. There is no need to snapshot Storage Replica log volumes, as these logs cannot be restored. Furthermore, the log volume should never contain any other workloads, so no snapshot is needed in general.
+若要防止此行为, 请不要快照存储副本日志卷。 无需快照存储副本日志卷, 因为这些日志无法还原。 而且, 日志卷绝不会包含任何其他工作负荷, 因此一般不需要任何快照。
 
-## High IO latency increase when using Storage Spaces Direct with Storage Replica
+## <a name="high-io-latency-increase-when-using-storage-spaces-direct-with-storage-replica"></a>将存储空间直通与存储副本结合使用时, 高 IO 延迟增加
 
-When using Storage Spaces Direct with an NVME or SSD cache, you see a greater than expected increase in latency when configuring Storage Replica replication between Storage Spaces Direct clusters. The change in latency is proportionally much higher than you see when using NVME and SSD in a performance + capacity configuration and no HDD tier nor capacity tier.
+将存储空间直通与 NVME 或 SSD 缓存一起使用时, 在存储空间直通群集之间配置存储副本复制时, 延迟时间会超出预期的延迟。 延迟的变化比在性能 + 容量配置中使用 NVME 和 SSD 时看到的要高得多, 并且没有 HDD 层和容量层。
 
-This issue occurs due to architectural limitations within Storage Replica's log mechanism combined with the extremely low latency of NVME when compared to slower media. When using the Storage Spaces Direct cache, all I/O of Storage Replica logs, along with all recent read/write IO of applications, will occur in the cache and never on the performance or capacity tiers. This means that all Storage Replica activity happens on the same speed media - this configuration is supported but not recommended (see https://aka.ms/srfaq for log recommendations). 
+发生此问题的原因在于, 与较慢的媒体相比, 存储副本的日志机制内的体系结构限制与 NVME 的延迟非常低。 当使用存储空间直通缓存时, 所有存储副本日志的 i/o 以及所有最近的读取/写入 IO 应用程序将出现在缓存中, 而从不会出现在性能层或容量层上。 这意味着所有存储副本活动都在同一速度介质上发生-支持此配置, 但不建议使用此 https://aka.ms/srfaq 配置 (有关日志建议, 请参阅)。 
 
-When using Storage Spaces Direct with HDDs, you cannot disable or avoid the cache. As a workaround, if using just SSD and NVME, you can configure just performance and capacity tiers. If using that configuration, and by placing the SR logs on the performance tier only with the data volumes they service being on the capacity tier only, you will avoid the high latency issue described above. The same could be done with a mix of faster and slower SSDs and no NVME.
+将存储空间直通与 Hdd 一起使用时, 不能禁用或避免缓存。 一种解决方法是, 如果仅使用 SSD 和 NVME, 则可以仅配置性能层和容量层。 如果使用该配置, 并且只通过将 SR 日志放在性能层上, 只使用其服务在容量层上的数据卷, 则可以避免上述高延迟问题。 同样, 也可以通过混合速度更快、速度更慢的 Ssd, 而不是 NVME。
 
-This workaround is of course not ideal and some customers may not be able to make use of it. The Storage Replica team is working on optimizations and an updated log mechanism for the future to reduce these artificial bottlenecks. This v1.1 log first became available in Windows Server 2019 and its improved performance is described in on the [Server Storage Blog](https://blogs.technet.microsoft.com/filecab/2018/12/13/chelsio-rdma-and-storage-replica-perf-on-windows-server-2019-are-💯/).
+此解决方法当然并不理想, 一些客户可能无法利用它。 存储副本团队正在致力于优化, 并提供更新的日志机制, 以减少这些人为瓶颈。 此 v1.1 日志首先在 Windows Server 2019 中提供, 并在[服务器存储博客](https://blogs.technet.microsoft.com/filecab/2018/12/13/chelsio-rdma-and-storage-replica-perf-on-windows-server-2019-are-💯/)上的中介绍。
 
-## Error "Could not find file" when running Test-SRTopology between two clusters
+## <a name="error-could-not-find-file-when-running-test-srtopology-between-two-clusters"></a>在两个群集之间运行 Test-srtopology 时出现 "找不到文件" 错误
 
-When running Test-SRTopology between two clusters and their CSV paths, it fails with error: 
+在两个群集之间运行 Test-srtopology 并在其 CSV 路径上运行时, 它会失败并出现错误: 
 
     PS C:\Windows\system32> Test-SRTopology -SourceComputerName NedClusterA -SourceVolumeName C:\ClusterStorage\Volume1 -SourceLogVolumeName L: -DestinationComputerName NedClusterB -DestinationVolumeName C:\ClusterStorage\Volume1 -DestinationLogVolumeName L: -DurationInMinutes 1 -ResultPath C:\Temp
 
@@ -410,11 +411,11 @@ When running Test-SRTopology between two clusters and their CSV paths, it fails 
     + CategoryInfo          : ObjectNotFound: (:) [Test-SRTopology], FileNotFoundException
     + FullyQualifiedErrorId : TestSRTopologyFailure,Microsoft.FileServices.SR.Powershell.TestSRTopologyCommand 
 
-This is caused by a known code defect in Windows Server 2016. This issue was first fixed in Windows Server, version 1709 and the associated RSAT tools. For a downlevel resolution, please contact Microsoft Support and request a backport update. There is no workaround.
+这是由 Windows Server 2016 中的已知代码缺陷导致的。 此问题是在 Windows Server 版本1709和关联的 RSAT 工具中首先修复的。 若要进行下层解析, 请联系 Microsoft 支持部门并请求向后移植更新。 此问题没有解决方法。
 
-## Error "specified volume could not be found" when running Test-SRTopology between two clusters
+## <a name="error-specified-volume-could-not-be-found-when-running-test-srtopology-between-two-clusters"></a>在两个群集之间运行 Test-srtopology 时, 出现错误 "找不到指定的卷"
 
-When running Test-SRTopology between two clusters and their CSV paths, it fails with error:
+在两个群集之间运行 Test-srtopology 并在其 CSV 路径上运行时, 它会失败并出现错误:
 
     PS C:\> Test-SRTopology -SourceComputerName RRN44-14-09 -SourceVolumeName C:\ClusterStorage\Volume1 -SourceLogVolumeName L: -DestinationComputerName RRN44-14-13 -DestinationVolumeName C:\ClusterStorage\Volume1 -DestinationLogVolumeName L: -DurationInMinutes 30 -ResultPath c:\report
 
@@ -425,23 +426,23 @@ When running Test-SRTopology between two clusters and their CSV paths, it fails 
         + CategoryInfo          : ObjectNotFound: (:) [Test-SRTopology], Exception
         + FullyQualifiedErrorId : TestSRTopologyFailure,Microsoft.FileServices.SR.Powershell.TestSRTopologyCommand
 
-When specifying the source node CSV as the source volume, you must select the node that owns the CSV. You can either move the CSV to the specified node or change the node name you specified in `-SourceComputerName`. This error received an improved message in Windows Server 2019.
+将源节点 CSV 指定为源卷时, 必须选择拥有 CSV 的节点。 可以将 CSV 移动到指定的节点, 也可以更改在中`-SourceComputerName`指定的节点名称。 此错误在 Windows Server 2019 中收到改进的消息。
 
-## Unable to access the data drive in Storage Replica after unexpected reboot when BitLocker is enabled
+## <a name="unable-to-access-the-data-drive-in-storage-replica-after-unexpected-reboot-when-bitlocker-is-enabled"></a>启用 BitLocker 后, 在意外重新启动后无法访问存储副本中的数据驱动器
 
-If BitLocker is enabled on both drives (Log Drive and Data Drive) and in both Storage replica drives, if the Primary Server reboots then you are unable to access the Primary Drive even after unlocking the Log Drive from BitLocker.
+如果在两个驱动器 (日志驱动器和数据驱动器) 和两个存储副本驱动器中启用了 BitLocker, 则当主服务器重新启动时, 即使在从 BitLocker 中解除日志驱动器的锁定后, 也无法访问主驱动器。
 
-This is an expected behavior. To recover the data or access the drive, you need to unlock the log drive first and then open Diskmgmt.msc to locate the data drive. Turn the data drive offline and online again. Locate the BitLocker icon on the drive and unlock the drive.
+这是预期的行为。 若要恢复数据或访问驱动器, 需要先解锁日志驱动器, 然后打开 Diskmgmt.msc 以查找数据驱动器。 再次将数据驱动器脱机和联机。 找到驱动器上的 BitLocker 图标并解锁驱动器。
 
-## Issue unlocking the Data drive on secondary server after breaking the Storage Replica partnership
+## <a name="issue-unlocking-the-data-drive-on-secondary-server-after-breaking-the-storage-replica-partnership"></a>中断存储副本合作关系后, 对辅助服务器上的数据驱动器进行解锁
 
-After Disabling the SR Partnership and removing the Storage Replica, it is expected if you are unable to unlock the Secondary Server’s Data drive with its respective password or key. 
+禁用 SR 合作关系并删除存储副本后, 如果无法通过其各自的密码或密钥解锁辅助服务器的数据驱动器, 则会出现这种情况。 
 
-You need to use Key or Password of Primary Server’s Data drive to unlock the Secondary Server’s data drive.
+需要使用主服务器的数据驱动器的密钥或密码来解锁辅助服务器的数据驱动器。
 
-## Test Failover doesn't mount when using asynchronous replication
+## <a name="test-failover-doesnt-mount-when-using-asynchronous-replication"></a>使用异步复制时测试故障转移不会装载
 
-When running Mount-SRDestination to bring a destination volume online as part of the Test Failover feature, it fails with error:
+当运行 SRDestination 以使目标卷在测试故障转移功能中联机时, 它会失败, 并出现以下错误:
 
     Mount-SRDestination: Unable to mount SR group <TEST>, detailed reason: The group or resource is not in the correct state to perform the supported operation.
     At line:1 char:1
@@ -450,15 +451,15 @@ When running Mount-SRDestination to bring a destination volume online as part of
         + CategoryInfo          : NotSpecified: (MSFT WvrAdminTasks : root/Microsoft/...(MSFT WvrAdminTasks : root/Microsoft/. T_WvrAdminTasks) (Mount-SRDestination], CimException
         + FullyQua1ifiedErrorId : Windows System Error 5823, Mount-SRDestination.  
 
-If using a synchronous partnership type, test failover works normally.
+如果使用同步合作关系类型, 则测试故障转移会正常运行。
 
-This is caused by a known code defect in Windows Server, version 1709. To resolve this issue, install the [October 18, 2018 update](https://support.microsoft.com/help/4462932/windows-10-update-kb4462932). This issue isn't present in Windows Server 2019 and Windows Server, version 1809 and newer.
+这是由 Windows Server 版本1709中的已知代码缺陷导致的。 若要解决此问题, 请安装[10 月18日2018更新](https://support.microsoft.com/help/4462932/windows-10-update-kb4462932)。 Windows Server 2019 和 Windows Server 1809 和更高版本中不存在此问题。
 
-## See also
+## <a name="see-also"></a>请参阅
 
-- [Storage Replica](storage-replica-overview.md)  
-- [Stretch Cluster Replication Using Shared Storage](stretch-cluster-replication-using-shared-storage.md)  
-- [Server to Server Storage Replication](server-to-server-storage-replication.md)  
-- [Cluster to Cluster Storage Replication](cluster-to-cluster-storage-replication.md)  
-- [Storage Replica: Frequently Asked Questions](storage-replica-frequently-asked-questions.md)  
-- [Storage Spaces Direct](../storage-spaces/storage-spaces-direct-overview.md)  
+- [存储副本](storage-replica-overview.md)  
+- [使用共享存储拉伸群集复制](stretch-cluster-replication-using-shared-storage.md)  
+- [服务器到服务器存储复制](server-to-server-storage-replication.md)  
+- [群集到群集存储复制](cluster-to-cluster-storage-replication.md)  
+- [存储副本：常见问题解答](storage-replica-frequently-asked-questions.md)  
+- [存储空间直通](../storage-spaces/storage-spaces-direct-overview.md)  
