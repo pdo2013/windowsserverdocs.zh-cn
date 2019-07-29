@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 06/20/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: d00051f59eb39c6a7c668d00034f72879b0b097f
-ms.sourcegitcommit: 078304c4b92bb57eb85ba29634afc92cc028c644
+ms.openlocfilehash: 0612f4ff102d6b5d1fd24372ac20a98c3ec02edb
+ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67298143"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476567"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -129,6 +129,7 @@ ms.locfileid: "67298143"
 
 了解我们发布的最新功能：
 
+- 版本 [1907](https://aka.ms/wac1907) - 添加了 Azure 成本估算链接，并改进了虚拟机的导入/导出和标记功能。
 - 版本 [1906](https://aka.ms/wac1906) - 添加了导入/导出 VM、切换 Azure 帐户、从 Azure 添加连接、连接设置试验、性能改进和性能分析工具。
 - 版本 1904.1 是最新正式版 - 用于提高网关插件稳定性的维护更新。
 - 版本 [1904](https://aka.ms/wac1904) 是引入了 Azure 混合服务工具的正式版，它将以前在预览版中提供的功能添加到了正式版频道。

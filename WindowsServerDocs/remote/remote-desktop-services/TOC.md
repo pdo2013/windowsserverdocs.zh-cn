@@ -66,13 +66,21 @@
 
 ## [其他远程桌面支持](rds-get-support.md)
 ## [远程桌面客户端](clients/remote-desktop-clients.md)
+### 远程桌面已知问题
+#### [常见远程桌面连接故障排除](troubleshoot/rdp-error-general-troubleshooting.md)
+#### [客户端无法连接，收到“没有注册类”错误](troubleshoot/rdp-error-class-not-registered.md)。
+#### [客户端无法连接，出现“没有可用的许可证”错误](troubleshoot/rdp-error-no-licenses-available.md)
+#### [用户无法完成身份验证或必须完成身份验证两次](troubleshoot/cannot-authenticate-or-must-authenticate-twice.md)
+#### [连接时收到“远程桌面服务当前繁忙”错误](troubleshoot/remote-desktop-service-currently-busy.md)
+#### [远程桌面客户端断开连接且无法重新连接到同一会话](troubleshoot/rdp-client-disconnects-cannot-reconnect-same-session.md)
+#### [远程笔记本电脑从无线网络断开连接](troubleshoot/remote-laptop-disconnects-wireless-network.md)
+#### [远程桌面连接期间出现性能低下或应用程序问题](troubleshoot/poor-performance-or-application-problems.md)
 ### 常规信息
 #### [哪个客户端最适合你？](clients/remote-desktop-app-compare.md)
 #### [远程桌面 RDP 文件设置](clients/rdp-files.md)
 #### [远程桌面 URI 方案](clients/remote-desktop-uri.md)
 #### [远程桌面客户端常见问题](clients/remote-desktop-client-faq.md)
 #### [托管应用和桌面的隐私设置](clients/remote-privacy-settings.md)
-#### [排查远程桌面连接问题](clients/troubleshoot-remote-desktop-connections.md)
 ### 适用于 Windows 的远程桌面客户端
 #### [开始行动](clients/windows.md)
 #### [Windows 客户端中有哪些新增功能？](clients/windows-whatsnew.md)
