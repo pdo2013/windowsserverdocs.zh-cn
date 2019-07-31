@@ -7,6 +7,7 @@
 ## [系统要求](sys-reqs-19.md)
 ## [Windows Server 2019 激活](activation-19.md)
 ## [Windows Server 2019 VM 激活](vm-activation-19.md)
+## [排查激活错误代码问题](../get-started/activation-error-codes.md)
 ## [Windows Server 2019 和 Microsoft 服务器应用程序兼容性](app-compat-19.md)
 ## [服务器核心应用兼容性按需功能 (FOD)](install-fod-19.md)
 ## [标准 | Datacenter Edition 比较](editions-comparison-19.md)
