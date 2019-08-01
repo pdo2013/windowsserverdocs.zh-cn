@@ -1,6 +1,6 @@
 ---
-title: 在 AD 性能优化的硬件注意事项
-description: 在 AD 性能优化的硬件注意事项
+title: AD 性能优化中的硬件注意事项
+description: AD 性能优化中的硬件注意事项
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
@@ -8,72 +8,72 @@ ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
 ms.openlocfilehash: 0f1aa1e3c07c5cb9238a332156abfec248e74176
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866088"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "63721165"
 ---
-# <a name="hardware-considerations-in-adds-performance-tuning"></a>中 ADDS 性能优化的硬件注意事项 
+# <a name="hardware-considerations-in-adds-performance-tuning"></a>中的硬件注意事项添加性能优化 
 
 >[!Important]
-> 以下是需要优化服务器硬件的详细介绍的更高版本中的 Active Directory 工作负荷的关键的建议和注意事项的摘要[Active Directory 域服务的容量规划](https://go.microsoft.com/fwlink/?LinkId=324566)一文。 读者都高度建议，若要查看[Active Directory 域服务的容量规划](https://go.microsoft.com/fwlink/?LinkId=324566)的更高版本的技术知识和这些建议的影响。
+> 下面概述了优化 Active Directory 工作负荷的服务器硬件的关键建议和注意事项, 详细介绍了 Active Directory 域服务文章的[容量规划](https://go.microsoft.com/fwlink/?LinkId=324566)。 为了更好地理解和影响这些建议, 强烈建议读者查看[Active Directory 域服务的容量规划](https://go.microsoft.com/fwlink/?LinkId=324566)。
 
-## <a name="avoid-going-to-disk"></a>避免从磁盘
+## <a name="avoid-going-to-disk"></a>避免转到磁盘
 
-因为内存允许，active Directory 将尽可能多的数据库的缓存。 从内存提取页面数量级比要快转到物理介质的介质主轴还是基于 SSD。 添加更多内存来最大程度减少磁盘 I/O。
+Active Directory 将数据库缓存为内存允许的数量。 从内存中获取页面比进入物理介质更快, 无论介质是主轴还是 SSD。 添加更多内存以最大程度减少磁盘 i/o。
 
--   Active Directory 最佳做法建议将足够的 RAM 来加载到内存中，整个 DIT 加上容纳的操作系统和其他已安装的应用程序，如防病毒、 备份软件进行监视，等等。
+-   Active Directory 最佳实践, 建议将足够的 RAM 加载到内存中, 并容纳操作系统和其他已安装的应用程序, 如防病毒、备份软件、监视等。
 
-    -   有关旧的平台限制，请参阅[Lsass.exe 进程的运行 Windows Server 2003 或 Windows 2000 Server 域控制器上的内存使用率](https://support.microsoft.com/kb/308356)。
+    -   有关旧平台的限制, 请参阅[运行 Windows Server 2003 或 windows 2000 服务器的域控制器上的 lsass.exe 进程的内存使用情况](https://support.microsoft.com/kb/308356)。
 
-    -   使用内存\\长期平均待机缓存生存期 (s) &gt; 30 分钟的性能计数器。
+    -   使用 "内存\\长期平均备用缓存生存期 (秒) &gt; " 性能计数器。
 
--   将操作系统、 日志和数据库放在单独的卷。 如果所有或大多数 DIT 可以缓存，缓存上做好准备，并在稳定状态下，这才会变为不太相关，并提供了一些更灵活地存储数据布局后。 在不能在其中缓存整个 DIT 的情况下，拆分操作系统、 日志和单独的卷上的数据库的重要性变得更重要。
+-   将操作系统、日志和数据库放在不同的卷上。 如果缓存的全部或大部分都可以缓存, 一旦缓存准备好并处于稳定状态, 这就会变得不太相关, 并为存储布局提供更大的灵活性。 在无法缓存整个 DIT 的情况下, 将操作系统、日志和数据库拆分为不同卷的重要性变得更加重要。
 
--   通常情况下，到 DIT I/O 比为大约 90%读取和写入 10%。 写入的 I/O 卷会大大超过 10%-20%的情况下被视为具有大量写入操作。 写入密集型方案不会从 Active Directory 缓存大大获益。 若要保证写入目录数据的事务的持续性，Active Directory 不执行磁盘写入缓存。 相反，它提交到磁盘的所有写入操作之前，将返回成功完成状态的操作，除非显式请求无法执行此操作。 因此，较快的磁盘 I/O 对向 Active Directory 写入操作的性能至关重要。 下面是可能会提高性能，对于这些方案的硬件建议：
+-   通常, 对 DIT 的 i/o 比率大约为 90%, 写入 10%。 写入 i/o 卷明显超过 10%-20% 的情况被视为写高。 编写繁重的方案并不大大地受益于 Active Directory 缓存。 为了保证写入目录的数据的事务性持久性, Active Directory 不会执行磁盘写入缓存。 相反, 它会在返回操作的成功完成状态之前将所有写入操作提交到磁盘, 除非显式请求不执行此操作。 因此, 快速磁盘 i/o 对于写入操作的性能 Active Directory 很重要。 下面是可能会提高这些方案性能的硬件建议:
 
     -   硬件 RAID 控制器
 
-    -   增加低延迟高 RPM 磁盘托管 DIT 和日志文件的数
+    -   增加托管 DIT 和日志文件的低延迟/高 RPM 磁盘数
 
-    -   写入在控制器上缓存
+    -   在控制器上写入缓存
 
--   查看单独为每个卷的磁盘子系统性能。 大多数 Active Directory 方案都是主要基于读取的因此托管 DIT 的卷上的统计信息是最重要检查。 但是，不要忽视监视的驱动器，包括操作系统，其余部分和日志文件驱动器。 若要确定域控制器是否正确配置以避免存储区的性能瓶颈，引用在存储子系统上的标准存储建议的部分。 在许多环境中，基本原理是确保有足够的净空间以容纳激增或负载高峰。 这些阈值警告的阈值其中头足够的空间来容纳激增或负载高峰变得约束和客户端响应能力会降低。 简单地说，超过这些阈值不是错误在短期内 （5 到 15 分钟一天几次），但是运行持续使用这些种类的统计信息的系统完全没有缓存数据库，并且可能取决于需要交税，应进行调查。
+-   分别检查每个卷的磁盘子系统性能。 大多数 Active Directory 方案主要是基于读取的, 因此, 承载 DIT 的卷上的统计信息最重要。 但是, 不要忽略监视驱动器的其余部分, 包括操作系统和日志文件驱动器。 若要确定域控制器是否正确配置为避免存储成为性能瓶颈, 请参考存储子系统上有关标准存储建议的部分。 在许多环境中, 这一理念旨在确保有足够的空间来适应电涌或负载高峰。 这些阈值为警告阈值, 其中, 用于适应负载突然或峰值的房间会受到限制, 客户端响应会降低。 简而言之, 超过这些阈值在短期内 (5 到15分钟, 一天的时间) 不正确, 但使用这些统计信息运行持续时间的系统不会完全缓存数据库, 因此可能会因负载过多而被调查。
 
-    -   Database ==&gt; Instances(lsass/NTDSA)\\I/O Database Reads Averaged Latency &lt; 15ms
+    -   Database = =&gt;实例 (lsass/NTDSA)\\i/o 数据库读取平均延迟&lt; 15ms
 
-    -   Database ==&gt; Instances(lsass/NTDSA)\\I/O Database Reads/sec &lt; 10
+    -   Database = =&gt;实例 (lsass/NTDSA)\\i/o 数据库读取次数/秒&lt; 10
 
-    -   Database ==&gt; Instances(lsass/NTDSA)\\I/O Log Writes Averaged Latency &lt; 10ms
+    -   Database = =&gt;实例 (lsass/NTDSA)\\i/o 日志写入平均延迟&lt; 10ms
 
-    -   Database ==&gt; Instances(lsass/NTDSA)\\I/O Log Writes/sec – informational only.
+    -   Database = =&gt;实例 (lsass/NTDSA)\\i/o 日志写入/秒–仅提供信息。
 
-        若要维护数据的一致性，所有更改必须都写入日志。 不好或错误编号，它是仅支持多少存储的度量值。
+        为了保持数据的一致性, 必须将所有更改写入日志。 这里没有正确或不正确的数字, 只是度量存储支持的量。
 
--   计划非 core 磁盘 I/O 负载，例如备份和防病毒扫描、 非峰值负载时间。 此外，使用备份和防病毒解决方案，支持在 Windows Server 2008，以减少 Active Directory 的 I/O 需求，竞赛中引入的低优先级 I/O 功能。
+-   在非高峰负载期间规划非核心磁盘 i/o 负载, 如备份和防病毒扫描。 此外, 请使用支持 Windows Server 2008 中引入的低优先级 i/o 功能的备份和防病毒解决方案, 以减少对 Active Directory 的 i/o 需求的竞争。
 
-## <a name="dont-over-tax-the-processors"></a>不超过税务处理器
+## <a name="dont-over-tax-the-processors"></a>不要对处理器进行税费
 
-没有足够的可用周期的处理器可能会导致到处理器的线程获得执行长时间的等待。 在许多环境中，基本原理是确保有足够的净空间以容纳激增或峰值负载，在这些情况下的客户端响应式设置的影响降至最低。 简单地说，超出低于阈值不是错误在短期内 （5 到 15 分钟一天几次），但是运行持续使用这些种类的统计信息的系统不提供任何头足够的空间来容纳异常装载和可以轻松地放入一个负载过重的 s方案。 系统支出持续的期阈值应调查以及减少处理器负载的方式。
+如果处理器没有足够的可用循环, 则可能会导致长时间等待, 使线程进入处理器执行。 在许多环境中, 这一理念旨在确保有足够的空间可适应电涌或负载峰值, 从而最大程度地减少对客户端响应的影响。 简而言之, 超过以下阈值在短期内 (5 到15分钟, 一天的时间) 不正确, 但使用这些统计信息运行持续的系统不会提供任何头空间来容纳异常负载, 并可以轻松地将其放入cenario. 应调查比阈值更高的时间段的系统开销, 以减少处理器负载。
 
--   有关如何选择一个处理器的详细信息，请参阅[性能优化服务器硬件](../../hardware/index.md)。
+-   有关如何选择处理器的详细信息, 请参阅[服务器硬件性能优化](../../hardware/index.md)。
 
--   硬件、 优化的负载，将在其他位置，客户端定向中添加或删除负载环境以降低 CPU 负载。
+-   添加硬件、优化负载、将客户端定向到其他位置, 或从环境中删除负载以减少 CPU 负载。
 
--   使用的处理器信息 (\_总)\\%的处理器利用率&lt;60%性能计数器。
+-   使用 "处理器信息 (\_总计)\\% processor 使用率&lt; 60%" 性能计数器。
 
-## <a name="avoid-overloading-the-network-adapter"></a>避免重载的网络适配器
+## <a name="avoid-overloading-the-network-adapter"></a>避免将网络适配器重载
 
-就像个处理器，过多的网络适配器使用率都将导致长时间的等待获取到网络上的出站流量。 Active Directory 往往具有较小的入站的请求和相对到明显更大量的数据返回到客户端系统。 发送的数据远远超过了接收到的数据。 在许多环境中，基本原理是确保有足够的净空间以容纳激增或负载高峰。 此阈值是约束将成为其中头足够的空间来容纳激增或负载高峰的警告阈值和客户端响应能力会降低。 简单地说，超过这些阈值不是错误在短期内 （5 到 15 分钟一天几次），但是运行持续使用这些种类的统计信息的系统是通过需要交税，应进行调查。
+与处理处理器一样, 过多的网络适配器使用率会导致出站流量进入网络的长时间等待。 Active Directory 通常具有较小的入站请求和返回到客户端系统的数据量。 发送的数据远远超过了收到的数据。 在许多环境中, 这一理念旨在确保有足够的空间来适应电涌或负载高峰。 此阈值为警告阈值, 其中, 用于适应负载突然或峰值的房间会受到限制, 客户端响应会降低。 简而言之, 超过这些阈值在短期内 (5 到15分钟, 一天的时间) 不正确, 但使用这些统计信息运行持续时间的系统就会超出高峰期, 应进行调查。
 
--   有关如何优化网络子系统的详细信息，请参阅[网络子系统性能调整](../../../../networking/technologies/network-subsystem/net-sub-performance-top.md)。
+-   有关如何优化网络子系统的详细信息, 请参阅对[网络子系统的性能优化](../../../../networking/technologies/network-subsystem/net-sub-performance-top.md)。
 
--   使用比较网络接口 (\*)\\与网络接口的 Bytes Sent/Sec (\*)\\当前带宽性能计数器。 比率应利用率小于 60%。
+-   使用 "比较 NetworkInterface (\*)\\Bytes Sent/Sec with NetworkInterface (\*)\\Current 带宽" 性能计数器。 该比率应小于使用的 60%。
 
 ## <a name="see-also"></a>请参阅
 - [性能优化 Active Directory 服务器](index.md)
 - [LDAP 注意事项](ldap-considerations.md)
-- [正确放置域控制器和站点的注意事项](site-definition-considerations.md)
-- [ADDS 性能故障排除](troubleshoot.md) 
-- [Active Directory 域服务的容量规划](https://go.microsoft.com/fwlink/?LinkId=324566)
+- [域控制器的正确放置和站点注意事项](site-definition-considerations.md)
+- [ADDS 性能疑难解答](troubleshoot.md) 
+- [Active Directory 域服务的容量计划](https://go.microsoft.com/fwlink/?LinkId=324566)

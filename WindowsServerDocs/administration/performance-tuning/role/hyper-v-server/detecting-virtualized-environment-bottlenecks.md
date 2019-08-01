@@ -1,6 +1,6 @@
 ---
-title: 虚拟化环境中检测瓶颈
-description: 了解如何检测和解决潜在的 hyper-v 的性能瓶颈
+title: 检测虚拟化环境中的瓶颈
+description: 如何检测和解决潜在的 Hyper-v 性能瓶颈
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
@@ -8,142 +8,142 @@ ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
 ms.openlocfilehash: cdad5f0cc3b0e49ae46e975e3acc2c48a18e5f70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867528"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "63722884"
 ---
-# <a name="detecting-bottlenecks-in-a-virtualized-environment"></a>虚拟化环境中检测瓶颈
+# <a name="detecting-bottlenecks-in-a-virtualized-environment"></a>检测虚拟化环境中的瓶颈
 
-本部分将帮助您要使用性能监视器监视的内容以及如何识别其中问题可能是因为您将希望在主机或虚拟机的一些未执行的一些提示。
+本部分应为您介绍如何使用性能监视器监视的有关内容的提示, 以及如何确定当主机或某些虚拟机未按预期执行时问题可能出现的位置。
 
 ## <a name="processor-bottlenecks"></a>处理器瓶颈
 
-下面是一些可能会导致处理器瓶颈的常见方案：
+下面是可能导致处理器瓶颈的一些常见情况:
 
 -   加载一个或多个逻辑处理器
 
--   加载一个或多个虚拟处理器
+-   已加载一个或多个虚拟处理器
 
-可以使用从主机的以下性能计数器：
+可以从主机使用以下性能计数器:
 
--   逻辑处理器使用率-\\逻辑处理器的 HYPER-V 虚拟机监控程序 (\*)\\%总运行时间
+-   逻辑处理器利用率- \\hyper-v 虚拟机监控程序逻辑处理器 (\*)\\% 总运行时间
 
--   虚拟处理器使用率-\\的 HYPER-V 虚拟机监控程序虚拟处理器 (\*)\\%总运行时间
+-   虚拟处理器利用率- \\hyper-v 虚拟机监控程序虚拟处理器 (\*)\\% 总运行时间
 
--   根虚拟处理器使用率-\\的 HYPER-V 虚拟机监控程序根虚拟处理器 (\*)\\%总运行时间
+-   根虚拟处理器使用率- \\hyper-v 虚拟机监控程序根虚拟处理器 (\*)\\% 总运行时间
 
-如果**HYPER-V 虚拟机监控程序逻辑处理器 (\_总)\\%总运行时**计数器超过 90%，重载主机。 应添加更多处理能力或将一些虚拟机移动到另一台主机。
+如果**hyper-v\_虚拟机监控程序逻辑处理器 (总计)\\% total Runtime** counter 超过 90%, 则会重载该主机。 应添加更多的处理能力, 或者将一些虚拟机移到其他主机上。
 
-如果**HYPER-V 虚拟机监控程序虚拟 Processor(VM Name:VP x)\\%总运行时**计数器超过 90%的所有虚拟处理器，则应执行以下操作：
+如果**hyper-v 虚拟机监控程序虚拟处理器 (VM 名称: VP x)\\% Total Runtime** counter 超过 90%, 则应该执行以下操作:
 
--   验证主机未重载
+-   验证主机是否未超载
 
--   查找工作负荷可以利用多个虚拟处理器
+-   了解工作负荷能否利用更多虚拟处理器
 
--   将多个虚拟处理器分配给虚拟机
+-   向虚拟机分配更多的虚拟处理器
 
-如果**HYPER-V 虚拟机监控程序虚拟 Processor(VM Name:VP x)\\%总运行时**计数器超过 90%的一些，但不是全部的虚拟处理器，则应执行以下操作：
+如果**hyper-v 虚拟机监控程序虚拟处理器 (VM 名称: VP x)\\% Total Runtime** counter 超过 90%, 则必须执行以下操作:
 
--   如果你的工作负荷是收到网络密集型，应考虑使用 vRSS。
+-   如果你的工作负荷接收到网络密集型, 你应考虑使用 vRSS。
 
--   如果虚拟机未运行 Windows Server 2012 R2，则应添加更多的网络适配器。
+-   如果虚拟机未运行 Windows Server 2012 R2, 你应添加更多网络适配器。
 
--   如果你的工作负荷是存储密集型，应启用虚拟 NUMA 并添加更多的虚拟磁盘。
+-   如果你的工作负荷占用大量存储空间, 则应启用虚拟 NUMA 并添加更多虚拟磁盘。
 
-如果**HYPER-V 虚拟机监控程序根虚拟处理器 (根副总裁 x)\\%总运行时**计数器已超过 90%的部分，而不是所有虚拟处理器和**处理器 (x)\\%Interrupt Time 和处理器 (x)\\%DPC Time**计数器大约相加的值**根虚拟 Processor(Root VP x)\\%总运行时**计数器，应确保上启用 VMQ网络适配器。
+对于某些 (但不是全部) 虚拟处理器和处理器 **\\** **\\\\(x)% DPC time, 如果 hyper-v 虚拟机监控程序根虚拟处理器 (根 VP x)% Total Runtime counter 超过 90%, 则为%** 计数器大约增加了**根虚拟处理器 (根 VP x)\\% Total Runtime**计数器的值, 应确保在网络适配器上启用 VMQ。
 
 ## <a name="memory-bottlenecks"></a>内存瓶颈
 
-下面是一些可能导致内存瓶颈的常见方案：
+下面是可能导致内存瓶颈的一些常见情况:
 
--   主机没有响应。
+-   主机未响应。
 
 -   无法启动虚拟机。
 
--   虚拟机运行内存不足。
+-   虚拟机内存不足。
 
-可以使用从主机的以下性能计数器：
+可以从主机使用以下性能计数器:
 
--   内存\\可用兆字节数
+-   可用\\内存 (mb)
 
--   HYPER-V 动态内存的均衡器 (\*)\\可用内存
+-   Hyper-v 动态内存均衡器 (\*)\\可用内存
 
-可以使用从虚拟机的以下性能计数器：
+你可以使用虚拟机中的以下性能计数器:
 
--   内存\\可用兆字节数
+-   可用\\内存 (mb)
 
-如果**内存\\Available Mbytes**并**HYPER-V Dynamic Memory Balancer (\*)\\可用内存**计数器较低的主机上，应停止非基本服务，并将一个或多个虚拟机迁移到另一台主机。
+如果主机**上\\** 的可用内存计数器和**hyper-v 动态内存均衡器\*(\\) 可用内存**计数器不足, 应停止非必要服务并迁移一个或多个虚拟虚拟机。
 
-如果**内存\\Available Mbytes**计数器较低的虚拟机中，应将更多的内存分配给虚拟机。 如果使用动态内存，则应增加最大内存设置。
+如果虚拟机中的**内存\\可用兆字节**计数器不足, 则应为虚拟机分配更多内存。 如果使用动态内存, 则应增加 "最大内存" 设置。
 
 ## <a name="network-bottlenecks"></a>网络瓶颈
 
-下面是一些可能导致网络瓶颈的常见方案：
+下面是可能导致网络瓶颈的一些常见情况:
 
--   主机是网络绑定。
+-   主机是网络绑定的。
 
--   虚拟机是网络绑定。
+-   虚拟机为 "网络绑定"。
 
-可以使用从主机的以下性能计数器：
+可以从主机使用以下性能计数器:
 
 -   网络接口 (*网络适配器名称*)\\字节数/秒
 
-可以使用从虚拟机的以下性能计数器：
+你可以使用虚拟机中的以下性能计数器:
 
--   HYPER-V 虚拟网络适配器 (*虚拟机名称名称&lt;GUID&gt;*)\\字节数/秒
+-   Hyper-v 虚拟网络适配器 (*虚拟机名称&lt;名称 GUID&gt;* )\\字节数/秒
 
-如果**物理 NIC 字节数/秒**计数器是大于或等于容量的 90%时，应添加其他网络适配器、 虚拟机迁移到另一台主机和配置网络 QoS。
+如果**物理 NIC Bytes/sec**计数器大于或等于容量的 90%, 则应添加更多的网络适配器, 将虚拟机迁移到另一台主机, 并配置网络 QoS。
 
-如果**HYPER-V 虚拟网络适配器字节数/秒**计数器是大于或等于 250 MBps，你应添加虚拟机中的其他成组的网络适配器启用 vRSS，并使用 SR-IOV。
+如果**Hyper-v 虚拟网络适配器 Bytes/sec**计数器大于或等于 250 MBps, 则应在虚拟机中添加其他组合网络适配器, 启用 vRSS, 并使用 sr-iov。
 
-如果您的工作负载不能满足其网络延迟，启用 SR-IOV 呈现到虚拟机的物理网络适配器资源。
+如果你的工作负荷无法满足其网络延迟, 请启用 SR-IOV 来向虚拟机提供物理网络适配器资源。
 
 ## <a name="storage-bottlenecks"></a>存储瓶颈
 
-下面是一些可能导致存储瓶颈的常见方案：
+下面是可能导致存储瓶颈的一些常见情况:
 
--   操作主机和虚拟机速度缓慢或超时。
+-   主机和虚拟机操作缓慢或超时。
 
--   虚拟机是缓慢。
+-   虚拟机速度缓慢。
 
-可以使用从主机的以下性能计数器：
+可以从主机使用以下性能计数器:
 
--   物理磁盘 (*磁盘号*)\\avg.disk sec/Read
+-   物理磁盘 (*磁盘号*)\\Avg. disk sec/Read
 
--   物理磁盘 (*磁盘号*)\\avg.disk sec/Write
+-   物理磁盘 (*磁盘号*)\\Avg. disk sec/Write
 
 -   物理磁盘 (*磁盘号*)\\平均磁盘读取队列长度
 
 -   物理磁盘 (*磁盘号*)\\平均磁盘写入队列长度
 
-如果始终大于 50 毫秒的延迟，应执行以下操作：
+如果延迟持续大于 50ms, 应执行以下操作:
 
--   虚拟机分散到其他存储
+-   跨附加存储传播虚拟机
 
--   请考虑购买更快的存储
+-   考虑购买更快的存储
 
--   请考虑分层存储空间，Windows Server 2012 R2 中引入
+-   考虑在 Windows Server 2012 R2 中引入的分层存储空间
 
--   请考虑使用存储 QoS，在 Windows Server 2012 R2 中引入
+-   请考虑使用 Windows Server 2012 R2 中引入的存储 QoS
 
 -   使用 VHDX
 
 ## <a name="see-also"></a>请参阅
 
--   [HYPER-V 术语](terminology.md)
+-   [Hyper-V 术语](terminology.md)
 
--   [HYPER-V 体系结构](architecture.md)
+-   [Hyper-V 体系结构](architecture.md)
 
--   [HYPER-V 服务器配置](configuration.md)
+-   [Hyper-V 服务器配置](configuration.md)
 
--   [HYPER-V 处理器性能](processor-performance.md)
+-   [Hyper-V 处理器性能](processor-performance.md)
 
--   [HYPER-V 内存性能](memory-performance.md)
+-   [Hyper-V 内存性能](memory-performance.md)
 
--   [HYPER-V 存储 I/O 性能](storage-io-performance.md)
+-   [Hyper-V 存储 I/O 性能](storage-io-performance.md)
 
--   [HYPER-V 网络 I/O 性能](network-io-performance.md)
+-   [Hyper-V 网络 I/O 性能](network-io-performance.md)
 
 -   [Linux 虚拟机](linux-virtual-machine-considerations.md)
