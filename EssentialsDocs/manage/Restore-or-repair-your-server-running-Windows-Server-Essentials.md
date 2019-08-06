@@ -1,6 +1,6 @@
 ---
 title: 还原或修复运行 Windows Server Essentials 的服务器
-description: 介绍如何使用 Windows Server Essentials
+description: 描述如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,26 +12,26 @@ ms.assetid: 27bf6f24-30c4-4935-9b24-069eb43e22f4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 5618eb95fb8afcff2057575191699da05612a542
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bb3cc834e0ab6641c14f5e9fbb6afe5c9f187c7c
+ms.sourcegitcommit: e40fce7b8b4bc0bef278e676435306f14078cf00
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433063"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68787175"
 ---
 # <a name="restore-or-repair-your-server-running-windows-server-essentials"></a>还原或修复运行 Windows Server Essentials 的服务器
 
->适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
+>适用于：Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
  
- 本主题提供的概述和有关还原或修复运行 Windows Server Essentials 的服务器支持过程，并包括以下各节：  
+ 本主题提供了有关还原或修复运行 Windows Server Essentials 的服务器的概述和支持步骤, 并包括以下部分:  
   
 -   [服务器系统还原概述](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Overview)  
   
 -   [还原或修复系统驱动器](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore)  
   
--   [还原文件和服务器上的文件夹](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders)  
+-   [还原服务器上的文件和文件夹](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders)  
   
-##  <a name="BKMK_Overview"></a> 服务器系统还原概述  
+##  <a name="BKMK_Overview"></a>服务器系统还原概述  
  服务器在执行还原时的状态将影响可用的还原方法，以及可执行还原的全面性。  
   
  还原服务器的最常见原因如下：  
@@ -46,14 +46,14 @@ ms.locfileid: "66433063"
   
   既可以从备份中还原服务器，也可以将服务器还原到出厂默认设置。  
   
-- [从备份中还原服务器](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFromBackup)  
+- [从备份还原服务器](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFromBackup)  
   
 - [将服务器重置为出厂默认设置](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_FactoryReset)  
   
-###  <a name="BKMK_RestoreFromBackup"></a> 从备份中还原服务器  
+###  <a name="BKMK_RestoreFromBackup"></a>从备份还原服务器  
  本部分提供了有关选择备份类型的指南。  
   
- 如果有可用的备份，还原服务器的最佳选择是使用制造商的安装媒体从外部备份中还原。 还原操作会通过你选择的备份还原服务器设置和文件夹。 只需配置设置并还原在备份之后创建的数据。  
+ 如果有可用的备份, 则还原服务器的最佳选择是使用制造商的安装媒体从外部备份中进行还原。 还原操作会通过你选择的备份还原服务器设置和文件夹。 只需配置设置并还原在备份之后创建的数据。  
   
  当你选择通过从以前的备份还原服务器时，必须选择要还原的特定备份，并且在直接连接到服务器的外部硬盘驱动器上必须存在有效的备份文件：  
   
@@ -73,7 +73,7 @@ ms.locfileid: "66433063"
   
 - **如果服务器具有多个硬盘驱动器，并且驱动器 0（包含系统卷）已进行替换**，则系统卷将被还原，然后你必须手动还原以前存储在驱动器 0 上的所有共享文件夹。  
   
-###  <a name="BKMK_FactoryReset"></a> 将服务器重置为出厂默认设置  
+###  <a name="BKMK_FactoryReset"></a>将服务器重置为出厂默认设置  
  如果没有可进行还原的备份，或出于某些其他原因你希望或需要执行完整的系统还原，而无需还原以前的服务器配置，则可以执行以下还原：通过使用服务器硬件制造商提供的安装或恢复媒体将服务器重置为出厂默认设置。  
   
  通过重置为出厂默认设置还原服务器时，服务器上的所有现有设置和安装的应用程序都将被删除，并且你必须再次配置服务器。 在执行出厂重置后，服务器将重新启动。  
@@ -83,7 +83,7 @@ ms.locfileid: "66433063"
 -   如果选择保留所有数据，则系统卷上的所有数据都将被删除，但其他卷上的数据将会保留。  
   
     > [!CAUTION]
-    >  如果磁盘设置不匹配默认设置，则将删除磁盘上的所有数据。 如果替换了系统磁盘，新的磁盘必须大于原始磁盘的系统卷。  
+    >  如果磁盘设置不匹配默认设置，则将删除磁盘上的所有数据。 如果替换了系统磁盘, 则新磁盘必须大于原始磁盘的系统卷。  
     >   
     >  如果系统驱动器的分区信息不可读，或如果要替换系统驱动器，则即使选择保留所有数据，也将删除系统驱动器上的所有数据。  
   
@@ -94,11 +94,11 @@ ms.locfileid: "66433063"
   
  在执行出厂重置后，将需要执行以下任务：  
   
--   **重新配置服务器。** 在服务器上，使用“配置服务器”向导重新输入配置设置。 若要配置的客户端计算机的远程管理的 Windows Server Essentials 服务器，打开 web 浏览器，然后键入 **http://***<YourServerName\>* 在地址栏中。  
+-   **重新配置服务器。** 在服务器上，使用“配置服务器”向导重新输入配置设置。 若要从客户端计算机配置远程管理的 Windows Server Essentials 服务器, 请打开 web 浏览器, 然后在地址栏中键入 " **http://** _< 服务器名称\>_  "。  
   
--   **将客户端计算机重新连接到服务器。** 如果计算机以前连接到服务器，则必须从计算机卸载 Windows Server Essentials 连接器软件之前再次将计算机连接到服务器。 有关详细信息，请参阅 [Uninstall the Connector software](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13) 和 [Connect computers to the server](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_9)。  
+-   **将客户端计算机重新连接到服务器。** 如果计算机以前连接过服务器, 则必须先从计算机中卸载 Windows Server Essentials 连接器软件, 然后才能将计算机再次连接到服务器。 有关详细信息，请参阅 [Uninstall the Connector software](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13) 和 [Connect computers to the server](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_9)。  
   
-##  <a name="BKMK_Restore"></a> 还原或修复系统驱动器  
+##  <a name="BKMK_Restore"></a>还原或修复系统驱动器  
  还原服务器的第一步是还原或修复服务器系统驱动器。 在还原系统驱动器后，你将需要执行还原服务器上的数据驱动器所需的所有操作并还原在还原过程中丢失的所有共享。  
   
  提供了以下三种执行还原的方法：  
@@ -107,17 +107,17 @@ ms.locfileid: "66433063"
   
 -   **使用安装媒体将服务器还原到默认出厂设置**。 若要了解如何在服务器上执行此操作，请参阅服务器制造商提供的文档。  
   
--   [使用恢复 DVD 从客户端计算机上还原或重置服务器](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2)。 如果需要还原运行 Windows Server Essentials 的远程管理的服务器，必须使用服务器制造商提供的还原 DVD 从客户端计算机执行还原。  
+-   [使用恢复 DVD 从客户端计算机上还原或重置服务器](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2)。 如果需要还原运行 Windows Server Essentials 的远程管理的服务器, 则必须使用服务器制造商提供的还原 DVD 从客户端计算机执行还原。  
   
-###  <a name="BKMK_Restore_1"></a> 还原或修复服务器使用安装媒体  
- 以下过程介绍如何通过使用 Windows Server Essentials 安装媒体从备份中还原服务器系统驱动器。 （若要了解如何使用安装媒体还原到出厂默认设置，请参阅服务器制造商提供的文档。）  
+###  <a name="BKMK_Restore_1"></a>使用安装媒体还原或修复服务器  
+ 以下过程描述如何使用 Windows Server Essentials 安装媒体从备份中还原服务器系统驱动器。 （若要了解如何使用安装媒体还原到出厂默认设置，请参阅服务器制造商提供的文档。）  
   
 > [!NOTE]
->  如果服务器使用存储空间，并将数据还原到新的服务器，您应首先恢复系统驱动器、，然后登录到 Windows Server Essentials 仪表板、 类似的方式与旧服务器上配置存储空间，然后恢复 dat卷。  
+>  如果服务器使用存储空间, 并且要将数据还原到新服务器, 则应首先恢复系统驱动器, 然后登录到 Windows Server Essentials 仪表板, 以与在旧服务器上类似的方式配置存储空间, 然后恢复 dat卷。  
   
 ##### <a name="to-restore-the-server-system-drive-from-a-backup-using-installation-media"></a>使用安装媒体从备份中还原服务器系统驱动器  
   
-1.  将 Windows Server Essentials 安装 DVD 插入服务器 DVD 驱动器中，重新启动服务器，然后按任意键从 DVD 启动。  
+1.  将 Windows Server Essentials 安装 DVD 插入服务器 DVD 驱动器中、重新启动服务器, 然后按任意键从 DVD 启动。  
   
     > [!NOTE]
     >  如果还原过程未自动启动，请检查服务器的 BIOS 设置，以确保 DVD 驱动器显示为启动菜单中的第一项。  
@@ -135,7 +135,7 @@ ms.locfileid: "66433063"
   
 4.  在 **“选择一个选项”** 页上，单击 **“疑难解答”** 。  
   
-5.  上**系统映像恢复**页上，选择当前的系统？ 任一**Windows Server Essentials**或**Windows Server Essentials**。  
+5.  在 "**系统映像恢复**" 页上, 选择 "当前系统？ **windows server essentials** " 或 " **windows server essentials**"。  
   
      此时将打开“重置计算机映像”向导。  
   
@@ -161,14 +161,14 @@ ms.locfileid: "66433063"
 > [!NOTE]
 >  若要还原并共享服务器上的文件夹，你可能需要采取其他步骤。 有关详细信息，请参阅 [Restore files and folders on the server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders)。  
   
-###  <a name="BKMK_Restore_2"></a> 还原或重置你的服务器的客户端计算机使用恢复 DVD  
- 在 Windows Server Essentials 中，您可以启动服务器可启动 USB 闪存驱动器中你所创建的然后恢复服务器的客户端计算机通过使用恢复服务器制造商提供的 DVD。 客户端计算机必须与服务器位于同一网络上。 此方法不是 Windows Server Essentials 中可用。  
+###  <a name="BKMK_Restore_2"></a>使用恢复 DVD 从客户端计算机还原或重置服务器  
+ 在 Windows Server Essentials 中, 你可以从你创建的可启动 u 盘中启动服务器, 然后通过使用服务器制造商提供的恢复 DVD 从客户端计算机恢复服务器。 客户端计算机必须与服务器位于同一网络上。 此方法在 Windows Server Essentials 中不可用。  
   
  以下过程提供了执行服务器还原的常规步骤。 这些步骤同样适用于从备份中进行还原或还原到出厂默认设置。 有关更具体的说明，请参阅服务器制造商提供的文档。  
   
 ##### <a name="to-restore-or-reset-the-server-from-a-client-computer-using-the-recovery-dvd"></a>使用恢复 DVD 从客户端计算机上还原或重置服务器。  
   
-1.  插入服务器制造商提供的客户端计算机中接收到的 Windows Server Essentials 服务器恢复介质。  
+1.  插入在客户端计算机上从服务器制造商处收到的 Windows Server Essentials 服务器恢复媒体。  
   
      此时将打开“恢复服务器”向导。  
   
@@ -186,7 +186,7 @@ ms.locfileid: "66433063"
 > [!NOTE]
 >  如果在服务器上创建了其他共享文件夹，则从备份中还原数据后，服务器可能无法识别其他共享文件夹。 必须重新共享这些文件夹。 有关详细信息，请参阅 [Restore files and folders on the server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders)。  
   
-##  <a name="BKMK_RestoreFilesAndFolders"></a> 还原文件和服务器上的文件夹  
+##  <a name="BKMK_RestoreFilesAndFolders"></a>还原服务器上的文件和文件夹  
  根据用来还原或修复服务器的方法，以及服务器使用的存储类型，你可能需要在还原系统驱动器后恢复数据卷。 在某些情况下，你可能需要重新共享现有的文件夹，以便服务器能够识别它们。  
   
  当你可能需要还原文件和文件夹时，下面提供了一些示例：  
@@ -195,17 +195,17 @@ ms.locfileid: "66433063"
   
 -   [还原服务器上的共享文件夹](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_ConfigreSharedFolders)。 如果在服务器上创建了其他共享文件夹，则从备份中还原系统驱动器后，共享文件夹仍在数据分区中，或已还原到数据分区，但服务器可能无法识别它们。 必须重新共享这些文件夹。  
   
-###  <a name="BKMK_RestoreFilesFromBackup"></a> 从服务器备份中还原文件和文件夹  
- 如果硬盘停止工作或文件被意外删除，“还原文件和文件夹”向导将会帮助你保护数据。 使用 Windows Server Essentials 备份时，可以在硬盘驱动器上创建的所有数据的副本并将数据存储在外部存储设备上。 如果硬盘驱动器上的原始数据被意外删除、覆盖或由于故障而变得无法访问，则可以从备份中还原这些数据。 “还原文件或文件夹”向导可帮助你从现有的备份中还原单个文件或文件夹、多个文件或文件夹或者整个硬盘驱动器。  
+###  <a name="BKMK_RestoreFilesFromBackup"></a>从服务器备份中还原文件和文件夹  
+ 如果硬盘停止工作或文件被意外删除，“还原文件和文件夹”向导将会帮助你保护数据。 使用 Windows Server Essentials 备份, 你可以在硬盘驱动器上创建所有数据的副本, 并将数据存储在外部存储设备上。 如果硬盘驱动器上的原始数据被意外删除、覆盖或由于故障而变得无法访问，则可以从备份中还原这些数据。 “还原文件或文件夹”向导可帮助你从现有的备份中还原单个文件或文件夹、多个文件或文件夹或者整个硬盘驱动器。  
   
  在还原系统后，可能需要使用“还原文件和文件夹”向导来还原在还原期间未保留的文件和文件夹。 例如，如果替换了系统磁盘，或者系统磁盘上的分区信息不可读，则无法从系统磁盘上的其他卷中恢复数据。  
   
 > [!NOTE]
->  无法使用“还原文件和文件夹”向导还原整个系统驱动器。 有关如何还原完整系统的信息，请参阅 [Restore or repair your server using installation media](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_1) 或 [Restore or reset your server from a client computer using the recovery DVD](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2)。  
+>  无法使用“还原文件和文件夹”向导还原整个系统驱动器。 有关如何还原完整系统的信息，请参阅[还原或修复服务器使用安装媒体](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_1)或[还原或重置你的服务器的客户端计算机使用恢复 DVD](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2)。  
   
 ##### <a name="to-restore-files-and-folders-from-a-server-backup"></a>从服务器备份中还原文件和文件夹  
   
-1.  打开 Windows Server Essentials 仪表板，然后依次**设备**选项卡。  
+1.  打开 Windows Server Essentials 仪表板, 然后单击 "**设备**" 选项卡。  
   
 2.  单击服务器的名称，然后单击 **“任务”** 窗格中的 **“为服务器还原文件或文件夹”** 。  
   
@@ -214,10 +214,10 @@ ms.locfileid: "66433063"
 3.  按照向导中的说明还原文件或文件夹。  
   
 > [!WARNING]
->  有关备份和还原文件和文件夹的详细信息，请参阅[管理备份和还原](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)。  
+>  有关备份和还原文件和文件夹的详细信息, 请参阅[管理备份和还原](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)。  
   
-###  <a name="BKMK_ConfigreSharedFolders"></a> 还原服务器上的共享的文件夹  
- 在还原服务器的系统驱动器中，如果共享的文件夹仍在使用数据分区或已还原到数据分区后，可能需要在使服务器能够识别这些文件夹中配置共享的文件夹。 以下过程将介绍如何添加之前已共享的共享文件夹。  
+###  <a name="BKMK_ConfigreSharedFolders"></a>还原服务器上的共享文件夹  
+ 还原服务器的系统驱动器后, 如果共享文件夹仍在数据分区中, 或已还原到数据分区, 则可能需要再次配置共享文件夹, 以便服务器能够识别这些文件夹。 以下过程将介绍如何添加之前已共享的共享文件夹。  
   
 ##### <a name="to-add-an-existing-folder-to-the-server-shared-folders"></a>将现有文件夹添加到服务器共享文件夹  
   
@@ -225,20 +225,20 @@ ms.locfileid: "66433063"
   
 2.  右键单击共享文件夹，依次单击 **“属性”** 、 **“设置”** 选项卡，然后记下文件夹权限。  
   
-3.  登录到 Windows Server Essentials 仪表板上，单击**存储**选项卡，然后依次**添加的文件夹**中**服务器文件夹任务**窗格。  
+3.  登录到 Windows Server Essentials 仪表板, 单击 "**存储**" 选项卡, 然后在 "**服务器文件夹任务**" 窗格中单击 "**添加文件夹**"。  
   
      此时将打开“添加文件夹”向导。  
   
 4.  在 **“名称”** 框中键入共享的名称。  
   
-5.  单击**浏览**，导航到 *< 驱动器\>\\< 服务器名\>* \ServerFolders (例如*d:\Contoso\ServerFolders*)，选择你想要共享，然后单击该文件夹**确定**。  
+5.  单击 "**浏览**", 导航到 *< 驱动器\>\>\\< ServerName*\ServerFolders (例如*d:\Contoso\ServerFolders*), 选择要共享的文件夹, 然后单击 **"确定"** 。  
   
-6.  单击“下一步”  。  
+6.  单击“下一步”。  
   
 7.  指定在步骤 2 中记下的权限，然后单击 **“添加文件夹”** 。  
   
     > [!IMPORTANT]
-    >  这些权限将替换未通过使用 Windows Server Essentials 仪表板添加到该文件夹的任何现有权限。  
+    >  这些权限将替换未通过使用 Windows Server Essentials 仪表板添加到文件夹的任何现有权限。  
   
 > [!IMPORTANT]
 >  在完成将文件夹添加到共享文件夹的列表后，请确保在服务器备份中包含这些文件夹。 有关将文件夹添加到服务器备份的信息，请参阅[设置或自定义服务器备份](Set-up-or-customize-server-backup.md)。  
