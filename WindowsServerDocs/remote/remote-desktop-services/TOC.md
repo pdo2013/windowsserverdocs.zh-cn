@@ -68,7 +68,7 @@
 ## [远程桌面客户端](clients/remote-desktop-clients.md)
 ### 远程桌面已知问题
 #### [常见远程桌面连接故障排除](troubleshoot/rdp-error-general-troubleshooting.md)
-#### [客户端无法连接，收到“没有注册类”错误](troubleshoot/rdp-error-class-not-registered.md)。
+#### [客户端无法连接，收到“没有注册类”错误](troubleshoot/rdp-error-class-not-registered.md)
 #### [客户端无法连接，出现“没有可用的许可证”错误](troubleshoot/rdp-error-no-licenses-available.md)
 #### [用户无法完成身份验证或必须完成身份验证两次](troubleshoot/cannot-authenticate-or-must-authenticate-twice.md)
 #### [连接时收到“远程桌面服务当前繁忙”错误](troubleshoot/remote-desktop-service-currently-busy.md)
