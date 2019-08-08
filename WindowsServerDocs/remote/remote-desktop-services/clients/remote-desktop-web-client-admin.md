@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 02c7098c8e3f93ce315e7d9a881613a03924e78b
-ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
+ms.openlocfilehash: d6761c43eefe04430603a1a16e9e8d256176a736
+ms.sourcegitcommit: 25376e261ebd5e85355c298cfd0bbd6b578a6a0c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68300699"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68729536"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>为用户设置远程桌面 Web 客户端
 
@@ -251,7 +251,7 @@ ms.locfileid: "68300699"
 * 每个证书的使用者可选名称 (SAN)  都必须设置为计算机完全限定的域名 (FQDN)  。 每个证书的公用名 (CN)  必须与 SAN 匹配。
 
 ## <a name="how-to-pre-configure-settings-for-remote-desktop-web-client-users"></a>如何为远程桌面 Web 客户端用户预配置设置
-此部分告知如何使用 PowerShell 为远程桌面 Web 客户端部署配置设置。 这些 PowerShell cmdlet 基于组织的安全问题或者工作流控制用户是否能够更改设置。 以下设置全都位于 Web 客户端的“设置”  侧面板中。 
+此部分告知如何使用 PowerShell 为远程桌面 Web 客户端部署配置设置。 这些 PowerShell cmdlet 基于组织的安全问题或者工作流控制用户是否能够更改设置。 以下设置全都位于 Web 客户端的“设置”  侧面板中。
 
 ### <a name="suppress-telemetry"></a>禁止遥测
 默认情况下，用户可以选择启用或禁用收集向 Microsoft 发送的遥测数据。 有关 Microsoft 收集的遥测数据的信息，请通过“关于”  侧面板中的链接参阅我们的隐私声明。
@@ -274,7 +274,8 @@ ms.locfileid: "68300699"
 
 ### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>将 RDWebClientDeploymentSetting 配置重置为默认值
 若要将部署级 Web 客户端设置重置为默认配置，请运行以下 PowerShell cmdlet，并使用 --Name 参数指定要重置的设置：
-   ```PowerShell
+  
+  ```PowerShell
     Reset-RDWebClientDeploymentSetting -Name "LaunchResourceInBrowser"
     Reset-RDWebClientDeploymentSetting -Name "SuppressTelemetry"
    ```
@@ -316,4 +317,4 @@ Import-RDWebClientBrokerCert <certificate file path>
 
 ## <a name="get-help-with-the-web-client"></a>获取有关 Web 客户端的帮助
 
-如果遇到无法通过本文中的信息进行解决的问题，则可以[向我们发送电子邮件](mailto:rdwbclnt@microsoft.com)进行报告。 还可以通过我们的[建议箱](https://aka.ms/rdwebfbk)对新功能进行请求或投票。
+如果遇到无法通过本文中的信息进行解决的问题，可以在[技术社区](https://aka.ms/wvdtc)中报告。 还可以通过我们的[建议箱](https://remotedesktop.uservoice.com/forums/911494-remote-desktop-web-client)对新功能进行请求或投票。
