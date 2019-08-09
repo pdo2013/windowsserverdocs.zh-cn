@@ -7,12 +7,12 @@ ms.topic: landing-page
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab; v-tea
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: b06875f0fa175c1fcf4f60cbba9de3dbd10d06b1
-ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
+ms.openlocfilehash: b8ab1eed003294e3396bcea21b31b7c084180b9c
+ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67792161"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863448"
 ---
 # <a name="performance-tuning-active-directory-servers"></a>Active Directory 服务器的性能优化
 
@@ -26,6 +26,7 @@ Active Directory 的性能优化侧重于两个目标：
 - Active Directory 客户端/应用程序优化 – 确保客户端和应用程序以最佳方式使用 Active Directory
 
 ## <a name="start-with-capacity-planning"></a>开始容量计划
+
 在正确的域、正确的区域设置中正确地部署足够数量的域控制器并提供冗余对于确保及时为客户端请求提供服务至关重要。 这是一个深入的主题，不在本指南的范围内。 建议读者先阅读并理解 [Active Directory 域服务的容量计划](capacity-planning-for-active-directory-domain-services.md)中的建议和指南，然后开始其 Active Directory 性能优化。
 
 >[!Important]
