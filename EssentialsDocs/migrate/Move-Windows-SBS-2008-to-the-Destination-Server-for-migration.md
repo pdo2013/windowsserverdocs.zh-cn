@@ -1,6 +1,6 @@
 ---
 title: 将 Windows SBS 2008 设置和数据移到目标服务器以进行 Windows Server Essentials 迁移
-description: 介绍如何使用 Windows Server Essentials
+description: 描述如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,30 +12,30 @@ ms.assetid: 4950469d-d800-430d-8d10-53bafc4a9932
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 2e393f184f1abfa79647432bd592975cae3fdc6c
-ms.sourcegitcommit: 9a4ab3a0d00b06ff16173aed616624c857589459
+ms.openlocfilehash: 82a7a5b3ce3662574260379bc893da484baf1caa
+ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828531"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863412"
 ---
 # <a name="move-windows-sbs-2008-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>将 Windows SBS 2008 设置和数据移到目标服务器以进行 Windows Server Essentials 迁移
 
->适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
+>适用于：Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 将设置和数据移到目标服务器，如下所示：：
 
 1. [将数据复制到目标服务器](#copy-data-to-the-destination-server)
 
-2. [Active Directory 用户帐户导入到 Windows Server Essentials 仪表板 （可选）](#import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard)
+2. [将 Active Directory 用户帐户导入 Windows Server Essentials 仪表板 (可选)](#import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard)
 
 3. [将 DHCP 服务器角色从源服务器移到路由器](#move-the-dhcp-server-role-from-the-source-server-to-the-router)
 
 4. [配置网络](#configure-the-network)
 
-5. [删除旧的 Active Directory 组策略对象 （可选）](#remove-legacy-active-directory-group-policy-objects)
+5. [删除旧版 Active Directory 组策略对象 (可选)](#remove-legacy-active-directory-group-policy-objects)
 
-6. [将获得允许的计算机映射到用户帐户](#map-permitted-computers-to-user-accounts)
+6. [将允许的计算机映射到用户帐户](#map-permitted-computers-to-user-accounts)
 
 ## <a name="copy-data-to-the-destination-server"></a>将数据复制到目标服务器
 在将数据从源服务器复制到目标服务器之前，请执行以下任务：
@@ -56,16 +56,16 @@ ms.locfileid: "66828531"
 
  其中：
  - \<SourceServerName\>是源服务器的名称
- - \<SharedSourceFolderName\>是源服务器上的共享文件夹的名称
- - \<DestinationServerName\>是目标服务器的名称
- - \<SharedDestinationFolderName\>是数据将复制到目标服务器上的共享的文件夹。 
+ - \<Sharedsourcefoldername&gt\>是源服务器上共享文件夹的名称
+ - \<Destinationservername&gt\>是目标服务器的名称,
+ - \<Shareddestinationfoldername&gt\>是将数据复制到的目标服务器上的共享文件夹。 
 
 3. 对每个要从源服务器迁移的共享文件夹重复上一步。 
 
-## <a name="import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard"></a>Active Directory 用户帐户导入到 Windows Server Essentials 仪表板
- 默认情况下，源服务器上创建的所有用户帐户自动都迁移到 Windows Server Essentials 中的仪表板中。 但是，如果某些属性无法满足迁移要求，则 Active Directory 用户帐户的自动迁移将会失败。 可以使用以下 Windows PowerShell cmdlet 导入 Active Directory 用户。 
+## <a name="import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard"></a>将 Active Directory 用户帐户导入到 Windows Server Essentials 仪表板
+ 默认情况下, 在源服务器上创建的所有用户帐户都会自动迁移到 Windows Server Essentials 中的仪表板。 但是，如果某些属性无法满足迁移要求，则 Active Directory 用户帐户的自动迁移将会失败。 可以使用以下 Windows PowerShell cmdlet 导入 Active Directory 用户。 
 
-#### <a name="to-import-an-active-directory-user-account-to-the-windows-server-essentials-dashboard"></a>若要将 Active Directory 用户帐户导入到 Windows Server Essentials 仪表板 
+#### <a name="to-import-an-active-directory-user-account-to-the-windows-server-essentials-dashboard"></a>将 Active Directory 用户帐户导入到 Windows Server Essentials 仪表板 
  
 1. 以域管理员身份登录到目标服务器。 
  
@@ -82,11 +82,11 @@ ms.locfileid: "66828531"
  
 1. 关闭源服务器上的 DHCP 服务，如下所示： 
 
-    1. 在源服务器上，依次单击“开始”  、“管理工具”  ，然后单击“服务”  。 
+    1. 在源服务器上，依次单击“开始”、“管理工具”，然后单击“服务”。 
 
-    2. 在当前运行的服务列表中，右键单击“DHCP 服务器”  ，然后单击“属性”  。 
+    2. 在当前运行的服务列表中，右键单击“DHCP 服务器”，然后单击“属性”。 
 
-    3. 对于“启动类型”  ，选择“禁用”  。
+    3. 对于“启动类型”，选择“禁用”。
 
     4. 停止服务。
 
@@ -106,7 +106,7 @@ ms.locfileid: "66828531"
  
 1. 在目标服务器上，打开仪表板。
  
-2. 在仪表板“主页”  页面上，单击“设置”  ，单击“设置随处访问”  ，然后选择“单击以配置随处访问”  选项。 
+2. 在仪表板“主页” 页面上，单击“设置”，单击“设置随处访问”，然后选择“单击以配置随处访问” 选项。 
  
 3. 完成向导中的说明，配置你的路由器名和域名。 
  
@@ -119,8 +119,8 @@ ms.locfileid: "66828531"
 > [!NOTE]
 > 如果已在第二个服务器上设置了本地 Exchange 服务器，则必须确保端口 25（适用于 SMTP）也已打开，并且被重定向到本地 Exchange 服务器的 IP 地址。
  
-## <a name="remove-legacy-active-directory-group-policy-objects"></a>删除旧的 Active Directory 组策略对象
-Windows Server Essentials 的更新组策略对象 (Gpo)。 它们是包含 Windows SBS 2008 GPO 的一个超集。 Windows Server Essentials 的大量 Windows SBS 2008 Gpo 和 Windows Management Instrumentation (WMI) 过滤器必须手动删除以避免与 Windows Server Essentials Gpo 和 WMI 过滤器发生冲突。 
+## <a name="remove-legacy-active-directory-group-policy-objects"></a>删除旧 Active Directory 组策略对象
+为 Windows Server Essentials 更新组策略对象 (Gpo)。 它们是包含 Windows SBS 2008 GPO 的一个超集。 对于 Windows Server Essentials, 必须手动删除大量 Windows SBS 2008 Gpo 和 Windows Management Instrumentation (WMI) 筛选器, 以防止与 Windows Server Essentials Gpo 和 WMI 筛选器发生冲突。 
  
 > [!NOTE]
 > 如果已修改原始的 Windows SBS 2008 组策略对象，则应该将其副本保存到其他位置，然后将其从 Windows SBS 2008 删除。 
@@ -129,13 +129,13 @@ Windows Server Essentials 的更新组策略对象 (Gpo)。 它们是包含 Wind
  
 1. 使用管理员帐户登录到源服务器。 
  
-2. 单击“开始”  ，然后单击“服务器管理”  。 
+2. 单击“开始”，然后单击“服务器管理”。 
  
-3. 在导航窗格中，单击**高级管理**，单击**组策略管理**，然后单击 **林:** *<你的域名\>* 。 
+3. 在导航窗格中, 依次单击 "**高级管理**"、"**组策略管理**", 然后单击 "**林:** _\>< YourDomainName_"。 
  
-4. 单击**域**，单击 *< YourDomainName\>* ，然后单击**组策略对象**。 
+4. 单击 "**域**", 单击 " *<\>YourDomainName*", 然后单击 "**组策略对象**"。 
  
-5. 右键单击“Small Business Server 审核策略”  ，单击“删除”  ，然后单击“确定”  。 
+5. 右键单击“Small Business Server 审核策略”，单击“删除”，然后单击“确定”。 
  
 6. 重复步骤 5，删除下列应用于你的网络的 GPO： 
  
@@ -143,7 +143,7 @@ Windows Server Essentials 的更新组策略对象 (Gpo)。 它们是包含 Wind
  
  - Small Business Server 域密码策略 
  
-我们建议为强制使用强密码的 Windows Server Essentials 中配置密码策略。 若要配置密码策略，请使用仪表板，后者会将配置写入默认域策略。 密码策略配置不会写入 Small Business Server 域密码策略对象中（与 Windows SBS 2008 中的情况相同）。 
+建议你在 Windows Server Essentials 中配置密码策略以强制实施强密码。 若要配置密码策略，请使用仪表板，后者会将配置写入默认域策略。 密码策略配置不会写入 Small Business Server 域密码策略对象中（与 Windows SBS 2008 中的情况相同）。 
  
  - Small Business Server Internet 连接防火墙 
  
@@ -171,34 +171,34 @@ Windows Server Essentials 的更新组策略对象 (Gpo)。 它们是包含 Wind
  
 1. 使用管理员帐户登录到源服务器。 
  
-2. 单击“开始”  ，然后单击“服务器管理”  。 
+2. 单击“开始”，然后单击“服务器管理”。 
  
-3. 在导航窗格中，单击**高级管理**，单击**组策略管理**，然后单击 **林:** *<YourNetworkDomainName\>* 
+3. 在导航窗格中, 依次单击 "**高级管理**"、"**组策略管理**", 然后单击 "**林:** _\> < YourNetworkDomainName_ 
  
-4. 单击**域**，单击 *< YourNetworkDomainName\>* ，然后单击**WMI 筛选器**。 
+4. 单击 "**域**", 单击 " *< YourNetworkDomainName\>* ", 然后单击 " **WMI 筛选器**"。 
  
-5. 右键单击“PostSP2”  ，单击“删除”  ，然后单击“是”  。 
+5. 右键单击“PostSP2”，单击“删除”，然后单击“是”。 
  
-6. 右键单击“PreSP2”  ，单击“删除”  ，然后单击“是”  。 
+6. 右键单击“PreSP2”，单击“删除”，然后单击“是”。 
  
 7. 确认已删除这三个 WMI 过滤器。 
  
 ## <a name="map-permitted-computers-to-user-accounts"></a>将允许的计算机映射到用户帐户
-在 Windows SBS 2008 中，如果用户连接到远程 Web 访问，则将显示网络中的所有计算机。 这可能包括用户没有权限进行访问的计算机。 在 Windows Server Essentials 中，用户必须明确分配给计算机，以使它显示在远程 Web 访问。 从 Windows SBS 2008 迁移的每个用户帐户都必须映射到一台或多台计算机。 
+在 Windows SBS 2008 中，如果用户连接到远程 Web 访问，则将显示网络中的所有计算机。 这可能包括用户没有权限进行访问的计算机。 在 Windows Server Essentials 中, 必须将用户明确分配给计算机, 以使它显示在远程 Web 访问中。 从 Windows SBS 2008 迁移的每个用户帐户都必须映射到一台或多台计算机。 
  
 #### <a name="to-map-user-accounts-to-computers"></a>将用户帐户映射到计算机 
  
 1. 打开 Windows Server Essentials 仪表板。
  
-2. 在导航栏中，单击“用户”  。
+2. 在导航栏中，单击“用户”。
  
-3. 在用户帐户列表中，右键单击用户帐户，然后单击“查看帐户属性”  。
+3. 在用户帐户列表中，右键单击用户帐户，然后单击“查看帐户属性”。
  
-4. 单击“随处访问”  选项卡，然后单击”允许远程 Web 访问和访问 Web 服务应用程序”  。
+4. 单击“随处访问” 选项卡，然后单击”允许远程 Web 访问和访问 Web 服务应用程序”。
  
-5. 依次选择“共享文件夹”  、“计算机”  和“主页链接”  ，然后单击“应用”  。
+5. 依次选择“共享文件夹”、“计算机”和“主页链接”，然后单击“应用”。
  
-6. 单击“计算机访问”  选项卡，然后单击要允许访问的计算机的名称。
+6. 单击“计算机访问”选项卡，然后单击要允许访问的计算机的名称。
  
 7. 为每个用户帐户重复步骤 3、4、5 和 6。 
 

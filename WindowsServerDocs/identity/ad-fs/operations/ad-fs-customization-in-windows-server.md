@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7f990c3412707e38a00110ac4d3cb3787fa18ee3
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: b8832e7e53e94761a489e850726bbd206b8be62b
+ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476534"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863434"
 ---
 # <a name="ad-fs-customization-in-windows-server-2016"></a>Windows Server 2016 中的 AD FS 自定义
 
@@ -69,9 +69,14 @@ PS C:\>Set-AdfsRelyingPartyWebTheme
 若要为每个 RP 分配自定义主题, 请使用以下过程:  
   
 1. 在 AD FS 中创建一个新主题作为默认全局主题的副本  
-<code>New-AdfsWebTheme -Name AppSpecificTheme -SourceName default</code>2.导出自定义主题<code>Export-AdfsWebTheme -Name AppSpecificTheme -DirectoryPath c:\appspecifictheme</code>  
-3.自定义主题文件 (图像、css、onload)-在最喜爱的编辑器中, 或将4.文件导入自定义文件从文件系统中替换为 AD FS (面向新主题)<code>Set-AdfsWebTheme -TargetName AppSpecificTheme -AdditionalFileResource @{Uri='/adfs/portal/script/onload.js';Path="c:\appspecifictheme\script\onload.js"}</code>  
-5.向特定 RP (或 RP) 应用新的自定义主题<code>Set-AdfsRelyingPartyWebTheme -TargetRelyingPartyName urn:app1 -SourceWebThemeName AppSpecificTheme</code>  
+`New-AdfsWebTheme -Name AppSpecificTheme -SourceName default`  
+2. 导出自定义主题  
+`Export-AdfsWebTheme -Name AppSpecificTheme -DirectoryPath c:\appspecifictheme`  
+3. 自定义主题文件 (图像、css、onload)-在你喜爱的编辑器中, 或替换文件  
+4. 将自定义文件从文件系统导入到 AD FS (面向新主题)  
+`Set-AdfsWebTheme -TargetName AppSpecificTheme -AdditionalFileResource @{Uri='/adfs/portal/script/onload.js';Path="c:\appspecifictheme\script\onload.js"}`  
+5. 向特定 RP (或 RP) 应用新的自定义主题  
+`Set-AdfsRelyingPartyWebTheme -TargetRelyingPartyName urn:app1 -SourceWebThemeName AppSpecificTheme`  
   
 ## <a name="home-realm-discovery"></a>主领域发现  
 对于 home 领域发现自定义, 请参阅[自定义 AD FS 登录页](https://technet.microsoft.com/library/dn280950.aspx)。  
