@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7f898c67755fb8e7874932ea06a7cdf461d1e4bd
-ms.sourcegitcommit: e40fce7b8b4bc0bef278e676435306f14078cf00
+ms.openlocfilehash: fdda956a5da9ec50e44002cd8ab38373396d5713
+ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68787204"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914645"
 ---
 # <a name="schtasks"></a>schtasks
 
@@ -129,7 +129,7 @@ schtasks /create /sc <ScheduleType> /tn <TaskName> /tr <TaskRun> [/s <Computer> 
 用指定用户帐户的权限运行任务。 默认情况下, 任务使用本地计算机的当前用户的权限运行, 或使用 **/u**参数指定的用户的权限 (如果包括在内) 来运行。 在本地或远程计算机上计划任务时, **/ru**参数是有效的。
 
 
-|       值        |                                                    描述                                                    |
+|       ReplTest1        |                                                    描述                                                    |
 |--------------------|-------------------------------------------------------------------------------------------------------------------|
 | [\<域 >\]<User> |                                       指定另一个用户帐户。                                        |
 |    系统或 ""    | 指定本地系统帐户, 该帐户是操作系统和系统服务使用的一个高特权帐户。 |
@@ -479,7 +479,7 @@ schtasks /create /tn <TaskName> /tr <TaskRun> /sc monthly /mo {FIRST | SECOND | 
 
 #### <a name="remarks"></a>备注
 
-在此计划类型中, **/sc 月度**参数、 **/mo** (修饰符) 参数和 **/d** (day) 参数是必需的。 **/Mo** (修饰符) 参数指定运行任务的周。 **/D**参数指定一周中的第几天。 (对于此计划类型, 只能指定一周中的某一天。)此计划还具有一个可选 **/m** (month) 参数, 该参数使你可以计划特定月份或每个月<em>的任务 ()。 **/M</em>* 参数的默认值是每月 (* )。
+在此计划类型中, **/sc 月度**参数、 **/mo** (修饰符) 参数和 **/d** (day) 参数是必需的。 **/Mo** (修饰符) 参数指定运行任务的周。 **/D**参数指定一周中的第几天。 (对于此计划类型, 只能指定一周中的某一天。)此计划还具有一个可选 **/m** (month) 参数, 该参数使你可以计划特定月份或每个月\*的任务 ()。 **/M**参数的默认值是每月 (\*)。
 
 #### <a name="examples"></a>示例
 

@@ -1,6 +1,6 @@
 ---
 title: 使用 Windows Server Essentials 中的远程 Web 访问
-description: 介绍如何使用 Windows Server Essentials
+description: 描述如何使用 Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,20 +12,20 @@ ms.assetid: 47ea21a0-5e05-4b4b-8fa4-338c82601276
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b78d6abbaf287fc56336ff8d16127ce249b97519
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f6a5d6fd42c5cd7e92821e1157748054c741ef04
+ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435912"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914685"
 ---
 # <a name="use-remote-web-access-in-windows-server-essentials"></a>使用 Windows Server Essentials 中的远程 Web 访问
 
->适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
+>适用于：Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
   
-  远程 Web 访问是一项功能的 Windows 服务器 Essentials，可用于访问文件/文件夹和 web 浏览器通过网络上的计算机从任何位置连接到 Internet。 
+  远程 Web 访问是 Windows Server Essentials 的一项功能, 可用于通过 Web 浏览器从任何位置通过 Internet 连接访问网络上的文件/文件夹和计算机。 
   
-  远程 Web 访问帮助你在离开时与你的 Windows Server Essentials 网络保持连接。 当您登录到远程 Web 访问时，可以连接到 Windows Server Essentials 网络上计算机、 打开仪表板以管理 Windows Server Essentials 网络，和访问所有服务器上的共享文件夹和媒体文件。  
+  远程 Web 访问帮助你在离开时与你的 Windows Server Essentials 网络保持连接。 登录到远程 Web 访问时, 可以连接到 Windows Server Essentials 网络上的计算机, 打开仪表板以管理 Windows Server Essentials 网络, 并访问服务器上的所有共享文件夹和媒体文件。  
   
  本主题包含以下各节：  
   
@@ -36,11 +36,11 @@ ms.locfileid: "66435912"
   
 -   [从移动设备连接](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_ConnectMobile)  
   
-##  <a name="BKMK_Connect"></a> 连接到远程 Web 访问  
+##  <a name="BKMK_Connect"></a>连接到远程 Web 访问  
   
 -   [登录到远程 Web 访问](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1)  
   
--   [远程访问您的计算机](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1.5)  
+-   [远程访问你的计算机](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1.5)  
 
 -   [连接到远程 Web 访问](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Connect)  
   
@@ -48,36 +48,36 @@ ms.locfileid: "66435912"
   
 -   [从移动设备连接](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_ConnectMobile)  
   
-##  <a name="BKMK_Connect"></a> 连接到远程 Web 访问  
+##  <a name="BKMK_Connect"></a>连接到远程 Web 访问  
   
 -   [登录到远程 Web 访问](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1)  
   
--   [远程访问您的计算机](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1.5)  
+-   [远程访问你的计算机](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1.5)  
 
   
-###  <a name="BKMK_1"></a> 登录到远程 Web 访问  
- 当您从登录到远程 Web 访问在本地或远程计算机时，您可以在网络上运行 Windows Server Essentials 和计算机的服务器上访问资源。  
+###  <a name="BKMK_1"></a>登录到远程 Web 访问  
+ 当你从本地或远程计算机登录到远程 Web 访问时, 你可以访问运行 Windows Server Essentials 的服务器上的资源以及网络上的计算机。  
   
 ##### <a name="to-log-on-to-remote-web-access-from-a-network-computer"></a>若要从网络计算机登录到远程 Web 访问  
   
-1.  打开 Web 浏览器中，键入**https://***< 你的服务器名称\>***/远程**中地址栏中，然后按 Enter。  
+1.  打开 Web 浏览器, 在地址栏中键入**https://** _< 服务器名称\>_ **/remote** , 然后按 enter。  
   
     > [!NOTE]
-    >  请确保在 https 中包含 s。  
+    >  请确保在 https 中包含 "s"。  
   
-2.  在远程 Web 访问登录页上，在文本框中，键入你的用户名和密码，然后单击箭头。  
+2.  在 "远程 Web 访问登录" 页上, 在文本框中键入你的用户名和密码, 然后单击箭头。  
   
 ##### <a name="to-log-on-to-remote-web-access-from-a-remote-computer"></a>从远程计算机登录到远程 Web 访问  
   
-1.  打开 Web 浏览器中，键入**https://***< 你的域名\>***/远程**中地址栏中，然后按 Enter。  
+1.  打开 Web 浏览器, 在地址栏中键入**https://** _< YourDomainName\>_ **/remote** , 然后按 enter。  
   
     > [!NOTE]
-    >  你可以从网络管理员处获得你的域名信息。 请确保在 https 中包含 s。  
+    >  你可以从网络管理员处获得你的域名信息。 请确保在 https 中包含 "s"。  
   
-2.  在远程 Web 访问登录页上，在文本框中，键入你的用户名和密码，然后单击箭头。  
+2.  在 "远程 Web 访问登录" 页上, 在文本框中键入你的用户名和密码, 然后单击箭头。  
   
-###  <a name="BKMK_1.5"></a> 远程访问您的计算机  
- 当你离开办公室时，可以使用 Web 浏览器登录到远程 Web 访问站点远程访问 Windows Server Essentials 仪表板、 共享的文件夹和网络上的计算机上。  
+###  <a name="BKMK_1.5"></a>远程访问你的计算机  
+ 当你离开办公室时, 你可以使用 Web 浏览器登录到远程 Web 访问站点以远程访问你的 Windows Server Essentials 仪表板、共享文件夹和网络上的计算机。  
   
  当你连接到仪表板时，可以管理 Windows Server Essentials，就像你在办公室时一样。 可以执行所有常用的管理任务，例如添加用户帐户、添加共享文件夹、设置共享文件夹访问等。 当你在网络上连接到计算机时，可以访问这些计算机的桌面，就像在办公室中坐在它们的前面一样。  
   
@@ -87,11 +87,11 @@ ms.locfileid: "66435912"
   
      计算机已打开，并且可用于远程连接。 如果第三方防火墙阻止该连接，则即使你看到此状态，仍可能无法连接到此计算机。  
   
--   **脱机或处于睡眠状态**  
+-   **脱机或睡眠**  
   
      计算机处于关闭状态，或处于睡眠或休眠模式。 若计算机已脱机或处于睡眠状态，则将实时更新其状态，以便你知道该计算何时可用。  
   
--   **不支持的操作系统**  
+-   **不受支持的操作系统**  
   
      计算机上的操作系统不支持远程桌面。 如果有更改，则在服务器上更新此状态可能需要多达 6 个小时。  
   
@@ -105,19 +105,19 @@ ms.locfileid: "66435912"
 #### <a name="to-connect-to-the-server-dashboard"></a>连接到服务器仪表板  
  在 **“设备”** 选项卡上，单击你的服务器的名称。 可以只选择状态为 **“可用”** 的计算机。 必须能够在你的服务器上提供管理员用户帐户和密码以使用仪表板。  
   
-##  <a name="BKMK_SharedFolders"></a> 共享文件和文件夹  
+##  <a name="BKMK_SharedFolders"></a>共享文件和文件夹  
   
 
--   [上传和下载远程 Web 访问中的文件](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_UploadRWA)  
+-   [在远程 Web 访问上传和下载文件](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_UploadRWA)  
   
--   [创建、 重命名、 移动、 删除或复制远程 Web 访问中的文件和文件夹](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)  
+-   [在远程 Web 访问中创建、重命名、移动、删除或复制文件和文件夹](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)  
 
--   [上传和下载远程 Web 访问中的文件](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_UploadRWA)  
+-   [在远程 Web 访问上传和下载文件](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_UploadRWA)  
   
--   [创建、 重命名、 移动、 删除或复制远程 Web 访问中的文件和文件夹](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)  
+-   [在远程 Web 访问中创建、重命名、移动、删除或复制文件和文件夹](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)  
 
   
-###  <a name="BKMK_UploadRWA"></a> 上传和下载远程 Web 访问中的文件  
+###  <a name="BKMK_UploadRWA"></a>在远程 Web 访问上传和下载文件  
  在远程 Web 访问的 **“共享文件夹”** 选项卡上，你可以执行以下操作：  
   
 -   从你的计算机中将文件上载（发送）到 Windows Server Essentials。  
@@ -130,9 +130,9 @@ ms.locfileid: "66435912"
 -   在 Windows Server Essentials 的共享文件夹中创建一个文件夹。  
   
 
--   移动、删除和重命名 Windows Server Essentials 上的文件和文件夹。 有关详细信息，请参阅[创建、 重命名、 移动、 删除或复制文件和文件夹在远程 Web 访问](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)。  
+-   移动、删除和重命名 Windows Server Essentials 上的文件和文件夹。 有关详细信息, 请参阅[在远程 Web 访问中创建、重命名、移动、删除或复制文件和文件夹](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)。  
 
--   移动、删除和重命名 Windows Server Essentials 上的文件和文件夹。 有关详细信息，请参阅[创建、 重命名、 移动、 删除或复制文件和文件夹在远程 Web 访问](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)。  
+-   移动、删除和重命名 Windows Server Essentials 上的文件和文件夹。 有关详细信息, 请参阅[在远程 Web 访问中创建、重命名、移动、删除或复制文件和文件夹](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)。  
 
   
 #### <a name="upload-files"></a>上载文件  
@@ -145,7 +145,7 @@ ms.locfileid: "66435912"
   
 3. 如果尚未加载标准上载工具，则单击 **“使用标准上载方法”** 。  
   
-4. 单击“浏览”   查找计算机上的文件。  
+4. 单击“浏览”  查找计算机上的文件。  
   
 5. 浏览计算机上的文件夹，以查找要上载的文件，然后单击 **“打开”** 。  
   
@@ -193,10 +193,10 @@ ms.locfileid: "66435912"
 > [!NOTE]
 >  仅当要将多个文件或文件夹下载到你的计算机时，这些选项才可用。  
   
-- **自解压可执行文件 (.exe)**  
+- **自解压缩可执行文件 (.exe)**  
   
   > [!NOTE]
-  >   本部分适用于运行 Windows Server Essentials 的服务器。  
+  >   本节适用于运行 Windows Server Essentials 的服务器。  
   
    自解压可执行文件是你可以下载的文件，此文件将解压缩（可执行）程序与压缩的文件组合在一起。 当你运行可执行程序时，它会自动解压缩压缩的文件（自解压）。 这是分发压缩数据的常用方式，无需担心收件人是否具有正确的解压缩实用工具。  
   
@@ -208,7 +208,7 @@ ms.locfileid: "66435912"
    压缩文件能够创建小于原始文件的文件压缩版本。 该压缩版本的文件具有 .zip 文件扩展名。 通过压缩大小能减少最多的文件类型是面向文本的文件类型，例如 .txt、.doc、.xls 和使用非压缩文件类型（如 .bmp）的图形文件。 某些图形文件（如 .jpg 和 .gif 文件）已经使用过压缩，因此通过压缩，文件的大小减小得非常少。 此外，与大部分是文本的文档相比，包含大量图形的 Word 文档无法减少得一样多。  
   
   > [!NOTE]
-  >  此选项的 Windows Server Essentials 中的国际文件名称提供有限的支持。  
+  >  此选项对 Windows Server Essentials 中的国际文件名提供有限的支持。  
   
   开始实际下载之前，将创建 exe 或 zip 文件。 这可能需要几分钟，具体取决于文件的数量和要下载文件的总大小。 创建下载文件后，下载文件的操作发生在后台。 这允许你在下载过程完成时可以继续工作。  
   
@@ -229,7 +229,7 @@ ms.locfileid: "66435912"
 #### <a name="retrieve-compressed-files-downloaded-to-your-computer"></a>检索下载到你的计算机的压缩文件  
   
 > [!NOTE]
->   本部分适用于运行 Windows Server Essentials 的服务器。  
+>   本节适用于运行 Windows Server Essentials 的服务器。  
   
  如果你选择要下载的多个文件或文件夹，则可以接收自解压缩的压缩可执行文件 (.exe) 或压缩 (.zip) 文件。  
   
@@ -248,7 +248,7 @@ ms.locfileid: "66435912"
     > [!NOTE]
     >  如果使用第三方文件压缩程序，请按照该程序的过程从压缩文件中提取你的文件。  
   
-###  <a name="BKMK_2"></a> 创建、 重命名、 移动、 删除或复制远程 Web 访问中的文件和文件夹  
+###  <a name="BKMK_2"></a>在远程 Web 访问中创建、重命名、移动、删除或复制文件和文件夹  
  可以使用远程 Web 访问在现有的共享文件夹中创建新文件夹，用于对服务器上的文件和文件夹进行重命名、移动、复制以及删除。  
   
 > [!NOTE]
@@ -294,19 +294,19 @@ ms.locfileid: "66435912"
   
 3.  右键单击要将文件或文件夹复制到的文件夹，然后单击 **“粘贴”** 。  
   
-##  <a name="BKMK_ConnectMobile"></a> 从移动设备连接  
+##  <a name="BKMK_ConnectMobile"></a>从移动设备连接  
   
 
 -   [从移动设备使用远程 Web 访问](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_8)  
   
--   [支持的移动设备 Web 浏览器](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_9)  
+-   [支持移动设备的 Web 浏览器](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_9)  
 
 -   [从移动设备使用远程 Web 访问](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_8)  
   
--   [支持的移动设备 Web 浏览器](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_9)  
+-   [支持移动设备的 Web 浏览器](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_9)  
 
   
-###  <a name="BKMK_8"></a> 从移动设备使用远程 Web 访问  
+###  <a name="BKMK_8"></a>从移动设备使用远程 Web 访问  
  你可以从你的智能手机登录到远程 Web 访问，以查看服务器上共享文件夹中的文件和文件夹。  
   
 > [!NOTE]
@@ -314,27 +314,27 @@ ms.locfileid: "66435912"
   
 ##### <a name="to-log-on-to-remote-web-access-from-a-mobile-device"></a>从移动设备登录到远程 Web 访问  
   
-1.  打开 Web 浏览器并键入**https://***<你的域名\>***/远程**在地址栏中。  请确保在 https 中包含 s。  
+1.  打开 Web 浏览器, 在地址栏中键入 " **https://** _< YourDomainName\>_ **/remote** "。  请确保在 https 中包含 "s"。  
   
-2.  在远程 Web 访问登录页上，在文本框中，键入你的用户名和密码，然后单击箭头。 你已登录到远程 Web 访问的移动版本。  
+2.  在 "远程 Web 访问登录" 页上, 在文本框中键入你的用户名和密码, 然后单击箭头。 你已登录到远程 Web 访问的移动版本。  
   
 ##### <a name="to-switch-to-the-desktop-version-of-remote-web-access"></a>切换到远程 Web 访问的桌面版  
   
-1.  打开 Web 浏览器并键入**https://***<你的域名\>***/远程**在地址栏中。  请确保在 https 中包含 s。  
+1.  打开 Web 浏览器, 在地址栏中键入 " **https://** _< YourDomainName\>_ **/remote** "。  请确保在 https 中包含 "s"。  
   
-2.  在远程 Web 访问登录页上，键入你的用户名和密码的文本框中，单击**查看桌面版本**，然后单击箭头。 你已登录到远程 Web 访问的桌面版本。  
+2.  在 "远程 Web 访问登录" 页上, 在文本框中键入你的用户名和密码, 单击 "**查看桌面版本**", 然后单击箭头。 你已登录到远程 Web 访问的桌面版本。  
   
 ##### <a name="to-return-to-the-mobile-version-of-remote-web-access"></a>返回到远程 Web 访问的移动版本  
   
 1. 注销。  
   
-2. 打开 Web 浏览器并键入**https://***<你的域名\>***/远程/m**在地址栏中。 请确保在 https 中包含 s。  
+2. 打开 Web 浏览器, 在地址栏中键入 " **https://** _< YourDomainName\>_ **/remote/m** "。 请确保在 https 中包含 "s"。  
   
-3. 显示远程 Web 访问的移动版本。 在远程 Web 访问登录页上，在文本框中，键入你的用户名和密码，然后单击箭头。 登录到远程 Web 访问的移动版本。  
+3. 将显示远程 Web 访问的移动版本。 在 "远程 Web 访问登录" 页上, 在文本框中键入你的用户名和密码, 然后单击箭头。 你已登录到远程 Web 访问的移动版本。  
   
    你可以搜索服务器上的共享文件夹中的文件和文件夹。  
   
-###  <a name="BKMK_9"></a> 支持的移动设备 Web 浏览器  
+###  <a name="BKMK_9"></a>支持移动设备的 Web 浏览器  
  受移动设备支持的 Web 浏览器包括：  
   
 -   Internet Explorer 移动 6.0 或更高版本  
@@ -356,11 +356,11 @@ ms.locfileid: "66435912"
 -   [管理远程 Web 访问](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
 
--   [可以通过远程方式](Work-Remotely-in-Windows-Server-Essentials.md)  
+-   [远程工作](Work-Remotely-in-Windows-Server-Essentials.md)  
   
 -   [使用 Windows Server Essentials](Use-Windows-Server-Essentials.md)
 
--   [可以通过远程方式](../use/Work-Remotely-in-Windows-Server-Essentials.md)  
+-   [远程工作](../use/Work-Remotely-in-Windows-Server-Essentials.md)  
   
 -   [使用 Windows Server Essentials](../use/Use-Windows-Server-Essentials.md)
 

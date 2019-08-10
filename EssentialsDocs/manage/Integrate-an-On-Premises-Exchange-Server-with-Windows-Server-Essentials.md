@@ -12,12 +12,12 @@ ms.assetid: b56a21e2-c9e3-4ba9-97d9-719ea6a0854b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ef57ac325465d7b7a5cf65a2931df824c351c6a2
-ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
+ms.openlocfilehash: 142ae8514a6a480f8181ce193c2f437e2f286e2d
+ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/09/2019
-ms.locfileid: "68863442"
+ms.locfileid: "68914600"
 ---
 # <a name="integrate-an-on-premises-exchange-server-with-windows-server-essentials"></a>将本地 Exchange Server 与 Windows Server Essentials 集成
 
@@ -30,7 +30,7 @@ ms.locfileid: "68863442"
 > [!NOTE]
 >  Exchange Server 2010 不支持在运行 Windows Server 2012 的计算机上进行安装。  
 
-## <a name="prerequisites"></a>系统必备  
+## <a name="prerequisites"></a>先决条件  
  在 Windows Server Essentials 网络上安装 Exchange Server 之前，请务必完成本节所述的任务。  
 
 -   [设置运行 Windows Server Essentials 的服务器](Integrate-an-On-Premises-Exchange-Server-with-Windows-Server-Essentials.md#BKMK_SetUpSBS8)  
@@ -364,18 +364,18 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
    - 如果执行全新安装，请运行以下命令：  
 
-      **ARRConfig 配置-证书***证书文件的路径* **-主机名***Exchange Server 的主机名*  
+      **ARRConfig 配置-证书** _ **-主机名** _  
 
      > [!NOTE]
-     >  例如,**ARRConfig 配置-证书***c:\temp\certificate.pfx* **-主机名***mail.contoso.com*  
+     >  例如,**ARRConfig 配置-证书** _ **-主机名** _  
      > 
      >  将 *mail.contoso.com* 替换为受此证书保护的域的名称。  
 
    - 如果是从 Windows Small Business Server 进行迁移，请运行以下命令：  
 
-      **ARRConfig 配置-证书***证书文件的路径* **-主机名***Exchange Server 的主机名* **-targetserver***Exchange server 的服务器名称*  
+      **ARRConfig 配置-证书** _ **-主机名** _ **-targetserver** _  
 
-      例如,**ARRConfig 配置-证书***c:\temp\certificate.pfx* **-主机名***mail.contoso.com* * *-targetserver * * *ExchangeSvr*  
+      例如,**ARRConfig 配置-证书** _ **-主机名** _ * *-targetserver * * _ExchangeSvr_  
 
       将 *mail.contoso.com* 替换为你的域名。 将 *ExchangeSvr* 替换为运行 Exchange Server 的服务器的名称。  
 
