@@ -83,6 +83,10 @@
 #### [使用 DNS 策略在 DNS 查询上应用筛选器](dns/deploy/apply-filters-on-dns-queries.md)
 #### [使用 DNS 策略实现应用负载均衡](dns/deploy/app-lb.md)
 #### [使用 DNS 策略通过地理位置感知执行应用负载均衡](dns/deploy/app-lb-geo.md)
+### [排查 DNS 问题](dns/troubleshoot/troubleshoot-dns-data-collection.md)
+#### [排查 DNS 客户端问题](dns/troubleshoot/troubleshoot-dns-client.md)
+##### [在 DNS 客户端上禁用 DNS 客户端缓存](dns/troubleshoot/disable-dns-client-side-caching.md)
+#### [排查 DNS 服务器问题](dns/troubleshoot/troubleshoot-dns-server.md)
 
 ## [动态主机配置协议 (DHCP)](technologies/dhcp/dhcp-top.md)
 ### [DHCP 中的新功能](technologies/dhcp/What-s-New-in-DHCP.md)
