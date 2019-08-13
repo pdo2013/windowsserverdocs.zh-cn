@@ -1,6 +1,6 @@
 ---
-title: Wbadmin 启动备份
-description: 'Windows 命令主题 * * *- '
+title: wbadmin 开始备份
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,26 +13,26 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2ac602506960b92333750e7a37692c44c92aae22
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: cdd63d0a3a813b32a212b09eb93a64ea1429ee06
+ms.sourcegitcommit: a9625758fbfb066494fe62e0da5f9570ccb738a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440275"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952455"
 ---
-# <a name="wbadmin-start-backup"></a>Wbadmin 启动备份
+# <a name="wbadmin-start-backup"></a>wbadmin 开始备份
 
 
 
-创建使用指定的参数的备份。 如果未指定任何参数，并且已创建计划的每日备份，此子命令将使用计划的备份设置来创建备份。 如果未指定参数，它创建卷影复制服务 (VSS) 复制备份，并将不会更新进行了备份的文件的历史记录。
+使用指定参数创建备份。 如果未指定任何参数, 并且已创建计划的每日备份, 则此子命令将使用计划备份的设置来创建备份。 如果指定了参数, 则它将创建卷影复制服务 (VSS) 副本备份, 并且不会更新正在备份的文件的历史记录。
 
-若要使用此子命令创建一次性备份，您必须**Backup Operators**组或**管理员**组，或者您必须被委派了适当的权限。 此外，您必须运行**wbadmin**从提升的命令提示符。 (若要打开提升的命令提示符右键单击**命令提示符**，然后单击**以管理员身份运行**。)
+若要使用此子命令创建一次性备份, 您必须是**Backup Operators**组或**Administrators**组的成员, 或者您必须被委派了适当的权限。 此外, 必须在提升的命令提示符下运行**wbadmin** 。 (若要打开提升的命令提示符, 右键单击 "**命令提示符**", 然后单击 "以**管理员身份运行**"。)
 
-有关如何使用此子命令的示例，请参阅[示例](#BKMK_examples)。
+有关如何使用此子命令的示例, 请参阅[示例](#BKMK_examples)。
 
 ## <a name="syntax"></a>语法
 
-Windows ° Vista 和 Windows Server 2008 的语法：
+Windows Vista 和 Windows Server 2008 的语法:
 ```
 wbadmin start backup
 [-backupTarget:{<BackupTargetLocation> | <TargetNetworkShare>}]
@@ -45,7 +45,7 @@ wbadmin start backup
 [-vssFull]
 [-quiet]
 ```
-Windows ° 7 和 Windows Server 2008 R2 的语法及更高版本：
+Windows 7 和 Windows Server 2008 R2 及更高版本的语法:
 ```
 Wbadmin start backup
 [-backupTarget:{<BackupTargetLocation> | <TargetNetworkShare>}]
@@ -67,42 +67,42 @@ Wbadmin start backup
 
 |参数|描述|
 |---------|-----------|
-|-backupTarget|指定此备份的存储位置。 要求驱动器号 （f:），采用的格式的卷的基于 GUID 的路径\\ \\？ \Volume{GUID}，或远程共享文件夹的通用命名约定 (UNC) 路径 (\\\\\<服务器名 >\<共享名 >\)。 默认情况下，备份将保存在： \\\\<servername>\<sharename>\**WindowsImageBackup**\\<ComputerBackedUp>\.</br>重要提示：如果将备份保存到远程共享文件夹时，如果使用的同一文件夹再次备份同一台计算机将覆盖该备份。 此外，如果备份操作失败，您最终可能不到任何备份由于较旧备份将被覆盖，但较新备份将不可用。 可以在远程共享文件夹来组织您的备份中创建子文件夹来避免此问题。 如果执行此操作时，子文件夹将作为父文件夹需要两次的空间。|
-|-include|对于 Windows ° Vista 和 Windows Server 2008，指定卷的驱动器号、 卷装入点或要在备份中包含的基于 GUID 的卷名称的逗号分隔列表。 应使用此参数时，才 **-backupTarget**使用参数。</br>有关 Windows ° 7 和 Windows Server 2008 R2 和更高版本，指定要在备份中包含的项的以逗号分隔列表。 可以包含多个文件、 文件夹或卷。 可以使用卷驱动器号、 卷装入点或基于 GUID 的卷名称指定卷路径。 如果使用基于 GUID 的卷的名称，则应终止使用反斜杠 (\\)。 可以使用通配符字符 (\*) 中的文件名称时指定文件的路径。 应使用时，才 **-backupTarget**使用参数。|
-|-exclude|有关 Windows ° 7 和 Windows Server 2008 R2 和更高版本，指定要从备份中排除的项的以逗号分隔列表。 您可以排除文件、 文件夹或卷。 可以使用卷驱动器号、 卷装入点或基于 GUID 的卷名称指定卷路径。 如果使用基于 GUID 的卷的名称，则应终止使用反斜杠 (\\)。 可以使用通配符字符 (\*) 中的文件名称时指定文件的路径。 应使用时，才 **-backupTarget**使用参数。|
-|-nonRecurseInclude|有关 Windows ° 7 和 Windows Server 2008 R2 和更高版本，指定非递归，要在备份中包含的项以逗号分隔列表。 可以包含多个文件、 文件夹或卷。 可以使用卷驱动器号、 卷装入点或基于 GUID 的卷名称指定卷路径。 如果使用基于 GUID 的卷的名称，则应终止使用反斜杠 (\\)。 可以使用通配符字符 (\*) 中的文件名称时指定文件的路径。 应使用时，才 **-backupTarget**使用参数。|
-|-nonRecurseExclude|有关 Windows ° 7 和 Windows Server 2008 R2 和更高版本，指定非递归、 要从备份中排除的项以逗号分隔列表。 您可以排除文件、 文件夹或卷。 可以使用卷驱动器号、 卷装入点或基于 GUID 的卷名称指定卷路径。 如果使用基于 GUID 的卷的名称，则应终止使用反斜杠 (\\)。 可以使用通配符字符 (\*) 中的文件名称时指定文件的路径。 应使用时，才 **-backupTarget**使用参数。|
-|-allCritical|指定备份中包含所有关键卷 （包含操作系统的状态的卷）。 此参数是要创建用于裸机恢复备份的情况下很有用。 应使用时，才 **-backupTarget**是指定，否则该命令将失败。 可用于 **-包括**选项。</br>提示：关键卷备份的目标卷可以是本地驱动器，但不是能是任何备份中包含的卷。|
-|-systemState|有关 Windows ° 7 和 Windows Server 2008 R2 和更高版本，创建一个包含除了使用指定的任何其他项的系统状态备份 **-包括**参数。 系统状态包含启动文件 （Boot.ini、 NDTLDR、 NTDetect.com），包括 COM 设置、 SYSVOL （组策略和登录脚本）、 Active Directory 和 NTDS Windows 注册表。域控制器上的 DIT 和，如果安装了证书服务，该证书存储。 如果你的服务器已安装了 Web 服务器角色，将包括 IIS 元目录条件。 如果服务器是群集的一部分，群集服务的信息也将包括在内。|
-|-noVerify|指定备份保存到可移动媒体 （如 DVD) 将不验证有错误。 如果不使用此参数，备份保存到可移动介质进行验证的错误。|
-|-用户|如果备份保存到远程共享文件夹中，指定使用的文件夹的写权限的用户名称。|
-|-password|指定参数提供的用户名的密码 **-用户**。|
-|-noInheritAcl|适用于由提供的凭据对应的访问控制列表 (ACL) 权限 **-用户**并 **-密码**参数\\ \\ \<服务器名称 >\<共享名 > \WindowsImageBackup\<ComputerBackedUp > \ （包含备份的文件夹）。 若要访问此备份更高版本，你必须使用这些凭据或是 Administrators 组或共享文件夹的计算机上的 Backup Operators 组的成员。 如果 **-noInheritAcl**是未使用，从远程共享文件夹的 ACL 权限应用于\<ComputerBackedUp > 默认情况下，这样的人都有权访问远程共享文件夹可以访问备份的文件夹。|
-|-vssFull|执行完整备份使用卷影复制服务 (VSS)。 所有文件都备份，每个文件的历史记录更新以反映它已都备份，和上一个备份的日志可能会被截断。 如果不使用此参数**wbadmin start backup**使副本备份，但未更新正在备份的文件的历史记录。</br>注意：如果正在使用非 Windows Server Backup 的产品来备份最新备份中包含的卷上的应用程序，则不使用此参数。 这样做因此也可能会破坏的增量、 差异备份或其他类型的其他备份产品创建，因为它们都依赖于以确定备份的数据量可能会丢失的历史记录和它们可能执行完整备份的备份不必要地。|
-|-vssCopy|对于 Windows 7 和 Windows Server 2008 R2 和更高版本，执行副本备份使用 vss。 所有文件都备份，但保留哪些文件已更改、 删除和等的位置上的所有信息以及任何应用程序日志文件以便备份文件的历史记录不会更新。 使用此类型的备份不会影响增量备份和差异备份可能发生独立于此副本备份的序列。 这是默认值。</br>警告：复制备份不能用于增量或差异备份或还原。|
-|-quiet|向用户使用无提示运行子命令。|
+|-backupTarget|指定此备份的存储位置。 需要一个硬盘驱动器号 (f:), 这是基于卷 GUID 的路径, 格式\\ \\为？\\卷 {GUID} 或远程共享文件夹的通用命名约定 (UNC)\\路径 (\\\<\<servername >\\共享名 >\\)。 默认情况\\下, 备份将保存在:\< \<\\\\ \\servername > 共享名 >**WindowsImageBackup** \\ \<ComputerBackedUp >\\。</br>重要提示：如果将备份保存到远程共享文件夹, 则在使用同一文件夹再次备份同一台计算机时, 将覆盖该备份。 此外, 如果备份操作失败, 则可能最终不会备份, 因为旧的备份将被覆盖, 但较新的备份将无法使用。 你可以通过在远程共享文件夹中创建子文件夹来组织你的备份, 从而避免这种情况。 如果这样做, 子文件夹将需要两倍于父文件夹的空间。|
+|-include|对于 Windows Vista 和 Windows Server 2008, 指定要包含在备份中的卷驱动器号、卷装入点或基于 GUID 的卷名的逗号分隔列表。 仅当使用 **-backupTarget**参数时, 才应使用此参数。</br>对于 Windows 7 和 Windows Server 2008 R2 及更高版本, 指定要包含在备份中的项的逗号分隔列表。 可以包含多个文件、文件夹或卷。 可以使用卷驱动器号、卷装入点或基于 GUID 的卷名称指定卷路径。 如果使用基于 GUID 的卷名, 则应以反斜杠 (\\) 结尾。 指定文件路径时, 可以在\*文件名中使用通配符 ()。 仅当使用 **-backupTarget**参数时才应使用。|
+|-exclude|对于 Windows 7 和 Windows Server 2008 R2 及更高版本, 指定要从备份中排除的以逗号分隔的项列表。 可以排除文件、文件夹或卷。 可以使用卷驱动器号、卷装入点或基于 GUID 的卷名称指定卷路径。 如果使用基于 GUID 的卷名, 则应以反斜杠 (\\) 结尾。 指定文件路径时, 可以在\*文件名中使用通配符 ()。 仅当使用 **-backupTarget**参数时才应使用。|
+|-nonRecurseInclude|对于 Windows 7 和 Windows Server 2008 R2 及更高版本, 指定要包含在备份中的非递归、以逗号分隔的项列表。 可以包含多个文件、文件夹或卷。 可以使用卷驱动器号、卷装入点或基于 GUID 的卷名称指定卷路径。 如果使用基于 GUID 的卷名, 则应以反斜杠 (\\) 结尾。 指定文件路径时, 可以在\*文件名中使用通配符 ()。 仅当使用 **-backupTarget**参数时才应使用。|
+|-nonRecurseExclude|对于 Windows 7 和 Windows Server 2008 R2 及更高版本, 指定要从备份中排除的非递归、以逗号分隔的项列表。 可以排除文件、文件夹或卷。 可以使用卷驱动器号、卷装入点或基于 GUID 的卷名称指定卷路径。 如果使用基于 GUID 的卷名, 则应以反斜杠 (\\) 结尾。 指定文件路径时, 可以在\*文件名中使用通配符 ()。 仅当使用 **-backupTarget**参数时才应使用。|
+|-allCritical|指定备份中包含所有关键卷 (包含操作系统状态的卷)。 如果要为裸机恢复创建备份, 此参数非常有用。 仅当指定了 **-backupTarget**时才应使用它, 否则命令将失败。 可以与 **-include**选项一起使用。</br>提示：关键卷备份的目标卷可以是本地驱动器, 但不能是备份中包含的任何卷。|
+|-systemState|对于 Windows 7 和 Windows Server 2008 R2 及更高版本, 将创建一个包含系统状态的备份以及使用 **-include**参数指定的任何其他项。 系统状态包含启动文件 (Boot.ini、NDTLDR、NTDetect.com)、Windows 注册表 (包括 COM 设置、SYSVOL (组策略和登录脚本) Active Directory 和 NTDS)。域控制器上的 DIT 以及证书服务 (如果安装了证书服务)。 如果服务器已安装 Web 服务器角色, 则将包括 IIS 元目录。 如果该服务器是群集的一部分, 则还会包括群集服务信息。|
+|-noVerify|指定不验证保存到可移动媒体 (如 DVD) 的备份是否有错误。 如果不使用此参数, 则会验证保存到可移动媒体的备份是否存在错误。|
+|-user|如果将备份保存到远程共享文件夹, 请指定对文件夹具有写入权限的用户名。|
+|-password|指定参数 **-user**提供的用户名的密码。|
+|-noInheritAcl|将与 **-user**和 **-password**参数\\提供的凭据对应的访问控制列表 (ACL) 权限应用到\< \\ \<servername >\\共享名\\>\\WindowsImageBackup\<ComputerBackedUp>\\ (包含备份的文件夹)。 若要稍后访问备份, 则必须使用这些凭据, 或者必须是使用共享文件夹的计算机上的 Administrators 组或 Backup Operators 组的成员。 如果未使用 **-noInheritAcl** , 则默认情况下, 会将远程共享文件夹中的 ACL \\权限应用于 "ComputerBackedUp >" \<文件夹, 以便具有远程共享文件夹访问权限的任何人都可以访问该备份。|
+|-vssFull|使用卷影复制服务 (VSS) 执行完整备份。 所有文件均已备份, 每个文件的历史记录都会更新以反映它已备份, 并且以前的备份的日志可能会被截断。 如果未使用此参数, 则**wbadmin start backup**会进行复制备份, 但不会更新正在备份的文件的历史记录。</br>注意：如果使用 Windows Server 备份以外的产品来备份当前备份中包含的卷上的应用程序, 请不要使用此参数。 这样做可能会破坏其他备份产品所创建的增量备份、差异备份或其他类型的备份, 因为他们要依赖的历史记录确定要备份的数据量, 并且可能会执行完整备份增加.|
+|-vssCopy|对于 Windows 7 和 Windows Server 2008 R2 及更高版本, 使用 VSS 执行副本备份。 所有文件都已备份, 但不会更新正在备份的文件的历史记录, 因此, 你可以保留更改、删除等文件的所有信息以及任何应用程序日志文件。 使用这种类型的备份不会影响独立于此副本备份而发生的增量备份和差异备份的序列。 这是默认值。</br>警告：副本备份不能用于增量备份或差异备份或还原。|
+|-quiet|对用户运行无提示的子命令。|
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例演示如何**wbadmin start backup**可以在不同的备份方案中使用命令：
+下面的示例演示如何在不同的备份方案中使用**wbadmin start backup**命令:
 
-方案 1
-- 创建备份卷 e:、 d:\mountpoint，并\\ \\？ \Volume{cc566d14-4410-11d9-9d93-806e6f6e6963}
+方案 #1
+- 创建卷 e:、d:\\装入点和？\\ \\ \\卷 {cc566d14-4410-11d9-9d93-806e6f6e6963}
 - 将备份保存到卷 f:
   ```
   wbadmin start backup -backupTarget:f: -include:e:,d:\mountpoint,\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
   ```
-  方案 2
-- 执行的一次性备份*f:\folder1*并*h:\folder2*到卷*d:* 。
+  方案 #2
+- 执行*f:\\folder1*和*h\\: folder2*到卷*d:* 的一次性备份。
 - 备份系统状态
-- 进行副本备份，以便按正常计划差异备份不会受到影响。
+- 进行复制备份, 以便不影响正常计划的差异备份。
   ```
   wbadmin start backup –backupTarget:d: -include:g\folder1,h:\folder2 –systemstate -vsscopy
   ```
-  方案 3
-- 执行的一次性备份*d:\folder1* ，应备份非递归方式。
-- 备份到网络位置的文件夹 *\\ \\backupshare\backup1*
-- 限制对备份到的成员的访问**管理员**或**Backup Operators**组。
+  方案 #3
+- 对应以非递归方式备份的*d\\: folder1*执行一次性备份。
+- 将文件夹备份到网络位置 *\\ \\\\backupshare 备份1*
+- 限制对**Administrators**组或**backup Operators**组成员的备份访问。
   ```
   wbadmin start backup –backupTarget: \\backupshare\backup1 -noinheritacl -nonrecurseinclude:d:\folder1
   ```
@@ -110,4 +110,4 @@ Wbadmin start backup
 #### <a name="additional-references"></a>其他参考
 
 -   [命令行语法项](command-line-syntax-key.md)
--   [Wbadmin](wbadmin.md)
+-   [Backup](wbadmin.md)

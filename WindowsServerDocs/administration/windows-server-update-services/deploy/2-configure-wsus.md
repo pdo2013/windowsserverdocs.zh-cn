@@ -10,12 +10,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c5c4ac470d1187aa6186f6f05cab3df185a642fd
-ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
+ms.openlocfilehash: 660cb0412abdf1ecb1afcba53a4aeb79ac407e56
+ms.sourcegitcommit: a9625758fbfb066494fe62e0da5f9570ccb738a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914562"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952461"
 ---
 # <a name="step-2-configure-wsus"></a>步骤 2：配置 WSUS
 
@@ -56,33 +56,33 @@ ms.locfileid: "68914562"
 ### <a name="211-connection-from-the-wsus-server-to-the-internet"></a>2.1.1. 从 WSUS 服务器到 Internet 的连接
 如果 WSUS 和 Internet 之间存有企业防火墙，你可能必须配置防火墙以确保 WSUS 可获得更新。 为了从 Microsoft 更新获取更新，WSUS 服务器将端口 443 用于 HTTPS 协议。 虽然大多数企业防火墙允许此类流量, 但由于公司的安全策略, 某些公司会限制服务器对 Internet 的访问。 如果你的公司限制访问, 你需要获得授权才能从 WSUS 访问以下 Url 列表:
 
-- http://windowsupdate.microsoft.com
+- http\://windowsupdate.microsoft.com
 
-- http://*.windowsupdate.microsoft.com
+- \:windowsupdate.microsoft.com//\*
 
-- https://*.windowsupdate.microsoft.com
+- \:windowsupdate.microsoft.com//\*
 
-- http://*.update.microsoft.com
+- \:update.microsoft.com//\*
 
-- https://*.update.microsoft.com
+- \:update.microsoft.com//\*
 
-- http://*.windowsupdate.com
+- \:windowsupdate.com//\*
 
-- http://download.windowsupdate.com
+- http\://download.windowsupdate.com
 
-- https://download.microsoft.com
+- https\://download.microsoft.com
 
-- http://*.download.windowsupdate.com
+- \:download.windowsupdate.com//\*
 
-- http://wustat.windows.com
+- http\://wustat.windows.com
 
-- http://ntservicepack.microsoft.com
+- http\://ntservicepack.microsoft.com
 
-- http://go.microsoft.com
+- http\://go.microsoft.com
 
-- http://dl.delivery.mp.microsoft.com
+- http\://dl.delivery.mp.microsoft.com
 
-- https://dl.delivery.mp.microsoft.com
+- https\://dl.delivery.mp.microsoft.com
 
 > [!IMPORTANT]
 > 对于由于防火墙配置而导致 WSUS 未能获得更新的方案, 请参阅 Microsoft 知识库中的[文章 885819](https://support.microsoft.com/kb/885819) 。
@@ -389,11 +389,11 @@ WSUS 需要将两个端口用于 SSL：一个端口使用 HTTPS 发送加密的�
 
 2.  单击 "**开始**", 键入**CMD**, 右键单击 "**命令提示符**", 然后单击 "以**管理员身份运行**"。
 
-3.  导航到 _% ProgramFiles%_ **\\ \Update Services\Tools**文件夹。
+3.  导航到 _% ProgramFiles%_ **\\更新服务\\工具\\** 文件夹。
 
 4.  在 "命令提示符" 窗口中, 键入以下命令:
 
-    **Wsusutil configuressl** _
+    **Wsusutil configuressl**_certificateName_
 
     其中：
 
