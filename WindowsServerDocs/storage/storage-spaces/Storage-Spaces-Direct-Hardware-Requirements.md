@@ -9,12 +9,12 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 08/05/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: d899ec41b9a87089f03a576fa11dfa7d210fe194
-ms.sourcegitcommit: b68ff64ecd87959cd2acde4a47506a01035b542a
+ms.openlocfilehash: 59c04a858ceae44ee51c1de10fc40b27dc22ef90
+ms.sourcegitcommit: e04565e4a1fb7aaed04addd2bc87cc6ec4c82e81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68830899"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69529893"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>存储空间直通的硬件要求
 
@@ -131,5 +131,5 @@ ms.locfileid: "68830899"
 
 | 最                | Windows Server 2019  | Windows Server 2016  |
 | ---                     | ---------            | ---------            |
-| 每台服务器的原始容量 | 100 TB               | 100 TB               |
+| 每台服务器的原始容量 | 400 TB               | 100 TB               |
 | 池容量           | 4 PB (4000 TB)      | 1 PB                 |
