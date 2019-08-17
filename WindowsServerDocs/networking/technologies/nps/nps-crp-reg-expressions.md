@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: bc22d29c-678c-462d-88b3-1c737dceca75
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fec546e0608c36f9b3d907e486a0a3a24e7d1728
-ms.sourcegitcommit: e04565e4a1fb7aaed04addd2bc87cc6ec4c82e81
+ms.openlocfilehash: 2a47403d4f88d5487fb4ffb0e35c46438aadcd8a
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69529898"
+ms.locfileid: "69546521"
 ---
 # <a name="use-regular-expressions-in-nps"></a>在 NPS 中使用正则表达式
 
@@ -28,7 +28,7 @@ ms.locfileid: "69529898"
 
 |  字符  |                                                                                 描述                                                                                  |                                                                 示例                                                                 |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-|     `\`|                                                             将下一个字符标记为要匹配的字符。                                                               |                      `/n/ matches the character "n". The sequence /\n/ matches a line feed or newline character.`                       |
+|     `\ `     |                                                              将下一个字符标记为要匹配的字符。                                                               |                      `/n/ matches the character "n". The sequence /\n/ matches a line feed or newline character.`                       |
 |     `^`     |                                                                 匹配输入或行的开头。                                                                  |                                                                 &nbsp;                                                                  |
 |     `$`     |                                                                    匹配输入或行的末尾。                                                                     |                                                                 &nbsp;                                                                  |
 |     `*`     |                                                             匹配前面的字符零次或多次。                                                              |                                                  `/zo*/ matches either "z" or "zoo."`                                                   |

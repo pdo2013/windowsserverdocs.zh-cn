@@ -1,5 +1,5 @@
 ---
-Title: SMB:文件和打印机共享端口应该已打开
+title: 中小企业应打开文件和打印机共享端口
 TOCTitle: 'SMB: File and printer sharing ports should be open'
 ms.date: 07/02/2012
 ms.prod: windows-server-threshold
@@ -7,21 +7,21 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: fae579347a43dfa361206e65032b1f3da512ec4a
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: a22801be6ec73b6819a190c793d28feae4edcf69
+ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284367"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69560434"
 ---
-# <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB:文件和打印机共享端口应该已打开
+# <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>中小企业应打开文件和打印机共享端口
 
 
-更新日期：2011 年 2 月 2日日
+更新日期：2011年2月2日
 
-适用于：Windows Server 2019，Windows Server 2016、 Windows Server 2012 R2 和 Windows Server 2012 中，Windows Server 2008 R2
+适用于：Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, windows server 2012, Windows Server 2008 R2
 
-*本主题旨在解决最佳实践分析程序扫描发现的特定问题。您应在本主题中的信息仅适用于计算机的最佳做法分析器针对其运行文件服务，并且遇到问题的本主题。有关最佳做法和扫描的详细信息，请参阅*[最佳做法分析器](http://go.microsoft.com/fwlink/?linkid=122786%0d%0a)。
+*本主题旨在解决最佳做法分析器扫描标识的特定问题。只应将本主题中的信息应用到运行文件服务最佳做法分析器的计算机, 并遇到本主题中所述的问题。有关最佳做法和扫描的详细信息, 请*参阅[最佳做法分析器](http://go.microsoft.com/fwlink/?linkid=122786%0d%0a)。
 
 
 <table>
@@ -40,7 +40,7 @@ ms.locfileid: "67284367"
 </tr>
 <tr class="odd">
 <td><p><strong>Severity</strong></p></td>
-<td><p>错误</p></td>
+<td><p>Error</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>类别</strong></p></td>
@@ -51,27 +51,27 @@ ms.locfileid: "67284367"
 
 ## <a name="issue"></a>问题
 
-> *防火墙端口所必需的文件和打印机共享是打开 （端口 445 和 139）。*
+> *文件和打印机共享所需的防火墙端口未打开 (端口445和 139)。*
 
 ## <a name="impact"></a>影响
 
-> *计算机将不能访问共享的文件夹和此服务器上的其他基于服务器消息块 SMB 的网络服务。*
+> *计算机将无法访问此服务器上的共享文件夹和其他基于服务器消息块 (SMB) 的网络服务。*
 
 ## <a name="resolution"></a>分辨率
 
-> *启用文件和打印机共享，通过计算机的防火墙进行通信。*
+> *启用文件和打印机共享以便通过计算机的防火墙进行通信。*
 
 **Administrators** 组中的成员身份或等效身份是完成此过程所需的最低要求。
 
-## <a name="to-open-the-firewall-ports-to-enable-file-and-printer-sharing"></a>若要打开防火墙端口以启用文件和打印机共享
+## <a name="to-open-the-firewall-ports-to-enable-file-and-printer-sharing"></a>打开防火墙端口以启用文件和打印机共享
 
-1.  打开控制面板，单击**系统和安全**，然后单击**Windows 防火墙**。
+1.  打开 "控制面板", 单击 "**系统和安全**", 然后单击 " **Windows 防火墙**"。
 
-2.  在左窗格中，单击**高级设置**，然后在控制台树中，单击**入站规则**。
+2.  在左窗格中, 单击 "**高级设置**", 然后在控制台树中单击 "**入站规则**"。
 
-3.  下**入站规则**，找到规则**文件和打印机共享 （NB 会话-接程序）** 并**文件和打印机共享 (Smb-in)** 。
+3.  在 "**入站规则**" 下, 找到规则**文件和打印机共享 ("NB-会话中")** 以及 "**文件和打印机共享" (SMB)** 。
 
-4.  对于每个规则，请右键单击规则，然后依次**启用规则**。
+4.  对于每个规则, 右键单击规则, 然后单击 "**启用规则**"。
 
 ## <a name="additional-references"></a>其他参考
 

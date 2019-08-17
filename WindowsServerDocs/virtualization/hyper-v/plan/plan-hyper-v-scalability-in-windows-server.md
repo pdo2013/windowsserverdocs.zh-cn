@@ -10,12 +10,12 @@ ms.topic: article
 author: KBDAzure
 ms.author: kathydav
 ms.date: 09/28/2016
-ms.openlocfilehash: 534de49e50d7b415c9d64c32927418a4395f6f4f
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: b54d3e655d10d2dbb015d57f2b1be86a803d9911
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544748"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546632"
 ---
 # <a name="plan-for-hyper-v-scalability-in-windows-server-2016"></a>Windows Server 2016 中的 Hyper-v 可伸缩性规划
 
@@ -44,7 +44,7 @@ ms.locfileid: "68544748"
 |虚拟处理器|第2代为 240;<br>第1代为 64;<br>320可用于主机操作系统 (根分区)|来宾操作系统支持的虚拟处理器数量可能会减少。 有关详细信息, 请参阅针对特定操作系统发布的信息。|
 |虚拟 SCSI 控制器|4|使用虚拟 SCSI 设备需要集成服务, 这些服务可用于支持的来宾操作系统。 有关支持的操作系统的详细信息, 请参阅[支持的 Linux 和 FreeBSD 虚拟机](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)和[受支持的 Windows 来宾操作系统](../supported-windows-guest-operating-systems-for-hyper-v-on-windows.md)。|  
 |虚拟 SCSI 磁盘|256|各 SCSI 控制器最多可支持 64 个磁盘，这意味着各虚拟机可具有多达 256 个虚拟 SCSI 磁盘的配置。 （4 个控制器 x 64 个磁盘/控制器）|  
-|虚拟网络适配器|Windows Server 2016 支持总共12个:<br> -8 个特定于 hyper-v 的网络适配器<br>-4 旧版网络适配器 <br> Windows Server 2019 支持72总计: <br> -64 hyper-v 特定网络适配器<br>-4 旧版网络适配器  |Hyper-v 特定网络适配器提供更好的性能, 并需要包含在 integration services 中的驱动程序。 有关详细信息, 请参阅[规划 Windows Server 中的 hyper-v 网络](plan-hyper-v-networking-in-windows-server.md)。|  
+|虚拟网络适配器|Windows Server 2016 支持总共12个:<br> -8 个特定于 hyper-v 的网络适配器<br>-4 旧版网络适配器 <br> Windows Server 2019 支持68总计: <br> -64 hyper-v 特定网络适配器<br>-4 旧版网络适配器  |Hyper-v 特定网络适配器提供更好的性能, 并需要包含在 integration services 中的驱动程序。 有关详细信息, 请参阅[规划 Windows Server 中的 hyper-v 网络](plan-hyper-v-networking-in-windows-server.md)。|  
   
 ## <a name="maximums-for-hyper-v-hosts"></a>最大为 Hyper-v 主机  
 这些最大的适用于每个 Hyper-v 主机。  

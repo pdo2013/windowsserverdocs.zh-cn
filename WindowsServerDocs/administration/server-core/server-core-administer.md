@@ -8,12 +8,12 @@ author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
 ms.date: 12/18/2018
-ms.openlocfilehash: b144127de2ceea99e36549974101d190154aaeaf
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 78006dbbd2bdc569c15ac9967d8c5c542664312c
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476527"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546288"
 ---
 # <a name="administer-a-server-core-server"></a>管理服务器核心服务器
 
@@ -90,8 +90,8 @@ ms.locfileid: "68476527"
 > [!NOTE]
 > 还可以通过电话、使用[密钥管理服务 (KMS) 服务器](../../get-started/server-2016-activation.md)或者远程激活服务器。 若要远程激活, 请从远程计算机运行以下 cmdlet: 
 > 
-> ```powershell
-> **cscript windows\system32\slmgr.vbs <ServerName> <UserName> <password>:-ato**
+> ```
+> cscript windows\system32\slmgr.vbs <ServerName> <UserName> <password>:-ato
 > ```
  
 ### <a name="configure-windows-firewall"></a>配置 Windows 防火墙
@@ -136,7 +136,7 @@ ms.locfileid: "68476527"
 |任务|Command| 
 |----|-------|
 |将服务器配置为使用代理服务器|**netsh Winhttp set proxy \<servername\>:\<port number\>** <br>**注意：** 服务器核心安装无法通过需要密码以允许连接的代理来访问 Internet。|
-|将服务器配置为绕过 Internet 地址的代理|**netsh winttp 设置代理\<服务器\>名称\<: 跳\>过端口号-list\<=\>"local"**| 
+|将服务器配置为绕过 Internet 地址的代理|**netsh winhttp set proxy \<servername\>:\<端口号\>旁路-list = "\<local\>"**| 
 |显示或修改 IPSEC 配置|**netsh ipsec**| 
 |显示或修改 NAP 配置|**netsh nap**| 
 |显示或修改 IP 到物理地址的转换|**arp**| 
@@ -147,7 +147,7 @@ ms.locfileid: "68476527"
 |显示网络连接的跃点|**pathping**| 
 |跟踪网络连接的跃点|**tracert**| 
 |显示多播路由器的配置|**mrinfo**| 
-|启用防火墙的远程管理|**netsh advfirewall firewall 设置规则组 = "Windows 防火墙远程管理" 新建 enable = yes**| 
+|启用防火墙的远程管理|**netsh advfirewall 防火墙设置规则组 = "Windows Defender 防火墙远程管理" 新建 enable = yes**| 
  
 
 ### <a name="updates-error-reporting-and-feedback"></a>更新、错误报告和反馈

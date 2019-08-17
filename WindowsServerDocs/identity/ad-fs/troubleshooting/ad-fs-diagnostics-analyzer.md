@@ -1,6 +1,6 @@
 ---
 title: AD FS 帮助诊断分析器
-description: 本文档介绍了 AD FS 帮助诊断分析器和如何执行基本检查使用 AD FS 诊断 PowerShell 模块。
+description: 本文档介绍 AD FS 帮助诊断分析器, 以及如何使用 AD FS 诊断 PowerShell 模块执行基本检查。
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,96 +9,109 @@ ms.date: 03/29/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 8d9acd1adcb8d9566b154abfef940e21609a6684
-ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.openlocfilehash: 6b6b7563aaa1f3c7d706cfdd172faf18417623e5
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64773374"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546572"
 ---
 # <a name="ad-fs-help-diagnostics-analyzer"></a>AD FS 帮助诊断分析器
 
-AD FS 具有大量支持各种各样的功能，它提供用于身份验证和应用程序开发的设置。 在疑难解答期间，建议以确保所有 AD FS 设置正确配置。 手动检查这些设置有时会耗费大量时间。 AD FS 帮助诊断分析器可帮助执行基本检查使用 ADFSToolbox PowerShell 模块。 后执行检查，AD FS 帮助提供[诊断分析器](https://aka.ms/adfsdiagnosticsanalyzer)以帮助您轻松地可视化结果并提供补救步骤。
+AD FS 提供了许多设置, 这些设置支持它提供的用于身份验证和应用程序开发的各种功能。 在故障排除过程中, 建议确保正确配置所有 AD FS 设置。 手动检查这些设置有时会耗费时间。 AD FS 帮助诊断分析器可帮助使用 ADFSToolbox PowerShell 模块执行基本检查。 执行检查后, AD FS 帮助将提供[诊断分析器](https://aka.ms/adfsdiagnosticsanalyzer)来帮助你轻松地可视化结果并提供补救步骤。
 
-完成操作采用 3 个简单步骤：
+完整操作采用3个简单步骤:
 
-1. 安装程序的主 AD FS 服务器或 WAP 服务器上的 ADFSToolbox 模块
-2. 执行诊断，并将该文件上传到 AD FS 帮助
+1. 在主 AD FS 服务器或 WAP 服务器上设置 ADFSToolbox 模块
+2. 执行诊断, 并将文件上传到 AD FS 帮助
 3. 查看诊断分析并解决任何问题
 
-转到[AD FS 帮助诊断分析器 (https://aka.ms/adfsdiagnosticsanalyzer) ](https://aka.ms/adfsdiagnosticsanalyzer)开始进行故障排除。
+请参阅[AD FS 帮助诊断分析器 (https://aka.ms/adfsdiagnosticsanalyzer) ](https://aka.ms/adfsdiagnosticsanalyzer)开始进行故障排除。
 
-![AD FS 帮助 AD FS 诊断分析器工具](media/ad-fs-diagonostics-analyzer/home.png)
+![AD FS 诊断分析器工具 AD FS 帮助](media/ad-fs-diagonostics-analyzer/home.png)
 
-## <a name="step-1-setup-the-adfstoolbox-module-on-ad-fs-server"></a>第 1 步：安装 AD FS 服务器上的 ADFSToolbox 模块
+## <a name="step-1-setup-the-adfstoolbox-module-on-ad-fs-server"></a>步骤 1：在 AD FS server 上设置 ADFSToolbox 模块
 
-若要运行[诊断分析器](https://aka.ms/adfsdiagnosticsanalyzer)，必须安装 ADFSToolbox PowerShell 模块。 如果 AD FS 服务器已连接到 internet，您可以直接从 PowerShell 库安装 ADFSToolbox 模块。 如果没有连接到 internet，克隆的 GitHub 存储库的手动安装。
+若要运行[诊断分析器](https://aka.ms/adfsdiagnosticsanalyzer), 必须安装 ADFSToolbox PowerShell 模块。 如果 AD FS 服务器已连接到 internet, 则可以直接从 PowerShell 库安装 ADFSToolbox 模块。 如果未连接到 internet, 则可以手动安装它。 
 
-![AD FS 诊断分析器的安装程序](media/ad-fs-diagonostics-analyzer/step1.png)
+[!WARNING]
+如果使用 AD FS 2.1 或更低版本, 则必须安装 ADFSToolbox 版本1.0.13。 ADFSToolbox 不再支持最新版本的 AD FS 2.1 或更低版本。
 
-### <a name="setup-using-powershell-gallery"></a>使用 PowerShell 库设置
+![AD FS 诊断分析器-安装程序](media/ad-fs-diagonostics-analyzer/step1_v2.png)
 
-如果 AD FS 服务器具有 internet 连接，建议直接从 PowerShell 库使用下面提供的 PowerShell 命令安装 ADFSToolbox 模块。
+### <a name="setup-using-powershell-gallery"></a>使用 PowerShell 库进行安装
+
+如果 AD FS 服务器具有 internet 连接, 建议使用下面提供的 PowerShell 命令直接从 PowerShell 库安装 ADFSToolbox 模块。
 
    ```powershell
     Install-Module -Name ADFSToolbox -force
     Import-Module ADFSToolbox -force
    ```
-### <a name="setup-manually-by-cloning-the-repository"></a>通过克隆存储库手动设置
 
-ADFSToolbox 模块可以手动安装从 GitHub 直接。 请按照下面的说明的克隆存储库并在 AD FS 服务器上安装 ADFSToolbox 模块。
+### <a name="setup-manually"></a>手动设置
 
-1. 下载[存储库](https://github.com/Microsoft/adfsToolbox/archive/master.zip)
-2. 解压缩下载的文件并将 adfsToolbox master 文件夹复制到 %SYSTEMDRIVE%\\Program Files\\WindowsPowerShell\\模块\\。
-3. 导入 PowerShell 模块。 在提升的 PowerShell 窗口，运行以下命令：
+必须将 ADFSToolbox 模块手动复制到 AD FS 或 WAP 服务器。 按照以下说明进行操作。
 
-   ```powershell
+1. 在可访问 internet 的计算机上启动提升的 PowerShell 窗口。
+2. 安装 AD FS 工具箱 "模块。
+
+    ```powershell
+    Install-Module -Name ADFSToolbox -Force
+    ```
+3. 将位于`%SYSTEMDRIVE%\Program Files\WindowsPowerShell\Modules\`本地计算机上的 ADFSToolbox 文件夹复制到 AD FS 或 WAP 计算机上的同一位置。
+
+4. 在 AD FS 机上启动提升的 PowerShell 窗口, 并运行以下 cmdlet 以导入模块。
+
+    ```powershell
     Import-Module ADFSToolbox -Force
-   ```
+    ```
 
-## <a name="step-2-execute-the-diagnostics-and-upload-the-file-to-ad-fs-help"></a>步骤 2：执行诊断，并将该文件上传到 AD FS 帮助
+## <a name="step-2-execute-the-diagnostics-cmdlet"></a>步骤 2：执行诊断 cmdlet
 
-单个命令可用于方便地跨场中的所有 AD FS 服务器执行诊断测试。 PowerShell 模块将使用远程 PS 会话在不同的服务器场中执行的诊断测试。
+![AD FS 诊断分析器工具-执行并上传结果](media/ad-fs-diagonostics-analyzer/step2_v2.png)
 
-```powershell
-    Export-AdfsDiagnosticsFile [-adfsServers <list of servers>]
-```
-
-在 Server 2016 AD FS 场中，该命令将从 AD FS 配置中读取 AD FS 服务器的列表。 针对列表中的每个服务器然后尝试诊断测试。 如果 AD FS 服务器的列表将不可用 (示例 2012R2)，然后针对本地计算机运行测试。 若要指定对其的测试都要执行的服务器的列表，请使用**adfsServers**参数，以提供服务器的列表。 下面提供了一个示例
+可以使用单个命令在场中的所有 AD FS 服务器上方便地执行诊断测试。 PowerShell 模块将使用远程 PS 会话在场中的不同服务器之间执行诊断测试。
 
 ```powershell
-    Export-AdfsDiagnosticsFile -adfsServers @("sts1.contoso.com", "sts2.contoso.com", "sts3.contoso.com")
+    Export-AdfsDiagnosticsFile [-ServerNames <list of servers>]
 ```
 
-结果是相同的目录中创建运行命令的 JSON 文件。 该文件的名称是 ADFSDiagnosticsFile-\<时间戳\>。 示例文件名称是 ADFSDiagnosticsFile 20180716124030。
+在服务器2016或更高版本 AD FS 场中, 该命令将从 AD FS 配置中读取 AD FS 服务器的列表。 然后, 将针对列表中的每个服务器尝试诊断测试。 如果 AD FS 服务器的列表不可用 (例如 2012R2), 则将针对本地计算机运行测试。 若要指定要对其执行测试的服务器的列表, 请使用**ServerNames**参数提供服务器的列表。 下面提供了一个示例
 
-在第 2 步上[ https://aka.ms/adfsdiagnosticsanalyzer ](https://aka.ms/adfsdiagnosticsanalyzer)使用文件浏览器来选择要上传的结果文件。
+```powershell
+    Export-AdfsDiagnosticsFile -ServerNames @("adfs1.contoso.com", "adfs2.contoso.com")
+```
 
-![AD FS 诊断分析器工具的执行，并将结果上传](media/ad-fs-diagonostics-analyzer/step2.png)
+结果是在运行命令的同一目录中创建的 JSON 文件。 该文件的名称为 AdfsDiagnosticsFile\<。\> 示例文件名为 AdfsDiagnosticsFile-07312019-184201。
 
-单击**上传**完成上传并将移动到下一步。
+## <a name="step-3-upload-the-diagnostics-file"></a>步骤 3：上载诊断文件
 
+在第 3 [https://aka.ms/adfsdiagnosticsanalyzer](https://aka.ms/adfsdiagnosticsanalyzer)步中, 使用文件浏览器选择要上传的结果文件。
 
-通过使用 Microsoft 帐户登录，你的诊断结果可以为更高版本的查看点保存，可以发送给 Microsoft 支持。 如果任何时候打开支持案例，Microsoft 将能够查看的诊断分析器结果，并帮助更快地解决你遇到的问题。
+单击 "上**传**" 完成上传。
+
+通过使用 Microsoft 帐户登录, 可以保存诊断结果以供以后查看, 并且可以发送给 Microsoft 支持部门。 如果你随时打开支持案例, Microsoft 将能够查看诊断分析器结果, 并帮助你更快地解决问题。
 
 ![AD FS 诊断分析器工具-登录](media/ad-fs-diagonostics-analyzer/sign_in_step.png)
 
-## <a name="step-3-view-diagnostics-analysis-and-resolve-any-issues"></a>步骤 3:查看诊断分析并解决任何问题
+## <a name="step-4-view-diagnostics-analysis-and-resolve-any-issues"></a>步骤 4：查看诊断分析并解决任何问题
 
-有四个部分的测试结果：
+测试结果有五个部分:
 
-1. 失败：本部分包含失败的测试的列表。 每个结果组成：
-2. 警告：本部分包含的测试具有导致了警告的列表。 这些问题将不可能会导致任何问题更广泛的刻度上的身份验证，但应该努力尽快解决。
-3. 不适用：本部分包含不执行，因为它们不是适用于特定的服务器在其执行该命令的测试的列表。
-4. 传递：本部分包含传递，并具有用户没有操作项的测试的列表。
+1. 失败：此部分包含失败的测试的列表。 每个结果包含:
+2. 警告：此部分包含导致警告的测试的列表。 这些问题不会导致在更广泛的范围内进行身份验证的任何问题, 但应最早地解决这些问题。
+3. 过来本部分包含通过的测试列表, 并没有用户的操作项。
+4. 不运行:此部分包含由于缺少信息而无法运行的测试的列表。
+5. 不适用：本部分包含未执行的测试列表, 因为这些测试不适用于执行命令的特定服务器。
 
-![AD FS 诊断分析器工具-测试结果列表](media/ad-fs-diagonostics-analyzer/step3a_v2.png)描述测试和解决方法步骤的详细信息显示每个测试结果：
+![AD FS 诊断分析器工具-"测试结果](media/ad-fs-diagonostics-analyzer/step3a_v3.png) " 列表中显示每个测试结果, 并详细说明了这些步骤:
 
-1. 测试名称：已执行的测试的名称
-2. 详细信息：在测试期间执行的整体操作的说明
-3. 解决方法步骤:建议的步骤来解决此问题由测试突出显示
+1. 测试名称:已执行的测试的名称
+2. 说明：对测试的说明。
+3. 详细信息：在测试过程中执行的总体操作的说明
+4. 解决方法步骤:解决测试突出显示的问题的建议步骤
 
-![AD FS 诊断分析器工具-失败解决方法](media/ad-fs-diagonostics-analyzer/step3b_v2.png)
+![AD FS 诊断分析器工具-故障解决方法](media/ad-fs-diagonostics-analyzer/step3b_v3.png)
 
 ## <a name="next"></a>Next
 

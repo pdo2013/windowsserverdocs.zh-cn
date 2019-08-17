@@ -9,12 +9,12 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 08/05/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 59c04a858ceae44ee51c1de10fc40b27dc22ef90
-ms.sourcegitcommit: e04565e4a1fb7aaed04addd2bc87cc6ec4c82e81
+ms.openlocfilehash: 2f3f8bff39550108b0417b9513bee4a248dca432
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69529893"
+ms.locfileid: "69546379"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>存储空间直通的硬件要求
 
@@ -86,7 +86,7 @@ ms.locfileid: "69529893"
 - 每个服务器中相同数量和类型的驱动器–请参阅[驱动对称注意事项](drive-symmetry-considerations.md)
 - 缓存设备必须为 32 GB 或更大
 - 当使用永久性内存设备作为缓存设备时, 必须使用 NVMe 或 SSD 容量设备 (不能使用 Hdd)
-- NVMe 驱动程序是 Microsoft 的机箱内或更新的 NVMe 驱动程序。
+- NVMe 驱动程序是 Microsoft 提供的包含在 Windows 中的驱动程序。 (stornvme)
 - 建议：容量驱动器数是缓存驱动器数的整数倍
 - 建议：缓存驱动器应具有高写入高耐用性: 每日至少3个驱动器写入 (DWPD) 或每天至少 4 tb 写入 (TBW) –请参阅[了解每日驱动器写入数 (DWPD)、tb 写入量 (TBW) 和建议存储空间直通的最低要求](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
 

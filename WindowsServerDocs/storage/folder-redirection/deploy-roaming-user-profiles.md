@@ -1,5 +1,5 @@
 ---
-Title: 部署漫游用户配置文件
+title: 部署漫游用户配置文件
 TOCTitle: Deploying Roaming User Profiles
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -8,12 +8,12 @@ author: JasonGerend
 manager: brianlic
 ms.date: 06/07/2019
 ms.author: jgerend
-ms.openlocfilehash: e6e2e32ff9aeb1b3bcfc8fed9027c7e92e13b118
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: 1fcabf890c0c54e12c1650c31a072d17a33e292f
+ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66812484"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69560551"
 ---
 # <a name="deploying-roaming-user-profiles"></a>部署漫游用户配置文件
 
@@ -100,9 +100,9 @@ ms.locfileid: "66812484"
 1. 在安装了 Active Directory 管理中心的计算机上打开服务器管理器。
 2. 在 "**工具**" 菜单上, 选择 " **Active Directory 管理中心**"。 此时将出现 Active Directory 管理中心。
 3. 右键单击相应的域或 OU, 选择 "**新建**", 然后选择 "**组**"。
-4. 在“创建组”  窗口的“组”  部分，指定以下设置：
+4. 在“创建组”窗口的“组”部分，指定以下设置：
 
-    - 在“组名”  中，键入安全组的名称，例如：**漫游用户配置文件相关用户和计算机**。
+    - 在“组名”中，键入安全组的名称，例如：**漫游用户配置文件相关用户和计算机**。
     - 在 "**组作用域**" 中, 选择 "**安全性**", 然后选择 "**全局**"。
 
 5. 在 "**成员**" 部分中, 选择 "**添加**"。 此时将出现“选择用户、联系人、计算机、服务帐户或组”对话框。
@@ -121,13 +121,13 @@ ms.locfileid: "66812484"
 1. 在服务器管理器导航窗格中, 选择 "**文件和存储服务**", 然后选择 "**共享**" 以显示 "共享" 页。
 2. 在 "共享" 磁贴中, 选择 "**任务**", 然后选择 "**新建共享**"。 此时将出现新建共享向导。
 3. 在 "**选择配置文件**" 页上, 选择 " **SMB 共享–快速**"。 如果你安装了文件服务器资源管理器并且使用的是文件夹管理属性, 则改为选择 " **SMB 共享-高级**"。
-4. 在“共享位置”  页上，选择你要在其上创建共享的服务器和卷。
+4. 在“共享位置”页上，选择你要在其上创建共享的服务器和卷。
 5. 在“共享名” 页上，在“共享名”框中键入共享的名称（例如， **用户配置文件$** ）。
 
     > [!TIP]
     > 在创建共享时，通过在共享名后放置 ```$``` 来隐藏共享。 这会在普通浏览器中隐藏共享。
 
-6. 在“其他设置”  页上，清除“启用连续可用性”  复选框（如果存在），并且可以选择性地选中“启用基于访问的枚举”  和“加密数据访问”  复选框。
+6. 在“其他设置”页上，清除“启用连续可用性”复选框（如果存在），并且可以选择性地选中“启用基于访问的枚举”和“加密数据访问”复选框。
 7. 在 "**权限**" 页上, 选择 "**自定义权限 ...** "。 将出现高级安全设置对话框。
 8. 选择 "**禁用继承**", 然后选择 **"将继承权限转换为对此对象的显式权限"** 。
 9. 按照对[承载漫游用户配置文件的文件共享的 "所需权限](#required-permissions-for-the-file-share-hosting-roaming-user-profiles)" 中所述的设置权限, 并在以下屏幕截图中显示, 删除未列出的组和帐户的权限, 以及向漫游用户添加特殊权限配置您在步骤1中创建的 "用户和计算机" 组。
@@ -179,14 +179,14 @@ ms.locfileid: "66812484"
 
 下面介绍如何在用户帐户上设置漫游用户配置文件:
 
-1. 在 Active Directory 管理中心中，导航到相应域中的“用户”  容器（或 OU）。
+1. 在 Active Directory 管理中心中，导航到相应域中的“用户”容器（或 OU）。
 2. 选择要向其分配漫游用户配置文件的所有用户, 右键单击用户, 然后选择 "**属性**"。
 3. 在 "**配置**文件" 部分, 选中 "**配置文件路径:** " 复选框, 然后输入要在其中存储用户漫游用户配置文件的文件共享的路径`%username%` , 后跟 (自动替换为第一个用户的用户名用户登录时的时间。 例如：
     
     `\\fs1.corp.contoso.com\User Profiles$\%username%`
     
     若要指定必需的漫游用户配置文件, 请指定前面创建的已文件的路径, 例如`fs1.corp.contoso.comUser Profiles$default`。 有关详细信息, 请参阅[创建强制用户配置文件](https://docs.microsoft.com/windows/client-management/mandatory-user-profile)。
-4. 选择 **确定**。
+4. 选择“确定”。
 
 > [!NOTE]
 > 默认情况下，在使用漫游用户配置文件时，允许部署所有基于 Windows ® 运行时的（Windows 应用商店）应用。 但是，在使用特殊配置文件时，默认情况下将不部署应用。 特殊配置文件是在用户注销后放弃所做更改的用户配置文件：
@@ -207,7 +207,7 @@ ms.locfileid: "66812484"
 1. 在装有组策略管理的计算机上打开服务器管理器。
 2. 从 "**工具**" 菜单中选择 "**组策略管理**"。 将显示组策略管理。
 3. 在组策略管理 "中, 右键单击在步骤3中创建的 GPO (例如,"**漫游用户配置文件设置**"), 然后选择"**编辑**"。
-4. 在组策略管理编辑器窗口中，依次导航到“计算机配置”  、“策略”  、“管理模板”  、“系统”  、“用户配置文件”  。
+4. 在组策略管理编辑器窗口中，依次导航到“计算机配置”、“策略”、“管理模板”、“系统”、“用户配置文件”。
 5. 右键单击 "**为登录到此计算机的所有用户设置漫游配置文件路径**", 然后选择 "**编辑**"。
     > [!TIP]
     > 用户的主文件夹（如果已配置）是某些程序（如 Windows PowerShell）使用的默认文件夹。 你可以使用 AD DS 中用户帐户属性的“主文件夹” 部分，为每个用户配置备用的本地或网络位置。 若要在虚拟桌面环境中为运行 Windows 8.1、Windows 8、Windows Server 2019、Windows Server 2016、Windows Server 2012 R2 或 Windows Server 2012 的计算机的所有用户配置主文件夹位置, 请启用 "**设置用户主文件夹**"策略设置, 然后指定要映射的文件共享和驱动器号 (或指定一个本地文件夹)。 请不要使用环境变量或省略号。 用户的别名将附加到用户登录期间指定的路径末尾。
@@ -217,7 +217,7 @@ ms.locfileid: "66812484"
     `\\fs1.corp.contoso.com\User Profiles$\%username%`
 
     若要指定必需的漫游用户配置文件, 即用户无法进行永久更改的预配置的配置文件 (更改将在用户注销时重置), 请指定先前创建的已文件的路径, 例如`\\fs1.corp.contoso.com\User Profiles$\default`。 有关详细信息，请参阅 [创建强制用户配置文件](https://docs.microsoft.com/windows/client-management/mandatory-user-profile)。
-8. 选择 **确定**。
+8. 选择“确定”。
 
 ## <a name="step-7-optionally-specify-a-start-layout-for-windows-10-pcs"></a>步骤 7：(可选) 为 Windows 10 电脑指定开始布局
 
@@ -231,7 +231,7 @@ ms.locfileid: "66812484"
 3. 使用组策略将自定义的开始布局应用于为漫游用户配置文件创建的 GPO。 为此, 请参阅[使用组策略将自定义的开始布局应用于域中](https://docs.microsoft.com/windows/configuration/customize-windows-10-start-screens-by-using-group-policy#bkmk-domaingpodeployment)。
 4. 使用组策略在 Windows 10 电脑上设置以下注册表值。 为此, 请参阅[配置注册表项](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753092(v=ws.11)>)。
 
-| **操作**   | **Update**                  |
+| **Action**   | **Update**                  |
 | ------------ | ------------                |
 | 配置单元         | **HKEY_LOCAL_MACHINE**      |
 | 密钥路径     | **Software\Microsoft\Windows\CurrentVersion\Explorer** |
@@ -283,11 +283,11 @@ ms.locfileid: "66812484"
     ```PowerShell
     GpUpdate /Force
     ```
-3. 若要确认用户配置文件是否为漫游, 请打开 "控制面板", 选择 **"** **系统和安全**", 选择 "**系统**", 选择 "**高级系统设置**", 在 "用户配置文件" 部分中选择 "**设置**", 然后查找  在 "**类型**" 列中漫游。
+3. 若要确认用户配置文件是否为漫游, 请打开 "控制面板", 选择 **"** **系统和安全**", 选择 "**系统**", 选择 "**高级系统设置**", 在 "用户配置文件" 部分中选择 "**设置**", 然后查找在 "**类型**" 列中漫游。
 
 ## <a name="appendix-a-checklist-for-deploying-roaming-user-profiles"></a>附录 A：有关部署漫游用户配置文件的清单
 
-| 状态                     | Action                                                |
+| 状态                     | 操作                                                |
 | ---                        | ------                                                |
 | ☐<br>☐<br>☐<br>☐<br>☐   | 1.准备域<br>-将计算机加入域<br>-支持使用单独的配置文件版本<br>-创建用户帐户<br>-(可选) 部署文件夹重定向 |
 | ☐<br><br><br>             | 2.创建漫游用户配置文件的安全组<br>-组名称:<br>组员 |
