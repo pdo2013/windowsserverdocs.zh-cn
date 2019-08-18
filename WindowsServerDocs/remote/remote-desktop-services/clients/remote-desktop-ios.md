@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 date: 01/13/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 71fe969de4d21f7fa3c134b0f80fc7f69e5b2da8
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ebb169ee3b733bd5e7aade6636e078d54a6f09b3
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66446703"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546396"
 ---
 # <a name="get-started-with-remote-desktop-on-ios"></a>在 iOS 上开始使用远程桌面
 
@@ -38,7 +38,7 @@ ms.locfileid: "66446703"
 ### <a name="download-the-remote-desktop-client-from-the-ios-store"></a>从 iOS 应用商店下载远程桌面客户端
 按照以下步骤开始在 iOS 设备上使用远程桌面：
 
-1. 从 [iTunes](https://itunes.apple.com/us/app/microsoft-remote-desktop/id714464092?mt=8) 下载 Microsoft 远程桌面客户端。
+1. 从 [iTunes](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8) 下载 Microsoft 远程桌面客户端。
 2. [设置电脑接受远程连接](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop)。
 3. 添加[远程桌面连接](#add-a-remote-desktop-connection)或[远程资源](#add-a-remote-resource)。 可以使用连接直接连接到 Windows 电脑和远程资源，以使用 RemoteApp 程序、基于会话的桌面或是使用 RemoteApp 和桌面连接在本地发布的虚拟桌面。 此功能通常在企业环境中可用。
 

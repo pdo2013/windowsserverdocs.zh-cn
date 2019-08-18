@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: b3eebb38-a835-4fa6-9e41-1966014bf2cb
 author: lizap
 manager: dongill
-ms.openlocfilehash: ff584533eef70144e3bb6ba595fd0f8db89697e9
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 191d2247af5d5f63a203415af13f8d3370b3c6f6
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63744050"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546479"
 ---
 # <a name="tenant-on-premises-components"></a>租户本地组件
 
@@ -35,8 +35,8 @@ ms.locfileid: "63744050"
 [Microsoft 远程桌面客户端](https://technet.microsoft.com/library/dn473009.aspx)  
 [Microsoft Store 中的 Windows 版远程桌面应用](https://apps.microsoft.com/windows/app/remote-desktop/051f560e-5e9b-4dad-8b2e-fa5e0b05a480)  
 [Microsoft 远程桌面 - Google Play 上的 Android 应用](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android)  
-[Mac 应用商店 - Microsoft 远程桌面](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12)  
-[应用商店中的 Microsoft 远程桌面](https://itunes.apple.com/us/app/microsoft-remote-desktop/id714464092?mt=8)  
+[Mac 应用商店 - Microsoft 远程桌面](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417?mt=12)  
+[应用商店中的 Microsoft 远程桌面](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8)  
   
 ##  <a name="active-directory-domain-services"></a>Active Directory 域服务  
 某些更大且更复杂的租户可能会选择托管本地 Active Directory 域服务 (AD DS) 服务器。 在这种情况下，租户环境中的 AD DS 服务器通常会成为租户的本地 AD DS 服务器的副本。 可通过以下方式支持此功能：在租户的环境中创建虚拟网络，并使用 Azure VPN 在 Azure 数据中心创建从租户的本地网络到租户的虚拟网络的站点到站点连接。  
