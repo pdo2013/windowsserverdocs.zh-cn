@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: d6761c43eefe04430603a1a16e9e8d256176a736
-ms.sourcegitcommit: 25376e261ebd5e85355c298cfd0bbd6b578a6a0c
+ms.openlocfilehash: d167fb5dfdfbb2a302c2b0fca9286dc034b730e3
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68729536"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546341"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>为用户设置远程桌面 Web 客户端
 
@@ -273,9 +273,10 @@ ms.locfileid: "68729536"
  默认情况下，用户可以选择任一启动方法。 布尔值 $true  会强制用户在浏览器中启动资源。 布尔值 $false  会强制用户通过下载 .rdp 文件以处理本地安装的 RDP 客户端来启动资源。
 
 ### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>将 RDWebClientDeploymentSetting 配置重置为默认值
-若要将部署级 Web 客户端设置重置为默认配置，请运行以下 PowerShell cmdlet，并使用 --Name 参数指定要重置的设置：
-  
-  ```PowerShell
+
+若要将部署级 Web 客户端设置重置为默认配置，请运行以下 PowerShell cmdlet，并使用 -name 参数指定要重置的设置：
+
+   ```PowerShell
     Reset-RDWebClientDeploymentSetting -Name "LaunchResourceInBrowser"
     Reset-RDWebClientDeploymentSetting -Name "SuppressTelemetry"
    ```

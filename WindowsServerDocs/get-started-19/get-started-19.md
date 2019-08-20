@@ -1,32 +1,35 @@
 ---
 title: 入门
-description: 服务器基础知识：系统要求、发行说明
+description: 详细介绍 Windows Server 2019 以及如何做好部署、升级或迁移准备。
 ms.prod: windows-server-threshold
-ms.service: na
 manager: jasgroce
 ms.technology: get-started
 layout: LandingPage
 ms.topic: landing-page
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 ms.localizationpriority: medium
-ms.openlocfilehash: 1a2786806d71e6086fd31fbfd27f3e6d7139c10e
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 8e75f4262ea3e1d20b399b3fa1214f0ede33e1e0
+ms.sourcegitcommit: b17ccf7f81e58e8f4dd844be8acf784debbb20ae
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810860"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69023912"
 ---
 # <a name="get-started-with-windows-server-2019"></a>Windows Server 2019 入门
 
->适用于：Windows Server 2019
+> 适用于：Windows Server 2019
 
-|       |       |
-|   -   |   -   |
-| ![新增功能](./media/i-whats-new.svg) | [**新增功能**<br>了解 Windows Server 2019 新增功能](whats-new-19.md)|
+此集合包含详细的信息，可帮助你确定是否已做好转到 Windows Server 2019 的准备。 一旦检查了转到 Windows Server 2019 的系统要求、升级选项和其他信息，即可安装符合需求的最佳版本和安装选项。 若要下载 Windows Server 2019，请参阅 [Windows Server 评估](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019)。
 
-|       |        |        |     |       |        |
-|   -   |   -    |   -    |  -  |  -    |   -    |
-| ![服务频道](./media/i-get-started.svg)  | [**服务频道**<br>通过了解我们的长期服务频道 (LTSB) 和半年渠道 (SAC) 版本之间的差异，更好地规划部署和修补计划。](servicing-channels-19.md)  | ![安装升级迁移](./media/i-get-started.svg) | [**安装、升级、迁移**<br>可以通过多种方式转到 Windows Server 2019。无论是新安装、就地升级，还是迁移应用程序和服务器角色，都可以在这里找到最佳方法。](install-upgrade-migrate-19.md)  | ![发行说明](./media/i-get-started.svg) |[**发行说明**<br>如果你没有避免或解决问题，可能造成严重的后果。](rel-notes-19.md)   |
-| ![系统要求](./media/i-get-started.svg) | [**系统要求**<br>了解安装和运行 Windows Server 2019 的最低硬件要求。](sys-reqs-19.md) |  ![激活](./media/i-get-started.svg)|[**激活**<br>关于使用 Windows Server 2019 激活 Windows Server 2019 本身和其他操作系统的基本信息。](activation-19.md)  |  ![应用程序兼容性](./media/i-get-started.svg)|[**Windows Server 2019 和 Microsoft Server 应用程序兼容性**<br>需要让 SQL 在 Windows Server 2019 上运行，还是找到让 Exchange 运行的步骤？此主题链接到兼容 Microsoft 应用程序的文档。](app-compat-19.md) |
-| ![按需功能<](./media/i-get-started.svg) | [**按需功能**<br>按需功能 (FOD) 是随时可以添加的 Windows Server 功能包。](install-fod-19.md) |  ![Standard / Datacenter Edition 比较](./media/i-get-started.svg) | [**Standard / Datacenter Edition 比较**<br>Windows Server Standard Edition 和 Windows Server Datacenter Edition 具有不同功能。找出你需要的版本。](editions-comparison-19.md) |
+如需 Windows Server 2016 的相关信息，请参阅 [Windows Server 2016 入门](../get-started/server-basics.md)。 如需更早的版本，请参阅[旧版 Windows 库](https://docs.microsoft.com/previous-versions/windows/)。
+
+|       | 
+|   -   | 
+| [**新增功能**](whats-new-19.md)<br>了解 Windows Server 2019 的新增功能。 |
+
+|       |        |        |
+|   -   |   -    |   -    |
+| [**服务频道**](servicing-channels-19.md) <br>通过了解我们的长期服务频道 (LTSB) 和半年频道 (SAC) 版本之间的差异，更好地规划部署和修补计划。 | [**安装、升级、迁移**](install-upgrade-migrate-19.md) <br>可以通过多种方式转到 Windows Server 2019。 无论是全新安装、就地升级，还是迁移应用程序和服务器角色，都可以在这里找到最佳方法。 | [**发行说明**](rel-notes-19.md) <br>如果你没有避免或解决问题，可能造成严重的后果。   |
+| [**系统要求**](sys-reqs-19.md) <br>安装和运行 Windows Server 2019 的最低硬件要求。 | [**激活**](activation-19.md) <br>关于使用 Windows Server 2019 激活 Windows Server 2019 本身和其他操作系统的基本信息。  | [**应用程序兼容性**](app-compat-19.md)<br>是需要让 SQL 在 Windows Server 2019 上运行，还是需要找到让 Exchange 运行的步骤？ 此主题链接到兼容的 Microsoft 应用程序的文档。 |
+| [**按需功能**](install-fod-19.md)<br>按需功能 (FOD) 是随时可以添加的 Windows Server 功能包。 |  [**Standard/Datacenter Edition 比较**](editions-comparison-19.md)<br>Windows Server Standard Edition 和 Windows Server Datacenter Edition 具有不同的功能。 找出你需要的版本。 |
