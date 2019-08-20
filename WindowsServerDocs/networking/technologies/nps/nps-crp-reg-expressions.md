@@ -1,34 +1,34 @@
 ---
 title: 在 NPS 中使用正则表达式
-description: 本主题说明如何在 Windows Server 2016 中的 NPS 中使用正则表达式进行模式匹配。 您可以使用此语法来指定网络策略属性和 RADIUS 领域的条件。
+description: 本主题说明如何将正则表达式用于 Windows Server 中 NPS 中的模式匹配。 您可以使用此语法来指定网络策略属性和 RADIUS 领域的条件。
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
 ms.assetid: bc22d29c-678c-462d-88b3-1c737dceca75
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 2a47403d4f88d5487fb4ffb0e35c46438aadcd8a
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.author: jgerend
+author: jasongerend
+msdate: 08/16/2019
+ms.openlocfilehash: 76615fcccfe06333a76f872b52d2e88182fd60e5
+ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546521"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69584796"
 ---
 # <a name="use-regular-expressions-in-nps"></a>在 NPS 中使用正则表达式
 
->适用于：Windows Server（半年频道）、Windows Server 2016
+> 适用于：Windows Server 2019、Windows Server 2016、Windows Server（半年频道）
 
-本主题说明如何在 Windows Server 2016 中的 NPS 中使用正则表达式进行模式匹配。 您可以使用此语法来指定网络策略属性和 RADIUS 领域的条件。
+本主题说明如何将正则表达式用于 Windows Server 中 NPS 中的模式匹配。 您可以使用此语法来指定网络策略属性和 RADIUS 领域的条件。
 
 ## <a name="pattern-matching-reference"></a>模式匹配引用
 
-使用模式匹配语法创建正则表达式时, 可以使用下表作为参考源。
+使用模式匹配语法创建正则表达式时, 可以使用下表作为参考源。 请注意, 正则表达式模式通常由正斜杠 (/) 括起来。
 
-
-|  字符  |                                                                                 描述                                                                                  |                                                                 示例                                                                 |
-|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-|     `\ `     |                                                              将下一个字符标记为要匹配的字符。                                                               |                      `/n/ matches the character "n". The sequence /\n/ matches a line feed or newline character.`                       |
+|  字符  |  描述  |   示例                                                                 |
+| ----------- | ------------- | ------------------------------------------------------------------------  |
+|     `\ `     | 指示后面的字符是特殊字符, 或应按原义解释。  | `/n/ matches the character "n" while the sequence /\n/ matches a line feed or newline character.`  |
 |     `^`     |                                                                 匹配输入或行的开头。                                                                  |                                                                 &nbsp;                                                                  |
 |     `$`     |                                                                    匹配输入或行的末尾。                                                                     |                                                                 &nbsp;                                                                  |
 |     `*`     |                                                             匹配前面的字符零次或多次。                                                              |                                                  `/zo*/ matches either "z" or "zoo."`                                                   |

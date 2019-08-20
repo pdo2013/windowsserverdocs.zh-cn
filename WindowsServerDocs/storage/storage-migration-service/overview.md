@@ -1,19 +1,19 @@
 ---
-Title: 存储迁移服务概述
+title: 存储迁移服务概述
 description: 使用存储迁移服务可以更轻松地将服务器迁移到更高版本的 Windows Server。 它提供一个图形工具用于盘点服务器上的数据，然后将数据和配置传输到更新的服务器 — 在此过程中，应用或用户无需更改任何设置。
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 05/21/2019
+ms.date: 08/16/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 8118b58268e88a173a6219631e109ed1c436fea0
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: dae64b81c48b9ae6bf84c3558066ebbdf9c06ace
+ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560552"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69584835"
 ---
 # <a name="storage-migration-service-overview"></a>存储迁移服务概述
 
@@ -58,7 +58,7 @@ ms.locfileid: "69560552"
 
 强烈建议 orchestrator 和 destination 计算机至少有两个核心或两个个 vcpu, 至少有 2 GB 的内存。 对于更多的处理器和内存, 清单和传输操作的速度要快得多。
 
-### <a name="security-requirements"></a>安全要求
+### <a name="security-requirements-the-storage-migration-service-proxy-service-and-firewall-ports"></a>安全要求、存储迁移服务代理服务和防火墙端口
 
 - 作为源计算机和 orchestrator 计算机上的管理员的迁移帐户。
 - 一个迁移帐户, 它是目标计算机和 orchestrator 计算机上的管理员。
@@ -70,7 +70,9 @@ ms.locfileid: "69560552"
   - Windows Management Instrumentation (WMI-In)
   
   > [!TIP]
-  > 在 Windows Server 2019 计算机上安装存储迁移服务代理服务会自动在该计算机上打开所需的防火墙端口。
+  > 在 Windows Server 2019 计算机上安装存储迁移服务代理服务会自动在该计算机上打开所需的防火墙端口。 为此, 请在 Windows 管理中心中连接到目标服务器, 然后前往**服务器管理器**(在 Windows 管理中心中) >**角色和功能**", 选择"**存储迁移服务代理**", 然后选择"**安装**"。
+
+
 - 如果计算机属于某个 Active Directory 域服务域, 则它们应属于同一林。 如果要在剪切时将源的域名传输到目标, 则目标服务器也必须与源服务器位于同一域中。 切换技术跨域运行, 但目标的完全限定域名将不同于源 。
 
 ### <a name="requirements-for-source-servers"></a>源服务器的要求
@@ -94,7 +96,7 @@ ms.locfileid: "69560552"
 - Windows Server 2016 Essentials
 - Windows Server 2019 Essentials
 
-注意：Windows Small Business Server 和 Windows Server Essentials 是域控制器。 存储迁移服务目前无法从域控制器中剪切, 但可以列出和传输文件。   
+注意:Windows Small Business Server 和 Windows Server Essentials 是域控制器。 存储迁移服务目前无法从域控制器中剪切, 但可以列出和传输文件。   
 
 如果 orchestrator 正在运行 Windows Server 1903 或更高版本, 则可以迁移以下附加源类型:
 

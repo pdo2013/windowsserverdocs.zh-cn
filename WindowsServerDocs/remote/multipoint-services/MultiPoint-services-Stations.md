@@ -1,6 +1,6 @@
 ---
 title: MultiPoint 工作站
-description: 了解在 MultiPoint Services 中，包括用户的不同选项的工作站
+description: 了解 MultiPoint Services 中的工作站, 包括用户的不同选项
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,116 +13,116 @@ ms.assetid: f9f9d618-ccfe-41ea-a52c-00c3c7adb51a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: e747826a7cd84521bc62e48abedf3092bf6d844c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 43386f0f4d4020d5e127e7b7cbd918e4c48cec6e
+ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855648"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863459"
 ---
 # <a name="multipoint--stations"></a>MultiPoint 工作站
-在 MultiPoint 服务系统环境中，*工作站*是用于连接到运行 MultiPoint 服务的计算机的用户终结点。 每个工作站提供独立的 Windows 10 体验的用户。 支持以下工作站类型：  
+在 MultiPoint 服务系统环境中,*工作站*是用于连接到运行 MultiPoint 服务的计算机的用户终结点。 每个工作站为用户提供独立的 Windows 10 体验。 支持以下工作站类型:  
   
--   直接视频连接工作站  
+-   直接连接视频的工作站  
   
--   USB 零-客户端的连接的工作站 （包括 USB-over-以太网零客户端）  
+-   USB-连接到客户端的工作站 (包括 USB 上的零个客户端)  
   
--   （对于富客户端或瘦客户端计算机） 的 RDP-over-LAN 连接工作站  
+-   通过 LAN 连接的工作站 (适用于胖客户端或瘦客户端计算机)  
   
-已安装了多点连接器的完整 Pc 还可以监视和控制使用 MultiPoint 仪表板。 Windows 10 上可以通过 Windows 功能控制面板启用多点连接器。 
+还可以使用 MultiPoint 仪表板监视和控制已安装 MultiPoint 连接器的完整电脑。 在 Windows 10 上, 可以通过 Windows 的 "控制面板" 功能启用 MultiPoint 连接器。 
 
-Multipoint 服务支持任意组合这些工作站类型，但建议您在一个工作站是直接视频连接工作站，可将其作为主工作站。 此建议的原因是能够以应对预期的支持方案。 例如，若要与系统交互的 BIOS 之前运行 MultiPoint 服务。  
+Multipoint Services 支持这些工作站类型的任意组合, 但建议一个工作站是直接连接视频的工作站, 它可以充当主站。 此建议的原因是能够预测支持方案。 例如, 要在 MultiPoint 服务运行之前与系统的 BIOS 交互。  
   
 ## <a name="primary-stations-and-standard-stations"></a>主工作站和标准工作站  
-其中的一个直接视频连接的工作站指*主站*。 剩余工作站嘿 *标准工作站*。  
+一个直接连接到视频的工作站定义*为主工作站*。 其余的工作站称为*标准工作站*。  
   
-主工作站计算机开启时显示启动屏幕。 它提供了系统配置和故障排除信息在启动期间才可用。 主工作站必须直接视频连接的工作站。 后启动时，可以像任何其他 MultiPoint 工作站使用主工作站。  
+计算机打开时, 主工作站将显示启动屏幕。 它提供对系统配置和故障排除信息的访问, 仅在启动过程中可用。 主站必须是直接连接视频的工作站。 启动后, 可以像使用任何其他 MultiPoint 工作站一样使用主站。  
   
-## <a name="direct-video-connected-stations"></a>直接视频连接工作站  
-运行 MultiPoint 服务的计算机可以包含多个视频卡，其中每个可以有一个或多个视频端口。 这允许您监视多个工作站直接插入到计算机。 键盘和鼠标是通过每个监视器与相关联的 USB 集线器连接。 这些中心嘿 *工作站集线器*。 其他外围设备，如扬声器、 耳机或 USB 存储设备还可以连接到工作站集线器，并仅供该工作站的用户。  
+## <a name="direct-video-connected-stations"></a>直接连接视频的工作站  
+运行 MultiPoint 服务的计算机可以包含多个视频卡, 每个视频卡可以有一个或多个视频端口。 这样, 你就可以将多个工作站的监视器直接插入到计算机中。 键盘和鼠标通过与每个监视器关联的 USB 集线器进行连接。 这些中心称为*站中心*。 其他外围设备 (如扬声器、耳机或 USB 存储设备) 也可以连接到工作站集线器, 它们仅供该工作站的用户使用。  
   
 > [!IMPORTANT]  
-> 应至少一个*直接视频连接工作站*每个服务器充当主工作站计算机处于打开状态时显示启动过程。  
+> 每台服务器上应该至少有一个*直接连接到视频的工作站*充当主站, 以便在打开计算机时显示启动进程。  
   
-![基于 MultiPoint Services USB 系统布局的图像](./media/WMSMultiPointServerUSBSystemLayout.gif)  
+![基于 USB 的 MultiPoint Services 系统布局的图像](./media/WMSMultiPointServerUSBSystemLayout.gif)  
   
-**图 1** MultiPoint 服务系统具有四个直接视频连接工作站  
+**图 1**带有四个直接连接到视频的工作站的 MultiPoint 服务系统  
   
-### <a name="BKMK_PS2stations"></a>PS/2 的工作站  
-使用 MultiPoint Services 中，可以将映射到直接视频连接监视器，以创建 PS/2 工作站的 ps/2 键盘和鼠标母板上。 母板上的高清晰度模拟音频是工作站的与此类型相关联的音频。 这不适用于计算机母板上有没有 PS/2 插孔。  
+### <a name="BKMK_PS2stations"></a>PS/2 工作站  
+使用 MultiPoint 服务, 可以将主板上的 PS/2 键盘和鼠标映射到直接连接视频的监视器, 以创建 PS/2 工作站。 母板上的高清晰模拟音频是与此类工作站关联的音频。 这不适用于主板上没有 PS/2 插孔的计算机。  
   
-## <a name="usb-zero-client-connected-stations"></a>USB 零-客户端的连接的工作站  
-利用 USB-零-客户端连接工作站*USB 零客户端*作为工作站集线器。 USB 零客户端有时称为多功能集线器视频。 它们是通过 USB 电缆，该计算机连接的集线器和这些中心通常支持视频显示器、 鼠标和键盘 （PS/2 或 USB） 音频和其他 USB 设备。 本指南将这些专用中心称为 USB 零客户端。  
+## <a name="usb-zero-client-connected-stations"></a>USB-连接到客户端的工作站  
+USB 零客户端连接的工作站使用*usb 零客户端*作为工作站集线器。 USB 零客户端有时称为具有视频的多功能集线器。 它们是通过 USB 电缆连接到计算机的集线器, 这些中心通常支持视频监视器、鼠标和键盘 (PS/2 或 USB)、音频和其他 USB 设备。 本指南将这些专门的集线器称为 USB 零客户端。  
   
-下图显示了具有主工作站的 MultiPoint server 系统 （直接视频连接工作站） 和两个其他 USB 零客户端连接工作站。  
+下图显示了具有主站 (直接视频连接工作站) 的 MultiPoint server 系统, 以及两个附加的 USB 零客户端连接工作站。  
   
-![USB 零客户端连接工作站](./media/WMS11_diagram7.gif)  
+![USB 零客户端连接的工作站](./media/WMS11_diagram7.gif)  
   
-**图 2**与主工作站和两个 USB 零客户端连接工作站的 MultiPoint 服务系统  
+**图 2**带有主工作站和两个 USB 零客户端连接工作站的 MultiPoint 服务系统  
   
-### <a name="usb-over-ethernet-zero-clients"></a>USB-over-以太网零客户端  
-USB-over-以太网零客户端是通过 LAN 将 USB 发送到 MultiPoint 服务系统的 USB 零客户端的变体。 这些类型的 USB 零客户端功能相似，其他 USB 零客户端，但不是局限于 USB 电缆长度最大值。 USB-over-以太网零客户端不是传统的瘦客户端，并且它们将显示为 MultiPoint 服务系统上的虚拟 USB 设备。 使用这些设备时，请参阅设备制造商的特定性能和规划建议的站点。 大多数设备都有 MultiPoint 管理器，您可以将相关联并将设备连接到 MultiPoint 服务系统的第三方插件。  
+### <a name="usb-over-ethernet-zero-clients"></a>USB over 以太网零客户端  
+USB over 以太网零客户端是将 USB over LAN 发送到 MultiPoint 服务系统的 USB 零客户端的变体。 这些类型的 USB 零客户端的工作方式类似于其他 USB 零客户端, 但不受 USB 电缆长度最大的限制。 USB over 以太网零客户端不是传统瘦客户端, 它们显示为 MultiPoint 服务系统上的虚拟 USB 设备。 使用这些设备时, 请参考设备制造商, 了解具体的性能和站点规划建议。 大多数设备都有一个用于 MultiPoint 管理器的第三方插件, 使你能够将设备关联并连接到 MultiPoint 服务系统。  
   
-## <a name="rdp-over-lan-connected-stations"></a>RDP over LAN 连接工作站  
-瘦客户端和传统台式机、 笔记本电脑或平板电脑，可以连接到使用远程桌面协议 (RDP) 或一种专有协议和远程桌面协议通过局域网 (LAN) 运行 MultiPoint 服务的计算机提供程序。 RDP 连接提供非常类似于其他任何 MultiPoint 工作站的最终用户体验，但使用本地客户端计算机的硬件。 了解有关我们远程桌面应用程序可用的 Android、 iOS、 Mac 和 Windows 中的[远程桌面客户端](../remote-desktop-services/clients/remote-desktop-clients.md)。 
+## <a name="rdp-over-lan-connected-stations"></a>通过局域网的 RDP 连接工作站  
+瘦客户端和传统的台式机、便携式计算机或平板电脑可以通过局域网 (LAN) 连接到运行 MultiPoint 服务的计算机, 方法是使用远程桌面协议 (RDP) 或专有协议和远程桌面协议程序. RDP 连接提供与任何其他 MultiPoint 工作站非常类似的最终用户体验, 但使用本地客户端计算机的硬件。 [详细了解](../remote-desktop-services/clients/remote-desktop-clients.md)适用于适用于 Android、iOS、Mac 和 Windows 的远程桌面应用程序。 
   
-客户端和运行 Microsoft RemoteFX 的设备可以通过利用的处理器和视频硬件功能的本地瘦客户端或计算机通过网络提供高清晰视频提供了丰富的多媒体体验。  
+运行 Microsoft RemoteFX 的客户端和设备可以利用本地瘦客户端或计算机的处理器和视频硬件功能, 通过网络提供高清晰度视频, 从而提供丰富的多媒体体验。  
   
-如果您有现有的 LAN 客户端 MultiPoint 服务可以提供一种在要同时升级你的所有用户对 Windows 10 体验的快速且经济高效的方法。  
+如果你具有现有的 LAN 客户端 MultiPoint 服务, 则可以提供快速且经济高效的方式将所有用户同时升级到 Windows 10 体验。  
   
-从部署和管理的角度看，使用 RDP-over-LAN 连接工作站时，将存在以下差异：  
+从部署和管理的角度来看, 当你使用通过 LAN 连接的工作站时, 存在以下差异:  
   
--   不限制为物理 USB 连接距离  
+-   不限于物理 USB 连接距离  
   
--   可能会作为工作站重用较旧计算机硬件  
+-   可能将较旧的计算机硬件用作工作站  
   
--   更轻松地扩展到更多的工作站。 在网络上的任何客户端可能会用作远程工作站  
+-   更易于扩展到更多的工作站。 网络上的任何客户端都可能用作远程工作站  
   
--   通过 MultiPoint 管理器控制台进行故障排除任何硬件  
+-   无硬件通过 MultiPoint 管理器控制台进行故障排除  
   
--   分割屏幕的功能。  
+-   无拆分屏幕功能。  
   
-    有关详细信息，请参阅[拆分屏幕工作站](#a-namebkmksplitscreenstationsasplit-screen-stations)本主题中更高版本  
+    有关详细信息, 请参阅本主题后面的[拆分屏幕工作站](#split-screen-stations)  
   
--   没有工作站重命名或通过 MultiPoint 管理器控制台配置自动登录  
+-   无工作站通过 MultiPoint 管理器控制台重命名或配置自动登录  
   
 ![USB 零客户端连接工作站](./media/Diagram1.gif)  
   
-**图 3**与 RDP-over-LAN 连接工作站的 MultiPoint 服务系统  
+**图 3**带 RDP-TCP 连接的工作站的 MultiPoint 服务系统  
   
 ## <a name="additional-configuration-options"></a>其他配置选项  
   
-### <a name="BKMK_SplitscreenStations"></a>拆分屏幕工作站  
-MultiPoint 服务提供了一个拆分屏幕选项具有直接视频连接的工作站或 USB-零-客户端连接工作站的计算机上。 分割屏幕提供了创建每个监视器的其他工作站的能力。 而不是要求两个监视器，您可以使用一个监视器具有两个工作站集线器设置使用一个监视器创建两个工作站。 而无需购买其他监视器、 USB 零客户端或视频卡，可以快速增加可用的电台的数。  
+### <a name="split-screen-stations"></a>拆分屏幕工作站  
+MultiPoint 服务在具有直接连接到视频的工作站或连接了 USB 零客户端的工作站的计算机上提供了一个拆分屏幕选项。 拆分屏幕提供了为每个监视器创建额外工作站的能力。 不需要两个监视器, 而是可以使用一个具有两个工作站集线器设置的监视器来创建两个具有一个监视器的工作站。 可以快速增加可用工作站的数量, 无需购买额外的监视器、USB 零客户端或视频卡。  
   
-使用拆分屏幕工作站的好处可以包括：  
+使用拆分屏幕工作站的优点包括:  
   
--   通过适应 MultiPoint 服务系统上的更多用户，从而降低成本和空间。  
+-   通过适应 MultiPoint 服务系统中的更多用户, 降低成本和节省空间。  
   
--   允许两个用户进行协作项目并行。  
+-   允许两个用户在项目上并行协作。  
   
--   允许教师演示一个工作站上的过程，而一名学生老师其他工作站上。  
+-   允许教师在一台工作站上演示某个过程, 同时在其他工作站上演示。  
   
-任何 MultiPoint 服务工作站显示器均 1024 x 768 的分辨率或更高版本可以拆分为两个工作站屏幕。 为获得最佳拆分屏幕的用户体验，建议使用最小 1600x900 解析宽屏幕。 此外，建议最小键盘而无需数字板允许以适应监视器前面的两个键盘。  
+任何分辨率为1024x768 或更高的 MultiPoint 服务工作站监视器都可以拆分为两个工作站。 为获得最佳的拆分屏幕用户体验, 建议使用最小1600x900 分辨率的宽屏幕。 还建议使用不带数字键盘的迷你键盘, 使这两个键盘可以放置在监视器前面。  
   
-若要创建拆分屏幕工作站，您设置一个直接视频连接或零的客户端的连接了 USB 的工作站。 然后，通过插入键盘和鼠标连接到服务器的 USB 集线器中添加其他工作站集线器。 使用 MultiPoint 管理器拆分屏幕并将新的中心映射到该监视器的下半部分，然后可以将工作站转换为两个工作站。 在屏幕的左半部分将成为一个工作站和右半部分将成为第二个工作站。  
+若要创建拆分屏幕电台, 请设置一个连接到视频的直接连接设备或连接了 USB 的连接工作站。 然后, 通过将键盘和鼠标插入连接到服务器的 USB 集线器来添加其他工作站集线器。 然后, 你可以使用 MultiPoint 管理器将工作站转换为两个工作站, 并将新的集线器映射到监视器的一半。 屏幕的左半部分成为一个工作站, 右半部分变为另一站。  
   
-当工作站拆分后，一个用户可以登录到左侧的工作站，同时另一个用户登录到右侧的工作站。  
+在拆分工作站后, 一个用户可以登录到左侧工作站, 另一个用户可以登录到正确的工作站。  
   
 ![拆分屏幕工作站](./media/WMS_diagram3.gif)  
   
-**图 4**使用拆分屏幕工作站的 MultiPoint 服务系统  
+**图 4**带拆分屏幕的 MultiPoint 服务系统  
   
 ## <a name="BKMK_StationTypeComparison"></a>工作站类型比较  
   
-||直接连接的视频|USB 零客户端连接|RDP over LAN 连接|  
+||直接视频连接|USB 零客户端连接|已连接 RDP-TCP over LAN|  
 |-|--------------------------|-----------------------------|----------------------------|  
-|视频的性能|为了获得最佳的视频性能建议||使用有关提高视频质量较低的网络带宽在支持 RemoteFX 的瘦客户端|  
-|物理限制|受视频电缆长度和 USB 集线器和电缆长度 （建议 15 计量最大长度）|USB 集线器和电缆长度 （建议 15 计量最大长度） 受限制|LAN 分发受限制|  
-|允许的工作站数量 |受到的母板上的可用 PCIe 槽数乘以每个视频卡的视频端口|USB 零客户端制造商可能受限于总数 （有关详细信息，请参阅此表后面的说明）。|网络交换机上的可用端口受限制|  
-|分割屏幕|是|是|否|  
-|MultiPoint 管理器工作站外围设备状态，自动登录配置工作站重命名|是|是|否|  
+|视频性能|建议为获得最佳视频性能||使用支持 RemoteFX 的瘦客户端, 以更低的网络带宽提高视频质量|  
+|物理限制|受视频电缆长度和 USB 集线器和电缆长度的限制 (建议15米最大长度)|受 USB 集线器和电缆长度限制 (建议使用15米最大长度)|受 LAN 分发限制|  
+|允许的工作站数量 |受主板上每个视频端口视频卡的可用 PCIe 槽数的限制|总数可能受 USB 零客户端制造商限制 (有关详细信息, 请参阅此表后面的说明。)|受网络交换机上的可用端口限制|  
+|拆分屏幕|是|是|否|  
+|MultiPoint 管理器工作站外设状态, 自动登录配置, 工作站重命名|是|是|否|  
 |访问服务器启动菜单|是|否|否|  
   
 > [!NOTE]  
-> USB 零客户端连接到服务器的总数可能受制造商或运行 MultiPoint 服务的计算机的硬件功能。
+> 连接到服务器的 USB 零客户端的总数可能受运行 MultiPoint 服务的计算机的制造商或硬件功能的限制。
