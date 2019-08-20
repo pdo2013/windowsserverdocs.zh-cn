@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 10/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: a54ffd3d5596ba8c71deab668e4952da445ca12e
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 17df3ca3b88404a2775790d7a4a8206b7aa5befa
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66804938"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546346"
 ---
 # <a name="get-started-with-remote-desktop-on-mac"></a>在 Mac 上开始使用远程桌面
 
@@ -35,7 +35,7 @@ ms.locfileid: "66804938"
 ## <a name="get-the-remote-desktop-client"></a>获取远程桌面客户端
 按照以下步骤开始在 Mac 上使用远程桌面：
 
-1. 从 [Mac App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12) 下载 Microsoft 远程桌面客户端。
+1. 从 [Mac App Store](https://itunes.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) 下载 Microsoft 远程桌面客户端。
 2. [设置电脑接受远程连接](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop)。 （如果跳过此步骤中，则无法连接到电脑。）
 3. 添加远程桌面连接或远程资源。 可以使用连接直接连接到 Windows 电脑和远程资源，以使用 RemoteApp 程序、基于会话的桌面或是使用 RemoteApp 和桌面连接在本地发布的虚拟桌面。 此功能通常在企业环境中可用。
 
@@ -96,8 +96,8 @@ ms.locfileid: "66804938"
 
 1. 在连接中心中，单击“+”  ，然后单击“添加远程资源”  。 
 2. 输入远程资源信息：
-   - 源 URL  - RD Web 访问服务器的 URL。 也可以在此字段输入公司电子邮件帐户 - 这将告知客户端搜索与电子邮件地址关联的 RD Web 访问服务器。
-   - 用户名  - 要用于连接到的 RD Web 访问服务器的用户名。
+   - **源 URL** - RD Web 访问服务器的 URL。 也可以在此字段输入公司电子邮件帐户 - 这将告知客户端搜索与电子邮件地址关联的 RD Web 访问服务器。
+   - **用户名称** - 要用于连接到的 RD Web 访问服务器的用户名。
    - 密码  - 要用于连接到的 RD Web 访问服务器的密码。
 3. 单击 **“保存”** 。
 
@@ -114,7 +114,7 @@ ms.locfileid: "66804938"
 1. 在连接中心中，单击“首选项”>“网关”  。 
 2. 单击表底部的“+”  按钮，输入以下信息：
    - 服务器名称  – 要用作网关的计算机的名称。 可以是 Windows 计算机名、Internet 域名或 IP 地址。 此外可以向服务器名称添加端口信息（例如：RDGateway:443  或 10.0.0.1:443  ）。
-   - 用户名  - 要用于连接到的远程桌面网关的用户名和密码。 还可以选择“使用连接凭据”  以使用与用于远程桌面连接的凭据相同的用户名和密码。
+   - **用户名** - 要用于连接到的远程桌面网关的用户名和密码。 还可以选择“使用连接凭据”  以使用与用于远程桌面连接的凭据相同的用户名和密码。
 
 
 ## <a name="manage-your-user-accounts"></a>管理用户帐户
@@ -126,8 +126,8 @@ ms.locfileid: "66804938"
 1. 在连接中心中，单击“设置”   > “帐户”  。
 2. 单击“添加用户帐户”  。
 3. 输入以下信息：
-   - 用户名  - 要保存以用于远程连接的用户名。 可以使用以下任意格式输入用户名：user_name、domain\user_name 或 user_name@domain.com。
-   - 密码  - 指定的用户密码。 要保存用于远程连接的每个用户帐户都需要与之关联的密码。
+   - **用户名** - 要保存以用于远程连接的用户名。 可以使用以下任意格式输入用户名：user_name、domain\user_name 或 user_name@domain.com。
+   - **密码** - 指定的用户密码。 要保存用于远程连接的每个用户帐户都需要与之关联的密码。
    - 友好名称  - 如果使用具有不同密码的相同用户帐户，则设置友好名称以区分这些用户帐户。
 4. 轻按“保存”  ，然后轻按“设置”  。
 
@@ -173,5 +173,5 @@ Windows Server 2012 R2 引入了对新身份验证方法（即远程桌面网关
 
 
 > [!TIP]
-> 欢迎提出问题和意见。 但是，请不要使用本文末尾的评论功能来请求获取故障排除帮助。 相反，请转到[远程桌面客户端论坛](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc)并启动一个新线程。 有功能建议？ 请在[客户端用户心声论坛](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android)告诉我们。
+> 欢迎提出问题和意见。 但是，请不要使用本文末尾的评论功能来请求获取故障排除帮助。 而是转到[远程桌面客户端论坛](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc)并启动一个新线程。 有功能建议？ 请在[客户端用户心声论坛](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android)告诉我们。
 
