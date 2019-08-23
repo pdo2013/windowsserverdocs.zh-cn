@@ -204,7 +204,7 @@
 
 ### [AD FS 概述](ad-fs/AD-FS-Overview.md)
 #### [Active Directory 联合身份验证服务中的新增功能](ad-fs/overview/whats-new-active-directory-federation-services-windows-server.md)
-#### [面向开发人员的 AD FS 方案](ad-fs/overview/AD-FS-Scenarios-for-Developers.md)
+
 #### [AD FS 2016 要求](ad-fs/overview/AD-FS-Requirements.md)
 
 ### [AD FS 设计](ad-fs/AD-FS-Design.md)
@@ -365,18 +365,25 @@
 
 
 
-### [AD FS 开发](ad-fs/AD-FS-Development.md)
+### AD FS 开发
+#### [AD FS 新式身份验证概念](ad-fs/development/ad-fs-openid-connect-oauth-concepts.md)
+#### [AD FS 新式身份验证流和应用方案](ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
 
 #### [为 AD FS 构建自定义身份验证方法](ad-fs/development/ad-fs-build-custom-auth-method.md)
 #### [使用 AD FS 2019 风险评估模型构建插件](ad-fs/development/ad-fs-risk-assessment-model.md)
-#### [AD FS 中的自定义 ID 令牌](ad-fs/development/Custom-Id-Tokens-in-AD-FS.md)
-#### [Windows Server 2016 中的 AD FS 代表身份验证](ad-fs/development/AD-FS-On-behalf-of-Authentication-in-Windows-Server.md)
-#### [使用 AD FS 2016 启用 OpenId 连接](ad-fs/development/Enabling-OpenId-Connect-with-AD-FS.md)
-#### [使用 AD FS 2016 启用 Oauth 机密客户端](ad-fs/development/Enabling-Oauth-Confidential-Clients-with-AD-FS.md)
 #### [使用 AD FS 的 OpenID Connect 单个注销](ad-fs/development/ad-fs-logout-openid-connect.md)
-#### [使用 AD FS 的单页应用程序](ad-fs/development/Single-Page-Application-with-AD-FS.md)
-#### [使用 AD FS 通过 OAuth 公共客户端生成本机客户端应用程序](ad-fs/development/native-client-with-ad-fs.md)
+#### ADAL
 
+##### [AD FS 中的自定义 ID 令牌](ad-fs/development/Custom-Id-Tokens-in-AD-FS.md)
+##### [Windows Server 2016 中的 AD FS 代表身份验证](ad-fs/development/AD-FS-On-behalf-of-Authentication-in-Windows-Server.md)
+##### [使用 AD FS 2016 启用 OpenId 连接](ad-fs/development/Enabling-OpenId-Connect-with-AD-FS.md)
+##### [使用 AD FS 2016 启用 Oauth 机密客户端](ad-fs/development/Enabling-Oauth-Confidential-Clients-with-AD-FS.md)
+##### [使用 AD FS 的单页应用程序](ad-fs/development/Single-Page-Application-with-AD-FS.md)
+##### [使用 AD FS 通过 OAuth 公共客户端生成本机客户端应用程序](ad-fs/development/native-client-with-ad-fs.md)
+#### MSAL
+##### [调用 Web API 的本机应用](ad-fs/development/msal/adfs-msal-native-app-web-api.md) 
+##### [调用 Web API 的 Web API（代表方案）](ad-fs/development/msal/adfs-msal-web-api-web-api.md) 
+##### [调用 Web API 的 Web 应用（服务器应用）](ad-fs/development/msal/adfs-msal-web-app-web-api.md) 
 
 ### [AD FS 操作](ad-fs/AD-FS-Operations.md)
 #### [AD FS 访问控制策略](ad-fs/operations/AD-FS-Client-Access-Policies.md)
