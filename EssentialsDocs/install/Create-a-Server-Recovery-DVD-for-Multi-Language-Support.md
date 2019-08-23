@@ -1,32 +1,27 @@
 ---
 title: 为多语言支持创建服务器恢复 DVD
-description: 介绍如何使用 Windows Server Essentials
-ms.custom: na
+description: 描述如何使用 Windows Server Essentials
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c7da0f6c-9732-4784-9c28-7dad72c4071d
-4author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: e2bbc7bf7af71c671153bf7ba3356ddc08dcc38b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+author: daveba
+ms.author: daveba
+ms.openlocfilehash: 59d8d41e5836ba88b405a058c8340f454b081c06
+ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433631"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980252"
 ---
 # <a name="create-a-server-recovery-dvd-for-multi-language-support"></a>为多语言支持创建服务器恢复 DVD
 
->适用于：Windows Server 2016 Essentials，Windows Server 2012 R2 Essentials 中，Windows Server 2012 Essentials
+>适用于：Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-##  <a name="BKMK_MLHeadedRecovery"></a> 在本地管理的服务器上创建服务器安装和服务器恢复 DVD 的多语言支持  
+##  <a name="BKMK_MLHeadedRecovery"></a>为本地管理的服务器上的多语言支持创建服务器安装和服务器恢复 DVD  
   
 > [!NOTE]
->  必须先创建多语 Windows 映像中所述[演练：多语言 Windows 映像创建](https://technet.microsoft.com/library/jj126995)添加到 install.wim 的 Windows Server Essentials 语言包之前。  
+>  必须首先创建多语言 Windows 映像, 如[本演练中所述:在将 windows Server](https://technet.microsoft.com/library/jj126995) Essentials 述 pack 添加到 install 之前, 需要创建多语言 windows 映像。  
   
  安装有两个阶段：Windows 预安装环境 (Windows PE) 和初始配置。 默认情况下，不会显示初始配置中的语言选择页面。  
   
@@ -62,19 +57,19 @@ ms.locfileid: "66433631"
   
 -   Windows Server Essentials 语言包 DVD。  
   
-###  <a name="BKMK_Steps"></a> 添加多语言支持  
- 若要将多语言支持添加到 Windows 安装程序，来更新 Install.wim 添加 Windows Server 2012 和 Windows Server Essentials 语言包添加到它。  
+###  <a name="BKMK_Steps"></a>添加多语言支持  
+ 若要将多语言支持添加到 Windows 安装程序您通过将 Windows Server 2012 和 Windows Server Essentials 语言包添加到该安装程序来更新 Install。  
   
 #### <a name="update-installwim"></a>更新 Install.wim  
- 在此步骤中，你将 Windows Server 2012 和 Windows Server Essentials 语言包添加到 Install.wim。  
+ 在此步骤中, 你将 Windows Server 2012 和 Windows Server Essentials 语言包添加到 Install。  
   
 > [!NOTE]
->  验证你为 Windows Server 2012 安装语言包。 这可确保你获取相应的品牌。 Windows Server 2012 多语言用户界面语言包上还有[Microsoft.com](https://www.microsoft.com/OEM/en/installation/downloads/Pages/technical-downloads.aspx)。 请按照的说明，如中所述[演练：创建多语言的多语言 Windows 映像创建](https://technet.microsoft.com/library/jj126995.aspx)添加到 install.wim 的 Windows Server Essentials 语言包之前请先创建多语 Windows 映像。  
+>  验证是否为 Windows Server 2012 安装了语言包。 这可确保你获取相应的品牌。 [Microsoft.com](https://www.microsoft.com/OEM/en/installation/downloads/Pages/technical-downloads.aspx)上提供了 Windows Server 2012 多语言用户界面语言包。 请按照[本演练中所述的说明进行操作:创建多语言 windows 映像](https://technet.microsoft.com/library/jj126995.aspx)创建多语言 windows 映像, 然后在将 Windows Server Essentials 语言包添加到 install 之前创建多语言 windows 映像。  
 >   
->  Windows Server Essentials 语言包语言包媒体上 \Language 包中有\\< CultureName\>。  
+>  Windows Server Essentials 语言包在 \Language pack\\< CultureName\>的语言包媒体中提供。  
   
 > [!NOTE]
->  并非所有语言包可能不可用之前版本的 Windows Server 2012。  
+>  在版本的 Windows Server 2012 之前, 并非所有语言包都可用。  
   
 ###### <a name="to-add-language-packs-to-installwim"></a>向 Install.wim 添加语言包  
   
@@ -89,9 +84,9 @@ ms.locfileid: "66433631"
     ```  
   
 
-2.  添加语言特定文件，以支持创建客户端备份还原 U 盘，使用过程中所述[生成多语言客户端还原介质](Build-Multi-Language-Client-Restore-Media.md)。  
+2.  使用[生成多语言客户端还原介质](Build-Multi-Language-Client-Restore-Media.md)中所述的过程, 添加特定于语言的文件以支持创建客户端备份还原 u 盘。  
 
-2.  添加语言特定文件，以支持创建客户端备份还原 U 盘，使用过程中所述[生成多语言客户端还原介质](../install/Build-Multi-Language-Client-Restore-Media.md)。  
+2.  使用[生成多语言客户端还原介质](../install/Build-Multi-Language-Client-Restore-Media.md)中所述的过程, 添加特定于语言的文件以支持创建客户端备份还原 u 盘。  
 
   
 3.  在松散介质中使用 `DISM /Gen-LangINI` 命令重新创建 Lang.ini 文件以反映其他语言支持，例如：  
@@ -110,12 +105,12 @@ ms.locfileid: "66433631"
 ## <a name="see-also"></a>请参阅  
 
  [创建和自定义映像](Creating-and-Customizing-the-Image.md)   
- [其他自定义设置](Additional-Customizations.md)   
- [部署准备的映像](Preparing-the-Image-for-Deployment.md)   
+ [其他自定义](Additional-Customizations.md)   
+ [准备要部署的映像](Preparing-the-Image-for-Deployment.md)   
  [测试客户体验](Testing-the-Customer-Experience.md)
 
  [创建和自定义映像](../install/Creating-and-Customizing-the-Image.md)   
- [其他自定义设置](../install/Additional-Customizations.md)   
- [部署准备的映像](../install/Preparing-the-Image-for-Deployment.md)   
+ [其他自定义](../install/Additional-Customizations.md)   
+ [准备要部署的映像](../install/Preparing-the-Image-for-Deployment.md)   
  [测试客户体验](../install/Testing-the-Customer-Experience.md)
 

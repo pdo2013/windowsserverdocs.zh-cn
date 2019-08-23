@@ -1,52 +1,48 @@
 ---
 title: 部署软件定义的网络基础结构
-description: 本主题提供有关如何部署使用 Windows Server 2016 中的脚本的 Microsoft 软件定义网络 (SDN) 基础结构的主题的链接。
-manager: dougkim
-ms.custom: na
+description: 本主题提供一些链接, 这些链接指向有关如何使用 Windows Server 2016 中的脚本部署 Microsoft 软件定义的网络 (SDN) 基础结构。
 ms.prod: windows-server-threshold
-ms.reviewer: na
 ms.service: virtual-network
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 6c665c88-df28-4150-81d4-a47e9fa5255c
-ms.author: pashort
+ms.author: daveba
 ms.date: 08/23/2018
-ms.openlocfilehash: 30d5597cdeb76d636cdf5236228f035999a6bdf6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+author: daveba
+ms.openlocfilehash: 098b061acbb222d2038486f58081812a3ec67cfb
+ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878018"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980285"
 ---
 # <a name="deploy-a-software-defined-network-infrastructure"></a>部署软件定义的网络基础结构
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-部署 Microsoft 的软件定义网络 (SDN) 基础结构。   
+部署 Microsoft 的软件定义的网络 (SDN) 基础结构。   
   
-这些部署中包括所有所需的完全正常运行的基础结构，包括 HYPER-V 网络虚拟化 (HNV)、 网络控制器、 软件负载均衡器 (SLB/MUX) 和网关的技术。  
+这些部署包括功能完备的基础结构所需的所有技术, 包括 Hyper-v 网络虚拟化 (HNV)、网络控制器、软件负载平衡器 (SLB/MUX) 和网关。  
   
-## <a name="set-up-sdn-infrastructure-in-the-vmm-fabric"></a>设置 VMM 构造中的 SDN 基础结构
+## <a name="set-up-sdn-infrastructure-in-the-vmm-fabric"></a>在 VMM 构造中设置 SDN 基础结构
 
 
 
   
--   [设置 VMM 构造中软件定义网络 (SDN) 基础结构](https://docs.microsoft.com/system-center/vmm/deploy-sdn)  
+-   [在 VMM 构造中设置软件定义的网络 (SDN) 基础结构](https://docs.microsoft.com/system-center/vmm/deploy-sdn)  
   
-    如果你想要合并 System Center Virtual Machine Manger (VMM) 管理 SDN 基础结构，请使用此方法。  
+    如果要并入 System Center 虚拟机管理器 (VMM) 来管理 SDN 基础结构, 请使用此方法。  
  
-## <a name="deploy-sdn-infrastructure-using-scripts"></a>部署 SDN 基础结构使用脚本
+## <a name="deploy-sdn-infrastructure-using-scripts"></a>使用脚本部署 SDN 基础结构
  
--   [部署软件定义的网络基础结构使用脚本](../../sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)  
+-   [使用脚本部署软件定义的网络基础结构](../../sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)  
   
-    如果您不想要使用 VMM 来管理 SDN 基础结构，或者有另一种管理方法，请使用此方法。  
+    如果你不希望使用 VMM 来管理 SDN 基础结构, 或如果你有其他管理方法, 请使用此方法。  
 
 
-## <a name="deploy-individual-sdn-technologies-instead-of-an-entire-infrastructure"></a>部署单个 SDN 技术而不是整个基础结构  
- 如果你想要部署单独的 SDN 技术，而不是整个基础结构，请参阅：  
-[部署软件定义网络技术使用 Windows PowerShell](Deploy-Software-Defined-Network-Technologies-using-Windows-PowerShell.md)。    
+## <a name="deploy-individual-sdn-technologies-instead-of-an-entire-infrastructure"></a>部署单个 SDN 技术, 而不是整个基础结构  
+ 如果要部署单个 SDN 技术而不是整个基础结构, 请参阅:  
+[使用 Windows PowerShell 部署软件定义的网络技术](Deploy-Software-Defined-Network-Technologies-using-Windows-PowerShell.md)。    
   
 
 
@@ -58,7 +54,7 @@ ms.locfileid: "59878018"
 ## <a name="related-topics"></a>相关主题
 - [软件定义的网络 (SDN)](../Software-Defined-Networking--SDN-.md)  
 - [SDN 技术](../technologies/Software-Defined-Networking-Technologies.md)  
-- [规划 SDN](../plan/plan-a-software-defined-network-infrastructure.md)  
+- [计划 SDN](../plan/plan-a-software-defined-network-infrastructure.md)  
 - [管理 SDN](../manage/manage-sdn.md)
-- [用于 SDN 的安全](../security/sdn-security-top.md)
-- [排查 SDN](../troubleshoot/Troubleshoot-Software-Defined-Networking.md)
+- [SDN 的安全性](../security/sdn-security-top.md)
+- [SDN 疑难解答](../troubleshoot/Troubleshoot-Software-Defined-Networking.md)
