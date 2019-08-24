@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7bc98a8c9a57b2b7f63523f0411d648ca82137aa
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 46e8548e24f0d0991f69427741b0e04da6398334
+ms.sourcegitcommit: 4fa147d552481d8279a5390f458a9f7788061977
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980334"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70009093"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS 常见问题 (FAQ)
 
@@ -76,9 +76,9 @@ AD FS 支持多林配置, 并依赖底层 AD DS 信任网络对多个受信任�
 ## <a name="design"></a>设计
 
 ### <a name="what-third-party-multi-factor-authentication-providers-are-available-for-ad-fs"></a>哪些第三方多因素身份验证提供程序可用于 AD FS？
-AD FS 为第三方 MFA 提供商提供集成的扩展性机制。 没有适用于此的任何设置认证计划。 假定供应商已在发布前执行了必需的验证。 
+AD FS 为第三方 MFA 提供商提供一种可扩展的机制来集成。 没有适用于此的任何设置认证计划。 假定供应商已在发布前执行了必需的验证。 
 
-已收到 Microsoft 通知的供应商列表在[AD FS 的 MFA 提供程序](..\operations\Configure-Additional-Authentication-Methods-for-AD-FS.md)中发布。  可能始终存在我们不了解的提供程序, 我们将在了解这些提供程序时更新列表。
+已收到 Microsoft 通知的供应商列表在[AD FS 的 MFA 提供程序](../operations/Configure-Additional-Authentication-Methods-for-AD-FS.md)中发布。  可能始终存在我们不了解的提供程序, 我们将在了解这些提供程序时更新列表。
 
 ### <a name="are-third-party-proxies-supported-with-ad-fs"></a>AD FS 是否支持第三方代理？
 是的, 第三方代理可以放置在 Web 应用程序代理的前面, 但任何第三方代理都必须支持用于替代 Web 应用程序代理的[ADFSPIP 协议](https://msdn.microsoft.com/library/dn392811.aspx)。

@@ -11,12 +11,12 @@ ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: high
-ms.openlocfilehash: bd9df9cc9836b15ec22c11b3413aa778192307f9
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: b788aa85bcc2df7c96baaf591b224788e6e6f487
+ms.sourcegitcommit: 6f8993e2180c4d3c177e3e1934d378959396b935
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63752184"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70000743"
 ---
 # <a name="security--assurance"></a>安全 | 保障
 
@@ -251,7 +251,7 @@ Windows Server 安全提供操作系统中内置的保护层来防止出现安�
 <HR />
                         <p><h3><a href="https://www.youtube.com/watch?v=_SaDw1dRy2k">Microsoft Operations Management Suite (OMS)</a></h3>Microsoft Operations Management Suite (OMS) 安全和审核解决方案处理本地和云环境中的安全日志和防火墙事件以分析和检测恶意行为。</p>
 <HR />
-                        <p><h3><a href="https://www.youtube.com/watch?v=_SaDw1dRy2k">OMS 和 Windows Server</a></h3>这段时长 3 分钟的视频演示 OMS 如何可以帮助检测 Windows Server 阻止的潜在的恶意行为。 Suppo</p>
+                        <p><h3><a href="https://www.youtube.com/watch?v=_SaDw1dRy2k">OMS 和 Windows Server</a></h3>这段时长 3 分钟的视频演示 OMS 如何可以帮助检测 Windows Server 阻止的潜在的恶意行为。</p>
 <HR />
                         <p><h3><a href="http://blogs.technet.com/b/ad/archive/2015/07/22/microsoft-advanced-threat-analytics-coming-next-month.aspx">Microsoft 高级威胁分析</a></h3>这篇博客文章讨论了 Microsoft 高级威胁分析，这是一种本地产品，可使用 Active Directory 网络流量和 SIEM 数据发现潜在威胁并发出警报。</p>
                     </div>
