@@ -5,15 +5,15 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 06/20/2019
+ms.date: 08/22/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 0612f4ff102d6b5d1fd24372ac20a98c3ec02edb
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 7af852ba934de2dd29a76972d7a7ec73606e9b4c
+ms.sourcegitcommit: 4fa147d552481d8279a5390f458a9f7788061977
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476567"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70009121"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -129,6 +129,7 @@ ms.locfileid: "68476567"
 
 了解我们发布的最新功能：
 
+- 版本 [1908](https://aka.ms/wac1908) - 包括视觉对象更新、Packetmon、FlowLog 审核、群集的 Azure Monitor 载入以及对基于 HTTPS 的 WinRM（端口 5986）的支持。
 - 版本 [1907](https://aka.ms/wac1907) - 添加了 Azure 成本估算链接，并改进了虚拟机的导入/导出和标记功能。
 - 版本 [1906](https://aka.ms/wac1906) - 添加了导入/导出 VM、切换 Azure 帐户、从 Azure 添加连接、连接设置试验、性能改进和性能分析工具。
 - 版本 1904.1 是最新正式版 - 用于提高网关插件稳定性的维护更新。

@@ -11,7 +11,9 @@
 ## [Windows Server 2019 和 Microsoft 服务器应用程序兼容性](app-compat-19.md)
 ## [服务器核心应用兼容性按需功能 (FOD)](install-fod-19.md)
 ## [标准 | Datacenter Edition 比较](editions-comparison-19.md)
-## [从 Windows Server 2019 起已删除或计划替换的功能](removed-features-19.md)
-## [从 Windows Server 版本 1903 起已删除或计划替换的功能](removed-features-1903.md)
+## 删除的功能
+### [Windows Server 中删除或计划替换的功能](removed-features.md)
+### [从 Windows Server 2019 起已删除或计划替换的功能](removed-features-19.md)
+### [从 Windows Server 版本 1903 起已删除或计划替换的功能](removed-features-1903.md)
 ## [Windows Server 版本信息](../get-started/windows-server-release-info.md)
 ## [Windows Server 许可条款](../windows-server-licensing/windows-server-licensing.md)

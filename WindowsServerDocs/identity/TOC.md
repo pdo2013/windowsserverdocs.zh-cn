@@ -367,7 +367,7 @@
 
 ### AD FS 开发
 #### [AD FS 新式身份验证概念](ad-fs/development/ad-fs-openid-connect-oauth-concepts.md)
-#### [AD FS 新式身份验证流和应用方案](ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
+#### [AD FS OpenID Connect/OAuth 流和应用程序方案](ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
 
 #### [为 AD FS 构建自定义身份验证方法](ad-fs/development/ad-fs-build-custom-auth-method.md)
 #### [使用 AD FS 2019 风险评估模型构建插件](ad-fs/development/ad-fs-risk-assessment-model.md)
