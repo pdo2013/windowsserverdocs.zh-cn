@@ -4,23 +4,23 @@ description: ''
 ms.author: jmesser
 author: jmesser81
 ms.date: 11/05/2018
-ms.openlocfilehash: 48e4626f52ef7af19da6d3e0bb28799665498fe5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0eb620fe52de5ee98a247e17ed73304b2325c7c8
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884848"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031493"
 ---
 # <a name="rpc-context-handles-for-hcn"></a>HCN RPC 上下文句柄
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server (半年频道), Windows Server 2019
 
 
-## <a name="hcnnetwork"></a>HCN_Network
+## <a name="hcn_network"></a>HCN_Network
 
-HCN 网络是用于表示主机实体计算网络及其关联的系统资源和策略。 例如，HCN 网络将通常包含一组元数据 （例如 id、 名称、 类型） 的虚拟交换机、 主机虚拟网络适配器 （它将作为默认网关的网络）、 NAT 实例 （如果所需的网络类型）、 一组子网和 MAC 池并且任何网络范围的策略为应用 (如 Acl)。
+HCN 网络是用于表示主机计算网络及其关联系统资源和策略的实体。 例如, HCN 网络通常包含一组元数据 (例如 id、名称、类型)、虚拟交换机、主机虚拟网络适配器 (充当网络的默认网关)、NAT 实例 (如果网络类型需要)、一组子网和 MAC 池以及要应用的任何网络范围的策略 (例如 Acl)。
 
-使用 HCN_NETWORK RPC 上下文句柄表示 HCN 网络实体。
+HCN 网络实体使用 HCN_NETWORK RPC 上下文句柄表示。
 
 ```
 
@@ -149,10 +149,10 @@ HcnCloseNetwork(
     ); 
 ```
 
-## <a name="hcnendpoint"></a>HCN_Endpoint
+## <a name="hcn_endpoint"></a>HCN_Endpoint
 
-HCN 终结点是用于表示上 HCN 网络及其关联的系统资源和策略的 IP 终结点的实体。 例如，HCN 终结点将通常包含一组的元数据 （例如 id、 名称、 父网络 id），其网络标识 （例如，IP 地址、 MAC 地址），并为任何终结点特定策略应用 (例如 Acl、 路由)。
-HCN 终结点实体表示使用 HCN_ENDPOINT RPC 上下文句柄。
+HCN 终结点是用于表示 HCN 网络上的 IP 终结点及其关联系统资源和策略的实体。 例如, HCN 终结点通常包含一组元数据 (例如 id、名称、父网络 id)、其网络标识 (例如 IP 地址、MAC 地址) 和要应用的任何终结点特定策略 (如 Acl、路由)。
+HCN 终结点实体使用 HCN_ENDPOINT RPC 上下文句柄表示。
 
 ```
 
@@ -283,11 +283,11 @@ HcnCloseEndpoint(
  
 ```
 
-## <a name="hcnnamespace"></a>HCN_Namespace
+## <a name="hcn_namespace"></a>HCN_Namespace
 
-HCN Namespace 是用于表示主机计算网络命名空间的实体。 与其他命名空间使您能够拥有独立的网络环境，其中每个命名空间具有其自己的网络接口和路由表，一台主机上分开的命名空间。
+HCN 命名空间是用于表示主机计算网络命名空间的实体。 命名空间可让你在单个主机上具有隔离的网络环境, 其中每个命名空间都有其自己的网络接口和路由表, 与其他命名空间分开。
 
-HCN Namespace 实体表示使用 HCN_NAMESPACE RPC 上下文句柄。
+使用 HCN_NAMESPACE RPC 上下文句柄表示 HCN 命名空间实体。
 
 ```
 /// Handle to an operation
@@ -419,10 +419,10 @@ HcnCloseNamespace(
 
 ```
 
-## <a name="hcnloadbalancer"></a>HCN_LoadBalancer
+## <a name="hcn_loadbalancer"></a>HCN_LoadBalancer
 
-HCN 负载均衡器是用于表示主机计算网络负载均衡器的实体。 使用负载均衡器，可具有负载平衡的主机计算网络终结点。
-使用 HCN_LOADBALANCER RPC 上下文句柄表示 HCN 负载均衡器的实体。
+HCN LoadBalancer 是用于表示主机计算网络 LoadBalancer 的实体。 LoadBalancers 允许你具有负载平衡主机计算网络终结点。
+HCN LoadBalancer 实体使用 HCN_LOADBALANCER RPC 上下文句柄表示。
 
 ```
 /// Handle to an operation
@@ -558,9 +558,9 @@ HcnCloseLoadBalancer(
 
 ```
 
-## <a name="hcnnotificationcallback"></a>HCN_Notification_Callback
+## <a name="hcn_notification_callback"></a>HCN_Notification_Callback
 
-那里函数提供对整个服务操作，例如通知 （例如网络创建新的接收通知） 的访问。
+有一些功能可用于访问服务范围的操作, 例如通知 (例如, 接收新网络创建的通知)。
 
 ```
 /// Registers a callback function to receive notifications of service-wide events such as network

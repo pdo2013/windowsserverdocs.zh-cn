@@ -1,19 +1,19 @@
 ---
-title: 示例生成C#的顶级 IPAM 的代码和子网对象
+title: 为顶级 IPAM C# & 子网对象生成的代码示例
 description: ''
 ms.author: jmesser
 author: jmesser81
 ms.date: 11/05/2018
-ms.openlocfilehash: 8e96136eaeee5f98a919b26791994c1b00a0c45c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ae324b0a376f4fdf55cf09df652893b7894cc73e
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875538"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031504"
 ---
 # <a name="example-of-c-generated-code"></a>C# 生成的代码示例 
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server (半年频道), Windows Server 2019
 
 ```C#
 /* 

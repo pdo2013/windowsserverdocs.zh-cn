@@ -4,23 +4,23 @@ description: ''
 ms.author: jmesser
 author: jmesser81
 ms.date: 11/05/2018
-ms.openlocfilehash: 2a81b09c41c3b665d6a026da4b63a6119fbe202d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91cdafa9699cd213156d872090034dd4ea67108e
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816298"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031526"
 ---
 # <a name="common-scenarios"></a>常见方案
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server (半年频道), Windows Server 2019
 
 ## <a name="scenario-hcn"></a>方案：HCN 
 
 
 ### <a name="create-an-hcn"></a>创建 HCN
 
-此示例演示如何使用主机计算网络服务 API 可用于将虚拟 NIC 连接到虚拟机或容器在主机上创建主机计算网络。
+此示例演示如何使用主机计算网络服务 API 在主机上创建可用于将虚拟 NIC 连接到虚拟机或容器的主机计算网络。
 
 ```C++
 using unique_hcn_network = wil::unique_any< 
@@ -119,7 +119,7 @@ void CreateHcnNetwork()
 
 ### <a name="delete-an-hcn"></a>删除 HCN
 
-此示例演示如何使用主机计算网络服务 API 来打开和删除主机计算网络 
+此示例演示如何使用主机计算网络服务 API 打开 & 删除主机计算网络 
 
 ```C++
     wil::unique_cotaskmem_string errorRecord;
@@ -136,7 +136,7 @@ void CreateHcnNetwork()
 
 ### <a name="enumerate-all-networks"></a>枚举所有网络
 
-此示例演示如何使用主机计算网络服务 API 来枚举所有主机计算网络。
+此示例演示如何使用主机计算网络服务 API 枚举所有主机计算网络。
 
 ```C++
      wil::unique_cotaskmem_string resultNetworks;
@@ -193,7 +193,7 @@ void CreateHcnNetwork()
 
 ### <a name="create-an-hcn-endpoint"></a>创建 HCN 终结点
 
-此示例演示如何使用主机计算网络服务 API 来创建一个主机计算网络终结点，然后将其热添加到虚拟机或容器。
+此示例演示如何使用主机计算网络服务 API 创建主机计算网络终结点, 并将其热添加到虚拟机或容器。
 
 ```C++
 using unique_hcn_endpoint = wil::unique_any< 
@@ -266,9 +266,9 @@ void CreateAndHotAddEndpoint()
 ```
 
 
-### <a name="delete-an-endpoint"></a>删除某个终结点
+### <a name="delete-an-endpoint"></a>删除终结点
 
-此示例演示如何使用主机计算网络服务 API 中删除主机计算网络终结点。
+此示例演示如何使用主机计算网络服务 API 删除主机计算网络终结点。
 
 ```C++
     wil::unique_cotaskmem_string errorRecord;
@@ -325,7 +325,7 @@ void CreateAndHotAddEndpoint()
 
 ### <a name="enumerate-all-enpoints"></a>枚举所有 enpoints
 
-此示例演示如何使用主机计算网络服务 API 来枚举所有主机计算网络终结点。
+此示例演示如何使用主机计算网络服务 API 枚举所有主机计算网络终结点。
 
 ```C++
     wil::unique_cotaskmem_string errorRecord;
@@ -385,7 +385,7 @@ void CreateAndHotAddEndpoint()
 
 ### <a name="create-an-hcn-namespace"></a>创建 HCN 命名空间
 
-此示例演示如何使用主机计算网络服务 API 可用于连接终结点和容器主机上创建主机计算网络 Namespace。
+此示例演示如何使用主机计算网络服务 API 在主机上创建主机计算网络命名空间, 该命名空间可用于连接终结点和容器。
 
 ```C++
 using unique_hcn_namespace = wil::unique_any< 
@@ -447,7 +447,7 @@ void CreateHcnNamespace()
 
 ### <a name="delete-an-hcn-namespace"></a>删除 HCN 命名空间
 
-此示例演示如何使用主机计算网络服务 API 来删除主机计算网络 Namespace。
+此示例演示如何使用主机计算网络服务 API 删除主机计算网络命名空间。
 
 ```C++
     wil::unique_cotaskmem_string errorRecord;
@@ -463,9 +463,9 @@ void CreateHcnNamespace()
 ```
 
 
-### <a name="modify-an-hcn-namespace"></a>修改 HCN 的命名空间
+### <a name="modify-an-hcn-namespace"></a>修改 HCN 命名空间
 
-此示例演示如何使用主机计算网络服务 API 来修改主机计算网络 Namespace。
+此示例演示如何使用主机计算网络服务 API 来修改主机计算网络命名空间。
 
 ```C++
     unique_hcn_namespace handle;
@@ -510,7 +510,7 @@ void CreateHcnNamespace()
 
 ### <a name="enumerate-all-namespaces"></a>枚举所有命名空间
 
-此示例演示如何使用主机计算网络服务 API 来枚举所有主机计算网络命名空间。
+此示例演示如何使用主机计算网络服务 API 枚举所有主机计算网络命名空间。
 
 ```C++
     wil::unique_cotaskmem_string resultNamespaces;
@@ -530,9 +530,9 @@ void CreateHcnNamespace()
 ```
 
 
-### <a name="query-namespace-properties"></a>查询的命名空间属性
+### <a name="query-namespace-properties"></a>查询命名空间属性
 
-此示例演示如何使用主机计算网络服务 API 来查询主机计算网络 Namespace 属性
+此示例演示如何使用主机计算网络服务 API 查询主机计算网络命名空间属性
 
 ```C++
     unique_hcn_namespace handle;
@@ -568,7 +568,7 @@ void CreateHcnNamespace()
 
 ### <a name="create-an-hcn-load-balancer"></a>创建 HCN 负载均衡器
 
-此示例演示如何使用主机计算网络服务 API 可用于跨负载均衡终结点计算在主机上创建主机计算网络负载均衡器。
+此示例演示如何使用主机计算网络服务 API 在主机上创建主机计算网络负载均衡器, 该负载均衡器可用于在计算之间负载平衡终结点。
 
 ```C++
 using unique_hcn_loadbalancer = wil::unique_any< 
@@ -643,7 +643,7 @@ void CreateHcnLoadBalancer()
 
 ### <a name="delete-an-hcn-load-balancer"></a>删除 HCN 负载均衡器
 
-此示例演示如何使用主机计算网络服务 API 来删除主机计算网络负载均衡器。
+此示例演示如何使用主机计算网络服务 API 删除主机计算网络 LoadBalancer。
 
 ```C++
     wil::unique_cotaskmem_string errorRecord;
@@ -660,7 +660,7 @@ void CreateHcnLoadBalancer()
 
 ### <a name="modify-an-hcn-load-balancer"></a>修改 HCN 负载均衡器
 
-此示例演示如何使用主机计算网络服务 API 来修改主机计算网络 Namespace。
+此示例演示如何使用主机计算网络服务 API 来修改主机计算网络命名空间。
 
 ```C++
     unique_hcn_loadbalancer handle;
@@ -705,7 +705,7 @@ void CreateHcnLoadBalancer()
 
 ### <a name="enumerate-all-load-balancers"></a>枚举所有负载均衡器
 
-此示例演示如何使用主机计算网络服务 API 来枚举所有主机计算网络负载均衡器。
+此示例演示如何使用主机计算网络服务 API 枚举所有主机计算网络负载均衡器。
 
 ```C++
     wil::unique_cotaskmem_string resultLoadBalancers;
@@ -726,9 +726,9 @@ void CreateHcnLoadBalancer()
 ```
 
 
-### <a name="query-load-balancer-properties"></a>查询负载均衡器属性
+### <a name="query-load-balancer-properties"></a>查询负载平衡器属性
 
-此示例演示如何使用主机计算网络服务 API 来查询主机计算网络负载均衡器属性。
+此示例演示如何使用主机计算网络服务 API 来查询主机计算网络 LoadBalancer 属性。
 
 ```C++
     unique_hcn_loadbalancer handle;
@@ -763,9 +763,9 @@ void CreateHcnLoadBalancer()
 
 ## <a name="scenario-hcn-notifications"></a>方案：HCN 通知
 
-### <a name="register-and-unregister-service-wide-notifications"></a>注册和取消注册整个服务通知
+### <a name="register-and-unregister-service-wide-notifications"></a>注册和注销服务范围通知
 
-此示例演示如何使用主机计算网络服务 API 来注册和注销的整个服务通知。 这使调用方接收的通知 （通过他们在注册期间指定的回调函数） 时出现一个服务范围内操作，例如新的网络创建事件。
+此示例演示如何使用主机计算网络服务 API 来注册和注销服务范围通知。 这使得调用方可以在发生服务范围的操作 (如新的网络创建事件) 时接收通知 (通过在注册过程中指定的回调函数)。
 
 ```C++
 using unique_hcn_callback = wil::unique_any< 
@@ -834,6 +834,6 @@ void UnregisterForServiceNotifications()
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解如何[RPC 上下文处理 HCN](hcn-declaration-handles.md)。
+- 详细了解 HCN 的[RPC 上下文句柄](hcn-declaration-handles.md)。
 
-- 详细了解如何[HCN JSON 文档架构](hcn-json-document-schemas.md)。
+- 详细了解[HCN JSON 文档架构](hcn-json-document-schemas.md)。

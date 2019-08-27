@@ -12,12 +12,12 @@ ms.assetid: b56a21e2-c9e3-4ba9-97d9-719ea6a0854b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 142ae8514a6a480f8181ce193c2f437e2f286e2d
-ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
+ms.openlocfilehash: 689f293acf1e87e135f6f8cf5c7eac2a7d8033b9
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914600"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031497"
 ---
 # <a name="integrate-an-on-premises-exchange-server-with-windows-server-essentials"></a>将本地 Exchange Server 与 Windows Server Essentials 集成
 
@@ -288,7 +288,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
  至少必须在路由器上配置如下端口设置：  
 
-|路由器端口|目标 IP|目标端口|注意|  
+|路由器端口|目标 IP|目标端口|注释|  
 |-----------------|--------------------|----------------------|----------|  
 |25 (SMTP)|运行 Exchange Server 的本地服务器的内部 IP。|25||  
 |80 (HTTP)|运行 Windows Server Essentials 的服务器的内部 IP|80||  
@@ -364,18 +364,18 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
    - 如果执行全新安装，请运行以下命令：  
 
-      **ARRConfig 配置-证书** _ **-主机名** _  
+      **ARRConfig 配置-证书**_证书文件的路径_ **-主机名**_Exchange Server 的主机名_  
 
      > [!NOTE]
-     >  例如,**ARRConfig 配置-证书** _ **-主机名** _  
+     >  例如,**ARRConfig 配置-证书**_c:\temp\certificate.pfx_ **-主机名**_mail.contoso.com_  
      > 
      >  将 *mail.contoso.com* 替换为受此证书保护的域的名称。  
 
    - 如果是从 Windows Small Business Server 进行迁移，请运行以下命令：  
 
-      **ARRConfig 配置-证书** _ **-主机名** _ **-targetserver** _  
+      **ARRConfig 配置-证书**_证书文件的路径_ **-主机名**_Exchange Server 的主机名_ **-targetserver**_Exchange server 的服务器名称_  
 
-      例如,**ARRConfig 配置-证书** _ **-主机名** _ * *-targetserver * * _ExchangeSvr_  
+      例如,**ARRConfig 配置-证书**_c:\temp\certificate.pfx_ **-主机名**_mail.contoso.com_ **-targetserver** _ExchangeSvr_  
 
       将 *mail.contoso.com* 替换为你的域名。 将 *ExchangeSvr* 替换为运行 Exchange Server 的服务器的名称。  
 
