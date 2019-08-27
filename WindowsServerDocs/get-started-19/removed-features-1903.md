@@ -4,16 +4,16 @@ description: 以下是 Windows Server 版本 1903 中已从该版本的产品中
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 08/22/2019
 author: jasongerend
 ms.author: jgerend
 manager: daveba
-ms.openlocfilehash: 9c79b6da3f9aace55b9464f252f97f19e50cc584
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 079f1a6544aac606358a741ecb3fffae791a4985
+ms.sourcegitcommit: 6f8993e2180c4d3c177e3e1934d378959396b935
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280184"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70000674"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1903"></a>从 Windows Server 版本 1903 开始已删除或计划取代的功能
 
@@ -21,7 +21,7 @@ ms.locfileid: "67280184"
 
 以下是 Windows Server 版本 1903 中已从该版本的产品中删除或开始考虑在后续版本中可能取代的功能列表。 本文档面向在商业环境中更新操作系统的 IT 专业人员。 **在后续的版本中可能会对该列表进行更改，并且可能不包含任何受影响的功能。**
 
-另请参阅[从 Windows Server 2019 开始已删除或计划取代的功能](removed-features-19.md)。
+另请参阅 [Windows Server 中已删除或计划取代的功能](removed-features.md)。
 
 ## <a name="features-were-no-longer-developing"></a>不再开发的功能
 

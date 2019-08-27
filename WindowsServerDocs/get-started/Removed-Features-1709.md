@@ -1,24 +1,20 @@
 ---
 title: 从 Windows Server（版本 1709）开始已删除或计划取代的功能
 description: 各版本中已删除或计划删除的特性和功能。
-ms.custom: na
 ms.prod: windows-server-threshold
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/05/2018
-author: jaimeo
-ms.author: jaimeo
+ms.date: 08/22/2019
+author: jasongerend
+ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 37970f3bee2070cffc77bff855a8f28641196b24
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: b4303d05a87fe06e84df0cc55e2c1af8b34047e6
+ms.sourcegitcommit: 6f8993e2180c4d3c177e3e1934d378959396b935
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66452866"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70000635"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1709"></a>从 Windows Server 版本 1709 开始已删除或计划取代的功能
 
@@ -26,7 +22,12 @@ ms.locfileid: "66452866"
 
 以下是 Windows Server 版本 1709 中已从该版本的产品中删除或开始考虑在后续版本中可能取代的功能列表。 本文档面向在商业环境中更新操作系统的 IT 专业人员。 **在后续的版本中可能会对该列表进行更改，并且可能不包含任何受影响的功能。** 
 
+> [!TIP]
+> - 可以通过加入 [Windows 预览体验计划](https://insider.windows.com)来提前使用 Windows Server 版本 - 这是测试功能变动的好方法。
+> - 对其他版本有疑问？ 请查看 [Windows Server 中已删除或计划取代的功能](../get-started-19/removed-features.md)。
+
 ## <a name="features-removed-from-windows-server-version-1709"></a>从 Windows Server 版本 1709 中删除的功能
+
 Windows Server 版本 1709 包含 Windows Server 2016 中存在的相同功能。 但是，此版本提供的安装选项确实不同于 Windows Server 2016 提供的安装选项：
 
 - 作为半年频道版本，Windows Server 版本 1709 仅提供 Server Core 安装选项。 有关详细信息，请参阅[服务渠道的比较](../get-started-19/servicing-channels-19.md)。
