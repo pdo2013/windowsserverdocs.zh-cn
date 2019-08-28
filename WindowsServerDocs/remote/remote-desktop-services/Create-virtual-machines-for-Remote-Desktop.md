@@ -28,7 +28,7 @@ ms.locfileid: "66446737"
   
 对于此基本部署示例，将创建最少 3 台虚拟机。 一个虚拟机将托管远程桌面 (RD) 连接代理和许可证服务器角色服务，以及用于部署的文件共享。 第二个虚拟机将托管 RD 网关和 Web 访问角色服务。  第三个虚拟机托管 RD 会话主机角色服务。 对于非常小的部署，可以通过使用 AAD 应用代理来消除部署中的所有公共终结点，并将所有角色服务组合到单个 VM 上，从而降低 VM 成本。 对于大型部署，可以在单个虚拟机上安装各种角色服务，以便更好地进行缩放。  
   
-本部分概述了在 [Microsoft Azure Marketplace](https://azure.microsoft.com/marketplace/) 中基于 Windows Server 映像为每个角色部署虚拟机的必要步骤。 如果需要从需要 PowerShell 的自定义映像创建虚拟机，请查看[使用资源管理器和 PowerShell 创建 Windows VM](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-ps-create/)。 然后返回此处附加文件共享的 Azure 数据磁盘，并为部署输入外部 URL。  
+本部分概述了在 [Microsoft Azure 市场](https://azure.microsoft.com/marketplace/) 中基于 Windows Server 映像为每个角色部署虚拟机的必要步骤。 如果需要从需要 PowerShell 的自定义映像创建虚拟机，请查看[使用资源管理器和 PowerShell 创建 Windows VM](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-ps-create/)。 然后返回此处附加文件共享的 Azure 数据磁盘，并为部署输入外部 URL。  
   
 1. [创建 Windows 虚拟机](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/)以托管 RD 连接代理、RD 许可证服务器和文件服务器。  
   

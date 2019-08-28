@@ -41,7 +41,7 @@ ms.locfileid: "63687348"
 |SharePoint Server 2016|    是|    [SharePoint Server 2016 的硬件和软件要求](https://technet.microsoft.com/library/cc262485(v=office.16).aspx)|
 |Project Server 2016|   是|    [Project Server 2016 的软件要求](https://technet.microsoft.com/library/ee683978(v=office.16).aspx)|
 |Exchange Server 2016|  是|    [Exchange 2016 的更新](https://technet.microsoft.com/library/jj907309(v=exchg.160).aspx)| 
-|Biztalk 服务器 2016|   是|    [Microsoft BizTalk 服务器](https://www.microsoft.com/en-us/cloud-platform/biztalk)|
+|Biztalk 服务器 2016|   是|    [Microsoft BizTalk Server](https://www.microsoft.com/en-us/cloud-platform/biztalk)|
 |Host Integration Server 2016|  是|    [HIS 2016 中的新增功能](https://msdn.microsoft.com/library/mt670807.aspx)|
 |Visual Studio Team Foundation Server 2017| 是|    [Team Foundation Server 2017](https://www.visualstudio.com/news/releasenotes/tfs2017-relnotes)| 
 |Skype for Business Server 2015|    是|    [如何在 Windows Server 2016 上安装 Skype for Business Server 2015](https://support.microsoft.com/en-gb/help/4015888/how-to-install-skype-for-business-server-2015-on-windows-server-2016)|
