@@ -184,7 +184,7 @@
 #### [配置远程 RADIUS 服务器组](technologies/nps/nps-crp-rrsg-configure.md)
 #### [管理用于 NPS 的证书](technologies/nps/nps-manage-certificates.md)
 ##### [配置用于满足 PEAP 和 EAP 要求的证书模板](technologies/nps/nps-manage-cert-requirements.md)
-#### [管理 NPS](technologies/nps/nps-manage-servers.md)
+#### [管理多个 NPS](technologies/nps/nps-manage-servers.md)
 ##### [在多宿主计算机上配置 NPS](technologies/nps/nps-multihomed-configure.md)
 ##### [配置 NPS UDP 端口信息](technologies/nps/nps-udp-ports-configure.md)
 ##### [禁用 NAS 通知转发](technologies/nps/nps-disable-nas-notifications.md)
