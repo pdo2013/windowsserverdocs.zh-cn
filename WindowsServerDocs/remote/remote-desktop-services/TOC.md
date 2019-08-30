@@ -64,9 +64,35 @@
 ### [使用 Windows Server 上的 PowerShell 自定义 RDS 标题“工作资源”](rds-work-resources.md)
 ### [利用性能计数器诊断应用性能问题](rds-rdsh-performance-counters.md)
 
-## [其他远程桌面支持](rds-get-support.md)
-## [远程桌面客户端](clients/remote-desktop-clients.md)
-### 远程桌面已知问题
+## 访问远程桌面资源
+### [可用的远程桌面客户端](clients/remote-desktop-clients.md)
+### Windows Store 客户端
+#### [Windows Store 客户端入门](clients/windows.md)
+#### [Windows Store 客户端中的新增功能](clients/windows-whatsnew.md)
+### Android 客户端
+#### [Android 客户端入门](clients/remote-desktop-android.md)
+#### [Android 客户端中的新增功能](clients/android-whatsnew.md)
+### iOS 客户端
+#### [iOS 客户端入门](clients/remote-desktop-ios.md)
+#### [iOS 客户端中的新增功能](clients/ios-whatsnew.md)
+### macOS 客户端
+#### [macOS 客户端入门](clients/remote-desktop-mac.md)
+#### [MacOS 客户端中的新增功能](clients/mac-whatsnew.md)
+### Web 客户端
+#### [Web 客户端入门](clients/remote-desktop-web-client.md)
+#### [Web 客户端中的新增功能](clients/web-client-whatsnew.md)
+### 为远程桌面设置电脑
+#### [受支持的电脑](clients/remote-desktop-supported-config.md)
+#### [允许从远程桌面访问你的电脑](clients/remote-desktop-allow-access.md)
+#### [允许从网络外部访问你的电脑](clients/remote-desktop-allow-outside-access.md)
+#### [更改你的电脑上的 RD 侦听端口](clients/change-listening-port.md)
+### 高级信息
+#### [哪个客户端最适合你？](clients/remote-desktop-app-compare.md)
+#### [远程桌面 RDP 文件设置](clients/rdp-files.md)
+#### [远程桌面 URI 方案](clients/remote-desktop-uri.md)
+#### [远程桌面客户端常见问题](clients/remote-desktop-client-faq.md)
+#### [托管应用和桌面的隐私设置](clients/remote-privacy-settings.md)
+### 已知问题
 #### [常见远程桌面连接故障排除](troubleshoot/rdp-error-general-troubleshooting.md)
 #### [客户端无法连接，收到“没有注册类”错误](troubleshoot/rdp-error-class-not-registered.md)
 #### [客户端无法连接，出现“没有可用的许可证”错误](troubleshoot/rdp-error-no-licenses-available.md)
@@ -75,29 +101,5 @@
 #### [远程桌面客户端断开连接且无法重新连接到同一会话](troubleshoot/rdp-client-disconnects-cannot-reconnect-same-session.md)
 #### [远程笔记本电脑从无线网络断开连接](troubleshoot/remote-laptop-disconnects-wireless-network.md)
 #### [远程桌面连接期间出现性能低下或应用程序问题](troubleshoot/poor-performance-or-application-problems.md)
-### 常规信息
-#### [哪个客户端最适合你？](clients/remote-desktop-app-compare.md)
-#### [远程桌面 RDP 文件设置](clients/rdp-files.md)
-#### [远程桌面 URI 方案](clients/remote-desktop-uri.md)
-#### [远程桌面客户端常见问题](clients/remote-desktop-client-faq.md)
-#### [托管应用和桌面的隐私设置](clients/remote-privacy-settings.md)
-### 适用于 Windows 的远程桌面客户端
-#### [开始行动](clients/windows.md)
-#### [Windows 客户端中有哪些新增功能？](clients/windows-whatsnew.md)
-### 适用于 Android 的远程桌面客户端
-#### [开始行动](clients/remote-desktop-android.md)
-#### [Android 客户端中有哪些新增功能？](clients/android-whatsnew.md)
-### 适用于 iOS 的远程桌面客户端
-#### [开始行动](clients/remote-desktop-ios.md)
-#### [iOS 客户端中有哪些新增功能？](clients/ios-whatsnew.md)
-### 适用于 Mac 的远程桌面客户端
-#### [开始行动](clients/remote-desktop-mac.md)
-#### [MacOS 客户端中有哪些新增功能？](clients/mac-whatsnew.md)
-### 远程桌面 Web 客户端
-#### [访问远程桌面 Web 客户端](clients/remote-desktop-web-client.md)
-#### [Web 客户端中有哪些新增功能？](clients/web-client-whatsnew.md)
-### 为远程桌面设置电脑
-#### [受支持的电脑](clients/remote-desktop-supported-config.md)
-#### [允许从远程桌面访问你的电脑](clients/remote-desktop-allow-access.md)
-#### [允许从网络外部访问你的电脑](clients/remote-desktop-allow-outside-access.md)
-#### [更改你的电脑上的 RD 侦听端口](clients/change-listening-port.md)
+
+## [其他资源](rds-get-support.md)
