@@ -1,5 +1,5 @@
 ---
-title: 在 Mac 上开始使用远程桌面
+title: macOS 客户端入门
 description: 了解如何为 Mac 设置远程桌面客户端
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -12,16 +12,16 @@ ms.assetid: 7afc65f8-3158-49c9-9d48-4dab1c69afba
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 10/09/2018
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 17df3ca3b88404a2775790d7a4a8206b7aa5befa
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: 8836ab500e97b68efbcdd0cd1ca5bcbe39d79334
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546346"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70150927"
 ---
-# <a name="get-started-with-remote-desktop-on-mac"></a>在 Mac 上开始使用远程桌面
+# <a name="get-started-with-the-macos-client"></a>macOS 客户端入门
 
 >适用于：Windows 10、Windows 8.1、Windows Server 2012 R2、Windows Server 2016
 
@@ -141,7 +141,7 @@ ms.locfileid: "69546346"
 
 若要删除分辨率，请选择它，然后单击“-”  。
 
-显示具有单独的空间  如果在运行 Mac OS X 10.9 并且在 Mavericks 中禁用“显示具有单独的空间 **** （“系统首选项”>“任务控制 **** ），则需要使用相同选项在远程桌面客户端中配置此设置。
+显示具有单独的空间 如果在运行 Mac OS X 10.9 并且在 Mavericks 中禁用“显示具有单独的空间 （“系统首选项”>“任务控制 ），则需要使用相同选项在远程桌面客户端中配置此设置。   
 
 ### <a name="drive-redirection-for-remote-resources"></a>远程资源的驱动器重定向
 远程资源支持驱动器重定向，以便可以将使用远程应用程序创建的文件在本地保存到 Mac。 重定向的文件夹始终是在远程会话中显示为网络驱动器的主目录。
