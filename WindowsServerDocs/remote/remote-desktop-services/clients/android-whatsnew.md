@@ -1,5 +1,5 @@
 ---
-title: Android 上的远程桌面有哪些新增功能？
+title: Android 客户端中的新增功能
 description: 了解适用于 Android 的远程桌面客户端的最新更改
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -11,16 +11,16 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 06/05/2019
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 7730790495babf4a70fb5a70ce93464faa86f1e3
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 6ee224cd5bf7ccdeb3b0d55d091a5d322583c101
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66736528"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70150996"
 ---
-# <a name="whats-new-for-the-remote-desktop-client-on-android"></a>Android 上的远程桌面客户端有哪些新增功能？
+# <a name="whats-new-in-the-android-client"></a>Android 客户端中的新增功能
 
 我们会定期更新[适用于 Android 的远程桌面客户端](remote-desktop-android.md)，添加新功能并修复问题。 请查看以下最新更新。
 

@@ -1,5 +1,5 @@
 ---
-title: Mac 上的远程桌面的新增功能有哪些？
+title: MacOS 客户端中的新增功能
 description: 了解适用于 Mac 的远程桌面客户端的最新更改
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -11,29 +11,49 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 04/29/2019
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 6cfd8a6338d283b7ff42b091e686a31b044a6b7b
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 9ae58103b00941bb71d447641b1cdab7c02fa20b
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65564761"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70151024"
 ---
-# <a name="whats-new-for-the-remote-desktop-client-on-macos"></a>macOS 上的远程桌面客户端的新增功能有哪些？
+# <a name="whats-new-in-the-macos-client"></a>MacOS 客户端中的新增功能
 
 我们会定期更新[适用于 macOS 的远程桌面客户端](remote-desktop-mac.md)添加新功能并修复问题。 请查看以下最新更新。
 
 如果遇到任何问题，始终可以通过“帮助”>“报告问题”  来联系我们。
 
+## <a name="updates-for-version-1030"></a>针对版本 10.3.0 的更新
+*发布日期：19/8/27*
+
+自上次更新以来已过去数周，我们一直在此段时间努力工作。 版本 10.3.0 提供了一些新功能，以及许多后台修补程序。
+
+ - 现在，在连接到 Windows 10 1809、Windows Server 2019 及更高版本时，可以使用相机重定向。
+ - 在 Mojave 和 Catalina 上，我们添加了一个新的对话框，该对话框会在系统使用麦克风和相机进行设备重定向时请求你的许可。
+ - 源订阅流经过重新编写后变得更简单，速度更快。
+ - 剪贴板重定向现在包含富文本格式 (RTF)。
+ - 输入密码时，可以通过“显示密码”复选框显示该密码。
+ - 修复了会话窗口在监视器之间跳转的问题。
+ - 连接中心会显示高分辨率远程应用图标（如果适用）。
+ - 使用 Mac 剪贴板快捷方式时，Cmd+A 会映射到 Ctrl+A。
+ - Cmd+R 现在会刷新订阅的所有源。
+ - 添加了新的辅助单击选项，可以展开或折叠连接中心的所有组或源。
+ - 添加了新的辅助单击选项，可以更改连接中心的“源”选项卡的图标大小。
+ - 简化了一个新的应用图标，使之更简洁。
+
 ## <a name="updates-for-version-10213"></a>针对版本 10.2.13 的更新
+
 发布日期：  2019/5/8
 
 - 修复了在通过 RD 网关连接时出现的挂起。
 - 向“添加源”对话框添加了隐私声明。
 
 ## <a name="updates-for-version-10212"></a>针对版本 10.2.12 的更新
-发布日期：  2019/4/16 
+
+发布日期：  2019/4/16
 
 - 解决了在通过 RD 网关连接时发生的随机断开连接（具有错误代码 0x904）。
 - 修复了导致应用程序首选项中的分辨率列表在安装之后为空的 bug。
@@ -41,17 +61,20 @@ ms.locfileid: "65564761"
 - 解决了连接到 Windows 虚拟桌面部署时的 ADAL 身份验证提示循环。
 
 ## <a name="updates-for-version-10210"></a>针对版本 10.2.10 的更新
+
 发布日期：  2019/3/30
 
 - 在此版本中，我们解决了由最近 macOS 10.14.4 更新导致的不稳定。 我们还修复了在使用 NVIDIA 硬件对 由服务器编码的 AVC 编解码器数据进行解码时出现的错误绘图。
 
 ## <a name="updates-for-version-1029"></a>针对版本 10.2.9 的更新
+
 发布日期：  2019/3/6
 
 - 在此版本中，我们修复了在进行服务器重定向时可能发生的 RD 网关连接问题。
 - 我们还解决了由 10.2.8 更新导致的 RD 网关回归。
 
 ## <a name="updates-for-version-1028"></a>针对版本 10.2.8 的更新
+
 发布日期：  2019/3/1
 
 - 解决了在使用 RD 网关时出现的连接问题。
@@ -61,11 +84,13 @@ ms.locfileid: "65564761"
 - 修复了在启动连接时导致连接中心不必要地滚动的 bug。
 
 ## <a name="updates-for-version-1027"></a>针对版本 10.2.7 的更新
+
 发布日期：  2019/2/6
 
 - 在此版本中，我们解决了在使用 AVC444 模式时出现的图形错误绘图（由服务器编码 bug 导致）。
 
 ## <a name="updates-for-version-1026"></a>针对版本 10.2.6 的更新
+
 发布日期：  2019/1/28
 
 - 添加了对 AVC（420 和 444）编解码器的支持（在连接到当前版本的 Windows 10 时可用）。
@@ -79,6 +104,7 @@ ms.locfileid: "65564761"
 >macOS 10.14.0 和 10.14.1 中有一个 bug，它可能会导致“.com.microsoft.rdc.application-data_SUPPORT/_EXTERNAL_DATA”文件夹（在 ~/Library 文件夹下深度嵌套）占用大量磁盘空间。 若要解决此问题，请删除该文件夹内容并升级到 macOS 10.14.2。 请注意，删除该文件夹内容的副作用是会删除分配给书签的快照图像。 重新连接到远程电脑时会重新生成这些图像。
 
 ## <a name="updates-for-version-1024"></a>针对版本 10.2.4 的更新
+
 发布日期：  2018/12/18
 
 - 添加了适用于 macOS Mojave 10.14 的深色模式支持。
@@ -90,6 +116,7 @@ ms.locfileid: "65564761"
 - 针对较小滚动增量改进了基于鼠标的滚动。
 
 ## <a name="updates-for-version-1023"></a>针对版本 10.2.3 的更新
+
 发布日期：  2018/11/06
 
 - 针对远程应用方案添加了对“remoteapplicationcmdline”RDP 文件设置的支持。
@@ -100,11 +127,12 @@ ms.locfileid: "65564761"
 - 通过以智能方式隐藏菜单栏和停靠来更好地处理全屏远程应用。
 - 修复了远程应用在启动之后保留隐藏状态的情形。
 - 解决了在禁用硬件加速的情况下使用“适应窗口”时的缓慢呈现更新。
-- 处理了在客户端启动时由错误权限导致的数据库创建错误。 
+- 处理了在客户端启动时由错误权限导致的数据库创建错误。
 - 修复了客户端在启动时总是崩溃以及对于某些用户不启动的问题。
 - 修复了错误地以全屏形式从远程桌面 8 导入连接的情形。
 
 ## <a name="updates-for-version-1022"></a>针对版本 10.2.2 的更新
+
 发布日期：  2018/10/09
 
 - 全新的连接中心，支持拖放、桌面的手动排列、列表视图模式中的可调整大小列、基于列的排序以及更简单的组管理。
@@ -133,12 +161,14 @@ ms.locfileid: "65564761"
 - 修复了阻止下载 URL 中存在空格的源资源的问题。
 
 ## <a name="updates-for-version-1021"></a>针对版本 10.2.1 的更新
+
 发布日期：  2018/08/06
 
 - 启用了与已加入 Azure Active Directory (AAD) 的电脑的连接。 若要连接到已加入 AAD 的电脑，用户名必须采用以下格式之一：“AzureAD\user”或“AzureAD\user@domain”。
 - 解决了影响远程会话中智能卡的使用的某些 bug。
 
 ## <a name="updates-for-version-1020"></a>针对版本 10.2.0 的更新
+
 发布日期：  2018/07/24
 
 - 合并了针对 GDPR 合规性的更新。
@@ -167,6 +197,7 @@ ms.locfileid: "65564761"
 - 修复了在 Mojave 上运行时连接中心中的一些对齐问题。
 
 ## <a name="updates-for-version-1018"></a>针对版本 10.1.8 的更新
+
 发布日期：  2018/05/04
 
 - 添加了对通过调整会话窗口大小来更改远程分辨率的支持！
@@ -174,6 +205,7 @@ ms.locfileid: "65564761"
 - 解决了 0x207 错误，在连接到未使用 CredSSP 加密 oracle 修正更新 (CVE-2018-0886) 进行修补的服务器时可能会发生该错误。
 
 ## <a name="updates-for-version-1017"></a>针对版本 10.1.7 的更新
+
 发布日期：  2018/04/05
 
 - 进行了安全修复，以包含 CVE-2018-0886 中所述的 CredSSP 加密 oracle 修正更新。
@@ -185,8 +217,9 @@ ms.locfileid: "65564761"
 - “连接中心”、“首选项”和“关于”窗口现在会响应 CMD+M。
 - 现在可以通过在“添加远程资源”  页面上按 ENTER 来开始发现源。
 - 修复了在刷新之前，新远程资源源在连接中心中显示为空的问题。
- 
+
 ## <a name="updates-for-version-1016"></a>针对版本 10.1.6 的更新
+
 发布日期：  2018/03/26
 
 - 修复了 RemoteApp 窗口会对自己重新排序的问题。

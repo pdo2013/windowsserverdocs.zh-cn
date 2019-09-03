@@ -1,6 +1,6 @@
 ---
-title: 在 Windows 上开始使用远程桌面
-description: 适用于 Windows 的远程桌面客户端的基本设置步骤。
+title: Windows 应用商店客户端入门
+description: 适用于 Windows 应用商店的远程桌面客户端的基本设置步骤。
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,18 +12,18 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 05/07/2018
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: b2141a6a57629ccbb585b2f74c581eba5ba2b1b1
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 03927cd531617c6e0c9572fc4ce74768e10bc66a
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66446685"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70150938"
 ---
-# <a name="get-started-with-remote-desktop-on-windows"></a>在 Windows 上开始使用远程桌面
+# <a name="get-started-with-the-windows-store-client"></a>Windows 应用商店客户端入门
 
->适用于：Windows 10、Windows 8.1、Windows Server 2019、Windows Server 2016、Windows Server 2012 R2
+>适用于：Windows 10
 
 可以使用适用于 Windows 的远程桌面客户端以远程方式从其他 Windows 设备运行 Windows 应用和桌面。
 
@@ -69,16 +69,16 @@ ms.locfileid: "66446685"
 想要删除连接？ 同样，点击溢出菜单 (...  )，然后点击“删除”  。
 
 ### <a name="add-a-remote-resource"></a>添加远程资源
+
 远程资源包括 RemoteApp 程序、基于会话的桌面和使用远程桌面服务由管理员发布的虚拟桌面。
 
 若要添加远程资源：
 
-1. 在“连接中心”屏幕上，点击“+ 添加”  ，然后点击“远程资源”  。 
+1. 在“连接中心”屏幕上，点击“+ 添加”  ，然后点击“远程资源”  。
 2. 输入管理员提供的“源 URL”  ，然后点击“查找源”  。
 3. 出现提示时，提供订阅源所需的凭据。
 
 将在“连接中心”显示远程资源。
-
 
 若要删除远程资源：
 
@@ -109,11 +109,13 @@ ms.locfileid: "66446685"
 在 Android 客户端中，可以通过点击“设置”  设置以下全局设置：
 
 管理项
+
 - **用户帐户** - 可以添加、编辑和删除保存在客户端的用户帐户。 这是在帐户更改后更新密码的好方法。
 - **网关** - 可以添加、编辑和删除保存在客户端的网关服务器。
 - **组** - 可以添加、编辑和删除保存在客户端的组。 这些设置使你能够轻松连接组。
 
 会话设置
+
 - **在全屏幕模式下启动连接** - 启用后，每当启动连接，客户端都将使用当前监视器的整个屏幕。
 - **在新窗口中启动每个连接** - 启用后，每个连接均在单独窗口中启动，从而可以将其放置在不同监视器中，并使用任务栏在其间进行切换。
 - **调整应用大小时：** - 允许控制在调整客户端窗口大小时发生的情况。 默认为“拉伸内容，保留纵横比”  。
@@ -121,6 +123,7 @@ ms.locfileid: "66446685"
 - **阻止屏幕超时** - 允许在会话处于活动状态时防止屏幕超时。 当连接长时间不需要任何交互时，这很有用。
 
 应用设置
+
 - **显示桌面预览** - 让你在连接到桌面之前，在“连接中心”看到桌面预览。 默认情况下，此设置设为“启用”  。
 - **帮助改进远程桌面** - 向 Microsoft 发送匿名数据。 我们使用此数据来改进客户端。 若要了解有关如何处理这些匿名、私有数据的详细信息，请参阅 [Microsoft 隐私声明](https://privacy.microsoft.com/en-us/privacystatement)。 默认情况下，此设置处于启用  状态。
 
@@ -181,13 +184,14 @@ ms.locfileid: "66446685"
 ### <a name="use-direct-touch-gestures-and-mouse-modes-in-a-remote-session"></a>在远程会话中使用直接触摸手势和鼠标模式
 
 可使用两种鼠标模式与会话进行交互。
+
 - **直接触摸**：将所有触摸触点传递给要进行远程解释的会话。
   - 使用方法与使用带有触摸屏的 Windows 相同。
 - **鼠标指针**：将本地触摸屏转换为大型触摸板，以便在会话中移动鼠标指针。
-  - 使用方法与使用带有触摸板的 Windows 相同。
+  - 使用方法与使用带触摸板的 Windows 相同。
 
 > [!NOTE]
-> 与 Windows 8 或更高版本交互时，支持直接触摸模式下的本机触摸手势。 
+> 与 Windows 8 或更高版本交互时，支持直接触摸模式下的本机触摸手势。
 
 | 鼠标模式    | 鼠标操作      | 手势                                                               |
 |---------------|----------------------|-----------------------------------------------------------------------|

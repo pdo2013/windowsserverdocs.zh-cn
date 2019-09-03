@@ -1,5 +1,5 @@
 ---
-title: 在 Android 上开始使用远程桌面
+title: Android 客户端入门
 description: 适用于 Android 的远程桌面客户端的基本设置步骤。
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -12,16 +12,16 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 07/24/2018
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: b4b188eb8148b2f4e5c6672b07884af8fdcd0c60
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ccc96013efb71a2403f9be2df03461eba5ff1fc1
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66446738"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70151009"
 ---
-# <a name="get-started-with-remote-desktop-on-android"></a>在 Android 上开始使用远程桌面
+# <a name="get-started-with-the-android-client"></a>Android 客户端入门
 
 >适用于：Windows 10、Windows 8.1、Windows Server 2019、Windows Server 2016、Windows Server 2012 R2
 

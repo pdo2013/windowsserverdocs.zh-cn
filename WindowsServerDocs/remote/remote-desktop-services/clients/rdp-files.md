@@ -13,12 +13,12 @@ manager: dongill
 ms.author: helohr
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: ecc3236d44146015564fa593aaf8a20d3bfa42ff
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: b30aae3f745f7ed9d40a9f4884205d9ca01f0eef
+ms.sourcegitcommit: f62a17bf72a772ee46fe807a5a482923e67ae7e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546463"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060296"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>受支持的远程桌面 RDP 文件设置
 
@@ -40,10 +40,9 @@ ms.locfileid: "69546463"
 | desktop size id:i:value | 根据一组预定义选项指定远程会话桌面的尺寸。 如果指定了 desktopheight 或 desktopwidth，则会替代此设置。| -0：640 × 480<br>- 1：800 × 600<br>- 2：1024 × 768<br>- 3：1280 × 1024<br>- 4：1600 × 1200 | 0 | x | x | x |
 | desktopheight:i:value | 确定使用远程桌面连接进行连接时远程计算机上的分辨率高度（以像素为单位）。 此设置对应于 RDC 中“选项”下的“显示”选项卡上的“显示配置”滑块中的选择。 | 数值介于 200 和 2048 之间 | 默认值设置为本地计算机的分辨率 | x | x | x |
 | desktopwidth:i:value | 确定使用远程桌面连接进行连接时远程计算机上的分辨率宽度（以像素为单位）。 此设置对应于 RDC 中“选项”下的“显示”选项卡上的“显示配置”滑块中的选择。 | 数值介于 200 和 4096 之间 | 默认值设置为本地计算机的分辨率 | x | x | x |
-| disableclipboardredirection:i:value | 确定连接到远程计算机时是否启用剪贴板重定向。 | - 0：已启用剪贴板重定向<br>- 1：未启用剪贴板重定向 | x | x | x |
 | disableconnectionsharing:i:value | 确定远程桌面客户端在 RemoteApp 或桌面启动时是重新连接到任何现有的已打开连接还是启动新的连接 | - 0：重新连接到任何现有会话<br>- 1：启动新的连接 | 0 | x | x | x |
 | domain:s:value | 指定将用于登录远程计算机的用户帐户所在域的名称。 | 有效的域名，例如“CONTOSO” | 无默认值 | x | x | x |
-| drivestoredirect:s:value | 确定客户端计算机上将被重定向并在远程会话中可用的本地磁盘驱动器。 | 未指定值：不重定向任何驱动器<br>*：重定向所有磁盘驱动器，包括稍后连接的驱动器<br> DynamicDrives：重定向稍后连接的所有驱动器<br>驱动器以及一个或多个驱动器的标签：重定向指定的驱动器| 未指定值：不重定向任何驱动器 | x | x    | |
+| drivestoredirect:s:value | 确定客户端计算机上将被重定向并在远程会话中可用的本地磁盘驱动器。 | - 未指定值：不重定向任何驱动器<br>- *：重定向所有磁盘驱动器，包括稍后连接的驱动器<br>- DynamicDrives：重定向稍后连接的所有驱动器<br>- 驱动器以及一个或多个驱动器的标签，例如“drivestoredirect:s:C:;E:;”：重定向指定的驱动器| 未指定值：不重定向任何驱动器 | x | x    | |
 | enablecredsspsupport:i:value | 确定 RDP 是否会在凭据安全支持提供程序 (CredSSP) 可用的情况下使用它来进行身份验证。 | - 0：即使操作系统支持 CredSSP，RDP 也不会使用 CredSSP<br>- 1：如果操作系统支持 CredSSP，则 RDP 将使用 CredSSP | 1 | x | x | |
 | encode redirected video capture:i:value | 启用或禁用已重定向视频的编码。 | - 0：禁用已重定向视频的编码<br>- 1：启用已重定向视频的编码 | 1 | x | x | x |
 | full address:s:value | 此设置指定想要连接到的远程计算机的名称或 IP 地址 | 有效的计算机名称、IPv4 地址或 IPv6 地址。 | | x | x | x |
@@ -53,7 +52,7 @@ ms.locfileid: "69546463"
 | gatewayusagemethod:i:value | 指定何时使用 RD 网关服务器 | - 0：不使用 RD 网关服务器<br>- 1：始终使用 RD 网关服务器<br>- 2：如果无法与 RD 会话主机建立直接连接，则使用 RD 网关服务器<br>- 3：使用默认 RD 网关服务器设置<br>- 4：不使用 RD 网关，对于本地地址不使用服务器<br>将此属性值设置为 0 或 4 的实际效果相同，但将此属性设置为 4 时可获得用于跳过本地地址的选项。 | | x | x | x |
 | networkautodetect:i:value | 确定是否使用自动网络带宽检测。 需要设置 bandwidthautodetect 选项并与连接类型 7 相关联。 | - 0：不使用自动网络带宽检测<br> - 1：使用自动网络带宽检测 | 1 | x ||x|
 | promptcredentialonce:i:value | 确定是否保存用户的凭据并将其用于 RD 网关和远程计算机。|- 0：远程会话不使用相同的凭据<br>- 1：远程会话将使用相同的凭据|1|x|x||
-| redirectclipboard:i:value | 确定本地计算机上的剪贴板是否会被重定向并在远程会话中可用。 | - 0：本地计算机上的剪贴板在远程会话中不可用<br>- 1：本地计算机上的剪贴板在远程会话中可用|1|x|x|x|
+| redirectclipboard:i:value | 确定是否已启用剪贴板重定向。 | - 0：本地计算机上的剪贴板在远程会话中不可用<br>- 1：本地计算机上的剪贴板在远程会话中可用|1|x|x|x|
 | redirected video capture encoding quality:i:value | 控制已编码视频的质量。 | - 0：高压缩视频。 有大量动作时，质量可能受影响 <br>- 1：中等压缩<br>- 2：低压缩视频，图片质量高 | 0 | x | x | x |
 | redirectprinters:i:value | 确定当你使用远程桌面连接连接到远程计算机时，客户端计算机上配置的打印机是否会被重定向并在远程会话中可用。 | - 0：本地计算机上的打印机在远程会话中不可用<br>- 1：本地计算机上的打印机在远程会话中可用|1|x|x|x|
 | redirectsmartcards:i:value | 确定当你连接到远程计算机时，客户端计算机上的智能卡设备是否会被重定向并在远程会话中可用。 |- 0：本地计算机上的智能卡设备在远程会话中不可用<br>- 1：本地计算机上的智能卡设备在远程会话中可用|1|x|x||
