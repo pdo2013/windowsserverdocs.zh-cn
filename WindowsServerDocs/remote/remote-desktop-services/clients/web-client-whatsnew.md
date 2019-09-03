@@ -1,5 +1,5 @@
 ---
-title: 远程桌面 Web 客户端的新增功能有哪些？
+title: Web 客户端中的新增功能
 description: 了解远程桌面 Web 客户端的最新更改
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -11,18 +11,18 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 05/20/2019
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 5be9b05da1e78cc54e12254f43d0f44f7ff65c5d
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 4eaa9a187b4a8f7879cabf15724bfcfe3f625939
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66804883"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70150962"
 ---
-# <a name="whats-new-for-the-remote-desktop-web-client"></a>远程桌面 Web 客户端的新增功能有哪些？
+# <a name="whats-new-in-the-web-client"></a>Web 客户端中的新增功能
 
-我们会定期更新[](remote-desktop-web-client.md)，添加新功能并修复问题。 请查看以下最新更新。
+我们会定期更新[远程桌面 Web 客户端](remote-desktop-web-client.md)，添加新功能并修复问题。 请查看以下最新更新。
 
 > [!NOTE]
 > 我们为 Web 客户端更改了版本控制系统。 从版本 1.0.18.0 开始，所有 Web 客户端发行版本都会包含编号（采用“W.X.Y.Z”的格式）。 远程桌面 Web 客户端的发行版号会始终以 0 结尾（例如 W.X.Y.0）。 每个 Windows 虚拟桌面 Web 客户端发行版都会更改最后一个数字，直到下一个远程桌面 Web 客户端发行版（例如 1.0.18.1）。
