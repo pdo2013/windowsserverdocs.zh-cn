@@ -1,6 +1,6 @@
 ---
 title: 始终启用 VPN 疑难解答
-description: 本主题提供有关验证和 Windows Server 2016 中的 Always On VPN 部署疑难解答的说明。
+description: 本主题提供有关在 Windows Server 2016 中验证和排查 Always On VPN 部署问题的说明。
 ms.prod: windows-server-threshold
 ms.technology: networking-ras
 ms.topic: article
@@ -9,175 +9,175 @@ ms.localizationpriority: medium
 ms.date: 06/11/2018
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d9e0efede39f5a8189dbb3d62033210c393c424d
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: 60873c8bbf71ad5afa58bd9e19b1a3fd650bc65f
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749650"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871349"
 ---
 # <a name="troubleshoot-always-on-vpn"></a>始终启用 VPN 疑难解答 
 
->适用于：Windows Server （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows 10
+>适用于：Windows Server (半年频道), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-如果 Always On VPN 安装程序无法将客户端连接到内部网络，则原因可能是 VPN 证书无效、 不正确的 NPS 策略或使用客户端部署脚本或路由和远程访问的问题。 故障排除和测试你的 VPN 连接的第一步了解 Always On VPN 基础结构的核心组件。 
+如果 Always On VPN 安装程序未能将客户端连接到内部网络，原因可能是无效的 VPN 证书、NPS 策略不正确，或者是客户端部署脚本或路由和远程访问中的问题。 对 VPN 连接进行故障排除和测试的第一步是了解 Always On VPN 基础结构的核心组件。 
 
-可以通过多种方法中的连接问题进行故障排除。 有关客户端的问题和常规故障排除，客户端计算机上的应用程序日志是无价之宝。 有关特定于身份验证的问题，NPS 服务器上的 NPS 日志可以帮助您确定问题根源。
+可以通过多种方式对连接问题进行故障排除。 对于客户端问题和一般故障排除，客户端计算机上的应用程序日志非常有用。 对于特定于身份验证的问题，NPS 服务器上的 NPS 日志可帮助你确定问题的根源。
 
 ## <a name="error-codes"></a>错误代码
 
 ### <a name="error-code-800"></a>错误代码：800
 
-- **错误说明。** 未创建远程连接，因为尝试的 VPN 隧道失败。 VPN 服务器可能无法访问。 如果此连接尝试使用 L2TP/IPsec 隧道，用于 IPsec 协商可能未正确配置所需的安全参数。
+- **错误说明。** 未建立远程连接，因为尝试的 VPN 隧道失败。 可能无法访问 VPN 服务器。 如果此连接尝试使用 L2TP/IPsec 隧道，则 IPsec 协商所需的安全参数可能配置不正确。
 
-- **可能的原因。** VPN 隧道类型时，会发生此错误**自动**的所有 VPN 隧道连接尝试失败。
+- **可能的原因。** 如果 VPN 隧道类型为**自动**，并且所有 vpn 隧道的连接尝试失败，则会出现此错误。
 
 - **可能的解决方案：**
 
-    - 如果您知道要用于你的部署的隧道，设置的 VPN 类型为该特定的隧道类型在 VPN 客户端。
+    - 如果知道要将哪个隧道用于部署，请在 VPN 客户端将 VPN 类型设置为该特定隧道类型。
 
-    - 通过使与特定的隧道类型的 VPN 连接，仍然会失败的连接，但它会导致更多特定于隧道的错误 (例如，"GRE 阻止 PPTP")。
+    - 通过建立具有特定隧道类型的 VPN 连接，连接仍然会失败，但会导致更多的特定于隧道的错误（例如，"已阻止 PPTP 的 PPTP"）。
 
-    - 无法连接到 VPN 服务器或隧道连接失败时，也会发生此错误。
+    - 当无法访问 VPN 服务器或隧道连接失败时，也会出现此错误。
 
 - **确保：**
 
-    - IKE 端口 （UDP 端口 500 和 4500） 不会受到阻止。
+    - IKE 端口（UDP 端口500和4500）不会被阻止。
 
-    - 对于 IKE 正确证书存在客户端和服务器上。
+    - IKE 的正确证书同时存在于客户端和服务器上。
 
 ### <a name="error-code-809"></a>错误代码：809
 
-- **错误说明。**  无法建立您的计算机和 VPN 服务器之间的网络连接，因为远程服务器未响应。 这可能是因为您的计算机和远程服务器之间的网络设备 （例如，防火墙、 NAT，路由器） 之一未配置为允许 VPN 连接。 请联系管理员或服务提供商，以确定哪些设备可能会导致问题。
+- **错误说明。**  由于远程服务器不响应，因此无法建立计算机与 VPN 服务器之间的网络连接。 这可能是因为你的计算机与远程服务器之间的网络设备（例如防火墙、NAT、路由器）之一未配置为允许 VPN 连接。 请与您的管理员或服务提供商联系，以确定可能导致问题的设备。
 
-- **可能的原因。** 已阻止的 UDP 500 或 VPN 服务器或防火墙上的最多返回 4500 端口被导致此错误。
+- **可能的原因。** 此错误是由 VPN 服务器或防火墙上被阻止的 UDP 500 或4500端口引起的。
 
-- **可能的解决方案。** 确保通过客户端和 RRAS 服务器之间的所有防火墙允许的 UDP 端口 500 和 4500。
+- **可能的解决方案。** 确保在客户端与 RRAS 服务器之间的所有防火墙之间允许 UDP 端口500和4500。
 
 ### <a name="error-code-812"></a>错误代码：812
 
-- **错误说明。** 无法连接到 Always On VPN。 由于 RAS/VPN 服务器上配置的策略，连接被阻止。 具体而言，身份验证方法使用的服务器以验证你的用户名和密码可能与在连接配置文件配置的身份验证方法不匹配。 请联系 RAS 服务器的管理员并通知用户此错误。
+- **错误说明。** 无法连接到 Always On 的 VPN。 由于 RAS/VPN 服务器上配置的策略，连接被阻止。 具体而言，服务器用于验证用户名和密码的身份验证方法可能与连接配置文件中配置的身份验证方法不匹配。 请与 RAS 服务器的管理员联系，并通知此错误。
 
 - **可能的原因：**
 
-    - 此错误的常见的原因是 NPS 已指定客户端不能满足身份验证条件。 例如，NPS 可以指定使用证书来保护 PEAP 连接，但客户端尝试使用 EAP-MSCHAPv2。
+    - 此错误的典型原因是 NPS 指定了客户端无法满足的身份验证条件。 例如，NPS 可能指定使用证书来保护 PEAP 连接，但客户端正在尝试使用 Eap-mschapv2。
 
-    - 当基于 RRAS 的 VPN 服务器身份验证协议设置不匹配的 VPN 客户端计算机时，事件日志 20276 记录到事件查看器。
+    - 当基于 RRAS 的 VPN 服务器身份验证协议设置与 VPN 客户端计算机的身份验证协议设置不匹配时，会将事件日志20276记录到事件查看器中。
 
-- **可能的解决方案。** 请确保你的客户端配置的 NPS 服务器指定的条件相匹配。
+- **可能的解决方案。** 确保你的客户端配置与 NPS 服务器上指定的条件相匹配。
 
 ### <a name="error-code-13806"></a>错误代码：13806
 
-- **错误说明。** IKE 未能找到有效计算机证书。 请与网络安全管理员在相应的证书存储中安装有效的证书。
+- **错误说明。** IKE 未能找到有效的计算机证书。 请与网络安全管理员联系，以在适当的证书存储中安装有效的证书。
 
-- **可能的原因。** VPN 服务器上存在该错误通常发生在任何计算机证书或根计算机证书。
+- **可能的原因。** 如果 VPN 服务器上不存在计算机证书或根计算机证书，则通常会出现此错误。
 
-- **可能的解决方案。** 请确保客户端计算机和 VPN 服务器上安装了此部署中所述的证书。
+- **可能的解决方案。** 确保在客户端计算机和 VPN 服务器上都安装了此部署中概述的证书。
 
 ### <a name="error-code-13801"></a>错误代码：13801
 
-- **错误说明。** IKE 身份验证的凭据是不可接受。
+- **错误说明。** IKE 身份验证凭据不可接受。
 
-- **可能的原因。** 此错误通常发生在以下情况之一：
+- **可能的原因。** 此错误通常发生在下列情况之一：
 
-    - 计算机证书用于 IKEv2 验证 RAS 服务器上没有**服务器身份验证**下**增强型密钥用法**。
+    - 在 RAS 服务器上用于 IKEv2 验证的计算机证书在 "**增强型密钥用法**" 下不进行**服务器身份验证**。
 
     - RAS 服务器上的计算机证书已过期。
 
-    - 要验证 RAS 服务器证书的根证书不存在客户端计算机上。
+    - 用于验证 RAS 服务器证书的根证书不存在于客户端计算机上。
 
-    - 使用客户端计算机上的 VPN 服务器名称不匹配**subjectName**的服务器证书。
+    - 客户端计算机上使用的 VPN 服务器名称与服务器证书的**subjectName**不匹配。
 
-- **可能的解决方案。** 验证服务器证书，包括**服务器身份验证**下**增强型密钥用法**。 验证服务器证书仍然有效。 验证 CA 使用下列出**受信任的根证书颁发机构**RRAS 服务器上。 验证 VPN 客户端连接上的 VPN 服务器的证书提供通过 VPN 服务器的 FQDN。
+- **可能的解决方案。** 验证服务器证书是否在 "**增强型密钥用法**" 下包括**服务器身份验证**。 验证服务器证书是否仍然有效。 验证 RRAS 服务器上的 "**受信任的根证书颁发机构**" 下列出了所使用的 CA。 验证 VPN 客户端是否使用 vpn 服务器的证书上提供的 VPN 服务器的 FQDN 进行连接。
 
 ### <a name="error-code-0x80070040"></a>错误代码：0x80070040
 
-- **错误说明。** 服务器证书不具有**服务器身份验证**作为其证书的使用情况条目之一。
+- **错误说明。** 服务器证书不会将**服务器身份验证**作为其证书使用条目之一。
 
-- **可能的原因。** 如果没有服务器身份验证证书安装在 RAS 服务器上，可能会发生此错误。
+- **可能的原因。** 如果 RAS 服务器上未安装服务器身份验证证书，则可能出现此错误。
 
-- **可能的解决方案。** 请确保计算机证书的 RAS 服务器都使用为**IKEv2**已**服务器身份验证**作为证书使用情况条目之一。
+- **可能的解决方案。** 请确保 RAS 服务器用于**IKEv2**的计算机证书具有**服务器身份验证**作为证书使用条目之一。
 
 ### <a name="error-code-0x800b0109"></a>错误代码：0x800B0109
 
-通常情况下，VPN 客户端计算机加入到基于 Active Directory 域。 如果使用域凭据登录到 VPN 服务器上，此证书自动安装在受信任的根证书颁发机构存储。 但是，如果未将计算机加入到域或使用备用证书链，可能会遇到此问题。
+通常，VPN 客户端计算机联接到基于 Active Directory 的域。 如果使用域凭据登录到 VPN 服务器，则该证书会自动安装在 "受信任的根证书颁发机构" 存储中。 但是，如果计算机未加入域，或者使用备用证书链，则可能会遇到此问题。
 
-- **错误说明。** 处理证书链，但是在信任提供程序不信任的根证书中终止。
+- **错误说明。** 已处理证书链，但在信任提供程序不信任的根证书中终止。
 
-- **可能的原因。** 如果相应的受信任的根 CA 证书未安装在受信任的根证书颁发机构中可能出现此错误将存储在客户端计算机上。
+- **可能的原因。** 如果未在客户端计算机上的受信任根证书颁发机构存储中安装合适的受信任根 CA 证书，则可能出现此错误。
 
-- **可能的解决方案。** 请确保在受信任的根证书颁发机构存储区中的客户端计算机上安装了根证书。
+- **可能的解决方案。** 请确保在 "受信任的根证书颁发机构" 存储中的客户端计算机上安装了根证书。
 
 ## <a name="logs"></a>日志
 
 ### <a name="application-logs"></a>应用程序日志
 
-客户端计算机上的应用程序日志记录大多数 VPN 连接事件的更高级别的详细信息。
+客户端计算机上的应用程序日志记录 VPN 连接事件的大多数较高级别的详细信息。
 
-从源 RasClient 查看的事件。 所有错误消息都返回的消息末尾处的错误代码。 下面，详细介绍一些更常见的错误代码，但中提供了完整列表[路由和远程访问错误代码](https://msdn.microsoft.com/library/windows/desktop/bb530704.aspx)。
+从源 RasClient 查找事件。 所有错误消息都将返回消息末尾的错误代码。 下面详细介绍了一些更常见的错误代码，但[路由和远程访问错误代码](https://msdn.microsoft.com/library/windows/desktop/bb530704.aspx)中提供了完整列表。
 
 ## <a name="nps-logs"></a>NPS 日志
 
-NPS 创建，并将 NPS 记帐日志。 默认情况下，它们存储在 %SYSTEMROOT%\\System32\\Logfiles\\在文件中名为*XXXX*.txt，其中*XXXX*是该文件的创建的日期。
+NPS 创建并存储 NPS 记帐日志。 默认情况下，这些文件存储在名为\\的\\文件\\中的% SYSTEMROOT%System32 日志文件中，其中*xxxx*是创建文件的日期。
 
-默认情况下，这些日志是以逗号分隔值格式，但它们不包括标题行。 标题行是：
+默认情况下，这些日志采用逗号分隔值格式，但不包括标题行。 标题行为：
 
 ```
 ComputerName,ServiceName,Record-Date,Record-Time,Packet-Type,User-Name,Fully-Qualified-Distinguished-Name,Called-Station-ID,Calling-Station-ID,Callback-Number,Framed-IP-Address,NAS-Identifier,NAS-IP-Address,NAS-Port,Client-Vendor,Client-IP-Address,Client-Friendly-Name,Event-Timestamp,Port-Limit,NAS-Port-Type,Connect-Info,Framed-Protocol,Service-Type,Authentication-Type,Policy-Name,Reason-Code,Class,Session-Timeout,Idle-Timeout,Termination-Action,EAP-Friendly-Name,Acct-Status-Type,Acct-Delay-Time,Acct-Input-Octets,Acct-Output-Octets,Acct-Session-Id,Acct-Authentic,Acct-Session-Time,Acct-Input-Packets,Acct-Output-Packets,Acct-Terminate-Cause,Acct-Multi-Ssn-ID,Acct-Link-Count,Acct-Interim-Interval,Tunnel-Type,Tunnel-Medium-Type,Tunnel-Client-Endpt,Tunnel-Server-Endpt,Acct-Tunnel-Conn,Tunnel-Pvt-Group-ID,Tunnel-Assignment-ID,Tunnel-Preference,MS-Acct-Auth-Type,MS-Acct-EAP-Type,MS-RAS-Version,MS-RAS-Vendor,MS-CHAP-Error,MS-CHAP-Domain,MS-MPPE-Encryption-Types,MS-MPPE-Encryption-Policy,Proxy-Policy-Name,Provider-Type,Provider-Name,Remote-Server-Address,MS-RAS-Client-Name,MS-RAS-Client-Version
 ```
 
-如果将为日志文件的第一行中粘贴此标题行，然后将文件导入 Microsoft Excel，将正确地标记为列。
+如果将此标题行粘贴为日志文件的第一行，然后将该文件导入 Microsoft Excel，则这些列将正确标记。
 
-NPS 日志可以帮助你诊断与策略相关的问题。 有关 NPS 日志的详细信息，请参阅[解释 NPS 数据库格式日志文件](https://technet.microsoft.com/library/cc771748.aspx)。
+NPS 日志有助于诊断与策略相关的问题。 有关 NPS 日志的详细信息，请参阅[解释 Nps 数据库格式日志文件](https://technet.microsoft.com/library/cc771748.aspx)。
 
-## <a name="vpnprofileps1-script-issues"></a>VPN_Profile.ps1 脚本问题
+## <a name="vpn_profileps1-script-issues"></a>VPN_Profile 脚本问题
 
-手动运行 VPN_ Profile.ps1 脚本时最常见的问题包括：
+手动运行 VPN_ Profile. ps1 脚本时，最常见的问题包括：
 
-- 使用远程连接工具？  请确保不使用 RDP 或另一种远程连接方法，因为它都在困扰着与用户登录名检测。
+- 是否使用远程连接工具？  请确保不要使用 RDP 或其他远程连接方法，因为它烂摊子了用户登录检测。
 
-- 是用户的本地计算机的管理员？  请确保运行 VPN_Profile.ps1 脚本时用户具有管理员权限。
+- 用户是否为该本地计算机的管理员？  请确保在运行 VPN_Profile 脚本时，用户具有管理员权限。
 
-- 你是否已启用的其他 PowerShell 安全功能？ 请确保 PowerShell 执行策略不会阻止该脚本。 您可以考虑关闭受限语言模式下，如果启用，然后再运行该脚本。 在脚本已成功完成后，可以激活受限语言模式。
+- 是否启用了额外的 PowerShell 安全功能？ 请确保 PowerShell 执行策略未阻止脚本。 在运行脚本之前，您可以考虑关闭受约束的语言模式（如果启用）。 脚本成功完成后，可以激活受约束的语言模式。
 
 ## <a name="always-on-vpn-client-connection-issues"></a>Always On VPN 客户端连接问题
 
-较小的配置不正确可能导致客户端连接失败，可能很难找到的原因。  Always On VPN 客户端在建立连接之前经历几个步骤。 当客户端连接问题故障排除，经历的消除使用以下过程：
+较小的错误配置可能会导致客户端连接失败，并可能会很难找到原因。  在建立连接之前，Always On VPN 客户端会经历几个步骤。 解决客户端连接问题时，请完成以下过程：
 
-1. 外部模板计算机已连接？ 一个**whatismyip**扫描应显示不属于您的公共 IP 地址。
+1. 模板计算机是否已外部连接？ **Whatismyip**扫描应显示不属于你的公共 IP 地址。
 
-2. 可以远程访问 VPN 服务器名称解析为 IP 地址？ 在中**Control Panel** > **网络**并**Internet** > **网络连接**，打开属性为 VPN 配置文件。 中的值**常规**选项卡将变为可公开解析通过 DNS。
+2. 是否可以将远程访问/vpn 服务器名称解析为 IP 地址？ 在 "控制面板" 的 **"**  > **网络**和**Internet** > **网络连接**" 中，打开 VPN 配置文件的属性。 "**常规**" 选项卡中的值应可通过 DNS 公开解析。
 
-3. 您可以从外部网络访问 VPN 服务器？ 请考虑打开到的外部接口的 Internet 控制消息协议 (ICMP) 和从远程客户端名称执行 ping 操作。 Ping 命令成功后，可以删除 ICMP 允许规则。
+3. 是否可以通过外部网络访问 VPN 服务器？ 考虑将 Internet 控制消息协议（ICMP）打开到外部接口，并从远程客户端对名称进行 ping 操作。 Ping 成功后，可以删除 ICMP 允许规则。
 
-4. 您是否已正确配置 VPN 服务器上有内部和外部 Nic？ 它们位于不同子网？ 到防火墙上的正确的接口可以连接外部 NIC？
+4. VPN 服务器上的内部和外部 Nic 是否配置正确？ 它们是在不同的子网中吗？ 外部 NIC 是否连接到防火墙上的正确接口？
 
-5. UDP 500 和 4500 端口是打开从客户端到 VPN 服务器的外部接口的？ 检查客户端防火墙、 服务器防火墙和硬件的任何防火墙。 IPSEC 使用 UDP 端口 500，因此请确保没有 IPEC 禁用或任意位置阻止的。
+5. 是否从客户端向 VPN 服务器的外部接口打开 UDP 500 和4500端口？ 检查客户端防火墙、服务器防火墙和任何硬件防火墙。 IPSEC 使用 UDP 端口500，因此请确保未在任何位置禁用或阻止 IPEC。
 
-6. 证书验证失败？ 验证 NPS 服务器可以 IKE 请求提供服务的服务器身份验证证书。 请确保具有正确的 VPN 服务器 IP 作为 NPS 客户端指定。 请确保使用 PEAP，进行身份验证和受保护的 EAP 属性应仅允许使用证书的身份验证。 您可以检查 NPS 事件日志中的身份验证失败。 有关更多详细信息，请参阅[安装和配置 NPS 服务器](vpn-deploy-nps.md)
+6. 证书验证是否失败？ 验证 NPS 服务器是否具有可为 IKE 请求提供服务的服务器身份验证证书。 请确保已将正确的 VPN 服务器 IP 指定为 NPS 客户端。 确保你正在使用 PEAP 进行身份验证，并且受保护的 EAP 属性应该只允许使用证书进行身份验证。 可以检查 NPS 事件日志中的身份验证失败。 有关更多详细信息，请参阅[安装和配置 NPS 服务器](vpn-deploy-nps.md)
 
-7. 是否正在连接，但不是具有 Internet/本地网络访问权限？ 检查配置问题在 DHCP/VPN 服务器 IP 池。
+7. 你是否正在连接，但没有 Internet/本地网络访问权限？ 检查 DHCP/VPN 服务器 IP 池是否存在配置问题。
 
-8. 将连接并具有有效内部 IP 但不是能访问本地资源？  验证客户端知道如何获取对这些资源。 可以使用将请求路由的 VPN 服务器。
+8. 你是否正在连接并且具有有效的内部 IP，但无权访问本地资源？  验证客户端是否知道如何访问这些资源。 可以使用 VPN 服务器路由请求。
 
-## <a name="azure-ad-conditional-access-connection-issues"></a>Azure AD 条件性访问连接问题
+## <a name="azure-ad-conditional-access-connection-issues"></a>Azure AD 条件访问连接问题
 
-### <a name="oops---you-cant-get-to-this-yet"></a>很抱歉-你无法执行此尚未
+### <a name="oops---you-cant-get-to-this-yet"></a>糟糕-你仍无法访问
 
-- **错误说明。** 当条件性访问策略不满足，阻止 VPN 连接，但连接用户选择后**X**以关闭消息。  选择**确定**会导致另一个身份验证尝试，另一个"糟糕"消息中结束。 客户端的 AAD Operational 事件日志中记录这些事件。
+- **错误说明。** 如果不满足条件访问策略，则会阻止 VPN 连接，但会在用户选择**X**之后连接以关闭消息。  选择 **"确定"** 将导致另一个身份验证尝试，该尝试以其他 "糟糕" 消息结束。 这些事件记录在客户端的 AAD 操作事件日志中。
 
 - **可能的原因**
 
-  - 用户具有有效的客户端身份验证证书在其个人证书存储区不由 Azure AD 颁发的。
+  - 用户在其个人证书存储区中具有有效的客户端身份验证证书，该证书不是由 Azure AD 颁发的。
 
-  - VPN 配置文件\<TLSExtensions\>部分中为缺少或不包含 **\<EKUName\>AAD 条件性访问\</EKUName\> \<EKUOID\>1.3.6.1.4.1.311.87 < / EKUOID\>\<EKUName > AAD 条件性访问 < / EKUName\>\<EKUOID\>1.3.6.1.4.1.311.87 < / EKUOID\>** 条目。 \<EKUName > 和\<EKUOID > 条目告知 VPN 客户端要将证书传递到 VPN 服务器时从用户的证书存储中检索的证书。 如果没有，VPN 客户端使用任何有效的客户端身份验证证书出现在用户的证书存储和身份验证成功。 
+  - VPN 配置文件\<TLSExtensions\>部分缺失 **\<或不包含 EKUName\>AAD 条件\<访问\>/EKUName EKUOID\<\>1.3.6.1.4.1.311.87 </EKUOID\>\>\<\>EKUName > AAD 条件访问 </EKUName EKUOID 1.3.6.1.4.1.311.87 </EKUOID\> \<** 条目。 EKUName > 和\<EKUOID > 条目告诉 vpn 客户端在将证书传递到 vpn 服务器时要从用户的证书存储中检索的证书。 \< 如果不这样做，VPN 客户端将使用用户证书存储区中任何有效的客户端身份验证证书，并且身份验证成功。 
 
-  - RADIUS 服务器 (NPS) 未配置为仅接受包含的客户端证书**AAD 条件性访问**OID。
+  - RADIUS 服务器（NPS）未配置为仅接受包含**AAD 条件访问**OID 的客户端证书。
 
-- **可能的解决方案。** 要转义此循环，请执行以下操作：
+- **可能的解决方案。** 若要对此循环进行转义，请执行以下操作：
 
-  1. 在 Windows PowerShell 中，运行**Get-wmiobject** cmdlet 来转储 VPN 配置文件配置。 
-  2. 确认 **\<TLSExtensions >** ，  **\<EKUName >** ，以及 **\<EKUOID >** 部分存在并且正确显示名称和 OID。
+  1. 在 Windows PowerShell 中，运行**get-wmiobject** cmdlet 以转储 VPN 配置文件配置。 
+  2. 验证 "  **\<TLSExtensions >** "、  **\<"EKUName >** " 和 **\<"EKUOID" >** 部分是否存在，并显示正确的名称和 OID。
       
       ```powershell
       PS C:\> Get-WmiObject -Class MDM_VPNv2_01 -Namespace root\cimv2\mdm\dmmap
@@ -241,7 +241,7 @@ NPS 日志可以帮助你诊断与策略相关的问题。 有关 NPS 日志的�
       PSComputerName          : DERS2
       ```
 
-  3. 若要确定用户的证书存储区中是否存在有效的证书，请运行**Certutil**命令：
+  3. 若要确定用户的证书存储中是否存在有效证书，请运行**Certutil**命令：
 
      ```powershell
      C:\>certutil -store -user My
@@ -277,21 +277,21 @@ NPS 日志可以帮助你诊断与策略相关的问题。 有关 NPS 日志的�
       Encryption test passed
      ```
      >[!NOTE]
-     >如果提供的证书颁发者**CN = Microsoft VPN 根 CA 第 1 代**存在于用户的个人存储区，但通过选择获取访问权限的用户**X**关闭糟糕消息，收集 CAPI2 事件日志，以验证用于进行身份验证的证书是不从 Microsoft VPN 根 CA 颁发的有效客户端身份验证证书。
+     >如果用户的个人存储区中存在来自颁发者**CN = MICROSOFT VPN 根 CA 第1代**的证书，但用户通过选择**X**来获取访问权限，则关闭该消息，收集 CAPI2 事件日志以验证用于身份验证的证书是不是从 Microsoft VPN 根 CA 颁发的有效客户端身份验证证书。
 
-  4. 如果用户的个人存储中存在有效的客户端身份验证证书，则连接将失败 （如应），用户选择后**X** ; 如果 **\<TLSExtensions >** ， **\<EKUName >** ，并 **\<EKUOID >** 部分存在并且包含正确的信息。
+  4. 如果用户的个人存储区中存在有效的客户端身份验证证书，则在用户选择**X**并且 **\<TLSExtensions >** 、  **\<EKUName >** 和**EKUOID\<>** 部分存在并且包含正确的信息。
    
-     出现错误消息，指出"证书未找到可用于可扩展的身份验证协议"。
+     出现一条错误消息，显示 "找不到可用于可扩展身份验证协议的证书"。
 
-### <a name="unable-to-delete-the-certificate-from-the-vpn-connectivity-blade"></a>无法从 VPN 连接边栏选项卡中删除证书
+### <a name="unable-to-delete-the-certificate-from-the-vpn-connectivity-blade"></a>无法从 "VPN 连接" 边栏选项卡删除证书
 
 - **错误说明。** 无法删除 VPN 连接边栏选项卡上的证书。
 
-- **可能的原因。** 证书设置为**主**。
+- **可能的原因。** 证书设置**为主**证书。
 
 - **可能的解决方案。**
 
-    1. 在 VPN 连接的边栏选项卡，选择证书。
-    2. 下**主**，选择**否**，然后选择**保存**。
-    3. 在 VPN 连接的边栏选项卡，再次选择的证书。
-    4. 选择**删除**。
+    1. 在 "VPN 连接" 边栏选项卡中，选择证书。
+    2. 在 "**主**" 下，选择 "**否**"，然后选择 "**保存**"。
+    3. 在 "VPN 连接" 边栏选项卡中，再次选择证书。
+    4. 选择 "**删除**"。

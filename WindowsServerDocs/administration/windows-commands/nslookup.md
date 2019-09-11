@@ -1,6 +1,6 @@
 ---
 title: nslookup
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 194cb96846e42b175978a2f6fc7268a93875d315
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 84e3e9ee920f458ca775dd7b76d892f10ba2f992
+ms.sourcegitcommit: ee8e0b217be6f6b2532ee7265fb4be00c106e124
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811093"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878114"
 ---
 # <a name="nslookup"></a>nslookup
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-显示可用于诊断域名系统 (DNS) 基础结构的信息。 使用此工具之前，应熟悉 DNS 的工作原理。 Nslookup 命令行工具是已安装 TCP/IP 协议才可用。
+显示可用于诊断域名系统（DNS）基础结构的信息。 使用此工具之前，应熟悉 DNS 的工作原理。 只有安装了 TCP/IP 协议，才能使用 nslookup 命令行工具。
 ## <a name="syntax"></a>语法
 
 ```
@@ -62,59 +62,59 @@ nslookup /view <FileName>
 |                       参数                       |                                                                                                         描述                                                                                                         |
 |-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   [nslookup exit 命令](nslookup-exit-command.md)   |                                                                                                     退出**nslookup**。                                                                                                     |
-| [nslookup finger 命令](nslookup-finger-command.md) |                                                                                  与当前计算机上的手指服务器建立连接。                                                                                   |
-|           [nslookup help](nslookup-help.md)           |                                                                                    显示的短摘要**nslookup**子命令。                                                                                    |
+| [nslookup finger 命令](nslookup-finger-command.md) |                                                                                  与当前计算机上的 finger 服务器连接。                                                                                   |
+|           [nslookup help](nslookup-help.md)           |                                                                                    显示**nslookup**子命令的简短摘要。                                                                                    |
 |             [nslookup ls](nslookup-ls.md)             |                                                                                             列出 DNS 域的信息。                                                                                             |
-|        [nslookup lserver](nslookup-lserver.md)        |                                                                                   默认服务器更改到指定的 DNS 域。                                                                                   |
-|           [nslookup root](nslookup-root.md)           |                                                                     更改应用到 DNS 域命名空间的根服务器的默认服务器。                                                                     |
-|         [nslookup server](nslookup-server.md)         |                                                                                   默认服务器更改到指定的 DNS 域。                                                                                   |
-|            [nslookup set](nslookup-set.md)            |                                                                              更改影响的配置设置如何查找函数。                                                                               |
-|        [nslookup set all](nslookup-set-all.md)        |                                                                                  打印的配置设置的当前值。                                                                                   |
-|      [nslookup set class](nslookup-set-class.md)      |                                                                     更改查询类。 类指定的协议组的信息。                                                                     |
-|         [nslookup set d2](nslookup-set-d2.md)         |                                                                     打开或关闭详尽的调试模式。 打印的每个数据包的所有字段。                                                                      |
-|      [nslookup set debug](nslookup-set-debug.md)      |                                                                                               打开或关闭调试模式下打开。                                                                                               |
-|                 nslookup /set defname                 |                                            将默认 DNS 域的名称追加到单个组件查找请求。 单个组件是一个组件，它不包含周期。                                            |
-|     [nslookup set domain](nslookup-set-domain.md)     |                                                                                 默认 DNS 域名称更改为指定的名称。                                                                                  |
-|                 nslookup /set ignore                  |                                                                                              将忽略数据包截断错误。                                                                                              |
-|       [nslookup set port](nslookup-set-port.md)       |                                                                          默认 TCP/UDP DNS 名称服务器端口更改为指定的值。                                                                           |
+|        [nslookup lserver](nslookup-lserver.md)        |                                                                                   将默认服务器更改为指定的 DNS 域。                                                                                   |
+|           [nslookup root](nslookup-root.md)           |                                                                     将默认服务器更改为 DNS 域名空间的根服务器的服务器。                                                                     |
+|         [nslookup server](nslookup-server.md)         |                                                                                   将默认服务器更改为指定的 DNS 域。                                                                                   |
+|            [nslookup set](nslookup-set.md)            |                                                                              更改影响查找功能的配置设置。                                                                               |
+|        [nslookup set all](nslookup-set-all.md)        |                                                                                  打印配置设置的当前值。                                                                                   |
+|      [nslookup set class](nslookup-set-class.md)      |                                                                     更改查询类。 类指定信息的协议组。                                                                     |
+|         [nslookup set d2](nslookup-set-d2.md)         |                                                                     启用或禁用穷举调试模式。 打印每个数据包的所有字段。                                                                      |
+|      [nslookup set debug](nslookup-set-debug.md)      |                                                                                               启用或禁用调试模式。                                                                                               |
+|                 nslookup/set bre-walkthrough-defname                 |                                            向单个组件查找请求追加默认 DNS 域名。 单个组件是不包含句点的组件。                                            |
+|     [nslookup set domain](nslookup-set-domain.md)     |                                                                                 将默认 DNS 域名改为指定的名称。                                                                                  |
+|                 nslookup/set ignore                  |                                                                                              忽略数据包截断错误。                                                                                              |
+|       [nslookup set port](nslookup-set-port.md)       |                                                                          将默认的 TCP/UDP DNS 名称服务器端口更改为指定值。                                                                           |
 |  [nslookup set querytype](nslookup-set-querytype.md)  |                                                                                       更改查询的资源记录类型。                                                                                       |
-|    [nslookup set recurse](nslookup-set-recurse.md)    |                                                                    指示 DNS 名称服务器查询的其他服务器，如果它不具有信息。                                                                    |
+|    [nslookup set recurse](nslookup-set-recurse.md)    |                                                                    告诉 DNS 名称服务器查询其他服务器（如果没有此信息）。                                                                    |
 |      [nslookup set retry](nslookup-set-retry.md)      |                                                                                                 设置重试次数。                                                                                                 |
-|       [nslookup set root](nslookup-set-root.md)       |                                                                                    更改用于查询根服务器的名称。                                                                                    |
-|     [nslookup set search](nslookup-set-search.md)     | 将 DNS 域搜索列表中的 DNS 域名称追加到请求，直到得到答复。 适用于一组，并且该查找请求包含至少一个句点，但不是以尾随句点结尾。 |
-|   [nslookup set srchlist](nslookup-set-srchlist.md)   |                                                                                    更改默认 DNS 域的名称和搜索列表。                                                                                     |
-|    [nslookup set timeout](nslookup-set-timeout.md)    |                                                                           更改初始要等待的时间对请求的回复的秒数。                                                                           |
+|       [nslookup set root](nslookup-set-root.md)       |                                                                                    更改用于查询的根服务器的名称。                                                                                    |
+|     [nslookup set search](nslookup-set-search.md)     | 向请求追加 dns 域搜索列表中的 DNS 域名，直到收到答案。 这适用于以下情况：集和查找请求至少包含一个句点，但不以尾随句点结束。 |
+|   [nslookup set srchlist](nslookup-set-srchlist.md)   |                                                                                    更改默认 DNS 域名和搜索列表。                                                                                     |
+|    [nslookup set timeout](nslookup-set-timeout.md)    |                                                                           更改等待答复请求的初始秒数。                                                                           |
 |       [nslookup set type](nslookup-set-type.md)       |                                                                                       更改查询的资源记录类型。                                                                                       |
-|         [nslookup set vc](nslookup-set-vc.md)         |                                                                     指定要使用或不使用虚拟线路时发送请求到的服务器。                                                                      |
-|           [nslookup view](nslookup-view.md)           |                                                                          对进行排序并列出的上一个输出**ls**子命令。                                                                          |
+|         [nslookup set vc](nslookup-set-vc.md)         |                                                                     指定在向服务器发送请求时使用或不使用虚拟线路。                                                                      |
+|           [nslookup view](nslookup-view.md)           |                                                                          排序并列出上一**ls**子命令或命令的输出。                                                                          |
 
 ## <a name="remarks"></a>备注
-- 如果*要查找的计算机*是 IP 地址和查询是 a 或返回 PTR 资源记录类型，计算机的名称。 如果*要查找的计算机*是一个名称并不具有尾随句点，DNS 域名追加到名称的默认值。 此行为取决于以下的状态**设置**子命令：**域**， **srchlist**， **defname**，和**搜索**。
-- 如果您键入连字符 （-） 而不是*要查找的计算机*，命令提示符将更改为**nslookup**交互模式。
-- 命令行的长度必须少于 256 个字符。
-- **nslookup**有两种模式： 交互式和非交互式。
-  如果需要查找只有一段数据，，使用非交互模式。 对于第一个参数，请键入名称或你想要查找的计算机的 IP 地址。 对于第二个参数，请键入名称或 IP 地址的 DNS 名称服务器。 如果省略第二个参数，则**nslookup**使用的默认 DNS 名称服务器。
-  如果需要查找的数据的多个段，可以使用交互模式。 为第一个参数的名称或 IP 地址的第二个参数的 DNS 名称服务器键入连字符 （-）。 或忽略这两个参数和**nslookup**使用的默认 DNS 名称服务器。 以下是有关在交互模式下使用的一些提示：
-  -   若要在任何时间中断交互式命令，按 CTRL + B。
-  -   若要退出，请键入**退出**。
-  -   若要将内置命令视为计算机名称，前面加上转义符 (\\)。
-  -   无法识别的命令解释为计算机名称。
-- 如果查找请求失败， **nslookup**显示一条错误消息。 下表列出了可能的错误消息。
+- 如果*computerTofind*是 IP 地址，并且查询用于 A 或 PTR 资源记录类型，则返回该计算机的名称。 如果*computerTofind*是一个名称并且没有尾随句点，则会将默认 DNS 域名追加到该名称。 此行为取决于以下**set**子命令的状态： **domain**、 **srchlist**、 **bre-walkthrough-defname**和**search**。
+- 如果键入连字符（-）而不是*computerTofind*，则命令提示符将更改为**nslookup**交互模式。
+- 命令行长度必须小于256个字符。
+- **nslookup**有两种模式：交互式和非交互式。
+  如果只需要查找单个数据块，请使用非交互模式。 对于第一个参数，键入要查找的计算机的名称或 IP 地址。 对于第二个参数，请键入 DNS 名称服务器的名称或 IP 地址。 如果省略第二个参数，则**nslookup**将使用默认 DNS 名称服务器。
+  如果需要查找多个数据片段，可以使用交互模式。 为第一个参数键入连字符（-），为第二个参数键入 DNS 名称服务器的名称或 IP 地址。 或者省略参数， **nslookup**使用默认 DNS 名称服务器。 下面是有关在交互模式下工作的一些提示：
+  -   若要在任何时候中断交互式命令，请按 CTRL + B。
+  -   若要退出，请键入**exit**。
+  -   若要将内置命令视为计算机名称，请在该命令前面加上转义符（\\）。
+  -   无法识别的命令被解释为计算机名。
+- 如果查找请求失败， **nslookup**将打印一条错误消息。 下表列出了可能的错误消息。
   |**错误消息**|**说明**|
   |-----------|----------|
-  |`timed out`|服务器未在一定的时间和重试一定次数后响应请求。 可以设置使用的超时期限**超时设置**子命令。 可以设置使用的重试次数**集重试**子命令。|
-  |`No response from server`|在服务器计算机上不运行任何 DNS 名称服务器。|
-  |`No records`|尽管计算机名称有效，没有计算机，当前的查询类型的资源记录的 DNS 名称服务器。 使用指定的查询类型**设置 querytype**命令。|
+  |`timed out`|服务器在一段时间内未响应请求，并且有一定次数的重试。 你可以设置超时时间和**设置超时**子命令。 可以用**set retry**子命令设置重试次数。|
+  |`No response from server`|服务器计算机上没有运行任何 DNS 名称服务器。|
+  |`No records`|DNS 名称服务器没有计算机的当前查询类型的资源记录，但计算机名称有效。 查询类型是通过**set querytype**命令指定的。|
   |`Nonexistent domain`|计算机或 DNS 域名不存在。|
-  |`Connection refused`<br /><br />-或-<br /><br />`Network is unreachable`|无法建立到 DNS 名称服务器或手指服务器的连接。 此错误通常会出现**ls**并**手指**请求。|
-  |`Server failure`|DNS 名称服务器在其数据库中找到内部不一致和不能返回一个有效的答案。|
-  |`Refused`|DNS 名称服务器拒绝为请求提供服务。|
-  |`format error`|DNS 名称服务器发现请求数据包未采用正确格式。 它可能指示中的错误**nslookup**。|
-- 有关详细信息**nslookup**命令和 DNS，请参阅以下资源：
-  - Lee, T., Davies, J.2000. *Microsoft Windows 2000 TCP/IP Protocols and Services 技术参考*。 华盛顿州雷蒙德市：Microsoft Press.
-  - Albitz，P.和 Loukides，M.和 C.Liu。 2001. *DNS 和 BIND、 第四版*。 加利福尼亚州 Sebastopol:O'Reilly and associates，inc.
-  - Larson，M.和 C.Liu。 2001. *Windows 2000 上的 DNS*。 加利福尼亚州 Sebastopol:O'Reilly and associates，inc.
+  |`Connection refused`<br /><br />-或-<br /><br />`Network is unreachable`|无法连接到 DNS 名称服务器或 finger 服务器。 此错误通常发生在**ls**和**finger**请求上。|
+  |`Server failure`|DNS 名称服务器在其数据库中发现内部不一致，无法返回有效的答案。|
+  |`Refused`|DNS 名称服务器拒绝为请求服务。|
+  |`format error`|DNS 名称服务器发现请求数据包的格式不正确。 这可能表示**nslookup**中存在错误。|
+- 有关**nslookup**命令和 DNS 的详细信息，请参阅以下资源：
+  - 先生，T.，Davies，J。2000。 *Microsoft Windows 2000 Tcp/ip 协议和服务技术参考*。 华盛顿州雷蒙德：Microsoft 新闻。
+  - Albitz、Loukides、Liu 和。 2001。 *DNS 和绑定，第四版*。 Sebastopol，加利福尼亚州：O'Reilly 和联合会，Inc。
+  - Larson、Liu。 2001。 *Windows 2000 上的 DNS*。 Sebastopol，加利福尼亚州：O'Reilly 和联合会，Inc。
     #### <a name="examples"></a>示例
-    每个命令行选项包含连字符 （-） 后紧跟的命令名称，并在某些情况下，等号 （=） 和一个值。 例如，若要默认查询类型更改为主机 （计算机） 信息，并为 10 秒的初始超时值，请键入： **nslookup-querytype = hinfo 超时 = 10**
+    每个命令行选项都包含一个连字符（-），后跟命令名称和（在某些情况下为等号（=），然后是一个值）。 例如，若要将默认查询类型更改为主机（计算机）信息并且初始超时值为10秒，请键入： **nslookup-querytype = hinfo-timeout = 10**
     ## <a name="see-also"></a>请参阅
     [命令行语法项](command-line-syntax-key.md)

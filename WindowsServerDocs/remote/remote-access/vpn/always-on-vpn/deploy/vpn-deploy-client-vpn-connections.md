@@ -10,12 +10,12 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.reviewer: deverette
-ms.openlocfilehash: eab81443ba91b229495a124aae642570608c6bba
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: c3ac8295d048c599a1cb6d1ed141cd63a7a73f47
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658890"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871345"
 ---
 # <a name="step-6-configure-windows-10-client-always-on-vpn-connections"></a>步骤 6： 配置 Windows 10 客户端 Always On VPN 连接
 
@@ -39,7 +39,7 @@ ProfileXML 是 VPNv2 CSP 中的 URI 节点。 不是单独配置每个 VPNv2 CSP
 
 - **OMA-URI**。 其中一种方法是使用使用 OMA DM 的 MDM 提供程序, 如前面的 " [VPNV2 CSP 节点](../always-on-vpn-technology-overview.md#vpnv2-csp-nodes)" 一节中所述。 使用此方法时, 可以在使用 Intune 时轻松地将 VPN 配置文件配置 XML 标记插入 ProfileXML CSP 节点。
 
-- **Windows Management Instrumentation (WMI) 到 CSP 桥**。 配置 ProfileXML CSP 节点的第二种方法是使用 "WMI 到 CSP" 桥, 这是一个名为 " **MDM_VPNv2_01**" 的 wmi 类, 可访问 VPNv2 CSP 和 ProfileXML 节点。 当你创建该 WMI 类的新实例时, WMI 将在使用 Windows PowerShell 和 System Center Configuration Manager 时使用该 CSP 创建 VPN 配置文件。
+- **Windows Management Instrumentation (WMI) 到 CSP 桥**。 配置 ProfileXML CSP 节点的第二种方法是使用 "WMI 到 CSP" 桥，这是一个名为 " **MDM_VPNv2_01**" 的 wmi 类，可访问 VPNv2 CSP 和 ProfileXML 节点。 当你创建该 WMI 类的新实例时, WMI 将在使用 Windows PowerShell 和 System Center Configuration Manager 时使用该 CSP 创建 VPN 配置文件。
 
 即使这些配置方法不同, 都需要格式正确的 XML VPN 配置文件。 若要使用 ProfileXML VPNv2 CSP 设置, 请使用 ProfileXML 架构来构建 XML, 以配置简单部署方案所需的标记。 有关详细信息, 请参阅[PROFILEXML XSD](https://msdn.microsoft.com/windows/hardware/commercialize/customize/mdm/vpnv2-profile-xsd)。
 
@@ -110,7 +110,7 @@ ProfileXML 元素:
 
 ### <a name="record-nps-certificate-settings"></a>记录 NPS 证书设置
 
-创建模板之前, 请从服务器的证书中记录 NPS 服务器的主机名或完全限定的域名 (FQDN), 以及颁发证书的 CA 的名称。
+创建模板之前，请从服务器的证书中记录 NPS 服务器的主机名或完全限定的域名（FQDN），以及颁发证书的 CA 的名称。
 
 **方法**
 
@@ -126,7 +126,7 @@ ProfileXML 元素:
 
 6. 记录**颁发给**和**颁发者**的证书的值。
 
-    在即将到来的 VPN 模板配置中使用这些值。 例如, 如果服务器的 FQDN 为 nps01.corp.contoso.com, 主机名为 NPS01.XML, 则证书名称基于服务器的 FQDN 或 DNS 名称, 例如 nps01.corp.contoso.com。
+    在即将到来的 VPN 模板配置中使用这些值。 例如，如果服务器的 FQDN 为 nps01.corp.contoso.com，主机名为 NPS01.XML，则证书名称基于服务器的 FQDN 或 DNS 名称，例如 nps01.corp.contoso.com。
 
 7. 取消 "编辑受保护的 EAP 属性" 对话框。
 
@@ -141,7 +141,7 @@ ProfileXML 元素:
 
 现在, 你已有必要的信息, 请在加入域的客户端计算机上配置模板 VPN 配置文件。 在此过程中使用的用户帐户类型 (即标准用户或管理员) 并不重要。
 
-但是, 如果在配置证书自动注册之前尚未重新启动计算机, 请在配置模板 VPN 连接之前执行此操作, 以确保在其上注册可用的证书。
+但是，如果在配置证书自动注册之前尚未重新启动计算机，请在配置模板 VPN 连接之前执行此操作，以确保在其上注册可用的证书。
 
 >[!NOTE]
 >无法手动添加 VPN 的任何高级属性, 如 NRPT 规则、Always On、受信任的网络检测等。在下一步中, 你将创建一个测试 VPN 连接以验证 VPN 服务器的配置, 并且可以与服务器建立 VPN 连接。
@@ -179,9 +179,9 @@ ProfileXML 元素:
     >[!NOTE]
     >你键入的服务器名称必须与证书中的名称匹配。 此名称已在此部分前面部分恢复。 如果名称不匹配, 则连接将失败, 并指出 "由于 RAS/VPN 服务器上配置的策略, 连接被阻止"。
 
-    b.  在 "受信任的根证书颁发机构" 下, 选择颁发给 NPS 服务器的证书的根 CA (例如, contoso-CA)。
+    b.  在 "受信任的根证书颁发机构" 下，选择颁发给 NPS 服务器的证书的根 CA （例如，contoso-CA）。
 
-    c.  在 "连接前通知" 中, 单击 "**不请求用户授权新服务器或受信任的 ca**"。
+    c.  在 "连接前通知" 中，单击 "**不请求用户授权新服务器或受信任的 ca**"。
 
     d.  在 "选择身份验证方法" 中, 单击 "**智能卡或其他证书**", 然后单击 "**配置**"。 "智能卡或其他证书属性" 对话框将打开。
 
@@ -189,7 +189,7 @@ ProfileXML 元素:
 
     f.  在 "连接到这些服务器" 框中, 输入你在前面步骤中从 NPS 服务器身份验证设置中检索到的 NPS 服务器的名称。
 
-    g.  在 "受信任的根证书颁发机构" 下, 选择颁发 NPS 服务器证书的根 CA。
+    g.  在 "受信任的根证书颁发机构" 下，选择颁发 NPS 服务器证书的根 CA。
 
     h.  选择 "**不提示用户授权新服务器或受信任的证书颁发机构**" 复选框。
 
@@ -231,7 +231,7 @@ ProfileXML 元素:
 
 本部分介绍了可用于了解如何创建 VPN 配置文件的示例代码, 特别是在 VPNv2 CSP 中配置 ProfileXML 时。
 
-通过此示例代码组合脚本并运行脚本后, 该脚本将生成两个文件:VPN_Profile 和 VPN_Profile。 使用 VPN_Profile 在符合 OMA 标准的 MDM 服务中配置 ProfileXML, 如 Microsoft Intune。
+通过此示例代码组合脚本并运行脚本后, 该脚本将生成两个文件:VPN_Profile 和 VPN_Profile。 使用 VPN_Profile 在符合 OMA 标准的 MDM 服务中配置 ProfileXML，如 Microsoft Intune。
 
 使用 Windows PowerShell 或 System Center Configuration Manager 中的**VPN_Profile**脚本在 windows 10 桌面上配置 ProfileXML。
 
@@ -318,7 +318,7 @@ $ProfileXML = @("
 ")
 ```
 
-### <a name="output-vpnprofilexml-for-intune"></a>输出 VPN_Profile for Intune
+### <a name="output-vpn_profilexml-for-intune"></a>输出 VPN_Profile for Intune
 
 您可以使用以下示例命令来保存配置文件 XML 文件:
 
@@ -326,7 +326,7 @@ $ProfileXML = @("
 $ProfileXML | Out-File -FilePath ($env:USERPROFILE + '\desktop\VPN_Profile.xml')
 ```
 
-### <a name="output-vpnprofileps1-for-the-desktop-and-system-center-configuration-manager"></a>输出 VPN_Profile 用于桌面和 System Center Configuration Manager
+### <a name="output-vpn_profileps1-for-the-desktop-and-system-center-configuration-manager"></a>输出 VPN_Profile 用于桌面和 System Center Configuration Manager
 
 下面的示例代码通过使用 VPNv2 CSP 中的 ProfileXML 节点配置 AlwaysOn IKEv2 VPN 连接。
 
@@ -454,13 +454,13 @@ Write-Host "$Message"
 
 大多数示例使用 Set-wmiinstance Windows PowerShell cmdlet 将 ProfileXML 插入到 MDM_VPNv2_01 WMI 类的新实例中。 
 
-但是, 这在 System Center Configuration Manager 不起作用, 因为你无法在最终用户的上下文中运行包。 因此, 此脚本使用通用信息模型在用户的上下文中创建 WMI 会话, 然后在该会话中创建 MDM_VPNv2_01 WMI 类的新实例。 此 WMI 类使用 WMI 到 CSP 桥配置 VPNv2 CSP。 因此, 通过添加类实例, 可以配置 CSP。 
+但是，这在 System Center Configuration Manager 不起作用，因为你无法在最终用户的上下文中运行包。 因此，此脚本使用通用信息模型在用户的上下文中创建 WMI 会话，然后在该会话中创建 MDM_VPNv2_01 WMI 类的新实例。 此 WMI 类使用 WMI 到 CSP 桥配置 VPNv2 CSP。 因此, 通过添加类实例, 可以配置 CSP。 
 
 >[!IMPORTANT]
 >WMI 到 CSP 桥要求按设计需要本地管理权限。 若要部署每用户 VPN 配置文件, 应使用 SCCM 或 MDM。
 
 >[!NOTE]
->脚本 VPN_Profile 使用当前用户的 SID 标识用户的上下文。 由于远程桌面会话中没有可用的 SID, 该脚本在远程桌面会话中不起作用。 同样, 它也不能在 Hyper-v 增强会话中工作。 如果要测试虚拟机中 Always On VPN 的远程访问, 请在运行此脚本之前禁用客户端 Vm 上的增强会话。
+>脚本 VPN_Profile 使用当前用户的 SID 标识用户的上下文。 由于远程桌面会话中没有可用的 SID, 该脚本在远程桌面会话中不起作用。 同样, 它也不能在 Hyper-v 增强会话中工作。 如果要测试虚拟机中 Always On VPN 的远程访问，请在运行此脚本之前禁用客户端 Vm 上的增强会话。
 
 下面的示例脚本包含之前部分中的所有代码示例。 确保将示例值更改为适用于您的环境的值。
     
@@ -603,9 +603,9 @@ Write-Host "$Message"
 
 ## <a name="configure-the-vpn-client-by-using-windows-powershell"></a>使用 Windows PowerShell 配置 VPN 客户端
 
-若要在 Windows 10 客户端计算机上配置 VPNv2 CSP, 请运行在[创建配置文件 XML](#create-the-profile-xml)部分中创建的 VPN_Profile Windows PowerShell 脚本。 以管理员身份打开 Windows PowerShell;否则, 会收到错误消息,_拒绝访问_。
+若要在 Windows 10 客户端计算机上配置 VPNv2 CSP，请运行在[创建配置文件 XML](#create-the-profile-xml)部分中创建的 VPN_Profile Windows PowerShell 脚本。 以管理员身份打开 Windows PowerShell;否则，会收到错误消息，_拒绝访问_。
 
-运行 VPN_Profile 来配置 VPN 配置文件后, 你可以在 Windows PowerShell ISE 中运行以下命令, 随时验证是否已成功:
+运行 VPN_Profile 来配置 VPN 配置文件后，你可以在 Windows PowerShell ISE 中运行以下命令，随时验证是否已成功：
 
 ```powershell
 Get-WmiObject -Namespace root\cimv2\mdm\dmmap -Class MDM_VPNv2_01
@@ -694,7 +694,7 @@ ProfileXML 配置在结构、拼写、配置和有时是字母大小写方面必
 
 ## <a name="configure-the-vpn-client-by-using-system-center-configuration-manager"></a>使用 System Center Configuration Manager 配置 VPN 客户端
 
-在 System Center Configuration Manager 中, 你可以使用 ProfileXML CSP 节点来部署 VPN 配置文件, 就像在 Windows PowerShell 中一样。 在这里, 你将使用在[创建 ProfileXML 配置文件](#create-the-profilexml-configuration-files)部分中创建的 VPN_Profile Windows PowerShell 脚本。
+在 System Center Configuration Manager 中, 你可以使用 ProfileXML CSP 节点来部署 VPN 配置文件, 就像在 Windows PowerShell 中一样。 在这里，你将使用在[创建 ProfileXML 配置文件](#create-the-profilexml-configuration-files)部分中创建的 VPN_Profile Windows PowerShell 脚本。
 
 若要使用 System Center Configuration Manager 将 VPN 配置文件 Always On 部署到 Windows 10 客户端计算机, 必须首先创建一组要将配置文件部署到的计算机或用户。 在此方案中, 请创建一个用户组来部署配置脚本。
 
@@ -714,11 +714,11 @@ ProfileXML 配置在结构、拼写、配置和有时是字母大小写方面必
 
 4.  在 "成员身份规则" 页上, 完成以下步骤:
 
-    a.  在 "**成员身份规则**" 中, 单击 "**添加规则**", 然后单击 "**直接规则**"。 在此示例中, 你将向用户集合添加单个用户。 不过, 你可以使用查询规则为较大规模的部署动态添加此集合中的用户。
+    a.  在 "**成员身份规则**" 中, 单击 "**添加规则**", 然后单击 "**直接规则**"。 在此示例中，你将向用户集合添加单个用户。 不过, 你可以使用查询规则为较大规模的部署动态添加此集合中的用户。
 
-    b.  在“欢迎”  页上，单击“下一步”  。
+    b.  在“欢迎”页上，单击“下一步”。
 
-    c.  在 "搜索资源" 页上的 "**值**" 中, 键入要添加的用户的名称。 资源名称包括用户的域。 若要包含基于部分匹配的结果, 请在 **%** 搜索条件的任一末尾插入字符。 例如, 若要查找包含字符串 "lori" 的所有用户, 请键入 **% lori%** 。 单击“下一步”。
+    c.  在 "搜索资源" 页上的 "**值**" 中, 键入要添加的用户的名称。 资源名称包括用户的域。 若要包含基于部分匹配的结果, 请在 **%** 搜索条件的任一末尾插入字符。 例如，若要查找包含字符串 "lori" 的所有用户，请键入 **% lori%** 。 单击“下一步”。
 
     d.  在 "选择资源" 页上, 选择要添加到组的用户, 然后单击 "**下一步**"。
 
@@ -748,7 +748,7 @@ ProfileXML 配置在结构、拼写、配置和有时是字母大小写方面必
 
     b. 选中 "**此包包含源文件**" 复选框, 然后单击 "**浏览**"。
 
-    c. 在 "设置源文件夹" 对话框中, 单击 "**浏览**", 选择包含 VPN_Profile 的文件共享, 然后单击 **"确定"** 。
+    c. 在 "设置源文件夹" 对话框中，单击 "**浏览**"，选择包含 VPN_Profile 的文件共享，然后单击 **"确定"** 。
         请确保选择一个网络路径, 而不是本地路径。 换句话说, 路径应类似于 *\\\\"vpnscript*", 而不是*c:\\vpnscript*。
 
 1.  单击“下一步”。
@@ -759,7 +759,7 @@ ProfileXML 配置在结构、拼写、配置和有时是字母大小写方面必
 
     a.  在 "**名称**" 中, 键入 " **VPN 配置文件脚本**"。
 
-    b.  在**命令行**中, 键入**set-executionpolicy "VPN_Profile"** 。
+    b.  在**命令行**中，键入**set-executionpolicy "VPN_Profile"** 。
 
     c.  在**运行模式**下, 单击 "**以管理权限运行**"。
 
@@ -838,7 +838,7 @@ ProfileXML 配置在结构、拼写、配置和有时是字母大小写方面必
 部署 ProfileXML 配置脚本后, 使用在生成用户集合时所选的用户帐户登录到 Windows 10 客户端计算机。 验证 VPN 客户端的配置。
 
 >[!NOTE]
->脚本 VPN_Profile 在远程桌面会话中不起作用。 同样, 它也不能在 Hyper-v 增强会话中工作。 如果要测试虚拟机中 Always On VPN 的远程访问, 请在客户端 Vm 上禁用增强会话, 然后再继续。
+>脚本 VPN_Profile 在远程桌面会话中不起作用。 同样, 它也不能在 Hyper-v 增强会话中工作。 如果要测试虚拟机中 Always On VPN 的远程访问，请在客户端 Vm 上禁用增强会话，然后再继续。
 
 ### <a name="verify-the-configuration-of-the-vpn-client"></a>验证 VPN 客户端的配置
 
@@ -863,7 +863,7 @@ ProfileXML 配置在结构、拼写、配置和有时是字母大小写方面必
 >[!NOTE]
 >Intune 现在使用 Azure AD 组。 如果 Azure AD Connect 将 VPN 用户组从本地同步到 Azure AD, 并且将用户分配给 VPN 用户组, 则可以继续。
 
-创建 VPN 设备配置策略, 为添加到组中的所有用户配置 Windows 10 客户端计算机。 由于 Intune 模板提供 VPN 参数, 因此请仅复制\<VPN_ProfileXML 文件\<的 EapHostConfig >/EapHostConfig > 部分。
+创建 VPN 设备配置策略, 为添加到组中的所有用户配置 Windows 10 客户端计算机。 由于 Intune 模板提供 VPN 参数，因此请仅复制\<VPN_ProfileXML 文件\<的 EapHostConfig >/EapHostConfig > 部分。
 
 ### <a name="create-the-always-on-vpn-configuration-policy"></a>创建 Always On VPN 配置策略
 

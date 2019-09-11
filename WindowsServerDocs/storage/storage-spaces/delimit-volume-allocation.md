@@ -1,114 +1,114 @@
 ---
-title: 分隔存储空间直通中的卷的分配
+title: 分隔存储空间直通中的卷分配
 ms.author: cosmosdarwin
 ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 03/29/2018
-ms.openlocfilehash: c93cbf4ba418f6702cf8747508605952d993508d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: faf9547833764e9075e86515d1f486a5a3f61ff8
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889048"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872077"
 ---
-# <a name="delimit-the-allocation-of-volumes-in-storage-spaces-direct"></a>分隔存储空间直通中的卷的分配
-> 适用于：Windows Server Insider Preview，生成 17093 及更高版本
+# <a name="delimit-the-allocation-of-volumes-in-storage-spaces-direct"></a>分隔存储空间直通中的卷分配
+> 适用于：Windows Server 2019
 
-Windows Server Insider Preview 引入了一个选项来手动分隔的存储空间直通中的卷分配。 这样做以便可显著提高容错能力，某些情况下，但施加了一些增加了的管理注意事项和复杂性。 本主题说明如何工作，并在 PowerShell 中提供了示例。
+Windows Server 2019 引入了一个选项，用于在存储空间直通中手动分隔卷的分配。 这样做可能会在某些情况下显著增加容错能力，但会带来一些额外的管理注意事项和复杂性。 本主题说明了它的工作原理并提供了 PowerShell 中的示例。
 
    > [!IMPORTANT]
-   > 此功能是 Windows Server Insider Preview，生成 17093 及更高版本中的新增功能。 不在 Windows Server 2016 中可用。 我们邀请了 IT 专业人员加入[Windows Server 预览体验计划](https://aka.ms/serverinsider)向我们提供反馈，我们如何使 Windows Server 为你的组织更好地工作。
+   > 此功能是 Windows Server 2019 中的新增功能。 它在 Windows Server 2016 中不可用。 
 
-## <a name="prerequisites"></a>系统必备
+## <a name="prerequisites"></a>先决条件
 
-### <a name="green-checkmark-iconmediadelimit-volume-allocationsupportedpng-consider-using-this-option-if"></a>![绿色的复选标记图标。](media/delimit-volume-allocation/supported.png) 如果使用此选项，请考虑：
+### <a name="green-checkmark-iconmediadelimit-volume-allocationsupportedpng-consider-using-this-option-if"></a>![绿色复选标记图标。](media/delimit-volume-allocation/supported.png) 如果是以下情况，请考虑使用此选项：
 
-- 您的群集具有六个或多个服务器;和
-- 仅使用你的群集[三向镜像](storage-spaces-fault-tolerance.md#mirroring)复原能力
+- 群集包含六个或更多服务器;与
+- 群集只使用[三向镜像](storage-spaces-fault-tolerance.md#mirroring)复原
 
-### <a name="red-x-iconmediadelimit-volume-allocationunsupportedpng-do-not-use-this-option-if"></a>![红色 X 图标。](media/delimit-volume-allocation/unsupported.png) 如果不使用此选项：
+### <a name="red-x-iconmediadelimit-volume-allocationunsupportedpng-do-not-use-this-option-if"></a>![红色 X 图标。](media/delimit-volume-allocation/unsupported.png) 如果是以下情况，请不要使用此选项：
 
-- 您的群集具有少于六个服务器;或
-- 群集使用[奇偶校验](storage-spaces-fault-tolerance.md#parity)或[镜像加速奇偶校验](storage-spaces-fault-tolerance.md#mirror-accelerated-parity)复原能力
+- 你的群集包含六个以上的服务器;或
+- 群集使用[奇偶](storage-spaces-fault-tolerance.md#parity)校验或[镜像加速奇偶校验](storage-spaces-fault-tolerance.md#mirror-accelerated-parity)复原
 
 ## <a name="understand"></a>了解
 
-### <a name="review-regular-allocation"></a>检查： 常规分配
+### <a name="review-regular-allocation"></a>查看：常规分配
 
-使用正则三向镜像卷分为许多小"slabs"是复制三次，并且均匀地分布在群集中的每个服务器中的每个驱动器。 有关更多详细信息，请阅读[此深入探讨博客](https://blogs.technet.microsoft.com/filecab/2016/11/21/deep-dive-pool-in-spaces-direct/)。
+通过常规的三向镜像，卷划分为多个较小的 "碎片"，复制三次，并均匀地分布在群集中每个服务器上的每个驱动器上。 有关更多详细信息，请阅读[此深入探讨博客](https://blogs.technet.microsoft.com/filecab/2016/11/21/deep-dive-pool-in-spaces-direct/)。
 
-![显示的卷被划分为三个堆栈的 slabs 和均匀分布在每个服务器之间的关系图。](media/delimit-volume-allocation/regular-allocation.png)
+![此图显示了将卷划分为三个碎片堆栈，并跨每个服务器平均分布。](media/delimit-volume-allocation/regular-allocation.png)
 
-此默认分配最大化并行读取和写入，从而导致更好的性能，并且将在其简单性非常受欢迎： 每个服务器正忙同样，每个驱动器已同样满，并且所有卷保持联机或脱机在一起。 保证每个卷作为保留最多两个并发故障[这些示例](storage-spaces-fault-tolerance.md#examples)说明。
+此默认分配最大程度地提高了并行读取和写入量，从而提高了性能，并使其简易性非常有吸引力：每台服务器都是繁忙的，每个驱动器都是相同的，所有卷都保持联机或脱机。 每个卷都保证能经受多达两个并发故障，如[这些示例](storage-spaces-fault-tolerance.md#examples)所示。
 
-但是，使用此分配的卷不能三个并发从故障中恢复。 如果三个服务器失败，或同时在三个服务器中的驱动器发生故障，卷将变得无法访问，因为至少一些 slabs （使用很有可能） 分配给的确切的三个驱动器或失败的服务器。
+但是，通过此分配，卷不会经受三个并发故障。 如果三台服务器一次失败，或者三台服务器中的驱动器同时出现故障，则卷将无法访问，因为至少有一些碎片（极高的概率）分配给了出现故障的三个驱动器或服务器。
 
-在下面的示例中，服务器 1、 3 和 5 失败一次。 尽管许多 slabs 具有存活的副本，但有些则不：
+在下面的示例中，服务器1、3和5同时出现故障。 尽管许多碎片都有保留下来的副本，但有些没有：
 
-![关系图显示三个六个服务器以红色和总数量突出显示为红色。](media/delimit-volume-allocation/regular-does-not-survive.png)
+![显示六台服务器中的三个服务器，以红色突出显示，整个卷为红色。](media/delimit-volume-allocation/regular-does-not-survive.png)
 
-卷处于脱机状态，直到恢复服务器变得无法访问。
+卷处于脱机状态，在恢复服务器之前将无法访问。
 
-### <a name="new-delimited-allocation"></a>新增内容： 分隔分配
+### <a name="new-delimited-allocation"></a>新建：分隔分配
 
-使用带分隔符的分配，你指定服务器使用 （最少三个用于三向镜像） 的子集。 卷划分为三次，如前面一样，而不是分配在每个服务器之间复制的 slabs **slabs 分配给你指定的服务器的子集仅**。
+使用分隔分配，你可以指定要使用的服务器子集（三向镜像使用最少三个）。 卷被分为三次（如之前）复制的碎片，而不是在每个服务器之间分配，而是**只将碎片分配给指定的服务器的子集**。
 
-![显示的卷被划分为三个堆栈的 slabs 和仅为三个六个服务器分布的关系图。](media/delimit-volume-allocation/delimited-allocation.png)
+![此图显示了将卷划分为三个碎片堆栈，并将其分布到了六个服务器。](media/delimit-volume-allocation/delimited-allocation.png)
 
 #### <a name="advantages"></a>优点
 
-使用此分配的卷是有可能从三个并发故障中恢复： 事实上，其可能性的生存也相应增加从 （与正则分配） 0%到 95%（使用带分隔符的分配） 在这种情况下 ！ 直观地说，这是因为这样不受其故障不依赖于服务器 4、 5 或 6。
+通过此分配，卷可能会经受三个并发故障：事实上，在这种情况下，其生存概率从 0% （通过常规分配）增加到 95% （带分隔分配）！ 直观地说，这是因为它不依赖于服务器4、5或6，因此不受其故障的影响。
 
-在上述示例中，服务器 1、 3 和 5 失败一次。 分隔的分配确保该服务器 2 包含副本的每个碎片，因为每个碎片都具有未发生故障的副本和卷保持联机并可访问：
+在上面的示例中，服务器1、3和5同时出现故障。 由于分隔分配确保了 server 2 包含每个楼板的副本，因此每个楼板都有一个保留下来的副本，并且卷处于联机状态并且可访问：
 
-![关系图显示三个六个服务器以红色突出显示，但总数量为绿色。](media/delimit-volume-allocation/delimited-does-survive.png)
+![显示了六个服务器中的三个（红色突出显示），但整个音量为绿色。](media/delimit-volume-allocation/delimited-does-survive.png)
 
-生存概率取决于服务器和其他因素的数量-请参阅[分析](#analysis)有关详细信息。
+生存概率取决于服务器的数量和其他因素–有关详细信息，请参阅[分析](#analysis)。
 
 #### <a name="disadvantages"></a>缺点
 
-带分隔符的分配施加一些增加了的管理注意事项和复杂性：
+分隔分配会带来一些额外的管理注意事项和复杂性：
 
-1. 管理员负责分隔要进行跨服务器平衡存储利用率和都能保持高概率的生存，每个卷的分配，如中所述[最佳做法](#best-practices)部分。
+1. 管理员负责界定每个卷的分配，以平衡服务器之间的存储使用率，并使流量的严重程度达到平衡，如 "[最佳做法](#best-practices)" 一节中所述。
 
-2. 使用分隔分配保留的等效**每个服务器 （与无最大值） 的一个容量驱动器**。 这是多个[发布建议](plan-volumes.md#choosing-the-size-of-volumes)常规分配时，总共的上限是最大程度上四个驱动器。
+2. 通过分隔分配，保留**每个服务器一个容量驱动器的等效值（无最大值）** 。 这比用于常规分配的[已发布建议](plan-volumes.md#choosing-the-size-of-volumes)更多，其中以至于耗光了4个容量驱动器总计。
 
-3. 如果一台服务器出现故障并且需要更换，如中所述[删除在服务器和其驱动器](remove-servers.md#remove-a-server-and-its-drives)，管理员是负责更新受影响的卷的界定方式添加新服务器并删除失败的一个 – 示例下面。
+3. 如果服务器发生故障，需要更换，如[删除服务器及其驱动器](remove-servers.md#remove-a-server-and-its-drives)中所述，管理员负责通过添加新的服务器并删除失败的卷来更新受影响的卷的 delimitation-以下示例。
 
 ## <a name="usage-in-powershell"></a>在 PowerShell 中的用法
 
-可以使用`New-Volume`cmdlet 在存储空间直通中创建的卷。
+可以使用`New-Volume` cmdlet 在存储空间直通中创建卷。
 
-例如，若要创建正则三向镜像卷：
+例如，若要创建常规的三向镜像卷：
 
 ```PowerShell
 New-Volume -FriendlyName "MyRegularVolume" -Size 100GB
 ```
 
-### <a name="create-a-volume-and-delimit-its-allocation"></a>创建一个卷并分隔其分配
+### <a name="create-a-volume-and-delimit-its-allocation"></a>创建卷并界定其分配
 
-若要创建三向镜像卷并分隔其分配：
+创建三向镜像卷并界定其分配：
 
-1. 首先将你的群集中的服务器分配给变量`$Servers`:
+1. 首先，将群集中的服务器分配给变量`$Servers`：
 
     ```PowerShell
     $Servers = Get-StorageFaultDomain -Type StorageScaleUnit | Sort FriendlyName
     ```
 
    > [!TIP]
-   > 在存储空间直通，术语存储缩放单位是指附加到一台服务器，包括直接连接的驱动器和驱动器使用直接附加外部存储设备的所有原始存储。 在此上下文中，它是与服务器相同。
+   > 在存储空间直通中，术语 "存储缩放单位" 指连接到一台服务器的所有原始存储，包括直接连接驱动器和带有驱动器的直接连接的外部机箱。 在此上下文中，它与 "服务器" 相同。
 
-2. 指定要使用与新的服务器`-StorageFaultDomainsToUse`参数和由编入索引`$Servers`。 例如，若要分隔的第一个、 第二，分配和第三个服务器 （索引 0、 1 和 2）：
+2. 使用新`-StorageFaultDomainsToUse`参数指定要使用的服务器，并通过将索引`$Servers`到中。 例如，要将分配界定为第一个、第二个和第三个服务器（索引0、1和2）：
 
     ```PowerShell
     New-Volume -FriendlyName "MyVolume" -Size 100GB -StorageFaultDomainsToUse $Servers[0,1,2]
     ```
 
-### <a name="see-a-delimited-allocation"></a>请参阅分隔的分配
+### <a name="see-a-delimited-allocation"></a>查看分隔分配
 
-若要查看如何*MyVolume*是分配，使用`Get-VirtualDiskFootprintBySSU.ps1`中编写脚本[附录](#appendix):
+若要查看如何分配*MyVolume* ，请使用`Get-VirtualDiskFootprintBySSU.ps1` [附录](#appendix)中的脚本：
 
 ```PowerShell
 PS C:\> .\Get-VirtualDiskFootprintBySSU.ps1
@@ -118,37 +118,37 @@ VirtualDiskFriendlyName TotalFootprint Server1 Server2 Server3 Server4 Server5 S
 MyVolume                300 GB         100 GB  100 GB  100 GB  0       0       0      
 ```
 
-请注意，仅 Server1、 Server2 和 Server3 包含的 slabs *MyVolume*。
+请注意，只有 Server1、Server2 和 Server3 包含*MyVolume*的碎片。
 
-### <a name="change-a-delimited-allocation"></a>更改分隔的分配
+### <a name="change-a-delimited-allocation"></a>更改分隔分配
 
-使用新`Add-StorageFaultDomain`和`Remove-StorageFaultDomain`cmdlet 以更改如何分隔分配。
+使用新`Add-StorageFaultDomain`的和`Remove-StorageFaultDomain` cmdlet 来更改分配的分隔方式。
 
-例如，若要将移动*MyVolume*转移一台服务器：
+例如，要将*MyVolume*移到一台服务器上：
 
-1. 指定的第四个服务器**可以**存储的 slabs *MyVolume*:
+1. 指定第四个服务器**可以**存储*MyVolume*的碎片：
 
     ```PowerShell
     Get-VirtualDisk MyVolume | Add-StorageFaultDomain -StorageFaultDomains $Servers[3]
     ```
 
-2. 指定的第一台服务器**不能**存储的 slabs *MyVolume*:
+2. 指定第一台服务器**无法**存储*MyVolume*的碎片：
 
     ```PowerShell
     Get-VirtualDisk MyVolume | Remove-StorageFaultDomain -StorageFaultDomains $Servers[0]
     ```
 
-3. 重新平衡存储池，以使更改生效：
+3. 重新平衡存储池以使更改生效：
 
     ```PowerShell
     Get-StoragePool S2D* | Optimize-StoragePool
     ```
 
-![关系图显示 slabs 将服务器 1、 2 和 3 中 en 情况迁移到服务器 2、 3 和 4。](media/delimit-volume-allocation/move.gif)
+![显示碎片将一起从服务器1、2和3迁移到服务器2、3和4的关系图。](media/delimit-volume-allocation/move.gif)
 
-您可以使用重新平衡的进度`Get-StorageJob`。
+你可以通过`Get-StorageJob`监视重新平衡的进度。
 
-完成后，确认*MyVolume*已通过运行`Get-VirtualDiskFootprintBySSU.ps1`试。
+完成后，验证*MyVolume*是否已通过再次运行`Get-VirtualDiskFootprintBySSU.ps1`进行了移动。
 
 ```PowerShell
 PS C:\> .\Get-VirtualDiskFootprintBySSU.ps1
@@ -158,25 +158,25 @@ VirtualDiskFriendlyName TotalFootprint Server1 Server2 Server3 Server4 Server5 S
 MyVolume                300 GB         0       100 GB  100 GB  100 GB  0       0      
 ```
 
-请注意，Server1 不包含的 slabs *MyVolume*不再 – 相反，Server04 会。
+请注意，Server1 不会再包含*MyVolume*的碎片–而是 Server04。
 
-## <a name="best-practices"></a>最佳做法
+## <a name="best-practices"></a>最佳实践
 
-下面是在使用分隔卷分配时应遵循的最佳实践：
+下面是使用带分隔符的卷分配时应遵循的最佳做法：
 
 ### <a name="choose-three-servers"></a>选择三个服务器
 
-不是更分隔为三个服务器，每个三向镜像卷。
+将每个三向镜像卷分割为三个服务器，而不是更多。
 
 ### <a name="balance-storage"></a>平衡存储
 
-平衡多少存储空间分配给每个服务器，考虑卷大小。
+平衡分配给每个服务器的存储量，并考虑卷大小。
 
-### <a name="every-delimited-allocation-unique"></a>每个唯一的分隔的分配
+### <a name="every-delimited-allocation-unique"></a>每个分隔分配唯一
 
-若要最大化容错能力，使每个卷分配唯一的这意味着它不会共享*所有*它与另一个卷 （某种重叠是可行的） 的服务器。 与 N 服务器有"N 选择 3"唯一组合 – 这意味着对于一些常见的群集大小：
+为了最大限度地提高容错能力，请确保每个卷的分配都是唯一的，这意味着它不会与另一个卷共享其*所有*服务器（有一些重叠问题）。 对于 N 台服务器，有 "N 个选择 3" 的唯一组合–对于某些常见的群集大小，这意味着：
 
-| 服务器 (N) 数量 | 唯一数分隔的分配 （N 选择 3） |
+| 服务器数（N） | 唯一分隔分配数（N 选择3） |
 |-----------------------|-----------------------------------------------------|
 | 6                     | 20                                                  |
 | 8                     | 56                                                  |
@@ -184,90 +184,90 @@ MyVolume                300 GB         0       100 GB  100 GB  100 GB  0       0
 | 16                    | 560                                                 |
 
    > [!TIP]
-   > 请考虑此有用的评审[组合，然后选择表示法](https://betterexplained.com/articles/easy-permutations-and-combinations/)。
+   > 请考虑这对简称有帮助[，并选择表示法](https://betterexplained.com/articles/easy-permutations-and-combinations/)。
 
-下面是用于最大化容错能力的一个示例： 每个卷具有唯一的分隔的分配：
+下面是最大化容错的示例–每个卷都具有唯一的分隔分配：
 
-![unique-allocation](media/delimit-volume-allocation/unique-allocation.png)
+![唯一分配](media/delimit-volume-allocation/unique-allocation.png)
 
-相反，在下一步的示例中前, 三个卷使用相同的分隔的分配 （为服务器 1、 2 和 3） 和最后三个卷使用相同的分隔的分配 （到 4、 5 和 6 的服务器）。 这不会最大化容错能力： 如果三个服务器失败，可能会脱机并次变得无法访问多个卷。
+相反，在下一个示例中，前三个卷使用相同的分隔分配（对服务器1、2和3），最后三个卷使用相同的分隔分配（到服务器4、5和6）。 这并不能最大程度地提高容错能力：如果三台服务器发生故障，则多个卷可能会脱机，并且无法同时访问。
 
-![non-unique-allocation](media/delimit-volume-allocation/non-unique-allocation.png)
+![非唯一分配](media/delimit-volume-allocation/non-unique-allocation.png)
 
-## <a name="analysis"></a>分析
+## <a name="analysis"></a>Analysis
 
-本部分中派生卷保持联机并可访问的数学概率 （或反之，整个存储空间保持联机并可访问的预期的部分） 作为数故障和群集大小的函数。
+此部分派生了一个卷处于联机状态且可访问（或等效于处于联机和可访问状态的总体存储的预期小数部分）的数学概率，作为失败次数和群集大小的函数。
 
    > [!NOTE]
-   > 本部分是可选的读取。 如果你热衷若要查看数学计算，请继续阅读 ！ 但如果没有，请不要担心：[在 PowerShell 中的使用情况](#usage-in-powershell)并[最佳实践](#best-practices)只需成功实现带分隔符的分配。
+   > 本部分是可选阅读内容。 如果想看到数学计算，请继续阅读！ 但如果没有，别担心：[在 PowerShell 中使用](#usage-in-powershell)和[最佳做法](#best-practices)，只需成功实现分隔分配。
 
-### <a name="up-to-two-failures-is-always-okay"></a>最多两次故障是始终可行
+### <a name="up-to-two-failures-is-always-okay"></a>最多可以有两个故障
 
-每个三向镜像卷可以最多两个从故障中恢复在同一时间，作为[这些示例](storage-spaces-fault-tolerance.md#examples)说明，而不考虑其分配。 如果两个驱动器发生故障，或两个服务器失败，或一个每、 每三向镜像卷保持联机并可访问，即使使用正则分配。
+每个三向镜像卷同时保留多达两个故障，如[这些示例](storage-spaces-fault-tolerance.md#examples)所示，而不考虑其分配。 如果两个驱动器发生故障，或者两个服务器发生故障，或者每个服务器发生故障，则每个三向镜像卷都保持联机和可访问，即使采用常规分配也是如此。
 
-### <a name="more-than-half-the-cluster-failing-is-never-okay"></a>半个多群集故障是永远不会正常
+### <a name="more-than-half-the-cluster-failing-is-never-okay"></a>超过一半的群集故障永远无法正常工作
 
-相反，在超过一半的服务器或群集中的驱动器，失败的极端情况下[仲裁是丢失](understand-quorum.md)和每个三向镜像卷进入脱机状态，并且变得无法访问，而不考虑其分配。
+相反，在极端情况下，群集中超过一半的服务器或驱动器无法同时发生故障，[仲裁会丢失](understand-quorum.md)，并且每个三向镜像卷都将处于脱机状态且不可访问，不管其分配情况如何。
 
-### <a name="what-about-in-between"></a>呢之间？
+### <a name="what-about-in-between"></a>与之间的区别是什么？
 
-如果三个或多个故障发生在一次，但至少一半的服务器和驱动器仍能启动，使用带分隔符的分配的卷可能会保持联机并可访问，具体取决于哪些服务器具有失败。 让我们运行的编号，以确定精确的几率。
+如果一次发生了三次或更多故障，但至少有一半的服务器和驱动器仍处于开启状态，则带分隔分配的卷可能会保持联机并可访问，具体取决于哪些服务器发生故障。 让我们运行数字来确定具体的几率。
 
-为简单起见，假定卷独立且相同分布式 (IID) 根据更高版本的最佳实践和该足够的独特组合可用于每个卷的分配是唯一的。 任何给定的卷可以幸存，但的概率也是可以幸存，但通过线性的假定条件下的总存储区的预期的部分。 
+为简单起见，假定卷是根据上述最佳实践单独和相同的分布式（IID），而且有足够的唯一组合可用于每个卷的分配。 任何给定的卷置的概率也是预期的线性置的总体存储的预计分数。 
 
-给定**N**这些服务器**F**分配给卷时出现故障， **3**它们进入脱机如果-和-仅限-如果所有**3** 即属于**F**但失败。 有 **（N 选择 F）** 方式**F**故障发生，其中 **（F 选择 3）** 导致卷进入脱机状态并变得无法访问。 概率可以表示为：
+如果 a **N**台服务器**发生故障**，则分配给**3**个服务器的卷将在每**次都处于**脱机**状态的情况**下变为脱机状态。 发生**F**故障的方法有 **（N）** ，其中 **（F 选择3）** 导致卷脱机且变为不可访问。 概率可表示为：
 
-![P_offline = Fc3 / NcF](media/delimit-volume-allocation/probability-volume-offline.png)
+![P_offline = Fc3/NcF](media/delimit-volume-allocation/probability-volume-offline.png)
 
-在所有其他情况下，在卷保持联机并可访问：
+在所有其他情况下，该卷保持联机和可访问：
 
-![P_online = 1 – (Fc3 / NcF)](media/delimit-volume-allocation/probability-volume-online.png)
+![P_online = 1 –（Fc3/NcF）](media/delimit-volume-allocation/probability-volume-online.png)
 
-下表评估某些常见的群集大小和多达 5 失败，显示带分隔符的分配会增加相比正则被视为每种情况下分配容错能力的概率。
+下表评估了某些常见群集大小的概率和最多5个故障，这表明，在每种情况下，在考虑到的每种情况下，分隔分配会提高容错能力。
 
-### <a name="with-6-servers"></a>使用 6 个服务器
+### <a name="with-6-servers"></a>带有6台服务器
 
-| 分配                           | 存活的 1 故障的概率 | 存活的 2 个故障的概率 | 存活的 3 个故障的概率 | 存活的 4 个故障的概率 | 存活的 5 个故障的概率 |
+| 分配                           | 导致1个故障的概率 | 出现2次故障的概率 | 导致3个故障的概率 | 出现4次故障的概率 | 5次失败的概率 |
 |--------------------------------------|------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|
-| 常规，分散到所有 6 个服务器 | 100%                               | 100%                                | 0%                                  | 0%                                  | 0%                                  |
-| 分隔到只有 3 个服务器          | 100%                               | 100%                                | 95.0%                               | 0%                                  | 0%                                  |
+| 常规，分布在所有6个服务器上 | 100%                               | 100%                                | 0                                  | 0                                  | 0                                  |
+| 仅限3个服务器          | 100%                               | 100%                                | 95.0%                               | 0                                  | 0                                  |
 
    > [!NOTE]
-   > 带 6 服务器总数超过 3 发生故障之后, 群集失去仲裁。
+   > 6个以上的服务器故障后，群集将失去仲裁。
 
-### <a name="with-8-servers"></a>使用 8 台服务器
+### <a name="with-8-servers"></a>具有8个服务器
 
-| 分配                           | 存活的 1 故障的概率 | 存活的 2 个故障的概率 | 存活的 3 个故障的概率 | 存活的 4 个故障的概率 | 存活的 5 个故障的概率 |
+| 分配                           | 导致1个故障的概率 | 出现2次故障的概率 | 导致3个故障的概率 | 出现4次故障的概率 | 5次失败的概率 |
 |--------------------------------------|------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|
-| 常规，分布在所有 8 服务器 | 100%                               | 100%                                | 0%                                  | 0%                                  | 0%                                  |
-| 分隔到只有 3 个服务器          | 100%                               | 100%                                | 98.2%                               | 94.3%                               | 0%                                  |
+| 常规，分布在所有8个服务器上 | 100%                               | 100%                                | 0                                  | 0                                  | 0                                  |
+| 仅限3个服务器          | 100%                               | 100%                                | 98.2%                               | 94.3%                               | 0                                  |
 
    > [!NOTE]
-   > 4 个以上发生故障之后超出 8 服务器总数、 群集失去仲裁。
+   > 超过4个失败的服务器总数后，群集将失去仲裁。
 
-### <a name="with-12-servers"></a>使用 12 个服务器
+### <a name="with-12-servers"></a>具有12个服务器
 
-| 分配                            | 存活的 1 故障的概率 | 存活的 2 个故障的概率 | 存活的 3 个故障的概率 | 存活的 4 个故障的概率 | 存活的 5 个故障的概率 |
+| 分配                            | 导致1个故障的概率 | 出现2次故障的概率 | 导致3个故障的概率 | 出现4次故障的概率 | 5次失败的概率 |
 |---------------------------------------|------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|
-| 常规，分布在所有的 12 个服务器 | 100%                               | 100%                                | 0%                                  | 0%                                  | 0%                                  |
-| 分隔到只有 3 个服务器           | 100%                               | 100%                                | 99.5%                               | 99.2%                               | 98.7%                               |
+| 常规，分布在所有12个服务器上 | 100%                               | 100%                                | 0                                  | 0                                  | 0                                  |
+| 仅限3个服务器           | 100%                               | 100%                                | 99.5%                               | 99.2%                               | 98.7%                               |
 
-### <a name="with-16-servers"></a>与 16 台服务器
+### <a name="with-16-servers"></a>含16台服务器
 
-| 分配                            | 存活的 1 故障的概率 | 存活的 2 个故障的概率 | 存活的 3 个故障的概率 | 存活的 4 个故障的概率 | 存活的 5 个故障的概率 |
+| 分配                            | 导致1个故障的概率 | 出现2次故障的概率 | 导致3个故障的概率 | 出现4次故障的概率 | 5次失败的概率 |
 |---------------------------------------|------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|
-| 常规，分布在所有 16 台服务器 | 100%                               | 100%                                | 0%                                  | 0%                                  | 0%                                  |
-| 分隔到只有 3 个服务器           | 100%                               | 100%                                | 99.8%                               | 99.8%                               | 99.8%                               |
+| 常规，分布在所有16个服务器上 | 100%                               | 100%                                | 0                                  | 0                                  | 0                                  |
+| 仅限3个服务器           | 100%                               | 100%                                | 99.8%                               | 99.8%                               | 99.8%                               |
 
 ## <a name="frequently-asked-questions"></a>常见问题解答
 
-### <a name="can-i-delimit-some-volumes-but-not-others"></a>可以界定某些卷而不是其他？
+### <a name="can-i-delimit-some-volumes-but-not-others"></a>是否可以分隔某些卷，但不能分隔其他卷？
 
-是。 您可以选择每个卷，来分隔分配。
+是。 无论是否分隔分配，都可以选择每个卷。
 
-### <a name="does-delimited-allocation-change-how-drive-replacement-works"></a>带分隔符的分配更改驱动器更换的工作原理？
+### <a name="does-delimited-allocation-change-how-drive-replacement-works"></a>分隔分配是否会改变驱动器更换的工作方式？
 
-否，它是与使用常规分配相同。
+不会，它与常规分配相同。
 
 ## <a name="see-also"></a>请参阅
 
@@ -276,9 +276,9 @@ MyVolume                300 GB         0       100 GB  100 GB  100 GB  0       0
 
 ## <a name="appendix"></a>附录
 
-此脚本可帮助你查看你的卷的分配方式。
+此脚本可帮助你查看卷的分配方式。
 
-若要使用它，如上文所述，复制/粘贴和另存为`Get-VirtualDiskFootprintBySSU.ps1`。
+如以上所述，请复制/粘贴并另存为`Get-VirtualDiskFootprintBySSU.ps1`。
 
 ```PowerShell
 Function ConvertTo-PrettyCapacity {
