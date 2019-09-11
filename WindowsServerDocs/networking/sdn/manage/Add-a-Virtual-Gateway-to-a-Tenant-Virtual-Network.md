@@ -1,6 +1,6 @@
 ---
 title: 将虚拟网关添加到租户虚拟网络
-description: 了解如何使用 Windows PowerShell cmdlet 和脚本为你的租户的虚拟网络提供站点到站点连接。
+description: 了解如何使用 Windows PowerShell cmdlet 和脚本为租户的虚拟网络提供站点到站点连接。
 manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,37 +13,37 @@ ms.assetid: b9552054-4eb9-48db-a6ce-f36ae55addcd
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 768a25c8c452a8c4bc85b38736b4241fa2570b32
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 39199a96b1f3cd5a62e60f676e8ab47ad4acb4a8
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446358"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869949"
 ---
 # <a name="add-a-virtual-gateway-to-a-tenant-virtual-network"></a>将虚拟网关添加到租户虚拟网络 
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 
+>适用于：Windows Server（半年频道）、Windows Server 2016 
 
-了解如何使用 Windows PowerShell cmdlet 和脚本为你的租户的虚拟网络提供站点到站点连接。 在本主题中，添加到的 RAS 网关的网关池的成员使用网络控制器实例的租户虚拟网关。 RAS 网关支持最多 100 个租户，具体取决于每个租户使用的带宽。 网络控制器会自动确定最佳的 RAS 网关，以使用时为你的租户部署新的虚拟网关。  
+了解如何使用 Windows PowerShell cmdlet 和脚本为租户的虚拟网络提供站点到站点连接。 在本主题中，将使用网络控制器将租户虚拟网关添加到作为网关池成员的 RAS 网关实例。 根据每个租户使用的带宽，RAS 网关最多支持100个租户。 网络控制器在为租户部署新的虚拟网关时，自动确定要使用的最佳 RAS 网关。  
 
-每个虚拟网关对应于特定的租户，组成一个或多个网络连接 （站点到站点 VPN 隧道） 和 （可选） 边界网关协议 (BGP) 连接。 当你提供站点到站点连接时，客户可以其租户虚拟网络连接到外部网络，例如租户企业网络、 服务提供程序网络或 Internet。
+每个虚拟网关都对应于一个特定租户，并包含一个或多个网络连接（站点到站点 VPN 隧道）以及（可选）边界网关协议（BGP）连接。 提供站点到站点连接时，你的客户可以将其租户虚拟网络连接到外部网络，例如租户企业网络、服务提供商网络或 Internet。
 
-**在部署租户虚拟网关时，你具有以下配置选项：**  
+**部署租户虚拟网关时，可以使用以下配置选项：**  
 
 
 |                                                        网络连接选项                                                         |                                              BGP 配置选项                                               |
 |-------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| <ul><li>IPSec 站点到站点虚拟专用网络 (VPN)</li><li>通用路由封装 (GRE)</li><li>第 3 层转发</li></ul> | <ul><li>BGP 路由器配置</li><li>BGP 对等配置</li><li>BGP 路由策略配置</li></ul> |
+| <ul><li>IPSec 站点到站点虚拟专用网络（VPN）</li><li>通用路由封装（GRE）</li><li>第 3 层转发</li></ul> | <ul><li>BGP 路由器配置</li><li>BGP 对等配置</li><li>BGP 路由策略配置</li></ul> |
 
 ---
 
-Windows PowerShell 示例脚本和本主题中的命令演示如何将部署上具有每个选项的 RAS 网关的租户虚拟网关。  
+本主题中的 Windows PowerShell 示例脚本和命令演示了如何使用其中的每个选项在 RAS 网关上部署租户虚拟网关。  
 
 
 >[!IMPORTANT]  
->在运行的任何示例 Windows PowerShell 命令和提供的脚本之前，必须更改所有变量的值，以便值适合你的部署。  
+>在运行提供的任何示例 Windows PowerShell 命令和脚本之前，必须更改所有变量值，以便这些值适用于你的部署。  
 
-1.  验证网络控制器中存在网关池对象。 
+1.  验证网络控制器中是否存在网关池对象。 
 
     ```PowerShell
     $uri = "https://ncrest.contoso.com"   
@@ -56,7 +56,7 @@ Windows PowerShell 示例脚本和本主题中的命令演示如何将部署上�
 
     ```  
 
-2.  验证网络控制器中存在用于租户的虚拟网络外路由数据包的子网。 您还可以检索用于租户网关和虚拟网络之间路由的虚拟子网。  
+2.  验证网络控制器中是否存在用于将数据包路由到租户的虚拟网络的子网。 你还可以检索用于租户网关和虚拟网络之间的路由的虚拟子网。  
 
     ```PowerShell 
     $uri = "https://ncrest.contoso.com"   
@@ -75,7 +75,7 @@ Windows PowerShell 示例脚本和本主题中的命令演示如何将部署上�
 
     ```  
 
-3.  创建一个新的租户虚拟网关对象，然后更新网关池参考。  您还指定用于网关和虚拟网络之间路由的虚拟子网。  指定的虚拟子网后更新虚拟网关对象属性的其余部分，然后租户添加新的虚拟网关。
+3.  为租户虚拟网关创建新的对象，然后更新网关池引用。  你还可以指定用于网关和虚拟网络之间的路由的虚拟子网。  指定虚拟子网后，请更新虚拟网关对象属性的其余部分，然后为该租户添加新的虚拟网关。
 
     ```PowerShell  
     # Create a new object for Tenant Virtual Gateway  
@@ -99,10 +99,10 @@ Windows PowerShell 示例脚本和本主题中的命令演示如何将部署上�
 
     ```  
 
-4. 使用 IPsec，GRE，创建站点到站点 VPN 连接或图层 3 (L3) 转发。  
+4. 使用 IPsec、GRE 或第3层（L3）转发创建站点到站点 VPN 连接。  
 
    >[!TIP]
-   >（可选） 可以组合上述所有步骤，并使用所有三个连接选项配置租户虚拟网关。  有关更多详细信息，请参阅[与所有三个连接类型 (IPsec，GRE，L3) 配置网关和 BGP](#optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp)。
+   >或者，你可以将前面的所有步骤组合在一起，并使用所有三个连接选项配置租户虚拟网关。  有关更多详细信息，请参阅[使用所有三种连接类型（IPsec、GRE、L3）和 BGP 配置网关](#optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp)。
 
    **IPsec VPN 站点到站点网络连接**
 
@@ -190,9 +190,9 @@ Windows PowerShell 示例脚本和本主题中的命令演示如何将部署上�
    ```  
 
    **L3 转发网络连接**<p>
-   有关 L3 转发网络连接才能正常工作，必须配置相应的逻辑网络。   
+   要使 L3 转发网络连接正常工作，必须配置相应的逻辑网络。   
 
-   1. 配置 L3 转发网络连接的逻辑网络。  <br>
+   1. 为 L3 转发网络连接配置逻辑网络。  <br>
 
       ```PowerShell  
       # Create a new object for the Logical Network to be used for L3 Forwarding  
@@ -216,7 +216,7 @@ Windows PowerShell 示例脚本和本主题中的命令演示如何将部署上�
 
       ```  
 
-   2. 创建网络连接 JSON 对象，并将其添加到网络控制器。  
+   2. 创建一个网络连接 JSON 对象并将其添加到网络控制器。  
 
       ```PowerShell 
       # Create a new object for the Tenant Network Connection  
@@ -256,7 +256,7 @@ Windows PowerShell 示例脚本和本主题中的命令演示如何将部署上�
 
 5. 将网关配置为 BGP 路由器，并将其添加到网络控制器。 
 
-   1. 将 BGP 路由器添加租户。  
+   1. 为租户添加 BGP 路由器。  
 
       ```PowerShell  
       # Create a new object for the Tenant BGP Router  
@@ -272,7 +272,7 @@ Windows PowerShell 示例脚本和本主题中的命令演示如何将部署上�
 
       ```  
 
-   2. 为此租户，对应于前面添加站点到站点 VPN 网络连接添加 BGP 对等节点。  
+   2. 为此租户添加一个 BGP 对等方，对应于上面添加的站点到站点 VPN 网络连接。  
 
       ```PowerShell
       # Create a new object for Tenant BGP Peer  
@@ -288,8 +288,8 @@ Windows PowerShell 示例脚本和本主题中的命令演示如何将部署上�
 
       ```  
 
-## <a name="optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp"></a>（可选步骤）使用所有三个连接类型 (IPsec，GRE，L3) 配置网关和 BGP  
-（可选） 可以组合上述所有步骤，并使用所有三个连接选项配置租户虚拟网关：   
+## <a name="optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp"></a>（可选步骤）使用所有三种连接类型（IPsec、GRE、L3）和 BGP 配置网关  
+（可选）可以将前面的所有步骤和使用全部三个连接选项配置租户虚拟网关：   
 
 ```PowerShell  
 # Create a new Virtual Gateway Properties type object  
@@ -467,13 +467,13 @@ New-NetworkControllerVirtualGateway -ConnectionUri $uri  -ResourceId "Contoso_Vi
 $nwConnection = Get-NetworkControllerVirtualGatewayNetworkConnection -ConnectionUri $uri -VirtualGatewayId "Contoso_VirtualGW" -ResourceId "Contoso_IPSecGW"  
 ```  
 
-**若要访问所需的属性并将其设置为更新值的变量结构中导航**
+**导航变量结构以访问所需属性，并将其设置为 updates 值**
 
 ```PowerShell  
 $nwConnection.properties.IpSecConfiguration.SharedSecret = "C0mplexP@ssW0rd"  
 ```  
 
-**添加要替换旧配置网络控制器上的已修改的配置**
+**添加修改后的配置以替换网络控制器上的较旧配置**
 
 ```PowerShell  
 New-NetworkControllerVirtualGatewayNetworkConnection -ConnectionUri $uri -VirtualGatewayId "Contoso_VirtualGW" -ResourceId $nwConnection.ResourceId -Properties $nwConnection.Properties -Force  
@@ -481,14 +481,14 @@ New-NetworkControllerVirtualGatewayNetworkConnection -ConnectionUri $uri -Virtua
 
 
 ## <a name="remove-a-gateway-from-a-virtual-network"></a>从虚拟网络中删除网关 
-可以使用以下 Windows PowerShell 命令来删除单个网关功能或整个网关。  
+你可以使用以下 Windows PowerShell 命令删除单个网关功能或整个网关。  
 
-**删除的网络连接**  
+**删除网络连接**  
 ```PowerShell  
 Remove-NetworkControllerVirtualGatewayNetworkConnection -ConnectionUri $uri -VirtualGatewayId "Contoso_VirtualGW" -ResourceId "Contoso_IPSecGW" -Force  
 ```  
 
-**删除 BGP 对等节点** 
+**删除 BGP 对等** 
 ```PowerShell  
 Remove-NetworkControllerVirtualGatewayBgpPeer -ConnectionUri $uri -VirtualGatewayId "Contoso_VirtualGW" -BgpRouterName "Contoso_BgpRouter1" -ResourceId "Contoso_IPSec_Peer" -Force  
 ```  

@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: c4570d807fea37a402d7b1115c21048e68cbbea4
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 30222d0737ac3cd2947fc3b2d70a0df77b606299
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560532"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871990"
 ---
 # <a name="migrate-sysvol-replication-to-dfs-replication"></a>将 SYSVOL 复制迁移到 DFS 复制
 
@@ -20,15 +20,15 @@ ms.locfileid: "69560532"
 
 适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 和 Windows Server 2008
 
-域控制器使用名为 SYSVOL 的特殊共享文件夹将登录脚本和组策略对象文件复制到其他域控制器。 Windows 2000 服务器和 Windows Server 2003 使用文件复制服务 (FRS) 来复制 SYSVOL, 而 Windows Server 2008 在使用 Windows Server 2008 域功能级别的域中时使用较新的 DFS 复制服务, 并在运行较早的域功能级别。
+域控制器使用名为 SYSVOL 的特殊共享文件夹将登录脚本和组策略对象文件复制到其他域控制器。 Windows 2000 服务器和 Windows Server 2003 使用文件复制服务（FRS）来复制 SYSVOL，而 Windows Server 2008 在使用 Windows Server 2008 域功能级别的域中时使用较新的 DFS 复制服务，并在运行较早的域功能级别。
 
-若要使用 DFS 复制来复制 SYSVOL 文件夹, 可以创建使用 Windows Server 2008 域功能级别的新域, 也可以使用本文档中讨论的过程升级现有域并将复制迁移到DFS 复制。
+若要使用 DFS 复制来复制 SYSVOL 文件夹，可以创建使用 Windows Server 2008 域功能级别的新域，也可以使用本文档中讨论的过程升级现有域并将复制迁移到DFS 复制。
 
-本文档假定你有 Active Directory 域服务 (AD DS)、FRS 和分布式文件系统复制 (DFS 复制) 的基本知识。 有关详细信息, 请参阅[Active Directory 域服务概述](http://go.microsoft.com/fwlink/?linkid=147787)、 [FRS 概述](http://go.microsoft.com/fwlink/?linkid=121763)或[DFS 复制概述](http://go.microsoft.com/fwlink/?linkid=121762)
+本文档假定你有 Active Directory 域服务（AD DS）、FRS 和分布式文件系统复制（DFS 复制）的基本知识。 有关详细信息，请参阅[Active Directory 域服务概述](http://go.microsoft.com/fwlink/?linkid=147787)、 [FRS 概述](http://go.microsoft.com/fwlink/?linkid=121763)或[DFS 复制概述](http://go.microsoft.com/fwlink/?linkid=121762)
 
 
 > [!NOTE]
-> 若要下载本指南的可打印版本, 请<a href="http://go.microsoft.com/fwlink/?linkid=150375">参阅 SYSVOL 复制迁移指南:FRS 到 DFS 复制</a> (http://go.microsoft.com/fwlink/?LinkId=150375)
+> 若要下载本指南的可打印版本，请<a href="http://go.microsoft.com/fwlink/?linkid=150375">参阅 SYSVOL 复制迁移指南：FRS 到 DFS 复制</a> （ http://go.microsoft.com/fwlink/?LinkId=150375)
 <br>
 
 
@@ -70,15 +70,15 @@ ms.locfileid: "69560532"
 
 ## <a name="additional-references"></a>其他参考
 
-[SYSVOL 迁移系列:第1部分-SYSVOL 迁移过程简介](http://go.microsoft.com/fwlink/?linkid=121756)
+[SYSVOL 迁移系列：第1部分-SYSVOL 迁移过程简介](http://go.microsoft.com/fwlink/?linkid=121756)
 
-[SYSVOL 迁移系列:第2部分-Dfsrmig:SYSVOL 迁移工具](http://go.microsoft.com/fwlink/?linkid=121757)
+[SYSVOL 迁移系列：第2部分-Dfsrmig：SYSVOL 迁移工具](http://go.microsoft.com/fwlink/?linkid=121757)
 
-[SYSVOL 迁移系列:第3部分-迁移到 "准备" 状态](http://go.microsoft.com/fwlink/?linkid=121758)
+[SYSVOL 迁移系列：第3部分-迁移到 "准备" 状态](http://go.microsoft.com/fwlink/?linkid=121758)
 
-[SYSVOL 迁移系列:第4部分-迁移到 "重定向" 状态](http://go.microsoft.com/fwlink/?linkid=121759)
+[SYSVOL 迁移系列：第4部分-迁移到 "重定向" 状态](http://go.microsoft.com/fwlink/?linkid=121759)
 
-[SYSVOL 迁移系列:第5部分-迁移到 "已删除" 状态](http://go.microsoft.com/fwlink/?linkid=121760)
+[SYSVOL 迁移系列：第5部分-迁移到 "已删除" 状态](http://go.microsoft.com/fwlink/?linkid=121760)
 
 [Windows Server 2008 中的分布式文件系统的循序渐进指南](http://go.microsoft.com/fwlink/?linkid=85231)
 

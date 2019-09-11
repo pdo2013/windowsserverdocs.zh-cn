@@ -1,0 +1,184 @@
+### YamlMime:Hub
+title: Windows Server 文档
+summary: Windows Server 是一个平台，用于构建连接的应用程序、网络和 Web 服务的基础结构，包括从工作组到数据中心。
+metadata:
+  title: Windows Server 文档 - Microsoft Docs
+  description: Windows Server 是一个平台，用于构建连接的应用程序、网络和 Web 服务的基础结构，包括从工作组到数据中心。
+  author: eross-msft
+  manager: daveba
+  ms.service: windows-server-threshold
+  ms.topic: hub-page
+  ms.date: 06/06/2019
+  ms.author: lizross
+  ms.openlocfilehash: 9af5ed848f824699d3ddf1830ff61f38a9475ac8
+  ms.sourcegitcommit: c7c743acada0ddf574d169a5c67b32d153fe77e7
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 09/10/2019
+  ms.locfileid: "70876252"
+highlightedContent:
+  items:
+  - title: Windows Server 2019 中有哪些新增功能？
+    itemType: whats-new
+    url: /windows-server/get-started-19/whats-new-19
+  - title: Windows Server 2019 入门
+    itemType: overview
+    url: /windows-server/get-started-19/get-started-19
+  - title: Windows Admin Center
+    itemType: how-to-guide
+    url: /windows-server/manage/windows-admin-center/overview
+  - title: 超融合基础设施
+    itemType: overview
+    url: /windows-server/hyperconverged/index
+  - title: 连接到 Azure 混合服务
+    itemType: how-to-guide
+    url: /windows-server/azure-hybrid-services/index
+  - title: Windows Server 2016 入门
+    itemType: how-to-guide
+    url: /windows-server/get-started/server-basics
+  - title: Windows Server 2008 R2 和 Windows Server 2008 的服务结束
+    itemType: overview
+    url: /windows-server/get-started/modernize-windows-server-2008
+  - title: Windows 预览体验计划服务器版
+    itemType: overview
+    url: /windows-insider/at-work/
+conceptualContent:
+  items:
+  - title: 身份标识和访问控制
+    links:
+    - url: /windows-server/identity/ad-ds/ad-ds-getting-started
+      itemType: overview
+      text: Active Directory 域服务 (AD DS) 入门
+    - url: /windows-server/identity/active-directory-federation-services
+      itemType: overview
+      text: Active Directory 联合身份验证服务 (AD FS)
+    - url: /windows-server/identity/securing-privileged-access/securing-privileged-access
+      itemType: concept
+      text: 保护特权访问
+    footerLink:
+      url: /windows-server/identity/identity-and-access
+      text: 查看详细信息
+  - title: 故障转移群集
+    links:
+    - url: /windows-server/failover-clustering/whats-new-in-failover-clustering
+      itemType: whats-new
+      text: 故障转移群集中的新增功能
+    - url: /windows-server/failover-clustering/create-failover-cluster
+      itemType: how-to-guide
+      text: 创建故障转移群集
+    - url: /windows-server/failover-clustering/cluster-aware-updating
+      itemType: overview
+      text: 群集感知更新概述
+    footerLink:
+      url: /windows-server/failover-clustering/failover-clustering-overview
+      text: 查看详细信息
+  - title: Management
+    links:
+    - url: /windows-server/manage/windows-admin-center/overview
+      itemType: overview
+      text: 使用 Windows Admin Center 管理你的环境
+    - url: /windows-server/manage/system-insights/overview
+      itemType: overview
+      text: 系统见解概述
+    - url: /windows-server/administration/performance-tuning/
+      itemType: overview
+      text: Windows Server 2016 性能优化指南
+    footerLink:
+      url: /windows-server/administration/manage-windows-server
+      text: 查看详细信息
+  - title: 网络
+    links:
+    - url: /windows-server/networking/what-s-new-in-networking
+      itemType: whats-new
+      text: 网络中的新增功能
+    - url: /windows-server/networking/sdn/
+      itemType: overview
+      text: 软件定义的网络 (SDN) 概述
+    - url: /windows-server/networking/sdn/technologies/network-controller/network-controller
+      itemType: overview
+      text: 网络控制器
+    footerLink:
+      url: /windows-server/networking/networking
+      text: 查看详细信息
+  - title: 遥控器
+    links:
+    - url: /windows-server/remote/remote-desktop-services/welcome-to-rds
+      itemType: overview
+      text: 远程桌面服务概述
+    - url: /windows-server/remote/remote-desktop-services/clients/remote-desktop-clients
+      itemType: overview
+      text: 远程桌面客户端
+    - url: /windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access
+      itemType: how-to-guide
+      text: 远程桌面 - 允许访问你的电脑
+    footerLink:
+      url: /windows-server/remote/index
+      text: 查看详细信息
+  - title: 安全和保障
+    links:
+    - url: /windows-server/security/windows-authentication/windows-authentication-overview
+      itemType: overview
+      text: Windows 身份验证概述
+    - url: /windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts
+      itemType: how-to-guide
+      text: 组托管服务帐户入门
+    - url: /windows-server/security/windows-authentication/credentials-processes-in-windows-authentication
+      itemType: overview
+      text: Windows 身份验证中的凭据进程
+    footerLink:
+      url: /windows-server/security/security-and-assurance
+      text: 查看详细信息
+  - title: 存储
+    links:
+    - url: /windows-server/storage/whats-new-in-storage
+      itemType: whats-new
+      text: 存储中的新增功能
+    - url: /windows-server/storage/disk-management/overview-of-disk-management
+      itemType: overview
+      text: 磁盘管理概述
+    - url: /windows-server/storage/storage-spaces/understand-quorum
+      itemType: overview
+      text: 了解群集和池仲裁
+    footerLink:
+      url: /windows-server/storage/storage
+      text: 查看详细信息
+  - title: 排除故障
+    links:
+    - url: /windows-server/manage/windows-admin-center/support/troubleshooting
+      itemType: how-to-guide
+      text: 排查 Windows Admin Center 问题
+    - url: /windows-server/failover-clustering/troubleshooting-using-wer-reports
+      itemType: how-to-guide
+      text: 使用 Windows 错误报告排查故障转移群集问题
+    - url: /windows-server/storage/disk-management/troubleshooting-disk-management
+      itemType: how-to-guide
+      text: 排查磁盘管理问题
+    footerLink:
+      url: /windows-server/troubleshoot/windows-server-support-solutions
+      text: 查看详细信息
+  - title: 虚拟化
+    links:
+    - url: /virtualization/windowscontainers/
+      itemType: overview
+      text: “Windows Server 上的容器”概述
+    - url: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
+      itemType: overview
+      text: Windows Server 上的 Hyper-V
+    - url: /windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch
+      itemType: overview
+      text: Hyper-V 虚拟交换机概述
+    footerLink:
+      url: /windows-server/virtualization/virtualization
+      text: 查看详细信息
+additionalContent:
+  sections:
+  - items:
+    - title: Windows Server 2012 R2 和 Windows Server 2012
+      summary: 面向管理 Windows Server 2012 R2 和 Windows Server 2012 的 IT 专业人员的技术内容。
+      url: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh801901(v=ws.11)
+    - title: Windows Server 2008 R2 和 Windows Server 2008
+      summary: 面向管理 Windows Server 2008 R2 和 Windows Server 2008 的 IT 专业人员的技术内容。
+      url: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349801(v=ws.10)
+    - title: Windows Server 2008 开发人员案例
+      summary: 面向希望探索 Windows Server 2008 中的一些新功能和扩展功能的开发人员、其他技术专家和经理的内容。
+      url: https://docs.microsoft.com/previous-versions/windows/server-2008/bb852234(v=msdn.10)

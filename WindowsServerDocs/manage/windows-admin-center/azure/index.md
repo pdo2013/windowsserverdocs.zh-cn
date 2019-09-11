@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 05/31/2019
-ms.openlocfilehash: 460399a57bc229b44d37a9fdd1e4938bf9e7d6ac
-ms.sourcegitcommit: fe621b72d45d0259bac1d5b9031deed3dcbed29d
+ms.openlocfilehash: b4b1f42db7d80fabe2e3361f3ab9ebf41ad8bc29
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455360"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865426"
 ---
 # <a name="connecting-windows-server-to-azure-hybrid-services"></a>将 Windows Server 连接到 Azure 混合服务
 
@@ -26,7 +26,7 @@ ms.locfileid: "66455360"
 - 通过 Azure 网络适配器简化了与 Azure 的网络连接。
 - 通过 Azure 更新管理将虚拟机保持最新。
 
-Azure 混合服务在下列配置中可与 Windows Server 配合使用：
+Azure 混合服务使用下列配置中的 Windows 服务器：
 
 - 独立的物理服务器和虚拟机 (VM)
 - 群集，包括通过了 [Azure Stack HCI](https://docs.microsoft.com/azure-stack/operator/azure-stack-hci-overview) 认证的超融合群集，以及 [Windows Server 软件定义 (WSSD)](https://www.microsoft.com/en-us/cloud-platform/software-defined-datacenter) 程序

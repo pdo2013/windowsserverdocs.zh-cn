@@ -7,18 +7,18 @@ ms.topic: landing-page
 ms.author: Pavel; ATales
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: bbbd8ad17bfb735b148b7f9a53628ab4445f07c4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 628a73f66e15940f184a076ad72fc24ad75b0e6c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891428"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866419"
 ---
 # <a name="performance-tuning-cache-and-memory-manager"></a>性能优化缓存和内存管理器
 
 默认情况下，Windows 缓存从磁盘读取的和写入到磁盘的文件数据。 这意味着读取操作从系统内存中的某个区域（称为系统文件缓存）读取文件数据，而不是从物理磁盘读取。 相应地，写入操作将文件数据写入系统文件缓存，而不是写入磁盘。这类缓存称为回写缓存。 缓存按文件对象进行管理。 缓存在缓存管理器的引导下进行。只要 Windows 运行，该管理器就会持续运行。
 
-系统文件缓存中的文件数据按操作系统确定的时间间隔写入磁盘。 刷新的页面可能保存在系统缓存工作集（此时 FILE\_FLAG\_RANDOM\_ACCESS 已设置，文件句柄未关闭）中，或者保存在备用列表中，成为可用内存的一部分。
+系统文件缓存中的文件数据按操作系统确定的时间间隔写入磁盘。 刷新的页面保存在系统缓存工作集中（此时 FILE\_FLAG\_RANDOM\_ACCESS 已设置，文件句柄未关闭），或者保存在备用列表中，成为可用内存的一部分。
 
 延迟将数据写入文件，将其保存在缓存中，直至缓存刷新，这一策略称为惰性写入，由缓存管理器按确定的时间间隔触发。 刷新文件数据块的时间部分取决于该块已在缓存中存储了多长时间，以及自上次在读取操作中访问数据以来已过去多长时间。 这样可确保频繁读取的文件数据在最大时间范围内可以在系统文件缓存中供访问。
 

@@ -7,12 +7,12 @@ ms.topic: landing-page
 ms.author: phstee
 author: phstee
 ms.date: 01/08/2018
-ms.openlocfilehash: d12a6c66c5e76852900828af04f4c6ec63a9a4f5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f9c7f0e589980f7d985f165e318667ebe2e5d5c5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891978"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866745"
 ---
 # <a name="server-hardware-performance-considerations"></a>服务器硬件性能注意事项
 
