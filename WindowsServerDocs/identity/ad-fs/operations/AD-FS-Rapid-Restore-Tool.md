@@ -9,12 +9,12 @@ ms.date: 07/02/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 188e635543e13154622f52bf02cf877b05cc8fda
-ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
+ms.openlocfilehash: fc924f5e5bdd7dabecac4fdd6805ad261a0fc634
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68300710"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866164"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>AD FS 快速还原工具
 
@@ -76,7 +76,7 @@ Cmdlet 采用以下参数:
 
 - **BackupDKM** -备份 Active Directory 包含默认配置 (自动生成的令牌签名和解密证书) 中 AD FS 密钥的 DKM 容器。 这将使用 AD 工具 "ldifde" 导出 AD 容器及其所有子树。
 
-- -**StorageType&lt;string&gt;** -用户要使用的存储类型。 "文件系统" 表示用户要将其存储在本地或网络 "Azure" 中, 表示用户要在执行备份时将其存储在 Azure 存储容器中, 请选择备份位置, 无论是文件系统还是形成. 要使用 Azure, 应将 Azure 存储凭据传递给 cmdlet。 存储凭据包含帐户名和密钥。 除此之外, 还必须传入容器名称。 如果该容器不存在, 则在备份过程中创建它。 对于要使用的文件系统, 必须指定存储路径。 在该目录中, 将为每个备份创建一个新目录。 创建的每个目录都将包含备份的文件。 
+- -**StorageType&lt;string&gt;** -用户要使用的存储类型。 "文件系统" 表示用户要将其存储在本地或网络 "Azure" 中, 表示用户要在执行备份时将其存储在 Azure 存储容器中, 请选择备份位置, 无论是文件系统还是形成. 要使用 Azure, 应将 Azure 存储凭据传递给 cmdlet。 存储凭据包含帐户名和密钥。 除此之外, 还必须传入容器名称。 如果该容器不存在，则在备份过程中创建它。 对于要使用的文件系统, 必须指定存储路径。 在该目录中, 将为每个备份创建一个新目录。 创建的每个目录都将包含备份的文件。 
 
 - **EncryptionPassword&lt;字符串&gt;** -用于在存储之前加密所有已备份文件的密码
 
@@ -88,7 +88,7 @@ Cmdlet 采用以下参数:
 
 - **ServiceAccountCredential&lt;pscredential&gt;** -指定当前正在运行的 AD FS 服务所使用的服务帐户。 仅当用户想要备份 DKM 而不是域管理员或无权访问容器的内容时, 才需要此参数。 
 
-- **BackupComment&lt;string []&gt;** -有关将在还原期间显示的备份的信息性字符串, 类似于 hyper-v 检查点命名的概念。 默认值为空字符串
+- **BackupComment&lt;string []&gt;** -有关将在还原期间显示的备份的信息性字符串，类似于 hyper-v 检查点命名的概念。 默认值为空字符串
 
  
 ## <a name="backup-examples"></a>备份示例
@@ -213,7 +213,7 @@ RngCryptoServiceProvider 用于生成 AES 和 Rfc2898DeriveBytes 类使用的 sa
 - **%localappdata%\ADFSRapidRecreationTool**
 
 >[!NOTE]
-> 执行还原时, 可能会创建一个 PostRestore_Instructions 文件, 其中包含附加身份验证提供程序的概述、属性存储和本地声明提供程序信任, 以便在启动 AD FS 服务之前手动安装。
+> 执行还原时，可能会创建一个 PostRestore_Instructions 文件，其中包含附加身份验证提供程序的概述、属性存储和本地声明提供程序信任，以便在启动 AD FS 服务之前手动安装。
 
 ## <a name="version-release-history"></a>版本发行历史记录
 
@@ -263,7 +263,7 @@ RngCryptoServiceProvider 用于生成 AES 和 Rfc2898DeriveBytes 类使用的 sa
 
 **已修复的问题:**
 
-   - Bug 修复: 处理在其中包含特殊字符的服务帐户密码 (即 "&")
+   - Bug 修复：处理在其中包含特殊字符的服务帐户密码（即 "&"）
    - Bug 修复: 还原失败, 因为另一个进程正在使用 IdentityServer
 
 

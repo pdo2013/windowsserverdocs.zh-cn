@@ -1,6 +1,6 @@
 ---
 title: 结束用户会话
-description: 了解何时以及如何手动在 MultiPoint Services 中结束用户会话
+description: 了解何时以及如何在 MultiPoint Services 中手动结束用户会话
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -12,15 +12,15 @@ ms.assetid: 51b1076b-cce5-45a7-8cf2-ecc6aa390d14
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: e55198787a1bf851c6bb81ba7afab5010765fdfe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2b290dbe14129a2d5fe297c5c95479e764dc55de
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859768"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871700"
 ---
 # <a name="end-a-user-session"></a>结束用户会话
-必须从 MultiPoint 服务系统注销用户时，应该结束用户会话，以便将桌面恢复到其默认设置。 用户将收到一个连接即将结束的警告。 需要执行以下操作时，应结束用户连接：  
+当必须从 MultiPoint 服务系统注销用户时，应结束用户会话，以将桌面恢复为其默认设置。 用户将收到一个连接即将结束的警告。 当你想要执行以下操作时，应结束用户的连接：  
   
 -   重新启动 MultiPoint 服务系统计算机  
   
@@ -32,7 +32,7 @@ ms.locfileid: "59859768"
   
 结束用户会话：  
   
-1.  在工作站模式下打开 MultiPoint Manager，然后单击**工作站**选项卡。  
+1.  在工作站模式下打开 "MultiPoint 管理器"，然后单击 "**工作站**" 选项卡。  
   
 2.  执行下列操作之一：  
   

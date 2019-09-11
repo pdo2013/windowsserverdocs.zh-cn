@@ -8,12 +8,12 @@ ms.date: 02/21/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: bfa305103e81f316dc5ad5df22cd238f6fb5ec31
-ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
+ms.openlocfilehash: da3214b715b415eed2cbce351cae93eff14a88c7
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314337"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865532"
 ---
 # <a name="ad-fs-troubleshooting---events-and-logging"></a>AD FS 故障排除-事件和日志记录
 AD FS 提供了两个可用于故障排除的主要日志。  它们分别是：
@@ -90,7 +90,7 @@ AD FS 服务帐户的安全审核有时可以帮助跟踪密码更新、请求/�
 
 ### <a name="to-enable-security-auditing"></a>启用安全审核
 1. 单击 "开始", 依次指向 "**程序**"、"**管理工具**", 然后单击 "**本地安全策略**"。
-2. 导航到“安全设置\本地策略\用户权限管理”  文件夹，然后双击“生成安全审核”  。
+2. 导航到“安全设置\本地策略\用户权限管理”文件夹，然后双击“生成安全审核”。
 3. 在 "**本地安全设置**" 选项卡上, 验证是否列出了 "AD FS 服务帐户"。 如果不存在, 请单击 "添加用户或组" 并将其添加到列表中, 然后单击 "确定"。
 4. 使用提升的权限打开命令提示符, 并运行以下命令以启用审核 auditpol/set/subcategory: "已生成应用程序"/failure: enable/success: enable
 5. 关闭 "**本地安全策略**", 然后打开 AD FS 管理 "管理单元。
@@ -134,7 +134,7 @@ AD FS 服务帐户的安全审核有时可以帮助跟踪密码更新、请求/�
 此活动 ID 在请求的整个持续时间内保持不变, 并记录为该请求的事件查看器中记录的每个事件的一部分。 这意味着：
  - 使用此活动 ID 筛选或搜索事件查看器有助于跟踪与令牌请求对应的所有相关事件
  - 同一活动 ID 记录在不同的计算机上, 使你能够对多台计算机上的用户请求进行故障排除, 如联合服务器代理 (FSP)
- - 如果 AD FS 请求以任何方式失败, 则活动 ID 也会显示在用户的浏览器中, 从而允许用户将此 ID 传达给技术支持或 IT 支持人员。
+ - 如果 AD FS 请求以任何方式失败，则活动 ID 也会显示在用户的浏览器中，从而允许用户将此 ID 传达给技术支持或 IT 支持人员。
 
 ![activityid](media/ad-fs-tshoot-logging/activityid2.png)
 

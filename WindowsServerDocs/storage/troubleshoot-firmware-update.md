@@ -8,23 +8,23 @@ ms.technology: storage
 ms.topic: article
 author: toklima
 ms.date: 04/18/2017
-ms.openlocfilehash: 7ee5c57839f32d71053e983fc14f76c481236779
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8283b87e9505b1d3f47ddc823016fbcc7c0c29e6
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884158"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867046"
 ---
 # <a name="troubleshooting-drive-firmware-updates"></a>驱动器固件更新疑难解答
 
->适用于：Windows 10、windows Server （半年频道）
+>适用于：Windows 10、Windows Server （半年频道）、
 
 Windows 10 版本 1703 和更高版本以及 Windows Server（半年频道）能够更新已使用固件可升级 AQ（其他限定符）通过 PowerShell 认证的 HDD 和 SSD 的固件。
 
 你可以在此处找到有关此功能的详细信息：
 
-- [Windows Server 2016 中更新驱动器固件](update-firmware.md)
-- [直接更新无需停机即可在存储空间的驱动器固件](https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct)
+- [更新 Windows Server 2016 中的驱动器固件](update-firmware.md)
+- [无需停机即可更新驱动器固件存储空间直通](https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct)
 
 固件更新可能会因各种原因而失败。 这篇文章旨在帮助进行高级疑难解答。
 
@@ -64,7 +64,7 @@ FirmwareVersionInSlot : {0013}
 
 要验证 SAS 设备是否支持所需的命令集，有两个选择：
 1.  使用相应的固件映像通过 Update-StorageFirmware cmdlet 试一下，或者
-2.  请查阅 Windows Server 目录来识别哪些 SAS 设备已成功获取固件更新 AQ （ https://www.windowsservercatalog.com/)
+2.  请查阅 Windows Server 目录，以确定哪些 SAS 设备已成功获得 FW 更新 AQ （ https://www.windowsservercatalog.com/)
 
 ### <a name="remediation-options"></a>修正选项
 如果你正在测试的给定设备不支持相应的命令集，则询问你的供应商，了解是否可获得提供所需命令集的已更新固件，或者查看 Windows Server 目录，确定用于获得源的可实现相应命令集的设备。
@@ -119,7 +119,7 @@ CdbBytes    3B0E0000000001000000
 NumberOfRetriesDone 0
 ```
 
-来自该通道的 ETW 事件 507 显示 SCSI SRB 请求失败，并且提供了 SenseKey 为“5”（非法请求），AdditionalSense 信息为“36”（CDB 中的非法字段）的额外信息。
+通道中的 ETW 事件507显示 SCSI SRB 请求失败，并提供 SenseKey 为 "5" （非法请求）的附加信息，并且 AdditionalSense 信息为 "36" （CDB 中非法的字段）。
 
    > [!Note]
    > 这些信息是由相关微型端口直接提供的，这些信息的准确性将取决于微型端口驱动程序的实现和复杂程度。
@@ -134,7 +134,7 @@ NumberOfRetriesDone 0
 ## <a name="additional-troubleshooting-with-microsoft-drivers-satanvme"></a>Microsoft 驱动程序 (SATA/NVMe) 的其他疑难解答
 当使用 StorAHCI.sys 或 StorNVMe.sys 等 Windows 本机驱动程序为存储设备提供动力时，可获得有关在固件更新操作过程中可能发生的故障的额外信息。
 
-在 ClassPnP 操作通道之外，StorAHCI 和 StorNVMe 将在以下 ETW 通道中记录设备的协议特定返回代码：
+除了 ClassPnP 操作通道，StorAHCI 和 StorNVMe 还会在以下 ETW 通道中记录设备的协议特定返回代码：
 
 事件查看器 - 应用程序和服务日志 - Microsoft - Windows - StorDiag - **Microsoft-Windows-Storage-StorPort/Diagnose**
 
@@ -142,7 +142,7 @@ NumberOfRetriesDone 0
 
 要收集这些高级日志条目，则启用该日志，重现固件更新失败，然后保存诊断日志。
 
-下面是在 SATA 设备失败，固件更新的示例，因为要下载的图像无效 (事件 ID:258):
+下面是 SATA 设备上固件更新的示例失败，因为要下载的映像无效（事件 ID：258）：
 
 ``` 
 EventData
@@ -174,11 +174,11 @@ Parameter8Value 0
 ```
 
 上述事件在参数值 2 至 6 中包含详细的设备信息。 在这里，我们将查看各个 ATA 注册值。 可使用 ATA ACS 规范来解码针对下载微代码命令失败的以下值：
-- 返回代码：0 (0000 0000) （不适用-没有意义，因为没有有效负载已传输）
-- 功能：15 (0000 1111) （位 1 设置为"1"，并指示"中止"）
-- SectorCount:0 (0000 0000) （不可用）
-- DriveHead:160 (1010 0000) （不适用 – 仅过时位将设置）
-- 命令：146 (1001 0010) （位 1 设置为"1"，该值指示检测数据的可用性）
+- 返回代码：0（0000 0000）（由于未传输有效负载，因此没有任何意义）
+- 功能：15（0000 1111）（第1位设置为 "1"，表示 "中止"）
+- SectorCount:0（0000 0000）（不适用）
+- DriveHead:160（1010 0000）（无-仅设置过时的位）
+- Command146（1001 0010）（Bit 1 设置为 "1"，表示感知数据的可用性）
 
 这告诉我们，设备终止了固件更新操作。
 

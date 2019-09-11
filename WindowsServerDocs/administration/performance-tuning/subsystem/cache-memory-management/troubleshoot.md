@@ -1,50 +1,50 @@
 ---
-title: 缓存和内存管理器性能问题进行故障排除
-description: 缓存和内存管理器在 Windows Server 16 上的性能问题进行故障排除
+title: 排查缓存和内存管理器性能问题
+description: 排查 Windows Server 16 上的缓存和内存管理器性能问题
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Pavel; ATales
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 66c7e2a6b264a837c65df927b271fadd2672fa24
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 56871924311a945d62fef8a7ef7231889ba018cc
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835788"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866413"
 ---
-# <a name="troubleshoot-cache-and-memory-manager-performance-issues"></a>缓存和内存管理器性能问题进行故障排除
+# <a name="troubleshoot-cache-and-memory-manager-performance-issues"></a>排查缓存和内存管理器性能问题
 
-在 Windows Server 2012 之前两个主要的潜在问题引起的系统文件缓存增长，直到某些工作负荷下几乎耗尽可用内存的了。 当此种情况下的会导致系统缓慢，可以确定是否在服务器遇到以下问题之一。
+在 Windows Server 2012 之前，有两个主要可能的问题导致系统文件缓存的增长，直到在某些工作负载下的可用内存即将耗尽。 当这种情况导致系统缓慢时，可以确定服务器是否面对了这些问题之一。
 
 
 ## <a name="counters-to-monitor"></a>要监视的计数器
 
--   内存\\长期平均待机缓存生存期 (s) &lt; 1800 秒
+-   内存\\长期平均备用缓存生存期（秒） &lt; 1800 秒
 
--   内存\\可用兆字节数不足
+-   内存\\可用兆字节低
 
 -   内存\\系统缓存驻留字节数
 
-如果内存\\Available Mbytes 是低和在同一时间内存\\System Cache Resident Bytes 使用的物理内存的重要部分，则可以使用[RAMMAP](https://technet.microsoft.com/sysinternals/ff700229.aspx)找出正在使用哪些缓存有关。
+如果内存\\可用的兆字节数较低，并且在\\同一时间内存系统缓存驻留字节消耗的物理内存很大，则可以使用[RAMMAP](https://technet.microsoft.com/sysinternals/ff700229.aspx)来找出缓存的用途。
 
-## <a name="system-file-cache-contains-ntfs-metafile-data-structures"></a>系统文件缓存包含 NTFS 图元文件的数据结构
+## <a name="system-file-cache-contains-ntfs-metafile-data-structures"></a>系统文件缓存包含 NTFS 图元文件数据结构
 
 
-下图中所示，将由极大量活动图元文件中的页数 RAMMAP 输出，指示此问题。 此问题可能会观察到繁忙的服务器上具有数百万个文件访问，从而导致缓存未从缓存释放 NTFS 图元文件数据。
+RAMMAP 输出中的活动图元文件页面非常多，如下图所示。 此问题可能已在繁忙的服务器上被访问，因为正在访问数百万个文件，因此将不会从缓存中释放 NTFS 图元文件数据。
 
 ![rammap 视图](../../media/perftune-guide-rammap.png)
 
-问题用于缓解*DynCache*工具。 在 Windows Server 2012 及更高，体系结构进行了重新设计并应不再存在此问题。
+用于通过*DynCache*工具缓解的问题。 在 Windows Server 2012 + 中，体系结构经过了重新设计，此问题不再存在。
 
 ## <a name="system-file-cache-contains-memory-mapped-files"></a>系统文件缓存包含内存映射文件
 
 
-极大量的 RAMMAP 输出中的活动映射文件页的指示了此问题。 这通常表示服务器上的某些应用程序正在打开大量使用的大型文件[CreateFile](https://msdn.microsoft.com/library/windows/desktop/aa363858.aspx)使用文件 API\_标志\_随机\_访问标志设置。
+此问题在 RAMMAP 输出中有大量活动映射的文件页面。 这通常表示服务器上的某些应用程序使用[CreateFile](https://msdn.microsoft.com/library/windows/desktop/aa363858.aspx) API 打开大量使用文件\_标志\_随机\_访问标志的大型文件。
 
-在知识库文章中详细介绍了此问题[2549369](https://support.microsoft.com/default.aspx?scid=kb;en-US;2549369)。 文件\_标志\_随机\_访问标志是一个提示用于缓存管理器以保留文件的映射的视图在内存中尽可能长时间，直到内存管理器不会指示内存不足的情况）。 同时，此标志指示缓存管理器禁用预提取的文件数据。
+知识库文章[2549369](https://support.microsoft.com/default.aspx?scid=kb;en-US;2549369)中详细描述了此问题。 文件\_标志\_随机\_访问标志是缓存管理器在内存中尽可能保留文件的映射视图（直到内存管理器不会向内存不足的情况发出信号）的提示。 同时，此标志指示缓存管理器禁用文件数据的预提取。
 
-这种情况下已减轻了某种程度上工作集修整改进在 Windows Server 2012 及更高，但该问题本身需要主要由不使用文件的应用程序供应商\_标志\_随机\_访问权限。 应用程序供应商的替代解决方案可能是访问文件时使用较低内存优先级。 这可以使用[SetThreadInformation](https://msdn.microsoft.com/library/windows/desktop/hh448390.aspx) API。 优先级低的内存访问的页面将从工作集中更主动的方式删除。
+在 Windows Server 2012 + 中进行工作集修整改进后，这种情况已通过工作集修整改进而降低，但问题本身需要由应用程序供应商主要解决\_，\_而不是使用文件标志随机\_访问。 应用程序供应商的替代解决方案可能是在访问文件时使用低内存优先级。 这可以通过使用[SetThreadInformation](https://msdn.microsoft.com/library/windows/desktop/hh448390.aspx) API 来实现。 更主动地从工作集中删除以低内存优先级访问的页面。
 
-缓存管理器中，启动 Windows Server 2016 中进一步减轻这通过忽略 FILE_FLAG_RANDOM_ACCESS 决定修整，因此没有 （缓存管理器仍遵循这 FILE_FLAG_RANDOM_ACCESS 标志的情况下打开的任何其他文件一样处理时标记为禁用预提取的文件数据）。 如果有大量的文件打开使用此标志和真正随机的方式访问，仍然可能导致系统缓存膨胀。 强烈建议不由应用程序使用 FILE_FLAG_RANDOM_ACCESS。
+从 Windows Server 2016 开始的缓存管理器进一步通过在做出修整决策时忽略 FILE_FLAG_RANDOM_ACCESS 来缓解这种情况，因此，其处理方式与没有 FILE_FLAG_RANDOM_ACCESS 标志的任何其他文件的处理方式相同（缓存管理器仍将遵循此目的用于禁用文件数据预提取的标志）。 如果有大量使用此标志打开的文件并以真正随机的方式进行访问，仍可以导致系统缓存膨胀。 强烈建议应用程序不使用 FILE_FLAG_RANDOM_ACCESS。

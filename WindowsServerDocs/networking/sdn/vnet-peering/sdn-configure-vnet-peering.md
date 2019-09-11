@@ -1,6 +1,6 @@
 ---
 title: 配置虚拟网络对等
-description: 配置虚拟网络对等互连涉及创建获取对等互连的两个虚拟网络。
+description: 配置虚拟网络对等互连涉及创建两个获取对等互连的虚拟网络。
 manager: dougkim
 ms.prod: windows-server-threshold
 ms.technology: networking-hv-switch
@@ -9,34 +9,34 @@ ms.assetid: ''
 ms.author: pashort
 author: shortpatti
 ms.date: 08/08/2018
-ms.openlocfilehash: 3ef3db879080e3372e7b287dcc55ae052c1fe109
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 417585ffbe1e8374be1560073d5636659eaf4332
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816388"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869878"
 ---
 # <a name="configure-virtual-network-peering"></a>配置虚拟网络对等
 
 >适用于：Windows Server
 
-在此过程中，使用 Windows PowerShell 来创建两个虚拟网络，每个都有一个子网。 然后，配置之间启用二者之间的连接的两个虚拟网络对等互连。
+在此过程中，使用 Windows PowerShell 创建两个虚拟网络，每个虚拟网络具有一个子网。 然后，在两个虚拟网络之间配置对等互连，以启用它们之间的连接。
 
-- [第 1 步。创建第一个虚拟网络](#step-1-create-the-first-virtual-network)
+- [步骤 1.创建第一个虚拟网络](#step-1-create-the-first-virtual-network)
 
-- [第 2 步。创建第二个虚拟网络](#step-2-create-the-second-virtual-network)
+- [步骤 2.创建第二个虚拟网络](#step-2-create-the-second-virtual-network)
 
-- [第 3 步。配置从第一个虚拟网络将到第二个虚拟网络的对等互连](#step-3-configure-peering-from-the-first-virtual-network-to-the-second-virtual-network)
+- [步骤 3.配置从第一个虚拟网络到第二个虚拟网络的对等互连](#step-3-configure-peering-from-the-first-virtual-network-to-the-second-virtual-network)
 
-- [第 4 步。配置从第二个虚拟网络将到第一个虚拟网络的对等互连](#step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network)
+- [步骤 4.配置从第二个虚拟网络到第一个虚拟网络的对等互连](#step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network)
 
 
 >[!IMPORTANT]
->请记住更新你的环境的属性。
+>请记得更新环境的属性。
 
 ## <a name="step-1-create-the-first-virtual-network"></a>步骤 1： 创建第一个虚拟网络
 
-在此步骤中，您使用 Windows PowerShell 查找 HNV 提供程序逻辑网络创建第一个虚拟网络包含一个子网。 以下示例脚本创建具有一个子网的 Contoso 虚拟网络。
+在此步骤中，你将使用 Windows PowerShell 查找 HNV 提供程序逻辑网络，以创建包含一个子网的第一个虚拟网络。 下面的示例脚本创建 Contoso 的包含一个子网的虚拟网络。
 
 ``` PowerShell
 #Find the HNV Provider Logical Network  
@@ -68,7 +68,7 @@ New-NetworkControllerVirtualNetwork -ResourceId "Contoso_VNet1" -ConnectionUri $
 
 ## <a name="step-2-create-the-second-virtual-network"></a>步骤 2： 创建第二个虚拟网络
 
-在此步骤中，具有一个子网创建第二个虚拟网络。 以下示例脚本创建具有一个子网 Woodgrove 的虚拟网络。
+在此步骤中，将创建一个具有一个子网的第二个虚拟网络。 下面的示例脚本创建 Woodgrove 的虚拟网络，其中包含一个子网。
 
 ``` PowerShell
 
@@ -90,9 +90,9 @@ $vnetproperties.Subnets = @($vsubnet)
 New-NetworkControllerVirtualNetwork -ResourceId "Woodgrove_VNet1" -ConnectionUri $uri -Properties $vnetproperties
 ```
 
-## <a name="step-3-configure-peering-from-the-first-virtual-network-to-the-second-virtual-network"></a>步骤 3： 配置从第一个虚拟网络将到第二个虚拟网络的对等互连
+## <a name="step-3-configure-peering-from-the-first-virtual-network-to-the-second-virtual-network"></a>步骤 3： 配置从第一个虚拟网络到第二个虚拟网络的对等互连
 
-在此步骤中，可以配置第一个虚拟网络之间在前两个步骤中创建的第二个虚拟网络对等互连。 以下示例脚本建立从虚拟网络对等互连**Contoso_vnet1**到**Woodgrove_vnet1**。
+在此步骤中，你将配置在上两个步骤中创建的第一个虚拟网络与第二个虚拟网络之间的对等互连。 以下示例脚本建立从**Contoso_vnet1**到**Woodgrove_vnet1**的虚拟网络对等互连。
 
 ```PowerShell
 $peeringProperties = New-Object Microsoft.Windows.NetworkController.VirtualNetworkPeeringProperties
@@ -116,11 +116,11 @@ New-NetworkControllerVirtualNetworkPeering -ConnectionUri $uri -VirtualNetworkId
 ```
 
 >[!IMPORTANT]
->在创建后此对等互连，vnet 状态显示**启动**。
+>创建此对等互连之后，vnet 状态显示为 "已**启动**"。
 
-## <a name="step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network"></a>步骤 4： 配置从第二个虚拟网络将到第一个虚拟网络的对等互连
+## <a name="step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network"></a>步骤 4： 配置从第二个虚拟网络到第一个虚拟网络的对等互连
 
-在此步骤中，可以配置第二个虚拟网络之间在以上步骤 1 和 2 中创建的第一个虚拟网络对等互连。 以下示例脚本建立从虚拟网络对等互连**Woodgrove_vnet1**到**Contoso_vnet1**。
+在此步骤中，你将配置在上面的步骤1和步骤2中创建的第二个虚拟网络和第一个虚拟网络之间的对等互连。 以下示例脚本建立从**Woodgrove_vnet1**到**Contoso_vnet1**的虚拟网络对等互连。
 
 ```PowerShell
 $peeringProperties = New-Object Microsoft.Windows.NetworkController.VirtualNetworkPeeringProperties 
@@ -133,16 +133,16 @@ $peeringProperties.allowVirtualnetworkAccess = $true
 # Indicates whether forwarded traffic will be allowed across the vnets
 $peeringProperties.allowForwardedTraffic = $true 
 
-# Indicates whether the peer virtual network can access this virtual network’s gateway
+# Indicates whether the peer virtual network can access this virtual network's gateway
 $peeringProperties.allowGatewayTransit = $false 
 
-# Indicates whether this virtual network will use peer virtual network’s gateway
+# Indicates whether this virtual network will use peer virtual network's gateway
 $peeringProperties.useRemoteGateways =$false 
 
 New-NetworkControllerVirtualNetworkPeering -ConnectionUri $uri -VirtualNetworkId “Woodgrove_vnet1” -ResourceId “WoodgrovetoContoso” -Properties $peeringProperties 
 
 ```
 
-创建此对等互连，vnet 对等互连状态之后将显示**已连接**这两个对等节点。 现在，一个虚拟网络中的虚拟机可与其对等互连的虚拟网络中的虚拟机。
+创建此对等互连后，vnet 对等互连状态显示对两个对等节点的**连接**。 现在，一个虚拟网络中的虚拟机可以与对等互连虚拟网络中的虚拟机进行通信。
 
 ---

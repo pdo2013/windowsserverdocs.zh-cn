@@ -1,5 +1,5 @@
 ---
-title: 受保护的构造和受防护的 VM 规划托管商的指南
+title: 适用于托管商的受保护的构造和受防护 VM 规划指南
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.topic: article
@@ -8,71 +8,71 @@ manager: dongill
 author: nirb-ms
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 320723f7a0a25784180b232ce05d42c2ced933c8
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: baa360ecb81c0e8bd54e66771d41c11968b57714
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284179"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870452"
 ---
-# <a name="guarded-fabric-and-shielded-vm-planning-guide-for-hosters"></a>受保护的构造和受防护的 VM 规划托管商的指南
+# <a name="guarded-fabric-and-shielded-vm-planning-guide-for-hosters"></a>适用于托管商的受保护的构造和受防护 VM 规划指南
 
 >适用于：Windows Server 2019，Windows Server （半年频道），Windows Server 2016
 
-本主题介绍将需要对启用受防护的虚拟机在结构上运行的规划决策。 是否升级现有的 HYPER-V 构造或创建新的 fabric 时，运行受防护的 Vm 包含两个主要组件：
+本主题介绍在构造中启用受防护的虚拟机所需执行的规划决策。 无论升级现有 Hyper-v 构造还是创建新构造，运行受防护的 Vm 都包含两个主要组件：
 
-- 主机保护者服务 (HGS) 提供证明和密钥保护，以便你可以确保受防护的 Vm 将仅在已批准和正常运行的 HYPER-V 主机上运行。 
-- 在其可以运行受防护的 Vm （和常规 Vm） 的已批准和正常运行的 HYPER-V 主机，这些参数称为受保护的主机。
+- 主机保护者服务（HGS）提供证明和密钥保护，使你可以确保受防护的 Vm 仅在已批准和正常运行的 Hyper-v 主机上运行。 
+- 受防护的和正常运行的 Hyper-v 主机（在其上可以运行受防护的 Vm （和常规 Vm）），这些主机称为受保护的主机。
 
 ![HGS 和受保护的主机](../media/Guarded-Fabric-Shielded-VM/guarded-host-hgs-plus-host-diagram-basic.png)
 
-## <a name="decision-1-trust-level-in-the-fabric"></a>决策 #1:信任在构造中的级别
+## <a name="decision-1-trust-level-in-the-fabric"></a>决策 #1：构造中的信任级别
 
-如何实现主机保护者服务和受保护的 HYPER-V 主机将取决于主要的强度想要实现在结构中的信任。 证明模式由管理信任的强度。 有两个互斥的选项：
+如何实现主机保护者服务和受保护的 Hyper-v 主机主要取决于你在构造中要实现的信任度。 信任的强度由证明模式控制。 有两个互相排斥的选项：
 
-1. 受信任的 TPM 证明
+1. 受 TPM 信任的证明
 
-    如果你的目标是帮助保护虚拟机免受恶意管理员或已损坏的构造，则将使用受信任的 TPM 证明。 此选项适用于多租户托管的情况下也与在企业环境中，如域控制器或 SQL 或 SharePoint 等内容服务器的高价值资产。
-    测量受保护的虚拟机监控程序代码完整性 (HVCI) 策略和它们的有效性之前允许运行主机由 HGS 强制执行受防护的 Vm。 
+    如果你的目标是帮助保护虚拟机免受恶意管理员的攻击，则使用受 TPM 信任的证明。 此选项非常适合于企业环境中的多租户托管方案以及高价值资产，例如 SQL 或 SharePoint 等域控制器或内容服务器。
+    在允许主机运行受防护的 Vm 之前，会测量受管理程序保护的代码完整性（要求 HVCI）策略，并强制其有效性。 
 
 2. 主机密钥证明
 
-    如果您的要求主要取决于需要的符合性虚拟机加密同时静态以及传输的数据，则将使用主机密钥证明。 此选项非常适合常规用途数据中心位置是熟练的 HYPER-V 主机和结构管理员有权访问的日常维护和操作的虚拟机的来宾操作系统。 
+    如果你的要求主要由要求静态和正在进行加密的虚拟机的符合性驱动，则你将使用主机密钥证明。 此选项非常适用于常规用途的数据中心，你可以在其中熟悉 Hyper-v 主机和构造管理员对虚拟机的来宾操作系统进行日常维护和操作的访问。 
 
-    在此模式下，构造管理员完全负责确保 HYPER-V 主机的运行状况。 
-    HGS 不起任何作用，在决定什么是或不能运行，因为恶意软件和调试器仍可正常而设计。 
+    在此模式下，构造管理员只负责确保 Hyper-v 主机的运行状况。 
+    由于在确定不允许或不允许运行的情况下，HGS 不起作用，因此恶意软件和调试器将按设计方式工作。 
     
-    但是，调试器尝试附加到进程 （如 WinDbg.exe) 直接阻止受防护的 Vm 的 VM 的工作进程 (VMWP.exe) 是一个受保护的进程的指示灯 (PPL)。 
-    替代调试技术，例如使用的 LiveKd.exe，那些不被阻止。 
-    与不同的受防护的 Vm，支持加密的 Vm 的工作进程将不运行 PPL 使传统的调试器喜欢 WinDbg.exe 将继续正常工作。
+    但是，因为 VM 的工作进程（VMWP）是受保护的进程轻型（PPL），所以，尝试直接附加到进程的调试器（如 WinDbg）被阻止用于受防护的 Vm。 
+    不会阻止其他调试技术（例如 LiveKd 使用的方法）。 
+    与受防护的 Vm 不同，支持加密的 Vm 的工作进程不会作为 PPL 运行，因此，诸如 tcm.exe 这样的传统调试器将继续正常工作。
 
-    类似的证明模式名为受信任的管理员证明 （基于 Active Directory） 与 Windows Server 2019 从开始已弃用。 
+    从 Windows Server 2019 开始，已弃用了名为 "管理-受信任的证明（基于 Active Directory）" 的类似证明模式。 
 
-你选择的信任级别将决定您的 HYPER-V 主机，以及在构造应用的策略的硬件要求。 如有必要，可以部署使用现有硬件和受信任的管理员证明您受保护的构造，然后将其转换为受信任的 TPM 证明，升级硬件和需要增强 fabric 安全性时。
+你选择的信任级别将规定 Hyper-v 主机的硬件要求以及你在构造上应用的策略。 如有必要，你可以使用现有的硬件和受信任的管理员证明来部署受保护的构造，然后在硬件升级后将其转换为受 TPM 信任的证明，并需要增强构造安全性。
 
-## <a name="decision-2-existing-hyper-v-fabric-versus-a-new-separate-hyper-v-fabric"></a>决策 #2:与新的独立 HYPER-V 构造的现有 HYPER-V 构造
+## <a name="decision-2-existing-hyper-v-fabric-versus-a-new-separate-hyper-v-fabric"></a>决策 #2：现有 Hyper-v 结构与新的单独 Hyper-v 构造
 
-如果有现有的 fabric （HYPER-V 或其他方式），它是很有可能，可以使用它来运行受防护的 Vm，以及常规的 Vm。 某些客户选择将受防护的 Vm 集成到其现有工具和构造，而其他人用于分隔出于业务原因在构造。
+如果你有现成的构造（Hyper-v 或其他），很可能会使用它来运行受防护的 Vm 以及常规 Vm。 有些客户选择将受防护的 Vm 集成到其现有的工具和构造中，而另一些客户会出于业务原因将其隔离开来。
 
-## <a name="hgs-admin-planning-for-the-host-guardian-service"></a>HGS 管理员规划主机保护者服务
+## <a name="hgs-admin-planning-for-the-host-guardian-service"></a>主机保护者服务的 HGS 管理员规划
 
-无论是在受防护的 VM、 HYPER-V 独立主机 （以从正在保护的构造） 或一个逻辑上分隔使用不同的 Azure 上的虚拟机的专用物理服务器上部署在高度安全环境中，主机保护者服务 (HGS)订阅。   
-
-| 区域 | 详细信息 |
-|------|---------|
-| 安装要求 | <ul><li>一台服务器 （建议使用以实现高可用性三节点群集）</li><li>进行回退，至少两个 HGS 服务器是必需的</li><li>服务器可以是虚拟或物理 （物理服务器具有 TPM 2.0 建议;TPM 1.2 也支持)</li><li>服务器核心安装的 Windows Server 2016 或更高版本</li><li>网络视线，到允许 HTTP 构造或[回退配置](guarded-fabric-manage-branch-office.md#fallback-configuration)</li><li>建议用于访问验证的 HTTPS 证书</li></ul> |
-| 大小调整 | 每个中等规模 (8 核/4 GB) HGS 服务器节点可处理 1,000 的 HYPER-V 主机。 |
-| Management | 指定将管理 HGS 特定人员。 它们应该是独立于结构管理员。 有关比较，HGS 群集可以被认为是相同的方式为证书颁发机构 (CA) 管理隔离、 物理部署和整体安全敏感度级别方面。 |
-| 主机保护者服务 Active Directory | 默认情况下，HGS 安装管理其自身内部 Active Directory。 这是自包含、 自我管理的林，是推荐的配置，以帮助隔离 HGS 从你的结构。<br><br>如果已有用于隔离高特权 Active Directory 林，你可以使用该林而不是 HGS 默认的林。 请务必 HGS 未加入到域中的 HYPER-V 主机或在结构管理工具所在的林。 执行此操作可能允许构造管理员 HGS 对其进行控制。 |
-| 灾难恢复 | 有以下三个选项：<br><ol><li>在每个数据中心中安装单独的 HGS 群集并授权受防护的 Vm，若要在主数据库和备份数据中心中运行。 这就无需通过 WAN 拉伸群集，并允许您将虚拟机隔离，以便它们仅在其指定站点中运行。</li><li>在两个 （或多个） 的数据中心之间拉伸群集上安装 HGS。 如果 WAN 出现故障，但推送故障转移群集的限制，这可以提供复原能力。 不能隔离到一个站点; 的工作负荷在任何其他可以运行授权在一个站点中运行的 VM。</li><li>向另一个 HGS 注册 HYPER-V 主机，为故障转移。</li></ol>此外应通过将其配置导出，以便始终可以恢复本地备份每个 HGS。 有关详细信息，请参阅[导出 HgsServerState](https://docs.microsoft.com/powershell/module/hgsserver/export-hgsserverstate)并[导入 HgsServerState](https://docs.microsoft.com/powershell/module/hgsserver/import-hgsserverstate)。 |
-| 主机保护者服务密钥 | 主机保护者服务使用两个非对称密钥对，加密密钥和签名密钥，每个所表示的 SSL 证书。 有两个选项来生成这些密钥：<br><ol><li>内部证书颁发机构 – 你可以生成这些密钥使用内部 PKI 基础结构。 这是适用于数据中心环境。</li><li>公开受信任的证书颁发机构 – 使用一组从可公开受信任的证书颁发机构获取的密钥。 这是托管方应使用的选项。</li></ol>请注意，虽然可能要使用自签名的证书，但不建议用于概念证明实验以外的部署方案。<br><br>除了拥有 HGS 密钥，宿主可以使用"自带你自己的密钥，"，租户可以提供其自己的密钥，以便某些 （或所有） 租户可以有其自己特定的 HGS 密钥。 此选项是适用于托管商可提供一个带外过程，用于租户能够上传其密钥。 |
-| 主机保护者服务密钥存储 | 有关可能的最强安全，我们建议 HGS 密钥将创建并存储以独占方式在硬件安全模块 (HSM)。 如果不使用 Hsm，强烈建议将 BitLocker 应用 HGS 服务器上。 |
-
-## <a name="fabric-admin-planning-for-guarded-hosts"></a>构造管理员规划的受保护的主机
+在高度安全的环境中部署主机保护者服务（HGS），无论是在专用物理服务器、受防护的 VM、隔离的 Hyper-v 主机上的 VM 上（与它所保护的构造分开），还是通过使用不同的 Azure 以逻辑方式分隔的环境中订阅.   
 
 | 区域 | 详细信息 |
 |------|---------|
-| 硬件 | <ul><li>主机密钥证明：您可以使用任何现有硬件作为受保护的主机。 有几个例外情况 (若要确保你的主机可以使用新的安全机制从 Windows Server 2016 开始，请参阅[与基于 Windows Server 2016 虚拟化的代码完整性保护兼容的硬件](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md)。</li><li>受信任的 TPM 证明：可以使用具有任何硬件[硬件保障其他资格](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/systems#system-server-assurance)只要正确配置时 (请参阅[服务器配置了符合受防护的 Vm 和基于虚拟化的代码完整性保护](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md)的特定配置)。 这包括 TPM 2.0 和 UEFI 2.3.1c 版本及更高版本。</li></ul> |
-| 操作系统 | 我们建议使用服务器核心选项的 HYPER-V 主机操作系统。 |
-| 性能影响 | 根据性能测试，我们预计约 5%密度的区别，运行受防护的 Vm 和非受防护的 Vm。 这意味着，如果给定的 HYPER-V 主机可以运行 20 个非受防护的 Vm，我们期望它可以运行 19 受防护的 Vm。<br><br>请务必验证与典型的工作负荷的大小调整。 例如，可能有一些出界者密集型面向写入 IO 工作负荷会进一步影响密度差异。 |
-| 分支机构注意事项 | 从 Windows Server 1709 版开始，可以指定分支机构中受防护的 VM 作为本地运行的虚拟化 HGS 服务器的回退 URL。 可以使用回退 URL，当分支机构断开连接到数据中心的 HGS 服务器。 在上一版本的 Windows Server 中，在分支机构需求连接中运行主机保护者服务将开机或实时迁移到 HYPER-V 主机受防护的 Vm。 有关详细信息，请参阅[分支 office 注意事项](guarded-fabric-manage-branch-office.md)。 |
+| 安装要求 | <ul><li>一台服务器（建议使用三节点群集实现高可用性）</li><li>对于回退，至少需要两个 HGS 服务器</li><li>服务器可以是虚拟的，也可以是物理的（建议使用 TPM 2.0 的物理服务器;还支持 TPM 1.2）</li><li>Windows Server 2016 或更高版本的服务器核心安装</li><li>允许 HTTP 或[回退配置](guarded-fabric-manage-branch-office.md#fallback-configuration)的构造的网络线路</li><li>建议使用 HTTPS 证书进行访问验证</li></ul> |
+| 大小调整 | 每个中间大小（8核/4 GB） HGS server 节点可以处理 1000 Hyper-v 主机。 |
+| 管理 | 指定将管理 HGS 的特定人员。 它们应该独立于构造管理员。 为了进行比较，可以将 HGS 群集视为与证书颁发机构（CA）相同的方式，如管理隔离、物理部署和总体安全敏感度级别。 |
+| 主机保护者服务 Active Directory | 默认情况下，HGS 安装自己的用于管理的内部 Active Directory。 这是一个自包含的自管理林，是用于帮助将 HGS 与构造隔离的推荐配置。<br><br>如果你已经有一个高度特权的 Active Directory 林用于隔离，则可以使用该林，而不是使用 HGS 默认林。 不能将 HGS 加入到与 Hyper-v 主机或构造管理工具相同的林中的域，这一点很重要。 这样做可能会允许构造管理员获得对 HGS 的控制。 |
+| 灾难恢复 | 有以下三个选项：<br><ol><li>在每个数据中心安装单独的 HGS 群集，并授权受防护的 Vm 在主数据中心和备份数据中心运行。 这样就无需跨 WAN 扩展群集，并允许你隔离虚拟机，使其仅在指定的站点中运行。</li><li>在两个（或多个）数据中心之间的 stretch 群集上安装 HGS。 如果 WAN 停机，则会提供复原功能，但会推送故障转移群集的限制。 无法将工作负荷隔离到一个站点;授权在一个站点中运行的 VM 可以在任何其他站点上运行。</li><li>将 Hyper-v 主机注册为其他 HGS 作为故障转移。</li></ol>还应通过导出其配置来备份每个 HGS，以便始终可以在本地恢复。 有关详细信息，请参阅[HgsServerState](https://docs.microsoft.com/powershell/module/hgsserver/export-hgsserverstate)和[HgsServerState](https://docs.microsoft.com/powershell/module/hgsserver/import-hgsserverstate)。 |
+| 主机保护者服务密钥 | 主机保护者服务使用两个非对称密钥对，每个密钥对都由一个 SSL 证书表示。 有两个选项可用于生成这些密钥：<br><ol><li>内部证书颁发机构-可以使用内部 PKI 基础结构生成这些密钥。 这适用于数据中心环境。</li><li>公开信任的证书颁发机构–使用从公开信任的证书颁发机构获取的一组密钥。 这是托管商应使用的选项。</li></ol>请注意，虽然可以使用自签名证书，但不建议将其用于概念证明实验室以外的部署方案。<br><br>除了拥有 HGS 密钥以外，主机托管服务还可以使用 "自带密钥"，其中租户可以提供自己的密钥，使某些（或所有）租户可以拥有自己的特定 HGS 密钥。 此选项适用于托管商，可为租户提供带外进程来上载其密钥。 |
+| 主机保护者服务密钥存储 | 为了获得最高的安全性，我们建议仅在硬件安全模块（HSM）中创建并存储 HGS 密钥。 如果未使用 Hsm，强烈建议在 HGS 服务器上应用 BitLocker。 |
+
+## <a name="fabric-admin-planning-for-guarded-hosts"></a>针对受保护主机的结构管理员规划
+
+| 区域 | 详细信息 |
+|------|---------|
+| 硬件 | <ul><li>主机密钥证明：你可以使用任何现有硬件作为受保护的主机。 有一些例外情况（为了确保主机可以使用从 Windows Server 2016 开始的新安全机制，请参阅[兼容硬件，其中包含基于 Windows server 2016 虚拟化的代码完整性保护](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md)。</li><li>受信任的 TPM 证明：你可以使用具有[硬件保证附加限定](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/systems#system-server-assurance)的任何硬件（只要它已正确配置）（请参阅[与受防护的 Vm 兼容的服务器配置和代码完整性的基于虚拟化的保护）](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md)对于特定配置）。 这包括 TPM 2.0 和 UEFI 版本 2.3.1 c 及更高版本。</li></ul> |
+| OS | 建议使用 Hyper-v 主机操作系统的 "服务器核心" 选项。 |
+| 性能影响 | 根据性能测试，我们预计运行受防护的 Vm 和未受防护的 Vm 之间的密度大致为 5%。 这意味着，如果给定的 Hyper-v 主机可以运行20个未受防护的 Vm，则会预计它可以运行19个受防护的 Vm。<br><br>请确保根据典型工作负荷验证大小。 例如，可能会有一些离群的离线，它们会进一步影响密度差异。 |
+| 分支机构注意事项 | 从 Windows Server 版本1709开始，你可以为分支机构中作为受防护的 VM 本地运行的虚拟化 HGS 服务器指定回退 URL。 当分支机构失去到数据中心内的 HGS 服务器的连接时，可以使用回退 URL。 在以前版本的 Windows Server 上，分支机构中运行的 Hyper-v 主机需要连接到主机保护者服务才能开机或实时迁移受防护的 Vm。 有关详细信息，请参阅[分支机构注意事项](guarded-fabric-manage-branch-office.md)。 |

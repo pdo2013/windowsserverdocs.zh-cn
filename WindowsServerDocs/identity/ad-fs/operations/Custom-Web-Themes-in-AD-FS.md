@@ -1,6 +1,6 @@
 ---
 ms.assetid: 0379abc3-25c7-46ab-9a6b-80a5152365b0
-title: 在 AD FS 中的自定义 Web 主题
+title: AD FS 中的自定义 Web 主题
 description: ''
 author: billmath
 ms.author: billmath
@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2bce52a5704706ad72799d00879e2f4e48f9d703
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: affcc8b7d6aed56c37ddf00dd1c962c0d82fd85b
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189255"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865776"
 ---
-# <a name="custom-web-themes-in-ad-fs"></a>在 AD FS 中的自定义 Web 主题 
+# <a name="custom-web-themes-in-ad-fs"></a>AD FS 中的自定义 Web 主题 
 
-寄出的主题\-的\-\-框称为默认值。 可以导出并使用该默认主题，以便可以快速启动。 通过修改 .css 文件、导入和应用此新主题，你可以自定义外观和行为，包括布局，然后便可以使用自定义的外观和行为。 使用 .css 文件还会使 Web 设计人员的工作变得更容易。  
+出厂\-\-时提供的主题称为"\-默认主题"。 可以导出并使用该默认主题，以便可以快速启动。 通过修改 .css 文件、导入和应用此新主题，你可以自定义外观和行为，包括布局，然后便可以使用自定义的外观和行为。 使用 .css 文件还会使 Web 设计人员的工作变得更容易。  
   
 以下 cmdlet 创建了一个复制默认 Web 主题的自定义 Web 主题。  
   
@@ -45,16 +45,16 @@ ms.locfileid: "66189255"
   
   
   
-若要将自定义 web 主题应用到的 AD FS，使用以下 cmdlet。  
+若要将自定义 web 主题应用到 AD FS，请使用以下 cmdlet。  
   
 
 `Set-AdfsWebConfig -ActiveThemeName custom`  
 
   
-若要将 JavaScript 添加到 AD FS，使用以下 cmdlet。  
+若要将 JavaScript 添加到 AD FS，请使用以下 cmdlet。  
   
  
-    Set-AdfsWebTheme -TargetName custom -AdditionalFileResource @{Uri=’ /adfs/portal/script/onload.js’;path="D:\inetpub\adfsassets\script\onload.js"}  
+    Set-AdfsWebTheme -TargetName custom -AdditionalFileResource @{Uri=' /adfs/portal/script/onload.js';path="D:\inetpub\adfsassets\script\onload.js"}  
 
 
 ## <a name="additional-references"></a>其他参考 

@@ -9,49 +9,49 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6be56c25cc6f639f73842f57cdf48a6339dccf9c
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 06946942bcdc5ea00acc22b91d6551a826357fcf
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191851"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868028"
 ---
 # <a name="windows-server-2012-ad-fs-deployment-guide"></a>Windows Server 2012 AD FS 部署指南
 
 
-可以使用 Active Directory® 联合身份验证服务\(AD FS\)与 Windows Server® 2012年操作系统来构建一个联合的标识管理解决方案，扩展了分布式的标识、 身份验证，并授权服务添加到 Web\-基于跨越组织和平台边界的应用程序。 通过部署 AD FS，可将组织现有的标识管理功能扩展到 Internet。  
+你可以使用 Active Directory®联合身份\(验证\)服务 AD FS 与 Windows Server®2012操作系统结合使用来构建扩展了分布式标识、身份验证和的联合身份管理解决方案针对跨组织和\-平台边界的基于 Web 的应用程序的授权服务。 通过部署 AD FS，你可以将组织现有的标识管理功能扩展到 Internet。  
   
 部署 AD FS 可以：  
   
--   你的员工或客户提供与 Web\-基于，单一\-符号\-上\(SSO\)体验时它们需要远程访问内部托管网站或服务。  
+-   当你的员工或客户需要远程\-访问内部托管的\-网站或服务时，为你的员工或客户提供基于 Web 的单一\-登录\(SSO\)体验。  
   
--   你的员工或客户提供与 Web\-基于，SSO 体验跨访问时\-组织的网站或服务从你的网络的防火墙内。  
+-   当你的员工或客户从网络\-防火墙访问跨\-组织网站或服务时，为你的员工或客户提供基于 Web 的 SSO 体验。  
   
--   向 Web 提供的无缝访问你的员工或客户\-基于在 Internet 上任何联合身份验证伙伴组织中的资源，而无需为员工或客户多次登录。  
+-   为你的员工或客户提供对 Internet 上\-任何联合身份验证伙伴组织中基于 Web 的资源的无缝访问权限，而无需员工或客户多次登录。  
   
--   不需使用其他登录保持对你的员工或客户身份的完全控制\-上提供程序\(Windows Live ID、 Liberty Alliance 和其他\)。  
+-   无需使用其他登录\-提供程序\(Windows Live ID、\)自由联盟等，就能完全控制您的员工或客户标识。  
   
 ## <a name="about-this-guide"></a>关于本指南  
-本指南旨在供系统管理员和系统工程师使用。 它提供了用于部署由你或你的组织中的基础结构专家或系统架构师预先的 AD FS 设计的详细的指导。  
+本指南旨在供系统管理员和系统工程师使用。 它提供有关部署由你或组织中的基础结构专家或系统架构师预先选择的 AD FS 设计的详细指南。  
   
-如果尚未选择设计，我们建议您等待要遵循本指南中的说明进行操作后已经查看了中的设计选项[Windows Server 2012 中 AD FS 设计指南](https://technet.microsoft.com/library/dd807036.aspx)和最多选择适合你的组织的设计。 本指南中使用的已选择的设计的详细信息，请参阅[实现 AD FS 设计规划](Implementing-Your-AD-FS-Design-Plan.md)。  
+如果尚未选择设计，我们建议你等待按照本指南中的说明进行操作，直到你在[Windows Server 2012 的 "AD FS 设计指南](https://technet.microsoft.com/library/dd807036.aspx)" 中查看了设计选项之后，为你的内部. 有关将本指南用于已选择的设计的详细信息，请参阅[实现 AD FS 设计计划](Implementing-Your-AD-FS-Design-Plan.md)。  
   
-从设计指南中选择您的设计并收集有关声明、 令牌类型、 属性存储和其他项所需的信息后，可以使用本指南以在生产环境中部署 AD FS 设计。 本指南提供了用于部署以下主 AD FS 设计任一步骤：  
+从设计指南中选择设计并收集有关声明、令牌类型、属性存储和其他项所需的信息后，可以使用本指南在生产环境中部署 AD FS 设计。 本指南提供用于部署以下任一主要 AD FS 设计的步骤：  
   
 -   Web SSO  
   
 -   联合 Web SSO  
   
-使用中的清单[实现 AD FS 设计规划](Implementing-Your-AD-FS-Design-Plan.md)来确定如何最大程度地使用本指南中的说明部署特定设计。 有关部署 AD FS 的硬件和软件要求的信息，请参阅[附录 a:查看 AD FS 要求](https://technet.microsoft.com/library/ff678034.aspx)中 AD FS 设计指南。  
+使用[实现 AD FS 设计计划](Implementing-Your-AD-FS-Design-Plan.md)中的清单来确定如何最好地使用本指南中的说明部署特定设计。 有关部署 AD FS 的硬件和软件要求的信息，请参阅[附录 A：查看 AD FS 设计](https://technet.microsoft.com/library/ff678034.aspx)指南中的 AD FS 要求。  
   
 ### <a name="what-this-guide-does-not-provide"></a>本指南未提供的内容  
 本指南未提供：  
   
--   有关时间和位置将联合身份验证服务器、 联合服务器代理或 Web 服务器放在现有网络基础结构的指南。 此信息，请参阅[规划联合服务器的位置](https://technet.microsoft.com/library/dd807069.aspx)并[规划联合服务器代理位置](https://technet.microsoft.com/library/dd807130.aspx)AD FS 设计指南中。  
+-   有关何时以及在何处放置联合服务器、联合服务器代理或现有网络基础结构中的 Web 服务器的指南。 有关此信息，请参阅 AD FS 设计指南中的[规划联合服务器布局](https://technet.microsoft.com/library/dd807069.aspx)和[规划联合服务器代理的布局](https://technet.microsoft.com/library/dd807130.aspx)。  
   
--   使用证书颁发机构的指导\(CAs\)来设置 AD FS  
+-   使用证书颁发机构\(ca\)设置 AD FS 的指南  
   
--   设置或配置特定 Web 指导\-基于应用程序  
+-   有关设置或配置基于 Web\-的特定应用程序的指南  
   
 -   特定于设置测试实验室环境的设置说明。  
   
@@ -67,7 +67,7 @@ ms.locfileid: "66191851"
   
 -   [清单：实现联合 Web SSO 设计](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
   
--   [配置伙伴组织](Configuring-Partner-Organizations.md)  
+-   [配置合作伙伴组织](Configuring-Partner-Organizations.md)  
   
 -   [配置声明规则](Configuring-Claim-Rules.md)  
   

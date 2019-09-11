@@ -1,6 +1,6 @@
 ---
-title: 字符串和本地化中 Windows Admin Center
-description: 了解如何获取您的字符串 Windows Admin Center SDK (项目 Honolulu) 中准备好进行本地化
+title: Windows 管理中心中的字符串和本地化
+description: 了解如何在 Windows 管理中心 SDK 中准备好用于本地化的字符串（Project Honolulu）
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -8,28 +8,28 @@ ms.author: niwashbu
 ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: fb328f86c98141a5a2a1c4fd05ec1d4c96a7bc5f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 4cc624dcc985f13f97b7bbc767de6bbb9c72217a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845398"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869711"
 ---
-# <a name="strings-and-localization-in-windows-admin-center"></a>字符串和本地化中 Windows Admin Center #
+# <a name="strings-and-localization-in-windows-admin-center"></a>Windows 管理中心中的字符串和本地化 #
 
->适用于：Windows Admin Center，Windows Admin Center 预览版
+>适用于：Windows Admin Center、Windows Admin Center 预览版
 
-让我们更深入到 Windows Admin Center 扩展 SDK 并谈一谈字符串和本地化。
+让我们更深入地了解 Windows 管理中心扩展 SDK，并讨论字符串和本地化。
 
-若要启用的呈现表示层，可以利用我们的下 /src/resources/strings-strings.resjson 文件的所有字符串本地化它已设置。 当需要将一个新字符串添加到你的扩展时，将其添加到此 resjson 文件作为新项。 现有结构遵循以下格式：
+若要对呈现层上呈现的所有字符串启用本地化，请利用/src/resources/strings 下的 resjson 文件-它已设置好。 如果需要将新字符串添加到扩展，请将其作为新条目添加到此 resjson 文件。 现有结构的格式如下所示：
 
 ``` ts
 "<YourExtensionName>_<Component>_<Accessor>": "Your string value goes here.",
 ```
 
-可以使用您喜欢的任何格式的字符串，但请注意生成过程 （resjson，然后输出可用的 TypeScript 类的进程） 将下划线 (_) 转换为句点 （.）。
+您可以使用您喜欢的任何格式的字符串，但要注意，生成过程（采用 resjson 和输出可用 TypeScript 类的进程）将下划线（_）转换为句点（.）。
 
-例如，此项：
+例如，以下条目：
 ``` ts
 "HelloWorld_cim_title": "CIM Component",
 ```
@@ -37,3 +37,44 @@ ms.locfileid: "59845398"
 ``` ts
 MsftSme.resourcesStrings<Strings>().HelloWorld.cim.title;
 ```
+
+## <a name="add-other-languages-for-localization"></a>添加其他本地化语言 ## 
+
+对于其他语言的本地化，需要为每种语言创建 resjson 文件。 需要将这些文件放在中```\loc\output\{!ExtensionName}\{!LanguageFolder}\strings.resjson```。 具有相应文件夹的可用语言包括：
+
+| 语言      | 文件夹      |
+| ------------- |-------------|
+| Čeština | cs-CZ |
+| Deutsch | de-DE |
+| 英语 | en-US |
+| Español | es-ES |
+| Français | fr-FR | 
+| Magyar | hu-HU | 
+| Italiano | it-IT |
+| 日本語 | ja-JP | 
+| 한국어 | ko-KR | 
+| Nederlands | nl-NL |
+| Polski | pl-PL |
+| Português Brasileiro | pt-BR |
+| Português (Portugal) | pt-PT |
+| Русский | ru-RU |
+| Svenska | sv-SE |
+| Türkçe    | tr-TR |
+| 中文(简体) | zh-CN |
+| 中文(繁體) | zh-TW |
+> [!NOTE]
+> 如果文件结构需要在 "位置"/"输出" 内有所不同，则需要调整 gulpfile 中的 gulp 任务 "localeOffset" 的 resjson。 此偏移量是位置文件夹中应开始搜索 resjson 文件的深度。
+
+每个 resjson 文件的格式设置方式与本指南顶部提及的格式相同。 
+
+例如，若要包括西班牙语的本地化，请在中```\loc\output\HelloWorld\es-ES\strings.resjson```包含此项： 
+```json
+"HelloWorld_cim_title": "CIM Componente",
+```
+无论何时添加本地化字符串，都必须重新运行 gulp 才能使其显示。 运行：
+``` cmd
+gulp generate 
+```
+
+若要确认已生成字符串，请导航到```\src\app\assets\strings\{!LanguageFolder}\strings.resjson```。 新添加的条目将显示在此文件中。
+现在，如果切换 Windows 管理中心中的 "语言" 选项，则可以在扩展中看到本地化的字符串。 

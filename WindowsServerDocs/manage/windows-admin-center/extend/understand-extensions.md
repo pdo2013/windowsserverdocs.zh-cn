@@ -8,18 +8,18 @@ ms.author: jol
 ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: b00ee847088d038e59266154bcbbe9499bfe47fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e54101e90005a1845820ecf0bb99df527ac7051
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850108"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869770"
 ---
 # <a name="understanding-windows-admin-center-extensions"></a>了解 Windows Admin Center 扩展
 
->适用于：Windows Admin Center，Windows Admin Center 预览版
+>适用于：Windows Admin Center、Windows Admin Center 预览版
 
-如果你还不熟悉 Windows Admin Center 的工作原理，我们从高级体系结构开始。 Windows Admin Center 由两个主要组件构成：
+如果你尚不熟悉 Windows 管理中心中心的工作方式，让我们从高级体系结构开始。 Windows Admin Center 由两个主要组件构成：
 
 - 轻型 **Web 服务**，向 Web 浏览器请求提供 Windows Admin Center UI Web 页面。
 - **网关组件**，侦听来自 Web 页面的 REST API 请求并中继要在目标服务器或群集上执行的 WMI 调用或 PowerShell 脚本。
@@ -52,4 +52,4 @@ Web 服务提供的 Windows Admin Center UI Web 页面从可扩展性角度有�
 
 ## <a name="next-steps"></a>后续步骤
 
-根据你想要在 Windows Admin Center 中构建的功能，为现有服务器或群集解决方案[构建工具扩展](develop-tool.md)可能已经足够，并且是构建扩展最简单的第一步。 但是，如果你的功能是用于管理设备、服务或一些全新内容，而不是服务器或群集，则应考虑使用一个或多个工具[构建解决方案扩展](develop-solution.md)。 最后，如果你需要通过 WMI 或 PowerShell 以外的协议与目标通信，则需要[构建网关插件](develop-gateway-plugin.md)。 [继续阅读](developing-extensions.md)，了解如何设置开发环境以及开始编写你的第一个扩展。
+根据你想要在 Windows Admin Center 中构建的功能，为现有服务器或群集解决方案[构建工具扩展](develop-tool.md)可能已经足够，并且是构建扩展最简单的第一步。 但是，如果你的功能是用于管理设备、服务或一些全新内容，而不是服务器或群集，则应考虑使用一个或多个工具[构建解决方案扩展](develop-solution.md)。 最后，如果需要通过 WMI 或 PowerShell 以外的协议与目标通信，则需要[构建网关插件](develop-gateway-plugin.md)。 [继续阅读](developing-extensions.md)，了解如何设置开发环境以及开始编写你的第一个扩展。

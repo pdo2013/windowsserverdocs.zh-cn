@@ -8,82 +8,82 @@ ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 05/29/2019
-ms.openlocfilehash: f72156b050aa943cfafaf1fa2539911d6d1e089e
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 3548d6c239c81deb50ce698767db5eb287046f17
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501483"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867043"
 ---
-# <a name="whats-new-in-storage-in-windows-server"></a>什么是 Windows Server 中存储中的新增功能
+# <a name="whats-new-in-storage-in-windows-server"></a>Windows Server 中存储的新增功能
 
->适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
+>适用于：Windows Server 2019、Windows Server 2016、Windows Server（半年频道）
 
-本主题介绍了在 Windows Server 2019，Windows Server 2016 中的存储中的新功能和更改功能和 Windows Server 半年频道发布。
+本主题介绍 Windows Server 2019、Windows Server 2016 和 Windows Server 半年版频道版本中存储的新增功能和更改的功能。
 
-## <a name="whats-new-in-storage-in-windows-server-version-1903"></a>什么是 Windows Server，版本 1903年中存储中的新增功能
+## <a name="whats-new-in-storage-in-windows-server-version-1903"></a>Windows Server 中存储的新增功能，版本1903
 
 此版本的 Windows Server 添加了以下更改和技术。
 
-### <a name="storage-migration-service-now-migrates-local-accounts-clusters-and-linux-servers"></a>本地帐户、 群集和 Linux 服务器，现在将迁移存储迁移服务
+### <a name="storage-migration-service-now-migrates-local-accounts-clusters-and-linux-servers"></a>存储迁移服务现在可迁移本地帐户、群集和 Linux 服务器
 
-存储迁移服务，可以更轻松地迁移到较新版本的 Windows Server 的服务器。 它提供了一个图形工具，列出服务器上的数据的清单，然后将数据和配置传输至较新的服务器，同时应用程序或用户无需更改任何内容。
+使用存储迁移服务可以更轻松地将服务器迁移到更高版本的 Windows Server。 它提供一个图形工具用于盘点服务器上的数据，然后将数据和配置传输到更新的服务器 — 在此过程中，应用或用户无需更改任何设置。
 
-当使用此版本的 Windows Server 协调迁移，我们添加了以下功能：
+使用此 Windows Server 版本协调迁移时，我们已添加以下功能：
 
 - 将本地用户和组迁移到新服务器
 - 从故障转移群集迁移存储
-- 使用 Samba 的 Linux 服务器从迁移存储
-- 更轻松地使用 Azure 文件同步到 Azure 中同步已迁移的共享
-- 将迁移到 Azure 等的新网络
+- 从使用 Samba 的 Linux 服务器迁移存储
+- 使用 Azure 文件同步更轻松地将已迁移的共享同步到 Azure 中
+- 迁移到 Azure 等新网络
 
 有关存储迁移服务的详细信息，请参阅[存储迁移服务概述](storage-migration-service/overview.md)。
 
-### <a name="system-insights-disk-anomaly-detection"></a>系统 Insights 磁盘异常情况检测
+### <a name="system-insights-disk-anomaly-detection"></a>System Insights 磁盘异常情况检测
 
-[系统 Insights](../manage/system-insights/overview.md)是预测分析功能，本地 Windows Server 系统数据进行分析，并提供深入的服务器的运行状况。 它还提供了许多内置功能，但我们已添加可以安装其他功能通过 Windows Admin Center，以从磁盘异常情况检测。
+[System Insights](../manage/system-insights/overview.md) 是一项预测分析功能，它可以在本地分析 Windows Server 系统数据，并提供服务器运行情况的见解。 它还内置了许多的功能，但我们已添加通过 Windows Admin Center 安装附加功能的功能，其中第一项功能就是磁盘异常情况检测。
 
-磁盘异常情况检测是当磁盘的运行情况符合突出显示的新功能*以不同方式*比平常。 虽然不同并不一定是您的系统上进行问题排查时可以提供帮助是坏事，查看这些异常的情形。
+磁盘异常情况检测新功能可以突出显示磁盘的行为何时与往常不同。 尽管不同的情况并不一定是坏事，但在排查系统上的问题时，查看这些异常瞬间可能会有所帮助。
 
-此功能也是可用于运行 Windows Server 2019 的服务器。
+此功能也适用于运行 Windows Server 2019 的服务器。
 
-### <a name="windows-admin-center-enhancements"></a>Windows Admin Center 增强功能
+### <a name="windows-admin-center-enhancements"></a>Windows Admin Center 增强
 
-Windows Admin Center 的新版本，是添加到 Windows Server 的新功能。 有关最新功能的信息，请参见[Windows Admin Center](../manage/windows-admin-center/understand/windows-admin-center.md)。
+新版 Windows Admin Center 现已推出，其中为 Windows Server 添加了新功能。 有关最新功能的信息，请参阅 [Windows Admin Center](../manage/windows-admin-center/understand/windows-admin-center.md)。
 
-## <a name="whats-new-in-storage-in-windows-server-2019-and-windows-server-version-1809"></a>什么是 Windows Server 2019 和 Windows Server 版本 1809年中使用存储中的新增功能
+## <a name="whats-new-in-storage-in-windows-server-2019-and-windows-server-version-1809"></a>Windows Server 2019 和 Windows Server （版本1809）中存储的新增功能
 
 此版本的 Windows Server 添加了以下更改和技术。
 
-### <a name="manage-storage-with-windows-admin-center"></a>使用 Windows Admin Center 管理存储
+### <a name="manage-storage-with-windows-admin-center"></a>通过 Windows 管理中心管理存储
 
-[Windows Admin Center](../manage/windows-admin-center/overview.md)是用于管理服务器、 群集、 存储空间直通和 Windows 10 Pc 中使用超聚合基础结构的新本地部署的、 基于浏览器的应用。 它出现在 Windows 之外无需额外付费并随时可供生产使用。
+[Windows 管理中心](../manage/windows-admin-center/overview.md)是一个本地部署的新的基于浏览器的应用，用于管理使用存储空间直通和 Windows 10 电脑的服务器、群集、超聚合基础结构。 它在 Windows 外无需额外付费，并且可供生产使用。
 
-公平地讲，Windows Admin Center 是在 Windows Server 2019 和 Windows，其他版本运行的单独下载，但它是新建和我们不希望您错过它...
+当然，Windows 管理中心是在 Windows Server 2019 和其他版本的 Windows 上运行的单独的下载，但它是新的，我们不希望你错过它 。
 
 ### <a name="storage-migration-service"></a>存储迁移服务
 
-存储迁移服务是一种新技术，可以更轻松地将服务器迁移到更新版本的 Windows Server。 它提供一个图形工具，可清查服务器上的数据、将该数据和配置传输到更新的服务器，然后可以选择将旧服务器的标识移动到新服务器，以便应用和用户不必做出任何更改。 有关详细信息，请参阅[存储迁移服务](storage-migration-service/overview.md)。
+存储迁移服务是一种新技术，可以更轻松地将服务器迁移到更新版本的 Windows Server。 它提供一个图形工具，可清查服务器上的数据、将数据和配置传输到更新的服务器，然后选择将旧服务器的标识移到新服务器，这样应用和用户就不必进行任何更改。 有关详细信息，请参阅[存储迁移服务](storage-migration-service/overview.md)。
 
-### <a id="storage-spaces-direct"></a>存储空间直通 （2019年仅限 Windows Server)
+### <a id="storage-spaces-direct"></a>存储空间直通（仅限 Windows Server 2019）
 
-有大量的改进存储空间直通在 Windows Server 2019 （存储空间直通不包括在 Windows Server 半年频道）：
+Windows Server 2019 中的存储空间直通有很多改进（存储空间直通不包含在 Windows Server 中，半年频道）：
 
-- **重复数据删除和 ReFS 卷的压缩**
+- **用于 ReFS 卷的重复数据删除和压缩**
 
-    与重复数据删除和 ReFS 文件系统压缩在同一卷上存储最多 10 倍更多数据。 (它具有[只需单击一下](https://www.youtube.com/watch?v=PRibTacyKko&feature=youtu.be)若要使用 Windows Admin Center 打开。)使用可选的压缩大小可变的区块存储可节省率最大化，而多线程的后续处理体系结构保证性能的影响最小。 支持的卷最多 64 TB 和将重复数据删除的每个文件的第一个 4 TB。
+    对 ReFS 文件系统的重复数据删除和压缩，最多可存储同一个卷上的10倍多的数据。 （[只需单击](https://www.youtube.com/watch?v=PRibTacyKko&feature=youtu.be)一下即可打开 Windows 管理中心。）具有可选压缩的可变大小的区块存储最大限度地提高了节约率，而多线程后处理结构则会使性能影响降至最低。 支持最大为 64 TB 的卷，并将删除重复每个文件的前 4 TB。
 
-- **对永久性内存的本机支持**
+- **持久性内存的本机支持**
 
     利用针对持久性内存模块的本机存储空间直通支持释放前所未有的性能，包括 Intel® Optane™ DC PM 和 NVDIMM-N。 将持久性内存用作缓存以提高活动工作集的速度，或用作容量以保证一致的微秒数量级低延迟。 就像在 PowerShell 或 Windows Admin Center 中管理任何其他驱动器一样管理持久性内存。
 
-- **两个节点在边缘超聚合基础结构的嵌套复原能力**
+- **边缘处双节点超融合基础设施的嵌套复原**
 
     利用从 RAID 5+1 获得启发的全新软件复原选项，一次可承受两个硬件故障。 利用嵌套复原，两个节点的存储空间直通群集可以提供应用和虚拟机的连续访问存储，即使一个服务器节点出现故障并且其他服务器节点中一个驱动器出现故障也可继续工作。
 
-- **两个服务器群集使用 USB 闪存驱动器作为见证服务器**
+- **使用 U 盘作为见证的双服务器群集**
 
-    使用低成本 USB 闪存驱动器插入到你的路由器充当两个服务器群集中的见证服务器。 如果服务器发生故障，然后重新启动 USB 驱动器群集知道哪些服务器具有最新的数据。 有关详细信息，请参阅[存储在 Microsoft 博客](https://blogs.technet.microsoft.com/filecab/2018/06/27/windows-server-summit-recap/)。
+    使用连接到路由器的低成本 USB 闪存驱动器在两个服务器群集中充当见证服务器。 如果服务器关闭然后备份，则 USB 驱动器群集将知道哪个服务器具有最新的数据。 有关详细信息，请参阅[Microsoft 博客上的存储](https://blogs.technet.microsoft.com/filecab/2018/06/27/windows-server-summit-recap/)。
 
 - **Windows Admin Center**
 
@@ -91,105 +91,105 @@ Windows Admin Center 的新版本，是添加到 Windows Server 的新功能。 
 
 - **性能历史记录**
 
-    通过[内置历史记录](storage-spaces/performance-history.md)可轻松了解资源利用率和性能。 将自动收集跨越计算、内存、网络和存储的 50 多个基本计数器并将其存储在群集上，存储时间长达一年。 最重要的是，不需要安装、配置或启动，使用非常简单。 在 Windows Admin Center 中可视化或在 PowerShell 中查询和处理。
+    通过[内置历史记录](storage-spaces/performance-history.md)可轻松了解资源利用率和性能。 将自动收集跨越计算、内存、网络和存储的 50 多个基本计数器并将其存储在群集上，存储时间长达一年。 最重要的是，无需安装、配置或启动，只需运行即可。 在 Windows Admin Center 中可视化或在 PowerShell 中查询和处理。
 
-- **缩放最高支持每个群集 PB**
+- **纵向扩展到每个群集 4 PB**
 
-    实现多 PB 的扩展 – 非常适合介质、备份和存档用例。 在 Windows Server 2019 中，存储空间直通支持每个存储池多达 4 拍字节 (PB) = 4,000 太字节的原始容量。 还增加了相关容量指南：例如，你可以创建两倍多的卷（64 而不是 32），每个都是之前的两倍大（64TB 而不是 32TB）。 将多个群集缝合成[群集设置](storage-spaces/cluster-sets.md)为甚至更大的规模，一个存储命名空间内。 有关详细信息，请参阅[存储在 Microsoft 博客](https://blogs.technet.microsoft.com/filecab/2018/06/27/windows-server-summit-recap/)。
+    实现多 PB 的扩展 – 非常适合介质、备份和存档用例。 在 Windows Server 2019 中，存储空间直通支持每个存储池多达 4 拍字节 (PB) = 4,000 太字节的原始容量。 还增加了相关容量指南：例如，你可以创建两倍多的卷（64 而不是 32），每个都是之前的两倍大（64TB 而不是 32TB）。 将多个群集汇聚到一个[群集集中](storage-spaces/cluster-sets.md)，甚至能在一个存储命名空间内扩大规模。 有关详细信息，请参阅[Microsoft 博客上的存储](https://blogs.technet.microsoft.com/filecab/2018/06/27/windows-server-summit-recap/)。
 
-- **镜像加速奇偶校验更快地为 2 X**
+- **镜像加速奇偶校验速度是原来的 2 倍**
 
-    使用镜像加速奇偶校验，你可以创建存储空间直通卷，这些卷一部分是镜像，另一部分是奇偶校验（如混合使用 RAID 1 和 RAID 5/6），从而充分利用两者的优势。 (它具有[比您想象的更容易](https://www.youtube.com/watch?v=R72QHudqWpE)Windows Admin Center 中。)在 Windows Server 2019 镜像加速奇偶校验性能是增加一倍以上相对于 Windows Server 2016 得益于优化。
+    使用镜像加速奇偶校验，你可以创建存储空间直通卷，这些卷一部分是镜像，另一部分是奇偶校验（如混合使用 RAID 1 和 RAID 5/6），从而充分利用两者的优势。 （它比你在 Windows 管理中心中[想像的更容易](https://www.youtube.com/watch?v=R72QHudqWpE)。）在 Windows Server 2019 中，由于优化，镜像加速奇偶校验的性能比 Windows Server 2016 更多两倍。
 
-- **驱动器延迟离群值检测**
+- **驱动器延迟异常检测**
 
-    利用从 Microsoft Azure 的长期成功方法获得启发的主动监视和内置异常检测，可轻松识别存在异常延迟的驱动器。 无论是平均延迟还是出现的其他不明显的延迟（如 99% 延迟），低速驱动器会自动在 PowerShell 和 Windows Admin Center 中标记为“异常延迟”状态。
+    通过主动监视和内置离群值检测，轻松识别具有异常延迟的驱动器，这是 Microsoft Azure 的长期方法和成功方法。 无论是平均延迟还是更微妙的内容（如 99% 百分位的延迟），都将在 PowerShell 中自动标记慢速驱动器，并在 Windows 管理中心中自动标记为 "异常延迟" 状态。
 
-- **手动分隔卷，以提高容错能力的分配**
+- **手动分隔卷的分配以提高容错能力**
 
-    这使管理员可以手动分隔的存储空间直通中的卷分配。 这样做以便可显著提高容错能力，某些情况下，但施加了一些增加了的管理注意事项和复杂性。 有关详细信息，请参阅[分隔的卷分配](storage-spaces/delimit-volume-allocation.md)。
+    这使管理员能够在存储空间直通中手动分隔卷的分配。 这样做可能会在某些情况下显著增加容错能力，但会带来一些额外的管理注意事项和复杂性。 有关详细信息，请参阅[分隔卷的分配](storage-spaces/delimit-volume-allocation.md)。
 
 ### <a name="storage-replica2019"></a>存储副本
 
-有大量的改进[存储副本](storage-replica/storage-replica-overview.md)在此版本中：
+在此版本中，对[存储副本](storage-replica/storage-replica-overview.md)进行了很多改进：
 
-#### <a name="storage-replica-in-windows-server-standard-edition"></a>Windows Server，标准版中的存储副本
+#### <a name="storage-replica-in-windows-server-standard-edition"></a>Windows Server Standard Edition 中的存储副本
 
-使用 Windows Server，除了数据中心版的 Standard Edition，现在可以使用存储副本。 在 Windows Server Standard Edition 上运行的存储副本具有以下限制：
+除了 Datacenter Edition 外，现在还可以将存储副本用于 Windows Server Standard Edition。 Windows Server Standard Edition 上运行的存储副本具有以下限制：
 
-- 存储副本复制而不是无限数量的卷的单个卷。
-- 卷可以具有最多 2 TB 而不是大小不受限制的大小。
+- 存储副本复制单个卷而不是无限数量的卷。
+- 卷的大小最大可达 2 TB，而不是无限大小。
 
 #### <a name="storage-replica-log-performance-improvements"></a>存储副本记录性能改进
 
-我们还改进了存储副本日志跟踪复制的方式提高复制吞吐量和延迟，尤其是在所有闪存存储，以及相互之间复制的存储空间直通群集上。
+此外，我们还改进了存储副本日志跟踪复制的方式、提高复制吞吐量和延迟，尤其是在所有闪存存储上，以及在彼此之间相互复制存储空间直通群集之间。
 
-若要获得更高的性能，复制组的所有成员必须都运行 Windows Server 2019。
+若要获得更高的性能，复制组的所有成员都必须运行 Windows Server 2019。
 
 #### <a name="test-failover"></a>测试故障转移
 
-现在可以暂时在用于测试的目标服务器上装载的复制存储快照或备份目的。 有关详细信息，请参阅[关于存储副本的常见问题](https://aka.ms/srfaq)。
+你现在可以在目标服务器上暂时装载复制存储的快照，以便进行测试或备份。 有关详细信息，请参阅[关于存储副本的常见问题](https://aka.ms/srfaq)。
 
 #### <a name="windows-admin-center-support"></a>Windows Admin Center 支持
 
-对复制的图形管理支持现在 Windows Admin Center 通过服务器管理器工具。 这包括服务器到服务器复制，群集到群集以及拉伸群集复制。
+现在，通过服务器管理器工具在 Windows 管理中心中提供对复制的图形管理的支持。 这包括服务器到服务器复制、群集到群集以及 stretch 群集复制。
 
 #### <a name="miscellaneous-improvements"></a>其他改进
 
 存储副本还包含以下改进：
 
--   更改异步拉伸群集行为，因此，现在会发生自动故障转移
+-   更改异步 stretch 群集行为，以便立即进行自动故障转移
 -   多个 bug 修复
 
 ### <a name="smb"></a>SMB
 
-- **SMB1 和来宾身份验证去除**:默认情况下，Windows Server 可以不再安装 SMB1 客户端和服务器。 此外，SMB2 及更高版本中作为来宾进行身份验证的功能默认情况下处于关闭状态。 有关详细信息，请查看[默认情况下，Windows 10 版本 1709 和 Windows Server 版本 1709 中未安装 SMBv1](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server)。 
+- **SMB1 和来宾身份验证删除**：默认情况下，Windows Server 不再安装 SMB1 客户端和服务器。 此外，SMB2 及更高版本中作为来宾进行身份验证的功能默认情况下处于关闭状态。 有关详细信息，请查看[默认情况下，Windows 10 版本 1709 和 Windows Server 版本 1709 中未安装 SMBv1](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server)。 
 
-- **SMB2/SMB3 安全性和兼容性**:添加了安全和应用程序兼容性的其他选项，包括禁用 oplock SMB2 + 中的旧应用程序，以及需要签名或加密从客户端的每个连接基础上的功能。 有关详细信息，请查看 SMBShare PowerShell 模块帮助。
+- **SMB2/SMB3 安全性和兼容性**：添加了安全性和应用程序兼容性的附加选项（包括针对旧版应用程序在 SMB2+ 中禁用 oplock 的功能），并且这些选项要求从客户端对每个连接都进行签名或加密。 有关详细信息，请查看 SMBShare PowerShell 模块帮助。
 
 ### <a name="data-deduplication"></a>重复数据删除
 
-- **现在重复数据删除支持 ReFS**:不再必须选择是使用 ReFS 的流行文件系统的优势，重复数据删除： 现在，可以启用重复数据删除，只要可以启用 ReFS。 使用 ReFS 将存储效率提高 95% 以上。
-- **优化入口/出口到删除重复卷的系统数据端口 API**:开发人员现在可以利用重复数据删除具有有关如何存储数据，有效地以卷，服务器之间移动数据和有效地群集的知识。
+- **重复数据删除现在支持 ReFS**：不再需要在现代 ReFS 文件系统的优势与重复数据删除功能之间进行选择：现在，只要可以启用 ReFS，就可以启用重复数据删除。 使用 ReFS 将存储效率提高 95% 以上。
+- **适用于删除了重复数据的卷优化入口/出口的 DataPort API**：开发人员现在可以利用重复数据删除功能所了解的高效数据存储方式，在卷、服务器和群集之间高效移动数据。
 
 ### <a name="file-server-resource-manager"></a>文件服务器资源管理器
 
-在服务启动时，Windows Server 2019 上的所有卷包括的功能，若要阻止的文件服务器资源管理器服务创建变更日志 （也称为 USN 日志）。 这可以节省每个卷的空间，但将禁用实时文件分类。 有关详细信息，请参阅[文件服务器资源管理器概述](fsrm/fsrm-overview.md)。
+Windows Server 2019 包括阻止文件服务器资源管理器服务在服务启动时创建所有卷上的变更日志（也称为 USN 日志）的功能。 这可以节省每个卷的空间，但将禁用实时文件分类。 有关详细信息，请参阅[文件服务器资源管理器概述](fsrm/fsrm-overview.md)。
 
-## <a name="whats-new-in-storage-in-windows-server-version-1803"></a>什么是 Windows Server 版本 1803年中的存储中的新增功能
+## <a name="whats-new-in-storage-in-windows-server-version-1803"></a>Windows Server 中存储的新增功能，版本1803
 
 ### <a name="file-server-resource-manager"></a>文件服务器资源管理器
 
-Windows Server 版本 1803年包括的功能可防止文件服务器资源管理器服务创建变更日志 （也称为 USN 日志） 的所有卷在服务启动时。 这可以节省每个卷的空间，但将禁用实时文件分类。 有关详细信息，请参阅[文件服务器资源管理器概述](fsrm/fsrm-overview.md)。
+Windows Server 版本1803包括阻止文件服务器资源管理器服务在服务启动时创建所有卷上的变更日志（也称为 USN 日志）的功能。 这可以节省每个卷的空间，但将禁用实时文件分类。 有关详细信息，请参阅[文件服务器资源管理器概述](fsrm/fsrm-overview.md)。
 
-## <a name="whats-new-in-storage-in-windows-server-version-1709"></a>什么是 Windows Server 版本 1709年中的存储中的新增功能
+## <a name="whats-new-in-storage-in-windows-server-version-1709"></a>Windows Server 中存储的新增功能，版本1709
 
-Windows Server 版本 1709年是半年频道中的第一个 Windows Server 版本。 半年频道是软件保障权益，并完全支持在 18 个月内，使用新版本每六个月的生产环境中。
+Windows Server 版本1709是半年通道中的第一台 Windows Server 版本。 半年频道是软件保障权益，在18个月的生产中完全受支持，每六个月有新版本。
 
 有关详细信息，请参阅 [Windows Server 半年频道概述](../get-started/semi-annual-channel-overview.md)。
 
 ### <a name="storage-replica"></a>存储副本
 
-添加存储副本的灾难恢复保护现在扩展以包含：
+存储副本添加的灾难恢复保护现在已扩展为包括：
 
-- **测试故障转移**：现在可以通过测试故障转移功能来选择安装目标存储。 你可以在目标节点上临时安装复制的存储的快照以便进行测试或备份。 有关详细信息，请参阅[关于存储副本的常见问题](https://aka.ms/srfaq)。
-- **Windows Admin Center 支持**:对复制的图形管理支持现在 Windows Admin Center 通过服务器管理器工具。 这包括服务器到服务器复制，群集到群集以及拉伸群集复制。
+- **测试故障转移**：现在可以通过测试故障转移功能来选择安装目标存储。 可以在目标节点上临时安装复制的存储的快照以便进行测试或备份。 有关详细信息，请参阅[关于存储副本的常见问题](https://aka.ms/srfaq)。
+- **Windows 管理中心支持**：现在，通过服务器管理器工具在 Windows 管理中心中提供对复制的图形管理的支持。 这包括服务器到服务器复制、群集到群集以及 stretch 群集复制。
 
 存储副本还包含以下改进：
 
--   更改异步拉伸群集行为，因此，现在会发生自动故障转移
+-   更改异步 stretch 群集行为，以便立即进行自动故障转移
 -   多个 bug 修复
 
 ### <a name="smb"></a>SMB
 
-- **SMB1 和来宾身份验证去除**:Windows Server 版本 1709年不再安装 SMB1 客户端和服务器默认情况下。 此外，SMB2 及更高版本中作为来宾进行身份验证的功能默认情况下处于关闭状态。 有关详细信息，请查看[默认情况下，Windows 10 版本 1709 和 Windows Server 版本 1709 中未安装 SMBv1](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server)。 
+- **SMB1 和来宾身份验证删除**：默认情况下，Windows Server 版本 1709 不再安装 SMB1 客户端和服务器。 此外，SMB2 及更高版本中作为来宾进行身份验证的功能默认情况下处于关闭状态。 有关详细信息，请查看[默认情况下，Windows 10 版本 1709 和 Windows Server 版本 1709 中未安装 SMBv1](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server)。 
 
-- **SMB2/SMB3 安全性和兼容性**:添加了安全和应用程序兼容性的其他选项，包括禁用 oplock SMB2 + 中的旧应用程序，以及需要签名或加密从客户端的每个连接基础上的功能。 有关详细信息，请查看 SMBShare PowerShell 模块帮助。
+- **SMB2/SMB3 安全性和兼容性**：添加了安全性和应用程序兼容性的附加选项（包括针对旧版应用程序在 SMB2+ 中禁用 oplock 的功能），并且这些选项要求从客户端对每个连接都进行签名或加密。 有关详细信息，请查看 SMBShare PowerShell 模块帮助。
 
 ### <a name="data-deduplication"></a>重复数据删除
 
-- **现在重复数据删除支持 ReFS**:不再必须选择是使用 ReFS 的流行文件系统的优势，重复数据删除： 现在，可以启用重复数据删除，只要可以启用 ReFS。 使用 ReFS 将存储效率提高 95% 以上。
-- **优化入口/出口到删除重复卷的系统数据端口 API**:开发人员现在可以利用重复数据删除具有有关如何存储数据，有效地以卷，服务器之间移动数据和有效地群集的知识。
+- **重复数据删除现在支持 ReFS**：不再需要在现代 ReFS 文件系统的优势与重复数据删除功能之间进行选择：现在，只要可以启用 ReFS，就可以启用重复数据删除。 使用 ReFS 将存储效率提高 95% 以上。
+- **适用于删除了重复数据的卷优化入口/出口的 DataPort API**：开发人员现在可以利用重复数据删除功能所了解的高效数据存储方式，在卷、服务器和群集之间高效移动数据。
 
 ## <a name="whats-new-in-storage-in-windows-server-2016"></a>Windows Server 2016 中存储方面的新增功能
 
@@ -253,11 +253,11 @@ Windows Server 版本 1709年是半年频道中的第一个 Windows Server 版�
 |---------------|----------------|-------------|
 | [支持大型卷](data-deduplication/whats-new.md#large-volume-support) | 已更新 | 在 Windows Server 2016 之前，必须专门调整卷的大小实现预期改动，大小超过 10 TB 的卷不适合进行重复数据删除。 在 Windows Server 2016 中，重复数据删除支持**高达 64 TB** 的卷大小。 |
 | [支持大型文件](data-deduplication/whats-new.md#large-file-support) | 已更新 | 在 Windows Server 2016 之前，大小接近 1 TB 的文件不适合进行重复数据删除。 在 Windows Server 2016 中，完全支持**高达 1 TB** 的文件。 |
-| [Nano Server 的支持](data-deduplication/whats-new.md#nano-server-support) | 新增 | 重复数据删除在 Windows Server 2016 的新 Nano Server 部署选项中可用且完全受支持。 |
+| [支持 Nano Server](data-deduplication/whats-new.md#nano-server-support) | 新增 | 重复数据删除在 Windows Server 2016 的新 Nano Server 部署选项中可用且完全受支持。 |
 | [简化的备份支持](data-deduplication/whats-new.md#simple-backup-support) | 新增 | 在 Windows Server 2012 R2 中，通过一系列手动配置步骤支持虚拟化备份应用程序，如 Microsoft 的 [Data Protection Manager](https://technet.microsoft.com/library/hh758173.aspx) 在 Windows Server 2016 中，已针对虚拟化备份应用程序的重复数据删除的无缝部署添加了新的默认使用类型“备份”。 |
 | [支持群集操作系统滚动升级](data-deduplication/whats-new.md#cluster-upgrade-support) | 新增 | 重复数据删除完全支持 Windows Server 2016 的新的[群集操作系统滚动升级](..//failover-clustering/cluster-operating-system-rolling-upgrade.md)功能。 |
 
-### <a name="smb-hardening-improvements"></a>SMB 强化改进的 SYSVOL 和 NETLOGON 连接  
+### <a name="smb-hardening-improvements"></a>SYSVOL 和 NETLOGON 连接的 SMB 强化改进  
 在到默认的 Active Directory 域服务 SYSVOL 和 NETLOGON 的 Windows 10 和 Windows Server 2016 客户端连接中，域控制器上的共享现在要求 SMB 签名和相互身份验证（例如 Kerberos)。   
 
 **这一更改增添了什么价值？**  
@@ -269,13 +269,13 @@ Windows Server 版本 1709年是半年频道中的第一个 Windows Server 版�
 > [!NOTE]  
 > 这些设置的注册表值默认情况下并不出现，但在被组策略或其他注册表值替代前，强化规则仍然适用。  
 
-有关这些安全改进的详细信息也称为 UNC 强化，请参阅 Microsoft 知识库文章[3000483](https://support.microsoft.com/kb/3000483)和[MS15 011 & MS15-014:强化组策略](https://blogs.technet.microsoft.com/srd/2015/02/10/ms15-011-ms15-014-hardening-group-policy)。  
+有关这些安全改进的详细信息（也称为 UNC 强化），请参阅 Microsoft 知识库文章[3000483](https://support.microsoft.com/kb/3000483)和[MS15-011 & MS15-014：强化组策略](https://blogs.technet.microsoft.com/srd/2015/02/10/ms15-011-ms15-014-hardening-group-policy)。  
 
 ### <a name="work-folders"></a>工作文件夹
-改进了的更改通知时工作文件夹服务器正在运行 Windows Server 2016 和工作文件夹客户端是 Windows 10。
+改进了工作文件夹服务器运行 Windows Server 2016 和工作文件夹客户端时的更改通知。
 
 **这一更改增添了什么价值？**<br>
-对于 Windows Server 2012 R2，当文件更改同步到工作文件夹服务器上时，不向客户端通知这一更改并等待 10 分钟获取更新。  在使用 Windows Server 2016 时，工作文件夹服务器会立即通知 Windows 10 客户端和立即同步文件更改。
+对于 Windows Server 2012 R2，当文件更改同步到工作文件夹服务器上时，不向客户端通知这一更改并等待 10 分钟获取更新。  使用 Windows Server 2016 时，工作文件夹服务器会立即通知 Windows 10 客户端，文件更改会立即同步。
 
 **工作原理的不同之处是什么？**<br>
 此功能是 Windows Server 2016 的新增功能。 这需要 Windows Server 2016 工作文件夹服务器和客户端必须是 Windows 10。

@@ -1,6 +1,6 @@
 ---
 title: 软件清单日志记录疑难解答
-description: 介绍如何解决软件清单日志记录的常见部署问题。
+description: 描述如何解决常见的软件清单日志记录部署问题。
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: manage-software-inventory-logging
@@ -12,156 +12,156 @@ author: brentfor
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: 8a1fe22a1f721c0ac94096fe22c559c9bb092293
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1878347234affddcb7a7acb39c532712051ea223
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435312"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866272"
 ---
 # <a name="troubleshoot-software-inventory-logging"></a>软件清单日志记录疑难解答 
 
->适用于：Windows 服务器 （半年频道），Windows Server 2019，Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
+>适用于：Windows Server （半年频道），Windows Server 2019，Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2
 
 ## <a name="understanding-sil"></a>了解 SIL
 
-在开始故障排除 SIL 之前，应充分了解其组件以及其工作原理。 SIL 和 SIL 聚合器的概述以及如何使用它们来转发并报告清单数据，为提供以下视频：
+在开始对 SIL 进行故障排除之前，应充分了解其组件及其工作原理。 以下视频概述了 SIL 和 SIL 聚合器，以及如何使用它们来转发和报告清单数据：
 
-1. [软件清单日志记录 (SIL) (10:57) 简介](https://channel9.msdn.com/Blogs/Regular-IT-Guy/An-Introduction-to-Software-Inventory-Logging-SIL)
+1. [软件清单日志记录简介（SIL）（10:57）](https://channel9.msdn.com/Blogs/Regular-IT-Guy/An-Introduction-to-Software-Inventory-Logging-SIL)
 
-2. [软件清单日志记录：设置 SIL 聚合器 (14:34)](https://channel9.msdn.com/Blogs/windowsserver/Software-Inventory-Logging-Setting-up-SIL-Aggregator)
+2. [软件清单日志记录：设置 SIL 聚合器（14:34）](https://channel9.msdn.com/Blogs/windowsserver/Software-Inventory-Logging-Setting-up-SIL-Aggregator)
 
-3. [软件清单日志记录：启用 SIL 转发 (7:20)](https://channel9.msdn.com/Blogs/windowsserver/Software-Inventory-Logging-Enabling-SIL-Forwarding)
+3. [软件清单日志记录：启用 SIL 转发（7:20）](https://channel9.msdn.com/Blogs/windowsserver/Software-Inventory-Logging-Enabling-SIL-Forwarding)
 
-## <a name="how-sil-data-flow-works"></a>SIL 数据如何流动的工作原理
+## <a name="how-sil-data-flow-works"></a>SIL 数据流的工作原理
 
-SIL 框架具有两个主要组件和两个通道的通信。 数据流通过这两通道，并且这两个组件之间 （假定的虚拟化，或云，环境-纯粹物理环境仅需要一个通信通道的） 成功 SIL 部署。 你将需要了解的组件和数据流的 SIL 用于正确部署。 观看概述视频更高版本之后, 您将了解通过这两个通道中说明了组件和数据流的体系结构关系图。 橙色箭头指示通过 WinRM 的远程查询，绿色的虚线的箭头表示 HTTPS 发到 SIL 聚合器从 SIL 在每个 WS 结束节点中：
+SIL 框架包含两个主要组件和两个通信通道。 在两个通道之间以及这两个组件之间流动的数据是成功的 SIL 部署所必需的（这假定虚拟化或云环境-纯粹的物理环境只需要一个通信通道）。 你需要了解 SIL 的组件和数据流，以便正确部署。 观看以上概述视频后，你将看到体系结构图表，其中阐释了这两个通道上的组件和数据流。 橙色箭头表示通过 WinRM 进行远程查询，绿色虚线箭头指示从每个 WS 结束节点中的 SIL 到 SIL 聚合器的 HTTPS 发布：
 
 ![](../media/software-inventory-logging/image1.png)
 
-如果遇到 SIL 的问题，它是可能与数据的流中的中断通过通道，并在组件之间。 以下是最常见的问题相关的数据对数据流后, 接下一节中的故障排除步骤来解决每三个问题：
+如果遇到与 SIL 有关的问题，则很可能与通道和组件之间的数据流中断相关。 下面是与数据流相关的最常见问题，接下来的部分通过故障排除步骤来解决这三个问题：
 
--   **问题 1 数据流**–**报表时使用发布 SilReport cmdlet 中的没有数据**（或通常缺少数据）。
+-   数据流**问题 1** –**使用 SilReport cmdlet 时报表中不存在数据**（或一般缺少数据）。
 
--   **问题 2 数据流**–**过下未知的主机的多个服务器**报表中。
+-   数据流**问题 2** -报表中**未知主机下的服务器太多**。
 
--   **问题 3 数据流**–**过下作为未知操作系统列出的物理主机的多个 Vm**在报表中，和/或使用时生成错误**Publish-sildata**运行 SIL 的 Windows 服务器上。
+-   数据流**问题 3** -在报表中**列为未知 OS 的物理主机下的虚拟机太多**，以及/或者在运行 SIL 的 Windows 服务器上使用**get-sildata**时生成的错误。
 
-## <a name="troubleshooting-data-flow-issues"></a>故障排除数据流问题
+## <a name="troubleshooting-data-flow-issues"></a>解决数据流问题
 
-在开始之前，你将需要知道如何很久以前 SIL 聚合器入门**开始 SilAggregator** cmdlet。
+在开始之前，需要知道 SIL 聚合器开始之前如何开始**set-silaggregator** cmdlet。
 
 >[!IMPORTANT]
->SQL 数据多维数据集处理在凌晨 3 点本地系统时间之前，在报表中也将是任何数据。 不要继续进行故障排除步骤，直到该多维数据集处理数据。
+>在3AM 本地系统时间处理 SQL 数据多维数据集之前，报表中将不会有任何数据。 在多维数据集处理数据之前，不要继续执行故障排除步骤。
 
-如果要解决比上一次新报表 （或报表中缺少） 中的数据多维数据集处理，或者 （对于新安装），具有不断处理多维数据集之前执行以下步骤处理实时 SQL 数据多维数据集:
+如果对报表中的数据（或报表中缺少的数据）进行故障排除，该数据比上次处理多维数据集的时间新，或在处理完多维数据集之前（对于全新安装），请按照以下步骤进行操作：:
 
-1. SQL Server 的管理员身份登录并运行**SSMS**在命令提示符。
+1. 以 SQL Server 管理员身份登录，并在命令提示符下运行**SSMS** 。
 2. 连接到数据库引擎。
-3. 展开**SQL Server 代理**，然后展开**作业**。
-4. 右键单击**SILStagingRefresh** ，然后选择**作业开始步骤**。
-5. 单击**启动**并等待刷新进度条完成。
-6. 打开 PowerShell，以管理员身份运行**发布 silreport openreport** cmdlet。
+3. 展开**SQL Server 代理**然后展开 "**作业**"。
+4. 右键单击**SILStagingRefresh** ，然后选择 "**在步骤开始作业**"。
+5. 单击 "**启动**"，等待刷新进度栏完成。
+6. 以管理员身份打开 PowerShell 并运行**silreport-openreport** cmdlet。
 
-如果在报表中仍没有任何数据，继续进行故障排除的三个数据流问题。
+如果报表中仍没有数据，请继续排查三个数据流问题。
 
-### <a name="data-flow-issue-1"></a>数据流量问题 1 
+### <a name="data-flow-issue-1"></a>数据流问题1 
 
-#### <a name="no-data-in-the-report-when-using-the-publish-silreport-cmdlet-or-data-is-generally-missing"></a>使用发布 SilReport cmdlet 时报表中的没有数据 （或缺少数据通常）
+#### <a name="no-data-in-the-report-when-using-the-publish-silreport-cmdlet-or-data-is-generally-missing"></a>使用 SilReport cmdlet 时报表中不存在数据（或一般数据缺失）
 
-如果缺少数据，则它可能是由于 SQL 数据多维数据集不具有尚未处理。 如果它最近已处理并且您认为缺失的数据应已到达多维数据集处理前的聚合器，请按相反的顺序执行的数据的路径。 选择唯一的主机和一个唯一的虚拟机进行故障排除。 按相反的顺序的数据路径将是**SILA 报表** &lt; **SILA 数据库** &lt; **SILA 本地目录** &lt; **远程物理主机**或**WS VM 运行 SIL 的代理/任务**。
+如果数据丢失，则很可能是因为 SQL 数据多维数据集尚未处理。 如果已对其进行了最近的处理，但你认为丢失的数据应在处理多维数据集之前到达聚合器，请按照相反的顺序执行数据的路径。 选取唯一主机和唯一的 VM 进行故障排除。 相反，数据路径将为**SILA Report** &lt; **SILA database** &lt; **SILA local directory** &lt; **远程物理主机**或**WS VM 运行 SIL agent/task**。
 
-#### <a name="check-to-see-if-data-is-in-the-database"></a>检查数据在数据库中
+#### <a name="check-to-see-if-data-is-in-the-database"></a>查看数据库中是否有数据
 
-有两种方法来检查有数据：**Powershell**或**SSMS**。
+可以通过两种方式检查数据：**Powershell**或**SSMS**。
 
 >[!Important]
->如果由于 SILA 将数据插入数据库，具有至少一次处理多维数据集，应在报表中反映此数据。 如果在数据库中没有数据然后失败轮询的物理主机或执行任何操作正在接收通过 HTTPS，或两者。
+>如果多维数据集至少处理了一次，因为 SILA 将数据插入到数据库中，则此数据应反映在报表中。 如果数据库中没有数据，则轮询物理主机失败，或者不是通过 HTTPS 接收任何内容，或者两者都不是。
 
  #### <a name="powershell"></a>PowerShell
 
-1. 打开 PowerShell，以管理员身份运行**get silvmhost** cmdlet，然后运行**get silaggregator**。
+1. 以管理员身份打开 PowerShell 并运行**add-silvmhost** cmdlet，然后运行**set-silaggregator**。
 
     >[!NOTE]
-    >输出**get silaggregator**始终将模拟**Windows Server 详细信息选项卡**的 Excel 报表。 不希望不同的结果。
+    >**Set-silaggregator**的输出将始终模拟 Excel 报表的 " **Windows Server 详细信息" 选项卡**。 不需要其他结果。
 
-2. Run **get-silvmhost**
-   - 如果那里任何主机列出，然后添加主机使用**添加 silvmhost** cmdlet。
-   - 如果主机被列为**未知**，然后转到问题 2。 
-   d-如果列出的主机，但没有任何**datetime**下**最近轮询**列，然后再转到**问题 2**下面。
+2. 运行**add-silvmhost**
+   - 如果未列出任何主机，则使用**add-silvmhost** cmdlet 添加主机。
+   - 如果主机列出为 "**未知**"，则请参阅 "问题 2"。 
+   如果主机已列出但最近的 "**轮询**" 列下没有**日期时间**，请参阅下面的 "**问题 2** "。
 
-**其他相关的命令**
+**其他相关命令**
 
-**Get SilAggregator-Computername&lt;将数据推送的已知服务器 fqdn&gt;** :即使之前已处理该多维数据集，这会生成有关计算机 (VM) 从数据库的信息。 因此可以使用此 cmdlet 检查数据库中的数据适用于推送 SIL 数据通过 HTTPS 之前，或不在凌晨 3 点多维数据集处理 （或如果在尚未刷新实时多维数据集，如本部分开头所述） Windows Server。
+**Set-silaggregator-已知服务器的&lt;Computername fqdn 推送数据&gt;** ：这会在处理完多维数据集之前，从数据库中生成有关计算机（VM）的信息。 因此，此 cmdlet 可用于检查数据库中的数据，以便 Windows Server 在3AM （或者在此部分开头所述的情况下，如果未按本部分开头所述的方式实时刷新多维数据集）上推送 SIL 数据。
 
-**Get SilAggregator VmHostName&lt;轮询的物理主机的 fqdn 的最近轮询列下的值时使用 Get-silvmhost cmdlet&gt;** :即使之前已处理该多维数据集，这会生成有关物理主机数据库中的信息。
+**使用 add-silvmhost cmdlet &lt;&gt;时，set-silaggregator-VmHostName 已轮询的物理主机的 fqdn，其中存在 "最近轮询" 列下的值**：即使在处理多维数据集之前，也会在数据库中生成有关物理主机的信息。
 
 #### <a name="ssms"></a>SSMS
 
-n**检查是否有从轮询的主机的数据：**
+n**检查要轮询的主机中的数据：**
  
 1. 打开**SSMS**并连接到**数据库引擎**。
-2. 展开**数据库**，展开**SoftwareInventoryLogging**数据库，展开**表**，右键单击**HostInfo**表，然后选择前 1000年行。 
+2. 展开 "**数据库**"，展开 " **SoftwareInventoryLogging** " 数据库，展开 "**表**"，右键单击 " **HostInfo** " 表，然后选择 "前1000行"。 
 
-    如果没有数据的表中的一个或多个主机，然后轮询，/those 主机已成功至少一次。
+    如果表中有一个或多个主机的数据，则为该主机至少进行一次的轮询。
 
-   **检查有从虚拟机或独立服务器，通过 HTTPS 推送数据的数据：** 
+   **检查通过 HTTPS 推送数据的 Vm 或独立服务器上的数据：** 
 
 3. 打开**SSMS**并连接到**数据库引擎**。
-   a2. 展开**数据库**，展开**SoftwareInventoryLogging**数据库，展开**表**，右键单击**VMInfo**表，然后选择前 1000年行。 
+   a2. 展开 "**数据库**"，展开 " **SoftwareInventoryLogging** " 数据库，展开 "**表**"，右键单击 " **VMInfo** " 表，然后选择前1000行。 
 
     >[!NOTE] 
-    >唯一的 VM 的每一行表示一个处理**bmil**文件已成功通过 HTTPS 推送并由 SIL 聚合器进行处理。 Bmil 文件是由 SIL 的专有文件，则会创建每个我们的每个 SIL 实例，此选项仅必要时请注意 SIL 和 SILA 用于虚拟环境中。 否则仅 HTTPS 流量是预期需要/）。
+    >唯一 VM 的每一行都表示一个已处理的**bmil**文件成功通过 HTTPS 推送并由 SIL 聚合器处理。 Bmil 文件是 SIL 使用的专有文件，每个 SIL 实例都会创建一个文件，请注意，仅在虚拟环境中使用 SIL 和 SILA 时，这才是必需的。 否则，仅 HTTPS 流量是必需的/预期的。
 
-   处理多维数据集后，应会在数据库中的所有数据都反映在 SIL 报告。
+   处理完多维数据集后，数据库中的所有数据都应在 SIL 报告中反映出来。
 
-### <a name="data-flow-issue-2"></a>数据流量问题 2
-#### <a name="too-many-servers-under-unknown-host"></a>未知的主机下太多的服务器
+### <a name="data-flow-issue-2"></a>数据流问题2
+#### <a name="too-many-servers-under-unknown-host"></a>未知主机下的服务器太多
 
-这是可能在 SIL 聚合器未成功轮询托管虚拟机的物理主机时出现在虚拟环境。
+当 SIL 聚合器未能成功轮询托管虚拟机的物理主机时，可能会出现这种情况。
 
-1. 打开**PowerShell**以管理员身份运行**get silvmhost** cmdlet。
+1. 以管理员身份打开**PowerShell**并运行**add-silvmhost** cmdlet。
 
-    -   如果主机被列为**未知**，则**添加 silvmhost** cmdlet 未正常工作 – 通常由于错误的访问权限添加到这些主机的凭据 (因此，未知)。 如果验证凭据，这可能意味着自动检测，但是**hosttype**并**hypervisortype**中**添加 silvmhost** cmdlet 无法识别平台。 那里一些高级故障排除步骤可用于这些情况下，但此处未介绍 （请检查事件查看器的 SIL 聚合器通道）。
+    -   如果主机列出为 "**未知**"，则**add-silvmhost** cmdlet 将无法正常工作，这通常是由于为访问这些主机而添加了错误的凭据（因而是未知的）。 但如果验证凭据，则可能表示**add-silvmhost** cmdlet 中的**hosttype**和**hypervisortype**的自动检测无法识别该平台。 在这些情况下，可以使用高级故障排除步骤，但此处未介绍这些步骤（请检查 EventViewer SIL 聚合器通道）。
 
-    -   如果主机未列出，并**hosttype**并**hypervisortype**列出的值不是**未知**，即 Windows 和 HyperV，或 Ubuntu 和 Xen，等，但没有任何**datetime**下**最近轮询**列，然后轮询成功尚未发生。
+    -   如果主机已列出，且**hosttype**和**hypervisortype**列的值**未知**，即 Windows 和 HyperV，或 Ubuntu 和 Xen 等，但 "**最近轮询**" 列下没有 "**日期时间**"，则轮询尚未成功。
 
-        -   你将需要等待一小时后添加的轮询的主机发生 (假设此间隔设置为默认值-可以使用检查**get silaggregator** cmdlet)。
+        -   添加主机进行轮询后，需要等待一小时（假设此时间间隔设置为默认值–可以使用**set-silaggregator** cmdlet 进行检查）。
 
-        -   如果已添加主机，因为已一小时，请检查轮询任务正在运行:在中**任务计划程序**，选择**软件清单日志记录聚合器**下**Microsoft** &gt; **Windows**和检查任务的历史记录。
+        -   如果自添加主机以来已经过了一小时，请检查轮询任务是否正在运行：在**任务计划程序**中，选择 " **Microsoft** &gt; **Windows** " 下的 "**软件清单日志记录聚合**器"，然后检查任务的历史记录。
 
-    -   如果主机已列出，但不存在的值**RecentPoll**， **HostType**，或**HypervisorType**，可以很大程度上忽略。 这只会在 HyperV 环境中。 此数据实际来自于 Windows Server VM，识别通过 HTTPS 运行在物理主机。 这可以是标识特定的 VM 的报告，但需要挖掘数据库使用很有用**Get SilAggregatorData** cmdlet。
+    -   如果列出了主机，但没有**RecentPoll**、 **HostType**或**HypervisorType**的值，这可能会很大程度上被忽略。 这只会在 HyperV 环境中发生。 此数据实际上来自 Windows Server VM，它标识了它通过 HTTPS 运行的物理主机。 这对于识别报告的特定 VM 很有用，但需要使用**SilAggregatorData** cmdlet 来挖掘数据库。
 
-后正确轮询主机，你将能够看到这些物理主机 SILA 数据库中的数据没有**datetime**下**最近轮询**。 上面的问题 1 部分提供用于检索此数据的步骤。
+正确轮询主机后，你将能够在 SILA 数据库中查看这些物理主机的数据，其中在 "**最近轮询**" 下有一个**日期时间**。 上面的 "问题 1" 部分提供了用于检索此数据的步骤。
 
-### <a name="data-flow-issue-3"></a>数据流量问题 3
-#### <a name="too-many-physical-hosts-with-vms-listed-as-unknown-os"></a>与列为未知 OS 的 Vm 的物理主机数过多
+### <a name="data-flow-issue-3"></a>数据流问题3
+#### <a name="too-many-physical-hosts-with-vms-listed-as-unknown-os"></a>将 Vm 列为未知 OS 的物理主机过多
 
-1. 选择一个 Windows Server 结束节点 (VM) 您知道是一个这些主机上以管理员身份登录。
+1. 选择你知道的一个 Windows Server 终端节点（VM）在其中一台主机上，以管理员身份登录。
 2. 以管理员身份打开 PowerShell。
-3. 验证是否**SilLogging**通过使用运行**Get-sillogging** cmdlet。
-   - 如果运行，尝试通过使用手动推送 SIL 数据**Publish-sildata**。
+3. 使用**set-sillogging** Cmdlet 验证**set-sillogging**是否正在运行。
+   - 如果正在运行，请尝试使用**get-sildata**手动推送 SIL 数据。
 
    - 如果出现错误：
-     - 请确保**targeturi**已**https://** 条目中。
-     - 请确保满足所有系统必备组件 
-     - 确保已安装适用于 Windows Server 的所有必需的更新 （请参阅 SIL 的先决条件）。 若要检查 （仅限 WS 2012 R2) 的快速方法是查找这些使用以下 cmdlet:**Get-SilWindowsUpdate \*3060, \*3000**
-     - 确保正在用于对聚合器进行身份验证的证书安装在要进行清点的本地服务器上的正确存储**SilLogging**。
-     - 上 SIL 聚合器，请确保使用向聚合器进行身份验证的证书的证书指纹添加到列表使用**Set SilAggregator** **– AddCertificateThumbprint**cmdlet。
+     - 确保**targeturi**在条目中具有**https://** 。
+     - 确保满足所有先决条件 
+     - 确保已安装 Windows Server 的所有必需更新（请参阅 SIL 的先决条件）。 若要快速检查（仅限 WS 2012 R2），请使用以下 cmdlet 来查找这些内容：**Get-silwindowsupdate \*3060， \*3000**
+     - 确保用于对聚合器进行身份验证的证书安装在要使用**set-sillogging**进行清点的本地服务器上的正确存储中。
+     - 在 SIL 聚合器上，请确保使用**set-silaggregator** **– AddCertificateThumbprint** cmdlet 将用于向聚合器进行身份验证的证书的证书指纹添加到列表。
      - 如果使用企业证书，请检查启用 SIL 的服务器是否已加入为之而创建证书的域，或是否可通过根证书颁发机构进行验证。 如果证书在尝试向聚合器转发/推送数据的本地计算机上不受信任，此操作将失败并返回错误。
 
-     如果上述所有已检查和验证，但问题仍然存在：
+     如果已检查并验证上述所有内容，但问题仍然存在：
 
-     - 检查用于安装 SIL 聚合器的证书正常运行，以及与 SIL 聚合器服务器本身的名称相匹配。 此外，如果企业证书用于安装 SIL 聚合器，聚合器可能需要加入到创建证书的域（如果其他计算机成功转发到同一 SIL 聚合器，则无需这些步骤）。
+     - 检查用于安装 SIL 聚合器的证书是否正常，以及是否与 SIL 聚合器服务器本身的名称相匹配。 此外，如果企业证书用于安装 SIL 聚合器，聚合器可能需要加入到创建证书的域（如果其他计算机成功转发到同一 SIL 聚合器，则无需这些步骤）。
 
-     -  最后，可以检查缓存的 SIL 文件尝试进行转发/推送的服务器上的以下位置 **\Windows\System32\Logfiles\SIL**。 如果**SilLogging**已启动并已运行超过一小时，或**Publish-sildata**最近已运行并没有任何文件在此目录中，不是已向聚合器的日志记录成功。
+     -  最后，可以在尝试转发/推送、 **\Windows\System32\Logfiles\SIL**的服务器上查看缓存的 SIL 文件所在的位置。 如果**set-sillogging**已启动并运行超过1小时，或者最近运行过**get-sildata** ，且此目录中没有任何文件，则不会成功记录到聚合器。
 
-如果没有错误，并在控制台上的任何输出，然后数据推送/从发布的 Windows Server 结束节点到通过 HTTPS 的 SIL 聚合器已成功。 若要以管理员身份 SIL 聚合器跟踪数据转发，登录名的路径，并检查已到达的数据文件。 转到**Program Files (x86)** &gt; **Microsoft SIL 聚合器** &gt; SILA 目录。 可以监视在真实时间到达的数据文件。
-
->[!NOTE] 
->多个数据文件可能会使用传输**Publish-sildata** cmdlet。 SIL 结束节点上的将缓存最多 30 天失败的推送。 在下一步的成功推送所有数据文件将都转到聚合器进行处理。 这样一来，新设置 SIL 聚合器可以显示其自己的安装程序之前也结束节点中的数据。
+如果没有错误，并且在控制台上没有输出，则通过 HTTPS 从 Windows Server 结束节点到 SIL 聚合器的数据推送/发布已成功。 若要跟踪数据的路径，请以管理员身份登录到 SIL 聚合器，并检查收到的数据文件。 请参阅**Program Files （x86）** &gt; **Microsoft SIL 聚合** &gt;器 SILA directory。 您可以实时查看数据文件。
 
 >[!NOTE] 
->有 SILA 遵循时处理 SILA 目录中的数据文件，仅与低流量情况的规则。 较高的流量始终会触发实时处理。 默认行为是，处理将开始或者后在目录中，或 15 分钟后到达 100 个文件。 在小型环境中的端到端故障排除时，通常必须要等待 15 分钟。
+>可以使用**get-sildata** cmdlet 传输多个数据文件。 结束节点上的 SIL 会将失败的推送缓存多达30天。 在下一次成功推送时，所有数据文件都将发送到聚合器进行处理。 通过这种方式，新设置的 SIL 聚合器可以在其自身安装之前，从结束节点中显示数据。
 
-这些文件进行处理后，将看到数据库中的数据。
+>[!NOTE] 
+>在 SILA 目录中处理只在低流量情况下相关的数据文件时，SILA 规则。 高流量将始终实时触发处理。 默认行为是，处理将在100个文件到达目录之后或在15分钟后开始。 在小型环境中进行端到端故障排除时，通常需要等待15分钟。
+
+处理这些文件后，您将看到数据库中的数据。

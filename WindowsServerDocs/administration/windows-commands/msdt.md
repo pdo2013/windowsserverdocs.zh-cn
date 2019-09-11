@@ -1,6 +1,6 @@
 ---
 title: msdt
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ba411cf73026afe9990e5c32824e3dc277507891
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 7bec16ab3f716148bb009dd56be475fcd058a897
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437228"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868895"
 ---
 # <a name="msdt"></a>msdt
 
 
 
-调用故障排除的包，在命令行或作为一部分的自动执行的脚本，并提供了无需用户输入的附加选项。
+在命令行或自动脚本中调用疑难解答包，并启用其他选项，无需用户输入。
 
 ## <a name="syntax"></a>语法
 
@@ -34,14 +34,14 @@ msdt </id <name> | /path <name> | /cab < name>> <</parameter> [options] … <par
 
 ## <a name="parameters"></a>Parameters
 
-下表包含的参数和 msdt.exe 支持选项。
+下表包括了 msdt 支持的参数和选项。
 
 
 |      参数      |                                                                                            描述                                                                                             |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /id\<包名称 > |        指定要运行的诊断程序包。 有关可用包的列表，请参阅"可用故障排除程序包中疑难解答包 ID？ 本主题后面的部分。         |
-|  /path \<directory  |                                                                                           .diagpkg 文件                                                                                            |
-|   /dci \<passkey>   |                                        预填充 msdt 中的密钥字段。 支持提供商已提供密钥时，才使用此参数。                                         |
-|  /dt \<directory>   | 显示故障排除历史记录中指定的目录。 诊断结果存储在用户的 **%LOCALAPPDATA%\Diagnostics**或 **%LOCALAPPDATA%\ElevatedDiagnostics**目录。 |
-| /af\<答案文件 >  |                                               指定包含对一个或多个诊断交互的响应的 XML 格式的应答文件。                                               |
+| /id \<包名称 > |        指定要运行的诊断包。 有关可用包的列表，请参阅本主题后面的 "可用疑难解答包" 一节中的疑难解答包 ID。         |
+|  /path \<目录  |                                                                                           diagpkg 文件                                                                                            |
+|   /dci \<密钥 >   |                                        预填充以 msdt 为密钥字段。 仅当支持提供程序提供了密钥时，才使用此参数。                                         |
+|  /dt \<目录 >   | 显示指定目录中的故障排除历史记录。 诊断结果存储在用户的 **%LOCALAPPDATA%\Diagnostics**或 **%LOCALAPPDATA%\ElevatedDiagnostics**目录中。 |
+| /af \<应答文件 >  |                                               指定 XML 格式的应答文件，该文件包含对一个或多个诊断交互的响应。                                               |
 

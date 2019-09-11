@@ -9,86 +9,86 @@ ms.date: 01/16/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ee7bef2afe61500fe75b2d3c61b92b902f9757fa
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e49b18bf5e10de6150603b690095f61a13e59ef2
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444261"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865988"
 ---
 # <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>AD FS 登录页的高级自定义
 
   
-## <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>AD FS 登录的高级自定义\-页中  
-Windows Server 2012 R2 中的 AD FS 提供了构建\-中支持自定义登录\-体验中。 对于这些情况下，内置的大多数\-在 Windows PowerShell cmdlet 所需要的所有。  建议你使用内置\-在 Windows PowerShell 命令来为 AD FS 自定义的标准元素中登录\-尽可能的经验。  请参阅[登录自定义 AD FS 用户](AD-FS-user-sign-in-customization.md)有关详细信息。  
+## <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>AD FS 登录\-页的高级自定义  
+Windows Server 2012 R2 中的 AD FS 为\-自定义登录\-体验提供内置支持。 大多数情况下，内置\-的 Windows PowerShell cmdlet 都是必需的。  建议你尽可能使用内置\-的 Windows PowerShell 命令自定义标准元素，以便 AD FS 登录\-体验。  有关详细信息，请参阅[AD FS 用户登录自定义](AD-FS-user-sign-in-customization.md)。  
   
-在某些情况下，AD FS 管理员可能想要提供其他登录\-体验的不是可以通过现有的 PowerShell 命令中发售的\-与 AD FS 的框。 在某些情况下，它是可行\(在下面提供的指导原则\)的管理员可以自定义登录\-体验中进一步通过将添加到其他逻辑**onload.js** ，由 AD FS 提供，将所有 AD FS 页上执行。  
+在某些情况下，AD FS 管理员可能希望提供附加的\-登录体验，而不能通过 AD FS\-附带的现有 PowerShell 命令来实现。 在某些情况下，它在\(下面\)提供的指导原则中是可行的，以便\-管理员可以通过将附加逻辑添加到 AD FS 提供的**onload** ，进一步自定义登录体验将在所有 AD FS 页上执行。  
   
-## <a name="things-to-know-before-you-start"></a>在开始前需知事项  
+## <a name="things-to-know-before-you-start"></a>开始之前要了解的问题  
   
--   不支持任何更改会影响重定向流或修改 AD FS 配合的协议参数。
+-   不支持影响重定向流或修改 AD FS 使用的协议参数的任何更改。
   
--   原始 onload.js，一个附带的默认 web 主题，包含用于处理针对不同外形因素的页面呈现代码。 建议不应修改原始 onload.js 内容而仅将你的代码追加到现有 onload.js 处理自定义逻辑。  
+-   作为默认 web 主题附带的 "初始 onload" 包含处理不同窗体规格的页面呈现的代码。 建议不要修改原始 onload 内容，而只是将代码追加到处理自定义逻辑的现有 onload。  
   
--   AD FS 附带的内置\-中称为默认 web 主题。 不能修改默认 web 主题的 onload.js。 若要更新 onload.js，您必须创建并使用自定义 web 主题进行 AD FS 登录\-页中。  请参阅[登录自定义 AD FS 用户](AD-FS-user-sign-in-customization.md)有关如何创建自定义 web 主题的信息。  
+-   AD FS 附带了一个名\-为 Default 的内置 web 主题。 你无法修改默认 web 主题的 onload。 若要更新 onload，必须创建并使用自定义 web 主题 AD FS 登录\-页。  有关如何创建自定义 web 主题的信息，请参阅[AD FS 用户登录自定义](AD-FS-user-sign-in-customization.md)。  
   
--   将在所有 ADFS 页上执行相同 onload.js \(ex。 窗体\-基于登录页上，主领域发现页面和等\)。 您需要确保您的脚本中的代码只能获取执行设计并不会执行意外。  
+-   同一 onload 将在所有 ADFS 页面\(上执行（例如）。 基于\-窗体的登录页、主页领域发现页等\)。 需要确保脚本中的代码仅在设计时才执行，并且不会意外执行。  
   
--   当引用的任何 HTML 元素，请确保始终检查之前对该元素的元素存在。 这提供了可靠性，并可确保在自定义逻辑将不执行不包含此元素的页上。 只可以查看 HTML 源上的 AD FS 登录\-页可以查看现有元素中。  
+-   引用任何 HTML 元素时，确保在对元素执行操作之前始终检查元素是否存在。 这将提供稳定性并确保不在不包含此元素的页上执行自定义逻辑。 只需在 AD FS 登录\-页上查看 HTML 源即可查看现有元素。  
   
--   强烈建议验证你的备用环境中的自定义和滚动一下到生产 AD FS 服务器之前对其进行测试。 这将减少暴露给之前验证这些自定义的最终用户的可能性。  
+-   强烈建议在备用环境中验证自定义，并在将其放入生产 AD FS 服务器之前对其进行测试。 这会降低最终用户在验证之前向这些自定义项公开的几率。  
   
-## <a name="customizing-the-ad-fs-sign-in-experience-by-using-onloadjs"></a>自定义 AD FS 登录\-使用 onload.js 体验中  
-自定义 AD FS 服务 onload.js 时，请使用以下步骤。  
+## <a name="customizing-the-ad-fs-sign-in-experience-by-using-onloadjs"></a>使用 onload 自定义\-AD FS 登录体验  
+为 AD FS 服务自定义 onload 时，请执行以下步骤。  
   
-#### <a name="customizing-onloadjs-for-the-ad-fs-service"></a>自定义 AD FS 服务 onload.js  
+#### <a name="customizing-onloadjs-for-the-ad-fs-service"></a>为 AD FS 服务自定义 onload  
   
-1.  若要将自定义逻辑添加到 onload.js，需要先创建自定义 web 主题。 寄出的主题\-的\-\-框称为默认值。 可以导出并使用该默认主题，以便可以快速启动。 以下 cmdlet 创建自定义 web 主题，复制默认 web 主题：  
+1.  若要将自定义逻辑添加到 onload，需要首先创建自定义 web 主题。 出厂\-\-时提供的主题称为"\-默认主题"。 可以导出并使用该默认主题，以便可以快速启动。 以下 cmdlet 将创建一个自定义 web 主题，该主题将复制默认 web 主题：  
   
     ```  
     New-AdfsWebTheme –Name custom –SourceName default  
   
     ```  
   
-2.  然后可以导出自定义或默认 web 主题获取 onload.js 文件。 若要导出 web 主题，请使用以下 cmdlet:  
+2.  然后，你可以导出自定义或默认 web 主题，以获取 onload 文件。 若要导出 web 主题，请使用以下 cmdlet：  
   
     ```  
     Export-AdfsWebTheme –Name default –DirectoryPath c:\theme  
   
     ```  
   
-    您会发现 onload.js 脚本文件夹下的目录中指定导出 cmdlet 更高版本中，然后在脚本中添加自定义逻辑\(请参阅下面的示例部分中的用例\)。  
+    你将在上面的导出 cmdlet 中指定的目录下的脚本文件夹中找到 onload，并将你的自定义逻辑添加到该\(脚本，请参阅下面\)的 "示例" 部分中的用例。  
   
-3.  进行必要的修改，以自定义 onload.js 根据你的需求。  
+3.  进行必要的修改以根据你的需要自定义 onload。  
   
-4.  使用修改后的 onload.js 更新主题。 使用以下 cmdlet 将更新 onload.js 应用于自定义 web 主题：  
+4.  用修改的 onload 更新主题。 使用以下 cmdlet 将更新 onload 应用到自定义 web 主题：  
 
-     对于 Windows Server 2012 R2 上的 AD FS:  
+     对于 Windows Server 2012 R2 上的 AD FS：  
 
     ```  
-    Set-AdfsWebTheme -TargetName custom -AdditionalFileResource @{Uri=’/adfs/portal/script/onload.js’;path="c:\theme\script\onload.js"}  
+    Set-AdfsWebTheme -TargetName custom -AdditionalFileResource @{Uri='/adfs/portal/script/onload.js';path="c:\theme\script\onload.js"}  
   
     ```  
-    对于 Windows Server 2016 上的 AD FS:
+    对于 Windows Server 2016 上的 AD FS：
 
      ```  
     Set-AdfsWebTheme -TargetName custom -OnLoadScriptPath "c:\ADFStheme\script\onload.js"   
   
     ```  
   
-5.  若要将自定义 web 主题应用到的 AD FS，使用以下 cmdlet:  
+5.  若要将自定义 web 主题应用到 AD FS，请使用以下 cmdlet：  
   
     ```  
     Set-AdfsWebConfig -ActiveThemeName custom  
     ```  
   
 ## <a name="additional-customization-examples"></a>其他自定义示例  
-下面的示例的自定义代码添加到不同的细的 onload.js\-优化目的。 在添加自定义代码时，请始终追加在自定义代码到 onload.js 底部。  
+下面是添加到 onload 的自定义代码的示例，用于实现不同的\-微调目的。 添加自定义代码时，请始终将自定义代码附加到 onload 的底部。  
   
-### <a name="example-1-change-sign-in-with-organizational-account-string"></a>示例 1： 更改"使用组织帐户登录"的字符串  
-默认 AD FS 窗体\-基于登录\-页中具有用户输入框上方的"使用你的组织帐户登录"标题。  
+### <a name="example-1-change-sign-in-with-organizational-account-string"></a>示例1：更改 "用组织帐户登录" 字符串  
+AD FS 默认的 "\-基于窗\-体的登录" 页的标题为 "使用组织帐户登录"。  
   
-如果你想要此字符串替换为你自己的字符串，您可以将以下代码添加到 onload.js。  
+如果要将此字符串替换为自己的字符串，可将以下代码添加到 onload。  
   
 ```  
 // Sample code to change “Sign in with organizational account” string.  
@@ -103,8 +103,8 @@ if (loginMessage)
   
 ```  
   
-### <a name="example-2-accept-sam-account-name-as-a-login-format-on-an-ad-fs-form-based-sign-in-page"></a>示例 2： 接受 SAM\-AD FS 窗体上的登录名格式作为帐户名\-基于登录\-页中  
-默认 AD FS 窗体\-基于登录\-页中支持的用户主体名称的登录名格式\(Upn\) \(等<strong>johndoe@contoso.com</strong> \)或域限定 sam\-帐户名\( **contoso\\johndoe**或**contoso.com\\johndoe**\)。 所有用户均来自同一个域，并且它们只知道 sam\-帐户名称，可能想要支持用户可以登录，其中的方案中使用它们 sam\-帐户仅名称。 您可以将以下代码添加到 onload.js 以支持这种情况下，只需替换你想要使用的域的域"contoso.com"中的示例如下。  
+### <a name="example-2-accept-sam-account-name-as-a-login-format-on-an-ad-fs-form-based-sign-in-page"></a>示例2：在基于\-AD FS 窗体\-的登录\-页上，接受 SAM 帐户名作为登录格式  
+默认 AD FS 基于窗\-体的\-登录页支持用户主体名称\(upn\) \(的登录格式（例如） <strong>johndoe@contoso.com</strong> \)或域限定 sam\-帐户名称\( **contosojohndoe\\** 或**contoso.comjohndoe\\** 。\) 如果你的所有用户都来自同一个域，并且他们仅知道 sam\-帐户名称，你可能想要支持用户只能使用 sam\-帐户名称登录的方案。 你可以将以下代码添加到 onload 以支持此方案，只需将以下示例中的域 "contoso.com" 替换为你想要使用的域。  
   
 ```  
 if (typeof Login != 'undefined'){  

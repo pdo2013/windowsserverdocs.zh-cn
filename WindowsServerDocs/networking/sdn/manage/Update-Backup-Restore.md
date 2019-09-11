@@ -1,6 +1,6 @@
 ---
-title: 升级、 备份和还原 SDN 基础结构
-description: 在本主题中，您将学习如何更新、 备份和还原 SDN 基础结构。
+title: 升级、备份和还原 SDN 基础结构
+description: 本主题介绍如何更新、备份和还原 SDN 基础结构。
 manager: dougkim
 ms.prod: windows-server-threshold
 ms.technology: networking-sdn
@@ -9,78 +9,78 @@ ms.assetid: e9a8f2fd-48fe-4a90-9250-f6b32488b7a4
 ms.author: grcusanz
 author: shortpatti
 ms.date: 08/27/2018
-ms.openlocfilehash: 7916377f58261d0ccaa3fa24f135fccca3d5e79b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1bee4ef9023a1fab49bf796907780662a0297a7c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446333"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869960"
 ---
-# <a name="upgrade-backup-and-restore-sdn-infrastructure"></a>升级、 备份和还原 SDN 基础结构
+# <a name="upgrade-backup-and-restore-sdn-infrastructure"></a>升级、备份和还原 SDN 基础结构
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-在本主题中，您将学习如何更新、 备份和还原 SDN 基础结构。 
+本主题介绍如何更新、备份和还原 SDN 基础结构。 
 
-## <a name="upgrade-the-sdn-infrastructure"></a>SDN 基础结构升级
-SDN 基础结构可以从 Windows Server 2016 升级到 Windows Server 2019。 对于升级排序，按照"更新 SDN 基础结构"一节中提到的相同的步骤序列。 在升级之前，建议执行网络控制器数据库的备份。
+## <a name="upgrade-the-sdn-infrastructure"></a>升级 SDN 基础结构
+SDN 基础结构可以从 Windows Server 2016 升级到 Windows Server 2019。 对于升级排序，请按照 "更新 SDN 基础结构" 一节中所述的相同步骤顺序操作。 升级之前，建议对网络控制器数据库进行备份。
 
-对于网络控制器的计算机，使用 Get NetworkControllerNode cmdlet 升级完成后检查节点的状态。 请确保，返回来自节点状态更改为"Up"然后再升级其他节点。 升级后的所有网络控制器节点后，网络控制器都更新网络控制器群集中运行一小时内的微服务。 可以触发使用更新 networkcontroller cmdlet 立即更新。 
+对于网络控制器计算机，请在升级完成后使用 NetworkControllerNode cmdlet 检查节点的状态。 在升级其他节点之前，请确保节点返回到 "Up" 状态。 升级所有网络控制器节点后，网络控制器会在一小时内更新网络控制器群集中运行的微服务。 可以使用 networkcontroller cmdlet 触发立即更新。 
 
-所有软件定义网络 (SDN) 系统，其中包括操作系统组件上都安装相同的 Windows 更新：
+在软件定义的网络（SDN）系统的所有操作系统组件上安装相同的 Windows 更新，其中包括：
 
-- SDN 启用的 HYPER-V 主机
+- 已启用 SDN 的 Hyper-v 主机
 - 网络控制器 Vm
 - 软件负载均衡器 Mux Vm
 - RAS 网关 Vm 
 
 >[!IMPORTANT]
->如果使用 System Center 虚拟管理器，则必须与最新的更新汇总来更新它。
+>如果你使用 System Center Virtual Manager，则必须使用最新的更新汇总来更新它。
 
-更新每个组件时，您可以使用任何一种标准方法安装 Windows 更新。 但是，若要确保最短停机时间的工作负荷和网络控制器数据库的完整性，请按照下列步骤：
+更新每个组件时，可以使用任何标准方法来安装 Windows 更新。 但是，若要确保工作负荷的停机时间和网络控制器数据库的完整性，请遵循以下步骤：
 
-1. 更新管理控制台。<p>每个位置使用的网络控制器 Powershell 模块的计算机上安装更新。  任意位置包括具有单独安装的 RSAT NetworkController 角色。 不包括网络控制器 Vm 本身;在下一步中更新它们。
+1. 更新管理控制台。<p>在使用网络控制器 Powershell 模块的每台计算机上安装更新。  包含自行安装 NetworkController 角色的任何位置。 排除网络控制器 Vm 本身;在下一步中更新它们。
 
-2. 第一个网络控制器 VM 上安装所有更新并重新启动。
+2. 在第一个网络控制器 VM 上，安装所有更新并重新启动。
 
-3. 在前进到下一个网络控制器 VM 前, 使用`get-networkcontrollernode`cmdlet 来检查更新并重新启动的节点的状态。
+3. 在继续到下一个网络控制器 VM 之前，请`get-networkcontrollernode`使用 cmdlet 检查已更新并重新启动的节点的状态。
 
-4. 在重新启动周期中，等待要关闭然后再回来再次的网络控制器节点。<p>后重新启动 VM，可能需要几分钟时间，它将重新进入 **_向上_** 状态。 输出的示例，请参阅 
+4. 在重新启动过程中，请等待网络控制器节点关闭，然后重新打开。<p>重新启动 VM 后，可能需要几分钟时间才能进入 " **_已启动" 状态。_** 有关输出的示例，请参阅 
 
-5. 每个 SLB Mux VM 之一上安装更新，以确保持续可用性的负载均衡器基础结构的一次。
+5. 一次在每个 SLB Mux VM 上安装一个更新，以确保负载均衡器基础结构的持续可用性。
 
-6. 更新 HYPER-V 主机和 RAS 网关，从包含在 RAS 网关的主机开始**待机**模式。<p>不能实时迁移 RAS 网关 Vm，而不会丢失租户连接。 在更新周期中，您必须注意最大程度减少的次数租户连接故障转移到新的 RAS 网关。 通过协调更新的主机和 RAS 网关，每个租户进行故障转移一次，最多。
+6. 更新 Hyper-v 主机和 RAS 网关，从包含处于**备用**模式的 RAS 网关的主机开始。<p>RAS 网关 Vm 不能实时迁移，且不会丢失租户连接。 在更新过程中，必须小心地将租户连接故障转移到新 RAS 网关的次数降至最低。 通过协调主机和 RAS 网关的更新，每个租户最多会进行一次故障转移。
 
-    a. 撤走主机能够进行实时迁移的 Vm。<p>RAS 网关 Vm 应保留在主机上。
+    a. 撤走支持实时迁移的 Vm 主机。<p>RAS 网关 Vm 应保留在主机上。
 
     b. 在此主机上的每个网关 VM 上安装更新。
 
-    c. 如果更新要求网关 VM 重启然后重启 VM。  
+    c. 如果更新要求网关 VM 重新启动，则重新启动 VM。  
 
-    d. 包含网关刚刚更新的 VM 在主机上安装更新。
+    d. 在包含刚刚更新的网关 VM 的主机上安装更新。
 
-    e. 如果的更新需要重启主机。
+    e. 如果更新要求，请重新启动主机。
 
-    f. 每个其他主机重复包含备用网关。<p>如果仍未备用网关，然后为剩余的所有主机遵循相同的步骤。
+    f. 对于包含备用网关的每个其他主机重复此步骤。<p>如果不保留备用网关，请对所有剩余主机执行相同的步骤。
 
 
-### <a name="example-use-the-get-networkcontrollernode-cmdlet"></a>例如：使用 get networkcontrollernode cmdlet 
+### <a name="example-use-the-get-networkcontrollernode-cmdlet"></a>例如：使用 networkcontrollernode cmdlet 
 
-在此示例中，您看到的输出`get-networkcontrollernode`cmdlet 从运行在网络控制器 Vm 之一中。  
+在此示例中，你将在其中一个`get-networkcontrollernode`网络控制器 vm 中查看 cmdlet 的输出。  
 
-示例输出中看到节点的状态是：
+在示例输出中看到的节点状态如下：
 
 - NCNode1.contoso.com = Down
 - NCNode2.contoso.com = Up
 - NCNode3.contoso.com = Up
 
 >[!IMPORTANT]
->对更改的节点，必须等待几分钟时间，直到状态 _**向上**_ 更新任何其他节点，一次一个地之前。
+>你必须等待几分钟，直到节点状态在更新任何其他节点之前更改为 " _**上**_ 一次"。
 
-在更新后的所有网络控制器节点，网络控制器都更新网络控制器群集中运行一小时内的微服务。 
+更新所有网络控制器节点后，网络控制器会在一小时内更新网络控制器群集中运行的微服务。 
 
 >[!TIP]
->可触发立即更新使用`update-networkcontroller`cmdlet。
+>可以使用`update-networkcontroller` cmdlet 触发立即更新。
 
 
 ```Powershell
@@ -107,11 +107,11 @@ NodeCertificate :
 Status          : Up
 ```
 
-### <a name="example-use-the-update-networkcontroller-cmdlet"></a>例如：使用更新 networkcontroller cmdlet
-在此示例中，您看到的输出`update-networkcontroller`cmdlet 来强制更新网络控制器。 
+### <a name="example-use-the-update-networkcontroller-cmdlet"></a>例如：使用 networkcontroller cmdlet
+在此示例中，你将看到`update-networkcontroller` cmdlet 的输出，用于强制网络控制器更新。 
 
 >[!IMPORTANT]
->当有更多的更新安装时，请运行此 cmdlet。
+>如果没有更多要安装的更新，请运行此 cmdlet。
 
 
 ```Powershell
@@ -123,30 +123,30 @@ NetworkControllerClusterVersion NetworkControllerVersion
 
 ## <a name="backup-the-sdn-infrastructure"></a>备份 SDN 基础结构
 
-网络控制器数据库的定期备份可确保在发生灾难或数据丢失时的业务连续性。  因为它不能确保该会话将继续在多个网络控制器节点，网络控制器 Vm 备份不足够。
+定期备份网络控制器数据库可确保在发生灾难或数据丢失时实现业务连续性。  备份网络控制器 Vm 并不能确保会话跨多个网络控制器节点继续。
 
-**要求：**
-* SMB 共享和使用读/写权限的共享和文件系统的凭据。
-* 如果使用 GMSA 也安装网络控制器，可以选择使用组托管服务帐户 (GMSA)。
+**要求**
+* 对共享和文件系统具有读/写权限的 SMB 共享和凭据。
+* 如果还使用 GMSA 安装了网络控制器，则可以选择使用组托管服务帐户（GMSA）。
 
-**过程：**
+**方法**
 
-1. 使用所选的 VM 备份方法或使用 HYPER-V 导出每个网络控制器 VM 的副本。<p>备份网络控制器 VM 可确保必要证书用于解密该数据库存在。  
+1. 使用所选的 VM 备份方法，或使用 Hyper-v 导出每个网络控制器 VM 的副本。<p>备份网络控制器 VM 可确保存在用于对数据库进行解密的必要证书。  
 
-2. 如果使用 System Center Virtual Machine Manager (SCVMM)，停止 SCVMM 服务，并通过 SQL Server 备份它。<p>此处的目标是确保在此期间，这可能会产生不一致造成的网络控制器备份和 SCVMM 获取进行到 SCVMM 没有更新。  
+2. 如果使用 System Center Virtual Machine Manager （SCVMM），请停止 SCVMM 服务，并通过 SQL Server 将其备份。<p>此处的目标是确保在此期间不会对 SCVMM 进行任何更新，这可能会导致网络控制器备份和 SCVMM 之间出现不一致的情况。  
 
    >[!IMPORTANT]
-   >不要重新启动 SCVMM 服务网络控制器备份完成之前。
+   >在网络控制器备份完成之前，请不要重新启动 SCVMM 服务。
 
-3. 备份与网络控制器数据库`new-networkcontrollerbackup`cmdlet。
+3. 用`new-networkcontrollerbackup` cmdlet 备份网络控制器数据库。
 
-4. 检查完成和成功与备份`get-networkcontrollerbackup`cmdlet。
+4. 通过`get-networkcontrollerbackup` cmdlet 检查备份的完成和成功情况。
 
-5. 如果使用的 SCVMM，启动 SCVMM 服务。
+5. 如果使用 SCVMM，请启动 SCVMM 服务。
 
 
 
-### <a name="example-backing-up-the-network-controller-database"></a>例如：网络控制器数据库备份
+### <a name="example-backing-up-the-network-controller-database"></a>例如：备份网络控制器数据库
 
 ```Powershell
 $URI = "https://NC.contoso.com"
@@ -177,7 +177,7 @@ $BackupProperties.Credential = $ShareCredential
 $Backup = New-NetworkControllerBackup -ConnectionURI $URI -Credential $Credential -Properties $BackupProperties -ResourceId $BackupTime -Force
 ```
 
-### <a name="example-checking-the-status-of-a-network-controller-backup-operation"></a>例如：正在检查网络控制器备份操作的状态
+### <a name="example-checking-the-status-of-a-network-controller-backup-operation"></a>例如：检查网络控制器备份操作的状态
 
 ```Powershell
 PS C:\ > Get-NetworkControllerBackup -ConnectionUri $URI -Credential $Credential -ResourceId $Backup.ResourceId
@@ -262,19 +262,19 @@ PS C:\ > Get-NetworkControllerBackup -ConnectionUri $URI -Credential $Credential
 }
 ```
 
-## <a name="restore-the-sdn-infrastructure-from-a-backup"></a>从备份中还原 SDN 基础结构
+## <a name="restore-the-sdn-infrastructure-from-a-backup"></a>从备份还原 SDN 基础结构
 
-当从备份中还原所有必要的组件时，SDN 环境将返回到操作状态。  
+从备份中还原所有必需的组件后，SDN 环境会恢复为操作状态。  
 
 >[!IMPORTANT]
->步骤会有所不同，具体取决于还原的组件数量。
+>具体步骤因还原的组件数而异。
 
 
-1. 如有必要，重新部署的 HYPER-V 主机和必要的存储。
+1. 如有必要，请重新部署 Hyper-v 主机和必要的存储。
 
-2. 如有必要，请从备份还原网络控制器 Vm、 RAS 网关 Vm 和 Mux Vm。 
+2. 如有必要，请从备份中还原网络控制器 Vm、RAS 网关 Vm 和 Mux Vm。 
 
-3. 停止 NC 主机代理和所有 HYPER-V 主机上的 SLB 主机代理：
+3. 在所有 Hyper-v 主机上停止 NC 主机代理和 SLB 主机代理：
 
     ```
     stop-service slbhostagent
@@ -286,15 +286,15 @@ PS C:\ > Get-NetworkControllerBackup -ConnectionUri $URI -Credential $Credential
 
 5. 停止 SLB Mux Vm。
 
-6. 还原与网络控制器`new-networkcontrollerrestore`cmdlet。
+6. 用`new-networkcontrollerrestore` cmdlet 还原网络控制器。
 
-7. 检查还原**ProvisioningState**知道当还原已成功完成。
+7. 检查 restore **ProvisioningState**以了解还原已成功完成的时间。
 
-8. 如果使用的 SCVMM，还原 SCVMM 数据库使用网络控制器备份时创建的备份。
+8. 如果使用 SCVMM，请使用与网络控制器备份相同的时间创建的备份来还原 SCVMM 数据库。
 
-9. 如果你想要从备份中还原工作负荷的 Vm，请立即。
+9. 如果要从备份还原工作负荷 Vm，请立即执行此操作。
 
-10. 检查您的系统使用调试 networkcontrollerconfigurationstate cmdlet 的运行状况。
+10. 通过 networkcontrollerconfigurationstate cmdlet 检查系统的运行状况。
 
 ```Powershell
 $cred = Get-Credential
@@ -309,7 +309,7 @@ Fetching ResourceType:     loadbalancerMuxes
 Fetching ResourceType:     Gateways
 ```
 
-### <a name="example-restoring-a-network-controller-database"></a>例如：网络控制器将数据库还原
+### <a name="example-restoring-a-network-controller-database"></a>例如：还原网络控制器数据库
  
 ```Powershell
 $URI = "https://NC.contoso.com"
@@ -349,4 +349,4 @@ PS C:\ > get-networkcontrollerrestore -connectionuri $uri -credential $cred -Res
 ```
 
 
-有关可能出现的配置状态消息的信息，请参阅[Windows Server 2016 软件定义网络堆栈疑难解答](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack)。
+有关可能出现的配置状态消息的信息，请参阅[排查 Windows Server 2016 软件定义的网络堆栈问题](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack)。

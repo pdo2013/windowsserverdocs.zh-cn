@@ -1,6 +1,6 @@
 ---
-title: Windows Admin Center SDK 案例研究-平方
-description: Windows Admin Center SDK 案例研究-平方
+title: Windows 管理中心 SDK 案例研究-平方上
+description: Windows 管理中心 SDK 案例研究-平方上
 ms.technology: extend
 ms.topic: article
 author: daniellee-msft
@@ -8,49 +8,49 @@ ms.author: jol
 ms.date: 05/23/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: ab0a7bdcf2388ffc867763c04e183b7388fd13e9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0d4469684ad9cbdadec5c40cb3b5178345b64a6d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863938"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865343"
 ---
-# <a name="squared-up-extension"></a>平方向上扩展
+# <a name="squared-up-extension"></a>方形向上扩展
 
-## <a name="bringing-scom-based-monitoring-server-dependency-visibility-and-external-data-insights-into-windows-admin-center"></a>引入了基于 SCOM 的监视、 服务器依赖项可见性和外部数据深入了解 Windows Admin Center
+## <a name="bringing-scom-based-monitoring-server-dependency-visibility-and-external-data-insights-into-windows-admin-center"></a>将基于 SCOM 的监视、服务器依赖项可见性和外部数据见解引入 Windows 管理中心
 
-平方向上被成立的使用数据可视化效果以帮助解决企业 IT 复杂性挑战的愿景。 Microsoft 的强大 System Center Operations Manager 平台，以及与其他数据源-从 Microsoft 自己的 Azure Log Analytics、 Application Insights 和系统集成的基础上构建的平方向上的唯一的轻型 UI 仅软件第三方产品，例如 ServiceNow、 Splunk 和更多-以提供可见性，大型企业级基础结构和应用程序财产，同时在本地和跨混合云环境到中心服务管理器。
+"方形向上" 是与使用 "数据可视化" 这一构想，旨在帮助解决企业 IT 复杂性的挑战。 带方框的独特、轻量级、仅 UI 的软件构建在 Microsoft 功能强大的 System Center Operations Manager 平台之上，并与其他数据源集成-来自 Microsoft 自己的 Azure Log Analytics、Application Insights 和系统将 Service Manager 为第三方产品（如 ServiceNow、Splunk 和更多），以便在本地和跨混合云环境提供大规模企业基础结构和应用程序财产的可见性。
 
-> <cite>"我们已一直很大程度利用整个其 Technical Preview 的 Windows Admin Center 和很大命中，实际上正在帮助解决我们配置的实验室，轻松访问我们的工程师的挑战和我们想要使我们的主管理一旦它达到目标的完整版本的控制台。是我们热爱与平方向上的集成和功能来呈现我们在一个位置的所有数据的潜力。"</cite>
+> <cite>"我们在技术预览版中一直在使用 Windows 管理中心，这已成为一个很大的问题，真正有助于我们的工程师轻松访问我们的配置实验室，并打算使其成为我们的主要管理控制台一旦进入完整版本即可。我们喜欢与平方集成的潜力，并将所有数据都放在一个位置。 "</cite>
 >
-> -David Acevedo 我 / S 专家 NuStar 能源 l.p.
+> --David Acevedo，NuStar 能量 L.P. 上的专家
 
-平方的客户端管理数百个通常数千个，Windows 服务器和将 IT 团队的任务是由它们，并同时平方和 Microsoft 提供的项目组合不同的应用程序的最佳的快速、 现代、 web UI，以提供见解所需。 因此，平方向上的团队立即看到了令人兴奋的对齐方式与 Windows Admin Center 到下一代 Windows Server 管理将这些相同的值和主体。 具体而言，团队认为，长期性能数据、 实时服务器依赖项见解和应用程序上下文的平方值会显示将完全互为补充时尚、 实时数据和提供的服务器管理功能Windows Admin Center。
+方形 Up 的客户端管理数百个，通常是成千上万个 Windows Server 和它们提供的各种应用程序组合，同时，这两者都是一项关键任务，使 IT 团队能够更快、最新式地利用 web UI，提供所需的见解。 这样一来，该团队就会立即看到与 Windows 管理中心的令人兴奋的一致，这将与下一代 Windows Server 管理相同的值和主体。 具体而言，团队认为，通过方形向上表现的长期性能数据、实时服务器依赖关系见解和应用程序上下文将完全补充提供的精美、实时的数据和服务器管理功能。Windows 管理中心。
 
-![平方向上扩展](../../media/extend-case-study-squared-up/squared-up-1.png)
+![方形向上扩展](../../media/extend-case-study-squared-up/squared-up-1.png)
 
-> <cite>"为组织管理大规模的服务器空间，平方向上 / Windows Admin Center 集成是我们的本地化和集中式工具和诸如正在能够直接置于维护模式的服务器引发内完美结婚Windows Admin Center 是为我们的出色小 wins"</cite>
+> <cite>"作为管理大型服务器场地的组织，可以通过方形向上/Windows 管理中心的集成，实现本地化和集中式工具的完美结婚，并从内部将服务器直接引发到维护模式Windows 管理中心非常适合我们 "</cite>
 >
-> --基普 Granson、 Purdue University 虚拟化系统管理员
+> --K Granson，Purdue 大学的虚拟化系统管理员
 
-有了清楚的想要在 Windows Admin Center 内无缝地显示该数据，平方向上从事 Windows Admin Center SDK 的早期专用预览版本，并发现它非常简单、 完善而灵活。
+通过在 Windows 管理中心中心内无缝地显示这些数据的明确设想，你可以将其与 Windows 管理中心 SDK 的早期专用预览版本结合使用，并且可以很简单地进行记录和灵活地进行查找。
 
-使用 Windows Admin Center SDK，平方向上就能够构建动态嵌入相关平方 Up Windows Admin Center 中的视图体验的扩展。 例如，在特定服务器或群集的上下文中，平方向上视图会自动嵌入到提供扩展的可见性。 视图包括关键性能和容量指标 （例如 CPU、 内存和磁盘) 的历史趋势托管堆栈 （云平台或数据中心虚拟化），例如 SQL 数据库和服务，应用程序组件，甚至基于云的日志分析和 ITSM 数据。
+使用 Windows 管理中心 SDK，方形 Up 能够构建一个扩展，该扩展可在 Windows 管理中心体验中动态嵌入相关的方形向上视图。 例如，在特定服务器或群集的上下文中，将自动嵌入 "方形 Up" 视图以提供扩展可见性。 视图包括关键性能和容量指标（如 CPU、内存和磁盘）的历史趋势、托管堆栈（云平台或数据中心虚拟化）、应用程序组件（如 SQL 数据库和服务），甚至基于云的 log analytics和 ITSM 数据。
 
-![平方向上扩展](../../media/extend-case-study-squared-up/squared-up-2.png)
+![方形向上扩展](../../media/extend-case-study-squared-up/squared-up-2.png)
 
-平方和 Windows Admin Center 共享最新的 web 体系结构和设计思维，其中启用了简单的技术集成和无缝用户体验。 结合逐渐成为一种规范的基于 web 的管理，我们认为此方法的不同系统之间的集成是解锁现代、 统一管理体验的关键。
+方形 Up 和 Windows 管理中心共享了新式 web 体系结构和设计思维，它同时启用了简单的技术集成和无缝用户体验。 通过基于 web 的管理，我们相信不同系统之间的这种集成方法是用于解锁新式的统一管理体验的关键所在。
 
-> <cite>"，我们看到 Windows Admin Center 最先进的新式 Windows 服务器管理，因此它已为我们处理如此紧密团队和这一事实，他们现在将此类的速度、 热情、 灵活性，并在此类工作从根本上更完美的体验新式开发范例使得它们非常适合的方式，作为精益、 快节奏的敏捷软件开发公司，工作自己。"</cite>
+> <cite>"我们可以看到 Windows 管理中心中心作为新式 Windows Server 管理的前沿，因此非常适合我们与团队密切合作，而且他们在使用这种速度、热情、灵活性以及这种本质上新式开发范例使它们成为一种非常适合我们的方式，作为一家精益、敏捷、速度快的软件开发公司，亲自工作。 "</cite>
 >
-> -Richard Benwell，产品架构师，平方
+> --Richard Benwell，Product 建筑师
 
-为此自然对齐，平方向上的开发团队能够快速进行平方启动本机 Windows Admin Center 体验中显示的原型集成并获取的手中他们自己先行采纳者，技术预览客户端。 从客户的反应是立即清除情景已入选方。
+从这种自然的发展，到目前为止，开发团队能够迅速地在 Windows 管理中心体验中迅速地对原型集成进行显示，并使其成为自己早期采用者的技术预览客户端。 从客户的反应来看，这只是一种入选方。
 
-> <cite>"维护服务的超过 3,500 服务器环境统一我们多样化的主要挑战之一横向的管理和监视工具，因此平方和 Windows Admin Center-带来了之间的集成组合在一起如此多的数据，从众多不同的源，到单个控制台 – 是巨大的我们。"</cite>
+> <cite>"跨3500服务器的环境中维护未完成的服务的主要难题之一是统一了不同的管理和监视工具的不同面，因此在方形向上和 Windows 管理中心之间进行集成-这带来了就如此多的数据而言，从多个不同的源到单个控制台–非常大。 "</cite>
 >
-> -Martin Ehrnst，Azure 在 Intility a/S 的技术负责人
+> --圣马丁 Ehrnst，Azure Intility A/S 的技术主管
 
-这种热情平方客户端已以及大量的出色的新功能仍以转到 Windows Admin Center 平方向上极其热衷于这种集成和令人惊叹的可能性开创为其客户端的未来及其true 单一窗格-控制台其 IT 操作管理之旅。
+由于这种类型的热情，客户端已经有了很多丰富的新功能，并且在 Windows 管理中心仍有很多丰富的新功能，因此，在这种集成的未来，最重要的是极其为 IT 操作管理提供一个真正的单一窗格。
 
-平方向上 / Windows Admin Center 集成目前处于 beta 版本;如果想要访问，请查阅[平方的专用的页](https://squaredup.com/product/honolulu/windows-admin-center-extension/?utm_source=microsoft-wac&utm_medium=public-relations&utm_campaign=honolulu)的更多详细信息。 如果你的组织使用 Microsoft System Center Operations Manager，你还没有平方向上 （这是必需的扩展才能运行），然后还可以手上的功能完备，30 天免费试用版位于同一位置的。 
+平方向上/Windows 管理中心集成当前为 Beta 版;如果需要访问权限，请查看方框的[专用页面](https://squaredup.com/product/honolulu/windows-admin-center-extension/?utm_source=microsoft-wac&utm_medium=public-relations&utm_campaign=honolulu)了解更多详细信息。 如果你的组织使用 Microsoft System Center Operations Manager 但你还没有方框（这对于该扩展来说是必需的），则你还可以从同一位置获得全功能的30天免费试用版。 

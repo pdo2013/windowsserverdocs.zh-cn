@@ -1,6 +1,6 @@
 ---
 title: 查看 MultiPoint 仪表板中会话缩略图的选项
-description: 了解如何自定义视图的 MultiPoint 服务选项
+description: 了解如何自定义 MultiPoint Services 的视图选项
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,19 +13,19 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: febd5c4a5d5fdcf5ad2a27eec13bb7439ea0ee4f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a11f2f2bbafe4d21e1cd5d56d66a97e08cf35b11
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875488"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871467"
 ---
 # <a name="view-options-for-session-thumbnails-in-multipoint-dashboard"></a>查看 MultiPoint 仪表板中会话缩略图的选项
-在 MultiPoint 服务系统上查看每个活动桌面的缩略图图像可以轻松监视个人桌面上的用户活动。 默认情况下，桌面图像在 MultiPoint 仪表板上显示**主页**选项卡。  
+在 MultiPoint 服务系统上查看每个活动桌面的缩略图图像可以轻松监视个人桌面上的用户活动。 默认情况下，桌面的图像显示在 "**主**文件夹" 选项卡上的 "MultiPoint 仪表板" 中。  
   
-使用 MultiPoint 仪表板，可以执行以下操作：  
+使用 MultiPoint 仪表板，你可以执行以下操作：  
   
-- 通过在仪表板中放大其视图来更仔细地查看用户桌面。  
+- 通过在仪表板中放大用户的视图来更密切地查看用户的桌面。  
 - 更改仪表板中显示的缩略图图像的大小。 有以下三种可供查看的大小：小、中或大。 中是默认设置。  
 - 在 MultiPoint 服务系统上查看所有桌面，或选择一个显示活动桌面的筛选视图。  
   
@@ -33,7 +33,7 @@ ms.locfileid: "59875488"
   
 1.  单击“主页”选项卡，然后单击要放大的桌面。  
   
-2.  在“开始”选项卡上，单击“放大所选项”。 此操作将在仪表板中打开用户桌面。  
+2.  在“开始”选项卡上，单击“放大所选项”。 用户的桌面会在仪表板中打开。  
   
 3.  放大视图使用结束后，请单击返回桌面视图。  
   
@@ -43,7 +43,7 @@ ms.locfileid: "59875488"
   
 2.  在“开始”选项卡上，单击“放大所选项”。 此操作将打开“更改桌面大小”页。  
   
-3.  单击所需的大小 (**小型**， **Medium**，或**大**)，然后单击**确定**。  
+3.  单击所需的大小（"**小**"、"**中**" 或 "**大**"），然后单击 **"确定"** 。  
   
 ## <a name="to-show-all-desktops-in-multipoint-dashboard"></a>在 MultiPoint 仪表板中显示所有桌面  
   
@@ -57,4 +57,4 @@ ms.locfileid: "59875488"
 > 右键单击一个或多个缩略图，以获取可在活动或非活动会话中执行的其他操作，如“注销选定用户”。 请参阅[注销用户会话](Log-Off-User-Sessions.md)了解详细信息。
 
 ## <a name="see-also"></a>请参阅  
-[管理用户桌面使用 MultiPoint 仪表板](Manage-User-Desktops-Using-MultiPoint-Dashboard.md)
+[使用 MultiPoint 仪表板管理用户桌面](Manage-User-Desktops-Using-MultiPoint-Dashboard.md)

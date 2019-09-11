@@ -1,6 +1,6 @@
 ---
 title: 管理用户工作站
-description: 了解如何管理 MultiPoint Services 中的用户工作站
+description: 了解如何在 MultiPoint Services 中管理用户工作站
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 8c5351f3e8ec9890ef72905b646c37e9b049745e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6de378284f5cd41f5c5c3228c8305176367b5dd5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823718"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871617"
 ---
 # <a name="manage-user-stations"></a>管理用户工作站
-本节讨论如何管理构成 MultiPoint 服务系统的工作站。 管理 MultiPoint 服务系统包括管理 MultiPoint 管理器的硬件和软件组件。 在 MultiPoint 服务系统中，桌面是为每个用户工作站显示器上显示的软件用户界面。  
+本节讨论如何管理构成 MultiPoint 服务系统的工作站。 管理 MultiPoint 服务系统包括管理 MultiPoint 管理器的硬件和软件组件。 在 MultiPoint 服务系统中，桌面是为每个用户工作站提供的监视器上的软件用户界面。  
   
 ## <a name="station-status"></a>工作站状态  
 可在“工作站”选项卡上查看每个桌面的以下状态类型。状态包括：  
@@ -40,11 +40,11 @@ ms.locfileid: "59823718"
 ## <a name="different-ways-to-log-standard-users-off-of-the-multipoint-services-system"></a>从 MultiPoint 服务系统中注销标准用户的不同方法  
 作为管理用户，你可随时从 Windows 注销，这不会影响 MultiPoint 服务系统中的活动用户。 标准用户也可断开其会话或从 MultiPoint 服务系统注销。 在磁盘保护启用的情况下，如果用户将离开一天，则他们应确保将他们的工作保存到计算机或外部存储设备上，以便 MultiPoint 服务系统关闭后，用户能够改日取回其保存的工作。  
   
-作为管理用户，你可能需要结束标准用户的会话，而不是使该标准用户注销。 可通过以下两种方式之一来结束标准用户的会话：  
+作为管理用户，你可能需要结束标准用户的*会话*，而不是让用户注销。 可以通过以下两种方式之一结束标准用户的会话：  
   
 -   结束会话并注销用户。 有关结束用户会话的详细信息，请参阅[结束用户会话](End-a-User-Session.md)主题。  
   
--   挂起用户，暂时结束该用户的会话，但保持会话在 MultiPoint 服务系统的计算机内存中处于活动状态。 之后，挂起的用户可从相同或不同的工作站重新连接到会话并继续其工作。 有关挂起用户会话的详细信息，请参阅[挂起用户会话并使其保持为活动状态](Suspend-and-Leave-User-Session-Active.md)主题。  
+-   挂起用户以暂时结束用户会话，但使会话在 MultiPoint 服务系统的计算机内存中保持活动状态。 之后，挂起的用户可从相同或不同的工作站重新连接到会话并继续其工作。 有关挂起用户会话的详细信息，请参阅[挂起用户会话并使其保持活动状态](Suspend-and-Leave-User-Session-Active.md)主题。  
   
 ## <a name="set-a-station-to-automatically-log-on"></a>设置工作站以自动登录  
 作为管理用户，你可以设置一个或多个工作站在运行 MultiPoint 服务的计算机启动时自动登录。 有关自动登录的详细信息，请参阅[设置工作站进行自动登录](Set-up-a-Station-for-Automatic-Logon.md)主题。  
@@ -55,7 +55,7 @@ ms.locfileid: "59823718"
 ## <a name="see-also"></a>请参阅  
 [查看用户连接状态](View-User-Connection-Status.md)  
 [注销或断开用户会话](Log-off-or-Disconnect-User-Sessions.md)  
-[挂起和保留用户会话活动](Suspend-and-Leave-User-Session-Active.md)  
+[暂停用户会话并使其保持活动状态](Suspend-and-Leave-User-Session-Active.md)  
 [设置工作站自动登录](Set-up-a-Station-for-Automatic-Logon.md)  
 [结束用户会话](End-a-User-Session.md)  
 [拆分用户工作站](Split-a-User-Station.md)

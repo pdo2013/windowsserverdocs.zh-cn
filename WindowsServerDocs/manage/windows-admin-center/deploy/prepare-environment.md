@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 5924a6a2304bd8e883c43628e3c6c05b69cbd46c
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 96aced2c062717aee0d2957b751bc2c25ac8e0da
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980327"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869104"
 ---
 # <a name="prepare-your-environment-for-windows-admin-center"></a>为 Windows Admin Center 准备环境
 
@@ -24,9 +24,9 @@ ms.locfileid: "69980327"
 - [Windows Server 2012 和 2012 R2](#prepare-windows-server-2012-and-2012-r2)
 - [Windows Server 2008 R2](#prepare-windows-server-2008-r2)
 - [Microsoft Hyper-V Server 2016](#prepare-microsoft-hyper-v-server-2016)
-- [Microsoft Hyper-v Server 2012 R2](#prepare-microsoft-hyper-v-server-2012-r2)
+- [Microsoft Hyper-V Server 2012 R2](#prepare-microsoft-hyper-v-server-2012-r2)
 
-在管理 Windows 管理中心之前, 可能还需要修改[目标服务器上的端口配置](#port-configuration-on-the-target-server)。
+在管理 Windows 管理中心之前，可能还需要修改[目标服务器上的端口配置](#port-configuration-on-the-target-server)。
 
 ## <a name="prepare-windows-server-2012-and-2012-r2"></a>准备 Windows Server 2012 和 2012 R2
 
@@ -147,7 +147,7 @@ Microsoft Hyper-V Server 2012 R2 现在可以使用 Windows Admin Center 进行�
 
 ## <a name="port-configuration-on-the-target-server"></a>目标服务器上的端口配置
 
-Windows 管理中心对某些文件复制任务 (例如在远程服务器上导入证书时) 使用 SMB 文件共享协议。 要使这些文件复制操作成功, 远程服务器上的防火墙必须允许端口445上的入站连接。  你可以使用 Windows 管理中心中的防火墙工具来验证 "文件服务器远程管理 (SMB 输入)" 的传入规则是否设置为 "允许在此端口上访问"。
+Windows 管理中心对某些文件复制任务（例如在远程服务器上导入证书时）使用 SMB 文件共享协议。 要使这些文件复制操作成功，远程服务器上的防火墙必须允许端口445上的入站连接。  你可以使用 Windows 管理中心中的防火墙工具来验证 "文件服务器远程管理（SMB 输入）" 的传入规则是否设置为 "允许在此端口上访问"。
 
 > [!Tip]
 > 已准备好安装 Windows Admin Center？ [立即下载](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center#download-now)

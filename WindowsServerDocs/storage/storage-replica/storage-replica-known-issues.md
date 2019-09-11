@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 06/25/2019
 ms.assetid: ceddb0fa-e800-42b6-b4c6-c06eb1d4bc55
-ms.openlocfilehash: ad08d8716819773484fc1d1fbe3cc79dd203c498
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: 681e07b85af603d11295bf1ca2a08f0eb7181725
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590564"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865249"
 ---
 # <a name="known-issues-with-storage-replica"></a>存储副本的已知问题
 
@@ -81,7 +81,7 @@ SC config storqosflt start= disabled
 
 尝试使用 `Test-SRTopology` 时，收到以下错误之一：  
 
-**错误示例 1:**
+**错误示例1：**
 
     WARNING: Invalid value entered for target computer name: sr-srv03. Test-SrTopology cmdlet does not accept IP address as  
     input for target computer name parameter. NetBIOS names and fully qualified domain names are acceptable inputs  
@@ -96,11 +96,11 @@ SC config storqosflt start= disabled
         + CategoryInfo          : InvalidArgument: (:) [Test-SRTopology], Exception  
         + FullyQualifiedErrorId : TestSRTopologyFailure,Microsoft.FileServices.SR.Powershell.TestSRTopologyCommand  
 
-**错误示例 2:**
+**错误示例2：**
 
     WARNING: Invalid value entered for source computer name
 
-**错误示例 3:**
+**错误示例3：**
 
     The specified volume cannot be found G: cannot be found on computer SRCLUSTERNODE1
 
@@ -146,7 +146,7 @@ SC config storqosflt start= disabled
 
 即使你使用 `Set-SRGroup -Name rg01 -AllowVolumeResize $TRUE` 在源服务器上正确地启用了调整卷大小，仍将发生此问题。 
 
-此问题已在 Windows 10 版本 1607 (周年更新) 和 Windows Server 2016 的累积更新中解决:2016年12月9日 (KB3201845)。 
+此问题已在 Windows 10 版本1607（周年更新）和 Windows Server 2016 的累积更新中解决：2016年12月9日（KB3201845）。 
 
 ## <a name="attempting-to-grow-a-replicated-volume-fails-due-to-missing-step"></a>尝试增大复制卷因缺少步骤而失败
 
@@ -208,11 +208,11 @@ SC config storqosflt start= disabled
 
 这归因于 Windows Server 2016 中的按设计行为。 使用 `Set-SRPartnership` 在异步拉伸群集中移动这些 PDR 磁盘。  
 
-此行为已在 Windows Server 版本1709中进行了更改, 以允许根据客户反馈进行手动和自动故障转移。
+此行为已在 Windows Server 版本1709中进行了更改，以允许根据客户反馈进行手动和自动故障转移。
 
 ## <a name="attempting-to-add-disks-to-a-two-node-asymmetric-cluster-returns-no-disks-suitable-for-cluster-disks-found"></a>尝试将磁盘添加到两个节点的非对称群集时，返回了“没有发现适用于群集磁盘的磁盘”
 
-在添加存储副本拉伸复制之前，尝试预配只有两个节点的群集时，尝试将第二个站点中的磁盘添加到可用磁盘。 收到以下错误:
+在添加存储副本拉伸复制之前，尝试预配只有两个节点的群集时，尝试将第二个站点中的磁盘添加到可用磁盘。 收到以下错误：
 
     "No disks suitable for cluster disks found. For diagnostic information about disks available to the cluster, use the Validate a Configuration Wizard to run Storage tests." 
 
@@ -356,7 +356,7 @@ SC config storqosflt start= disabled
 如果 ClusterFunctionalLevel = 9，即为在此节点上实现存储副本所需的 Windows 2016 ClusterFunctionalLevel 版本。
 如果 ClusterFunctionalLevel 是不 9，则需要更新 ClusterFunctionalLevel 才能在此节点上实现存储副本。
 
-若要解决此问题, 请运行 PowerShell cmdlet, 提高群集功能级别:[更新-Update-clusterfunctionallevel](https://docs.microsoft.com/powershell/module/failoverclusters/update-clusterfunctionallevel)
+若要解决此问题，请运行 PowerShell cmdlet，提高群集功能级别：[更新-Update-clusterfunctionallevel](https://docs.microsoft.com/powershell/module/failoverclusters/update-clusterfunctionallevel)
 
 ## <a name="small-unknown-partition-listed-in-diskmgmt-for-each-replicated-volume"></a>DISKMGMT 中列出的针对每个已复制卷的小未知分区
 
@@ -370,25 +370,25 @@ SC config storqosflt start= disabled
 
 ## <a name="a-storage-replica-node-hangs-when-creating-snapshots"></a>创建快照时存储副本节点挂起
 
-创建 VSS 快照时 (通过备份、VSSADMIN 等) 存储副本节点挂起时, 必须重新启动该节点才能进行恢复。 没有错误, 只是服务器的硬挂起。
+创建 VSS 快照时（通过备份、VSSADMIN 等）存储副本节点挂起时，必须重新启动该节点才能进行恢复。 没有错误，只是服务器的硬挂起。
 
-当你创建日志卷的 VSS 快照时, 会出现此问题。 根本原因是 VSS 的传统设计方面, 而不是存储副本。 快照存储副本日志卷时产生的行为是 VSS i/o 队列机制使服务器死锁。
+当你创建日志卷的 VSS 快照时，会出现此问题。 根本原因是 VSS 的传统设计方面，而不是存储副本。 快照存储副本日志卷时产生的行为是 VSS i/o 队列机制使服务器死锁。
 
-若要防止此行为, 请不要快照存储副本日志卷。 无需快照存储副本日志卷, 因为这些日志无法还原。 而且, 日志卷绝不会包含任何其他工作负荷, 因此一般不需要任何快照。
+若要防止此行为，请不要快照存储副本日志卷。 无需快照存储副本日志卷，因为这些日志无法还原。 而且，日志卷绝不会包含任何其他工作负荷，因此一般不需要任何快照。
 
-## <a name="high-io-latency-increase-when-using-storage-spaces-direct-with-storage-replica"></a>将存储空间直通与存储副本结合使用时, 高 IO 延迟增加
+## <a name="high-io-latency-increase-when-using-storage-spaces-direct-with-storage-replica"></a>将存储空间直通与存储副本结合使用时，高 IO 延迟增加
 
-将存储空间直通与 NVME 或 SSD 缓存一起使用时, 在存储空间直通群集之间配置存储副本复制时, 延迟时间会超出预期的延迟。 延迟的变化比在性能 + 容量配置中使用 NVME 和 SSD 时看到的要高得多, 并且没有 HDD 层和容量层。
+将存储空间直通与 NVME 或 SSD 缓存一起使用时，在存储空间直通群集之间配置存储副本复制时，延迟时间会超出预期的延迟。 延迟的变化比在性能 + 容量配置中使用 NVME 和 SSD 时看到的要高得多，并且没有 HDD 层和容量层。
 
-发生此问题的原因在于, 与较慢的媒体相比, 存储副本的日志机制内的体系结构限制与 NVME 的延迟非常低。 当使用存储空间直通缓存时, 所有存储副本日志的 i/o 以及所有最近的读取/写入 IO 应用程序将出现在缓存中, 而从不会出现在性能层或容量层上。 这意味着所有存储副本活动都在同一速度介质上发生-支持此配置, 但不建议使用此 https://aka.ms/srfaq 配置 (有关日志建议, 请参阅)。 
+发生此问题的原因在于，与较慢的媒体相比，存储副本的日志机制内的体系结构限制与 NVME 的延迟非常低。 当使用存储空间直通缓存时，所有存储副本日志的 i/o 以及所有最近的读取/写入 IO 应用程序将出现在缓存中，而从不会出现在性能层或容量层上。 这意味着所有存储副本活动都在同一速度介质上发生-支持此配置，但不建议使用此 https://aka.ms/srfaq 配置（有关日志建议，请参阅）。 
 
-将存储空间直通与 Hdd 一起使用时, 不能禁用或避免缓存。 一种解决方法是, 如果仅使用 SSD 和 NVME, 则可以仅配置性能层和容量层。 如果使用该配置, 并且只通过将 SR 日志放在性能层上, 只使用其服务在容量层上的数据卷, 则可以避免上述高延迟问题。 同样, 也可以通过混合速度更快、速度更慢的 Ssd, 而不是 NVME。
+将存储空间直通与 Hdd 一起使用时，不能禁用或避免缓存。 一种解决方法是，如果仅使用 SSD 和 NVME，则可以仅配置性能层和容量层。 如果使用该配置，并且只通过将 SR 日志放在性能层上，只使用其服务在容量层上的数据卷，则可以避免上述高延迟问题。 同样，也可以通过混合速度更快、速度更慢的 Ssd，而不是 NVME。
 
-此解决方法当然并不理想, 一些客户可能无法利用它。 存储副本团队正在致力于优化, 并提供更新的日志机制, 以减少这些人为瓶颈。 此 v1.1 日志首先在 Windows Server 2019 中提供, 并在[服务器存储博客](https://blogs.technet.microsoft.com/filecab/2018/12/13/chelsio-rdma-and-storage-replica-perf-on-windows-server-2019-are-💯/)上的中介绍。
+此解决方法当然并不理想，一些客户可能无法利用它。 存储副本团队正在致力于优化，并提供更新的日志机制，以减少这些人为瓶颈。 此 v1.1 日志首先在 Windows Server 2019 中提供，并在[服务器存储博客](https://blogs.technet.microsoft.com/filecab/2018/12/13/chelsio-rdma-and-storage-replica-perf-on-windows-server-2019-are-💯/)上的中介绍。
 
 ## <a name="error-could-not-find-file-when-running-test-srtopology-between-two-clusters"></a>在两个群集之间运行 Test-srtopology 时出现 "找不到文件" 错误
 
-在两个群集之间运行 Test-srtopology 并在其 CSV 路径上运行时, 它会失败并出现错误: 
+在两个群集之间运行 Test-srtopology 并在其 CSV 路径上运行时，它会失败并出现错误： 
 
     PS C:\Windows\system32> Test-SRTopology -SourceComputerName NedClusterA -SourceVolumeName C:\ClusterStorage\Volume1 -SourceLogVolumeName L: -DestinationComputerName NedClusterB -DestinationVolumeName C:\ClusterStorage\Volume1 -DestinationLogVolumeName L: -DurationInMinutes 1 -ResultPath C:\Temp
 
@@ -411,11 +411,11 @@ SC config storqosflt start= disabled
     + CategoryInfo          : ObjectNotFound: (:) [Test-SRTopology], FileNotFoundException
     + FullyQualifiedErrorId : TestSRTopologyFailure,Microsoft.FileServices.SR.Powershell.TestSRTopologyCommand 
 
-这是由 Windows Server 2016 中的已知代码缺陷导致的。 此问题是在 Windows Server 版本1709和关联的 RSAT 工具中首先修复的。 若要进行下层解析, 请联系 Microsoft 支持部门并请求向后移植更新。 此问题没有解决方法。
+这是由 Windows Server 2016 中的已知代码缺陷导致的。 此问题是在 Windows Server 版本1709和关联的 RSAT 工具中首先修复的。 若要进行下层解析，请联系 Microsoft 支持部门并请求向后移植更新。 此问题没有解决方法。
 
-## <a name="error-specified-volume-could-not-be-found-when-running-test-srtopology-between-two-clusters"></a>在两个群集之间运行 Test-srtopology 时, 出现错误 "找不到指定的卷"
+## <a name="error-specified-volume-could-not-be-found-when-running-test-srtopology-between-two-clusters"></a>在两个群集之间运行 Test-srtopology 时，出现错误 "找不到指定的卷"
 
-在两个群集之间运行 Test-srtopology 并在其 CSV 路径上运行时, 它会失败并出现错误:
+在两个群集之间运行 Test-srtopology 并在其 CSV 路径上运行时，它会失败并出现错误：
 
     PS C:\> Test-SRTopology -SourceComputerName RRN44-14-09 -SourceVolumeName C:\ClusterStorage\Volume1 -SourceLogVolumeName L: -DestinationComputerName RRN44-14-13 -DestinationVolumeName C:\ClusterStorage\Volume1 -DestinationLogVolumeName L: -DurationInMinutes 30 -ResultPath c:\report
 
@@ -426,23 +426,23 @@ SC config storqosflt start= disabled
         + CategoryInfo          : ObjectNotFound: (:) [Test-SRTopology], Exception
         + FullyQualifiedErrorId : TestSRTopologyFailure,Microsoft.FileServices.SR.Powershell.TestSRTopologyCommand
 
-将源节点 CSV 指定为源卷时, 必须选择拥有 CSV 的节点。 可以将 CSV 移动到指定的节点, 也可以更改在中`-SourceComputerName`指定的节点名称。 此错误在 Windows Server 2019 中收到改进的消息。
+将源节点 CSV 指定为源卷时，必须选择拥有 CSV 的节点。 可以将 CSV 移动到指定的节点，也可以更改在中`-SourceComputerName`指定的节点名称。 此错误在 Windows Server 2019 中收到改进的消息。
 
-## <a name="unable-to-access-the-data-drive-in-storage-replica-after-unexpected-reboot-when-bitlocker-is-enabled"></a>启用 BitLocker 后, 在意外重新启动后无法访问存储副本中的数据驱动器
+## <a name="unable-to-access-the-data-drive-in-storage-replica-after-unexpected-reboot-when-bitlocker-is-enabled"></a>启用 BitLocker 后，在意外重新启动后无法访问存储副本中的数据驱动器
 
-如果在两个驱动器 (日志驱动器和数据驱动器) 和两个存储副本驱动器中启用了 BitLocker, 则当主服务器重新启动时, 即使在从 BitLocker 中解除日志驱动器的锁定后, 也无法访问主驱动器。
+如果在两个驱动器（日志驱动器和数据驱动器）和两个存储副本驱动器中启用了 BitLocker，则当主服务器重新启动时，即使在从 BitLocker 中解除日志驱动器的锁定后，也无法访问主驱动器。
 
-这是预期的行为。 若要恢复数据或访问驱动器, 需要先解锁日志驱动器, 然后打开 Diskmgmt.msc 以查找数据驱动器。 再次将数据驱动器脱机和联机。 找到驱动器上的 BitLocker 图标并解锁驱动器。
+这是预期的行为。 若要恢复数据或访问驱动器，需要先解锁日志驱动器，然后打开 Diskmgmt.msc 以查找数据驱动器。 再次将数据驱动器脱机和联机。 找到驱动器上的 BitLocker 图标并解锁驱动器。
 
-## <a name="issue-unlocking-the-data-drive-on-secondary-server-after-breaking-the-storage-replica-partnership"></a>中断存储副本合作关系后, 对辅助服务器上的数据驱动器进行解锁
+## <a name="issue-unlocking-the-data-drive-on-secondary-server-after-breaking-the-storage-replica-partnership"></a>中断存储副本合作关系后，对辅助服务器上的数据驱动器进行解锁
 
-禁用 SR 合作关系并删除存储副本后, 如果无法通过其各自的密码或密钥解锁辅助服务器的数据驱动器, 则会出现这种情况。 
+禁用 SR 合作关系并删除存储副本后，如果无法通过其各自的密码或密钥解锁辅助服务器的数据驱动器，则会出现这种情况。 
 
 需要使用主服务器的数据驱动器的密钥或密码来解锁辅助服务器的数据驱动器。
 
 ## <a name="test-failover-doesnt-mount-when-using-asynchronous-replication"></a>使用异步复制时测试故障转移不会装载
 
-当运行 SRDestination 以使目标卷在测试故障转移功能中联机时, 它会失败, 并出现以下错误:
+当运行 SRDestination 以使目标卷在测试故障转移功能中联机时，它会失败，并出现以下错误：
 
     Mount-SRDestination: Unable to mount SR group <TEST>, detailed reason: The group or resource is not in the correct state to perform the supported operation.
     At line:1 char:1
@@ -451,9 +451,9 @@ SC config storqosflt start= disabled
         + CategoryInfo          : NotSpecified: (MSFT WvrAdminTasks : root/Microsoft/...(MSFT WvrAdminTasks : root/Microsoft/. T_WvrAdminTasks) (Mount-SRDestination], CimException
         + FullyQua1ifiedErrorId : Windows System Error 5823, Mount-SRDestination.  
 
-如果使用同步合作关系类型, 则测试故障转移会正常运行。
+如果使用同步合作关系类型，则测试故障转移会正常运行。
 
-这是由 Windows Server 版本1709中的已知代码缺陷导致的。 若要解决此问题, 请安装[10 月18日2018更新](https://support.microsoft.com/help/4462932/windows-10-update-kb4462932)。 Windows Server 2019 和 Windows Server 1809 和更高版本中不存在此问题。
+这是由 Windows Server 版本1709中的已知代码缺陷导致的。 若要解决此问题，请安装[10 月18日2018更新](https://support.microsoft.com/help/4462932/windows-10-update-kb4462932)。 Windows Server 2019 和 Windows Server 1809 和更高版本中不存在此问题。
 
 ## <a name="see-also"></a>请参阅
 

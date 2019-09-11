@@ -1,44 +1,44 @@
 ---
-title: 用于 GitHub 常见 Git Bash 命令
-description: 某些在 Git Bash 中使用 GitHub 时最常使用的命令的列表。
+title: 用于 GitHub 的常用 Git Bash 命令
+description: 使用 GitHub 时，Git Bash 中的一些最常用命令的列表。
 author: eross-msft
 ms.author: lizross
 ms.date: 05/06/2019
-ms.openlocfilehash: 210acaf2b7911892bcfd81b6bbe1975f141308a1
-ms.sourcegitcommit: 7e54a1bcd31cd2c6b18fd1f21b03f5cfb6165bf3
+ms.openlocfilehash: 4ce5d4d8ce382e9ba421c20595715ec473cca241
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65461690"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70864995"
 ---
-# <a name="common-git-bash-commands"></a>常见 Git Bash 命令
+# <a name="common-git-bash-commands"></a>常见的 Git Bash 命令
 
-这些是一些在 Git Bash 中，基于时将用您的内容创建和编辑过程的最常用的命令。
+这些是 Git Bash 中的一些最常用命令，具体取决于你将在内容创建和编辑过程中使用它们的时间。
 
-## <a name="master-branch-related"></a>Master 分支相关
+## <a name="master-branch-related"></a>主分支-相关
 
-必须始终作为基准 master 使用的任何新的分支。
+对于任何新分支，都必须始终使用 master 作为基准。
 
 | Command | 描述 |
 |---------|-------------|
 | `git checkout master` | 从任何其他分支切换到 master |
-| `git pull upstream master` | 更新 master 从生产存储库的本地副本 |
+| `git pull upstream master` | 从生产存储库更新 master 的本地副本 |
 
-## <a name="branch-related"></a>分支相关
+## <a name="branch-related"></a>与分支相关
 
 | Command | 描述 |
 |---------|-------------|
 | `git branch` | 查看现有分支 |
-| `git checkout -B <name-of-branch>` | 创建一个新的分支 |
-| `git checkout <name-of-branch>` | 将更改为另一个分支 |
-| `git status` | 检查你的分支中正在运行的内容 |
-| `git branch -D <name-of-branch>` | 删除现有分支 （确保您不在其中） |
+| `git checkout -B <name-of-branch>` | 创建新分支 |
+| `git checkout <name-of-branch>` | 更改为其他分支 |
+| `git status` | 检查分支中发生的情况 |
+| `git branch -D <name-of-branch>` | 删除现有分支（确保你不在其中） |
 
-## <a name="check-in-related-done-as-a-group-in-order"></a>检查在相关 （作为一个组，按顺序执行的）
+## <a name="check-in-related-done-as-a-group-in-order"></a>签入-相关（按顺序按顺序执行）
 
 | Command | 描述 |
 |---------|-------------|
-| `git add --all` | 保存所做的工作后，将其添加到分支 |
-| `git commit -m “public comment, including quotes”` | 将更改提交到你的分支 |
-| `git pull upstream master` | 更新 master 从生产存储库的本地副本 |
-| `git push origin <name-of-branch>` | 推送到你的本地分支的远程版本 |
+| `git add --all` | 保存工作后，将其添加到分支 |
+| `git commit -m “public comment, including quotes”` | 将更改提交到分支 |
+| `git pull upstream master` | 从生产存储库更新 master 的本地副本 |
+| `git push origin <name-of-branch>` | 推送到本地分支的远程版本 |

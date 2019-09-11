@@ -13,19 +13,19 @@ ms.assetid: 044f2fd5-5b87-42bb-ba0d-c06516ac48c8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: cb91914608110d26ff2db8eff1cd28d26d04669b
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: 97d9e671823dade9e488922561c4c6a925719830
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590353"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871659"
 ---
 # <a name="limit-web-access"></a>限制 Web 访问
-除了监视单个桌面上的用户活动, 作为管理用户, 你还可以通过指示要阻止用户访问的允许网站和网站, 限制用户对指定网站的访问权限。  
+除了监视单个桌面上的用户活动，作为管理用户，你还可以通过指示要阻止用户访问的允许网站和网站，限制用户对指定网站的访问权限。  
   
 ## <a name="to-limit-web-access-on-a-station"></a>在工作站上限制 Web 访问  
   
-1. 在 MultiPoint 仪表板中的 " **Web 限制**" 选项卡上, 单击 "**配置**"。 **配置 Web 限制**页将打开。 列出了用户可以访问的站点。  
+1. 在 MultiPoint 仪表板中的 " **Web 限制**" 选项卡上，单击 "**配置**"。 **配置 Web 限制**页将打开。 列出了用户可以访问的站点。  
   
 2. 单击要在其上限制 Web 访问的用户工作站的缩略图。  
   
@@ -34,22 +34,22 @@ ms.locfileid: "68590353"
 4. 若要添加允许的站点，请键入 Web 地址，然后单击**添加**。  
   
    > [!NOTE]
-   > 例如, 输入 "Contoso.com" 允许或阻止相对于 www\.contoso.com 的站点 (例如 www\.newpage.contoso.com)。 输入 "Contoso" 将允许或限制与 Contoso 相关的所有站点 (包括 contoso.com、contoso.uk, 等等)。  
+   > 例如，输入 "Contoso.com" 允许或阻止相对于 www\.contoso.com 的站点（例如 www\.newpage.contoso.com）。 输入 "Contoso" 将允许或限制与 Contoso 相关的所有站点（包括 contoso.com、contoso.uk，等等）。  
   
 5. 若要从允许的站点列表中删除 Web 地址，请单击要删除对其访问权限的 Web 地址，然后单击**删除**。  
   
 ## <a name="to-limit-web-access-on-all-stations"></a>在所有工作站上限制 Web 访问  
   
-1. 在 MultiPoint 仪表板中的 " **Web 限制**" 选项卡上,\-单击 "开始" 下拉菜单, 然后单击 "**限制所有桌面上的 Web 访问**"。  
+1. 在 MultiPoint 仪表板中的 " **Web 限制**" 选项卡上，\-单击 "开始" 下拉菜单，然后单击 "**限制所有桌面上的 Web 访问**"。  
   
    **配置 Web 限制**页将打开。 列出了用户可以访问的站点。 执行下列操作之一：  
   
 2. 若要添加允许的站点，请单击**仅允许这些站点**，键入允许的 Web 地址，然后单击**添加**。  
   
-   若要添加不希望用户访问的站点，请单击**仅禁止这些站点**，键入你不希望用户访问的 Web 地址，然后单击**添加**。  
+   若要添加不希望用户访问的站点，请单击 "**仅禁止这些网站**"，键入不希望用户访问的 web 地址，然后单击 "**添加**"。  
   
    > [!NOTE]
-   > 例如, 输入 "Contoso.com" 允许或阻止相对于 www.contoso.com 的站点 (例如, www.newpage.contoso.com)。 输入 "Contoso" 将允许或限制与 Contoso 相关的所有站点 (包括 contoso.com、contoso.uk, 等等)。  
+   > 例如，输入 "Contoso.com" 允许或阻止相对于 www.contoso.com 的站点（例如，www.newpage.contoso.com）。 输入 "Contoso" 将允许或限制与 Contoso 相关的所有站点（包括 contoso.com、contoso.uk，等等）。  
   
 3. 若要从允许或禁止的站点列表中删除 Web 地址，请单击该 Web 地址，然后单击**删除**。  
   

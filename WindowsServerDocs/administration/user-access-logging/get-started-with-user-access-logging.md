@@ -1,5 +1,5 @@
 ---
-title: 开始使用用户访问日志记录
+title: 用户访问日志记录入门
 desctription: Describes the User Access Logging feature and how to start using it.
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,26 +13,26 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8656bf278519b48f8d26008fd98e46428106e511
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a1706756b52777f5dd3bf1db59fb2ed087ca8648
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861498"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866254"
 ---
-# <a name="get-started-with-user-access-logging"></a>开始使用用户访问日志记录
+# <a name="get-started-with-user-access-logging"></a>用户访问日志记录入门
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-用户访问日志记录 (UAL) 是 Windows Server 的本地服务器上按照角色和产品的客户端使用情况数据的聚合中的功能。 它有助于 Windows 服务器管理员量化来自客户端计算机的角色和本地服务器上的服务的请求。  
+用户访问日志记录（UAL）是 Windows Server 中的一项功能，在本地服务器上按角色和产品聚合客户端使用数据。 它可帮助 Windows server 管理员量化来自本地服务器上的角色和服务的客户端计算机的请求。  
   
-安装并启用默认情况下，在收集数据 UAL 几乎以实时。 无需任何管理员配置，但是可以禁用或启用 UAL。 有关详细信息，请参阅 [Manage User Access Logging](Manage-User-Access-Logging.md)。 用户访问日志记录服务按照角色和产品的客户端使用数据聚合到本地数据库文件。  之后，IT 管理员可以使用 Windows Management Instrumentation (WMI) 或 Windows PowerShell cmdlet，按服务器角色（或软件产品）、用户、设备、本地服务器和日期来检索数量和实例。  
+默认情况下，UAL 已安装并处于启用状态，并几乎实时收集数据。 无需任何管理员配置，但是可以禁用或启用 UAL。 有关详细信息，请参阅 [Manage User Access Logging](Manage-User-Access-Logging.md)。 用户访问日志记录服务按照角色和产品将客户端使用数据聚合到本地数据库文件中。  之后，IT 管理员可以使用 Windows Management Instrumentation (WMI) 或 Windows PowerShell cmdlet，按服务器角色（或软件产品）、用户、设备、本地服务器和日期来检索数量和实例。  
   
 > [!NOTE]  
 > UAL 支持 [Microsoft 评估与计划工具包](https://go.microsoft.com/fwlink/?LinkID=111000)。  
   
-## <a name="BKMK_APP"></a>实际应用程序  
-UAL 聚合唯一的客户端设备和用户请求的事件记录到本地数据库。 然后，这些记录可用于（通过服务器管理员执行的查询）按服务器角色、用户、设备、本地服务器和日期检索数目和实例。  此外，UAL 已扩展为允许非 Microsoft 软件开发人员检测 Windows Server 进行聚合的 UAL 事件。  
+## <a name="BKMK_APP"></a>实用应用程序  
+UAL 聚合登录到本地数据库的唯一客户端设备和用户请求事件。 然后，这些记录可用于（通过服务器管理员执行的查询）按服务器角色、用户、设备、本地服务器和日期检索数目和实例。  此外，UAL 已扩展为允许非 Microsoft 软件开发人员检测由 Windows Server 聚合的 UAL 事件。  
   
 UAL 可以执行以下任务：  
   
@@ -44,7 +44,7 @@ UAL 可以执行以下任务：
   
 -   从多个远程服务器中检索 UAL 数据。  
   
-此外，软件开发人员可以检测可聚合和通过使用 WMI 和 Windows PowerShell 界面检索的 UAL 事件。  
+此外，软件开发人员还可以检测 UAL 事件，然后使用 WMI 和 Windows PowerShell 界面来聚合和检索这些事件。  
   
 UAL 可以支持以下服务器角色和服务：  
   
@@ -90,46 +90,46 @@ UAL 可以支持以下服务器角色和服务：
 -   Windows Server Update Services (WSUS)  
   
 > [!IMPORTANT]  
-> 不建议在直接连接到 Internet 的服务器（如可访问 Internet 的地址空间中的 Web 服务器），或在极高性能是服务器主要功能的应用场景下（如在 HPC 工作负荷环境中）使用 UAL。 UAL 是主要用于小型、 中型和企业内部网应用场景，场景期望高容量，但不是高达定期为面向 Internet 的流量提供服务的部署。  
+> 不建议在直接连接到 Internet 的服务器（如可访问 Internet 的地址空间中的 Web 服务器），或在极高性能是服务器主要功能的应用场景下（如在 HPC 工作负荷环境中）使用 UAL。 UAL 主要用于小型、中型和企业内部网方案，其中应有高容量，但并不像为定期提供面向 Internet 的流量的部署那么高。  
   
-## <a name="BKMK_NEW"></a>重要的功能  
+## <a name="BKMK_NEW"></a>重要功能  
 下表描述 UAL 的关键功能及其可能值。  
   
 |功能|ReplTest1|  
 |-----------------|---------|  
-|以几乎实时的方式收集和聚合客户端请求事件数据。|最多可以保存三年的数据。 **重要说明：** 管理员必须强制性地使收集的数据和数据保留期遵守组织的隐私策略和本地法规。|  
+|以几乎实时的方式收集和聚合客户端请求事件数据。|最多可以保存三年的数据。 **重要说明：** 管理员需要强制遵守组织的隐私策略和本地法规收集的数据和数据保留期。|  
 |通过使用 WMI 或 Windows PowerShell 界面来查询 UAL，以检索本地或远程服务器上的客户端请求数据。|UAL 启用持续的用法数据的单一视图。 服务器和企业管理员可以检索此数据并与业务管理员进行协调，以优化其批量软件许可证的使用。|  
 |默认情况下处于启用状态。|服务器管理员不必配置或通过其他方式设置此功能，即可使用所有核心功能并使其正常运行。|  
   
 ## <a name="data-logged-with-ual"></a>通过 UAL 记录的数据  
 如下用户相关数据由 UAL 记录。  
   
-|数据|描述|  
+|Data|描述|  
 |--------|---------------|  
 |**UserName**|随附来自已安装角色和产品的 UAL 条目的客户端上的用户名（如适用）。|  
 |**ActivityCount**|特定用户已访问某个角色或服务的次数。|  
 |**FirstSeen**|用户首次访问某个角色或服务的日期和时间。|  
 |**LastSeen**|用户最近一次访问某个角色或服务的日期和时间。|  
 |**ProductName**|提供 UAL 数据的软件父产品的名称（如 Windows）。|  
-|**RoleGUID**|UAL 分配或登记的 GUID，它表示服务器角色或已安装的产品。|  
+|**Roleguid 关联**|UAL 分配或登记的 GUID，它表示服务器角色或已安装的产品。|  
 |**RoleName**|提供 UAL 数据的角色、组件或子产品的名称。 这还与 ProductName 和 RoleGUID 关联。|  
 |**TenantIdentifier**|随附 UAL 数据的已安装角色或产品的租户客户端的唯一 GUID（如适用）。|  
   
 如下设备相关数据由 UAL 记录。  
   
-|数据|描述|  
+|Data|描述|  
 |--------|---------------|  
-|**IPAddress**|用于访问角色或服务的客户端设备的 IP 地址。|  
+|**地址**|用于访问角色或服务的客户端设备的 IP 地址。|  
 |**ActivityCount**|特定设备已访问角色或服务的次数。|  
 |**FirstSeen**|IP 地址首次用于访问某个角色或服务时的日期和时间。|  
 |**LastSeen**|IP 地址最近一次用于访问某个角色或服务时的日期和时间。|  
 |**ProductName**|提供 UAL 数据的软件父产品的名称（如 Windows）。|  
-|**RoleGUID**|由 UAL 分配或登记的 GUID，它表示服务器角色或已安装的产品。|  
+|**Roleguid 关联**|由 UAL 分配或登记的 GUID，它表示服务器角色或已安装的产品。|  
 |**RoleName**|提供 UAL 数据的角色、组件或子产品的名称。 这还与 ProductName 和 RoleGUID 关联。|  
 |**TenantIdentifier**|随附 UAL 数据的已安装角色或产品的租户客户端的唯一 GUID（如适用）。|  
   
 ## <a name="BKMK_SOFT"></a>软件要求  
-可以在运行 Windows Server 2012 之后的版本的 Windows Server 的任何计算机上使用 UAL。  
+在 Windows Server 2012 之后，可以在运行 Windows Server 版本的任何计算机上使用 UAL。  
   
 ## <a name="see-also"></a>请参阅  
 MSDN 上的[用户访问日志记录](https://msdn.microsoft.com/library/windows/desktop/hh437528(v=vs.85).aspx) 。  

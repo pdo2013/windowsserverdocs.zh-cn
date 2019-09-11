@@ -1,6 +1,6 @@
 ---
 title: 为负载平衡和网络地址转换 (NAT) 配置软件负载平衡器
-description: 本主题是软件定义的网络指南如何管理租户工作负荷和 Windows Server 2016 中的虚拟网络的一部分。
+description: 本主题是软件定义的网络指南的一部分，其中介绍了如何在 Windows Server 2016 中管理租户工作负荷和虚拟网络。
 manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,36 +13,36 @@ ms.assetid: 73bff8ba-939d-40d8-b1e5-3ba3ed5439c3
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 4d53c4bcbe1f37f532f2861d5669201959a9f091
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 70bc6aa6a1276506d81b56520b7e127cd271cc83
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446669"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867158"
 ---
 # <a name="configure-the-software-load-balancer-for-load-balancing-and-network-address-translation-nat"></a>为负载平衡和网络地址转换 (NAT) 配置软件负载平衡器
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-你可以使用本主题以了解如何使用软件定义网络\(SDN\)软件负载均衡器\(SLB\)提供出站网络地址转换\(NAT\)，入站 NAT，或应用程序的多个实例之间的负载平衡。
+可以使用本主题了解如何使用软件定义的网络\(SDN\)软件负载均衡器\(SLB\)来提供出站网络地址转换\(NAT\)，入站 NAT，或在应用程序的多个实例之间进行负载均衡。
 
 ## <a name="software-load-balancer-overview"></a>软件负载均衡器概述
 
-SDN 软件负载均衡器\(SLB\)到您的应用程序提供高可用性和网络性能。 它是第 4 层\(TCP、 UDP\)负载均衡器的云服务或虚拟机中负载均衡器集定义中的健康服务实例之间分配传入流量。
+SDN 软件负载均衡器\(SLB\)为应用程序提供高可用性和网络性能。 它是第 4 \(层 TCP，即 UDP\)负载均衡器，用于在云服务或负载均衡器集中定义的虚拟机中的健康服务实例之间分配传入流量。
 
-配置 SLB 来执行以下操作：
+配置 SLB 以执行以下操作：
 
-- 负载平衡传入流量的虚拟网络到虚拟机的外部\(Vm\)，也称为公共 VIP 负载平衡。
-- 传入流量进行负载平衡的虚拟网络中的 vm、 云服务中的 Vm 之间或在本地计算机和跨界虚拟网络中的 Vm 之间。 
-- 将从虚拟网络的 VM 网络流量转发到外部目标使用网络地址转换 (NAT)，也称为出站 nat。
-- 将外部流量转发到特定的 VM，也称为入站 nat。
-
-
+- 将虚拟网络外部的传入流量负载均衡到虚拟机\(vm\)，也称为公共 VIP 负载平衡。
+- 对虚拟网络中的 vm、云服务中的 Vm 之间的传入流量进行负载均衡，或在跨界虚拟网络中的本地计算机与 Vm 之间进行负载均衡。 
+- 使用网络地址转换（NAT）将虚拟网络中的 VM 网络流量转发到外部目标（也称为出站 NAT）。
+- 将外部流量转发到特定 VM，也称为入站 NAT。
 
 
-## <a name="example-create-a-public-vip-for-load-balancing-a-pool-of-two-vms-on-a-virtual-network"></a>例如：创建负载均衡的虚拟网络上的两个 Vm 的池的公共 VIP
 
-在此示例中，您创建负载均衡器对象与公共 VIP 和两个 Vm 作为池成员，若要为请求提供服务到 VIP。 此示例代码还将添加 HTTP 运行状况探测来检测是否其中一个池成员变为无响应。
+
+## <a name="example-create-a-public-vip-for-load-balancing-a-pool-of-two-vms-on-a-virtual-network"></a>例如：为虚拟网络中的两个 Vm 创建负载平衡的公共 VIP
+
+在此示例中，将创建一个具有公共 VIP 的负载均衡器对象和两个 Vm 作为池成员，以向 VIP 提供请求。 此代码示例还添加了一个 HTTP 运行状况探测，用于检测某个池成员是否变成了不响应。
 
 1. 准备负载均衡器对象。
 
@@ -56,7 +56,7 @@ SDN 软件负载均衡器\(SLB\)到您的应用程序提供高可用性和网络
     $LoadBalancerProperties = new-object Microsoft.Windows.NetworkController.LoadBalancerProperties
    ```
 
-2. 将分配到前端的 IP 地址，通常称为虚拟 IP (VIP)。<p>VIP 必须为一个逻辑网络 IP 池提供给负载均衡器管理器中未用的 IP。 
+2. 分配前端 IP 地址，通常称为虚拟 IP （VIP）。<p>VIP 必须是提供给负载平衡器管理器的一个逻辑网络 IP 池中未使用的 IP。 
 
    ```PowerShell
     $VIPIP = "10.127.134.5"
@@ -75,7 +75,7 @@ SDN 软件负载均衡器\(SLB\)到您的应用程序提供高可用性和网络
     $LoadBalancerProperties.FrontEndIPConfigurations += $FrontEndIPConfig
    ```
 
-3. 后端地址池，其中包含动态 Ip (Dip) 组成的 Vm 负载平衡集的成员分配。 
+3. 分配后端地址池，其中包含组成负载平衡 Vm 集成员的动态 Ip （Dip）。 
 
    ```PowerShell 
     $BackEndAddressPool = new-object Microsoft.Windows.NetworkController.LoadBalancerBackendAddressPool
@@ -87,12 +87,12 @@ SDN 软件负载均衡器\(SLB\)到您的应用程序提供高可用性和网络
     $LoadBalancerProperties.backendAddressPools += $BackEndAddressPool
    ```
 
-4. 定义运行状况探测的负载均衡器用于确定后端池成员的运行状况状态。<p>在此示例中，定义 HTTP 探测的查询的 RequestPath"/ health.htm。"  查询运行由 IntervalInSeconds 属性指定每隔 5 秒。<p>运行状况探测必须接收 HTTP 响应代码为 200 的探测以使其处于正常状态的后端 IP，请考虑为 11 次连续查询。 如果不正常的后端 IP，它不从负载均衡器接收流量。
+4. 定义负载平衡器用于确定后端池成员的运行状况状态的运行状况探测。<p>在此示例中，将定义一个查询到 "/health.htm." 的 Owin.requestpath 的 HTTP 探测  查询每5秒运行一次，由 IntervalInSeconds 属性指定。<p>运行状况探测必须收到 HTTP 响应代码200，用于探测器的11次连续查询，以将后端 IP 视为正常。 如果后端 IP 不正常，则它不会从负载均衡器接收流量。
 
    >[!IMPORTANT]
-   >不会阻止与第一个 IP 子网中的流量的任何访问控制列表 (Acl)，因为这是用于探测的资助创始费点适用于后端 IP。
+   >对于应用到后端 IP 的任何访问控制列表（Acl），请勿阻止进出子网中的第一个 IP 的流量，因为这是探测的始发点。
 
-   使用下面的示例来定义运行状况探测。
+   使用以下示例定义运行状况探测。
 
    ```PowerShell
     $Probe = new-object Microsoft.Windows.NetworkController.LoadBalancerProbe
@@ -109,7 +109,7 @@ SDN 软件负载均衡器\(SLB\)到您的应用程序提供高可用性和网络
     $LoadBalancerProperties.Probes += $Probe
    ```
 
-5. 定义负载均衡规则以发送到后端 IP 的前端 IP 在到达的流量。  在此示例中后, 端池接收到端口 80 TCP 流量。<p>使用下面的示例定义负载均衡规则：
+5. 定义一个负载均衡规则，用于将到达前端 IP 的流量发送到后端 IP。  在此示例中，后端池接收到端口80的 TCP 流量。<p>使用以下示例定义负载均衡规则：
 
    ```PowerShell
    $Rule = new-object Microsoft.Windows.NetworkController.LoadBalancingRule
@@ -127,20 +127,20 @@ SDN 软件负载均衡器\(SLB\)到您的应用程序提供高可用性和网络
    $LoadBalancerProperties.loadbalancingRules += $Rule
    ```
 
-6. 将负载均衡器配置添加到网络控制器。<p>使用下面的示例将负载均衡器配置添加到网络控制器：
+6. 将负载均衡器配置添加到网络控制器。<p>使用以下示例将负载均衡器配置添加到网络控制器：
 
    ```PowerShell
     $LoadBalancerResource = New-NetworkControllerLoadBalancer -ConnectionUri $URI -ResourceId $LBResourceId -Properties $LoadBalancerProperties -Force -PassInnerException
    ```
 
-7. 按照下一步的示例，将网络接口添加到此后端池。
+7. 按照下一个示例将网络接口添加到此后端池。
 
 
-## <a name="example-use-slb-for-outbound-nat"></a>例如：出站 NAT 使用 SLB
+## <a name="example-use-slb-for-outbound-nat"></a>例如：为出站 NAT 使用 SLB
 
-在此示例中，与后端池提供出站 NAT 功能的虚拟网络的专用地址空间上的虚拟机，若要连接到 internet 的出站配置 SLB。 
+在此示例中，你将使用后端池配置 SLB，以便为虚拟网络的专用地址空间中的 VM 提供出站 NAT 功能，以到达 internet 的出站。 
 
-1. 创建负载均衡器属性、 前端 IP 和后端池。
+1. 创建负载均衡器属性、前端 IP 和后端池。
 
    ```PowerShell
     import-module NetworkController
@@ -187,20 +187,20 @@ SDN 软件负载均衡器\(SLB\)到您的应用程序提供高可用性和网络
     $LoadBalancerProperties.OutboundNatRules += $OutboundNAT
    ```
 
-3. 网络控制器中添加负载均衡器对象。
+3. 将负载均衡器对象添加到网络控制器中。
 
    ```PowerShell
     $LoadBalancerResource = New-NetworkControllerLoadBalancer -ConnectionUri $URI -ResourceId $LBResourceId -Properties $LoadBalancerProperties -Force -PassInnerException
    ```
 
-4. 按照下一步的示例，添加你想要提供的 internet 访问的网络接口。
+4. 按照下一个示例，添加要为其提供 internet 访问权限的网络接口。
 
 ## <a name="example-add-network-interfaces-to-the-back-end-pool"></a>例如：将网络接口添加到后端池
-在此示例中，你将网络接口添加到后端池。  必须为可处理对 VIP 请求每个网络接口重复此步骤。 
+在此示例中，将网络接口添加到后端池。  您必须为每个可处理对 VIP 发出的请求的网络接口重复此步骤。 
 
-您还可以重复此过程将其添加到多个负载均衡器对象的单个网络接口上。 例如，如果您有 web server VIP 的负载均衡器对象和单独的负载均衡器对象，以提供出站 nat。
+也可以在单个网络接口上重复此过程，将其添加到多个负载均衡器对象。 例如，你有一个用于 web 服务器 VIP 的负载均衡器对象和一个单独的负载均衡器对象来提供出站 NAT。
     
-1. 获取包含要添加网络接口的后端池的负载均衡器对象。
+1. 获取包含后端池的负载均衡器对象以添加网络接口。
 
    ```PowerShell
    $lbresourceid = "LB2"
@@ -214,23 +214,23 @@ SDN 软件负载均衡器\(SLB\)到您的应用程序提供高可用性和网络
    $nic.properties.IpConfigurations[0].properties.LoadBalancerBackendAddressPools += $lb.properties.backendaddresspools[0]
    ```  
 
-3. 将网络接口以应用更改。 
+3. 放置网络接口以应用更改。 
 
    ```PowerShell
    new-networkcontrollernetworkinterface  -connectionuri $uri -resourceid 6daca142-7d94-0000-1111-c38c0141be06 -properties $nic.properties -force -PassInnerException
    ``` 
 
 
-## <a name="example-use-the-software-load-balancer-for-forwarding-traffic"></a>例如：使用软件负载均衡器转发的流量
-如果你需要将虚拟 IP 映射到虚拟网络上的单个网络接口，而无需定义单个端口，可以创建 L3 转发规则。  此规则将转发所有流量传入和传出 VM 通过 PublicIPAddress 对象中包含已分配的 VIP。
+## <a name="example-use-the-software-load-balancer-for-forwarding-traffic"></a>例如：使用用于转发流量的软件负载均衡器
+如果需要将虚拟 IP 映射到虚拟网络上的单个网络接口而不定义单独的端口，可以创建三级转发规则。  此规则通过 PublicIPAddress 对象中包含的所分配的 VIP，将所有流量转发到 VM。
 
-如果定义了 VIP 和 DIP 作为同一子网，则等效于执行 L3 转发，而无需 nat。
+如果将 VIP 和 DIP 定义为同一子网，则这等效于执行不带 NAT 的 L3 转发。
 
 >[!NOTE]
->此过程不需要您创建负载均衡器对象。  将 PublicIPAddress 分配给网络接口是足够的信息来执行其配置的软件负载均衡器。
+>此过程不需要你创建负载均衡器对象。  将 PublicIPAddress 分配到网络接口的信息足以使软件负载平衡器执行其配置。
 
 
-1. 创建包含 VIP 的公共 IP 对象。
+1. 创建公共 IP 对象以包含 VIP。
 
    ```PowerShell
    $publicIPProperties = new-object Microsoft.Windows.NetworkController.PublicIpAddressProperties
@@ -240,7 +240,7 @@ SDN 软件负载均衡器\(SLB\)到您的应用程序提供高可用性和网络
    $publicIP = New-NetworkControllerPublicIpAddress -ResourceId "MyPIP" -Properties $publicIPProperties -ConnectionUri $uri -Force -PassInnerException
    ```
 
-2. 将 PublicIPAddress 分配给网络接口。
+2. 将 PublicIPAddress 分配到网络接口。
 
    ```PowerShell
    $nic = get-networkcontrollernetworkinterface  -connectionuri $uri -resourceid 6daca142-7d94-0000-1111-c38c0141be06
@@ -248,10 +248,10 @@ SDN 软件负载均衡器\(SLB\)到您的应用程序提供高可用性和网络
    New-NetworkControllerNetworkInterface -ConnectionUri $uri -ResourceId $nic.ResourceId -Properties $nic.properties -PassInnerException
    ```
 
-## <a name="example-use-the-software-load-balancer-for-forwarding-traffic-with-a-dynamically-allocated-vip"></a>例如：使用软件负载均衡器转发的流量使用的动态分配的 VIP
-此示例重复上一示例中，相同的操作，但它会自动分配可用池中的 Vip 中而不是指定特定的 IP 地址的负载均衡器的 VIP。 
+## <a name="example-use-the-software-load-balancer-for-forwarding-traffic-with-a-dynamically-allocated-vip"></a>例如：使用软件负载平衡器通过动态分配的 VIP 转发流量
+此示例与上一个示例重复相同的操作，但它会自动从负载均衡器的可用 Vip 池中分配 VIP，而不是指定特定的 IP 地址。 
 
-1. 创建包含 VIP 的公共 IP 对象。
+1. 创建公共 IP 对象以包含 VIP。
 
    ```PowerShell
    $publicIPProperties = new-object Microsoft.Windows.NetworkController.PublicIpAddressProperties
@@ -260,13 +260,13 @@ SDN 软件负载均衡器\(SLB\)到您的应用程序提供高可用性和网络
    $publicIP = New-NetworkControllerPublicIpAddress -ResourceId "MyPIP" -Properties $publicIPProperties -ConnectionUri $uri -Force -PassInnerException
    ```
 
-2. 要确定哪个 IP 地址分配的 PublicIPAddress 资源的查询。
+2. 查询 PublicIPAddress 资源以确定分配了哪个 IP 地址。
 
    ```PowerShell
     (Get-NetworkControllerPublicIpAddress -ConnectionUri $uri -ResourceId "MyPIP").properties
    ```
 
-   IpAddress 属性包含分配的地址。  输出将类似于此：
+   IpAddress 属性包含分配的地址。  输出将如下所示：
    ```
     Counters                 : {}
     ConfigurationState       :
@@ -280,15 +280,15 @@ SDN 软件负载均衡器\(SLB\)到您的应用程序提供高可用性和网络
     PreviousIpConfiguration  :
    ```
  
-3. 将 PublicIPAddress 分配给网络接口。
+3. 将 PublicIPAddress 分配到网络接口。
 
    ```PowerShell
    $nic = get-networkcontrollernetworkinterface  -connectionuri $uri -resourceid 6daca142-7d94-0000-1111-c38c0141be06
    $nic.properties.IpConfigurations[0].Properties.PublicIPAddress = $publicIP
    New-NetworkControllerNetworkInterface -ConnectionUri $uri -ResourceId $nic.ResourceId -Properties $nic.properties -PassInnerException
    ```
-   ## <a name="example-remove-a-publicip-address-that-is-being-used-for-forwarding-traffic-and-return-it-to-the-vip-pool"></a>例如：删除正用于转发流量的 PublicIP 地址并将其返回到 VIP 池
-   此示例删除由前面的示例创建的 PublicIPAddress 资源。  一旦删除 PublicIPAddress，对 PublicIPAddress 的引用将自动从网络接口、 流量将停止正在转发和 IP 地址将返回到以便重复使用的公共 VIP 池。  
+   ## <a name="example-remove-a-publicip-address-that-is-being-used-for-forwarding-traffic-and-return-it-to-the-vip-pool"></a>例如：删除正在用于转发流量的 PublicIP 地址，并将其返回到 VIP 池
+   此示例将删除前面的示例创建的 PublicIPAddress 资源。  删除 PublicIPAddress 后，将自动从网络接口中删除对 PublicIPAddress 的引用，将停止转发流量，并将 IP 地址返回到公共 VIP 池以供重复使用。  
 
 4. 删除 PublicIP
 

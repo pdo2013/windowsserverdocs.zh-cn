@@ -1,6 +1,6 @@
 ---
 title: 挂起用户会话并使其保持为活动状态
-description: 了解如何挂起用户从 MultiPoint 会话而无需断开用户连接
+description: 了解如何在无需断开连接的情况下从 MultiPoint 会话中挂起用户
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,19 +13,19 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: cc4310e6f7609464cf037b750bec6e5e805e0b26
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a7c94b9d1edd36efc8651e35dfabbc95239335cb
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815218"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871531"
 ---
 # <a name="suspend-and-leave-user-session-active"></a>挂起用户会话并使其保持为活动状态
-可以断开连接或当不希望结束用户会话挂起 MultiPoint 服务系统中的用户。 无需你为其断开会话，用户也可自主断开会话。 当挂起用户会话时，在关闭或重启计算机前，该会话将会在 MultiPoint 服务系统的计算机内存中保持活动状态。 一旦关闭或重启计算机，所有挂起的会话都将结束，并且任何未保存的工作都将丢失。  
+当你不想结束用户的会话时，你可以断开或挂起用户的 MultiPoint 服务系统。 无需你为其断开会话，用户也可自主断开会话。 暂停用户会话时，会话将在 MultiPoint 服务系统的计算机内存中保持活动状态，直到关闭或重新启动计算机。 一旦关闭或重启计算机，所有挂起的会话都将结束，并且任何未保存的工作都将丢失。  
   
-1.  在工作站模式下打开 MultiPoint Manager，然后单击**工作站**选项卡。  
+1.  在工作站模式下打开 "MultiPoint 管理器"，然后单击 "**工作站**" 选项卡。  
   
-2.  在中**计算机**列中，单击你想要挂起其会话的计算机的名称。  
+2.  在 "**计算机**" 列中，单击要挂起其会话的计算机的名称。  
   
 3.  在“工作站任务”下，单击“挂起所有工作站”。  
   

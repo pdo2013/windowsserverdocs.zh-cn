@@ -1,6 +1,6 @@
 ---
-title: 管理数据中心桥接 (DCB)
-description: 本主题提供如何使用 Windows PowerShell 命令来管理 Windows Server 2016 中的数据中心桥接的说明。
+title: 管理数据中心桥接（DCB）
+description: 本主题提供有关如何使用 Windows PowerShell 命令在 Windows Server 2016 中管理数据中心桥接的说明。
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -8,51 +8,51 @@ ms.assetid: 1575cc7c-62a7-4add-8f78-e5d93effe93f
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: daed746fe798ae253956d0977827d0e205bb8b3e
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: fd6e8e5dd0bb4103011269473c3e1091739c775e
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034575"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869798"
 ---
-# <a name="manage-data-center-bridging-dcb"></a>管理数据中心桥接 (DCB)
+# <a name="manage-data-center-bridging-dcb"></a>管理数据中心桥接（DCB）
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-本主题提供有关如何使用 Windows PowerShell 命令来配置数据中心桥接的说明\(DCB\)上的 DCB\-兼容的网络适配器安装在运行的计算机Windows Server 2016 或 Windows 10。
+本主题提供有关如何在运行的计算机上使用 Windows PowerShell 命令在运行的 DCB \(\-兼容\)的网络适配器上配置数据中心桥接 DCB 的说明Windows Server 2016 或 Windows 10。
 
-## <a name="install-dcb-in-windows-server-2016-or-windows-10"></a>在 Windows Server 2016 或 Windows 10 安装 DCB
+## <a name="install-dcb-in-windows-server-2016-or-windows-10"></a>在 Windows Server 2016 或 Windows 10 中安装 DCB
 
-有关使用和如何安装 DCB 的先决条件的信息，请参阅[安装的数据中心桥接 (DCB) 在 Windows Server 2016 或 Windows 10 中](dcb-install.md)。
+有关使用和如何安装 DCB 的先决条件信息，请参阅[在 Windows Server 2016 或 windows 10 中安装数据中心桥接（DCB）](dcb-install.md)。
 
 
 ## <a name="dcb-configurations"></a>DCB 配置 
 
-在 Windows Server 2016 之前所有 DCB 已配置都应用通用于所有支持 DCB 的网络适配器。 
+在 Windows Server 2016 之前，所有 DCB 配置都广泛应用于支持 DCB 的所有网络适配器。 
 
-在 Windows Server 2016 中，您可以 DCB 将配置应用到全局策略存储区或单个策略存储区\(s\)。 单个策略时保护它们重写所有全局策略设置。
+在 Windows Server 2016 中，你可以将 DCB 配置应用于全局策略存储或单个策略存储\(。\) 应用各个策略时，它们会覆盖所有全局策略设置。
 
-直到您执行以下网络适配器上未应用在系统级别的流量类、 PFC 和应用程序优先级的分配的配置。
+在执行以下操作之前，系统级别上的流量类、PFC 和应用程序优先级分配的配置不会应用于网络适配器。
 
-1. 打开 DCBX 愿意位设置为 false
+1. 将 DCBX 设置为 false
 
-2. 启用网络适配器上的 DCB。 请参阅[启用和显示网络适配器上的 DCB 设置](#bkmk_enabledcb)。
+2. 在网络适配器上启用 DCB。 请参阅[在网络适配器上启用和显示 DCB 设置](#bkmk_enabledcb)。
 
 >[!NOTE]
->如果你想要将 DCB 配置从通过 DCBX 开关，请参阅[DCBX 设置](#dcb-configuration-on-network-adapters)。
+>如果要通过 DCBX 从开关配置 DCB，请参阅[DCBX 设置](#dcb-configuration-on-network-adapters)。
 
-DCBX 愿意位是 DCB 规范中所述。 如果在设备上的愿意位设置为 true，该设备是愿意接受从通过 DCBX 远程设备的配置。 如果在设备上的愿意位设置为 false，设备将拒绝所有配置尝试从远程设备，并强制实施仅本地配置。
+DCB 规范中描述了 DCBX 的位。 如果设备上的 "愿意" 位设置为 "true"，则设备愿意通过 DCBX 接受远程设备的配置。 如果设备上的 "愿意" 位设置为 "false"，则设备将拒绝远程设备的所有配置尝试，并仅强制实施本地配置。
 
-如果 DCB 不安装在 Windows Server 2016 愿意位的值是不相关，操作系统是而言，因为操作系统不具有任何本地设置将应用于网络适配器。 DCB 安装后，愿意位的默认值为 true。 此设计允许网络适配器，以使它们可能已经从其远程对等方收到的任何配置。
+如果 Windows Server 2016 中未安装 DCB，则 "愿意" 位的值与操作系统相关，因为操作系统没有 "本地设置" 适用于网络适配器。 安装 DCB 后，"愿意位" 的默认值为 true。 此设计允许网络适配器保留它们可能从其远程对等端接收的任何配置。
 
-如果网络适配器不支持 DCBX，它将永远不会接收从远程设备的配置。 它会从操作系统接收配置，但仅在 DCBX 后愿意位设置为 false。
+如果网络适配器不支持 DCBX，它将永远不会从远程设备接收配置。 它确实会从操作系统接收配置，但只有在将 DCBX 的位设置为 false 之后。
 
 ## <a name="set-the-willing-bit"></a>设置愿意位
 
-若要强制实施流量类、 PFC 和应用程序优先级分配网络适配器上的操作系统配置或只需重写从远程设备的配置 \-如果存在任何 \-可以运行以下命令。
+若要在网络适配器上强制执行流量类、PFC 和应用程序优先级分配的操作系统配置，或者只是替代远程设备的配置（如果有），可以运行以下命令。
 
 >[!NOTE]
->DCB Windows PowerShell 命令名称中的名称字符串包含"QoS"而不是"DCB"。 这是因为在 Windows Server 2016 提供无缝的 QoS 管理体验集成在 QoS 和 DCB。
+>DCB Windows PowerShell 命令名称在名称字符串中包含 "QoS" 而不是 "DCB"。 这是因为 QoS 和 DCB 集成在 Windows Server 2016 中，以提供无缝的 QoS 管理体验。
 
     
     Set-NetQosDcbxSetting -Willing $FALSE
@@ -63,7 +63,7 @@ DCBX 愿意位是 DCB 规范中所述。 如果在设备上的愿意位设置为
     [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
     
 
-若要显示的设置的愿意位的状态，可以使用以下命令：
+若要显示相应的位设置的状态，可以使用以下命令：
 
     
     Get-NetQosDcbxSetting
@@ -75,31 +75,31 @@ DCBX 愿意位是 DCB 规范中所述。 如果在设备上的愿意位设置为
 
 ## <a name="dcb-configuration-on-network-adapters"></a>网络适配器上的 DCB 配置
 
-网络适配器上启用 DCB 可看到从一个开关传播到网络适配器的配置。
+在网络适配器上启用 DCB 可查看从交换机传播到网络适配器的配置。
 
 DCB 配置包括以下步骤。
 
-1.  在系统级别，其中包括配置 DCB 设置：
+1.  在系统级别配置 DCB 设置，其中包括：
 
     a. 流量类管理
     
-    b. 优先级流控制 (PFC) 设置
+    b. 优先级流控制（PFC）设置
     
     c. 应用程序优先级分配
     
     d. DCBX 设置
 
-2. 配置网络适配器上的 DCB。
+2. 在网络适配器上配置 DCB。
 
 
 
 ##  <a name="dcb-traffic-class-management"></a>DCB 流量类管理
 
-以下是示例 Windows PowerShell 命令为流量类管理。
+下面是用于通信类管理的示例 Windows PowerShell 命令。
 
 ### <a name="create-a-traffic-class"></a>创建流量类
 
-可以使用**新建 NetQosTrafficClass**命令以创建流量类。
+可以使用**get-netqostrafficclass**命令创建流量类。
 
     
     New-NetQosTrafficClass -Name SMB -Priority 4 -BandwidthPercentage 30 -Algorithm ETS
@@ -109,15 +109,15 @@ DCB 配置包括以下步骤。
     SMB  ETS   30   4Global
       
 
-默认情况下，所有的 802.1p 值映射到默认流量类，它具有 100%的物理链路的带宽。 **新建 NetQosTrafficClass**命令将创建一个新的流量类中，映射到的任何数据包的 802.1p 优先级标记值 4。 传输选择算法\(TSA\) ETS，且是 30%的带宽。
+默认情况下，所有 802.1 p 值都映射到默认的流量类，该流量类的物理链路带宽为 100%。 **Get-netqostrafficclass**命令将创建一个新的流量类，其中标记有 802.1 p 优先级值4的任何数据包。 传输选择算法\(TSA\)为 ETS，其带宽为 30%。
 
-您可以创建最多 7 新流量类。 包括默认流量类，可以有最多 8 流量类系统中。 但是，DCB 网络适配器可能不支持很多流量的硬件中的类。 如果创建的网络适配器可以容纳更多的流量类并在该网络适配器上启用 DCB，微型端口驱动程序将向操作系统报告错误。 事件日志中记录错误。
+最多可以创建7个新的通信类。 包括默认通信类，系统中最多可以有8个通信类。 但是，支持 DCB 的网络适配器可能不支持硬件中的多个通信类。 如果创建的流量类比网络适配器可容纳的流量类多，并且在该网络适配器上启用 DCB，则微型端口驱动程序会向操作系统报告错误。 错误记录在事件日志中。
 
-创建的流量的所有类的带宽保留项的总和不能超过 99%的带宽。 默认流量类始终有至少 1%的带宽保留为其自身。
+所有已创建的流量类的带宽预留的总和不得超过 99% 的带宽。 默认流量类始终具有为其本身预留的带宽的至少 1%。
 
-### <a name="display-traffic-classes"></a>显示通信类别
+### <a name="display-traffic-classes"></a>显示流量类
 
-可以使用**Get-netqostrafficclass**命令查看通信类。
+可以使用**get-netqostrafficclass**命令查看流量类。
 
     Get-NetQosTrafficClass
     
@@ -128,11 +128,11 @@ DCB 配置包括以下步骤。
     
 ### <a name="modify-a-traffic-class"></a>修改流量类
 
-可以使用**集 NetQosTrafficClass**命令以创建流量类。 
+可以使用**get-netqostrafficclass**命令创建流量类。 
 
     Set-NetQosTrafficClass -Name SMB -BandwidthPercentage 50
 
-然后，可以使用**Get-netqostrafficclass**命令查看设置。
+然后，可以使用**get-netqostrafficclass**命令来查看设置。
 
     Get-NetQosTrafficClass
     
@@ -142,25 +142,25 @@ DCB 配置包括以下步骤。
     SMB ETS   50   4Global   
     
 
-创建流量类后，可以更改其设置独立。 您可以更改这些设置包括：
+创建流量类之后，可以单独更改其设置。 您可以更改的设置包括：
 
 1. 带宽分配\(-BandwidthPercentage\)
 
-2. TSA (\-Algorithm\)
+2. TSA （\-算法\)
 
 3. 优先级映射\(-优先级\)
 
 ### <a name="remove-a-traffic-class"></a>删除流量类
 
-可以使用**删除 NetQosTrafficClass**命令以删除流量类。
+可以使用**get-netqostrafficclass**命令删除流量类。
 
 >[!IMPORTANT]
->不能删除默认通信类。
+>不能删除默认的通信类。
 
 
     Remove-NetQosTrafficClass -Name SMB
 
-然后，可以使用**Get-netqostrafficclass**命令查看设置。
+然后，可以使用**get-netqostrafficclass**命令来查看设置。
     
     Get-NetQosTrafficClass
     
@@ -169,13 +169,13 @@ DCB 配置包括以下步骤。
     [Default]   ETS   100  0-7  Global
     
 
-删除流量类后的 802.1p 值映射到流量类重新映射到默认通信类。 删除流量类时，流量类保留任何带宽被返回到默认流量类分配。
+删除流量类后，映射到该流量类的 802.1 p 值将重新映射到默认流量类。 删除流量类时，为流量类保留的任何带宽都将返回到默认的流量类分配。
 
-## <a name="per-network-interface-policies"></a>每个网络接口策略
+## <a name="per-network-interface-policies"></a>每网络接口策略
 
-上面的示例中的所有设置的全局策略。 以下是如何设置和获取每个 NIC 策略的示例。 
+上述所有示例均设置全局策略。 下面是有关如何设置和获取每个 NIC 策略的示例。 
 
-"PolicySet"字段从全局更改为 AdapterSpecific。 AdapterSpecific 策略时显示，接口索引\(ifIndex\)和接口名称\(ifAlias\)也会显示。
+"PolicySet" 字段从 Global 更改为 AdapterSpecific。 显示 AdapterSpecific 策略时，还会显示接口\(索引\) ifIndex 和接口\(名称\) ifAlias。
 
 ```
 PS C:\> Get-NetQosTrafficClass
@@ -227,9 +227,9 @@ SMBforM1    ETS       30           4                AdapterSpecific  4       M1
 
 ## <a name="priority-flow-control-settings"></a>优先级流控制设置：
 
-以下是优先级流控制设置的命令示例。 此外可以为各个适配器指定这些设置。
+下面是优先级流控制设置的命令示例。 还可以为单个适配器指定这些设置。
 
-### <a name="enable-and-display-priority-flow-control-for-global-and-interface-specific-use-cases"></a>启用和显示全局和特定接口的优先级流控制用例
+### <a name="enable-and-display-priority-flow-control-for-global-and-interface-specific-use-cases"></a>启用并显示全局和接口特定用例的优先级流控制
 
 ```
 PS C:\> Enable-NetQosFlowControl -Priority 4
@@ -263,7 +263,7 @@ Priority   Enabled    PolicySet        IfIndex IfAlias
 ```
 
 
-### <a name="disable-priority-flow-control-global-and-interface-specific"></a>禁用优先级流控制 (全局和特定的接口)
+### <a name="disable-priority-flow-control-global-and-interface-specific"></a>禁用优先级流控制（特定于全局和接口）
 
 ```
 PS C:\> Disable-NetQosFlowControl -Priority 4
@@ -299,7 +299,7 @@ Priority   Enabled    PolicySet        IfIndex IfAlias
 
 ##  <a name="application-priority-assignment"></a>应用程序优先级分配
 
-以下是优先级分配的示例。
+下面是优先级分配的示例。
 
 ### <a name="create-qos-policy"></a>创建 QoS 策略
 
@@ -315,15 +315,15 @@ PriorityValue  : 4
 
 ```
 
-为 SMB 前, 一个命令创建新策略。 – SMB 是收件箱匹配筛选器的 TCP 端口 445 （smb 保留）。 如果将数据包发送到 TCP 端口 445 会标记的 802.1p 值 4 操作系统之前将数据包传递给网络微型端口驱动程序。
+上一个命令为 SMB 创建新策略。 – SMB 是与 TCP 端口445（为 SMB 保留）匹配的收件箱筛选器。 如果将数据包发送到 TCP 端口445，则在将数据包传递到网络微型端口驱动程序之前，将使用 802.1 p 值为4的操作系统标记该数据包。
 
-– 除 SMB 以外，其他默认筛选器包括 – iSCSI （匹配 TCP 端口 3260）、-NFS （匹配 TCP 端口 2049年）、-LiveMigration （匹配 TCP 端口 6600 匹配）、-FCOE （匹配 EtherType 0x8906） 和 – NetworkDirect。
+除– SMB 外，其他默认筛选器包括– iSCSI （匹配 tcp 端口3260）、-NFS （匹配 tcp 端口2049）、-LiveMigration （匹配的 tcp 端口6600）、-FCOE （匹配 EtherType 0x8906）和– NetworkDirect。
 
-NetworkDirect 是任何网络适配器上的 RDMA 实现的顶部，我们创建一个抽象层。 – NetworkDirect 后面必须跟 Network Direct 的端口。
+NetworkDirect 是我们在网络适配器上的任何 RDMA 实现之上创建的抽象层。 – NetworkDirect 必须后跟网络直接端口。
 
-除了默认筛选器，你可以分类流量 （以下第一个示例所示），应用程序的可执行文件名称或 IP 地址、 端口或协议 （如第二个示例中所示）：
+除了默认筛选器外，还可以按应用程序的可执行文件名称（如下面的第一个示例所示）或 IP 地址、端口或协议（如第二个示例中所示）对流量进行分类：
 
-**通过可执行文件名称**
+**按可执行文件名称**
 
 ```
 PS C:\> New-NetQosPolicy -Name background -AppPathNameMatchCondition "C:\Program files (x86)\backup.exe" -PriorityValue8021Action 1
@@ -339,7 +339,7 @@ PriorityValue  : 1
 ```
 
 
-**通过 IP 地址端口或协议**
+**按 IP 地址端口或协议**
 
 ```
 PS C:\> New-NetQosPolicy -Name "Network Management" -IPDstPrefixMatchCondition 10.240.1.0/24 -IPProtocolMatchCondition both -NetworkProfile all -PriorityValue8021Action 7
@@ -388,7 +388,7 @@ PriorityValue  : 4
 
 ### <a name="modify-qos-policy"></a>修改 QoS 策略
 
-您可以修改 QoS 策略，如下所示。
+你可以修改 QoS 策略，如下所示。
 
 
 ```
@@ -422,11 +422,11 @@ Remove-NetQosPolicy -Name "Network Management" -Store GPO:localhost
 
 ## <a name="dcb-configuration-on-network-adapters"></a>网络适配器上的 DCB 配置
 
-独立于在系统级别上面所述的 DCB 配置网络适配器上的 DCB 配置。 
+网络适配器上的 DCB 配置与上面所述的系统级别上的 DCB 配置无关。 
 
-无论是否 DCB 安装在 Windows Server 2016 中，始终可以运行以下命令。 
+不管是否在 Windows Server 2016 中安装了 DCB，你始终可以运行以下命令。 
 
-如果从交换机配置 DCB，并依赖于 DCBX 传播给网络适配器的配置，您可以检查接收和网络适配器上启用 DCB 后从操作系统端的网络适配器上强制执行哪些配置。
+如果从交换机配置 DCB，并依赖 DCBX 将配置传播到网络适配器，则可以在网络适配器上启用 DCB 后，检查在网络适配器上接收和强制执行的配置。
 
 ###  <a name="bkmk_enabledcb"></a>启用和显示网络适配器上的 DCB 设置
 
@@ -455,7 +455,7 @@ OperationalClassifications : Protocol  Port/Type Priority
 
 ```
 
-### <a name="disable-dcb-on-network-adapters"></a>禁用网络适配器上的 DCB
+### <a name="disable-dcb-on-network-adapters"></a>在网络适配器上禁用 DCB
 
 ```
 PS C:\> Disable-NetAdapterQos M1
@@ -470,18 +470,18 @@ Capabilities :                       Hardware     Current
                NumTCs(Max/ETS/PFC) : 8/8/8        0/0/0  
 
 ```
-## <a name="bkmk_wps"></a>DCB 的 Windows PowerShell 命令
+## <a name="bkmk_wps"></a>适用于 DCB 的 Windows PowerShell 命令
 
-有用于 Windows Server 2016 和 Windows Server 2012 R2 DCB Windows PowerShell 命令。 对于 Windows Server 2016 中的 Windows Server 2012 R2，您可以使用的所有命令。
+对于 Windows Server 2016 和 Windows Server 2012 R2，有 DCB 的 Windows PowerShell 命令。 你可以使用 windows Server 2016 中 Windows Server 2012 R2 的所有命令。
 
-### <a name="windows-server-2016-windows-powershell-commands-for-dcb"></a>Windows Server 2016 的 DCB 的新 Windows PowerShell 命令
+### <a name="windows-server-2016-windows-powershell-commands-for-dcb"></a>适用于 DCB 的 windows Server 2016 Windows PowerShell 命令
 
-Windows Server 2016 的以下主题提供 Windows PowerShell cmdlet 说明和语法的所有数据中心桥接\(DCB\)服务质量\(QoS\)\-特定的 cmdlet。 本参考按 cmdlet 开头动词的字母顺序列出了这些 cmdlet。
+以下适用于 windows Server 2016 的主题提供 windows PowerShell cmdlet 说明和语法，适用于所有\(数据\)中心桥接\(DCB\)Service QoS\-特定 cmdlet 的质量。 本参考按 cmdlet 开头动词的字母顺序列出了这些 cmdlet。
 
-- [DcbQoS Module](https://technet.microsoft.com/itpro/powershell/windows/dcbqos/dcbqos)
+- [DcbQoS 模块](https://technet.microsoft.com/itpro/powershell/windows/dcbqos/dcbqos)
 
-### <a name="windows-server-2012-r2-windows-powershell-commands-for-dcb"></a>有关 DCB 的 Windows Server 2012 R2 的 Windows PowerShell 命令
+### <a name="windows-server-2012-r2-windows-powershell-commands-for-dcb"></a>适用于 DCB 的 windows Server 2012 R2 Windows PowerShell 命令
 
-Windows Server 2012 R2 的以下主题提供 Windows PowerShell cmdlet 说明和语法的所有数据中心桥接\(DCB\)服务质量\(QoS\)\-特定的 cmdlet。 本参考按 cmdlet 开头动词的字母顺序列出了这些 cmdlet。
+适用于 windows Server 2012 R2 的以下主题提供了 windows PowerShell cmdlet 说明和语法，适用于\(所有\)数据中心桥\(接\)DCB Service QoS\-特定的 cmdlet。 本参考按 cmdlet 开头动词的字母顺序列出了这些 cmdlet。
 
-- [数据中心桥接 (DCB) 服务质量 (QoS) Cmdlet 在 Windows PowerShell](https://technet.microsoft.com/library/hh967440.aspx)
+- [Windows PowerShell 中的数据中心桥接（DCB）服务质量（QoS） Cmdlet](https://technet.microsoft.com/library/hh967440.aspx)

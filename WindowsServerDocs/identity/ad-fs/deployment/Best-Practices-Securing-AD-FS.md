@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6939373db678f1ca6be62711f1771b8f7019c312
-ms.sourcegitcommit: c9ab5fbde1782a3a2bac2dbd45f3f178f7ae3c4c
+ms.openlocfilehash: bf7e2ed20a59bb021627a8a58f869ea5d94bf2b7
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68354646"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868186"
 ---
 ## <a name="best-practices-for-securing-active-directory-federation-services"></a>保护 Active Directory 联合身份验证服务的最佳实践
 
@@ -108,7 +108,7 @@ TCP|49443 (TCP)|用于证书身份验证。
 
 #### <a name="to-verify-the-settings-you-can-do-the-following"></a>若要验证设置, 可以执行以下操作:
 1.  在您的 Web 应用程序代理计算机上, 启动一个提升的命令窗口。
-2.  导航到 ADFS 目录, 网址为%WINDIR%\adfs\config。
+2.  导航到 ADFS 目录，网址为%WINDIR%\adfs\config。
 3.  将拥塞控制设置从其默认值更改为 "<congestionControl latencyThresholdInMSec="8000" minCongestionWindowSize="64" enabled="true" />"。
 4.  保存并关闭该文件。
 5.  通过运行 "net stop adfssrv" 和 "net start adfssrv" 来重新启动 AD FS 服务。
@@ -117,7 +117,7 @@ TCP|49443 (TCP)|用于证书身份验证。
 ### <a name="standard-http-request-checks-at-the-proxy"></a>在代理中检查标准 HTTP 请求
 代理还对所有流量执行以下标准检查:
 
-- FS-P 本身通过短期证书对 AD FS 进行身份验证。  在怀疑外围服务器泄露的情况下, AD FS 可以 "撤消代理信任", 使其不再信任来自可能泄露的代理的任何传入请求。 撤消代理信任会吊销每个代理的证书, 使其无法成功地针对 AD FS 服务器的任何目的进行身份验证
+- FS-P 本身通过短期证书对 AD FS 进行身份验证。  在怀疑外围服务器泄露的情况下, AD FS 可以 "撤消代理信任", 使其不再信任来自可能泄露的代理的任何传入请求。 撤消代理信任会吊销每个代理的证书，使其无法成功地针对 AD FS 服务器的任何目的进行身份验证
 - FS-P 终止所有连接, 并创建与内部网络上的 AD FS 服务的新 HTTP 连接。 这会在外部设备与 AD FS 服务之间提供会话级缓冲区。 外部设备从不直接连接到 AD FS 服务。
 - FS-P 执行 HTTP 请求验证, 该验证专门筛选出 AD FS 服务不需要的 HTTP 标头。
 

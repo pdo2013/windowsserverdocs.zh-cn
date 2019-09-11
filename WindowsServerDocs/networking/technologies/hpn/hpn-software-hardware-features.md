@@ -1,6 +1,6 @@
 ---
 title: 软件和硬件 (SH) 集成功能和技术
-description: 这些功能有软件和硬件组件。 该软件联系紧密绑定到所需的功能，若要运行的硬件功能。 其中的示例包括 VMMQ、 VMQ，发送端 IPv4 校验和卸载和 RSS。
+description: 这些功能包括软件和硬件组件。 该软件与它紧密功能所需的硬件功能相结合。 其中包括 VMMQ、VMQ、发送端 IPv4 校验和卸载以及 RSS。
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -9,108 +9,108 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/12/2018
-ms.openlocfilehash: 98857a5a6d665728c1aab2a6a2df64997d4166b0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2f6bb2190dbaa432d20f445c90a560843d6cf4e5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446222"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871941"
 ---
 # <a name="software-and-hardware-sh-integrated-features-and-technologies"></a>软件和硬件 (SH) 集成功能和技术
 
-这些功能有软件和硬件组件。 该软件联系紧密绑定到所需的功能，若要运行的硬件功能。 其中的示例包括 VMMQ、 VMQ，发送端 IPv4 校验和卸载和 RSS。
+这些功能包括软件和硬件组件。 该软件与它紧密功能所需的硬件功能相结合。 其中包括 VMMQ、VMQ、发送端 IPv4 校验和卸载以及 RSS。
 
 >[!TIP]
->SH 和主机功能都可用，如果已安装的 NIC 支持它。 下面的功能说明将介绍如何判断 NIC 是否支持该功能。
+>如果安装的 NIC 支持，SH 和 HO 功能可用。 以下功能说明将介绍如何判断 NIC 是否支持该功能。
 
-## <a name="converged-nic"></a>聚合的 NIC 
+## <a name="converged-nic"></a>汇聚 NIC 
 
-聚合的 NIC 是一种技术，允许虚拟 Nic 中的 HYPER-V 主机到主机进程的 RDMA 服务进行公开。 Windows Server 2016 无法再用于 RDMA 需要独立的 Nic。 聚合 NIC 功能允许主分区 (Vnic) 到主分区公开 RDMA 和公平合理且易于管理的方式共享之间的 RDMA 通信和 VM 和其他 TCP/UDP 流量的 Nic 的带宽中的虚拟 Nic。
+聚合 NIC 是一种技术，它允许 Hyper-v 主机中的虚拟 Nic 公开 RDMA 服务以托管进程。 Windows Server 2016 不再需要针对 RDMA 的单独 Nic。 利用汇聚 NIC 功能，主机分区（Vnic）中的虚拟 Nic 可向主机分区公开 RDMA，并以合理且可管理的方式在 RDMA 流量与 VM 与其他 TCP/UDP 流量之间共享 Nic 的带宽。
 
-![使用 SDN 的聚合的 NIC](../../media/Converged-NIC/conv-nic-sdn.png)
+![包含 SDN 的汇聚 NIC](../../media/Converged-NIC/conv-nic-sdn.png)
 
-你可以管理通过 VMM 或 Windows PowerShell 的聚合的 NIC 操作。 PowerShell cmdlet 是相同的 cmdlet 用于 RDMA （见下文）。
+可以通过 VMM 或 Windows PowerShell 管理汇聚 NIC 操作。 PowerShell cmdlet 是用于 RDMA 的相同 cmdlet （请参阅下文）。
 
-若要使用的聚合的 NIC 功能：
+使用收敛 NIC 功能：
 
-1.  请确保要将 DCB 为主机设置。
+1.  请确保为 DCB 设置该主机。
 
-2.  确保要启用 RDMA 的 NIC 上或在集团队的情况下 Nic 绑定到 HYPER-V 交换机。 
+2.  请确保在 NIC 上启用 RDMA，或在设置组的情况下，将 Nic 绑定到 Hyper-v 交换机。 
 
-3.  请确保主机中指定用于 RDMA Vnic 上启用 RDMA。 
+3.  确保为主机中的 RDMA 指定的 Vnic 启用 RDMA。 
 
-有关 RDMA 和 SET 的更多详细信息，请参阅[远程直接内存访问 (RDMA) 和交换机嵌入式组合 (SET)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)。
+有关 RDMA 和 SET 的详细信息，请参阅[远程直接内存访问（RDMA）和交换机嵌入式组合（SET）](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)。
 
 ## <a name="data-center-bridging-dcb"></a>数据中心桥接 (DCB) 
 
-DCB 是一套电气和电子工程师协会 (IEEE) 标准，使数据中心的聚合构造。 DCB 提供的协作从相邻的交换机的主机中的硬件基于队列的带宽管理。 有关存储的所有流量，数据网络、 群集进程间通信 (IPC) 和管理都共享同一个以太网网络基础结构。 在 Windows Server 2016 中，DCB 可分别应用于任何 NIC，并于 Nic 绑定到的 HYPER-V 交换机。
+DCB 是一套电气和电子工程师协会（IEEE）标准，可在数据中心内实现聚合结构。 DCB 在与相邻交换机之间的协作的主机中提供基于硬件队列的带宽管理。 用于存储、数据网络、群集进程间通信（IPC）和管理的所有流量共享同一以太网网络基础结构。 在 Windows Server 2016 中，DCB 可单独应用于任何 NIC，并可应用于绑定到 Hyper-v 交换机的 Nic。
 
-对于 DCB，Windows Server 使用基于优先级的流控制 (PFC)，在 IEEE 802.1Qbb 中标准化。 PFC 创建通过阻止流量类中的溢出 （几乎） 无损的网络结构。 Windows Server 还使用增强传输选择 (ETS)，在 IEEE 802.1Qaz 中标准化。 ETS 使保留部分的最多八个的类的流量的带宽分成。 每个流量类具有其自己的传输队列，并通过使用 PFC，可以启动和停止在类中的传输。
+对于 DCB，Windows Server 使用 IEEE 802.1 Q b b 中标准化的基于优先级的流控制（PFC）。 PFC 通过防止在通信类中溢出来创建（将近）无损网络构造。 Windows Server 还使用 IEEE 802.1 Qaz 中标准化的增强型传输选择（ETS）。 ETS 允许将带宽划分为多达八类流量的保留部分。 每个交通类都有自己的传输队列，通过使用 PFC，可以在类中启动和停止传输。
 
-有关详细信息，请参阅[数据中心桥接 (DCB)](https://docs.microsoft.com/windows-server/networking/technologies/dcb/dcb-top)。
+有关详细信息，请参阅[数据中心桥接（DCB）](https://docs.microsoft.com/windows-server/networking/technologies/dcb/dcb-top)。
 
 ## <a name="hyper-v-network-virtualization"></a>Hyper-V 网络虚拟化
 
 |                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|       **v1 (HNVv1)**       |                     在 Windows Server 2012 中引入的 HYPER-V 网络虚拟化 (HNV) 可以实现客户网络共享的物理网络基础结构之上的虚拟化。 需在物理网络 fabric 上的最小更改，HNV 使服务提供商可以部署和任何位置跨三个云迁移的租户工作负荷的灵活性： 服务提供商云、 私有云或 Microsoft Azure 公有云。                     |
-| **v2 NVGRE (HNVv2 NVGRE)** | 在 Windows Server 2016 和 System Center Virtual Machine Manager 中，Microsoft 提供了端到端网络虚拟化解决方案，包括 RAS 网关、 软件负载平衡、 网络控制器和的详细信息。 有关详细信息，请参阅[Windows Server 2016 中的 HYPER-V 网络虚拟化概述](https://technet.microsoft.com/windows-server-docs/networking/sdn/technologies/hyper-v-network-virtualization/hyperv-network-virtualization-overview-windows-server)。 |
-| **v2 VxLAN (HNVv2 VxLAN)** |                                                                                                                                                                                        在 Windows Server 2016 中，为 SDN 扩展中，通过网络控制器管理的一部分。                                                                                                                                                                                        |
+|       **v1 （HNVv1）**       |                     Hyper-v 网络虚拟化（HNV）是在 Windows Server 2012 中引入的，用于在共享的物理网络基础结构的基础上实现客户网络虚拟化。 由于物理网络结构上只需进行少量的更改，HNV 为服务提供商提供灵活的灵活性，可在三个云中的任何位置部署和迁移租户工作负荷：服务提供商云、私有云或 Microsoft Azure 公有云。                     |
+| **v2 NVGRE （HNVv2 NVGRE）** | 在 Windows Server 2016 和 System Center Virtual Machine Manager 中，Microsoft 提供了端到端网络虚拟化解决方案，其中包括 RAS 网关、软件负载平衡、网络控制器等。 有关详细信息，请参阅[Windows Server 2016 中的 Hyper-v 网络虚拟化概述](https://technet.microsoft.com/windows-server-docs/networking/sdn/technologies/hyper-v-network-virtualization/hyperv-network-virtualization-overview-windows-server)。 |
+| **v2 VxLAN （HNVv2 VxLAN）** |                                                                                                                                                                                        在 Windows Server 2016 中，是 SDN 扩展的一部分，可通过网络控制器进行管理。                                                                                                                                                                                        |
 
 ---
 
-## <a name="ipsec-task-offload-ipsecto"></a>IPsec 任务卸载 (IPsecTO) 
+## <a name="ipsec-task-offload-ipsecto"></a>IPsec 任务卸载（IPsecTO） 
 
-IPsec 任务卸载是一种使操作系统在 NIC 上的处理器用于 IPsec 加密工作的 NIC 功能。
+IPsec 任务卸载是一项 NIC 功能，使操作系统可以使用 NIC 上的处理器进行 IPsec 加密工作。
 
 >[!IMPORTANT] 
->IPsec 任务卸载是一项传统技术，大多数网络适配器，不支持，其中文件确实存在，它默认处于禁用状态。
+>IPsec 任务卸载是一种传统的技术，它不受大多数网络适配器支持，并在其中存在，默认情况下处于禁用状态。
 
-## <a name="private-virtual-local-area-network-pvlan"></a>专用虚拟局域网 (PVLAN)。 
+## <a name="private-virtual-local-area-network-pvlan"></a>专用虚拟局域网（PVLAN）。 
 
-Pvlan 允许仅在同一虚拟化服务器上的虚拟机之间的通信。 专用虚拟网络未绑定到物理网络适配器。 与虚拟化服务器上的所有外部网络流量，以及管理操作系统和外部网络之间的网络流量隔离的专用虚拟网络。 当你需要创建隔离的网络环境（例如隔离的测试域）时，此类型的网络很有用。 HYPER-V 和 SDN 堆栈支持仅限 PVLAN 隔离端口模式。
+Pvlan 仅允许在同一虚拟化服务器上的虚拟机之间进行通信。 专用虚拟网络未绑定到物理网络适配器。 专用虚拟网络与虚拟化服务器上的所有外部网络流量隔离，以及管理操作系统和外部网络之间的任何网络流量。 当你需要创建隔离的网络环境（例如隔离的测试域）时，此类型的网络很有用。 Hyper-v 和 SDN 堆栈仅支持 PVLAN 隔离端口模式。
 
-有关 PVLAN 隔离的详细信息，请参阅[System Center:Virtual Machine Manager 工程博客](https://blogs.technet.microsoft.com/scvmm/2013/06/04/logical-networks-part-iv-pvlan-isolation/)。
+有关 PVLAN 隔离的详细信息， [请参阅 System Center：Virtual Machine Manager 工程博客](https://blogs.technet.microsoft.com/scvmm/2013/06/04/logical-networks-part-iv-pvlan-isolation/)。
 
 ## <a name="remote-direct-memory-access-rdma"></a>远程直接内存访问 (RDMA) 
 
-RDMA 是一种可提供最大程度减少 CPU 使用情况的高吞吐量、 低延迟通信的网络技术。 RDMA 支持零复制网络使网络适配器，可以直接向或从应用程序内存传输数据。 支持 RDMA 的则意味着是能够为 RDMA 客户端公开 RDMA NIC （物理或虚拟）。 但是，启用了 RDMA 的意味着支持 RDMA 的 NIC 公开在堆栈中向上 RDMA 接口。
+RDMA 是一种网络技术，可提供高吞吐量、低延迟的通信，可最大程度地降低 CPU 使用率。 RDMA 通过允许网络适配器将数据直接传输到应用程序内存或从应用程序内存中传输数据，支持零复制网络。 支持 RDMA 意味着 NIC （物理或虚拟）能够向 RDMA 客户端公开 RDMA。 另一方面，已启用 RDMA 意味着支持 RDMA 的 NIC 在堆栈上公开 RDMA 接口。
 
-有关 RDMA 的更多详细信息，请参阅[远程直接内存访问 (RDMA) 和交换机嵌入式组合 (SET)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)。
+有关 RDMA 的详细信息，请参阅[远程直接内存访问（RDMA）和交换机嵌入式组合（SET）](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)。
 
 ## <a name="receive-side-scaling-rss"></a>Receive Side Scaling (RSS) 
 
-RSS 是该 NIC 功能可承受程度分离不同的流并将其交付给不同的处理器进行处理。 RSS 进行并行化处理，使主机可以扩展到非常高的数据速率的网络。 
+RSS 是一项 NIC 功能，它分隔开来不同的流集，并将它们传递给不同的处理器进行处理。 RSS 并行网络处理，使主机可以扩展为非常高的数据速率。 
 
-有关更多详细信息，请参阅[接收方缩放 (RSS)](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling)。
+有关更多详细信息，请参阅[接收方缩放（RSS）](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling)。
 
-## <a name="single-root-input-output-virtualization-sr-iov"></a>单根输入-输出虚拟化 (SR-IOV) 
+## <a name="single-root-input-output-virtualization-sr-iov"></a>单个根输入-输出虚拟化（SR-IOV） 
 
-SR-IOV 允许虚拟机流量直接从转为 NIC VM 而不通过 HYPER-V 主机。 SR-IOV 是一个令人难以置信的 vm 的性能改进，但不具备主机来管理该管道的功能。 仅在主机上使用 SR-IOV 时的工作负荷是运行良好，受信任，并通常的唯一 VM。
+SR-IOV 允许 VM 流量直接从 NIC 移至 VM，而无需通过 Hyper-v 主机。 SR-IOV 是 VM 性能的惊人改善，但缺乏主机管理该管道的能力。 仅当工作负荷的行为良好、受信任且通常是主机中唯一的 VM 时，才使用 SR-IOV。
 
-流量使用 SR-IOV 绕过 HYPER-V 交换机，这意味着任何策略，例如，Acl，或不会应用带宽管理。 SR-IOV 流量也不能传递通过任何网络虚拟化功能，因此无法应用 NV GRE 或 VxLAN 封装。 仅适用于受信任的工作负荷，在特定情况下使用 SR-IOV。 此外，不能使用的主机策略、 带宽管理和虚拟化技术。
+使用 SR-IOV 的流量将绕过 Hyper-v 交换机，这意味着将不会应用任何策略（如 Acl）或带宽管理。 不能通过任何网络虚拟化功能传递 SR-IOV 流量，因此不能应用 NV 或 VxLAN 封装。 仅在特定情况下，为受信任的工作负荷使用 SR-IOV。 此外，不能使用主机策略、带宽管理和虚拟化技术。
 
-将来，这两种技术将允许 SR-IOV:泛型流表 (GFT) 和硬件 QoS 卸载 （的 nic 的带宽管理 –） 后在我们的生态系统中的 Nic 支持它们。 这两种技术的组合会使 SR-IOV 适用于所有 Vm，将允许策略、 虚拟化和带宽管理规则要应用并可能导致很好的观念转发中通常 SR-IOV 的应用程序。
+将来，两种技术会允许 SR-IOV：一般流表（GFT）和硬件 QoS 卸载（NIC 中的带宽管理）–生态系统中的 Nic 支持它们。 这两种技术的组合会使 SR-IOV 对所有 Vm 都有用，这将允许应用策略、虚拟化和带宽管理规则，并可能在 SR-IOV 的一般应用程序中带来极大的进步。
 
-有关更多详细信息，请参阅[概述的单根 I/O 虚拟化 (SR-IOV)](https://docs.microsoft.com/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-)。
+有关更多详细信息，请参阅[单根 I/o 虚拟化（sr-iov）概述](https://docs.microsoft.com/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-)。
 
 ## <a name="tcp-chimney-offload"></a>TCP 烟囱卸载
 
-TCP 烟囱卸载，也称为 TCP 引擎卸载 (TOE)，是一种技术，允许宿主卸载所有 TCP 处理到 nic。 因为 Windows Server TCP 堆栈方法通常更高效比 TOE 引擎，TCP 烟囱卸载，建议不要使用。
+TCP 烟囱卸载（也称为 TCP 引擎卸载（TOE））是一种技术，允许主机将所有 TCP 处理卸载到 NIC。 由于 Windows Server TCP stack 几乎总是比 TOE 引擎更有效，因此不建议使用 TCP 烟囱卸载。
 
 >[!IMPORTANT]
->TCP 烟囱卸载是不推荐使用的技术。 我们建议您不要使用 TCP 烟囱卸载如 Microsoft 可能会停止在将来支持。
+>TCP 烟囱卸载是一种不推荐使用的技术。 建议你不要使用 TCP 烟囱卸载，因为 Microsoft 可能会在将来停止支持。
 
-## <a name="virtual-local-area-network-vlan"></a>虚拟局域网 (VLAN) 
+## <a name="virtual-local-area-network-vlan"></a>虚拟局域网（VLAN） 
 
-VLAN 是要启用的 LAN 划分到多个 Vlan，每个使用其自己的地址空间的以太网框架标头的扩展。 在 Windows Server 2016 中，Vlan 上的 HYPER-V 交换机或通过 NIC 组合团队设置团队接口的端口设置。 有关详细信息，请参阅[NIC 组合和虚拟局域网 (Vlan)](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nict-and-vlans)。
+VLAN 是对以太网框架标头的扩展，用于启用将 LAN 分区为多个 Vlan，每个 Vlan 使用其自己的地址空间。 在 Windows Server 2016 中，Vlan 是在 Hyper-v 交换机的端口上设置的，或者是通过设置 NIC 组合团队上的团队界面设置的。 有关详细信息，请参阅[NIC 组合和虚拟局域网（vlan）](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nict-and-vlans)。
 
 ## <a name="virtual-machine-queue-vmq"></a>虚拟机队列 (VMQ) 
 
-Vmq 是 NIC 功能，为每个 VM 分配一个队列。 你有已启用; HYPER-V您还必须启用 VMQ。 在 Windows Server 2016 Vmq 使用 NIC 交换机 vPorts 使用单个队列分配给 vPort 提供相同的功能。 有关详细信息，请参阅[虚拟接收方缩放 (vRSS)](https://docs.microsoft.com/windows-server/networking/technologies/vrss/vrss-top)并[NIC 组合](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming)。
+Vmq 是一项 NIC 功能，用于为每个 VM 分配队列。 只要启用了 Hyper-v，还必须启用 VMQ。 在 Windows Server 2016 中，Vmq 将 NIC 交换机 vPorts 与分配给 vPort 的单个队列一起使用，以提供相同的功能。 有关详细信息，请参阅[虚拟接收方缩放（vRSS）](https://docs.microsoft.com/windows-server/networking/technologies/vrss/vrss-top)和[NIC 组合](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming)。
 
-## <a name="virtual-machine-multi-queue-vmmq"></a>虚拟机多队列 (VMMQ) 
+## <a name="virtual-machine-multi-queue-vmmq"></a>虚拟机多队列（VMMQ） 
 
-VMMQ 是允许的 vm 分布在多个队列，每个不同的物理处理器处理流量的 NIC 功能。 然后，因为它将在 vRSS，允许用于向 VM 传送大量网络带宽，系统会流量传递到 VM 中的多个 LPs。
+VMMQ 是一项 NIC 功能，该功能允许 VM 的流量分布到多个队列中，每个队列由不同的物理处理器处理。 然后，会将流量传递到 VM 中的多个 LPs，就像在 vRSS 中那样，这允许向 VM 提供大量的网络带宽。
 
 ---

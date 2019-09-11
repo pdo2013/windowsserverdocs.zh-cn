@@ -1,28 +1,28 @@
 ---
-title: 将必需的元数据标记添加到您的 Windows Server 相关文章
-description: 信息的列表必须添加元数据标记为在 Windows Server 相关的文章的顶部。 所需的标记会有所更改，根据你报告和团队的要求。
+title: 将所需的元数据标记添加到 Windows Server 相关文章
+description: 必须作为元数据标记添加到与 Windows Server 相关的文章顶部的信息的列表。 根据您的报表和团队要求，必需的标记可能会更改。
 author: eross-msft
 ms.author: lizross
 ms.date: 05/06/2019
-ms.openlocfilehash: f7c514def1353d44386b1bc53c8cabffe1e31fda
-ms.sourcegitcommit: 7e54a1bcd31cd2c6b18fd1f21b03f5cfb6165bf3
+ms.openlocfilehash: f0af6b48cd3fd28ae0a15752cb21bfe9a4abf14f
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65461645"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865088"
 ---
-# <a name="add-the-required-metadata-tags-to-your-windows-server-related-article"></a>将必需的元数据标记添加到您的 Windows Server 相关文章
+# <a name="add-the-required-metadata-tags-to-your-windows-server-related-article"></a>将所需的元数据标记添加到 Windows Server 相关文章
 
-在每篇文章的顶部，没有特定的元数据必须包含用于跟踪和 SEO 目的的。 所需的标记会有所更改，基于报告要求。 但是，您应通知如果您需要添加/删除的任何字段。
+在每篇文章的顶部，有一些特定的元数据必须包括在内，以便进行跟踪和 SEO。 根据报告要求，必需的标记可能会更改。 但是，如果需要添加/删除任何字段，则应收到通知。
 
-它应如下所示，其中包括三个连字符 （-），在顶部和底部：
+其外观应如下所示，其中的顶部和底部包含三个连字符（---）：
 
 ```markdown
 
 ---
 title: The title of the article should go here. This is used in SEO and search results.
 
-description: A description for the article should go here. This is used in search results, to provide users with information about whether the article has the information they’re looking for.
+description: A description for the article should go here. This is used in search results, to provide users with information about whether the article has the information they're looking for.
 
 ms.prod: Use this specific text, windows-server-threshold
 
@@ -32,7 +32,7 @@ author: Your GitHub alias
 
 ms.author: Your Microsoft alias
 
-manager: Your manager’s Microsoft alias
+manager: Your manager's Microsoft alias
 
 ms.topic: Type of article, including article, landing-page, get-started-article, or reference
 

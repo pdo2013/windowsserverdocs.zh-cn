@@ -1,6 +1,6 @@
 ---
 title: 在工作站上启动或关闭应用程序
-description: 了解如何使用 MultiPoint Services 中的应用程序
+description: 了解如何在 MultiPoint Services 中使用应用程序
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,27 +13,27 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 4b11d71f5a34fa4b5127b62544945655b6703f15
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 14c0c6ad7605453bdf97b52c59a1299b1aed533f
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845178"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871673"
 ---
 # <a name="launch-or-close-applications-on-a-station"></a>在工作站上启动或关闭应用程序
-作为 MultiPoint 仪表板用户，可以打开或关闭用户的桌面、 选定的桌面或所有台式计算机上的应用程序。  
+作为 MultiPoint 仪表板用户，你可以打开或关闭用户桌面、选定桌面或所有桌面上的应用程序。  
   
-## <a name="launch-an-application-on-a-user-station"></a>用户工作站上启动应用程序  
+## <a name="launch-an-application-on-a-user-station"></a>在用户工作站上启动应用程序  
   
-1.  在 MultiPoint 仪表板中，单击你想要启动该应用程序的用户桌面的缩略图，然后单击的下拉菜单**启动**下的功能区**应用程序**。  
+1.  在 MultiPoint 仪表板中，单击要在其上启动应用程序的用户桌面的缩略图，然后在 "**应用程序**" 下的功能区中单击 "**启动**" 下拉菜单。  
   
 2.  单击“在选定桌面上启动应用程序”。 “启动应用程序”页面将打开。  
   
 3.  单击想要打开的应用程序或在“输入要打开的应用程序、文件夹、文档或 Internet 资源”中键入要打开的资源的名称，然后单击“确定”。  
   
-## <a name="launch-an-application-on-all-user-stations"></a>所有用户工作站上启动应用程序  
+## <a name="launch-an-application-on-all-user-stations"></a>在所有用户工作站上启动应用程序  
   
-1.  在 MultiPoint 仪表板中单击的下拉菜单**启动**(在下的功能区**应用程序**)。  
+1.  在 MultiPoint 仪表板中，单击 "**启动**" 下拉菜单（位于 "**应用程序**" 下的功能区中）。  
   
 2.  单击“在所有桌面上启动应用程序”。 “启动应用程序”页面将打开。  
   
@@ -41,7 +41,7 @@ ms.locfileid: "59845178"
   
 ## <a name="close-an-application-on-a-user-station"></a>关闭用户工作站上的应用程序  
   
-1.  在 MultiPoint 仪表板中，单击你想要关闭应用程序在桌面的缩略图。  
+1.  在 MultiPoint 仪表板中，单击要在其上关闭应用程序的桌面的缩略图图像。  
   
 2.  单击“应用程序”下的功能区中的“关闭”以打开“关闭应用程序”页。  
   
