@@ -1,6 +1,6 @@
 ---
-title: 为租户 VM 网络适配器配置服务质量 (QoS)
-description: 时为租户 VM 网络适配器配置 QoS，可以选择数据中心桥接\(DCB\)或软件定义的网络\(SDN\) QoS。
+title: 为租户 VM 网络适配器配置服务质量（QoS）
+description: 为租户 VM 网络适配器配置 QoS 时，可在数据中心桥接 DCB或软件定义的网络SDN QoS 之间做出选择。
 manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,36 +13,36 @@ ms.assetid: 6d783ff6-7dd5-496c-9ed9-5c36612c6859
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 0b9ce318c3d249b23d7560e0b6bb90a83e60d64d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 99ef286b91bec4bcb008bfd9f62003e75a5a5921
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880598"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870018"
 ---
-# <a name="configure-quality-of-service-qos-for-a-tenant-vm-network-adapter"></a>为租户 VM 网络适配器配置服务质量 (QoS)
+# <a name="configure-quality-of-service-qos-for-a-tenant-vm-network-adapter"></a>为租户 VM 网络适配器配置服务质量（QoS）
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-时为租户 VM 网络适配器配置 QoS，可以选择数据中心桥接\(DCB\)或软件定义的网络\(SDN\) QoS。
+为租户 VM 网络适配器配置 QoS 时，可在数据中心桥\(接 DCB\)或软件定义的网络\(SDN\) QoS 之间做出选择。
 
-1.  **DCB**。 可以通过使用 Windows PowerShell NetQoS cmdlet 配置 DCB。 有关示例，请参阅主题中的"启用数据中心桥接"一节[远程直接内存访问 (RDMA) 和交换机嵌入式组合 (SET)](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md)。
+1.  **DCB**。 可以使用 Windows PowerShell NetQoS cmdlet 来配置 DCB。 有关示例，请参阅[远程直接内存访问（RDMA）和交换机嵌入式组合（SET）](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md)主题中的 "启用数据中心桥接" 部分。
 
-2.  **SDN QoS**。 可以使用网络控制器，可以设置限制以防止高流量 VM 阻止其他用户的虚拟接口上的带宽来启用 SDN QoS。  此外可以配置 SDN QoS，若要保留特定数量的 vm 以确保 VM 可以访问的而不考虑的网络流量的带宽。  
+2.  **SDN QoS**。 可以通过使用网络控制器启用 SDN QoS，此功能可设置为限制虚拟接口上的带宽，以防大流量 VM 阻止其他用户。  你还可以配置 SDN QoS，为 VM 保留特定的带宽量，以确保无论网络流量有多少，都可以访问 VM。  
 
-应用通过网络接口属性的端口设置的所有 SDN QoS 设置。 请参阅下表中的更多详细信息。
+通过网络接口属性的端口设置应用所有 SDN QoS 设置。 有关更多详细信息，请参阅下表。
 
 |元素名称|描述|
 |------------|-----------| 
-|macSpoofing| Vm 就可以更改的源媒体访问控制\(MAC\)到未分配给 VM 的 MAC 地址的传出数据包中的地址。<p>允许值：<ul><li>已启用-使用不同的 MAC 地址。</li><li>已禁用-使用分配给它的 MAC 地址。</li></ul>|
-|arpGuard| 允许 ARP 防护 ArpFilter 通过端口中指定的唯一地址。<p>允许值：<ul><li>启用-允许</li><li>已禁用-不允许</li></ul>|
-|dhcpGuard| 允许或删除任何 DHCP 消息，从 DHCP 服务器所声称的 VM。 <p>允许值：<ul><li>启用-删除 DHCP 消息，因为虚拟化的 DHCP 服务器被视为是不受信任的。</li><li>禁用-允许因为虚拟化的 DHCP 服务器被视为是可信接收的消息。</li></ul>|
-|stormLimit| 允许通过虚拟网络适配器发送 （广播、 多播和未知单播） 每秒数据包数的 VM 数。 获取丢弃的数据包以外的一秒间隔期间的限制。 值为零\(0\)意味着没有任何限制...|
-|portFlowLimit| 最大允许执行的端口的流数。 值为空或为零\(0\)意味着没有任何限制。 |
-|vmqWeight| 相对权重描述要使用虚拟机队列 (VMQ) 的虚拟网络适配器的关联。 值的范围是 0 到 100 之间。<p>允许值：<ul><li>0 – 禁用 VMQ 的虚拟网络适配器上。</li><li>1-100 – 启用虚拟网络适配器上 VMQ。</li></ul>|
-|iovWeight| 相对权重设置为已分配的单根 I/O 虚拟化的虚拟网络适配器的相关性\(SR-IOV\)虚函数。 <p>允许值：<ul><li>0 – 禁用 SR-IOV 虚拟网络适配器上。</li><li>1-100 – 启用 SR-IOV 的虚拟网络适配器上。</li></ul>|
-|iovInterruptModeration|<p>允许值：<ul><li>默认值 – 物理网络适配器供应商的设置确定的值。</li><li>adaptive - </li><li>off </li><li>低</li><li>中型</li><li>高</li></ul><p>如果愿意**默认**，物理网络适配器供应商的设置确定的值。  如果您选择**自适应**，运行时流量模式长中断裁决速率。|
-|iovQueuePairsRequested| 分配到 SR-IOV 虚拟功能的硬件队列对的数目。 如果接收方缩放\(RSS\)是必需的并且如果绑定到的虚拟交换机的物理网络适配器支持 RSS 的 SR-IOV 虚拟功能，则必须安装多个队列对。 <p>允许值：1 到 4294967295。|
-|QosSettings| 配置所有这些都是可选的以下 Qos 设置： <ul><li>**outboundReservedValue** -如果 outboundReservedMode 为"绝对"，则此值表示的带宽，以 mbps 为单位，保证传输 （传出） 的虚拟端口。 如果 outboundReservedMode"权重"值指示保证的带宽加权的部分。</li><li>**outboundMaximumMbps** -指示最大虚拟端口 （传出） 的以 mbps 为单位，允许发送端带宽。</li><li>**InboundMaximumMbps** -指示允许的最大的以 mbps 为单位的虚拟端口 （入口） 的接收端的带宽。</li></ul> |
+|macSpoofing| 允许 vm 将传出数据包中的源媒体\(访问\)控制 MAC 地址更改为未分配给 VM 的 MAC 地址。<p>允许值：<ul><li>启用–使用其他 MAC 地址。</li><li>Disabled –只使用分配给它的 MAC 地址。</li></ul>|
+|arpGuard| 允许 ARP 防护仅在 ArpFilter 中指定的地址通过端口。<p>允许值：<ul><li>已启用-允许</li><li>禁用-不允许</li></ul>|
+|dhcpGuard| 允许或删除虚拟机中声明为 DHCP 服务器的任何 DHCP 消息。 <p>允许值：<ul><li>Enabled –丢弃 DHCP 消息，因为虚拟化的 DHCP 服务器被视为不受信任。</li><li>Disabled –允许收到消息，因为虚拟化的 DHCP 服务器被视为可信。</li></ul>|
+|stormLimit| 每秒允许 VM 通过虚拟网络适配器发送的数据包数（广播、多播和未知单播）。 丢弃一秒时间间隔内超出限制的数据包。 如果值\(为 0\) ，则表示没有限制。|
+|portFlowLimit| 允许为端口执行的最大流数。 值为空或零\(0\)表示没有限制。 |
+|vmqWeight| 相对权重描述虚拟网络适配器使用虚拟机队列（VMQ）的关联性。 值的范围是0到100。<p>允许值：<ul><li>0–在虚拟网络适配器上禁用 VMQ。</li><li>1-100 –在虚拟网络适配器上启用 VMQ。</li></ul>|
+|iovWeight| 相对权重设置虚拟网络适配器与分配的单根 i/o 虚拟化\(sr-iov\)虚拟函数的关联。 <p>允许值：<ul><li>0–在虚拟网络适配器上禁用 SR-IOV。</li><li>1-100 –在虚拟网络适配器上启用 SR-IOV。</li></ul>|
+|iovInterruptModeration|<p>允许值：<ul><li>默认值–物理网络适配器供应商的设置确定该值。</li><li>适应 </li><li>off </li><li>低级</li><li>中型</li><li>严重</li></ul><p>如果选择 "**默认**值"，则物理网络适配器供应商的设置将确定该值。  如果选择 "**自适应**"，则运行时流量模式 determins 中断裁决速率。|
+|iovQueuePairsRequested| 分配给 SR-IOV 虚拟函数的硬件队列对数。 如果需要接收方缩放\(RSS\) ，并且如果绑定到虚拟交换机的物理网络适配器支持 sr-iov 虚拟功能上的 RSS，则需要多个队列对。 <p>允许值：1到4294967295。|
+|QosSettings| 配置以下 Qos 设置，所有这些设置都是可选的： <ul><li>**outboundReservedValue** -如果 outboundReservedMode 为 "绝对"，则值表示带宽（以 Mbits/s 为单位），可保证虚拟端口传输（传出）。 如果 outboundReservedMode 为 "权重"，则该值指示所保证的带宽的加权部分。</li><li>**outboundMaximumMbps** -表示虚拟端口（出口）允许的最大发送方带宽（以 Mbps 为单位）。</li><li>**InboundMaximumMbps** -表示虚拟端口（入口）允许的最大接收端带宽（以 Mbps 为单位）。</li></ul> |
 
 ---
