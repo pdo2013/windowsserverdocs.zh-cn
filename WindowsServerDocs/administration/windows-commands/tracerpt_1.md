@@ -1,6 +1,6 @@
 ---
 title: tracerpt
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c105fe714e30866297e4f6c3c83a670ff7966a6
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 25014d23c797f37dcc488b5fea20c73907eb6f4c
+ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440970"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975296"
 ---
 # <a name="tracerpt"></a>tracerpt
 
 
 
-**Tracerpt**命令可用于分析事件跟踪日志，性能监视器和实时事件跟踪提供程序生成的日志文件。 它生成转储文件、 报表文件和报表架构。
+**Tracerpt**命令可用于分析事件跟踪日志、由性能监视器生成的日志文件，以及实时事件跟踪提供程序。 它将生成转储文件、报表文件和报表架构。
 
-有关如何使用的示例**tracerpt**，请参阅[示例](#BKMK_EXAMPLES)。
+有关如何使用**tracerpt**的示例，请参阅[示例](#BKMK_EXAMPLES)。
 
 ## <a name="syntax"></a>语法
 
@@ -38,47 +38,47 @@ tracerpt <[-l] <value [value [...]]>|-rt <session_name [session_name [...]]>> [o
 
 |              选项标志               |                                                                    描述                                                                    |
 |----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-|                   -?                   |                                                         显示上下文相关帮助。                                                          |
-|          -config \<filename>           |                                                 加载包含命令选项的设置文件。                                                  |
-|                   -y                   |                                                  回答是对所有问题而不提示。                                                   |
-|                -f \<XML                |                                                                       HTML>                                                                       |
-|               -的\<CSV                |                                                                       EVTX                                                                        |
-|            -df \<filename>             |                                            创建特定于 Microsoft 的计数/报告架构文件。                                            |
-|            -int\<文件名 >            |                                            转储到指定的文件的解释型的事件结构。                                            |
-|                  -rts                  |                        事件跟踪标头中的报表原始时间戳。 仅使用与-o，-报表或-摘要。                         |
-|            -tmf \<filename>            |                                                  指定的跟踪消息格式定义文件。                                                  |
-|              -tp \<value>              |                            指定 TMF 文件搜索路径。 可以使用多个路径，以分号 （;） 分隔。                            |
-|              -i \<value>               | 指定的提供程序图像路径。 匹配的 PDB 将位于符号服务器。 可以使用多个路径，以分号 （;） 分隔。 |
-|             -pdb \<value>              |                             指定符号服务器路径。 可以使用多个路径，以分号 （;） 分隔。                             |
-|                  -gmt                  |                                              WPP 负载时间戳转换为格林威治标准时间。                                               |
-|              -rl \<value>              |                                               定义从 1 到 5 的系统报表级别。 默认值为 1。                                               |
-|          -摘要 [文件名]           |                                  生成摘要报告文本文件。 如果未指定的文件名为 summary.txt。                                   |
-|             -o [filename]              |                                      生成文本输出文件。 如果未指定的文件名为 dumpfile.xml。                                      |
-|           -report [filename]           |                                  生成文本输出报告文件。 如果未指定的文件名是 workload.xml。                                   |
-|                  -lr                   |                        指定"限制较少。" 这将使用与事件架构不匹配的事件的最大努力。                         |
-|           -export [filename]           |                                  生成的事件架构导出文件。 如果未指定的文件名是 schema.man。                                   |
-|       [-l]。\<值 [值 [...]]>        |                                                   指定要处理的事件跟踪日志文件。                                                    |
-| -rt \<session_name [session_name […]]> |                                                指定实时事件跟踪会话数据源。                                                |
+|                   -?                   |                                                         显示上下文相关的帮助。                                                          |
+|          -config \<filename >           |                                                 加载包含命令选项的设置文件。                                                  |
+|                   -y                   |                                                  在不提示的情况下回答 "是"。                                                   |
+|            -f \<XML\|HTML >             |                                                                  报表格式。                                                                   |
+|         \<-CSV\|.evtxXML>\|          |                                                         转储格式，默认值为 XML。                                                          |
+|            -df \<filename >             |                                            创建特定于 Microsoft 的计数/报表架构文件。                                            |
+|            -int \<filename >            |                                            将解释的事件结构转储到指定的文件。                                            |
+|                  -rts                  |                        报告事件跟踪标头中的原始时间戳。 只能与-o、非报表或-summary 一起使用。                         |
+|            -tmf \<filename >            |                                                  指定跟踪消息格式定义文件。                                                  |
+|              -tp \<值 >              |                            指定 TMF 文件搜索路径。 可以使用多个路径，用分号（;) 分隔。                            |
+|              -i \<值 >               | 指定提供程序映像路径。 匹配的 PDB 将位于符号服务器中。 可以使用多个路径，用分号（;) 分隔。 |
+|             -pdb \<值 >              |                             指定符号服务器路径。 可以使用多个路径，用分号（;) 分隔。                             |
+|                  -gmt                  |                                              将 WPP 有效负载时间戳转换为格林尼治标准时间。                                               |
+|              -rl \<值 >              |                                               定义从1到5的系统报告级别。 默认值为 1。                                               |
+|          -summary [文件名]           |                                  生成摘要报告文本文件。 如果未指定，则文件名为 summary。                                   |
+|             -o [filename]              |                                      生成文本输出文件。 如果未指定，则文件名为 dumpfile。                                      |
+|           -report [filename]           |                                  生成文本输出报表文件。 如果未指定，则为 Filename。                                   |
+|                  -lr                   |                        指定 "限制较少"。 这对与事件架构不匹配的事件使用最佳做法。                         |
+|           -export [文件名]           |                                  生成事件架构导出文件。 如果未指定，则为 "架构"。                                   |
+|       [-l]\<值 [值 [...]]>        |                                                   指定要处理的事件跟踪日志文件。                                                    |
+| -rt \<session_name [session_name [...]]> |                                                指定实时事件跟踪会话数据源。                                                |
 
 ## <a name="BKMK_EXAMPLES"></a>示例
 
-- 此示例将创建两个事件日志所基于的报表**logfile1.etl**并**logfile2.etl** ，并创建转储文件**logdump.xml**以 XML 格式。  
+- 此示例基于两个事件日志**logfile1**和**logfile2**创建一个报表，并以 xml 格式创建转储文件**logdump。**  
   ```
   tracerpt logfile1.etl logfile2.etl -o logdump.xml -of XML
   ```  
-- 此示例将创建基于事件日志的报表**logfile.etl**，创建转储文件**logdmp.xml**以 XML 格式，使用最大努力来标识事件不在架构中，将生成一个摘要报告文件**logdump.txt**，并生成报告文件**logrpt.xml**。  
+- 此示例创建一个基于事件日志**logfile**的报表，以 xml 格式创建转储文件**logdmp** ，使用最大努力标识不在架构中的事件，生成摘要报告文件**logdump**，并生成报表文件**logrpt**。  
   ```
   tracerpt logfile.etl -o logdmp.xml -of XML -lr -summary logdmp.txt -report logrpt.xml
   ```  
-- 此示例使用两个事件日志**logfile1.etl**并**logfile2.etl**以生成一个转储文件和报表文件的默认文件名。  
+- 此示例使用**logfile1**和**logfile2**这两个事件日志生成包含默认文件名的转储文件和报表文件。  
   ```
   tracerpt logfile1.etl logfile2.etl -o -report
   ```  
-- 此示例使用事件日志**logfile.etl**和性能日志**counterfile.blg**以生成报表文件**logrpt.xml**和特定于 Microsoft 的 XML 架构文件**schema.xml**。  
+- 此示例使用事件日志**logfile .etl**和性能日志**counterfile**来生成报表文件**LOGRPT**和 Microsoft 特定的 xml 架构文件**架构。**  
   ```
   tracerpt logfile.etl counterfile.blg -report logrpt.xml -df schema.xml
   ```  
-- 此示例读取实时事件跟踪会话"NT 内核记录器"，并生成转储文件**logfile.csv**以 CSV 格式。  
+- 此示例读取实时事件跟踪会话 "NT 内核记录器"，并以 CSV 格式生成转储文件**logfile。**  
   ```
   tracerpt -rt "NT Kernel Logger" -o logfile.csv -of CSV
   ```

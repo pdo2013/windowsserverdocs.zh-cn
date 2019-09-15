@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 96aced2c062717aee0d2957b751bc2c25ac8e0da
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 19013c3f132b7486647ade2c9c4950b65c21b8e7
+ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869104"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975320"
 ---
 # <a name="prepare-your-environment-for-windows-admin-center"></a>为 Windows Admin Center 准备环境
 
@@ -36,7 +36,7 @@ ms.locfileid: "70869104"
 
 在 PowerShell 中键入 `$PSVersiontable`，以验证是否安装了 WMF 并且版本是否为 5.1 或更高版本。
 
-如果未安装，则可以[下载并安装 WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure)。
+如果未安装，则可以[下载并安装 WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure)。
 
 ## <a name="prepare-windows-server-2008-r2"></a>准备 Windows Server 2008 R2
 
@@ -48,7 +48,7 @@ ms.locfileid: "70869104"
 
 在 PowerShell 中键入 `$PSVersiontable`，以验证是否安装了 WMF 并且版本是否为 5.1 或更高版本。
 
-如果未安装，则可以[下载并安装 WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure)。
+如果未安装，则可以[下载并安装 WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure)。
 
 在 PowerShell 控制台中运行 `Enable-PSRemoting –force` 以启用 Powershell 远程连接。 
 
@@ -114,7 +114,7 @@ Microsoft Hyper-V Server 2016 现在可以使用 Windows Admin Center 进行管�
 
 在 PowerShell 中键入 `$PSVersiontable`，以验证是否安装了 WMF 并且版本是否为 5.1 或更高版本。 
 
-如果未安装，你可以[下载 WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure)。
+如果未安装，你可以[下载 WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure)。
 
 ### <a name="step-2-enable-remote-management"></a>步骤 2：启用远程管理
 

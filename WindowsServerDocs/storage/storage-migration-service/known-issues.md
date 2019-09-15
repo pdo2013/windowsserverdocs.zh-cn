@@ -8,16 +8,20 @@ ms.date: 07/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 2200c41bfc6f7e50d4f85f48591a12ad35720062
-ms.sourcegitcommit: 86350de764b89ebcac2a78ebf32631b7b5ce409a
+ms.openlocfilehash: 16e62d9232d0ec1b01333d73bc5b4a1555ffbad0
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70923363"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987407"
 ---
 # <a name="storage-migration-service-known-issues"></a>存储迁移服务的已知问题
 
 本主题包含有关使用[存储迁移服务](overview.md)迁移服务器时的已知问题的解答。
+
+存储迁移服务分为两部分： Windows Server 中的服务和 Windows 管理中心中的用户界面。 服务在 Windows Server、长期服务通道以及 Windows Server、半年通道中可用;虽然可单独下载 Windows 管理中心。 我们还会定期包括 Windows Server 累积更新中的更改（通过 Windows 更新发布）。 
+
+例如，Windows Server 版本1903包括存储迁移服务的新功能和修复程序，它们也可用于 Windows Server 2019 和 Windows Server，版本1809通过安装[KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534)来实现。
 
 ## <a name="collecting-logs"></a>如何在使用 Microsoft 支持部门时收集日志文件
 
@@ -109,7 +113,7 @@ Windows 管理中心存储迁移服务扩展受版本限制，只管理 Windows 
 
 若要解决此问题，请执行到同一网络中的计算机的迁移。 然后，将该计算机移到新网络并重新分配其 IP 信息。 例如，如果迁移到 Azure IaaS，请先迁移到本地 VM，然后使用 Azure Migrate 将 VM 转移到 Azure。  
 
-我们已在 Windows 管理中心的更高版本中解决了此问题。 现在，我们将允许你指定不更改目标服务器的网络设置的迁移。 发布时，将在此处列出更新的扩展。 
+我们已在 Windows 管理中心的更高版本中解决了此问题。 我们现在允许你指定不改变目标服务器的网络设置的迁移。 发布时，将在此处列出更新的扩展。 
 
 ## <a name="validation-warnings-for-destination-proxy-and-credential-administrative-privileges"></a>目标代理和凭据管理权限的验证警告
 
@@ -120,7 +124,7 @@ Windows 管理中心存储迁移服务扩展受版本限制，只管理 Windows 
  > **目标代理已注册。**
  > 警告：找不到目标代理。
 
-如果你尚未在 Windows Server 2019 目标计算机上安装存储迁移服务代理服务，或者 destinaton 计算机是 Windows Server 2016 或 Windows Server 2012 R2，则此行为是设计使然。 建议迁移到安装了代理的 Windows Server 2019 计算机以大幅提高传输性能。  
+如果你尚未在 Windows Server 2019 目标计算机上安装存储迁移服务代理服务，或者目标计算机是 Windows Server 2016 或 Windows Server 2012 R2，则此行为是设计使然。 建议迁移到安装了代理的 Windows Server 2019 计算机以大幅提高传输性能。  
 
 ## <a name="certain-files-do-not-inventory-or-transfer-error-5-access-is-denied"></a>某些文件未列出清单或传输，错误 5 "拒绝访问"
 
@@ -129,7 +133,7 @@ Windows 管理中心存储迁移服务扩展受版本限制，只管理 Windows 
   日志名称：    Microsoft StorageMigrationService-代理/调试源：      Microsoft StorageMigrationService-代理日期：        2/26/2019 9:00:04 AM 事件 ID：    10000任务类别：无级别：       错误关键字：      
   用户：        网络服务计算机： srv1.contoso.com 说明：
 
-  02/26/2019-09：00： 04.860 [Erro] 对 srv1 的\\传输错误：（5）访问被拒绝。
+  对于 srv1 com\public\indy.png，为\\02/26/2019-09：00： 04.860 [错误] 传输错误：（5）访问被拒绝。
 Stack 跟踪：在 StorageMigration （String fileName、DesiredAccess desiredAccess、ShareMode shareMode、CreationDisposition creationDisposition、FlagsAndAttributes flagsAndAttributes）处，StorageMigration （FileDirUtils）上的 GetTargetFile （字符串路径），网址为，网址为，（FileDirUtils 文件），网址为StorageMigration （），网址为 FileTransfer. InitializeSourceFileInfo （），网址为，，网址为，，网址为StorageMigration FileTransfer. TryTransfer （） [d:\os\src\base\dms\proxy\transfer\transferproxy\FileTransfer.cs：： TryTransfer：： 55]
 
 
@@ -139,7 +143,7 @@ Stack 跟踪：在 StorageMigration （String fileName、DesiredAccess desiredAc
 
 ## <a name="dfsr-hashes-mismatch-when-using-storage-migration-service-to-preseed-data"></a>使用存储迁移服务预先播种数据时，DFSR 哈希不匹配
 
-使用存储迁移服务将文件传输到新目标，然后配置 DFS 复制（DFSR）通过 presseded 复制或 DFSR 数据库克隆将数据复制到现有的 DFSR 服务器，所有文件 experiemce 哈希不匹配，将重新复制。 使用 SMS 传输数据流、安全流、大小和属性后，它们看起来完全匹配。 Examing 文件与 ICACLS 或 DFSR 数据库克隆调试日志显示：
+使用存储迁移服务将文件传输到新目标，然后配置 DFS 复制（DFSR）通过 preseeded 复制或 DFSR 数据库克隆将数据复制到现有的 DFSR 服务器，所有文件 experiemce 哈希不匹配，将重新复制。 使用 SMS 传输数据流、安全流、大小和属性后，它们看起来完全匹配。 检查具有 ICACLS 的文件或 DFSR 数据库克隆调试日志会显示以下内容：
 
 源文件：
 
@@ -171,7 +175,7 @@ DFSR 调试日志：
 
 如果未在 orchestrator 服务器上启用 "文件和打印机共享（SMB）" 防火墙规则，则会出现此错误。 Windows 管理中心文件下载需要连接的计算机上的端口 TCP/445 （SMB）。  
 
-## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transfering-from-windows-server-2008-r2"></a>从 Windows Server 2008 R2 传输时出现 "无法在任何终结点上传输存储" 错误
+## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transferring-from-windows-server-2008-r2"></a>从 Windows Server 2008 R2 传输时，出现错误 "无法传输任何终结点上的存储"
 
 尝试从 Windows Server 2008 R2 源计算机传输数据时，不会传输任何数据，并且你会收到错误：  
 
@@ -202,10 +206,10 @@ DFSR 调试日志：
 
 检查 StorageMigrationService/Debug 日志显示：
 
-   07/02/2019-13：35： 57.231 [Erro] 传输验证失败。 错误40961，源终结点无法访问或不存在，或源凭据无效，或经过身份验证的用户没有足够的权限访问它。
+   07/02/2019-13：35： 57.231 [错误] 传输验证失败。 错误40961，源终结点无法访问或不存在，或源凭据无效，或经过身份验证的用户没有足够的权限访问它。
 在 StorageMigration （）中的 TransferOperation （），在 StorageMigration （ProcessRequest fileTransferRequest，Guid operationId）上进行验证（& e）   [d:\os\src\base\dms\proxy\transfer\transferproxy\TransferRequestHandler.cs::
 
-如果迁移帐户没有对 SMB 共享的 "读取" 访问权限，则会出现此错误。 若要解决此错误，请将包含源迁移帐户的安全组添加到源计算机上的 SMB 共享，并向其授予 "读取"、"更改" 或 "完全控制" 权限。 迁移完成后，可以删除此组。 Windows Server 的未来版本可能会将此行为更改为不再需要对源共享的显式权限。
+如果迁移帐户没有对 SMB 共享的 "读取" 访问权限，则会出现此错误。 若要解决此错误，请将包含源迁移帐户的安全组添加到源计算机上的 SMB 共享，并向其授予 "读取"、"更改" 或 "完全控制" 权限。 迁移完成后，可以删除此组。
 
 ## <a name="error-0x80005000-when-running-inventory"></a>运行清单时出现错误0x80005000
 
