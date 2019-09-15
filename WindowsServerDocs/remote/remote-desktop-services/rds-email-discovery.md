@@ -8,12 +8,12 @@ ms.date: 3/27/2018
 ms.localizationpriority: medium
 ms.topic: article
 author: christianmontoya
-ms.openlocfilehash: 5b3f162b8eee70fbc452b7400b737454c3fffb59
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ca9484cc8abffcc21b4ed11756fb009b55046a0c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63712652"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870970"
 ---
 # <a name="set-up-email-discovery-to-subscribe-to-your-rds-feed"></a>设置电子邮件发现以订阅 RDS 源
 
@@ -38,4 +38,4 @@ ms.locfileid: "63712652"
 
    DNS 记录字段的名称因域名注册机构而异，但此过程将生成名为 _msradc.\<domain_name\> 的 TXT 记录（例如 _msradc.contoso.com），其值为完整的 RD Web 源。
 
-完成了！ 现在，在设备上启动远程桌面应用程序并为自己订阅！
+就这么简单！ 现在，在设备上启动远程桌面应用程序并为自己订阅！
