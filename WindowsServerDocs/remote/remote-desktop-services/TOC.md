@@ -66,6 +66,9 @@
 
 ## 访问远程桌面资源
 ### [可用的远程桌面客户端](clients/remote-desktop-clients.md)
+### Windows 桌面客户端
+#### [Windows 桌面客户端入门](clients/windowsdesktop.md)
+#### [Windows 桌面客户端中的新功能](clients/windowsdesktop-whatsnew.md)
 ### Windows Store 客户端
 #### [Windows Store 客户端入门](clients/windows.md)
 #### [Windows Store 客户端中的新增功能](clients/windows-whatsnew.md)

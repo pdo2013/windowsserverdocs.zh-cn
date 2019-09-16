@@ -10,12 +10,12 @@ ms.date: 07/11/2018
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.openlocfilehash: 425197d3462762c60a7371fc6ca529ad1b70e7ef
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 9bd2b17296872d4b94de5a7468178fbb2ba39709
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66443369"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868399"
 ---
 # <a name="upload-a-windows-server-20082008-r2-specialized-image-to-azure"></a>将 Windows Server 2008/2008 R2 特殊化映像上传至 Azure 
 
@@ -104,7 +104,7 @@ Login-AzureRmAccount
      c. 为 VM 选取大小和 SKU 计划。   
      d. 在设置页上选择一个网络接口。 确保该网络接口已指定以下规则：
  
-        PORT:3389 Protocol: TCP Action: Allow Priority: 1000 Name: ‘RDP-Rule’.   
+        PORT:3389 Protocol: TCP Action: Allow Priority: 1000 Name: ‘RDP-Rule'.   
      e. 单击“创建”  。
 
 

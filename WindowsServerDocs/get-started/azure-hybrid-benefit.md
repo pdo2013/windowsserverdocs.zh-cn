@@ -8,12 +8,12 @@ ms.topic: article
 author: greg-lindsay
 ms.author: greg-lindsay
 ms.localizationpriority: high
-ms.openlocfilehash: 62821abc6c9eec660fa6af832bb1aba151708021
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 187abe06b469abe511d4bbbfb0aac9237d3c650a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63686455"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868520"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>适用于 Windows Server 的 Azure 混合权益
 
@@ -101,7 +101,7 @@ Microsoft 保留随时审核最终客户以验证 Azure 混合权益使用资格
 
 ## <a name="deployment-guidance"></a>部署指南 
 
-我们已对拥有合格许可证的所有客户启用预建库图像可用性（与他们购买这些许可证的位置无关），并使合作伙伴能够代表客户执行部署。 
+我们已允许预建库图像可供拥有合格许可证的所有客户使用（与他们购买这些许可证的位置无关），并已允许合作伙伴代表客户执行部署。 
 
 请在[此处](https://azure.microsoft.com/pricing/hybrid-use-benefit/)查找所有可用部署选项的说明，其中包括： 
 -   重点介绍利用预建库图像的新部署体验的详细视频

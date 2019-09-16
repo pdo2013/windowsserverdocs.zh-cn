@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: cdb831eb772114b86e6260063dff6ad881f2f37b
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 639623b4ebb21a4f6a0025a71721204cbfc4f496
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280341"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868597"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Windows Server 服务频道：LTSC 和 SAC
 
@@ -25,7 +25,7 @@ ms.locfileid: "67280341"
 
 ## <a name="long-term-servicing-channel-ltsc"></a>长期服务频道 (LTSC)
 
-用户已熟悉了解该版本模型（以前称为“长期服务频道”），其中 Windows Server 的全新主要版本每 2-3 年发布一次  。 用户有权享受 5 年的主流支持和 5 年的延长支持。 该频道适用于需要更长时间服务选项和功能稳定性的系统。 新的半年频道版本不会影响 Windows Server 2016 和 Windows Server 早期版本的部署工作。 长期服务频道将持续接受安全和非安全更新，但不会接受新特性和新功能。
+这是你已熟悉的版本模型（以前称为“Long-Term Servicing *Branch*”），其中 Windows Server 的全新主要版本每 2-3 年发布一次。 用户有权享受 5 年的主流支持和 5 年的延长支持。 该频道适用于需要更长时间服务选项和功能稳定性的系统。 新的半年频道版本不会影响 Windows Server 2016 和 Windows Server 早期版本的部署工作。 长期服务频道将持续接受安全和非安全更新，但不会接受新特性和新功能。
 
 > [!Note]  
 > **当前的 LTSC 产品是 Windows Server 2019**。 如果你想坚持使用此频道，则应该安装（或继续使用）Windows Server 2019，你可以通过 Server Core 安装选项或带桌面体验的服务器安装选项进行安装。
@@ -78,7 +78,7 @@ IT 专业人员可以使用多种工具维护 Windows Server。 每个选项均�
 - **Windows Server Update Services (WSUS)** 可在大范围内控制 Windows 10 和 Windows Server 更新，并且内置在 Windows Server 操作系统中。 除了能够延迟更新，组织还可以添加用于更新的批准层，并在准备就绪后将它们部署到特定计算机或计算机组。
 - **System Center Configuration Manager** 可最大程度地控制维护。 IT 专业人员可以延迟更新、批准更新，并且可以使用多种选项指向部署以及管理带宽使用情况和部署次数。
 
-你可能已基于你的资源、员工和专业知识选择使用此类选项中的至少一项。 你可以继续将相同的流程用于半年频道版本：例如，如果你已使用 System Center Configuration Manager 管理更新，则可以继续使用。 同样，如果你正在使用 WSUS，也可以继续使用。
+你可能已基于你的资源、员工和专业知识选择使用这些选项中的至少一项。 你可以继续将相同的流程用于半年频道版本：例如，如果你已使用 System Center Configuration Manager 管理更新，则可以继续使用。 同样，如果你正在使用 WSUS，也可以继续使用。
 
 ## <a name="where-to-obtain-semi-annual-channel-releases"></a>在何处获取半年频道版本
 
@@ -102,7 +102,7 @@ Microsoft 依赖于在开发过程中接收反馈，从而可以尽快做出调�
 
 ## <a name="why-do-semi-annual-channel-releases-offer-only-the-server-core-installation-option"></a>半年频道版本为何仅提供 Server Core 安装选项？
 
-我们在规划 Windows Server 的每个版本时所采取的最重要步骤之一就是聆听客户的反馈意见 - 你如何使用 Windows Server？ 哪些新功能对你的 Windows Server 部署影响最大，扩展后，哪些对你的日常业务影响最大？ 你的反馈告诉我们，当务之急是尽快并且尽可能高效地提供创新。 同时，对于以最快速度进行创新的那些客户，你已经告诉我们，你主要将命令行脚本与 PowerShell 配合使用来管理数据中心，因此，对于桌面 GUI 的需求并不强烈（在安装具有桌面体验的 Windows Server 时提供），尤其是现在提供 [Windows Admin Center](../manage/windows-admin-center/overview.md) 来远程管理服务器。
+我们在规划 Windows Server 的每个版本时所采取的最重要步骤之一就是聆听客户的反馈意见 - 你如何使用 Windows Server？ 哪些新功能对你的 Windows Server 部署影响最大，扩展后，哪些对你的日常业务影响最大？ 你的反馈告诉我们，当务之急是尽快并且尽可能高效地提供创新。 同时，对于以最快速度进行创新的那些客户，你已经告诉我们，你主要将命令行脚本与 PowerShell 配合使用来管理数据中心，因此，对于桌面 GUI（在安装具有桌面体验的 Windows Server 时提供）的需求并不强烈，尤其是现已提供了 [Windows Admin Center](../manage/windows-admin-center/overview.md) 来远程管理服务器。
 
 通过专注于 Server Core 安装选项，我们可以专门为这些创新投入更多资源，同时还保留传统的 Windows Server 平台功能和应用程序兼容性。 如果你有关于这方面的反馈或与 Windows Server 和我们的未来版本相关的其他问题，可以通过[反馈中心](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)提出建议和意见。
 
