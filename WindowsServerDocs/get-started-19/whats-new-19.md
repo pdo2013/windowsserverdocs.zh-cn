@@ -8,16 +8,16 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 06/04/2019
-ms.openlocfilehash: 7110fe78982fec616174a93514d86fb2e1cf9fa5
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 665363c17cf5cb8d8ad52872128f2f63c07ea683
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810764"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868549"
 ---
 # <a name="whats-new-in-windows-server-2019"></a>Windows Server 2019 中的新增功能
 
-> 适用于：Windows Server 2019
+> 适用于：Windows Server Standard 2012 R2
 
 本主题介绍 Windows Server 2019 中的一些新增功能。 Windows Server 2019 在 Windows Server 2016 的坚实基础上构建，围绕以下四个关键主题实现了很多创新：混合云、安全性、应用程序平台、超融合基础设施 (HCI)。
 
@@ -103,7 +103,7 @@ ATP 的深度平台传感器和响应操作可暴露内存和内核级别攻击�
 
 - 改进了连接合并，可提供不间断且正确加密的浏览体验。
 
-- 升级的 HTTP/2 的服务器端加密套件协商可自动缓解连接失败且易于部署。
+- 升级了 HTTP/2 的服务器端加密套件协商，以便于自动减轻连接故障以及轻松进行部署。
 
 - 已将默认 TCP 拥塞提供程序更改为 Cubic，为你提供更大的吞吐量！
 
@@ -181,7 +181,7 @@ Windows Server 2019 通过推出半年频道版本不断改进计算、联网和
 
     基本容器映像的下载大小、在磁盘上的大小和启动时间都得到了改善。 这可以加快容器工作流
 
-- **使用 Windows Admin Center（预览版）的管理体验**
+- **使用 Windows Admin Center\(预览版\) 的管理体验**
 
     现在，使用 Windows Admin Center 的新扩展，用户可以比以往更轻松地查看计算机上正在运行哪些容器并管理各个容器。 查找 [Windows Admin Center 公共源](https://docs.microsoft.com/windows-server/manage/windows-admin-center/configure/using-extensions)中的“容器”扩展。
 
@@ -214,7 +214,7 @@ Windows Server 2019 中的[高性能 SDN 网关](https://docs.microsoft.com/wind
 
 ### <a name="new-deployment-ui-and-windows-admin-center-extension-for-sdn"></a>用于 SDN 的新部署 UI 和 Windows Admin Center 扩展
 
-现在，借助 Windows Server 2019，人们可以通过有助于充分利用 SDN 的新部署 UI 和 Windows Admin Center 扩展轻松实现部署和管理。 
+现在，借助 Windows Server 2019，可以通过用于充分利用 SDN 的新部署 UI 和 Windows Admin Center 扩展来轻松实现部署和管理。 
 
 ### <a name="persistent-memory-support-for-hyper-v-vms"></a>Hyper-V VM 的持久性内存支持
 
