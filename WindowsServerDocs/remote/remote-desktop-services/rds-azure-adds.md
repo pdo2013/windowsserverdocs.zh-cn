@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: christianmontoya
 ms.localizationpriority: medium
-ms.openlocfilehash: 8b1baf642ffa3c8e8a0a2cfc70d2f49b58f208b3
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 511aee3ea5be7e5c70c75cbc4d1febe1ec58dd97
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66446581"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871066"
 ---
 # <a name="integrate-azure-ad-domain-services-with-your-rds-deployment"></a>将 Azure AD 域服务与 RDS 部署集成
 
@@ -39,7 +39,7 @@ ms.locfileid: "66446581"
 
 ## <a name="prerequisites"></a>必备条件
 
-在将 Azure AD 的标识用于 RDS 部署之前，请[配置 Azure AD 以保存用户标识的哈希密码](/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync)。 云中生成的组织不需要在其目录中进行任何其他更改，但是，本地组织需要允许密码哈希在 Azure AD 中同步并存储，对于某些组织而言，这可能是不允许的。 进行此配置更改后，用户必须重置密码。
+在将 Azure AD 中的标识用于 RDS 部署之前，请[配置 Azure AD 以保存用户标识的哈希密码](/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync)。 云中生成的组织不需要在其目录中进行任何其他更改，但是，本地组织需要允许密码哈希在 Azure AD 中同步并存储，对于某些组织而言，这可能是不允许的。 进行此配置更改后，用户必须重置密码。
 
 ## <a name="deploy-azure-ad-ds-and-rds"></a>部署 Azure AD DS 和 RDS 
 使用以下步骤来部署 Azure AD DS 和 RDS。
@@ -52,7 +52,7 @@ ms.locfileid: "66446581"
    - 使用[现有 AD 模板](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/)。 确保自定义以下内容：
    
      - **设置**
-       - **资源组 **：使用要在其中创建 RDS 资源的资源组。
+       - **资源组**：使用要在其中创建 RDS 资源的资源组。
          > [!NOTE] 
          > 现在，这必须是 Azure 资源管理器虚拟网络所在的同一资源组。
 

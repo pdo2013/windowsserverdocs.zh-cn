@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: heidilohr
 manager: dougkim
-ms.openlocfilehash: 597016ecf10da0febb7ba1bb099da0c1dddf96ce
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 025b5d8791d0b847a38798d36ffa4bfa86e0b00c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63749222"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871290"
 ---
 # <a name="desktop-hosting-service"></a>桌面托管服务
 
@@ -51,7 +51,7 @@ Active Directory 域服务 (AD DS) 提供域和林信息，使租户的用户可
 
 ## <a name="sql-database"></a>SQL 数据库
 
-远程桌面连接代理使用高可用性 SQL 数据库来存储部署信息，例如当前用户连接到主机服务器的映射。
+远程桌面连接代理使用具有高可用性的 SQL 数据库来存储部署信息，例如当前用户连接到主机服务器的映射。
 
 可通过多种方式部署 SQL 数据库：
 

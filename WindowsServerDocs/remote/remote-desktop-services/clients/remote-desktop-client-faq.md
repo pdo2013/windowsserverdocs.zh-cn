@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: e6f91aa02cd0f19d480c24309be5797c273b0f2e
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: e0dbe709681cf679347ccad2677ff3cda6690f3d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66804949"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871230"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>有关远程桌面客户端的常见问题
 
@@ -234,7 +234,7 @@ Web 客户端支持 Windows、macOS、Linux 和 ChromeOS。 目前不支持移�
 ### <a name="what-does-the-failed-to-parse-ntlm-challenge-error-mean"></a>“分析 NTLM 质询失败”错误意味着什么？
 此错误由远程电脑上的错误配置引起。 确保远程电脑上的 RDP 安全级别设置设为“客户端兼容”。 （如果需要帮助，请与系统管理员联系。）
 
-### <a name="what-does-tsrap-you-are-not-allowed-to-connect-to-the-given-host-mean"></a>“TS_RAP 不允许连接到给定主机”意味着什么？
+### <a name="what-does-ts_rap-you-are-not-allowed-to-connect-to-the-given-host-mean"></a>“TS_RAP 不允许连接到给定主机”意味着什么？
 当网关服务器上的资源授权策略阻止你的用户名连接到远程电脑时，会发生此错误。 在以下实例中可能会发生这种情况：
 
 - 远程电脑名称与网关名称​​相同。 之后，当你尝试连接到远程电脑时，连接将转到你可能无权访问的网关。 如果需要连接到网关，请不要使用外部网关名称作为电脑名称， 而是使用“localhost”或 IP 地址 (127.0.0.1) 或内部服务器名称。
