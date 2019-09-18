@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: ccc96013efb71a2403f9be2df03461eba5ff1fc1
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 1099f1c8bb635ee1b4bb33c6483f128ee0ecdfb9
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70151009"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871240"
 ---
 # <a name="get-started-with-the-android-client"></a>Android 客户端入门
 

@@ -13,12 +13,12 @@ manager: ''
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: a1a2e325f3860f0b06353a59c5d37f6b5b2a1d11
-ms.sourcegitcommit: f6503e503d8f08ba8000db9c5eda890551d4db37
+ms.openlocfilehash: 39b11dac044c38f1ae80d4401fbb66af0317ab56
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68529927"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870704"
 ---
 # <a name="general-remote-desktop-connection-troubleshooting"></a>常见远程桌面连接故障排除
 
@@ -123,7 +123,7 @@ gpresult /S <computer name> /H c:\gpresult-<computer name>.html
     ![qwinsta 命令会列出在计算机端口上侦听的进程。](../media/troubleshoot-remote-desktop-connections/WPS_qwinsta.png)
 3. 如果列表中包含状态为 **Listen** 的 **rdp-tcp**，则表示 RDP 侦听器正在运行。 继续[检查 RDP 侦听器端口](#check-the-rdp-listener-port)。 否则，请继续执行步骤 4。
 4. 从工作计算机导出 RDP 侦听器配置。
-    1. 登录到操作系统版本与受影响计算机相同的计算机，并访问该计算机的注册表（例如，使用注册表编辑器）。
+    1. 登录到操作系统版本与受影响计算机的操作系统版本相同的计算机，并访问该计算机的注册表（例如，通过使用注册表编辑器）。
     2. 导航到以下注册表项：  
         **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp**
     3. 将该项导出到 .reg 文件。 例如，在注册表编辑器中，右键单击该项，选择“导出”，然后输入所导出设置的文件名。 

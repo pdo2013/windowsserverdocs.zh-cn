@@ -8,21 +8,21 @@ ms.suite: na
 ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
-author: lizap
-manager: dongill
-ms.author: elizapo
-ms.date: 08/27/2019
+author: heidilohr
+manager: daveba
+ms.author: helohr
+ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: a8ecdf217f847f495b2cb90dd3511a8db9e72c95
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 6a4a6ae860dc8eabc4856ff3aa66268ed8d588de
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150985"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987361"
 ---
 # <a name="whats-new-in-the-windows-store-client"></a>Windows 应用商店客户端中的新增功能
 
-我们会定期更新[适用于 Windows 的远程桌面客户端](windows.md)，添加新功能并修复问题。 请查看以下最新更新。
+我们会定期更新 [Windows Store 客户端](windows.md)，添加新功能并修复问题。 可在下面找到最新更新。
 
 ## <a name="updates-for-version-1011098"></a>针对版本 10.1.1098 的更新
 

@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 61f447f68ec6c85ed1554e176c78c4caec5dfde4
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 4707a6b54ad7a216f18c22367985e55d07e7a2eb
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63747890"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869510"
 ---
 # <a name="windows-admin-center-case-studies"></a>Windows Admin Center 案例研究
 
@@ -46,7 +46,7 @@ Windows Admin Center 帮助 Ava6 管理在核心版中部署的 Windows Server�
 
 Ava6 将 Windows Admin Center 部署为用于 VM 管理的单个实例。
 
-Ava6 的客户对 Windows Admin Center 很满意，认为它在 Hyper-V 和故障转移群集管理方面的能力高于其他产品。  在 Windows Admin Center 之前，核心服务器上的驱动程序管理过于复杂。  Windows Admin Center 还通过向 Nutanix 和 VMWare 等竞争对手提供类似的产品和服务，帮助宣传 S2D Ava6 的客户。
+Ava6 的客户对 Windows Admin Center 很满意，认为它在 Hyper-V 和故障转移群集管理方面的能力高于其他产品。  在 Windows Admin Center 之前，核心服务器上的驱动程序管理过于复杂。  Windows Admin Center 还帮助引导 S2D Ava6 的客户开始使用与 Nutanix 和 VMWare 等竞争对手类似的产品和服务。
 
 ## <a name="comparex"></a>Comparex
 
@@ -62,7 +62,7 @@ Comparex 正在为中小型企业寻找易于使用且可远程访问的服务�
 
 ### <a name="the-solution"></a>**解决方案**
 
-Comparex 运行基于服务器的 Windows Admin Center 安装，以便访问和管理演示实验室，这帮助减少了额外的 VPN 和 RDP 步骤。  Comparex 的顾问还在他们的笔记本上运行 Windows Admin Center，以在他们的环境下为客户提供帮助，而无需显式访问 RDP。
+Comparex 运行基于服务器的 Windows Admin Center 安装，以便访问和管理演示实验室，这帮助减少了额外的 VPN 和 RDP 步骤。  Comparex 的顾问还在他们的笔记本上运行 Windows Admin Center，以便在他们的环境下为客户提供帮助，而无需显式 RDP 访问。
 
 Windows Admin Center 为 Comparex 节约了日常业务时间，让他们可以完成更多任务、实现更多目标。  Windows Admin Center 还帮助客户解决了常见的管理难题，如使用 Hyper-V 和存储空间直通。
 

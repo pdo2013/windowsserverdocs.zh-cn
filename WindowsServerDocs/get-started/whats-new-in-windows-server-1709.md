@@ -8,12 +8,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
 ms.date: 06/03/2019
-ms.openlocfilehash: e17a636c5bf06d194abd1bfe9b6d20970773e993
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: b5391677397660e3beacb9a71189bf3ffe2aeaab
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66501395"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868339"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Windows Server 版本 1709 中的新增功能
 
@@ -44,7 +44,7 @@ ms.locfileid: "66501395"
 
 ## <a name="application-containers-and-micro-services"></a>应用程序容器和微服务
 
-- Server Core 容器映像针对可通过极少量更改将现有代码库或应用程序迁移到容器中的直接迁移方案进行了进一步优化，而且还缩小了 60%。 
+- Server Core 容器映像已针对可通过极少量更改将现有代码库或应用程序迁移到容器中的直接迁移方案进行了进一步优化，而且还缩小了 60%。 
 - Nano Server 容器映像几乎缩小了 80%。
     - 在 Windows Server 半年频道中，Nano Server 作为容器基本 OS 映像从 390 MB 降低到了 80 MB。
 - 带 Hyper-V 隔离的 Linux 容器 

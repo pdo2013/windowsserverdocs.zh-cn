@@ -68,6 +68,7 @@
 ### [可用的远程桌面客户端](clients/remote-desktop-clients.md)
 ### Windows 桌面客户端
 #### [Windows 桌面客户端入门](clients/windowsdesktop.md)
+#### [适用于管理员的 Windows 桌面客户端](clients/windowsdesktop-admin.md)
 #### [Windows 桌面客户端中的新功能](clients/windowsdesktop-whatsnew.md)
 ### Windows Store 客户端
 #### [Windows Store 客户端入门](clients/windows.md)

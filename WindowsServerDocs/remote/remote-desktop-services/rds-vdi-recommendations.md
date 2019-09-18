@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 2a44dc9f-c221-4bf7-89c3-fb4c86a90f8c
 author: jaimeo
 manager: dougkim
-ms.openlocfilehash: 4f6e68ba1025e23e052d3c40535483ee90cb9b4b
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ef13369fa325d136f9e3847db9872a80b650ca37
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63712266"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870632"
 ---
 # <a name="recommended-settings-for-vdi-desktops"></a>建议的 VDI 桌面设置
 
@@ -465,7 +465,7 @@ Microsoft 桌面虚拟化通过启用企业应用程序和桌面的即时设置�
 ||允许在锁屏界面上方使用 Cortana|      Disabled|
 ||允许搜索和 Cortana 使用位置|     Disabled|
 ||不允许 Web 搜索|      已启用|
-||不在 Web 中搜索或在“搜索”中显示 Web 结果|        已启用|
+||请勿搜索 Web 或在“搜索”中显示 Web 结果|        已启用|
 ||阻止从控制面板中将 UNC 位置添加到索引|     已启用|
 ||阻止对脱机文件缓存中的文件编制索引|        已启用|
 |**应用商店**|||

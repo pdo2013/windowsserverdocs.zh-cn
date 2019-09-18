@@ -10,12 +10,12 @@ ms.topic: article
 author: lizap
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: a302e775d3304db9304cc51e09ede19fa2eba802
-ms.sourcegitcommit: f75d9496f345d73fdda88037617763e7a2f614b7
+ms.openlocfilehash: 3eb1e4b6da971d788383b8facbf8bbcbe00a5953
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67863106"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870906"
 ---
 # <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>使用性能计数器来诊断远程桌面会话主机上的应用性能问题
 
@@ -34,13 +34,13 @@ ms.locfileid: "67863106"
 
 ![远程桌面 - 用户输入从用户远程桌面客户端流向应用程序](./media/rds-user-input.png)
 
-用户输入延迟计数器可测量正在排队的输入和被[传统消息循环](https://msdn.microsoft.com/library/windows/desktop/ms644927.aspx#loop)中的应用提取的输入之间的最大增量（在时间间隔内），如下面的流程图中所示：
+“用户输入延迟”计数器可测量正在排队的输入和被[传统消息循环](https://msdn.microsoft.com/library/windows/desktop/ms644927.aspx#loop)中的应用提取的输入之间的最大增量（在一个时间间隔内），如下面的流程图中所示：
 
 ![远程桌面 - 用户输入延迟性能计数器流](./media/rds-user-input-delay.png)
 
 此计数器的一个重要细节是它在可配置的时间间隔内报告最大用户输入延迟。 这是输入到达应用程序所需的最长时间，可能会影响重要的可见操作（例如键入）的速度。
 
-例如，在下表中，用户输入延迟在此时间间隔内会被报告为 1000 毫秒。 计数器在该时间间隔内报告最慢的用户输入延迟，因为用户对“慢”的感知由体验到的最慢输入时间（最大），而不是所有总输入的平均速度确定。
+例如，在下表中，用户输入延迟在此时间间隔内会被报告为 1000 毫秒。 计数器报告该时间间隔内最慢的用户输入延迟，因为用户对“慢”的感知由体验到的最慢输入时间（最大值），而不是所有总输入的平均速度确定。
 
 |编号| 0 | 1 | 2 |
 |------|---|---|---|
@@ -105,7 +105,7 @@ reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v "EnableLagCou
 - 绿色的线表示所有会话中的最大用户输入延迟。
 - 蓝色的线（在此图表中显示为黑色）表示所有会话中的平均用户输入延迟。
 
-你会注意到，CPU 峰值与用户输入延迟之间存在关联，即当 CPU 使用率更高时，就会增加用户输入延迟。 此外，随着更多的用户添加到系统中， CPU 使用率更接近于 100%，从而导致更频繁的用户输入延迟峰值。 虽然此计数器在服务器用完资源的情况下非常有用，但也可以将其用于跟踪与特定应用程序相关的用户输入延迟。
+你会注意到，CPU 峰值与用户输入延迟之间存在关联，即当 CPU 使用率更高时，用户输入延迟就会增加。 此外，随着更多的用户添加到系统中， CPU 使用率更接近于 100%，从而导致更频繁的用户输入延迟峰值。 虽然此计数器在服务器用完资源的情况下非常有用，但也可以将其用于跟踪与特定应用程序相关的用户输入延迟。
 
 ## <a name="configuration-options"></a>配置选项
 

@@ -12,12 +12,12 @@ ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
-ms.openlocfilehash: 18e20433050371dc02782fb8630a885e53ae31ad
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 4d1cdcfe8325a246e2752e1d1f2a3ad536598658
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63688704"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868567"
 ---
 # <a name="automatic-virtual-machine-activation"></a>虚拟机自动激活
 
@@ -41,7 +41,7 @@ AVMA 可让你在正确激活的 Windows Server 上安装虚拟机，而无需�
 
 无需管理任何产品密钥，并且无需在服务器上读取任何标贴。 即使将虚拟机迁移到一组虚拟化服务器，该虚拟机也能激活并持续工作。
 
-服务提供商许可协议 (SPLA) 伙伴和其他托管提供商无需与租户共享产品密钥或访问租户的虚拟机就能激活该虚拟机。 使用 AVMA 时，虚拟机激活对于租户是透明的。 托管提供商可以使用服务器日志来验证许可证遵从性以及跟踪客户端使用历史记录。
+服务提供商许可协议 (SPLA) 合作伙伴和其他托管提供商无需与租户共享产品密钥或访问租户的虚拟机就能激活该虚拟机。 使用 AVMA 时，虚拟机激活对于租户是透明的。 托管提供商可以使用服务器日志来验证许可证遵从性以及跟踪客户端使用历史记录。
 
 ## <a name="system-requirements"></a>系统要求
 
@@ -49,9 +49,9 @@ AVMA 需要运行 Windows Server 2019 Datacenter、Windows Server 2016 Datacente
 
 下面是不同版本的主机可以激活的来宾：
 
-|服务器主机版本|Windows Server 2019|Windows Server 2016|Windows Server 2012 R2|
+|服务器主机版本|Windows Server Standard 2012 R2|Windows Server 2016|Windows Server 2012 R2|
 |-|-|-|-|
-|Windows Server 2019|X|X|X|
+|Windows Server Standard 2012 R2|X|X|X|
 |Windows Server 2016| |X|X|
 |Windows Server 2012 R2| ||X|
 

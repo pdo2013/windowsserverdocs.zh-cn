@@ -13,12 +13,12 @@ author: haley-rowland
 ms.author: harowl
 ms.date: 07/17/2018
 manager: scottman
-ms.openlocfilehash: 792c9320f6976a4fc7f2ccd235f66daa0cb19b19
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 30f2d97c93c3df72eaf21896d596a4a10666013c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805189"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870750"
 ---
 # <a name="deploy-a-two-node-storage-spaces-direct-scale-out-file-server-for-upd-storage-in-azure"></a>在 Azure 中为 UPD 存储部署双节点存储空间直通横向扩展文件服务器
 

@@ -8,12 +8,12 @@ ms.date: 08/27/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 11e68821fb095617cea19ee83c057d247a909604
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 4185454c6351b752a6397109b3a333d3eab107cd
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150976"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871149"
 ---
 # <a name="get-started-with-the-web-client"></a>Web 客户端入门
 

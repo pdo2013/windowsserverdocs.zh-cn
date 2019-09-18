@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: 4cc669fee4fbd31edc8813f16761ecb9f90532df
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 536d3265e6a29c2d5321d3d8a8ea3ecfa7b2cdcb
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810918"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868689"
 ---
 # <a name="windows-server-2019-activation"></a>Windows Server 2019 激活
 
@@ -39,7 +39,7 @@ KMS 主机不必是专用服务器，KMS 可与其他服务共用一台主机。
 
 |产品密钥组|KMS 可以托管于|由此 KMS 主机激活的 Windows 版本|  
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|  
-|适用于 Windows Server 2019 的批量许可证|Windows Server 2012 R2<br /><br />Windows Server 2016<br /><br />Windows Server 2019<br /><br />|Windows Server 半年频道<br /><br />Windows Server 2019（所有版本）<br /><br />Windows Server 2016（所有版本）<br /><br />Windows 10 企业版 LTSC 2019 <br /><br />Windows 10 企业版 LTSC N 2019<br /><br />Windows 10 LTSB（2015 和 2016）<br /><br />Windows 10 专业版<br /><br />Windows 10 企业版<br /><br />Windows 10 专业工作站版<br /><br />Windows 10 教育版<br /><br />Windows Server 2012 R2（所有版本）<br /><br />Windows 8.1 专业版<br /><br />Windows 8.1 企业版<br /><br />Windows Server 2012（所有版本）<br /><br />Windows Server 2008 R2（所有版本）<br /><br />Windows Server 2008（所有版本）<br /><br />Windows 7 专业版<br /><br />Windows 7 企业版<br />| 
+|适用于 Windows Server 2019 的批量许可证|Windows Server 2012 R2<br /><br />Windows Server 2016<br /><br />Windows Server Standard 2012 R2<br /><br />|Windows Server 半年频道<br /><br />Windows Server 2019（所有版本）<br /><br />Windows Server 2016（所有版本）<br /><br />Windows 10 企业版 LTSC 2019 <br /><br />Windows 10 企业版 LTSC N 2019<br /><br />Windows 10 LTSB（2015 和 2016）<br /><br />Windows 10 专业版<br /><br />Windows 10 企业版<br /><br />Windows 10 专业工作站版<br /><br />Windows 10 教育版<br /><br />Windows Server 2012 R2（所有版本）<br /><br />Windows 8.1 专业版<br /><br />Windows 8.1 企业版<br /><br />Windows Server 2012（所有版本）<br /><br />Windows Server 2008 R2（所有版本）<br /><br />Windows Server 2008（所有版本）<br /><br />Windows 7 专业版<br /><br />Windows 7 企业版<br />| 
 |适用于 Windows Server 2016 的批量许可证|Windows Server 2012<br /><br />Windows Server 2012 R2<br /><br />Windows Server 2016<br /><br />|Windows Server 半年频道 <br><br>Windows Server 2016（所有版本）<br /><br />Windows 10 LTSB（2015 和 2016）<br /><br />Windows 10 专业版<br /><br />Windows 10 企业版<br /><br />Windows 10 专业工作站版<br><br>Windows 10 教育版<br><br>Windows Server 2012 R2（所有版本）<br /><br />Windows 8.1 专业版<br /><br />Windows 8.1 企业版<br /><br />Windows Server 2012（所有版本）<br /><br />Windows Server 2008 R2（所有版本）<br /><br />Windows Server 2008（所有版本）<br /><br />Windows 7 专业版<br /><br />Windows 7 企业版<br /><br />| 
 |适用于 Windows 10 的批量许可证|Windows 7<br /><br /> Windows 8.1<br /><br /> Windows 10|Windows 10 专业版<br /><br /> Windows 10 专业版 N<br /><br /> Windows 10 企业版<br /><br /> Windows 10 企业版 N<br /><br /> Windows 10 教育版<br /><br /> Windows 10 教育版 N<br /><br /> Windows 10 企业版 LTSB (2015)<br /><br /> Windows 10 企业版 LTSB N (2015)<br /><br /> Windows 10 专业工作站版<br><br>Windows 8.1 专业版<br /><br /> Windows 8.1 企业版<br /><br /> Windows 7 专业版<br /><br /> Windows 7 企业版<br /><br />|  
 |“适用于 Windows 10 的 Windows Server 2012 R2”批量许可证|Windows Server 2008 R2<br /><br /> Windows Server 2012 Standard<br /><br /> Windows Server 2012 Datacenter<br /><br /> Windows Server 2012 R2 Standard<br /><br />Windows Server 2012 R2 Datacenter|Windows 10 专业版<br /><br /> Windows 10 企业版<br /><br />Windows 10 企业版 LTSB (2015)<br><br>Windows 10 专业工作站版<br><br>Windows 10 教育版<br><br> Windows Server 2012 R2（所有版本）<br /><br /> Windows 8.1 专业版<br /><br /> Windows 8.1 企业版<br /><br /> Windows Server 2012（所有版本）<br /><br /> Windows Server 2008 R2（所有版本）<br /><br /> Windows Server 2008（所有版本）<br /><br />Windows 7 专业版<br /><br /> Windows 7 企业版|
@@ -58,7 +58,7 @@ KMS 能够激活物理和虚拟计算机，但是要使用 KMS 激活，网络�
 
 KMS 主机计算最近的连接数。 当客户端或服务器联系 KMS 主机时，主机将计算机 ID 添加到其计数，然后在其响应中返回当前的计数值。 计数足够高时将激活客户端或服务器。 计数为 25 或更高时将激活客户端。 计数为 5 或更大时，将激活服务器和批量版 Microsoft Office 产品。 KMS 只对过去 30 天内的唯一连接计数，且仅存储 50 个最新联系人。
 
-KMS 激活的有效期为 180 天，这一时期称为激活有效期间隔。 要保持激活状态，KMS 客户端至少要每 180 天连接一次 KMS 主机，以续订他们的激活。 默认情况下，KMS 客户端计算机会每隔7 天尝试一次激活续订。 客户端的激活续订之后，激活有效期将重新开始计算。
+KMS 激活的有效期为 180 天，这一时期称为激活有效期间隔。 要保持激活状态，KMS 客户端至少要每 180 天连接一次 KMS 主机，以续订他们的激活。 默认情况下，KMS 客户端计算机会每隔7 天尝试一次激活续订。 客户端的激活已续订之后，激活有效期将重新开始计算。
 
 # <a name="addressing-kms-functional-requirements"></a>满足 KMS 功能要求
 
@@ -66,7 +66,7 @@ KMS 激活要求 TCP/IP 连接。 KMS 主机可客户端默认配置使用域名
 
 第一个 KMS 主机激活之后，第一个主机上使用的 KMS 密钥最多可用来激活网络上的另外 5 台 KMS 主机。 KMS 主机激活之后，管理员最多可使用同一密钥将同一台主机重新激活 9 次。
 
-如果您的组织单位需要 6 台以上的 KMS 主机，则应为组织单位的 KMS 密钥请求更多的激活次数 例如，如果一份批量许可协议涵盖 10 个物理位置，并且您希望每个位置有一台本地的 KMS 主机。
+如果你的组织需要 6 台以上的KMS 主机，则应为组织的 KMS 密钥请求更多的激活次数，例如，如果一份批量许可协议涵盖 10 个物理位置，并且你希望每个位置有一台本地的 KMS 主机。
 
 > [!NOTE] 
 > 要解决此特殊情况，请联系您的激活呼叫中心。 有关详细信息，请参阅 [Microsoft 批量许可](https://go.microsoft.com/fwlink/?LinkID=73076)。

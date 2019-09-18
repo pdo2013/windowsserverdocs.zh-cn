@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 06/07/2019
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 53f34992b875730be80ba479f387095aebbc8132
-ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
+ms.openlocfilehash: d2a2acc9261ac1a25e140cc298cc58e4b0fb6e52
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67469554"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869062"
 ---
 # <a name="windows-admin-center-frequently-asked-questions"></a>Windows Admin Center 常见问题解答
 
@@ -33,7 +33,7 @@ Windows Admin Center 是一个轻型的基于浏览器的 GUI 平台及工具集
 
 ## <a name="how-much-does-it-cost-to-use-windows-admin-center"></a>使用 Windows Admin Center 需要多少费用？
 
-Windows Admin Center 不会在 Windows 以外产生额外费用。 你可以通过有效的 Windows Server 或 Windows 10 许可证使用 Windows Admin Center（可单独下载），无额外费用 - 它通过 Windows Supplemental EULA 许可。
+Windows Admin Center 不会在 Windows 以外产生额外费用。 你可以通过有效的 Windows Server 或 Windows 10 许可证使用 Windows Admin Center（可单独下载），无额外费用 - 它已经过 Windows Supplemental EULA 许可。
 
 ## <a name="what-versions-of-windows-server-can-i-manage-with-windows-admin-center"></a>使用 Windows Admin Center 可以管理哪些版本的 Windows Server？
 
@@ -86,7 +86,7 @@ Windows Admin Center 是对 RSAT（远程服务器管理工具）的补充，不
 
 ## <a name="are-there-any-plans-for-windows-admin-center-to-manage-windows-server-2008-r2-or-earlier"></a>是否有 Windows Admin Center 管理 Windows Server 2008 R2 或更早版本的计划？
 
-Windows Admin Center 现在支持**有限的**功能来管理 Windows Server 2008 R2。 Windows Admin Center 依赖 Windows Server 2008 R2 及更早版本中没有的 PowerShell 功能和平台技术，这让完全支持无法实现。 Windows Server 2008/2008 R2 将于 2020 年 1 月终止支持，因此 Microsoft 建议客户[过渡到 Azure 或升级到最新版本的 Windows Server](https://www.microsoft.com/en-us/cloud-platform/windows-server-2008)。
+Windows Admin Center 现在支持**有限的**功能来管理 Windows Server 2008 R2。 Windows Admin Center 依赖于 Windows Server 2008 R2 及更早版本中没有的 PowerShell 功能和平台技术，这让完全支持无法实现。 Windows Server 2008/2008 R2 将于 2020 年 1 月终止支持，因此 Microsoft 建议客户[过渡到 Azure 或升级到最新版本的 Windows Server](https://www.microsoft.com/en-us/cloud-platform/windows-server-2008)。
 
 ## <a name="are-there-any-plans-for-windows-admin-center-to-manage-linux-connections"></a>是否有 Windows Admin Center 管理 Linux 连接的计划？
 

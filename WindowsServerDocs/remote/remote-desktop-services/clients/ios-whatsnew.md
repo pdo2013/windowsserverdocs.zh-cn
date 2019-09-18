@@ -8,21 +8,21 @@ ms.suite: na
 ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
-author: lizap
-manager: dongill
-ms.author: elizapo
-ms.date: 08/27/2019
+author: heidilohr
+manager: daveba
+ms.author: helohr
+ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: df19f9f27b79f5549d487f6035eba2345dd87ea6
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 3bdf50ed04e291014ed5b70b572b3123fa925d10
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70151000"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987350"
 ---
 # <a name="whats-new-in-the-ios-client"></a>iOS 客户端中的新增功能
 
-我们会定期更新[适用于 iOS 的远程桌面客户端](remote-desktop-ios.md)，添加新功能并修复问题。 请查看以下最新更新。
+我们会定期更新[适用于 iOS 的远程桌面客户端](remote-desktop-ios.md)，添加新功能并修复问题。 可在下面找到最新更新。
 
 ## <a name="remote-desktop-ios-beta-client"></a>远程桌面 iOS Beta 客户端
 

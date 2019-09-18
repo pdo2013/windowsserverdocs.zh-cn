@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 7f73bb0a-ce98-48a4-9d9f-cf7438936ca1
 author: lizap
 manager: dongill
-ms.openlocfilehash: 14c32831445b12b314c71e538320c2ce5a9b7ee4
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: f70cfbf7d65ee0a8fb4439ea51a995e6428ede5e
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63749415"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871357"
 ---
 # <a name="remote-desktop-services-architecture"></a>远程桌面服务体系结构
 
@@ -49,7 +49,7 @@ ms.locfileid: "63749415"
 
 ### <a name="rds-deployment-with-azure-ad-domain-services"></a>使用 Azure AD 域服务的 RDS 部署
 
-上面的两个标准体系结构关系图基于部署在 Windows Server VM 上的传统 Active Directory (AD)。 但是，如果你没有传统 AD 并且只有一个 Azure AD 租户（通过 Office 365 等服务），但仍想要利用 RDS，可以使用 [Azure AD 域服务](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)在使用 Azure AD 租户中存在的相同用户的 Azure IaaS 环境中创建完全托管的域。 这消除了手动同步用户和管理更多虚拟机的复杂性。 Azure AD 域服务可以在以下两个部署中工作：基本或高可用性。
+上面的两个标准体系结构关系图基于部署在 Windows Server VM 上的传统 Active Directory (AD)。 但是，如果你没有传统 AD 并且只有一个 Azure AD 租户（通过 Office 365 等服务），但仍想要利用 RDS，则可以使用 [Azure AD 域服务](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)在使用 Azure AD 租户中存在的相同用户的 Azure IaaS 环境中创建完全托管的域。 这消除了手动同步用户和管理更多虚拟机的复杂性。 Azure AD 域服务可以在以下两个部署中工作：基本或高可用性。
 
 ![Azure AD 和 RDS 部署](./media/aadds-rds.png)
 

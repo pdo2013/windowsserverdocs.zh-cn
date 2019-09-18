@@ -13,12 +13,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 11/21/2016
 manager: dongill
-ms.openlocfilehash: c3c7be624e3b093347807a5ee131270d3c802f1a
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: d681530f849fe55495de0f4d4b564921d3b0bb3d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805158"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870871"
 ---
 # <a name="remote-desktop-services---secure-data-storage-with-upds"></a>远程桌面服务 - 使用 UPD 保护数据存储
 

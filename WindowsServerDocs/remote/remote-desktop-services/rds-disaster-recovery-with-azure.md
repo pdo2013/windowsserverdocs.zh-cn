@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 24b5fdaa815b6d2e84606cd8e681634eb3d0f4e9
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 79e0364bcb9d2ed899568a6699c61b43d84044e5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63713080"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871007"
 ---
 # <a name="set-up-disaster-recovery-for-rds-using-azure-site-recovery"></a>使用 Azure Site Recovery 为 RDS 设置灾难恢复
 
@@ -25,7 +25,7 @@ ms.locfileid: "63713080"
 
 可以使用 Azure Site Recovery 为远程桌面服务部署创建灾难恢复解决方案。 
 
-[Azure Site Recovery](/azure/site-recovery/site-recovery-overview) 是一种基于 Azure 的服务，通过安排虚拟机的复制、故障转移和恢复来提供灾难恢复功能。 Azure Site Recovery 支持多种复制技术，以便一致地复制、保护和无缝地故障转移虚拟机和云应用程序到私有云/公有云或主机托管服务提供商云。 
+[Azure Site Recovery](/azure/site-recovery/site-recovery-overview) 是一种基于 Azure 的服务，通过安排虚拟机的复制、故障转移和恢复来提供灾难恢复功能。 Azure Site Recovery 支持多种复制技术，以便一致地复制、保护虚拟机和云应用程序，并将其无缝地故障转移到私有云/公有云或托管商的云。 
 
 使用以下信息可创建和验证灾难恢复解决方案。
 

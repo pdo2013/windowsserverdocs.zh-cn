@@ -13,12 +13,12 @@ author: spatnaik
 ms.author: spatnaik
 ms.date: 09/23/2016
 manager: scottman
-ms.openlocfilehash: 9d16989cc3ecbf0170081bb8cb52a9103f979741
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 05b9dcfdb28613e4f8a815e78a84ba1f70c35b97
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63743469"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870932"
 ---
 # <a name="remote-desktop-services---cater-to-different-kinds-of-users"></a>远程桌面服务 - 适应不同类型的用户
 

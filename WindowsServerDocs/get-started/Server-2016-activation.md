@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 88cab1965e299c7d25c177125cb504432bf987e8
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 746434884701ba1a8a6781b485b3f1540abe975e
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810649"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868422"
 ---
 # <a name="windows-server-2016-activation"></a>Windows Server 2016 激活
 
@@ -55,7 +55,7 @@ KMS 能够激活物理和虚拟计算机，但是要使用 KMS 激活，网络�
 
 KMS 主机计算最近的连接数。 当客户端或服务器联系 KMS 主机时，主机将计算机 ID 添加到其计数，然后在其响应中返回当前的计数值。 计数足够高时将激活客户端或服务器。 计数为 25 或更高时将激活客户端。 计数为 5 或更大时，将激活服务器和批量版 Microsoft Office 产品。 KMS 只对过去 30 天内的唯一连接计数，且仅存储 50 个最新联系人。
 
-KMS 激活的有效期为 180 天，这一时期称为激活有效期间隔。 要保持激活状态，KMS 客户端至少要每 180 天连接一次 KMS 主机，以续订他们的激活。 默认情况下，KMS 客户端计算机会每隔7 天尝试一次激活续订。 客户端的激活续订之后，激活有效期将重新开始计算。
+KMS 激活的有效期为 180 天，这一时期称为激活有效期间隔。 要保持激活状态，KMS 客户端至少要每 180 天连接一次 KMS 主机，以续订他们的激活。 默认情况下，KMS 客户端计算机会每隔7 天尝试一次激活续订。 客户端的激活已续订之后，激活有效期将重新开始计算。
 
 # <a name="addressing-kms-functional-requirements"></a>满足 KMS 功能要求
 
@@ -63,7 +63,7 @@ KMS 激活要求 TCP/IP 连接。 KMS 主机可客户端默认配置使用域名
 
 第一个 KMS 主机激活之后，第一个主机上使用的 KMS 密钥最多可用来激活网络上的另外 5 台 KMS 主机。 KMS 主机激活之后，管理员最多可使用同一密钥将同一台主机重新激活 9 次。
 
-如果您的组织单位需要 6 台以上的 KMS 主机，则应为组织单位的 KMS 密钥请求更多的激活次数 例如，如果一份批量许可协议涵盖 10 个物理位置，并且您希望每个位置有一台本地的 KMS 主机。
+如果你的组织需要 6 台以上的KMS 主机，则应为组织的 KMS 密钥请求更多的激活次数，例如，如果一份批量许可协议涵盖 10 个物理位置，并且你希望每个位置有一台本地的 KMS 主机。
 
 > [!NOTE] 
 > 要解决此特殊情况，请联系您的激活呼叫中心。 有关详细信息，请参阅 [Microsoft 批量许可]( https://www.microsoft.com/licensing)。

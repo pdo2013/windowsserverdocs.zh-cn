@@ -8,21 +8,21 @@ ms.suite: na
 ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
-author: lizap
-manager: dongill
-ms.author: elizapo
-ms.date: 08/27/2019
+author: heidilohr
+manager: daveba
+ms.author: helohr
+ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 9ae58103b00941bb71d447641b1cdab7c02fa20b
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 9fbd3e9c5f7938fbf6a80e9f5dc950a2c0a9a257
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70151024"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987343"
 ---
 # <a name="whats-new-in-the-macos-client"></a>MacOS 客户端中的新增功能
 
-我们会定期更新[适用于 macOS 的远程桌面客户端](remote-desktop-mac.md)添加新功能并修复问题。 请查看以下最新更新。
+我们会定期更新[适用于 macOS 的远程桌面客户端](remote-desktop-mac.md)添加新功能并修复问题。 可在下面找到最新更新。
 
 如果遇到任何问题，始终可以通过“帮助”>“报告问题”  来联系我们。
 
@@ -46,14 +46,14 @@ ms.locfileid: "70151024"
 
 ## <a name="updates-for-version-10213"></a>针对版本 10.2.13 的更新
 
-发布日期：  2019/5/8
+*发布日期：* 2019/5/8
 
 - 修复了在通过 RD 网关连接时出现的挂起。
 - 向“添加源”对话框添加了隐私声明。
 
 ## <a name="updates-for-version-10212"></a>针对版本 10.2.12 的更新
 
-发布日期：  2019/4/16
+*发布日期：* 2019/4/16
 
 - 解决了在通过 RD 网关连接时发生的随机断开连接（具有错误代码 0x904）。
 - 修复了导致应用程序首选项中的分辨率列表在安装之后为空的 bug。
@@ -62,20 +62,20 @@ ms.locfileid: "70151024"
 
 ## <a name="updates-for-version-10210"></a>针对版本 10.2.10 的更新
 
-发布日期：  2019/3/30
+*发布日期：* 2019/3/30
 
 - 在此版本中，我们解决了由最近 macOS 10.14.4 更新导致的不稳定。 我们还修复了在使用 NVIDIA 硬件对 由服务器编码的 AVC 编解码器数据进行解码时出现的错误绘图。
 
 ## <a name="updates-for-version-1029"></a>针对版本 10.2.9 的更新
 
-发布日期：  2019/3/6
+*发布日期：* 2019/3/6
 
 - 在此版本中，我们修复了在进行服务器重定向时可能发生的 RD 网关连接问题。
 - 我们还解决了由 10.2.8 更新导致的 RD 网关回归。
 
 ## <a name="updates-for-version-1028"></a>针对版本 10.2.8 的更新
 
-发布日期：  2019/3/1
+*发布日期：* 2019/3/1
 
 - 解决了在使用 RD 网关时出现的连接问题。
 - 修复了在连接时显示的错误证书警告。
@@ -85,13 +85,13 @@ ms.locfileid: "70151024"
 
 ## <a name="updates-for-version-1027"></a>针对版本 10.2.7 的更新
 
-发布日期：  2019/2/6
+*发布日期：* 2019/2/6
 
 - 在此版本中，我们解决了在使用 AVC444 模式时出现的图形错误绘图（由服务器编码 bug 导致）。
 
 ## <a name="updates-for-version-1026"></a>针对版本 10.2.6 的更新
 
-发布日期：  2019/1/28
+*发布日期：* 2019/1/28
 
 - 添加了对 AVC（420 和 444）编解码器的支持（在连接到当前版本的 Windows 10 时可用）。
 - 在适应窗口模式下，窗口刷新现在会在重设大小之后立即进行，确保以正确的内插级别呈现内容。
@@ -105,7 +105,7 @@ ms.locfileid: "70151024"
 
 ## <a name="updates-for-version-1024"></a>针对版本 10.2.4 的更新
 
-发布日期：  2018/12/18
+*发布日期：* 2018/12/18
 
 - 添加了适用于 macOS Mojave 10.14 的深色模式支持。
 - 如果连接中心为空，则一个用于从 Microsoft 远程桌面 8 导入的选项现在会出现在连接中心中。
@@ -117,7 +117,7 @@ ms.locfileid: "70151024"
 
 ## <a name="updates-for-version-1023"></a>针对版本 10.2.3 的更新
 
-发布日期：  2018/11/06
+*发布日期：2018 年 11 月 6 日*
 
 - 针对远程应用方案添加了对“remoteapplicationcmdline”RDP 文件设置的支持。
 - 从 RDP 文件启动时，会话窗口的标题现在包括 RDP 文件的名称（和服务器名称）。
@@ -133,7 +133,7 @@ ms.locfileid: "70151024"
 
 ## <a name="updates-for-version-1022"></a>针对版本 10.2.2 的更新
 
-发布日期：  2018/10/09
+*发布日期：* 2018/10/09
 
 - 全新的连接中心，支持拖放、桌面的手动排列、列表视图模式中的可调整大小列、基于列的排序以及更简单的组管理。
 - 连接中心现在会在关闭应用时记住最后一个活动数据透视表（桌面或源）。
@@ -162,14 +162,14 @@ ms.locfileid: "70151024"
 
 ## <a name="updates-for-version-1021"></a>针对版本 10.2.1 的更新
 
-发布日期：  2018/08/06
+*发布日期：* 2018/08/06
 
 - 启用了与已加入 Azure Active Directory (AAD) 的电脑的连接。 若要连接到已加入 AAD 的电脑，用户名必须采用以下格式之一：“AzureAD\user”或“AzureAD\user@domain”。
 - 解决了影响远程会话中智能卡的使用的某些 bug。
 
 ## <a name="updates-for-version-1020"></a>针对版本 10.2.0 的更新
 
-发布日期：  2018/07/24
+*发布日期：* 2018/07/24
 
 - 合并了针对 GDPR 合规性的更新。
 - 现在接受将 MicrosoftAccount\username@domain 作为有效用户名。
@@ -198,7 +198,7 @@ ms.locfileid: "70151024"
 
 ## <a name="updates-for-version-1018"></a>针对版本 10.1.8 的更新
 
-发布日期：  2018/05/04
+*发布日期：* 2018/05/04
 
 - 添加了对通过调整会话窗口大小来更改远程分辨率的支持！
 - 修复了远程资源源下载需要太长时间的情形。
@@ -206,7 +206,7 @@ ms.locfileid: "70151024"
 
 ## <a name="updates-for-version-1017"></a>针对版本 10.1.7 的更新
 
-发布日期：  2018/04/05
+*发布日期：* 2018/04/05
 
 - 进行了安全修复，以包含 CVE-2018-0886 中所述的 CredSSP 加密 oracle 修正更新。
 - 改进了 RemoteApp 图标和鼠标光标呈现，以解决报告的错误绘图。
@@ -220,7 +220,7 @@ ms.locfileid: "70151024"
 
 ## <a name="updates-for-version-1016"></a>针对版本 10.1.6 的更新
 
-发布日期：  2018/03/26
+*发布日期：* 2018/03/26
 
 - 修复了 RemoteApp 窗口会对自己重新排序的问题。
 - 解决了导致某些 RemoteApp 窗口在其父窗口后面停滞的 bug。

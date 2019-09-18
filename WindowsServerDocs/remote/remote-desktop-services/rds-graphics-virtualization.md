@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: d6ff5b22-7695-4fee-b1bd-6c9dce5bd0e8
 author: lizap
 manager: scottman
-ms.openlocfilehash: af5d5ce89561c89d8468627e20dfdb6f35eca5ef
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ce10575d38bccc0b22dadf55bd89156c6ce5ea7b
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66447110"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871050"
 ---
 # <a name="which-graphics-virtualization-technology-is-right-for-you"></a>哪种图形虚拟化技术适合你？
 
@@ -36,7 +36,7 @@ ms.locfileid: "66447110"
 ![带 RDS 的 Windows Server 2016 中的图形虚拟化选项 - 显示了可用的三种技术以及它们在规模和性能方面的差异](media/rds-graphics-virtualization.png)
 
 ## <a name="discrete-device-assignment"></a>离散设备分配
-离散设备分配 (DDA) 是一个提供最佳性能的硬件传递解决方案，假定 VM 可使用本机驱动程序完全访问 GPU。 VM 用户可以访问其设备的所有功能和本机驱动程序。 这意味着在 VM 镜像中运行设备的特性和功能与在裸机上运行相同设备的一样。
+离散设备分配 (DDA) 是一个提供最佳性能的硬件传递解决方案，假定 VM 可使用本机驱动程序完全访问 GPU。 VM 用户可以访问其设备的所有功能和设备的本机驱动程序。 这意味着在 VM 镜像中运行设备的特性和功能与在裸机上运行相同设备的一样。
 
 有关 DDA 的详细信息，请查看[部署离散设备分配的计划](../../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md)。
 

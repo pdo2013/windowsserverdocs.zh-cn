@@ -9,12 +9,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 05/21/2019
 ms.topic: get-started-article
-ms.openlocfilehash: c0d85da8a51a43acd7765957b34220829a43b086
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 964139ac5fdaee4d580d29ab0f7543c7d5f15d0b
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810707"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868456"
 ---
 # <a name="kms-client-setup-keys"></a>KMS 客户端安装密钥
 
@@ -25,13 +25,13 @@ ms.locfileid: "66810707"
 > [!NOTE]
 > 在以下各表中，“LTSC”代表“长期服务频道”，而“LTSB”是指“长期服务分支”。 
 
-**若要使用此处列出的密钥（它们是 GVLK），你必须首先在你的部署中运行 KMS 主机。** 如果你尚未配置 KMS 主机，则请参阅 [Deploy KMS Activation](https://technet.microsoft.com/library/dn502531(v=ws.11).aspx) ，以获取安装一个主机的步骤。
+**若要使用此处列出的密钥（它们是 GVLK），你必须首先在你的部署中运行 KMS 主机。** 如果你尚未配置 KMS 主机，则请参阅 [Deploy KMS Activation](https://technet.microsoft.com/library/dn502531(v=ws.11).aspx)（部署 KMS 激活），以了解设置主机的步骤。
 
 如果是将计算机从 KMS 主机、MAK 或零售版 Windows 转换为 KMS 客户端，则从下表中选择相应的安装程序密钥 (GVLK) 进行安装。 若要安装客户端安装程序密钥，请打开客户端上的管理命令提示符，键入 slmgr /ipk \<setup key\>  ，然后按 Enter  。
 
 | 如果你希望    | 请使用以下资源   |
 |--------------------|------------------------|
-| 在批量激活方案之外激活 Windows（即，你尝试激活零售版本的 Windows），这些密钥将不可用  。 | 请点击以下链接以获取零售版本的 Windows： |
+| 在批量激活方案之外激活 Windows（即，你尝试激活零售版本的 Windows），**这些密钥将不可用**。 | 请点击以下链接以获取零售版本的 Windows： |
 | 修复在尝试激活 Windows 8.1、Windows Server 2012 R2 或更新的系统时收到的以下错误：“错误：0xC004F050 软件授权服务报告产品密钥无效”… | 如果 KMS 主机运行的是 Windows 8.1、Windows Server 2012 R2、Windows 8 或 Windows Server 2012，则在 KMS 主机上[安装此更新](https://support.microsoft.com/en-us/help/3172614/july-2016-update-rollup-for-windows-8-1-and-windows-server-2012-r2) 。 |
 
 -   [获取 Windows 10](https://www.microsoft.com/en-us/windows/get-windows-10)
@@ -68,7 +68,7 @@ ms.locfileid: "66810707"
 
 ## <a name="windows-server-ltscltsb-versions"></a>Windows Server LTSC/LTSB 版本
 
-### <a name="windows-server-2019"></a>Windows Server 2019
+### <a name="windows-server-2019"></a>Windows Server Standard 2012 R2
 | 操作系统版本       | KMS 客户端安装程序密钥          |
 |--------------------------------|-------------------------------|
 | Windows Server 2019 Datacenter | WMDGN-G9PQG-XVVXX-R3X43-63DFG  | 

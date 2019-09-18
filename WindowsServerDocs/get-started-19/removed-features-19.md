@@ -13,16 +13,16 @@ ms.author: jgerend
 manager: jasgro
 ms.date: 08/22/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 59a31d01d1c5775c837010eca964c72fad8b5c92
-ms.sourcegitcommit: 6f8993e2180c4d3c177e3e1934d378959396b935
+ms.openlocfilehash: 0f6b6ac42c096c6c80404c2d650905e73da8a97a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70000692"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868648"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-windows-server-2019"></a>从 Windows Server 2019 开始已删除或计划取代的功能
 
->适用于：Windows Server 2019
+>适用于：Windows Server Standard 2012 R2
 
 Windows Server 的每一次发布都增加了新的特性和功能；我们偶尔也会删除特性和功能，通常是因为我们增加了更好的选项。 以下是有关 Windows Server 2019 中已删除的功能的详细信息。
 
@@ -50,7 +50,7 @@ Windows Server 的每一次发布都增加了新的特性和功能；我们偶�
 
 | 功能     | 可以改用... |
 | ----------- | --------------------- |
-| Hyper-V 中的密钥存储驱动器|我们不再开发 Hyper-V 中的密钥存储驱动器功能。 如果你使用的是第 1 代 VM，请查看[第 1 代 VM 虚拟化安全性](../virtualization/hyper-v/learn-more/generation-1-virtual-machine-security-settings-for-hyper-v.md)来了解今后的选项。 如果你正在创建新的 VM，请结合 TPM 设备使用第 2 代虚拟机，以获得更安全的解决方案。 |
+| Hyper-V 中的密钥存储驱动器|我们不再开发 Hyper-V 中的密钥存储驱动器功能。 如果你使用的是第 1 代 VM，请查看[第 1 代 VM 虚拟化安全性](../virtualization/hyper-v/learn-more/generation-1-virtual-machine-security-settings-for-hyper-v.md)来了解今后的选项。 如果你正在创建新的 VM，请结合 TPM 设备使用第 2 代虚拟机，以实现更安全的解决方案。 |
 | 受信任的平台模块 (TPM) 管理控制台|以前在 TPM 管理控制台中提供的信息现在会在 [Windows Defender 安全中心](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-security-center/windows-defender-security-center)的[**设备安全性**](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-security-center/wdsc-device-security)页中提供。 |
 | 主机防护服务 Active Directory 证明模式|我们不再开发主机防护服务 Active Directory 证明模式 - 而是添加了一种新的证明模式[主机密钥证明](../security/guarded-fabric-shielded-vm/guarded-fabric-create-host-key.md)，与基于 Active Directory 的证明相比，此模式要简单得多，且兼容性相当。  与 Active Directory 证明相比，此新模式为安装体验提供等效的功能、更简单的管理和更少的基础结构依赖关系。 主机密钥证明的硬件要求不比 Active Directory 证明更高，因此，所有现有系统可与新模式保持兼容。 有关证明选项的详细信息，请参阅[部署受保护的主机](../security/guarded-fabric-shielded-vm/guarded-fabric-configure-hgs-with-authorized-hyper-v-hosts.md)。 |
 | OneSync 服务 | OneSync 服务可以同步邮件、日历和人员应用的数据。 我们已在 Outlook 应用中添加了一个同步引擎用于提供相同的同步。 |

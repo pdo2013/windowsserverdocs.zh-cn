@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: jaimeo
 manager: dougkim
-ms.openlocfilehash: 6320e9459e1460225a9920c2a23d596fa6bb4aa7
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 9e3b6640ac4da1226e708719e07076f872a5e503
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805199"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870735"
 ---
 # <a name="optimizing-windows-10-version-1803-for-a-virtual-desktop-infrastructure-vdi-role"></a>针对虚拟桌面基础结构 (VDI) 角色优化 Windows 10 版本 1803
 
@@ -150,7 +150,7 @@ Windows 10 具有一个名为[系统准备工具](https://docs.microsoft.com/win
 
 ### <a name="universal-windows-platform-app-cleanup"></a>通用 Windows 平台应用清理
 
-VDI 映像的目标之一是尽量精简。 减小映像大小的方法之一是删除环境中用不到的 UWP 应用程序。 UWP 应用附带一些应用程序主文件（称为有效负载）。 每个用户的配置文件中存储了用于应用程序特定设置的少量数据。 此外，“所有用户”配置文件中也包含少量的数据。
+VDI 映像的目标之一是尽量精简。 减小映像大小的方法之一是删除环境中用不到的 UWP 应用程序。 UWP 应用附带一些应用程序主文件（称为有效负载）。 每个用户的配置文件中存储了有关应用程序特定设置的少量数据。 此外，“所有用户”配置文件中也包含少量的数据。
 
 执行 UWP 应用清理时，只需建立连接并设置好计时即可。 如果将基本映像部署到了未建立网络连接的设备，则 Windows 10 无法连接到 Microsoft Store 和下载应用，并会在你尝试卸载应用时安装应用。
 
@@ -472,7 +472,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName "DirectPlay" -All
 | GameDVR 和广播用户服务                                                                                                                            | 此用户服务用于游戏录制和实时广播                                                                        | 注意：这是一个基于用户的服务，因此，必须禁用模板服务。                                                            |
 | MessagingService                                                                                                                              | 支持短信和相关功能的服务。                                                                             | 注意：这是一个基于用户的服务，因此，必须禁用模板服务。                                                           |
 | 优化驱动器                                                                                                                               | 通过优化存储驱动器上的文件，帮助计算机更有效地运行。                                                                           | 一般情况下，VDI 解决方案无法受益于磁盘优化。 这些“驱动器”并非传统的驱动器，通常只是一种临时存储分配。                                               |
-| Superfetch                                                                                                                                    | 维持和不断改进系统性能。                                                                                     | 如果每次重新启动都会丢弃操作系统状态，则此功能一般不会改进 VDI 的性能，尤其是非持久性 VDI。                                         |
+| Superfetch                                                                                                                                    | 维持和不断改进系统性能。                                                                                     | 一般不会改进 VDI 的性能，尤其是非持久性 VDI（考虑到每次重新启动都会丢弃操作系统状态）。                                         |
 | 触摸键盘和手写面板服务                                                                                                                  | 启用触摸键盘、手写面板笔和墨迹功能                                                                                   |                                                                                    |
 | Windows 错误报告                                                                                                                       | 允许在程序停止运行或无响应时报告错误，并允许传送现有的解决方案。 此外，允许生成诊断和修复服务的日志。 如果此服务已停止，错误报告可能无法正常工作，并且诊断服务和修复结果可能不会显示。                   | 使用 VDI 时，诊断通常是在脱机情况下执行的，而不是在主流生产环境中执行的。 此外，某些客户仍会禁用 WER。 在许多情况下（包括无法安装设备或无法安装更新时），WER 会占用微量的资源。 |
 | Windows Media Player 网络共享服务                                                                                                                  | 使用通用即插即用向其他联网的播放器和媒体设备共享 Windows Media Player 库                                                                         | 除非客户在网络上共享 WMP 库，否则不需要启用。                                                              |

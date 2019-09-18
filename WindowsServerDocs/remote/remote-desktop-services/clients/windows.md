@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 03927cd531617c6e0c9572fc4ce74768e10bc66a
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 14df478c681074f8081190048fb5579d7fa9f653
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150938"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987327"
 ---
 # <a name="get-started-with-the-windows-store-client"></a>Windows 应用商店客户端入门
 
@@ -30,8 +30,8 @@ ms.locfileid: "70150938"
 请参考以下信息开始。 如果有任何问题，请查看[常见问题解答](remote-desktop-client-faq.md)。
 
 > [!NOTE]
-> - 想知道 Windows 客户端的新版本吗？ 请查看 [Windows 上的远程桌面的新增功能](windows-whatsnew.md)
-> - 可以在任何版本的 Windows 10 上运行客户端。
+> - 想了解 Microsoft Store 客户端的新版本吗？ 请查看 [Microsoft Store 客户端中的新增功能](windows-whatsnew.md)
+> - 可以在任何受支持版本的 Windows 10 上运行该客户端。
 
 ## <a name="get-the-rd-client-and-start-using-it"></a>获取 RD 客户端并开始使用
 

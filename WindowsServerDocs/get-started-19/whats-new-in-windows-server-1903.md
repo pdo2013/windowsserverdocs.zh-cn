@@ -7,12 +7,12 @@ ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.date: 05/21/2019
-ms.openlocfilehash: 0ec6a7ec624818b92fb306089f3dea3c786c0827
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: cde394cd4e626466f17a27a68660e85f9fe55553
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280309"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868530"
 ---
 # <a name="whats-new-in-windows-server-version-1903"></a>Windows Server 版本 1903 中的新增功能
 
@@ -97,7 +97,7 @@ SetupDiag 是一个命令行工具，可以帮助诊断 Windows 更新失败的�
 
 Windows Server 包含 Microsoft Defender 高级威胁防护（有关详细信息，请参阅 [Windows Server 上的 Windows Defender 防病毒](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)）。 此发行版包括以下改进：
 
-- [减小受攻击面](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction) – IT 管理员可以使用高级 Web 保护来配置设备，可以针对特定的 URL 和 IP 地址定义允许和拒绝列表。
+- [减小受攻击面](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction) – IT 管理员可以使用高级 Web 保护来配置设备，以便可以针对特定的 URL 和 IP 地址定义允许列表和拒绝列表。
 - [下一代保护](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) – 控制措施经过扩展，可以防范勒索软件、凭据滥用以及通过可移动存储发起的攻击。
     - 完整性强制功能 – 启用远程运行时证明。
     - 防篡改功能 – 使用基于虚拟化的安全性将关键的 ATP 安全功能与 OS 和攻击者相隔离。

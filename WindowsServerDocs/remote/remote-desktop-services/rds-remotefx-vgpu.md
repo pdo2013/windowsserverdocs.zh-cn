@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 0263fa6b-2185-4cc3-99ef-3588e2f4ada5
 author: lizap
 manager: scottman
-ms.openlocfilehash: 3e7da1a70826dc720a96ceb3fe5d04868943f163
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 3e189d9ac059136b40d8ee5d93a4eea5b788cdd1
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63712117"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870848"
 ---
 # <a name="set-up-and-configure-remotefx-vgpu-for-remote-desktop-services"></a>为远程桌面服务安装和配置 RemoteFX vGPU
 
@@ -120,7 +120,7 @@ Get-VMRemoteFXPhysicalVideoAdapter [-ComputerName <String[]>] [-Credential <PSCr
 
 ## <a name="monitor-performance"></a>监视性能
 
-VDI 系统的性能和缩放由多种因素决定，例如 GPU 的总内存、系统内存和内存速度、CPU 内核数和 CPU 时钟频率、存储速度以及 NUMA 实现。
+VDI 系统的性能和规模由多种因素决定，例如 GPU 的总内存、系统内存和内存速度、CPU 内核数和 CPU 时钟频率、存储速度以及 NUMA 实现。
 
 RDS 中的远程 vGPU 支持包括以下性能计数器，可以在性能监视器 (perfmon.exe) 中查看这些计数器，以收集有关帧速率吞吐量的信息。
 

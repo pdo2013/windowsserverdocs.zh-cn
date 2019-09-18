@@ -13,12 +13,12 @@ manager: ''
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 85e332f5f66b59676ddd3b5383b1e5844c2b4c83
-ms.sourcegitcommit: f6503e503d8f08ba8000db9c5eda890551d4db37
+ms.openlocfilehash: 8af2b1a171a77def2bbb74cc7301e0562cb5b92c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68529917"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870605"
 ---
 # <a name="user-cant-authenticate-or-must-authenticate-twice"></a>用户无法完成身份验证或必须完成身份验证两次
 
