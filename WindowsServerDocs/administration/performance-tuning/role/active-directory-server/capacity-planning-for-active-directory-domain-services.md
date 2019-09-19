@@ -579,7 +579,7 @@ DC 2|6.25 MB/秒|
 |处理器|处理器信息（_total）\\% processor Utility|60分钟|40%|60%|
 |RAM （Windows Server 2008 R2 或更早版本）|Memory\Available MB|< 100 MB|不可用|< 100 MB|
 |RAM （Windows Server 2012）|Memory\Long-Term 平均备用缓存生存期（秒）|30分钟|必须测试|必须测试|
-|网络|每秒发送\*的网络接口（） \<br /><br />网络接口（\*） \ Received/sec|30分钟|40%|60%|
+|网络|每秒发送\*的网络接口（）<br /><br />网络接口（\*）Received/sec|30分钟|40%|60%|
 |存储|逻辑磁盘（ *\<NTDS 数据库驱动器\>* ） \Avg Disk sec/Read<br /><br />逻辑磁盘（ *\<NTDS 数据库驱动器\>* ） \Avg Disk sec/Write|60分钟|10毫秒|15 ms|
 |AD 服务|Netlogon （\*） \Average 信号灯时间|60分钟|0|1 秒|
 

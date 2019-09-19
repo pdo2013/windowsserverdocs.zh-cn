@@ -365,7 +365,7 @@ DFS 复制所使用的磁盘、内存和 CPU 资源取决于许多因素，包�
 
 ### <a name="are-changes-compressed-before-being-replicated"></a>在复制之前是否压缩了更改？
 
-是。 在为除以下文件类型之外的所有文件类型（已压缩）发送之前，已对文件的更改部分进行了压缩：。 wma，.wmv，.zip，.jpg，. mpg，mpeg-2，. .m1v，. mp2，. mp3，mpa，.cab，.wav，. snd，. z，. gz，. tgz，. frx，.，.。 无法在 Windows Server 2003 R2 中配置这些文件类型的压缩设置。
+是。 在为除以下文件类型之外的所有文件类型（已压缩）发送之前，已对文件的更改部分进行了压缩：。 wma，.wmv，.zip，.jpg，. mpg，mpeg-2，. .m1v，. mp2，. mp3，mpa，.cab，.wav，. snd，. z，. gz，. tgz，. frx。 无法在 Windows Server 2003 R2 中配置这些文件类型的压缩设置。
 
 ### <a name="can-an-administrator-turn-off-rdc-or-change-the-threshold"></a>管理员可以关闭 RDC 或更改阈值吗？
 
