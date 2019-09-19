@@ -1,6 +1,6 @@
 ---
 title: nslookup set
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 99ac8736ca8223a1a444784c4cf605a973a9e4dd
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 928d222714bf01cac1585a25e8cac3ec6c8b0233
+ms.sourcegitcommit: 6423dfa9cecb3b06bdd563cae113c3e80a4ec330
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436542"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105054"
 ---
 # <a name="nslookup-set"></a>nslookup set
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-更改影响的配置设置如何查找函数。
+更改影响查找功能的配置设置。
 ## <a name="syntax"></a>语法
 ```
 set <KeyWord>[=<Value>]
@@ -33,12 +33,12 @@ set <KeyWord>[=<Value>]
 
 |    参数    |                                                                                                                    描述                                                                                                                    |
 |-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    <KeyWord>    | 标识派生自的子命令**设置**子命令。 例如，子命令**设置 d2**具有关键字的 [**没有**]**d2**。 有关派生自的子命令的列表**设置**子命令，请参阅其他引用。 |
-|     <Value>     |                                                                                      指定每个子命令 nslookup 配置设置值。                                                                                      |
-| {help &#124; ?} |                                                                                               显示的短摘要**nslookup**子命令。                                                                                               |
+|    <KeyWord>    | 标识派生自**set**子命令的子命令。 例如，子命令**集 d2**包含关键字 [**no**]**d2**。 有关从**set**子命令派生的子命令的列表，请参阅 "其他参考"。 |
+|     <Value>     |                                                                                      指定每个子命令的 nslookup 配置设置值。                                                                                      |
+| {help &#124; ？} |                                                                                               显示**nslookup**子命令的简短摘要。                                                                                               |
 
 ## <a name="remarks"></a>备注
-使用**设置所有**可查看当前设置的列表。
+使用 "**全部设置**" 查看当前设置的列表。
 ## <a name="additional-references"></a>其他参考
-[命令行语法解答](command-line-syntax-key.md)
-[nslookup 将所有设置](nslookup-set-all.md)
+[命令行语法 Key](command-line-syntax-key.md)
+[nslookup 全部设置](nslookup-set-all.md)

@@ -68,7 +68,7 @@ sections:
             image:
               src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
             title: 部署 SDN 基础结构
-          - href: \windows-server\networking\sdn\plan\Plan-a-Software-Defined-Network-Infrastructure
+          - href: \windows-server\networking\sdn\manage\manage-sdn
             html: <p> </p>
             image:
               src: 'https://docs.microsoft.com/media/common/i_management.svg'
