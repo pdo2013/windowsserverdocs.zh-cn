@@ -10,12 +10,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 06/06/2019
   ms.author: lizross
-  ms.openlocfilehash: 9af5ed848f824699d3ddf1830ff61f38a9475ac8
-  ms.sourcegitcommit: c7c743acada0ddf574d169a5c67b32d153fe77e7
+  ms.openlocfilehash: 804ee13541fbade07ff6c1f98add09980801988a
+  ms.sourcegitcommit: 27f0caf74e88781054250455c3c1adf06deb6234
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/10/2019
-  ms.locfileid: "70876252"
+  ms.lasthandoff: 09/19/2019
+  ms.locfileid: "71124333"
 highlightedContent:
   items:
   - title: Windows Server 2019 中有哪些新增功能？
@@ -44,6 +44,23 @@ highlightedContent:
     url: /windows-insider/at-work/
 conceptualContent:
   items:
+  - title: 升级 Windows Server
+    links:
+    - url: /windows-server/upgrade/upgrade-2016-to-2019
+      itemType: how-to-guide
+      text: 升级 Windows Server 2016
+    - url: /windows-server/upgrade/upgrade-2012r2-to-2019
+      itemType: how-to-guide
+      text: 升级 Windows Server 2012 R2
+    - url: /windows-server/upgrade/upgrade-2012-to-2016
+      itemType: how-to-guide
+      text: 升级 Windows Server 2012
+    - url: /windows-server/upgrade/upgrade-2008r2-to-2012r2
+      itemType: how-to-guide
+      text: 升级 Windows Server 2008 R2
+    footerLink:
+      url: /windows-server/upgrade/upgrade-overview
+      text: 查看详细信息
   - title: 身份标识和访问控制
     links:
     - url: /windows-server/identity/ad-ds/ad-ds-getting-started
