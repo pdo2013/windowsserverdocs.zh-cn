@@ -13,12 +13,12 @@ ms.assetid: 044f2fd5-5b87-42bb-ba0d-c06516ac48c8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 97d9e671823dade9e488922561c4c6a925719830
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9f3524261e8e93439ff48a3e6666fa7680a76a29
+ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871659"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71143739"
 ---
 # <a name="limit-web-access"></a>限制 Web 访问
 除了监视单个桌面上的用户活动，作为管理用户，你还可以通过指示要阻止用户访问的允许网站和网站，限制用户对指定网站的访问权限。  
@@ -49,7 +49,7 @@ ms.locfileid: "70871659"
    若要添加不希望用户访问的站点，请单击 "**仅禁止这些网站**"，键入不希望用户访问的 web 地址，然后单击 "**添加**"。  
   
    > [!NOTE]
-   > 例如，输入 "Contoso.com" 允许或阻止相对于 www.contoso.com 的站点（例如，www.newpage.contoso.com）。 输入 "Contoso" 将允许或限制与 Contoso 相关的所有站点（包括 contoso.com、contoso.uk，等等）。  
+   > 例如，输入 "Contoso.com" 允许或阻止相对于 www.contoso.com 的站点（例如 www\.newpage.contoso.com）。 输入 "Contoso" 将允许或限制与 Contoso 相关的所有站点（包括 contoso.com、contoso.uk，等等）。  
   
 3. 若要从允许或禁止的站点列表中删除 Web 地址，请单击该 Web 地址，然后单击**删除**。  
   

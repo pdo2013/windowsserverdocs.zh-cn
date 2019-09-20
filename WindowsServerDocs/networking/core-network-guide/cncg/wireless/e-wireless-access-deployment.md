@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 4b66f517-b17d-408c-828f-a3793086bc1f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bd951f221f1cf1c5715e26830b7da644d685634a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 64098a152d9ba485cfed80e0d0541f0e5ea72bf2
+ms.sourcegitcommit: 47a9514a68e42ac236065fd6b641204b769223d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868983"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71127672"
 ---
 # <a name="wireless-access-deployment"></a>无线访问部署
 
@@ -113,7 +113,7 @@ ms.locfileid: "70868983"
 
     - **本地域**
 
-    - **全局**
+    - **Global**
 
     - **全局**
 
@@ -121,7 +121,7 @@ ms.locfileid: "70868983"
 
 6. 单击 **“确定”** 。
 
-如果需要为无线用户提供多个安全组，请重复这些步骤以创建其他无线用户组。 稍后，你可以在 NPS 中创建单独的网络策略，将不同的条件和约束应用于每个组，同时为它们提供不同的访问权限和连接规则。
+如果需要为无线用户提供多个安全组，请重复这些步骤以创建其他无线用户组。 稍后，你可以在 NPS 中创建单独的网络策略，以将不同的条件和约束应用于每个组，并为它们提供不同的访问权限和连接规则。
 
 ### <a name="bkmk_addusers"></a>将用户添加到无线用户安全组
 

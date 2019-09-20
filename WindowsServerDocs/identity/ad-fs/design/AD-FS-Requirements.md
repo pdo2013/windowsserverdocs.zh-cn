@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 91a1d69e4f7a77633d460f594ad3091f359df9c3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 247381b35a038627b5d8c91ac4dda0cc4fab6195
+ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867853"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71143779"
 ---
 # <a name="ad-fs-requirements"></a>AD FS 要求
 
@@ -329,18 +329,18 @@ AD FS 支持设备身份验证，使用设备注册服务在加入其设备的�
 ||||  
 |-|-|-|  
 |**算法**|**密钥长度**|**协议\/应用\/程序注释**|  
-|TripleDES –默认 192 \(支持192– 256\) \- [http：\/\/www.w3.org\/200104\/xmlenc\#TripleDES\/cbc\-](http://www.w3.org/2001/04/xmlenc)|>\=192|支持对安全令牌进行解密的算法。 不支持通过此算法加密安全令牌。|  
-|AES128 \- http：\/www.w3.org2001\/04 xmlencAES128\#cbc\/\/\/\-|128|支持对安全令牌进行解密的算法。 不支持通过此算法加密安全令牌。|  
-|AES192 \- http：\/www.w3.org2001\/04 xmlencAES192\#cbc\/\/\/\-|192|支持对安全令牌进行解密的算法。 不支持通过此算法加密安全令牌。|  
-|AES256 \- [http：\/www.w3.org\/200104\/xmlencAES256\#cbc\/\/\-](http://www.w3.org/2001/04/xmlenc)|256|“默认”。 支持对安全令牌进行加密的算法。|  
-|TripleDESKeyWrap \- http：\/www.w3.org2001\/04 xmlenckw\#tripledes\/\/\/\-|.NET 4.0 支持的所有密钥大小\+|支持对加密安全令牌的对称密钥进行加密的算法。|  
-|AES128KeyWrap \- [http：\/www.w3.org\/200104\/xmlenckw\#aes128\/\/\-](http://www.w3.org/2001/04/xmlenc)|128|支持对加密安全令牌的对称密钥进行加密的算法。|  
-|AES192KeyWrap \- [http：\/www.w3.org\/200104\/xmlenckw\#aes192\/\/\-](http://www.w3.org/2001/04/xmlenc)|192|支持对加密安全令牌的对称密钥进行加密的算法。|  
-|AES256KeyWrap \- [http：\/www.w3.org\/200104\/xmlenckw\#aes256\/\/\-](http://www.w3.org/2001/04/xmlenc)|256|支持对加密安全令牌的对称密钥进行加密的算法。|  
-|RsaV15KeyWrap \- http：\/www.w3.org2001\/04 xmlenc rsa1\-5\/\/\/\#\_|1024|支持对加密安全令牌的对称密钥进行加密的算法。|  
-|RsaOaepKeyWrap \- [http：\/www.w3.org\/200104\/xmlencrsaoaep\-rsa-oaep-mgf1p\/\/\#\-](http://www.w3.org/2001/04/xmlenc)|1024|默认值。 支持对加密安全令牌的对称密钥进行加密的算法。|  
-|Sha1\-http：\/www.w3.org图片\/DSig SHA1 10\_.html\/\/\/\_|N\/A|由项目 SourceId 生成中的 AD FS 服务器使用：在此方案中，STS 按照 SAML \(2.0 标准\)中的建议使用 SHA1，为项目 sourceiD 创建一个较小的160位值。<br /><br />还由 ADFS web 代理\(旧版组件在 WS2003 时间范围\)内使用，以识别 "上次更新时间" 值中的更改，以便它知道何时从 STS 更新信息。|  
-|SHA1withRSA\-<br /><br />http：\/\/www.w3.org图片DSig\/RSA SHA1 10\_.html\/\-\/\_|N\/A|用于 AD FS 服务器验证 SAML AuthenticationRequest 的签名、对项目解析请求或响应进行签名、创建令牌\-签名证书的情况下使用。<br /><br />在这些情况下，SHA256 是默认值，仅当合作伙伴\(信赖方\)无法支持 SHA256 并且必须使用 sha1 时，才使用 sha1。|  
+|TripleDES –默认 192 \(支持192– 256\) \- [http：\/\/www.w3.org\/200104\/xmlenc\#TripleDES\/cbc\-](http://www.w3.org/2001/04/xmlenc#tripledes-cbc)|>\=192|支持对安全令牌进行解密的算法。 不支持通过此算法加密安全令牌。|  
+|AES128 \- [http：\/www.w3.org\/200104\/xmlencAES128\#cbc\/\/\-](http://www.w3.org/2001/04/xmlenc#aes128-cbc)|128|支持对安全令牌进行解密的算法。 不支持通过此算法加密安全令牌。|  
+|AES192 \- [http：\/www.w3.org\/200104\/xmlencAES192\#cbc\/\/\-](http://www.w3.org/2001/04/xmlenc#aes192-cbc)|192|支持对安全令牌进行解密的算法。 不支持通过此算法加密安全令牌。|  
+|AES256 \- [http：\/www.w3.org\/200104\/xmlencAES256\#cbc\/\/\-](http://www.w3.org/2001/04/xmlenc#aes256-cbc)|256|“默认”。 支持对安全令牌进行加密的算法。|  
+|TripleDESKeyWrap \- [http：\/www.w3.org\/200104\/xmlenckw\#tripledes\/\/\-](http://www.w3.org/2001/04/xmlenc#kw-tripledes)|.NET 4.0 支持的所有密钥大小\+|支持对加密安全令牌的对称密钥进行加密的算法。|  
+|AES128KeyWrap \- [http：\/www.w3.org\/200104\/xmlenckw\#aes128\/\/\-](http://www.w3.org/2001/04/xmlenc#kw-aes128)|128|支持对加密安全令牌的对称密钥进行加密的算法。|  
+|AES192KeyWrap \- [http：\/www.w3.org\/200104\/xmlenckw\#aes192\/\/\-](http://www.w3.org/2001/04/xmlenc#kw-aes192)|192|支持对加密安全令牌的对称密钥进行加密的算法。|  
+|AES256KeyWrap \- [http：\/www.w3.org\/200104\/xmlenckw\#aes256\/\/\-](http://www.w3.org/2001/04/xmlenc#kw-aes256)|256|支持对加密安全令牌的对称密钥进行加密的算法。|  
+|RsaV15KeyWrap \- [http：\/www.w3.org\/200104\/xmlencrsa1\-5\/\/\#\_](http://www.w3.org/2001/04/xmlenc#rsa-1_5)|1024|支持对加密安全令牌的对称密钥进行加密的算法。|  
+|RsaOaepKeyWrap \- [http：\/www.w3.org\/200104\/xmlencrsaoaep\-rsa-oaep-mgf1p\/\/\#\-](http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p)|1024|默认值。 支持对加密安全令牌的对称密钥进行加密的算法。|  
+|Sha1\-[http：\/www.w3.org\/图片DSig\/SHA110\_.html\/\/\_](http://www.w3.org/PICS/DSig/SHA1_1_0.html)|N\/A|由项目 SourceId 生成中的 AD FS 服务器使用：在此方案中，STS 按照 SAML \(2.0 标准\)中的建议使用 SHA1，为项目 sourceiD 创建一个较小的160位值。<br /><br />还由 ADFS web 代理\(旧版组件在 WS2003 时间范围\)内使用，以识别 "上次更新时间" 值中的更改，以便它知道何时从 STS 更新信息。|  
+|SHA1withRSA\-<br /><br />[http：\/\/www.w3.org图片DSig\/RSA SHA1 10\_.html\/\-\/\_](http://www.w3.org/PICS/DSig/RSA-SHA1_1_0.html)|N\/A|用于 AD FS 服务器验证 SAML AuthenticationRequest 的签名、对项目解析请求或响应进行签名、创建令牌\-签名证书的情况下使用。<br /><br />在这些情况下，SHA256 是默认值，仅当合作伙伴\(信赖方\)无法支持 SHA256 并且必须使用 sha1 时，才使用 sha1。|  
   
 ## <a name="BKMK_13"></a>权限要求  
 执行安装和初始配置 AD FS 的管理员必须具有本地域\(中的域管理员权限，即联合服务器加入到的域。\)  
