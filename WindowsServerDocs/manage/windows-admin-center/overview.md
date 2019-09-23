@@ -5,15 +5,15 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 08/22/2019
+ms.date: 09/18/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: cdd7986486fd3cad07f5e4577aaf0ab404bfb5d3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 943026c04055919fefd7002c50144d28413de1a7
+ms.sourcegitcommit: 27f0caf74e88781054250455c3c1adf06deb6234
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869593"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124340"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -129,9 +129,10 @@ ms.locfileid: "70869593"
 
 了解我们发布的最新功能：
 
-- 版本 [1908](https://aka.ms/wac1908) - 包括视觉对象更新、Packetmon、FlowLog 审核、群集的 Azure Monitor 载入以及对基于 HTTPS 的 WinRM（端口 5986）的支持。
-- 版本 [1907](https://aka.ms/wac1907) - 添加了 Azure 成本估算链接，并改进了虚拟机的导入/导出和标记功能。
-- 版本 [1906](https://aka.ms/wac1906) - 添加了导入/导出 VM、切换 Azure 帐户、从 Azure 添加连接、连接设置试验、性能改进和性能分析工具。
+- 版本 [1909](https://aka.ms/wac1909) 引入了 Azure VM 特定的连接类型，并统一了传统故障转移群集和 HCI 群集的连接类型。
+- 版本 [1908](https://aka.ms/wac1908) 添加了视觉对象更新、Packetmon、FlowLog 审核、群集的 Azure Monitor 载入以及对基于 HTTPS 的 WinRM（端口 5986）的支持。
+- 版本 [1907](https://aka.ms/wac1907) 添加了 Azure 成本估算链接，并改进了虚拟机的导入/导出和标记功能。
+- 版本 [1906](https://aka.ms/wac1906) 添加了导入/导出 VM、切换 Azure 帐户、从 Azure 添加连接、连接设置试验、性能改进和性能分析工具。
 - 版本 1904.1 是最新正式版 - 用于提高网关插件稳定性的维护更新。
 - 版本 [1904](https://aka.ms/wac1904) 是引入了 Azure 混合服务工具的正式版，它将以前在预览版中提供的功能添加到了正式版频道。
 - 版本 [1903](https://aka.ms/wac1903) 添加了从 Azure Monitor 发送电子邮件通知、从 Active Directory 添加服务器或电脑连接的功能，以及用于管理 Active Directory、DHCP 和 DNS 的新工具。
