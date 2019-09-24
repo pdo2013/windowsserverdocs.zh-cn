@@ -8,12 +8,12 @@ ms.date: 07/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 16e62d9232d0ec1b01333d73bc5b4a1555ffbad0
-ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
+ms.openlocfilehash: d8437e0e33a370ab698d25f25b43fbbcbae97792
+ms.sourcegitcommit: 45415ba58907d650cfda45f4c57f6ddf1255dcbf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70987407"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71206919"
 ---
 # <a name="storage-migration-service-known-issues"></a>存储迁移服务的已知问题
 
@@ -74,7 +74,7 @@ Windows 管理中心存储迁移服务扩展受版本限制，只管理 Windows 
 
 使用 Windows 管理中心或 PowerShell 下载传输操作仅限错误的 CSV 日志时，收到错误消息：
 
- >   传输日志-请检查防火墙中是否允许进行文件共享。 :发送到 net.tcp：//localhost： 28940/sms/service/1/transfer 的此请求操作在配置的超时（00:01:00）内未收到答复。 分配给此操作的时间可能是更长超时的一部分。 这可能是因为服务仍在处理此操作，或者是因为服务无法发送答复消息。 请考虑增加操作超时（通过将通道/代理强制转换为 IContextChannel 并设置 OperationTimeout 属性），并确保服务能够连接到客户端。
+ >   传输日志-请检查防火墙中是否允许进行文件共享。 ：发送到 net.tcp：//localhost： 28940/sms/service/1/transfer 的此请求操作在配置的超时（00:01:00）内未收到答复。 分配给此操作的时间可能是更长超时的一部分。 这可能是因为服务仍在处理此操作，或者是因为服务无法发送答复消息。 请考虑增加操作超时（通过将通道/代理强制转换为 IContextChannel 并设置 OperationTimeout 属性），并确保服务能够连接到客户端。
 
 此问题是由存储迁移服务允许的默认一分钟超时内无法筛选的传输文件数过多造成的。 
 
@@ -248,6 +248,15 @@ DFSR 调试日志：
    ```PowerShell
    Register-SMSProxy -ComputerName *destination server* -Force
    ```
+## <a name="error-dll-was-not-found-when-running-inventory-from-a-cluster-node"></a>从群集节点运行清单时出现错误 "找不到 Dll"
+
+如果尝试使用安装在 Windows Server 2019 故障转移群集节点上的存储迁移服务 orchestrator 运行清单，并以 Windows Server 故障转移群集为目标，则会收到以下错误：
+
+    DLL not found
+    [Error] Failed device discovery stage VolumeInfo with error: (0x80131524) Unable to load DLL 'Microsoft.FailoverClusters.FrameworkSupport.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)   
+
+若要解决此问题，请在运行存储迁移服务 orchestrator 的服务器上安装 "故障转移群集管理工具" （RSAT 群集管理工具）。 
+
 
 ## <a name="see-also"></a>请参阅
 

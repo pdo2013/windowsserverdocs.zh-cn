@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: c5a3012b989a16c8416a17460b87e197f7f6fc6a
-ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
+ms.openlocfilehash: 4b90f8c5713fbcefc1740b932e9a6f210901a974
+ms.sourcegitcommit: 45415ba58907d650cfda45f4c57f6ddf1255dcbf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70987415"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71206902"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>使用存储迁移服务迁移服务器
 
@@ -23,7 +23,7 @@ ms.locfileid: "70987415"
 
 在开始之前，请安装存储迁移服务，并确保所需的防火墙端口已打开。
 
-1. 检查[存储迁移服务要求](overview.md#requirements)，并在你的电脑或管理服务器上安装[Windows 管理中心](../../manage/windows-admin-center/understand/windows-admin-center.md)（如果尚未安装）。
+1. 检查[存储迁移服务要求](overview.md#requirements)，并在你的电脑或管理服务器上安装[Windows 管理中心](../../manage/windows-admin-center/understand/windows-admin-center.md)（如果尚未安装）。 如果迁移已加入域的源计算机，则必须在与源计算机连接的域或林所在的服务器上安装和运行存储迁移服务。
 2. 在 Windows 管理中心，连接到运行 Windows Server 2019 的 orchestrator 服务器。 <br>这是你将在其上安装存储迁移服务并用于管理迁移的服务器。 如果只迁移一个服务器，则可以使用目标服务器，只要该服务器运行的是 Windows Server 2019。 建议为任何多服务器迁移使用单独的业务流程服务器。
 1. 中转到**服务器管理器**（在 Windows 管理中心中） >**存储迁移服务**，并选择 "**安装**" 以安装存储迁移服务及其必需组件（如图1所示）。
     ![存储迁移服务页的屏幕截图，其中显示了](media/migrate/install.png) "安装" 按钮**图1：安装存储迁移服务**
@@ -38,7 +38,7 @@ ms.locfileid: "70987415"
 
 1. 如果使用协调器服务器来管理迁移，并且想要下载事件或传输的数据的日志，请检查是否也在该服务器上启用了 "文件和打印机共享（SMB）" 防火墙规则。
 
-## <a name="step-1-create-a-job-and-inventory-your-servers-to-figure-out-what-to-migrate"></a>步骤 1：创建作业并清点服务器以找出要迁移的内容
+## <a name="step-1-create-a-job-and-inventory-your-servers-to-figure-out-what-to-migrate"></a>第 1 步：创建作业并清点服务器以找出要迁移的内容
 
 在此步骤中，你将指定要迁移的服务器，并对其进行扫描以收集有关其文件和配置的信息。
 
@@ -57,7 +57,7 @@ ms.locfileid: "70987415"
 在此步骤中，你在指定将数据放置在目标服务器上的位置后传输数据。
 
 1. 在 "**传输数据** > **输入凭据**" 页上，键入在要迁移到的目标服务器上工作的管理员凭据，然后选择 "**下一步**"。
-2. 在 "**添加目标设备和映射**" 页上，将列出第一个源服务器。 键入要迁移到的服务器或群集文件服务器的名称，然后选择 "**扫描设备**"。
+2. 在 "**添加目标设备和映射**" 页上，将列出第一个源服务器。 键入要迁移到的服务器或群集文件服务器的名称，然后选择 "**扫描设备**"。 如果从已加入域的源计算机进行迁移，则目标服务器必须加入到同一个域。
 3. 将源卷映射到目标卷，清除不想传输的任何共享的**包含**复选框（包括位于 Windows 系统文件夹中的任何管理共享），然后选择 "**下一步**"。
    ![显示源服务器及其卷和共享以及在目标](media/migrate/transfer.png) **图3上将其传输到的位置的屏幕截图：源服务器以及将其存储传输到的位置**
 4. 为任何其他源服务器添加目标服务器和映射，然后选择 "**下一步**"。
@@ -85,7 +85,7 @@ ms.locfileid: "70987415"
 
 如果你的目标是将文件与 Azure 同步，则可以在传输文件之后或在切换到目标服务器之后，使用 Azure 文件同步设置目标服务器（请参阅[规划 Azure 文件同步部署](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)）。
 
-## <a name="step-3-cut-over-to-the-new-servers"></a>步骤 3：剪切到新服务器
+## <a name="step-3-cut-over-to-the-new-servers"></a>步骤 3:剪切到新服务器
 
 在此步骤中，你将从源服务器剪切到目标服务器，并将 IP 地址和计算机名称移动到目标服务器。 完成此步骤后，应用和用户通过从中迁移的服务器的名称和地址访问新的服务器。
 
