@@ -14,12 +14,12 @@ ms.assetid: 52b9e09f-39e0-41a9-9d3b-4d5f4eacf3e0
 author: christianmontoya
 manager: scottman
 ms.localizationpriority: medium
-ms.openlocfilehash: 74ec3d9bfbdb435c5bcb93ea1ef2cd9cdf2dd9d2
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 1fcb3fb7e2989399d908a1b5bed7bd21240efeab
+ms.sourcegitcommit: 2ec5e779c00481b13f186e2c56d207007897cfd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871285"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71021644"
 ---
 # <a name="welcome-to-remote-desktop-services"></a>欢迎使用远程桌面服务 
 
@@ -31,7 +31,7 @@ RDS 提供部署灵活性、高成本效益和可扩展性 - 各种部署选项�
 
 根据你的环境和偏好，可为基于会话的虚拟化设置 RDS 解决方案、将 RDS 解决方案设置为虚拟桌面基础结构 (VDI)，或者结合这两种设置：
 
-- **基于会话的虚拟化**：利用 Windows Server 的计算能力提供经济高效的多会话环境，以驱动用户的日常工作负载
+- **基于会话的虚拟化**：利用 Windows Server 的计算能力提供经济高效的多会话环境，以驱动用户的日常工作负荷。
 - **VDI**：利用 Windows 客户端为用户提供他们在 Windows 桌面体验中所预期的高性能、应用兼容性和顺手性。
 
 在这些虚拟化环境中，可以更灵活地自定义向用户发布的内容：

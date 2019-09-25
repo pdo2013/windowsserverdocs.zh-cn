@@ -4,16 +4,16 @@ description: 介绍管理员如何设置远程桌面 Web 客户端。
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: helohr
-ms.date: 11/2/2018
+ms.date: 09/19/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 7de392b049fbe910688a4b950e1ca870b6ba3f46
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 86667c744acfd340c2608609323b95c159e1279d
+ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871173"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71143753"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>为用户设置远程桌面 Web 客户端
 
@@ -265,6 +265,10 @@ ms.locfileid: "70871173"
 默认情况下，用户可以选择启用或禁用遥测。 布尔值 $false  会与默认客户端行为匹配。 布尔值 $true  会禁用遥测，并限制用户启用遥测。
 
 ### <a name="remote-resource-launch-method"></a>远程资源启动方法
+
+>[!NOTE]
+>此设置目前仅适用于 RDS Web 客户端，不适用于 Windows 虚拟桌面 Web 客户端。
+
 默认情况下，用户可以选择通过以下方法启动远程资源：(1) 在浏览器中或 (2) 下载 .rdp 文件以处理安装在其计算机上的另一个客户端。 作为管理员，可以使用以下 Powershell 命令选择对部署限制远程资源启动方法：
 
    ```PowerShell

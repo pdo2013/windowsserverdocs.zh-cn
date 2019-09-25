@@ -12,12 +12,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 11/08/2016
 manager: dongill
-ms.openlocfilehash: 4e185e51b09d2e2f8ac4527f9de339de27e02f24
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 869d47be73a39114ecc05080f8da16f460fb8198
+ms.sourcegitcommit: 6423dfa9cecb3b06bdd563cae113c3e80a4ec330
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805146"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105041"
 ---
 # <a name="add-high-availability-to-the-rd-web-and-gateway-web-front"></a>向 RD Web 和网关 Web 前端添加高可用性
 
@@ -96,12 +96,13 @@ ms.locfileid: "66805146"
 1.  创建 Azure 负载均衡器：  
     1.  在 Azure 门户中，单击“浏览”>“负载均衡器”>“添加”  。  
     2.  输入名称，例如，**WebGwLB**。  
-    3.  为“方案”选择“公共”，并为“公共 IP 地址”选择一个**公共 IP 地址**    。 可以选择现有的公共 IP 地址，也可以创建新的 IP 地址。 
-    4.  选择相应的“订阅”、“资源组”和“位置”    。
-    5.  单击“创建”  。  
+    3.  选择“公共”作为“方案”。  
+    4.  在“公共 IP 地址”下选择“选择公共 IP 地址”，然后选择现有的公共 IP 地址，或者创建新的 IP 地址。  
+    5.  选择相应的“订阅”、“资源组”和“位置”    。
+    6.  单击“创建”  。  
 2. 创建[探测](https://azure.microsoft.com/documentation/articles/load-balancer-custom-probe-overview/) 用于监视处于活动状态的服务器：  
-    1.  在 Azure 门户中，单击“浏览”>“负载均衡器”，然后单击刚才创建的负载均衡器（例如，WebGwLB）和“设置”  。  
-    2.  单击“探测”>“添加”  。  
+    1.  在 Azure 门户中，选择“浏览” > “负载均衡器”，然后选择在上一步创建的负载均衡器。  
+    2.  选择“所有设置”   >   “探测” >   “添加”。  
     3.  为探测输入名称，例如，**HTTPS**。 选择“TCP”作为“协议”，为“端口”输入 **443**，然后单击“确定     。   
 3.  创建 HTTPS 和 UDP 负载均衡规则：  
     1.  在“设置”中，单击“负载均衡规则”   。  

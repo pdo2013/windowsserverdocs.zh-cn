@@ -1,28 +1,24 @@
 ---
 title: Windows Server 2019 系统要求
 description: Windows Server 2019 干净安装中存储、CPU、网络、内存、RAM 的最低要求。
-ms.custom: na
 ms.prod: windows-server-threshold
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4a8b42d7-9fe5-4efe-9ea1-ace2131f860e
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: d97ec0efee86165f82bdf99a316d24d9c39ec958
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 70ebf445515fd227d0f35b0c267f4fe34b2b83a9
+ms.sourcegitcommit: 081661f50d6dafb77180149956a02e679270c710
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810715"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037582"
 ---
 # <a name="system-requirements"></a>系统要求
 
->适用于：Windows Server 2019 
+> 适用于：Windows Server Standard 2012 R2
 
 本主题介绍运行 Windows Server&reg; 2019 的最低系统要求。
 
@@ -48,7 +44,8 @@ ms.locfileid: "66810715"
 
 [Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) 是可用于确认 CPU 具有这些功能中的哪种功能的工具。
 
-## <a name="ram"></a>RAM  
+## <a name="ram"></a>RAM
+
 以下是本产品对 RAM 的预计要求：  
 
 **最低**：  
@@ -60,7 +57,7 @@ ms.locfileid: "66810715"
 >   
 > 为了避免这个问题，请执行下列操作之一：  
 >   
-> -   向要在其上安装此版本的虚拟机分配 800 MB 以上的 RAM。 在完成安装后，可以根据实际服务器配置更改 RAM 分配，最少分配量可为 512 MB。  
+> -   向要在其上安装此版本的虚拟机分配 800 MB 以上的 RAM。 在完成安装后，可以根据实际服务器配置更改 RAM 分配，最少分配量可为 512 MB。 如果使用其他语言和更新修改了安装程序的启动映像，则可能需要分配 800 MB 以上的 RAM，否则无法完成安装  
 > -   使用 SHIFT+F10 中断此版本在虚拟机上的引导进程。 在打开的命令提示符下，使用 Diskpart.exe 创建并格式化一个安装分区。 运行 **Wpeutil createpagefile /path=C:\pf.sys** （假设创建的安装分区为 C:）。 关闭命令提示符并继续安装。  
 
 ## <a name="storage-controller-and-disk-space-requirements"></a>存储控制器和磁盘空间要求  

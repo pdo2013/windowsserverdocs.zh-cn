@@ -9,12 +9,12 @@ author: jasongerend
 ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: 7e90738a157f620124bfca3d5f1f4c12789d3bf2
-ms.sourcegitcommit: b17ccf7f81e58e8f4dd844be8acf784debbb20ae
+ms.openlocfilehash: 1c0c6ca10e7ebac16d81fe1393e471a7878fd0ca
+ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69023917"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71143762"
 ---
 # <a name="install-upgrade-or-migrate-to-windows-server"></a>安装、升级到或迁移到 Windows Server
 
@@ -33,9 +33,7 @@ ms.locfileid: "69023917"
 
 如果希望保留相同的硬件和所有已设置的服务器角色，而不平展服务器，则需执行就地升级  ，从旧操作系统升级到新操作系统，同时使设置、服务器角色和数据保持不变。 例如，如果服务器正在运行 Windows Server 2012 R2，可以升级到 Windows Server 2016 或 Windows Server 2019。 但是，并非每个较低版本的操作系统都拥有升级到每个较高版本的操作系统的路径。 
 
-有关升级的分步指南，请访问 [Windows Server 升级中心](http://aka.ms/upgradecenter)：
-
-[![Windows Server 升级中心的屏幕截图](media/upgrade-center.png)](http://aka.ms/upgradecenter)
+有关升级的分步指南，请参阅 [Windows Server 升级内容](../upgrade/upgrade-overview.md)。
 
 ## <a name="cluster-os-rolling-upgrade"></a>群集操作系统滚动升级
 
