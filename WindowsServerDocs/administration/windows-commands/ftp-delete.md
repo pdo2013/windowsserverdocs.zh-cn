@@ -1,8 +1,8 @@
 ---
 title: ftp 删除
-description: Ftp 删除的 Windows 命令主题
+description: 用于 ftp 删除的 Windows 命令主题
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1c8af4beb83b789be1456d5556a0aa07749590fb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1b566da14751921e2f38acd922ececbbc972daa6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438722"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376455"
 ---
-# <a name="ftp-delete"></a>ftp: delete
+# <a name="ftp-delete"></a>ftp：删除
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
 删除远程计算机上的文件。   
 ## <a name="syntax"></a>语法  
@@ -36,7 +36,7 @@ delete <remoteFile>
 | <remoteFile> | 指定要删除的文件。 |
 
 ## <a name="BKMK_Examples"></a>示例  
-删除远程计算机上的 test.txt 文件。  
+删除远程计算机上的文件 test.txt。  
 ```  
 delete test.txt  
 ```  

@@ -2,22 +2,22 @@
 title: 定义用于屏蔽的文件组
 description: 本文介绍了如何定义文件组以为文件屏蔽、文件屏蔽异常或按文件组分类的文件存储报告创建命名空间
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 6e043692500370b6c084a4db068027d13afc957f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b56d7b0439e3dc6f1a2e0a1c96f761dbb77cb0a0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838428"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394385"
 ---
 # <a name="define-file-groups-for-screening"></a>定义用于屏蔽的文件组
 
-> 适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
+> 适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2
 
 *文件组*用于为文件屏蔽、文件屏蔽异常或**按文件组分类的文件**存储报告定义命名空间。 文件组包含一组文件名模式，并按以下分组：
 
@@ -41,9 +41,9 @@ ms.locfileid: "59838428"
 
     -   对于希望包含在文件组中的每一组文件，请在**要包含的文件**框中输入文件名模式，然后单击**添加**。
     -   对于希望从文件组中排除的每一组文件，请在**要排除的文件**框中输入文件名模式，然后单击**添加**。
-        请注意，标准的通配符规则适用，例如，  **\*.exe**选择所有可执行文件。
+        请注意，标准通配符规则适用，例如 **\*** 选择所有可执行文件。
 
-5.  单击 **“确定”**。
+5.  单击 **“确定”** 。
 
 ## <a name="see-also"></a>请参阅
 

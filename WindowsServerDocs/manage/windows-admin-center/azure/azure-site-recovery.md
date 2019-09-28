@@ -1,5 +1,5 @@
 ---
-title: 保护的 HYPER-V 虚拟机使用 Azure Site Recovery 和 Windows Admin Center
+title: Azure Site Recovery 和 Windows 管理中心保护 Hyper-v 虚拟机
 description: 通过 Azure Site Recovery 使用 Windows Admin Center (Project Honolulu) 保护 Hyper-V 虚拟机。
 ms.technology: manage
 ms.topic: article
@@ -7,19 +7,19 @@ author: haley-rowland
 ms.author: harowl
 ms.date: 07/17/2018
 ms.localizationpriority: low
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 66e9b2e23a60d1e4725321e88fc1ac262b9c31fa
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.prod: windows-server
+ms.openlocfilehash: 4995ed433d34fddfa91548fa42d67eea3a319c1f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445921"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357350"
 ---
-# <a name="protect-your-hyper-v-virtual-machines-with-azure-site-recovery-and-windows-admin-center"></a>保护的 HYPER-V 虚拟机使用 Azure Site Recovery 和 Windows Admin Center
+# <a name="protect-your-hyper-v-virtual-machines-with-azure-site-recovery-and-windows-admin-center"></a>Azure Site Recovery 和 Windows 管理中心保护 Hyper-v 虚拟机
 
->适用于：Windows Admin Center 预览版中，Windows Admin Center
+>适用于：Windows 管理中心预览, Windows 管理中心
 
-[了解有关 Windows Admin Center 与 Azure 集成的详细信息。](../plan/azure-integration-options.md)
+[了解有关 Azure 与 Windows 管理中心的集成的详细信息。](../plan/azure-integration-options.md)
 
 Windows Admin Center 简化了在 Hyper-V 服务器或群集上复制虚拟机的流程，让你能够更轻松地通过自己的数据中心使用 Azure 的强大功能。 若要自动设置，可以将 Windows Admin Center 网关连接到 Azure。
 
@@ -40,7 +40,7 @@ Azure Site Recovery 由两个组件组成：**复制**和**故障转移**。 复
 - [将你的 Windows Admin Center 网关连接到 Azure](azure-integration.md)。
 - [查看容量计划工具以评估成功复制和故障转移的要求](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-capacity)。
 
-## <a name="step-1-set-up-vm-protection-on-your-target-host"></a>第 1 步：设置目标主机上的虚拟机保护
+## <a name="step-1-set-up-vm-protection-on-your-target-host"></a>第 1 步：在目标主机上设置 VM 保护
 
 > [!NOTE] 
 > 在包含虚拟机的每个主机服务器或群集被确定为保护目标后，你需要执行此步骤。
@@ -52,13 +52,13 @@ Azure Site Recovery 由两个组件组成：**复制**和**故障转移**。 复
 5. 登录到你的 Azure 帐户。
 6. 输入所需信息：
 
-   - **订阅：** 想要使用此主机上的 Vm 复制的 Azure 订阅。
+   - **订阅**要用于复制此主机上的 Vm 的 Azure 订阅。
    - **位置：** 应在其中创建 ASR 资源的 Azure 区域。
-   - **存储帐户：** 存储帐户保存复制的 VM 工作负荷在此主机上。
-   - **保管库：** 为此主机上受保护的 Vm 选择 Azure Site Recovery 保管库的名称。
+   - **存储帐户：** 此主机上复制的 VM 工作负荷将保存到的存储帐户。
+   - **保管库**为此主机上受保护的 Vm 选择 Azure Site Recovery 保管库的名称。
 
 7. 选择**设置 ASR**。
-8. 等待，直到您会看到通知：**站点恢复设置已完成**。
+8. 等待，直到看到通知：**Site Recovery 设置已完成**。
  
 这最多可能需要 10 分钟。 你可以转到**通知**（右上方的钟铃图标）查看进度。
 
@@ -78,7 +78,7 @@ Azure Site Recovery 由两个组件组成：**复制**和**故障转移**。 复
 
 6. ASR 将开始复制。 当**虚拟机清单**网格的**受保护**列中的值更改为**是**时，复制完成、虚拟机受到保护。 这可能需要几分钟。  
 
-## <a name="step-3-configure-and-run-a-test-failover-in-the-azure-portal"></a>步骤 3:配置和在 Azure 门户中运行测试故障转移
+## <a name="step-3-configure-and-run-a-test-failover-in-the-azure-portal"></a>步骤 3:在 Azure 门户中配置并运行测试故障转移
 
  虽然在开始虚拟机复制时无需完成此步骤（通过复制虚拟机已受到保护），但我们建议在设置 Azure Site Recovery 时配置故障转移设置。 如果你想要为 Azure 虚拟机的故障转移作准备，请完成以下步骤：
 

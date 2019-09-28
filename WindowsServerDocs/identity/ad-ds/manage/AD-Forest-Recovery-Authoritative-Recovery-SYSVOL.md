@@ -6,46 +6,46 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: 38a1c543-c76d-4b8e-a06b-53742aaa172f
 ms.technology: identity-adds
-ms.openlocfilehash: 246a2ea589ee05110362cff99d50e93a0a18c2b9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 051e3fdb1c801ab6f19b276b66599ea555026845
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826998"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369381"
 ---
 # <a name="ad-forest-recovery---performing-an-authoritative-synchronization-of-dfsr-replicated-sysvol"></a>AD 林恢复-执行 DFSR 复制的 SYSVOL 的权威同步  
 
->适用于：Windows Server 2016 中，Windows Server 2012 和 2012 R2 中，Windows Server 2008 和 2008 R2
+>适用于：Windows Server 2016、Windows Server 2012 和 2012 R2、Windows Server 2008 和 2008 R2
 
-有以不同方式执行 SYSVOL 的权威还原。 你可以编辑**msDFSR 选项**属性，或执行系统状态还原使用 wbadmin – 方法是将 authsysvol。 如果您可以选择要还原系统状态备份 （即，您要还原 AD DS 相同的硬件和操作系统实例），然后使用 wbadmin – 方法是将 authsysvol 是更简单。 如果您需要执行裸机还原，则需要进行编辑，但**msDFSR 选项**属性。  
+可以通过不同的方式来执行 SYSVOL 的权威还原。 你可以编辑**msDFSR**属性，或使用 wbadmin – authsysvol 执行系统状态还原。 如果可以选择还原系统状态备份（即，将 AD DS 还原到相同的硬件和操作系统实例），则使用 wbadmin – authsysvol 会更简单。 但如果需要执行裸机还原，则需要编辑**msDFSR**属性。  
 
-使用以下步骤通过编辑 （如果它复制使用 DFSR） 执行 SYSVOL 的权威同步**msDFSR 选项**属性。 如果使用 FRS 复制 SYSVOL，请参阅[一文 290762](https://go.microsoft.com/fwlink/?LinkId=148443)。  
+通过编辑**msDFSR**属性，使用以下步骤执行 SYSVOL 的权威同步（如果是使用 DFSR 复制的）。 如果 SYSVOL 是使用 FRS 复制的，请参阅[文章 290762](https://go.microsoft.com/fwlink/?LinkId=148443)。  
 
-## <a name="to-perform-an-authoritative-synchronization-of-dfsr-replicated-sysvol"></a>若要执行 DFSR 复制的 SYSVOL 的权威同步  
+## <a name="to-perform-an-authoritative-synchronization-of-dfsr-replicated-sysvol"></a>执行 DFSR 复制的 SYSVOL 的权威同步  
 
 1. 打开“Active Directory 用户和计算机”。  
-2. 单击**视图**，然后选择**用户、 联系人、 组和计算机作为容器**并**高级功能**。 
+2. 单击 "**查看**"，然后选择 **"用户"、"联系人"、"组" 和 "计算机" 作为容器**和**高级功能**。 
 
-   ![SYSVOL](media/AD-Forest-Recovery-Authoritative-Recovery-SYSVOL/sysvol1.png) 
+   ![卷](media/AD-Forest-Recovery-Authoritative-Recovery-SYSVOL/sysvol1.png) 
 
-3. 在树视图中单击**域控制器**，您还原的 DC 的名称**DFSR LocalSettings**，然后**Domain System Volume**。 
+3. 在树视图中，单击 "**域控制器**"，你还原的 DC 的名称， **LocalSettings**，然后是 "**域系统卷**"。 
 
-   ![SYSVOL](media/AD-Forest-Recovery-Authoritative-Recovery-SYSVOL/sysvol2.png)  
+   ![卷](media/AD-Forest-Recovery-Authoritative-Recovery-SYSVOL/sysvol2.png)  
 
-4. 在细节窗格中，右键单击**SYSVOL 订阅**，单击**属性**，然后单击**属性编辑器**。  
+4. 在详细信息窗格中，右键单击 " **SYSVOL 订阅**"，单击 "**属性**"，然后单击 "**属性编辑器**"。  
 
-   ![SYSVOL](media/AD-Forest-Recovery-Authoritative-Recovery-SYSVOL/sysvol3.png) 
+   ![卷](media/AD-Forest-Recovery-Authoritative-Recovery-SYSVOL/sysvol3.png) 
 
-5. 单击**msDFSR 选项**，单击**编辑**，类型**1**，然后单击**确定**  
+5. 单击 " **msDFSR**"，单击 "**编辑**"，键入**1**，然后单击 **"确定"**  
 
-   ![SYSVOL](media/AD-Forest-Recovery-Authoritative-Recovery-SYSVOL/sysvol4.png) 
+   ![卷](media/AD-Forest-Recovery-Authoritative-Recovery-SYSVOL/sysvol4.png) 
 
-6. 单击**确定**关闭属性编辑器。  
+6. 单击 **"确定"** 关闭 "属性编辑器"。  
   
 ## <a name="next-steps"></a>后续步骤
 
 - [AD 林恢复指南](AD-Forest-Recovery-Guide.md)
-- [AD 林恢复的过程](AD-Forest-Recovery-Procedures.md)
+- [AD 林恢复 - 过程](AD-Forest-Recovery-Procedures.md)

@@ -1,8 +1,8 @@
 ---
 title: risetup
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,15 +13,15 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dbaf0026cb5d49b76f72f5aa67f7383de38f6279
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ef805d5ecf4d80e1548baa1685dfd486ea74bdf9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831068"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371435"
 ---
 # <a name="risetup"></a>risetup
 
 
 
-**Risetup**命令在 Windows Server® 2008年和 Windows Server 2008 R2 中已弃用。
+Windows Server®2008和 Windows Server 2008 R2 中弃用了**risetup**命令。

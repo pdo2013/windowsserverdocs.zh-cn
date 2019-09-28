@@ -1,8 +1,8 @@
 ---
-title: ksetup:setrealm
-description: 'Windows 命令主题 * * *- '
+title: ksetup： setrealm
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aa6b2a21904ec4dae1e60def5bd36647291b1af6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1bbe5c000b7e84066c19511639fe3d92d7e4b558
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877398"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374898"
 ---
-# <a name="ksetupsetrealm"></a>ksetup:setrealm
+# <a name="ksetupsetrealm"></a>ksetup： setrealm
 
 
 
@@ -36,23 +36,23 @@ ksetup /setrealm <DNSDomainName>
 
 |参数|描述|
 |---------|-----------|
-|\<DNSDomainName>|完全限定的域名或域名简单的形式可以是 DNS 域名。|
+|\<DNSDomainName >|DNS 域名的形式可以是完全限定的域名或简单的域名。|
 
 ## <a name="remarks"></a>备注
 
-应以大写字母输入 DNS 域名参数。 否则为**ksetup**命令将要求提供验证，以继续。
+应以大写字母形式输入 DNS 域名参数。 否则， **ksetup**命令将要求确认才能继续。
 
 不支持在域控制器上设置 Kerberos 领域。 尝试这样做将导致警告和命令失败。
 
 ## <a name="BKMK_Examples"></a>示例
 
-为此计算机添加到特定的域名来限制由非域控制器只需对 CONTOSO Kerberos 领域的访问设置的领域：
+将此计算机的 "领域" 设置为特定域名，以将非域控制器的访问权限限制为仅限 CONTOSO Kerberos 领域：
 ```
 ksetup /setrealm CONTOSO
 ```
 
 #### <a name="additional-references"></a>其他参考
 
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)
 -   [Ksetup](ksetup.md)
 -   [Ksetup:removerealm](ksetup-removerealm.md)

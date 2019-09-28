@@ -1,6 +1,6 @@
 ---
 title: 有关存储副本的常见问题
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: siroy
 ms.author: nedpyle
 ms.technology: storage-replica
@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 12bc8e11-d63c-4aef-8129-f92324b2bf1b
-ms.openlocfilehash: 89676ba821b99d44865bc6f45c34c05edb771d9d
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: d369e7f2d3d725fe8b3871fea199da1cac044456
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865254"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393799"
 ---
 # <a name="frequently-asked-questions-about-storage-replica"></a>有关存储副本的常见问题
 

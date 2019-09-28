@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setnotifycmdline
-description: Windows 命令主题 * * *-bitsadmin setnotifycmdlineSets 将在作业完成传输数据时或当作业进入状态时运行的命令行命令。
+description: 适用于 * * * * bitsadmin setnotifycmdlineSets 的 Windows 命令主题：在作业完成传输数据或作业进入状态时将运行的命令行命令。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f1cea4e99cbaaf3881c6f436bdb932090ad6b006
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7a307fe552e7d8ec5852de953a3a439cb02246ec
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859068"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380479"
 ---
 # <a name="bitsadmin-setnotifycmdline"></a>bitsadmin setnotifycmdline
 
-设置将在作业完成传输数据时或当作业进入状态时运行的命令行命令。
+设置在作业完成传输数据或作业进入状态时将运行的命令行命令。
 
-**1.2 及更早版本的 BITS**: 不支持。
+**BITS 1.2 及更早版本**： 不受支持。
 
 ## <a name="syntax"></a>语法
 
@@ -37,19 +37,19 @@ bitsadmin /SetNotifyCmdLine <Job> <ProgramName> [ProgramParameters]
 |参数|描述|
 |---------|-----------|
 |作业|该作业的显示名称或 GUID|
-|ProgramName|作业完成时要运行该命令的名称。|
-|ProgramParameters|要传递给所需的参数*ProgramName*。|
+|ProgramName|作业完成时要运行的命令的名称。|
+|ProgramParameters|要传递给*ProgramName*的参数。|
 
 ## <a name="remarks"></a>备注
 
-可以指定为空， *ProgramName*并*ProgramParameters*。 如果*ProgramName*为 NULL， *ProgramParameters*必须为 NULL。
+可以为*ProgramName*和*ProgramParameters*指定 NULL。 如果*ProgramName*为 null，则*PROGRAMPARAMETERS*必须为 null。
 
 > [!IMPORTANT]
-> 如果*ProgramParameters*为 NULL，则在第一个参数不是*ProgramParameters*必须与匹配*ProgramName*。
+> 如果*ProgramParameters*不为 NULL，则*ProgramParameters*中的第一个参数必须与*ProgramName*匹配。
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例设置该服务用于运行时的作业名为记事本的命令行命令*myDownloadJob*完成。
+下面的示例在名为*myDownloadJob*的作业完成时，将服务使用的命令行命令设置为运行记事本。
 ```
 C:\>bitsadmin /SetNotifyCmdLine myDownloadJob c:\winnt\system32\notepad.exe NULL
 ```
@@ -59,4 +59,4 @@ C:\>bitsadmin /SetNotifyCmdLine myDownloadJob c:\winnt\system32\notepad.exe "not
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

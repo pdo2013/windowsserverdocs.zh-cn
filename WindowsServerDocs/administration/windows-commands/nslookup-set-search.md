@@ -1,8 +1,8 @@
 ---
 title: nslookup set search
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d95ebe30ce45430787bebbfe63766a571a436bbf
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d9da08a296d61789dbafeccde5d46c8a220d874c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436588"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372776"
 ---
 # <a name="nslookup-set-search"></a>nslookup set search
 
 
 
-将 DNS 域搜索列表中的域名系统 (DNS) 域名称追加到请求，直到得到答复。 适用于一组，并且该查找请求包含至少一个句点，但不是以尾随句点结尾。
+向请求追加 DNS 域搜索列表中的域名系统（DNS）域名，直到接收到答案。 这适用于以下情况：集和查找请求至少包含一个句点，但不以尾随句点结束。
 
 ## <a name="syntax"></a>语法
 
@@ -36,8 +36,8 @@ set [no]search
 
 |  参数   |                                                                          描述                                                                          |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **nosearch** |                            停止将 DNS 域搜索列表中的域名系统 (DNS) 域名称追加到该请求。                            |
-|  **search**  | 将 DNS 域搜索列表中的域名系统 (DNS) 域名称追加到请求，直到得到答复。 默认语法**搜索**。 |
+| **nosearch** |                            停止将 DNS 域搜索列表中的域名系统（DNS）域名追加到该请求。                            |
+|  **寻找**  | 向请求追加 DNS 域搜索列表中的域名系统（DNS）域名，直到接收到答案。 默认语法为 "**搜索**"。 |
 |    {帮助     |                                                                              ?}                                                                               |
 
 #### <a name="additional-references"></a>其他参考

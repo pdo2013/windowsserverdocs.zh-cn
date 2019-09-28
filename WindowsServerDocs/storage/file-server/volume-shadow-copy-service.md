@@ -1,17 +1,17 @@
 ---
 title: 卷影复制服务
 ms.date: 01/30/2019
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 3fc184f8f23e4325198e3a1a08f20109c2c577e8
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 19e07504dad49c5e23cc49630015529e2a746aa7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867314"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394445"
 ---
 # <a name="volume-shadow-copy-service"></a>卷影复制服务
 

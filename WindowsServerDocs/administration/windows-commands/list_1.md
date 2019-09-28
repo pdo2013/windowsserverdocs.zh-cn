@@ -1,8 +1,8 @@
 ---
-title: 列表
-description: 'Windows 命令主题 * * *- '
+title: list
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ef9262a04f469f54e43cf3a83efe30fac7ad8580
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a9ac8b19ecae30c339138f61a13c21147d4bcf1b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854668"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374655"
 ---
-# <a name="list"></a>列表
+# <a name="list"></a>list
 
 
 
-显示的磁盘、 磁盘中的分区、 将磁盘中的卷的或虚拟硬盘 (Vhd) 的列表。
+显示磁盘中的分区、磁盘中的卷或虚拟硬盘（Vhd）的列表。
 
 ## <a name="syntax"></a>语法
 
@@ -36,16 +36,16 @@ list { disk | partition | volume | vdisk }
 
 |参数|描述|
 |---------|-----------|
-|磁盘|显示磁盘及其相关信息，如大小、 可用空间、 磁盘是基本或动态磁盘和磁盘使用的主启动记录 (MBR) 或 GUID 分区表 (GPT) 分区形式的列表。|
+|磁盘|显示磁盘及其相关信息的列表，如磁盘的大小、可用空间量、磁盘是基本磁盘还是动态磁盘以及磁盘是否使用主启动记录（MBR）或 GUID 分区表（GPT）分区形式。|
 |分区|显示当前磁盘的分区表中列出的分区。|
 |音量|显示所有磁盘上的基本卷和动态卷的列表。|
-|虚拟磁盘|显示已附加和/或所选的 Vhd 的列表。 此命令将列出已分离的 Vhd，如果当前所选;但是，磁盘类型设置为未知之前附加 VHD。 VHD 标有星号 （*） 具有焦点。</br>注意：此命令才适用于 Windows 7 和 Windows Server 2008 R2。|
+|vdisk|显示附加和/或所选 Vhd 的列表。 此命令列出分离的 Vhd （如果当前已选中）;但是，在附加 VHD 之前，磁盘类型设置为 "未知"。 用星号（*）标记的 VHD 具有焦点。</br>注意:此命令仅适用于 Windows 7 和 Windows Server 2008 R2。|
 
 ## <a name="remarks"></a>备注
 
--   列出时动态磁盘上的分区，分区可能与磁盘上的动态卷不对应。 动态磁盘包含系统卷或启动卷 （如果存在磁盘上） 的分区表中的项会发生这种差异。 它们还包含为了保留动态卷使用的空间占用的磁盘的其余部分的分区。
--   标有星号 （*） 的对象具有焦点。
--   列出磁盘，如果磁盘丢失，作为使用 M 前缀其磁盘编号。例如，编号的第一个缺少磁盘 M0。
+-   在动态磁盘上列出分区时，分区可能不与磁盘上的动态卷相对应。 出现这种差异的原因是，动态磁盘的分区表中包含系统卷或启动卷的条目（如果磁盘上存在）。 它们还包含占用磁盘剩余部分的分区，以便保留空间供动态卷使用。
+-   用星号（*）标记的对象具有焦点。
+-   列出磁盘时，如果磁盘缺失，则其磁盘号以 M 为前缀。例如，第一个缺失磁盘的编号为 M0。
 
 ## <a name="BKMK_examples"></a>示例
 
@@ -58,5 +58,5 @@ list vdisk
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)
 

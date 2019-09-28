@@ -1,8 +1,8 @@
 ---
-title: ftp 二进制
-description: Ftp 的二进制文件的的 Windows 命令主题
+title: ftp 二进制文件
+description: Ftp 二进制文件的 Windows 命令主题
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cadd59bff3bd2acf5c6d700caef66ca5c871b523
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 48579523f44232dec3357a20e8082050cc5175e6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821918"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376579"
 ---
-# <a name="ftp-binary"></a>ftp： 二进制
+# <a name="ftp-binary"></a>ftp：二进制
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-将文件传输类型设置为二进制。   
+将文件传输类型设置为 binary。   
 ## <a name="syntax"></a>语法  
 ```  
 binary  
@@ -32,12 +32,12 @@ binary
 ### <a name="parameters"></a>Parameters  
 无  
 ## <a name="remarks-optional-section"></a>备注 <optional section>  
-**ftp**支持 ASCII 和二进制图像文件的传输类型。 传输可执行文件时，请使用二进制文件。 在二进制模式下，文件传输单字节为单位。 有关 ASCII 文件传输的详细信息，请参阅**ftp: ascii**中其他引用。  
+**ftp**支持 ASCII 和二进制图像文件传输类型。 传输可执行文件时，请使用二进制。 在二进制模式下，文件以单字节单位传输。 有关 ASCII 文件传输的详细信息，请参阅其他引用中的**ftp： ASCII** 。  
 ## <a name="BKMK_Examples"></a>示例  
-文件传输类型设置为二进制文件。  
+将 "文件传输类型" 设置为 "二进制"。  
 ```  
 binary  
 ```  
 ## <a name="additional-references"></a>其他参考  
--   [ftp: ascii](ftp-ascii.md)  
--   [命令行语法解答](command-line-syntax-key.md)  
+-   [ftp： ascii](ftp-ascii.md)  
+-   [命令行语法项](command-line-syntax-key.md)  

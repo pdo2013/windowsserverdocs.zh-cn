@@ -7,27 +7,27 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1d975fa32f19facfdee7a31e58293006fc5859ff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e542997295f8c0db9b660036c995daf0100b74d1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834478"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71368877"
 ---
 # <a name="identity-component-updates"></a>标识组件更新
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
   
 ## <a name="lesson-1-identity-component-updates"></a>第 1 课：标识组件更新  
 本课程介绍了 Windows Server 2012 R2 中的标识组件更新。  
   
 ### <a name="what-you-will-learn"></a>你将学习的内容  
-学完本课后，你将能够：  
+完成本课后，你将能够：  
   
--   介绍了以下更改：  
+-   描述以下更改：  
   
     -   [SPN 和 UPN 唯一性](../../../ad-ds/manage/component-updates/SPN-and-UPN-uniqueness.md)  
   
@@ -41,7 +41,7 @@ ms.locfileid: "59834478"
   
     -   [凭据保护和管理](https://technet.microsoft.com/library/dn408190.aspx)  
   
-**作者**:与 Windows 组的 Justin Turner，高级支持呈报工程师  
+**作者**：Justin Turner，具有 Windows 组的高级支持升级工程师  
   
 > [!NOTE]  
 > 本内容由 Microsoft 客户支持工程师编写，适用于正在查找比 TechNet 主题通常提供的内容更深入的有关 Windows Server 2012 R2 中的功能和解决方案的技术说明的有经验管理员和系统架构师。 但是，它未经过相同的编辑审批，因此某些语言可能看起来不如通常在 TechNet 上找到的内容那么精练。  

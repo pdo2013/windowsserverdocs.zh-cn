@@ -1,18 +1,18 @@
 ---
 title: 检测虚拟化环境中的瓶颈
 description: 如何检测和解决潜在的 Hyper-v 性能瓶颈
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: a0d6d263b344cde412ee4dd3caa80305742d56e7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 53ec6159d177284773f17a05a37dd89184ef3c12
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866595"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370120"
 ---
 # <a name="detecting-bottlenecks-in-a-virtualized-environment"></a>检测虚拟化环境中的瓶颈
 
@@ -28,15 +28,15 @@ ms.locfileid: "70866595"
 
 可以从主机使用以下性能计数器：
 
--   逻辑处理器利用率- \\hyper-v 虚拟机监控程序逻辑处理器（\*）\\% 总运行时间
+-   逻辑处理器利用率 \\Hyper-V 虚拟机监控程序逻辑处理器（\*） \\% 总运行时间
 
--   虚拟处理器利用率- \\hyper-v 虚拟机监控程序虚拟处理器（\*）\\% 总运行时间
+-   虚拟处理器利用率 \\Hyper-V 虚拟机监控程序虚拟处理器（@no__t） \\% 总运行时间
 
--   根虚拟处理器使用率- \\hyper-v 虚拟机监控程序根虚拟处理器（\*）\\% 总运行时间
+-   根虚拟处理器使用率 \\Hyper-V 虚拟机监控程序根虚拟处理器（\*） \\% 总运行时间
 
-如果**hyper-v\_虚拟机监控程序逻辑处理器（总计）\\% total Runtime** counter 超过 90%，则会重载该主机。 应添加更多的处理能力，或者将一些虚拟机移到其他主机上。
+如果**Hyper-v 虚拟机监控程序逻辑处理器（@no__t 1Total） \\% Total Runtime**计数器超过 90%，则会重载该主机。 应添加更多的处理能力，或者将一些虚拟机移到其他主机上。
 
-如果**hyper-v 虚拟机监控程序虚拟处理器（VM 名称： VP x）\\% Total Runtime** counter 超过 90%，则应该执行以下操作：
+如果**hyper-v 虚拟机监控程序虚拟处理器（VM 名称： VP x） \\% Total Runtime** counter 超过 90%，则应执行以下操作：
 
 -   验证主机是否未超载
 
@@ -44,7 +44,7 @@ ms.locfileid: "70866595"
 
 -   向虚拟机分配更多的虚拟处理器
 
-如果**hyper-v 虚拟机监控程序虚拟处理器（VM 名称： VP x）\\% Total Runtime** counter 超过 90%，则必须执行以下操作：
+如果**hyper-v 虚拟机监控程序虚拟处理器（VM 名称： VP x） \\% Total Runtime** counter 超过 90%，则必须执行以下操作：
 
 -   如果你的工作负荷接收到网络密集型，你应考虑使用 vRSS。
 
@@ -52,7 +52,7 @@ ms.locfileid: "70866595"
 
 -   如果你的工作负荷占用大量存储空间，则应启用虚拟 NUMA 并添加更多虚拟磁盘。
 
-对于某些（但不是全部）虚拟处理器和处理器 **\\** **\\\\（x）% DPC time，如果 hyper-v 虚拟机监控程序根虚拟处理器（根 VP x）% Total Runtime counter 超过 90%，则为%** 计数器大约增加了**根虚拟处理器（根 VP x）\\% Total Runtime**计数器的值，应确保在网络适配器上启用 VMQ。
+如果**hyper-v 虚拟机监控程序根虚拟处理器（根 VP x） \\% 的总运行**时间计数器超过 90%，则表示某些（但不是全部）虚拟处理器和**处理器（x） \\% 中断时间和处理器（x） \\% DPC time**计数器大约增加了**根虚拟处理器（根 VP x） \\% Total Runtime**计数器的值，应确保在网络适配器上启用 VMQ。
 
 ## <a name="memory-bottlenecks"></a>内存瓶颈
 

@@ -7,14 +7,14 @@ ms.author: dacuo
 manager: dougkim
 ms.date: 10/17/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 161188eccdd848cf50be1a4485beeb58935f643a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 307739042426088fa92c50e6ea4dc5d2a744f15a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871778"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405204"
 ---
 # <a name="windows-time-for-traceability"></a>Windows 时间以实现可跟踪性
 >适用于：Windows Server 2016 版本1709或更高版本，以及 Windows 10 版本1703或更高版本

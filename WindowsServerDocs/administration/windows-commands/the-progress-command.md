@@ -1,8 +1,8 @@
 ---
 title: 进度命令
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5fff31c91b4d267011f2d738b4fc3acb3f0f2377
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 841d9103354e3162489492ba7dd97e726b37d37d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832698"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370181"
 ---
 # <a name="the-progress-command"></a>进度命令
 
 
 
-正在执行命令时将显示进度。 可以使用 **/progress**与您运行的任何其他 WDSUTIL 命令。 请注意，必须指定 **/verbose**并 **/progress**后直接**WDSUTIL**。
+在执行命令时显示进度。 可以将 **/progress**与运行的任何其他 WDSUTIL 命令一起使用。 请注意，必须在**WDSUTIL**之后直接指定 **/verbose**和 **/progress** 。
 
 ## <a name="syntax"></a>语法
 
@@ -34,7 +34,7 @@ WDSUTIL /progress <commands>
 
 ## <a name="examples"></a>示例
 
-若要初始化该服务器，并显示进度，请键入：
+若要初始化服务器并显示进度，请键入：
 ```
 WDSUTIL /Verbose /Progress /Initialize-Server /Server:MyWDSServer /RemInst:"C:\RemoteInstall"
 ```

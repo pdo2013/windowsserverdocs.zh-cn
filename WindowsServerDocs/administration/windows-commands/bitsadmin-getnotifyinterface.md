@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getnotifyinterface
-description: Windows 命令主题**bitsadmin getnotifyinterface** -确定另一个程序已注册 COM 回调接口来指定的作业。
+description: 适用于**bitsadmin getnotifyinterface**的 Windows 命令主题-确定另一个程序是否已注册指定作业的 COM 回调接口。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8316721a20cc477f9e8e15fc57b5d1c861da3ff4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 826e13cf8a3e54935ceb5a72ff82647cacfc3be5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868038"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381473"
 ---
 # <a name="bitsadmin-getnotifyinterface"></a>bitsadmin getnotifyinterface
 
-确定另一个程序是否已注册 COM 回调接口 （通知接口） 来指定的作业。
+确定其他程序是否已为指定作业注册 COM 回调接口（通知接口）。
 
 ## <a name="syntax"></a>语法
 
@@ -52,4 +52,4 @@ C:\>bitsadmin /GetNotifyInterface myDownloadJob
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

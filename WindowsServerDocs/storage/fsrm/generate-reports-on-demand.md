@@ -2,22 +2,22 @@
 title: 按需生成报告
 description: 本文介绍了如何根据需要生成报告以分析服务器上的磁盘使用情况
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: b51ab0ad2a9c670aa63c4c86f7ff2c052139cb95
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9b3cde8a01c40a04df1bc433687029a2e0e7c394
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445974"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403006"
 ---
 # <a name="generate-reports-on-demand"></a>按需生成报告
 
-> 适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
+> 适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2
 
 在日常操作中，可以根据需要使用**立即生成报告**选项生成一个或多个报告。 借助这些报告，可以分析服务器上当前磁盘使用情况的各个方面。 收集当前数据以生成报告。
 

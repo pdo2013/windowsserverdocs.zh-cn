@@ -1,8 +1,8 @@
 ---
 title: nslookup set all
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fa534ec194486d334aa7c5b615ce32496a4ba43b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 0e752427a07fe290c3f70e7dce60a0e21f805e8d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436820"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373029"
 ---
 # <a name="nslookup-set-all"></a>nslookup set all
 
 
 
-打印的配置设置的当前值。
+打印配置设置的当前值。
 
 ## <a name="syntax"></a>语法
 
@@ -40,7 +40,7 @@ set all
 
 ## <a name="remarks"></a>备注
 
--   **设置所有**还将打印有关的默认服务器和计算机 （主机） 的信息。
+-   **全部设置**还会打印有关默认服务器和计算机（即主机）的信息。
 
 #### <a name="additional-references"></a>其他参考
 

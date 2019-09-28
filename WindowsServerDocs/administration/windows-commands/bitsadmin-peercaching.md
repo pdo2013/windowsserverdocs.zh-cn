@@ -1,8 +1,8 @@
 ---
-title: bitsadmin 对等缓存
-description: Windows 命令主题**bitsadmin 对等缓存**-列出了对等缓存的开关。
+title: bitsadmin 对等
+description: Bitsadmin 对等**缓存**的 Windows 命令主题-对等缓存开关列表。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6235a985e50be695d6059f25e60a16fd0f468755
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0dd1fcbb41d6c56bcf3d961cbf95e86cee834bab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853368"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380986"
 ---
-# <a name="bitsadmin-peercaching"></a>bitsadmin 对等缓存
+# <a name="bitsadmin-peercaching"></a>bitsadmin 对等
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
 ## <a name="syntax"></a>语法
 ```
@@ -33,8 +33,8 @@ bitsadmin /PeerCaching /GetConfigurationFlags
 ## <a name="parameters"></a>Parameters
 |参数|描述|
 |-------|--------|
-|[bitsadmin 对等缓存和帮助](bitsadmin-peercaching-and-help.md)|显示 /PeerCaching 开关的命令行使用情况。|
-|[bitsadmin 对等缓存和 setconfigurationflags](bitsadmin-peercaching-and-setconfigurationflags.md)|设置配置标志，以确定是否计算机可以提供到对等节点的内容和可以从对等方下载内容。|
-|[bitsadmin 对等缓存和 getconfigurationflags](bitsadmin-peercaching-and-getconfigurationflags.md)|获取确定计算机提供到对等节点的内容以及可以从对等方下载内容的配置标志。|
+|[bitsadmin peercaching 和 help](bitsadmin-peercaching-and-help.md)|显示/PeerCaching 开关的命令行用法。|
+|[bitsadmin peercaching 和 setconfigurationflags](bitsadmin-peercaching-and-setconfigurationflags.md)|设置配置标志，这些标志确定计算机是否可以向对等方提供内容以及是否可以从对等方下载内容。|
+|[bitsadmin peercaching 和 getconfigurationflags](bitsadmin-peercaching-and-getconfigurationflags.md)|获取用于确定计算机是否向对等方提供内容以及能否从对等方下载内容的配置标志。|
 ## <a name="additional-references"></a>其他参考
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

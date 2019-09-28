@@ -6,16 +6,16 @@ ms.author: billmath
 manager: daveba
 ms.date: 08/09/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 03328ff8c94d96fcf34dcef29ac1a1daefc9d14a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 870dbb4303d216f05bc372610f3121ff08fc8c25
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867489"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407844"
 ---
-# <a name="scenario-web-app-server-app-calling-web-api"></a>方案：Web 应用（服务器应用）调用 Web API 
+# <a name="scenario-web-app-server-app-calling-web-api"></a>场景：Web 应用（服务器应用）调用 Web API 
 >适用于：AD FS 2019 及更高版本 
  
 了解如何生成通过 AD FS 2019 进行身份验证的 web 应用登录，并使用[MSAL 库](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)来调用 web api。  

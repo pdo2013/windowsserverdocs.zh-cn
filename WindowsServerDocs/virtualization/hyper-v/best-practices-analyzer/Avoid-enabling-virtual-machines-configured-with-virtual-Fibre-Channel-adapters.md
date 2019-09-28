@@ -1,7 +1,7 @@
 ---
-title: 避免在使用虚拟光纤通道适配器，以便实时迁移时有更少的路径比源上在目标上的光纤通道逻辑单元 (Lun) 配置虚拟机
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+title: 如果目标上的逻辑单元（Lun）光纤通道的路径更少，请避免启用虚拟光纤通道适配器配置的虚拟机以允许实时迁移。
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -9,14 +9,14 @@ ms.author: kathydav
 ms.topic: article
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 6ff69d5cb09133a806c2a2df3446713264a4e892
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c55a8c76391ae1b01f43492dc5c72e3760371b80
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849548"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365285"
 ---
-# <a name="avoid-enabling-virtual-machines-configured-with-virtual-fibre-channel-adapters-to-allow-live-migrations-when-there-are-fewer-paths-to-fibre-channel-logical-units-luns-on-the-destination-than-on-the-source"></a>避免在使用虚拟光纤通道适配器，以便实时迁移时有更少的路径比源上在目标上的光纤通道逻辑单元 (Lun) 配置虚拟机
+# <a name="avoid-enabling-virtual-machines-configured-with-virtual-fibre-channel-adapters-to-allow-live-migrations-when-there-are-fewer-paths-to-fibre-channel-logical-units-luns-on-the-destination-than-on-the-source"></a>如果目标上的逻辑单元（Lun）光纤通道的路径更少，请避免启用虚拟光纤通道适配器配置的虚拟机以允许实时迁移。
 
 >适用于：Windows Server 2016
 
@@ -29,15 +29,15 @@ ms.locfileid: "59849548"
 |**Severity**|警告|  
 |**类别**|配置|
 
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。
   
 ## <a name="issue"></a>**问题**  
-*一个或多个虚拟机有虚拟化 WMI 提供程序中设置的 AllowReducedFcRedunancy 属性。*  
+*一台或多台虚拟机的虚拟化 WMI 提供程序中设置了 AllowReducedFcRedunancy 属性。*  
   
-## <a name="impact"></a>**影响**  
-*以下虚拟机的实时迁移可能会导致数据丢失或 I/O 中断到存储：*  
+## <a name="impact"></a>**对**  
+*以下虚拟机的实时迁移可能会导致存储的数据丢失或中断 i/o：*  
   
-\<虚拟机的列表 >  
+@no__t-虚拟机的 0list >  
   
 ## <a name="resolution"></a>**解决方法**  
-*请考虑清除受影响的虚拟机上的 AllowReducedFcRedundancy WMI 属性。清除此属性后，您可以仅当在目标上的光纤通道的路径数是同一个或多个源的路径数量时，使用虚拟光纤通道适配器配置虚拟机上执行实时迁移。这些检查有助于防止数据丢失或 I/O 的中断到存储。* 
+@no__t 0Consider 清除受影响的虚拟机上的 AllowReducedFcRedundancy WMI 属性。如果清除此属性，则可以在使用虚拟光纤通道适配器配置的虚拟机上执行实时迁移，只在目标上要光纤通道的路径数等于或大于源上的路径数时。这些检查可帮助防止数据丢失或存储中断中断。 * 

@@ -2,7 +2,7 @@
 title: 隐私和安全注意事项
 description: 提供有关 MultiPoint 服务的隐私和安全见解
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,18 +13,18 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 6580d0974e0e27a6ecd2706890801fbeb9c45d27
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5dffc99342cba3b4c5d43585745dedfd002a7c89
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848528"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389500"
 ---
 # <a name="privacy-and-security-considerations"></a>隐私和安全注意事项
 由于 MultiPoint 服务系统被设计为在共享计算机环境中使用，你应考虑到以下隐私和安全计算问题。  
   
 ## <a name="privacy-in-a-multipoint-services-system"></a>MultiPoint 服务系统中的隐私  
-你和 MultiPoint 服务系统上的其他管理用户、MultiPoint 仪表板用户或标准用户对于 MultiPoint 服务的共享或保留私有用户文档的功能可能还不熟悉。 在 MultiPoint 管理器中，您可以在所有活动的标准用户桌面上看到屏幕活动。 标准用户登录到 MultiPoint 服务系统时会收到通知，并且必须接受此监视才能继续。 有关如何共享内容或使其保持私有的详细信息，请参阅[管理用户文件](Manage-User-Files.md)。  
+你和 MultiPoint 服务系统上的其他管理用户、MultiPoint 仪表板用户或标准用户对于 MultiPoint 服务的共享或保留私有用户文档的功能可能还不熟悉。 在 MultiPoint 管理器中，可以看到所有活动的标准用户桌面上的屏幕活动。 标准用户登录到 MultiPoint 服务系统时会收到通知，并且必须接受此监视才能继续。 有关如何共享内容或使其保持私有的详细信息，请参阅[管理用户文件](Manage-User-Files.md)。  
   
 ## <a name="security-in-a-multipoint-services-system"></a>MultiPoint 服务系统中的安全  
 作为 MultiPoint Services 系统的管理用户，应熟悉 Windows 中的安全性和安全计算功能。 其中包括 Windows 自动更新和对防火墙、病毒保护、间谍软件和其他恶意程序保护的支持。   
@@ -33,4 +33,4 @@ ms.locfileid: "59848528"
   
 ## <a name="see-also"></a>请参阅  
 [管理用户文件](Manage-User-Files.md)  
-[管理 MultiPoint 服务系统](Managing-Your-MultiPoint-Services-System.md)
+[管理 MultiPoint Services 系统](Managing-Your-MultiPoint-Services-System.md)

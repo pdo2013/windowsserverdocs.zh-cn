@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setcredentials
-description: Windows 命令主题**bitsadmin setcredentials** -将凭据添加到作业。
+description: 适用于**bitsadmin setcredentials**的 Windows 命令主题-将凭据添加到作业。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 923dcff7d268d40b72db3254e2a97c808c7c7253
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 70ac9a01a2e713b5a2fb881f327a52552a6bbec6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877388"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380720"
 ---
 # <a name="bitsadmin-setcredentials"></a>bitsadmin setcredentials
 
-将凭据添加到作业。
+向作业添加凭据。
 
-**1.2 及更早版本的 BITS**: 不支持。
+**BITS 1.2 及更早版本**： 不受支持。
 
 ## <a name="syntax"></a>语法
 
@@ -38,17 +38,17 @@ bitsadmin /SetCredentials <Job> <Target> <Scheme> <Username> <Password>
 |---------|-----------|
 |作业|该作业的显示名称或 GUID|
 |目标|服务器或代理|
-|方案|下列情况之一：</br>-基本-在其中的用户名和密码发送到服务器或代理的明文形式的身份验证方案。</br>-摘要-使用服务器指定的数据字符串用于质询质询-响应身份验证方案。</br>-NTLM，使用 Windows 网络环境中进行身份验证的用户的凭据质询响应身份验证方案。</br>-NEGOTIATE — 也称为简单和受保护的协商协议 (Snego) 是与服务器或代理服务器以确定要用于身份验证的方案协商一种质询响应身份验证方案。 例如，Kerberos 协议和 NTLM。</br>-PASSPORT — 由 Microsoft 提供了单一登录为成员站点提供的集中式身份验证服务。|
-|Username|所提供的凭据的名称|
-|密码|与所提供关联的密码*用户名*|
+|机制|下列情况之一：</br>-基本-身份验证方案，在此方案中，用户名和密码以明文形式发送到服务器或代理。</br>-摘要-一种质询-响应身份验证方案，该方案将服务器指定的数据字符串用于质询。</br>-NTLM-一种质询-响应身份验证方案，该方案使用用户的凭据在 Windows 网络环境中进行身份验证。</br>-NEGOTIATE，也称为简单和受保护的协商协议（Snego）是一种质询响应身份验证方案，该方案与服务器或代理协商以确定要用于身份验证的方案。 例如，Kerberos 协议和 NTLM。</br>-PASSPORT — Microsoft 提供的一种集中式身份验证服务，可为成员站点提供单一登录。|
+|Username|提供的凭据的名称|
+|密码|与提供的*用户名*关联的密码|
 
 ## <a name="BKMK_examples"></a>示例
 
-名为的作业的以下示例 Adds 凭据*myDownloadJob*。
+下面的示例将凭据添加到名为*myDownloadJob*的作业。
 ```
 C:\>bitsadmin /RemoveCredentials myDownloadJob SERVER BASIC Edward Password20
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

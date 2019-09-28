@@ -1,7 +1,7 @@
 ---
-title: 运行配置的 SR-IOV 的虚拟机数不应超过可供虚拟机的虚拟函数的数目
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+title: 为 SR-IOV 配置的正在运行的虚拟机的数量不应超过可供虚拟机使用的虚拟功能的数目
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 8bd4af5e-9e7d-4710-8950-39435a8bb373
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: e63df9283927437f9cfc62c052d83b07fe599b34
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0887035c84ebc4b7d93163533387f2f8ab20fb87
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829748"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364615"
 ---
-# <a name="the-number-of-running-virtual-machines-configured-for-sr-iov-should-not-exceed-the-number-of-virtual-functions-available-to-the-virtual-machines"></a>运行配置的 SR-IOV 的虚拟机数不应超过可供虚拟机的虚拟函数的数目
+# <a name="the-number-of-running-virtual-machines-configured-for-sr-iov-should-not-exceed-the-number-of-virtual-functions-available-to-the-virtual-machines"></a>为 SR-IOV 配置的正在运行的虚拟机的数量不应超过可供虚拟机使用的虚拟功能的数目
 
 >适用于：Windows Server 2016
 
@@ -30,18 +30,18 @@ ms.locfileid: "59829748"
 |**Severity**|警告|  
 |**类别**|配置|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。  
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。  
   
 ## <a name="issue"></a>问题  
-*没有足够虚函数可用于运行针对单根 I/O 虚拟化 (SR-IOV) 配置的虚拟机的数目。*  
+*对于为单根 i/o 虚拟化（SR-IOV）配置的正在运行的虚拟机数，没有足够的可用虚拟函数。*  
   
 ## <a name="impact"></a>影响  
-*网络性能可能不是最佳的以下虚拟机上：*  
+*在以下虚拟机上，网络性能可能不是最佳的：*  
    
-\<虚拟机的列表 >  
+@no__t-虚拟机的 0list >  
   
 ## <a name="resolution"></a>分辨率  
-*请考虑在不需要的 SR-IOV 虚拟功能的一个或多个虚拟机上禁用 SR-IOV。*  
+*请考虑在不需要 SR-IOV 虚拟功能的一个或多个虚拟机上禁用 SR-IOV。*  
   
 
 

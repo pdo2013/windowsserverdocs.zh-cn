@@ -1,8 +1,8 @@
 ---
-title: ksetup:addhosttorealmmap
-description: 'Windows 命令主题 * * *- '
+title: ksetup： addhosttorealmmap
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 25cf258309c94f0efde980018dd5dcf3c7df4d60
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6a28c6001707fac245de7136b5fb5bd38495027
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837498"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375649"
 ---
-# <a name="ksetupaddhosttorealmmap"></a>ksetup:addhosttorealmmap
+# <a name="ksetupaddhosttorealmmap"></a>ksetup： addhosttorealmmap
 
 
 
-添加一个服务主体名称 (SPN) 映射规定的主机和领域之间。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
+在所述的主机和领域之间添加服务主体名称（SPN）映射。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
 
 ## <a name="syntax"></a>语法
 
@@ -36,25 +36,25 @@ ksetup /addhosttorealmmap <HostName> <RealmName>
 
 |参数|描述|
 |---------|-----------|
-|\<HostName>|主机名是计算机名称，它可以表示为计算机的完全限定的域名。|
-|\<RealmName>|领域名称表述为大写的 DNS 名称，例如 corp.CONTOSO.COM。|
+|\<HostName >|主机名是计算机的名称，可将其声明为计算机的完全限定的域名。|
+|\<RealmName >|领域名称被声明为大写的 DNS 名称，例如 CORP。CONTOSO.COM。|
 
 ## <a name="remarks"></a>备注
 
-此命令可将主机或共享到领域相同的 DNS 后缀的多个主机映射。
+此命令允许你将共享同一 DNS 后缀的一个或多个主机映射到领域。
 
-映射记录在注册表中**HKEY_LOCAL_MACHINE\SYSTEM\CurrentContolSet\Lsa\Kerberos\HostToRealm**。
+映射将记录在**HKEY_LOCAL_MACHINE\SYSTEM\CurrentContolSet\Lsa\Kerberos\HostToRealm**中的注册表中。
 
 ## <a name="BKMK_Examples"></a>示例
 
-作为配置 CONTOSO 的领域的一部分，将主机计算机 IPops897 映射到领域：
+在配置领域 CONTOSO 的过程中，将主机计算机 IPops897 映射到领域：
 ```
 ksetup /addhosttorealmmap IPops897 CONTOSO
 ```
-验证在注册表中的映射是按预期方式。
+在注册表中验证映射是否按预期进行。
 
 #### <a name="additional-references"></a>其他参考
 
 -   [Ksetup:delhosttorealmmap](ksetup-delhosttorealmmap.md)
 -   [Ksetup](ksetup.md)
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)

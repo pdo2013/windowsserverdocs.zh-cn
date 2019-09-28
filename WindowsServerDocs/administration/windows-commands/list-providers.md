@@ -1,8 +1,8 @@
 ---
 title: 列出提供程序
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f94df982205d639f64dde2cfb014c851bac02b61
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ed2da9e5c38c13377e694f9e39a63a15b9f144b2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840638"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374741"
 ---
 # <a name="list-providers"></a>列出提供程序
 
 
 
-列出当前在系统注册的卷影复制提供程序。
+列出当前在系统上注册的卷影复制提供程序。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -36,11 +36,11 @@ list providers
 
 ## <a name="BKMK_examples"></a>示例
 
-若要列出当前已注册的卷影复制提供程序，请键入：
+若要列出当前注册的卷影复制提供程序，请键入：
 ```
 list providers
 ```
-类似于以下显示的输出：
+类似于以下内容的输出：
 ```
 * ProviderID: {b5946137-7b9f-4925-af80-51abd60b20d5}
         Type: [1] VSS_PROV_SYSTEM
@@ -52,4 +52,4 @@ list providers
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

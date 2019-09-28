@@ -6,14 +6,14 @@ ms.author: jgerend
 manager: elizapo
 ms.date: 08/16/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 0dab57bffe8b0963bb91d0f9c2752014c6746c87
-ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
+ms.openlocfilehash: 022b0c3445c007960c490159f6580a702233ee41
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70987388"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402972"
 ---
 # <a name="storage-migration-service-overview"></a>存储迁移服务概述
 

@@ -7,18 +7,18 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d5760820613c3b791b577a600cae543621eee257
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c8a5863865d465d55f1d5865fdcbdeeb942ce194
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845588"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71409081"
 ---
 # <a name="introduction-to-active-directory-replication-and-topology-management-using-windows-powershell-level-100"></a>使用 Windows PowerShell 的 Active Directory 复制和拓扑管理（级别 100）简介
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
 Active Directory 的 Windows PowerShell 包含管理复制、站点、域和林、域控制器和分区的功能。 过去的管理工具（如 Active Directory 站点和服务管理单元与 repadmin.exe）的用户将发现如今也可在 Active Directory 的 Windows PowerShell 上下文中使用相似功能。 此外，cmdlet 可与现有的 Active Directory 的 Windows PowerShell cmdlet 兼容，从而营造简化的体验并允许客户轻松创建自动化脚本。
 
@@ -26,11 +26,11 @@ Active Directory 的 Windows PowerShell 包含管理复制、站点、域和林�
 > Active Directory 的 Windows PowerShell 复制和拓扑 cmdlet 可用于以下环境：
 > 
 > -    Windows Server 2012 域控制器
-> -    Windows Server 2012 与远程服务器管理工具为 AD DS 和 AD LDS 安装。
-> -   Windows&reg; 8 与 AD DS 和 AD LDS 安装远程服务器管理工具。
+> -    Windows Server 2012 安装了 AD DS 和 AD LDS 的远程服务器管理工具。
+> -   Windows @ no__t-0 8，其中安装了 AD DS 和 AD LDS 的远程服务器管理工具。
 
 ## <a name="installing-the-active-directory-module-for-windows-powershell"></a>安装 Windows PowerShell 的 Active Directory 模块
-在运行 Windows Server 2012 的服务器上安装 AD DS 服务器角色时，默认情况下安装 Active Directory 的 Windows PowerShell 模块。 无需添加服务器角色之外的任何其他步骤。 此外可以通过安装远程服务器管理工具，运行 Windows Server 2012 的服务器上安装 Active Directory 模块，并可以通过下载并安装运行Windows8的计算机上安装ActiveDirectory模块[远程服务器管理工具 (RSAT)](https://www.microsoft.com/download/details.aspx?id=28972)。 有关安装步骤，请参阅 [说明](https://www.microsoft.com/download/details.aspx?id=28972)。
+如果在运行 Windows Server 2012 的服务器上安装了 AD DS 服务器角色，则默认情况下将安装适用于 Windows PowerShell 的 Active Directory 模块。 无需添加服务器角色之外的任何其他步骤。 你还可以通过安装远程服务器管理工具将 Active Directory 模块安装在运行 Windows Server 2012 的服务器上，并且可以通过下载并安装[来在运行 windows 8 的计算机上安装 Active Directory 模块远程服务器管理工具（RSAT）](https://www.microsoft.com/download/details.aspx?id=28972)。 有关安装步骤，请参阅 [说明](https://www.microsoft.com/download/details.aspx?id=28972)。
 
 ## <a name="scenarios-for-testing-windows-powershell-for-active-directory-replication-and-topology-management-cmdlets"></a>用于测试 Active Directory 的 Windows PowerShell 复制和拓扑管理 cmdlet 的方案
 以下方案是为了帮助管理员熟悉新的管理 cmdlet 而设计：
@@ -65,7 +65,7 @@ Active Directory 的 Windows PowerShell 包含管理复制、站点、域和林�
     > 
     > 例如：键入 `Get-ADRep` 并按 Tab 键多次，以跳过匹配的命令，直到你达到 `Get-ADReplicationSite`。 自动完成也适用于参数名称，例如 `Filter`。
 
-    若要设置格式的输出`Get-ADReplicationSite`命令以表的形式，并将显示限定于特定字段，您可以通过管道传递到输出`Format-Table`命令 (或"`ft`"简称):
+    若要将 `Get-ADReplicationSite` 命令的输出格式设置为表，并将显示范围限制为特定的字段，可以通过管道将输出传递给 @no__t 命令（或使用 "`ft`"）：
 
     `Get-ADReplicationSite -Filter * | ft Name`
 
@@ -73,7 +73,7 @@ Active Directory 的 Windows PowerShell 包含管理复制、站点、域和林�
 
 #### <a name="to-produce-a-table-of-all-domain-controllers"></a>生成所有域控制器的表格
 
--   在提示“Windows PowerShell 的 Active Directory 模块”  时键入以下命令：
+-   在提示“Windows PowerShell 的 Active Directory 模块” 时键入以下命令：
 
     `Get-ADDomainController -Filter * | ft Hostname,Site`
 
@@ -86,7 +86,7 @@ Active Directory 的 Windows PowerShell 包含管理复制、站点、域和林�
 
 #### <a name="to-create-a-new-site"></a>创建新站点
 
--   在提示“Windows PowerShell 的 Active Directory 模块”  时键入以下命令：
+-   在提示“Windows PowerShell 的 Active Directory 模块” 时键入以下命令：
 
     `New-ADReplicationSite BRANCH1`
 
@@ -94,7 +94,7 @@ Active Directory 的 Windows PowerShell 包含管理复制、站点、域和林�
 
 #### <a name="to-create-a-new-site-link"></a>创建新的站点链接
 
--   在提示“Windows PowerShell 的 Active Directory 模块”  时键入以下命令：
+-   在提示“Windows PowerShell 的 Active Directory 模块” 时键入以下命令：
 
     `New-ADReplicationSiteLink 'CORPORATE-BRANCH1'  -SitesIncluded CORPORATE,BRANCH1 -OtherAttributes @{'options'=1}`
 
@@ -105,7 +105,7 @@ Active Directory 的 Windows PowerShell 包含管理复制、站点、域和林�
 
 #### <a name="to-set-the-site-link-cost-and-replication-frequency"></a>设置链接成本和复制频率
 
--   在提示“Windows PowerShell 的 Active Directory 模块”  时键入以下命令：
+-   在提示“Windows PowerShell 的 Active Directory 模块” 时键入以下命令：
 
     `Set-ADReplicationSiteLink CORPORATE-BRANCH1 -Cost 100 -ReplicationFrequencyInMinutes 15`
 
@@ -113,7 +113,7 @@ Active Directory 的 Windows PowerShell 包含管理复制、站点、域和林�
 
 #### <a name="to-move-a-domain-controller-to-a-different-site"></a>将域控制器移动到不同站点
 
--   在提示“Windows PowerShell 的 Active Directory 模块”  时键入以下命令：
+-   在提示“Windows PowerShell 的 Active Directory 模块” 时键入以下命令：
 
     `Get-ADDomainController DC2 | Move-ADDirectoryServer -Site BRANCH1`
 
@@ -123,7 +123,7 @@ Active Directory 的 Windows PowerShell 包含管理复制、站点、域和林�
 
 ##### <a name="to-verify-site-creation-new-site-link-and-cost-and-replication-frequency"></a>若要验证站点创建、新站点链接和成本以及复制频率
 
--   单击 **“服务器管理器”**，单击 **“工具”** ，然后单击 **“Active Directory 站点和服务”** ，并验证以下各项：
+-   单击 **“服务器管理器”** ，单击 **“工具”** ，然后单击 **“Active Directory 站点和服务”** ，并验证以下各项：
 
     验证 **BRANCH1** 站点包含所有来自 Windows PowerShell 命令的正确值。
 
@@ -138,11 +138,11 @@ Active Directory 的 Windows PowerShell 包含管理复制、站点、域和林�
 
 #### <a name="to-view-the-up-to-dateness-vector-table-for-a-single-domain-controller"></a>查看单独一个域控制器的最新是量表
 
-1.  在提示“Windows PowerShell 的 Active Directory 模块”  时键入以下命令：
+1.  在提示“Windows PowerShell 的 Active Directory 模块” 时键入以下命令：
 
     `Get-ADReplicationUpToDatenessVectorTable DC1`
 
-    这显示了林中每个域控制器的 **DC1** 观察到的最高 USN 列表。 **Server** 值参考了维护该表的服务器，在这种情况下服务器为 **DC1**。 **Partner** 值参考了（直接或间接）做出更改的复制伙伴。 UsnFilter 值是来自 Partner 参数的 **DC1** 观察到的最高 USN。 如果新的域控制器添加到该林，则不会在中**DC1**的表格中，直到**DC1**接收来自新域的更改。
+    这显示了林中每个域控制器的 **DC1** 观察到的最高 USN 列表。 **Server** 值参考了维护该表的服务器，在这种情况下服务器为 **DC1**。 **Partner** 值参考了（直接或间接）做出更改的复制伙伴。 UsnFilter 值是来自 Partner 参数的 **DC1** 观察到的最高 USN。 如果将新的域控制器添加到林中，则它将不会出现在**dc1**的表中，直到**dc1**接收到来自新域的更改。
 
 #### <a name="to-view-the-up-to-dateness-vector-table-for-all-domain-controllers-in-a-domain"></a>查看域中所有域控制器的最新矢量表
 
@@ -155,6 +155,6 @@ Active Directory 的 Windows PowerShell 包含管理复制、站点、域和林�
     排序允许你轻松对给予复制伙伴每个域控制器观察到的最后 USN 进行比较。 这是检查环境中是否正在进行复制的快速方法。 如果复制正常工作，所有域控制器中为给定复制伙伴报告的 UsnFilter 值必须非常相似。
 
 ## <a name="see-also"></a>请参阅
-[高级 Active Directory 复制和拓扑管理使用 Windows PowerShell&#40;级别 200&#41;](Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md)
+[使用 Windows PowerShell &#40;Level 200 的高级 Active Directory 复制和拓扑管理&#41;](Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md)
 
 

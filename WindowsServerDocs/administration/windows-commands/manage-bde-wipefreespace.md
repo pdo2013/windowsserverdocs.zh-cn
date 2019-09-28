@@ -1,8 +1,8 @@
 ---
-title: 管理 bde WipeFreeSpace
-description: 'Windows 命令主题 * * *- '
+title: manage-bde WipeFreeSpace
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7cf99a9124f78189de223018608d9864e51d7897
-ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.openlocfilehash: 35d5f5fe079485d35fa412502bec745a136fbce9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65564694"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373780"
 ---
-# <a name="manage-bde-wipefreespace"></a>管理-bde:WipeFreeSpace
+# <a name="manage-bde-wipefreespace"></a>manage-bde.exeWipeFreeSpace
 
 
 
-擦除删除任何可能已存在于的空间中的数据片段的卷上的可用空间。 使用"仅已用空间"加密方法加密的卷上运行此命令可提供相同级别的保护"全卷加密"加密方法。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
+擦除卷上的可用空间，删除空间中可能存在的任何数据碎片。 在使用 "仅使用的空间" 加密方法进行加密的卷上运行此命令可提供与 "全卷加密" 加密方法相同的保护级别。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
 
 ## <a name="syntax"></a>语法
 
@@ -36,20 +36,20 @@ manage-bde -WipeFreeSpace|-w [<Drive>] [-Cancel] [-computername <Name>] [{-?|/?}
 
 |参数|描述|
 |---------|-----------|
-|\<Drive>|表示驱动器号后跟一个冒号，卷 GUID 路径或已装入的卷。|
-|-Cancel|取消擦除的过程中的可用空间。|
-|-computername|指定将使用 bde.exe 来修改在其他计算机上的 BitLocker 保护。 此外可以使用 **-cn**作为此命令的简化版本。|
-|\<名称 >|表示要修改其 BitLocker 保护的计算机的名称。 接受的值包括计算机的 NetBIOS 名称和计算机的 IP 地址。|
-|-? 或 /?|显示在命令提示符下简短帮助。|
-|-help 或-h|显示在命令提示符下完成的帮助。|
+|\<Drive >|表示驱动器号后跟冒号、卷 GUID 路径或装入的卷。|
+|-Cancel|取消正在进行的擦除可用空间。|
+|-computername|指定 Manage-bde.exe 将用于修改另一台计算机上的 BitLocker 保护。 你还可以使用 **-cn**作为此命令的缩写形式。|
+|\<名称 >|表示要修改 BitLocker 保护的计算机的名称。 接受的值包括计算机的 NetBIOS 名称和计算机的 IP 地址。|
+|-? 或 /?|在命令提示符下显示 brief Help。|
+|-help 或-h|在命令提示符下显示完整的帮助。|
 
 ## <a name="BKMK_Examples"></a>示例
 
-下面的示例演示如何使用 **-w**命令以创建擦除驱动器 C 上的可用空间
+下面的示例演示如何使用 **-w**命令创建擦除驱动器 C 上的可用空间。
 ```
 manage-bde -w C:
 ```
-下面的示例演示如何使用 **-w**命令 **-取消**参数来取消擦除驱动器 C 上的可用空间
+下面的示例演示如何使用带有 **-cancel**参数的 **-w**命令取消擦除驱动器 C 上的可用空间。
 ```
 manage-bde -w -Cancel C:
 ```
@@ -57,4 +57,4 @@ manage-bde -w -Cancel C:
 #### <a name="additional-references"></a>其他参考
 
 -   [命令行语法项](command-line-syntax-key.md)
--   [管理 bde](manage-bde.md)
+-   [Manage-bde](manage-bde.md)

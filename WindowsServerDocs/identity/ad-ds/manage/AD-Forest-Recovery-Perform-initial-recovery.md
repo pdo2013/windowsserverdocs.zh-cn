@@ -6,15 +6,15 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: ca942691a88465061ebbde2b78314844a694fbf2
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a369347fe889c7f6675d0091d05a6dee93cb4434
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868201"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369073"
 ---
 # <a name="perform-initial-recovery"></a>执行初始恢复  
 

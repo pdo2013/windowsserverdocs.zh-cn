@@ -1,7 +1,7 @@
 ---
 ms.assetid: 2bab6bf6-90e7-46a7-b917-14a7a8f55366
 title: Windows 中的存储类内存 (NVDIMM N) 的运行状况管理
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: jgerend
 ms.manager: dongill
 ms.technology: storage-spaces
@@ -9,25 +9,25 @@ ms.topic: article
 author: JasonGerend
 ms.date: 06/25/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 4ebec8618c79c43816680387ae5e495f125b3c54
-ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
+ms.openlocfilehash: 03d986832e14e0dd7b80324de3c9f14d0537dba5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67407555"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402910"
 ---
 # <a name="storage-class-memory-nvdimm-n-health-management-in-windows"></a>Windows 中的存储类内存 (NVDIMM N) 的运行状况管理
 
-> 适用于：Windows Server 2019，Windows Server 2016、 Windows Server （半年频道），Windows 10
+> 适用于：Windows Server 2019，Windows Server 2016，Windows Server （半年频道），Windows 10
 
 针对 Windows 中的存储类内存 (NVDIMM N) 设备，本文向系统管理员和 IT 专业人员提供了有关错误处理和运行状况管理的信息，重点强调存储类内存设备和传统存储设备之间的差异。
 
 如果不熟悉 Windows 对存储类内存设备的支持，请观看以下短片了解概况：
-- [将非易失性内存 (NVDIMM N) 用作 Windows Server 2016 中的块存储](https://channel9.msdn.com/Events/Build/2016/P466)
-- [使用作为 Windows Server 2016 中的字节寻址存储的非易失性内存 (NVDIMM N)](https://channel9.msdn.com/Events/Build/2016/P470)
-- [提高 SQL Server 2016 性能与 Windows Server 2016 中的永久性内存](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-Windows-Server-2016-SCM--FAST)
+- [在 Windows Server 2016 中将非易失性内存（NVDIMM N）用作块存储](https://channel9.msdn.com/Events/Build/2016/P466)
+- [在 Windows Server 2016 中将非易失性内存（NVDIMM N）用作字节寻址存储](https://channel9.msdn.com/Events/Build/2016/P470)
+- [利用 Windows Server 2016 中的永久性内存加快 SQL Server 2016 的性能](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-Windows-Server-2016-SCM--FAST)
 
-另请参阅[了解和部署存储空间直通中的永久性内存](deploy-pmem.md)。
+另请参阅[在存储空间直通中了解和部署永久性内存](deploy-pmem.md)。
 
 自 Windows Server 2016 和 Windows 10（1607 版）起，具有本机驱动程序的 Windows 支持符合 JEDEC 的 NVDIMM-N 存储类内存设备。 虽然这些设备的行为与其他磁盘 （HDD 和 SSD）类似，但也存在一些差异。
 

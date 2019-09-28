@@ -1,6 +1,6 @@
 ---
 title: 使用 AD FS 和 Web 应用程序代理部署工作文件夹 - 步骤 4，设置 Web 应用程序代理
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 manager: klaasl
@@ -8,31 +8,31 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 6/242017
 ms.assetid: 4a11ede0-b000-4188-8190-790971504e17
-ms.openlocfilehash: 4cbf85f8413353801f048f253859c9f3ef9c7691
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: ff0c6d4a6e457947c063a7ea5c3ce6463e9c17bb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812562"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365748"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-4-set-up-web-application-proxy"></a>部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 4 中，设置 Web 应用程序代理
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-4-set-up-web-application-proxy"></a>使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤4、设置 Web 应用程序代理
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
 本主题介绍使用 Active Directory 联合身份验证服务 (AD FS) 和 Web 应用程序代理部署工作文件夹的第四个步骤。 你可以在这些主题中查找这一过程的其他步骤：  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：概述](deploy-work-folders-adfs-overview.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：叙述](deploy-work-folders-adfs-overview.md)  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：第 1 步： 设置 AD FS](deploy-work-folders-adfs-step1.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤1，设置 AD FS @ no__t-0  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 2 中，AD FS 配置后工作](deploy-work-folders-adfs-step2.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤 2 AD FS 配置后工作 @ no__t-0  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 3，设置了工作文件夹](deploy-work-folders-adfs-step3.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤3，设置工作文件夹 @ no__t-0  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 5 中，设置客户端](deploy-work-folders-adfs-step5.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤5，设置客户端 @ no__t-0  
 
 > [!NOTE]
->   在本部分中介绍的说明适用于 Windows Server 2019 或 Windows Server 2016 环境。 如果你使用的是 Windows Server 2012 R2，请遵循 [Windows Server 2012 R2 说明](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx)。
+>   本部分中所述的说明适用于 Windows Server 2019 或 Windows Server 2016 环境。 如果你使用的是 Windows Server 2012 R2，请遵循 [Windows Server 2012 R2 说明](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx)。
 
 要设置用于工作文件夹的 Web 应用程序代理，请使用以下过程。  
   
@@ -47,11 +47,11 @@ ms.locfileid: "66812562"
   
 2.  键入 **MMC**。  
   
-3.  在“文件”  菜单上，单击“添加/删除管理单元”  。  
+3.  在“文件” 菜单上，单击“添加/删除管理单元”。  
   
 4.  在**可用的管理单元**列表中，单击**证书**，然后单击**添加**。 证书管理单元向导启动。  
   
-5.  选择“计算机帐户”  ，然后单击“下一步”  。  
+5.  选择“计算机帐户”，然后单击“下一步”。  
   
 6.  选择**本地计算机：（运行此控制台的计算机）** ，然后单击**完成**。  
   
@@ -101,7 +101,7 @@ ms.locfileid: "66812562"
   
 4.  在联合服务器上输入本地管理员帐户的凭据。 不要输入域凭据（例如 contoso\administrator），而是输入本地凭据（例如 administrator）。  
   
-5.  在 **AD FS 代理证书**页上，选择之前导入的 AD FS 证书。 在测试用例中，证书为 **blueadfs.contoso.com**。 单击“下一步”  。  
+5.  在 **AD FS 代理证书**页上，选择之前导入的 AD FS 证书。 在测试用例中，证书为 **blueadfs.contoso.com**。 单击“下一步”。  
   
 6.  确认页显示将执行以配置服务的 Windows PowerShell 命令。 单击 **“配置”** 。  
   
@@ -138,19 +138,19 @@ ms.locfileid: "66812562"
   
    名称：**WorkFolders**  
   
-   外部 URL: **https://workfolders.contoso.com**  
+   外部 URL： **https://workfolders.contoso.com**  
   
    外部证书：**前面安装的工作文件夹证书**  
   
-   后端服务器 URL: **https://workfolders.contoso.com**  
+   后端服务器 URL： **https://workfolders.contoso.com**  
   
-9. 确认页显示将执行以发布应用程序的 Windows PowerShell 命令。 单击“发布”  。  
+9. 确认页显示将执行以发布应用程序的 Windows PowerShell 命令。 单击“发布”。  
   
 10. 在**结果**页上，你应该看到该应用程序已成功发布。
     >[!NOTE]
     > 如果拥有多个工作文件夹服务器，则需要为每个工作文件夹服务器发布一个工作文件夹 Web 应用程序（重复步骤 1-10）。  
   
-下一步：[部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 5 中，设置客户端](deploy-work-folders-adfs-step5.md)  
+下一步：使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤5，设置客户端 @ no__t-0  
   
 ## <a name="see-also"></a>请参阅  
 [工作文件夹概述](Work-Folders-Overview.md)  

@@ -1,8 +1,8 @@
 ---
 title: goto
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f1ad0190519d58bd879ae391f378d800760c204f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1caf3da3e8b873150af5be7ed8316cfcb526db83
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857528"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375690"
 ---
 # <a name="goto"></a>goto
 
 
 
-中的批处理程序定向到带标签的行的 cmd.exe。 在批处理程序， **goto**将定向到由标志来标识行的命令处理。 当找到标签时，继续进行处理，开头的下一步的行开始的命令。
+将 cmd.exe 定向到批处理程序中带标签的行。 在批处理程序中， **goto**将命令处理定向到由标签标识的行。 找到标签后，处理将从下一行开始的命令开始。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -38,33 +38,33 @@ goto <Label>
 
 |参数|描述|
 |---------|-----------|
-|\<Label>|指定用作批处理程序中的标签的文本字符串。|
+|\<Label >|指定一个文本字符串，该字符串用作批处理程序中的标签。|
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
 
 -   使用命令扩展
 
-    如果命令扩展是启用 （默认值），并使用**goto**命令的目标标签 **: EOF**，将控件传输到当前的批处理脚本文件的末尾并退出批处理脚本文件而无需定义一个标签。 当你使用**goto**与 **: EOF**标签，必须插入一个冒号之前的标签。 例如：  
+    如果启用了命令扩展（默认设置），并使用目标标签为 **： EOF**的**goto**命令，则可以将控制转移到当前批处理脚本文件的末尾，并退出批处理脚本文件而不定义标签。 将**goto**与 **： EOF**标签一起使用时，必须在标签之前插入一个冒号。 例如：  
     ```
     goto:EOF
     ```  
--   使用有效*标签*值
+-   使用有效的*标签*值
 
-    可以使用中的空格*标签*参数，但您不能包含其他分隔符 （例如，用分号或等号）。
--   匹配*标签*与批处理程序中的标签
+    可以在*标签*参数中使用空格，但不能包含其他分隔符（例如，分号或等号）。
+-   与批处理程序中的标签匹配的*标签*
 
-    *标签*您指定的值必须匹配的批处理程序中的标签。 批处理程序中的标签必须以冒号 （:） 开头。 如果行以冒号开头，它将被视为一个标签，并忽略该行上的任何命令。 如果你的批处理程序不包含在指定的标签*标签*，批处理程序停止，并显示以下消息：  
+    指定的*标签*值必须与批处理程序中的标签相匹配。 批处理程序内的标签必须以冒号（:) 开头。 如果行以冒号开头，则将其视为标签，并忽略该行上的所有命令。 如果批处理程序不包含在*标签*中指定的标签，批处理程序将停止并显示以下消息：  
     ```
     Label not found
     ```  
--   使用**goto**执行条件操作
+-   使用**goto**进行条件运算
 
-    可以使用**goto**与其他命令执行条件操作。 有关使用详细信息**goto**条件的操作，请参阅[如果](if.md)命令参考。
+    可以将**goto**与其他命令结合使用来执行条件操作。 有关对条件运算使用**goto**的详细信息，请参阅[If](if.md)命令参考。
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的批处理程序作为系统磁盘格式化驱动器 A 中的磁盘。 如果操作成功， **goto**命令将定向到处理 **： 结束**标签：
+以下批处理程序将驱动器 A 中的磁盘格式化为系统磁盘。 如果操作成功， **goto**命令会将处理定向到 **：结束**标签：
 ```
 echo off
 format a: /s
@@ -76,8 +76,8 @@ echo End of batch program.
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)
 
 [Cmd](cmd.md)
 
-[If](if.md)
+[如果](if.md)

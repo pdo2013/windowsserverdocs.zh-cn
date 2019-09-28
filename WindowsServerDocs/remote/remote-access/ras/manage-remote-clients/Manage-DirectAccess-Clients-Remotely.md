@@ -1,9 +1,9 @@
 ---
 title: 远程管理 DirectAccess 客户端
-description: 本主题是指南的在 Windows Server 2016 中远程管理 DirectAccess 客户端的一部分。
+description: 本主题是在 Windows Server 2016 中远程管理 DirectAccess 客户端的指南的一部分。
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,20 +12,20 @@ ms.topic: article
 ms.assetid: 36255d80-a13e-4af7-a5c0-ab4c8f302622
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c4ebab1cb444df9c756d66ded24e1c851023d17a
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: ecfbd6dc09f251d5197a16b166aa76e6a37b933a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281171"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367277"
 ---
 # <a name="manage-directaccess-clients-remotely"></a>远程管理 DirectAccess 客户端
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
 远程访问监视报告远程用户活动以及 DirectAccess 和 VPN 连接的状态。 它跟踪客户端连接的数量和持续时间（以及其他的统计信息），并监视服务器的操作状态。 易于使用的监视控制台允许你查看整个远程访问基础设施。 监视视图可用于单台服务器、群集和多站点配置。  
   
-**注意：** Windows Server 2016 将 DirectAccess 和远程访问服务 (RAS) 合并到单个远程访问角色。  
+**注意：** Windows Server 2016 将 DirectAccess 和远程访问服务（RAS）合并到单个远程访问角色中。  
   
 ## <a name="in-this-guide"></a>本指南包含的内容  
 本文档说明如何使用 DirectAccess 管理控制台和相应 Windows PowerShell cmdlet（作为远程访问服务器角色的一部分提供）来利用远程访问的监视功能。  

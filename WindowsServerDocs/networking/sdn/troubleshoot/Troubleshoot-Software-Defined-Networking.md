@@ -1,39 +1,40 @@
 ---
 title: SDN 疑难解答
-description: 本主题提供有关解决 Windows Server 2016 中软件定义的网络的内容的链接。
+description: 本主题提供有关在 Windows Server 2016 中排查软件定义的网络问题的内容的链接。
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: 427048db-bab6-49b1-9611-099bb547ec0e
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 8c1cea8785efce0356763a46c60a368c02d5e3cf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 33eef13bc13081acf398f3d3f26dc04219aa1d20
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863388"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405823"
 ---
 # <a name="troubleshoot-sdn"></a>SDN 疑难解答
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-在本部分中的主题提供有关疑难解答的软件定义网络 (SDN) 技术，包括在 Windows Server 2016 中的信息。
+本节中的主题提供有关排查 Windows Server 2016 中包含的软件定义的网络（SDN）技术的信息。
 
 > [!NOTE]  
 > 有关其他软件定义的网络文档，可以使用以下库部分。  
 >  
 > - [SDN 技术](../technologies/Software-Defined-Networking-Technologies.md) 
-> - [规划 SDN](../plan/Plan-Software-Defined-Networking.md)
+> - [计划 SDN](../plan/Plan-Software-Defined-Networking.md)
 > - [部署 SDN](../deploy/Deploy-Software-Defined-Networking.md)
 > - [管理 SDN](../manage/manage-sdn.md)
-> - [用于 SDN 的安全](../security/sdn-security-top.md)
+> - [SDN 的安全性](../security/sdn-security-top.md)
 
 本部分包含以下主题。
 
-- [Windows Server 软件定义的网络堆栈疑难解答](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack)  
-- 博客文章[进行故障排除配置 SDN RAS 网关 VPN 带宽设置在 Virtual Machine Manager](https://blogs.technet.microsoft.com/wsnetdoc/2017/03/02/troubleshoot-changing-sdn-ras-gateway-vpn-bandwidth-settings-in-virtual-machine-manager/)
-- 博客文章[SDN 故障排除：查找本地 SDN RAS 网关服务器 IP 地址](https://blogs.technet.microsoft.com/wsnetdoc/2017/03/23/sdn-troubleshooting-find-the-local-sdn-ras-gateway-server-ip-address/)
-- 博客文章[SDN 故障排除：UDP 通信和不断变化的网络控制器证书](https://blogs.technet.microsoft.com/wsnetdoc/2017/08/25/sdn-troubleshooting-udp-communication-and-changing-network-controller-cert/)
+- [排查 Windows Server 软件定义网络堆栈问题](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack)
+- 博客文章 @no__t 0SDN 故障排除：UDP 通信故障和更改网络控制器证书 @ no__t-0
+- 博客文章[软件定义的网络（SDN）中的证书问题疑难解答](https://techcommunity.microsoft.com/t5/Networking-Blog/Troubleshooting-certificate-issues-in-Software-Defined/ba-p/339671)
+- 博客文章[如何为 Windows Server 2016 中的 BGP 对等互连查找 SDN 网关本地地址](https://techcommunity.microsoft.com/t5/Networking-Blog/How-to-find-the-SDN-gateway-local-address-for-BGP-peering-in/ba-p/339663)
+- 博客文章[在 Virtual Machine Manager 中配置 SDN RAS 网关 VPN 带宽设置疑难解答](https://techcommunity.microsoft.com/t5/Networking-Blog/Troubleshoot-Configuring-SDN-RAS-Gateway-VPN-Bandwidth-Settings/ba-p/339661)
 

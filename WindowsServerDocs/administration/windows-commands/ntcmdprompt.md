@@ -1,8 +1,8 @@
 ---
 title: ntcmdprompt
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 583f56c294e66542a75efca09e97d57ae54a8cea
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5fef1641bf1b48bd1fe4aaf284ed309ab4d4d5f1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436422"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372668"
 ---
 # <a name="ntcmdprompt"></a>ntcmdprompt
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-运行命令解释器**Cmd.exe**，而非**Command.com**前后运行的是终止和保持居民 (TSR) 或启动命令提示符下从 MS-DOS 应用程序中后。
+运行 "终止并保持驻留" （TSR）后，或在从 MS-DOS 应用程序中启动命令提示符之后运行命令解释器**cmd.exe**，而不是**Command.com**。
 ## <a name="syntax"></a>语法
 ```
 ntcmdprompt
@@ -36,9 +36,9 @@ ntcmdprompt
 |    /?     | 在命令提示符下显示帮助。 |
 
 ## <a name="remarks"></a>备注
-- 当**Command.com**正在运行的某些功能**Cmd.exe**，如**doskey**显示的命令历史记录，请将不可用。 如果你想要运行**Cmd.exe**命令解释器启动终止和保持居民 (TSR) 或启动命令提示符下从基于 MS-DOS 的应用程序中之后，可以使用**ntcmdprompt**命令。 但是，请记住要在运行时不可能可供使用 TSR **Cmd.exe**。 可以包括**ntcmdprompt**命令，在您**Config.nt**文件或应用程序的程序信息文件 (Pif) 中的等效的自定义启动文件。
+- 当**Command.com**运行时， **cmd.exe**的某些功能（例如命令历史记录的**doskey**显示）将不可用。 如果你希望在启动终止和保持驻留（TSR）或从基于 MS-DOS 的应用程序中启动命令提示符之后运行**cmd.exe**命令解释器，则可以使用**ntcmdprompt**命令。 但请记住，在运行**cmd.exe**时 TSR 可能不可用。 可以在**配置**文件中包含**ntcmdprompt**命令，也可以在应用程序的程序信息文件（Pif）中包含等效的自定义启动文件。
   ## <a name="examples"></a>示例
-  若要包括**ntcmdprompt**在你**Config.nt**文件或 Pif，类型中指定的配置启动文件： **ntcmdprompt**
+  若要在**配置**文件中包含**ntcmdprompt** ，或在 Pif 中指定配置启动文件，请键入： **ntcmdprompt**
   ## <a name="additional-references"></a>其他参考
 - [命令行语法项](command-line-syntax-key.md)
 

@@ -7,90 +7,90 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 3a78334f64d9e51515757b01f2d788bf87f67a35
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 79dfc7fbf9e2dcc753829cc53d914f374010f925
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501607"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408332"
 ---
 # <a name="plan-device-based-conditional-access-on-premises"></a>规划基于设备的条件性访问本地
 
 
-本文档介绍基于混合方案中，将在本地目录连接到使用 Azure AD Connect 的 Azure AD 中设备的条件性访问策略。     
+本文档介绍基于混合方案中的设备的条件访问策略，其中本地目录使用 Azure AD Connect 连接到 Azure AD。     
 
-## <a name="ad-fs-and-hybrid-conditional-access"></a>AD FS 和混合的条件性访问  
+## <a name="ad-fs-and-hybrid-conditional-access"></a>AD FS 和混合条件性访问  
 
-AD FS 提供混合方案中的条件性访问策略上的本地的组件。  与条件性访问云资源的 Azure AD 注册设备时，Azure AD Connect 设备写回功能可以让设备注册信息可在本地 AD FS 策略来使用和强制执行。  这样一来，您有一种访问控制策略上的本地和云资源的一致性方法。  
+AD FS 提供混合方案中条件访问策略的本地组件。  向云资源的条件性访问注册设备时，Azure AD Connect 设备写回功能会使设备注册信息在本地提供，以供 AD FS 策略使用和实施 Azure AD。  这样一来，就可以通过一致的方式访问本地和云资源的控制策略。  
 
 ![条件性访问](media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
 
-### <a name="types-of-registered-devices"></a>类型的已注册的设备  
-有三种类型的已注册的设备，在 Azure AD 中表示为设备对象和可用于条件性访问与 AD FS 在本地以及所有这些。  
+### <a name="types-of-registered-devices"></a>已注册设备的类型  
+有三种类型的已注册设备，它们都表示为 Azure AD 中的设备对象，并可用于在本地 AD FS 的条件性访问。  
 
-| |添加工作或学校帐户  |加入 Azure AD  |Windows 10 的域加入    
+| |添加工作或学校帐户  |加入 Azure AD  |Windows 10 域加入    
 | --- | --- |--- | --- |
-|描述    |  用户添加他们的工作或学校帐户添加到其 BYOD 设备以交互方式。  **注意：** 添加工作或学校帐户是工作区加入在 Windows 8/8.1 中的替代       | 用户将 Windows 10 工作设备加入 Azure AD。|已加入域的 Windows 10 设备自动注册到 Azure AD。|           
-|用户登录到设备的方式     |  没有登录到 Windows 的工作或学校帐户。  使用 Microsoft 帐户登录。       |   登录到 Windows 以将设备注册的 （工作或学校） 帐户。      |     使用 AD 帐户登录。|      
-|如何管理设备    |      MDM 策略 （使用其他 Intune 注册）   | MDM 策略 （使用其他 Intune 注册）        |   组策略，System Center Configuration Manager (SCCM) |
-|Azure AD 信任类型|已加入工作区|已加入 azure AD|加入域  |     
-|W10 设置位置    | 设置 > 帐户 > 你的帐户 > 添加工作或学校帐户        | 设置 > 系统 > 关于 > 加入 Azure AD       |   设置 > 系统 > 关于 > 加入域 |       
-|此外可用于 iOS 和 Android 设备？   |    是     |       否  |   否   |   
+|描述    |  用户以交互方式将其工作或学校帐户添加到其 BYOD 设备。  **注意：** 添加工作或学校帐户是 Windows 8/8.1 中 Workplace Join 的替代项       | 用户将其 Windows 10 工作设备加入 Azure AD。|已加入 Windows 10 域的设备会自动注册 Azure AD。|           
+|用户如何登录到设备     |  不以工作或学校帐户登录到 Windows。  使用 Microsoft 帐户登录。       |   以注册设备的（工作或学校帐户）登录到 Windows。      |     使用 AD 帐户登录。|      
+|如何管理设备    |      MDM 策略（附加 Intune 注册）   | MDM 策略（附加 Intune 注册）        |   组策略，System Center Configuration Manager （SCCM） |
+|Azure AD 信任类型|已加入工作区|Azure AD 联接|加入域  |     
+|W10 设置位置    | 设置 > 帐户 > 帐户 > 添加工作或学校帐户        | 有关 > 联接 > 系统 > 的设置 Azure AD       |   有关 > 加入域的系统 > 设置 > |       
+|还适用于 iOS 和 Android 设备？   |    是     |       否  |   否   |   
 
   
 
-有关注册设备的不同方法的详细信息，请参阅：  
-* [工作区中使用 Windows 10 设备](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-windows10-devices/)  
-* [设置 Windows 10 设备进行工作](https://jairocadena.com/2016/01/18/setting-up-windows-10-devices-for-work-domain-join-azure-ad-join-and-add-work-or-school-account/)  
-[加入 Azure Active Directory 的 Windows 10 移动版](https://technet.microsoft.com/itpro/windows/manage/join-windows-10-mobile-to-azure-active-directory)  
+有关注册设备的不同方法的详细信息，另请参阅：  
+* [在工作区中使用 Windows 10 设备](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-windows10-devices/)  
+* [设置 Windows 10 设备的工作](https://jairocadena.com/2016/01/18/setting-up-windows-10-devices-for-work-domain-join-azure-ad-join-and-add-work-or-school-account/)  
+[将 Windows 10 移动版加入到 Azure Active Directory](https://technet.microsoft.com/itpro/windows/manage/join-windows-10-mobile-to-azure-active-directory)  
 
-### <a name="how-windows-10-user-and-device-sign-on-is-different-from-previous-versions"></a>Windows 10 用户和设备登录是不同于以前的版本如何  
-适用于 Windows 10 和 AD FS 2016 有设备注册和身份验证的一些新方面有所了解 （尤其是如果您非常熟悉设备注册和"工作区加入"在以前的版本）。  
+### <a name="how-windows-10-user-and-device-sign-on-is-different-from-previous-versions"></a>Windows 10 用户和设备登录与以前的版本有何不同  
+对于 Windows 10 和 AD FS 2016，你应该了解设备注册和身份验证的一些新方面（特别是在以前版本中非常熟悉设备注册和 "工作区加入"）。  
 
-首先，在 Windows 10 和 Windows Server 2016 中的 AD FS 中，设备注册和身份验证不再只基于 X509 用户证书。  没有新的和更可靠的协议，可提供更佳的安全性和更加无缝用户体验。  主要区别是，对于 Windows 10 域加入和 Azure AD Join，没有 X509 调用 PRT 计算机证书和新的凭据。  可以读取所有相关[这里](https://jairocadena.com/2016/01/18/how-domain-join-is-different-in-windows-10-with-azure-ad/)并[此处](https://jairocadena.com/2016/02/01/azure-ad-join-what-happens-behind-the-scenes/)。  
+首先，在 windows 10 和 Windows Server 2016 中的 AD FS 中，设备注册和身份验证不再仅基于 X509 用户证书。  提供了一个新的、更可靠的协议，提供更好的安全性和更无缝的用户体验。  主要区别在于，对于 Windows 10 域加入和 Azure AD 联接，存在 X509 计算机证书和称为 PRT 的新凭据。  可在[此处](https://jairocadena.com/2016/01/18/how-domain-join-is-different-in-windows-10-with-azure-ad/)和[此处](https://jairocadena.com/2016/02/01/azure-ad-join-what-happens-behind-the-scenes/)阅读所有相关内容。  
 
-第二，Windows 10 和 AD FS 2016 支持使用 Microsoft Passport for Work，您可以阅读相关信息的用户身份验证[这里](https://jairocadena.com/2016/03/09/azure-ad-and-microsoft-passport-for-work-in-windows-10/)并[此处](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport-deployment/)。  
+其次，Windows 10 和 AD FS 2016 支持使用 Microsoft Passport for Work 的用户身份验证，可在[此处](https://jairocadena.com/2016/03/09/azure-ad-and-microsoft-passport-for-work-in-windows-10/)和[此处](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport-deployment/)阅读。  
 
-AD FS 2016 提供了无缝设备和用户 SSO 基于 PRT 和 Passport 凭据。  使用本文档中的步骤，可以启用这些功能，并查看其工作。  
+AD FS 2016 基于 PRT 和 Passport 凭据提供无缝设备和用户 SSO。  使用本文档中的步骤，您可以启用这些功能并查看它们的工作方式。  
 
-### <a name="device-access-control-policies"></a>设备的访问控制策略  
-设备可以如使用简单的 AD FS 访问控制规则中：  
+### <a name="device-access-control-policies"></a>设备访问控制策略  
+设备可用于简单 AD FS 访问控制规则，例如：  
 
-- 允许仅从已注册的设备进行访问   
-- 未注册设备需要多因素身份验证  
+- 仅允许从已注册设备访问   
+- 设备未注册时需要多重身份验证  
 
-然后可以与其他因素，例如网络访问位置和多重身份验证，创建丰富的条件性访问策略，例如组合这些规则：  
+然后，可以将这些规则与其他因素（如网络访问位置和多重身份验证）结合使用，从而创建丰富的条件性访问策略，例如：  
 
 
-- 需要针对从特定组或组的成员除外在企业网络外部访问的未注册设备的多重身份验证  
+- 对于从公司网络外部访问的未注册设备，需要多重身份验证，特定组或组的成员除外  
 
-与 AD FS 2016，这些策略可以配置专门为要求特定设备信任级别也： 任一**进行身份验证**，**托管**，或**符合**。  
+使用 AD FS 2016，可以专门将这些策略配置为需要特定设备信任级别：**经过身份验证**、**托管**或**合规**。  
 
-有关详细信息配置 AD FS 访问控制策略，请参阅[AD FS 中的访问控制策略](../../ad-fs/operations/Access-Control-Policies-in-AD-FS.md)。  
+有关配置 AD FS 访问控制策略的详细信息，请参阅[AD FS 中的访问控制策略](../../ad-fs/operations/Access-Control-Policies-in-AD-FS.md)。  
 
 #### <a name="authenticated-devices"></a>经过身份验证的设备  
-已经过身份验证的设备是未在 MDM （Intune 和第三方 mdm 一起适用于 Windows 10，仅适用于 iOS 的 Intune 和 Android） 中注册的已注册的设备。   
+经过身份验证的设备是未在 MDM （Intune 和第三方 MDMs for Windows 10，Intune 仅适用于 iOS 和 Android）中注册的已注册设备。   
 
-经过身份验证的设备都提供**isManaged** AD FS 声明值**FALSE**。 （而不会在所有已注册的设备将缺少此声明。）经过身份验证的设备 （和所有已注册的设备） 将具有 isKnown AD FS 声明具有值 **，则返回 TRUE**。  
+经过身份验证的设备将具有值**为 FALSE**的**isManaged** AD FS 声明。 （而未注册的设备将不会缺少此声明。）经过身份验证的设备（和所有已注册的设备）将具有值**为 TRUE**的 isKnown AD FS 声明。  
 
-#### <a name="managed-devices"></a>托管的设备：   
+#### <a name="managed-devices"></a>托管设备：   
 
-被管理的设备是已注册的设备已注册 mdm。  
+托管设备是注册了 MDM 的注册设备。  
 
-被管理的设备将具有 isManaged AD FS 声明具有值 **，则返回 TRUE**。  
+托管设备将具有值**为 TRUE**的 isManaged AD FS 声明。  
 
-#### <a name="devices-compliant-with-mdm-or-group-policies"></a>设备符合 （使用 MDM 或组策略）  
-符合条件的设备是未仅注册 MDM 但符合 MDM 策略的已注册的设备。 （符合性信息源自 MDM 和写入到 Azure AD）  
+#### <a name="devices-compliant-with-mdm-or-group-policies"></a>兼容设备（具有 MDM 或组策略）  
+兼容设备是指不仅注册到 MDM，而且符合 MDM 策略的已注册设备。 （符合性信息由 MDM 提供，并写入 Azure AD。）  
 
-符合条件的设备将具有**isCompliant** AD FS 声明值**TRUE**。    
+相容设备将具有值**为 TRUE**的**isCompliant** AD FS 声明。    
 
-有关 AD FS 2016 设备和条件性访问声明的完整列表，请参阅[引用](#reference)。  
+有关 AD FS 2016 设备和条件性访问声明的完整列表，请参阅[参考](#reference)。  
 
 
 ## <a name="reference"></a>参考  
-#### <a name="complete-list-of-new-ad-fs-2016-and-device-claims"></a>新的 AD FS 2016 和设备声明的完整列表  
+#### <a name="complete-list-of-new-ad-fs-2016-and-device-claims"></a>新 AD FS 2016 和设备声明的完整列表  
 
 * https://schemas.microsoft.com/ws/2014/01/identity/claims/anchorclaimtype  
 * http://schemas.xmlsoap.org/ws/2005/05/identity/claims/implicitupn  

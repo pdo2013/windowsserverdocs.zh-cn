@@ -2,19 +2,19 @@
 title: 为虚拟网络配置加密
 description: 虚拟网络加密允许加密虚拟机之间的虚拟网络流量，这些虚拟机在标记为 "已启用加密" 的子网中相互通信。
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: 378213f5-2d59-4c9b-9607-1fc83f8072f1
 ms.author: pashort
 author: shortpatti
 ms.date: 08/08/2018
-ms.openlocfilehash: ebd086c6fa93f7ab5855debfd1f71845fb9ff309
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 40150e312f4776ec093c9230eedb646eec277f49
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870058"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405810"
 ---
 # <a name="configure-encryption-for-a-virtual-subnet"></a>为虚拟子网配置加密
 

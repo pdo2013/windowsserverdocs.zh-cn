@@ -1,6 +1,6 @@
 ---
 title: 使用 AD FS 和 Web 应用程序代理部署工作文件夹 - 步骤 2，AD FS 配置后工作
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 manager: klaasl
@@ -8,31 +8,31 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 06/06/2019
 ms.assetid: 0a48852e-48cc-4047-ae58-99f11c273942
-ms.openlocfilehash: 5497651f57a0276daced614687e89f8047af9116
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 6364c3f8dc35fbafa518a106780ae6b767d4d40c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812673"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365778"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-2-ad-fs-post-configuration-work"></a>部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 2 中，AD FS 配置后工作
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-2-ad-fs-post-configuration-work"></a>使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤 2 AD FS 配置后工作
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
 本主题介绍使用 Active Directory 联合身份验证服务 (AD FS) 和 Web 应用程序代理部署工作文件夹的第二个步骤。 你可以在这些主题中查找这一过程的其他步骤：  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：概述](deploy-work-folders-adfs-overview.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：叙述](deploy-work-folders-adfs-overview.md)  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：第 1 步： 设置 AD FS](deploy-work-folders-adfs-step1.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤1，设置 AD FS @ no__t-0  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 3，设置了工作文件夹](deploy-work-folders-adfs-step3.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤3，设置工作文件夹 @ no__t-0  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 4 中，设置 Web 应用程序代理](deploy-work-folders-adfs-step4.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤4，设置 Web 应用程序代理 @ no__t-0  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 5 中，设置客户端](deploy-work-folders-adfs-step5.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤5，设置客户端 @ no__t-0  
   
 > [!NOTE]
-> 在本部分中介绍的说明适用于 Windows Server 2019 或 Windows Server 2016 环境。 如果你使用的是 Windows Server 2012 R2，请遵循 [Windows Server 2012 R2 说明](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx)。
+> 本部分中所述的说明适用于 Windows Server 2019 或 Windows Server 2016 环境。 如果你使用的是 Windows Server 2012 R2，请遵循 [Windows Server 2012 R2 说明](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx)。
 
 在步骤 1 中，你安装并配置了 AD FS。 现在，你需要对 AD FS 执行以下配置后步骤。  
   
@@ -69,7 +69,7 @@ DNS 条目的格式如下：
     > [!IMPORTANT]  
     > 使用 Windows Server 用户界面 (UI) 而不是 Windows PowerShell 设置 AD FS 时，必须为 AD FS 创建 A 记录而不是 CNAME 记录。 原因是通过 UI 创建的服务主体名称 (SPN) 仅包含用于将 AD FS 服务设置为主机的别名。  
 
-4.  在 **IP 地址**中，输入 AD FS 服务器上的 IP 地址。 在测试示例中，这是 **192.168.0.160**。 单击“添加主机”  。  
+4.  在 **IP 地址**中，输入 AD FS 服务器上的 IP 地址。 在测试示例中，这是 **192.168.0.160**。 单击“添加主机”。  
   
 5.  在“正向查找区域”文件夹中，再次右键单击你的域，然后选择**新别名 (CNAME)** 。  
   
@@ -104,11 +104,11 @@ Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name enterpriseregistratio
   
 7.  在**配置 URL** 页上，单击**下一步**。  
   
-8. 上**配置标识符**页上，添加以下标识符： `https://windows-server-work-folders/V1`。 此标识符是工作文件夹使用的硬编码值，并在与 AD FS 通信时由工作文件夹服务发送。 单击“下一步”  。  
+8. 在 "**配置标识符**" 页上，添加以下标识符： `https://windows-server-work-folders/V1`。 此标识符是工作文件夹使用的硬编码值，并在与 AD FS 通信时由工作文件夹服务发送。 单击“下一步”。  
   
 9. 在“选择访问控制策略”页上，选择**允许所有人**，然后单击**下一步**。  
   
-10. 在“准备好添加信任”  页面上，单击“下一步”  。  
+10. 在“准备好添加信任”页面上，单击“下一步”。  
   
 11. 配置完成后，向导的最后一页会指示配置成功。 选中用于编辑声明规则的复选框，然后单击**关闭**。  
   
@@ -124,13 +124,13 @@ Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name enterpriseregistratio
   
 17. 在映射表中，输入以下值：  
   
-    -   用户主体名称：UPN  
+    -   用户-名称：UPN  
   
     -   显示名称：名称  
   
-    -   姓氏：姓氏  
+    -   姓姓氏  
   
-    -   给定的名称：给定名称  
+    -   名字：给定名称  
   
 18. 单击 **“完成”** 。 你将在“颁发转换规则”选项卡上看到 WorkFolders 规则，然后单击**确定**。  
   
@@ -188,11 +188,11 @@ Set-ADFSGlobalAuthenticationPolicy -DeviceAuthenticationEnabled $true
   
 2.  键入 **MMC**。  
   
-3.  在“文件”  菜单上，单击“添加/删除管理单元”  。  
+3.  在“文件” 菜单上，单击“添加/删除管理单元”。  
   
 4.  在**可用的管理单元**列表中，单击**证书**，然后单击**添加**。 证书管理单元向导启动。  
   
-5.  选择“计算机帐户”  ，然后单击“下一步”  。  
+5.  选择“计算机帐户”，然后单击“下一步”。  
   
 6.  选择**本地计算机：（运行此控制台的计算机）** ，然后单击**完成**。  
   
@@ -206,7 +206,7 @@ Set-ADFSGlobalAuthenticationPolicy -DeviceAuthenticationEnabled $true
   
 11. 在**导出文件格式**页上，选择默认选项，然后单击**下一步**。  
   
-12. 为证书创建密码。 这是以后在将证书导入其他设备时使用的密码。 单击“下一步”  。  
+12. 为证书创建密码。 这是以后在将证书导入其他设备时使用的密码。 单击“下一步”。  
   
 13. 输入证书的位置和名称，然后单击**完成**。  
   
@@ -220,11 +220,11 @@ Set-ADFSGlobalAuthenticationPolicy -DeviceAuthenticationEnabled $true
   
 2.  键入 **MMC**。  
   
-3.  在“文件”  菜单上，单击“添加/删除管理单元”  。  
+3.  在“文件” 菜单上，单击“添加/删除管理单元”。  
   
 4.  在**可用的管理单元**列表中，单击**证书**，然后单击**添加**。 证书管理单元向导启动。  
   
-5.  选择“计算机帐户”  ，然后单击“下一步”  。  
+5.  选择“计算机帐户”，然后单击“下一步”。  
   
 6.  选择**本地计算机：（运行此控制台的计算机）** ，然后单击**完成**。  
   
@@ -242,15 +242,15 @@ Set-ADFSGlobalAuthenticationPolicy -DeviceAuthenticationEnabled $true
   
 13. 在**权限**窗口中，至少将读取权限给予帐户，然后单击**确定**。  
   
-如果你没有管理私钥的选项，您可能需要运行以下命令： `certutil -repairstore my *`  
+如果你没有管理私钥的选项，可能需要运行以下命令： `certutil -repairstore my *`  
   
 ## <a name="verify-that-ad-fs-is-operational"></a>验证 AD FS 是否可运行
 
-若要验证 AD FS 是否正常运行，打开浏览器窗口并转到`https://blueadfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`，更改 URL 以匹配你的环境。
+若要验证 AD FS 是否可操作，请打开浏览器窗口，并进入 `https://blueadfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`，更改 URL，使其与你的环境匹配。
   
 浏览器窗口将显示联合服务器元数据，而不进行任何格式化。 如果你可以看到数据没有任何 SSL 错误或警告，则你的联合服务器可以运行。  
   
-下一步：[部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 3，设置了工作文件夹](deploy-work-folders-adfs-step3.md)  
+下一步：使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤3，设置工作文件夹 @ no__t-0  
   
 ## <a name="see-also"></a>请参阅  
 [工作文件夹概述](Work-Folders-Overview.md)

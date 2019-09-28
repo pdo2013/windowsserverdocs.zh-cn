@@ -1,8 +1,8 @@
 ---
 title: clean
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cd5eb2ec1bde4523eb6f0f919e09b9711b2654fb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f871ad1d13e06bf0cbb886ba64a52e7a55a9a797
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434327"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379321"
 ---
 # <a name="clean"></a>clean
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-Diskpart clean 命令中删除所有分区或卷格式从选中的磁盘。
+Diskpart clean 命令从具有焦点的磁盘中删除所有分区或卷格式。
 ## <a name="syntax"></a>语法
 ```
 clean [all]
@@ -33,16 +33,16 @@ clean [all]
 
 | 参数 |                                                        描述                                                        |
 |-----------|---------------------------------------------------------------------------------------------------------------------------|
-|    全部    | 指定在磁盘上的每个扇区设置为零，完全删除磁盘上包含的所有数据。 |
+|    全部    | 指定磁盘上的每个扇区都设置为零，这会完全删除磁盘上包含的所有数据。 |
 
 ## <a name="remarks"></a>备注
-- 在主启动记录 (MBR) 磁盘，覆盖 MBR 分区信息和隐藏的扇区信息。
-- 在 GUID 分区表 (gpt) 磁盘上，会覆盖 gpt 分区信息，包括保护性 MBR。 没有任何隐藏扇区信息。
-- 成功执行此操作，必须选择一个磁盘。 使用**选择的磁盘**命令选择某一磁盘，并将焦点移到它。
+- 在主启动记录（MBR）磁盘上，仅覆盖 MBR 分区信息和隐藏扇区信息。
+- 在 GUID 分区表（gpt）磁盘上，将覆盖 gpt 分区信息（包括保护 MBR）。 没有隐藏扇区信息。
+- 若要成功执行此操作，必须选择磁盘。 使用 "**选择磁盘**" 命令选择磁盘，并将焦点移动到该磁盘。
   ## <a name="BKMK_examples"></a>示例
-  若要删除所选磁盘中的所有格式，请键入：
+  若要从所选磁盘中删除所有格式设置，请键入：
   ```
   clean
   ```
 
-[Clear-Disk](https://technet.microsoft.com/library/hh848661.aspx)
+[清除磁盘](https://technet.microsoft.com/library/hh848661.aspx)

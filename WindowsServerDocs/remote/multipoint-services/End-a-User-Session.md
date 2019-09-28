@@ -2,7 +2,7 @@
 title: 结束用户会话
 description: 了解何时以及如何在 MultiPoint Services 中手动结束用户会话
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -12,12 +12,12 @@ ms.assetid: 51b1076b-cce5-45a7-8cf2-ecc6aa390d14
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 2b290dbe14129a2d5fe297c5c95479e764dc55de
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 73a04399c244adf1f9d8b6ec2c41dc0593e5ddd9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871700"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395427"
 ---
 # <a name="end-a-user-session"></a>结束用户会话
 当必须从 MultiPoint 服务系统注销用户时，应结束用户会话，以将桌面恢复为其默认设置。 用户将收到一个连接即将结束的警告。 当你想要执行以下操作时，应结束用户的连接：  

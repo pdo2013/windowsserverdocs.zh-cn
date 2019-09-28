@@ -2,22 +2,22 @@
 title: 启用或禁用引用和客户端故障回复
 description: 本文介绍如何启用或禁用引用和客户端故障回复。
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 20ac61f86ede938efd574fc6a048775437a51211
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e7dd11b530c61e2536db425d3e85e0fbe458d349
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835018"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386220"
 ---
 # <a name="enable-or-disable-referrals-and-client-failback"></a>启用或禁用引用和客户端故障回复
 
-> 适用于：Windows Server 2019，Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2、 Windows Server 2008
+> 适用于：Windows Server 2019，Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2，Windows Server 2008
 
 引用是指当用户访问命名空间根目录或包含目标的 DFS 文件夹时，客户端计算机从域控制器或命名空间服务器接收的服务器的排序列表。 接收引用后，计算机会尝试访问列表中的第一个服务器。 如果该服务器不可用，则客户端计算机会尝试访问下一个服务器。 如果服务器不可用，则可将客户端配置为在该服务器可用后故障回复到首选服务器。
 
@@ -39,11 +39,11 @@ ms.locfileid: "59835018"
 
 
 > [!TIP]
-> 若要启用或禁用使用 Windows PowerShell 的引用，使用[集 DfsnRootTarget – 状态](https://technet.microsoft.com/library/jj884266.aspx)或[集 DfsnServerConfiguration](https://technet.microsoft.com/library/jj884277.aspx) cmdlet，Windows Server 2012 中引入的。
+> 若要使用 Windows PowerShell 启用或禁用引用，请使用 Windows Server 2012 中引入的[DfsnRootTarget – State](https://technet.microsoft.com/library/jj884266.aspx)或[DfsnServerConfiguration](https://technet.microsoft.com/library/jj884277.aspx) cmdlet。
 
 ## <a name="enable-client-failback"></a>启用客户端故障回复
 
-如果目标不可用，可以将客户端配置为在目标恢复后故障回复到该目标。 故障回复正常工作，客户端计算机必须满足以下主题中列出的要求：[复查 DFS 命名空间客户端要求](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx)。
+如果目标不可用，可以将客户端配置为在目标恢复后故障回复到该目标。 要使故障回复正常工作，客户端计算机必须满足以下主题中列出的要求：[查看 DFS 命名空间客户端要求](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx)。
 
 
 > [!NOTE]
@@ -70,6 +70,6 @@ ms.locfileid: "59835018"
 
 ## <a name="see-also"></a>请参阅 
 
--   [调试 DFS 命名空间](tuning-dfs-namespaces.md)
--   [复查 DFS 命名空间客户端要求](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx)
--   [为 DFS 命名空间委派管理权限](delegate-management-permissions-for-dfs-namespaces.md)
+-   [调整 DFS 命名空间](tuning-dfs-namespaces.md)
+-   [查看 DFS 命名空间客户端要求](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx)
+-   [委派 DFS 命名空间的管理权限](delegate-management-permissions-for-dfs-namespaces.md)

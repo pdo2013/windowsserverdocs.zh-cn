@@ -1,9 +1,9 @@
 ---
-title: 步骤 4 验证群集
-description: 本主题是指南的在 Windows Server 2016 中的群集中部署远程访问的一部分。
+title: 步骤4验证群集
+description: 本主题是在 Windows Server 2016 的群集中部署远程访问指南的一部分。
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,20 +12,20 @@ ms.topic: article
 ms.assetid: f22dcf10-b453-4664-a9ef-e40e95c72f63
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 424c4f881c168ea691dd51cd2d86a4a234c41075
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 738b7d6aad1c9684ac1e12981213caaf3f745c2c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282982"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367398"
 ---
-# <a name="step-4-verify-the-cluster"></a>步骤 4 验证群集
+# <a name="step-4-verify-the-cluster"></a>步骤4验证群集
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-本主题介绍如何验证正确配置了 DirectAccess 群集部署。  
+本主题介绍如何验证是否已正确配置 DirectAccess 群集部署。  
   
-### <a name="to-verify-access-to-internal-resources-through-the-cluster"></a>若要验证到内部资源通过群集的访问权限  
+### <a name="to-verify-access-to-internal-resources-through-the-cluster"></a>验证通过群集访问内部资源的步骤  
   
 1.  将 DirectAccess 客户端计算机连接到公司网络并获取组策略。  
   
@@ -33,9 +33,9 @@ ms.locfileid: "67282982"
   
     你应能够访问所有公司资源。  
   
-3.  通过关闭或断开与外部网络，除一台群集服务器的所有在群集中测试通过的每个服务器的连接。 在客户端计算机上，尝试访问公司资源。 重复该测试不同的群集服务器上。  
+3.  通过在群集中的每个服务器上关闭，或从外部网络断开连接，而不是其中一个群集服务器来测试连接。 在客户端计算机上，尝试访问公司资源。 在其他群集服务器上重复此测试。  
   
-    您应能够通过每台群集服务器中访问所有公司资源。  
+    应该能够通过每个群集服务器访问所有公司资源。  
   
 
 

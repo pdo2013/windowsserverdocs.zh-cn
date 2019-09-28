@@ -1,8 +1,8 @@
 ---
 title: bitsadmin complete
-description: Windows 命令主题**bitsadmin 完成**-完成作业。 使用此开关时，将下载的文件才可供您。
+description: Bitsadmin 的 Windows 命令主题**完成**-完成该作业。 使用此开关时，将下载的文件才可供您。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 561585da370f7e69aa3b83b3ddd7579bfc658a21
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d5a1dc5dbbf2d5b3207b5423f338e0caf4412599
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817318"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381825"
 ---
 # <a name="bitsadmin-complete"></a>bitsadmin complete
 
@@ -45,4 +45,4 @@ C:\>bitsadmin /complete myDownloadJob
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

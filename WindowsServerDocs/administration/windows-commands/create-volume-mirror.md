@@ -1,8 +1,8 @@
 ---
 title: 创建卷镜像
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 72d80fdf6eca1262a858cbe2a98ed8c9c421bff6
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 72ecc4e0ede163857c47c5b7013aacdd49719ac8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434078"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378867"
 ---
 # <a name="create-volume-mirror"></a>创建卷镜像
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-使用两个指定的动态磁盘来创建卷镜像。  
+使用两个指定的动态磁盘创建卷镜像。  
   
 > [!NOTE]  
-> 此命令才在 Windows 7 和 Windows Server 2008 R2 中可用。  
+> 此命令仅适用于 Windows 7 和 Windows Server 2008 R2。  
   
   
   
@@ -41,17 +41,17 @@ create volume mirror [size=<n>] disk=<n>,<n>[,<n>,...] [align=<n>] [noerr] [noer
   
 |         参数         |                                                                                                                                     描述                                                                                                                                     |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         size\=<n>         |                 指定的磁盘空间量，以兆字节为单位\(MB\)，该卷将占用的每个磁盘上。 如果没有给定大小，新建卷将占用的最小磁盘以及每个后续的磁盘上相同大小的空间上的剩余可用空间。                 |
-| disk\=<n>,<n>\[,<n>,...\] |                       指定在其创建镜像卷的动态磁盘。 需要两个动态磁盘来创建镜像卷。 使用指定的大小相等的空间量**大小**参数分配每个磁盘上。                        |
-|        align\=<n>         | 对齐到最接近的对齐边界的所有卷扩展盘区。 此参数通常用于硬件 RAID 逻辑单元号\(LUN\)数组以提高性能。 *n*是千字节数\(KB\)从一开始为最接近的对齐边界的磁盘。 |
-|           noerr           |                                        用于仅编写脚本。 当遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，错误会导致 DiskPart 退出并出现错误。                                         |
+|         size @ no__t-0 @ no__t-1         |                 指定卷在每个磁盘上占用的磁盘空间量（以 mb 为单位 @no__t-配置包括 @ no__t）。 如果没有给定大小，则新卷将占用最小磁盘上的剩余可用空间，并在每个后续磁盘上占用相同的空间量。                 |
+| disk @ no__t-0 @ no__t，<n> @ no__t，<n>,... \] |                       指定在其上创建镜像卷的动态磁盘。 需要两个动态磁盘来创建镜像卷。 在每个磁盘上分配的空间量等于使用**size**参数指定的大小。                        |
+|        align @ no__t-0 @ no__t-1         | 将所有卷区与最接近的对齐边界对齐。 此参数通常与硬件 RAID 逻辑单元号 \(LUN @ no__t 数组结合使用，以提高性能。 *n*是从磁盘开头到最接近的对齐边界的千字节数 \(kb @ no__t-2。 |
+|           noerr           |                                        仅用于脚本编写。 遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，则错误会导致 DiskPart 退出并出现错误。                                         |
   
 ## <a name="remarks"></a>备注  
   
--   创建卷后，焦点就自动转移到新卷。  
+-   创建卷后，焦点会自动转移到新卷。  
   
 ## <a name="BKMK_examples"></a>示例  
-若要创建 1000 兆字节为单位的镜像的卷的大小，磁盘 1 和 2 中，键入：  
+若要创建大小为 1000 mb 的镜像卷，请在磁盘1和2上键入：  
   
 ```  
 create volume mirror size=1000 disk=1,2  

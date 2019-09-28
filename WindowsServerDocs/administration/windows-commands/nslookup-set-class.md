@@ -1,8 +1,8 @@
 ---
 title: nslookup set class
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7953f450c17afdee849515f8d8945631a30f4b98
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 312b409490603fcb0ded63a78f3a2936f5216de1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436840"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372976"
 ---
 # <a name="nslookup-set-class"></a>nslookup set class
 
 
 
-更改查询类。 类指定的协议组的信息。
+更改查询类。 类指定信息的协议组。
 
 ## <a name="syntax"></a>语法
 
@@ -36,7 +36,7 @@ set class=<Class>
 
 | 参数 |                                                                                                                                    描述                                                                                                                                    |
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \<类 >  | 默认类为 in。 下面列出了此命令有效的值。</br>-在：指定 Internet 类。</br>-混沌测试：指定的混沌测试类。</br>-赫西奥德：指定 MIT Athena 赫西奥德类。</br>-任何：指定任何以前列出的通配符。 |
+| \<类 >  | 默认类为。 下面列出了此命令的有效值。</br>中指定 Internet 类。</br>混沌测试指定混乱的类。</br>- HESIOD:指定 MIT Athena Hesiod 类。</br>随时指定前面列出的任何通配符。 |
 |   {帮助   |                                                                                                                                        ?}                                                                                                                                         |
 
 #### <a name="additional-references"></a>其他参考

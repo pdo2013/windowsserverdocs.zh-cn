@@ -1,19 +1,19 @@
 ---
 title: Always On VPN 技术概述
 description: '本页 provies 提供指向详细文档链接的 Always On VPN 技术的简要概述。 '
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: de5dd8e17c07e46db28c529847607eec2a05a069
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 31d0d5c12760fc627ce93972f4a70e85f61dd178
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871392"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404371"
 ---
 # <a name="always-on-vpn-technology-overview"></a>Always On VPN 技术概述
 

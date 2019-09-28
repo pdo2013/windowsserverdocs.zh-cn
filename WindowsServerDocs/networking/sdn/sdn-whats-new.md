@@ -2,19 +2,19 @@
 title: Windows Server 中 SDN 的新增功能
 description: 本主题提供有关 Windows Server 1709 的全新软件定义网络功能的信息
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: efad919b-e9e7-4a0c-b373-e68a092f93b5
 ms.author: pashort
 author: shortpatti
 ms.date: 10/02/2018
-ms.openlocfilehash: 803ca27ca138281cbea1a93aca7e5a8b799bd862
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 09fcf8e3faf8d8b7f943255599dd3b273314db23
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870158"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405999"
 ---
 # <a name="whats-new-in-sdn-for-windows-server-2019"></a>Windows Server 2019 中 SDN 的新增功能
 

@@ -1,8 +1,8 @@
 ---
 title: getmac
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b1266b7368f1b073e00735a8d3362c75305d7c0f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c770f5da5159e0037af479f90fadb4cd83464c77
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438276"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375806"
 ---
 # <a name="getmac"></a>getmac
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-返回的媒体访问控制 (MAC) 地址和网络协议与每个地址关联的每台计算机中的所有网络卡或者本地或网络中的列表。 
+返回与每台计算机的所有网卡的每个地址相关联的媒体访问控制（MAC）地址和网络协议列表，不管是在本地还是在网络上。 
 ## <a name="syntax"></a>语法
 ```
 getmac[.exe][/s <computer> [/u <Domain\<User> [/p <Password>]]][/fo {TABLE | list | CSV}][/nh][/v]
@@ -33,16 +33,16 @@ getmac[.exe][/s <computer> [/u <Domain\<User> [/p <Password>]]][/fo {TABLE | lis
 
 |             参数              |                                                                                          描述                                                                                          |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|           /s <computer>            |                                      指定的名称或远程计算机的 IP 地址 （不使用反斜杠）。 默认值为本地计算机。                                       |
-|        /u <Domain>\\<User>         | 使用由用户或域 \ 用户指定的用户帐户权限运行该命令。 默认值为当前登录的用户发出命令的计算机上的权限。 |
-|           /p <Password>            |                                                     指定在指定的用户帐户的密码 **/u**参数。                                                     |
-| /fo { TABLE &#124; list&#124; CSV} |                       指定要用于将查询输出的格式。 有效的值为**表**，**列表**，并**CSV**。 默认格式为输出**表**。                        |
-|                /nh                 |                                             禁止显示在输出中的列标题。 时有效 **/fo**参数设置为**表**或**CSV**。                                              |
-|                 /v                 |                                                                    指定输出显示详细的信息。                                                                     |
+|           /s <computer>            |                                      指定远程计算机的名称或 IP 地址（不使用反斜杠）。 默认值为本地计算机。                                       |
+|        /u <Domain> @ no__t-1 @ no__t-2         | 使用用户或 Domain\user 指定的用户的帐户权限运行命令。 默认为发出命令的计算机上当前登录用户的权限。 |
+|           /p <Password>            |                                                     指定在 **/u**参数中指定的用户帐户的密码。                                                     |
+| /fo {表&#124;列表&#124; CSV} |                       指定用于查询输出的格式。 有效值为**TABLE**、 **list**和**CSV**。 输出的默认格式为**TABLE**。                        |
+|                /nh                 |                                             隐藏输出中的列标题。 当 **/fo**参数设置为**表**或**CSV**时有效。                                              |
+|                 /v                 |                                                                    指定输出显示详细信息。                                                                     |
 |                 /?                 |                                                                                                                                                                                               |
 
 ## <a name="remarks"></a>备注
-**getmac**你想要的 MAC 地址输入到一个网络分析器，或当您需要知道什么协议是当前正在使用的计算机中每个网络适配器上时很有用。
+当你希望将 MAC 地址输入网络分析器时，或者需要知道计算机中每个网络适配器当前正在使用的协议时， **getmac**可能非常有用。
 ## <a name="BKMK_Examples"></a>示例
 下面的示例演示如何使用**getmac**命令：
 ```

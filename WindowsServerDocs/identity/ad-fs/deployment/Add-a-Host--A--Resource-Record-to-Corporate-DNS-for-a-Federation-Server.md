@@ -6,35 +6,35 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 5767fa45f8b25680aa1b1d97ddab630923d10fae
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 132e71cec134d17dd73be998683c09f752fdc414
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192487"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71360329"
 ---
 # <a name="add-a-host-a-resource-record-to-corporate-dns-for-a-federation-server"></a>为联合服务器将主机 (A) 资源记录添加到企业 DNS
 
 
 
-适用于使用 Windows 集成身份验证，主机的联合身份验证服务器的成功访问网络上的公司的客户端\(A\)资源记录必须首先在公司域名系统中创建\(DNS\)解析帐户联合身份验证服务器的主机名\(例如，fs.fabrikam.com\)到联合身份验证服务器或联合身份验证服务器群集的 IP 地址。 可以使用以下过程来添加主机\(A\)公司 dns 中为联合身份验证服务器的资源记录。  
+要使企业网络上的客户端成功地使用 Windows 集成身份验证访问联合服务器，必须先在公司域名系统 \(DNS @ no__t-3 中创建一个主机 \(A @ no__t联合服务器或联合服务器群集的 IP 地址的帐户联合服务器 @no__t 的主机名（4for 示例，no__t）。 你可以使用以下过程向联合服务器的企业 DNS 添加主机 @no__t 0A @ no__t 资源记录。  
   
-中的成员身份**管理员**，或等效身份是完成此过程所需的最小。  可在[本地默认组和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477)中查看有关使用适合的帐户和组成员身份的详细信息。   
+**Administrators**中的成员身份或同等身份是完成此过程所需的最低要求。  可在[本地默认组和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477)中查看有关使用适合的帐户和组成员身份的详细信息。   
   
-### <a name="to-add-a-host-a-resource-record-to-corporate-dns-for-a-federation-server"></a>若要将主机添加\(A\)公司 dns 中为联合身份验证服务器的资源记录  
+### <a name="to-add-a-host-a-resource-record-to-corporate-dns-for-a-federation-server"></a>向联合服务器的企业 DNS 添加主机 @no__t 0A @ no__t 资源记录  
   
-1.  在企业网络的 DNS 服务器上，打开 DNS 管理单元\-中。  
+1.  在企业网络的 DNS 服务器上，打开 DNS snap @ no__t-0in。  
   
-2.  在控制台树中，右键\-单击适用的正向查找区域，然后单击**新的主机\(A 或 AAAA\)** 。  
+2.  在控制台树中，右键 @ no__t-0click 适用的正向查找区域，然后单击 "**新建主机 \(a 或 AAAA @ no__t**"。  
   
-3.  在中**名称**，仅键入计算机名称的联合身份验证服务器或联合身份验证服务器群集; 例如，为完全限定的域名\(FQDN\) fs.fabrikam.com，键入**fs**.  
+3.  在 "**名称**" 中，仅键入联合服务器或联合服务器群集的计算机名称;例如，对于完全限定的域名 \(FQDN @ no__t-2 fs.fabrikam.com，请键入**fs**。  
   
-4.  在中**IP 地址**，键入联合身份验证服务器或联合身份验证服务器群集，例如 192.168.1.4 的 IP 地址。  
+4.  在 " **ip 地址**" 中，键入联合服务器或联合服务器群集的 IP 地址，例如192.168.1.4。  
   
-5.  单击“添加主机”  。  
+5.  单击“添加主机”。  
   
 ## <a name="additional-references"></a>其他参考  
 [清单：设置联合服务器](Checklist--Setting-Up-a-Federation-Server.md)  

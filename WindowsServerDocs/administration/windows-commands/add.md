@@ -1,8 +1,8 @@
 ---
 title: 添加
-description: Windows 命令主题**添加**-镜像焦点设置到指定的磁盘的简单卷。
+description: 用于**添加**的 Windows 命令主题-镜像到指定磁盘的简单卷。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5ed2dc4c8bbd6ff8e1bca498ebe50216185dc720
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c126676d1e600b5133e91408d9ff7b9a8e5a3510
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850938"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382796"
 ---
 # <a name="add"></a>添加
 
 
 
-镜像焦点设置到指定的磁盘的简单卷。
+将焦点镜像到指定磁盘上的简单卷。
 
 > [!IMPORTANT]
-> 此 DiskPart 命令不可在任何版本的 Windows Vista 中可用。
+> 在任何版本的 Windows Vista 中，此 DiskPart 命令均不可用。
 

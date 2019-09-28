@@ -1,8 +1,8 @@
 ---
 title: nslookup finger Command
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 13eb4e45b3fdc17fd48fa9793abaaf05925b56a2
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4067c16a7d338c5853a6179af17cf4e3e996e6a6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436975"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373131"
 ---
 # <a name="nslookup-finger-command"></a>nslookup finger Command
 
 
 
-与当前计算机上的手指服务器建立连接。
+与当前计算机上的 finger 服务器连接。
 
 ## <a name="syntax"></a>语法
 
@@ -36,8 +36,8 @@ finger [<UserName>] [{[>] <FileName>|[>>] <FileName>}]
 
 |  参数  |                                                                               描述                                                                               |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \<UserName> |                                                               指定要查找的用户的名称。                                                                |
-| \<FileName> | 指定要在其中保存输出的文件名称。 可以使用大于 (>) 和双精度大于 (>>) 个字符将输出重定向以通常的方式。 |
+| \<UserName > |                                                               指定要查找的用户的名称。                                                                |
+| \<文件名 > | 指定用于保存输出的文件名。 您可以使用大于号（>）和双大于号（> >）字符以常规方式重定向输出。 |
 |    {帮助    |                                                                                   ?}                                                                                    |
 
 #### <a name="additional-references"></a>其他参考

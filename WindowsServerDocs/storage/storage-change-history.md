@@ -1,7 +1,7 @@
 ---
 ms.assetid: 87174225-a60f-4718-b4cc-9b172f205b72
 title: 存储主题的更改历史记录
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
@@ -9,12 +9,12 @@ manager: brianlic
 ms.author: jgerend
 ms.date: 08/19/2019
 description: 面向 IT 专业人员的适用于 Windows Server 的本地存储文档中的新主题和更新主题。
-ms.openlocfilehash: d5ab2d8ae4ca90e259f8bc996494439190bc5279
-ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
+ms.openlocfilehash: ce937dfb5c6c0b46c8085cbb202590567ea829d3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69584819"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393930"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Windows Server 中存储主题的更改历史记录
 
@@ -22,9 +22,9 @@ ms.locfileid: "69584819"
 
 本主题列出了 Windows Server[存储](storage.md)文档中的新主题和更新主题。
 
-> 如果你正在寻找 Windows Server 的更新历史记录, 请参阅[windows 10 和 Windows server 2019 更新历史记录](https://support.microsoft.com/help/4464619)或[windows server 2016 更新历史](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history)记录。
+> 如果你正在寻找 Windows Server 的更新历史记录，请参阅[windows 10 和 Windows server 2019 更新历史记录](https://support.microsoft.com/help/4464619)或[windows server 2016 更新历史](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history)记录。
 
-## <a name="august-2019"></a>2019年8月
+## <a name="august-2019"></a>2019 年 8 月
 
 | 新的或已更改的主题                                        | 描述 |
 | ---                                                         | ---           |
@@ -34,7 +34,7 @@ ms.locfileid: "69584819"
 
 | 新的或已更改的主题                                        | 描述 |
 | ---                                                         | ---           |
-| [磁盘清理](file-server/disk-cleanup.md)                                              | 新建 (从以前的[版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770278(v%3dws.11))迁移)
+| [磁盘清理](file-server/disk-cleanup.md)                                              | 新建（从以前的[版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770278(v%3dws.11))迁移）
 | [存储迁移服务常见问题解答](storage-migration-service/faq.md#can-i-consolidate-multiple-servers-into-one-server) | 增加了性能优化信息。 |
 
 ## <a name="may-2019"></a>2019 年 5 月
@@ -99,7 +99,7 @@ ms.locfileid: "69584819"
 |---|---|
 |[存储迁移服务概述](storage-migration-service/overview.md)| 新主题 |
 |[使用存储迁移服务迁移服务器](storage-migration-service/migrate-data.md)| 新主题 |
-|[存储迁移服务常见问题 (FAQ)](storage-migration-service/faq.md)| 新主题 |
+|[存储迁移服务常见问题（FAQ）](storage-migration-service/faq.md)| 新主题 |
 | [iSCSI 目标服务器](iscsi/iscsi-target-server.md) | 已从[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库迁移。|
 | [iSCSI 目标服务器可扩展性限制](iscsi/iscsi-target-server-limits.md) |已从[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库迁移。|
 
@@ -107,7 +107,7 @@ ms.locfileid: "69584819"
 
 |新的或已更改的主题|描述|
 |---|---|
-|[服务器到服务器存储复制](storage-replica/server-to-server-storage-replication.md)|添加了有关使用 Azure Vm 的信息, 包括 ExpressRoute。|
+|[服务器到服务器存储复制](storage-replica/server-to-server-storage-replication.md)|添加了有关使用 Azure Vm 的信息，包括 ExpressRoute。|
 |[群集集](storage-spaces/cluster-sets.md)| 新主题|
 
 ## <a name="may-2018"></a>2018 年 5 月
@@ -120,7 +120,7 @@ ms.locfileid: "69584819"
 |[NTFS 概述](file-server/ntfs-overview.md)|已从[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库迁移。|
 |[使用 Robocopy 为 DFS 复制预先播种文件](dfs-replication/preseed-dfsr-with-robocopy.md)|已从[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库迁移。|
 |[Vssadmin-以前的版本命令行工具](../administration/windows-commands/vssadmin.md)|已从[以前的版本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012)库迁移。|
-|[文件服务器资源管理器概述](fsrm/fsrm-overview.md)| 添加了有关 Windows Server 2016, 版本1803中的新注册表设置的信息。|
+|[文件服务器资源管理器概述](fsrm/fsrm-overview.md)| 添加了有关 Windows Server 2016，版本1803中的新注册表设置的信息。|
 |[服务器到服务器存储复制](storage-replica/server-to-server-storage-replication.md)|添加了有关使用 Windows 管理中心的信息。|
 |[存储副本的已知问题](storage-replica/storage-replica-known-issues.md)|已添加新信息。|
 
@@ -141,9 +141,9 @@ ms.locfileid: "69584819"
 |---|---|
 |[存储空间直通的灾难恢复](storage-spaces/storage-spaces-direct-disaster-recovery.md)| 新主题。|
 |[了解存储空间直通中的仲裁](storage-spaces/understand-quorum.md)| 新主题。|
-|[部署存储空间直通](storage-spaces/deploy-storage-spaces-direct.md)| 进行了大量修订, 包括聚合和超聚合方案。|
+|[部署存储空间直通](storage-spaces/deploy-storage-spaces-direct.md)| 进行了大量修订，包括聚合和超聚合方案。|
 |[部署漫游用户配置文件](folder-redirection/deploy-roaming-user-profiles.md)|从以前版本的库中移出并经过更新。|
-|[存储副本常见问题](storage-replica/storage-replica-frequently-asked-questions.md)|添加[了 CSV, 以便在 stretch 群集或群集之间进行复制？](storage-replica/storage-replica-frequently-asked-questions.md#FAQ7.5)。|
+|[存储副本常见问题](storage-replica/storage-replica-frequently-asked-questions.md)|添加[了 CSV，以便在 stretch 群集或群集之间进行复制？](storage-replica/storage-replica-frequently-asked-questions.md#FAQ7.5)。|
 
 ## <a name="february-2018"></a>2018 年 2 月
 
@@ -164,10 +164,10 @@ ms.locfileid: "69584819"
 |新的或已更改的主题|描述|
 |---|---|
 |[更改驱动器号](disk-management/change-a-drive-letter.md)|新主题。|
-|[磁盘管理疑难解答](disk-management/troubleshooting-disk-management.md)|重写[磁盘的状态为 "未初始化" 或 "缺少磁盘"](disk-management/troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing)部分, 用于根据客户请求添加广泛的故障排除步骤。|
-|[初始化新磁盘](disk-management/initialize-new-disks.md)|重写, 尝试更轻松地了解和解决客户的问题。|
+|[磁盘管理疑难解答](disk-management/troubleshooting-disk-management.md)|重写[磁盘的状态为 "未初始化" 或 "缺少磁盘"](disk-management/troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing)部分，用于根据客户请求添加广泛的故障排除步骤。|
+|[初始化新磁盘](disk-management/initialize-new-disks.md)|重写，尝试更轻松地了解和解决客户的问题。|
 |[规划存储空间直通中的卷](storage-spaces/plan-volumes.md)|添加了汇总四节点和更大群集上可用的复原类型的表。|
-|[ReFS 概述](refs/refs-overview.md)|阐明了镜像加速奇偶校验所建议的工作负荷, 并更正了 ReFS 和 NTFS 支持的文件和卷大小。|
+|[ReFS 概述](refs/refs-overview.md)|阐明了镜像加速奇偶校验所建议的工作负荷，并更正了 ReFS 和 NTFS 支持的文件和卷大小。|
 |[镜像加速奇偶校验](refs/mirror-accelerated-parity.md)|阐明了在不同的目录中放置大量写入文件的建议。|
 |[存储副本的已知问题](storage-replica/storage-replica-known-issues.md)|已添加新信息。|
 

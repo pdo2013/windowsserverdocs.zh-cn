@@ -1,7 +1,7 @@
 ---
-title: 使用 SCSI 控制器，以便能够即插即用热存储层和热拔出存储配置虚拟机
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+title: 配置具有 SCSI 控制器的虚拟机，使其能够热插拔存储
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,20 +10,20 @@ ms.topic: article
 ms.assetid: 511e1172-aeef-463d-b5dd-2bffae411ff1
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 755e7485e54ee58e0acd7ebd75a7ee591aa655f9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5b901ee8f11942b8ad50a3c34c53354a5998e105
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843278"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365073"
 ---
-# <a name="configure-a-virtual-machine-with-a-scsi-controller-to-be-able-to-hot-plug-and-hot-unplug-storage"></a>使用 SCSI 控制器，以便能够即插即用热存储层和热拔出存储配置虚拟机
+# <a name="configure-a-virtual-machine-with-a-scsi-controller-to-be-able-to-hot-plug-and-hot-unplug-storage"></a>配置具有 SCSI 控制器的虚拟机，使其能够热插拔存储
 
 >适用于：Windows Server 2016
 
 
   
-*有关最佳做法和扫描的详细信息，请参阅*[最佳做法分析器](https://go.microsoft.com/fwlink/?LinkId=122786)。  
+有关*最佳做法和扫描的详细信息，请参阅*[最佳做法分析器](https://go.microsoft.com/fwlink/?LinkId=122786)。  
   
 |属性|详细信息|  
 |-|-|  
@@ -32,25 +32,25 @@ ms.locfileid: "59843278"
 |**Severity**|警告|  
 |**类别**|配置|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。  
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。  
   
 ## <a name="issue"></a>问题  
   
-*虚拟机找不配置有 SCSI 控制器。*  
+*找到了未配置 SCSI 控制器的虚拟机。*  
   
 ## <a name="impact"></a>影响  
   
-*你将无法再热即插即用或热拔出以下虚拟机的存储：*  
+*对于下列虚拟机，你将无法热插拔或热拔下存储：*  
   
-\<虚拟机名称的列表 >  
+@no__t-虚拟机名称的 0list >  
   
-热即插即用或热拔下存储的功能可以更轻松地管理虚拟机的存储需求，而无需停机时间。 可以添加或删除存储之前，必须关闭缺少 SCSI 控制器的虚拟机。  
+使用热插拔存储的功能，可更轻松地管理虚拟机的存储需求，而无需停机。 必须先关闭没有 SCSI 控制器的虚拟机，然后才能添加或删除存储。  
   
 ## <a name="resolution"></a>分辨率  
   
-*如果不需要热即插即用或热拔出此虚拟机的存储，不不需要任何操作。否则为关闭虚拟机，并添加到配置的 SCSI 控制器。*  
+@no__t 0If 无需热插拔此虚拟机的插头或热插拔存储，无需执行任何操作。否则，请关闭虚拟机，并向配置中添加 SCSI 控制器。 *  
   
-若要使用到热插拔的 SCSI 控制器和热拔出存储，来宾操作系统必须运行当前版本的 integration services。  
+若要使用 SCSI 控制器来热插拔存储，来宾操作系统必须运行当前版本的 integration services。  
   
 
 

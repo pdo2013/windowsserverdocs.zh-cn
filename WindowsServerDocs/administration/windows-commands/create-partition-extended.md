@@ -1,8 +1,8 @@
 ---
-title: 创建扩展分区
-description: 'Windows 命令主题 * * *- '
+title: 创建分区扩展
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0a1cca93a064cfb6e5c18f4a472ea837b922d07b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 21620da46be0e1375f320172e7ccfe2edc338114
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434190"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378910"
 ---
-# <a name="create-partition-extended"></a>创建扩展分区
+# <a name="create-partition-extended"></a>创建分区扩展
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-具有焦点的磁盘上创建扩展的分区。 你可以使用此命令仅在主启动记录上\(MBR\)磁盘。  
+在具有焦点的磁盘上创建扩展分区。 只能在主启动记录上使用此命令 \(MBR @ no__t 磁盘。  
   
   
   
@@ -38,25 +38,25 @@ create partition extended [size=<n>] [offset=<n>] [align=<n>] [noerr]
   
 |  参数  |                                                                                                                             描述                                                                                                                              |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  size\=<n>  |                                                  指定分区的大小以兆字节为单位\(MB\)。 如果没有给定大小，则分区将继续，直到扩展分区中没有更多可用空间。                                                  |
-| offset\=<n> |                     千字节为单位指定的偏移量\(KB\)，在创建分区。 如果没有给定偏移量，将是足够大以保存新分区在磁盘上的可用空间的开始处启动分区。                      |
-| align\=<n>  | 对齐到最接近的对齐边界的所有分区扩展盘区。 通常与硬件 RAID 逻辑单元号一起使用\(LUN\)数组以提高性能。 <n> 是的千字节数\(KB\)从一开始为最接近的对齐边界的磁盘。 |
-|    noerr    |                                 仅用于脚本。 当遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，错误会导致 DiskPart 退出，错误代码。                                 |
+|  size @ no__t-0 @ no__t-1  |                                                  以 mb 为单位指定分区的大小 @no__t-配置包括 @ no__t-1。 如果没有给定大小，则分区会一直继续，直到扩展分区中没有可用空间为止。                                                  |
+| offset @ no__t-0 @ no__t-1 |                     指定在其中创建分区的偏移量（kb \(KB @ no__t）。 如果未给出偏移量，分区将从磁盘上可用空间的开始处开始，该空间足以容纳新的分区。                      |
+| align @ no__t-0 @ no__t-1  | 将所有分区区区对齐到最接近的对齐边界。 通常与硬件 RAID 逻辑单元号一起使用 \(LUN @ no__t 数组来提高性能。 <n> 是从磁盘开头到最接近的对齐边界的千字节数（kb） \(KB @ no__t。 |
+|    noerr    |                                 仅用于脚本编写。 遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，则错误会导致 DiskPart 退出并出现错误代码。                                 |
   
 ## <a name="remarks"></a>备注  
   
--   创建分区后，焦点就自动转移到新分区。  
+-   创建分区之后，焦点会自动转移到新分区。  
   
--   每个磁盘，可以创建只有一个扩展的分区。  
+-   每个磁盘只能创建一个扩展分区。  
   
--   如果您尝试创建另一个扩展分区内的扩展的分区，此命令将失败。  
+-   如果尝试在另一个扩展分区中创建扩展分区，则此命令将失败。  
   
--   可以创建逻辑驱动器之前，必须创建扩展的分区。  
+-   必须先创建扩展分区，然后才能创建逻辑驱动器。  
   
--   若要成功执行此操作，必须选择的基本 MBR 磁盘。 使用**选择的磁盘**命令选择某一磁盘，并将焦点移到它。  
+-   必须选择基本 MBR 磁盘，此操作才能成功。 使用 "**选择磁盘**" 命令选择磁盘，并将焦点移动到该磁盘。  
   
 ## <a name="BKMK_examples"></a>示例  
-若要创建 1000 兆字节为单位的扩展的分区的大小，请键入：  
+若要创建大小为 1000 mb 的扩展分区，请键入：  
   
 ```  
 create partition extended size=1000  

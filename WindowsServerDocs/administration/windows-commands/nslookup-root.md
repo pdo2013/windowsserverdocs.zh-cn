@@ -1,8 +1,8 @@
 ---
 title: nslookup root
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 47a26be99a5eee510970d3eee6b486331a98b159
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 3eb3375df3a109685fc8dc5d23f0c5008339d09e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436907"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373387"
 ---
 # <a name="nslookup-root"></a>nslookup root
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-更改应用到域名系统 (DNS) 域命名空间的根服务器的默认服务器。
+将服务器的默认服务器更改为域名系统（DNS）域名空间的根。
 ## <a name="syntax"></a>语法
 ```
 root 
@@ -33,10 +33,10 @@ root
 
 |    参数    |                      描述                      |
 |-----------------|-------------------------------------------------------|
-| {help &#124; ?} | 显示的短摘要**nslookup**子命令。 |
+| {help &#124; ？} | 显示**nslookup**子命令的简短摘要。 |
 
 ## <a name="remarks"></a>备注
-- 目前，使用 ns.nic.ddn.mil 名称服务器。 此命令为 lserver ns.nic.ddn.mil 的同义词。 你可以使用的根服务器的名称**集根**命令。
+- 目前，使用了 ns.nic.ddn.mil 名称服务器。 此命令是 lserver ns.nic.ddn.mil 的同义词。 可以通过 "**设置根**" 命令更改根服务器的名称。
   ## <a name="additional-references"></a>其他参考
-  [命令行语法解答](command-line-syntax-key.md)
+  [命令行语法关键字](command-line-syntax-key.md)
   [nslookup 设置根](nslookup-set-root.md)

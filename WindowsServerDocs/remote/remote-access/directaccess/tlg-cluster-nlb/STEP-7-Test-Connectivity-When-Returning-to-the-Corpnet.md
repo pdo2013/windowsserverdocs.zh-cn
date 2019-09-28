@@ -1,9 +1,9 @@
 ---
-title: 步骤 7 测试连接返回到公司网络时
-description: 本主题是一部分的测试实验室指南-使用 Windows Server 2016 的 Windows NLB 的群集中演示 DirectAccess
+title: 返回公司网络时的步骤7测试连接
+description: 本主题是测试实验室指南的一部分-使用 windows Server 2016 的 Windows NLB 在群集中演示 DirectAccess
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,26 +12,26 @@ ms.topic: article
 ms.assetid: 5a7252d0-6db8-4a9d-98ee-75082ecd2929
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 477d11f0e6bf296c41fb7116a7aae43787df263c
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: fa89745d6efcae3591bba2aa5a694ee651bc9912
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283381"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404853"
 ---
-# <a name="step-7-test-connectivity-when-returning-to-the-corpnet"></a>步骤 7 测试连接返回到公司网络时
+# <a name="step-7-test-connectivity-when-returning-to-the-corpnet"></a>返回公司网络时的步骤7测试连接
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-因此，当用户返回到公司网络，它们是访问资源而无需进行任何配置更改，许多用户将远程位置和公司网络中、 之间移动。 远程访问使这可能因为当 DirectAccess 客户端返回公司网络时，它能够连接到网络位置服务器。 一旦成功建立到网络位置服务器的 HTTPS 连接，DirectAccess 客户端禁用 DirectAccess 客户端配置，并使用直接连接到公司网络。  
+许多用户都将在远程位置和公司网络之间移动，因此，当他们返回到公司网络时，无需进行任何配置更改，这一点很重要。 远程访问可以实现此功能，因为当 DirectAccess 客户端返回到公司网络时，它能够与网络位置服务器建立连接。 成功建立 HTTPS 连接到网络位置服务器后，DirectAccess 客户端将禁用 DirectAccess 客户端配置，并使用与公司网络的直接连接。  
   
 ### <a name="test-connectivity-on-client1"></a>在 CLIENT1 上测试连接  
   
-1. 关闭客户端 1 从 Homenet 子网或虚拟交换机中拔出客户端 1 并将其连接到公司网络子网或虚拟交换机。 在 CLIENT1 上，打开并以 corp\user1 身份登录。  
+1. 关闭 CLIENT1，然后将 CLIENT1 从 Homenet 子网或虚拟交换机中拔出，并将其连接到公司网络子网或虚拟交换机。 打开 CLIENT1，并以 Corp\user1 身份身份登录。  
   
-2. 打开提升的 Windows PowerShell 窗口，键入**ipconfig /all**，然后按 ENTER。 输出将指示客户端 1 有本地 IP 地址，并且没有任何 active 6to4、 Teredo 或 IP-HTTPS 隧道。  
+2. 打开提升的 Windows PowerShell 窗口，键入**ipconfig/all**，然后按 enter。 输出将指示 CLIENT1 具有本地 IP 地址，并且没有活动的6to4、Teredo 或 ip-https 隧道。  
   
-3. 测试连接到网络共享在 APP2 上。 上**启动**屏幕上，键入<strong>\\\APP2\Files</strong>，然后按 ENTER。 你将能够在该文件夹中打开该文件。  
+3. 测试与 APP2 上的网络共享的连接。 在 "**开始**" 屏幕上，键入<strong>\\ \ APP2\Files</strong>，然后按 enter。 您将能够打开该文件夹中的文件。  
   
 
 

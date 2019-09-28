@@ -1,19 +1,19 @@
 ---
 title: 服务质量 (QoS) 策略
 description: 本主题概述了服务质量（QoS）策略，该策略允许你使用组策略来确定 Windows Server 2016 中特定应用程序和服务的网络流量带宽的优先级。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 16918506-102c-482e-89d3-004ad8d6aabe
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 8f139f047218c4c8da3a462206d4541c1fc255ec
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 429c38d93c2c5c0053153d538304767c8261229c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871863"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395859"
 ---
 # <a name="quality-of-service-qos-policy"></a>服务\(质量 QoS\)策略
 

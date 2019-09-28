@@ -1,7 +1,7 @@
 ---
-title: 为服务器配置足够长的动态 MAC 地址
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+title: 将服务器配置为具有足够数量的动态 MAC 地址
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,18 +10,18 @@ ms.topic: article
 ms.assetid: a2804519-9790-4006-80b6-e990a8f505fe
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: fc444225c38ef7e8605ec328cfe3f8184b2fd307
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: efd1999411187a592cd8d175eb6de25e11605623
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870728"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364939"
 ---
-# <a name="configure-the-server-with-a-sufficient-amount-of-dynamic-mac-addresses"></a>为服务器配置足够长的动态 MAC 地址
+# <a name="configure-the-server-with-a-sufficient-amount-of-dynamic-mac-addresses"></a>将服务器配置为具有足够数量的动态 MAC 地址
 
 >适用于：Windows Server 2016
 
-*本主题旨在解决最佳实践分析程序扫描发现的特定问题。您应在本主题中的信息仅适用于针对其运行的 HYPER-V 最佳做法分析器且遇到本主题解决此问题的计算机。有关最佳做法和扫描的详细信息，请参阅*[最佳做法分析器](https://go.microsoft.com/fwlink/?LinkId=122786)。  
+@no__t 0This 主题旨在解决由最佳做法分析器扫描标识的特定问题。只应将本主题中的信息应用到运行 Hyper-v 最佳做法分析器的计算机上，并遇到本主题中所述的问题。有关最佳做法和扫描的详细信息，请参阅 @ no__t-0[最佳做法分析器](https://go.microsoft.com/fwlink/?LinkId=122786)。  
   
 |属性|详细信息|  
 |-|-|  
@@ -30,19 +30,19 @@ ms.locfileid: "59870728"
 |**Severity**|警告|  
 |**类别**|配置|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。  
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。  
   
 ## <a name="issue"></a>问题  
   
-*可用的动态 MAC 地址数不足。*  
+*可用动态 MAC 地址的数目较低。*  
   
 ## <a name="impact"></a>影响  
   
-*无法将动态 MAC 地址可用时，无法启动虚拟机配置为使用动态 MAC 地址。*  
+*如果没有可用的动态 MAC 地址，则无法启动配置为使用动态 MAC 地址的虚拟机。*  
   
 ## <a name="resolution"></a>分辨率  
   
-*使用虚拟交换机管理器来查看和扩展的动态地址范围。*  
+*使用 "虚拟交换机管理器" 查看和扩展动态地址范围。*  
   
 
 

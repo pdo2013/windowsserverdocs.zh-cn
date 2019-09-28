@@ -1,7 +1,7 @@
 ---
 title: 软件和硬件 (SH) 集成功能和技术
 description: 这些功能包括软件和硬件组件。 该软件与它紧密功能所需的硬件功能相结合。 其中包括 VMMQ、VMQ、发送端 IPv4 校验和卸载以及 RSS。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 0cafb1cc-5798-42f5-89b6-3ffe7ac024ba
@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/12/2018
-ms.openlocfilehash: 2f6bb2190dbaa432d20f445c90a560843d6cf4e5
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f032717b9f4dca65454d8251083b73ff2d57dba7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871941"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355321"
 ---
 # <a name="software-and-hardware-sh-integrated-features-and-technologies"></a>软件和硬件 (SH) 集成功能和技术
 

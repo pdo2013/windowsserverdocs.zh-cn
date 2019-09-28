@@ -1,8 +1,8 @@
 ---
 title: 选择分区
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 79449bc74dd09246b380b3f892acc1b338650d20
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9a186e2678fde64396a8b4b57a2d14e4b0b7bf26
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441499"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371071"
 ---
 # <a name="select-partition"></a>选择分区
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-选择指定的分区，并将焦点转移给它。 此外可以使用此命令显示当前所选磁盘中具有焦点的分区。  
+选择指定分区并将焦点移到该分区。 此命令还可用于显示当前在所选磁盘中有焦点的分区。  
   
   
   
@@ -38,26 +38,26 @@ select partition=<n>
   
 |   参数    |                                                                                    描述                                                                                    |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| partition\=<n> | 要接收焦点的分区数。 可以通过使用当前选择的磁盘上查看的所有分区号**分区**DiskPart 命令。 |
+| partition @ no__t-0 @ no__t-1 | 要接收焦点的分区号。 通过使用 DiskPart 中的 "**列出分区**" 命令，你可以查看当前所选磁盘上的所有分区的编号。 |
   
 ## <a name="remarks"></a>备注  
   
--   可以选择一个分区之前，必须首先选择磁盘使用**选择的磁盘**命令。  
+-   必须先使用 "**选择磁盘**" 命令选择一个磁盘，然后才能选择分区。  
   
--   如果指定没有分区号，则此命令显示当前所选磁盘中具有焦点的分区。  
+-   如果未指定分区号，则此命令将显示当前在所选磁盘中有焦点的分区。  
   
--   如果具有一个对应的分区选择卷，则将自动选择该分区。  
+-   如果选择了包含相应分区的卷，则会自动选择该分区。  
   
--   如果使用相应的卷选择分区，则将自动选择该卷。  
+-   如果使用相应的卷选择了分区，则会自动选择该卷。  
   
 ## <a name="BKMK_examples"></a>示例  
-若要将焦点移到分区 3 中，键入：  
+若要将焦点移动到第3分区，请键入：  
   
 ```  
 select partitition=3  
 ```  
   
-若要显示当前所选磁盘中具有焦点的分区，请键入：  
+若要在所选磁盘中显示当前具有焦点的分区，请键入：  
   
 ```  
 select partition  

@@ -1,8 +1,8 @@
 ---
 title: 重新扫描
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bc7bbb38288fc45d5c39039e8438a8c1e2c1fb52
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fc44f643b42e52beabfed14ef86ac01566911b6f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822208"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371522"
 ---
 # <a name="rescan"></a>重新扫描
 
 
 
-查找新磁盘添加到计算机。
+查找可能已添加到计算机的新磁盘。
 
 ## <a name="syntax"></a>语法
 
@@ -34,5 +34,5 @@ rescan
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)
 

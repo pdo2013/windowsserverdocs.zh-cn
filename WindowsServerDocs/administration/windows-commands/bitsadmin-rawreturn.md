@@ -1,8 +1,8 @@
 ---
 title: bitsadmin rawreturn
-description: Windows 命令主题**bitsadmin rawreturn** -返回适用于分析数据。
+description: 适用于**bitsadmin rawreturn**的 Windows 命令主题-返回适用于分析的数据。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4e12c8e621021d35ac618b4592515fe38c36be0e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 86d769de460538acda696194348980de5752d6d8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434889"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380885"
 ---
 # <a name="bitsadmin-rawreturn"></a>bitsadmin rawreturn
 
-返回适用于分析数据。
+返回适合解析的数据。
 
 ## <a name="syntax"></a>语法
 
@@ -32,13 +32,13 @@ bitsadmin /RawReturn
 
 ## <a name="remarks"></a>备注
 
-条带换行符和从输出格式设置。
+从输出中去除换行符和格式设置。
 
-通常情况下，将此命令与结合**创建**并**获取\\** * 交换机，以接收仅值。 必须指定此开关之前其他开关。
+通常，将此命令与**Create**和**Get @ no__t*** 开关一起使用以仅接收值。 必须在其他交换机之前指定此开关。
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例检索名为的作业的状态的原始数据*myDownloadJob*。
+下面的示例检索名为*myDownloadJob*的作业的状态的原始数据。
 ```
 C:\>bitsadmin /RawReturn /GetState myDownloadJob
 ```

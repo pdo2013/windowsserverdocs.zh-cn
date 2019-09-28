@@ -1,8 +1,8 @@
 ---
 title: type
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -12,23 +12,23 @@ ms.assetid: c44fe905-a865-4c97-8cc5-fb95fec7d4d5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dansimp
-ms.openlocfilehash: 4ceb7365d34a2aeca21d1a699730a589f98fd549
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 37f66d54983c002d5d09db5cb255d01635a534de
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887398"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392330"
 ---
 # <a name="type"></a>type
 
 
-在 Windows 命令 shell 中，**类型**是内置命令用于显示文本的文件的内容。 使用**类型**命令，查看文本文件而无需修改它。
+在 Windows 命令行界面中，**键入**"内置命令"，其中显示文本文件的内容。 使用**type**命令查看文本文件，而不进行修改。
 
 
-在 PowerShell 中，**类型**是对的内置别名**[Get-content](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-content)** 还会显示内容的文件，但具有不同的语法的 cmdlet。
+在 PowerShell 中，**键入**是 **[获取内容](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-content)** cmdlet 的内置别名，它还显示文件的内容，但使用不同的语法。
 
 
-有关如何使用此命令在 Windows 命令 shell (Cmd.exe) 中的示例，请参阅[示例](#BKMK_examples)。
+有关如何在 Windows 命令行界面（Cmd.exe）中使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
 ## <a name="syntax"></a>语法
 
@@ -40,25 +40,25 @@ type [<Drive>:][<Path>]<FileName>
 
 |参数|描述|
 |---------|-----------|
-|[\<Drive>:][\<Path>]\<FileName>|指定的位置和你想要查看的文件的文件的名称。 用空格分隔多个文件的名称。|
+|[@no__t >：][@no__t >] \<FileName >|指定要查看的一个或哪些文件的位置和名称。 用空格分隔多个文件名。|
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
 
--   如果*文件名*包含空格，将其括在引号 (例如，"文件名称包含 Spaces.txt")。
--   如果显示二进制文件或程序创建的文件，您可能会在屏幕上，包括换页符字符和转义序列符号出现奇怪的字符。 这些字符表示二进制文件中使用的控制代码。 一般情况下，应避免使用**类型**命令来显示二进制文件。
+-   如果*FileName*包含空格，则用引号将其引起来（例如，"文件名包含空格 .txt"）。
+-   如果显示的是由程序创建的二进制文件或文件，则屏幕上可能会出现奇怪的字符，包括换页符字符和转义序列符号。 这些字符表示二进制文件中使用的控制代码。 通常，应避免使用**type**命令显示二进制文件。
 
 ## <a name="BKMK_examples"></a>示例
 
-若要显示一个名为 Holiday.mar 文件内容，请键入：
+若要显示名为 "假日" 的文件的内容，请键入：
 ```
 type holiday.mar 
 ```
-若要显示名 Holiday.mar 一个屏幕为一次的耗时较长文件内容，请键入：
+若要显示名为 "假日" 的长文件的内容，请一次一个屏幕，键入：
 ```
 type holiday.mar | more 
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

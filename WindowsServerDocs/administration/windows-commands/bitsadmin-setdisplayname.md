@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setdisplayname
-description: Windows 命令主题**bitsadmin setdisplayname** -设置指定的作业的显示名称。
+description: 适用于**bitsadmin setdisplayname**的 Windows 命令主题-设置指定作业的显示名称。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d50cd2785e42b554cee340abc97fe4e4b53adcfc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 10a5607eb26f8199ec415a4cec17d03015a26bcd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843668"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380630"
 ---
 # <a name="bitsadmin-setdisplayname"></a>bitsadmin setdisplayname
 
 
 
-设置指定的作业的显示名称。
+设置指定作业的显示名称。
 
 ## <a name="syntax"></a>语法
 
@@ -41,11 +41,11 @@ bitsadmin /SetDisplayName <Job> <DisplayName>
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例设置名为的作业的显示名称*myDownloadJob*到*myDownloadJob2*。
+下面的示例将名为*myDownloadJob*的作业的显示名称设置为*myDownloadJob2*。
 ```
 C:\>bitsadmin /SetDisplayName myDownloadJob "Download Music Job"
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

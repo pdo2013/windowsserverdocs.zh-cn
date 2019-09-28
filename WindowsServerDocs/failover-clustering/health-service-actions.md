@@ -1,6 +1,6 @@
 ---
 title: 运行状况服务操作
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
@@ -8,18 +8,18 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 08/14/2017
-ms.openlocfilehash: efdf8f04e68fcbdc7051e78d6725cb919e740ffa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 519f0321f36fb7afc86962950aeab729d7a38adb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843018"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361096"
 ---
 # <a name="health-service-actions"></a>运行状况服务操作
 
-> 适用于 Windows Server 2016
+> 适用于：Windows Server 2019、Windows Server 2016
 
-运行状况服务是一项新功能在 Windows Server 2016，可提高日常监视和运行存储空间直通的群集的操作体验。
+运行状况服务是 Windows Server 2016 中的一项新功能，可改进运行存储空间直通的群集的日常监视和操作体验。
 
 ## <a name="actions"></a>操作  
 
@@ -35,7 +35,7 @@ Get-StorageHealthAction
 
 ### <a name="coverage"></a>覆盖范围  
 
-在 Windows Server 2016 **Get-storagehealthaction** cmdlet 可以返回任何以下信息：  
+在 Windows Server 2016 中， **StorageHealthAction** cmdlet 可以返回以下任何信息：  
 
 -   停用失败、断开连接或未响应的物理磁盘  
 
@@ -48,4 +48,4 @@ Get-StorageHealthAction
 ## <a name="see-also"></a>请参阅
 
 - [Windows Server 2016 中的运行状况服务](health-service-overview.md)
-- [开发人员文档、 示例代码和 MSDN 上的 API 参考](https://msdn.microsoft.com/windowshealthservice)
+- [MSDN 上的开发人员文档、示例代码和 API 参考](https://msdn.microsoft.com/windowshealthservice)

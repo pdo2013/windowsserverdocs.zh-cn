@@ -1,8 +1,8 @@
 ---
 title: ftp mput_1
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dd19a97246aa6155182cb055deceb4b5a5019f6c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6308f7b47d58bc25d964944f96fbc83a26350962
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438578"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376215"
 ---
-# <a name="ftp-mput1"></a>ftp: mput_1
+# <a name="ftp-mput_1"></a>ftp： mput_1
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-将本地文件复制到远程计算机使用当前的文件传输类型。   
+使用当前文件传输类型将本地文件复制到远程计算机。   
 ## <a name="syntax"></a>语法  
 ```  
 mput <LocalFile>[ ]  
@@ -36,11 +36,11 @@ mput <LocalFile>[ ]
 | <LocalFile> | 指定要复制到远程计算机的本地文件。 |
 
 ## <a name="BKMK_Examples"></a>示例  
-复制**Program1.exe**并**Program2.exe**到远程计算机使用当前的文件传输类型。  
+使用当前文件传输类型将**Program1**和**program2.c**复制到远程计算机。  
 ```  
 mput Program1.exe Program2.exe  
 ```  
 ## <a name="additional-references"></a>其他参考  
--   [ftp: ascii](ftp-ascii.md)  
--   [ftp: binary](ftp-binary.md)  
+-   [ftp： ascii](ftp-ascii.md)  
+-   [ftp：二进制](ftp-binary.md)  
 -   [命令行语法项](command-line-syntax-key.md)  

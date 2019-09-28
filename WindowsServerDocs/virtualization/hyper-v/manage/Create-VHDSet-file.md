@@ -1,51 +1,51 @@
 ---
-title: 创建 HYPER-V VHD 设置文件
-description: 若要创建的 hyper-v 2016 上的 VHDset 文件的步骤
+title: 创建 Hyper-v VHD 集文件
+description: 在 Hyper-v 2016 上创建 VHDset 文件的步骤
 author: jiwool
 ms.author: jiwool
 manager: senthilr
 ms.date: 01/26/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: compute-hyper-v
 ms.assetid: 444e1496-9e5a-41cf-bfbc-306e2ed8e00a
 audience: IT Pros
 ms.reviewer: kathydav
-ms.openlocfilehash: a5a6f79d362b9058ca29d979457a1dcdfc0c9f82
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f5c9b932cabfea8df55ba8622165bbb04b4a4113
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445688"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392718"
 ---
-# <a name="create-hyper-v-vhd-set-files"></a>创建 HYPER-V VHD 设置文件
-设置 VHD 文件是针对 Windows Server 2016 中来宾群集的新共享的虚拟磁盘模型。 VHD 设置文件支持的共享的虚拟磁盘的联机大小调整、 支持的 HYPER-V 副本和可以包括在应用程序一致的检查点。 
+# <a name="create-hyper-v-vhd-set-files"></a>创建 Hyper-v VHD 集文件
+VHD 集文件是 Windows Server 2016 中来宾群集的新共享虚拟磁盘模型。 VHD 集文件支持联机调整共享虚拟磁盘大小、支持 Hyper-v 副本，并可包括在应用程序一致性检查点中。 
 
-设置 VHD 文件使用新的 VHD 文件类型。VHD。 设置 VHD 文件存储有关组的虚拟磁盘来宾群集，在元数据的窗体中使用的检查点信息。
+VHD 集文件使用新的 VHD 文件类型。Vhd. VHD 集文件以元数据的形式存储有关来宾群集中使用的组虚拟磁盘的检查点信息。
 
-HYPER-V 处理管理检查点链的所有方面，并合并共享的 VHD 设置。 管理软件可以运行磁盘操作，例如联机调整大小的 VHD 设置文件的方式相同。VHDX 文件。 这意味着管理软件，无需了解的有关 VHD 设置文件格式。
+Hyper-v 处理管理检查点链和合并共享 VHD 集的各个方面。 管理软件可以像对 VHD 集文件进行联机大小调整一样运行磁盘操作。VHDX 文件。 这意味着管理软件无需知道 VHD 集文件格式。
 
-## <a name="create-a-vhd-set-file-from-hyper-v-manager"></a>从 Hyper-v 管理器创建的 VHD 设置文件
+## <a name="create-a-vhd-set-file-from-hyper-v-manager"></a>从 Hyper-v 管理器创建 VHD 集文件
 
 1.  打开 Hyper-V 管理器。 单击 **“开始”** ，指向 **“管理工具”** ，然后单击 **“Hyper-V 管理器”** 。
-2.  在操作窗格中，单击**新建**，然后单击**硬盘**。
-3.  上**选择磁盘格式**页上，选择**VHD 设置**作为虚拟硬盘格式。
-4.  继续完成向导后，若要自定义虚拟硬盘的页。 可以单击**下一步**浏览每一页的向导中，也可以单击页面直接移至该页面的左窗格中的名称。
-5.  配置虚拟硬盘之后，请单击**完成**。
+2.  在 "操作" 窗格中，单击 "**新建**"，然后单击 "**硬盘**"。
+3.  在 "**选择磁盘格式**" 页上，选择 " **VHD 集**" 作为虚拟硬盘的格式。
+4.  继续浏览向导页面，以自定义虚拟硬盘。 您可以单击 "**下一步**" 以在向导的每一页上移动，或者单击左侧窗格中的某一页的名称，直接转到该页。
+5.  完成虚拟硬盘的配置后，单击 "**完成**"。
 
-## <a name="create-a-vhd-set-file-from-windows-powershell"></a>从 Windows PowerShell 中创建的 VHD 设置文件
+## <a name="create-a-vhd-set-file-from-windows-powershell"></a>从 Windows PowerShell 创建 VHD 集文件
 
-使用[NEW-VHD](https://technet.microsoft.com/library/hh848503.aspx) cmdlet，与文件类型。文件路径中的 VHD。 此示例创建名为 base.vhds 大小为 10 千兆字节为单位的 VHD 设置文件。
+使用带有文件类型的[新 VHD](https://technet.microsoft.com/library/hh848503.aspx) cmdlet。文件路径中的 VHD。 此示例创建一个名为的 VHD 集文件，其大小为 10 Gb。
 
 ``` PowerShell
 PS c:\>New-VHD -Path c:\base.vhds -SizeBytes 10GB
 ```
 
-## <a name="migrate-a-shared-vhdx-file-to-a-vhd-set-file"></a>将共享的 VHDX 文件迁移到 VHD 设置文件
+## <a name="migrate-a-shared-vhdx-file-to-a-vhd-set-file"></a>将共享 VHDX 文件迁移到 VHD 集文件
 
-将现有的共享的 VHDX 迁移到 VHD 需要使 VM 脱机。 这是使用 Windows PowerShell 的建议的过程：
+将现有共享 VHDX 迁移到 VHD 需要使 VM 脱机。 建议使用 Windows PowerShell 执行此过程：
 
-1. 从 VM 删除的 VHDX。 例如，运行： 
+1. 从 VM 中删除 VHDX。 例如，运行： 
    ``` PowerShell
    PS c:\>Remove-VMHardDiskDrive existing.vhdx
    ```

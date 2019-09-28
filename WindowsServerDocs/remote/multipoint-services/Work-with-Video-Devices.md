@@ -2,7 +2,7 @@
 title: 使用视频设备
 description: 了解视频监视器和投影仪如何在 MultiPoint Services 中使用工作站
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 4439d72165d70623d854d0221137c1fe282c922b
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b7019000c99295204f196ee918129cded02e084f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871485"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389246"
 ---
 # <a name="work-with-video-devices"></a>使用视频设备
 了解视频设备（例如显示器或投影仪）在连接到 MultiPoint 服务系统中的计算机或连接到 MultiPoint 服务工作站时是如何工作的。  

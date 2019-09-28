@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getsecurityflags
-description: Windows 命令主题**bitsadmin getsecurityflags** -报告 URL 重定向的 HTTP 安全标志并在传输期间检查服务器证书上执行。
+description: 适用于**bitsadmin getsecurityflags**的 Windows 命令主题-报告在传输过程中对服务器证书执行的 URL 重定向和检查的 HTTP 安全标志。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6e1db167b12d47afccb8842da617f1e9fe72acff
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: fb53664a6366b411ae1eb9b0fe7c93392d60b542
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434960"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381457"
 ---
 # <a name="bitsadmin-getsecurityflags"></a>bitsadmin getsecurityflags
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-在传输期间，服务器证书上执行 URL 重定向和检查报告 HTTP 安全标志。
+报告在传输过程中对服务器证书执行的 URL 重定向和检查的 HTTP 安全标志。
 
 ## <a name="syntax"></a>语法
 
@@ -39,7 +39,7 @@ bitsadmin /GetSecurityFlags <Job>
 |作业|该作业的显示名称或 GUID|
 
 ## <a name="BKMK_examples"></a>示例
-下面的示例从名为的作业检索 securitly 标志*myJob*。
+下面的示例从名为*myJob*的作业中检索 securitly 标志。
 
 ```
 C:\>bitsadmin /GetSecurityFlags myJob 

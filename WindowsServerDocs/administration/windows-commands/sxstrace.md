@@ -2,7 +2,7 @@
 title: sxstrace
 description: 了解如何诊断并列问题。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dbc8dad642e15dede1ce89105a501fd90224610b
-ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
+ms.openlocfilehash: 66326943bf1b056951ae5824df5a4f60892492cb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975305"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370710"
 ---
 # <a name="sxstrace"></a>sxstrace
 

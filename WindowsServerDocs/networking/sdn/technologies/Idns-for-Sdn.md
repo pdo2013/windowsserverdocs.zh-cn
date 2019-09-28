@@ -1,9 +1,9 @@
 ---
 title: SDN 的内部 DNS 服务 (iDNS)
-description: 本主题说明如何提供 DNS 服务为托管的租户工作负荷使用内部 DNS (Idn) 与 Windows Server 2016 中软件定义的网络集成在一起。
+description: 本主题说明如何使用内部 DNS （Idn）将 DNS 服务提供给托管的租户工作负荷，该内部 DNS 与 Windows Server 2016 中的软件定义网络集成。
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -12,83 +12,83 @@ ms.topic: get-started-article
 ms.assetid: ad848a5b-0811-4c67-afe5-6147489c0384
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4d4ae5ee5f5600d86349ca26b7acbdb284b45bac
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a7e5aa9e1ae7442c706c1bdbdb56d65234fe5ae8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824078"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405970"
 ---
 # <a name="internal-dns-service-idns-for-sdn"></a>SDN 的内部 DNS 服务 (iDNS)
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-如果您为云服务提供商工作\(CSP\)或规划以部署软件定义的网络的企业\(SDN\)在 Windows Server 2016 中，您可以为托管的租户工作负荷提供 DNS 服务通过使用内部 DNS \(Idn\)，这与 SDN 集成。
+如果你使用的是云服务提供商 @no__t-在 Windows Server 2016 中计划部署软件定义的网络 \(SDN @ no__t，则可以通过使用内部 DNS 向托管的租户工作负荷提供 DNS 服务 @no__4iDNS @ no__t-5，它与 SDN 集成。
 
-托管虚拟机\(Vm\)和应用程序需要 DNS 中他们自己的网络和 Internet 上的外部资源进行通信。 使用 Idn，可以提供租户与 DNS 名称解析服务为其独立的本地命名空间和对 Internet 资源。
+托管虚拟机 \(VMs @ no__t，应用程序需要 DNS 在其自己的网络中和 Internet 上的外部资源通信。 通过 Idn，你可以为租户提供 DNS 名称解析服务，用于隔离本地命名空间和 Internet 资源。
 
-因为 Idn 服务不能从租户虚拟网络访问，而不通过 Idn 代理服务器不是易受攻击租户网络上的恶意活动。
+由于 Idn 服务无法从租户虚拟网络（而不是通过 Idn 代理）进行访问，因此服务器不容易受到租户网络上的恶意活动的攻击。
 
-**主要功能**
+**关键功能**
 
-以下是使用 idn 的主要功能。
+下面是 Idn 的主要功能。
 
-- 提供共享的 DNS 名称解析服务的租户工作负荷
-- 名称解析和 DNS 注册的租户名称空间中的权威 DNS 服务
-- 从租户 Vm Internet 名称解析的递归 DNS 服务。
-- 如果需要，可以配置的结构和租户名称的同时进行托管
-- 经济高效的 DNS 解决方案的租户不需要部署自己的 DNS 基础结构
-- 通过 Active Directory 集成，需要的高可用性。
+- 为租户工作负荷提供共享 DNS 名称解析服务
+- 用于名称解析的权威 DNS 服务和租户命名空间内的 DNS 注册
+- 用于解析来自租户 Vm 的 Internet 名称的递归 DNS 服务。
+- 如果需要，可以配置构造和租户名称的同时托管
+- 经济高效的 DNS 解决方案-租户不需要部署自己的 DNS 基础结构
+- 需要 Active Directory 集成的高可用性。
 
-除了这些功能，如果您担心如何随时对 AD 集成的 DNS 服务器打开到 Internet，可以部署在外围网络中的另一个递归解析程序背后的 Idn 服务器。
+除了这些功能，如果您担心将 AD 集成的 DNS 服务器打开到 Internet，则可以将 Idn 服务器部署在外围网络中的另一个递归解析程序之后。
 
-IDNS 是集中式的服务器对所有 DNS 查询，因为 CSP 或企业版可以还实施租户 DNS 防火墙、 应用筛选器、 检测恶意活动和审核在中央位置的事务
+由于 Idn 是所有 DNS 查询的集中式服务器，因此 CSP 或企业还可以实现租户 DNS 防火墙、应用筛选器、检测恶意活动，以及在中心位置审核事务
 
-## <a name="idns-infrastructure"></a>iDNS 基础结构
-IDNS 基础结构包括 Idn 服务器和 Idn 代理。
+## <a name="idns-infrastructure"></a>Idn 基础结构
+Idn 基础结构包括 Idn 服务器和 Idn 代理。
 
 ### <a name="idns-servers"></a>Idn 服务器
-iDNS 包括一组托管特定于租户的数据，例如 VM 的 DNS 资源记录的 DNS 服务器。
+Idn 包括一组 DNS 服务器，这些服务器托管特定于租户的数据，例如 VM DNS 资源记录。
 
-Idn 服务器是其内部的 DNS 区域的权威服务器，同时还充当冲突解决程序的公共名称时租户 Vm 尝试连接到外部资源。
+Idn 服务器是其内部 DNS 区域的权威服务器，当租户 Vm 尝试连接到外部资源时，它们也充当公用名的解析程序。
 
-所有虚拟网络上的 Vm 的主机名都在同一个区域下存储作为 DNS 资源记录。 例如，如果部署名为 contoso.local 区域的 iDNS，该网络上 Vm 的 DNS 资源记录存储在 contoso.local 区域中。
+虚拟网络上的 Vm 的所有主机名均存储为同一区域下的 DNS 资源记录。 例如，如果为一个名为 Idn 的区域部署了，则该网络上的 Vm 的 DNS 资源记录将存储在 contoso 区域中。
 
-租户 VM 完全限定的域名\(Fqdn\)对于虚拟网络，采用 GUID 格式包含计算机名称和 DNS 后缀字符串。 例如，如果你已有租户 VM 名为位于本地，虚拟网络 contoso TENANT1 VM 的 FQDN 是 TENANT1。*vn guid*。 contoso.local，其中*vn guid*是为虚拟网络的 DNS 后缀字符串。
+租户 VM 完全限定的域名 \(FQDNs @ no__t-1 包含计算机名称和虚拟网络的 DNS 后缀字符串（采用 GUID 格式）。 例如，如果你有一个名为 TENANT1 的租户 VM，该 VM 位于虚拟网络 contoso，本地，则该 VM 的 FQDN 为 TENANT1。*vn*，其中*Vn*是用于虚拟网络的 DNS 后缀字符串。
 
 >[!NOTE]
->如果你是构造管理员，你可以使用 CSP 或企业 DNS 基础结构，如 Idn 服务器而不是部署新的 DNS 服务器专门为使用 Idn 作为服务器。 无论你部署中使用 idn 的新服务器还是使用现有的基础结构，Idn 依赖于 Active Directory 来提供高可用性。 因此必须与 Active Directory 集成 Idn 服务器。
+>如果你是构造管理员，则可以使用你的 CSP 或企业 DNS 基础结构作为 Idn 服务器，而不是专门将新的 DNS 服务器部署为用作 Idn 服务器。 无论是为 Idn 部署新服务器还是使用现有基础结构，Idn 都依赖于 Active Directory 来提供高可用性。 因此，你的 Idn 服务器必须与 Active Directory 集成。
 
-### <a name="idns-proxy"></a>iDNS 代理
-iDNS 代理是在每台主机上运行并且该租户虚拟网络 DNS 将流量转发到 Idn 服务器的 Windows 服务。
+### <a name="idns-proxy"></a>Idn 代理
+Idn 代理是一种 Windows 服务，它在每个主机上运行，并将租户虚拟网络 DNS 流量转发到 Idn 服务器。
 
-下图描绘了中通过 Idn 服务器的 Idn 代理租户虚拟网络和 Internet 的 DNS 通信路径。
+下图描绘了通过 Idn 代理到 Idn 服务器和 Internet 的租户虚拟网络的 DNS 流量路径。
 
-![iDNS 基础结构](../../media/Internal-Dns/Internal-Dns.jpg)
+![Idn 基础结构](../../media/Internal-Dns/Internal-Dns.jpg)
 
 ## <a name="how-to-deploy-idns"></a>如何部署 Idn
-当使用脚本部署 Windows Server 2016 中的 SDN 时，Idn 是自动包含在你的部署。
+当你使用脚本在 Windows Server 2016 中部署 SDN 时，Idn 会自动包含在你的部署中。
 
 有关详细信息，请参阅以下主题。
 
-- [部署软件定义的网络基础结构使用脚本](https://docs.microsoft.com/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)
+- [使用脚本部署软件定义的网络基础结构](https://docs.microsoft.com/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)
 
 
-## <a name="understanding-idns-deployment-steps"></a>了解部署步骤的 iDNS
-本部分中可用于深入了解有关如何安装和配置部署 SDN 使用脚本时 Idn。
+## <a name="understanding-idns-deployment-steps"></a>了解 Idn 部署步骤
+使用脚本时，可以使用本部分了解如何安装和配置 Idn。
 
-下面是部署 Idn 所需的步骤的摘要。
+下面概述了部署 Idn 所需的步骤。
 
 >[!NOTE]
->如果已通过使用脚本部署 SDN，你不需要执行任何这些步骤。 有关信息和故障排除目的提供的步骤。
+>如果已使用脚本部署了 SDN，则无需执行这些步骤。 仅提供有关信息和故障排除用途的步骤。
 
 ### <a name="step-1-deploy-dns"></a>第 1 步：部署 DNS
-可以使用下面的示例 Windows PowerShell 命令来部署 DNS 服务器。
+你可以使用以下示例 Windows PowerShell 命令来部署 DNS 服务器。
     
     Install-WindowsFeature DNS -IncludeManagementTools
     
-### <a name="step-2-configure-idns-information-in-network-controller"></a>步骤 2：配置网络控制器中的 Idn 信息
-此脚本段是由管理员向网络控制器，告知有关 Idn 区域配置-例如 iDNSServer 和用于承载 Idn 名称的区域的 IP 地址的 REST 调用。 
+### <a name="step-2-configure-idns-information-in-network-controller"></a>步骤 2：在网络控制器中配置 Idn 信息
+此脚本段是管理员对网络控制器进行的 REST 调用，它会通知 Idn 区域配置，例如 iDNSServer 的 IP 地址和用于托管 Idn 名称的区域。 
 
 ```
     Url: https://<url>/networking/v1/iDnsServer/configuration
@@ -112,85 +112,85 @@ Method: PUT
 ```
 
 >[!NOTE]
->这是一段摘录部分**配置 ConfigureIDns** SDNExpress.ps1 中。 有关详细信息，请参阅[部署软件定义的网络基础结构使用脚本](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)。
+>这是在 SDNExpress 中**配置 ConfigureIDns**部分的摘录。 有关详细信息，请参阅[使用脚本部署软件定义的网络基础结构](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)。
 
 ### <a name="step-3-configure-the-idns-proxy-service"></a>步骤 3:配置 Idn 代理服务
-IDNS 代理服务运行在每个 HYPER-V 主机，提供租户的虚拟网络和 Idn 服务器所在的物理网络之间的桥梁。 必须在每个 HYPER-V 主机上创建以下注册表项。
+Idn 代理服务在每个 Hyper-v 主机上运行，在租户虚拟网络与 Idn 服务器所在的物理网络之间提供桥梁。 必须在每个 Hyper-v 主机上创建以下注册表项。
 
 
-**DNS 端口：** 固定的端口 53
+**DNS 端口：** 固定端口53
 
-- Registry Key = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService"
+- 注册表项 = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService "
 - ValueName = "Port"
 - ValueData = 53
 - ValueType = "Dword"
        
 
-**DNS 代理端口：** 固定的端口 53
+**DNS 代理端口：** 固定端口53
 
-- Registry Key = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService"
+- 注册表项 = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService "
 - ValueName = "ProxyPort"
 - ValueData = 53
 - ValueType = "Dword"
         
-**DNS IP:** 在租户选择使用 Idn 服务的情况下，网络接口上配置的固定的 IP 地址
+**DNS IP：** 在租户选择使用 Idn 服务时在网络接口上配置的固定 IP 地址
 
-- Registry Key = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService"
+- 注册表项 = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService "
 - ValueName = "IP"
 - ValueData = "169.254.169.254"
-- ValueType ="String"
+- ValueType = "String"
 
         
 **Mac 地址：** DNS 服务器的媒体访问控制地址
 
-- Registry Key = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService
+- 注册表项 = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService
 - ValueName = "MAC"
-- ValueData = “aa-bb-cc-aa-bb-cc”
-- ValueType ="String"
+- ValueData = "aa-bb-cc-aa-bb-cc"
+- ValueType = "String"
 
-**IDN 服务器地址：** 以逗号分隔 Idn 服务器的列表。
+**服务器地址 IDN：** 以逗号分隔的 Idn 服务器列表。
 
 - 注册表项：HKLM\SYSTEM\CurrentControlSet\Services\DNSProxy\Parameters
-- ValueName = "Forwarders"
-- ValueData = “10.0.0.9”
-- ValueType ="String"
+- ValueName = "转发器"
+- ValueData = "10.0.0.9"
+- ValueType = "String"
 
 
 
 >[!NOTE]
->这是一段摘录部分**配置 ConfigureIDnsProxy** SDNExpress.ps1 中。 有关详细信息，请参阅[部署软件定义的网络基础结构使用脚本](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)。
+>这是在 SDNExpress 中**配置 ConfigureIDnsProxy**部分的摘录。 有关详细信息，请参阅[使用脚本部署软件定义的网络基础结构](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)。
 
 ### <a name="step-4-restart-the-network-controller-host-agent-service"></a>步骤 4：重新启动网络控制器主机代理服务
-可以使用以下 Windows PowerShell 命令以重新启动网络控制器主机代理服务。
+你可以使用以下 Windows PowerShell 命令重新启动网络控制器主机代理服务。
     
     Restart-Service nchostagent -Force
     
 有关详细信息，请参阅[重新启动服务](https://technet.microsoft.com/library/hh849823.aspx)。
 
 ### <a name="enable-firewall-rules-for-the-dns-proxy-service"></a>启用 DNS 代理服务的防火墙规则
-可以使用以下 Windows PowerShell 命令来创建防火墙规则允许要与 VM 和 Idn 服务器通信的代理的异常。
+你可以使用以下 Windows PowerShell 命令创建防火墙规则，该规则允许代理与 VM 和 Idn 服务器进行通信。
     
     Enable-NetFirewallRule -DisplayGroup 'DNS Proxy Firewall'
 
-有关详细信息，请参阅[Enable-netfirewallrule](https://technet.microsoft.com/library/jj554869.aspx)。
+有关详细信息，请参阅[set-netfirewallrule](https://technet.microsoft.com/library/jj554869.aspx)。
     
 ### <a name="validate-the-idns-service"></a>验证 Idn 服务
 若要验证 Idn 服务，必须部署示例租户工作负荷。
 
 有关详细信息，请参阅[创建 VM 和连接到租户虚拟网络或 VLAN](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create-a-tenant-vm)。
 
-如果所需的租户 VM 使用 Idn 服务，必须将 VM 网络接口的 DNS 服务器配置保留为空，并允许为使用 DHCP 的接口。 
+如果希望租户 VM 使用 Idn 服务，则必须将 VM 网络接口 DNS 服务器配置留空，并允许接口使用 DHCP。 
 
-此类网络接口的 VM 启动后，会自动获得的配置，使 VM 可以使用 Idn，和在 VM 立即开始使用 Idn 服务执行名称解析。
+启动具有此类网络接口的 VM 后，它会自动收到允许 VM 使用 Idn 的配置，并且 VM 会立即通过使用 Idn 服务开始执行名称解析。
 
-如果配置的租户 VM 使用 Idn 服务通过将网络接口的 DNS 服务器和备用 DNS 服务器信息保留为空白，网络控制器 VM 提供 IP 地址，并代表具有 Idn 服务器 VM 执行 DNS 名称注册. 
+如果通过将网络接口 DNS 服务器和备用 DNS 服务器信息留空来将租户 VM 配置为使用 Idn 服务，则网络控制器会提供具有 IP 地址的 VM，并代表 VM 通过 Idn 服务器执行 DNS 名称注册. 
 
-网络控制器还告知 Idn 代理 VM 和所需的详细信息，以对 VM 执行名称解析。 
+网络控制器还向 Idn 代理通知 VM，并将所需的详细信息通知给 VM 的名称解析。 
 
-当 VM 启动时的 DNS 查询时，该代理充当转发器从虚拟网络对 Idn 服务的查询。 
+当 VM 启动 DNS 查询时，代理将充当从虚拟网络到 Idn 服务的查询转发器。 
 
-DNS 代理还可确保租户 VM 查询隔离。 如果查询权威 Idn 服务器，则 Idn 服务器响应权威响应。 如果 Idn 服务器不是查询权威的它将执行 DNS 递归解析 Internet 名称。
+DNS 代理还可以确保租户 VM 查询是隔离的。 如果 Idn 服务器对查询具有权威，则 Idn 服务器将使用权威响应进行响应。 如果 Idn 服务器对查询没有权威，则会执行 DNS 递归来解析 Internet 名称。
 
 >[!NOTE]
->此信息包含的部分中**配置 AttachToVirtualNetwork** SDNExpressTenant.ps1 中。 有关详细信息，请参阅[部署软件定义的网络基础结构使用脚本](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)。
+>此信息包含在 SDNExpressTenant 的**配置 AttachToVirtualNetwork**部分中。 有关详细信息，请参阅[使用脚本部署软件定义的网络基础结构](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)。
 

@@ -1,7 +1,7 @@
 ---
-title: 计划你的 WSUS 部署
-description: Windows Server Update Service (WSUS) 主题的部署规划过程以及指向相关主题的概述
-ms.prod: windows-server-threshold
+title: 规划 WSUS 部署
+description: Windows Server Update Service （WSUS）主题-包含指向相关主题的链接的部署规划过程的概述
+ms.prod: windows-server
 ms.reviewer: na
 ms.technology: manage-wsus
 ms.topic: article
@@ -10,28 +10,28 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/24/2018
-ms.openlocfilehash: a568324ba69b13c7016f4715d3c37f991ae4c1ad
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 37e3a7788ccd409f4002f5fe2d7ea087e89b3419
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439725"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369845"
 ---
 # <a name="plan-your-wsus-deployment"></a>规划 WSUS 部署
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-部署 Windows Server Update Services (WSUS) 的第一步是做出重要决定，例如确定 WSUS 部署方案、选择网络拓扑和了解系统要求。 以下清单汇总了在准备为你的部署过程中涉及的步骤。
+部署 Windows Server Update Services (WSUS) 的第一步是做出重要决定，例如确定 WSUS 部署方案、选择网络拓扑和了解系统要求。 以下清单汇总了为部署做准备所涉及的步骤。
 
 |任务|描述|
 |----|--------|
-|[1.1.查看注意事项和系统要求](#11-review-considerations-and-system-requirements)|查看注意事项列表和系统要求，以确保你拥有部署 WSUS 所需的所有硬件和软件。|
-|[1.2.选择 WSUS 部署方案](#12-choose-a-wsus-deployment-scenario)|确定将使用哪种 WSUS 部署方案。|
-|[1.3.选择 WSUS 存储策略](#13-choose-a-wsus-storage-strategy)|确定哪种 WSUS 存储策略最适合你的部署。|
-|[1.4.选择 WSUS 更新语言](#14-choose-wsus-update-languages)|确定将安装哪种 WSUS 更新语言。|
-|[1.5.计划 WSUS 计算机组](#15-plan-wsus-computer-groups)|计划你进行部署时所用的 WSUS 计算机组方法。|
-|[1.6.计划 WSUS 性能注意事项：后台智能传输服务](#16-plan-wsus-performance-considerations)|计划优化性能的 WSUS 设计。|
-|[1.7.计划自动更新设置](#17-plan-automatic-updates-settings)|计划如何为你的方案配置自动更新设置。|
+|[1.1。查看注意事项和系统要求 @ no__t-0|查看注意事项列表和系统要求，以确保你拥有部署 WSUS 所需的所有硬件和软件。|
+|[1.2。选择 WSUS 部署方案 @ no__t-0|确定将使用哪种 WSUS 部署方案。|
+|[1.3。选择 WSUS 存储策略 @ no__t-0|确定哪种 WSUS 存储策略最适合你的部署。|
+|[1.4。选择 WSUS 更新语言 @ no__t-0|确定将安装哪种 WSUS 更新语言。|
+|[1.5。规划 WSUS 计算机组 @ no__t-0|计划你进行部署时所用的 WSUS 计算机组方法。|
+|[1.6。规划 WSUS 性能注意事项：后台智能传输服务 @ no__t-0|计划优化性能的 WSUS 设计。|
+|[1.7。计划自动更新设置 @ no__t-0|计划如何为你的方案配置自动更新设置。|
 
 ## <a name="11-review-considerations-and-system-requirements"></a>1.1. 查看注意事项和系统要求
 
@@ -41,17 +41,17 @@ ms.locfileid: "66439725"
 
 -   启用 WSUS 角色的服务器硬件要求与硬件要求相关。 WSUS 的最低硬件需求是：
 
-    -   **处理器：** 1.4 千兆赫 (GHz) x64 处理器 (2 Ghz 或更快地建议)
+    -   **双核处理器**1.4 千兆赫（GHz） x64 处理器（建议使用 2 Ghz 或更快）
 
-    -   **内存：** 多个要求的服务器内容和所有其他服务或软件，WSUS 需要额外的 2 GB 的 RAM。
+    -   **记忆**WSUS 除了需要服务器和所有其他服务或软件所需的 RAM 以外，还需要额外的 2 GB RAM。
 
-    -   **可用磁盘空间：** 10 GB (40 GB 或建议使用更高版本)
+    -   **可用磁盘空间：** 10 GB （建议使用 40 GB 或更大）
 
-    -   **网络适配器：** 100 兆位 / 秒 (Mbps) 或更高版本
+    -   **网络适配器：** 100兆位/秒（Mbps）或更高
 
 -   软件要求：
 
-    -   为查看报告，WSUS 需要 [Microsoft Report Viewer Redistributable 2008](https://www.microsoft.com/download/details.aspx?id=6576)。 Windows Server 2016 上，WSUS 需要[Microsoft 报表查看器运行时 2012年](https://www.microsoft.com/download/details.aspx?id=35747)
+    -   为查看报告，WSUS 需要 [Microsoft Report Viewer Redistributable 2008](https://www.microsoft.com/download/details.aspx?id=6576)。 在 Windows Server 2016 上，WSUS 需要[Microsoft Report Viewer 运行时 2012](https://www.microsoft.com/download/details.aspx?id=35747)
 
 -   如果你安装的角色或软件更新要求你在安装完成时重新启动服务器，则在你启用 WSUS 服务器角色之前，先重新启动服务器。
 
@@ -94,19 +94,19 @@ ms.locfileid: "66439725"
 
 请注意，将客户端计算机（包括服务器）配置为使用 WSUS 进行更新会形成以下限制：
 
-1. 使用按需功能移除了其有效负载的服务器角色无法从 Microsoft 更新进行按需安装。 必须在尝试安装此类服务器角色时提供的安装源，或在组策略中按需功能配置源。
+1. 使用按需功能移除了其有效负载的服务器角色无法从 Microsoft 更新进行按需安装。 你必须在尝试安装这类服务器角色时提供安装源，或在组策略中为按需功能配置源。
 
 2. Windows 客户端版本无法从 Web 按需安装 .NET 3.5。 与服务器角色相同的注意事项也适用于 .NET 3.5。
 
    > [!NOTE]
-   > 需安装源上配置功能不涉及 WSUS。 有关如何配置这些功能的信息，请参阅 [在 Windows Server 中配置按需功能](https://technet.microsoft.com/library/jj127275.aspx)。
+   > 配置按需功能安装源不涉及 WSUS。 有关如何配置这些功能的信息，请参阅 [在 Windows Server 中配置按需功能](https://technet.microsoft.com/library/jj127275.aspx)。
 
-3. 企业设备运行 Windows 10，版本 1709年或版本 1803，不能按需直接从 WSUS 安装任何功能。 若要按需安装功能[创建功能文件 （的并排存储区）](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127275%28v=ws.11%29#create-a-feature-file-or-side-by-side-store)或从以下源之一获取上需包的功能：
-   - [批量许可服务中心](https://www.microsoft.com/licensing/servicecenter)(VLSC)-需要的批量许可访问
-   - OEM 门户-需要的 OEM 访问
-   - MSDN 订阅是必需的 MSDN 下载-
+3. 运行 Windows 10 版本1709或版本1803的企业设备无法直接从 WSUS 安装任何需要的功能。 若要按需安装功能，请[创建一个功能文件（并排存储）](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127275%28v=ws.11%29#create-a-feature-file-or-side-by-side-store) ，或从以下源之一获取点播包的功能：
+   - [批量许可服务中心](https://www.microsoft.com/licensing/servicecenter)（VLSC）-需要 VL 访问权限
+   - OEM 门户-需要 OEM 访问
+   - MSDN 下载-需要 MSDN 订阅
 
-     可以使用安装单独获取按需包的功能[DISM 命令行选项](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options)。
+     可使用[DISM 命令行选项](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options)来安装按需包的单独获取功能。
 
 ### <a name="wsus-database-requirements"></a>WSUS 数据库要求
 WSUS 要求以下数据库之一：
@@ -132,7 +132,7 @@ WSUS 支持以下版本的 SQL Server：
 -   速成
 
 > [!NOTE]
-> SQL Server Express 2008 R2 具有 10 GB 的数据库大小限制。 此数据库大小可能足以用于 WSUS，尽管使用此数据库而不是 WID 没有明显好处。 WID 数据库具有最小 RAM 内存要求为 2 GB 超出标准的 Windows Server 系统要求。
+> SQL Server Express 2008 R2 具有 10 GB 的数据库大小限制。 此数据库大小可能足以用于 WSUS，尽管使用此数据库而不是 WID 没有明显好处。 除了标准 Windows Server 系统要求之外，WID 数据库的最低 RAM 内存要求为 2 GB。
 
 你可以在与数据库服务器计算机独立开来的计算机上安装 WSUS 角色。 在这种情况下，以下其他标准适用于：
 
@@ -140,23 +140,23 @@ WSUS 支持以下版本的 SQL Server：
 
 2.  WSUS 服务器不能运行远程桌面服务。
 
-3.  数据库服务器必须与 WSUS 服务器相同的 active directory 域中或它必须具有与 WSUS 服务器的 active directory 域的信任关系。
+3.  数据库服务器必须与 WSUS 服务器位于同一 active directory 域中，或者必须与 WSUS 服务器的 active directory 域建立信任关系。
 
-4.  WSUS 服务器和数据库服务器必须位于相同的时区或同步到相同的协调世界时 （格林威治标准时间） 源。
+4.  WSUS 服务器和数据库服务器必须处于相同的时区中，或同步到相同的协调世界时（格林尼治标准时间）源。
 
 ## <a name="12-choose-a-wsus-deployment-scenario"></a>1.2. 选择 WSUS 部署方案
 本部分介绍了所有 WSUS 部署的基本特征。 使用本部分，熟悉单一 WSUS 服务器的简单部署，并且了解更加复杂的方案，例如在独立网段上的 WSUS 服务器层次结构或 WSUS 服务器。
 
 ### <a name="simple-wsus-deployment"></a>简单 WSUS 部署
-最基本的 WSUS 部署由在私有内部网上的客户端计算机的企业防火墙内部的服务器组成。 将 WSUS 服务器连接到 Microsoft 更新，以下载更新。 这称为*同步*。 在同步期间，WSUS 确定自上次同步起是否有任何新更新可供使用。 如果你是第一次同步 WSUS，所有更新均可供下载。
+最基本的 WSUS 部署由在专用 intranet 上为客户端计算机提供服务的企业防火墙内部的服务器组成。 将 WSUS 服务器连接到 Microsoft 更新，以下载更新。 这称为*同步*。 在同步期间，WSUS 确定自上次同步起是否有任何新更新可供使用。 如果你是第一次同步 WSUS，所有更新均可供下载。
 
 > [!NOTE]
 > 初步同步将花费一个小时。 所有后续同步所花费的时间将大大减少。
 
-默认情况下，WSUS 服务器将端口 80 用于 HTTP 协议，将端口 443 用于 HTTPS 协议，以从 Microsoft 获取更新。 如果你的网络和 Internet 之间存有企业防火墙，则必须在直接与 Microsoft 更新通信的服务器上打开这些端口。 如果想要为此通信使用自定义端口，则必须改为打开这些端口。 你可以将多台 WSUS 服务器配置为与父 WSUS 服务器同步。 默认情况下，WSUS 服务器将端口 8530 用于 HTTP 协议，将端口 8531 用于 HTTPS 协议，以向客户端工作站提供更新。
+默认情况下，WSUS 服务器将端口 80 用于 HTTP 协议，将端口 443 用于 HTTPS 协议，以从 Microsoft 获取更新。 如果你的网络和 Internet 之间存有企业防火墙，则必须在直接与 Microsoft 更新通信的服务器上打开这些端口。 如果打算使用自定义端口进行此类通信，则必须打开这些端口。 你可以将多台 WSUS 服务器配置为与父 WSUS 服务器同步。 默认情况下，WSUS 服务器将端口 8530 用于 HTTP 协议，将端口 8531 用于 HTTPS 协议，以向客户端工作站提供更新。
 
 ### <a name="multiple-wsus-servers"></a>多台 WSUS 服务器
-管理员可以部署多个服务器运行的 WSUS，同步其组织的 intranet 中的所有内容。 您可能会公开到 Internet，将从 Microsoft 更新下载更新的唯一服务器只有一台服务器。 此服务器是设置为上游服务器的下游服务器同步的源。 在适当情况下，服务器可遍布于在地理上分散的网络中，以向所有客户端计算机提供最佳连接。
+管理员可部署多台运行 WSUS 的服务器，这些服务器同步其组织 intranet 中的所有内容。 你可能只向 Internet 公开一个服务器，这是从 Microsoft 更新下载更新的唯一服务器。 此服务器设置为上游服务器与下游服务器同步的源。 在适当情况下，服务器可遍布于在地理上分散的网络中，以向所有客户端计算机提供最佳连接。
 
 ### <a name="disconnected-wsus-server"></a>断开的 WSUS 服务器
 如果公司策略或其他条件限制计算机访问 Internet，管理员可设置内部服务器以运行 WSUS。 此示例说明了服务器连接到内部网却与 Internet 独立开来的情况。 在该服务器上下载、测试和批准更新之后，管理员会将更新元数据和内容导出到 DVD。 将更新元数据和内容从 DVD 中导入到在内部网运行 WSUS 的服务器。
@@ -173,9 +173,9 @@ WSUS 支持以下版本的 SQL Server：
 -   对于客户端计算机数量超出一台 WSUS 服务器有效管理范围的大型组织而言，你可以扩展 WSUS。
 
 > [!NOTE] 
-> 我们建议你不要创建三个级别以上的 WSUS 服务器层次结构。 每个级别将增加向整个连接的服务器传播更新的时间。 尽管没有层次结构没有理论限制，但尚未经过 Microsoft 测试具有五个级别的层次结构的部署。
+> 我们建议你不要创建三个级别以上的 WSUS 服务器层次结构。 每个级别将增加向整个连接的服务器传播更新的时间。 尽管对层次结构没有理论限制，但 Microsoft 仅测试层次结构为五个级别的部署。
 >
-> 此外，下游服务器必须在相同版本或早期版本的 WSUS 上游服务器同步源。
+> 此外，下游服务器必须是与上游服务器同步源相同的版本或早期版本的 WSUS。
 
 你可在“自治”模式（旨在实现分布式管理）或“副本”模式（旨在实现集中管理）下连接 WSUS 服务器。 你无需部署只使用一个模式的服务器层次结构：你可部署使用自治和副本 WSUS 服务器的 WSUS 解决方案。
 
@@ -191,14 +191,14 @@ WSUS 支持以下版本的 SQL Server：
 ### <a name="branch-offices"></a>分支机构
 你可利用 Windows 中的“分支机构”功能优化 WSUS 部署。 此类部署提供以下优势：
 
-1.  可帮助降低 WAN 链路利用率并提高应用程序响应能力。 若要启用由 Web 服务器提供的内容的 BranchCache 加速，则在服务器和客户端上安装 BranchCache 功能，并确保已启动 BranchCache 服务。 不需要其他步骤。
+1.  有助于减少 WAN 链路利用率并提高应用程序的响应能力。 若要启用由 Web 服务器提供的内容的 BranchCache 加速，则在服务器和客户端上安装 BranchCache 功能，并确保已启动 BranchCache 服务。 不需要其他步骤。
 
 2.  在低带宽连接到中央办公室而高带宽连接到 Internet 的分支机构中，同样可使用“分支机构”功能。 在这种情况下，你可能希望配置下游 WSUS 服务器，以获取有关安装哪些来自中央 WSUS 服务器的更新的信息，并且从 Microsoft 更新下载更新。
 
 ### <a name="network-load-balancing"></a>网络负载平衡
-网络负载平衡 (NLB) 提高 WSUS 网络的可靠性和性能。 您可以设置共享运行如 SQL Server 2008 R2 SP1 的 SQL Server 的单个故障转移群集的多个 WSUS 服务器。 在该配置中，你必须使用完整的 SQL Server 安装程序（而非 WSUS 提供的 Windows 内部数据库安装程序），并且数据库角色必须安装在所有 WSUS 前端服务器上。 你还可让所有 WSUS 服务器都使用分布式文件系统 (DFS) 来存储其内容。
+网络负载平衡 (NLB) 提高 WSUS 网络的可靠性和性能。 你可以设置多台 WSUS 服务器，它们共享运行 SQL Server 如 SQL Server 2008 R2 SP1 的单个故障转移群集。 在该配置中，你必须使用完整的 SQL Server 安装程序（而非 WSUS 提供的 Windows 内部数据库安装程序），并且数据库角色必须安装在所有 WSUS 前端服务器上。 你还可让所有 WSUS 服务器都使用分布式文件系统 (DFS) 来存储其内容。
 
-**用于 NLB 的 WSUS 设置：** nlb 与 WSUS 3.2 设置相比，特殊的设置调用和参数不再需要配置用于 NLB 的 WSUS。 你只需要设置每台 WSUS 服务器，请记住以下注意事项。
+用于 nlb 的**wsus 设置：** 与用于 NLB 的 wsus 3.2 设置相比，配置用于 NLB 的 wsus 不再需要特殊的设置调用和参数。 只需设置每台 WSUS 服务器，请记住以下注意事项。
 
 -   WSUS 必须使用 SQL 数据库选项而不是 WID 进行设置。
 
@@ -207,7 +207,7 @@ WSUS 支持以下版本的 SQL Server：
 -   WSUS 设置必须串行进行。 在共享相同 SQL 数据库时，安装后任务不能同时在多台服务器上运行。
 
 ### <a name="wsus-deployment-with-roaming-client-computers"></a>带有漫游客户端计算机的 WSUS 部署
-如果网络包含从不同位置登录到网络的移动用户，则可配置 WSUS，以便漫游用户从在地理上最接近它们的 WSUS 服务器更新其客户端计算机。 例如，每个区域部署一台 WSUS 服务器和对每个区域使用不同的 DNS 子网。 所有客户端计算机可以被定向到相同的 WSUS 服务器解析到最接近物理 WSUS 服务器的每个子网中。
+如果网络包含从不同位置登录到网络的移动用户，则可配置 WSUS，以便漫游用户从在地理上最接近它们的 WSUS 服务器更新其客户端计算机。 例如，你可以部署一个 WSUS 服务器每个区域，并为每个区域使用不同的 DNS 子网。 所有客户端计算机都可以定向到相同的 WSUS 服务器，该服务器将每个子网中的解析为最接近的物理 WSUS 服务器。
 
 ## <a name="13-choose-a-wsus-storage-strategy"></a>1.3. 选择 WSUS 存储策略
 Windows Server Update Services (WSUS) 使用两种存储系统：一个是存储 WSUS 配置和更新元数据的数据库，另一个是存储更新文件的可选本地文件系统。 在安装 WSUS 之前，应确定你希望实施存储的方式。
@@ -215,7 +215,7 @@ Windows Server Update Services (WSUS) 使用两种存储系统：一个是存储
 更新由两部分组成：描述更新的元数据，以及安装更新所需的文件。 更新元数据的规模通常比实际的更新要小很多，并且它存储在 WSUS 数据库中。 更新文件存储在本地 WSUS 服务器上或 Microsoft 更新 Web 服务器上。
 
 ### <a name="wsus-database"></a>WSUS 数据库
-WSUS 需要适用于每台 WSUS 服务器的数据库。 WSUS 支持使用位于与 WSUS 服务器有所不同的计算机上的数据库，但受到一些限制。 有关支持的数据库和远程数据库限制的列表，请参阅本指南中部分"1.1 查看初步注意事项和系统要求"。
+WSUS 需要适用于每台 WSUS 服务器的数据库。 WSUS 支持使用位于与 WSUS 服务器有所不同的计算机上的数据库，但受到一些限制。 有关支持的数据库列表和远程数据库限制的列表，请参阅本指南中的 "1.1 查看初始注意事项和系统要求" 部分。
 
 WSUS 数据库存储以下信息：
 
@@ -230,13 +230,13 @@ WSUS 数据库存储以下信息：
 SQL Server、SQL Server Express 和 Windows 内部数据库为单服务器配置提供相同的性能特征，其数据库和 WSUS 服务都位于相同的计算机上。 单服务器配置可支持数千台 WSUS 客户端计算机。
 
 > [!NOTE]
-> 请勿尝试通过直接访问数据库来管理 WSUS。 直接操控数据库会导致数据库损坏。 损坏可能不会即时显现，但它会阻止升级到产品的下一版本。 可以通过使用 WSUS 控制台或 WSUS 应用程序编程接口 (API) 来管理 WSUS。
+> 请勿尝试通过直接访问数据库来管理 WSUS。 直接处理数据库可能会导致数据库损坏。 损坏可能不会即时显现，但它会阻止升级到产品的下一版本。 可以通过使用 WSUS 控制台或 WSUS 应用程序编程接口 (API) 来管理 WSUS。
 
 #### <a name="wsus-with-windows-internal-database"></a>带 Windows 内部数据库的 WSUS
 默认情况下，安装向导创建和使用命名为 SUSDB.mdf 的 Windows 内部数据库。 该数据库位于 %windir%\wid\data\ folder 中，其中 %windir% 是安装 WSUS 服务器软件的本地驱动器。
 
 > [!NOTE]
-> 在 Windows Server 2008 中引入 Windows 内部数据库 (WID)。
+> Windows 内部数据库（WID）是在 Windows Server 2008 中引入的。
 
 WSUS 支持仅用于数据库的 Windows 身份验证。 你不能同时使用 SQL Server 身份验证和 WSUS。 如果你针对 WSUS 数据库使用 Windows 内部数据库，WSUS 安装可创建命名为 server\Microsoft##WID 的 SQL Server 实例，其中的服务器采用计算机的名称。 使用任一数据库选项，WSUS 安装创建命名为 SUSDB 的数据库。 该数据库的名称是不可配置的。
 
@@ -250,7 +250,7 @@ WSUS 支持仅用于数据库的 Windows 身份验证。 你不能同时使用 S
 
 Windows 内部数据库不提供用户界面或任何数据库管理工具。 如果为 WSUS 选择该数据库，则必须使用外部工具来管理数据库。 有关详细信息，请参阅：
 
--   [备份和还原 WSUS 数据和备份服务器](https://technet.microsoft.com/library/dd939904(WS.10).aspx)
+-   [备份和还原 WSUS 数据并备份你的服务器](https://technet.microsoft.com/library/dd939904(WS.10).aspx)
 
 -   [重新索引 WSUS 数据库](https://technet.microsoft.com/library/dd939795(WS.10).aspx)
 
@@ -271,7 +271,7 @@ Windows 内部数据库不提供用户界面或任何数据库管理工具。 �
 #### <a name="local-wsus-server-storage"></a>本地 WSUS 服务器存储
 当你安装和配置 WSUS 时，更新文件的本地存储是默认选项。 此选项可将企业连接上的带宽保存到 Internet，因为客户端计算机直接从本地 WSUS 服务器下载更新。
 
-此选项要求服务器拥有充分的磁盘空间来存储所有需要的更新。 WSUS 至少需要 20 GB 才能在本地; 存储更新但是，我们建议根据测试的变量 30 GB。
+此选项要求服务器拥有充分的磁盘空间来存储所有需要的更新。 WSUS 至少需要 20 GB 才能将更新存储在本地;但是，我们建议根据测试的变量进行 30 GB 的测试。
 
 #### <a name="remote-storage-on-microsoft-update-servers"></a>在 Microsoft 更新服务器上的远程存储
 你可以将更新远程存储在 Microsoft 更新服务器上。 如果大多数客户端计算机通过慢速 WAN 连接来连接 WSUS 服务器，但它们却通过高带宽连接来连接 Internet，则此选项是非常有帮助的。
@@ -283,9 +283,9 @@ Windows 内部数据库不提供用户界面或任何数据库管理工具。 �
 
 例如，总部可能需要英语和法语更新，但某个分支机构需要英语、法语和德语更新，其他分支机构则需要英语和西班牙语更新。 在这种情况下，你将配置根 WSUS 服务器，以下载英语、法语、德语和西班牙语更新。 随后为第一个分支机构配置 WSUS 服务器以便仅下载英语、法语和德语，为第二个分支机构配置 WSUS 服务器以便仅下载英语和西班牙语更新。
 
-WSUS 配置向导的 **“选择语言”** 页可让你获得所有语言或语言子集的更新。 选择语言子集将节省磁盘空间，但这十分重要，选择所需的所有下游服务器和客户端计算机的 WSUS 服务器的所有语言。
+WSUS 配置向导的 **“选择语言”** 页可让你获得所有语言或语言子集的更新。 选择语言子集可节省磁盘空间，但选择 WSUS 服务器的所有下游服务器和客户端计算机所需的所有语言都非常重要。
 
-以下是更新语言有关的一些重要注意事项，您应该牢记于心之前配置此选项：
+下面是有关在配置此选项之前应记住的更新语言的一些重要说明：
 
 -   除整个组织需要的任何其他语言外，始终包含英语。 所有更新都是以英语软件包为基础的。
 
@@ -300,7 +300,7 @@ WSUS 配置向导的 **“选择语言”** 页可让你获得所有语言或语
 > [!NOTE]
 > 将上游服务器配置为同步下游副本服务器所需的所有语言中的更新。 不会向你通知非同步语言中的所需更新。
 
-更新会在需要相关语言的客户端计算机上显示为“不适用”  。 若要避免此问题，请确保所有操作系统语言都包含在 WSUS 服务器同步选项中。 您可以通过转到查看所有操作系统语言**计算机**WSUS 管理控制台和操作系统语言对计算机进行排序的视图。 但是，你可能想要包含多种语言，如果有多个语言的 Microsoft 应用程序 （例如，如果在使用英文版 Windows 8 的某些计算机上安装法语版本的 Microsoft Word。
+更新会在需要相关语言的客户端计算机上显示为“不适用”。 若要避免此问题，请确保所有操作系统语言都包含在 WSUS 服务器同步选项中。 可以通过转到 WSUS 管理控制台的 "**计算机**" 视图并按操作系统语言对计算机进行排序，来查看所有操作系统语言。 但是，如果存在多种语言的 Microsoft 应用程序（例如，如果在使用英语版本 Windows 8 的某些计算机上安装了法语版本的 Microsoft Word），则可能需要包含更多语言。
 
 为上游服务器选择语言与为下游服务器选择语言不同。 以下过程说明了差异。
 
@@ -308,18 +308,18 @@ WSUS 配置向导的 **“选择语言”** 页可让你获得所有语言或语
 
 1.  在 WSUS 配置向导中：
 
-    -   若要获取所有语言的更新，请单击“下载包括新语言在内的所有语言的更新”  。
+    -   若要获取所有语言的更新，请单击“下载包括新语言在内的所有语言的更新”。
 
-    -   若要仅获取特定语言的更新，请单击“仅下载以下语言的更新”  ，然后选择你希望获得更新的语言。
+    -   若要仅获取特定语言的更新，请单击“仅下载以下语言的更新”，然后选择你希望获得更新的语言。
 
 #### <a name="to-choose-update-languages-for-a-downstream-server"></a>为下游服务器选择更新语言
 
-1.  如果上游服务器配置为下载一部分语言的更新文件：在 WSUS 配置向导中，单击“仅下载以下语言的更新”  （上游服务器仅支持标有星号的语言），然后选择你希望获得更新的语言。
+1.  如果上游服务器配置为下载一部分语言的更新文件：在 WSUS 配置向导中，单击“仅下载以下语言的更新”（上游服务器仅支持标有星号的语言），然后选择你希望获得更新的语言。
 
 > [!NOTE]
 > 即使你希望下游服务器下载与上游服务器相同的语言，也应执行此操作。
 
-2. 如果上游服务器配置为下载所有语言的更新文件：在 WSUS 配置向导中，单击“下载上游服务器支持的所有语言的更新”  。
+2. 如果上游服务器配置为下载所有语言的更新文件：在 WSUS 配置向导中，单击“下载上游服务器支持的所有语言的更新”。
 
 > [!NOTE]
 > 即使你希望下游服务器下载与上游服务器相同的语言，也应执行此操作。 此设置使上游服务器下载所有语言的更新，包括最初没有为上游服务器配置的语言。 如果向上游服务器添加语言，则应将新的更新复制到其副本服务器。
@@ -330,13 +330,13 @@ WSUS 配置向导的 **“选择语言”** 页可让你获得所有语言或语
 WSUS 可让你将各组客户端计算机作为更新目标，从而确保特定计算机总是在最方便的时候获得适当的更新。 例如，如果同一部门（例如会计组）中的所有计算机具有特定配置，你可为该组建立一个计算机组，并确定它们的计算机需要哪些更新以及何时安装这些更新，然后使用 WSUS 报告评估团队更新。
 
 > [!NOTE]
-> 如果 WSUS 服务器在副本模式下运行，则不能在该服务器上创建计算机组。 必须在属于 WSUS 服务器层次结构的 WSUS 服务器上，创建副本服务器的客户端计算机需要的所有计算机组。 有关副本模式的详细信息，请参阅管理 WSUS 副本服务器[管理 WSUS 副本服务器](https://technet.microsoft.com/library/dd939893(WS.10).aspx)WSUS 3.0 SP2 操作指南 》 中。
+> 如果 WSUS 服务器在副本模式下运行，则不能在该服务器上创建计算机组。 必须在属于 WSUS 服务器层次结构的 WSUS 服务器上，创建副本服务器的客户端计算机需要的所有计算机组。 有关副本模式的详细信息，请参阅《 WSUS 3.0 SP2 操作指南》中的管理 WSUS 副本服务器[管理 Wsus 副本服务器](https://technet.microsoft.com/library/dd939893(WS.10).aspx)。
 
-始终将计算机分配到**的所有计算机**组中，并且它们将继续分配给**未分配的计算机**组，直到将其分配给另一个组。 计算机可以属于多个组。
+始终将计算机分配给 "**所有计算机**" 组，并将其分配给 "**未分配的计算机**" 组，直到你将它们分配给其他组。 计算机可以属于多个组。
 
 可以按层次结构建立计算机组（例如，在 Accounting 组下的 Payroll 组和 Accounts Payable 组）。 除位置较高组外，为位置较高的组批准的更新将自动部署到位置较低的组。 在本示例中，如果你为 Accounting 组批准 Update1，更新将被部署到 Accounting 组中的所有计算机、Payroll 组中的所有计算机以及 Accounts Payable 组中的所有计算机。
 
-因为可将计算机分配给多个组，所以可为同一台计算机多次批准单一更新。 但是，更新仅被部署一次，且 WSUS 服务器将解决任何冲突。 若要继续的上一示例中，如果计算机 a 分配给 Payroll 组和 Accounts Payable 组，并为这两个组批准 Update1，它将被部署一次。
+因为可将计算机分配给多个组，所以可为同一台计算机多次批准单一更新。 但是，更新仅被部署一次，且 WSUS 服务器将解决任何冲突。 若要继续前面的示例，如果将计算机分配给工资单组和应付帐款组，并为这两个组批准了 Update1，则它将仅部署一次。
 
 可以使用“指向服务器端”或“指向客户端”这两种方法之一将计算机分配到计算机组。 以下是每种方法的定义：
 
@@ -356,15 +356,15 @@ WSUS 可让你将各组客户端计算机作为更新目标，从而确保特定
 #### <a name="priority"></a>Priority
 与最高优先级组有关的操作会覆盖其他组的操作。 小组在组层次结构中出现的结构越深，优先级越高。 仅基于深度分配优先级；所有分支都有相同的优先级。 例如，桌面分支之下二级的组的优先级高于服务器分支之下一级的组。
 
-在更新服务控制台层次结构窗格的以下文本示例，对于名为 wsus-01 的 WSUS 服务器，计算机组名为台式计算机和服务器已添加到默认**的所有计算机**组。 台式计算机和服务器组都处于相同层次结构级别。
+在 "更新服务控制台层次结构" 窗格的以下文本示例中，对于名为 "WSUS-01" 的 WSUS 服务器，名为 "台式计算机" 和 "服务器" 的计算机组已添加到默认的 "**所有计算机**" 组。 桌面计算机和服务器组处于相同的层次结构级别。
 
 -   **更新服务**
 
     -   **WSUS-01**
 
-        -   **更新**
+        -   **程序**
 
-        -   **computers**
+        -   **计算机**
 
             -   **所有计算机**
 
@@ -372,13 +372,13 @@ WSUS 可让你将各组客户端计算机作为更新目标，从而确保特定
 
                 -   **台式计算机**
 
-                    -   **Desktops-L1**
+                    -   **台式机-L1**
 
-                        -   **Desktops-L2**
+                        -   **台式机-L2**
 
                 -   **服务器**
 
-                    -   **Servers-L1**
+                    -   **服务器-L1**
 
         -   **下游服务器**
 
@@ -388,7 +388,7 @@ WSUS 可让你将各组客户端计算机作为更新目标，从而确保特定
 
         -   **选项**
 
-在此示例中，(Desktops L2) 的桌面计算机分支之下二级组具有的优先级高于服务器分支 (Servers L1) 的下一级组。 因此，对于具有 Desktops-L2 和 Servers-L1 组成员资格的计算机，Desktops-L2 组的所有操作优先于为 Servers-L1 组指定的操作。
+在此示例中，桌面计算机分支（桌面 L2）下两个级别的组的优先级高于服务器分支（服务器 L1）下一级的组。 因此，对于具有 Desktops-L2 和 Servers-L1 组成员资格的计算机，Desktops-L2 组的所有操作优先于为 Servers-L1 组指定的操作。
 
 #### <a name="priority-of-install-and-uninstall"></a>安装和卸载的优先级
 安装操作会覆盖卸载操作。 必需安装会覆盖可选安装（可选安装仅通过 API 可用且为使用 WSUS 管理控制台的更新更改批准将清除所有可选批准）。
@@ -397,7 +397,7 @@ WSUS 可让你将各组客户端计算机作为更新目标，从而确保特定
 具有最后期限的操作会覆盖没有最后期限的操作。  最后期限较早的操作会覆盖最后期限较晚的操作。
 
 ## <a name="16-plan-wsus-performance-considerations"></a>1.6. 计划 WSUS 性能注意事项
-有，以便可以优化性能部署 WSUS 之前应小心计划一些区域。 关键区域包括：
+在部署 WSUS 之前，你应该仔细规划一些区域，以便你可以优化性能。 关键区域包括：
 
 -   网络设置
 
@@ -423,7 +423,7 @@ WSUS 可让你将各组客户端计算机作为更新目标，从而确保特定
 
 在 WSUS 服务器的层次结构中，WSUS 将自动设置所有下游服务器，以使用根 WSUS 服务器的延迟下载设置。 你可以更改此默认设置。 例如，你可配置上游服务器以执行完全、即时同步，然后配置下游服务器以延迟下载。
 
-如果你部署连接的 WSUS 服务器的层次结构，我们建议你不要深入嵌套服务器。 如果启用延迟的下载和下游服务器请求上游服务器未批准的更新，下游服务器的请求将强制在上游服务器上的下载。 然后下游服务器在后续同步上下载更新。 在 WSUS 服务器的深层次结构中，请求和下载更新并将更新传递到服务器层次结构时会出现延误。 默认情况下，当你在本地存储更新时，启用延迟的下载。 你可以手动更改此选项。
+如果你部署连接的 WSUS 服务器的层次结构，我们建议你不要深入嵌套服务器。 如果你启用延迟的下载并且下游服务器请求未在上游服务器上批准的更新，则下游服务器的请求会在上游服务器上强制执行下载。 然后下游服务器在后续同步上下载更新。 在 WSUS 服务器的深层次结构中，请求和下载更新并将更新传递到服务器层次结构时会出现延误。 默认情况下，当你在本地存储更新时，启用延迟的下载。 你可以手动更改此选项。
 
 ### <a name="filters"></a>筛选器
 WSUS 可让你按语言、产品和类别来过滤更新同步。 在 WSUS 服务器的层次结构中，WSUS 将自动设置所有下游服务器，以使用在根 WSUS 服务器上选择的更新过滤选项。 你可以配置下游服务器，以仅接收语言子集。
@@ -433,7 +433,7 @@ WSUS 可让你按语言、产品和类别来过滤更新同步。 在 WSUS 服�
 ### <a name="installation"></a>安装
 更新通常由新版本且早已存在于准备更新的计算机中的文件组成。 在二进制级，这些现有的文件可能与更新的版本有很大不同。 快速安装文件功能识别不同版本之间的精确字节，并创建和分配仅限于那些差异的更新，然后将现有文件与更新的字节合并在一起。
 
-因为它仅下载的增量 （差异） 文件的两个版本之间，此功能有时称为"增量交付"。 快速安装文件比分配给客户端计算机的更新要大，因为快速安装文件含有每份要更新的文件的所有潜在版本。
+有时，此功能称为 "增量传递"，因为它仅下载文件的两个版本之间的增量（差异）。 快速安装文件比分配给客户端计算机的更新要大，因为快速安装文件含有每份要更新的文件的所有潜在版本。
 
 可以使用快速安装文件限制在本地网络上消耗的带宽，因为 WSUS 仅传输适用于特定版本的更新组件的增量。 但是，这会在你的 WSUS 服务器、任何上游 WSUS 服务器与 Microsoft 更新之间形成额外带宽成本，并且需要更多的本地磁盘空间。 默认情况下，WSUS 并不使用快速安装文件。
 

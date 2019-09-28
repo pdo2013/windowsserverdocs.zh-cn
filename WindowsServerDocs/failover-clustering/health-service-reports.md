@@ -1,6 +1,6 @@
 ---
-title: 运行状况服务报告
-ms.prod: windows-server-threshold
+title: 运行状况服务报表
+ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
@@ -8,35 +8,35 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: e018c0270a0bf410dada9c05d2c25e51fdfac1d8
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: e65db8834bd0b059dc7bbebbcaf9288fb46da225
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280156"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369676"
 ---
-# <a name="health-service-reports"></a>运行状况服务报告
+# <a name="health-service-reports"></a>运行状况服务报表
 > 适用于：Windows Server 2019、Windows Server 2016
 
-## <a name="what-are-reports"></a>报表有哪些？  
+## <a name="what-are-reports"></a>什么是报表  
 
-运行状况服务会减少从存储空间直通群集获取实时性能和容量信息所需的工作。 一个新的 cmdlet 提供了有效地收集和动态聚合跨节点，具有内置逻辑来检测群集成员身份的基本指标的特选的列表。 所有值均仅是实时和时间点形式的。  
+运行状况服务减少了从存储空间直通群集获取实时性能和容量信息所需的工作量。 一个新的 cmdlet 提供了一个特选的基本指标列表，它们使用内置逻辑来检测群集成员身份，以动态方式跨节点进行收集和聚合。 所有值均仅是实时和时间点形式的。  
 
 ## <a name="usage-in-powershell"></a>在 PowerShell 中的用法
 
-此 cmdlet 用于获取整个存储空间直通群集的指标：
+使用此 cmdlet 可获取整个存储空间直通群集的指标：
 
 ```PowerShell
 Get-StorageSubSystem Cluster* | Get-StorageHealthReport
 ```
 
-可选**计数**参数指示多少设置的值返回一个第二个时间间隔。  
+可选**计数**参数指示要返回的值的数目，以一秒为间隔。  
 
 ```PowerShell
 Get-StorageSubSystem Cluster* | Get-StorageHealthReport -Count <Count>  
 ```
 
-您还可以获取一个特定卷或服务器的度量值：  
+你还可以获取一个特定卷或服务器的指标：  
 
 ```PowerShell
 Get-Volume -FileSystemLabel <Label> | Get-StorageHealthReport -Count <Count>  
@@ -44,11 +44,11 @@ Get-Volume -FileSystemLabel <Label> | Get-StorageHealthReport -Count <Count>
 Get-StorageNode -Name <Name> | Get-StorageHealthReport -Count <Count>
 ```
 
-## <a name="usage-in-net-and-c"></a>在.NET 中的使用情况和C#
+## <a name="usage-in-net-and-c"></a>.NET 和中的用法C#
 
 ### <a name="connect"></a>连接
 
-若要查询运行状况服务，你将需要建立**CimSession**与群集。 若要执行此操作，你将需要完整的.NET 中才有一些事项，这意味着，你无法轻松地执行此操作直接从 web 或移动应用。 这些代码示例将使用 C\#、 的最直接选择将为此数据访问层。
+若要查询运行状况服务，需要建立与群集的**CimSession** 。 为此，你将需要一些仅适用于完整 .NET 的功能，这意味着你无法直接从 web 或移动应用程序中执行此操作。 这些代码示例将使用 C @ no__t，这是此数据访问层最简单的选择。
 
 ``` 
 ...
@@ -72,15 +72,15 @@ public CimSession Connect(string Domain = "...", string Computer = "...", string
 }
 ```
 
-提供的用户名应为目标计算机的本地管理员。
+提供的用户名应该是目标计算机的本地管理员。
 
-建议您构造密码**SecureString**直接从中的用户输入实时的因此其密码永远不会存储在内存中以明文形式。 这有助于缓解各种安全问题。 但在实践中，按上述方式构造是常见的原型设计目的。
+建议你实时直接从用户输入构造密码**SecureString** ，因此其密码绝不会以明文形式存储在内存中。 这有助于缓解各种安全问题。 但实际上，对其进行构造是出于原型的目的。
 
 ### <a name="discover-objects"></a>发现对象
 
-与**CimSession**建立，您可以在群集上查询 Windows Management Instrumentation (WMI)。
+建立**CimSession**后，可以在群集上查询 WINDOWS MANAGEMENT INSTRUMENTATION （WMI）。
 
-可以获取错误或度量值之前，需要获取多个相关对象的实例。 首先， **MSFT\_StorageSubSystem**它表示存储空间直通群集上。 使用的可以获取每个**MSFT\_StorageNode**在群集中，并且每个**MSFT\_卷**，数据卷。 最后，你将需要**MSFT\_StorageHealth**，运行状况服务本身，过。
+你需要获取多个相关对象的实例，然后才能获取错误或度量值。 首先， **MSFT @ no__t-1StorageSubSystem**表示群集上存储空间直通。 使用它，你可以获取群集中的每个**msft @ no__t-1StorageNode** ，以及每个**msft @ no__t-3Volume**，这些数据卷。 最后，还需要**MSFT @ no__t-1StorageHealth**，运行状况服务本身。
 
 ```
 CimInstance Cluster;
@@ -108,9 +108,9 @@ public void DiscoverObjects(CimSession Session)
 }
 ```
 
-这些是你在 PowerShell 中获取使用等 cmdlet 的相同对象**Get-storagesubsystem**， **Get-storagenode**，并**Get-volume**。
+这些对象是在 PowerShell 中使用**StorageSubSystem**、 **StorageNode**和**Volume**等 cmdlet 获取的相同对象。
 
-您可以访问所有相同的属性中所述[存储管理 API 类](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx)。
+可以访问[存储管理 API 类](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx)中所述的所有相同属性。
 
 ```
 ...
@@ -123,15 +123,15 @@ foreach (CimInstance Node in Nodes)
 }
 ```
 
-调用**GetReport**要开始流式处理示例的重要指标，这有效地收集和动态聚合跨节点，具有内置逻辑来检测群集成员身份的专家特选列表。 示例将到达此后每隔一秒。 所有值均仅是实时和时间点形式的。
+调用**GetReport** ，以开始特选基本指标的流式处理示例，这些示例是使用内置逻辑跨节点动态收集并动态聚合的，以检测群集成员身份。 稍后将每秒到达一次示例。 所有值均仅是实时和时间点形式的。
 
-可将指标流式传输的三个作用域： 群集、 任意节点或任何卷。
+可为三个作用域流式传输度量值：群集、任意节点或任何卷。
 
-在 Windows Server 2016 中的每个作用域的可用度量值的完整列表如下所述。
+Windows Server 2016 中的每个作用域提供的指标完整列表如下所述。
 
-### <a name="iobserveronnext"></a>IObserver.OnNext()
+### <a name="iobserveronnext"></a>IObserver. OnNext （）
 
-此代码示例使用[观察者设计模式](https://msdn.microsoft.com/library/ee850490(v=vs.110).aspx)若要实现观察程序其**OnNext()** 度量值的每个新示例到达时，将调用方法。 其**OnCompleted()** 方法时将调用如果/流式处理结束。 例如，您可能会使用它来重新启动流式处理，因此它将无限期地继续。
+此示例代码使用[观察程序设计模式](https://msdn.microsoft.com/library/ee850490(v=vs.110).aspx)来实现一个观察器，当度量值的每个新样本到达时，将调用其**OnNext （）** 方法。 如果流式处理结束时，将调用其**OnCompleted （）** 方法。 例如，你可以使用它来重新启动流式处理，因此它会无限期地继续。
 
 ```
 class MetricsObserver<T> : IObserver<T>
@@ -174,11 +174,11 @@ class MetricsObserver<T> : IObserver<T>
 
 ### <a name="begin-streaming"></a>开始流式处理
 
-通过定义观察程序，你可以开始流式处理。
+定义观察者后，可以开始流式传输。
 
-指定目标**CimInstance**到所需作用域内的度量值。 它可以是群集、 任意节点或任何卷。
+指定要为其指定指标范围的目标**CimInstance** 。 它可以是群集、任何节点或任何卷。
 
-Count 参数是在流结束前的样本数。
+Count 参数是流式处理结束之前的样本数。
 
 ```
 CimInstance Target = Cluster; // From among the objects discovered in DiscoverObjects()
@@ -203,31 +203,31 @@ public void BeginStreamingMetrics(CimSession Session, CimInstance HealthService,
 }
 ```
 
-不用说，这些指标可以进行可视化，存储在数据库中，或用于任何认为适当的方式。
+不用说，可以可视化这些指标，将其存储在数据库中，或者以任何适合的方式使用。
 
 ### <a name="properties-of-reports"></a>报表的属性
 
-度量值的每个示例是一个"报表"包含多个"记录"对应于单个指标。
+度量值的每个示例都是一个 "报表"，其中包含与各个度量值相对应的多个 "记录"。
 
-对于完整的架构中，检查**MSFT\_StorageHealthReport**并**MSFT\_HealthRecord**中的类*storagewmi.mof*。
+对于完整的架构，请在*storagewmi*中检查**msft @ no__t-1StorageHealthReport**和**msft @ no__t-3HealthRecord**类。
 
-每个度量值具有只需三个属性，每个此表。
+每个指标仅有三个属性，每个表。
 
-| **属性** | **示例**       |
+| **Property** | **示例**       |
 | -------------|-------------------|
 | 名称         | IOLatencyAverage  |
 | ReplTest1        | 0.00021           |
-| 单位        | 3                 |
+| 计算        | 3                 |
 
-单位 = {0、 1、 2、 3、 4}，其中 0 ="Bytes"，1 ="BytesPerSecond"，2 ="CountPerSecond"，3 ="Seconds"或 4 ="百分比"。
+单位 = {0，1，2，3，4}，其中 0 = "字节"，1 = "BytesPerSecond"，2 = "CountPerSecond"，3 = "秒"，或 4 = "百分比"。
 
 ## <a name="coverage"></a>覆盖范围
 
-以下是指标适用于 Windows Server 2016 中的每个作用域。
+下面是适用于 Windows Server 2016 中每个作用域的指标。
 
-### <a name="msftstoragesubsystem"></a>MSFT_StorageSubSystem
+### <a name="msft_storagesubsystem"></a>MSFT_StorageSubSystem
 
-| **名称**                        | **单位** |
+| **名称**                        | **计算** |
 |---------------------------------|-----------|
 | CPUUsage                        | 4         |
 | CapacityPhysicalPooledAvailable | 0         |
@@ -249,9 +249,9 @@ public void BeginStreamingMetrics(CimSession Session, CimInstance HealthService,
 | MemoryTotal                     | 0         |
 
 
-### <a name="msftstoragenode"></a>MSFT_StorageNode
+### <a name="msft_storagenode"></a>MSFT_StorageNode
 
-| **名称**            | **单位** |
+| **名称**            | **计算** |
 |---------------------|-----------|
 | CPUUsage            | 4         |
 | IOLatencyAverage    | 3         |
@@ -266,9 +266,9 @@ public void BeginStreamingMetrics(CimSession Session, CimInstance HealthService,
 | MemoryAvailable     | 0         |
 | MemoryTotal         | 0         |
 
-### <a name="msftvolume"></a>MSFT_Volume
+### <a name="msft_volume"></a>MSFT_Volume
 
-| **名称**            | **单位** |
+| **名称**            | **计算** |
 |---------------------|-----------|
 | CapacityAvailable   | 0         |
 | CapacityTotal       | 0         |

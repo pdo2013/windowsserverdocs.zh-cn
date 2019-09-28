@@ -2,7 +2,7 @@
 title: certutil
 description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3bc1e544c0e0684678bc168f286b52e5573f3ac2
-ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
+ms.openlocfilehash: 45c9946cc53fe3a901c3f6ee53f082a5b3d086c0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68300688"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379648"
 ---
 # <a name="certutil"></a>certutil
 
@@ -62,7 +62,7 @@ Certutil 是作为证书服务的一部分安装的命令行程序。 可以使�
 |[-ca. cert](#-cacert)|检索证书颁发机构的证书|
 |[-ca。](#-cachain)|检索证书颁发机构的证书链|
 |[-GetCRL](#-getcrl)|获取证书吊销列表 (CRL)|
-|[-CRL](#-crl)|发布新证书吊销列表 (Crl) [或仅限增量 Crl]|
+|[-CRL](#-crl)|发布新证书吊销列表（Crl） [或仅限增量 Crl]|
 |[-shutdown](#-shutdown)|关闭 Active Directory 证书服务|
 |[-installCert](#-installcert)|安装证书颁发机构证书|
 |[-renewCert](#-renewcert)|续订证书颁发机构证书|
@@ -283,8 +283,8 @@ SerialNumber要吊销的证书序列号的逗号分隔列表
 原因: 数值或符号吊销原因
 
 - 0CRL_REASON_UNSPECIFIED:未指定 (默认值)
-- 1:CRL_REASON_KEY_COMPROMISE:密钥泄漏
-- 2:CRL_REASON_CA_COMPROMISE:CA 泄露
+- 1：CRL_REASON_KEY_COMPROMISE:密钥泄漏
+- 2：CRL_REASON_CA_COMPROMISE:CA 泄露
 - 3：CRL_REASON_AFFILIATION_CHANGED:附属关系改变
 - 4:30CRL_REASON_SUPERSEDED:被取代
 - 5:40CRL_REASON_CESSATION_OF_OPERATION:操作的哈
@@ -350,7 +350,7 @@ InfoName 参数语法:
 - 文件文件版本
 - 产品产品版本
 - exitcount:退出模块计数
-- exit [Index]:退出模块说明
+- exit [Index]：退出模块说明
 - 政策策略模块说明
 - 路径名CA 名称
 - sanitizedname:净化的 CA 名称
@@ -366,33 +366,33 @@ InfoName 参数语法:
 - kracount:KRA 证书计数
 - kraused:KRA cert 使用计数
 - propidmax:最大 CA PropId
-- certstate [Index]:CA 证书
-- certversion [Index]:CA 证书版本
-- certstatuscode [Index]:CA 证书验证状态
-- crlstate [Index]:CRL
-- krastate [Index]:KRA 证书
-- crossstate + [Index]:前向交叉证书
-- crossstate-[Index]:后向交叉证书
-- cert [Index]:CA 证书
-- certchain [Index]:CA 证书链
-- certcrlchain [Index]:带有 Crl 的 CA 证书链
-- xchg [Index]:CA 交换证书
-- xchgchain [Index]:CA 交换证书链
-- xchgcrlchain [Index]:带有 Crl 的 CA 交换证书链
-- kra [Index]:KRA 证书
-- 叉 + [Index]:前向交叉证书
-- 交叉 [索引]:后向交叉证书
-- CRL [Index]:基本 CRL
-- deltacrl [Index]:增量 CRL
-- crlstatus [Index]:CRL 发布状态
-- deltacrlstatus [Index]:增量 CRL 发布状态
+- certstate [Index]：CA 证书
+- certversion [Index]：CA 证书版本
+- certstatuscode [Index]：CA 证书验证状态
+- crlstate [Index]：CRL
+- krastate [Index]：KRA 证书
+- crossstate + [Index]：前向交叉证书
+- crossstate-[Index]：后向交叉证书
+- cert [Index]：CA 证书
+- certchain [Index]：CA 证书链
+- certcrlchain [Index]：带有 Crl 的 CA 证书链
+- xchg [Index]：CA 交换证书
+- xchgchain [Index]：CA 交换证书链
+- xchgcrlchain [Index]：带有 Crl 的 CA 交换证书链
+- kra [Index]：KRA 证书
+- 叉 + [Index]：前向交叉证书
+- 交叉 [索引]：后向交叉证书
+- CRL [Index]：基本 CRL
+- deltacrl [Index]：增量 CRL
+- crlstatus [Index]：CRL 发布状态
+- deltacrlstatus [Index]：增量 CRL 发布状态
 - dnsDNS 名称
 - 职位角色分隔
 - 广告高级服务器版
 - 模板模板
-- csp [Index]:OCSP Url
-- aia [Index]:AIA Url
-- cdp [Index]:CDP Url
+- csp [Index]：OCSP Url
+- aia [Index]：AIA Url
+- cdp [Index]：CDP Url
 - localenameCA 区域设置名称
 - subjecttemplateoids:主题模板 Oid
 
@@ -442,7 +442,7 @@ delta: 增量 CRL (默认为基本 CRL)
 
 ## <a name="-crl"></a>-CRL
 
-CertUtil [Options]-CRL [dd: hh | 重新发布] [delta]
+CertUtil [Options]-CRL [dd： hh | 重新发布] [delta]
 
 发布新的 Crl [仅限增量 Crl]
 
@@ -540,7 +540,7 @@ CRLCRL 表
 
 显示整个 CRL 表:CRL
 
-使用 "Date [+ |-dd: hh]" 作为日期限制
+使用 "Date [+ |-dd： hh]" 作为日期限制
 
 使用 "now + dd: hh" 表示相对于当前时间的日期
 
@@ -729,7 +729,7 @@ CertUtil [Options]-store [CertificateStoreName [证书 id [OutputFile]]]
 
 转储证书存储
 
-CertificateStoreName:证书存储区名称。 示例：
+CertificateStoreName:证书存储区名称。 例如：
 
 - "My"、"CA" (默认)、"Root"、
 - "ldap:///CN=Certification 机关, CN = Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com？ cACertificate？" objectClass = 证书颁发机构 "(查看根证书)
@@ -751,7 +751,7 @@ OutputFile: 保存匹配证书的文件
 
 使用-microsoft-windows-grouppolicy 访问计算机组策略存储。
 
-示例：
+例如：
 
 - -enterprise NTAuth
 - -enterprise Root 37
@@ -849,7 +849,7 @@ CertUtil [Options]-viewstore [CertificateStoreName [证书 id [OutputFile]]]
 
 转储证书存储
 
-CertificateStoreName:证书存储区名称。 示例：
+CertificateStoreName:证书存储区名称。 例如：
 
 - "My"、"CA" (默认)、"Root"、
 - "ldap:///CN=Certification 机关, CN = Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com？ cACertificate？" objectClass = 证书颁发机构 "(查看根证书)
@@ -871,7 +871,7 @@ OutputFile: 保存匹配证书的文件
 
 使用-microsoft-windows-grouppolicy 访问计算机组策略存储。
 
-示例：
+例如：
 
 1. -enterprise NTAuth
 2. -enterprise Root 37
@@ -888,7 +888,7 @@ CertUtil [Options]-viewdelstore [CertificateStoreName [证书 id [OutputFile]]]
 
 从存储中删除证书
 
-CertificateStoreName:证书存储区名称。 示例：
+CertificateStoreName:证书存储区名称。 例如：
 
 - "My"、"CA" (默认)、"Root"、
 - "ldap:///CN=Certification 机关, CN = Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com？ cACertificate？" objectClass = 证书颁发机构 "(查看根证书)
@@ -910,7 +910,7 @@ OutputFile: 保存匹配证书的文件
 
 使用-microsoft-windows-grouppolicy 访问计算机组策略存储。
 
-示例：
+例如：
 
 1. -enterprise NTAuth
 2. -enterprise Root 37
@@ -1168,7 +1168,7 @@ CertUtil [Options]-DCInfo [域] [验证 |DeleteBad |DeleteAll
 [-f][-user][-urlfetch][-dc DCName][-t Timeout]
 
 > [!TIP]
-> 指定 Active Directory 域服务 (AD DS) 域 **[域]** 并指定在 Windows Server 2012 中添加域控制器 ( **-dc**) 的功能。 若要成功运行此命令, 你必须使用属于**Domain admins**或**Enterprise admins**成员的帐户。 此命令的行为修改如下:</br>> 1。  如果未指定域并且未指定特定的域控制器, 则此选项将返回要从默认域控制器处理的域控制器的列表。</br>> 2。  如果未指定域, 但指定了域控制器, 则会生成指定域控制器上的证书报表。</br>> 3。  如果指定了域, 但未指定域控制器, 则会在列表中的每个域控制器的证书上生成域控制器的列表。</br>> 4。  如果指定了域和域控制器, 则会从目标域控制器生成域控制器的列表。 还会生成列表中每个域控制器的证书报表。
+> 指定 Active Directory 域服务（AD DS）域 **[域]** 并指定在 Windows Server 2012 中添加域控制器（ **-dc**）的功能。 若要成功运行此命令, 你必须使用属于**Domain admins**或**Enterprise admins**成员的帐户。 此命令的行为修改如下:</br>> 1。  如果未指定域并且未指定特定的域控制器, 则此选项将返回要从默认域控制器处理的域控制器的列表。</br>> 2。  如果未指定域, 但指定了域控制器, 则会生成指定域控制器上的证书报表。</br>> 3。  如果指定了域, 但未指定域控制器, 则会在列表中的每个域控制器的证书上生成域控制器的列表。</br>> 4。  如果指定了域和域控制器, 则会从目标域控制器生成域控制器的列表。 还会生成列表中每个域控制器的证书报表。
 
 例如, 假设有一个名为 CPANDL 的域, 其中包含名为 CPANDL-DC1 的域控制器。 可以运行以下命令, 从 CPANDL-DC1: certutil-dc CPANDL-dcinfo CPANDL 检索域控制器及其证书的列表。
 
@@ -1308,7 +1308,7 @@ CertFile: 包含要验证的证书的文件。 证书将与 CTL 条目匹配, �
 
 ## <a name="-sign"></a>-sign
 
-CertUtil [Options]-sign InFileList |SerialNumber |CRL OutFileList [开始日期 + dd: hh] [+ SerialNumberList |-SerialNumberList |-ObjectIdList |\@ExtensionFile]
+CertUtil [Options]-sign InFileList |SerialNumber |CRL OutFileList [开始日期 + dd： hh] [+ SerialNumberList |-SerialNumberList |-ObjectIdList | \@ExtensionFile]
 
 CertUtil [Options]-sign InFileList |SerialNumber |CRL OutFileList [#HashAlgorithm] [+ 内容: alternatesignaturealgorithm |-内容: alternatesignaturealgorithm]
 
@@ -1322,7 +1322,7 @@ CRL创建一个空 CRL。 有效期和其他选项不得存在。
 
 OutFileList: 以逗号分隔的已修改证书或 CRL 输出文件的列表。 文件数量必须与 InFileList 匹配。
 
-开始日期 + dd: hh: 新的有效期: 可选的日期加上;可选日期和小时有效期;如果同时指定两者, 则使用加号 (+) 分隔符。 使用 "now [+ dd: hh]" 从当前时间开始。 使用 "从不" 无到期日期 (仅适用于 Crl)。
+开始日期 + dd: hh: 新的有效期: 可选的日期加上;可选日期和小时有效期;如果同时指定两者, 则使用加号 (+) 分隔符。 使用 "now [+ dd： hh]" 从当前时间开始。 使用 "从不" 无到期日期 (仅适用于 Crl)。
 
 SerialNumberList: 要添加或删除的以逗号分隔的序列号列表
 
@@ -1461,7 +1461,7 @@ CertUtil [Options]-错误 ErrorCode
 
 ## <a name="-getreg"></a>-getreg
 
-CertUtil [Options]-getreg [{ca | 还原 | 策略 | 退出 | 模板 | 注册 | 链 |PolicyServers}\[ProgId\]] [RegistryValueName]
+CertUtil [Options]-getreg [{ca | 还原 | 策略 | 退出 | 模板 | 注册 | 链 |PolicyServers} \[ProgId @ no__t-1] [RegistryValueName]
 
 显示注册表值
 
@@ -1487,9 +1487,9 @@ RegistryValueName: 注册表值名称 (使用 "名称\*" 与前缀匹配)
 
 值: 新的数字、字符串或日期注册表值或文件名。 如果数字值以 "+" 或 "-" 开头, 则在现有注册表值中设置或清除在新值中指定的位。
 
-如果字符串值以 "+" 或 "-" 开头, 并且现有值为 REG_MULTI_SZ 值, 则会将该字符串添加到现有的注册表值或从中删除。 若要强制创建 REG_MULTI_SZ 值, 请将 "\n" 添加到字符串值的末尾。
+如果字符串值以 "+" 或 "-" 开头，并且现有值为 REG_MULTI_SZ 值，则会将该字符串添加到现有的注册表值或从中删除。 若要强制创建 REG_MULTI_SZ 值，请将 "\n" 添加到字符串值的末尾。
 
-如果值以 "\@" 开头, 则该值的其余部分是包含二进制值的十六进制文本表示形式的文件的名称。 如果未引用有效的文件, 则会将其视为 [Date] [+ |-] [dd: hh]--可选的日期加上或减去可选的日和小时。 如果同时指定两者, 则使用加号 (+) 或减号 (-) 分隔符。 使用 "now + dd: hh" 表示相对于当前时间的日期。
+如果值以 "\@" 开头, 则该值的其余部分是包含二进制值的十六进制文本表示形式的文件的名称。 如果未引用有效的文件，则会将其视为 [Date] [+ |-] [dd： hh]--可选的日期加上或减去可选的日和小时。 如果同时指定两者, 则使用加号 (+) 或减号 (-) 分隔符。 使用 "now + dd: hh" 表示相对于当前时间的日期。
 
 使用 "chain\ChainCacheResyncFiletime \@now" 有效地刷新缓存的 crl。
 
@@ -1499,7 +1499,7 @@ RegistryValueName: 注册表值名称 (使用 "名称\*" 与前缀匹配)
 
 ## <a name="-setreg"></a>-setreg
 
-CertUtil [Options]-setreg [{ca | 还原 | 策略 | 退出 | 模板 | 注册 | 链 |PolicyServers}\[ProgId\]] RegistryValueName 值
+CertUtil [Options]-setreg [{ca | 还原 | 策略 | 退出 | 模板 | 注册 | 链 |PolicyServers} \[ProgId @ no__t-1] RegistryValueName Value
 
 设置注册表值
 
@@ -1525,9 +1525,9 @@ RegistryValueName: 注册表值名称 (使用 "名称\*" 与前缀匹配)
 
 值: 新的数字、字符串或日期注册表值或文件名。 如果数字值以 "+" 或 "-" 开头, 则在现有注册表值中设置或清除在新值中指定的位。
 
-如果字符串值以 "+" 或 "-" 开头, 并且现有值为 REG_MULTI_SZ 值, 则会将该字符串添加到现有的注册表值或从中删除。 若要强制创建 REG_MULTI_SZ 值, 请将 "\n" 添加到字符串值的末尾。
+如果字符串值以 "+" 或 "-" 开头，并且现有值为 REG_MULTI_SZ 值，则会将该字符串添加到现有的注册表值或从中删除。 若要强制创建 REG_MULTI_SZ 值，请将 "\n" 添加到字符串值的末尾。
 
-如果值以 "\@" 开头, 则该值的其余部分是包含二进制值的十六进制文本表示形式的文件的名称。 如果未引用有效的文件, 则会将其视为 [Date] [+ |-] [dd: hh]--可选的日期加上或减去可选的日和小时。 如果同时指定两者, 则使用加号 (+) 或减号 (-) 分隔符。 使用 "now + dd: hh" 表示相对于当前时间的日期。
+如果值以 "\@" 开头, 则该值的其余部分是包含二进制值的十六进制文本表示形式的文件的名称。 如果未引用有效的文件，则会将其视为 [Date] [+ |-] [dd： hh]--可选的日期加上或减去可选的日和小时。 如果同时指定两者, 则使用加号 (+) 或减号 (-) 分隔符。 使用 "now + dd: hh" 表示相对于当前时间的日期。
 
 使用 "chain\ChainCacheResyncFiletime \@now" 有效地刷新缓存的 crl。
 
@@ -1537,7 +1537,7 @@ RegistryValueName: 注册表值名称 (使用 "名称\*" 与前缀匹配)
 
 ## <a name="-delreg"></a>-delreg
 
-CertUtil [Options]-delreg [{ca | 还原 | 策略 | 退出 | 模板 | 注册 | 链 |PolicyServers}\[ProgId\]] [RegistryValueName]
+CertUtil [Options]-delreg [{ca | 还原 | 策略 | 退出 | 模板 | 注册 | 链 |PolicyServers} \[ProgId @ no__t-1] [RegistryValueName]
 
 删除注册表值
 
@@ -1563,9 +1563,9 @@ RegistryValueName: 注册表值名称 (使用 "名称\*" 与前缀匹配)
 
 值: 新的数字、字符串或日期注册表值或文件名。 如果数字值以 "+" 或 "-" 开头, 则在现有注册表值中设置或清除在新值中指定的位。
 
-如果字符串值以 "+" 或 "-" 开头, 并且现有值为 REG_MULTI_SZ 值, 则会将该字符串添加到现有的注册表值或从中删除。 若要强制创建 REG_MULTI_SZ 值, 请将 "\n" 添加到字符串值的末尾。
+如果字符串值以 "+" 或 "-" 开头，并且现有值为 REG_MULTI_SZ 值，则会将该字符串添加到现有的注册表值或从中删除。 若要强制创建 REG_MULTI_SZ 值，请将 "\n" 添加到字符串值的末尾。
 
-如果值以 "\@" 开头, 则该值的其余部分是包含二进制值的十六进制文本表示形式的文件的名称。 如果未引用有效的文件, 则会将其视为 [Date] [+ |-] [dd: hh]--可选的日期加上或减去可选的日和小时。 如果同时指定两者, 则使用加号 (+) 或减号 (-) 分隔符。 使用 "now + dd: hh" 表示相对于当前时间的日期。
+如果值以 "\@" 开头, 则该值的其余部分是包含二进制值的十六进制文本表示形式的文件的名称。 如果未引用有效的文件，则会将其视为 [Date] [+ |-] [dd： hh]--可选的日期加上或减去可选的日和小时。 如果同时指定两者, 则使用加号 (+) 或减号 (-) 分隔符。 使用 "now + dd: hh" 表示相对于当前时间的日期。
 
 使用 "chain\ChainCacheResyncFiletime \@now" 有效地刷新缓存的 crl。
 
@@ -1588,7 +1588,7 @@ UserKeyAndCertFile-包含要存档的用户私钥和证书的数据文件。  �
 
 使用-f 导入不由 CA 颁发的证书。
 
-[-f][-无声][-split][-config Machine\CAName][-p Password][-symkeyalg SymmetricKeyAlgorithm [, KeyLength]]
+[-f][-无声][-split][-config Machine\CAName][-p Password][-symkeyalg SymmetricKeyAlgorithm [，KeyLength]]
 
 返回[菜单](#menu)
 
@@ -1602,7 +1602,7 @@ CertUtil [Options]-ImportCert Certfile [ExistingRow]
 
 使用-f 导入不由 CA 颁发的证书。
 
-还可能需要将 CA 配置为支持外接证书导入: certutil-setreg ca\KRAFlags + KRAF_ENABLEFOREIGN
+还可能需要将 CA 配置为支持外接证书导入： certutil-setreg ca\KRAFlags + KRAF_ENABLEFOREIGN
 
 [-f][-config Machine\CAName]
 
@@ -1673,7 +1673,7 @@ ExtendedProperties包括扩展属性
 
 ## <a name="-convertepf"></a>-ConvertEPF
 
-CertUtil [Options]-ConvertEPF PFXInFileList EPFOutFile [cast | cast] [V3CACertId] [, Salt]
+CertUtil [Options]-ConvertEPF PFXInFileList EPFOutFile [cast | cast] [V3CACertId] [，Salt]
 
 将 PFX 文件转换为 EPF 文件
 
@@ -1726,13 +1726,13 @@ SaltEPF 输出文件 salt 字符串
 |-用户名用户名|使用命名帐户作为 SSL 凭据。 对于选择 U/I, 请使用-UserName。|
 |-Cert 证书 id|签名证书|
 |-dc DCName|面向特定域控制器|
-|-限制 RestrictionList|逗号分隔的限制列表。 每个限制都包含列名称、关系运算符和常量整数、字符串或日期。 一个列名前面可能有一个加号或减号, 用来指示排序顺序。 示例：</br>"RequestId = 47"</br>"+ RequesterName > = a, RequesterName < b"</br>"-RequesterName > 域, 处置 = 21"|
+|-限制 RestrictionList|逗号分隔的限制列表。 每个限制都包含列名称、关系运算符和常量整数、字符串或日期。 一个列名前面可能有一个加号或减号, 用来指示排序顺序。 例如：</br>"RequestId = 47"</br>"+ RequesterName > = a, RequesterName < b"</br>"-RequesterName > 域, 处置 = 21"|
 |-out ColumnList|逗号分隔的列列表|
 |-p 密码|密码|
 |-ProtectTo SAMNameAndSIDList|逗号分隔 SAM 名称/SID 列表|
 |-csp 提供程序|提供程序|
 |-t 超时|URL 提取超时值 (毫秒)|
-|-symkeyalg SymmetricKeyAlgorithm [, KeyLength]|具有可选密钥长度的对称密钥算法的名称, 示例:AES、128或3DES|
+|-symkeyalg SymmetricKeyAlgorithm [，KeyLength]|具有可选密钥长度的对称密钥算法的名称, 示例:AES、128或3DES|
 
 返回[菜单](#menu)
 

@@ -1,8 +1,8 @@
 ---
 title: manage-bde
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8923177b03f378f8252c532ec386f1808e516e1e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7ca23e5f4499672f1e4bfcca6b9ad27f4e84039b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874498"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373775"
 ---
 # <a name="manage-bde"></a>manage-bde
 
 
 
-用于打开或关闭 BitLocker，指定解除锁定机制，更新恢复方法，并解锁受 BitLocker 保护的数据驱动器。 此命令行工具可用来代替**BitLocker 驱动器加密**控制面板项。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
+用于打开或关闭 BitLocker、指定解锁机制、更新恢复方法以及解锁受 BitLocker 保护的数据驱动器。 此命令行工具可用于代替**BitLocker 驱动器加密**控制面板项。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
 
 ## <a name="syntax"></a>语法
 
@@ -37,43 +37,43 @@ manage-bde [-status] [–on] [–off] [–pause] [–resume] [–lock] [–unloc
 
 |参数|描述|
 |---------|-----------|
-|[管理 bde： 状态](manage-bde-status.md)|无论它们受 BitLocker 保护的计算机上，提供有关所有驱动器的信息。|
-|[管理 bde： 上](manage-bde-on.md)|将加密驱动器并打开 BitLocker 时。|
-|[管理 bde： 关闭](manage-bde-off.md)|解密驱动器，并将关闭 BitLocker。 解密完成后，将删除所有密钥保护程序。|
-|[管理 bde： 暂停](manage-bde-pause.md)|暂停加密或解密。|
-|[管理 bde： 恢复](manage-bde-resume.md)|恢复加密或解密。|
-|[管理 bde： 锁](manage-bde-lock.md)|阻止访问受 BitLocker 保护的数据。|
-|[管理 bde： 解锁](manage-bde-unlock.md)|允许访问受 BitLocker 保护数据的恢复密码或恢复密钥。|
-|[管理 bde： 自动解除锁定](manage-bde-autounlock.md)|管理的数据驱动器自动解锁。|
-|[管理 bde： 保护程序](manage-bde-protectors.md)|管理加密密钥的保护方法。|
-|[管理 bde: tpm](manage-bde-tpm.md)|配置计算机的受信任的平台模块 (TPM)。 此命令不支持在运行 Windows 8 的计算机上或**win8_server_2**。 若要管理这些计算机上的 TPM，适用于 Windows PowerShell 使用 TPM 管理 MMC 管理单元或 TPM 管理 cmdlet。|
-|[管理 bde: setidentifier](manage-bde-setidentifier.md)|设置中指定的值的驱动器上的驱动器标识符字段**为你的组织提供的唯一标识符**组策略设置。|
-|[管理-bde:ForceRecovery](manage-bde-forcerecovery.md)|强制重新启动受 BitLocker 保护驱动器进入恢复模式。 此命令从驱动器删除所有与 TPM 相关的密钥保护程序。 在计算机重新启动时，可以使用恢复密码或恢复密钥，以解锁驱动器。|
-|[管理 bde： 密码更改](manage-bde-changepassword.md)|修改数据驱动器的密码。|
-|[管理 bde: changepin](manage-bde-changepin.md)|修改操作系统驱动器的 PIN。|
-|[管理 bde: changekey](manage-bde-changekey.md)|修改操作系统驱动器的启动密钥。|
-|[管理-bde:KeyPackage](manage-bde-keypackage.md)|生成一个驱动器的密钥包。|
-|[管理 bde： 升级](manage-bde-upgrade.md)|BitLocker 版本升级。|
-|[管理-bde:WipeFreeSpace](manage-bde-wipefreespace.md)|擦除在驱动器上的可用空间。|
-|-? 或 /?|显示在命令提示符下简短帮助。|
-|-help 或-h|显示在命令提示符下完成的帮助。|
+|[Manage-bde: status](manage-bde-status.md)|提供有关计算机上所有驱动器的信息，无论它们是否受 BitLocker 保护。|
+|[Manage-bde: on](manage-bde-on.md)|加密驱动器并打开 BitLocker。|
+|[Manage-bde: off](manage-bde-off.md)|解密驱动器并关闭 BitLocker。 解密完成后，将删除所有密钥保护程序。|
+|[Manage-bde: pause](manage-bde-pause.md)|暂停加密或解密。|
+|[Manage-bde: resume](manage-bde-resume.md)|恢复加密或解密。|
+|[Manage-bde: lock](manage-bde-lock.md)|阻止对受 BitLocker 保护的数据的访问。|
+|[Manage-bde: unlock](manage-bde-unlock.md)|允许使用恢复密码或恢复密钥访问受 BitLocker 保护的数据。|
+|[Manage-bde: autounlock](manage-bde-autounlock.md)|管理数据驱动器的自动解锁。|
+|[Manage-bde: protectors](manage-bde-protectors.md)|管理加密密钥的保护方法。|
+|[Manage-bde: tpm](manage-bde-tpm.md)|配置计算机的受信任的平台模块（TPM）。 运行 Windows 8 或**win8_server_2**的计算机不支持此命令。 若要在这些计算机上管理 TPM，请使用 TPM 管理 MMC 管理单元或适用于 Windows PowerShell 的 TPM 管理 cmdlet。|
+|[Manage-bde: setidentifier](manage-bde-setidentifier.md)|将驱动器上的 "驱动器标识符" 字段设置为 "为**你的组织提供唯一标识符**组策略" 设置中指定的值。|
+|[Manage-bde:ForceRecovery](manage-bde-forcerecovery.md)|重新启动时，强制 BitLocker 保护的驱动器进入恢复模式。 此命令从驱动器中删除所有与 TPM 相关的密钥保护程序。 计算机重新启动时，只能使用恢复密码或恢复密钥来解锁驱动器。|
+|[Manage-bde: changepassword](manage-bde-changepassword.md)|修改数据驱动器的密码。|
+|[Manage-bde: changepin](manage-bde-changepin.md)|修改操作系统驱动器的 PIN。|
+|[Manage-bde: changekey](manage-bde-changekey.md)|修改操作系统驱动器的启动密钥。|
+|[Manage-bde:KeyPackage](manage-bde-keypackage.md)|为驱动器生成密钥包。|
+|[Manage-bde: upgrade](manage-bde-upgrade.md)|升级 BitLocker 版本。|
+|[Manage-bde:WipeFreeSpace](manage-bde-wipefreespace.md)|擦除驱动器上的可用空间。|
+|-? 或 /?|在命令提示符下显示 brief Help。|
+|-help 或-h|在命令提示符下显示完整的帮助。|
 
 ## <a name="BKMK_Examples"></a>示例
 
-下面的示例显示在计算机上的驱动器，并标识它们是否是受 BitLocker 保护和的当前加密状态。
+下面的示例显示了计算机上的驱动器并标识它们是否受 BitLocker 保护以及当前的加密状态。
 ```
 manage-bde -status
 ```
-下面的示例演示使用恢复密码选项 C 驱动器上的启用 BitLocker。 将生成的 BitLocker 和，以便可以将其记录在屏幕上显示恢复密码。
+以下示例说明如何在驱动器 C 上使用恢复密码选项启用 BitLocker。 恢复密码将由 BitLocker 生成并在屏幕上显示，以便你可以录制。
 ```
 manage-bde –on C: -recoverypassword
 ```
-下面的示例说明了通过使用恢复密码解锁受 BitLocker 保护驱动器。
+下面的示例演示如何使用恢复密码来解锁受 BitLocker 保护的驱动器。
 ```
 manage-bde –unlock E: -recoverypassword 111111-222222-333333-444444-555555-666666-777777-888888
 ```
 
 #### <a name="additional-references"></a>其他参考
 
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)
 -   [使用命令行启用 BitLocker](https://technet.microsoft.com/library/dd894351(v=ws.10).aspx)

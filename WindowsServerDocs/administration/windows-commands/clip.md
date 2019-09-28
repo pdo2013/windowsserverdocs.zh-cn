@@ -1,8 +1,8 @@
 ---
 title: clip
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b10876e115c1f0dcac3448948003852449012087
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 82186869782c47f41930d46b4c33a710e6addedf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862388"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379343"
 ---
 # <a name="clip"></a>clip
 
 
 
-将重定向到 Windows 剪贴板从命令行命令输出。 然后，您可以将此文本输出粘贴到其他程序。
+将命令行中的命令输出重定向到 Windows 剪贴板。 然后，你可以将此文本输出粘贴到其他程序中。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -39,29 +39,29 @@ clip < <FileName>
 
 |参数|描述|
 |---------|-----------|
-|\<命令 >|指定要发送到 Windows 剪贴板其输出的命令。|
-|\<FileName>|指定你想要发送到 Windows 剪贴板的内容的文件。|
+|\<Command >|指定要将其输出发送到 Windows 剪贴板的命令。|
+|\<文件名 >|指定要发送到 Windows 剪贴板的内容的文件。|
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
 
-可以使用**剪辑**命令以将数据复制到任何应用程序都可以接收的文本从剪贴板直接。
+您可以使用**clip**命令将数据直接复制到任何可从剪贴板接收文本的应用程序。
 
 ## <a name="BKMK_examples"></a>示例
 
-要复制的当前目录列表到 Windows 剪贴板，请键入：
+若要将当前目录列表复制到 Windows 剪贴板，请键入：
 ```
 dir | clip
 ```
-若要复制一个名为到 Windows 剪贴板 Generic.awk 程序的输出，请键入：
+若要将名为的程序的输出复制到 Windows 剪贴板，请键入：
 ```
 awk -f generic.awk input.txt | clip
 ```
-若要复制一个名为到 Windows 剪贴板的 Readme.txt 文件的内容，请键入：
+若要将名为 readme.txt 的文件的内容复制到 Windows 剪贴板，请键入：
 ```
 clip < readme.txt
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

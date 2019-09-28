@@ -2,22 +2,22 @@
 title: 文件屏蔽管理
 description: 本文介绍了如何创建文件屏蔽、生成通知、定义文件屏蔽模板和创建文件屏蔽异常
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 05fcaf402347d16bf8c28528d402664ae5f99165
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: ac5032630f960329675f896a303ef197d6a4dbb3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476055"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403104"
 ---
 # <a name="file-screening-management"></a>文件屏蔽管理
 
-> 适用于：Windows Server 2019，Windows Server 2016、 Windows 服务器 （半年频道）、 Windows Server 2012 R2 和 Windows Server 2012 中，Windows Server 2008 R2
+> 适用于：Windows Server 2019，Windows Server 2016，Windows Server （半年频道），Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2
 
 在文件服务器资源管理器 MMC 管理单元的**文件屏蔽管理**节点上，可以执行以下任务：
 

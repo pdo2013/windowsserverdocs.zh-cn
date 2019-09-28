@@ -1,7 +1,7 @@
 ---
 title: 使用离散设备分配部署图形设备
 description: 了解如何使用 DDA 在 Windows Server 中部署图形设备
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 ms.technology: hyper-v
 ms.tgt_pltfrm: na
@@ -9,12 +9,12 @@ ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 67a01889-fa36-4bc6-841d-363d76df6a66
-ms.openlocfilehash: 94ba561f35ea257a897f51cb3522196f7988eb71
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 3b37abaf5a2341aff66ff0064ecc4f52faf47f06
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872101"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392993"
 ---
 # <a name="deploy-graphics-devices-using-discrete-device-assignment"></a>使用离散设备分配部署图形设备
 

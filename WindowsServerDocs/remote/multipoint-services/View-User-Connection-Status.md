@@ -3,7 +3,7 @@ title: 查看用户连接状态
 description: 了解如何在 MultiPoint Services 中查看用户状态
 ms.custom: na
 ms.date: 07/08/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: 426df382-07a0-4be1-a87a-12e63bd8157b
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: ea162c24dd9fe68e9492dea007583a6b1293da2d
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0473ac9a08967dfc9ed7b9590ba5fa87a9250d2e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871461"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389158"
 ---
 # <a name="view-user-connection-status"></a>查看用户连接状态
 使用 "**工作站**" 选项卡确定标准或其他管理用户与 MultiPoint 服务工作站的连接的状态。  

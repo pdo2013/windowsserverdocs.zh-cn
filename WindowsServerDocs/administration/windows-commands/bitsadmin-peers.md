@@ -1,8 +1,8 @@
 ---
-title: bitsadmin 对等方
-description: Windows 命令主题**bitsadmin 对等方**-其中列出的**对等方**开关。
+title: bitsadmin 对等
+description: '**Bitsadmin 对等**节点的 Windows 命令主题-列表对**等**开关。'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d3a741b44a9a62efda15f10adc4184f6b4344b8d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3611afa3abde89b5eeab99a59994b7feae227a54
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873418"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380891"
 ---
-# <a name="bitsadmin-peers"></a>bitsadmin 对等方
+# <a name="bitsadmin-peers"></a>bitsadmin 对等
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
 ```
 bitsadmin /Peers /help
@@ -33,9 +33,9 @@ bitsadmin /Peers /list
 ## <a name="parameters"></a>Parameters
 |参数|描述|
 |-------|--------|
-|[bitsadmin 同行和帮助](bitsadmin-peers-and-help.md)|显示 /Peers 开关的命令行使用情况。|
-|[bitsadmin 对等互连和发现](bitsadmin-peers-and-discover.md)|再次发现对等方。|
-|[bitsadmin 对等方，然后清除](bitsadmin-peers-and-clear.md)|清除对等方列表。|
-|[bitsadmin 同行和列表](bitsadmin-peers-and-list.md)|列出所有对等方。|
+|[bitsadmin peers 和 help](bitsadmin-peers-and-help.md)|显示/Peers 开关的命令行用法。|
+|[bitsadmin peers 和 discover](bitsadmin-peers-and-discover.md)|再次发现对等方。|
+|[bitsadmin peers 和 clear](bitsadmin-peers-and-clear.md)|清除对等列表。|
+|[bitsadmin peers 和 list](bitsadmin-peers-and-list.md)|列出所有对等方。|
 ## <a name="additional-references"></a>其他参考
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

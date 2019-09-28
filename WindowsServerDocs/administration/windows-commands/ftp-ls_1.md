@@ -1,8 +1,8 @@
 ---
 title: ftp ls_1
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6abf8466f90ac29846f2e1ee7d305e7e4280231e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d183f6a014273b78befd14c8d3208508948ffc54
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438633"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376249"
 ---
-# <a name="ftp-ls1"></a>ftp: ls_1
+# <a name="ftp-ls_1"></a>ftp： ls_1
 
-> 适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+> 适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 > 
 > 
-> 适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+> 适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-显示文件和子目录的远程计算机中的缩写的列表。   
+显示远程计算机上的文件和子目录的缩写列表。   
 ## <a name="syntax"></a>语法  
 ```  
 ls [<remotedirectory>] [<LocalFile>]  
@@ -36,15 +36,15 @@ ls [<remotedirectory>] [<LocalFile>]
 
 |      参数      |                                                                       描述                                                                        |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [<remotedirectory>] | 指定你想要查看列表的目录。 如果未不指定任何目录，使用远程计算机上的当前工作目录。 |
-|    [<LocalFile>]    |               指定要在其中存储列表的本地文件。 如果未指定本地文件，结果显示在屏幕上。               |
+| [<remotedirectory>] | 指定要查看其列表的目录。 如果未指定目录，则使用远程计算机上的当前工作目录。 |
+|    [<LocalFile>]    |               指定要在其中存储列表的本地文件。 如果未指定本地文件，则结果将显示在屏幕上。               |
 
 ## <a name="BKMK_Examples"></a>示例  
-显示文件和子目录从远程计算机的简化的列表。  
+显示远程计算机上的文件和子目录的简短列表。  
 ```  
 ls  
 ```  
-获取的缩写的目录列表**dir1**远程计算机上并将其本地文件中保存调用**dirlist.txt**  
+获取远程计算机上的**dir1**的缩略目录列表，并将其保存到名为**dirlist**的本地文件中  
 ```  
 ls dir1 dirlist.txt   
 ```  

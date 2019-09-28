@@ -2,7 +2,7 @@
 title: Active Directory 域服务概述
 description: Windows Server 安全
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.service: na
 ms.suite: na
@@ -14,39 +14,39 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 3d0e849edbff3a481ffd28f83d7f14089030920d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c0ee85358c5e39f1ebf8cd901298a6083a3ebb97
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843128"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403763"
 ---
 # <a name="active-directory-domain-services-overview"></a>Active Directory 域服务概述
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
   
-目录是将对象的信息存储在网络的层次结构。 目录服务，如 Active Directory 域服务 (AD DS) 提供了用于存储目录数据并使此数据可供网络用户和管理员的方法。 例如，AD DS 存储有关用户帐户，如名称、 密码、 电话号码等信息，并使同一网络上的其他已授权的用户访问此信息。  
+目录是存储有关网络上对象的信息的层次结构。 目录服务（例如 Active Directory 域服务（AD DS））提供存储目录数据以及使此数据可供网络用户和管理员使用的方法。 例如，AD DS 存储有关用户帐户的信息，如名称、密码、电话号码等，并使同一网络上的其他授权用户可以访问此信息。  
   
-Active Directory 将对象的信息存储在网络上，并使此信息来查找和使用的管理员和用户可以更轻松。 Active Directory 使用的结构化的数据存储的基础逻辑、 分层组织的目录信息。  
+Active Directory 存储有关网络上对象的信息，并使管理员和用户可以轻松查找和使用此信息。 Active Directory 使用结构化数据存储作为目录信息的逻辑层次结构的基础。  
   
-此数据存储区，也称为目录，包含有关 Active Directory 对象的信息。 通常，这些对象包括共享的资源，如服务器、 卷、 打印机和网络用户和计算机帐户。 有关 Active Directory 数据存储区的详细信息，请参阅[Directory 数据存储区](https://technet.microsoft.com/library/cc736627(v=ws.10).aspx)。  
+此数据存储（也称为目录）包含 Active Directory 对象的相关信息。 这些对象通常包含共享资源，如服务器、卷、打印机、网络用户和计算机帐户。 有关 Active Directory 数据存储的详细信息，请参阅[目录数据存储](https://technet.microsoft.com/library/cc736627(v=ws.10).aspx)。  
   
-安全性通过登录身份验证以及对目录中的对象的访问控制与 Active Directory 集成。 单点网络登录，管理员可以管理目录数据和在其网络中，整个组织和授权的网络用户可以访问网络上任意位置的资源。 基于策略的管理简化了即使最复杂的网络的管理。 有关 Active Directory 安全性的详细信息，请参阅安全概述。  
+通过登录身份验证和对目录中对象的访问控制，安全与 Active Directory 集成。 通过单一网络登录，管理员可以管理其整个网络中的目录数据和组织，授权网络用户可以访问网络上任何位置的资源。 基于策略的管理简化了即使最复杂的网络的管理。 有关 Active Directory 安全的详细信息，请参阅安全性概述。  
   
 Active Directory 还包括：  
-* 一组规则**架构**、 定义对象的类和属性中包含该目录、 约束和限制这些对象的实例以及其名称的格式。 有关架构的详细信息，请参阅架构。  
+* 一组规则，即**架构**，定义目录中包含的对象和属性的类别、这些对象的实例的约束和限制及其名称的格式。 有关架构的详细信息，请参阅架构。  
   
   
-* 一个**全局编录**的包含目录中的每个对象有关的信息。 这允许用户和管理员可以找到目录信息而不考虑在目录中的哪个域实际包含的数据。 有关全局编录的详细信息，请参阅全局编录的角色。  
+* 包含有关目录中每个对象的信息的**全局编录**。 这允许用户和管理员查找目录信息，而不考虑目录中的哪个域实际包含数据。 有关全局编录的详细信息，请参阅全局编录的角色。  
   
   
-* 一个**查询和索引机制**，以便可以发布和发现的网络用户或应用程序对象和其属性。 有关查询目录的详细信息，请参阅查找目录信息。  
+* 一**种查询和索引机制**，以便对象及其属性可由网络用户或应用程序发布和查找。 有关查询目录的详细信息，请参阅查找目录信息。  
   
   
-* 一个**复制服务**，通过网络分发目录数据。 在域中的所有域控制器参与复制，并包含其域的所有目录信息的完整副本。 对目录数据的任何更改均复制到域中的所有域控制器。 有关 Active Directory 复制的详细信息，请参阅复制概述。  
+* 跨网络分发目录数据的**复制服务**。 域中的所有域控制器均参与复制，并包含其域的所有目录信息的完整副本。 对目录数据的任何更改均复制到域中的所有域控制器。 有关 Active Directory 复制的详细信息，请参阅复制概述。  
   
 ## <a name="understanding-active-directory"></a>了解 Active Directory  
- 本部分提供了链接到 Active Directory 的核心概念：  
+ 本部分提供了指向核心 Active Directory 概念的链接：  
    
 * [Active Directory 结构和存储技术](https://technet.microsoft.com/library/cc759186(v=ws.10).aspx)  
 * [域控制器角色](https://technet.microsoft.com/library/cc786438(v=ws.10).aspx)   
@@ -54,8 +54,8 @@ Active Directory 还包括：
 * [了解信任](https://technet.microsoft.com/library/cc771294(v=ws.10).aspx)   
 * [Active Directory 复制技术](https://technet.microsoft.com/library/cc786438(v=ws.10).aspx)   
 * [Active Directory 搜索和发布技术](https://technet.microsoft.com/library/cc775686(v=ws.10).aspx)   
-* 与 DNS 和组策略进行互操作   
+* 与 DNS 和组策略互操作   
 * [了解架构](https://technet.microsoft.com/library/cc759402(v=ws.10).aspx)   
   
-Active Directory 概念的详细列表，请参阅[了解 Active Directory](https://technet.microsoft.com/library/cc781408(v=ws.10).aspx)。   
+有关 Active Directory 概念的详细列表，请参阅[了解 Active Directory](https://technet.microsoft.com/library/cc781408(v=ws.10).aspx)。   
 

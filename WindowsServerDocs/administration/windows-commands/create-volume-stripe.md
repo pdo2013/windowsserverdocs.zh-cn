@@ -1,8 +1,8 @@
 ---
-title: 创建带区卷
-description: 'Windows 命令主题 * * *- '
+title: 创建卷带区
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 55ed731df4613e215fb4d0954a5b8424035b1166
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 46c1367b5667294a7a9df742861a011090e7a337
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434007"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379145"
 ---
-# <a name="create-volume-stripe"></a>创建带区卷
+# <a name="create-volume-stripe"></a>创建卷带区
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-创建使用两个或多个指定的动态磁盘的条带化的卷。  
+使用两个或更多指定的动态磁盘创建带区卷。  
   
 > [!IMPORTANT]  
-> 对于 Windows Vista，此 DiskPart 命令才可用的 Windows Vista Ultimate、 Windows Vista Enterprise 和 Windows Vista Business 版本中。  
+> 对于 Windows Vista，此 DiskPart 命令仅适用于 Windows Vista 旗舰版、Windows Vista Enterprise 和 Windows Vista 商业版。  
   
   
   
@@ -41,17 +41,17 @@ create volume stripe [size=<n>] disk=<n>,<n>[,<n>,...] [align=<n>] [noerr]
   
 |         参数         |                                                                                                                            描述                                                                                                                            |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         size\=<n>         |             磁盘空间量，以兆字节为单位\(MB\)，该卷将占用的每个磁盘上。 如果没有给定大小，新建卷将占用的最小磁盘以及每个后续的磁盘上相同大小的空间上的剩余可用空间。             |
-| disk\=<n>,<n>\[,<n>,...\] |                                  在其创建条带化的卷的动态磁盘。 需要至少两个动态磁盘来创建带区的卷。 空间等于**大小\=<n>** 上每个磁盘分配。                                   |
-|        align\=<n>         | 对齐到最接近的对齐边界的所有卷扩展盘区。 通常与硬件 RAID 逻辑单元号一起使用\(LUN\)数组以提高性能。 *n*是千字节数\(KB\)从一开始为最接近的对齐边界的磁盘。 |
-|           noerr           |                               仅用于脚本。 当遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，错误会导致 DiskPart 退出，错误代码。                                |
+|         size @ no__t-0 @ no__t-1         |             卷在每个磁盘上占用的磁盘空间量（以 mb 为单位 @no__t-配置包括 @ no__t）。 如果没有给定大小，则新卷将占用最小磁盘上的剩余可用空间，并在每个后续磁盘上占用相同的空间量。             |
+| disk @ no__t-0 @ no__t，<n> @ no__t，<n>,... \] |                                  在其上创建带区卷的动态磁盘。 若要创建带区卷，至少需要两个动态磁盘。 在每个磁盘上分配**大小为 @ no__t-1 @ no__t-2**的空间。                                   |
+|        align @ no__t-0 @ no__t-1         | 将所有卷区与最接近的对齐边界对齐。 通常与硬件 RAID 逻辑单元号一起使用 \(LUN @ no__t 数组来提高性能。 *n*是从磁盘开头到最接近的对齐边界的千字节数 \(kb @ no__t-2。 |
+|           noerr           |                               仅用于脚本编写。 遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，则错误会导致 DiskPart 退出并出现错误代码。                                |
   
 ## <a name="remarks"></a>备注  
   
--   创建卷后，焦点就自动转移到新卷。  
+-   创建卷后，焦点会自动转移到新卷。  
   
 ## <a name="BKMK_examples"></a>示例  
-若要创建 1000 兆字节为单位的条带化的卷的大小，磁盘 1 和 2 中，键入：  
+若要创建大小为 1000 mb 的条带化卷，请在磁盘1和2上键入：  
   
 ```  
 create volume stripe size=1000 disk=1,2  

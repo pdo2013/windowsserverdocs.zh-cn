@@ -1,19 +1,19 @@
 ---
 title: 部署用于文件夹重定向和漫游用户配置文件的主计算机
 description: 如何启用主计算机支持，并为具有文件夹重定向和漫游用户配置文件的用户指定主要计算机。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: fe026b97f15b4094303c8162c5363cc6205dedd1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: be2b41cf32e2020422c32415e2d8f4273eb09859
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867275"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394437"
 ---
 # <a name="deploy-primary-computers-for-folder-redirection-and-roaming-user-profiles"></a>部署用于文件夹重定向和漫游用户配置文件的主计算机
 
@@ -36,7 +36,7 @@ ms.locfileid: "70867275"
 > [!TIP]
 > 虽然主计算机支持需要 "文件夹重定向" 和/或 "漫游用户配置文件"，但是，如果你是首次部署这些技术，最好设置主计算机支持，然后再启用用于配置文件夹重定向和漫游用户配置文件。 这会防止在启用主计算机支持之前将用户数据复制到非主计算机。 有关配置信息，请参阅[部署文件夹重定向](deploy-folder-redirection.md)和[部署漫游用户配置文件](deploy-roaming-user-profiles.md)。
 
-## <a name="step-1-designate-primary-computers-for-users"></a>步骤 1：为用户指定主计算机
+## <a name="step-1-designate-primary-computers-for-users"></a>第 1 步：为用户指定主计算机
 
 部署主计算机支持的第一步是为每个用户指定主要计算机。 为此，请使用 Active Directory 管理中心获取相关计算机的可分辨名称，然后设置**PrimaryComputer**属性。
 
@@ -70,7 +70,7 @@ ms.locfileid: "70867275"
 4. 右键单击 "**仅在主计算机上重定向文件夹**"，然后选择 "**编辑**"。
 5. 选择 "**已启用**"，然后选择 **"确定"** 。
 
-## <a name="step-3-optionally-enable-primary-computers-for-roaming-user-profiles-in-group-policy"></a>步骤 3：（可选）在组策略中启用漫游用户配置文件的主计算机
+## <a name="step-3-optionally-enable-primary-computers-for-roaming-user-profiles-in-group-policy"></a>步骤 3:（可选）在组策略中启用漫游用户配置文件的主计算机
 
 下一步是根据需要配置组策略，以便为漫游用户配置文件启用主计算机支持。 这样做可使用户的配置文件漫游到指定为用户的主计算机的计算机上，而不是在任何其他计算机上漫游。
 

@@ -1,19 +1,19 @@
 ---
 title: 选择网络适配器
 description: 本主题是 Windows Server 2016 的网络子系统性能优化指南的一部分。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: a6615411-83d9-495f-8a6a-1ebc8b12f164
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 19318bfa9807d209bd9a195b668c1787bd3aff25
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: cf93e6f91f4a1c21050c7ad1cb4de43258be1a65
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871916"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71401857"
 ---
 # <a name="choosing-a-network-adapter"></a>选择网络适配器
 

@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: bd9c47c0f786fa8c7814519b26d33daaf01080a3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0a1543f2c935c2ef76ea014567b18bfc778c7401
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869386"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407388"
 ---
 # <a name="the-role-of-attribute-stores"></a>属性存储的角色
 Active Directory 联合身份验证服务使用术语 "特性存储" 来指代组织用于存储其用户帐户及其相关属性值的目录或数据库。 在标识提供者组织中进行配置后，AD FS 从存储中检索这些属性值并基于该信息创建声明，以便在信赖方组织中托管的 Web 应用程序或服务可以将相应的每次联合用户\(（其帐户存储在标识提供者组织\)中的用户）尝试访问应用程序或服务时的授权决策。  

@@ -1,8 +1,8 @@
 ---
 title: bitsadmin util 和 enableanalyticchannel
-description: Windows 命令主题**bitsadmin util 和 enableanalyticchannel** -启用或禁用 BITS 客户端分析通道。
+description: '**Bitsadmin util 和 enableanalyticchannel**的 Windows 命令主题-启用或禁用 BITS 客户端分析通道。'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 814442a4d9b1a4d6e45b28f41a89b7a144be1cbf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2c73c704e0c49c6f8309ce0a5c9646afb3392f79
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877318"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380257"
 ---
 # <a name="bitsadmin-util-and-enableanalyticchannel"></a>bitsadmin util 和 enableanalyticchannel
 
@@ -34,11 +34,11 @@ bitsadmin /Util /EnableAnalyticChannel TRUE|FALSE
 
 ## <a name="BKMK_examples"></a>示例
 
-以下示例启用 BITS 客户端分析通道。
+下面的示例启用 BITS 客户端分析通道。
 ```
 C:\>bitsadmin /Util / EnableAnalyticChannel TRUE
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

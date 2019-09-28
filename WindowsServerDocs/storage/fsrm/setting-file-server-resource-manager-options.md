@@ -2,22 +2,22 @@
 title: 设置文件服务器资源管理器选项
 description: 本文介绍了如何设置文件服务器资源管理器选项
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 2a3915d3d6d69b0c7a0a63da4622ddcb091d60a6
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: e92a6f030d8ec2ce74edc721469ce67ec73bc6e9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476136"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403096"
 ---
 # <a name="setting-file-server-resource-manager-options"></a>设置文件服务器资源管理器选项
 
-> 适用于：Windows Server 2019，Windows Server 2016、 Windows 服务器 （半年频道）、 Windows Server 2012 R2 和 Windows Server 2012 中，Windows Server 2008 R2
+> 适用于：Windows Server 2019，Windows Server 2016，Windows Server （半年频道），Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2
 
 可在**文件服务器资源管理器选项**对话框中设置文件服务器资源管理器的常规选项。 这些设置可用于所有节点，处理配额、屏蔽文件或生成存储报告时可对其中一些设置进行修改。
 

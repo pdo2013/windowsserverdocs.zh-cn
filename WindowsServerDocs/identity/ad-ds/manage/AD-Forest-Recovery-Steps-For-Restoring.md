@@ -6,46 +6,46 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: 1712d3a636160f82495539afdd42ab2ee85ffae2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 07a043c4361f8eaae30b1dea665c604c0df42333
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861468"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390287"
 ---
 # <a name="ad-forest-recovery---steps-for-restoring-the-forest"></a>AD 林恢复-用于还原林的步骤
 
->适用于：Windows Server 2016 中，Windows Server 2012 和 2012 R2 中，Windows Server 2008 和 2008 R2
+>适用于：Windows Server 2016、Windows Server 2012 和 2012 R2、Windows Server 2008 和 2008 R2
 
-本部分概述了用于恢复林的推荐路径。 更高版本中详细介绍林恢复步骤。  
+本部分概述了用于恢复林的推荐路径。 稍后将详细介绍林恢复步骤。  
   
-以下列表总结了在高级别的恢复步骤：  
+以下列表汇总了高级别的恢复步骤：  
   
-1. [确定此问题](AD-Forest-Recovery-Identify-the-Problem.md)  
+1. [确定问题](AD-Forest-Recovery-Identify-the-Problem.md)  
 
-   使用 IT 和 Microsoft 支持部门以确定问题和可能的原因的范围，并与所有业务利益相关者评估可能的补救措施。 在许多情况下恢复总林应最后一个选项。  
+   使用它和 Microsoft 支持部门来确定问题的范围和可能的原因，并评估所有业务利益干系人可能的补救措施。 在许多情况下，林完全恢复总计应为最后一个选项。  
   
 2. [决定如何恢复林](AD-Forest-Recovery-Determine-how-to-Recover.md)  
 
-   你确定必要的林恢复后，完整的初步文档步骤做好准备： 确定当前的林结构，标识的函数的每个 DC 执行时，决定哪些 DC 若要还原的每个域，并确保所有可写域控制器是脱机状态。  
+   确定林恢复是必需的后，请完成准备工作的预备步骤：确定当前林结构，确定每个 DC 执行的功能，确定要为每个域还原哪个 DC，并确保所有可写 Dc处于脱机状态。  
 
 3. [执行初始恢复](AD-Forest-Recovery-Perform-initial-recovery.md)  
 
-   在隔离中，恢复为每个域的一个 DC、 其，清除和重新连接域。 重置特权的帐户，并纠正在此阶段中引起安全漏洞的问题。  
+   隔离时，为每个域恢复一个 DC，对其进行清理，然后重新连接到域。 重置特权帐户，并纠正此阶段的安全漏洞导致的问题。  
   
 4. [重新部署剩余 Dc](AD-Forest-Recovery-Restore-Additional-DCs.md)  
 
-   重新部署林恢复到在发生故障之前其状态。 此步骤将需要适应特定的设计和要求。 虚拟化的域控制器克隆可帮助加速此过程。  
+   重新部署林，使其返回到失败之前的状态。 需要根据具体的设计和要求调整此步骤。 虚拟化域控制器克隆有助于加速此过程。  
 
 5. [清理](AD-Forest-Recovery-Cleanup.md)  
 
-   还原功能之后，根据需要重新配置名称解析，并获取使用 LOB 应用程序。  
+   还原功能后，根据需要重新配置名称解析，并使 LOB 应用程序正常工作。  
 
-本指南中的步骤旨在最大程度减少重新危险数据引入到已恢复目录林中的可能性。 您可能必须修改等因素考虑以下步骤：  
+本指南中的步骤旨在最大程度地减少将危险数据重新引入到已恢复的林中。 可能需要修改这些步骤，以考虑以下因素：  
   
 - 可伸缩性  
-- 远程可管理性  
-- 恢复速度快  
+- 远程管理  
+- 恢复速度  

@@ -1,8 +1,8 @@
 ---
 title: bdehdcfg 大小
-description: Windows 命令主题-在创建新的系统驱动器时指定的系统分区的大小。
+description: Windows 命令主题-指定在创建新的系统驱动器时的系统分区大小。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d024bb4092f93782300d6afb9053cee1da32629a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6ec42cdb5716c63c7210ea6cfde8ce8884833b45
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817518"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382199"
 ---
-# <a name="bdehdcfg-size"></a>bdehdcfg： 大小
+# <a name="bdehdcfg-size"></a>bdehdcfg： size
 
 
 
-在创建新的系统驱动器时，请指定系统分区的大小。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
+指定在创建新的系统驱动器时的系统分区大小。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
 
 ## <a name="syntax"></a>语法
 
@@ -36,23 +36,23 @@ bdehdcfg -target {default|unallocated|<DriveLetter> shrink} -size <SizeinMB>
 
 |参数|描述|
 |---------|-----------|
-|\<SizeinMB>|指示兆字节 (MB) 用于新的分区数。|
+|\<SizeinMB >|指示用于新分区的兆字节数（MB）。|
 
 ## <a name="remarks"></a>备注
 
-如果不指定大小，该工具将使用默认值 300 MB。 系统驱动器的最小大小为 100 MB。 如果将系统分区上存储系统恢复或其他系统工具，应相应地增加大小。
+如果未指定大小，则该工具将使用默认值 300 MB。 系统驱动器的最小大小为 100 MB。 如果要将系统恢复或其他系统工具存储在系统分区上，则应相应地增加大小。
 
 > [!NOTE]
-> **大小**命令不能结合**目标**\<驱动器号 >**合并**命令。
+> **Size**命令不能与**目标**@no__t > **merge**命令组合。
 
 ## <a name="BKMK_Examples"></a>示例
 
-下面的示例演示如何使用**大小**命令要分配给默认系统驱动器的 500 MB。
+下面的示例演示如何使用**size**命令将 500 MB 分配给默认系统驱动器。
 ```
 bdehdcfg -target default -size 500
 ```
 
 #### <a name="additional-references"></a>其他参考
 
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)
 -   [Bdehdcfg](bdehdcfg.md)

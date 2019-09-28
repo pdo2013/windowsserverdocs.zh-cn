@@ -1,7 +1,7 @@
 ---
 title: 部署 Windows Server 混合云打印-通过身份验证
 description: 如何通过直通身份验证设置 Microsoft 混合云打印
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: Windows Server 2016
@@ -12,12 +12,12 @@ author: msjimwu
 ms.author: coreyp
 manager: dongill
 ms.date: 3/15/2018
-ms.openlocfilehash: 8d4d842b917a52f2c6852cf5c3ed261c0be2cc1c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: e9d461e2e9442e9473a6d2c9b13d9ede17361348
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866856"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370405"
 ---
 # <a name="deploy-windows-server-hybrid-cloud-print-with-passthrough-authentication"></a>通过直通身份验证部署 Windows Server 混合云
 
@@ -61,9 +61,9 @@ ms.locfileid: "70866856"
 
 本指南概述了五（5）个安装步骤：
 
-- 步骤 1：安装 Azure AD Connect 以便在 Azure AD 和本地 AD 之间同步
+- 第 1 步：安装 Azure AD Connect 以便在 Azure AD 和本地 AD 之间同步
 - 步骤 2：在打印服务器上安装混合云打印包
-- 步骤 3：通过直通身份验证安装 Azure 应用程序 Proxy （AAP-SCHEME）
+- 步骤 3:通过直通身份验证安装 Azure 应用程序 Proxy （AAP-SCHEME）
 - 步骤 4：配置所需的 MDM 策略
 - 步骤 5：发布共享打印机
 
@@ -254,7 +254,7 @@ ms.locfileid: "70866856"
 
         > 注意：也可以在命令行中输入所有必需的参数值。<br>
         **发布-CloudPrinter**PowerShell 命令语法： <br>
-        CloudPrinter \<-打印机字符串\> -制造商\<字符串\> -型号\<字符串\> -OrgLocation \<string-Sddl\> \<DiscoveryEndpoint\>字符串-PrintServerEndpoint string\<-AzureClientId\> string- AzureTenantGuid\<\> \> \< \<string[\> - DiscoveryResourceId\<string]\> <br>
+        CloudPrinter-Printer \<string @ no__t-1-制造商 \<string @ no__t-3-Model \<string @ no__t-5-OrgLocation \<string @ no__t-8String @no__t-no__t @ DiscoveryEndpoint-11-PrintServerEndpoint \>2string @ no__t-13-AzureClientId 4string @ no__t-15-AzureTenantGuid 6string @ no__t-17 [-DiscoveryResourceId 8string @ no__t-19] <br>
         示例命令：`publish-cloudprinter -Printer EcpPrintTest -Manufacturer Microsoft -Model FilePrinterEcp -OrgLocation '{"attrs": [{"category":"country", "vs":"USA", "depth":0}, {"category":"organization", "vs":"MyCompany", "depth":1}, {"category":"site", "vs":"MyCity, State", "depth":2}, {"category":"building", "vs":"Building 1", "depth":3}, {"category":"floor\_number", "vn":1, "depth":4}, {"category":"room\_name", "vs":"1111", "depth":5}]}' -Sddl "O:BAG:DUD:(A;OICI;FA;;;WD)" -DiscoveryEndpoint https://<services-machine-endpoint>/mcs -PrintServerEndpoint https://<services-machine-endpoint>/ecp -AzureClientId <Native Web App ID> -AzureTenantGuid <Azure AD Directory ID> -DiscoveryResourceId <Proxied Mopria Discovery Cloud Service App ID>`
 
 

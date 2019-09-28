@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getstate
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f7ed7529fda264efaceb6b4b36e36e728c211f3f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 55be37a6b1b44b81ed9002e5e3b9eb1fd46bd0dc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889618"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381231"
 ---
 # <a name="bitsadmin-getstate"></a>bitsadmin getstate
 
 
 
-检索指定的作业的状态。
+检索指定作业的状态。
 
 ## <a name="syntax"></a>语法
 
@@ -40,17 +40,17 @@ bitsadmin /GetState <Job>
 
 ## <a name="remarks"></a>备注
 
-可能的状态包括：
+可能的状态为：
 
-|-----|-----| |排入队列 |作业正在等待运行。 ||连接 |BITS 联系服务器。 ||传输 |BITS 将数据传输。 ||挂起 |作业已暂停。 ||错误 |发生不可恢复的错误;将不会重新传输。 ||TRANSIENT_ERROR |出现可恢复错误则传输重试的最小重试延迟时间过期时。 ||确认 |完成作业。 ||取消 |已取消该作业。 |
+|-----|-----| |排队 |作业正在等待运行。 ||正在连接 |BITS 正在联系服务器。 ||正在传输 |BITS 正在传输数据。 ||挂起 |作业已暂停。 ||错误 |发生了不可恢复的错误;将不会重试传输。 ||TRANSIENT_ERROR |发生了可恢复的错误;最小重试延迟到期时，将重试传输。 ||已确认 |作业已完成。 ||已取消 |作业已取消。 |
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例检索名为的作业状态*myDownloadJob*。
+下面的示例将检索名为*myDownloadJob*的作业的状态。
 ```
 C:\>bitsadmin /GetState myDownloadJob
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

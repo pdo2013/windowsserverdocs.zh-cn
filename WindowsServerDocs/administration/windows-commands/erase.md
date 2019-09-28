@@ -1,8 +1,8 @@
 ---
 title: 擦除
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,15 +13,15 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2f941ac605b6ac75c01c6faecad0f6711cef3569
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9a357600ee4758462afea016ee4931ff09a1a068
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887448"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377537"
 ---
 # <a name="erase"></a>擦除
 
 
 
-此命令等同于**del**命令。 请参阅[Del](del.md)语法和参数。
+此命令与**del**命令相同。 有关语法和参数，请参阅[Del](del.md) 。

@@ -1,28 +1,28 @@
 ---
 title: Windows Server-Server Core 中包含的角色、角色服务和功能
 description: Windows Server 的服务器核心安装选项中包括哪些角色和功能？
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 02/23/2018
-ms.openlocfilehash: 2f6aed56083bd606ae2ec06b72152ef4a0461420
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 7b5d5d5ad38b1b03e409c26485860f43799f1322
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476501"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383328"
 ---
 # <a name="roles-role-services-and-features-included-in-windows-server---server-core"></a>Windows Server-Server Core 中包含的角色、角色服务和功能
 
-> 适用于：Windows Server 2019、Windows Server 2016 和 Windows Server (半年频道)
+> 适用于：Windows Server 2019、Windows Server 2016 和 Windows Server （半年频道）
 
-我们通常会探讨[*不*在服务器核心中的内容](server-core-removed-roles.md), 现在我们将尝试一种不同的方法, 并告诉您*包含*哪些内容以及*默认情况下是否安装*了某些内容。 以下角色、角色服务和功能在 Windows Server 的服务器核心安装选项*中*。 使用此信息来帮助确定服务器核心选项是否适用于您的环境。 由于这是一个大型列表, 因此请考虑搜索你感兴趣的特定角色或功能-如果该搜索不返回你要查找的内容, 则它不会包含在服务器核心中。
+我们通常会探讨[*不*在服务器核心中的内容](server-core-removed-roles.md)，现在我们将尝试一种不同的方法，并告诉您*包含*哪些内容以及*默认情况下是否安装*了某些内容。 以下角色、角色服务和功能在 Windows Server 的服务器核心安装选项*中*。 使用此信息来帮助确定服务器核心选项是否适用于您的环境。 由于这是一个大型列表，因此请考虑搜索你感兴趣的特定角色或功能-如果该搜索不返回你要查找的内容，则它不会包含在服务器核心中。
 
-例如, 如果搜索 "远程桌面会话主机", 则在此页上找不到它。 这是因为服务器核心映像中不包含 RD 会话主机。
+例如，如果搜索 "远程桌面会话主机"，则在此页上找不到它。 这是因为服务器核心映像中不包含 RD 会话主机。
 
-请记住, 您[始终可以查看](server-core-removed-roles.md)*不*包含的内容。 这只是一种不同的查看方式。
+请记住，您[始终可以查看](server-core-removed-roles.md)*不*包含的内容。 这只是一种不同的查看方式。
 
 ## <a name="roles-included-in-server-core"></a>服务器核心中包含的角色
 服务器核心安装选项包括以下服务器角色。
@@ -70,13 +70,13 @@ ms.locfileid: "68476501"
 |                                       | 文件服务器资源管理器                                   | FS-资源管理器     | N                     |
 |                                       | 文件服务器 VSS 代理服务                                  | FS-VSS-代理            | N                     |
 |                                       | iSCSI 目标服务器                                            | iSCSITarget-服务器      | N                     |
-|                                       | iSCSI 目标存储提供程序 (VDS 和 VSS 硬件提供程序) | iSCSITarget-VSS-VDS     | N                     |
+|                                       | iSCSI 目标存储提供程序（VDS 和 VSS 硬件提供程序） | iSCSITarget-VSS-VDS     | N                     |
 |                                       | NFS 服务器                                                 | FS-NFS-服务          | N                     |
 |                                       | 工作文件夹                                                   | FS-SyncShareService     | N                     |
 |                                       | 存储服务                                               | 存储服务        | Y                     |
 | 打印和文档服务           | 打印服务器                                                   | 打印-服务器            | N                     |
 |                                       | LPD 服务                                                    | Print-LPD-服务       | N                     |
-| 远程访问                         | DirectAccess 和 VPN (RAS)                                     | DirectAccess-VPN        | N                     |
+| 远程访问                         | DirectAccess 和 VPN （RAS）                                     | DirectAccess-VPN        | N                     |
 |                                       | 路由                                                        | 路由                 | N                     |
 |                                       | Web 应用程序代理                                          | Web 应用程序-代理   | N                     |
 | 远程桌面服务               | 远程桌面连接代理                               | RDS-连接-Broker   | N                     |
@@ -142,7 +142,7 @@ ms.locfileid: "68476501"
 | 功能                                                | 名称                               | 是否默认安装？ |
 |--------------------------------------------------------|------------------------------------|-----------------------|
 | .NET Framework 3.5 功能                            | 网络框架-功能             | N                     |
-| .NET Framework 3.5 (包括 .NET 2.0 和 3.0)       | NET-核心                 | 删除             |
+| .NET Framework 3.5 （包括 .NET 2.0 和3.0）       | NET-核心                 | 删除             |
 | HTTP 激活                                        | NET-HTTP-激活                | N                     |
 | 非 HTTP 激活                                    | NET-非 HTTP Activ                 | N                     |
 | .NET Framework 4.6 功能                            | NET-45-功能          | Y                     |
@@ -150,7 +150,7 @@ ms.locfileid: "68476501"
 | ASP.NET 4.6                                            | NET Framework-45-ASPNET            | N                     |
 | WCF 服务                                           | NET-WCF-Services45                 | Y                     |
 | HTTP 激活                                        | NET-WCF-HTTP-Activation45          | N                     |
-| 消息队列 (MSMQ) 激活                      | NET-WCF-Activation45          | N                     |
+| 消息队列（MSMQ）激活                      | NET-WCF-Activation45          | N                     |
 | 命名管道激活                                  | NET-Activation45          | N                     |
 | TCP 激活                                         | NET-Activation45           | N                     |
 | TCP 端口共享                                       | NET-PortSharing45          | Y                     |
@@ -194,7 +194,7 @@ ms.locfileid: "68476501"
 | Windows PowerShell 的故障转移群集模块         | RSAT-Clustering-PowerShell         | N                     |
 | 故障转移群集自动化服务器                     | RSAT-群集-AutomationServer   | N                     |
 | 故障转移群集命令界面                     | RSAT-群集-Failovercluster-cmdinterface       | N                     |
-| IP 地址管理 (IPAM) 客户端                    | IPAM-客户端-功能                | N                     |
+| IP 地址管理（IPAM）客户端                    | IPAM-客户端-功能                | N                     |
 | 受防护的 VM 工具                                      | RSAT-受防护-VM-工具             | N                     |
 | 适用于 Windows PowerShell 的存储副本模块          | RSAT-存储-副本               | N                     |
 | 角色管理工具                              | RSAT 角色-工具                    | N                     |

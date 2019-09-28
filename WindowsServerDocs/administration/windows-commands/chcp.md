@@ -1,8 +1,8 @@
 ---
 title: chcp
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 622d4b64128c7e39cc761e4f5e9d69cf54383760
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d5784b052ff1d7084d68cca0589caf518b8e44a8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819198"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379535"
 ---
 # <a name="chcp"></a>chcp
 
@@ -38,7 +38,7 @@ chcp [<NNN>]
 
 |参数|描述|
 |---------|-----------|
-|\<NNN>|指定代码页。|
+|\<NNN >|指定代码页。|
 |/?|在命令提示符下显示帮助。|
 
 下表列出了每个受支持的代码页及其国家/地区或语言︰
@@ -70,11 +70,11 @@ chcp [<NNN>]
 ```
 chcp
 ```
-将显示类似于以下消息：
+将显示一条类似于以下内容的消息：
 
 `Active code page: 437`
 
-若要更改活动的代码页为 850 （多语言），请键入：
+若要将活动代码页更改为850（多语言），请键入：
 ```
 chcp 850
 ```
@@ -84,4 +84,4 @@ chcp 850
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

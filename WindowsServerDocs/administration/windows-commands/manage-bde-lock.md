@@ -1,8 +1,8 @@
 ---
-title: 管理 bde 锁
-description: 'Windows 命令主题 * * *- '
+title: manage-bde 锁
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2b2f4971c0b4a1057d3206c5ead82bf27dfa9b8d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d773d7f02a509b3186d7b552993277369411f963
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821128"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374038"
 ---
-# <a name="manage-bde-lock"></a>管理 bde： 锁
+# <a name="manage-bde-lock"></a>manage-bde： lock
 
 
 
-锁定受 BitLocker 保护的驱动器，以防止对它的访问，除非提供解锁密钥。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
+锁定受 BitLocker 保护的驱动器，以防止对其进行访问，除非提供了解锁密钥。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
 
 ## <a name="syntax"></a>语法
 
@@ -36,20 +36,20 @@ manage-bde -lock [<Drive>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 
 |参数|描述|
 |---------|-----------|
-|\<Drive>|表示驱动器号后, 接一个冒号。|
-|-computername|指定将使用 bde.exe 来修改在其他计算机上的 BitLocker 保护。 此外可以使用 **-cn**作为此命令的简化版本。|
-|\<名称 >|表示要修改其 BitLocker 保护的计算机的名称。 接受的值包括计算机的 NetBIOS 名称和计算机的 IP 地址。|
-|-? 或 /?|显示在命令提示符下简短帮助。|
-|-help 或-h|显示在命令提示符下完成的帮助。|
+|\<Drive >|表示驱动器号后跟一个冒号。|
+|-computername|指定 Manage-bde.exe 将用于修改另一台计算机上的 BitLocker 保护。 你还可以使用 **-cn**作为此命令的缩写形式。|
+|\<名称 >|表示要修改 BitLocker 保护的计算机的名称。 接受的值包括计算机的 NetBIOS 名称和计算机的 IP 地址。|
+|-? 或 /?|在命令提示符下显示 brief Help。|
+|-help 或-h|在命令提示符下显示完整的帮助。|
 
 ## <a name="BKMK_Examples"></a>示例
 
-下面的示例演示如何使用 **-锁定**命令锁定数据驱动器 d。
+下面的示例演示如何使用 **-lock**命令锁定数据驱动器 D。
 ```
 manage-bde –lock D:
 ```
 
 #### <a name="additional-references"></a>其他参考
 
--   [命令行语法解答](command-line-syntax-key.md)
--   [管理 bde](manage-bde.md)
+-   [命令行语法项](command-line-syntax-key.md)
+-   [Manage-bde](manage-bde.md)

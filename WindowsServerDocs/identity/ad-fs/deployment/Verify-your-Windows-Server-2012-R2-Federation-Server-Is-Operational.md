@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d32338d0e9242d12ab18fd30192736ea3b44fdb4
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 5c4e01176bc3cc72daf8dd3b7042cb65527cfdeb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868056"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408299"
 ---
 # <a name="verify-your-windows-server-2012-r2-federation-server-is-operational"></a>验证 Windows Server 2012 R2 联合服务器是否正常运行
 

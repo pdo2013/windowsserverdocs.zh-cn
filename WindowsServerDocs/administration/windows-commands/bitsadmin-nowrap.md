@@ -1,8 +1,8 @@
 ---
 title: bitsadmin nowrap
-description: Windows 命令主题**bitsadmin nowrap** -截断输出文本扩展的最右侧的命令窗口之外的任何行。
+description: 适用于**bitsadmin nowrap**的 Windows 命令主题-截断超出命令窗口最右边边缘的任何输出文本行。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4130f606a6b1874e1ea31952160de44d6e09c6b6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3806ec51161eeae498e3c9b367b2aacf0bd32c99
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822918"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381051"
 ---
 # <a name="bitsadmin-nowrap"></a>bitsadmin nowrap
 
-将截断输出文本扩展的最右侧的命令窗口之外的任何行。
+截断超出命令窗口最右边边缘的任何输出文本行。
 
 ## <a name="syntax"></a>语法
 
@@ -32,15 +32,15 @@ bitsadmin /NoWrap
 
 ## <a name="remarks"></a>备注
 
-默认情况下，所有开关除外**监视器**开关，输出包装。 指定**NoWrap**切换之前其他开关。
+默认情况下，除**监视器**开关外，所有交换机都将输出换行。 在其他交换机之前指定**NoWrap**开关。
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例检索名为的作业状态*myDownloadJob*和输出不包装
+下面的示例将检索名为*myDownloadJob*的作业的状态，并且不会包装输出
 ```
 C:\>bitsadmin /NoWrap /GetState myDownloadJob
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

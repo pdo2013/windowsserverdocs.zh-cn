@@ -2,22 +2,22 @@
 title: 管理远程存储资源
 description: 本文介绍了如何管理远程计算机上的存储资源
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 29870c33e17c75fe25601237d7de47302662d21f
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 5c6dc9c931e130e36e01655de05fbd209f50f3dc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476171"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394083"
 ---
 # <a name="managing-remote-storage-resources"></a>管理远程存储资源
 
-> 适用于：Windows Server 2019，Windows Server 2016、 Windows 服务器 （半年频道）、 Windows Server 2012 R2 和 Windows Server 2012 中，Windows Server 2008 R2
+> 适用于：Windows Server 2019，Windows Server 2016，Windows Server （半年频道），Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2
 
 以下两个选项可用于管理远程计算机上的存储资源：
 

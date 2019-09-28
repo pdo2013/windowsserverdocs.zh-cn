@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: edd708985b8caac30b8788b12237430c1711f22f
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 2ae91b16448c5acd61712332310544c1fd66789f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865453"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385488"
 ---
 # <a name="how-uris-are-used-in-ad-fs"></a>在 AD FS 中如何使用 URI
 统一资源标识符\(URI\)是用作唯一标识符的字符串。  在 AD FS 中，URI 用于标识合作伙伴网络地址和配置对象。  用于标识合作伙伴网络地址时，URI 始终是 URL。  用于标识配置对象时，URI 可以是 URN，也可以是 URL。  有关 URI 的更多常规信息，请参阅 [RFC 2396](https://go.microsoft.com/fwlink/?LinkId=48289) 和 [RFC 3986](https://go.microsoft.com/fwlink/?LinkId=90453)。  

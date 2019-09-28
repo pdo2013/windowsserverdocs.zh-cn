@@ -2,7 +2,7 @@
 title: SDN 技术
 description: 本节中的主题提供有关 Windows Server 2016 中包含的软件定义的网络技术的概述和技术信息。
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: virtual-network
 ms.technology: networking-sdn
 ms.topic: article
@@ -10,12 +10,12 @@ ms.assetid: b491089c-5bcb-49d4-95b1-915b7ce69f88
 ms.author: pashort
 author: shortpatti
 ms.date: 02/14/2019
-ms.openlocfilehash: 040568dd696c4dee665de415d23ce9a7cdc8a711
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b71b17760ec11d7d2ea6a3bfeb118899be9504e7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870075"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405959"
 ---
 # <a name="sdn-technologies"></a>SDN 技术
 

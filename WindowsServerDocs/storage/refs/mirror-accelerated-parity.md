@@ -1,6 +1,6 @@
 ---
 title: 镜像加速奇偶校验
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: gawatu
 ms.manager: masriniv
 ms.technology: storage-file-systems
@@ -8,12 +8,12 @@ ms.topic: article
 author: gawatu
 ms.date: 10/17/2018
 ms.assetid: ''
-ms.openlocfilehash: ec1f04b20b0b743085bacd95ad95a52c15207f40
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0325a37e38845ea9482a6ed260e2bb3b493cc79a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871998"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393995"
 ---
 # <a name="mirror-accelerated-parity"></a>镜像加速奇偶校验
 
@@ -114,7 +114,7 @@ ReFS 在镜像达到了指定的容量阈值后开始旋转数据。
 -   如果值较低，则 ReFS 可以主动取消暂存数据，并更好地引入传入 IO。 这适用于需要大量引入的工作负载，例如存档存储。 但是，如果值较低，则可能会降低常规用途工作负载的性能。 在不必要的情况下，将数据旋出镜像层会对性能产生负面影响。 
 
 ReFS 引入了可调参数以调整此阈值，该阈值可使用注册表项进行配置。 此注册表项必须在**存储空间直通中的每个节点**上进行配置，并且需要重新启动，任何更改才能生效。 
--   **按键**HKEY_LOCAL_MACHINE\System\CurrentControlSet\Policies
+-   **键:** HKEY_LOCAL_MACHINE\System\CurrentControlSet\Policies
 -   **ValueName （DWORD）：** DataDestageSsdFillRatioThreshold
 -   **ValueType**百分比
 
