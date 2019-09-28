@@ -2,18 +2,18 @@
 title: 将动态磁盘更改回基本磁盘
 description: 介绍如何将动态磁盘转换回基本磁盘。
 ms.date: 06/07/2019
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 249db6d2779e696ef93fecfd11718dbcce8654be
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: c24935e1e1921c2a041ef307ebeb71d10e2a4fe2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66812465"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386007"
 ---
 # <a name="change-a-dynamic-disk-back-to-a-basic-disk"></a>将动态磁盘更改回基本磁盘
 

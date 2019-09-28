@@ -2,7 +2,7 @@
 title: 远程桌面 - 允许访问你的电脑
 description: 了解用于远程访问你的电脑的选项
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 06/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: d03dcd307696aea55ab6a1569ab907635994772a
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 6a875f8bddd934ac9fb70ca9c0b86772d9fa63b7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66804989"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404172"
 ---
 # <a name="remote-desktop---allow-access-to-your-pc"></a>远程桌面 - 允许访问你的电脑
 

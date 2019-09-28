@@ -2,7 +2,7 @@
 title: 远程桌面服务 - 选择支付方式
 description: 有关 RDS 授权的规划信息。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ author: spatnaik
 ms.author: spatnaik
 ms.date: 09/23/2016
 manager: scottman
-ms.openlocfilehash: 5d6b0b230bace0ce66d9956fad231eac5b679403
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 59fe73e0563a3ff0308b6dfc0edc49d0fdaf6f09
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63712070"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403932"
 ---
 # <a name="remote-desktop-services---choose-how-you-pay"></a>远程桌面服务 - 选择支付方式
 

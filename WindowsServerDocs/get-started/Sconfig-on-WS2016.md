@@ -2,7 +2,7 @@
 title: 通过 Sconfig.cmd 配置 Windows Server 的服务器核心安装
 description: 介绍如何使用 Sconfig.cmd
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.date: 10/17/2017
@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 617005fd2d4e63c3cfc11bed28404656b2a81d6e
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 8f07c3546fd43dd3ce9cfa32094bc691fa0bcb2e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66749582"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71360247"
 ---
 # <a name="configure-a-server-core-installation-of-windows-server-2016-or-windows-server-version-1709-with-sconfigcmd"></a>通过 Sconfig.cmd 配置 Windows Server 2016 或 Windows Server 版本 1709 的服务器核心安装
 

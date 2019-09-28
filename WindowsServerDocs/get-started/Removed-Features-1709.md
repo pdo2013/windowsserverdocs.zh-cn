@@ -1,7 +1,7 @@
 ---
 title: 从 Windows Server（版本 1709）开始已删除或计划取代的功能
 description: 各版本中已删除或计划删除的特性和功能。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: server-general
 ms.topic: article
 ms.date: 08/22/2019
@@ -9,12 +9,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: b4303d05a87fe06e84df0cc55e2c1af8b34047e6
-ms.sourcegitcommit: 6f8993e2180c4d3c177e3e1934d378959396b935
+ms.openlocfilehash: 93f98a87512232fe0605a9fc90a102c87818c88d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70000635"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391638"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1709"></a>从 Windows Server 版本 1709 开始已删除或计划取代的功能
 

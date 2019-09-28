@@ -2,7 +2,7 @@
 title: 桌面托管参考体系结构
 description: 使用 RDS 和 Azure 创建桌面托管解决方案的体系结构指南。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 1bac5dd3-8430-46ee-8bef-10cc4b7cc437
 author: lizap
 manager: dongill
-ms.openlocfilehash: 01560a3758963c17c4ea0cb94b806c3b99193464
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: b325117c6fecc41bc91fc4384a663c4112d9ddca
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63749235"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387896"
 ---
 # <a name="desktop-hosting-reference-architecture"></a>桌面托管参考体系结构
 

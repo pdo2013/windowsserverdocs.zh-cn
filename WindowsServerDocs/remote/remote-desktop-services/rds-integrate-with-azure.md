@@ -2,7 +2,7 @@
 title: RDS - 与 Azure 服务集成
 description: 了解如何将 RDS 集成到 Azure 部署中，以及将 Azure 集成到 RDS 部署中。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -11,12 +11,12 @@ ms.date: 08/18/2017
 ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
-ms.openlocfilehash: e582612496591356ed96b34522333d0e8bf34093
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ba53a16c75f205c329bf5e388cf52dd2bf40bb91
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63712612"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387403"
 ---
 # <a name="remote-desktop-services---integrating-with-azure-services"></a>远程桌面服务 - 与 Azure 服务集成
 

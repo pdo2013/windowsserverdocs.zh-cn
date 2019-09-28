@@ -2,7 +2,7 @@
 title: 激活远程桌面服务许可证服务器
 description: 安装和激活 RD 许可证服务器
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/20/2016
 manager: dongill
-ms.openlocfilehash: c2c721a7d65d28b75f823f566630681e9dff1201
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 68a688fff8c935ae051223aeeea69e1d1ef5b9db
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63712653"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404062"
 ---
 # <a name="activate-the-remote-desktop-services-license-server"></a>激活远程桌面服务许可证服务器
 

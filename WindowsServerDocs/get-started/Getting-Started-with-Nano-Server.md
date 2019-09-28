@@ -1,7 +1,7 @@
 ---
 title: 安装 Nano Server
 description: 干净安装、升级、迁移和评估 Nano Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dougkim
 ms.technology: server-nano
@@ -12,12 +12,12 @@ ms.assetid: 2c2fa45b-6f3b-4663-b421-2da6ecc463bf
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 295402a3bcdcec07025ad1f803cddd47127baa8d
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: d395c72a1e21cd8eda043eebf3b72bbd5c9a13e8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63688597"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391802"
 ---
 # <a name="install-nano-server"></a>安装 Nano Server
 

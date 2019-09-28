@@ -1,19 +1,19 @@
 ---
 title: Windows Server 版本 1803 - 已删除的功能
 description: 了解将在 Windows Server 版本 1803 或未来版本中删除或弃用的功能
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.mktglfcycl: plan
 ms.localizationpriority: medium
 ms.sitesec: library
 author: jasongerend
 ms.author: jgerend
 ms.date: 08/22/2019
-ms.openlocfilehash: 8b871d6fa939271c7468a8b51a195539ee268e9c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 482897b31bfaf3c4fe1f6b44a184463e88c5ae65
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868288"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391311"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1803"></a>从 Windows Server 版本 1803 开始已删除或计划取代的功能
 

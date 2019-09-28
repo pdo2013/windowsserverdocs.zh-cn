@@ -2,7 +2,7 @@
 title: 移动到 Windows Server 2016 的建议
 description: 移动到 Windows Server 2016 的建议。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.date: 10/18/2016
@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 08a92188446d018edd36a638abb30745721bd601
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 379808e861f087bdda800ae6877c73c02d242a7b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63687463"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391632"
 ---
 # <a name="recommendations-for-moving-to-windows-server-2016"></a>移动到 Windows Server 2016 的建议
 

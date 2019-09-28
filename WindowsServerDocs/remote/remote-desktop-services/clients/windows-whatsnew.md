@@ -2,7 +2,7 @@
 title: Windows 应用商店客户端中的新增功能
 description: 了解适用于 Windows 应用商店的远程桌面客户端的最新更改
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,16 +13,16 @@ manager: daveba
 ms.author: helohr
 ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 6a4a6ae860dc8eabc4856ff3aa66268ed8d588de
-ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
+ms.openlocfilehash: e6d57f2feb5b21385cf247856be05f752ddee0cd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70987361"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404083"
 ---
 # <a name="whats-new-in-the-windows-store-client"></a>Windows 应用商店客户端中的新增功能
 
-我们会定期更新 [Windows Store 客户端](windows.md)，添加新功能并修复问题。 可在下面找到最新更新。
+我们会定期更新 [Microsoft Store 客户端](windows.md)，添加新功能并修复问题。 可在下面找到最新更新。
 
 ## <a name="updates-for-version-1011098"></a>针对版本 10.1.1098 的更新
 

@@ -2,7 +2,7 @@
 title: Windows Server 2019 中已删除或计划删除的功能
 description: 了解从 Windows Server 2019 开始已删除或计划删除的功能。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: server-general
@@ -13,12 +13,12 @@ ms.author: jgerend
 manager: jasgro
 ms.date: 08/22/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 0f6b6ac42c096c6c80404c2d650905e73da8a97a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 261023223b56e235320b7ad414fa91206420b1ed
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868648"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71360837"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-windows-server-2019"></a>从 Windows Server 2019 开始已删除或计划取代的功能
 

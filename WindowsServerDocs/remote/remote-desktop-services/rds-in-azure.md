@@ -2,7 +2,7 @@
 title: 使用 ARM 和 Azure 市场无缝部署 RDS
 description: 了解如何使用 ARM 模板和 Azure 市场在 Azure 中创建小型 RDS 部署。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 02/10/2017
-ms.openlocfilehash: 218e61e5ebe110502ebe139b27607bfeff104fde
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 9ada41e929c5e67cfcb1dcc5e7b4bc761c762d99
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63712624"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387449"
 ---
 # <a name="seamlessly-deploy-rds-with-arm-and-azure-marketplace"></a>使用 ARM 和 Azure 市场无缝部署 RDS
 

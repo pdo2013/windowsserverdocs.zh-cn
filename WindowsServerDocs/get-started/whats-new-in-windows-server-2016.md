@@ -1,7 +1,7 @@
 ---
 title: Windows Server 2016 中的新增功能
 description: 计算、标识、管理、自动化、网络、安全性、存储方面的新增功能。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.date: 05/21/2019
 ms.technology: server-general
 ms.topic: article
@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: b2be54748a36f97a11796ebfa16701baac1c612d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 76cfd0f0cca18fb072883a9e14fae420516bd329
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280646"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391362"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Windows Server 2016 中的新增功能
 

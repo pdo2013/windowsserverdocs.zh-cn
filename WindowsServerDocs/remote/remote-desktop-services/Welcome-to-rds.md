@@ -2,7 +2,7 @@
 title: 欢迎使用 Windows Server 2016 中的远程桌面服务
 description: 提供远程桌面服务的概述
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -14,12 +14,12 @@ ms.assetid: 52b9e09f-39e0-41a9-9d3b-4d5f4eacf3e0
 author: christianmontoya
 manager: scottman
 ms.localizationpriority: medium
-ms.openlocfilehash: 1fcb3fb7e2989399d908a1b5bed7bd21240efeab
-ms.sourcegitcommit: 2ec5e779c00481b13f186e2c56d207007897cfd4
+ms.openlocfilehash: 46a04905d5247ae940ca900297171d1112cf936b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71021644"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404206"
 ---
 # <a name="welcome-to-remote-desktop-services"></a>欢迎使用远程桌面服务 
 

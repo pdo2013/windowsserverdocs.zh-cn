@@ -2,18 +2,18 @@
 title: 扩展基本卷
 description: 本文介绍如何在主驱动器和逻辑驱动器上添加空间来扩展基本卷
 ms.date: 06/07/2019
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 4cad773746ae64a2244178be83e4d59c7c44b6a7
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: a98bd3553c3223716d70ed4329bd7e265e697b73
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66812436"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402099"
 ---
 # <a name="extend-a-basic-volume"></a>扩展基本卷
 
@@ -46,7 +46,7 @@ ms.locfileid: "66812436"
 | 值 | 描述 |
 | --- | --- |
 | **list volume** | 显示所有磁盘上的基本卷和动态卷的列表。 |
-| **select volume** | 选择指定的卷（其中 <em>volumenumber</em> 是卷编号），并赋予其焦点。 如果未指定卷，则 **select** 命令会列出具有焦点的当前卷。 可以通过编号、驱动器号或装入点路径来指定卷。 在基本磁盘上，如果选择卷，则还会赋予相应的分区焦点。 |
+| **select volume** | 选择指定的卷（其中 <em>volumenumber</em> 是卷编号），并赋予其焦点。 如果未指定卷，则 **select** 命令会列出具有焦点的当前卷。 可以通过编号、驱动器号或装入点路径指定卷。 在基本磁盘上，如果选择卷，则还会赋予相应的分区焦点。 |
 | **extend** | <ul><li>将具有焦点的卷扩展到下一个连续的未分配空间。 对于基本卷，未分配的空间必须与具有焦点的分区在同一个磁盘上，并且必须在该分区之后（扇区偏移量高于该分区）。 动态简单卷或跨区卷可以扩展到任何动态磁盘上的任何空白空间。 可以使用以下命令将现有的卷扩展到新创建的空间中。</li ><li>如果以前使用 NTFS 文件系统格式化了分区，则会自动扩展文件系统以占用较大的分区。 不会丢失任何数据。 如果以前使用除 NTFS 以外的任何其他文件系统格式对分区进行了格式化，则此命令将失效并且不会对分区进行任何更改。</li></ul> |
 | **size=** <em>大小</em> | 要添加到当前分区中的兆字节 (MB) 空间量。 如果未指定大小，则磁盘会扩展，以占用所有未分配的连续空间。 |
 
