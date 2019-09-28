@@ -1,8 +1,8 @@
 ---
 title: netsh
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 30040f5d22711e3913e25bbf03407df07ab06b8d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5b3cc1f1145b9c96d2444953c956ac70f7fa856d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859498"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373266"
 ---
 # <a name="netsh"></a>netsh
 
 
 
-**Netsh**是命令行脚本实用工具，可用于，本地或远程，显示或修改当前正在运行的计算机的网络配置。
+**Netsh**是命令行脚本实用工具，可让你以本地或远程方式显示或修改当前正在运行的计算机的网络配置。
 
-有的功能区别**netsh** Windows Server® 2003年、 Windows Server® 2008年和 Windows Server® 2008 R2 上的命令：
--   有关详细信息**netsh**命令在 Windows Server 2003，请参阅[Netsh](https://technet.microsoft.com/library/cc779693(v=ws.10).aspx)。
--   有关详细信息**netsh**命令对于 Windows Server 2008 和 Windows Server 2008 R2，请参阅[Netsh 技术参考](https://technet.microsoft.com/library/cc754753(v=ws.10).aspx)。
+Windows Server®2003、Windows Server®2008和 Windows Server® 2008 R2 上的**netsh**命令之间存在功能差异：
+-   有关 Windows Server 2003 上的**netsh**命令的详细信息，请参阅[netsh](https://technet.microsoft.com/library/cc779693(v=ws.10).aspx)。
+-   有关适用于 Windows Server 2008 和 Windows Server 2008 R2 的**netsh**命令的详细信息，请参阅[netsh 技术参考](https://technet.microsoft.com/library/cc754753(v=ws.10).aspx)。

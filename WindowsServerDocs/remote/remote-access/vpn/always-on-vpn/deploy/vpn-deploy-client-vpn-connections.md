@@ -1,7 +1,7 @@
 ---
 title: 配置 Windows 10 客户端始终启用 VPN 连接
 description: 在此步骤中, 你将了解 ProfileXML 选项和架构, 并将 Windows 10 客户端计算机配置为使用 VPN 连接与该基础结构进行通信。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.date: 05/29/2018
@@ -10,12 +10,12 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.reviewer: deverette
-ms.openlocfilehash: c3ac8295d048c599a1cb6d1ed141cd63a7a73f47
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9621f9bdca0416965861112ba23c1c8dd731f67b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871345"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404283"
 ---
 # <a name="step-6-configure-windows-10-client-always-on-vpn-connections"></a>步骤 6： 配置 Windows 10 客户端 Always On VPN 连接
 
@@ -863,7 +863,7 @@ ProfileXML 配置在结构、拼写、配置和有时是字母大小写方面必
 >[!NOTE]
 >Intune 现在使用 Azure AD 组。 如果 Azure AD Connect 将 VPN 用户组从本地同步到 Azure AD, 并且将用户分配给 VPN 用户组, 则可以继续。
 
-创建 VPN 设备配置策略, 为添加到组中的所有用户配置 Windows 10 客户端计算机。 由于 Intune 模板提供 VPN 参数，因此请仅复制\<VPN_ProfileXML 文件\<的 EapHostConfig >/EapHostConfig > 部分。
+创建 VPN 设备配置策略, 为添加到组中的所有用户配置 Windows 10 客户端计算机。 由于 Intune 模板提供 VPN 参数，因此请仅 @no__t 复制 VPN_ProfileXML 文件的 0EapHostConfig > \</EapHostConfig > 部分。
 
 ### <a name="create-the-always-on-vpn-configuration-policy"></a>创建 Always On VPN 配置策略
 

@@ -7,28 +7,28 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e3a746ec003cf312ffe0b9804f84a55c98aa8089
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 5725f4a7761d08a25ee8c67c0568977e3646397e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190988"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407940"
 ---
 # <a name="prepare-client-computers-in-the-account-partner"></a>在帐户伙伴中准备客户端计算机
 
-管理员帐户中的最简单方法伙伴组织准备客户端计算机到 Active Directory 联合身份验证服务的访问\(AD FS\)联合应用程序是使用组策略。 组策略为你提供一种便捷的方法，可让你将联合所需的特定证书和设置推送到将用于访问联合应用程序的所有客户端计算机。  
+在帐户伙伴组织中，管理员为使客户端计算机能够访问 Active Directory 联合身份验证服务 @no__t FS @ no__t 联合应用程序准备客户端的最简单方法是使用组策略。 组策略为你提供一种便捷的方法，可让你将联合所需的特定证书和设置推送到将用于访问联合应用程序的所有客户端计算机。  
   
-以便客户端计算机可无缝访问联合应用程序而无需证书提示或受信任的站点的相关提示，我们建议你首先准备每台客户端计算机，在部署 AD FS 之前广泛在组织中。 请考虑使用组策略来自动：  
+为了使客户端计算机无需证书提示或受信任的站点相关提示即可无缝访问联合应用程序，我们建议你先准备好每台客户端计算机，然后在组织中广泛部署 AD FS。 请考虑使用组策略来自动：  
   
--   每个客户端计算机信任的帐户联合身份验证服务器上配置 Internet Explorer。  
+-   将每台客户端计算机上的 Internet Explorer 配置为信任帐户联合服务器。  
   
     有关详细信息，请参阅 [配置客户端计算机信任的帐户联合身份验证服务器](../../ad-fs/deployment/Configure-Client-Computers-to-Trust-the-Account-Federation-Server.md)。  
   
--   安装相应的帐户联合身份验证服务器、 资源联合身份验证服务器和 Web 服务器安全套接字层\(SSL\)证书\(等效项链接到受信任的根证书或\)上每个客户端计算机。  
+-   在每台客户端计算机上安装相应的帐户联合服务器、资源联合服务器和 Web 服务器安全套接字层 @no__t \(or 等效的证书，这些证书将链接到受信任的根 @ no__t。  
   
-    有关详细信息，请参阅[将证书分发到客户端计算机使用组策略](../../ad-fs/deployment/Distribute-Certificates-to-Client-Computers-by-Using-Group-Policy.md)。  
+    有关详细信息，请参阅[使用组策略将证书分发到客户端计算机](../../ad-fs/deployment/Distribute-Certificates-to-Client-Computers-by-Using-Group-Policy.md)。  
   
 
 ## <a name="see-also"></a>请参阅

@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getmodificationtime
-description: Windows 命令主题**bitsadmin getmodificationtime** -检索上次修改作业的时间或数据已成功传送。
+description: 适用于**bitsadmin getmodificationtime**的 Windows 命令主题-检索上次修改作业或成功传输数据的时间。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4257f0ae4868b2f18221ab99268384f778c4bbbe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 48b4d252ce6161b288726190f41f08c64efdbcf2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837018"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381529"
 ---
 # <a name="bitsadmin-getmodificationtime"></a>bitsadmin getmodificationtime
 
@@ -47,4 +47,4 @@ C:\>bitsadmin /GetModificationTime myDownloadJob
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

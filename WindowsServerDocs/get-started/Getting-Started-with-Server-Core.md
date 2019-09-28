@@ -1,7 +1,7 @@
 ---
 title: 安装服务器核心
 description: 如何在 Windows Server 2019、Windows Server 2016 或 Windows Server（半年频道）上获取并安装服务器核心安装。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.date: 05/21/2019
 ms.technology: server-general
 ms.tgt_pltfrm: na
@@ -11,12 +11,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 542eeea4bfae53defc2624b3b56a7db5ae454c2c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: e6264a59a837003e49e82529750cfb153cc37b92
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868453"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71360338"
 ---
 # <a name="install-server-core"></a>安装服务器核心
 

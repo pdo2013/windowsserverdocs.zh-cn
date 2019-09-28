@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 247381b35a038627b5d8c91ac4dda0cc4fab6195
-ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
+ms.openlocfilehash: 720c20437f7e6da875b809b2816f0d4df5d210d6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71143779"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359187"
 ---
 # <a name="ad-fs-requirements"></a>AD FS 要求
 
@@ -185,7 +185,7 @@ AD FS 创建必须\-存储在客户端计算机上的基于会话的 cookie 和�
 ## <a name="BKMK_extranet"></a>Extranet 要求  
 若要提供对 AD FS 服务的 extranet 访问，必须将 Web 应用程序代理角色服务部署为面向公众的角色，以安全方式将身份验证请求代理到 AD FS 服务。 这将提供 AD FS 服务终结点的隔离，并将所有安全密钥\(（例如来自 internet 的请求的令牌签名证书\) ）隔离起来。 此外，软 Extranet 帐户锁定等功能需要使用 Web 应用程序代理。 有关 Web 应用程序代理的详细信息，请参阅[Web 应用程序代理](https://technet.microsoft.com/library/dn584107.aspx)。  
   
-如果要\-使用第三方代理进行 extranet 访问，则此第三\-方代理必须支持[http：\/\/download.microsoft.com\/下载\/中定义的协议9\/5E\/95EF66AF\-90264BB0\-A41DA4F81802D92C%5bMS\-ADFSPIP% 5d..pdf.\/\-\/\-](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-ADFSPIP%5d.pdf)  
+如果要使用第三个 @ no__t-0party 代理进行 extranet 访问，则此第三个 @ no__t-1party 代理必须支持 http 中定义的协议[： \/\/download.microsoft.com @ no__t-5download @ no__t-69 @ no__t-no__t](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-ADFSPIP%5d.pdf)@ 8E-no__t @ 995EF66AF-no__t @ 109026-no__t @ 114BB0-no__t @ 12A41D。  
   
 ## <a name="BKMK_7"></a>网络要求  
 适当地配置以下网络服务对于在贵组织中成功部署 AD FS 至关重要：  

@@ -1,8 +1,8 @@
 ---
 title: eventcreate
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 80d575364adbeba9d9ea4da75a0a866bcc02acea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cf53d8d269d0994ddf57eb350982effed5e0e702
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818708"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377518"
 ---
 # <a name="eventcreate"></a>eventcreate
 
@@ -36,14 +36,14 @@ eventcreate [/s <Computer> [/u <Domain\User> [/p <Password>]] {[/l {APPLICATION|
 
 |参数|描述|
 |---------|-----------|
-|/s\<计算机 >|指定的名称或远程计算机的 IP 地址 （不使用反斜杠）。 默认值为本地计算机。|
-|/u \<Domain\User>|运行该命令使用指定的用户帐户权限\<用户 > 或 < 域 \ 用户 >。 默认值为当前登录的用户发出命令的计算机上的权限。|
-|/p \<Password>|指定在指定的用户帐户的密码 **/u**参数。|
-|/l {APPLICATION\|SYSTEM}|指定在其中创建该事件的事件日志的名称。 有效的日志名称为应用程序和系统。|
-|/so \<SrcName>|指定要使用的事件的源。 有效的源可以是任意字符串，并应表示应用程序或生成事件的组件。|
-|/t {错误\|警告\|信息\|</br>SUCCESSAUDIT\|FAILUREAUDIT}|指定要创建的事件的类型。 有效的类型为错误、 警告、 信息、 SUCCESSAUDIT 和 FAILUREAUDIT。|
-|/id \<EventID >|指定事件的事件 ID。 有效的 ID 是从 1 到 1000年的任意数字。|
-|/d\<说明 >|指定要用于新创建的事件的描述。|
+|/s \<Computer >|指定远程计算机的名称或 IP 地址（不使用反斜杠）。 默认值为本地计算机。|
+|/u \<Domain \ User >|使用 @no__t > 或 < Domain\User > 指定的用户的帐户权限运行命令。 默认为发出命令的计算机上当前登录用户的权限。|
+|/p \<密码 >|指定在 **/u**参数中指定的用户帐户的密码。|
+|/l {APPLICATION @ no__t-0SYSTEM}|指定将在其中创建事件的事件日志的名称。 有效的日志名称为 "应用程序" 和 "系统"。|
+|/so \<SrcName >|指定要用于事件的源。 有效的源可以是任何字符串，并且应表示生成事件的应用程序或组件。|
+|/t {ERROR @ no__t-0WARNING @ no__t-1INFORMATION @ no__t-2</br>SUCCESSAUDIT @ NO__T-0FAILUREAUDIT}|指定要创建的事件类型。 有效的类型为 ERROR、WARNING、INFORMATION、SUCCESSAUDIT 和 FAILUREAUDIT。|
+|/id \<EventID >|指定事件的事件 ID。 有效的 ID 是从1到1000的任何数字。|
+|/d \<Description >|指定要用于新创建的事件的说明。|
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
@@ -65,4 +65,4 @@ eventcreate /s server /u user /id 100 /t warning /so winmgmt /d "Remote machine 
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

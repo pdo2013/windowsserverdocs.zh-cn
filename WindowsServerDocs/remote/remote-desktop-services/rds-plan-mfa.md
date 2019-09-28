@@ -2,7 +2,7 @@
 title: 远程桌面服务 - 多重身份验证
 description: 有关如何将 MFA 与 RDS 结合使用的规划信息。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/07/2016
 manager: dongill
-ms.openlocfilehash: 5ca2a29b0287dbd940afeb4404a85f1d978447f9
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 833eafd0b762098b67b11e6e5f26f63e62057fd1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805109"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403844"
 ---
 # <a name="remote-desktop-services---multi-factor-authentication"></a>远程桌面服务 - 多重身份验证
 

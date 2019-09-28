@@ -1,7 +1,7 @@
 ---
 title: NIC 高级属性
-description: 你可以管理 Nic 和通过 Windows PowerShell 或在网络控件面板的所有功能。
-ms.prod: windows-server-threshold
+description: 可以通过 Windows PowerShell 或网络控制面板管理 Nic 和所有功能。
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 0cafb1cc-5798-42f5-89b6-3ffe7ac024ba
@@ -9,36 +9,36 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/20/2018
-ms.openlocfilehash: d1a5fb57bf71fd981e001cfd9ac595ab5bc3cfc5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 1395cefca5d9ef696eed3f2735334954b9ee02a5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819898"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405714"
 ---
 # <a name="nic-advanced-properties"></a>NIC 高级属性
 
-你可以管理 Nic 和通过 Windows PowerShell 中使用的所有功能[NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/?view=win10-ps&viewFallbackFrom=winserverr2-ps) cmdlet。  此外可以管理 Nic 和使用网络控制面板 (ncpa.cpl) 的所有功能。 
+你可以使用[get-netadapter](https://docs.microsoft.com/powershell/module/netadapter/?view=win10-ps&viewFallbackFrom=winserverr2-ps) Cmdlet 通过 Windows PowerShell 管理 nic 和所有功能。  你还可以使用网络控制面板（ncpa）管理 Nic 和所有功能。 
 
-1. 在中**Windows PowerShell**，请运行`Get‑NetAdapterAdvancedProperties`cmdlet 针对两个不同制造商/型号的 Nic。
+1. 在**Windows PowerShell**中，对两个不同品牌/型号的 nic 运行 @no__t 的 cmdlet。
 
-   ![Get-NetAdapterAdvancedProperty m1](../../media/network-offload-and-optimization/Get-NetAdapterAdvancedProperty-m1.png)
+   ![NetAdapterAdvancedProperty m1](../../media/network-offload-and-optimization/Get-NetAdapterAdvancedProperty-m1.png)
 
-   ![Get-NetAdapterAdvancedProperty c1](../../media/network-offload-and-optimization/Get-NetAdapterAdvancedProperty-c1.png)
+   ![NetAdapterAdvancedProperty c1](../../media/network-offload-and-optimization/Get-NetAdapterAdvancedProperty-c1.png)
 
-   有相似之处和这些两个 NIC 高级属性列出了差异。
+   这两个 NIC 高级属性列表中存在相似性和不同之处。
 
-2. 在中**网络控制面板**(ncpa.cpl)，执行以下操作：
+2. 在 "**网络" 控制面板**中，执行以下操作：
 
-   a. 右键单击 nic。
+   a. 右键单击 NIC。
 
-   ![网络连接对话框](../../media/network-offload-and-optimization/network-connections-dialog.png)
+   !["网络连接" 对话框](../../media/network-offload-and-optimization/network-connections-dialog.png)
 
-   b. 在属性对话框中，单击**配置**。
+   b. 在 "属性" 对话框中，单击 "**配置**"。
 
     ![C1 属性](../../media/network-offload-and-optimization/c1-properties.png)
 
-   c. 单击**高级**选项卡以查看高级的属性。<p>此列表中的项将中的项相关联`Get-NetAdapterAdvancedProperties`输出。
+   c. 单击 "**高级**" 选项卡以查看高级属性。<p>此列表中的项与 @no__t 的输出中的项相关联。
 
    ![Chelsio 网络适配器属性](../../media/network-offload-and-optimization/chelsio-network-adapter-properties.png)
 

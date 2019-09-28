@@ -1,7 +1,7 @@
 ---
 ms.assetid: d2429185-9720-4a04-ad94-e89a9350cdba
 title: 部署工作文件夹
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 author: JasonGerend
@@ -9,12 +9,12 @@ manager: dongill
 ms.author: jgerend
 ms.date: 6/24/2017
 description: 如何部署工作文件夹（包括安装服务器角色）、创建同步共享和创建 DNS 记录。
-ms.openlocfilehash: 45b25befcde328e38f694b64fa7536a2b5c7f232
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 7fe39ded6d262d9310bce30239345a9f42e43c04
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867024"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365857"
 ---
 # <a name="deploying-work-folders"></a>部署工作文件夹
 
@@ -26,14 +26,14 @@ ms.locfileid: "70867024"
   
 > [!TIP]
 >  最简单的工作文件夹部署是不支持通过 Internet 同步的单一文件服务器（通常称为同步服务器），这种部署对于测试实验室而言可能非常有用，也可以用作已加入域的客户端计算机的同步解决方案。 若要创建简单部署，至少需要执行以下步骤： 
->  -   步骤 1：获取 SSL 证书  
+>  -   第 1 步：获取 SSL 证书  
 >  -   步骤 2：创建 DNS 记录 
->  -   步骤 3：在文件服务器上安装工作文件夹  
+>  -   步骤 3:在文件服务器上安装工作文件夹  
 >  -   步骤 4：在同步服务器上绑定 SSL 证书
 >  -   步骤 5：创建工作文件夹的安全组  
 >  -   步骤 7：为用户数据创建同步共享  
   
-## <a name="step-1-obtain-ssl-certificates"></a>步骤 1：获取 SSL 证书  
+## <a name="step-1-obtain-ssl-certificates"></a>第 1 步：获取 SSL 证书  
  工作文件夹使用 HTTPS 以在工作文件夹客户端和工作文件夹服务器之间安全同步文件。 工作文件夹使用的 SSL 证书的要求如下：  
   
 - 该证书必须由受信任的证书颁发机构颁发。 对于大多数工作文件夹实施方案，建议使用公众信任的 CA，因为证书将由未加入域的、基于 Internet 的设备使用。  
@@ -53,7 +53,7 @@ ms.locfileid: "70867024"
   
  在内部网络上，在名为 workfolders 的 DNS 中创建 CNAME 记录，该 DNS 解析为工作文件夹服务器的 FDQN。 工作文件夹客户端使用自动发现时，用于发现工作文件夹服务器的 URL 是 https：\//workfolders.domain.com。 如果计划使用自动发现，则 DNS 中必须存在 workfolders CNAME 记录。  
   
-## <a name="step-3-install-work-folders-on-file-servers"></a>步骤 3：在文件服务器上安装工作文件夹  
+## <a name="step-3-install-work-folders-on-file-servers"></a>步骤 3:在文件服务器上安装工作文件夹  
  可以使用服务器管理器或 Windows PowerShell，于本地或者通过网络以远程方式在已加入域的服务器上安装工作文件夹。 如果你要通过网络配置多个同步服务器，则这种做法将十分有效。  
   
 若要在服务器管理器中部署角色，请执行以下操作：  

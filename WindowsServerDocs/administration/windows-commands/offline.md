@@ -1,8 +1,8 @@
 ---
-title: 脱机
-description: 'Windows 命令主题 * * *- '
+title: 断开
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5fd79b597eaa89d986723717c862665eded490c9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c05b171426dde9c16116882af9f64e9ad80c130c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883808"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372544"
 ---
-# <a name="offline"></a>脱机
+# <a name="offline"></a>断开
 
 
 
-联机磁盘或卷进入脱机状态。
+使联机磁盘或卷进入脱机状态。
 
 ## <a name="syntax"></a>语法
 
@@ -37,8 +37,8 @@ Offline volume
 
 |参数|描述|
 |---------|-----------|
-|[脱机磁盘](offline-disk.md)|将具有焦点的联机磁盘带到脱机状态。|
-|[脱机卷](offline-volume.md)|具有焦点的联机卷进入脱机状态。|
+|[脱机磁盘](offline-disk.md)|使联机磁盘具有焦点，使其进入脱机状态。|
+|[脱机卷](offline-volume.md)|使具有焦点的联机卷进入脱机状态。|
 
 #### <a name="additional-references"></a>其他参考
 

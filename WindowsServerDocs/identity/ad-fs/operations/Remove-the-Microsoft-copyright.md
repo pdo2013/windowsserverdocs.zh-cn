@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6e15f9d1490ad62f1458cd32da6e78a6febec58d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 0c24173dd03e03f9e8a19ef5981a6dc1259d62d7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189032"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407511"
 ---
 # <a name="remove-the-microsoft-copyright"></a>删除 Microsoft 版权 
 
@@ -38,9 +38,9 @@ ms.locfileid: "66189032"
    Export-AdfsWebTheme -Name custom -DirectoryPath C:\CustomWebTheme
    ```
 
-3. 找到`Style.css`位于输出文件夹中的文件。 通过使用前面的示例，该路径将为 `C:\CustomWebTheme\Css\Style.css.`
+3. 找到位于输出文件夹中的 @no__t 0 文件。 通过使用前面的示例，路径将为 `C:\CustomWebTheme\Css\Style.css.`
   
-4. 打开`Style.css`使用编辑器，如记事本的文件。  
+4. 使用编辑器（如记事本）打开 @no__t 0 文件。  
   
 5. 找到 `#copyright` 部分，然后将其更改为以下内容：  
 
@@ -48,7 +48,7 @@ ms.locfileid: "66189032"
    #copyright {color:#696969; display:none;}
    ```
 
-6. 创建基于新的自定义主题`Style.css`文件。  
+6. 创建基于新的 `Style.css` 文件的自定义主题。  
 
    ```powershell
    Set-AdfsWebTheme -TargetName custom -StyleSheet @{locale="";path="C:\customWebTheme\css\style.css"}
@@ -60,7 +60,7 @@ ms.locfileid: "66189032"
    Set-AdfsWebConfig -ActiveThemeName custom
    ```
 
-现在，应不再看到在登录页的底部版权所有。
+现在，你应该不会再看到登录页面底部的版权。
 
 ![删除版权](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom1a.png) 
 

@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setpriority
-description: Windows 命令主题**bitsadmin setpriority** -设置指定的作业的优先级。
+description: 适用于**bitsadmin setpriority**的 Windows 命令主题-设置指定作业的优先级。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 072f22ae8c928d427104062b8cbf0f8f42ac4416
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 60564350928f917ca1861684e042304d5d380426
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882208"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380439"
 ---
 # <a name="bitsadmin-setpriority"></a>bitsadmin setpriority
 
 
 
-指定的作业的优先级设置。
+设置指定作业的优先级。
 
 ## <a name="syntax"></a>语法
 
@@ -37,15 +37,15 @@ bitsadmin /SetPriority <Job> <Priority>
 |参数|描述|
 |---------|-----------|
 |作业|该作业的显示名称或 GUID|
-|Priority|以下值之一：</br>的前景色</br>-高</br>-正常</br>-中低|
+|Priority|以下值之一：</br>-前景</br>-高</br>-正常</br>-低|
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例设置名为的作业优先级*myDownloadJob*正常状态。
+下面的示例将名为*myDownloadJob*的作业的优先级设置为 normal。
 ```
 C:\>bitsadmin /SetPriority myDownloadJob NORMAL
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

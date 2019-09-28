@@ -2,7 +2,7 @@
 title: 远程桌面客户端 - 支持的配置
 description: 了解可以使用远程桌面客户端访问哪些电脑
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 06/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: d38008b6387385917ad21ce7e169b8ff3f4d18ba
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 2dc8eb68aebc904640aa4adc3e75cdeda34e97b2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63748962"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387652"
 ---
 # <a name="remote-desktop-client---supported-configuration"></a>远程桌面客户端 - 支持的配置
 

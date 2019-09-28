@@ -1,43 +1,43 @@
 ---
-title: 文件共享在 Windows Server 中使用 SMB 3 协议概述
-description: 使用 SMB 3 协议进行文件共享和使用 Windows Server 文件服务概述。
-ms.prod: windows-server-threshold
+title: 使用 Windows Server 中的 SMB 3 协议的文件共享概述
+description: 有关将 SMB 3 协议用于文件共享和使用 Windows Server 的文件服务的概述。
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: fc4c8b341ee78db80f862ee412400f0a930fe810
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b40c179d242a0c48c6eb176db1225979f9e6a123
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845048"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402082"
 ---
-# <a name="overview-of-file-sharing-using-the-smb-3-protocol-in-windows-server"></a>文件共享在 Windows Server 中使用 SMB 3 协议概述
+# <a name="overview-of-file-sharing-using-the-smb-3-protocol-in-windows-server"></a>使用 Windows Server 中的 SMB 3 协议的文件共享概述
 
->适用于：Windows Server 2012 R2、 Windows Server 2012 中，Windows Server 2016
+>适用于：Windows Server 2012 R2、Windows Server 2012、Windows Server 2016
 
-本主题介绍 Windows Server® 2012年、 Windows Server 2012 R2 和 Windows Server 2016 中的 SMB 3.0 功能，实际使用的功能，最重要新功能或更新到早期版本中，并在硬件相比本版本中的功能系统要求。
+本主题介绍 Windows Server®2012、Windows Server 2012 R2 和 Windows Server 2016 中的 SMB 3.0 功能，这是功能的实用用途，与以前的版本相比，此版本中最重要的新功能或更新功能以及硬件要求.
 
 ## <a name="feature-description"></a>功能说明
 
-服务器消息块 (SMB) 协议是网络文件共享协议，让计算机上的应用程序可读取和写入文件以及从计算机网络中的服务器程序请求服务。 SMB 协议可在其 TCP/IP 协议或其他网络协议上使用。 使用 SMB 协议时，应用程序（或应用程序用户）可访问远程服务器上的文件或其他资源。 这让应用程序可以读取、创建和更新远程服务器上的文件。 它还可以与任何设置为接收 SMB 客户端请求的服务器程序通信。 Windows Server 2012 引入了全新 3.0 版的 SMB 协议。
+服务器消息块 (SMB) 协议是网络文件共享协议，让计算机上的应用程序可读取和写入文件以及从计算机网络中的服务器程序请求服务。 SMB 协议可在其 TCP/IP 协议或其他网络协议上使用。 使用 SMB 协议时，应用程序（或应用程序用户）可访问远程服务器上的文件或其他资源。 这让应用程序可以读取、创建和更新远程服务器上的文件。 它还可以与任何设置为接收 SMB 客户端请求的服务器程序通信。 Windows Server 2012 引入了新的3.0 版本的 SMB 协议。
 
 ## <a name="practical-applications"></a>实际应用程序
 
 本节讨论一些使用新 SMB 3.0 协议的全新实用方法。
 
-* **用于虚拟化的文件存储 (Hyper-V(TM) over SMB)**。 Hyper-V 可以通过 SMB 3.0 协议在文件共享中存储虚拟机文件，如配置、虚拟硬盘 (VHD) 文件和快照。 这既可用于独立文件服务器，又可用于将 Hyper-V 与群集的共享文件存储配合使用的群集文件服务器。
+* **用于虚拟化的文件存储 (Hyper-V(TM) over SMB)** 。 Hyper-V 可以通过 SMB 3.0 协议在文件共享中存储虚拟机文件，如配置、虚拟硬盘 (VHD) 文件和快照。 这既可用于独立文件服务器，又可用于将 Hyper-V 与群集的共享文件存储配合使用的群集文件服务器。
 * **Microsoft SQL Server over SMB**。 SQL Server 可以将用户数据库文件存储在 SMB 文件共享中。 目前，SQL Server 2008 R2 的独立 SQL 服务器支持此功能。 即将推出的 SQL Server 版本将增加群集 SQL 服务器和系统数据库的支持。
 * **用于最终用户数据的传统存储**。 SMB 3.0 协议提供 信息工作者 （或客户端）工作负载的增强功能。 这些增强功能包括减少分支机构用户在通过广域网 (WAN) 访问数据时遇到的应用程序延迟，以及防止数据遭受窃听攻击。
 
 ## <a name="new-and-changed-functionality"></a>新增功能和更改的功能
 
-Windows Server 2012 R2 中的新功能和更改功能的信息，请参阅[What's New in Windows Server 中 SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831474(v%3dws.11)>)。
+有关 Windows Server 2012 R2 中新功能和更改的功能的信息，请参阅[Windows server 中 SMB 的新增](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831474(v%3dws.11)>)功能。
 
-Windows Server 2012 和 Windows Server 2016 中的 SMB 包括新 SMB 3.0 协议和介绍许多新改进下, 表中。
+Windows Server 2012 和 Windows Server 2016 中的 SMB 包括新的 SMB 3.0 协议和许多新改进，如下表中所述。
 
 <table>
 <colgroup>
@@ -56,7 +56,7 @@ Windows Server 2012 和 Windows Server 2016 中的 SMB 包括新 SMB 3.0 协议�
 <tr class="odd">
 <td><p>SMB 透明故障转移</p></td>
 <td><p>新增</p></td>
-<td><p>让管理员可执行群集文件服务器中节点的硬件或软件维护，且不会中断将数据存储在这些文件共享上的服务器应用程序。 此外，如果在群集节点上发生硬件或软件故障，SMB 客户端以透明方式重新连接到另一个群集节点而不会中断将数据存储在这些文件共享的服务器应用程序。</p></td>
+<td><p>让管理员可执行群集文件服务器中节点的硬件或软件维护，且不会中断将数据存储在这些文件共享上的服务器应用程序。 此外，如果群集节点上发生硬件或软件故障，SMB 客户端将以透明方式重新连接到另一个群集节点，而不会中断将数据存储在这些文件共享上的服务器应用程序。</p></td>
 </tr>
 <tr class="even">
 <td><p>SMB 横向扩展</p></td>
@@ -105,32 +105,32 @@ Windows Server 2012 和 Windows Server 2016 中的 SMB 包括新 SMB 3.0 协议�
 
 SMB 透明故障转移具有以下要求：
 
-* 配置至少两个节点运行 Windows Server 2012 或 Windows Server 2016 故障转移群集。 群集必须通过验证向导中包括的群集验证测试。
+* 运行 Windows Server 2012 或 Windows Server 2016 且至少配置了两个节点的故障转移群集。 群集必须通过验证向导中包括的群集验证测试。
 * 必须使用连续可用性 (CA) 属性（默认值）创建文件共享。
 * 必须在 CSV 卷路径上创建文件共享，才能获得 SMB 横向扩展。
-* 客户端计算机必须运行 Windows® 8 或 Windows Server 2012，两者均包括支持连续可用性的更新的 SMB 客户端。
+* 客户端计算机必须运行 Windows®8或 Windows Server 2012，两者均包括支持连续可用性的更新 SMB 客户端。
 
 >[!NOTE]
->下级客户端可以连接到具有 CA 属性的文件共享，但不是将这些客户端支持透明故障转移。
+>下级客户端可以连接到具有 CA 属性的文件共享，但这些客户端不支持透明故障转移。
 
 SMB 多通道具有以下要求：
 
-* 需要至少两台运行 Windows Server 2012 的计算机。 无需安装额外功能 - 该技术默认情况下处于打开状态。
+* 至少需要两台运行 Windows Server 2012 的计算机。 无需安装额外功能 - 该技术默认情况下处于打开状态。
 * 有关建议的网络配置的信息，请参阅本概述主题末尾的“另请参阅”部分。
 
 SMB 直接具有以下要求：
 
-* 需要至少两台运行 Windows Server 2012 的计算机。 无需安装额外功能 - 该技术默认情况下处于打开状态。
+* 至少需要两台运行 Windows Server 2012 的计算机。 无需安装额外功能 - 该技术默认情况下处于打开状态。
 * 需要含 RDMA 功能的网络适配器。 目前，这些适配器有三种类型：iWARP、Infiniband 或 RoCE (RDMA over Converged Ethernet)。
 
 ## <a name="more-information"></a>详细信息
 
-以下列表提供有关 SMB 和相关的技术在 Windows Server 2012 R2、 Windows Server 2012 和 Windows Server 2016 web 上的其他资源。
+以下列表提供了有关 Windows Server 2012 R2、Windows Server 2012 和 Windows Server 2016 中的 SMB 和相关技术的其他资源。
 
-* [Windows Server 中存储](../storage.md)
+* [Windows Server 中的存储](../storage.md)
 * [应用程序数据的横向扩展文件服务器](../../failover-clustering/sofs-overview.md)
-* [直接提高使用 SMB 文件服务器的性能](smb-direct.md)
-* [部署基于 SMB 的 HYPER-V](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>)
+* [使用 SMB 直通提高文件服务器的性能](smb-direct.md)
+* [部署基于 SMB 的 Hyper-v](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>)
 * [部署 SMB 多通道](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3dws.11)>)
 * [为服务器应用程序部署快速且高效的文件服务器](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831723(v%3dws.11)>)
-* [SMB:故障排除指南](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn659439(v%3dws.11)>)
+* [SMB：疑难解答指南 @ no__t-0

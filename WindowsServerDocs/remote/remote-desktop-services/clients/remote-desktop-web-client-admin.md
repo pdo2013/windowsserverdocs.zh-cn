@@ -1,19 +1,19 @@
 ---
 title: 为用户设置远程桌面 Web 客户端
 description: 介绍管理员如何设置远程桌面 Web 客户端。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: remote-desktop-services
 ms.author: helohr
 ms.date: 09/19/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 86667c744acfd340c2608609323b95c159e1279d
-ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
+ms.openlocfilehash: 38f54548e8e68a0ee693c5d8ec80e67057b3d5b7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71143753"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387657"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>为用户设置远程桌面 Web 客户端
 

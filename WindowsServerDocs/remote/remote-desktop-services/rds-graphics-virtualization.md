@@ -2,7 +2,7 @@
 title: RDS - 哪种图形虚拟化技术适合你？
 description: 规划信息以帮你为 RDS 部署选择正确的图形虚拟化选项。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: d6ff5b22-7695-4fee-b1bd-6c9dce5bd0e8
 author: lizap
 manager: scottman
-ms.openlocfilehash: ce10575d38bccc0b22dadf55bd89156c6ce5ea7b
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: d5fe737fcdc664a757518f495e3815968d17c331
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871050"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387505"
 ---
 # <a name="which-graphics-virtualization-technology-is-right-for-you"></a>哪种图形虚拟化技术适合你？
 

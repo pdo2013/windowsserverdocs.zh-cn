@@ -1,8 +1,8 @@
 ---
-title: Sc 创建
-description: 'Windows 命令主题 * * *- '
+title: Sc create
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7931ddc91b91d5fce01335f4b090d0305790f65c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8ea8f1c33472b7ac95ec0282a50d902a9d7cf84d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826498"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384370"
 ---
-# <a name="sc-create"></a>Sc 创建
+# <a name="sc-create"></a>Sc create
 
 
 
-在注册表和服务控制管理器数据库中创建子项和服务的条目。
+为注册表中的服务和服务控制管理器数据库创建子项和项。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -38,28 +38,28 @@ sc [<ServerName>] create [<ServiceName>] [type= {own | share | kernel | filesys 
 
 |参数|描述|
 |---------|-----------|
-|\<ServerName>|指定的服务所在的远程服务器的名称。 该名称必须使用通用命名约定 (UNC) 格式 (例如， \\ \\myserver)。 若要本地运行 SC.exe，忽略此参数。|
-|\<ServiceName>|指定返回的服务名称**getkeyname**操作。|
-|类型 = {自己\|共享\|内核\|文件系统恢复\|rec\|交互类型 = {自己\|共享}}|指定服务类型。 默认设置是**类型 = 自己**。</br>**自己**-指定在其自己的进程中运行该服务。 它不会与其他服务共享的可执行文件。 这是默认设置。</br>**共享**-指定该服务作为共享进程运行。 它与其他服务共享的可执行文件。</br>**内核**-指定的驱动程序。</br>**文件系统恢复**-指定的文件系统驱动程序。</br>**rec** -指定 （标识的计算机上使用的文件系统） 的文件系统识别驱动程序。</br>**交互**-指定该服务可以与桌面，从用户接收输入进行交互。 交互服务必须在本地系统帐户下运行。 此类型必须与结合使用**类型 = 自己**或**类型 = 共享**。 使用**类型 = 交互**本身将生成一个"参数无效"错误。|
-|开始 = {引导\|系统\|自动\|需\|禁用}|指定服务的启动类型。 默认设置是**启动 = 需**。</br>**启动**-指定启动加载程序加载的设备驱动程序。</br>**系统**-指定内核初始化过程中启动的设备驱动程序。</br>**自动**-指定每次重新启动计算机时将自动启动的服务。 请注意，即使没有人登录到计算机运行的服务。</br>**需**-指定必须手动启动的服务。 这是默认值，如果**启动 =** 未指定。</br>**禁用**-指定不能启动的服务。 若要启动禁用的服务，为其他值更改启动类型。|
-|错误 = {正常\|严重\|关键\|忽略}|如果服务出现故障时启动计算机，请指定错误的严重性。 默认设置是**错误 = 正常**。</br>**正常**-指定记录错误。 显示一个消息框，通知的用户的服务未能启动。 将继续启动。 这是默认设置。</br>**严重**-指定错误记录 （如果可能）。 计算机会尝试使用最后一个已知的正确配置重新启动。 这可能导致计算机无法重新启动，但该服务可能仍无法运行。</br>**关键**-指定错误记录 （如果可能）。 计算机会尝试使用最后一个已知的正确配置重新启动。 如果最后一次的正确配置失败，启动也将失败，并启动过程将暂停且出现停止错误。</br>**忽略**-指定将记录错误，启动继续。 给超出将错误记录在事件日志中的用户进行提示。|
-|binpath= \<BinaryPathName>|指定的服务二进制文件的路径。 没有为默认值**binpath =**，并且必须提供此字符串。|
-|group= \<LoadOrderGroup>|指定此服务的组的名称。 在注册表中存储的组的列表**HKLM\System\CurrentControlSet\Control\ServiceGroupOrder**子项。 默认值为 null。|
-|标记 = {是\|无}|指定是否将成为 TagID 从 CreateService 调用中获取。 标记用于引导启动或系统启动驱动程序。|
-|depend= \<dependencies>|指定的服务或组必须启动，然后启动此服务的名称。 正斜杠 （/） 分隔名称。|
-|obj= {\<AccountName> \| \<ObjectName>}|指定的帐户服务将开始运行，或指定的驱动程序将在其中运行的 Windows 驱动程序对象的名称的名称。|
-|displayname= \<DisplayName>|指定用户界面程序可用于标识该服务的友好名称。|
-|password= \<Password>|指定的密码。 如果使用除本地系统以外的帐户，这是必需的。|
+|\<ServerName >|指定服务所在的远程服务器的名称。 名称必须使用通用命名约定（UNC）格式（例如 \\ @ no__t-1myserver）。 若要在本地运行 SC.EXE，请省略此参数。|
+|\<ServiceName >|指定**getkeyname**操作返回的服务名称。|
+|type = {自有 \| share \| 内核 \| filesys \| 记录 \| 交互类型 = {自有 \| 共享}}|指定服务类型。 默认设置为 "**类型 = 拥有**"。</br>**拥有**-指定服务在其自己的进程中运行。 它不与其他服务共享可执行文件。 此为默认设置。</br>**共享**-指定服务以共享进程的形式运行。 它与其他服务共享可执行文件。</br>**内核**-指定驱动程序。</br>**filesys** -指定文件系统驱动程序。</br>**rec** -指定文件系统识别的驱动程序（标识计算机上使用的文件系统）。</br>**交互**-指定服务可与桌面交互，同时接收来自用户的输入。 交互式服务必须在 LocalSystem 帐户下运行。 此类型必须与**类型 = "拥有**" 或 "**类型" 为 "共享**" 结合使用。 使用**type = 自行交互**将生成 "无效参数" 错误。|
+|开始 = {boot \| system \| 自动 \| 要求 \| 已禁用}|指定服务的启动类型。 默认设置为 "**开始 = 请求**"。</br>**启动**-指定由启动加载程序加载的设备驱动程序。</br>**系统**-指定在内核初始化过程中启动的设备驱动程序。</br>**自动**指定在每次重新启动计算机时自动启动的服务。 请注意，即使没有人登录到计算机，也会运行该服务。</br>**demand** -指定必须手动启动的服务。 如果未指定**start =** ，则此值为默认值。</br>**disabled** -指定无法启动的服务。 若要启动已禁用的服务，请将启动类型更改为其他某个值。|
+|错误 = {正常 \| 严重 \| 严重 \| 忽略}|如果在计算机启动时服务失败，则指定错误的严重性。 默认设置为**error = normal**。</br>**normal** -指定记录错误。 将显示一个消息框，通知用户服务无法启动。 启动将继续。 此为默认设置。</br>**严重**-指定记录错误（如果可能）。 计算机尝试用最后一次正确的配置重新启动。 这可能会导致计算机能够重启，但仍可能无法运行该服务。</br>**严重**-指定记录错误（如果可能）。 计算机尝试用最后一次正确的配置重新启动。 如果最后一次已知的正确配置失败，则启动也会失败，并且启动过程将停止并出现停止错误。</br>**ignore** -指定已记录错误并继续启动。 超出事件日志中记录错误的用户不会提供通知。|
+|binpath = \<BinaryPathName >|指定服务二进制文件的路径。 **Binpath =** 没有默认值，必须提供此字符串。|
+|group = \<LoadOrderGroup >|指定此服务所属的组的名称。 组列表存储在注册表的**HKLM\System\CurrentControlSet\Control\ServiceGroupOrder**子项中。 默认值为 null。|
+|标记 = {是 \| no}|指定是否要从 CreateService 调用中获取 TagID。 标记仅用于启动和系统启动驱动程序。|
+|依赖 = \<dependencies >|指定启动此服务之前必须启动的服务或组的名称。 名称由正斜杠（/）分隔。|
+|obj = {@no__t > \| \<ObjectName >}|指定服务将在其中运行的帐户的名称，或指定将在其中运行该驱动程序的 Windows 驱动程序对象的名称。|
+|displayname = \<DisplayName >|指定可由用户界面程序用来标识服务的友好名称。|
+|password = \<Password >|指定密码。 如果使用除 LocalSystem 以外的帐户，则这是必需的。|
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
 
--   对于每个命令行选项，等号是选项名称的一部分。
--   一个选项及其值之间需要空间时 (例如，**类型 = 自己**。 如果省略空间操作将失败。
+-   对于每个命令行选项，等号都是选项名称的一部分。
+-   选项和其值之间需要空格（例如， **type =** an）。 如果省略此空间，则操作将失败。
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例演示如何使用**sc 创建**命令：
+下面的示例演示如何使用**sc create**命令：
 ```
 sc \\myserver create NewService binpath= c:\windows\system32\NewServ.exe
 sc create NewService binpath= c:\windows\system32\NewServ.exe type= share start= auto depend= "+TDI NetBIOS"
@@ -67,4 +67,4 @@ sc create NewService binpath= c:\windows\system32\NewServ.exe type= share start=
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

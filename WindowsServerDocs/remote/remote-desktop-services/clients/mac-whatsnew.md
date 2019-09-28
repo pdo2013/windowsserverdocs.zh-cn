@@ -2,7 +2,7 @@
 title: MacOS 客户端中的新增功能
 description: 了解适用于 Mac 的远程桌面客户端的最新更改
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ manager: daveba
 ms.author: helohr
 ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 9fbd3e9c5f7938fbf6a80e9f5dc950a2c0a9a257
-ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
+ms.openlocfilehash: 092804ea84ba2d0e68eede3a597cb354c53bb8bd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70987343"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404193"
 ---
 # <a name="whats-new-in-the-macos-client"></a>MacOS 客户端中的新增功能
 

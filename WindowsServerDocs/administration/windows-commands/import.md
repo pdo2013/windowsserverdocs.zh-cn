@@ -1,8 +1,8 @@
 ---
 title: import
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ddef3958bc431519e3cb89b658a58d1f4dba6938
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 50a095c323806dd523994c36c5b427d4ecedf8ef
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835258"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375504"
 ---
 # <a name="import"></a>import
 
 
 
-将可传送卷影副本加载元数据文件中导入到系统。
+将已加载的元数据文件中的可传送影子副本导入到系统中。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -36,12 +36,12 @@ import
 
 ## <a name="remarks"></a>备注
 
--   可传送卷影副本是不立即存储在系统中。 在备份组件文档 XML 文件，DiskShadow 会自动请求，并将保存在工作目录中的.cab 元数据文件中存储其详细信息。 您可以更改的路径和名称的此文件使用**设置元数据**命令。
--   可以使用之前**导入**，必须加载 DiskShadow 元数据文件使用**加载元数据**命令。
+-   可传送的卷影副本不会立即存储在系统中。 它们的详细信息存储在备份组件文档 XML 文件中，该文件是 DiskShadow 自动请求并保存在工作目录中的 .cab 元数据文件中。 您可以使用 "**设置元数据**" 命令来更改此文件的路径和名称。
+-   在可以使用**import**之前，必须使用**load Metadata**命令加载 DiskShadow 元数据文件。
 
 ## <a name="BKMK_examples"></a>示例
 
-下面是演示如何使用一个示例 DiskShadow 脚本**导入**命令：
+下面是一个示例 DiskShadow 脚本，演示如何使用**import**命令：
 ```
 #Sample DiskShadow script demonstrating IMPORT
 SET CONTEXT PERSISTENT
@@ -61,4 +61,4 @@ IMPORT
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

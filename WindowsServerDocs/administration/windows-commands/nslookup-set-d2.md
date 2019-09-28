@@ -1,8 +1,8 @@
 ---
 title: nslookup set d2
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e1e2ecade2887ef38a1209b49577ea0c851ca8d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: fce9512990a25f3db295cc9a67a4bc63a37d1060
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436831"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372973"
 ---
 # <a name="nslookup-set-d2"></a>nslookup set d2
 
 
 
-打开或关闭详尽的调试模式。 打印的每个数据包的所有字段。
+启用或禁用穷举调试模式。 打印每个数据包的所有字段。
 
 ## <a name="syntax"></a>语法
 
@@ -36,8 +36,8 @@ set [no]d2
 
 | 参数 |                             描述                              |
 |-----------|----------------------------------------------------------------------|
-| **nod2**  | 关闭详尽的调试模式。 默认语法**nod2**。 |
-|  **d2**   |                 打开详尽的调试模式。                  |
+| **nod2**  | 关闭穷举调试模式。 默认语法为**nod2**。 |
+|  **d2**   |                 启用穷举调试模式。                  |
 |   {帮助   |                                  ?}                                  |
 
 #### <a name="additional-references"></a>其他参考

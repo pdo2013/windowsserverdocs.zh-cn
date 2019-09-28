@@ -1,19 +1,19 @@
 ---
 title: 从 Windows Server 版本 1903 开始已删除或计划取代的功能
 description: 以下是 Windows Server 版本 1903 中已从该版本的产品中删除或开始考虑在后续版本中可能取代的功能列表。 本文档面向在商业环境中更新操作系统的 IT 专业人员。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: server-general
 ms.topic: article
 ms.date: 08/22/2019
 author: jasongerend
 ms.author: jgerend
 manager: daveba
-ms.openlocfilehash: 4471d6f9d98d58f7444151a7b8be33d2d81423e1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b31cde8216b3ceb230c9c197924b40e8cc8fc3f8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868663"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361184"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1903"></a>从 Windows Server 版本 1903 开始已删除或计划取代的功能
 

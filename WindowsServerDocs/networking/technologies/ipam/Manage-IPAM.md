@@ -1,9 +1,9 @@
 ---
 title: 管理 IPAM
-description: 本主题是 Windows Server 2016 中的 IP 地址管理 (IPAM) 管理指南的一部分。
+description: 本主题是 Windows Server 2016 中的 IP 地址管理（IPAM）管理指南的一部分。
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,20 +12,20 @@ ms.topic: article
 ms.assetid: c68905ef-d54f-4fc8-80ac-1006125db64f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 12d86504df02e7a94709feb9319659ec662d71f5
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 165ffe41fd79fc9f71f96ef65317375e4120cc5c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283919"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405615"
 ---
 # <a name="manage-ipam"></a>管理 IPAM
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-本指南提供了管理 Windows Server 2016 中的 IP 地址管理 (IPAM) 功能的故障排除信息。  
+本指南提供了有关 Windows Server 2016 中的 IP 地址管理（IPAM）功能的管理和疑难解答信息。  
   
-在 Windows Server 2016 中，IPAM 支持 DNS 资源记录、 条件转发器和 DNS 区域管理针对这两个已加入域的 Active Directory 集成和支持文件的 DNS 服务器。 此外，IPAM 支持基于角色的访问控制和所有功能在以前版本的技术。  
+在 Windows Server 2016 中，IPAM 支持 DNS 资源记录、条件转发器和 DNS 区域管理，适用于已加入域的 Active Directory 集成和支持文件的 DNS 服务器。 此外，IPAM 还支持基于角色的访问控制和以前版本的技术中的所有功能。  
   
 本指南包含以下部分：  
   

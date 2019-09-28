@@ -1,9 +1,9 @@
 ---
 title: DirectAccess 测试实验室指南
-description: 本主题提供有关 Windows Server 2016 中的 DirectAccess 的测试实验室指南的链接。
+description: 本主题提供了有关 Windows Server 2016 中 DirectAccess 的测试实验室指南的链接。
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,21 +12,21 @@ ms.topic: article
 ms.assetid: 931a75ac-80f8-434c-8789-1dffb308ee13
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 667f7be5e31118a7ec62d98b5b6e095d5473d603
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: d128105c457dbb183b79afe42a4ce7826516cadd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281966"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394553"
 ---
 # <a name="directaccess-test-lab-guides"></a>DirectAccess 测试实验室指南
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-以下是 Windows Server 2016、 Windows Server 2012 R2 和 Windows Server 2012 中的 DirectAccess 测试实验室指南的链接。
+下面是指向 Windows Server 2016、Windows Server 2012 R2 和 Windows Server 2012 中 DirectAccess 的测试实验室指南的链接。
 
-- [测试实验室指南：在带有 Windows NLB 的群集中演示 DirectAccess](tlg-cluster-nlb/Test-Lab-Guide-Demonstrate-DirectAccess-in-a-Cluster-with-Windows-NLB.md)
+- [测试实验室指南：使用 Windows NLB @ no__t 在群集中演示 DirectAccess
 
-- [测试实验室指南：演示 DirectAccess 多站点部署](tlg-multisite/Test-Lab-Guide-Demonstrate-a-DirectAccess-Multisite-Deployment.md)
+- [测试实验室指南：演示 DirectAccess 多站点部署 @ no__t-0
 
-- [测试实验室指南：演示带有 OTP 身份验证和 RSA SecurID 的 DirectAccess](tlg-otp-securid/Test-Lab-Guide-Demonstrate-DirectAccess-with-OTP-Authentication-and-RSA-SecurID.md)
+- [测试实验室指南：演示具有 OTP 身份验证和 RSA SecurID @ no__t 的 DirectAccess

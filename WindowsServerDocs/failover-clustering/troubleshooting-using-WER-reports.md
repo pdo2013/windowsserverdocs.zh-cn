@@ -1,39 +1,39 @@
 ---
-title: 使用 Windows 错误报告的故障转移群集进行故障排除
-description: 具体如何收集报表并诊断常见的问题的详细信息使用 WER 报告的故障转移群集的故障排除。
-keywords: 故障转移群集、 WER 报表、 诊断、 群集、 Windows 错误报告
-ms.prod: windows-server-threshold
+title: 使用 Windows 错误报告对故障转移群集进行故障排除
+description: 使用 WER 报表对故障转移群集进行故障排除，并提供有关如何收集报表和诊断常见问题的特定详细信息。
+keywords: 故障转移群集，WER 报告，诊断，群集，Windows 错误报告
+ms.prod: windows-server
 ms.technology: storage-failover-clustering
 ms.author: vpetter
 ms.topic: article
 author: vpetter
 ms.date: 03/27/2018
 ms.localizationpriority: ''
-ms.openlocfilehash: 0b0c75f8e2d09a1fc17374428c48fb856465bb5a
-ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
+ms.openlocfilehash: 46c633af8cf82ac43d2a787a7193685d88ad0ecc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67469539"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361006"
 ---
-# <a name="troubleshooting-a-failover-cluster-using-windows-error-reporting"></a>使用 Windows 错误报告的故障转移群集进行故障排除 
+# <a name="troubleshooting-a-failover-cluster-using-windows-error-reporting"></a>使用 Windows 错误报告对故障转移群集进行故障排除 
 
-> 适用于：Windows Server 2019，Windows Server 2016 中，Windows Server
+> 适用于：Windows Server 2019，Windows Server 2016，Windows Server
 
-Windows 错误报告 (WER) 是旨在帮助高级的管理员或第 3 层支持收集有关 Windows 可以检测到，硬件和软件问题的信息的灵活的基于事件的反馈基础结构报告给 Microsoft，信息并为用户提供任何可用的解决方案。 这[引用](https://docs.microsoft.com/powershell/module/windowserrorreporting/)提供所有 WindowsErrorReporting cmdlet 说明和语法。
+Windows 错误报告（WER）是基于事件的灵活反馈基础结构，旨在帮助高级管理员或第3层支持收集有关 Windows 可以检测到的硬件和软件问题的信息，并向 Microsoft 报告信息。并向用户提供任何可用的解决方案。 本[参考](https://docs.microsoft.com/powershell/module/windowserrorreporting/)提供所有 WindowsErrorReporting cmdlet 的说明和语法。
 
-有关故障排除下面提供的信息会有帮助的故障排除高级问题已呈报和可能要求将数据发送给 Microsoft 进行会审。
+下面提供的故障排除信息将有助于排查已经升级的高级问题，并可能需要将数据发送给 Microsoft 进行会审。
 
 ## <a name="enabling-event-channels"></a>启用事件通道
 
-安装 Windows Server 时，默认情况下启用许多事件通道。 但有时诊断时出现问题，我们想要能够启用这些事件通道的一些，因为它将帮助会审和诊断系统问题。
+安装 Windows Server 时，默认情况下会启用许多事件通道。 但有时在诊断问题时，我们希望能够启用其中一些事件通道，因为这将有助于会审和诊断系统问题。
 
-您可以根据需要; 在群集中启用每个服务器节点上的其他事件通道但是，这种方法存在两个问题：
+您可以根据需要在群集中的每个服务器节点上启用其他事件通道;但是，这种方法带来了两个问题：
 
-1. 您必须记住，若要启用向群集添加每个新的服务器节点上的相同事件通道。
-2. 诊断时，它可能比较繁琐，若要启用特定的事件通道、 再现错误，并重复此过程，直到根本原因。
+1. 必须记住在添加到群集的每个新服务器节点上启用相同的事件通道。
+2. 在进行诊断时，启用特定事件通道、再现错误并重复此过程会很繁琐，直到根本原因。
 
-若要避免这些问题，可以启用在群集启动的事件通道。 可以使用的公共属性进行配置的群集上启用了的事件通道列表**EnabledEventLogs**。 默认情况下，启用以下事件通道：
+若要避免这些问题，可以在群集启动时启用事件通道。 可以使用公共属性**EnabledEventLogs**配置群集上已启用事件通道的列表。 默认情况下，将启用以下事件通道：
 
 ```powershell
 PS C:\Windows\system32> (get-cluster).EnabledEventLogs
@@ -47,26 +47,26 @@ Microsoft-Windows-SMBServer/Analytic
 Microsoft-Windows-Kernel-LiveDump/Analytic
 ```
 
-**EnabledEventLogs**属性是多字符串，其中每个字符串是在窗体中：**通道名称、 日志级别的关键字掩码**。 **关键字掩码**可以是十六进制 （前缀 0x）、 八进制 （前缀 0） 或十进制数 （无前缀） 数。 例如，若要向列表添加新的事件通道并配置两者**日志级别**和**关键字掩码**可以运行：
+**EnabledEventLogs**属性是一个多字符串，其中每个字符串的格式为：**通道名称、日志级别、关键字掩码**。 **关键字掩码**可以是十六进制（前缀0x）、八进制（前缀0）或十进制数（无前缀）号。 例如，若要向列表中添加新的事件通道并配置**日志级别**和**关键字掩码**，可以运行：
 
 ```powershell
 (get-cluster).EnabledEventLogs += "Microsoft-Windows-WinINet/Analytic,2,321"
 ```
 
-如果你想要设置**日志级别**但保留**关键字掩码**在其默认值，您可以使用以下命令之一：
+如果要设置**日志级别**，但将**关键字掩码**保留为其默认值，则可以使用以下命令之一：
 
 ```powershell
 (get-cluster).EnabledEventLogs += "Microsoft-Windows-WinINet/Analytic,2"
 (get-cluster).EnabledEventLogs += "Microsoft-Windows-WinINet/Analytic,2,"
 ```
 
-如果你想要保留**日志级别**的默认值，但设置**关键字掩码**可以运行以下命令：
+如果要将**日志级别**保留为默认值，但要设置**关键字掩码**，可以运行以下命令：
 
 ```powershell
 (get-cluster).EnabledEventLogs += "Microsoft-Windows-WinINet/Analytic,,0xf1"
 ```
 
-如果你想要保留这两**日志级别**并**关键字掩码**保留其默认值，您可以运行任何以下命令：
+如果要将**日志级别**和**关键字掩码**保留为其默认值，则可以运行以下任何命令：
 
 ```powershell
 (get-cluster).EnabledEventLogs += "Microsoft-Windows-WinINet/Analytic"
@@ -74,36 +74,36 @@ Microsoft-Windows-Kernel-LiveDump/Analytic
 (get-cluster).EnabledEventLogs += "Microsoft-Windows-WinINet/Analytic,,"
 ```
 
-将每个群集节点上启用这些事件通道，群集服务启动时，或者每当**EnabledEventLogs**属性更改。
+群集服务启动或每次**EnabledEventLogs**属性更改时，都会在每个群集节点上启用这些事件通道。
 
 ## <a name="gathering-logs"></a>正在收集日志
 
-启用事件通道后，可以使用**DumpLogQuery**来收集日志。 公共资源类型属性**DumpLogQuery**是 mutistring 值。 每个字符串都[XPATH 查询如下所述](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85).aspx)。
+启用事件通道后，可以使用**DumpLogQuery**收集日志。 公共资源类型属性**DumpLogQuery**是 mutistring 值。 每个字符串都是[XPATH 查询，如此处所述](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85).aspx)。
 
-故障排除时，如果您需要收集其他事件通道，你可以修改**DumpLogQuery**通过添加其他查询或修改列表的属性。
+在进行故障排除时，如果需要收集其他事件通道，可以通过添加其他查询或修改列表来修改**DumpLogQuery**属性。
 
-若要执行此操作，首先测试 XPATH 查询使用[Get-winevent](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Diagnostics/Get-WinEvent?view=powershell-5.1) PowerShell cmdlet:
+为此，请先使用[Get-winevent](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Diagnostics/Get-WinEvent?view=powershell-5.1) PowerShell CMDLET 测试 XPATH 查询：
 
 ```powershell
 get-WinEvent -FilterXML "<QueryList><Query><Select Path='Microsoft-Windows-GroupPolicy/Operational'>*[System[TimeCreated[timediff(@SystemTime) &gt;= 600000]]]</Select></Query></QueryList>"
 ```
 
-接下来，将追加到查询**DumpLogQuery**资源属性：
+接下来，将查询追加到资源的**DumpLogQuery**属性：
 
 ```powershell
 (Get-ClusterResourceType -Name "Physical Disk".DumpLogQuery += "<QueryList><Query><Select Path='Microsoft-Windows-GroupPolicy/Operational'>*[System[TimeCreated[timediff(@SystemTime) &gt;= 600000]]]</Select></Query></QueryList>"
 ```
 
-并且如果你想要获取一组查询以使用，请运行：
+如果要获取要使用的查询列表，请运行：
 ```powershell
 (Get-ClusterResourceType -Name "Physical Disk").DumpLogQuery
 ```
 
-## <a name="gathering-windows-error-reporting-reports"></a>正在收集 Windows 错误报告报告
+## <a name="gathering-windows-error-reporting-reports"></a>收集 Windows 错误报告报表
 
-Windows 错误报告的报表存储在 **%ProgramData%\Microsoft\Windows\WER**
+Windows 错误报告报表存储在 **%ProgramData%\Microsoft\Windows\WER**中。
 
-内部**WER**文件夹中， **ReportsQueue**文件夹包含待上传到 Watson 报告。
+在**WER**文件夹内， **ReportsQueue**文件夹包含等待上传到 Watson 的报告。
 
 ```powershell
 PS C:\Windows\system32> dir c:\ProgramData\Microsoft\Windows\WER\ReportQueue
@@ -140,7 +140,7 @@ Directory of C:\ProgramData\Microsoft\Windows\WER\ReportQueue
               20 Dir(s)  23,291,658,240 bytes free
 ```
 
-内部**WER**文件夹中， **ReportsArchive**文件夹包含已上载到 Watson 报告。 将删除这些报告中的数据，但**Report.wer**文件仍然存在。
+在**WER**文件夹内， **ReportsArchive**文件夹包含已上载到 Watson 的报表。 将删除这些报表中的数据，但**该文件**仍会保持。
 
 ```powershell
 PS C:\Windows\system32> dir C:\ProgramData\Microsoft\Windows\WER\ReportArchive
@@ -161,14 +161,14 @@ Directory of c:\ProgramData\Microsoft\Windows\WER\ReportArchive
 
 ```
 
-Windows 错误报告提供很多设置自定义报告体验的问题。 有关详细信息，请参阅 Windows 错误报告[文档](https://msdn.microsoft.com/library/windows/desktop/bb513638(v=vs.85).aspx)。
+Windows 错误报告提供了很多用于自定义问题报告体验的设置。 有关详细信息，请参阅 Windows 错误报告[文档](https://msdn.microsoft.com/library/windows/desktop/bb513638(v=vs.85).aspx)。
 
 
-## <a name="troubleshooting-using-windows-error-reporting-reports"></a>使用 Windows 错误报告报告进行故障排除
+## <a name="troubleshooting-using-windows-error-reporting-reports"></a>使用 Windows 错误报告报表进行故障排除
 
-### <a name="physical-disk-failed-to-come-online"></a>物理磁盘联机失败
+### <a name="physical-disk-failed-to-come-online"></a>物理磁盘未能联机
 
-若要诊断此问题，请导航到 WER 的报表文件夹：
+若要诊断此问题，请导航到 WER 报表文件夹：
 
 ```powershell
 PS C:\Windows\system32> dir C:\ProgramData\Microsoft\Windows\WER\ReportArchive\Critical_PhysicalDisk_b46b8883d892cfa8a26263afca228b17df8133d_00000000_cab_08abc39c
@@ -228,7 +228,7 @@ Volume Serial Number is 4031-E397
 <date>  <time>            13,340 WERC38D.tmp.txt
 ```
 
-接下来，启动从会审**Report.wer**文件 — 这会告知你失败。
+接下来，从该文件的**wer**文件开始会审，这会告诉你失败的内容。
 
 ```
 EventType=Failover_clustering_resource_error 
@@ -255,7 +255,7 @@ DynamicSig[29].Name=FailureTime
 DynamicSig[29].Value=2017//12//12-22:38:05.485
 ```
 
-由于资源无法进入联机状态，没有转储收集，但 Windows 错误报告报表未收集日志。 如果您打开所有 **.evtx**文件使用 Microsoft Message Analyzer，您将看到所有使用以下查询通过系统通道、 应用程序通道、 故障转移群集诊断通道收集的信息和其他几个泛型通道。
+由于资源未能联机，因此不会收集任何转储，但 Windows 错误报告报告会收集日志。 如果使用 Microsoft Message Analyzer 打开所有 .evtx 文件，您将看到通过系统通道、应用程序通道、故障转移群集诊断通道和一些其他查询使用以下查询收集的所有信息 **。** 泛型通道。
 
 ```powershell
 PS C:\Windows\system32> (Get-ClusterResourceType -Name "Physical Disk").DumpLogQuery
@@ -294,22 +294,22 @@ PS C:\Windows\system32> (Get-ClusterResourceType -Name "Physical Disk").DumpLogQ
 <QueryList><Query Id="0"><Select Path="Microsoft-Windows-Hyper-V-VmSwitch-Diagnostic">*[System[TimeCreated[timediff(@SystemTime) &lt;= 600000]]]</Select></Query></QueryList>
 ```
 
-Message Analyzer 可以捕获、 显示和分析协议消息传送流量。 它还允许您跟踪并评估系统事件和 Windows 组件从其他消息。 您可以下载[从此处的 Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226)。 当日志加载到 Message Analyzer 中时，您将看到以下提供程序和消息日志通道。
+消息分析器可用于捕获、显示和分析协议消息传递通信。 它还允许您跟踪和评估 Windows 组件中的系统事件和其他消息。 你可以[从此处下载 Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226)。 当你将日志加载到 Message Analyzer 中时，你将看到来自日志通道的以下提供程序和消息。
 
-![加载到 Message Analyzer 的日志](media/troubleshooting-using-WER-reports/loading-logs-into-message-analyzer.png)
+![将日志加载到 Message Analyzer](media/troubleshooting-using-WER-reports/loading-logs-into-message-analyzer.png)
 
-此外可以分组由提供程序以获取以下视图：
+你还可以按提供程序进行分组以获取以下视图：
 
-![日志提供程序按分组](media/troubleshooting-using-WER-reports/logs-grouped-by-providers.png)
+![按提供程序分组的日志](media/troubleshooting-using-WER-reports/logs-grouped-by-providers.png)
 
-若要确定磁盘故障的原因，导航到下的事件**FailoverClustering/诊断**并**FailoverClustering/DiagnosticVerbose**。 然后运行以下查询：**EventLog.EventData["LogString"] 包含"群集磁盘 10"** 。  这样一来您为您提供以下输出：
+若要确定磁盘出现故障的原因，请导航到**FailoverClustering/** diagnostics 下的事件和**FailoverClustering/DiagnosticVerbose**。 然后运行以下查询：**EventData ["LogString"] 包含 "群集磁盘 10"** 。  这会显示以下输出：
 
 ![正在运行的日志查询的输出](media/troubleshooting-using-WER-reports/output-of-running-log-query.png)
 
 
-### <a name="physical-disk-timed-out"></a>物理磁盘已超时
+### <a name="physical-disk-timed-out"></a>物理磁盘超时
 
-若要诊断此问题，请导航到 WER 的报表文件夹。 该文件夹包含日志文件和转储文件**RHS**， **clussvc.exe**，和承载的进程的"**smphost**"服务，如下所示：
+若要诊断此问题，请导航到 WER 报表文件夹。 此文件夹包含**RHS** **、appcmd.exe 以及承载**"**smphost**" 服务的进程的日志文件和转储文件，如下所示：
 
 ```powershell
 PS C:\Windows\system32> dir C:\ProgramData\Microsoft\Windows\WER\ReportArchive\Critical_PhysicalDisk_64acaf7e4590828ae8a3ac3c8b31da9a789586d4_00000000_cab_1d94712e
@@ -373,7 +373,7 @@ Volume Serial Number is 4031-E397
 <date>  <time>            13,340 WER7100.tmp.txt
 ```
 
-接下来，启动从会审**Report.wer**文件 — 这会告知您哪些调用或资源被挂起。
+接下来，从该文件的**wer**文件开始会审，这会告诉你调用或资源挂起的时间。
 
 ```
 EventType=Failover_clustering_resource_timeout_2
@@ -398,13 +398,13 @@ DynamicSig[29].Name=HangThreadId
 DynamicSig[29].Value=10008
 ```
 
-由以下属性控制的服务与我们在转储收集的进程列表：**PS C:\Windows\system32> (Get-ClusterResourceType -Name "Physical Disk").DumpServicesSmphost**
+在转储中收集的服务和进程的列表由以下属性控制：**PS C:\Windows\system32 > （ClusterResourceType-Name "物理磁盘"）。DumpServicesSmphost**
 
-若要确定如何发生的原因，请打开 dum 文件。 然后运行以下查询：**EventLog.EventData["LogString"] 包含"群集磁盘 10"** 这样一来您为您提供以下输出：
+若要确定挂起的原因，请打开 dum 文件。 然后运行以下查询：**EventLog. EventData ["LogString"] 包含 "Cluster Disk 10"** 这会显示以下输出：
 
-![正在运行的日志查询 2 的输出](media/troubleshooting-using-WER-reports/output-of-running-log-query-2.png)
+![运行日志查询的输出2](media/troubleshooting-using-WER-reports/output-of-running-log-query-2.png)
 
-我们可以与从线程 cross-examine 这**memory.hdmp**文件：
+可以通过 **.hdmp**文件中的线程来交叉检查这一点：
 
 ```
 # 21  Id: 1d98.2718 Suspend: 0 Teb: 0000000b`f1f7b000 Unfrozen

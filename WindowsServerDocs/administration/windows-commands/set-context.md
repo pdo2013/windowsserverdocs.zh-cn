@@ -1,8 +1,8 @@
 ---
 title: 设置上下文
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6f24e795f2d7c92d462cf822e70e4830b53827e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 16f71d831f374f495abf2239cb8e694eee69efdf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845848"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370976"
 ---
 # <a name="set-contex"></a>设置上下文
 
 
 
-设置卷影副本创建的上下文。 如果使用不带参数，**设置上下文**在命令提示符下显示的帮助。
+设置用于创建卷影副本的上下文。 如果使用时没有参数，则**设置上下文将**在命令提示符下显示帮助。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -38,22 +38,22 @@ set context {clientaccessible | persistent [nowriters] | volatile [nowriters]}
 
 |参数|描述|
 |---------|-----------|
-|clientaccessible|指定可供客户端版本的 Windows 卷影副本。|
-|持久性|指定在程序退出时，重置或重新启动之间仍然存在卷影副本。|
-|易失性|删除卷影复制退出，或重置。|
+|clientaccessible|指定卷影副本可供 Windows 的客户端版本使用。|
+|式|指定卷影副本在程序退出、重置或重新启动时保持不变。|
+|失效|退出或重置时删除卷影副本。|
 |nowriters|指定排除所有编写器。|
 
 ## <a name="remarks"></a>备注
 
--   *Clientaccessible*上下文是持久默认情况下。
+-   默认情况下， *clientaccessible*上下文是永久性的。
 
 ## <a name="BKMK_examples"></a>示例
 
-若要防止被删除时退出 DiskShadow 卷影副本，请键入：
+若要防止在退出 DiskShadow 时删除卷影副本，请键入：
 ```
 set context persistent
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

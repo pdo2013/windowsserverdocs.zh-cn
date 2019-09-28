@@ -1,7 +1,7 @@
 ---
 ms.assetid: a7c39656-81ee-4c2b-80ef-4d017dd11b07
 title: 计划工作文件夹部署
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 author: JasonGerend
@@ -9,16 +9,16 @@ manager: dongill
 ms.author: jgerend
 ms.date: 4/5/2017
 description: 如何计划工作文件夹部署（包括系统要求）和如何准备网络环境。
-ms.openlocfilehash: 06d56df7ce9ddb8c9822f62de383ccad0394b4f3
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e62cd61350299461d725c5d84209230ce1cc41a3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447845"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365740"
 ---
 # <a name="planning-a-work-folders-deployment"></a>计划工作文件夹部署
 
->适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows 10，Windows 8.1，Windows 7
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows 10，Windows 8.1，Windows 7
 
 本主题介绍工作文件夹实施方案的设计过程，这些内容假设你已拥有以下知识背景：  
   
@@ -34,7 +34,7 @@ ms.locfileid: "66447845"
   
   下列部分将会帮助你设计工作文件夹实施方案。 下一主题[部署工作文件夹](deploy-work-folders.md)中介绍了工作文件夹的部署。  
   
-##  <a name="BKMK_SOFT"></a> 软件要求  
+##  <a name="BKMK_SOFT"></a>软件要求  
 
 工作文件夹要求在文件服务器和网络基础结构方面符合以下软件要求：  
   
@@ -116,7 +116,7 @@ ms.locfileid: "66447845"
 ### <a name="file-servers"></a>文件服务器  
  运行 Windows Server 2012 R2 或 Windows Server 2016 的文件服务器托管了工作文件夹角色服务，并托管了用于存储用户工作文件夹数据的同步共享。 文件服务器还可以托管内部网络中运行的其他技术（例如文件共享）存储的数据，并可以组成群集以针对用户数据提供容错。  
   
-###  <a name="GroupPolicy"></a> 组策略  
+###  <a name="GroupPolicy"></a>组策略  
  如果在你的环境中有 Windows 7 电脑，我们的建议如下：  
   
 - 使用组策略控制使用工作文件夹的所有加入域电脑的密码策略。  
@@ -128,7 +128,7 @@ ms.locfileid: "66447845"
   你还可以使用组策略强制基于用户或计算机设置工作文件夹，不过，这样做会导致工作文件夹在用户登录到的每台电脑上同步（使用按用户策略设置时），并且会阻止用户为其电脑上的工作文件夹指定备用位置（例如，在 microSD 卡上指定一个位置，以节省主驱动器上的空间）。 我们建议你在强制自动设置之前仔细评估用户的需求。  
   
 ### <a name="windows-intune"></a>Windows Intune  
- Windows Intune 还为未加入域的设备（这些设备只有在未加入域的情况下才能存在）提供了安全性与可管理性层。 你可以使用 Windows Intune 来配置和管理用户的个人设备，例如，通过 Internet 连接到工作文件夹的平板电脑。 Windows Intune 可以提供具有要使用的同步服务器 URL 的设备 – 否则用户必须输入其工作电子邮件地址才能查找设置 (如果发布公用工作文件夹 URL 中的窗体 https://workfolders。<em>contoso.com</em>)，或直接输入同步服务器 URL。  
+ Windows Intune 还为未加入域的设备（这些设备只有在未加入域的情况下才能存在）提供了安全性与可管理性层。 你可以使用 Windows Intune 来配置和管理用户的个人设备，例如，通过 Internet 连接到工作文件夹的平板电脑。 Windows Intune 可以为设备提供要使用的同步服务器 URL –否则，用户必须输入其工作电子邮件地址来查找设置（如果发布的公共工作文件夹 URL 格式为 https://workfolders 。<em>contoso.com</em>），或直接输入同步服务器 URL。  
   
  如果不部署 Windows Intune，用户必须手动配置外部设备，这可能会导致对客户技术支持工作人员的要求提高。  
   
@@ -158,7 +158,7 @@ ms.locfileid: "66447845"
   有关工作文件夹服务器调整和性能的信息，请参阅 [有关工作文件夹部署的性能注意事项](http://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)。  
   
 > [!NOTE]
->  使用多个同步服务器时，我们建议为用户设置自动服务器发现。 此过程依赖于 AD DS 中每个用户帐户的某个属性的配置。 该属性名为 **msDS-SyncServerURL**，将 Windows Server 2012 R2 域控制器添加到域或者应用 Active Directory 架构更新后，便可以在用户帐户上使用该属性。 应该为每个用户设置此属性，以确保用户连接到正确的同步服务器。 通过使用自动服务器发现，组织可以后面发布工作文件夹的"友好"URL 如 *https://workfolders.contoso.com* ，无论在操作中同步服务器数目。  
+>  使用多个同步服务器时，我们建议为用户设置自动服务器发现。 此过程依赖于 AD DS 中每个用户帐户的某个属性的配置。 该属性名为 **msDS-SyncServerURL**，将 Windows Server 2012 R2 域控制器添加到域或者应用 Active Directory 架构更新后，便可以在用户帐户上使用该属性。 应该为每个用户设置此属性，以确保用户连接到正确的同步服务器。 通过使用自动服务器发现，组织可以在 "友好的" URL （例如 *https://workfolders.contoso.com* ）后面发布工作文件夹，而无需考虑操作中有多少同步服务器。  
   
 ### <a name="number-of-sync-shares"></a>同步共享数目  
  单个同步服务器可以维护多个同步共享。 这对于以下情况可能十分有用：  
@@ -253,7 +253,7 @@ ms.locfileid: "66447845"
 ## <a name="see-also"></a>请参阅  
  有关其他相关信息，请参阅以下资源。  
   
-|内容类型|参考|  
+|内容类型|参考资料|  
 |------------------|----------------|  
-|**产品评估**|-   [工作文件夹](work-folders-overview.md)<br />-   [工作文件夹适用于 Windows 7](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) （博客文章）|  
-|**部署**|-   [设计工作文件夹实施方案](plan-work-folders.md)<br />-   [部署工作文件夹](deploy-work-folders.md)<br />-   [使用 AD FS 和 Web 应用程序代理 (WAP) 部署工作文件夹](deploy-work-folders-adfs-overview.md)<br />- [使用 Azure AD 应用程序代理部署工作文件夹](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />-   [有关工作文件夹部署的性能注意事项](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />-   [工作文件夹适用于 Windows 7 （64 位下载）](https://www.microsoft.com/download/details.aspx?id=42558)<br />-   [工作文件夹适用于 Windows 7 （32 位下载）](https://www.microsoft.com/download/details.aspx?id=42559)<br />-   [工作文件夹测试实验室部署](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx)（博客文章）|
+|**产品评估**|-   [工作文件夹](work-folders-overview.md)<br />@no__t 适用[于 Windows 7 的工作文件夹](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx)（博客文章）|  
+|**部署**|-   [设计工作文件夹实现](plan-work-folders.md)<br />-   [部署工作文件夹](deploy-work-folders.md)<br />-   [使用 AD FS 和 Web 应用程序代理（WAP）部署工作文件夹](deploy-work-folders-adfs-overview.md)<br />- [使用 Azure AD 应用程序代理部署工作文件夹](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />-   [工作文件夹部署的性能注意事项](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />[适用于 Windows 7 的 -    工作文件夹（64位下载）](https://www.microsoft.com/download/details.aspx?id=42558)<br />[适用于 Windows 7 的 -    工作文件夹（32位下载）](https://www.microsoft.com/download/details.aspx?id=42559)<br />-   [工作文件夹测试实验室部署](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx)（博客文章）|

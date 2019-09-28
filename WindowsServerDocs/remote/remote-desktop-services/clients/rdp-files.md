@@ -2,7 +2,7 @@
 title: 受支持的远程桌面 RDP 文件设置
 description: 了解远程桌面的 RDP 文件设置
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ manager: dongill
 ms.author: helohr
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 546f992a21576795383497c0fac7fb98761d0da5
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 43cffc007970245ab9bd96c7cae9bb5137a8030b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871254"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387798"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>受支持的远程桌面 RDP 文件设置
 

@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getnoprogresstimeout
-description: Windows 命令主题**bitsadmin getnoprogresstimeout** -检索时间 （秒），该服务尝试将文件传输后发生暂时性错误的长度。
+description: Windows 命令主题 for **bitsadmin getnoprogresstimeout** -检索发生暂时性错误后服务尝试传输文件的时间长度（以秒为单位）。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9563b68b8012a49471b56e3b8f2fbd60d1c69756
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7dcc0e445f4cae25c27f5ff70c73f4f2f23975aa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850798"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381500"
 ---
 # <a name="bitsadmin-getnoprogresstimeout"></a>bitsadmin getnoprogresstimeout
 
@@ -47,4 +47,4 @@ C:\>bitsadmin /GetNoProgressTimeout myDownloadJob
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

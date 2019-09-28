@@ -2,7 +2,7 @@
 title: RDS - 托管桌面和应用的合作伙伴
 description: 可使用 RDS 托管桌面和应用的合作伙伴列表。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 9a3cb426-fb39-40c5-ae07-26dbe9e3aed9
 author: lizap
 manager: dongill
-ms.openlocfilehash: 6081b84aa5c714dc8114408eed077a1822d58218
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 8433aa50d585300df03222b78cf0823985237aa5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63743784"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403965"
 ---
 # <a name="remote-desktop-services-hosting-partners-and-assessment"></a>远程桌面服务托管合作伙伴和评估
 

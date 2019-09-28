@@ -3,7 +3,7 @@ title: NIC 组合
 description: 在本主题中，我们将概述 Windows Server 2016 中的网络接口卡（NIC）组合。 NIC 组合允许在一个或多个基于软件的虚拟网络适配器之间分组到32物理以太网网络适配器。 这些虚拟网络适配器可以提高性能，并在网络适配器发生故障时提供容错能力。
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-nict
@@ -13,12 +13,12 @@ ms.assetid: abded6f3-5708-4e35-9a9e-890e81924fec
 ms.author: pashort
 author: shortpatti
 ms.date: 09/10/2018
-ms.openlocfilehash: acbb01acb39990126d5dce1d0811aefb8c931164
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 2356de674bfc6e57c9444136b1244934464a2d02
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871907"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71396500"
 ---
 # <a name="nic-teaming"></a>NIC 组合
 

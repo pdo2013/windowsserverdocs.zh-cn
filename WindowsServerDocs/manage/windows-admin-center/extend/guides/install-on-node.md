@@ -1,38 +1,38 @@
 ---
 title: 开发工具扩展
-description: 开发工具扩展 Windows Admin Center SDK (项目 Honolulu)
+description: 开发工具扩展 Windows 管理中心 SDK （Project Honolulu）
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 1a068c0d33887e8e9287ff15c1aa14f3dc84915a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.prod: windows-server
+ms.openlocfilehash: c5c87be882a32958946198eb6ff1b9d7000577e7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445934"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385287"
 ---
-# <a name="install-extension-payload-on-a-managed-node"></a>托管节点上安装扩展有效负载
+# <a name="install-extension-payload-on-a-managed-node"></a>在托管节点上安装扩展负载
 
->适用于：Windows Admin Center，Windows Admin Center 预览版
+>适用于：Windows Admin Center、Windows Admin Center 预览版
 
 ## <a name="setup"></a>安装
 > [!NOTE]
-> 若要遵循本指南，您将需要生成 1.2.1904.02001 或更高版本。 若要检查你的生成数打开 Windows Admin Center，然后单击右上角的问号。
+> 若要遵循本指南，你将需要生成1.2.1904.02001 或更高版本。 若要检查生成号，请打开 Windows 管理中心并单击右上方的问号。
 
-如果你尚未创建[工具扩展](../develop-tool.md)为 Windows Admin Center。 完成此，请后下创建一个扩展时使用的值：
+如果尚未这样做，请创建用于 Windows 管理中心的[工具扩展](../develop-tool.md)。 完成此操作后，请记下创建扩展时使用的值：
 
 | ReplTest1 | 说明 | 示例 |
 | ----- | ----------- | ------- |
-| ```{!Company Name}``` | 你的公司名称 （包含空格） | ```Contoso``` |
-| ```{!Tool Name}``` | 你的工具名称 （包含空格） | ```InstallOnNode``` |
+| ```{!Company Name}``` | 公司名称（包含空格） | ```Contoso``` |
+| ```{!Tool Name}``` | 工具名称（包含空格） | ```InstallOnNode``` |
 
-在您的工具扩展文件夹内创建```Node```文件夹 (```{!Tool Name}\Node```)。 放入此文件夹的任何内容将复制到托管节点，使用此 API 时。 添加任何所需的用例的文件。 
+在工具扩展文件夹内创建一个 ```Node``` 文件夹（```{!Tool Name}\Node```）。 使用此 API 时，此文件夹中的任何内容都将复制到托管节点。 添加用例所需的任何文件。 
 
-此外创建```{!Tool Name}\Node\installNode.ps1```脚本。 此脚本将在被管理节点上运行后的所有文件都复制,```{!Tool Name}\Node```到托管节点的文件夹。 添加你的用例的任何其他逻辑。 示例```{!Tool Name}\Node\installNode.ps1```文件：
+另外，创建 ```{!Tool Name}\Node\installNode.ps1``` 脚本。 将所有文件从 ```{!Tool Name}\Node``` 文件夹复制到托管节点后，将在托管节点上运行此脚本。 为用例添加任何其他逻辑。 @No__t-0 文件的示例：
 
 ``` ps1
 # Add logic for installing payload on managed node
@@ -40,12 +40,12 @@ echo 'Success'
 ```
 
 > [!NOTE]
-> ```{!Tool Name}\Node\installNode.ps1``` 有 API 将查找一个特定名称。 更改此文件的名称将导致错误。
+> ```{!Tool Name}\Node\installNode.ps1``` 具有 API 将查找的特定名称。 更改此文件的名称将导致错误。
 
 
-## <a name="integration-with-ui"></a>与 UI 的集成
+## <a name="integration-with-ui"></a>与 UI 集成
 
-更新```\src\app\default.component.ts```所示：
+将 ```\src\app\default.component.ts``` 更新为以下内容：
 
 ``` ts
 import { Component } from '@angular/core';
@@ -88,7 +88,7 @@ export class DefaultComponent {
 
 }
 ```
-更新到创建该扩展时使用的值的占位符：
+将占位符更新为创建扩展时使用的值：
 ``` ts
 this.post('contoso.install-on-node', '1.0.0',
       this.appContextService.activeConnection.nodeName).subscribe(
@@ -105,13 +105,13 @@ this.post('contoso.install-on-node', '1.0.0',
       );
 ```
 
-此外更新```\src\app\default.component.html```到：
+还要更新 ```\src\app\default.component.html``` 到：
 ``` html
 <button (click)="installOnNode()">Click to install</button>
 <sme-loading-wheel *ngIf="loading" size="large"></sme-loading-wheel>
 <p *ngIf="response">{{response}}</p>
 ```
-最后```\src\app\default.module.ts```:
+最后 ```\src\app\default.module.ts```：
 ``` ts
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -134,11 +134,11 @@ export class DefaultModule { }
 
 ## <a name="creating-and-installing-a-nuget-package"></a>创建和安装 NuGet 包
 
-最后一个步骤是使用我们已添加的文件生成的 NuGet 包，然后在 Windows Admin Center 中安装该程序包。
+最后一步是使用已添加的文件生成 NuGet 包，然后在 Windows 管理中心中安装该程序包。
 
-请按照[发布扩展](../publish-extensions.md)指导如果尚未创建之前扩展包。 
+如果你之前未创建扩展包，请按照[发布扩展](../publish-extensions.md)指南进行操作。 
 > [!IMPORTANT]
-> 在此扩展的.nuspec 文件中，它是重要的```<id>```值与在项目的名称匹配```manifest.json```并```<version>```匹配内容已添加到```\src\app\default.component.ts```。 此外将添加一个条目下的```<files>```: 
+> 在此扩展的 nuspec 文件中，```<id>``` 值与项目的 @no__t 中的名称匹配，```<version>``` 匹配添加到 @no__t 3 的内容，这一点非常重要。 另外，在 @no__t 下添加一个条目： 
 > 
 > ```<file src="Node\**\*.*" target="Node" />```。
 
@@ -165,4 +165,4 @@ export class DefaultModule { }
 </package>
 ```
 
-创建此包后，将路径添加到该数据源。 在 Windows Admin Center 转到设置 > 扩展 > 源并将路径添加到存在的包。 完成您的扩展插件安装，您应该能够单击```install```将调用按钮和 API。  
+创建此包后，请向该源添加一个路径。 在 Windows 管理中心中转到 "设置" > 扩展 > 源 "，并将路径添加到包所在的位置。 完成安装扩展后，应该可以单击 ```install``` 按钮，将调用 API。  

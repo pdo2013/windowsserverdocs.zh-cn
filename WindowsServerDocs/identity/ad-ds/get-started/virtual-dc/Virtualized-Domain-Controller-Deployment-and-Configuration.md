@@ -7,18 +7,18 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 059bb3c1b15afdc579ba048b8bbb02ed185f3d42
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: be2c919e4379cf615fe25d68446855229ace87dd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280948"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390704"
 ---
 # <a name="virtualized-domain-controller-deployment-and-configuration"></a>虚拟化域控制器部署和配置
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
 本主题讲解：  
   
@@ -30,7 +30,7 @@ ms.locfileid: "67280948"
   
     本部分详细说明整个虚拟化域控制器克隆过程。  
   
--   [虚拟化的域控制器安全还原](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md#BKMK_VDCSafeRestore)  
+-   [虚拟化域控制器安全还原](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md#BKMK_VDCSafeRestore)  
   
     本部分详细说明在虚拟化域控制器安全还原期间所进行的验证。  
   
@@ -61,10 +61,10 @@ ms.locfileid: "67280948"
   
 |||  
 |-|-|  
-|**虚拟化产品**|**支持虚拟化的域控制器和 VMGID**|  
-|**Microsoft Windows Server 2012 服务器的 HYPER-V 功能**|是|  
-|**Microsoft Windows Server 2012 Hyper-V Server**|是|  
-|**Microsoft Windows 8 和 HYPER-V 客户端功能**|是|  
+|**虚拟化产品**|**支持虚拟化域控制器和 VMGID**|  
+|**带有 Hyper-v 功能的 Microsoft Windows Server 2012 服务器**|是|  
+|**Microsoft Windows Server 2012 Hyper-v 服务器**|是|  
+|**具有 Hyper-v 客户端功能的 Microsoft Windows 8**|是|  
 |**Windows Server 2008 R2 和 Windows Server 2008**|否|  
 |**非 Microsoft 虚拟化解决方案**|联系供应商|  
   
@@ -91,7 +91,7 @@ ms.locfileid: "67280948"
 >   
 > 还原快照之后，在快照后源自该域控制器的之前未复制的更改增量将永远丢失。 安全还原将实现自动化的非权威还原， *仅*为了防止意外的域控制器隔离。  
   
-有关 USN 气泡和延迟对象的详细信息，请参阅[排除 Active Directory 失败的操作，它们带有错误 8606:"不足，无法提供的属性以创建对象"](https://support.microsoft.com/kb/2028495)。  
+有关 USN 气泡和延迟对象的详细信息，请参阅 [Troubleshooting Active Directory 操作失败并出现错误8606："提供的属性不足以创建对象" ](https://support.microsoft.com/kb/2028495)。  
   
 ## <a name="BKMK_VDCCloning"></a>虚拟化域控制器克隆  
 无论使用图形工具或 Windows PowerShell，都存在大量用于克隆虚拟化域控制器的阶段和步骤。 在较高级别，这三个阶段为：  
@@ -100,13 +100,13 @@ ms.locfileid: "67280948"
   
 -   第 1 步：验证虚拟机监控程序支持 VM 生成 ID，并因此可以进行克隆  
   
--   步骤 2：验证 PDC 模拟器角色由域控制器克隆的域控制器运行 Windows Server 2012，并且它处于联机状态且可访问托管在克隆过程。  
+-   步骤 2：验证 PDC 仿真器角色是否由运行 Windows Server 2012 的域控制器托管，以及在克隆期间克隆的域控制器是否处于联机状态。  
   
 **准备源域控制器**  
   
 -   步骤 3:授予源域控制器克隆权限  
   
--   步骤 4：删除不兼容的服务或程序或将它们添加到 CustomDCCloneAllowList.xml 文件。  
+-   步骤 4：删除不兼容的服务或程序，或将其添加到 Customdccloneallowlist.xml 文件。  
   
 -   步骤 5：创建 DCCloneConfig.xml  
   
@@ -126,16 +126,16 @@ ms.locfileid: "67280948"
   
 下图说明了虚拟化域控制器克隆的过程，其中域已经存在。  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_CloningProcessFlow.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_CloningProcessFlow.png)  
   
 ### <a name="step-1---validate-the-hypervisor"></a>步骤 1 – 验证虚拟机监控程序  
 通过查看供应商文档，确保源域控制器在支持的虚拟机监控程序上运行。 虚拟化域控制器与虚拟机监控程序无关，且不需要 Hyper-v。  
   
-如果虚拟机监控程序是 Microsoft HYPER-V，请确保它在 Windows Server 2012 上运行。 你可以使用设备管理对此进行验证  
+如果虚拟机监控程序是 Microsoft Hyper-V 的，请确保它在 Windows Server 2012 上运行。 你可以使用设备管理对此进行验证  
   
 打开 **Devmgmt.msc** 并检查**系统设备**中的已安装 Microsoft Hyper-V 设备和驱动程序。 虚拟化域控制器需要的特定系统设备是 **Microsoft Hyper-V 生成计数器** （驱动程序：vmgencounter.sys）。  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVVMGenIDCounter.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVVMGenIDCounter.png)  
   
 ### <a name="step-2---verify-the-pdce-fsmo-role"></a>步骤 2 – 验证 PDCE FSMO 角色  
 在尝试克隆 DC 之前，你必须验证托管主域控制器模拟器 FSMO 的域控制器运行 Windows Server 2012。 PDC 模拟器 (PDCE） 是必需的，原因有多种：  
@@ -184,9 +184,9 @@ get-adcomputer(Get-ADDomainController -Discover -Service "PrimaryDC").name -prop
   
 以下示例演示了如何在 Windows PowerShell 管道之前指定域名并筛选返回的属性：  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PDCOSInfo.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PDCOSInfo.png)  
   
-### <a name="step-3---authorize-a-source-dc"></a>步骤 3-授予源 DC  
+### <a name="step-3---authorize-a-source-dc"></a>步骤 3-授权源 DC  
 源域控制器必须具有对域 NC 头的控制访问权限 (CAR) **允许 DC 创建其自身的克隆**。 默认情况下，已知组 **可克隆的域控制器** 具有此权限，并且不包含任何成员。 该 FSMO 角色传输到 Windows Server 2012 域控制器后，PDCE 将创建此组。  
   
 #### <a name="active-directory-administrative-center-method"></a>Active Directory 管理中心方法  
@@ -196,7 +196,7 @@ get-adcomputer(Get-ADDomainController -Discover -Service "PrimaryDC").name -prop
 2.  在 **隶属于** 部分，为该域添加 **可克隆的域控制器** 组。  
   
 #### <a name="windows-powershell-method"></a>Windows PowerShell 方法  
-你可以结合以下 Active Directory Windows PowerShell 模块 cmdlet **get-adcomputer** 和 **add-adgroupmember**，将域控制器添加到“可克隆的域控制器”  组：  
+你可以结合以下 Active Directory Windows PowerShell 模块 cmdlet **get-adcomputer** 和 **add-adgroupmember**，将域控制器添加到“可克隆的域控制器”组：  
   
 ```  
 Get-adcomputer <dc name> | %{add-adgroupmember "cloneable domain controllers" $_.samaccountname}  
@@ -204,7 +204,7 @@ Get-adcomputer <dc name> | %{add-adgroupmember "cloneable domain controllers" $_
   
 例如，这种方法将服务器 DC1 添加到组中，而无需指定组成员的可分辨名称：  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_AddDcToGroup.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_AddDcToGroup.png)  
   
 #### <a name="rebuilding-default-permissions"></a>重建默认权限  
 如果从域头中删除此权限，则克隆将失败。 你可以使用 Active Directory 管理中心或 Windows PowerShell 重新创建权限。  
@@ -268,8 +268,8 @@ New-ADDCCloneConfigFile
   
 ||||  
 |-|-|-|  
-|**ActiveDirectory**<br /><br />**Cmdlet**|**自变量**|**说明**|  
-|**New-ADDCCloneConfigFile**|*<no argument specified>*|在 DSA 工作目录中创建空白 DcCloneConfig.xml 文件（默认位置：%systemroot%\ntds）|  
+|**Active**<br /><br />**Cmdlet**|**参数**|**做出**|  
+|**新-New-addccloneconfigfile**|*<no argument specified>*|在 DSA 工作目录中创建空白 DcCloneConfig.xml 文件（默认位置：%systemroot%\ntds）|  
 ||-CloneComputerName|指定克隆 DC 计算机名。 字符串数据类型。|  
 ||-Path|指定文件夹以创建 DcCloneConfig.xml。 如果未指定，则将写入 DSA 工作目录（默认位置：%systemroot%\ntds）。 字符串数据类型。|  
 ||-SiteName|指定在克隆的计算机帐户创建过程中要加入的 AD 逻辑站点名称。 字符串数据类型。|  
@@ -293,7 +293,7 @@ New-ADDCCloneConfigFile
   
 -   源域控制器尚未包含指定路径上的 DcCloneConfig.xml  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSNewDCCloneConfig.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSNewDCCloneConfig.png)  
   
 ### <a name="step-6---take-the-source-domain-controller-offline"></a>步骤 6 – 使源域控制器脱机  
 不可以复制运行中的源 DC；必须适当地关闭它。 请勿克隆因不适当断电而停止运行的域控制器。  
@@ -301,9 +301,9 @@ New-ADDCCloneConfigFile
 #### <a name="graphical-method"></a>图形方法  
 使用运行中的 DC 中的关闭按钮或 Hyper-V 管理器关闭按钮。  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_Shutdown.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_Shutdown.png)  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVShutdown.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVShutdown.png)  
   
 #### <a name="windows-powershell-method"></a>Windows PowerShell 方法  
 可以使用以下 cmdlet 之一关闭虚拟机：  
@@ -315,9 +315,9 @@ Stop-vm
   
 Stop-computer 是一个支持在不考虑虚拟化的情况下关闭计算机的 cmdlet，它类似于传统 Shutdown.exe 实用程序。 Stop-vm 是 Windows Server 2012 Hyper-V Windows PowerShell 模块中的一个新 cmdlet，等效于 Hyper-V 管理器中的电源选项。 后者在实验室环境中非常有用，其中域控制器经常在专用的虚拟化网络上运行。  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_StopComputer2.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_StopComputer2.png)  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_StopVM.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_StopVM.png)  
   
 ### <a name="step-7---copy-disks"></a>步骤 7 – 复制磁盘  
 在复制阶段，要求作出一个管理方面的选择：  
@@ -342,11 +342,11 @@ Stop-computer 是一个支持在不考虑虚拟化的情况下关闭计算机的
 ##### <a name="hyper-v-manager-method"></a>Hyper-V 管理器方法  
 使用 Hyper-V 管理器管理单元来确定哪些磁盘与源域控制器相关联。 使用“检查”选项来验证域控制器是否使用差异磁盘（还要求你复制父磁盘）  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVInspect.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVInspect.png)  
   
 若要删除快照，请选择一个 VM，并删除快照子树。  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVDeleteSnapshot.gif)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVDeleteSnapshot.gif)  
   
 然后，你可以使用 Windows 资源管理器、Xcopy.exe 或 Robocopy.exe 手动复制 VHD 或 VHDX 文件。 无需任何特殊步骤。 即使移动到另一个文件夹，更改文件名称仍是最佳实践。  
   
@@ -365,7 +365,7 @@ Get-vmharddiskdrive
   
 例如，你可以使用下面的示例，从名为 **DC2** 的 VM 中返回所有 IDE 硬盘驱动器：  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_ReturnIDE.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_ReturnIDE.png)  
   
 如果磁盘路径指向 AVHD 或 AVHDX 文件，则它是快照。 若要删除与磁盘相关联的快照并合并到实际的 VHD 或 VHDX 中，请使用 cmdlet：  
   
@@ -376,7 +376,7 @@ Remove-VMSnapshot
   
 例如，若要从名为 DC2-SOURCECLONE 的 VM 中删除所有快照：  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_DelSnapshots.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_DelSnapshots.png)  
   
 若要使用 Windows PowerShell 复制这些文件，请使用以下 cmdlet：  
   
@@ -390,7 +390,7 @@ Copy-Item
 Get-VMIdeController dc2-sourceclone | Get-VMHardDiskDrive | select-Object {copy-item -path $_.path -destination c:\temp\copy.vhd}  
 ```  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSCopyDrive.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSCopyDrive.png)  
   
 > [!IMPORTANT]  
 > 你无法通过克隆使用 passthru 磁盘，因为它们并不使用虚拟磁盘文件，而是使用实际硬盘。  
@@ -401,7 +401,7 @@ Get-VMIdeController dc2-sourceclone | Get-VMHardDiskDrive | select-Object {copy-
 #### <a name="exporting-the-vm"></a>导出 VM  
 作为复制磁盘的替代方法，可以将整个 Hyper-V VM 导出为副本。 导出将自动创建一个为 VM 命名的包含所有磁盘和配置信息的文件夹。  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVExport.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVExport.png)  
   
 ##### <a name="hyper-v-manager-method"></a>Hyper-V 管理器方法  
 若要使用 Hyper-V 管理器导出 VM：  
@@ -421,22 +421,22 @@ Export-vm
   
 例如，将名为 DC2-SOURCECLONE 的 VM 导出到名为 C:\VM 的文件夹：  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSExport.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSExport.png)  
   
 > [!NOTE]  
 > Windows Server 2012 Hyper-V 支持新的导出和导入功能，这些功能在此培训范围以外。 请查看 TechNet 获取详细信息。  
   
 #### <a name="exporting-merged-disks-using-hyper-v"></a>使用 Hyper-V 导出合并的磁盘  
-最后一个选项是使用 Hyper-V 中的磁盘合并和转换选项。 这些选项允许你将现有磁盘结构的副本（即使在包括快照 AVHD/AVHDX 文件时）制作为单个新磁盘。 如手动磁盘复制方案中，这主要是为更简单的虚拟机仅使用单个驱动器，如 c:\\。 其唯一的优点是，与手动复制不同，它不需要你首先删除快照。 此操作一定比仅删除快照和复制磁盘慢。  
+最后一个选项是使用 Hyper-V 中的磁盘合并和转换选项。 这些选项允许你将现有磁盘结构的副本（即使在包括快照 AVHD/AVHDX 文件时）制作为单个新磁盘。 与手动磁盘复制方案一样，此方案主要适用于仅使用单个驱动器的更简单的虚拟机，例如 C： \\。 其唯一的优点是，与手动复制不同，它不需要你首先删除快照。 此操作一定比仅删除快照和复制磁盘慢。  
   
 ##### <a name="hyper-v-manager-method"></a>Hyper-V 管理器方法  
 使用 Hyper-V 管理器创建合并的磁盘：  
   
-1.  单击**编辑磁盘**。  
+1.  单击 "**编辑磁盘**"。  
   
 2.  浏览最低的子磁盘。 例如，如果使用差异磁盘，则子磁盘是最低的子项。 如果虚拟机含有单个快照（或多个快照），则当前选定的快照是最低的子磁盘。  
   
-3.  选择  “合并”选项，以在整个父子结构外创建单一磁盘。  
+3.  选择 “合并”选项，以在整个父子结构外创建单一磁盘。  
   
 4.  选择新的虚拟硬盘并提供路径。 此操作将现有 VHD/VHDX 文件协调为单个新便携式单元，该单元不存在还原以前快照的风险。  
   
@@ -449,7 +449,7 @@ Convert-vm
   
 例如，要将 VM 的磁盘快照（这次不包括任何差异磁盘）和父磁盘的整个链导出到名为 DC4-CLONED.VHDX 的新的单一磁盘：  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSConvertVhd.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSConvertVhd.png)  
   
 #### <a name="BKMK_Offline"></a>将 XML 添加到脱机系统磁盘  
 如果你将 Dccloneconfig.xml 复制到运行中的源 DC，则你现在必须将更新的 dccloneconfig.xml 文件复制到脱机复制/导出的系统盘。 具体取决于之前使用 Get-ADDCCloningExcludedApplicationList 检测到的已安装应用程序，你可能还需要将 CustomDCCloneAllowList.xml 文件复制到磁盘。  
@@ -478,7 +478,7 @@ Convert-vm
   
 你可以使用 **-offline** 参数（也称为脱机模式）运行 New-ADDCCloneConfigFile，以创建 DcCloneConfig.xml 文件并将其放在正确的位置上。 下面的示例将演示如何在脱机模式下运行 New-ADDCCloneConfigFile。  
   
-若要创建在脱机模式下，使用静态 IPv4 地址，调用"REDMOND"的站点中名为 CloneDC1 的克隆域控制器键入：  
+若要在脱机模式下创建名为 CloneDC1 的克隆域控制器，请在名为 "REDMOND" 且带有静态 IPv4 地址的站点中键入：  
   
 ```  
 New-ADDCCloneConfigFile -Offline -CloneComputerName CloneDC1 -SiteName REDMOND -IPv4Address "10.0.0.2" -IPv4DNSResolver "10.0.0.1" -IPv4SubnetMask "255.255.0.0" -IPv4DefaultGateway "10.0.0.1" -Static -Path F:\Windows\NTDS  
@@ -518,11 +518,11 @@ New-ADDCCloneConfigFile -Offline -IPv4DNSResolver "10.0.0.1" -IPv6DNSResolver "2
   
 3.  单击已装载的驱动器，然后在**磁盘工具**菜单中单击**弹出**。  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVClickMountedDrive.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVClickMountedDrive.png)  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVDetailsMountedDrive.gif)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVDetailsMountedDrive.gif)  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVEjectMountedDrive.gif)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVEjectMountedDrive.gif)  
   
 ##### <a name="windows-powershell-method"></a>Windows PowerShell 方法  
 另外，你可以使用 Windows PowerShell cmdlet 装载脱机磁盘并复制 XML 文件：  
@@ -548,7 +548,7 @@ dismount-vhd <disk path>
   
 例如：  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSMountVHD.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSMountVHD.png)  
   
 此外，你可以使用新的 **Mount-DiskImage** cmdlet 来装载 VHD（或 ISO）文件。  
   
@@ -562,7 +562,7 @@ dismount-vhd <disk path>
 #### <a name="associating-a-new-vm-with-copied-disks"></a>将新 VM 与复制的磁盘相关联  
 如果你已手动复制系统盘，则你必须使用复制的磁盘创建新虚拟机。 创建新的 VM 后，虚拟机监控程序将自动设置 VM 生成 ID；在 VM 或 Hyper-V 主机中不需要进行任何配置更改。  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVConnectVHD.gif)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVConnectVHD.gif)  
   
 ##### <a name="hyper-v-manager-method"></a>Hyper-V 管理器方法  
   
@@ -585,7 +585,7 @@ New-VM
   
 例如，此处创建了 DC4-CLONEDFROMDC2 VM（使用 1 GB 的 RAM），它从 c:\vm\dc4-systemdrive-clonedfromdc2.vhd 文件启动并使用 10.0 虚拟网络创建：  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSNewVM.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSNewVM.png)  
   
 #### <a name="import-vm"></a>导入 VM  
 如果你之前已导出 VM，则你现在必须将它作为副本重新导入。 此方法使用导出的 XML 重新创建使用所有以前的设置、驱动器、网络和内存设置的计算机。  
@@ -608,15 +608,15 @@ New-VM
   
 5.  如果在同一台 Hyper-V 主机上执行导入，则重命名导入的 VM；它将具有与导出的源域控制器相同的名称。  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVImportLocateFolder.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVImportLocateFolder.png)  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVImportSelectVM.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVImportSelectVM.png)  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVImportChooseType.gif)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVImportChooseType.gif)  
   
 请记住，使用“Hyper-V 管理”管理单元删除任何已导入的快照：  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVImportDelSnap.gif)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVImportDelSnap.gif)  
   
 > [!WARNING]  
 > 删除任何已导入的快照至关重要；如果已应用，它们可将克隆的域控制器返回到之前的（可能是动态的）DC 的状态，从而导致复制失败、重复的 IP 信息和其他突发事件。  
@@ -631,7 +631,7 @@ Rename-VM
   
 例如，下面使用其自动确定的 XML 文件导入已导出的 VM DC2-CLONED，然后立即将它重命名为其新的 VM 名称 DC5-CLONEDFROMDC2：  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSImportVM.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSImportVM.png)  
   
 请记住，使用以下 cmdlet 删除任何已导入的快照：  
   
@@ -642,13 +642,13 @@ Remove-VMSnapshot
   
 例如：  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSGetVMSnap.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSGetVMSnap.png)  
   
 > [!WARNING]
 > 确保导入计算机时，不会将静态 MAC 地址分配给源域控制器。 如果克隆具有静态 MAC 的源计算机，则这些复制的计算机将无法正确发送或接收任何网络流量。 如果出现这种情况，请设置新的唯一静态或动态 MAC 地址。 你可以看到 VM 是否通过该命令使用静态 MAC 地址：  
 > 
-> **Get-VM -VMName**   
->  ***test-vm* | Get-VMNetworkAdapter | fl \\** *  
+> **VMName**   
+>  ***测试-vm* |VMNetworkAdapter |fl \\** *  
   
 ### <a name="step-9---clone-the-new-virtual-machine"></a>步骤 9 – 克隆新的虚拟机  
 （可选）在开始克隆之前，请重启脱机克隆源域控制器。 无论如何，请确保 PDC 模拟器处于联机状态。  
@@ -666,7 +666,7 @@ Start-VM
   
 例如：  
   
-![虚拟化的 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSStartVM.png)  
+![虚拟化 DC 部署](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSStartVM.png)  
   
 在克隆完成并重启计算机后，它将成为域控制器，你可以正常地登录以确认正常操作。 如果存在任何错误，则服务器将设置为在目录服务还原模式下启动以进行调查。  
   
@@ -714,7 +714,7 @@ Start-VM
 >   
 > [使用 BurFlags 注册表项重新预置“文件复制服务”副本集](https://support.microsoft.com/kb/290762)  
 >   
-> [如何强制进行 DFSR 复制的 SYSVOL （如"D4/D2"frs) 的权威和非权威同步](https://support.microsoft.com/kb/2218556)  
+> [如何强制进行 DFSR 复制的 SYSVOL 的权威和非权威同步（如 FRS 的 "D4/D2"）](https://support.microsoft.com/kb/2218556)  
   
 > [!WARNING]  
 > 请勿在同一个虚拟机监控程序主机上的林或域中运行所有域控制器。 这样将引入单一故障点，每次虚拟机监控程序处于脱机状态时，该单一故障点都会使 AD DS、Exchange、SQL 和其他企业操作失败。 这无异于仅将一个域控制器用于一整个域或林。 多个平台上的多个域控制器有助于提供冗余和容错。  

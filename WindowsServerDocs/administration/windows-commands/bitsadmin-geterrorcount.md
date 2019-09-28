@@ -1,8 +1,8 @@
 ---
 title: bitsadmin geterrorcount
-description: Windows 命令主题**bitsadmin geterrorcount** -检索指定的作业生成的暂时性错误的次数的计数。
+description: 适用于**bitsadmin geterrorcount**的 Windows 命令主题-检索指定作业产生暂时性错误的次数的计数。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 91045372931efec0e3189132a275eeacab584de4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2e5aa64c0e080e946e84c0bf804527bb00cad70a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818368"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381618"
 ---
 # <a name="bitsadmin-geterrorcount"></a>bitsadmin geterrorcount
 
@@ -47,4 +47,4 @@ C:\>bitsadmin /GetErrorCount myDownloadJob
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

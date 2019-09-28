@@ -7,14 +7,14 @@ manager: daveba
 ms.reviewer: zhvolosh
 ms.date: 01/31/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: f4b8f09e5c75f3b9086847a47d33bd76775f3cd1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 334bb96c77b0bc1e76a54ed1e0871f53753ded87
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865494"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357748"
 ---
 # <a name="delegate-ad-fs-powershell-commandlet-access-to-non-admin-users"></a>委托 AD FS 对非管理员用户的 Powershell Commandlet 访问 
 默认情况下，通过 PowerShell AD FS 管理只能由 AD FS 管理员完成。 对于许多大型组织而言，处理其他角色（如技术支持人员）时，这可能不是可行的操作模型。  

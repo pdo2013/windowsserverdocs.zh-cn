@@ -2,7 +2,7 @@
 title: 远程桌面服务中的新增功能
 description: 介绍 Windows Server 2016 中的 RDS 新功能。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 04d52dff-e61b-4633-9908-be8600abc2ba
 author: ChristianMontoya
 manager: scottman
-ms.openlocfilehash: ad13fdce251c1f84bac725e9f1ee266c6aae5e13
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: e976f4d4ffa33efb98a744909f8c46ba498ea43b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63711797"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403837"
 ---
 # <a name="whats-new-in-remote-desktop-services"></a>远程桌面服务中的新增功能
 

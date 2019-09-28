@@ -2,7 +2,7 @@
 title: 适用于 IT 管理员的 Windows Server 技术内容 - Windows Server
 description: 获取当前版本和以前版本的 Windows Server 技术文章以及 IT 专业人员的产品评估。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: server-general
@@ -14,12 +14,12 @@ author: lizap
 ms.author: elizapo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: f9a4e4e0dde0c2c6178629f0dee744448edc72dd
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 5430dfa2facfb7412077931637f5e95e35f0d934
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812597"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392472"
 ---
 # <a name="windows-server---it-administrator-content-for-current-and-previous-releases"></a>Windows Server - 当前版本和以前版本的 IT 管理员内容
 

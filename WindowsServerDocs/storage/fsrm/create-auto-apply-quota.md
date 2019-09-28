@@ -2,22 +2,22 @@
 title: 创建自动应用配额
 description: 本文介绍如何基于配额模板创建自动应用配额
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e2837df448434252470d783a6c06f0690ba09021
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 68967ff920f25c05affc206ed45bad9275e781b6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847918"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394240"
 ---
 # <a name="create-an-auto-apply-quota"></a>创建自动应用配额
 
-> 适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
+> 适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2
 
 通过使用自动应用配额，可以将配额模板分配至父卷或父文件夹。 然后，文件服务器资源管理器会基于该模板自动生成配额。 可为每个现有子文件夹和将来创建的子文件夹生成配额。
 

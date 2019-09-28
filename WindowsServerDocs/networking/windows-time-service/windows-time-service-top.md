@@ -7,36 +7,36 @@ ms.author: pashort
 manager: dougkim
 ms.date: 05/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 3233434403594ef9e2555c0329c4791d1fb99709
-ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
+ms.openlocfilehash: e3dbaa188426ac81073e706db3adc6ab0a655c01
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67469588"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405191"
 ---
-# <a name="windows-time-service-w32time"></a>Windows 时间服务 (W32Time)
+# <a name="windows-time-service-w32time"></a>Windows 时间服务（W32Time）
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2，Windows Server 2012 中，Windows 10 或更高版本
+>适用于：Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows 10 或更高版本
 
-Windows 时间服务 (W32Time) 同步的日期和时间在 Active Directory 域服务 (AD DS) 中运行的所有计算机。 时间同步对于许多 Windows 服务和业务 (LOB) 应用程序的正常运行至关重要。 Windows 时间服务使用网络时间协议 (NTP) 来同步计算机时钟在网络上。 NTP 可确保，准确的时钟值或时间戳，可分配给网络验证和资源的访问请求。
+Windows 时间服务（W32Time）为在 Active Directory 域服务（AD DS）中运行的所有计算机同步日期和时间。 对于许多 Windows 服务和业务线（LOB）应用程序的正确操作，时间同步至关重要。 Windows 时间服务使用网络时间协议（NTP）来同步网络上的计算机时钟。 NTP 确保准确的时钟值（或时间戳）可以分配到网络验证和资源访问请求。
 
-Windows 时间服务 (W32Time) 主题中有可用的以下内容：
-- **[Windows Server 2016 准确的时间](accurate-time.md)。** Windows Server 2016 中的时间同步准确性已大幅改进了，同时保持完全向后与早期 Windows 版本的 NTP 兼容。 可以在合理的操作情况下维护一个 1 ms 相对于 UTC 或适用于 Windows Server 2016 和 Windows 10 周年更新域成员的更好的准确性。
-- **[对于高准确性环境支持边界](support-boundary.md)。** 本文介绍在需要高精确和稳定的系统时间的环境中的 Windows 时间服务 (W32Time) 的支持范围。
-- **[配置系统的高精度](configuring-systems-for-high-accuracy.md)。** 显著改进了 Windows 10 和 Windows Server 2016 中的时间同步。  在合理的操作情况下可以配置系统维护 1 毫秒 （毫秒） 或 （相对于 UTC) 的更好的准确性。
-- **[Windows 时间可跟踪性](windows-time-for-traceability.md)。** 在多个扇区的法规要求系统可追溯到 UTC。  这意味着，可以相对于 UTC 证明系统的偏移量。  若要启用法规符合性方案，Windows 10 和 Server 2016 提供了新的事件日志可提供从操作系统以形成了解系统时钟上执行的操作的角度来看图。  这些事件日志的 Windows 时间服务持续生成，可检查或存档以供日后分析。
-- **[Windows 时间服务技术参考](windows-time-service-tech-ref.md)。** W32Time 服务提供网络而无需大量的配置的计算机的时钟同步。 W32Time 服务来说是必需的 Kerberos V5 身份验证成功的操作，则因此，对 AD DS 基于身份验证。
-    - **[Windows 时间服务的工作原理](How-the-Windows-Time-Service-Works.md)。** 尽管 Windows 时间服务未完全实现的网络时间协议 (NTP)，它使用以确保在整个网络中的计算机上的时钟尽可能准确的 NTP 规范中定义的复杂算法套件。
-    - **[Windows 时间服务工具和设置](Windows-Time-Service-Tools-and-Settings.md)。** 大多数域成员计算机具有 NT5DS，这意味着它们将从域层次结构的时间同步的时间客户端类型。 仅典型的例外是充当主域控制器 (PDC) 仿真器操作主机通常配置为与外部时间源同步时间的林根域的域控制器。
+Windows 时间服务（W32Time）主题中提供了以下内容：
+- **[Windows Server 2016 准确时间](accurate-time.md)。** Windows Server 2016 中的时间同步准确性已显著提高，同时保持与早期 Windows 版本的完全向后 NTP 兼容性。 在合理的操作条件下，你可以在 Windows Server 2016 和 Windows 10 周年更新域成员的时间相对于 UTC 或更高的时间保持1毫秒的准确性。
+- **[支持用于高准确性环境的边界](support-boundary.md)。** 本文介绍 Windows 时间服务（W32Time）在需要高度准确和稳定系统时间的环境中的支持边界。
+- **[配置系统以获得高准确性](configuring-systems-for-high-accuracy.md)。** Windows 10 和 Windows Server 2016 中的时间同步已大幅提高。  在合理的操作条件下，可将系统配置为维持1ms （毫秒）的准确性或更好（与 UTC 相关）。
+- **[Windows 时间以实现可跟踪](windows-time-for-traceability.md)性。** 许多扇区中的规章都需要将系统跟踪到 UTC。  这意味着系统相对于 UTC 的偏移量可能是证明的。  为了实现法规遵从性方案，Windows 10 和 Server 2016 提供了新的事件日志，以便从操作系统的角度提供一张图片，以形成对系统时钟所采取的操作的了解。  这些事件日志是针对 Windows 时间服务连续生成的，可以检查或存档以供以后分析。
+- **[Windows 时间服务技术参考](windows-time-service-tech-ref.md)。** W32Time 服务为计算机提供网络时钟同步，而无需进行大量配置。 W32Time 服务对于成功操作 Kerberos V5 身份验证至关重要，因此，对于基于 AD DS 的身份验证至关重要。
+    - **[Windows 时间服务的工作方式](How-the-Windows-Time-Service-Works.md)。** 尽管 Windows 时间服务不是网络时间协议（NTP）的确切实现，但它使用 NTP 规范中定义的复杂算法套件来确保网络中计算机上的时钟尽可能准确。
+    - **[Windows 时间服务工具和设置](Windows-Time-Service-Tools-and-Settings.md)。** 大多数域成员计算机的时间客户端类型为 NT5DS，这意味着它们会同步域层次结构中的时间。 唯一的例外是，域控制器充当目录林根级域的主域控制器（PDC）仿真器操作主机，通常配置为使用外部时间源同步时间。
 
 
 ## <a name="related-topics"></a>相关主题
-有关域层次结构和计分系统的详细信息，请参阅["什么是 Windows 时间服务？"](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) 博客文章。
+有关域层次结构和评分系统的详细信息，请参阅["什么是 Windows 时间服务？"。](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) 博客文章。
 
-Windows 时间提供程序插件模型[TechNet 上所述](https://msdn.microsoft.com/library/windows/desktop/ms725475%28v=vs.85%29.aspx)。
+[TechNet 上记录](https://msdn.microsoft.com/library/windows/desktop/ms725475%28v=vs.85%29.aspx)了 windows 时间提供程序插件模型。
 
-可以下载被 Windows 2016 精确时间项目引用的附录[此处](https://windocs.blob.core.windows.net/windocs/WindowsTimeSyncAccuracy_Addendum.pdf)
+可在[此处](https://windocs.blob.core.windows.net/windocs/WindowsTimeSyncAccuracy_Addendum.pdf)下载 Windows 2016 准确时间文章引用的附录
 
-有关 Windows 时间服务的快速概述，看一看这[高级别概述视频](https://aka.ms/WS2016TimeVideo)。
+有关 Windows 时间服务的快速概述，请查看此[高级概述视频](https://aka.ms/WS2016TimeVideo)。

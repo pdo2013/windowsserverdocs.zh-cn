@@ -1,6 +1,6 @@
 ---
 title: 使存储空间直通服务器脱机以进行维护
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: eldenc
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -10,12 +10,12 @@ ms.date: 10/08/2018
 Keywords: 存储空间直通, S2D, 维护
 ms.assetid: 73dd8f9c-dcdb-4b25-8540-1d8707e9a148
 ms.localizationpriority: medium
-ms.openlocfilehash: 96ae0ad0d1def12ab68466f0a9ae60d0afcc2c17
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 20439a06c255a73f20a297f765e6ed11abfde6f2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871218"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402823"
 ---
 # <a name="taking-a-storage-spaces-direct-server-offline-for-maintenance"></a>使存储空间直通服务器脱机以进行维护
 
@@ -97,7 +97,7 @@ MyVolume2    Mirror                Incomplete        Warning      True          
 MyVolume3    Mirror                Incomplete        Warning      True           1 TB
 ```
 
-不完整或降级操作状态是正常的节点要关闭或启动/停止群集服务在节点上并不应引起关注时。 你的所有卷都保持联机和可访问。
+当节点关闭或启动/停止节点上的群集服务时，操作状态为 "未完成" 或 "降级" 是正常的。 你的所有卷都保持联机和可访问。
 
 ## <a name="resuming-the-server"></a>恢复服务器
 
@@ -121,7 +121,7 @@ Resume-ClusterNode –Failback Immediate
 
 ## <a name="waiting-for-storage-to-resync"></a>等待要重新同步的存储
 
-当服务器重新开始时，新的写入操作发生在它处于不可用时需要重新同步。 此过程自动发生。 使用智能更改跟踪无需扫描或同步*所有*数据，只需扫描或同步更改。 此过程会受到限制，以缓解生产负载产生的影响。 这一过程可能需要数分钟才能完成，具体取决于服务器暂停的时间和写入的新数据量。
+当服务器恢复时，任何不能使用的新写入都需要重新同步。 此过程自动发生。 使用智能更改跟踪无需扫描或同步*所有*数据，只需扫描或同步更改。 此过程会受到限制，以缓解生产负载产生的影响。 这一过程可能需要数分钟才能完成，具体取决于服务器暂停的时间和写入的新数据量。
 
 你必须等待重新同步完成才能使群集中的任意其他服务器脱机。
 
@@ -167,24 +167,24 @@ MyVolume3    Mirror                OK                Healthy      True          
 
 现在可以安全地暂停和重启群集中的其他服务器。
 
-## <a name="how-to-update-storage-spaces-direct-nodes-offline"></a>如何更新存储空间直通的节点脱机
-快速使用以下步骤为路径存储空间直通系统。 它涉及计划一个维护时段和关闭系统进行修补。 如果不迅速应用所需的关键安全更新，或者您可能需要确保修补的维护时段中完成，此方法可能会为您。 此过程会停止存储空间直通群集、 修补程序，并使其再次所有最多。 弊端是对托管资源的停机时间。
+## <a name="how-to-update-storage-spaces-direct-nodes-offline"></a>如何脱机更新存储空间直通节点
+使用以下步骤快速为存储空间直通系统进行路径。 它涉及到计划维护时段并使系统关闭修补。 如果需要快速应用重要的安全更新，或者需要确保在维护时段内完成修补，则可以使用此方法。 此过程会关闭存储空间直通群集，对其进行修补，并再次将其打开。 权衡是托管资源的停机时间。
 
-1. 计划的维护时段。
-2. 使虚拟磁盘处于脱机状态。
-3. 停止群集使存储池脱机。 运行**停止群集**cmdlet 或使用故障转移群集管理器停止群集。
-4. 将群集服务设置为**禁用**中每个节点上的 Services.msc。 这会阻止群集服务启动时修补。
-5. 将 Windows Server 累积更新应用，并且任何必需的所有节点的维护服务堆栈更新。 （您可以更新所有节点在相同时，无需等待由于群集已关闭）。  
-6. 重新启动节点，并确保一切正常。
-7. 群集服务将重新的设置为**自动**每个节点上。
-8. 启动群集。 运行**开始群集**cmdlet 或使用故障转移群集管理器。 
+1. 规划维护时段。
+2. 使虚拟磁盘脱机。
+3. 停止群集以使存储池脱机。 运行**停止群集**cmdlet，或使用故障转移群集管理器停止群集。
+4. 在每个节点上的 services.msc 中将群集服务设置为 "**已禁用**"。 这会阻止群集服务在修补后启动。
+5. 将 Windows Server 累积更新和任何所需的服务堆栈更新应用到所有节点。 （您可以同时更新所有节点，而无需在群集关闭后等待）。  
+6. 重新启动节点，确保一切正常。
+7. 在每个节点上将群集服务重新设置为**自动**。
+8. 启动群集。 运行**启动群集**cmdlet，或使用故障转移群集管理器。 
 
-   等待几分钟。  请确保存储池处于正常状态。
-9. 将虚拟磁盘返回到联机状态。
-10. 通过运行来监视虚拟磁盘的状态**Get-volume**并**Get-virtualdisk** cmdlet。
+   请花几分钟时间。  请确保存储池处于正常状态。
+9. 使虚拟磁盘恢复联机。
+10. 通过运行**VirtualDisk** cmdlet 来监视虚拟磁盘的状态 。
 
 
 ## <a name="see-also"></a>请参阅
 
 - [存储空间直通概述](storage-spaces-direct-overview.md)
-- [群集感知更新 (CAU)](https://technet.microsoft.com/library/hh831694.aspx)
+- [群集感知更新（CAU）](https://technet.microsoft.com/library/hh831694.aspx)
