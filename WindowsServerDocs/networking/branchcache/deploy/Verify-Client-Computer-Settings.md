@@ -1,56 +1,56 @@
 ---
 title: 验证客户端计算机设置
-description: 本主题是 BranchCache 部署指南为 Windows Server 2016 中，该示例演示了如何部署 BranchCache 在分布式和托管缓存模式下以优化分支机构中的 WAN 带宽使用情况的一部分
+description: 本主题是适用于 Windows Server 2016 的 BranchCache 部署指南的一部分，它演示了如何在分布式和托管缓存模式下部署 BranchCache，以优化分支机构中的 WAN 带宽使用情况
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 31ea58b0-d407-4f62-8ec6-6a1b19174042
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d628886186474d3f05d7961ca3d3b45b8bf12e73
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6d0adbf0db2d7888ca12ca49f50fc37baa8cbc16
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834048"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356506"
 ---
 # <a name="verify-client-computer-settings"></a>验证客户端计算机设置
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-此过程可用于验证客户端计算机已正确配置 branchcache。  
+你可以使用此过程来验证是否正确配置了 BranchCache 的客户端计算机。  
   
 > [!NOTE]  
-> 此过程包括手动更新组策略和重新启动 BranchCache 服务的步骤。 不需要执行这些操作，如果重新启动计算机，因为它们将在此情况下会自动执行。  
+> 此过程包括手动更新组策略和重启 BranchCache 服务的步骤。 如果重新启动计算机，则无需执行这些操作，因为在这种情况下会自动执行这些操作。  
   
-您必须是属于**管理员**，或相当于执行此过程。  
+你必须是**管理员**的成员或等效于执行此过程。  
   
-### <a name="to-verify-branchcache-client-computer-settings"></a>若要验证 BranchCache 客户端计算机设置  
+### <a name="to-verify-branchcache-client-computer-settings"></a>验证 BranchCache 客户端计算机设置  
   
-1.  若要在你想要验证其 BranchCache 配置的客户端计算机上刷新组策略，以管理员身份运行 Windows PowerShell，键入以下命令，然后按 ENTER。  
+1.  若要在客户端计算机上刷新要验证其 BranchCache 配置的组策略，请以管理员身份运行 Windows PowerShell，键入以下命令，然后按 ENTER。  
   
     `gpupdate /force`  
   
-2.  在托管的缓存模式下配置且配置的客户端计算机，以自动发现托管缓存服务器通过服务连接点，运行以下命令以停止并重新启动 BranchCache 服务。  
+2.  对于在托管缓存模式下配置并配置为通过服务连接点自动发现托管缓存服务器的客户端计算机，请运行以下命令，停止并重新启动 BranchCache 服务。  
   
     `net stop peerdistsvc`  
   
     `net start peerdistsvc`  
   
-3.  通过运行以下命令来检查当前的 BranchCache 操作模式。  
+3.  通过运行以下命令来检查当前 BranchCache 操作模式。  
   
     `Get-BCStatus`  
   
-4.  在 Windows PowerShell 中，查看的输出**Get BCStatus**命令。  
+4.  在 Windows PowerShell 中，查看**BCStatus**命令的输出。  
   
-    值**BranchCacheIsEnabled**应**True**。  
+    **BranchCacheIsEnabled**的值应为**True**。  
   
-    在中**ClientSettings**，为值**CurrentClientMode**应**DistributedClient**或**HostedCacheClient**，具体取决于使用本指南配置的模式。  
+    在**ClientSettings**中， **CurrentClientMode**的值应为 " **DistributedClient** " 或 " **HostedCacheClient**"，具体取决于你使用本指南配置的模式。  
   
-    在中**ClientSettings**，如果配置托管的缓存模式和在配置期间，提供在托管的缓存服务器的名称或如果客户端已自动找到托管缓存服务器使用服务连接点**HostedCacheServerList**应具有与名称或托管的缓存服务器的名称是相同的值。 例如，如果托管的缓存服务器名为 HCS1 和你的域为 corp.contoso.com，值**HostedCacheServerList**是**HCS1.corp.contoso.com**。  
+    在**ClientSettings**中，如果在配置过程中配置了托管缓存模式并提供托管缓存服务器的名称，或者客户端已使用服务连接点自动定位了托管缓存服务器， **HostedCacheServerList**的值应与托管缓存服务器的名称相同。 例如，如果托管缓存服务器命名为 HCS1，并且你的域为 corp.contoso.com，则**HostedCacheServerList**的值为**HCS1.corp.contoso.com**。  
   
-5.  如果任何 BranchCache 上面列出的设置没有正确的值，使用本指南中的步骤来验证组策略或本地计算机策略设置，以及防火墙例外情况，配置，并确保它们正确无误。 此外，重新启动计算机，或者按照以下过程刷新组策略并重新启动 BranchCache 服务中的步骤。  
+5.  如果上面列出的任何 BranchCache 设置没有正确的值，请使用本指南中的步骤来验证组策略或本地计算机策略设置以及你配置的防火墙例外，并确保它们是正确的。 此外，请重新启动计算机，或者按照此过程中的步骤刷新组策略并重新启动 BranchCache 服务。  
   
 
 

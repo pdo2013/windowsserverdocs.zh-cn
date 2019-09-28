@@ -7,19 +7,19 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b15bb55741ed6cde2e1884896d58fb2d361cd014
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 094ad9e2de21e1f89c35c914a1b327727c2b1439
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192515"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71360119"
 ---
 # <a name="ad-fs-2016-deployment-guide"></a>AD FS 2016 部署指南
 
 
-AD FS 部署指南适用于部署 AD FS 的全面指南。  本指南由以下值：
+AD FS 部署指南是部署 AD FS 的综合性指南。  本指南由以下内容组成：
 
   
 * [升级到 Windows Server 2016 中的 AD FS](Upgrading-to-AD-FS-in-Windows-Server-2016.md)  
@@ -28,5 +28,5 @@ AD FS 部署指南适用于部署 AD FS 的全面指南。  本指南由以下�
 
 * [Windows Server 2012 部署指南](Windows-Server-2012-AD-FS-Deployment-Guide.md)
 
-* [监视本地标识基础结构和同步服务在云中](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health)
+* [在云中监视本地标识基础结构和同步服务](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health)
   

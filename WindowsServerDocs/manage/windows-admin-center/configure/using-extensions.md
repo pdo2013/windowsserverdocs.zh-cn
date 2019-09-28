@@ -1,90 +1,90 @@
 ---
 title: 安装和管理扩展
-description: 安装和管理 Windows Admin Center (项目 Honolulu) 中的扩展
+description: 在 Windows 管理中心中安装和管理扩展（Project Honolulu）
 ms.technology: manage
 ms.topic: article
 author: daniellee-msft
 ms.author: jol
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 9038fd480ed105aed3949b0c48dffc7eab94f970
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.prod: windows-server
+ms.openlocfilehash: d49e25591c705afa217b2332ee48eb42c5c2f7ab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445895"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357239"
 ---
 # <a name="install-and-manage-extensions"></a>安装和管理扩展
 
->适用于：Windows Admin Center，Windows Admin Center 预览版
+>适用于：Windows Admin Center、Windows Admin Center 预览版
 
-其中每个连接类型和工具是一个扩展，您可以安装、 卸载和更新单独一个可扩展的平台生成为 Windows Admin Center。 可以搜索发布的 Microsoft 和其他开发人员的新扩展并安装和无需更新整个 Windows Admin Center 安装单独更新。 此外可以配置单独的 NuGet 源或文件共享并将扩展在内部使用您的组织内分发。
+Windows 管理中心构建为可扩展的平台，其中的每个连接类型和工具都是可单独安装、卸载和更新的扩展。 你可以搜索由 Microsoft 和其他开发人员发布的新扩展，并单独安装和更新它们，而无需更新整个 Windows 管理中心安装。 你还可以配置单独的 NuGet 源或文件共享，并分发要在组织内部使用的扩展。
 
 ## <a name="installing-an-extension"></a>安装扩展
 
-Windows Admin Center 将从指定的 NuGet 源显示可用的扩展。 默认情况下，Windows Admin Center 指向 Microsoft 官方 NuGet 源托管由 Microsoft 和其他开发人员发布的扩展。
+Windows 管理中心将显示指定的 NuGet 源提供的扩展。 默认情况下，Windows 管理中心会指向承载由 Microsoft 和其他开发人员发布的扩展的 Microsoft 官方 NuGet 源。
 
-1. 单击**设置**在右上角的按钮 > 在左窗格中，单击**扩展**。 
-2. **可用扩展**选项卡将列出可供安装源上的扩展。
-3. 单击要查看扩展说明、 版本、 发布服务器和中的其他信息的扩展**详细信息**窗格。
-4. 单击**安装**安装某个扩展。 如果网关必须运行在提升模式下，若要进行此更改，则将显示与 UAC 提升提示。 安装完成后，将自动刷新你的浏览器和 Windows Admin Center 将重新加载已安装新扩展。 如果您要尝试扩展安装是对以前已安装扩展的更新，可以单击**更新到最新**按钮以安装更新。 此外可转到**已安装的扩展**选项卡上查看已安装扩展和，请参阅如果更新现已推出**状态**列。
+1. 单击左侧窗格中右上方 > 的 "**设置**" 按钮，然后单击 "**扩展**"。 
+2. "**可用扩展**" 选项卡将列出可供安装的源上的扩展。
+3. 单击某个扩展可在**详细信息**窗格中查看扩展说明、版本、发布者和其他信息。
+4. 单击 "**安装**" 以安装扩展。 如果网关必须在提升模式下运行才能进行此更改，则会显示 UAC 提升提示。 安装完成后，浏览器将自动刷新，并将在安装了新扩展的情况下重新加载 Windows 管理中心。 如果尝试安装的扩展是对以前安装的扩展的更新，则可以单击 "**更新到最新版本**" 按钮来安装更新。 你还可以访问 "**已安装的扩展**" 选项卡以查看已安装的扩展，并查看 "**状态**" 列中是否有更新。
 
-## <a name="installing-extensions-from-a-different-feed"></a>从不同的源安装扩展
+## <a name="installing-extensions-from-a-different-feed"></a>从其他源安装扩展
 
-Windows Admin Center 支持多个馈送，您可以查看和管理包从一次的多个数据源。 任何 NuGet 源支持的 NuGet V2 Api 或文件共享可用于安装的扩展添加到 Windows Admin Center。
+Windows 管理中心支持多个源，你可以一次查看和管理多个源中的包。 可以将支持 NuGet V2 Api 或文件共享的任何 NuGet 源添加到用于安装的扩展的 Windows 管理中心。
 
-1. 单击**设置**在右上角的按钮 > 在左窗格中，单击**扩展**。
-2. 在右窗格中，单击**馈送**选项卡。
-3. 单击**添加**按钮以添加另一个源。 NuGet 源，请输入源 URL NuGet V2。 NuGet 源提供程序或管理员应该能够提供的 URL 信息。 对于文件共享，请输入该文件的完整路径的扩展包文件 (.nupkg) 存储共享。
-4. 单击**添加**。 如果网关必须运行在提升模式下，若要进行此更改，则将显示与 UAC 提升提示。
+1. 单击左侧窗格中右上方 > 的 "**设置**" 按钮，然后单击 "**扩展**"。
+2. 在右侧窗格中，单击 "**源**" 选项卡。
+3. 单击 "**添加**" 按钮添加另一个源。 对于 NuGet 源，请输入 NuGet V2 源 URL。 NuGet 源提供程序或管理员应能够提供 URL 信息。 对于文件共享，请输入存储扩展包文件（. nupkg）的文件共享的完整路径。
+4. 单击**添加**。 如果网关必须在提升模式下运行才能进行此更改，则会显示 UAC 提升提示。
 
-**可用扩展**列表将显示所有已注册的源的扩展。 可以检查每个扩展是从使用哪些源**包源**列。
+"**可用扩展**" 列表将显示所有已注册源的扩展。 您可以使用 "**包源**" 列检查每个扩展的源。
 
 ## <a name="uninstalling-an-extension"></a>卸载扩展
 
-可以卸载任何扩展之前已安装，或甚至卸载已预装 Windows Admin Center 安装的任何工具。
+您可以卸载以前安装的任何扩展，甚至卸载在 Windows 管理中心安装过程中预安装的任何工具。
 
-1. 单击**设置**在右上角的按钮 > 在左窗格中，单击**扩展**。 
-2. 单击**已安装的扩展**选项卡以查看所有已安装的扩展。
-3. 选择一个扩展卸载，然后单击**卸载**。
+1. 单击左侧窗格中右上方 > 的 "**设置**" 按钮，然后单击 "**扩展**"。 
+2. 单击 "**已安装的扩展**" 选项卡以查看所有已安装的扩展。
+3. 选择要卸载的扩展，并单击 "**卸载**"。
 
-卸载后已完成，请将自动刷新你的浏览器并将重新加载 Windows Admin Center 与扩展名已移除。 如果你卸载 Windows Admin Center 的一部分预安装的工具，该工具都可用于在重新安装**可用扩展**选项卡。
+卸载完成后，浏览器将自动刷新，Windows 管理中心会重新加载，并删除该扩展。 如果卸载的工具是作为 Windows 管理中心的一部分预安装的，则该工具将可在可用的 "**扩展**" 选项卡上重新安装。
 
 ## <a name="installing-extensions-on-a-computer-without-internet-connectivity"></a>在没有 internet 连接的计算机上安装扩展
 
-如果未连接到 internet 或者位于代理的计算机上安装 Windows Admin Center，则它可能无法访问，并从 Windows Admin Center 源安装的扩展。 您可以手动或使用 PowerShell 脚本，下载扩展包和配置 Windows Admin Center 从文件共享或本地驱动器中检索包。
+如果在未连接到 internet 或者位于代理后面的计算机上安装了 Windows 管理中心，则它可能无法从 Windows 管理中心源访问和安装扩展。 你可以手动或通过 PowerShell 脚本下载扩展包，并配置 Windows 管理中心以从文件共享或本地驱动器检索包。
 
 ### <a name="manually-downloading-extension-packages"></a>手动下载扩展包
 
-1. 在已建立 internet 连接的另一台计算机，打开 web 浏览器并导航到以下 URL: [https://msft-sme.myget.org/gallery/windows-admin-center-feed](https://msft-sme.myget.org/gallery/windows-admin-center-feed) 
+1. 在具有 internet 连接的另一台计算机上，打开 web 浏览器并导航到以下 URL： [https://msft-sme.myget.org/gallery/windows-admin-center-feed](https://msft-sme.myget.org/gallery/windows-admin-center-feed) 
 
-   * 您可能需要 msft sme.myget.org 和登录名可以查看扩展包上创建一个帐户。
+   * 你可能需要在 msft-sme.myget.org 上创建一个帐户，并登录以查看扩展包。
 
-2. 单击你想要安装若要查看包详细信息页的包的名称。
-3. 单击**下载**包详细信息页的右侧窗格中的链接并下载该扩展的.nupkg 文件。
-4. 你想要下载的所有包重复步骤 2 和 3。
-5. 将包文件复制到可以从 Windows Admin Center 安装所在的计算机访问的文件共享或本地计算机的磁盘。
-6. [按照说明进行操作以从不同的源安装扩展](#installing-extensions-from-a-different-feed)。
+2. 单击要安装的包的名称，以查看包详细信息页。
+3. 在包详细信息页的右侧窗格中单击 "**下载**" 链接，然后下载该扩展的 nupkg 文件。
+4. 对于要下载的所有包，请重复步骤2和3。
+5. 将包文件复制到可从安装 Windows 管理中心的计算机上访问的文件共享，或复制到计算机的本地磁盘。
+6. [按照说明安装不同源中的扩展](#installing-extensions-from-a-different-feed)。
 
-### <a name="downloading-packages-with-a-powershell-script"></a>下载 PowerShell 脚本的包
+### <a name="downloading-packages-with-a-powershell-script"></a>使用 PowerShell 脚本下载包
 
-有许多脚本可从 NuGet 源下载 NuGet 包在 Internet 上。 我们将使用[Jon galloway 提供脚本](https://weblogs.asp.net/jongalloway/downloading-a-local-nuget-repository-with-powershell)，microsoft 高级项目经理。
+Internet 上提供了许多可用于从 NuGet 源下载 NuGet 包的脚本。 我们将使用[吴建 Galloway](https://weblogs.asp.net/jongalloway/downloading-a-local-nuget-repository-with-powershell)（Microsoft 的高级项目经理）提供的脚本。
 
-1. 如中所述[博客文章](https://weblogs.asp.net/jongalloway/downloading-a-local-nuget-repository-with-powershell)、 作为 NuGet 包，安装脚本或脚本复制并粘贴到 PowerShell ISE。
-2. 编辑源脚本保存到 NuGet 的第一行的第 2 版 URL。 如果要下载 Windows Admin Center 正式从包源，请使用以下 URL。
+1. 如[博客文章](https://weblogs.asp.net/jongalloway/downloading-a-local-nuget-repository-with-powershell)中所述，将脚本安装为 NuGet 包，或将脚本复制并粘贴到 PowerShell ISE。
+2. 将脚本的第一行编辑到 NuGet 源的 v2 URL。 如果要从 Windows 管理中心官方源下载包，请使用下面的 URL。
 
 ```powershell
 $feedUrlBase = "https://aka.ms/sme-extension-feed"
 ```
 
-3. 运行脚本，它将下载所有 NuGet 包从数据源到以下本地文件夹： %USERPROFILE%\Documents\NuGetLocal
-4. [按照说明进行操作以从不同的源安装扩展](#installing-extensions-from-a-different-feed)。
+3. 运行脚本，并将源中的所有 NuGet 包下载到以下本地文件夹：%USERPROFILE%\Documents\NuGetLocal
+4. [按照说明安装不同源中的扩展](#installing-extensions-from-a-different-feed)。
 
-## <a name="manage-extensions-with-powershell"></a>管理使用 PowerShell 扩展
+## <a name="manage-extensions-with-powershell"></a>通过 PowerShell 管理扩展
 
->适用于：Windows Admin Center，Windows Admin Center 预览版
+>适用于：Windows Admin Center、Windows Admin Center 预览版
 
-Windows Admin Center 预览版包括一个 PowerShell 模块，以管理网关扩展。
+Windows 管理中心预览版包含用于管理网关扩展的 PowerShell 模块。
 
 ```powershell
 # Add the module to the current session
@@ -119,4 +119,4 @@ Uninstall-Extension "https://wac.contoso.com" "msft.sme.containers"
 Update-Extension "https://wac.contoso.com" "msft.sme.containers"
 ```
 
-### <a name="learn-more-about-building-an-extension-with-the-windows-admin-center-sdkextendextensibility-overviewmd"></a>[详细了解如何生成使用 Windows Admin Center SDK 扩展](../extend/extensibility-overview.md)。
+### <a name="learn-more-about-building-an-extension-with-the-windows-admin-center-sdkextendextensibility-overviewmd"></a>[详细了解如何使用 Windows 管理中心 SDK 生成扩展](../extend/extensibility-overview.md)。
