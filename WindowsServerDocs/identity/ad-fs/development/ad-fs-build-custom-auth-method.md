@@ -6,14 +6,14 @@ ms.author: billmath
 manager: daveba
 ms.date: 05/23/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: fc71ca2b8d130ab00014f850ccae25e9138d501b
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 2ef16ddeb241d55b61b484805ff91cb247985d8d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867568"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358880"
 ---
 # <a name="build-a-custom-authentication-method-for-ad-fs-in-windows-server"></a>为 Windows Server 中的 AD FS 构建自定义身份验证方法
 
@@ -62,7 +62,7 @@ ms.locfileid: "70867568"
 
     ![创建提供程序](media/ad-fs-build-custom-auth-method/Dn783423.71a57ae1-d53d-462b-a846-5b3c02c7d3f2(MSDN.10).jpg "创建提供程序")
 
-3.  在 Windows Server 2012 R2 服务器上的% windir%\\ADFS 中创建 IdentityServer 的副本，其中已安装 AD FS，并将其粘贴到你的开发计算机上的项目文件夹中。
+3.  从安装了 AD FS 的 Windows Server 2012 R2 服务器上的% windir% \\ADFS 创建**IdentityServer**的副本，并将其粘贴到你的开发计算机上的项目文件夹中。
 
 4.  在**解决方案资源管理器**中，右键单击 "**引用**"，然后单击 "**添加引用 ...** "
 
@@ -324,10 +324,7 @@ ms.locfileid: "70867568"
         <input id="authMethod" type="hidden" name="AuthMethod" value="%AuthMethod%"/>
         <input id="context" type="hidden" name="Context" value="%Context%"/>
         <!-- End inputs are required by the presentation framework. -->
-        <p id="pageIntroductionText">此内容由 MFA 示例适配器提供。 质询输入如下所示。</p>
-        <label for="challengeQuestionInput" class="block">问题文本</label>
-        <input id="challengeQuestionInput" name="ChallengeQuestionAnswer" type="text" value="" class="text" placeholder="Answer placeholder" />
-        <div id="submissionArea" class="submitMargin">
+        <p id="pageIntroductionText">此内容由 MFA 示例适配器提供。 质询输入如下所示。</p>@no__t 0Question text @ no__t-1 @ no__t-2 @ no__t-3<div id="submissionArea" class="submitMargin">
         <input id="submitButton" type="submit" name="Submit" value="Submit" onclick="return AuthPage.submitAnswer()"/>
         </div>
         </form>
@@ -381,7 +378,7 @@ ms.locfileid: "70867568"
 
 3.  将 Gacutil.exe 工具复制到服务器。
 
-    Gacutil.exe 可以在 windows 8 计算机上的 **% homedrive\\% Program Files （x86\\） Microsoft\\sdk\\Windows v2.0 a\\bin\\NETFX 4.0 工具\\** 中找到。  你将需要**gacutil.exe**文件本身以及**1033**、 **en-us**和**NETFX 4.0 工具**位置下面的其他本地化资源文件夹。
+    Gacutil.exe 可以在 Windows 8 计算机上的 **% homedrive% \\Program Files （x86） \\Microsoft sdk @ no__t-3Windows @ no__t-4v 8.0 a @ no__t-5bin @ no__t-6NETFX 4.0 Tools @ no__t**中找到。  你将需要**gacutil.exe**文件本身以及**1033**、 **en-us**和**NETFX 4.0 工具**位置下面的其他本地化资源文件夹。
 
 4.  将提供程序文件（一个或多个强名称签名 .dll 文件）复制到与**gacutil.exe**相同的文件夹位置（该位置只是为了方便）
 

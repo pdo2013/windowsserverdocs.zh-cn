@@ -1,8 +1,8 @@
 ---
-title: 使用复制 DriverGroup 命令
-description: 'Windows 命令主题 * * *- '
+title: 使用 DriverGroup 命令
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 68d9c6f4ca78991bb4c286042a6172211161dd1e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c08ce616c9b0e2bf79c7f13f922e27d7f7f7ca62
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842078"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363590"
 ---
-# <a name="using-the-copy-drivergroup-command"></a>使用复制 DriverGroup 命令
+# <a name="using-the-copy-drivergroup-command"></a>使用 DriverGroup 命令
 
 
 
-复制包括筛选器、 驱动程序包和已启用/禁用状态的服务器上的现有驱动程序组。
+复制服务器上的现有驱动程序组，包括筛选器、驱动程序包和启用/禁用状态。
 
 ## <a name="syntax"></a>语法
 
@@ -36,13 +36,13 @@ WDSUTIL /Copy-DriverGroup [/Server:<Server name>] /DriverGroup:<Source Group Nam
 
 |参数|描述|
 |---------|-----------|
-|[/ 服务器：\<服务器名称 >]|指定的服务器的名称。 这可以是 NetBIOS 名称或 FQDN。 如果指定没有服务器名称，则使用本地服务器。|
-|/ DriverGroup:\<源组名称 >|指定源驱动程序组的名称。|
-|/ GroupName:\<新的组名称 >|指定新的驱动程序组的名称。|
+|[/Server： @no__t 名称 >]|指定服务器的名称。 此名称可以是 NetBIOS 名称或 FQDN。 如果未指定服务器名称，则使用本地服务器。|
+|/DriverGroup： \<Source 组名称 >|指定源驱动程序组的名称。|
+|/GroupName： \<New 组名称 >|指定新驱动程序组的名称。|
 
 ## <a name="BKMK_examples"></a>示例
 
-若要复制的驱动程序组，请键入以下项之一：
+若要复制驱动程序组，请键入下列内容之一：
 ```
 WDSUTIL /Copy-DriverGroup /Server:MyWdsServer /DriverGroup:PrinterDrivers /GroupName:X86PrinterDrivers
 ```
@@ -52,4 +52,4 @@ WDSUTIL /Copy-DriverGroup /DriverGroup:PrinterDrivers /GroupName:ColorPrinterDri
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

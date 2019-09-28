@@ -6,14 +6,14 @@ ms.author: billmath
 manager: femila
 ms.date: 10/24/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 25ba9505f3f93fb236d6e60e49efc4206482f977
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f4dd1d45646475be3788cd6b615b1743976eedae
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866013"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358411"
 ---
 # <a name="using-an-azure-ad-ux-web-theme-in-active-directory-federation-services"></a>在 Active Directory 联合身份验证服务中使用 Azure AD UX Web 主题
 目前 AD FS 窗体登录不会镜像 Azure/O365 登录体验。  为了向最终用户提供更统一且无缝的体验，我们发布了以下可应用到 AD FS 服务器的级联样式表 web 主题。  目前，Windows Server 2016 上的 AD FS 窗体登录如下所示：

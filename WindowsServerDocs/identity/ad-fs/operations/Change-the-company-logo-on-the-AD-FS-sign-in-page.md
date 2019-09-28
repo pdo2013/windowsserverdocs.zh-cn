@@ -1,25 +1,25 @@
 ---
 ms.assetid: f7f6bac2-1100-4b00-a248-4ca3eb3cdbe9
-title: 更改 AD FS 登录页上的公司徽标
+title: 在 AD FS 登录页上更改公司徽标
 description: ''
 author: billmath
 ms.author: billmath
 manager: femila
 ms.date: 03/08/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: fe5c138466ea288b5dfb8c7c284603150ab9d874
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: b22c969e0113081e1ca8a662ae81a2ee24829835
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190026"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358305"
 ---
-# <a name="changing-the-company-logo-on-the-ad-fs-sign-in-page"></a>更改 AD FS 登录页上的公司徽标
+# <a name="changing-the-company-logo-on-the-ad-fs-sign-in-page"></a>在 AD FS 登录页上更改公司徽标
 
 #### <a name="change-company-logo"></a>更改公司徽标  
-若要更改显示在登录公司的徽标\-在页上，使用以下 PowerShell Windows PowerShell cmdlet 和语法。  
+若要更改在 sign @ no__t-0in 页上显示的公司徽标，请使用以下 PowerShell Windows PowerShell cmdlet 和语法。  
 
 ![更改徽标](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
   
@@ -31,7 +31,7 @@ ms.locfileid: "66190026"
 
   
 > [!NOTE]  
-> `TargetName` 参数是必需的。 随 AD FS 一起发布的默认主题名为*默认*。  
+> `TargetName` 参数是必需的。 用 AD FS 发布的默认主题名为*default*。  
 
 ## <a name="additional-references"></a>其他参考 
 [AD FS 用户登录自定义](AD-FS-user-sign-in-customization.md)  

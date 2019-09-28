@@ -6,15 +6,15 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 82added5018d83aeb9fe7d8033204a0d19bd047a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 37dd52b8771eda695069dd996fbd920e31f80ef1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868100"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359806"
 ---
 # <a name="configure-performance-monitoring"></a>配置性能监视
   
@@ -41,7 +41,7 @@ AD FS 包括其自己的专用性能计数器，以帮助你监视联合服务�
   
 7. 当系统提示你添加要监视的注册表项时，单击 "**下一步**"。  
   
-8. 系统提示指定保存性能数据的位置时，可以接受\(默认位置 **% systemdrive\\% PerfLogs\\Admin\\** _< 数据\_收集器设置\_">_ "，然后单击 "**下一步**"。  
+8. 当系统提示指定保存性能数据的位置时，可以接受默认位置 \( **% systemdrive% \\PerfLogs @ no__t-3Admin @ no__t-4** _< data @ no__t-6collector @ no__t-7set >_ ，然后单击**接下来**。  
   
 9. 如果系统提示你创建数据收集器集，请选择 "**保存并关闭**"，然后单击 "**完成**"。  
   

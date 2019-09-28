@@ -6,44 +6,44 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: da91a3e8c34c86f7fd03ca875b3800fdb6001750
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: b1c602d0cdfa562469419de223f5691ec2ff4527
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192121"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359561"
 ---
 # <a name="import-a-server-authentication-certificate-to-the-default-web-site"></a>将服务器身份验证证书导入到默认网站
 
-从证书颁发机构获取服务器身份验证证书后\(CA\)，您必须手动安装该证书默认 Web 站点上为每个联合服务器或服务器场中的联合服务器代理。  
+从证书颁发机构获取服务器身份验证证书后 \(CA @ no__t-1，必须在服务器场中的每个联合服务器或联合服务器代理的默认网站上手动安装该证书。  
   
 对于 Web 服务器，必须在相应的网站或你的联合应用程序所在的虚拟目录上手动安装服务器身份验证证书。  
   
 如果你要设置某个服务器场，请务必在服务器场中的每个服务器上执行同样的过程（使用完全相同的设置）。  
   
 > [!NOTE]  
-> 在 AD FS 管理管理单元\-中是指用作服务通信证书的联合身份验证服务器的服务器身份验证证书。  
+> AD FS 管理 snap @ no__t-0in 是指作为服务通信证书的联合服务器的服务器身份验证证书。  
   
 本地计算机上的 **Administrators** 中的成员身份或等效身份是完成这些过程所需的最低要求。  可在[本地默认组和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477)中查看有关使用适合的帐户和组成员身份的详细信息。   
   
 ### <a name="to-import-a-server-authentication-certificate-to-the-default-web-site"></a>将服务器身份验证证书导入到默认网站  
   
-1.  上**启动**屏幕上，键入**Internet Information Services \(IIS\) Manager**，然后按 ENTER。  
+1.  在 "**开始**" 屏幕上，键入**INTERNET INFORMATION SERVICES \(IIS @ no__t 管理器**，然后按 enter。  
   
-2.  在控制台树中，单击“计算机名称”  。  
+2.  在控制台树中，单击“计算机名称”。  
   
-3.  在中心窗格中，双击\-单击**服务器证书**。  
+3.  在中心窗格中，双击 "no__t-0click**服务器证书**"。  
   
-4.  在“操作”  窗格中，单击“导入”  。  
+4.  在“操作” 窗格中，单击“导入”。  
   
-5.  在中**导入证书**对话框中，单击 **...** 按钮。  
+5.  在 "**导入证书**" 对话框中，单击 " **...** " 按钮。  
   
-6.  浏览到 pfx 证书文件的位置，使其突出显示，然后单击“打开”  。  
+6.  浏览到 pfx 证书文件的位置，使其突出显示，然后单击“打开”。  
   
-7.  为该证书键入一个密码，然后单击“确定”  。  
+7.  为该证书键入一个密码，然后单击“确定”。  
   
 ## <a name="additional-references"></a>其他参考  
 [清单：设置联合服务器](Checklist--Setting-Up-a-Federation-Server.md)  

@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 07/02/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: fc924f5e5bdd7dabecac4fdd6805ad261a0fc634
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 77655ab414f83f2c74873b12719f9718c6fb59e5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866164"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358520"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>AD FS 快速还原工具
 
@@ -88,7 +88,7 @@ Cmdlet 采用以下参数:
 
 - **ServiceAccountCredential&lt;pscredential&gt;** -指定当前正在运行的 AD FS 服务所使用的服务帐户。 仅当用户想要备份 DKM 而不是域管理员或无权访问容器的内容时, 才需要此参数。 
 
-- **BackupComment&lt;string []&gt;** -有关将在还原期间显示的备份的信息性字符串，类似于 hyper-v 检查点命名的概念。 默认值为空字符串
+- **BackupComment &lt;string [] &gt;** -有关将在还原期间显示的备份的信息性字符串，类似于 hyper-v 检查点命名的概念。 默认值为空字符串
 
  
 ## <a name="backup-examples"></a>备份示例
@@ -218,7 +218,7 @@ RngCryptoServiceProvider 用于生成 AES 和 Rfc2898DeriveBytes 类使用的 sa
 ## <a name="version-release-history"></a>版本发行历史记录
 
 ### <a name="version-10820"></a>版本1.0.82。0
-拆卸2019年7月
+拆卸2019 年 7 月
 
 **已修复的问题:**
 - AD FS 包含 LDAP 转义字符的服务帐户名称的 Bug 修复

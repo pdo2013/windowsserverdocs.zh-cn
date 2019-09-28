@@ -1,8 +1,8 @@
 ---
 title: wmic
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6c68866fbe0c8f5b16dae77e2121331f06cdc726
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e9840bc20ddf6193241fe36055698e2bd3222496
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885838"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361885"
 ---
 # <a name="wmic"></a>wmic
 
 
 
-显示 WMI 内部的交互式命令行界面的信息。
+显示交互式命令行界面中的 WMI 信息。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -36,30 +36,30 @@ command </parameter>
 
 ## <a name="sub-commands"></a>子命令
 
-以下子命令在任何时候都可用：
+以下子命令始终可用：
 
 |子命令|描述|
 |-----------|-----------|
-|类|从 WMIC 直接访问 WMI 架构中的类的默认别名模式的转义符。|
-|path|从 WMIC 直接访问 WMI 架构中的实例的默认别名模式的转义符。|
-|上下文|显示所有全局开关的当前值。|
-|[退出\|退出]|退出 WMIC 命令行界面。|
+|类|从 WMIC 的默认别名模式转义以直接访问 WMI 架构中的类。|
+|path|从 WMIC 的默认别名模式进行转义，以直接访问 WMI 架构中的实例。|
+|context|显示所有全局开关的当前值。|
+|[quit \| exit]|退出 WMIC 命令行界面。|
 
 ## <a name="parameters"></a>Parameters
 
 |参数|描述|
 |---------|-----------|
-|</parameter>|\<简单说明开头动词。 >|
-|</param2>|\<另一个简明描述开头动词。 >|
+|</parameter>|@no__t 0Concise 说明，以谓词开头。 >|
+|</param2>|@no__t 0Another 简明说明，以动词开头。 >|
 
 
 ## <a name="BKMK_examples"></a>示例
 
-若要显示的所有全局开关的当前值，请键入：
+若要显示所有全局开关的当前值，请键入：
 ```
 wmic context
 ```
-类似于显示以下输出：
+类似于以下内容的输出：
 ```
 NAMESPACE    : root\cimv2
 ROLE         : root\cli
@@ -78,11 +78,11 @@ APPEND       : STDOUT
 USER         : N/A
 AGGREGATE    : ON
 ```
-若要更改的语言 ID 使用命令行对英语 （区域设置 ID 409），类型：
+若要将命令行使用的语言 ID 更改为英语（区域设置 ID 409），请键入：
 ```
 wmic /locale:ms_409
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)
