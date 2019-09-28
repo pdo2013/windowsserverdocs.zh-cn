@@ -2,18 +2,18 @@
 title: 无线访问部署规划
 description: 本主题是 Windows Server 2016 网络指南 "部署基于密码的 802.1 X 身份验证无线访问" 的一部分
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 8c632d02-2270-4a82-8fc4-74ea3747f079
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4606e1cb418426623aca9e199ddde575a826a064
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 44ca48ab05a7f63b1b9dd07f955e68accbcefdb7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865333"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356074"
 ---
 # <a name="wireless-access-deployment-planning"></a>无线访问部署规划
 
