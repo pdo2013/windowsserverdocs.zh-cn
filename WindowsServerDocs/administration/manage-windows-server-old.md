@@ -1,23 +1,23 @@
 ---
 title: 管理 Windows Server
 description: 了解有关管理 Windows Server 的工具、建议和指南
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage
 ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.date: 03/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7ae87b12997aa3cb3ae3fe290c9243995b30d6b0
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 880f8da5bfb872fba6fe4886198d932c91f4bf86
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66452825"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370473"
 ---
 # <a name="manage-windows-server"></a>管理 Windows Server
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
 >[!TIP]
 > 要查找有关较旧版 Windows Server 的信息？ 在 docs.microsoft.com 上查看我们的其他 [Windows Server 库](/previous-versions/windows/)。 也可以[搜索此站点](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions)了解具体信息。
@@ -53,11 +53,11 @@ ms.locfileid: "66452825"
 |--------|----------------------|--------------------------------------|------------------------------------------|
 | 坐在 Windows 10 电脑前 | X  |                                      | X                                        |
 | 坐在运行桌面体验的 Windows Server 系统前 | X | X | X |
-| 坐在运行服务器核心的 Windows Server 系统前 |X（在 Windows 10 上安装，用于管理服务器核心） | | X |
+| 坐在运行 Server Core 的 Windows Server 系统前 |X（在 Windows 10 上安装，用于管理 Server Core） | | X |
 | 坐在远离 Windows Server 系统的位置 |X | | X |
 | 坐在远离 Windows Server 系统的位置，但确实具有桌面体验 |X | 使用 RDS 远程连接到服务器，然后使用服务器管理器 | X |
 
-除了下述工具，你还可以使用[远程桌面服务](../remote/remote-desktop-services/welcome-to-rds.md)访问本地、远程和虚拟服务器。 然后，你可以使用服务器管理器执行管理任务。
+除了下述工具，还可以使用[远程桌面服务](../remote/remote-desktop-services/welcome-to-rds.md)访问本地、远程和虚拟服务器。 然后，你可以使用服务器管理器执行管理任务。
 
 ### <a name="manage-on-premises-systems-remote-systems-and-systems-without-ui-with-windows-admin-center"></a>使用 Windows Admin Center 管理本地系统、远程系统和没有 UI 的系统
 [Windows Admin Center](../manage/windows-admin-center/overview.md) 是基于浏览器的管理应用，可用于本地管理 Windows Server，而无需依赖 Azure 或云。 利用 Windows Admin Center，你可以完全控制服务器基础架构的各个方面，对于在未连接到 Internet 的专用网络上进行管理特别有用。 你可以在 Windows 10 或网关服务器上安装 Windows Admin Center，也可以在要管理的 Windows Server 系统上直接安装。
@@ -66,7 +66,7 @@ ms.locfileid: "66452825"
 >Windows Admin Center 是我们以前常说的“Project Honolulu”的正式名称。
 
 ### <a name="manage-on-premises-systems-with-server-manager"></a>使用服务器管理器管理本地系统
-[服务器管理器](server-manager/server-manager.md)是包含在 Windows Server 的完全安装中的管理控制台。 （不适用于不具有 UI 的安装-服务器核心不包括服务器管理器）。使用服务器管理器来安装和删除服务器角色添加和删除远程服务器、 开始和停止服务和查看数据收集的有关您的环境。
+[服务器管理器](server-manager/server-manager.md)是包含在 Windows Server 的完全安装中的管理控制台。 （它不适用于没有 UI 的安装 - Server Core 不包括服务器管理器。）使用服务器管理器可以安装和删除服务器角色，添加和删除远程服务器，启动和停止服务，以及查看收集的环境相关数据。
 
 ### <a name="manage-remote-systems-and-systems-without-ui-with-remote-server-administration-tools-rsat"></a>使用远程服务器管理工具 (RSAT)，无需 UI 即可管理远程系统和系统
 如果你的环境中包括服务器核心或远程服务器（本地或虚拟机）的安装，你可以使用[远程服务器管理工具 (RSAT)](../remote/remote-server-administration-tools.md)管理这些系统。 RSAT 包括服务器管理器，以便于你可以使用它来管理所有服务器。
@@ -85,7 +85,7 @@ ms.locfileid: "66452825"
 从 [在您的组织中配置 Windows 诊断数据](/windows/configuration/configure-windows-diagnostic-data-in-your-organization) 开始，获取有关可从 Windows 10 和 Windows Server 收集的诊断数据。
 
 ### <a name="setup-and-boot-event-collectionget-started-with-setup-and-boot-event-collectionmd"></a>[安装和启动事件收集](get-started-with-setup-and-boot-event-collection.md)
-使用安装和启动事件收集，你可以指定“收集器”计算机，该计算机可以收集在启动或执行安装过程时在其他计算机上发生的各种重要事件。 然后，你可以使用事件查看器、消息分析器、Wevtutil 或 Windows PowerShell cmdlet 分析收集的事件。 
+使用安装和启动事件收集，可以指定“收集器”计算机，该计算机可以收集在启动或执行安装过程时在其他计算机上发生的各种重要事件。 然后，可以使用事件查看器、消息分析器、Wevtutil 或 Windows PowerShell cmdlet 分析收集的事件。 
 
 ### <a name="software-inventory-logging-silsoftware-inventory-loggingget-started-with-software-inventory-loggingmd"></a>[软件清单日志记录 (SIL)](software-inventory-logging/get-started-with-software-inventory-logging.md)
 
@@ -103,7 +103,7 @@ Windows Server 中软件清单日志记录功能包含一组简单的 PowerShell
 
 ### <a name="microsoft-server-performance-advisorserver-performance-advisormicrosoft-server-performance-advisormd"></a>[Microsoft Server Performance Advisor](server-performance-advisor/microsoft-server-performance-advisor.md)
 
-使用 Microsoft Server Performance Advisor (SPA)，你可以收集指标以悄悄诊断 Windows Server 上的性能问题，而不用添加软件代理或重新配置生产服务器。 SPA 可生成全面性能报告和历史记录图表以及建议。
+使用 Microsoft Server Performance Advisor (SPA)，可以收集指标以悄悄诊断 Windows Server 上的性能问题，而不用添加软件代理或重新配置生产服务器。 SPA 可生成全面性能报告和历史记录图表以及建议。
 
 
 ## <a name="automate-windows-server-management"></a>自动管理 Windows Server

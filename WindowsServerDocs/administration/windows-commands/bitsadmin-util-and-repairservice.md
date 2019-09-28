@@ -1,8 +1,8 @@
 ---
 title: bitsadmin util 和 repairservice
-description: Windows 命令主题**bitsadmin util 和 repairservice** -使用命令来解决各种版本的 BITS 服务的已知的问题。
+description: Windows 命令主题，适用于**bitsadmin util 和 repairservice**命令，用于修复各种版本的 BITS 服务的已知问题。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bc5101378a389c865f5753146b711be0d15c6785
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0ab06ac9c784cfa438eb285c28f0e661cf4b8302
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852088"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380276"
 ---
 # <a name="bitsadmin-util-and-repairservice"></a>bitsadmin util 和 repairservice
 
-如果 BITS 启动失败，则使用此开关以修复各种版本的位的已知的问题。
+如果 BITS 无法启动，请使用此开关修复不同版本的 BITS 的已知问题。
 
-**BITSAdmin 1.5 和更早版本：** 不受支持。
+**BITSAdmin 1.5 及更早版本：** 支持  Not。
 
 ## <a name="syntax"></a>语法
 
@@ -40,21 +40,21 @@ bitsadmin /Util /RepairService [/Force]
 
 ## <a name="remarks"></a>备注
 
-此开关解决了错误与错误相关的服务配置和 Windows 服务 （例如 LANManworkstation) 上的依赖项以及网络目录。 此开关将生成输出，指示如果问题，已解决。
+此开关解决了与不正确的服务配置和 Windows 服务（如 LANManworkstation）和网络目录的依赖项相关的错误。 此开关生成一个输出，用于指示是否已解决问题。
 
 > [!NOTE]
-> 如果 BITS 重新创建该服务，可能会在本地化系统中为英语设置服务说明字符串。
+> 如果 BITS 重新创建服务，则可以在本地化系统中将服务说明字符串设置为英语。
 
 > [!IMPORTANT]
-> 在 Windows Vista 上不支持此命令。
+> Windows Vista 不支持此命令。
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例，以修复 BITS 服务配置。
+以下示例修复 BITS 服务配置。
 ```
 C:\>bitsadmin /Util /RepairService
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

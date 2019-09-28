@@ -1,19 +1,19 @@
 ---
 ms.assetid: 0f2a7f7b-aca8-4e5d-ad67-4258e88bc52f
 title: Windows Server 中存储方面的新增功能
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: jgerend
 ms.manager: dongill
 ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 05/29/2019
-ms.openlocfilehash: 3548d6c239c81deb50ce698767db5eb287046f17
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ffcff036a7e30018e523def055ce3aeb8d30c225
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867043"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365837"
 ---
 # <a name="whats-new-in-storage-in-windows-server"></a>Windows Server 中存储的新增功能
 

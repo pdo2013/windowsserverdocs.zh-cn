@@ -1,8 +1,8 @@
 ---
 title: 编写器
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8aee4ecca85c7d5f46ee79f3ad928b746c02e7bb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6c00f6067cd5f6cf741cddbd6d62c5bcbb1f37a9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439985"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361856"
 ---
 # <a name="writer"></a>编写器
 
 
 
-验证编写器或组件包含或排除从备份或还原过程的编写器或组件。 如果使用不带参数，**编写器**在命令提示符下显示的帮助。
+验证是否包括了写入器或组件，或者是否从备份或还原过程中排除了写入器或组件。 如果在没有参数的情况下使用，则**编写器**会在命令提示符下显示帮助。
 
 ## <a name="syntax"></a>语法
 
@@ -37,17 +37,17 @@ writer exclude [<Writer> | <Component>]
 
 | 参数  |                                                                                      描述                                                                                      |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   verify   | 验证包含在备份或还原过程中指定的编写器或组件。 如果编写器或组件不包括，在备份或还原过程将失败。 |
+|   verify   | 验证指定的编写器或组件是否包含在备份或还原过程中。 如果未包括写入器或组件，备份或还原过程将失败。 |
 |  exclude   |                                                   从备份或还原过程中排除指定的编写器或组件。                                                    |
-| [\<Writer> |                                                                                     <Component>]                                                                                      |
+| [\<Writer > |                                                                                     <Component>]                                                                                      |
 
 ## <a name="BKMK_examples"></a>示例
 
-若要验证通过指定其 GUID （对于此示例中，4dc3bdd4-ab48-4d07-adb0-3bee2926fd7f） 编写器，请键入：
+若要通过指定写入器的 GUID 来验证写入器（对于此示例，为4dc3bdd4-ab48-4d07-adb0-3bee2926fd7f），请键入：
 ```
 writer verify {4dc3bdd4-ab48-4d07-adb0-3bee2926fd7f}
 ```
-若要排除具有名称"系统写入程序"的编写器，请键入：
+若要排除名称为 "System Writer" 的编写器，请键入：
 ```
 writer exclude "System Writer"
 ```

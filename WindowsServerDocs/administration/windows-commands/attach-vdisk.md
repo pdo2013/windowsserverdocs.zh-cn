@@ -1,8 +1,8 @@
 ---
-title: 附加的虚拟磁盘
-description: Windows 命令主题**附加的虚拟磁盘**-将 （有时称为的装载或应用层协议） 虚拟硬盘 (VHD) 以使其显示本地硬盘驱动器上的主机计算机上。
+title: 附加 vdisk
+description: 用于**附加 vdisk**的 Windows 命令主题（有时称为装载或曲面）是虚拟硬盘（VHD），以使其作为本地硬盘驱动器出现在主计算机上。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fb33d040ce0b2a7a9d06951a7e80251a0d0da614
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d29eacfc8575ec50859733612a3d58b166d9402d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435219"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382638"
 ---
-# <a name="attach-vdisk"></a>附加的虚拟磁盘
+# <a name="attach-vdisk"></a>附加 vdisk
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-将附加 （有时称为的装载或应用层协议） 虚拟硬盘 (VHD) 以使其显示本地硬盘驱动器上的主机计算机上。 如果 VHD 已具有磁盘分区和文件系统卷在附加时，在 VHD 内的卷分配驱动器号。
+附加（有时称为装载或曲面）虚拟硬盘（VHD），以使其作为本地硬盘驱动器出现在主计算机上。 如果 VHD 在附加时已有磁盘分区和文件系统卷，则会为 VHD 中的卷分配一个驱动器号。
 > [!NOTE]
-> 此命令当前仅适用于 Windows 7 和 Windows Server 2008 R2。
+> 此命令仅适用于 Windows 7 和 Windows Server 2008 R2。
 
 ## <a name="syntax"></a>语法
 ```
@@ -36,25 +36,25 @@ attach vdisk [readonly] { [sd=<SDDL>] | [usefilesd] } [noerr]
 
 |    参数     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     只读     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                             将附加 VHD 作为只读的。 任何写入操作将返回错误。                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| sd=<SDDL string> | 在 VHD 上设置的用户筛选器。 筛选器字符串必须采用安全描述符定义语言 (SDDL) 格式。 默认情况下用户筛选器允许像访问物理磁盘上。<br /><br />SDDL 字符串可能很复杂，但在最简单的形式来保护访问的安全描述符被称为随机访问控制列表 (DACL)。 它是窗体：D:<dacl_flags><string_ace1><string_ace2>... <string_acen><br /><br />常见的 DACL 标志包括：<br /><br />-   **一个**允许访问<br />-   **D**拒绝访问<br /><br />常见权限是：<br /><br />-   **GA**的所有访问<br />-   **GR**读取访问权限<br />-   **GW**写访问权限<br /><br />常见的用户帐户是：<br /><br />-   **BA**内置的管理员<br />-   **澳大利亚**身份验证的用户<br />-   **CO**创建者所有者<br />-   **WD** -每个人<br /><br />示例：<br /><br />**D:P:(A;;GR;;澳大利亚**所有经过身份验证的用户提供读取访问权限<br /><br />**D:P:(A;;GA;;WD**给予每个人的完全访问权限 |
-|    usefilesd     |                                                                                                                                                                                                                                                                                                                                                                                          指定应在 VHD 上使用的.vhd 文件上的安全描述符。 如果**Usefilesd**未指定参数，VHD 将没有显式的安全描述符，除非使用指定**Sd**参数。                                                                                                                                                                                                                                                                                                                                                                                          |
-|      noerr       |                                                                                                                                                                                                                                                                                                                                                                                                           用于仅编写脚本。 当遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，错误会导致 DiskPart 退出，错误代码。                                                                                                                                                                                                                                                                                                                                                                                                           |
+|     只读     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                             将 VHD 附加为只读。 任何写入操作都将返回错误。                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| sd = <SDDL string> | 设置 VHD 上的用户筛选器。 筛选器字符串的格式必须为安全描述符定义语言（SDDL）。 默认情况下，用户筛选器允许访问，就像在物理磁盘上。<br /><br />SDDL 字符串可能比较复杂，但最简单的形式是，保护访问的安全描述符称为自由访问控制列表（DACL）。 其形式如下：D： < dacl_flags > < string_ace1 > < string_ace2 > .。。< string_acen ><br /><br />常见的 DACL 标志包括：<br /><br />-   **A**允许访问<br />@no__t**D**拒绝访问<br /><br />常见权限包括：<br /><br />-   **GA**所有访问权限<br />-   **GR**读取权限<br />-   **GW**写入访问权限<br /><br />常见用户帐户包括：<br /><br />-   **BA**内置管理员<br />-   **AU**验证的用户<br />-   **CO**创建者所有者<br />-   **WD** -Everyone<br /><br />例如：<br /><br />**D:P：（A;;GR;;;AU**为所有经过身份验证的用户提供读取访问权限<br /><br />**D:P：（A;;GA;;;WD**为每个人提供完全的 |
+|    usefilesd     |                                                                                                                                                                                                                                                                                                                                                                                          指定应在 VHD 上使用 .vhd 文件上的安全描述符。 如果未指定**Usefilesd**参数，则 VHD 将不具有明确的安全描述符，除非使用**Sd**参数指定它。                                                                                                                                                                                                                                                                                                                                                                                          |
+|      noerr       |                                                                                                                                                                                                                                                                                                                                                                                                           仅用于脚本编写。 遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，则错误会导致 DiskPart 退出并出现错误代码。                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 ## <a name="remarks"></a>备注
-- 必须选择并为此操作才能成功分离 VHD。 使用**选择的虚拟磁盘**命令选择 VHD，并将焦点移到它。
+- 必须选择并分离 VHD，此操作才能成功。 使用 "**选择 vdisk** " 命令选择 VHD 并将焦点移动到该 VHD。
   ## <a name="BKMK_Examples"></a>示例
-  若要附加为只读的所选的 VHD，请键入：
+  若要将所选 VHD 附加为只读，请键入：
   ```
   attach vdisk readonly
   ```
   ## <a name="additional-references"></a>其他参考
 - [命令行语法项](command-line-syntax-key.md)
-- [压缩的虚拟磁盘](compact-vdisk.md)
+- [compact vdisk](compact-vdisk.md)
 
-- [detail vdisk](detail-vdisk.md)
-- [分离的虚拟磁盘](detach-vdisk.md)
-- [展开的虚拟磁盘](expand-vdisk.md)
-- [合并的虚拟磁盘](merge-vdisk.md)
-- [选择的虚拟磁盘](select-vdisk.md)
+- [详细信息 vdisk](detail-vdisk.md)
+- [分离 vdisk](detach-vdisk.md)
+- [展开 vdisk](expand-vdisk.md)
+- [Merge vdisk](merge-vdisk.md)
+- [选择 vdisk](select-vdisk.md)
 - [list_1](list_1.md)

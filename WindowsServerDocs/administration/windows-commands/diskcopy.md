@@ -1,8 +1,8 @@
 ---
 title: diskcopy
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,23 +13,23 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/07/2018
-ms.openlocfilehash: aadb3a77cda7f1403cd2f04ced12c17617f046df
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 553a85ac4fd9b7708d7adc668be4e000b36a9346
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439568"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377816"
 ---
 # <a name="diskcopy"></a>diskcopy
 
 
 
-源驱动器中的软盘的内容复制到目标驱动器中格式化或非格式化的软盘。 如果使用不带参数， **diskcopy**为源磁盘和目标磁盘将使用当前驱动器。
+将源驱动器中软盘的内容复制到目标驱动器中已格式化或未格式化的软盘。 如果在没有参数的情况下使用，则**diskcopy**使用源磁盘和目标磁盘的当前驱动器。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
 > [!NOTE]
-> 此命令不包括在 Windows 10。
+> 此命令不包含在 Windows 10 中。
 
 ## <a name="syntax"></a>语法
 
@@ -41,70 +41,70 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
 |参数|描述|
 |---------|-----------|
-|\<Drive1>|指定包含源磁盘的驱动器。|
-|\<Drive2>|指定包含目标磁盘的驱动器。|
-|/v|验证已正确复制信息。 此选项将降低复制过程。|
+|\<Drive1 >|指定包含源磁盘的驱动器。|
+|\<Drive2 >|指定包含目标磁盘的驱动器。|
+|/v|验证是否已正确复制信息。 此选项会降低复制过程的速度。|
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
 
 -   使用磁盘
 
-    **Diskcopy**仅适用于可移动磁盘如软盘，必须为相同的类型。 不能使用**diskcopy**的硬盘。 如果指定的硬盘驱动器*Drive1*或*驱动器 2*， **diskcopy**显示以下错误消息：  
+    **Diskcopy**仅适用于可移动磁盘，如软盘，它们必须是同一类型。 不能将**diskcopy**与硬盘一起使用。 如果为*Drive1*或*Drive2*指定硬盘驱动器，则**diskcopy**将显示以下错误消息：  
     ```
     Invalid drive specification
     Specified drive does not exist or is nonremovable
     ```  
-    **Diskcopy**命令将提示您插入源和目标磁盘，等待您键盘上按任意键，然后再继续。
+    **Diskcopy**命令提示您插入源和目标磁盘，并等待您在键盘上按任意键，然后再继续。
 
-    复制磁盘后, **diskcopy**会显示以下消息：  
+    复制磁盘后， **diskcopy**会显示以下消息：  
     ```
     Copy another diskette (Y/N)?
     ```  
-    如果您按 Y **diskcopy**将提示您插入的下一步的复制操作的源和目标磁盘。 若要停止**diskcopy**处理，请按**N**。
+    如果按 Y， **diskcopy**会提示您插入源磁盘和目标磁盘以进行下一次复制操作。 若要停止**diskcopy**进程，请按**N**。
 
-    如果要将复制到中未格式化的软盘*驱动器 2*， **diskcopy**格式具有相同数量的边和每个音轨中的磁盘上的扇区磁盘*Drive1*。 **Diskcopy**对磁盘进行格式化并将文件复制对其显示以下消息：  
+    如果要复制到*Drive2*中的未格式化软盘，则**Diskcopy**会按照*Drive1*中的磁盘上的相同面和扇区的数量来设置磁盘的格式。 **Diskcopy**在格式化磁盘和复制文件时显示以下消息：  
     ```
     Formatting while copying
     ```  
 -   磁盘序列号
 
-    如果源磁盘的卷序列号**diskcopy**创建新的目标磁盘卷序列号和复制操作完成时显示的数目。
+    如果源磁盘具有卷序列号，则**diskcopy**将为目标磁盘创建新的卷序列号，并显示复制操作完成时的数字。
 -   省略驱动器参数
 
-    如果省略*驱动器 2*参数， **diskcopy**使用当前驱动器作为目标驱动器。 如果省略这两个驱动器参数， **diskcopy**两个使用当前驱动器。 如果当前驱动器等同于*Drive1*， **diskcopy**会提示你根据需要交换磁盘。
+    如果省略*Drive2*参数，则**diskcopy**使用当前驱动器作为目标驱动器。 如果省略这两个驱动器参数，则**diskcopy**同时使用当前驱动器。 如果当前驱动器与*Drive1*相同，则在必要时， **diskcopy**会提示你交换磁盘。
 -   使用一个驱动器进行复制
 
-    运行**diskcopy**从软盘驱动器以外的驱动器，例如 C 驱动器。 如果软盘*Drive1*和软盘*驱动器 2*相同， **diskcopy**会提示您若要切换的磁盘。 如果磁盘包含超过可用内存可容纳的量的详细信息**diskcopy**无法读取的所有信息在一次。 **Diskcopy**从源磁盘读取、 写入目标磁盘，并提示您重新插入源磁盘。 此过程持续复制整个磁盘。
--   避免磁盘碎片整理
+    从软盘驱动器以外的驱动器（例如 C 驱动器）运行**diskcopy** 。 如果软盘*Drive1*和软盘*Drive2*相同，则**diskcopy**会提示你切换磁盘。 如果磁盘包含的信息超过可用内存可以容纳的数量，则**diskcopy**无法一次读取全部信息。 **Diskcopy**从源磁盘读取数据，将数据写入目标磁盘，并再次提示您插入源磁盘。 此过程将一直继续，直到复制了整个磁盘。
+-   避免磁盘碎片
 
-    碎片是较小的区域的磁盘上的现有文件之间的未使用的磁盘空间存在。 零碎的源磁盘可以减缓查找、 读取或写入文件的过程。
+    碎片是指磁盘上的现有文件之间存在未使用的磁盘空间的小区域。 零碎的源磁盘可能会减慢查找、读取或写入文件的进程。
 
-    因为**diskcopy**使目标磁盘上的源磁盘、 源磁盘上的任何碎片的精确副本传输到目标磁盘。 若要避免碎片之间传输的一个磁盘，请使用**副本**或**xcopy**以复制你的磁盘。 因为**副本**并**xcopy**复制文件按顺序，新磁盘碎片不多。
+    由于**diskcopy**在目标磁盘上生成源磁盘的完全相同的副本，因此源磁盘上的任何碎片都将传输到目标磁盘。 若要避免将碎片从一个磁盘传输到另一个磁盘，请使用**复制**或**xcopy**复制磁盘。 由于**副本**和**xcopy**复制文件是连续的，因此不会对新磁盘进行分段。
 
 > [!NOTE]
-> 不能使用**xcopy**要复制的启动磁盘。
+> 不能使用**xcopy**复制启动磁盘。
 > -   了解**diskcopy**退出代码
 
     The following table explains each exit code.  
     |退出代码|描述|
     |---------|-----------|
-    |0|复制操作已成功|
-    |1|出现非致命的读/写错误|
-    |3|发生致命硬件错误|
+    |0|复制操作成功|
+    |1|出现非致命读/写错误|
+    |3|出现严重错误|
     |4|出现初始化错误|
 
     To process the exit codes that are returned by **diskcomp**, you can use the *ERRORLEVEL* environment variable on the **if** command line in a batch program.
 
 ## <a name="BKMK_examples"></a>示例
 
-若要将该磁盘在驱动器 B 复制到磁盘驱动器 A 中，键入：
+若要将驱动器 B 中的磁盘复制到驱动器 A 中的磁盘，请键入：
 ```
 diskcopy b: a:
 ```
-若要使用软盘驱动器 A 复制到另一张软盘，请先切换到 C 驱动器，然后键入：
+若要使用软盘驱动器 A 将软盘复制到另一张软盘，请先切换到 C 驱动器，然后键入：
 
-diskcopy 答： 答：
+diskcopy a： a：
 
 #### <a name="additional-references"></a>其他参考
 

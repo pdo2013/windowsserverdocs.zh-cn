@@ -2,7 +2,7 @@
 title: 软件清单日志记录疑难解答
 description: 描述如何解决常见的软件清单日志记录部署问题。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage-software-inventory-logging
 ms.reviewer: na
 ms.suite: na
@@ -12,12 +12,12 @@ author: brentfor
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: 1878347234affddcb7a7acb39c532712051ea223
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: fb6e6fbba835e049748ca8578f24a1ff7fc750bf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866272"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382897"
 ---
 # <a name="troubleshoot-software-inventory-logging"></a>软件清单日志记录疑难解答 
 

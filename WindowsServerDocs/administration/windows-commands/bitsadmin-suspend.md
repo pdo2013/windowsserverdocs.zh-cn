@@ -1,8 +1,8 @@
 ---
 title: bitsadmin suspend
-description: Windows 命令主题**bitsadmin 挂起**-挂起指定的作业。
+description: 用于**bitsadmin 挂起**的 Windows 命令主题-挂起指定的作业。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 87e1bbd1b068d68fb60655043735c6c1aeb07707
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7a3a484df2b50cdc8893512020b835f913793d2c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825918"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380379"
 ---
 # <a name="bitsadmin-suspend"></a>bitsadmin suspend
 
-> 适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+> 适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
 挂起指定的作业。
 
@@ -40,11 +40,11 @@ bitsadmin /Suspend <Job>
 
 ## <a name="remarks"></a>备注
 
-若要重启该作业，请使用[bitsadmin 恢复](bitsadmin-resume.md)切换。
+若要重新启动作业，请使用[bitsadmin resume](bitsadmin-resume.md)开关。
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例将名为的作业挂起*myDownloadJob*。
+以下示例挂起名为*myDownloadJob*的作业。
 
 ```
 C:\>bitsadmin /Suspend myDownloadJob
@@ -52,4 +52,4 @@ C:\>bitsadmin /Suspend myDownloadJob
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

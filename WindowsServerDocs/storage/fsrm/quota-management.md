@@ -2,22 +2,22 @@
 title: 配额管理
 description: 本文介绍了如何创建和管理配额
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 6effaf7c2d197c08b4930e09c3ada96462b17d6f
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 5a655e28020d08bb1c10fa862c007f914a8cf566
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476190"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403073"
 ---
 # <a name="quota-management"></a>配额管理
 
-> 适用于：Windows Server 2019，Windows Server 2016、 Windows 服务器 （半年频道）、 Windows Server 2012 R2 和 Windows Server 2012 中，Windows Server 2008 R2
+> 适用于：Windows Server 2019，Windows Server 2016，Windows Server （半年频道），Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2
 
 可在文件服务器资源管理器 Microsoft<sup>®</sup> 管理控制台 (MMC) 管理单元的**配额管理**节点上执行以下任务：
 
@@ -27,8 +27,8 @@ ms.locfileid: "65476190"
 
 例如，你可以：
 
--   用户的个人服务器文件夹，使用电子邮件通知时已超过 180 MB 存储发送给你和用户限制为 200 兆字节 (MB) 的位置。
--   在组的共享文件夹上设置一个灵活的 500 MB 配额。 达到此存储限制后，通过存储配额已临时扩展到 520 MB，以便用户可以删除不必要的文件并符合预设的 500 MB 配额策略的电子邮件通知组中的所有用户。
+-   对用户的个人服务器文件夹设置200兆字节（MB）的限制，并在超过 180 MB 存储空间的情况下，向你和用户发送电子邮件通知。
+-   在组的共享文件夹上设置灵活的 500 MB 配额。 达到此存储限制时，将通过电子邮件通知组中的所有用户，存储配额已临时扩展到 520 MB，以便用户可以删除不必要的文件并符合预设的 500 MB 配额策略。
 -   当所使用的临时文件夹达到 2 千兆字节 (GB) 时，系统会发出通知，但不会限制该文件夹的配额，因为在服务器上运行服务需要一定空间。
 
 本部分包括以下主题：

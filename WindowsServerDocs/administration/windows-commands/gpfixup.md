@@ -1,8 +1,8 @@
 ---
 title: gpfixup
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: efb30e243d9c165fdcf13943225eb90d38235070
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e32427369f1664476c81a81353ae8869ec0c2ff3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438208"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375667"
 ---
 # <a name="gpfixup"></a>gpfixup
 
 
 
-域重命名操作之后，域名称依赖项修复中的组策略对象和组策略链接。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
+解决域重命名操作后组策略对象和组策略链接中的域名依赖关系。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
 
 ## <a name="syntax"></a>语法
 
@@ -40,29 +40,29 @@ Gpfixup [/v]
 
 |       参数       |                                                                                                                                                                                                                               描述                                                                                                                                                                                                                               |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|          /v           |                                                                                                                                                      显示详细的状态消息。</br>如果不使用此参数，仅错误消息或的摘要状态消息**成功**或**失败**出现。                                                                                                                                                       |
-| /olddns:\<OLDDNSNAME > |                                                                                                           指定已重命名的域的旧的 DNS 名称 *\<OLDDNSNAME >* 域重命名操作时更改某个域的 DNS 名称。 您可以使用此参数仅在也使用 **/newdns**参数来指定新的域 DNS 名称。                                                                                                            |
-| /newdns:\<NEWDNSNAME > |                                                                                                          指定作为重命名的域的新 DNS 名称 *\<NEWDNSNAME >* 域重命名操作时更改某个域的 DNS 名称。 您可以使用此参数仅在也使用 **/olddns**参数来指定旧域 DNS 名称。                                                                                                           |
-| /oldnb:\<OLDFLATNAME > |                                                                                                        指定作为重命名的域的旧 NetBIOS 名称 *\<OLDFLATNAME >* 域重命名操作时更改某个域的 NetBIOS 名称。 可以使用此参数，仅当你使用 **/newnb**参数来指定新的域 NetBIOS 名称。                                                                                                        |
-| /newnb:\<NEWFLATNAME > |                                                                                                       指定已重命名的域的新的 NetBIOS 名称 *\<NEWFLATNAME >* 域重命名操作时更改某个域的 NetBIOS 名称。 可以使用此参数，仅当你使用 **/oldnb**参数来指定旧域 NetBIOS 名称。                                                                                                       |
-|     /dc:\<DCNAME>     | 连接到名为的域控制器 *\<DCNAME >* （DNS 名称或 NetBIOS 名称）。 *\<DCNAME >* 必须承载域目录分区的可写副本，如以下所示：</br>-DNS 名称 *\<NEWDNSNAME >* 使用 **/newdns**</br>NetBIOS 名称 *\<NEWFLATNAME >* 使用 **/newnb**</br>如果不使用此参数，连接到所指示的重命名的域中的任何域控制器 *\<NEWDNSNAME >* 或 *\<NEWFLATNAME >* 。 |
-|        /sionly        |                                                                                                                           执行到受管理的软件安装 （组策略软件安装扩展） 相关联的组策略修复。 跳过在 Gpo 中解决组策略链接和 SYSVOL 路径的操作。                                                                                                                           |
-|   /user:\<用户名 >   |                                                                                                                                   用户的安全上下文中运行此命令 *\<用户名 >* ，其中 *\<用户名 >* 处于域 \ 用户格式。</br>如果不使用此参数，以登录用户身份运行此命令。                                                                                                                                    |
-|   /pwd: {\<密码 >   |                                                                                                                                                                                                                                   \*}                                                                                                                                                                                                                                   |
+|          /v           |                                                                                                                                                      显示详细的状态消息。</br>如果未使用此参数，则只会显示错误消息或摘要状态消息 "**成功**" 或 "**失败**"。                                                                                                                                                       |
+| /olddns： \<OLDDNSNAME > |                                                                                                           当域重命名操作更改域的 DNS 名称时，将重命名域的旧 DNS 名称指定为 *\<OLDDNSNAME >* 。 仅当你还使用 **/newdns**参数来指定新的域 DNS 名称时，才能使用此参数。                                                                                                            |
+| /newdns： \<NEWDNSNAME > |                                                                                                          当域重命名操作更改域的 DNS 名称时，将重命名的域的新 DNS 名称指定为 *\<NEWDNSNAME >* 。 仅当你还使用 **/olddns**参数来指定旧的域 DNS 名称时，才能使用此参数。                                                                                                           |
+| /oldnb： \<OLDFLATNAME > |                                                                                                        当域重命名操作更改域的 NetBIOS 名称时，将重命名域的旧 NetBIOS 名称指定为 *\<OLDFLATNAME >* 。 仅当使用 **/newnb**参数指定新的域 NetBIOS 名称时，才能使用此参数。                                                                                                        |
+| /newnb： \<NEWFLATNAME > |                                                                                                       当域重命名操作更改域的 NetBIOS 名称时，将重命名的域的新 NetBIOS 名称指定为 *\<NEWFLATNAME >* 。 仅当使用 **/oldnb**参数指定旧的域 NetBIOS 名称时，才能使用此参数。                                                                                                       |
+|     /dc： \<DCNAME >     | 连接到名为 *\<DCNAME >* 的域控制器（DNS 名称或 NetBIOS 名称）。 *\<DCNAME >* 必须承载域目录分区的可写副本，如下所示：</br>-使用 **/newdns** *\<NEWDNSNAME >* DNS 名称</br>-使用 **/newnb** *\<NEWFLATNAME >* 的 NetBIOS 名称</br>如果未使用此参数，则连接到 *\<NEWDNSNAME >* 或 *\<NEWFLATNAME >* 所指示的重命名域中的任何域控制器。 |
+|        /sionly        |                                                                                                                           仅执行与托管软件安装相关的组策略修补程序（组策略的软件安装扩展）。 跳过修复组策略链接和 Gpo 中 SYSVOL 路径的操作。                                                                                                                           |
+|   /user： \<USERNAME >   |                                                                                                                                   在用户 *\<USERNAME >* 的安全上下文中运行此命令，其中 *\<USERNAME >* 的格式为 domain\user</br>如果未使用此参数，则以登录用户的身份运行此命令。                                                                                                                                    |
+|   /pwd： {\<PASSWORD >   |                                                                                                                                                                                                                                   \*}                                                                                                                                                                                                                                   |
 |          /?           |                                                                                                                                                                                                                  在命令提示符下显示帮助。                                                                                                                                                                                                                   |
 
 ## <a name="remarks"></a>备注
 
--   **Gpfixup**命令现已推出 Windows Server 2008 R2 和 Windows Server 2008 中，在服务器核心安装除外。
--   尽管组策略管理控制台 (GPMC) 随 Windows Server 2008 R2 和 Windows Server 2008 一起分发，你必须作为一项功能通过服务器管理器安装组策略管理。
+-   除了服务器核心安装， **gpfixup**命令在 windows Server 2008 R2 和 windows server 2008 中可用。
+-   尽管组策略管理控制台（GPMC）随 Windows Server 2008 R2 和 Windows Server 2008 一起分发，但必须通过服务器管理器将组策略管理作为一项功能安装。
 
 ## <a name="BKMK_Examples"></a>示例
 
-此示例假定您已经执行域重命名操作，在其中更改中的 DNS 名称**MyOldDnsName**到**MyNewDnsName**，和中的 NetBIOS 名称**MyOldNetBIOSName**到**MyNewNetBIOSName**。 在此示例中，使用**gpfixup**命令连接到名为的域控制器**MyDcDnsName**和修复 Gpo 和组策略中的 Gpo 和链接嵌入链接通过更新旧的域名。 状态和错误输出保存到名为的文件**gpfixup.log**。
+此示例假设你已执行域重命名操作，其中你将 DNS 名称从**MyOldDnsName**更改为**MyNewDnsName**，并将 NetBIOS 名称从**MyOldNetBIOSName**更改为**MyNewNetBIOSName**。 在此示例中，使用**gpfixup**命令连接到名为**MyDcDnsName**的域控制器，并通过更新在 gpo 和链接中嵌入的旧域名来修复 gpo 和组策略链接。 状态和错误输出保存到名为**gpfixup**的文件中。
 ```
 gpfixup /olddns: MyOldDnsName /newdns:MyNewDnsName /oldnb:MyOldNetBIOSName /newnb:MyNewNetBIOSName /dc:MyDcDnsName 2>&1 >gpfixup.log
 ```
-此示例与前一个相同，不同之处在于它假定域期间未更改的域的 NetBIOS 名称重命名操作。
+此示例与上一个示例相同，不同之处在于它假定域的 NetBIOS 名称在域重命名操作过程中未更改。
 ```
 gpfixup /olddns: MyOldDnsName /newdns:MyNewDnsName /dc:MyDcDnsName 2>&1 >gpfixup.log
 ```

@@ -2,7 +2,7 @@
 title: diskraid
 description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f2dfda058a7ca266adedbacf8860137c5d1782c7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f72e91f856da3b24e7450381b293f4b365d914f3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867078"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377799"
 ---
 # <a name="diskraid"></a>diskraid
 
@@ -561,7 +561,7 @@ extend lun [size=<LUN_size>] [drives=<drive_number>, [<drive_number>, ...]] [noe
 
 **驱动器 =**
 
-指定在创建 LUN 时要使用的驱动器的drive_number>。\< 如果未指定**size =** 参数，则创建的 LUN 是所有指定驱动器允许的最大大小。 提供程序按尽可能指定的顺序使用驱动器。
+指定在创建 LUN 时要使用的驱动器的 @no__t 0drive_number >。 如果未指定**size =** 参数，则创建的 LUN 是所有指定驱动器允许的最大大小。 提供程序按尽可能指定的顺序使用驱动器。
 
 **noerr**
 
@@ -944,7 +944,7 @@ replace drive=<drive_number>
 
 **驱动器 =**
 
-指定要\<替换的驱动器的 drive_number >。
+指定要替换的驱动器的 @no__t 0drive_number >。
 
 #### <a name="remarks"></a>备注
 
@@ -986,19 +986,19 @@ Select {hbaport | iadapter | iportal | provider | subsystem | controller | port 
 
 指定要选择的对象的类型。 对象 > 类型可以是提供程序、子系统、控制器、驱动器或 LUN。 \<
 
-**hbaport**[\<n >]
+**hbaport** [\<n >]
 
 将焦点设置到指定的本地 HBA 端口。 如果未指定 HBA 端口，则该命令将显示当前所选 HBA 端口（如果有）。 指定无效的 HBA 端口索引将导致未处于焦点的 HBA 端口。 选择 HBA 端口会取消选择任何所选的发起程序适配器和发起程序门户。
 
-**iadapter**[\<n >]
+**iadapter** [\<n >]
 
 将焦点设置到指定的本地 iSCSI 发起程序适配器。 如果未指定发起程序适配器，则该命令将显示当前所选的发起程序适配器（如果有）。 指定无效的发起程序适配器索引会导致不存在焦点发起程序适配器。 选择发起程序适配器会取消选择任何所选 HBA 端口和发起程序门户。
 
-**iportal**[\<n >]
+**iportal** [\<n >]
 
 将焦点设置到所选 iSCSI 发起程序适配器中指定的本地 iSCSI 发起程序门户。 如果未指定发起程序门户，则该命令将显示当前所选的发起程序门户（如果有）。 指定无效的发起方门户索引会导致所选的发起方门户。
 
-**提供程序**[\<n >]
+**provider** [\<n >]
 
 将焦点设置到指定的提供程序。 如果未指定提供程序，则该命令将显示当前所选的提供程序（如果有）。 指定无效的提供程序索引将导致没有关注的提供程序。
 
@@ -1018,7 +1018,7 @@ Select {hbaport | iadapter | iportal | provider | subsystem | controller | port 
 
 将焦点设置到当前所选子系统中的指定驱动器或物理主轴。 如果未指定驱动器，则该命令将显示当前所选驱动器（如果有）。 指定无效的驱动器索引将导致没有聚焦的驱动器。 选择驱动器将取消选择任何选定的控制器、控制器端口、Lun、目标门户、目标和目标门户组。
 
-**lun**[\<n >]
+**lun** [\<n >]
 
 将焦点设置到当前所选子系统中的指定 LUN。 如果未指定 LUN，则该命令将显示当前所选的 LUN （如果有）。 指定无效的 LUN 索引将导致选定的 LUN。 选择 LUN 会取消选择任何所选的控制器、控制器端口、驱动器、目标门户、目标和目标门户组。
 
@@ -1026,11 +1026,11 @@ Select {hbaport | iadapter | iportal | provider | subsystem | controller | port 
 
 将焦点设置到当前所选子系统中的指定 iSCSI 目标门户。 如果未指定目标门户，则该命令将显示当前所选的目标门户（如果有）。 指定无效的目标门户索引将导致选定的目标门户。 选择目标门户会取消选择任何控制器、控制器端口、驱动器、Lun、目标和目标门户组。
 
-**目标**[\<n >]
+**target** [\<n >]
 
 将焦点设置到当前所选子系统中的指定 iSCSI 目标。 如果未指定目标，则该命令将显示当前选择的目标（如果有）。 指定无效的目标索引将导致选定的目标无效。 选择目标会取消选择任何控制器、控制器端口、驱动器、Lun、目标门户和目标门户组。
 
-**tpgroup**[\<n >]
+**tpgroup** [\<n >]
 
 在当前选定的 iSCSI 目标内将焦点设置到指定的 iSCSI 目标门户组。 如果未指定目标门户组，则该命令将显示当前所选的目标门户组（如果有）。 指定无效的目标门户组索引将导致未处于焦点的目标门户组。
 

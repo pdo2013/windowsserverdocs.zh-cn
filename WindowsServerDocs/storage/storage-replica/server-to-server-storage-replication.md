@@ -1,7 +1,7 @@
 ---
 title: 服务器到服务器存储复制
 description: 如何在 Windows Server 中为服务器到服务器的复制设置和使用存储副本，包括 Windows 管理中心和 PowerShell。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: siroy
 ms.author: nedpyle
 ms.technology: storage-replica
@@ -9,12 +9,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 61881b52-ee6a-4c8e-85d3-702ab8a2bd8c
-ms.openlocfilehash: fccdb8547ff27083ce943892842c2e2d05e5ace8
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a21000e857d702846703deb4f55380e1a998f6d2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865288"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402957"
 ---
 # <a name="server-to-server-storage-replication-with-storage-replica"></a>具有存储副本的服务器到服务器存储复制
 
@@ -69,7 +69,7 @@ ms.locfileid: "70865288"
 
 **图 1：服务器到服务器的复制**  
 
-## <a name="step-1-install-and-configure-windows-admin-center-on-your-pc"></a>步骤 1：在电脑上安装和配置 Windows 管理中心
+## <a name="step-1-install-and-configure-windows-admin-center-on-your-pc"></a>第 1 步：在电脑上安装和配置 Windows 管理中心
 
 如果你使用 Windows 管理中心来管理存储副本，请使用以下步骤来准备你的电脑以管理存储副本。
 1. 下载并安装[Windows 管理中心](../../manage/windows-admin-center/overview.md)。
@@ -190,7 +190,7 @@ ms.locfileid: "70865288"
 
     **图 2:存储复制拓扑报表**
 
-## <a name="step-3-set-up-server-to-server-replication"></a>步骤 3：设置服务器到服务器复制
+## <a name="step-3-set-up-server-to-server-replication"></a>步骤 3:设置服务器到服务器复制
 ### <a name="using-windows-admin-center"></a>使用 Windows 管理中心
 
 1. 添加源服务器。

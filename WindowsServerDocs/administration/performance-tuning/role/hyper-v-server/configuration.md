@@ -1,18 +1,18 @@
 ---
 title: Hyper-V 配置
 description: 用于性能优化的 hyper-v 配置注意事项
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c608d3762c45a0b1478bcb3303159feef963291
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f21115265ca7d2788fc0be078860048602d82c0f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866622"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370160"
 ---
 # <a name="hyper-v-configuration"></a>Hyper-V 配置
 
@@ -76,11 +76,11 @@ Hyper-v 发布性能计数器以帮助描述虚拟化服务器的行为，并报
 
 应始终使用 Hyper-v 虚拟机监控程序逻辑处理器性能计数器来度量物理系统的 CPU 使用情况。 根和子分区中的任务管理器和性能监视器报表的 CPU 使用率计数器不反映实际的物理 CPU 使用情况。 使用下列性能计数器来监视性能：
 
-- **Hyper-v 虚拟机监控程序逻辑处理器（\*）\\% 总运行时间总**的逻辑处理器非空闲时间
+- **Hyper-v 虚拟机监控程序逻辑处理器（\*） \\% 总运行时间**逻辑处理器的非空闲时间总计
 
-- **Hyper-v 虚拟机监控程序逻辑处理器（\*）\\% Guest 运行时间**在来宾内或主机内运行周期所用的时间
+- **Hyper-v 虚拟机监控程序逻辑处理器（\*） \\% 来宾运行时间**在来宾内或主机内运行周期所用的时间
 
-- **Hyper-v 虚拟机监控程序逻辑处理器（\*）\\% 监控程序运行时间**在虚拟机监控程序内运行的时间
+- **Hyper-v 虚拟机监控程序逻辑处理器（\*） \\% 监控程序运行时间**在虚拟机监控程序中运行所用的时间
 
 - **Hyper-v 虚拟机监控程序根虚拟处理器（\*）\\\\** * 测量根分区的 CPU 使用率
 

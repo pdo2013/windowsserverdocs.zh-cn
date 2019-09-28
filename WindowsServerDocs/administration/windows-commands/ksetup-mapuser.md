@@ -1,8 +1,8 @@
 ---
-title: ksetup:mapuser
-description: 'Windows 命令主题 * * *- '
+title: ksetup： mapuser
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5bc68fe9e8f4cbb9869cb74e4eb20a3400eb56ad
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6b80538999c364e9ed10ca0ed43387f603ac9ad3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437959"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374977"
 ---
-# <a name="ksetupmapuser"></a>ksetup:mapuser
+# <a name="ksetupmapuser"></a>ksetup： mapuser
 
 
 
-映射到帐户的 Kerberos 主体名称。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
+将 Kerberos 主体的名称映射到帐户。 有关如何使用此命令的示例，请参阅[示例](#BKMK_Examples)。
 
 ## <a name="syntax"></a>语法
 
@@ -36,36 +36,36 @@ ksetup /mapuser <Principal> <Account>
 
 |  参数   |                                                   描述                                                   |
 |--------------|-----------------------------------------------------------------------------------------------------------------|
-| \<主体 > |              任何主体; 的完全限定的域名例如， mike@corp.CONTOSO.COM。              |
-|  \<Account>  | 此计算机，如来宾、 域用户或管理员存在任何帐户或安全组名称。 |
+| \<Principal > |              任何主体的完全限定的域名;例如，mike@corp.CONTOSO.COM。              |
+|  \<Account >  | 此计算机上存在的任何帐户或安全组名称，如来宾、域用户或管理员。 |
 
 ## <a name="remarks"></a>备注
 
-一个帐户可以专门标识，如域来宾。 或者，可以使用通配符 （*） 以包括所有帐户。
+可以专门确定帐户，如域来宾。 您也可以使用通配符（*）包含所有帐户。
 
-如果省略了帐户名，则映射会删除指定的主体。
+如果省略帐户名称，则会删除指定主体的映射。
 
-如果它们存在有效的 Kerberos 票证，计算机将仅身份验证的主体的给定领域。
+如果用户提供有效的 Kerberos 票证，则计算机将仅对给定领域的主体进行身份验证。
 
-使用**ksetup**而无需任何参数或参数，以查看当前映射设置和默认领域。
+使用不带任何参数或参数的**ksetup**查看当前映射的设置和默认领域。
 
-每当对外部密钥分发中心 (KDC) 和领域配置进行了更改，更改了设置的重新启动是计算机的必需的。
+每当对外部密钥发行中心（KDC）和领域配置进行更改时，都需要重新启动更改了设置的计算机。
 
 ## <a name="BKMK_Examples"></a>示例
 
-在 Kerberos 领域 CONTOSO Mike Danseglio 的帐户映射到此计算机上，他授予内置的来宾帐户的成员的所有权限而无需对此计算机进行身份验证的来宾帐户：
+将你的 Kerberos 领域中的 Mike Danseglio 的帐户映射到此计算机上的来宾帐户，向他授予内置来宾帐户成员的所有权限，而无需对此计算机进行身份验证：
 ```
 ksetup /mapuser mike@corp.CONTOSO.COM guest
 ```
-删除以防止与他联系到他的凭据与此计算机将从 CONTOSO 的进行身份验证此计算机上的来宾帐户到 Mike Danseglio 的帐户的映射：
+删除 Mike Danseglio 的帐户到此计算机上的来宾帐户的映射，以防止他通过 CONTOSO 提供的凭据对此计算机进行身份验证：
 ```
 ksetup /mapuser mike@corp.CONTOSO.COM 
 ```
-将 CONTOSO Kerberos 领域内的 Mike Danseglio 的帐户映射到此计算机上的任何现有帐户。 （如果只有标准用户和来宾帐户处于活动状态在此计算机上，Mike 的权限将设置为那些）：
+将 CONTOSO Kerberos 领域内的 Mike Danseglio 的帐户映射到此计算机上的任何现有帐户。 （如果此计算机上只有标准用户和来宾帐户处于活动状态，则 Mike 的权限将设置为这些帐户）：
 ```
 ksetup /mapuser mike@corp.CONTOSO.COM *
 ```
-将 CONTOSO Kerberos 领域中的所有帐户都映射到此计算机上具有相同名称的任何现有帐户：
+将 CONTOSO Kerberos 领域内的所有帐户映射到此计算机上任何同名的现有帐户：
 ```
 ksetup /mapuser * *
 ```

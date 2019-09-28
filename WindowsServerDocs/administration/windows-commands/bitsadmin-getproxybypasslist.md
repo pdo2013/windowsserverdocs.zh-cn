@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getproxybypasslist
-description: Windows 命令主题**bitsadmin getproxybypasslist** -检索指定的作业代理跳过列表。
+description: 适用于**bitsadmin getproxybypasslist**的 Windows 命令主题-检索指定作业的代理跳过列表。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 020b8fc0019eb103a0e469258be8705b80dd45de
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 87cc131402707eac40329750e98218ec52083b94
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854108"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381419"
 ---
 # <a name="bitsadmin-getproxybypasslist"></a>bitsadmin getproxybypasslist
 
-检索指定的作业代理跳过列表。
+检索指定作业的代理跳过列表。
 
 ## <a name="syntax"></a>语法
 
@@ -38,15 +38,15 @@ bitsadmin /GetProxyBypassList <Job>
 
 ## <a name="remarks"></a>备注
 
-跳过列表包含的主机名或 IP 地址和 / 或，不会通过代理路由。 列表可以包含"\<本地 >"来指代同一 LAN 上的所有服务器。 该列表可以为以分号或空格分隔。
+旁路列表包含不是通过代理路由的主机名或 IP 地址。 此列表可以包含 "\<local >" 以引用同一 LAN 上的所有服务器。 列表可以用分号或空格分隔。
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例检索名为的作业代理跳过列表*myDownloadJob*。
+下面的示例检索名为*myDownloadJob*的作业的代理跳过列表。
 ```
 C:\>bitsadmin /GetProxyBypassList myDownloadJob
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

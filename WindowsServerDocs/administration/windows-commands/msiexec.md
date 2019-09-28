@@ -1,8 +1,8 @@
 ---
 title: msiexec
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 59bea5f646bc04e529851f583ad7c4c7b16d44f5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 21ea9fdb50aa6b142274b814a38c43d93bc635c0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846288"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373425"
 ---
 # <a name="msiexec"></a>msiexec
 
@@ -26,6 +26,6 @@ ms.locfileid: "59846288"
 
 ## <a name="msiexec"></a>Msiexec
 
-提供了安装、 修改和从命令行执行 Windows 安装程序操作的方法。
+提供从命令行对 Windows Installer 进行安装、修改和执行操作的方法。
 
-有关语法和有关如何使用此命令的示例中，请参阅[Msiexec](https://go.microsoft.com/fwlink/?LinkId=94329)。
+有关如何使用此命令的语法和示例，请参阅[Msiexec](https://go.microsoft.com/fwlink/?LinkId=94329)。

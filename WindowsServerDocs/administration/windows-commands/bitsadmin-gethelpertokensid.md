@@ -1,8 +1,8 @@
 ---
 title: bitsadmin gethelpertokensid
-description: Windows 命令主题**bitsadmin gethelpertokensid** -如果已设置返回的 BITS 传输作业帮助程序令牌的 SID。
+description: 适用于**bitsadmin gethelpertokensid**的 Windows 命令主题-返回 BITS 传输作业的帮助程序令牌的 SID （如果已设置）。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -12,18 +12,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 1a956357b786c1d151f1363dacf78dbced137a2e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a8c2a9f319defd8ac9acd36063ee079c24ad8ae0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874658"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381591"
 ---
 # <a name="bitsadmin-gethelpertokensid"></a>bitsadmin gethelpertokensid
 
-返回的 BITS 传输作业的 SID [帮助器令牌](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs)，如果已设置。
+返回 BITS 传输作业的 [帮助程序令牌](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs)的 SID （如果已设置）。
 
-**BITS 3.0 及更早版本**: 不支持。
+**BITS 3.0 及更早版本**： 不受支持。
 
 ## <a name="syntax"></a>语法
 
@@ -39,4 +39,4 @@ bitsadmin /GetHelperTokensID <Job>
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

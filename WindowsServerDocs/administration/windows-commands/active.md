@@ -1,8 +1,8 @@
 ---
 title: active
-description: Windows 命令主题**active** -基本磁盘上将标记为活动状态的选中的分区。
+description: Windows 命令主题对于**活动**的基本磁盘，将焦点标记为活动分区。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3a039e0200fb84d446739ac7017556b6c302f4af
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c926bf9b7a583cf7eaa23166e09e6f0a1599e625
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868758"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382846"
 ---
 # <a name="active"></a>active
 
 
 
-在基本磁盘上将标记为活动状态的选中的分区。
+在基本磁盘上，将具有焦点的分区标记为活动分区。
 
 > [!CAUTION]
-> DiskPart 仅验证分区才可以包含操作系统启动文件。 DiskPart 不检查分区的内容。 如果错误地标记为活动分区，并且它不包含操作系统启动文件，计算机可能无法启动。
+> DiskPart 只验证分区是否能够包含操作系统启动文件。 DiskPart 不检查分区的内容。 如果错误地将某个分区标记为活动，并且它不包含操作系统启动文件，则您的计算机可能无法启动。
 
 ## <a name="syntax"></a>语法
 
@@ -37,13 +37,13 @@ active
 
 ## <a name="remarks"></a>备注
 
--   这会通知的基本输入/输出系统 (BIOS) 或可扩展固件接口 (EFI) 的分区或卷是有效的系统分区或系统卷。
--   只有分区才可以将标记为活动状态。
--   若要成功执行此操作，必须选择分区。 使用**选择分区**命令选择分区，并将焦点移到它。
+-   这会通知基本输入/输出系统（BIOS）或可扩展固件接口（EFI）分区或卷是有效的系统分区或系统卷。
+-   只能将分区标记为活动分区。
+-   必须选择分区，此操作才能成功。 使用 "**选择分区**" 命令可选择分区，并将焦点移动到该分区。
 
 ## <a name="BKMK_examples"></a>示例
 
-若要将标记为活动分区选中的分区，请键入：
+若要将具有焦点的分区标记为活动分区，请键入：
 ```
 active
 ```

@@ -1,7 +1,7 @@
 ---
 ms.assetid: f2eefaaf-2817-4ac7-abac-d2b65fa971dc
-title: Fsutil 事务
-ms.prod: windows-server-threshold
+title: Fsutil transaction
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,17 +9,17 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: c225c99919a2558559b1ec7a47b61d716e199a73
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 286660baad699e21abe751a9cb956b1ac7613e80
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438998"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376857"
 ---
-# <a name="fsutil-transaction"></a>Fsutil 事务
->适用于：Windows Server （半年频道）、 Windows Server 2016 中，Windows 10、 Windows Server 2012 R2、 Windows 8.1、 Windows Server 2012 中，Windows 8、 Windows Server 2008 R2、 Windows 7，Windows 2008 中，Windows Vista
+# <a name="fsutil-transaction"></a>Fsutil transaction
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows 10，Windows Server 2012 R2，Windows 8.1，Windows Server 2012，Windows 8，Windows Server 2008 R2，Windows 7，Windows 2008，Windows Vista
 
-管理 NTFS 的事务。
+管理 NTFS 事务。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -37,13 +37,13 @@ fsutil transaction [rollback] <GUID>
 
 | 参数  |                                                                                                                                                     描述                                                                                                                                                     |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   提交   |                                                                                                                      将成功的隐式或显式指定事务的结束标记。                                                                                                                      |
+|   立即   |                                                                                                                      标记成功的隐式或显式指定的事务的结束。                                                                                                                      |
 |   <GUID>   |                                                                                                                               指定表示事务的 GUID 值。                                                                                                                               |
-|  fileinfo  |                                                                                                                              显示指定的文件的事务信息。                                                                                                                               |
+|  fileinfo  |                                                                                                                              显示指定文件的事务信息。                                                                                                                               |
 | <Filename> |                                                                                                                                         指定完整路径和文件名。                                                                                                                                          |
-|    列表    |                                                                                                                                 显示当前正在运行的事务的列表。                                                                                                                                  |
-|   查询    | 显示指定的事务的信息。<br /><br />-如果**fsutil 事务查询文件**指定，则将仅为指定的事务显示文件信息。<br />-如果**fsutil 事务查询所有**指定，将显示该事务的所有信息。 |
-|  回滚  |                                                                                                                                指定的事务回滚到开始。                                                                                                                                 |
+|    list    |                                                                                                                                 显示当前正在运行的事务的列表。                                                                                                                                  |
+|   query    | 显示指定事务的信息。<br /><br />-如果指定了**fsutil transaction Query Files** ，将仅为指定的事务显示文件信息。<br />-如果指定了**fsutil transaction Query all** ，则将显示该事务的所有信息。 |
+|  回退  |                                                                                                                                将指定的事务回滚到开始处。                                                                                                                                 |
 
 ### <a name="remarks"></a>备注
 

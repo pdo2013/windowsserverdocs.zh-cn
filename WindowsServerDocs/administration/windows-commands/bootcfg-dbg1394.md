@@ -1,8 +1,8 @@
 ---
 title: bootcfg dbg1394
-description: Windows 命令主题**bootcfg dbg1394** -配置 1394年调试指定的操作系统条目的端口
+description: 适用于**bootcfg dbg1394**的 Windows 命令主题-为指定的操作系统条目配置1394端口调试
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 85a554e25d1553ea4cd9415bb180df4751966926
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8550871c60343fdc6d797f3f81729c24270400b4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434842"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380086"
 ---
 # <a name="bootcfg-dbg1394"></a>bootcfg dbg1394
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-配置指定的操作系统项的 1394年端口调试。
+为指定的操作系统项配置1394端口调试。
 
 ## <a name="syntax"></a>语法
 ```
@@ -34,16 +34,16 @@ bootcfg /dbg1394 {ON | OFF}[/s <computer> [/u <Domain>\<User> /p <Password>]] [/
 
 |      参数       |                                                                                                                                           描述                                                                                                                                            |
 |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   {ON &#124; OFF}    | 指定用于 1394年调试端口的值。<br /><br />-   **ON** -启用远程调试的支持情况 /dbg1394 选项添加到指定<OSEntryLineNum>。<br />-   **关闭**-通过从指定删除 /dbg1394 选项来禁用远程调试支持<OSEntryLineNum>。 |
-|    /s <computer>     |                                                                                        指定的名称或远程计算机的 IP 地址 （不使用反斜杠）。 默认值为本地计算机。                                                                                        |
-| /u <Domain>\\<User>  |                                               使用指定的用户帐户权限运行命令<User>或<Domain> \\ <User>。 默认值为当前登录的用户发出命令的计算机上的权限。                                               |
-|    /p <Password>     |                                                                                                      指定在指定的用户帐户的密码 **/u**参数。                                                                                                       |
-|     /ch 通道      |                                                           指定要用于调试的通道。 有效值为 1 到 64 之间的整数。 不要使用 **/ch** <Channel>参数如果 1394年端口调试被禁用。                                                           |
-| /id <OSEntryLineNum> |                                  1394 端口调试选项会添加到其中的 Boot.ini 文件的 [操作系统] 部分中指定的操作系统条目行号。 [操作系统] 部分标头后的第一行是 1。                                  |
+|   {ON &#124; OFF}    | 指定1394端口调试的值。<br /><br />-   **打开**-通过将/dbg1394 选项添加到指定的 <OSEntryLineNum> 来启用远程调试支持。<br />-   **OFF** -禁用远程调试支持，方法是从指定的 <OSEntryLineNum> 中删除/dbg1394 选项。 |
+|    /s <computer>     |                                                                                        指定远程计算机的名称或 IP 地址（不使用反斜杠）。 默认值为本地计算机。                                                                                        |
+| /u <Domain> @ no__t-1 @ no__t-2  |                                               使用 <User> 或 <Domain> @ no__t-2 @ no__t）指定的用户的帐户权限运行命令。 默认为发出命令的计算机上当前登录用户的权限。                                               |
+|    /p <Password>     |                                                                                                      指定在 **/u**参数中指定的用户帐户的密码。                                                                                                       |
+|     /ch 通道      |                                                           指定用于调试的通道。 有效值为1到64之间的整数。 如果正在禁用1394端口调试，请不要使用 **/ch** <Channel> 参数。                                                           |
+| /id <OSEntryLineNum> |                                  指定 Boot.ini 文件的 [操作系统] 部分中添加了1394端口调试选项的操作系统条目行号。 [操作系统] 部分标题后面的第一行是1。                                  |
 |          /?          |                                                                                                                               在命令提示符下显示帮助。                                                                                                                               |
 
 ## <a name="BKMK_examples"></a>示例
-下面的示例演示如何使用**bootcfg /dbg1394**命令：
+下面的示例演示如何使用**bootcfg/dbg1394**命令：
 ```
 bootcfg /dbg1394 /id 2 
 bootcfg /dbg1394 on /ch 1 /id 3 

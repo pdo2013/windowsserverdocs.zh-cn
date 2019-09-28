@@ -1,8 +1,8 @@
 ---
 title: fondue
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bcbbbf80f25f77d1feb83f358401e4d14da3d354
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d75d2d9fb57f8888cfc5bf50e2f7796aefc66102
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439221"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377086"
 ---
 # <a name="fondue"></a>fondue
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-通过从 Windows 更新或另一个组策略所指定的源下载所需的文件来启用 Windows 可选功能。 在 Windows 映像中必须已安装功能的清单文件。 
+通过从 Windows 更新或组策略指定的其他源下载所需的文件来启用 Windows 可选功能。 此功能的清单文件必须已安装在 Windows 映像中。 
 ## <a name="syntax"></a>语法
 ```
 fondue.exe /enable-feature:<feature_name> [/caller-name:<program_name>] [/hide-ux:{all | rebootRequest}]
@@ -33,20 +33,20 @@ fondue.exe /enable-feature:<feature_name> [/caller-name:<program_name>] [/hide-u
 
 |              参数              |                                                                                                                                                                     描述                                                                                                                                                                     |
 |-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  /enable-feature: <*feature_name*>   |                                                                               指定你想要启用 Windows 可选功能的名称。 仅可以启用每个命令行的一个功能。 若要启用多个功能，请为每个功能使用 fondue.exe。                                                                                |
-|    /caller-name: <*program_name*>    |                                                                                 从脚本或批处理文件调用 fondue.exe 时指定的程序或进程名称。 此选项可用于将程序名称添加到 SQM 报告，如果出现错误。                                                                                 |
-| /hide-ux:{all &#124; rebootRequest} | 使用**所有**隐藏给包括进度和权限请求，若要访问 Windows 更新用户的所有消息。 如果权限是必需的则操作将失败。<br /><br />使用**rebootRequest**仅隐藏用户消息询问权限重新启动计算机。 如果您有一个脚本控件重新启动请求，请使用此选项。 |
+|  /enable-feature： <*feature_name*>   |                                                                               指定要启用的 Windows 可选功能的名称。 每个命令行只能启用一项功能。 若要启用多个功能，请使用每个功能的 fondue。                                                                                |
+|    /caller-name： <*program_name*>    |                                                                                 从脚本或批处理文件中调用 fondue 时，指定程序或进程的名称。 如果出现错误，则可以使用此选项将程序名称添加到 SQM 报表中。                                                                                 |
+| /hide-ux： {all &#124; rebootRequest} | 使用 "**全部**" 可向用户隐藏所有消息，包括访问 Windows 更新的进度和权限请求。 如果权限是必需的，则操作将失败。<br /><br />使用**rebootRequest**仅隐藏要求重新启动计算机的权限的用户消息。 如果你有控制重新启动请求的脚本，请使用此选项。 |
 
 ## <a name="BKMK_Examples"></a>示例
-若要启用 Microsoft.NET Framework 3.5，请键入：
+若要启用 Microsoft .NET Framework 3.5，请键入：
 ```
 fondue.exe /enable-feature:NETFX3
 ```
-若要启用 Microsoft.NET Framework 3.5，程序名称添加到 SQM 报告，并显示消息给用户，类型：
+若要启用 Microsoft .NET Framework 3.5，请将程序名称添加到 SQM 报表，而不向用户显示消息，请键入：
 ```
 fondue.exe /enable-feature:NETFX3 /caller-name:Admin.bat /hide-ux:all
 ```
 ## <a name="additional-references"></a>其他参考
 - [命令行语法项](command-line-syntax-key.md)
   ## <a name="see-also"></a>请参阅
-  [Microsoft.NET Framework 3.5 部署注意事项](https://go.microsoft.com/fwlink/?LinkId=248869)
+  [Microsoft .NET Framework 3.5 部署注意事项](https://go.microsoft.com/fwlink/?LinkId=248869)

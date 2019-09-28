@@ -1,8 +1,8 @@
 ---
 title: lodctr
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b67c11b24013adb911309ab2ea9bdbfdfc3408da
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 96a2818110b766071eb83822abd34d8c0d00132d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437891"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374571"
 ---
 # <a name="lodctr"></a>lodctr
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-允许你进行注册，或在文件中保存性能计数器名称和注册表设置和指定受信任的服务。
+允许你将性能计数器名称和注册表设置注册或保存到文件中，并指定受信任的服务。
 ## <a name="syntax"></a>语法
 ```
 lodctr <filename> [/s:<filename>] [/r:<filename>] [/t:<servicename>]
@@ -33,17 +33,17 @@ lodctr <filename> [/s:<filename>] [/r:<filename>] [/t:<servicename>]
 
 |    参数     |                                                                                                                                         描述                                                                                                                                          |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    <filename>    |                                                                                          注册性能计数器名称设置和初始化文件的文件名中提供的说明文字。                                                                                          |
-|  /s:<filename>   |                                                                                                       保存性能计数器注册表设置，然后到文件说明文字<filename>。                                                                                                       |
-|        /r        |                                从当前注册表设置和缓存的性能与注册表相关的文件还原计数器注册表设置和说明文字。<br /><br />此选项是仅在 Windows Server 2003 操作系统中可用。                                |
-|  /r:<filename>   | 还原性能计数器注册表设置，然后从文件说明文字<filename>。 **警告：** 如果您使用**lodctr /r**命令时，将覆盖所有性能计数器注册表设置，并说明文字，它们替换为指定的文件中定义的配置。 |
-| /t:<servicename> |                                                                                                                       指示该服务<servicename>是受信任。                                                                                                                       |
+|    <filename>    |                                                                                          注册性能计数器名称设置，并说明初始化文件文件名中提供的文本。                                                                                          |
+|  /s： <filename>   |                                                                                                       将性能计数器注册表设置和说明文本保存到文件 <filename>。                                                                                                       |
+|        /r        |                                还原计数器注册表设置，并说明与注册表相关的当前注册表设置和缓存性能文件中的文本。<br /><br />此选项仅在 Windows Server 2003 操作系统中可用。                                |
+|  /r： <filename>   | 还原性能计数器注册表设置并说明文件 <filename> 中的文本。 **警告：** 如果你使用**lodctr/r**命令，你将覆盖所有性能计数器注册表设置并说明文本，并将其替换为指定文件中定义的配置。 |
+| /t： <servicename> |                                                                                                                       指示服务 <servicename> 受信任。                                                                                                                       |
 |        /?        |                                                                                                                             在命令提示符下显示帮助。                                                                                                                             |
 
 ## <a name="remarks"></a>备注
-如果你提供的信息包含空格，使用文本周围的引号 (例如，"<filename>")。
+如果提供的信息包含空格，请使用引号将文本括起来（例如，"<filename>"）。
 ## <a name="BKMK_Examples"></a>示例
-若要保存当前性能注册表设置和应对文件的说明文字**perf backup1.txt**:
+若要将当前性能注册表设置和计数器说明文本保存到文件**性能备份 1**，请执行以下操作：
 ```
 lodctr /s:"perf backup1.txt"
 ```

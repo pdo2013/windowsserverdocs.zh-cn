@@ -1,8 +1,8 @@
 ---
-title: 使用添加 AllDriverPackages 子命令
-description: 'Windows 命令主题 * * *- '
+title: 使用 AllDriverPackages 子命令
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3f934d8c65da939fb60c564b375699f411b7c9ac
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d8290a95dd53718b200d10b6804d312abe95e257
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440832"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363887"
 ---
-# <a name="using-the-add-alldriverpackages-subcommand"></a>使用添加 AllDriverPackages 子命令
+# <a name="using-the-add-alldriverpackages-subcommand"></a>使用 AllDriverPackages 子命令
 
 
 
-将添加到服务器的文件夹中存储的所有驱动程序包。
+将文件夹中存储的所有驱动程序包添加到服务器。
 
 ## <a name="syntax"></a>语法
 
@@ -36,14 +36,14 @@ WDSUTIL /Add-AllDriverPackages /FolderPath:<Folder Path> [/Server:<Server name>]
 
 |          参数           |                                                              描述                                                              |
 |------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-|  / FolderPath:\<文件夹路径 >  |                      指定包含驱动程序包的.inf 文件的文件夹的完整路径。                      |
-|   [/ 服务器：\<服务器名称 >]   | 指定的服务器的名称。 这可以是 NetBIOS 名称或 FQDN。 如果指定没有服务器名称，则使用本地服务器。 |
-|     [/ 体系结构: {x86      |                                                                 ia64                                                                  |
-| [/ DriverGroup:\<组名称 >] |                             指定可向其添加包的驱动程序组的名称。                             |
+|  /FolderPath： @no__t 0Folder 路径 >  |                      指定包含驱动程序包 .inf 文件的文件夹的完整路径。                      |
+|   [/Server： @no__t 名称 >]   | 指定服务器的名称。 此名称可以是 NetBIOS 名称或 FQDN。 如果未指定服务器名称，则使用本地服务器。 |
+|     [/Architecture： {x86      |                                                                 ia64                                                                  |
+| [/DriverGroup： \<Group Name >] |                             指定应将包添加到其中的驱动程序组的名称。                             |
 
 ## <a name="BKMK_examples"></a>示例
 
-若要添加驱动程序包，请键入以下项之一：
+若要添加驱动程序包，请键入下列内容之一：
 ```
 WDSUTIL /verbose /Add-AllDriverPackages /FolderPath:"C:\Temp\Drivers" /Architecture:x86
 ```
@@ -55,4 +55,4 @@ WDSUTIL /Add-AllDriverPackages /FolderPath:"C:\Temp\Drivers\Printers" /DriverGro
 
 [命令行语法项](command-line-syntax-key.md)
 
-[Add-WdsDriverPackage](https://technet.microsoft.com/library/dn283440.aspx)
+[WdsDriverPackage](https://technet.microsoft.com/library/dn283440.aspx)

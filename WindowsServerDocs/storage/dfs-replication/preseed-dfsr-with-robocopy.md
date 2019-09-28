@@ -1,19 +1,19 @@
 ---
 title: 使用 Robocopy 为 DFS 复制预先播种文件
 description: 如何使用 Robocopy 为 DFS 复制预先播种文件。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4a0cad3c685c8609784c7096fe31d55294712c2e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ea5cd954dde6d4fa8fcaa7874f75cb9588115ab1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871976"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402128"
 ---
 # <a name="use-robocopy-to-preseed-files-for-dfs-replication"></a>使用 Robocopy 为 DFS 复制预先播种文件
 
@@ -47,7 +47,7 @@ Windows Server 附带了 Robocopy （稳健文件复制）命令行实用程序�
 
 - 在源服务器上，可以选择安装 "进程监视器" 或 "进程资源管理器"，您可以使用它来检查正在锁定文件的应用程序。 有关下载信息，请参阅[进程监视器](https://docs.microsoft.com/sysinternals/downloads/procmon)和[进程资源管理器](https://docs.microsoft.com/sysinternals/downloads/process-explorer)。
 
-## <a name="step-1-download-and-install-the-latest-version-of-robocopy"></a>步骤 1：下载并安装最新版本的 Robocopy
+## <a name="step-1-download-and-install-the-latest-version-of-robocopy"></a>第 1 步：下载并安装最新版本的 Robocopy
 
 在使用 Robocopy 预先播种文件之前，应下载并安装**Robocopy**的最新版本。 这可确保 DFS 复制由于 Robocopy 发货版本中的问题而不会跳过文件。
 
@@ -78,7 +78,7 @@ Windows Server 附带了 Robocopy （稳健文件复制）命令行实用程序�
 |用户远程打开共享上的文件。|员工连接到标准文件服务器，并编辑文档、多媒体内容或其他文件。 有时称为传统主文件夹或共享数据工作负荷。|仅在非工作时间的非高峰时间执行 Robocopy 操作。 这会最大程度地减少种子期间 Robocopy 必须跳过的文件数。<br><br>请考虑在将使用 Windows PowerShell **SmbShareAccess**和**SmbSession** cmdlet 复制的文件共享上暂时设置只读访问权限。 如果为公用组（如 Everyone 或经过身份验证的用户）设置权限来读取，则标准用户可能不太可能使用独占锁定打开文件（如果在打开文件时其应用程序检测到只读访问权限）。<br><br>你还可以考虑将 SMB 端口445入站的临时防火墙规则设置为该服务器，以阻止对文件的访问或使用**SmbShareAccess** cmdlet。 但是，这两种方法都对用户操作有中断。|
 |应用程序在本地打开文件。|在文件服务器上运行的应用程序工作负荷有时会锁定文件。|临时禁用或卸载正在锁定文件的应用程序。 您可以使用进程监视器或进程资源管理器来确定哪些应用程序正在锁定文件。 若要下载进程监视器或进程资源管理器，请访问[进程监视器](https://docs.microsoft.com/sysinternals/downloads/procmon)和[进程资源管理器](https://docs.microsoft.com/sysinternals/downloads/process-explorer)页。|
 
-## <a name="step-3-copy-the-replicated-files-to-the-destination-server"></a>步骤 3：将复制的文件复制到目标服务器
+## <a name="step-3-copy-the-replicated-files-to-the-destination-server"></a>步骤 3:将复制的文件复制到目标服务器
 
 最大程度地减少要复制的文件的锁定后，可将文件从源服务器预先播种到目标服务器。
 

@@ -1,8 +1,8 @@
 ---
 title: 添加别名
-description: Windows 命令主题**将别名添加**-将别名添加到别名环境。
+description: '**添加别名**的 Windows 命令主题-将别名添加到别名环境。'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 50de932ea0153546816face61f0852a08707ea85
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2834376e497f54eadf1d9077e74f9c398202c5a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862218"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382824"
 ---
 # <a name="add-alias"></a>添加别名
 
 
 
-将别名添加到别名环境。 如果使用不带参数，**将别名添加**在命令提示符下显示的帮助。
+向别名环境添加别名。 如果在没有参数的情况下使用，则 "**添加别名**" 会在命令提示符下显示帮助。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -39,33 +39,33 @@ add alias <AliasName> <AliasValue>
 |参数|描述|
 |---------|-----------|
 |\<AliasName >|指定别名的名称。|
-|\<AliasValue>|指定值的别名值。|
+|\<AliasValue >|指定别名的值。|
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
 
--   别名都保存在元数据文件，并且将会加载与**加载元数据**命令。
+-   别名保存在元数据文件中，并将通过**加载元数据**命令加载。
 
 ## <a name="BKMK_examples"></a>示例
 
-若要列出所有阴影，包括各自的别名，请键入：
+若要列出所有阴影（包括其别名），请键入：
 ```
 list shadows all
 ```
-以下摘录显示了已向其分配的默认别名，VSS_SHADOW_x，卷影副本：
+以下摘录显示了已分配默认别名 VSS_SHADOW_x 的卷影副本：
 ```
 * Shadow Copy ID = {ff47165a-1946-4a0c-b7f4-80f46a309278}
 %VSS_SHADOW_1%
 ```
-若要将新的别名名称系统 1 分配到此卷影副本，请键入：
+若要将名为 System1 的新别名分配到此卷影副本，请键入：
 ```
 add alias System1 %VSS_SHADOW_1%
 ```
-或者，您可以通过使用卷影副本 ID 分配别名：
+或者，您可以使用卷影副本 ID 指定别名：
 ```
 add alias System1 {ff47165a-1946-4a0c-b7f4-80f46a309278}
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

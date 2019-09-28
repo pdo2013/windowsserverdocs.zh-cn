@@ -2,7 +2,7 @@
 title: wbadmin 启用备份
 description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c46a77f905960150c10048bc872aa1ea35e3f335
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: d30136f7eb3ea48b8d9b0a740eb5a77e981ae3f0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868777"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362379"
 ---
 # <a name="wbadmin-enable-backup"></a>wbadmin 启用备份
 

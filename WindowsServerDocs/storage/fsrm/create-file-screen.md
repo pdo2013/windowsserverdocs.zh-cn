@@ -2,22 +2,22 @@
 title: 创建文件屏蔽
 description: 本文介绍如何创建文件屏蔽
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c1f261eb926eca3ead58b87aeb00a5060b9d957c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e049162e7aff449774928d6a1d25cc1116f9aee9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815918"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403156"
 ---
 # <a name="create-a-file-screen"></a>创建文件屏蔽
 
-> 适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
+> 适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2
 
 新建文件屏蔽的时候，你可以选择保存基于你定义的自定义文件屏蔽属性的文件屏蔽模板。 这种操作的优点在于，文件屏蔽和用于创建文件屏蔽的模板之间保留了链接，因此以后模板的更改可应用于派生自该模板的所有文件屏蔽。 此功能通过提供一个可进行所有更新的中心点，简化存储策略更改的实现。
 
@@ -39,7 +39,7 @@ ms.locfileid: "59815918"
 
 7.  在**文件组**下，选择希望包括在文件屏蔽中的所有文件组。 （若要选中文件组复选框，请双击文件组标签。）
 
-    如果你想要查看文件组包括和排除的文件类型，单击文件组标签，然后单击 **编辑**。 若要创建新的文件组，请单击 **创建**。
+    若要查看文件组包含和排除的文件类型，请单击 "文件组" 标签，然后单击 " **编辑**"。 若要创建新的文件组，请单击 " **创建**"。
 
 8.  此外，可以设置**电子邮件消息**、**事件日志**、**命令**和**报告**选项卡上的选项，从而将**文件服务器资源管理器**配置为生成一个或多个通知。 有关文件屏蔽通知选项的详细信息，请参阅[创建文件屏蔽模板](create-file-screen-template.md)。
 
@@ -52,12 +52,12 @@ ms.locfileid: "59815918"
     -   若要保存基于这些自定义属性的模板（推荐），请单击**将自定义属性另存为模板**，然后输入模板名称。 此选项会将模板应用于新文件屏蔽，并且以后可以使用该模板创建其他文件屏蔽。 这将使你以后能通过更新模板来自动更新文件屏蔽。
     -   如果你不希望在保存文件屏蔽的时候保存模板，请单击**保存自定义文件屏蔽，但不创建模板**。
 
-12. 单击 **“确定”**。
+12. 单击 **“确定”** 。
 
 ## <a name="see-also"></a>请参阅
 
 -   [文件屏蔽管理](file-screening-management.md)
--   [定义用于进行筛选的文件组](define-file-groups-for-screening.md)
+-   [定义用于屏蔽的文件组](define-file-groups-for-screening.md)
 -   [创建文件屏蔽模板](create-file-screen-template.md)
 -   [编辑文件屏蔽模板属性](edit-file-screen-template-properties.md)
 

@@ -1,8 +1,8 @@
 ---
 title: help
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 078c779e7813d2aa7499e515d9729edf92452237
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c3d76a71ec287e5c874ae3e4dec34016c5c80336
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438199"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375578"
 ---
 # <a name="help"></a>help
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-在指定的命令显示可用的命令或详细的帮助信息的列表。  
+显示有关指定命令的可用命令或详细帮助信息的列表。  
   
   
   
@@ -38,20 +38,20 @@ help [<command>]
   
 | 参数 |                              描述                              |
 |-----------|-----------------------------------------------------------------------|
-| <command> | 指定要显示其详细的帮助信息的命令。 |
+| <command> | 指定要显示其详细帮助信息的命令。 |
   
 ## <a name="remarks"></a>备注  
   
--   如果未不指定任何命令，**帮助**将显示所有可能的命令。  
+-   如果未指定命令，则 "**帮助**" 将显示所有可能的命令。  
   
 ## <a name="BKMK_examples"></a>示例  
-若要显示的 DiskPart 中可用的所有命令列表，请键入：  
+若要显示 DiskPart 中可用的所有命令的列表，请键入：  
   
 ```  
 help  
 ```  
   
-若要显示有关如何使用详细的帮助信息**创建主分区**类型 DiskPart 命令：  
+若要显示有关如何使用 DiskPart 中的**create partition primary**命令的详细帮助信息，请键入：  
   
 ```  
 help create partition primary  

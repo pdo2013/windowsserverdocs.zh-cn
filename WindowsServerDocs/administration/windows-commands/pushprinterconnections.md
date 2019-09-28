@@ -1,8 +1,8 @@
 ---
 title: pushprinterconnections
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c571d3adffd0e6a28f63f6d821b2524dc055aa9a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fe25a29af34f78ebe161dc0d07c5edf64257f5c2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873718"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371965"
 ---
 # <a name="pushprinterconnections"></a>pushprinterconnections
 
 
 
-读取从组策略部署打印机连接设置并部署/删除打印机连接根据需要。
+从组策略读取已部署的打印机连接设置，并根据需要部署/删除打印机连接。
 
 ## <a name="syntax"></a>语法
 
@@ -36,14 +36,14 @@ pushprinterconnections <-log> <-?>
 
 |参数|描述|
 |---------|-----------|
-|<-log>|将写入每个用户调试日志文件 %temp 或写入到每个对 windir%\temp 机调试日志。|
-|<-?>|在命令提示符下显示帮助。|
+|< 日志 >|将每个用户的调试日志文件写入% temp，或将每个计算机的调试日志写入%windir%\temp|
+|<-？ >|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
 
-此实用程序是在计算机启动或用户登录脚本中使用和不能从命令行运行。
+此实用程序在计算机启动或用户登录脚本中使用，不能从命令行运行。
 
 #### <a name="additional-references"></a>其他参考
 
--   [命令行语法解答](command-line-syntax-key.md)
+-   [命令行语法项](command-line-syntax-key.md)
 -   [使用组策略部署打印机](https://go.microsoft.com/fwlink/?LinkId=230627)

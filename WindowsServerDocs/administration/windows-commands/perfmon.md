@@ -1,8 +1,8 @@
 ---
 title: perfmon
-description: 'Perfmon 的 Windows 命令主题 '
+description: '适用于 perfmon 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/25/2018
-ms.openlocfilehash: 000ed11a0eaae36d158ae7a9f044871d4b18aacc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 52503952f2212f7de00d8e7677925b0123f0bbef
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814578"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372335"
 ---
 # <a name="perfmon"></a>perfmon
 
@@ -34,8 +34,8 @@ perfmon </res|report|rel|sys>
 
 |参数|描述|
 |---------|-----------|
-|/res|启动资源视图。|
-|/report|启动系统诊断数据收集器集并显示结果的报告。|
+|/res|开始资源视图。|
+|/report|启动系统诊断数据收集器集，并显示结果报表。|
 |/rel|启动可靠性监视器。|
 |/sys|启动性能监视器。|
 

@@ -2,22 +2,22 @@
 title: 创建配额
 description: 本文介绍如何创建基于模板的配额
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: f3c677f5ebf7dda44f4b99a64d0fbf8d2c72b92e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6b199d8cc520021fcbbe32397997cc483f9c68cb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883188"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403134"
 ---
 # <a name="create-a-quota"></a>创建配额
 
-> 适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
+> 适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2
 
 可以根据模板或自定义属性创建配额。 以下过程介绍如何创建基于模板的配额（推荐）。 如果需要使用自定义属性创建配额，可以将这些属性另存为模板以待之后重新使用。
 

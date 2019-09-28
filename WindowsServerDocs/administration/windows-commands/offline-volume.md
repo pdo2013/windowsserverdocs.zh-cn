@@ -1,8 +1,8 @@
 ---
 title: 脱机卷
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bd14492a40046472f43f37d79c393c9467fe4a88
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 71e507bde827233ce1f15aacd5e13523236a080e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873738"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372567"
 ---
 # <a name="offline-volume"></a>脱机卷
 
 
 
-具有焦点的联机卷进入脱机状态。
+使具有焦点的联机卷进入脱机状态。
 
 > [!IMPORTANT]
-> 此 DiskPart 命令不可在任何版本的 Windows Vista 中可用。
+> 在任何版本的 Windows Vista 中，此 DiskPart 命令均不可用。
 
 ## <a name="syntax"></a>语法
 
@@ -39,20 +39,20 @@ offline volume [noerr]
 
 |参数|描述|
 |---------|-----------|
-|noerr|仅用于脚本。 当遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，错误会导致 DiskPart 退出，错误代码。|
+|noerr|仅用于脚本编写。 遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，则错误会导致 DiskPart 退出并出现错误代码。|
 
 ## <a name="remarks"></a>备注
 
--   成功实现上述目的，必须选择一个卷。 使用**选择卷**命令选择某一磁盘，并将焦点移到它。
+-   若要成功，必须选择卷。 使用 "**选择卷**" 命令选择磁盘，并将焦点移动到该磁盘。
 
 ## <a name="BKMK_examples"></a>示例
 
-若要将选中的磁盘脱机，请键入：
+若要使具有焦点的磁盘脱机，请键入：
 ```
 offline volume
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)
 

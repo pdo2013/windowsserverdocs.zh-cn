@@ -6,18 +6,18 @@ ms.author: jgerend
 manager: dmoss
 ms.date: 10/16/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.assetid: 1f1215cd-404f-42f2-b55f-3888294d8a1f
-ms.openlocfilehash: 11f0a696fb843f5cd8b4a7ff3318c28d6c1adeb8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0e41d7ae577bf7e9227ff0c02689d916f1008a3d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871338"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403036"
 ---
 # <a name="refs-integrity-streams"></a>ReFS 完整性流
->适用于：Windows Server 2019、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012，Windows Server （半年频道），Windows 10
+>适用于：Windows Server 2019，Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows Server （半年频道），Windows 10
 
 完整性流是 ReFS 中的可选功能，可使用校验和验证和维护数据完整性。 尽管 ReFS 始终将校验和用于元数据，但默认情况下，ReFS 不会生成或验证文件数据的校验和。 完整性流是一项可让用户将校验和用于文件数据的可选功能。 启用完整性流后，ReFS 可以清楚地确定数据有效还是已损坏。 此外，ReFS 和存储空间还可以一起自动更正损坏的元数据和数据。
 
@@ -27,7 +27,7 @@ ms.locfileid: "59871338"
 
 启用完整性流后，ReFS 将在该文件的元数据中创建和保留针对指定文件的校验和。 此校验和支持 ReFS 在访问数据前验证它的完整性。 返回启用了完整性流的任何数据前，ReFS 将首先计算其校验和：
 
-![计算校验和文件数据](media/compute-checksum.gif)
+![计算文件数据的校验和](media/compute-checksum.gif)
 
 然后将此校验和与包含在文件元数据中的校验和进行比较。 如果校验和都匹配，则数据标记为有效并返回给用户。 如果校验和不匹配，则数据损坏。 卷的复原确定 ReFS 响应损坏的方式：
 
@@ -38,7 +38,7 @@ ms.locfileid: "59871338"
 
 ReFS 将在系统事件日志中记录所有损坏，并且日志将反映损坏是否已修复。 
 
-![纠正写还原数据的完整性](media/corrective-write.gif)
+![纠正写入会恢复数据完整性](media/corrective-write.gif)
 
 ## <a name="performance"></a>性能 
 

@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getreplydata
-description: Windows 命令主题**bitsadmin getreplydata** -检索以十六进制格式的服务器的回复数据。
+description: 适用于**bitsadmin getreplydata**的 Windows 命令主题-以十六进制格式检索服务器的答复数据。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 78d70a44d6881568c8d92db145fdf22a260ee8af
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7ebd3ee77e5d442467f49bb209c560f089f2271b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883818"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381276"
 ---
 # <a name="bitsadmin-getreplydata"></a>bitsadmin getreplydata
 
-检索以十六进制格式的服务器的回复数据。
+检索以十六进制格式表示的服务器的答复数据。
 
-**1.2 及更早版本的 BITS**: 不支持。
+**BITS 1.2 及更早版本**： 不受支持。
 
 ## <a name="syntax"></a>语法
 
@@ -40,15 +40,15 @@ bitsadmin /GetReplyData <Job>
 
 ## <a name="remarks"></a>备注
 
-仅对上载-答复作业有效。
+仅对上传-答复作业有效。
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例检索名为的作业的回复数据*myDownloadJob*。
+下面的示例将检索名为*myDownloadJob*的作业的答复数据。
 ```
 C:\>bitsadmin /GetReplyData myDownloadJob
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

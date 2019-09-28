@@ -1,7 +1,7 @@
 ---
 ms.assetid: e5f55f3e-8d2a-4526-8d67-36a539126c22
-title: fsutil 分层
-ms.prod: windows-server-threshold
+title: Fsutil tiering
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,17 +9,17 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: dcb69e4e9c71a723bfd735eb7915472f1232a92b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6863940d69e30f4984897a7e03369a834da21d1d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859248"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376782"
 ---
-# <a name="fsutil-tiering"></a>fsutil 分层
->适用于：Windows Server （半年频道），Windows Server 2016 中，Windows 10
+# <a name="fsutil-tiering"></a>Fsutil tiering
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows 10
 
-使您能够管理存储层功能，如设置和禁用标志和层的列表。
+启用存储层功能的管理，例如设置和禁用层标志和列表。
 
 ## <a name="syntax"></a>语法
 
@@ -35,13 +35,13 @@ fsutil tiering [tierlist] <volume>
 
 |参数|描述|
 |-------------|---------------|
-|clearflags|禁用卷的分层行为标记。|
-|\<volume>|指定的卷。|
-|/TrNH|卷与分层存储，会导致热收集被禁用。<br /><br>仅适用于 NTFS 和 ReFS。|
+|clearflags|禁用卷的分层行为标志。|
+|\<volume >|指定卷。|
+|/TrNH|对于具有分层存储的卷，会使热收集处于禁用状态。<br /><br>仅适用于 NTFS 和 ReFS。|
 |queryflags|查询卷的分层行为标志。|
-|regionlist|列出了分层的区域内的一个卷和其各自的存储层。|
-|setflags|使卷的分层行为标志。|
-|tierlist|列出了与卷关联存储 tieres。|
+|regionlist|列出卷的分层区域及其各自的存储层。|
+|setflags|启用卷的分层行为标志。|
+|tierlist|列出与卷关联的存储 tieres。|
 
 
 ### <a name="examples"></a>示例
@@ -52,7 +52,7 @@ fsutil tiering [tierlist] <volume>
 fsutil tiering clearflags C:
 ```
 
-若要在卷 C 上设置标志，请键入：
+若要设置卷 C 上的标志，请键入：
 
 ```
 fsutil tiering setflags C: /TrNH
@@ -64,13 +64,13 @@ fsutil tiering setflags C: /TrNH
 fsutil tiering clearflags C: /TrNH
 ```
 
-若要列出的卷 C 和其各自的存储层的区域，请键入：
+若要列出第 C 个区域及其各自的存储层，请键入：
 
 ```
 fsutil tiering regionlist C:
 ```
 
-若要列出的卷 C 层，请键入：
+若要列出卷 C 的层，请键入：
 
 ```
 fsutil tiering tierlist C:
@@ -79,7 +79,7 @@ fsutil tiering tierlist C:
 
 
 ### <a name="additional-references"></a>其他参考
-[命令行语法解答](Command-Line-Syntax-Key.md)
+[命令行语法项](Command-Line-Syntax-Key.md)
 
 [Fsutil](Fsutil.md)
 

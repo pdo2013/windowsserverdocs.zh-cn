@@ -7,24 +7,24 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 330214e83b6da5bf711c36995306f8f1a098fa24
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 34d2a15d5ad4f2563beffbce6ae5e729cf72c3ab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192210"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359685"
 ---
 # <a name="deploying-federation-server-proxies"></a>部署联合服务器代理
 
-在 Active Directory 联合身份验证服务\(AD FS\)在 Windows Server 2012 R2 中的联合服务器代理角色处理由一个称为 Web 应用程序代理的新远程访问角色服务。 若要启用从已部署在旧版本的 AD FS，例如 AD FS 2.0 和 Windows Server 2012 中的 AD FS 联合服务器代理的目的在企业网络外部的辅助功能的 AD FS 可以将部署 a 的一个或多个 web 应用程序代理Windows Server 2012 R2 中的 D FS。  
+在 Windows Server 2012 R2 中 Active Directory 联合身份验证服务 @no__t 0AD FS @ no__t-1 中，联合服务器代理的角色由称为 Web 应用程序代理的新远程访问角色服务处理。 若要使你的 AD FS 可以从企业网络外部进行访问（这是在早期版本的 AD FS 中部署联合服务器代理的目的，如 AD FS 2.0 和 Windows Server 2012 中的 AD FS），可以部署一个或多个 web 应用程序代理D FS 在 Windows Server 2012 R2 中。  
   
 在 AD FS 的上下文中，Web 应用程序代理充当 AD FS 联合服务器代理。 除此之外，Web 应用程序代理为企业网络内部的 Web 应用程序提供反向代理功能，使任意设备上的用户都能够从企业网络外部访问这些 Web 应用程序。 有关 Web 应用程序代理角色服务的详细信息，请参阅“Web 应用程序代理概述”。  
   
 若要规划 Web 应用程序代理的部署，可以查看以下主题中的信息：  
   
--   [规划 Web 应用程序代理基础结构 (WAP)](https://technet.microsoft.com/library/dn383648.aspx)  
+-   [规划 Web 应用程序代理基础结构（WAP）](https://technet.microsoft.com/library/dn383648.aspx)  
   
 -   [规划 Web 应用程序代理服务器](https://technet.microsoft.com/library/dn383647.aspx)  
   

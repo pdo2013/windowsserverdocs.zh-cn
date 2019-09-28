@@ -2,7 +2,7 @@
 title: 管理用户访问日志记录记录
 description: 描述如何管理用户访问日志记录
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage-user-access-logging
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c3a172f37d491cb37d897c586312107fe62a4c55
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b209cdb4763d4f30478725aa1ba47f399e9a729f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866243"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382842"
 ---
 # <a name="manage-user-access-logging"></a>管理用户访问日志记录记录
 

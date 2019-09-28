@@ -1,8 +1,8 @@
 ---
 title: auditpol 列表
-description: Windows 命令主题**auditpol 列表**-列表审核策略类别和/或子类别，或定义列表用户为其每个用户审核策略。
+description: 用于**auditpol list**的 Windows 命令主题-列出审核策略类别和/或子类别，或者列出为其定义了每用户审核策略的用户。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 08f524ef0aacd731f709ce7a2e17b3d831da1e5b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 27a89ae18838989b4f2df27d777c1c35249b8991
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858578"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382465"
 ---
 # <a name="auditpol-list"></a>auditpol 列表
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-列表的审核策略类别和/或子类别或为其定义的每个用户审核策略的列表用户。
+列出审核策略类别和/或子类别，或者列出为其定义每用户审核策略的用户。
 
 ## <a name="syntax"></a>语法
 ```
@@ -35,30 +35,30 @@ auditpol /list
 ## <a name="parameters"></a>Parameters
 |参数|描述|
 |-------|--------|
-|/user|检索已为其定义了每个用户的审核策略的所有用户。 如果使用 /v 参数，还会显示用户的安全标识符 (SID)。|
-|/category|显示系统理解的类别的名称。 如果使用 /v 参数，还会显示类别的全局唯一标识符 (GUID)。|
-|/subcategory|显示子类别和关联的 GUID 的名称。|
-|/v|显示类别或子类别，GUID 或当用于 /user，显示每个用户的 SID。|
-|/r|作为以逗号分隔值 (CSV) 格式的报表中显示输出。|
+|/user|检索为其定义了每用户审核策略的所有用户。 如果与/v 参数一起使用，则还会显示用户的安全标识符（SID）。|
+|/category|显示系统理解的类别名称。 如果与/v 参数一起使用，则还会显示类别全局唯一标识符（GUID）。|
+|/subcategory|显示子类别的名称及其关联的 GUID。|
+|/v|显示具有类别或子类别的 GUID，或与/user 一起使用时显示每个用户的 SID。|
+|/r|以逗号分隔值（CSV）格式将输出显示为报表。|
 |/?|在命令提示符下显示帮助。|
 ## <a name="remarks"></a>备注
-对于每个用户策略的所有列表操作，您必须具有读取权限的安全描述符中设置该对象。 此外可以通过拥有执行列表操作**管理审核和安全日志**(SeSecurityPrivilege) 用户权限。 但是，此权限允许其他不需要执行列表操作的访问。
+对于每用户策略的所有列表操作，你必须对安全描述符中的该对象集具有 "读取" 权限。 还可以通过拥有 "**管理审核和安全日志**（SeSecurityPrivilege）" 用户权限来执行列表操作。 但是，此权限允许执行列表操作所不需要的其他访问权限。
 ## <a name="BKMK_examples"></a>示例
-若要列出所有用户都有一个定义的审核策略，请键入：
+若要列出具有定义的审核策略的所有用户，请键入：
 ```
 auditpol /list /user
 ```
-若要列出所有用户都有一个定义的审核策略及其关联的 SID，请键入：
+若要列出具有定义的审核策略及其关联 SID 的所有用户，请键入：
 ```
 auditpol /list /user /v
 ```
-若要列出所有类别和子类别中的报表格式，请键入：
+若要以报表格式列出所有类别和子类别，请键入：
 ```
 auditpol /list /subcategory:* /r
 ```
-若要列出子类别的详细跟踪和 DS 访问类别，请键入：
+若要列出详细跟踪和 DS 访问类别的子类别，请键入：
 ```
 auditpol /list /subcategory:"detailed Tracking","DS Access"
 ```
 #### <a name="additional-references"></a>其他参考
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

@@ -1,7 +1,7 @@
 ---
 title: 解决 vRSS 问题
 description: 如果看不到 vRSS 负载平衡到 VM LPs 的流量，请解决 vRSS 问题。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: ''
@@ -10,12 +10,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/04/2018
-ms.openlocfilehash: 412f24e25f75b390ac6315609705b463548c4345
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 850aa376e8cd0060992573561a0c32af563b88ad
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871810"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405152"
 ---
 ## <a name="resolve-vrss-issues"></a>解决 vRSS 问题
 

@@ -1,8 +1,8 @@
 ---
 title: bitsadmin 示例
-description: 以下示例演示如何使用 bitsadmin 工具执行最常见的任务。
+description: 下面的示例演示如何使用 bitsadmin 工具执行最常见的任务。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,60 +13,60 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/31/2018
-ms.openlocfilehash: a98e1a876c972b0f146ff37aff0a77399b684e99
-ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.openlocfilehash: c675f08752b3464f7ab1eddd4e9fddf3b16db5f4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66308563"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381768"
 ---
 # <a name="bitsadmin-examples"></a>bitsadmin 示例
 
-下面的示例演示如何使用`bitsadmin`工具执行最常见的任务。
+下面的示例演示如何使用 `bitsadmin` 工具执行最常见的任务。
 
-## <a name="transfer-a-file"></a>将文件传输
+## <a name="transfer-a-file"></a>传输文件
 
-**/传输**开关是执行下面列出的任务的快捷方式。 此开关创建作业，可将文件添加到作业，激活的传输队列中的作业，并完成作业。 BITSAdmin 继续在 MS-DOS 窗口中显示进度信息，直到传输完成或发生错误。
+**/Transfer**开关是执行下列任务的快捷方式。 此开关将创建作业，将文件添加到作业，激活传输队列中的作业并完成作业。 在传输完成或发生错误之前，BITSAdmin 会继续在 MS-DOS 窗口中显示进度信息。
 
-**bitsadmin /transfer myDownloadJob /download /priority 正常 `https://downloadsrv/10mb.zip c:\\10mb.zip`**
+**bitsadmin/transfer myDownloadJob/download/priority normal `https://downloadsrv/10mb.zip c:\\10mb.zip`**
 
 ## <a name="create-a-download-job"></a>创建下载作业
 
-使用 **/ 创建**交换机，创建一个名为 myDownloadJob 的下载作业。
+使用 **/create**开关创建名为 myDownloadJob 的下载作业。
 
-**bitsadmin /create myDownloadJob**
+**bitsadmin/create myDownloadJob**
 
-BITSAdmin 返回唯一标识该作业的 GUID。 在后续调用中使用的 GUID 或作业的名称。 以下文本是示例输出。
+BITSAdmin 返回一个用于唯一标识该作业的 GUID。 在后续调用中使用 GUID 或作业名称。 以下文本是示例输出。
 
 ``` syntax
 Created job {C775D194-090F-431F-B5FB-8334D00D1CB6}.
 ```
 
-接下来，使用 **/addfile**开关来将一个或多个文件添加到下载作业。
+接下来，使用 **/addfile**开关将一个或多个文件添加到下载作业。
 
 ## <a name="add-files-to-the-download-job"></a>将文件添加到下载作业
 
-使用 **/addfile**开关来将文件添加到作业。 对于你想要添加每个文件重复此调用。 如果多个作业使用 myDownloadJob 作为它们的名称，必须将 myDownloadJob 替换为要唯一标识作业的作业的 GUID。
+使用 **/addfile**开关将文件添加到作业。 对要添加的每个文件重复此调用。 如果有多个作业使用 myDownloadJob 作为其名称，则必须将 myDownloadJob 替换为作业的 GUID，以唯一标识作业。
 
-**bitsadmin /addfile myDownloadJob https://downloadsrv/10mb.zip c:\\10mb.zip**
+**bitsadmin/addfile myDownloadJob https://downloadsrv/10mb.zip c： \\ 10mb**
 
-若要激活的传输队列中的作业，请使用 **/恢复**切换。
+若要激活传输队列中的作业，请使用 **/resume**开关。
 
 ## <a name="activate-the-download-job"></a>激活下载作业
 
-在创建新的作业时，BITS 将暂停作业。 若要激活的传输队列中的作业，请使用 **/恢复**切换。 如果多个作业使用 myDownloadJob 作为它们的名称，必须将 myDownloadJob 替换为要唯一标识作业的作业的 GUID。
+当你创建新作业时，BITS 会挂起该作业。 若要激活传输队列中的作业，请使用 **/resume**开关。 如果有多个作业使用 myDownloadJob 作为其名称，则必须将 myDownloadJob 替换为作业的 GUID，以唯一标识作业。
 
-**bitsadmin /resume myDownloadJob**
+**bitsadmin/resume myDownloadJob**
 
-若要确定作业的进度，请使用 **/list**， **/info**，或 **/监视**切换。
+若要确定作业的进度，请使用 **/list**、 **/info**或 **/monitor**开关。
 
-## <a name="determine-the-progress-of-the-download-job"></a>确定下载作业进度
+## <a name="determine-the-progress-of-the-download-job"></a>确定下载作业的进度
 
-使用 **/info**开关，用于确定作业的进度。 如果多个作业使用 myDownloadJob 作为它们的名称，必须将 myDownloadJob 替换为要唯一标识作业的作业的 GUID。
+使用 **/info**开关来确定作业的进度。 如果有多个作业使用 myDownloadJob 作为其名称，则必须将 myDownloadJob 替换为作业的 GUID，以唯一标识作业。
 
-**bitsadmin /info myDownloadJob /verbose**
+**bitsadmin/info myDownloadJob/verbose**
 
-**/Info** switch 返回的文件和传输的字节数和作业的状态。 当传输状态时，则 BITS 已成功传输作业中的所有文件。 **/Verbose**自变量提供的作业的完整详细信息。 以下文本是示例输出。
+**/Info**开关返回作业的状态以及传输的文件和字节数。 当传输状态时，BITS 已成功传输作业中的所有文件。 **/Verbose**参数提供作业的完整详细信息。 以下文本是示例输出。
 
 ``` syntax
 GUID: {482FCAF0-74BF-469B-8929-5CCD028C9499} DISPLAY: myDownloadJob
@@ -87,21 +87,21 @@ JOB FILES:
 NOTIFICATION COMMAND LINE: none
 ```
 
-若要接收的传输队列中的所有作业的信息，请使用 **/list**或 **/监视**切换。
+若要接收传输队列中所有作业的信息，请使用 **/list**或 **/monitor**开关。
 
 ## <a name="completing-the-download-job"></a>完成下载作业
 
-传输作业的状态，则 BITS 已成功传输作业中的所有文件。 但是，这些文件之前将不可用您使用 **/ 完成** 切换。 如果多个作业使用 myDownloadJob 作为它们的名称，必须将 myDownloadJob 替换为要唯一标识作业的作业的 GUID。
+传输作业的状态，则 BITS 已成功传输作业中的所有文件。 但是，这些文件之前将不可用您使用 **/ 完成** 切换。 如果有多个作业使用 myDownloadJob 作为其名称，则必须将 myDownloadJob 替换为作业的 GUID，以唯一标识作业。
 
-**bitsadmin /complete myDownloadJob**
+**bitsadmin/complete myDownloadJob**
 
-## <a name="monitoring-jobs-in-the-transfer-queue"></a>在传输队列中监视作业
+## <a name="monitoring-jobs-in-the-transfer-queue"></a>监视传输队列中的作业
 
-使用 **/list**， **/监视**，或 **/info**开关来监视作业的传输队列中。 **/List**交换机提供的队列中的所有作业的信息。
+使用 **/list**、 **/monitor**或 **/info**开关来监视传输队列中的作业。 **/List**开关提供队列中所有作业的信息。
 
-**bitsadmin /list**
+**bitsadmin/list**
 
-**/List** switch 返回的文件和传输队列中的所有作业传输的字节数和作业的状态。 以下文本是示例输出。
+**/List**开关返回作业的状态，以及传输队列中所有作业的文件和字节数。 以下文本是示例输出。
 
 ``` syntax
 {6AF46E48-41D3-453F-B7AF-A694BBC823F7} job1 SUSPENDED 0 / 0 0 / 0
@@ -110,11 +110,11 @@ NOTIFICATION COMMAND LINE: none
 Listed 2 job(s).
 ```
 
-使用 **/监视**开关来监视队列中的所有作业。 **/监视**交换机刷新的数据每隔 5 秒。 若要停止刷新，请输入 CTRL + C。
+使用 **/monitor**开关监视队列中的所有作业。 **/Monitor**开关每隔5秒刷新一次数据。 若要停止刷新，请按 CTRL + C。
 
-**bitsadmin /monitor**
+**bitsadmin/monitor**
 
-**/监视**switch 返回的文件和传输队列中的所有作业传输的字节数和作业的状态。 以下文本是示例输出。
+**/Monitor**开关返回作业的状态，以及传输队列中所有作业的文件和字节数。 以下文本是示例输出。
 
 ``` syntax
 MONITORING BACKGROUND COPY MANAGER(5 second refresh)
@@ -125,9 +125,9 @@ MONITORING BACKGROUND COPY MANAGER(5 second refresh)
 
 ## <a name="deleting-jobs-from-the-transfer-queue"></a>从传输队列中删除作业
 
-使用 **/重置**开关来从传输队列中删除所有作业。
+使用 **/reset**开关从传输队列中删除所有作业。
 
-**bitsadmin /reset**
+**bitsadmin/reset**
 
 以下文本是示例输出。
 

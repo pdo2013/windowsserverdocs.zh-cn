@@ -1,8 +1,8 @@
 ---
 title: endlocal
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3e516b2bf9e8a45ada910dfbd93e3ed5e7d86c14
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 16d2b7b445a2220a10f88f21029948ed10ee96e4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862138"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377575"
 ---
 # <a name="endlocal"></a>endlocal
 
 
 
-结束本地化环境中的更改的批处理文件，并将环境变量为其值还原之前相对应**setlocal**运行命令。
+结束批处理文件中环境更改的本地化，并在运行相应的**setlocal**命令之前将环境变量还原到其值。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -42,16 +42,16 @@ endlocal
 
 ## <a name="remarks"></a>备注
 
--   **Endlocal**命令不起作用外部脚本或批处理文件。
--   没有一种隐式**endlocal**命令末尾的批处理文件。
--   如果启用了命令扩展 （命令扩展会启用默认情况下）， **endlocal**命令将命令扩展 （即，启用或禁用） 的状态还原到前的相应**setlocal**运行命令。
+-   **Endlocal**命令在脚本或批处理文件外不起作用。
+-   批处理文件的末尾有一个隐式**endlocal**命令。
+-   如果启用了命令扩展（默认情况下启用命令扩展）， **endlocal**命令会将命令扩展（即启用或禁用）的状态还原为运行相应的**setlocal**命令之前的状态。
 
 > [!NOTE]
 > 有关启用和禁用命令扩展的详细信息，请参阅[Cmd](cmd.md)。
 
 ## <a name="BKMK_examples"></a>示例
 
-可以本地化的批处理文件中的环境变量。 例如，以下程序在网络上启动 superapp 批处理程序、 将输出定向到一个文件，并在记事本中显示的文件：
+可以在批处理文件中本地化环境变量。 例如，以下程序启动网络上的 superapp 批处理程序，将输出定向到某个文件，并在记事本中显示该文件：
 ```
 @echo off
 setlocal
@@ -63,4 +63,4 @@ start notepad c:\superapp.out
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

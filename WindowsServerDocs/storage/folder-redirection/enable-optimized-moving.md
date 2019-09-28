@@ -1,19 +1,19 @@
 ---
 title: 启用重定向文件夹的优化移动
 description: 如何将重定向文件夹的优化移动到新的文件共享。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: edf6596f7daaa2f496b8b4da36e98ee72b05dfcd
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 6c54fee98247b1ce0aa3ef3a2502cf18f314e763
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867258"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394374"
 ---
 # <a name="enable-optimized-moves-of-redirected-folders"></a>启用重定向文件夹的优化移动
 
@@ -30,7 +30,7 @@ ms.locfileid: "70867258"
 - 必须设置文件夹重定向。 有关详细信息，请参阅[脱机文件部署文件夹重定向](deploy-folder-redirection.md)。
 - 客户端计算机必须运行 Windows 10，Windows 8.1，Windows 8，Windows Server 2019，Windows Server 2016，Windows Server 2012 R2，Windows Server 2012 或 Windows Server （半年频道）。
 
-## <a name="step-1-enable-optimized-move-in-group-policy"></a>步骤 1：启用优化移动组策略
+## <a name="step-1-enable-optimized-move-in-group-policy"></a>第 1 步：启用优化移动组策略
 
 若要优化文件夹重定向数据的重定位，请使用组策略为相应的组策略对象（GPO）启用 "对**文件夹重定向服务器上的脱机文件缓存进行优化" 服务器路径更改策略设置中的 "启用优化内容移动**"。 如果将此策略设置配置为 "**已禁用**" 或 "**未配置**"，将导致客户端将所有文件夹重定向内容复制到新位置，然后在服务器路径更改时从旧位置删除内容。
 

@@ -6,42 +6,42 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 1f3b2e1ce901df1df1a232dfba51c292c8e1c29c
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 785dcad4ac8e03cc59730fb533e30a001569dd63
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192179"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359629"
 ---
 # <a name="deploying-federation-servers"></a>部署联合服务器
 
-若要部署 Active Directory 联合身份验证服务中的联合身份验证服务器\(AD FS\)，完成每个中的任务[核对清单：设置联合身份验证服务器](Checklist--Setting-Up-a-Federation-Server.md)。  
+若要在 Active Directory 联合身份验证服务 \(AD FS @ no__t-1 中部署联合服务器，请完成 [Checklist：设置联合服务器 @ no__t。  
   
 > [!NOTE]  
-> 当使用此清单时，我们建议您先阅读对联合身份验证服务器规划中的引用[Windows Server 2012 中 AD FS 设计指南](https://technet.microsoft.com/library/dd807036.aspx)开始配置服务器的过程之前。 以下清单中这种方式提供更好地了解联合身份验证服务器的设计和部署过程。  
+> 使用此清单时，建议您先阅读[Windows server 2012 的 "AD FS 设计指南](https://technet.microsoft.com/library/dd807036.aspx)" 中的联合服务器规划的引用，然后再开始配置服务器的过程。 按照此方法检查清单，可以更好地了解联合服务器的设计和部署过程。  
   
-## <a name="about-federation-servers"></a>有关联合身份验证服务器  
-联合身份验证服务器是安装的 AD FS 软件与运行 Windows Server 2008 的已配置为充当联合身份验证服务器角色的计算机。 联合身份验证服务器进行身份验证，或从其他组织中的用户帐户和可以位于任意位置在 Internet 的客户端计算机的请求路由。  
+## <a name="about-federation-servers"></a>关于联合服务器  
+联合服务器是运行 Windows Server 2008 的计算机，其中安装的 AD FS 软件已配置为充当联合服务器角色。 联合服务器对来自其他组织中用户帐户的请求进行身份验证或路由，以及从 Internet 上的任何位置访问的客户端计算机。  
   
-在计算机上安装 AD FS 软件，并且使用 AD FS 联合身份验证服务器配置向导以将其配置为联合身份验证服务器角色的行为使该计算机的联合身份验证服务器。 它还使 AD FS 管理管理单元\-中在该计算机上可用**启动\\管理工具\\** 菜单，以便你可以指定以下：  
+在计算机上安装 AD FS 软件并使用 AD FS 联合服务器配置向导为联合服务器角色配置该软件的操作使该计算机成为联合服务器。 它还会在 "**启动 @ no__t-2Administrative Tools @ no__t** " 菜单中使该计算机上的 AD FS 管理 snap @ no__t 0in 可用，以便您可以指定以下内容：  
   
--   AD FS 托管合作伙伴组织和应用程序将在其中发送令牌请求和响应的名称  
+-   合作伙伴组织和应用程序将在其中发送令牌请求和响应的 AD FS 主机名  
   
--   合作伙伴组织和应用程序的 AD FS 标识符将用于标识唯一的名称或你的组织的位置  
+-   合作伙伴组织和应用程序将用于标识组织的唯一名称或位置的 AD FS 标识符  
   
--   令牌\-签名证书的服务器场中的所有联合身份验证服务器将使用到问题并登录令牌  
+-   服务器场中的所有联合服务器将用于颁发和签名令牌的 no__t-0signing 证书  
   
--   有关客户端登录、 注销和帐户伙伴发现，将增强客户端体验的自定义 ASP.NET Web 页面的位置  
+-   自定义的 ASP.NET 网页的位置，用于客户端登录、注销和将提高客户端体验的帐户伙伴发现  
   
     > [!NOTE]  
-    > 这些大部分核心用户界面\(UI\)设置包含在每台联合服务器上的 web.config 文件。 未在 web.config 文件中指定的 AD FS 主机名和 AD FS 标识符值。  
+    > 其中的大多数核心用户界面 \(UI @ no__t 设置都包含在每个联合服务器上的 web.config 文件中。 Web.config 文件中未指定 AD FS 的主机名和 AD FS 标识符值。  
   
-联合服务器承载颁发令牌基于凭据的声明颁发引擎\(例如，用户名和密码\)向其显示。 安全令牌是一个加密签名的数据单元，表示一个或多个声明。 声明是服务器生成的语句\(，名称、 标识、 密钥、 组、 权限或功能\)客户端有关的。 联合身份验证服务器上验证凭据后\(通过在用户登录过程\)，该用户的声明收集通过检查指定的属性存储中存储的用户属性。  
+联合服务器托管声明颁发引擎，该引擎根据凭据 \(for 示例、用户名和密码 @ no__t （提供给它）颁发令牌。 安全令牌是一个表示一个或多个声明的经过加密签名的数据单元。 声明是服务器对客户端进行 @no__t 0for 示例、名称、标识、密钥、组、权限或功能 @ no__t 的一种声明。 在联合服务器上验证凭据之后 @no__t 0through 用户登录过程 @ no__t-1，将通过检查存储在指定属性存储中的用户属性来收集用户的声明。  
   
-在联合 Web 单一\-符号\-上\(SSO\)设计\(AD FS 设计中所涉及两个或多个组织\)，可以通过特定信赖的声明规则修改声明参与方。 声明已内置到发送给资源伙伴组织中的联合身份验证服务器的令牌。 资源伙伴中的联合服务器收到的声明与传入声明后，它将执行声明发出引擎来运行一组声明规则，以便筛选、 传递，或转换这些声明。 然后，声明已内置到发送给资源伙伴中的 Web 服务器的新令牌。  
+在联合 Web 单比 @ no__t-0Sign @ no__t-1On \(SSO @ no__t-3 设计 \(AD FS 设计中，其中有两个或多个组织参与了 @ no__t-5，声明可由特定信赖方的声明规则修改。 声明内置于发送到资源伙伴组织中的联合服务器的令牌中。 资源伙伴中的联合服务器接收声明作为传入声明后，它将执行声明发出引擎，以运行一组声明规则来筛选、传递或转换这些声明。 然后将声明内置于发送到资源伙伴中的 Web 服务器的新令牌中。  
   
-在 Web SSO 设计\(都只有一个组织的 AD FS 设计\)，可以使用单个联合身份验证服务器，以便员工可以登录一次并仍访问多个应用程序。  
+在 Web SSO 设计中 \(an AD FS 设计（其中只有一个组织涉及到 @ no__t），可以使用单个联合服务器，以便员工可以登录一次并仍可访问多个应用程序。  
   

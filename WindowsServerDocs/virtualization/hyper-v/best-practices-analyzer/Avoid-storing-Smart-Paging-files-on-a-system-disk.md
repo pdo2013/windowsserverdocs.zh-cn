@@ -1,7 +1,7 @@
 ---
-title: 避免将存储在系统磁盘上的智能分页文件
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+title: 避免在系统磁盘上存储智能分页文件
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 9b57c9b8-76c5-43c7-bfa6-2c95b3cb6510
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 6abc84b406de7e7c33628ccee4e3af706efe5c70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3ddb662d14545693e26eb680527d93eb65d5d13
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886168"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365238"
 ---
-# <a name="avoid-storing-smart-paging-files-on-a-system-disk"></a>避免将存储在系统磁盘上的智能分页文件
+# <a name="avoid-storing-smart-paging-files-on-a-system-disk"></a>避免在系统磁盘上存储智能分页文件
 
 >适用于：Windows Server 2016
 
@@ -30,18 +30,18 @@ ms.locfileid: "59886168"
 |**Severity**|警告|  
 |**类别**|操作|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的文本。  
+在以下部分中，斜体表示在此问题的最佳做法分析器工具中出现的文本。  
   
 ## <a name="issue"></a>问题  
-*如果虚拟机重新启动时，和智能分页文件的指定的位置是运行 HYPER-V 的服务器的系统磁盘，一个或多个虚拟机的内存配置可能需要使用智能分页。*  
+*如果重新启动虚拟机，并且智能分页文件的指定位置是运行 Hyper-v 的服务器的系统磁盘，则一个或多个虚拟机的内存配置可能需要使用智能分页。*  
   
 ## <a name="impact"></a>影响  
-*智能分页系统磁盘的使用可能会导致运行 HYPER-V 时遇到问题的服务器。这会影响以下虚拟机：*  
+用于智能分页的系统磁盘 @no__t 0Use 可能会导致运行 Hyper-v 的服务器遇到问题。这会影响以下虚拟机： *  
   
-\<虚拟机的列表 >  
+@no__t-虚拟机的 0list >  
   
 ## <a name="resolution"></a>分辨率  
-*重新配置虚拟机存储在非系统磁盘上的智能分页文件。*  
+*重新配置虚拟机，以在非系统磁盘上存储智能分页文件。*  
   
 
 

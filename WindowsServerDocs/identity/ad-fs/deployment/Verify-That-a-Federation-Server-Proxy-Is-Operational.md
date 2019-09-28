@@ -6,37 +6,37 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 26b0ae4f331607d83c6b94a2655ddc9eded8a356
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 24f4fe2a152244dc904be82c4c10abe71abffcc4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191875"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359971"
 ---
 # <a name="verify-that-a-federation-server-proxy-is-operational"></a>验证联合服务器代理是否正常运行
 
 
-可以使用以下过程来验证联合服务器代理可以与 Active Directory 联合身份验证服务中的联合身份验证服务通信\(AD FS\)。 在运行后运行此过程**AD FS 联合服务器代理配置向导**若要将计算机配置为在联合服务器代理角色中运行。 有关如何运行此向导的详细信息，请参阅[将计算机配置为联合服务器代理角色](Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md)。  
+你可以使用以下过程来验证联合服务器代理是否可以与 Active Directory 联合身份验证服务 \(AD FS @ no__t 中的联合身份验证服务进行通信。 运行**AD FS 联合服务器代理配置向导**以将计算机配置为在联合服务器代理角色中运行后，请运行此过程。 有关如何运行此向导的详细信息，请参阅[为联合服务器代理角色配置计算机](Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md)。  
   
 > [!IMPORTANT]  
 > 此测试的结果是在联合服务器代理计算机上的事件查看器中成功地生成了特定事件。  
   
 本地计算机上的 **Administrators** 中的成员身份或等效身份是完成这些过程所需的最低要求。  可在[本地默认组和域默认组](https://go.microsoft.com/fwlink/?LinkId=83477)中查看有关使用适合的帐户和组成员身份的详细信息。   
   
-### <a name="to-verify-that-a-federation-server-proxy-is-operational"></a>若要验证联合服务器代理正常运行  
+### <a name="to-verify-that-a-federation-server-proxy-is-operational"></a>验证联合服务器代理是否正常工作  
   
-1.  登录到联合服务器代理，以管理员身份。  
+1.  以管理员身份登录到联合服务器代理。  
   
-2.  上**启动**屏幕上，键入**事件查看器**，然后按 ENTER。  
+2.  在 "**开始**" 屏幕上，键入**事件查看器**，然后按 enter。  
   
-3.  在详细信息窗格中，双击\-单击**应用程序和服务日志**，双精度型\-单击**AD FS 事件**，然后单击**管理员**。  
+3.  在详细信息窗格中，\-双击 "**应用程序和服务日志**"，双击\-" **AD FS 事件**"，然后单击 "**管理员**"。  
   
-4.  在“事件 ID”  列中，查找事件 ID 198。  
+4.  在“事件 ID”列中，查找事件 ID 198。  
   
-    如果联合服务器代理配置正确，您会看到事件查看器中，与事件 ID 198 的应用程序日志中的新事件。 此事件证实联合服务器代理服务已成功启动且现在处于联机状态。  
+    如果正确配置了联合服务器代理，则会在事件查看器的应用程序日志中看到一个新事件，事件 ID 为198。 此事件验证联合服务器代理服务已成功启动且现在处于联机状态。  
   
 ## <a name="additional-references"></a>其他参考  
 [清单：设置联合服务器代理](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  

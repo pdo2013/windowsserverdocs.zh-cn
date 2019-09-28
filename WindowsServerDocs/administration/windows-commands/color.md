@@ -1,8 +1,8 @@
 ---
 title: color
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5e1ee9b7c1ade184cf17b867b7fce10ab8885f0f
-ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.openlocfilehash: ed792e4626897945e688f1c54767d7680ade6d99
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64771890"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379237"
 ---
 # <a name="color"></a>color
 
 
 
-更改前景色和背景颜色在命令提示符窗口中当前会话。 如果使用不带参数，**颜色**还原默认命令提示符窗口中的前景色和背景颜色。
+更改当前会话的命令提示符窗口中的前景色和背景色。 如果在没有参数的情况下使用，则**color**会还原默认的 "命令提示符" 窗口前景色和背景色。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -38,8 +38,8 @@ color [[<B>]<F>]
 
 |参数|描述|
 |---------|-----------|
-|\<B>|指定背景色。|
-|\<F>|指定前景色。|
+|\<B >|指定背景色。|
+|\<F >|指定前景色。|
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
@@ -51,38 +51,38 @@ color [[<B>]<F>]
 |0|黑色|
 |1|蓝色|
 |2|厚︹|
-|3|浅绿色|
+|3|水|
 |4|红色|
-|5|紫色|
+|5|紫|
 |6|独︹|
 |7|白色|
 |8|灰色|
 |9|浅蓝色|
 |A|浅绿色|
-|B|淡浅绿色|
+|B|浅浅绿色|
 |C|浅红色|
-|D|淡紫色|
-|E|淡黄色|
+|D|浅紫色|
+|E|浅黄色|
 |F|亮白色|
     
--   不使用之间的空格字符*B*并*F*。
--   如果指定只有一个十六进制数字，对应的颜色用作的前景色和背景色设置为默认颜色。
--   若要设置的默认命令提示符窗口颜色，请单击命令提示符窗口的左上角，单击**默认值**，单击**颜色**卡，并单击你想要用于的颜色**屏幕上文本**并**屏幕上背景**。
--   如果*B*并*F*相同，**颜色**命令设置 ERRORLEVEL 为 1，并且为前景色或背景色进行任何更改。
+-   不要在*B*和*F*之间使用空格字符。
+-   如果只指定一个十六进制数字，则将使用相应的颜色作为前景色，并将背景色设置为默认颜色。
+-   若要设置默认的 "命令提示符" 窗口颜色，请单击 "命令提示符" 窗口的左上角，单击 "**默认值**"，单击 "**颜色**" 选项卡，然后单击要用于**屏幕文本**和**屏幕背景的颜色。** .
+-   如果*B*和*F*相同，则**color**命令会将 ERRORLEVEL 设置为1，并且不会对前景或背景色进行任何更改。
 
 ## <a name="BKMK_examples"></a>示例
 
-若要更改的命令提示符窗口背景色为灰色，为红色的前景颜色，请键入：
+若要将 "命令提示符" 窗口的背景色更改为灰色，将前景色更改为红色，请键入：
 ```
 color 84
 ```
-若要更改为淡黄色的命令提示符窗口前景色，请键入：
+若要将 "命令提示符" 窗口前景色更改为浅黄色，请键入：
 ```
 color e
 ```
 
 > [!NOTE]
-> 在此示例中，在后台因为只有一个十六进制数字指定为默认颜色设置。
+> 在此示例中，背景设置为默认颜色，因为只指定了一个十六进制数字。
 
 #### <a name="additional-references"></a>其他参考
 

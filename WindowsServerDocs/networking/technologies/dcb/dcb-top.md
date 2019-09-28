@@ -1,19 +1,19 @@
 ---
 title: 数据中心桥接 (DCB)
 description: 您可以使用本主题获取有关 Windows Server 2016 中的数据中心桥接的介绍性信息。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: da58f312-bd3b-4bb6-98ca-6177869dd6ad
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6446324e23b9f1c87cb28bd76feb6cb493db8253
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 4c4948789be642f7a190a3cb51d7ee05c4a9822b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869759"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405737"
 ---
 # <a name="data-center-bridging-dcb"></a>数据中心桥\(接 DCB\)
 

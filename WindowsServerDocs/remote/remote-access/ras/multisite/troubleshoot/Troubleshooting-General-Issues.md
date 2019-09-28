@@ -1,9 +1,9 @@
 ---
 title: 一般问题疑难解答
-description: 本主题是指南的一部分部署多台远程访问服务器在 Windows Server 2016 中的多站点部署中。
+description: 本主题是在 Windows Server 2016 中的多站点部署中部署多台远程访问服务器指南的一部分。
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,38 +12,38 @@ ms.topic: article
 ms.assetid: 354ae5e3-bae1-44f9-afd7-7eaba70f2346
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 87614ac3b83eaacefb4ac5f9fddef238ed500953
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: a2b8d7decad482ca8756aa4d82baa35abf16f5fe
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282553"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404446"
 ---
 # <a name="troubleshooting-general-issues"></a>一般问题疑难解答
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-本主题包含有关与远程访问相关的常规问题的疑难解答信息。  
+本主题包含与远程访问相关的一般问题的疑难解答信息。  
   
 ## <a name="gpo-retrieval-error"></a>GPO 检索错误  
-**收到错误**。 无法检索 DirectAccess 服务器 GPO 设置。 请确保拥有 gpo 的编辑权限。  
+**接收到错误**。 无法检索 DirectAccess 服务器 GPO 设置。 确保你拥有 GPO 的编辑权限。  
   
-收到此错误后，远程访问管理控制台无响应。  
+远程访问管理控制台在收到此错误后无响应。  
   
 **原因**  
   
-DirectAccess 无法访问 GPO 的部署中的入口点之一，因此无法加载配置。  
+DirectAccess 无法访问部署中某个入口点的 GPO，因此无法加载配置。  
   
 **解决方案**  
   
-请确保部署中的每个入口点在其域控制器上具有相应的 GPO，并验证已登录用户具有读取和写入权限的远程访问部署中配置的所有 Gpo。  
+请确保部署中的每个入口点在其域控制器上都有相应的 GPO，并验证登录用户对在远程访问部署中配置的所有 Gpo 是否拥有读取和写入权限。  
   
-作为一种解决方法，而不是使用远程访问管理控制台; 使用配置 cmdlet例如，使用`Get-RemoteAccess`和`Get-DAEntryPoint`。  
+解决方法是使用配置 cmdlet，而不是使用远程访问管理控制台;例如，使用 @no__t 0 和 @no__t。  
   
 > [!NOTE]  
-> 当前的入口点的服务器 GPO 不可用时，这种情况下不会发生。  
+> 当前入口点的服务器 GPO 不可用时，不会出现这种情况。  
   
-可以使用`Get-DAEntryPointDC`cmdlet 可列出所有存储服务器 Gpo 的域控制器并`Get-DAMultiSite`结合`Get-RemoteAccess`以检索部署中的服务器 Gpo 的完整列表。 例如：  
+你可以使用 `Get-DAEntryPointDC` cmdlet 列出存储服务器 Gpo 的所有域控制器，并将 `Get-DAMultiSite` 与 @no__t 2 一起使用，以便在部署中检索服务器 Gpo 的完整列表。 例如：  
   
 ```  
 $ServerGpos = Get-DAEntryPointDC | ForEach-Object {   
@@ -54,43 +54,43 @@ $ServerGpos = Get-DAEntryPointDC | ForEach-Object {
 $ServerGpos | ForEach-Object { $GpoName = $_['GpoName'] ; $DC = $_['DC'] ; Write-Host "Server GPO '$GpoName' on DC '$DC'" }  
 ```  
   
-## <a name="windows-7-to-windows-8-or-10-client-upgrade"></a>为 Windows 8 的 Windows 7 或 10 客户端升级  
-**症状**。 Windows 7 客户端升级到 Windows 10 或 Windows 8 中的多站点部署后，DirectAccess 连接不是在网络列表中可见的。  
+## <a name="windows-7-to-windows-8-or-10-client-upgrade"></a>Windows 7 到 Windows 8 或10客户端升级  
+**症状**。 Windows 7 客户端在多站点部署中升级到 Windows 10 或 Windows 8 后，DirectAccess 连接在网络列表中不可见。  
   
 **原因**  
   
-Windows 7 Gpo 在多站点部署中不包含 Windows 8 网络连接助手配置。  
+多站点部署中的 Windows 7 Gpo 不包含 Windows 8 网络连接助手配置。  
   
- Windows 7 客户端应使用 DirectAccess 连接助手监视他们需要单独的手动配置 Windows 7 客户端 Gpo 中的 DirectAccess 连接状态。 在 Windows 7 客户端都升级到 Windows 10 或 Windows 8 中，网络连接助手将无法正常如果 Windows 7 客户端 GPO 仍应用。  
+ Windows 7 客户端应使用 DirectAccess 连接助手来监视其 DirectAccess 连接状态，这需要在 Windows 7 客户端 Gpo 中进行单独的手动配置。 当 Windows 7 客户端升级到 Windows 10 或 Windows 8 时，如果仍应用 Windows 7 客户端 GPO，则网络连接助手将无法正常运行。  
   
 **解决方案**  
   
-如果在 Windows 7 Gpo 中配置 DirectAccess 连接助手的设置，可以通过修改 Windows 7 Gpo 使用以下 PowerShell cmdlet 来升级客户端计算机之前解决此问题：  
+如果在 Windows 7 Gpo 中配置了 DirectAccess 连接助手设置，则可以在升级客户端计算机之前使用以下 PowerShell cmdlet 来解决此问题：  
   
 ```  
 Set-GPRegistryValue -Name <Windows7GpoName> -Domain <DomainName> -Key "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkConnectivityAssistant" -ValueName "TemporaryValue" -Type Dword -Value 1  
 Remove-GPRegistryValue -Name <Windows7GpoName> -Domain <DomainName> -Key "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkConnectivityAssistant"  
 ```  
   
-如果已升级客户端或未配置 DCA，将客户端计算机移动到 Windows 10 或 Windows 8 安全组。  
+如果客户端已升级或未配置 DCA，请将客户端计算机移动到 Windows 10 或 Windows 8 安全组。  
   
 ## <a name="general-cmdlet-errors"></a>常规 cmdlet 错误  
   
--   **问题 1**  
+-   **问题1**  
   
-    **收到错误**。 不能为 < 服务器名称或 entry_point_name > 访问域控制器 < 域 _ 控制器 >。  
+    **接收到错误**。 对于 < server_name 或 entry_point_name >，无法访问域控制器 < domain_controller >。  
   
     **原因**  
   
-    要保持多站点部署中的配置一致性，应确保每个 GPO 是由一个单独的域控制器管理的，这一点很重要。 时管理的入口点的服务器 GPO 的域控制器不可用，无法读取或修改远程访问配置设置。  
+    要保持多站点部署中的配置一致性，应确保每个 GPO 是由一个单独的域控制器管理的，这一点很重要。 当管理入口点服务器 GPO 的域控制器不可用时，无法读取或修改远程访问配置设置。  
   
     **解决方案**  
   
-    请按照"若要更改管理服务器 Gpo 的域控制器"中所述的过程[2.4。配置 Gpo](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs)。  
+    按照 [2.4 中所述的过程 "更改管理服务器 Gpo 的域控制器"。配置 Gpo @ no__t。  
   
--   **问题 2**  
+-   **问题2**  
   
-    **收到错误**。 无法访问在 < 域名 > 中的主域控制器。  
+    **接收到错误**。 无法访问域 < domain_name > 中的主域控制器。  
   
     **原因**  
   
@@ -98,7 +98,7 @@ Remove-GPRegistryValue -Name <Windows7GpoName> -Domain <DomainName> -Key "HKEY_L
   
     **解决方案**  
   
-    请按照"若要将 PDC 仿真器角色传输"中所述的过程[2.4。配置 Gpo](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs)。  
+    按照 [2.4 中所述的 "传输 PDC 仿真器角色" 过程进行操作。配置 Gpo @ no__t。  
   
 
 

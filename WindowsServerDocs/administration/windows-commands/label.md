@@ -1,8 +1,8 @@
 ---
 title: label
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d0c68fbbf3ea776bbf6cd49fc4fa446d5dd46542
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e66a2d9a7d28462b287084e3f8b129ffc03800bd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437908"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374789"
 ---
 # <a name="label"></a>label
 
 
 
-创建、 更改或删除磁盘的卷标 （名称）。 如果使用不带参数，**标签**命令更改当前的卷标签或删除现有标签。
+创建、更改或删除磁盘的卷标（即名称）。 如果在没有参数的情况下使用，则 "**标签**" 命令将更改当前卷标签或删除现有标签。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -38,39 +38,39 @@ label [/mp] [<Volume>] [<Label>]
 
 |参数|描述|
 |---------|-----------|
-|/mp|指定卷应视为装入点或卷名称。|
-|\<卷 >|指定 （后跟一个冒号） 的驱动器号，装入点或卷名称。 如果指定卷名称，则 **/mp**则不需要参数。|
-|\<Label>|指定卷的标签。|
+|/mp|指定应将卷视为装入点或卷名。|
+|\<Volume >|指定驱动器号（后跟冒号）、装入点或卷名。 如果指定了卷名称，则不需要 **/mp**参数。|
+|\<Label >|指定卷的标签。|
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
 
-- Windows 显示的卷标和序列号 （如果有的话） 作为目录列表的一部分。
-- NTFS 卷标签可以最多 32 个字符的长度，包括空格。 NTFS 卷标签将保留并显示已创建标签时使用这种情况。
-- 如果未指定的值**标签**参数，**标签**命令采用以下格式显示输出：  
+- Windows 在目录列表中显示卷标和序列号（如果有的话）。
+- NTFS 卷标长度最多可包含32个字符，包括空格。 NTFS 卷标签保留并显示创建标签时使用的大小写。
+- 如果未指定**标签**参数的值，"**标签**" 命令将按以下格式显示输出：  
   ```
   Volume in drive C: xxxxxxxxxxx 
   Volume Serial Number is xxxx-xxxx 
   Volume label (32 characters, ENTER for none)?
   ```  
-  可以键入新的卷标签或按 ENTER 以保留当前标签。 如果按 enter 键，并且卷上当前有一个标签**标签**命令将提示你并显示以下消息：  
+  您可以键入新的卷标签，或按 ENTER 来保留当前标签。 如果按 ENTER 并且卷当前具有标签，则**标签**命令会提示你输入以下消息：  
   ```
   Delete current volume label (Y/N)?
   ```  
-  按 Y 以删除标签，或按 N 若要保留标签。
+  按 Y 删除标签，或按 N 以保留标签。
 
 ## <a name="BKMK_examples"></a>示例
 
-若要标记包含年 7 月的销售信息的驱动器 A 中的磁盘，请键入：
+若要在驱动器 A 中为包含7月销售信息的磁盘添加标签，请键入：
 ```
 label a:sales-july
 ```
-若要删除的驱动器 C 的当前标签，请按照下列步骤：
+若要删除驱动器 C 的当前标签，请执行以下步骤：
 1. 在命令提示符处，键入：  
    ```
    Label
    ```  
-   应显示类似于以下输出：  
+   应显示类似于以下内容的输出：  
    ```
    Volume in drive C: is Main Disk
    Volume Serial Number is 6789-ABCD
@@ -80,7 +80,7 @@ label a:sales-july
    ```
    Delete current volume label (Y/N)?
    ```  
-3. 按 Y 以删除当前标签。
+3. 按 Y 删除当前标签。
 
 #### <a name="additional-references"></a>其他参考
 

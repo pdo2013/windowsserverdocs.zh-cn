@@ -1,7 +1,7 @@
 ---
 title: Hyper-v 上支持的 CentOS 和 Red Hat Enterprise Linux 虚拟机
 description: 列出了支持的 CentOS 和 Red Hat Enterprise 分发版的 Linux integration services 版本
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 ms.technology: compute-hyper-v
 ms.tgt_pltfrm: na
@@ -10,22 +10,22 @@ ms.assetid: 4bf8783d-dee5-4b3e-8cce-2b11b117c189
 author: danihalfin
 ms.author: jopoulso
 ms.date: 06/13/2019
-ms.openlocfilehash: 80273bc0e99a3e70c8c783deae4a3ee42b5a11f0
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 19e22df7ed5e49cdf4047204f1b13b9c4f3450ef
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544723"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365548"
 ---
 # <a name="supported-centos-and-red-hat-enterprise-linux-virtual-machines-on-hyper-v"></a>Hyper-v 上支持的 CentOS 和 Red Hat Enterprise Linux 虚拟机
 
->适用于：Windows Server 2016, Hyper-v Server 2016, Windows Server 2012 R2, Hyper-v Server 2012 R2, Windows Server 2012, Hyper-v Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7.1, Windows 7
+>适用于：Windows Server 2016，Hyper-v Server 2016，Windows Server 2012 R2，Hyper-v Server 2012 R2，Windows Server 2012，Hyper-v Server 2012，Windows Server 2008 R2，Windows 10，Windows 8.1，Windows 8，Windows 7.1，Windows 7
 
 以下功能分发地图指出了在 Linux Integration Services 的内置和可下载版本中提供的功能。 每个分布的已知问题和解决方法列在表之后。
 
-Hyper-v 的内置 Red Hat Enterprise Linux Integration Services 驱动程序 (自 Red Hat Enterprise Linux 6.4 起可用) 足以使 Red Hat Enterprise Linux 来宾使用 Hyper-v 主机上的高性能合成设备运行。这些内置驱动程序由 Red Hat 进行认证以供使用。 可在此 Red Hat 网页上查看经过认证的配置:[Red Hat 证书目录](https://access.redhat.com/ecosystem/search/#/ecosystem/Red%20Hat%20Enterprise%20Linux?sort=sortTitle%20asc&vendors=Microsoft&category=Server)。 从 Microsoft 下载中心下载和安装 Linux Integration Services 软件包并不是必需的, 因此可能会根据 Red Hat 知识库文章1067中所述限制 Red Hat 支持:[Red Hat 知识库 1067](https://access.redhat.com/articles/1067)。
+Hyper-v 的内置 Red Hat Enterprise Linux Integration Services 驱动程序（自 Red Hat Enterprise Linux 6.4 起可用）足以使 Red Hat Enterprise Linux 来宾使用 Hyper-v 主机上的高性能合成设备运行。这些内置驱动程序由 Red Hat 进行认证以供使用。 可在此 Red Hat 网页上查看经过认证的配置：[Red Hat 证书目录](https://access.redhat.com/ecosystem/search/#/ecosystem/Red%20Hat%20Enterprise%20Linux?sort=sortTitle%20asc&vendors=Microsoft&category=Server)。 从 Microsoft 下载中心下载和安装 Linux Integration Services 软件包并不是必需的，因此可能会根据 Red Hat 知识库文章1067中所述限制 Red Hat 支持：[Red Hat 知识库 1067](https://access.redhat.com/articles/1067)。
 
-由于内置的 .LIS 支持与在升级内核时支持的可下载的 .LIS 支持之间可能存在冲突, 因此请禁用自动更新, 卸载 .LIS 可下载的包, 更新内核, 重新启动, 然后安装最新的 .LIS 版本。然后重新启动。
+由于内置的 .LIS 支持与在升级内核时支持的可下载的 .LIS 支持之间可能存在冲突，因此请禁用自动更新，卸载 .LIS 可下载的包，更新内核，重新启动，然后安装最新的 .LIS 版本。然后重新启动。
 
 > [!NOTE]
 > 官方 Red Hat Enterprise Linux 认证信息可通过[Red Hat 客户门户](https://access.redhat.com/ecosystem/search/#/category/Server?sort=sortTitle%20asc&query=windows%20server&ecosystem=Red%20Hat%20Enterprise%20Linux)获得。
@@ -40,15 +40,15 @@ Hyper-v 的内置 Red Hat Enterprise Linux Integration Services 驱动程序 (�
 
 * [RHEL/CentOS 5. x 系列](#rhelcentos-5x-series)
 
-* [注意](#notes)
+* [说明](#notes)
 
 ## <a name="table-legend"></a>表图例
 
-* **内置**的-.lis 作为此 Linux 分发的一部分包含在内。 内置 .LIS 的内核模块版本号 (如**lsmod**所示) 不同于 Microsoft 提供的 .lis 下载包中的版本号。 不匹配不会指示内置的 .LIS 版本已过期。
+* **内置**的-.lis 作为此 Linux 分发的一部分包含在内。 内置 .LIS 的内核模块版本号（如**lsmod**所示）不同于 Microsoft 提供的 .lis 下载包中的版本号。 不匹配不会指示内置的 .LIS 版本已过期。
 
 * &#10004;-可用功能
 
-* (*空白*)-功能不可用
+* （*空白*）-功能不可用
 
 ## <a name="rhelcentos-8x-series"></a>RHEL/CentOS 3.x 系列
 
@@ -67,7 +67,7 @@ Hyper-v 的内置 Red Hat Enterprise Linux Integration Services 驱动程序 (�
 |                                                                     vRSS                                                                     |        2019、2016、2012 R2         |                              &#10004;                               |
 |                                                    TCP 分段和校验和卸载                                                    | 2019、2016、2012 R2、2012、2008 R2 |                              &#10004;                               |
 |                                                                    SR-IOV                                                                    |             2019、2016             |                              &#10004;                               |
-|                       **[储存](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                       |                                    |                                                                     |
+|                       **[存储](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                       |                                    |                                                                     |
 |                                                                 VHDX 调整大小                                                                  |        2019、2016、2012 R2         |                              &#10004;                               |
 |                                                            虚拟光纤通道                                                             |        2019、2016、2012 R2         |                           &#10004;备注3                           |
 |                                                         实时虚拟机备份                                                          |        2019、2016、2012 R2         |                           &#10004;备注5                           |
@@ -112,7 +112,7 @@ Hyper-v 的内置 Red Hat Enterprise Linux Integration Services 驱动程序 (�
 |                                                                     vRSS                                                                     |        2019、2016、2012 R2         |                              &#10004;                               |                              &#10004;                               |                              &#10004;                               |      &#10004;       |      &#10004;       |      &#10004;       |      &#10004;       |      &#10004;       |                        |
 |                                                    TCP 分段和校验和卸载                                                    | 2019、2016、2012 R2、2012、2008 R2 |                              &#10004;                               |                              &#10004;                               |                              &#10004;                               |      &#10004;       |      &#10004;       |      &#10004;       |      &#10004;       |      &#10004;       |                        |
 |                                                                    SR-IOV                                                                    |             2019、2016             |                              &#10004;                               |                              &#10004;                               |                                                                     |      &#10004;       |      &#10004;       |      &#10004;       |                     |                     |                        |
-|                       **[储存](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                       |                                    |                                                                     |                                                                     |                                                                     |                     |                     |                     |                     |                     |                        |
+|                       **[存储](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                       |                                    |                                                                     |                                                                     |                                                                     |                     |                     |                     |                     |                     |                        |
 |                                                                 VHDX 调整大小                                                                  |        2019、2016、2012 R2         |                              &#10004;                               |                              &#10004;                               |                              &#10004;                               |      &#10004;       |      &#10004;       |      &#10004;       |      &#10004;       |                     |                        |
 |                                                            虚拟光纤通道                                                             |        2019、2016、2012 R2         |                           &#10004;备注3                           |                           &#10004;备注3                           |                           &#10004;备注3                           |   &#10004;备注3   |   &#10004;备注3   |   &#10004;备注3   |   &#10004;备注3   |   &#10004;备注3   |    &#10004;备注3     |
 |                                                         实时虚拟机备份                                                          |        2019、2016、2012 R2         |                           &#10004;备注5                           |                           &#10004;备注5                           |                           &#10004;备注5                           |  &#10004;备注4、5  | &#10004;备注4、5  | &#10004;备注4、5  | &#10004;备注4、5  | &#10004;备注4、5  |   &#10004;备注4、5   |
@@ -155,7 +155,7 @@ Hyper-v 的内置 Red Hat Enterprise Linux Integration Services 驱动程序 (�
 |                                                                     vRSS                                                                     |        2019、2016、2012 R2         |                              &#10004;                               |                              &#10004;                               |                              &#10004;                               |        &#10004;        |         &#10004;          |                           |                            |
 |                                                    TCP 分段和校验和卸载                                                    | 2019、2016、2012 R2、2012、2008 R2 |                              &#10004;                               |                              &#10004;                               |                              &#10004;                               |        &#10004;        |         &#10004;          |                           |                            |
 |                                                                    SR-IOV                                                                    |             2019、2016             |                                                                     |                                                                     |                                                                     |                        |                           |                           |                            |
-|                       **[储存](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                       |                                    |                                                                     |                                                                     |                                                                     |                        |                           |                           |                            |
+|                       **[存储](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                       |                                    |                                                                     |                                                                     |                                                                     |                        |                           |                           |                            |
 |                                                                 VHDX 调整大小                                                                  |        2019、2016、2012 R2         |                              &#10004;                               |                              &#10004;                               |                              &#10004;                               |        &#10004;        |         &#10004;          |         &#10004;          |                            |
 |                                                            虚拟光纤通道                                                             |        2019、2016、2012 R2         |                           &#10004;备注3                           |                           &#10004;备注3                           |                           &#10004;备注3                           |    &#10004;备注3     |      &#10004;备注3      |      &#10004;备注3      |                            |
 |                                                         实时虚拟机备份                                                          |        2019、2016、2012 R2         |                           &#10004;备注5                           |                           &#10004;备注5                           |                           &#10004;备注5                           |   &#10004;备注4、5   |    &#10004;备注4、5     |   &#10004;备注4、5、6   |   &#10004;备注4、5、6    |
@@ -199,7 +199,7 @@ Hyper-v 的内置 Red Hat Enterprise Linux Integration Services 驱动程序 (�
 |                                                                     vRSS                                                                     |        2019、2016、2012 R2         |                                                                     |                                                                     |                       |
 |                                                    TCP 分段和校验和卸载                                                    | 2019、2016、2012 R2、2012、2008 R2 |                              &#10004;                               |                              &#10004;                               |                       |
 |                                                                    SR-IOV                                                                    |             2019、2016             |                                                                     |                                                                     |                       |
-|                       **[储存](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                       |                                    |                                                                     |                                                                     |                       |
+|                       **[存储](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                       |                                    |                                                                     |                                                                     |                       |
 |                                                                 VHDX 调整大小                                                                  |        2019、2016、2012 R2         |                              &#10004;                               |                              &#10004;                               |                       |
 |                                                            虚拟光纤通道                                                             |        2019、2016、2012 R2         |                           &#10004;备注3                           |                           &#10004;备注3                           |                       |
 |                                                         实时虚拟机备份                                                          |        2019、2016、2012 R2         |                         &#10004;备注5、15                         |                           &#10004;备注5                           | &#10004;备注4、5、6 |
@@ -226,53 +226,53 @@ Hyper-v 的内置 Red Hat Enterprise Linux Integration Services 驱动程序 (�
 
 ## <a name="notes"></a>说明
 
-1. 对于此 RHEL/CentOS 版本, VLAN 标记有效, 但 VLAN 中继不起作用。
+1. 对于此 RHEL/CentOS 版本，VLAN 标记有效，但 VLAN 中继不起作用。
 
-2. 如果为虚拟机上的指定合成网络适配器配置了网络管理器, 则静态 IP 注入可能不起作用。 要使静态 IP 注入正常运行, 请确保已完全关闭网络管理器, 或已通过 ifcfg-eth0-ethX 文件为特定网络适配器关闭网络管理器。
+2. 如果为虚拟机上的指定合成网络适配器配置了网络管理器，则静态 IP 注入可能不起作用。 要使静态 IP 注入正常运行，请确保已完全关闭网络管理器，或已通过 ifcfg-eth0-ethX 文件为特定网络适配器关闭网络管理器。
 
-3. 使用虚拟光纤通道设备时, 在 Windows Server 2012 R2 上, 请确保已填充逻辑单元号 0 (LUN 0)。 如果尚未填充 LUN 0, Linux 虚拟机可能无法以本机方式装载光纤通道设备。
+3. 使用虚拟光纤通道设备时，在 Windows Server 2012 R2 上，请确保已填充逻辑单元号0（LUN 0）。 如果尚未填充 LUN 0，Linux 虚拟机可能无法以本机方式装载光纤通道设备。
 
-4. 对于内置的 .LIS, 必须安装 "hyperv-守护程序" 包才能实现此功能。
+4. 对于内置的 .LIS，必须安装 "hyperv-守护程序" 包才能实现此功能。
 
-5. 如果在执行实时虚拟机备份操作的过程中有打开的文件句柄, 则在某些角落情况下, 备份的 Vhd 可能需要在还原时执行文件系统一致性检查 (fsck)。 如果虚拟机有连接的 iSCSI 设备或直接连接的存储 (也称为传递磁盘), 则实时备份操作可能会悄悄地失败。
+5. 如果在执行实时虚拟机备份操作的过程中有打开的文件句柄，则在某些角落情况下，备份的 Vhd 可能需要在还原时执行文件系统一致性检查（fsck）。 如果虚拟机有连接的 iSCSI 设备或直接连接的存储（也称为传递磁盘），则实时备份操作可能会悄悄地失败。
 
-6. 尽管 Linux Integration Services 下载是首选的, 但也可通过适用于[linux 的 Hyper-v Backup Essentials](https://github.com/LIS/backupessentials/tree/1.0)获取 RHEL/CentOS 5.9-5.11/6.4/6.5 的实时备份支持。
+6. 尽管 Linux Integration Services 下载是首选的，但也可通过适用于[linux 的 Hyper-v Backup Essentials](https://github.com/LIS/backupessentials/tree/1.0)获取 RHEL/CentOS 5.9-5.11/6.4/6.5 的实时备份支持。
 
 7. 动态内存支持仅适用于64位虚拟机。
 
-8. 默认情况下, 此分发中未启用热添加支持。 若要启用热添加支持, 需要在/etc/udev/rules.d/下添加 udev 规则, 如下所示:
+8. 默认情况下，此分发中未启用热添加支持。 若要启用热添加支持，需要在/etc/udev/rules.d/下添加 udev 规则，如下所示：
 
    1. 创建文件 **/etc/udev/rules.d/100-balloon.rules**。 您可以为该文件使用任何其他所需的名称。
 
-   2. 将以下内容添加到文件:`SUBSYSTEM=="memory", ACTION=="add", ATTR{state}="online"`
+   2. 将以下内容添加到文件中： `SUBSYSTEM=="memory", ACTION=="add", ATTR{state}="online"`
 
    3. 重新启动系统以启用热添加支持。
 
-   尽管 Linux Integration Services 下载会在安装时创建此规则, 但卸载 .LIS 时也会删除该规则, 因此, 如果在卸载之后需要动态内存, 则必须重新创建该规则。
+   尽管 Linux Integration Services 下载会在安装时创建此规则，但卸载 .LIS 时也会删除该规则，因此，如果在卸载之后需要动态内存，则必须重新创建该规则。
 
-9. 如果来宾操作系统在内存上运行得太低, 动态内存操作可能会失败。 下面是一些最佳做法:
+9. 如果来宾操作系统在内存上运行得太低，动态内存操作可能会失败。 下面是一些最佳做法：
 
    * 启动内存和最小内存应等于或大于分发供应商建议的内存量。
 
-   * 通常会消耗系统中的全部可用内存的应用程序, 仅消耗最多 80% 的可用 RAM。
+   * 通常会消耗系统中的全部可用内存的应用程序，仅消耗最多 80% 的可用 RAM。
 
-10. 如果在 Windows Server 2016 或 Windows Server 2012 R2 操作系统上使用动态内存, 请以128兆字节 (MB) 为单位指定 "**启动内存**"、"**最小内存**" 和 "**最大内存**" 参数。 如果不这样做, 可能会导致热添加失败, 并且在来宾操作系统中可能看不到任何内存增长。
+10. 如果在 Windows Server 2016 或 Windows Server 2012 R2 操作系统上使用动态内存，请以128兆字节（MB）为单位指定 "**启动内存**"、"**最小内存**" 和 "**最大内存**" 参数。 如果不这样做，可能会导致热添加失败，并且在来宾操作系统中可能看不到任何内存增长。
 
-11. 某些发行版 (包括使用 .LIS 4.0 和4.1 的发行版) 仅提供膨胀支持, 不提供热添加支持。 在这种情况下, 可以通过将 "启动内存" 参数设置为与 "最大内存" 参数相等的值来使用动态内存功能。 这会导致在启动时将所有必要的内存热添加到虚拟机, 然后根据主机的内存要求, Hyper-v 可以使用膨胀从来宾自由分配或释放内存。 请在或更高版本的推荐值上配置**启动内存**和**最小内存**。
+11. 某些发行版（包括使用 .LIS 4.0 和4.1 的发行版）仅提供膨胀支持，不提供热添加支持。 在这种情况下，可以通过将 "启动内存" 参数设置为与 "最大内存" 参数相等的值来使用动态内存功能。 这会导致在启动时将所有必要的内存热添加到虚拟机，然后根据主机的内存要求，Hyper-v 可以使用膨胀从来宾自由分配或释放内存。 请在或更高版本的推荐值上配置**启动内存**和**最小内存**。
 
-12. 若要启用密钥/值对 (KVP) 基础结构, 请从 RHEL ISO 安装 hypervkvpd 或 hyperv-守护程序 rpm 包。 或者, 可以直接从 RHEL 存储库安装包。
+12. 若要启用密钥/值对（KVP）基础结构，请从 RHEL ISO 安装 hypervkvpd 或 hyperv-守护程序 rpm 包。 或者，可以直接从 RHEL 存储库安装包。
 
-13. 如果没有 Linux 软件更新, 键/值对 (KVP) 基础结构可能无法正常运行。 请与您的分销商联系以获取软件更新, 以防您看到此功能的问题。
+13. 如果没有 Linux 软件更新，键/值对（KVP）基础结构可能无法正常运行。 请与您的分销商联系以获取软件更新，以防您看到此功能的问题。
 
-14. 在 Windows Server 2012 R2 第2代虚拟机上, 默认情况下已启用安全启动, 某些 Linux 虚拟机将无法启动, 除非禁用了安全启动选项。 你可以在**Hyper-v 管理器**中虚拟机设置的 "**固件**" 部分禁用安全启动, 也可以使用 Powershell 禁用它:
+14. 在 Windows Server 2012 R2 第2代虚拟机上，默认情况下已启用安全启动，某些 Linux 虚拟机将无法启动，除非禁用了安全启动选项。 你可以在**Hyper-v 管理器**中虚拟机设置的 "**固件**" 部分禁用安全启动，也可以使用 Powershell 禁用它：
 
     ```Powershell
     Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
     ```
 
-    可以将 Linux Integration Services 下载应用到现有的第2代 Vm, 但不授予第2代功能。
+    可以将 Linux Integration Services 下载应用到现有的第2代 Vm，但不授予第2代功能。
 
-15. 在 Red Hat Enterprise Linux 或 CentOS 5.2、5.3 和5.4 中, 文件系统冻结功能不可用, 因此实时虚拟机备份也不可用。
+15. 在 Red Hat Enterprise Linux 或 CentOS 5.2、5.3 和5.4 中，文件系统冻结功能不可用，因此实时虚拟机备份也不可用。
 
 请参阅
 

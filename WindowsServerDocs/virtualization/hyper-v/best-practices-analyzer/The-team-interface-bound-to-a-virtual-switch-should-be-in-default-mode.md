@@ -1,7 +1,7 @@
 ---
-title: 绑定到虚拟交换机的团队接口应在默认模式
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+title: 绑定到虚拟交换机的团队接口应处于默认模式
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 8c118e1e-865f-4cff-acdc-7c35e45d5da9
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 22e5ad0eed6e6ea07a83150762b76163442f2c5c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9bfd0c98e865a0faae8dd70e97696e2c2682531b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872158"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393426"
 ---
-# <a name="the-team-interface-bound-to-a-virtual-switch-should-be-in-default-mode"></a>绑定到虚拟交换机的团队接口应在默认模式
+# <a name="the-team-interface-bound-to-a-virtual-switch-should-be-in-default-mode"></a>绑定到虚拟交换机的团队接口应处于默认模式
 
 >适用于：Windows Server 2016
 
@@ -30,16 +30,16 @@ ms.locfileid: "59872158"
 |**Severity**|警告|  
 |**类别**|配置|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。  
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。  
   
 ## <a name="issue"></a>**问题**  
-*有些虚拟交换机绑定到组接口，但团队接口不到虚拟交换机上所有 Vlan 中传递流量。*  
+*某些虚拟交换机绑定到团队界面，但团队界面不会将所有 Vlan 上的流量传递给虚拟交换机。*  
   
-## <a name="impact"></a>**影响**  
-*以下虚拟交换机不能有权访问所有 Vlan: \n{0}*  
+## <a name="impact"></a>**对**  
+*以下虚拟交换机无法访问所有 Vlan： \n @ no__t-1*  
   
 ## <a name="resolution"></a>**解决方法**  
-*使用服务器管理器或 Windows PowerShell cmdlet 集 NetLbfoTeamNic 将团队界面重置为默认模式。*  
+*使用服务器管理器或 Windows PowerShell cmdlet NetLbfoTeamNic 将团队界面重置为默认模式。*  
   
 
 

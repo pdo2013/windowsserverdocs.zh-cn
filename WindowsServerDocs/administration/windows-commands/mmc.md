@@ -1,8 +1,8 @@
 ---
 title: mmc
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4bdc093bd16ea08153b7dbc4a0e3380251f2ed7d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1bf9efe257e9e2b6cf20c28c1e6c0cf27230a6bc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437332"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373597"
 ---
 # <a name="mmc"></a>mmc
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-使用 mmc 命令行选项，可以打开特定**mmc**控制台中，打开**mmc**以作者模式，或指定的 32 位或 64 位版本**mmc**打开。
+使用 mmc 命令行选项，您可以打开特定的**mmc**控制台，以作者模式打开**mmc** ，或指定打开32位或64位版本的**mmc** 。
 ## <a name="syntax"></a>语法
 ```
 mmc <path>\<filename>.msc [/a] [/64] [/32]
@@ -33,17 +33,17 @@ mmc <path>\<filename>.msc [/a] [/64] [/32]
 
 |       参数        |                                                                                                 描述                                                                                                 |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <path>\\<filename>.msc |        启动**mmc**并打开已保存的控制台。 您需要保存的控制台文件指定完整的路径和文件名。 如果不指定控制台文件中， **mmc**将打开一个新的控制台。         |
-|           /a           |                                                               以作者模式打开保存的控制台。  用于对保存的控制台进行更改。                                                                |
-|          /64           |                         打开 64 位版本的**mmc** (mmc64)。 仅当您运行 Microsoft 64 位操作系统，并想要使用 64 位管理单元，请使用此选项。                          |
-|          /32           | 打开 32 位版本的**mmc** (mmc32)。 时运行 Microsoft 64 位操作系统，您可以通过使用此命令行选项打开 mmc 运行 32 位管理单元，具有 32 位仅管理单元时。 |
+| <path> @ no__t-1<filename>.msc |        启动**mmc**并打开保存的控制台。 需要为保存的控制台文件指定完整的路径和文件名。 如果未指定控制台文件， **mmc**会打开一个新的控制台。         |
+|           /a           |                                                               在作者模式下打开保存的控制台。  用于对保存的控制台进行更改。                                                                |
+|          /64           |                         打开64位版本的**mmc** （mmc64）。 仅当你运行 Microsoft 64 位操作系统并想要使用64位管理单元时，才使用此选项。                          |
+|          /32           | 打开32位版本的**mmc** （mmc32）。 运行 Microsoft 64 位操作系统时，如果仅有32位的管理单元，则可以通过使用此命令行选项打开 mmc 来运行32位管理单元。 |
 |           /?           |                                                                                    在命令提示符下显示帮助。                                                                                     |
 
 ## <a name="remarks"></a>备注
-- 使用<path> **\\** <filename> **.msc**可以使用环境变量来创建命令行或不依赖于显式的快捷方式的命令行选项控制台文件的位置。 例如，控制台文件的路径是否在系统文件夹 (例如， **mmc c:\winnt\system32\console_name.msc**)，可以使用可扩展数据字符串 **%systemroot%** 指定的位置(**mmc%systemroot%\system32\console_name.msc**)。 这可能是有用的组织中使用不同的计算机上的用户分配任务。
-- 使用 **/a**命令行选项时使用此选项打开控制台时，它们以作者模式，而不考虑其默认模式打开。 这不会永久更改文件; 的默认模式设置如果省略此选项，mmc 将打开根据其默认模式设置的控制台文件。
-- 打开后**mmc**或控制台文件以作者模式，可以通过单击打开任何现有的控制台**打开**上**控制台**菜单。
-- 可以使用命令行创建快捷方式用于打开**mmc**和保存的控制台。 命令行命令配合**运行**命令**启动**菜单中，在任何命令提示符窗口、 快捷方式，或任何批处理文件或调用该命令的计划中。
+- 使用 @no__t **\\** ，可以使用环境变量来创建不依赖于控制台文件的显式位置的命令行或快捷方式。 例如，如果控制台文件的路径位于系统文件夹（例如， **mmc c:\winnt\system32\console_name.msc**）中，则可以使用可扩展的数据字符串 **% systemroot%** 来指定位置（**mmc% systemroot% \ system32 \ console_名称 services.msc**）。 如果要将任务委派给组织中正在使用不同计算机的人员，这可能很有用。
+- 使用此选项打开控制台时，使用 **/a**命令行选项，无论其默认模式如何，都将在作者模式下打开它们。 这不会永久更改文件的默认模式设置;如果省略此选项，mmc 将根据其默认模式设置打开控制台文件。
+- 在作者模式下打开**mmc**或控制台文件后，可通过单击**控制台**菜单上的 "**打开**" 来打开任何现有控制台。
+- 你可以使用命令行来创建用于打开**mmc**和保存的控制台的快捷方式。 命令行命令适用于 "**开始**" 菜单上的 "**运行**" 命令、"任何命令提示符" 窗口、"快捷方式" 或任何批处理文件或调用命令的程序。
   ## <a name="additional-references"></a>其他参考
 - [命令行语法项](command-line-syntax-key.md)
 

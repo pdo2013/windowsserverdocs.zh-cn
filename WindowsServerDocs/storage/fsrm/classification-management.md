@@ -1,23 +1,23 @@
 ---
 title: 分类管理
-description: 本文介绍如何将分类基于分类属性文件
+description: 本文介绍如何基于分类属性对文件进行分类
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: d7ea1f6f5d99ef1b55e919af3b8ebe391486ed50
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: f87614d5884d25c4e462cdccd8de72a7980368ec
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475898"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402007"
 ---
 # <a name="classification-management"></a>分类管理
 
-> 适用于：Windows Server 2019，Windows Server 2016、 Windows 服务器 （半年频道）、 Windows Server 2012 R2 和 Windows Server 2012 中，Windows Server 2008 R2
+> 适用于：Windows Server 2019，Windows Server 2016，Windows Server （半年频道），Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2
 
 分类属性用于对文件进行分类，并且可用于选择与计划文件管理任务相关的文件。
 

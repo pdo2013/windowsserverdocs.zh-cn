@@ -1,8 +1,8 @@
 ---
 title: bitsadmin geterror
-description: Windows 命令主题**bitsadmin geterror** -检索的详细错误消息指定的作业。
+description: 适用于**bitsadmin geterror**的 Windows 命令主题-检索指定作业的详细错误信息。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 10a3373c0c8f290ff1f5f26ef38531fbc7745890
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0f9bd607886d00ede4e1da91ed73eff2794db6ce
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889968"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381641"
 ---
 # <a name="bitsadmin-geterror"></a>bitsadmin geterror
 
@@ -47,4 +47,4 @@ C:\>bitsadmin /GetError myDownloadJob
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

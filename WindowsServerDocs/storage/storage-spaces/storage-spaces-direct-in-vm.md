@@ -1,84 +1,84 @@
 ---
 title: 在虚拟机中使用存储空间直通
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: eldenc
 ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 10/25/2017
-description: 如何在虚拟机来宾群集-例如，在 Microsoft Azure 中部署存储空间直通。
+description: 如何在虚拟机来宾群集中部署存储空间直通-例如，在 Microsoft Azure 中。
 ms.localizationpriority: medium
-ms.openlocfilehash: d05afb5ee564b866dcd15ec6aa473cee608dbd8f
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: ab0ce792c5a948e763a48493a78ccdac7a6fe74c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284406"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366050"
 ---
 # <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>在来宾虚拟机群集中使用存储空间直通
 
 > 适用于：Windows Server 2019、Windows Server 2016
 
-在群集上的物理服务器或虚拟机来宾群集，如本主题中所述，你可以部署存储空间直通。 这种部署跨一组 Vm 上的私有或公有云，以便应用程序高可用性解决方案可用于提高应用程序的可用性，提供了虚拟共享的存储。
+可以在物理服务器或虚拟机来宾群集的群集上部署存储空间直通，如本主题中所述。 这种类型的部署在私有或公有云之上跨一组 Vm 提供虚拟共享存储，以便应用程序高可用性解决方案可用于提高应用程序的可用性。
 
 ![](media/storage-spaces-direct-in-vm/storage-spaces-direct-in-vm.png)
 
 ## <a name="deploying-in-azure-iaas-vm-guest-clusters"></a>在 Azure Iaas VM 来宾群集中部署
 
-[Azure 模板](https://github.com/robotechredmond/301-storage-spaces-direct-md)已发布的降低复杂性，配置最佳实践以及你在 Azure Iaas VM 中的存储空间直通部署的速度。 这是用于在 Azure 中部署的推荐的解决方案。
+已发布[azure 模板](https://github.com/robotechredmond/301-storage-spaces-direct-md)会降低复杂性、配置最佳实践，以及在 AZURE Iaas VM 中部署存储空间直通部署的速度。 这是在 Azure 中部署的推荐解决方案。
 
 <iframe src="https://channel9.msdn.com/Series/Microsoft-Hybrid-Cloud-Best-Practices-for-IT-Pros/Step-by-Step-Deploy-Windows-Server-2016-Storage-Spaces-Direct-S2D-Cluster-in-Microsoft-Azure/player" width="960" height="540" allowfullscreen></iframe>
 
 ## <a name="requirements"></a>要求
 
-在虚拟化环境中部署存储空间直通时，应考虑下列注意事项。
+在虚拟化环境中部署存储空间直通时，请注意以下事项。
 
 > [!TIP]
-> Azure 模板将自动配置下面你和是建议的解决方案在 Azure IaaS Vm 中部署时的注意事项。
+> Azure 模板会自动为你配置以下注意事项，在 Azure IaaS Vm 中部署时，建议使用此解决方案。
 
--   2 个节点的最小和最大的 3 个节点
+-   最小2个节点，最多3个节点
 
--   2 节点部署必须配置见证服务器 （云见证或文件共享见证）
+-   2-节点部署必须配置见证服务器（云见证服务器或文件共享见证服务器）
 
--   3 个节点的部署可以容忍 1 个节点向下的和另一个节点上的一个或多个磁盘丢失。  如果关闭了 2 个节点然后虚拟磁盘我们处于脱机状态，直到其中一个节点返回。  
+-   3个节点部署可以容忍1个节点关闭，并在另一个节点上丢失1个或多个磁盘。  如果2个节点关闭，则虚拟磁盘会处于脱机状态，直到其中一个节点返回为止。  
 
--   配置要跨容错域部署的虚拟机
+-   配置要在容错域之间部署的虚拟机
 
-    -   Azure-配置可用性集
+    -   Azure –配置可用性集
 
-    -   Hyper-v – 若要在节点上分隔的 Vm 的 Vm 上配置 AntiAffinityClassNames
+    -   Hyper-v –在虚拟机上配置 AntiAffinityClassNames 以跨节点分离 Vm
 
-    -   VMware — 通过创建 DRS 规则类型的配置 VM 虚拟机反相关性规则单独的虚拟机"以在 ESX 主机上分隔的 Vm。 提供用于使用存储空间直通的磁盘应使用 Paravirtual SCSI (PVSCSI) 适配器。 有关 Windows Server PVSCSI 支持，请查阅 https://kb.vmware.com/s/article/1010398 。
+    -   VMware –通过创建类型为 "单独的虚拟机" 的 DRS 规则来配置 VM-VM 抗相关性规则，以便跨 ESX 主机分隔 Vm。 为与存储空间直通一起使用而提供的磁盘应使用半虚拟 SCSI （PVSCSI）适配器。 有关 Windows Server 的 PVSCSI 支持，请参阅 https://kb.vmware.com/s/article/1010398 。
 
--   利用低延迟 / 托管的高性能存储-Azure 高级存储磁盘所需
+-   利用低延迟/高性能存储-需要 Azure 高级存储托管磁盘
 
--   使用配置的任何缓存设备部署平面存储设计
+-   在未配置缓存设备的情况之下部署平面存储设计
 
--   最小值为 2 个虚拟数据磁盘提供给每个 VM (VHD / VHDX / VMDK)
+-   每个 VM 提供的最小2个虚拟数据磁盘（VHD/VHDX/VMDK）
 
-    此数字是不同的裸机部署，因为虚拟磁盘可作为不容易遭受物理故障的文件。
+    此数字不同于裸机部署，因为虚拟磁盘可以作为不容易出现物理故障的文件来实现。
 
--   通过运行以下 PowerShell cmdlet 来禁用运行状况服务中的自动驱动器替换功能：
+-   通过运行以下 PowerShell cmdlet，在运行状况服务中禁用自动驱动器更换功能：
 
     ```powershell
     Get-storagesubsystem clus* | set-storagehealthsetting -name “System.Storage.PhysicalDisk.AutoReplace.Enabled” -value “False”
     ```
 
--   不支持：主机级别的虚拟磁盘快照/还原
+-   不支持：主机级虚拟磁盘快照/还原
 
-    而是使用传统的来宾级别备份解决方案来备份和还原存储空间直通的卷上的数据。
+    改为使用传统的来宾级别备份解决方案来备份和还原存储空间直通卷上的数据。
 
--   为复原能力赋予可能 VHD / VHDX / VMDK 来宾群集中的存储延迟增加存储空间 I/O 超时值：
+-   为了更好地复原来宾群集中可能的 VHD/VHDX/VMDK 存储延迟，请增加存储空间 i/o 超时值：
 
     `HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\spaceport\\Parameters\\HwTimeout`
 
     `dword: 00007530`
 
-    十六进制 7530 十进制等效值为 30000，为 30 秒。 请注意，默认值为 1770年十六进制或 6000 （十进制），这是 6 秒。
+    十六进制7530的十进制等效项是30000，即30秒。 请注意，默认值为1770十六进制或 6000 Decimal，即6秒。
 
 ## <a name="see-also"></a>请参阅
 
-[部署存储空间直通、 视频和分步指南的其他 Azure Iaas VM 模板](https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126)。
+[用于部署存储空间直通、视频和循序渐进指南的其他 Azure IAAS VM 模板](https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126)。
 
-[额外的存储空间直通概述](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+[其他存储空间直通概述](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
