@@ -1,18 +1,18 @@
 ---
 title: Hyper-v 术语
 description: Hyper-v 术语在 Hyper-v 性能优化中很有用
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: d18557a205f8366631becb65b7460c07757db3d5
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: acd61e9edef3ac88027d0cc89618c537fa6aa25f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866525"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385026"
 ---
 # <a name="hyper-v-terminology"></a>Hyper-v 术语
 本部分概述了本性能优化主题中使用的虚拟机技术特定的关键术语：

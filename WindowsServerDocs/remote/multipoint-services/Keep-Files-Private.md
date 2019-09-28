@@ -1,8 +1,8 @@
 ---
 title: 使文件保持私有
-description: 了解如何从 MultiPoint 服务中的用户保护某些文件
+description: 了解如何保护 MultiPoint Services 中的用户的某些文件
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: f254b07c1f6f8ffdc83a1fe506bee7e6d5aa89ce
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b9ff84678787e53ef5def822e33139b9839411a6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879648"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395335"
 ---
 # <a name="keep-files-private"></a>使文件保持私有
-本主题适用于内容，例如文档，你\(作为*管理用户*\)并*标准用户*不想与 MultiPoint Services 中的其他用户共享系统。  
+本主题适用于你 @no__t 的内容（例如文档），你可以将*管理用户*\) 和*标准用户*不想与 MultiPoint 服务系统中的其他用户共享。  
 
 有关 MultiPoint Services 中的隐私详细信息，请参阅[隐私和安全注意事项](Privacy-and-Security-Considerations.md)。
   
@@ -34,4 +34,4 @@ ms.locfileid: "59879648"
   
 ## <a name="see-also"></a>请参阅  
 [管理用户文件](Manage-User-Files.md)  
-[保存和共享 USB 闪存驱动器上的文件](Save-and-Share-Files-on-a-USB-Flash-Drive.md)
+[保存和共享 U 盘上的文件](Save-and-Share-Files-on-a-USB-Flash-Drive.md)

@@ -1,83 +1,83 @@
 ---
 ms.assetid: a6343f1c-e9dd-4a02-91ad-39bd519d66cd
 title: 简化的 SMB 多通道和多 NIC 群集网络
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-failover-clustering
 ms.topic: article
 author: RobHindman
 ms.author: robhind
 ms.date: 09/15/2016
-ms.openlocfilehash: 1b9271ceac99ac9b21cbfac902ba133d66815df4
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 7816016daae1d06568cd6149791a9a368d8602f8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476118"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361111"
 ---
 # <a name="simplified-smb-multichannel-and-multi-nic-cluster-networks"></a>简化的 SMB 多通道和多 NIC 群集网络
 
 > 适用于：Windows Server 2019、Windows Server 2016
 
-简化的 SMB 多通道和多-<abbr title="网络接口卡">NIC</abbr>群集网络是一项功能，允许使用多个 Nic 上的相同的群集网络子网，并自动启用 SMB 多通道。
+简化的 SMB 多通道和多<abbr title="网络接口卡">具</abbr> 群集网络是一项功能，可在同一群集网络子网上使用多个 Nic，并自动启用 SMB 多通道。
 
-简化的 SMB 多通道和多 NIC 群集网络提供以下优势：  
-- 故障转移群集会自动识别正在使用相同的交换机的节点上的所有 Nic / 相同子网-无需额外配置。  
+简化的 SMB 多通道和多 NIC 群集网络具有以下优势：  
+- 故障转移群集会自动识别使用同一交换机/相同子网的节点上的所有 Nic-无需其他配置。  
 - 自动启用 SMB 多通道。  
-- 仅限群集的 （专用） 网络上识别网络只有 IPv6 链接本地 (fe80) IP 地址资源。  
-- 默认情况下在每个群集的访问点 (CAP) 网络名称 (NN) 配置单个 IP 地址资源。  
-- 当多个 Nic 位于相同子网上时，群集验证不再发出警告消息。  
+- 只有 IPv6 链接本地（fe80） IP 地址资源的网络可在仅群集（专用）网络上识别。  
+- 默认情况下，在每个群集访问点（CAP）网络名称（NN）上配置单个 IP 地址资源。  
+- 当在同一子网上找到多个 Nic 时，群集验证不再发出警告消息。  
 
 ## <a name="requirements"></a>要求  
--   每个服务器，使用相同的交换机的多个 Nic / 子网。  
+-   每台服务器多个 Nic，使用同一个交换机/子网。  
 
-## <a name="how-to-take-advantage-of-multi-nic-clusters-networks-and-simplified-smb-multichannel"></a>如何充分利用多 NIC 群集网络和简化的 SMB 多通道  
-本部分介绍如何充分利用新的多 NIC 群集网络和简化的 SMB 多通道功能。  
+## <a name="how-to-take-advantage-of-multi-nic-clusters-networks-and-simplified-smb-multichannel"></a>如何利用多 NIC 群集网络和简化的 SMB 多通道  
+本部分介绍如何利用新的多 NIC 群集网络和简化的 SMB 多通道功能。  
 
-### <a name="use-at-least-two-networks-for-failover-clustering"></a>使用故障转移群集的至少两个网络   
-虽然很少见，但可能会失败的网络交换机-它仍然最佳做法是使用至少两个网络故障转移群集。 找到的所有网络都用于群集检测信号。 避免使用故障转移群集的单个网络，以避免单点故障。 理想情况下，应该有多个物理通信路径在群集中的节点之间任何单点故障。  
+### <a name="use-at-least-two-networks-for-failover-clustering"></a>为故障转移群集使用至少两个网络   
+虽然很少见，但网络交换机可能会失败，但最好还是至少使用两个网络进行故障转移群集。 找到的所有网络都用于群集检测信号。 避免对故障转移群集使用单个网络，以避免单点故障。 理想情况下，群集中的节点之间应该有多个物理通信路径，并且无单点故障。  
 
-![有关故障转移群集的两个网络图示](media/Simplified-SMB-Multichannel-and-Multi-NIC-Cluster-Networks/Clustering_MulitNIC_Fig1.png)  
-**图 1：使用故障转移群集的至少两个网络**  
+用于故障转移群集 @ no__t 的两个网络的 @no__t 0Illustration  
+**图 1：使用至少两个网络进行故障转移群集 @ no__t-0  
 
 ### <a name="use-multiple-nics-across-clusters"></a>跨群集使用多个 Nic  
 
-简化的 SMB 多通道的最大的好处是跨群集的存储和存储工作负荷群集中使用多个 Nic 时实现的。 这样更有效地使用网络中的工作负荷群集 （HYPER-V、 SQL Server 故障转移群集实例，存储副本等） 使用 SMB 多通道和结果。 在聚合 （也称为非聚合） 群集的配置用于存储的 HYPER-V 工作负荷数据的横向扩展文件服务器群集或 SQL Server 故障转移群集实例的群集，此网络通常称为"北-南子网"位置/网络. 许多客户通过投资 RDMA 支持的 NIC 卡和交换机中的此网络吞吐量最大化。  
+在存储和存储工作负荷群集中使用多个 Nic 时，可实现简化的 SMB 多通道的最大优势。 这允许工作负荷群集（Hyper-v、SQL Server 故障转移群集实例、存储副本等）使用 SMB 多通道，从而更有效地使用网络。 在聚合（也称为非聚合）群集配置中，其中，横向扩展文件服务器群集用于存储 Hyper-v 或 SQL Server 故障转移群集实例群集的工作负荷数据，此网络通常称为 "北南部子网"/网络. 许多客户通过购买支持 RDMA 的 NIC 卡和交换机来最大限度地提高此网络的吞吐量。  
 
-![北-南 SMB 子网的图示](media/Simplified-SMB-Multichannel-and-Multi-NIC-Cluster-Networks/Clustering_MulitNIC_Fig2.png)  
-**图 2:若要实现最大网络吞吐量，使用多个 Nic 上的横向扩展文件服务器群集和 HYPER-V 或 SQL Server 故障转移群集实例群集-共享北-南子网**  
+@no__t-南-南部 SMB 子网 @ no__t-1 的0Illustration  
+**图 2:若要实现最大网络吞吐量，请在横向扩展文件服务器群集和 Hyper-v 或 SQL Server 故障转移群集实例群集上使用多个 Nic，该群集共享北南部子网 @ no__t-0  
 
-![两个群集位于同一子网使用多个 Nic 利用 SMB 多通道的方屏幕截图](media/Simplified-SMB-Multichannel-and-Multi-NIC-Cluster-Networks/Clustering_MulitNIC_Fig3.png)  
-**图 3:两个群集 (横向扩展文件服务器存储、 SQL Server<abbr title="故障转移群集实例">FCI</abbr>工作负荷) 都使用相同的子网中的多个 Nic 来利用 SMB 多通道和实现更好的网络吞吐量。** 
+在同一子网中使用多个 Nic 的两个群集 @no__t 0Screencap，以利用 SMB 多通道 @ no__t-1  
+**图 3:两个群集（用于存储的横向扩展文件服务器、SQL Server @no__t 0Failover 群集实例 @ no__t-1FCI @ no__t-2 工作负载）都在同一子网中使用多个 Nic 来利用 SMB 多通道并获得更好的网络吞吐量。 @no__t 
 
 ## <a name="automatic-recognition-of-ipv6-link-local-private-networks"></a>自动识别 IPv6 链接本地专用网络  
-检测到具有多个 Nic 的专用 （仅限群集） 网络后，群集会自动识别 IPv6 链接本地 (fe80) IP 地址的每个 NIC 上的每个子网。 因为它们不再必须手动配置 IPv6 链接本地 (fe80) IP 地址资源此节省管理员时间。  
+检测到具有多个 Nic 的专用（仅群集）网络时，群集将自动识别每个子网上每个 NIC 的 IPv6 链接本地（fe80） IP 地址。 这样可以节省管理员时间，因为他们不再需要手动配置 IPv6 链接本地（fe80） IP 地址资源。  
 
-使用多个专用 （仅限群集） 网络时，检查以确保该路由未配置为跨子网，因为这会降低网络性能的 IPv6 路由配置。  
+如果使用多个专用（仅限群集）网络，请检查 IPv6 路由配置以确保路由未配置为跨子网，因为这会降低网络性能。  
 
-![自动网络配置故障转移群集管理器 UI 中的方屏幕截图](media/Simplified-SMB-Multichannel-and-Multi-NIC-Cluster-Networks/Clustering_MulitNIC_Fig4.png)  
-**图 4:自动 IPv6 链接本地 (fe80) 地址资源配置**  
+@no__t-故障转移群集管理器 UI @ no__t 中自动网络配置的0Screencap  
+**图4：自动 IPv6 链接本地（fe80）地址资源配置 @ no__t-0  
 
-## <a name="throughput-and-fault-tolerance"></a>吞吐量和容错能力  
-Windows Server 2016 和 Windows Server 2019 自动检测 NIC 功能，并将尝试使用最快的可能配置中的每个 NIC。 已成组 Nic，使用 RSS 的 Nic 和 Nic 具有 RDMA 功能都可用。 下表总结了权衡时使用这些技术。 使用支持的多个 RDMA Nic 时，才能够达到最大吞吐量。 有关详细信息，请参阅[SMB Mutlichannel 的基础知识](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/)。
+## <a name="throughput-and-fault-tolerance"></a>吞吐量和容错  
+Windows Server 2019 和 Windows Server 2016 会自动检测 NIC 功能，并将尝试在尽可能快的配置中使用每个 NIC。 使用 RSS 的 nic 和具有 RDMA 功能的 nic 都可以使用。 下表总结了使用这些技术时的利弊。 当使用多个支持 RDMA 的 Nic 时，实现最大吞吐量。 有关详细信息，请参阅[SMB Mutlichannel 的基础知识](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/)。
 
-![举例说明了各种 NIC 配置吞吐量和容错能力](media/Simplified-SMB-Multichannel-and-Multi-NIC-Cluster-Networks/Clustering_MulitNIC_Fig5.png)  
-**图 5:有关各种 NIC conifigurations 吞吐量和容错能力**   
+针对各种 NIC 配置的吞吐量和容错的0An 说明 @ no__t-1 @no__t  
+**图5：各种 NIC conifigurations @ no__t 的吞吐量和容错   
 
 ## <a name="frequently-asked-questions"></a>常见问题解答  
-**多 NIC 网络中的所有 Nic 的都用途是群集信号？**  
+**多 NIC 网络中是否有用于信号的 Nic？**  
     是。  
 
-**多 NIC 网络是否可用于群集的通信或者，可它仅用于客户端和群集通信？**  
-    可以配置将起作用-所有群集网络角色将在多个 NIC 的网络上都工作。  
+@no__t 是否将多 NIC 网络仅用于群集通信？还是只能将它用于客户端和群集通信？ **  
+    任何一个配置都将起作用-所有群集网络角色将在多 NIC 网络上运行。  
 
-**SMB 多通道还用于 CSV 和群集流量？**  
-    是的默认情况下所有群集和 CSV 流量将都使用可用的多个 NIC 的网络。 管理员可以使用故障转移群集 PowerShell cmdlet 或故障转移群集管理器 UI 更改网络角色。  
+**SMB 多通道还用于 CSV 和群集通信？**  
+    是的，默认情况下，所有群集和 CSV 流量将使用可用的多 NIC 网络。 管理员可以使用故障转移群集 PowerShell cmdlet 或故障转移群集管理器 UI 来更改网络角色。  
 
-**如何看到 SMB 多通道设置？**  
-    使用**Get SMBServerConfiguration** cmdlet，寻找 EnableMultiChannel 属性的值。  
+**如何查看 SMB 多通道设置？**  
+    使用**SMBServerConfiguration** Cmdlet 查找 EnableMultiChannel 属性的值。  
 
-**多 NIC 网络上是群集公用属性，PlumbAllCrossSubnetRoutes 考虑？**  
+**群集公用属性是否在多 NIC 网络上 PlumbAllCrossSubnetRoutes？**  
      是。  
 
 ## <a name="see-also"></a>请参阅  
-- [什么是 Windows Server 中故障转移群集中的新增功能](whats-new-in-failover-clustering.md)  
+- [Windows Server 中故障转移群集的新增功能](whats-new-in-failover-clustering.md)  

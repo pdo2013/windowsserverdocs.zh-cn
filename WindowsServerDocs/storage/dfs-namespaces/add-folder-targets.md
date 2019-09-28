@@ -1,23 +1,23 @@
 ---
 title: 添加文件夹目标
 description: 本主题介绍如何添加文件夹目标（UNC 路径）
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: jgerend
 ms.manager: brianlic
 ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms-date: 06/05/2017
-ms.openlocfilehash: 8cc61189076669d5c24244294b2f0eee2b783517
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b0685ea795d53b36fad92d54f817f67de57e3a82
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830998"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403186"
 ---
 # <a name="add-folder-targets"></a>添加文件夹目标
 
-> 适用于：Windows Server 2019，Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2、 Windows Server 2008
+> 适用于：Windows Server 2019，Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2，Windows Server 2008
 
 文件夹目标是共享文件夹或与命名空间中的某个文件夹关联的另一个命名空间的通用命名约定 (UNC) 路径。 添加多个文件夹目标可增加命名空间中的文件夹的可用性。
 
@@ -42,5 +42,5 @@ ms.locfileid: "59830998"
 ## <a name="see-also"></a>请参阅
 
 -   [部署 DFS 命名空间](deploying-dfs-namespaces.md)
--   [为 DFS 命名空间委派管理权限](delegate-management-permissions-for-dfs-namespaces.md)
+-   [委派 DFS 命名空间的管理权限](delegate-management-permissions-for-dfs-namespaces.md)
 -   [使用 DFS 复制复制文件夹目标](replicate-folder-targets-using-dfs-replication.md)

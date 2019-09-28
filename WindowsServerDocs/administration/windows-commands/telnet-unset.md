@@ -1,8 +1,8 @@
 ---
-title: telnet 取消设置
-description: 'Windows 命令主题 * * *- '
+title: 未设置 telnet
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 37c4d84d1664fdc13ea7ffec60bf981b264dba00
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6f0eb98c4168d2f664780dad42ca1aea5463d24
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853888"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383480"
 ---
-# <a name="telnet-unset"></a>telnet: unset
+# <a name="telnet-unset"></a>telnet： unset
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-关闭以前的 set 选项。   
+关闭先前设置的选项。   
 ## <a name="syntax"></a>语法  
 ```  
 u[nset] {bsasdel | crlf | delasbs | escape | localecho | logging | ntlm} [?]  
@@ -32,12 +32,12 @@ u[nset] {bsasdel | crlf | delasbs | escape | localecho | logging | ntlm} [?]
 ### <a name="parameters"></a>Parameters  
 |参数|描述|  
 |-------|--------|  
-|bsasdel|将发送**退格符**作为**退格符**。|  
-|crlf|将发送**Enter**密钥为 CR。 也称为换行模式。|  
-|delasbs|将发送**删除**作为**删除**。|  
-|转义|删除转义字符设置。|  
+|bsasdel|以**backspace**形式发送**backspace** 。|  
+|crlf|以 CR 形式发送**Enter**键。 也称为 "换行符" 模式。|  
+|delasbs|将**删除**作为**删除**发送。|  
+|Esc|删除转义符设置。|  
 |localecho|关闭 localecho。|  
-|logging|关闭日志记录功能。|  
+|logging|关闭日志记录。|  
 |ntlm|关闭 NTLM 身份验证。|  
 |?|显示此命令的帮助。|  
 ## <a name="BKMK_Examples"></a>示例  
@@ -46,4 +46,4 @@ u[nset] {bsasdel | crlf | delasbs | escape | localecho | logging | ntlm} [?]
 u logging  
 ```  
 ## <a name="additional-references"></a>其他参考  
--   [命令行语法解答](command-line-syntax-key.md)  
+-   [命令行语法项](command-line-syntax-key.md)  

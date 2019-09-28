@@ -1,9 +1,9 @@
 ---
 title: 创建 VM 并连接到租户虚拟网络或 VLAN
-description: 在本主题中，我们演示您如何创建租户 VM 并将其连接到与 HYPER-V 网络虚拟化创建的任一虚拟网络或虚拟局域网 (VLAN) 到。
+description: 在本主题中，我们将介绍如何创建租户 VM，并将其连接到使用 Hyper-v 网络虚拟化或虚拟局域网（VLAN）创建的虚拟网络。
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,38 +13,38 @@ ms.assetid: 3c62f533-1815-4f08-96b1-dc271f5a2b36
 ms.author: pashort
 author: shortpatti
 ms.date: 08/24/2018
-ms.openlocfilehash: e23e6c020c12dd4900caa368daae0cc6dbeceaf4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3e0678fb204e0895bf4429e8bb877a3f1c0e7a97
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856808"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355856"
 ---
 # <a name="create-a-vm-and-connect-to-a-tenant-virtual-network-or-vlan"></a>创建 VM 并连接到租户虚拟网络或 VLAN
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-在本主题中，创建租户 VM 并将其连接到与 HYPER-V 网络虚拟化创建的任一虚拟网络或虚拟局域网 (VLAN) 到。 可以使用 Windows PowerShell 网络控制器 cmdlet 连接到虚拟网络或 NetworkControllerRESTWrappers 连接到 VLAN。
+在本主题中，你将创建一个租户 VM，并将其连接到使用 Hyper-v 网络虚拟化或虚拟局域网（VLAN）创建的虚拟网络。 可以使用 Windows PowerShell 网络控制器 cmdlet 连接到虚拟网络或 NetworkControllerRESTWrappers 以连接到 VLAN。
 
-使用本主题中所述的过程来部署虚拟设备。 使用一些附加步骤，可以配置设备来处理或检查流到或从虚拟网络上的虚拟机的数据包。
+使用本主题中描述的过程来部署虚拟设备。 除了几个附加步骤，你还可以配置设备来处理或检查与虚拟网络上的其他 Vm 通信的数据包。
 
-本主题中的部分包括包含多个参数的示例值的示例 Windows PowerShell 命令。 请确保将这些命令中的示例值替换之前运行这些命令适用于你的部署的值为。 
+本主题中的部分包括包含许多参数的示例值的 Windows PowerShell 命令示例。 在运行这些命令之前，请确保将这些命令中的示例值替换为适用于你的部署的值。 
 
 
 ## <a name="prerequisites"></a>先决条件
 
-1. 为 VM 的生存期内创建具有静态 MAC 地址的 VM 网络适配器。<p>如果在虚拟机生存期内更改 MAC 地址，网络控制器不能配置网络适配器的必要策略。 如果未配置为网络策略阻止的网络适配器处理网络流量，并与网络的所有通信都失败。  
+1. 在 VM 的生存期内，用静态 MAC 地址创建的 VM 网络适配器。<p>如果 MAC 地址在 VM 生存期内发生更改，则网络控制器无法为网络适配器配置所需的策略。 不为网络配置策略会阻止网络适配器处理网络流量，并且与网络的所有通信都会失败。  
 
-2. 如果 VM 需要在启动时的网络访问权限，不会启动 VM 之前后在 VM 上网络适配器端口设置的接口 ID。 如果网络接口不存在设置的接口 ID 之前, 启动 VM，VM 不能在网络控制器和所有策略的应用在网络上通信。
+2. 如果 VM 在启动时需要网络访问，请在设置 VM 网络适配器端口上的接口 ID 后再启动 VM。 如果在设置接口 ID 之前启动 VM，并且不存在网络接口，则 VM 将无法在网络控制器中的网络上通信，且已应用所有策略。
 
-3. 如果您需要为此网络接口的自定义 Acl，然后创建 ACL 现在通过使用本主题中说明[使用访问控制列表 (Acl) 到管理数据中心网络流量流](../../sdn/manage/Use-Access-Control-Lists--ACLs--to-Manage-Datacenter-Network-Traffic-Flow.md)
+3. 如果需要此网络接口的自定义 Acl，请使用主题[使用访问控制列表（acl）中的说明创建 acl，以管理数据中心网络流量流](../../sdn/manage/Use-Access-Control-Lists--ACLs--to-Manage-Datacenter-Network-Traffic-Flow.md)
 
-确保在已在使用此示例命令之前创建虚拟网络。 有关详细信息，请参阅[创建、 删除或更新租户虚拟网络](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create%2c-delete%2c-or-update-tenant-virtual-networks)。
+使用此示例命令之前，请确保已创建虚拟网络。 有关详细信息，请参阅[创建、删除或更新租户虚拟网络](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create%2c-delete%2c-or-update-tenant-virtual-networks)。
 
-## <a name="create-a-vm-and-connect-to-a-virtual-network-by-using-the-windows-powershell-network-controller-cmdlets"></a>创建 VM 并使用 Windows PowerShell 网络控制器 cmdlet 连接到虚拟网络
+## <a name="create-a-vm-and-connect-to-a-virtual-network-by-using-the-windows-powershell-network-controller-cmdlets"></a>使用 Windows PowerShell 网络控制器 cmdlet 创建 VM 并连接到虚拟网络
 
 
-1. 创建具有静态 MAC 地址的 VM 网络适配器的 VM。 
+1. 使用具有静态 MAC 地址的 VM 网络适配器创建 VM。 
 
    ```PowerShell    
    New-VM -Generation 2 -Name "MyVM" -Path "C:\VMs\MyVM" -MemoryStartupBytes 4GB -VHDPath "c:\VMs\MyVM\Virtual Hard Disks\WindowsServer2016.vhdx" -SwitchName "SDNvSwitch" 
@@ -54,7 +54,7 @@ ms.locfileid: "59856808"
    Set-VMNetworkAdapter -VMName "MyVM" -StaticMacAddress "00-11-22-33-44-55" 
    ```
 
-2. 获取包含你想要连接的网络适配器的子网的虚拟网络。
+2. 获取虚拟网络，其中包含要将网络适配器连接到的子网。
 
    ```Powershell 
    $vnet = get-networkcontrollervirtualnetwork -connectionuri $uri -ResourceId “Contoso_WebTier”
@@ -63,7 +63,7 @@ ms.locfileid: "59856808"
 3. 在网络控制器中创建网络接口对象。
 
    >[!TIP]
-   >在此步骤中，使用自定义 ACL。
+   >在此步骤中，将使用自定义 ACL。
 
    ```PowerShell
    $vmnicproperties = new-object Microsoft.Windows.NetworkController.NetworkInterfaceProperties
@@ -87,16 +87,16 @@ ms.locfileid: "59856808"
    New-NetworkControllerNetworkInterface –ResourceID “MyVM_Ethernet1” –Properties $vmnicproperties –ConnectionUri $uri
    ```
 
-4. 网络控制器中获取网络接口实例 Id。
+4. 从网络控制器获取网络接口的 InstanceId。
 
    ```PowerShell 
     $nic = Get-NetworkControllerNetworkInterface -ConnectionUri $uri -ResourceId "MyVM-Ethernet1"
    ```
 
-5. 在 HYPER-V VM 上网络适配器端口设置的接口 ID。
+5. 在 Hyper-v VM 网络适配器端口上设置接口 ID。
 
    >[!NOTE]
-   >必须在 HYPER-V 主机上运行这些命令，VM 的安装位置。
+   >必须在安装了 VM 的 Hyper-v 主机上运行这些命令。
 
    ```PowerShell 
    #Do not change the hardcoded IDs in this section, because they are fixed values and must not change.
@@ -137,12 +137,12 @@ ms.locfileid: "59856808"
     Get-VM -Name “MyVM” | Start-VM 
    ```
 
-已成功创建了一个 VM，VM 连接到租户虚拟网络，并启动 VM，以便它可以处理租户工作负荷。
+你已成功创建了 VM，将 VM 连接到租户虚拟网络，并启动了 VM，使其能够处理租户工作负荷。
 
-## <a name="create-a-vm-and-connect-to-a-vlan-by-using-networkcontrollerrestwrappers"></a>创建 VM 并使用 NetworkControllerRESTWrappers 连接到 VLAN
+## <a name="create-a-vm-and-connect-to-a-vlan-by-using-networkcontrollerrestwrappers"></a>使用 NetworkControllerRESTWrappers 创建 VM 并连接到 VLAN
 
 
-1. 创建 VM 并向 VM 分配静态 MAC 地址。
+1. 创建 VM 并为 VM 分配静态 MAC 地址。
 
    ```PowerShell
    New-VM -Generation 2 -Name "MyVM" -Path "C:\VMs\MyVM" -MemoryStartupBytes 4GB -VHDPath "c:\VMs\MyVM\Virtual Hard Disks\WindowsServer2016.vhdx" -SwitchName "SDNvSwitch" 
@@ -152,13 +152,13 @@ ms.locfileid: "59856808"
    Set-VMNetworkAdapter -VMName "MyVM" -StaticMacAddress "00-11-22-33-44-55" 
    ```
 
-2. 在 VM 网络适配器上设置 VLAN ID。
+2. 设置 VM 网络适配器上的 VLAN ID。
 
    ```PowerShell
    Set-VMNetworkAdapterIsolation –VMName “MyVM” -AllowUntaggedTraffic $true -IsolationMode VLAN -DefaultIsolationId 123
    ```
 
-3. 获取的逻辑网络子网并创建网络接口。 
+3. 获取逻辑网络子网并创建网络接口。 
 
    ```PowerShell
     $logicalnet = get-networkcontrollerLogicalNetwork -connectionuri $uri -ResourceId "00000000-2222-1111-9999-000000000002"
@@ -186,7 +186,7 @@ ms.locfileid: "59856808"
     $vnic.InstanceId
    ```
 
-4. HYPER-V 端口上设置实例 Id。
+4. 在 Hyper-v 端口上设置 InstanceId。
 
    ```PowerShell  
    #The hardcoded Ids in this section are fixed values and must not change.
@@ -226,7 +226,7 @@ ms.locfileid: "59856808"
    Get-VM -Name “MyVM” | Start-VM 
    ```
 
-已成功创建了一个 VM，VM 连接到 VLAN，并启动 VM，以便它可以处理租户工作负荷。
+你已成功创建了 VM，将 VM 连接到 VLAN，并启动了 VM，使其能够处理租户工作负荷。
 
   
 

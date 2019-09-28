@@ -1,34 +1,34 @@
 ---
 ms.assetid: f643099e-f9c6-476f-9378-5a9228c39b33
-title: 附录 E-保护 Active Directory 中的 Enterprise Admins 组
+title: 附录 E-保护 Active Directory 中企业管理员组的安全
 description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 976eb8c7159c8349b72bee05a5248b5cc116d96b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 51337e5d4940a490045e146d32408d4f709bb6ed
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856718"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408714"
 ---
-# <a name="appendix-e-securing-enterprise-admins-groups-in-active-directory"></a>附录 E：保护 Active Directory 中的 Enterprise Admins 组
+# <a name="appendix-e-securing-enterprise-admins-groups-in-active-directory"></a>附录 E：在 Active Directory 中保护 Enterprise Admins 组
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
 
-## <a name="appendix-e-securing-enterprise-admins-groups-in-active-directory"></a>附录 E：保护 Active Directory 中的 Enterprise Admins 组  
-Enterprise Admins (EA) 组中，该表存放在目录林根域中，应包含在日常工作中，但可能根域的管理员帐户的任何用户提供保护中所述[附录 d:保护 Active Directory 中的内置 Administrator 帐户](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)。  
+## <a name="appendix-e-securing-enterprise-admins-groups-in-active-directory"></a>附录 E：在 Active Directory 中保护 Enterprise Admins 组  
+位于目录林根级域中的 Enterprise Admins （EA）组在日常工作中不应包含任何用户，只要根域的管理员帐户有可能例外，只要该帐户受到 [Appendix D：Active Directory @ no__t 中保护内置管理员帐户。  
 
-默认情况下，在林中每个域中的 Administrators 组的成员是 Enterprise Admins。 由于发生林灾难恢复方案中，将可能需要 EA 权限，不应从每个域中的管理员组删除 EA 组。 应保护林的 Enterprise Admins 组的分步说明，请按照中所述。  
+默认情况下，企业管理员是林中每个域中 Administrators 组的成员。 不应从每个域的 Administrators 组中删除 EA 组，因为在林灾难恢复方案中，可能需要 EA 权限。 应该对林的 Enterprise Admins 组进行安全，详细信息请参阅下面的分步说明。  
 
-对于在林中 Enterprise Admins 组：  
+对于林中的 Enterprise Admins 组：  
 
-1.  应将 Gpo 链接到包含成员服务器和工作站中的每个域的 Ou，企业管理员组添加到中的以下用户权限**计算机配置 \ 策略 \windows 设置 \ 安全设置 \ 本地策略 \ Policies\用户权限分配**:  
+1.  在链接到包含每个域中成员服务器和工作站的 Ou 的 Gpo 中，Enterprise Admins 组应添加到 "**计算机配置 \windows 设置 \ 本地策略 \ 本地策略 \ 用户权限" 中的以下用户权限分配**：  
 
     -   拒绝从网络访问这台计算机  
 
@@ -40,280 +40,280 @@ Enterprise Admins (EA) 组中，该表存放在目录林根域中，应包含在
 
     -   拒绝通过远程桌面服务登录  
 
-2.  配置审核，以发送警报，如果对属性或 Enterprise Admins 组的成员身份进行任何修改。  
+2.  配置审核，以便在对 Enterprise Admins 组的属性或成员身份进行任何修改时发送警报。  
 
-### <a name="step-by-step-instructions-for-removing-all-members-from-the-enterprise-admins-group"></a>从 Enterprise Admins 组中删除所有成员的分步说明  
+### <a name="step-by-step-instructions-for-removing-all-members-from-the-enterprise-admins-group"></a>删除 Enterprise Admins 组中的所有成员的分步说明  
 
-1.  在中**服务器管理器**，单击**工具**，然后单击**Active Directory 用户和计算机**。  
+1.  在**服务器管理器**中，单击 "**工具**"，然后单击 " **Active Directory 用户和计算机**"。  
 
-2.  如果你不管理根域林，在控制台树中，右键单击<Domain>，然后单击**更改域**(其中<Domain>是你当前管理的域的名称)。  
+2.  如果你不管理林的根域，请在控制台树中右键单击 <Domain>，然后单击 "**更改域**" （其中 <Domain> 是当前正在管理的域的名称）。  
 
-    ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_43.gif)  
+    ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_43.gif)  
 
-3.  在中**更改域**对话框中，单击**浏览**，选择根域林，然后单击**确定**。  
+3.  在 "**更改域**" 对话框中，单击 "**浏览**"，选择林的根域，然后单击 **"确定"** 。  
 
-    ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_44.gif)  
+    ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_44.gif)  
 
 4.  若要从 EA 组中删除所有成员：  
 
-    1.  双击**Enterprise Admins**组，然后单击**成员**选项卡。  
+    1.  双击 " **Enterprise Admins** " 组，然后单击 "**成员**" 选项卡。  
 
-        ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_45.gif)  
+        ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_45.gif)  
 
-    2.  选择组的成员，单击**删除**，单击**是**，然后单击**确定**。  
+    2.  选择组成员，单击 "**删除**"，单击 **"是**"，然后单击 **"确定"** 。  
 
-5.  只有在删除后 EA 组的所有成员，请重复步骤 2。  
+5.  重复步骤2，直到删除 EA 组的所有成员。  
 
-### <a name="step-by-step-instructions-to-secure-enterprise-admins-in-active-directory"></a>保护 Active Directory 中的 Enterprise Admins 的分步说明  
+### <a name="step-by-step-instructions-to-secure-enterprise-admins-in-active-directory"></a>在 Active Directory 中保护企业管理员的分步说明  
 
-1.  在中**服务器管理器**，单击**工具**，然后单击**组策略管理**。  
+1.  在**服务器管理器**中，单击 "**工具**"，然后单击 "**组策略管理**"。  
 
-2.  在控制台树中，展开<Forest>\Domains\\<Domain>，然后**组策略对象**(其中<Forest>是林的名称和<Domain>是，您希望对域的名称设置组策略）。  
+2.  在控制台树中，展开 "<Forest> \ 域 @ no__t"，然后**组策略对象**（其中，@no__t 为林的名称，<Domain> 是要设置组策略的域的名称）。  
 
     > [!NOTE]  
-    > 在包含多个域的林中，应在需要保护 Enterprise Admins 组的每个域中创建类似 GPO。  
+    > 在包含多个域的林中，应在需要保护 Enterprise Admins 组的每个域中创建类似的 GPO。  
 
-3.  在控制台树中，右键单击**组策略对象**，然后单击**新建**。  
+3.  在控制台树中，右键单击**组策略对象**"，然后单击"**新建**"。  
 
-    ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_46.gif)  
+    ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_46.gif)  
 
-4.  在中**新的 GPO**对话框中，键入<GPO Name>，然后单击**确定**(其中<GPO Name>是此 GPO 的名称)。  
+4.  在 "**新建 GPO** " 对话框中，键入 <GPO Name>，然后单击 **"确定"** （其中 <GPO Name> 是此 GPO 的名称）。  
 
-    ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_47.gif)  
+    ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_47.gif)  
 
-5.  在细节窗格中，右键单击<GPO Name>，然后单击**编辑**。  
+5.  在详细信息窗格中，右键单击 <GPO Name>，然后单击 "**编辑**"。  
 
-6.  导航到**计算机配置 \ 策略 \windows 设置 \ 安全设置 \ 本地策略**，然后单击**用户权限分配**。  
+6.  导航到 "**计算机配置 \windows 设置 \ 安全设置 \ 本地策略**"，然后单击 "**用户权限分配**"。  
 
-    ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_48.gif)  
+    ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_48.gif)  
 
-7.  配置用户权限来防止 Enterprise Admins 组的成员通过网络访问成员服务器和工作站通过执行以下操作：  
+7.  通过执行以下操作，将用户权限配置为阻止企业管理员组的成员访问网络上的成员服务器和工作站：  
 
-    1.  双击**拒绝从网络访问这台计算机**，然后选择**定义这些策略设置**。  
+    1.  双击 **"拒绝从网络访问此计算机"** ，并选择 "**定义这些策略设置**"。  
 
-    2.  单击**添加用户或组**然后单击**浏览**。  
+    2.  单击 "**添加用户或组**"，然后单击 "**浏览**"。  
 
-    3.  类型**Enterprise Admins**，单击**检查名称**，然后单击**确定**。  
+    3.  键入**Enterprise Admins**，单击 "**检查名称**"，然后单击 **"确定"** 。  
 
-        ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_49.gif)  
+        ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_49.gif)  
 
-    4.  单击**确定**，并**确定**试。  
+    4.  单击 **"确定**"，然后再次单击 **"确定"** 。  
 
-8.  配置用户权限以防止 Enterprise Admins 组的成员作为批处理作业登录通过执行以下操作：  
+8.  通过执行以下操作，将用户权限配置为阻止企业管理员组的成员作为批处理作业登录：  
 
-    1.  双击**拒绝作为批处理作业登录**，然后选择**定义这些策略设置**。  
+    1.  双击 "**拒绝作为批处理作业登录"** ，然后选择 "**定义这些策略设置**"。  
 
-    2.  单击**添加用户或组**然后单击**浏览**。  
-
-        > [!NOTE]  
-        > 在包含多个域的林中，请单击**位置**和选择的目录林根域。  
-
-    3.  类型**Enterprise Admins**，单击**检查名称**，然后单击**确定**。  
-
-        ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_50.gif)  
-
-    4.  单击**确定**，并**确定**试。  
-
-9. 配置用户权限以防止 EA 组的成员作为服务登录通过执行以下操作：  
-
-    1.  双击**拒绝日志作为一项服务**，然后选择**定义这些策略设置**。  
-
-    2.  单击**添加用户或组**，然后单击**浏览**。  
+    2.  单击 "**添加用户或组**"，然后单击 "**浏览**"。  
 
         > [!NOTE]  
-        > 在包含多个域的林中，请单击**位置**和选择的目录林根域。  
+        > 在包含多个域的林中，单击 "**位置**"，然后选择林的根域。  
 
-    3.  类型**Enterprise Admins**，单击**检查名称**，然后单击**确定**。  
+    3.  键入**Enterprise Admins**，单击 "**检查名称**"，然后单击 **"确定"** 。  
 
-        ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_51.gif)  
+        ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_50.gif)  
 
-    4.  单击**确定**，并**确定**试。  
+    4.  单击 **"确定**"，然后再次单击 **"确定"** 。  
 
-10. 配置用户权限以防止 Enterprise Admins 组的成员在本地登录到成员服务器和工作站通过执行以下操作：  
+9. 通过执行以下操作，将用户权限配置为禁止将 EA 组的成员作为服务登录：  
 
-    1.  双击**拒绝本地登录**，然后选择**定义这些策略设置**。  
+    1.  双击 "**拒绝日志为服务**"，然后选择 "**定义这些策略设置**"。  
 
-    2.  单击**添加用户或组**，然后单击**浏览**。  
-
-        > [!NOTE]  
-        > 在包含多个域的林中，请单击**位置**和选择的目录林根域。  
-
-    3.  类型**Enterprise Admins**，单击**检查名称**，然后单击**确定**。  
-
-        ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_52.gif)  
-
-    4.  单击**确定**，并**确定**试。  
-
-11. 配置用户权限来防止 Enterprise Admins 组的成员访问成员服务器和工作站通过远程桌面服务通过执行以下操作：  
-
-    1.  双击**拒绝通过远程桌面服务登录**，然后选择**定义这些策略设置**。  
-
-    2.  单击**添加用户或组**，然后单击**浏览**。  
+    2.  单击 "**添加用户或组**"，然后单击 "**浏览**"。  
 
         > [!NOTE]  
-        > 在包含多个域的林中，请单击**位置**和选择的目录林根域。  
+        > 在包含多个域的林中，单击 "**位置**"，然后选择林的根域。  
 
-    3.  类型**Enterprise Admins**，单击**检查名称**，然后单击**确定**。  
+    3.  键入**Enterprise Admins**，单击 "**检查名称**"，然后单击 **"确定"** 。  
 
-        ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_53.gif)  
+        ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_51.gif)  
 
-    4.  单击**确定**，并**确定**试。  
+    4.  单击 **"确定**"，然后再次单击 **"确定"** 。  
 
-12. 若要退出**组策略管理编辑器**，单击**文件**，然后单击**退出**。  
+10. 通过执行以下操作，配置用户权限以阻止 Enterprise Admins 组的成员在本地登录到成员服务器和工作站：  
 
-13. 在中**组策略管理**，将 GPO 链接到的成员服务器和工作站的 Ou，执行以下操作：  
+    1.  双击 "**拒绝本地登录"** ，然后选择 "**定义这些策略设置**"。  
 
-    1.  导航到<Forest>\Domains\\ <Domain> (其中<Forest>是林的名称和<Domain>是你想要将组策略设置的域的名称)。  
+    2.  单击 "**添加用户或组**"，然后单击 "**浏览**"。  
 
-    2.  右键单击该 GPO 将应用于和单击的 OU**链接现有 GPO**。  
+        > [!NOTE]  
+        > 在包含多个域的林中，单击 "**位置**"，然后选择林的根域。  
 
-        ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_54.gif)  
+    3.  键入**Enterprise Admins**，单击 "**检查名称**"，然后单击 **"确定"** 。  
 
-    3.  选择刚创建的 GPO，然后单击**确定**。  
+        ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_52.gif)  
 
-        ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_55.gif)  
+    4.  单击 **"确定**"，然后再次单击 **"确定"** 。  
 
-    4.  创建链接到包含工作站的所有其他 Ou。  
+11. 通过执行以下操作，配置用户权限以阻止 Enterprise Admins 组的成员通过远程桌面服务访问成员服务器和工作站：  
 
-    5.  创建链接到包含成员服务器的所有其他 Ou。  
+    1.  双击 "**拒绝通过远程桌面服务登录"** ，然后选择 "**定义这些策略设置**"。  
 
-    6.  在包含多个域的林中，应在需要保护 Enterprise Admins 组的每个域中创建类似 GPO。  
+    2.  单击 "**添加用户或组**"，然后单击 "**浏览**"。  
+
+        > [!NOTE]  
+        > 在包含多个域的林中，单击 "**位置**"，然后选择林的根域。  
+
+    3.  键入**Enterprise Admins**，单击 "**检查名称**"，然后单击 **"确定"** 。  
+
+        ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_53.gif)  
+
+    4.  单击 **"确定**"，然后再次单击 **"确定"** 。  
+
+12. 若要退出**组策略管理编辑器**，请单击 "**文件**"，然后单击 "**退出**"。  
+
+13. 在**组策略管理**中，通过执行以下操作将 GPO 链接到成员服务器和工作站 ou：  
+
+    1.  导航到 <Forest> 域 @ no__t @ no__t-2 （其中，<Forest> 是林的名称，<Domain> 是要在其中设置组策略的域的名称）。  
+
+    2.  右键单击 GPO 将应用到的 OU，然后单击 "**链接现有 GPO**"。  
+
+        ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_54.gif)  
+
+    3.  选择刚创建的 GPO，然后单击 **"确定"** 。  
+
+        ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_55.gif)  
+
+    4.  创建指向包含工作站的所有其他 Ou 的链接。  
+
+    5.  创建指向包含成员服务器的所有其他 Ou 的链接。  
+
+    6.  在包含多个域的林中，应在需要保护 Enterprise Admins 组的每个域中创建类似的 GPO。  
 
 > [!IMPORTANT]  
-> 如果跳转服务器用于管理域控制器和 Active Directory，请确保跳转服务器位于 Gpo 未链接到此 OU 中。  
+> 如果使用跳转服务器来管理域控制器和 Active Directory，请确保 "跳转服务器" 位于此 Gpo 未链接到的 OU 中。  
 
 ### <a name="verification-steps"></a>验证步骤  
 
-#### <a name="verify-deny-access-to-this-computer-from-the-network-gpo-settings"></a>验证"拒绝从网络访问这台计算机"GPO 设置  
-从任何成员服务器或不受 GPO 更改 （例如"跳转服务器"） 的工作站，尝试通过 GPO 更改的会影响网络访问的成员服务器或工作站。 若要验证的 GPO 设置，请尝试通过使用系统驱动器映射**NET USE**命令，请执行以下步骤：  
+#### <a name="verify-deny-access-to-this-computer-from-the-network-gpo-settings"></a>验证 "拒绝从网络访问此计算机" GPO 设置  
+在不受 GPO 更改（如 "跳转服务器"）影响的任何成员服务器或工作站上，尝试通过受 GPO 更改影响的网络访问成员服务器或工作站。 若要验证 GPO 设置，请执行以下步骤，尝试使用**NET USE**命令映射系统驱动器：  
 
-1.  本地使用的是 EA 组的成员的帐户登录。  
+1.  使用作为 EA 组成员的帐户在本地登录。  
 
-2.  使用鼠标，将指针移动到屏幕的右上角或右下角。 当**超级按钮**栏出现后，单击**搜索**。  
+2.  用鼠标将指针移到屏幕的右上角或右下角。 出现**超级按钮**栏时，单击 "**搜索**"。  
 
-3.  在**搜索**框中，键入**命令提示符**，右键单击**命令提示符下**，然后单击**以管理员身份运行**若要打开提升命令提示符。  
+3.  在**搜索**框中，键入 "**命令提示符**"，右键单击 "**命令提示符**"，然后单击 "以**管理员身份运行**" 以打开提升的命令提示符。  
 
-4.  当系统提示您批准提升，请单击**是**。  
+4.  当提示批准提升时，单击 **"是"** 。  
 
-    ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_56.gif)  
+    ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_56.gif)  
 
-5.  在中**命令提示符**窗口中，键入**net 使用\\ \\\<服务器名称\>\c$**，其中\<服务器名称\>是成员服务器或要通过网络访问的工作站的名称。  
+5.  在 "**命令提示符**" 窗口中，键入**net use \\ @ no__t @ No__t-4Server name @ no__t-5\c $** ，其中 \<Server name @ no__t-7 是你尝试通过网络访问的成员服务器或工作站的名称。  
 
-6.  下面的屏幕截图显示了应出现的错误消息。  
+6.  以下屏幕截图显示应显示的错误消息。  
 
-    ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_57.gif)  
+    ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_57.gif)  
 
-#### <a name="verify-deny-log-on-as-a-batch-job-gpo-settings"></a>验证"拒绝登录作为批处理作业"GPO 设置  
+#### <a name="verify-deny-log-on-as-a-batch-job-gpo-settings"></a>验证 "拒绝作为批处理作业登录" GPO 设置  
 
-从任何成员服务器或工作站的 GPO 更改影响，在本地登录。  
+在受 GPO 影响的任何成员服务器或工作站上，本地登录。  
 
-##### <a name="create-a-batch-file"></a>创建一个批处理文件  
+##### <a name="create-a-batch-file"></a>创建批处理文件  
 
-1.  使用鼠标，将指针移动到屏幕的右上角或右下角。 当**超级按钮**栏出现后，单击**搜索**。  
+1.  用鼠标将指针移到屏幕的右上角或右下角。 出现**超级按钮**栏时，单击 "**搜索**"。  
 
-2.  在中**搜索**框中，键入**记事本**，然后单击**记事本**。  
+2.  在**搜索**框中，键入**notepad**，然后单击 "**记事本**"。  
 
-3.  在中**记事本**，类型**dir c:**。  
+3.  在**记事本**中，键入**dir c：** 。  
 
-4.  单击**文件**，然后单击**另存为**。  
+4.  单击 "**文件**"，然后单击 "**另存为**"。  
 
-5.  在中**文件**名称框中，键入 **<Filename>.bat** (其中<Filename>是新的批处理文件的名称)。  
+5.  在 "**文件名" 框**中，键入 **<Filename>** （其中，<Filename> 是新批处理文件的名称）。  
 
-##### <a name="schedule-a-task"></a>计划的任务  
+##### <a name="schedule-a-task"></a>计划任务  
 
-1.  使用鼠标，将指针移动到屏幕的右上角或右下角。 当**超级按钮**栏出现后，单击**搜索**。  
+1.  用鼠标将指针移到屏幕的右上角或右下角。 出现**超级按钮**栏时，单击 "**搜索**"。  
 
-2.  在中**搜索**框中，键入**任务计划程序**，然后单击**任务计划程序**。  
+2.  在**搜索**框中，键入 "**任务计划程序**"，然后单击 "**任务计划程序**"。  
 
     > [!NOTE]  
-    > 在计算机上运行 Windows 8 中，在**搜索**框中，键入**计划任务**，然后单击**计划任务**。  
+    > 在运行 Windows 8 的计算机上的 "**搜索**" 框中，键入 "**计划任务**"，然后单击 "**计划任务**"。  
 
-3.  单击**操作**，然后单击**创建任务**。  
+3.  单击 "**操作**"，然后单击 "**创建任务**"。  
 
-4.  在中**创建任务**对话框中，键入**<Task Name>** (其中<Task Name>是新的任务的名称)。  
+4.  在 "**创建任务**" 对话框中，键入 **<Task Name>** （其中 @no__t 为新任务的名称）。  
 
-5.  单击**操作**选项卡，然后单击**新建**。  
+5.  单击 "**操作**" 选项卡，然后单击 "**新建**"。  
 
-6.  在中**操作**字段中，选择**启动程序**。  
+6.  在 "**操作**" 字段中，选择 "**启动程序**"。  
 
-7.  下**程序/脚本**，单击**浏览**，找到并选择中创建的批处理文件**创建一个批处理文件**部分，然后单击**打开**.  
+7.  在 "**程序/脚本**" 下，单击 "**浏览**"，找到并选择 "**创建批处理文件**" 部分中创建的批处理文件，然后单击 "**打开**"。  
 
-8.  单击 **“确定”**。  
+8.  单击 **“确定”** 。  
 
 9. 单击“常规”选项卡。  
 
-10. 在中**安全选项**字段中，单击**更改用户或组**。  
+10. 在 "**安全选项**" 字段中，单击 "**更改用户或组**"。  
 
-11. 键入该帐户是 EAs 组的成员的名称，单击**检查名称**，然后单击**确定**。  
+11. 键入作为 EAs 组成员的帐户的名称，单击 "**检查名称**"，然后单击 **"确定"** 。  
 
-12. 选择**运行或不用户是否登录**，然后选择**不存储密码**。 任务将仅具有本地计算机资源的访问权限。  
+12. 选择 **"不管用户是否登录都要运行"** ，并选择 "不**存储密码**"。 该任务将仅有权访问本地计算机资源。  
 
-13. 单击 **“确定”**。  
+13. 单击 **“确定”** 。  
 
-14. 应出现一个对话框，请求的用户帐户凭据运行任务。  
+14. 应显示一个对话框，请求用户帐户凭据以运行任务。  
 
-15. 输入凭据后，单击**确定**。  
+15. 输入凭据后，单击 **"确定"** 。  
 
-16. 应显示类似于以下的对话框。  
+16. 应出现如下所示的对话框。  
 
-    ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_58.gif)  
+    ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_58.gif)  
 
-#### <a name="verify-deny-log-on-as-a-service-gpo-settings"></a>验证"拒绝作为登录服务"GPO 设置  
+#### <a name="verify-deny-log-on-as-a-service-gpo-settings"></a>验证 "拒绝作为服务登录" GPO 设置  
 
-1.  从任何成员服务器或工作站的 GPO 更改影响，在本地登录。  
+1.  在受 GPO 影响的任何成员服务器或工作站上，本地登录。  
 
-2.  使用鼠标，将指针移动到屏幕的右上角或右下角。 当**超级按钮**栏出现后，单击**搜索**。  
+2.  用鼠标将指针移到屏幕的右上角或右下角。 出现**超级按钮**栏时，单击 "**搜索**"。  
 
-3.  在中**搜索**框中，键入**services**，然后单击**Services**。  
+3.  在**搜索**框中，键入 " **services**"，然后单击 "**服务**"。  
 
-4.  找到并双击**打印后台处理程序**。  
-
-5.  单击 **“登录”** 选项卡。  
-
-6.  下**作为登录**，选择**此帐户**。  
-
-7.  单击**浏览**，键入该帐户是 EAs 组的成员的名称，单击**检查名称**，然后单击**确定**。  
-
-8.  下**密码：** 并**确认密码**，键入所选的帐户的密码，然后单击**确定**。  
-
-9. 单击**确定**三次。  
-
-10. 右键单击**打印后台处理程序**服务，然后选择**重新启动**。  
-
-11. 重新启动该服务时，应显示类似于以下的对话框。  
-
-    ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_59.gif)  
-
-#### <a name="revert-changes-to-the-printer-spooler-service"></a>还原到的打印机后台处理程序服务所做的更改  
-
-1.  从任何成员服务器或工作站的 GPO 更改影响，在本地登录。  
-
-2.  使用鼠标，将指针移动到屏幕的右上角或右下角。 当**超级按钮**栏出现后，单击**搜索**。  
-
-3.  在中**搜索**框中，键入**services**，然后单击**Services**。  
-
-4.  找到并双击**打印后台处理程序**。  
+4.  找到并双击 "**打印后台处理程序**"。  
 
 5.  单击 **“登录”** 选项卡。  
 
-6.  下**作为登录**，选择**本地系统**帐户，然后单击**确定**。  
+6.  在 "**登录身份**" 下，选择 "**此帐户**"。  
 
-#### <a name="verify-deny-log-on-locally-gpo-settings"></a>验证"拒绝本地登录"GPO 设置  
+7.  单击 "**浏览**"，键入作为 EAs 组成员的帐户的名称，单击 "**检查名称**"，然后单击 **"确定"** 。  
 
-1.  从任何成员服务器或工作站的 GPO 更改影响，尝试在本地使用的是 EA 组的成员的帐户登录。 应显示类似于以下的对话框。  
+8.  在 "**密码：** " 和 "**确认密码**" 下，键入选定帐户的密码，然后单击 **"确定"** 。  
 
-    ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_60.gif)  
+9. 再单击 **"确定"** 三次。  
 
-#### <a name="verify-deny-log-on-through-remote-desktop-services-gpo-settings"></a>验证"拒绝通过登录远程桌面服务"GPO 设置  
+10. 右键单击**打印后台处理程序**服务，然后选择 "**重新启动**"。  
 
-1.  使用鼠标，将指针移动到屏幕的右上角或右下角。 当**超级按钮**栏出现后，单击**搜索**。  
+11. 重新启动该服务时，应显示类似于以下内容的对话框。  
 
-2.  在中**搜索**框中，键入**远程桌面连接**，然后单击**远程桌面连接**。  
+    ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_59.gif)  
 
-3.  在中**计算机**字段中，键入你想要连接的对象，然后单击的计算机的名称**Connect**。 （也可以键入而不是计算机名称的 IP 地址）。  
+#### <a name="revert-changes-to-the-printer-spooler-service"></a>还原对打印机后台处理程序服务所做的更改  
 
-4.  出现提示时，是 EA 组的成员的帐户提供凭据。  
+1.  在受 GPO 影响的任何成员服务器或工作站上，本地登录。  
 
-5.  应显示类似于以下的对话框。  
+2.  用鼠标将指针移到屏幕的右上角或右下角。 出现**超级按钮**栏时，单击 "**搜索**"。  
 
-    ![保护企业管理员组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_61.gif)  
+3.  在**搜索**框中，键入 " **services**"，然后单击 "**服务**"。  
+
+4.  找到并双击 "**打印后台处理程序**"。  
+
+5.  单击 **“登录”** 选项卡。  
+
+6.  在 "**登录身份**" 下，选择 "**本地系统**" 帐户，然后单击 **"确定"** 。  
+
+#### <a name="verify-deny-log-on-locally-gpo-settings"></a>验证 "拒绝本地登录" GPO 设置  
+
+1.  在受 GPO 更改影响的任何成员服务器或工作站上，尝试使用作为 EA 组成员的帐户在本地登录。 应出现如下所示的对话框。  
+
+    ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_60.gif)  
+
+#### <a name="verify-deny-log-on-through-remote-desktop-services-gpo-settings"></a>验证 "拒绝通过远程桌面服务登录" GPO 设置  
+
+1.  用鼠标将指针移到屏幕的右上角或右下角。 出现**超级按钮**栏时，单击 "**搜索**"。  
+
+2.  在**搜索**框中，键入 "**远程桌面连接**"，然后单击 "**远程桌面连接**"。  
+
+3.  在 "**计算机**" 字段中，键入要连接到的计算机的名称，然后单击 "**连接**"。 （还可以键入 IP 地址而不是计算机名。）  
+
+4.  出现提示时，请提供作为 EA 组成员的帐户的凭据。  
+
+5.  应出现如下所示的对话框。  
+
+    ![保护企业管理组](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_61.gif)  

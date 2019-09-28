@@ -1,7 +1,7 @@
 ---
 title: 安装和配置 NPS 服务器
 description: NPS 服务器处理 VPN 服务器发送的连接请求将验证用户是否具有连接权限、用户标识，并记录在 NPS 中配置 RADIUS 记帐时选择的连接请求的各个方面。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
@@ -9,12 +9,12 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
-ms.openlocfilehash: 553f3327e6252d2b03744b2e0fc88f340701f3a9
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 5cb0d342afec9c28259efb7a2e15666358f3cb5b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871330"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404259"
 ---
 # <a name="step-4-install-and-configure-the-network-policy-server-nps"></a>步骤 4： 安装和配置网络策略服务器（NPS）
 

@@ -6,15 +6,15 @@ ms.author: billmath
 manager: femila
 ms.date: 07/07/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: dda9d148-d72f-4bff-aa2a-f2249fa47e4c
 ms.technology: identity-adfs
-ms.openlocfilehash: 0c2d411be7ef807198df30074ea706d7c5398617
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ff4c43bb8dc5582716638f0a3f6e4f6a8022aece
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869357"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407371"
 ---
 # <a name="the-role-of-the-claim-rule-language"></a>声明规则语言的角色
 Active Directory 联合身份验证服务（AD FS）声明规则语言充当传入和传出声明行为的管理构建基块，而声明引擎充当声明规则语言中的逻辑处理引擎，定义自定义规则。 有关所有规则如何由声明引擎处理的详细信息，请参阅[声明引擎的角色](The-Role-of-the-Claims-Engine.md)。  
@@ -144,7 +144,7 @@ AD FS 还提供了一组预定义的声明颁发和声明验收规则模板，�
 
 -   Claim.ValueType  
 
--   如果在声明的 properties 集合中找不到属性 _name，则此属性返回空字符串。\[\_\] )  
+-   声明。 Properties @ no__t-0property @ no__t-1name @ no__t-2 （如果在声明的 Properties 集合中找不到属性 _name，则此属性返回空字符串。 )  
 
 可以使用 RegexReplace 函数在表达式中进行调用。 此函数采用输入表达式并将它与给定模式进行匹配。 如果模式匹配，则匹配项的输出会替换为替换值。  
 

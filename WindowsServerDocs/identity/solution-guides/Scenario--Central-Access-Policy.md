@@ -7,18 +7,18 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1ec4165209b726609b1f9b2caeab02fb5072c756
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91fd437895e765d4d73f3a200f76a5f8f96b52f2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873408"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407096"
 ---
-# <a name="scenario-central-access-policy"></a>方案：中心访问策略
+# <a name="scenario-central-access-policy"></a>场景：中心访问策略
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
 文件的中心访问策略允许组织集中部署和管理授权策略，包括使用用户组、用户声明、设备声明和资源属性的条件表达式。 （声明是对与其关联的对象属性的断言）。 例如，若要访问严重业务影响 (HBI) 数据，用户必须是从托管设备获取访问权限并使用智能卡登录的全职员工。 这些策略在 Active Directory 域服务 (AD DS) 中定义并托管。  
   
@@ -79,18 +79,18 @@ ms.locfileid: "59873408"
 ## <a name="in-this-scenario"></a>本方案内容  
 以下中心访问策略指南可供使用：  
   
--   [计划中央访问策略部署](assetId:///0311a76d-d66c-4ddb-ade6-af586a2ad82f)  
+-   [规划中心访问策略部署](assetId:///0311a76d-d66c-4ddb-ade6-af586a2ad82f)  
   
 -   [部署中心访问策略&#40;演示步骤&#41;](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md)  
   
 -   [动态访问控制：方案概述](Dynamic-Access-Control--Scenario-Overview.md)  
   
-## <a name="BKMK_NEW"></a>在此方案中包括角色和功能  
+## <a name="BKMK_NEW"></a>此方案中包含的角色和功能  
 下表列出了作为本方案组成部分的角色和功能，并描述了它们如何为本方案提供支持。  
   
 |角色/功能|如何支持本方案|  
 |-----------------|---------------------------------|  
-|Active Directory 域服务角色|AD DS，Windows Server 2012 中的引入了一个基于声明的授权平台，使用户声明和设备声明、 复合标识、 （用户加设备的声明），创建新的中心访问策略 (CAP) 模型，并使用文件分类在授权决策中的信息。|  
+|Active Directory 域服务角色|Windows Server 2012 中的 AD DS 引入了基于声明的授权平台，该平台允许创建用户声明和设备声明、复合标识、（用户加设备的声明）、新的中心访问策略（CAP）模型以及文件分类的使用授权决定的信息。|  
 |文件和存储服务服务器角色|文件和存储服务提供了可帮助设置和管理一台或多台文件服务器的技术，这些服务器提供了你可在网络上集中存储文件并与用户一起共享的位置。 如果你的网络用户需要访问相同的文件和应用程序，或如果集中备份和文件管理对于你的组织非常重要，则应该通过向计算机添加文件和存储服务角色和相应的角色服务的方式，将一个或多个计算机设置为文件服务器。|  
 |Windows 客户端计算机|用户可以通过客户端计算机访问网络上的文件和文件夹。|  
   

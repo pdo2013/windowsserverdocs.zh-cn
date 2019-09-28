@@ -1,6 +1,6 @@
 ---
 title: 文件服务器资源管理器 (FSRM) 概述
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: jgerend
 ms.manager: brianlic
 ms.technology: storage
@@ -8,12 +8,12 @@ ms.topic: article
 author: jasongerend
 ms.date: 5/14/2018
 description: 文件服务器资源管理器（FSRM）是一个工具，可用于管理和分类 Windows Server 文件服务器上的数据。
-ms.openlocfilehash: 49e7731c9f1e0f312728894e99bc88b0391738d8
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 719176307afc320ad676fd1acfc07ad9d15920cf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866947"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394165"
 ---
 # <a name="file-server-resource-manager-fsrm-overview"></a>文件服务器资源管理器 (FSRM) 概述
 
@@ -98,7 +98,7 @@ ms.locfileid: "70866947"
         ```
 
         > [!NOTE] 
-        > 注册表编辑器可能会告诉您它删除了空字符串，并显示此警告，您可以放心地忽略此警告：*类型为 REG_MULTI_SZ 的数据不能包含空字符串。注册表编辑器将删除所有找到的空字符串。*
+        > 注册表编辑器可能会告诉您它删除了空字符串，并显示此警告，您可以放心地忽略此警告：类型为 REG_MULTI_SZ 的 @no__t 0Data 不能包含空字符串。注册表编辑器将删除所有找到的空字符串。*
 
 7. 启动 SRMSVC 服务。 例如，在 PowerShell 会话中输入`Start-Service SrmSvc`。
 

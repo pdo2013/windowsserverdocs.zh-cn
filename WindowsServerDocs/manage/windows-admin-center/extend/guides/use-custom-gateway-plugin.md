@@ -1,43 +1,43 @@
 ---
 title: 在工具扩展中使用自定义的网关插件
-description: 开发工具扩展 Windows Admin Center SDK (项目 Honolulu)-在您的工具扩展中使用自定义网关插件
+description: 开发工具扩展 Windows 管理中心 SDK （Project Honolulu）-在工具扩展中使用自定义网关插件
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 348ebf5b99de7f582a3edf57b0a190f87f1c4a5b
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.prod: windows-server
+ms.openlocfilehash: 829cbf6df8cc2738bf4066b36210b860595774ed
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66452598"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385226"
 ---
 # <a name="use-a-custom-gateway-plugin-in-your-tool-extension"></a>在工具扩展中使用自定义的网关插件
 
->适用于：Windows Admin Center，Windows Admin Center 预览版
+>适用于：Windows Admin Center、Windows Admin Center 预览版
 
-在本文中，我们将使用我们已使用 Windows Admin Center CLI 创建一个新的空工具扩展中的自定义网关插件。
+在本文中，我们将使用 Windows 管理中心 CLI 创建的一个新的空工具扩展中的自定义网关插件。
 
 ## <a name="prepare-your-environment"></a>准备你的环境 ##
 
-如果尚未安装，请按照中的说明[开发的工具扩展](../develop-tool.md)准备您的环境，创建了一个新的空工具扩展。
+如果尚未这样做，请按照[开发工具扩展](../develop-tool.md)中的说明来准备环境，并创建新的空工具扩展。
 
-## <a name="add-a-module-to-your-project"></a>将模块添加到你的项目 ##
+## <a name="add-a-module-to-your-project"></a>向项目添加模块 ##
 
-如果尚未安装，请添加一个新[空模块](add-module.md)到项目中，我们将在下一步中使用。  
+如果你尚未这样做，请向你的项目添加一个新的[空模块](add-module.md)，我们将在下一步中使用该模块。  
 
 ## <a name="add-integration-to-custom-gateway-plugin"></a>将集成添加到自定义网关插件 ##
 
-现在我们将我们刚刚创建的新的空模块中使用自定义网关插件。
+现在，我们将使用刚刚创建的新的空模块中的自定义网关插件。
 
-### <a name="create-pluginservicets"></a>创建 plugin.service.ts
+### <a name="create-pluginservicets"></a>创建插件。
 
-将更改为上面创建的新工具模块的目录 (```\src\app\{!Module-Name}```)，并创建新文件```plugin.service.ts```。
+更改到上面创建的新工具模块的目录（```\src\app\{!Module-Name}```），并创建一个新文件 ```plugin.service.ts```。
 
-将以下代码添加到刚创建的文件：
+将以下代码添加到刚创建的文件中：
 ``` ts
 import { Injectable } from '@angular/core';
 import { AppContextService, HttpService } from '@microsoft/windows-admin-center-sdk/angular';
@@ -61,14 +61,14 @@ export class PluginService {
 }
 ```
 
-将引用更改为```Sample Uno```和```Sample%20Uno```到根据你功能的名称。
+根据需要将对的引用更改为 ```Sample Uno``` 并将 @no__t 为-1。
 
 [!WARNING]
-> 它是建议中的内置```this.appContextService.node```用来调用自定义网关插件中定义的任何 API。 这将确保，如果需要在它们都可以正确处理你的网关插件内凭据。
+> 建议使用内置 ```this.appContextService.node``` 来调用在自定义网关插件中定义的任何 API。 这将确保在网关插件中需要凭据，以使其正确处理。
 
-### <a name="modify-modulets"></a>修改 module.ts
+### <a name="modify-modulets"></a>修改 module
 
-打开```module.ts```之前创建的新模块文件 (即```{!Module-Name}.module.ts```):
+打开前面创建的新模块的 @no__t 0 文件（即 ```{!Module-Name}.module.ts```）：
 
 添加以下 import 语句：
 
@@ -78,7 +78,7 @@ import { Http } from '@microsoft/windows-admin-center-sdk/core';
 import { PluginService } from './plugin.service';
 ```
 
-将以下提供程序添加 （之后声明）：
+添加以下提供程序（声明后）：
 
 ``` ts
   ,
@@ -89,9 +89,9 @@ import { PluginService } from './plugin.service';
   ]
 ```
 
-### <a name="modify-componentts"></a>修改 component.ts
+### <a name="modify-componentts"></a>修改组件。 ts
 
-打开```component.ts```之前创建的新模块文件 (即```{!Module-Name}.component.ts```):
+打开前面创建的新模块的 @no__t 0 文件（即 ```{!Module-Name}.component.ts```）：
 
 添加以下 import 语句：
 
@@ -110,7 +110,7 @@ import { PluginService } from './plugin.service';
   private responseResult: string;
 ```
 
-修改构造函数，并修改/添加以下函数：
+修改构造函数并修改/添加以下函数：
 
 ``` ts
   constructor(private appContextService: AppContextService, private plugin: PluginService) {
@@ -133,9 +133,9 @@ import { PluginService } from './plugin.service';
   }
 ```
 
-### <a name="modify-componenthtml"></a>修改 component.html ###
+### <a name="modify-componenthtml"></a>修改组件 .html ###
 
-打开```component.html```之前创建的新模块文件 (即```{!Module-Name}.component.html```):
+打开前面创建的新模块的 @no__t 0 文件（即 ```{!Module-Name}.component.html```）：
 
 将以下内容添加到 html 文件：
 ``` html
@@ -143,6 +143,6 @@ import { PluginService } from './plugin.service';
 {{ responseResult }}
 ```
 
-## <a name="build-and-side-load-your-extension"></a>生成和端加载您的扩展插件
+## <a name="build-and-side-load-your-extension"></a>生成和加载扩展
 
-现在，你就已准备好[生成并端负载](../develop-tool.md#build-and-side-load-your-extension)你在 Windows Admin Center 中的扩展。
+现在，你已准备好在 Windows 管理中心中[构建和端加载](../develop-tool.md#build-and-side-load-your-extension)扩展。

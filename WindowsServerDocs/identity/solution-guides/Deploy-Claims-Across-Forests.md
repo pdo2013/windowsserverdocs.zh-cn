@@ -7,20 +7,20 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 7d78258d8f1db9889b6d2db8c497780940ed35a1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 21ddcbd3b71a8d623950f1600b654e04ecc41f1e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890648"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357567"
 ---
 # <a name="deploy-claims-across-forests"></a>跨林部署声明
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
-在 Windows Server 2012 中，声明类型是与它关联的对象有关的断言。 声明类型在 Active Directory 中根据林来定义。 在许多方案中，安全主体可能需要遍历信任边界以访问受信任林中的资源。 Windows Server 2012 中的跨林声明转换使你转换遍历林，以便声明是能够识别并接受在相互信任和受信任林中的出口和入口声明。 声明转换的一些实际应用场景包括：  
+在 Windows Server 2012 中，声明类型是对与其关联的对象的断言。 声明类型在 Active Directory 中根据林来定义。 在许多方案中，安全主体可能需要遍历信任边界以访问受信任林中的资源。 Windows Server 2012 中的跨林声明转换允许你转换遍历林的出口和入口声明，以便在信任林和受信任林中识别和接受这些声明。 声明转换的一些实际应用场景包括：  
   
 -   信任林可以使用声明转换，通过筛选具有特定值的传入声明来防止权限提升。  
   
@@ -45,11 +45,11 @@ ms.locfileid: "59890648"
 ## <a name="in-this-scenario"></a>本方案内容  
 本方案可使用以下指南：  
   
--   [跨林部署声明&#40;演示步骤&#41;](Deploy-Claims-Across-Forests--Demonstration-Steps-.md)  
+-   [跨林&#40;部署声明演示步骤&#41;](Deploy-Claims-Across-Forests--Demonstration-Steps-.md)  
   
 -   [声明转换规则语言](Claims-Transformation-Rules-Language.md)  
   
-## <a name="BKMK_NEW"></a>在此方案中包括角色和功能  
+## <a name="BKMK_NEW"></a>此方案中包含的角色和功能  
 下表列出了作为本方案组成部分的角色和功能，并描述了它们如何为本方案提供支持。  
   
 |角色/功能|如何支持本方案|  

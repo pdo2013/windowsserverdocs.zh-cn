@@ -1,7 +1,7 @@
 ---
 title: 受保护的结构部署快速入门
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: e060e052-39a0-4154-90bb-b97cc6dde68e
 manager: dongill
@@ -9,12 +9,12 @@ author: justinha
 ms.author: justinha
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 48ac73e79709f28816ea9eff35361bd54710c66e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8359532113e04e2247b4af34effc7f5b89d36f34
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870529"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402431"
 ---
 # <a name="quick-start-for-guarded-fabric-deployment"></a>受保护的结构部署快速入门
 
@@ -69,7 +69,7 @@ _受保护的构造_是一种 Windows Server 2016 hyper-v 构造，能够保护�
 
 ![现有 Hyper-v 构造](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-existing-hyper-v.png)
 
-## <a name="step-1-deploy-the-hyper-v-hosts-running-windows-server-2016"></a>步骤 1：部署运行 Windows Server 2016 的 Hyper-v 主机 
+## <a name="step-1-deploy-the-hyper-v-hosts-running-windows-server-2016"></a>第 1 步：部署运行 Windows Server 2016 的 Hyper-v 主机 
 
 Hyper-v 主机需要运行 Windows Server 2016 Datacenter edition 或更高版本。 如果要升级主机，可以从标准版[升级](https://technet.microsoft.com/windowsserver/dn527667.aspx)到数据中心版。
 
@@ -89,7 +89,7 @@ Hyper-v 主机需要运行 Windows Server 2016 Datacenter edition 或更高版�
 
 ![安装 HGS](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-two-deploy-hgs.png)
 
-## <a name="step-3-extract-identities-hardware-baselines-and-code-integrity-policies"></a>步骤 3：提取标识、硬件基线和代码完整性策略
+## <a name="step-3-extract-identities-hardware-baselines-and-code-integrity-policies"></a>步骤 3:提取标识、硬件基线和代码完整性策略
 
 从 Hyper-v 主机提取标识的过程取决于所使用的证明模式。
 

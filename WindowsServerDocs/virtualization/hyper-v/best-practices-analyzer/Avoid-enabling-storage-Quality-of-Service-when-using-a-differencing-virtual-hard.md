@@ -1,7 +1,7 @@
 ---
-title: 避免当使用差异虚拟硬盘时父和子虚拟硬盘位于不同的卷上启用存储服务质量
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+title: 当父虚拟硬盘和子虚拟硬盘位于不同的卷上时，请避免启用存储服务质量
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: aa9ed408-65cf-40dc-aad2-118b54c70179
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 2bdc8462c4d9dc50dbb69792f2f294add0ca3a74
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 716a32de2f9327e5eca38c470fa1b7c44150e9cb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856198"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366437"
 ---
-# <a name="avoid-enabling-storage-quality-of-service-when-using-a-differencing-virtual-hard-disk-when-the-parent-and-child-virtual-hard-disks-are-on-different-volumes"></a>避免当使用差异虚拟硬盘时父和子虚拟硬盘位于不同的卷上启用存储服务质量
+# <a name="avoid-enabling-storage-quality-of-service-when-using-a-differencing-virtual-hard-disk-when-the-parent-and-child-virtual-hard-disks-are-on-different-volumes"></a>当父虚拟硬盘和子虚拟硬盘位于不同的卷上时，请避免启用存储服务质量
 
 >适用于：Windows Server 2016
 
@@ -30,18 +30,18 @@ ms.locfileid: "59856198"
 |**Severity**|警告|  
 |**类别**|配置|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。
   
 ## <a name="issue"></a>**问题**  
-*包含父和子虚拟硬盘在不同卷上的差异虚拟硬盘已存储启用服务的质量。*  
+*不同卷上具有父虚拟硬盘和子虚拟硬盘的差异虚拟硬盘已启用存储服务质量。*  
   
-## <a name="impact"></a>**影响**  
-*此配置可能会导致意外的存储服务质量行为差异的虚拟硬盘，以及其他父级和子级卷上的虚拟硬盘。这会影响以下虚拟硬盘：*  
+## <a name="impact"></a>**对**  
+@no__t 0This 配置可能会导致差异虚拟硬盘的意外存储质量服务行为以及父和子卷上的其他虚拟硬盘。这会影响以下虚拟硬盘： *  
   
-\<虚拟硬盘的列表 >  
+@no__t 虚拟硬盘 >  
   
 ## <a name="resolution"></a>**解决方法**  
-*禁用存储服务质量上引用的虚拟硬盘，或执行存储迁移，以便将父和子虚拟硬盘移到同一个卷。*  
+*在被引用的虚拟硬盘上禁用存储服务质量，或执行存储迁移，将父级和子虚拟硬盘移到相同的卷。*  
   
 
 

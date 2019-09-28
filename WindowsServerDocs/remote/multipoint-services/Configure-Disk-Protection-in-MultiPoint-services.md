@@ -2,7 +2,7 @@
 title: 在 MultiPoint 服务中配置磁盘保护
 description: 了解如何为 MultiPoint 服务设置磁盘保护
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: 867848b65b02b6a7436fc5c86ba796a1b42aec42
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ae930162de32335ac32e3bda0ac381a26c5ea6dd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871745"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389821"
 ---
 # <a name="configure-disk-protection"></a>配置磁盘保护
 你可以在 Multipoint 服务中使用磁盘保护，以防止意外更新中的系统卷，计划在磁盘保护处于活动状态时保留 Windows 更新、暂时禁用磁盘保护以及卸载磁盘保护。  

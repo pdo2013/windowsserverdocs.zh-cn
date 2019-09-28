@@ -1,9 +1,9 @@
 ---
 title: 使用高级设置部署单个 DirectAccess 服务器
-description: 本主题是指南部署单个 DirectAccess 服务器使用高级设置的 Windows Server 2016 的一部分
+description: 本主题是 "使用 Windows Server 2016 的高级设置部署单个 DirectAccess 服务器" 指南的一部分
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,28 +12,28 @@ ms.topic: article
 ms.assetid: b211a9ca-1208-4e1f-a0fe-26a610936c30
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f17e1c9dd1a4e2d064a4e5980904c524dc62fb72
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 8ccb91973dfb3493b534bdbc8fc4e2bcb26b26b8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283603"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404958"
 ---
 # <a name="deploy-a-single-directaccess-server-with-advanced-settings"></a>使用高级设置部署单个 DirectAccess 服务器
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-本主题介绍的 DirectAccess 方案使用单个 DirectAccess 服务器，并允许你使用高级设置部署 DirectAccess。  
+本主题介绍使用单个 DirectAccess 服务器的 DirectAccess 方案，并允许你使用高级设置部署 DirectAccess。  
   
 ## <a name="before-you-begin-deploying-see-the-list-of-unsupported-configurations-known-issues-and-prerequisites"></a>在开始部署之前，请参阅不受支持的配置、已知问题和先决条件的列表  
-可以使用以下主题以查看先决条件和其他信息，然后再部署 DirectAccess。  
+在部署 DirectAccess 之前，可以使用以下主题查看先决条件和其他信息。  
   
 -   [DirectAccess 不受支持的配置](../../../remote-access/directaccess/DirectAccess-Unsupported-Configurations.md)  
   
 -   [部署 DirectAccess 的先决条件](../../../remote-access/directaccess/Prerequisites-for-Deploying-DirectAccess.md)  
   
-## <a name="BKMK_OVER"></a>应用场景说明  
-在此方案中，运行 Windows Server 2016、 Windows Server 2012 R2 或 Windows Server 2012 中，一台计算机配置为 DirectAccess 服务器使用高级设置。  
+## <a name="BKMK_OVER"></a>方案描述  
+在此方案中，运行 Windows Server 2016、Windows Server 2012 R2 或 Windows Server 2012 的单台计算机配置为具有高级设置的 DirectAccess 服务器。  
   
 > [!NOTE]  
 > 如果你想要使用简单的设置配置基本部署，请参阅[部署单个 DirectAccess 服务器使用开始向导](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)。 在简单的方案中，将通过向导使用默认设置配置 DirectAccess，而无需配置基础结构设置，例如，证书颁发机构 (CA) 或 Active Directory 安全组。  
@@ -73,27 +73,27 @@ ms.locfileid: "67283603"
   
 有关详细的部署步骤，请参阅 [Install and Configure Advanced DirectAccess](../../../remote-access/directaccess/single-server-advanced/Install-and-Configure-Advanced-DirectAccess.md)。  
   
-## <a name="BKMK_APP"></a>实际应用程序  
+## <a name="BKMK_APP"></a>实用应用程序  
 部署单个 DirectAccess 服务器可提供以下功能：  
   
--   **轻松访问**。 运行 Windows 10、 Windows 8.1、 Windows 8 和 Windows 7 的托管客户端计算机可以配置为 DirectAccess 客户端计算机。 这些客户端只要位于 Internet 上，就可以随时通过 DirectAccess 访问内部网络资源，无须登录 VPN 连接。 未运行这些操作系统之一的客户端计算机可以通过 VPN 连接到内部网络。  
+-   **轻松访问**。 运行 Windows 10、Windows 8.1、Windows 8 和 Windows 7 的托管客户端计算机可以配置为 DirectAccess 客户端计算机。 这些客户端只要位于 Internet 上，就可以随时通过 DirectAccess 访问内部网络资源，无须登录 VPN 连接。 未运行这些操作系统之一的客户端计算机可以通过 VPN 连接到内部网络。  
   
 -   **易于管理**。 远程访问管理员可以通过 DirectAccess 远程管理 Internet 上的 DirectAccess 客户端计算机，即使客户端计算机不在企业内部网络中也是如此。 管理服务器可以自动修正不符合公司要求的客户端计算机。 DirectAccess 和 VPN 由同一控制台管理并具有相同的向导集。 此外，可从单个远程访问管理控制台管理一台或多台 DirectAccess 服务器  
   
-## <a name="BKMK_NEW"></a>角色和此方案所需的功能  
+## <a name="BKMK_NEW"></a>此方案所需的角色和功能  
 下表列出了本方案所需的角色和功能：  
   
 |角色/功能|如何支持本方案|  
 |---------|-----------------|  
-|远程访问角色|使用服务器管理器控制台或 Windows PowerShell 安装或卸载此角色。 本角色包括 DirectAccess 和路由以及远程访问服务 (RRAS)。 远程访问角色由以下两个组件组成：<br/><br/>1.DirectAccess 和 RRAS VPN。 DirectAccess 和 VPN 远程访问管理控制台中一起管理。<br/>2.RRAS 路由。 在传统路由和远程访问控制台中管理 RRAS 路由功能。<br /><br />远程访问服务器角色取决于以下服务器角色/功能：<br/><br/> Internet 信息服务 (IIS) Web 服务器-此功能是需要在 DirectAccess 服务器和默认 web 探测上配置网络位置服务器。<br/> -Windows 内部数据库。 用于 DirectAccess 服务器上的本地帐户。|  
-|远程访问管理工具功能|此功能的安装如下所述：<br /><br />-如果远程访问角色安装，并且支持远程管理控制台用户界面和 Windows PowerShell cmdlet 它是默认情况下，DirectAccess 服务器上安装。<br />-它可以在不运行 DirectAccess 服务器角色的服务器上选择性地安装。 在这种情况下，它可用于远程管理运行 DirectAccess 和 VPN 的远程访问计算机。<br /><br />远程访问管理工具功能包括以下各项：<br /><br />-远程访问图形用户界面 (GUI)<br />的 Windows PowerShell 远程访问模块<br /><br />依赖项包括：<br /><br />组策略管理控制台<br />-RAS 连接管理器管理工具包 (CMAK)<br />-   Windows PowerShell 3.0<br />图形管理工具和基础结构|  
+|远程访问角色|使用服务器管理器控制台或 Windows PowerShell 安装或卸载此角色。 本角色包括 DirectAccess 和路由以及远程访问服务 (RRAS)。 远程访问角色由以下两个组件组成：<br/><br/>1.DirectAccess 和 RRAS VPN。 DirectAccess 和 VPN 在远程访问管理控制台中一起进行管理。<br/>2.RRAS 路由。 RRAS 路由功能在旧版路由和远程访问控制台中进行管理。<br /><br />远程访问服务器角色取决于以下服务器角色/功能：<br/><br/> -Internet Information Services （IIS） Web 服务器-在 DirectAccess 服务器上配置网络位置服务器和默认 Web 探测需要此功能。<br/> -Windows 内部数据库。 用于 DirectAccess 服务器上的本地记帐。|  
+|远程访问管理工具功能|此功能的安装如下所述：<br /><br />-默认情况下，当安装远程访问角色时，它会安装在 DirectAccess 服务器上，并支持远程管理控制台用户界面和 Windows PowerShell cmdlet。<br />-可选择将它安装在不运行 DirectAccess 服务器角色的服务器上。 在这种情况下，它可用于远程管理运行 DirectAccess 和 VPN 的远程访问计算机。<br /><br />远程访问管理工具功能包括以下各项：<br /><br />-远程访问图形用户界面（GUI）<br />-适用于 Windows PowerShell 的远程访问模块<br /><br />依赖项包括：<br /><br />-组策略管理控制台<br />-RAS 连接管理器管理工具包（CMAK）<br />-Windows PowerShell 3。0<br />-图形管理工具和基础结构|  
   
 ## <a name="BKMK_HARD"></a>硬件要求  
 本方案的硬件要求包括以下各项：  
   
 -   服务器要求：  
   
-    -   满足 Windows Server 2016、 Windows Server 2012 R2 或 Windows Server 2012 的硬件要求的计算机。  
+    -   满足 Windows Server 2016、Windows Server 2012 R2 或 Windows Server 2012 硬件要求的计算机。  
   
     -   服务器必须至少安装和启用了一个网络适配器，并连接至内部网络。 当使用两个适配器时，应有一个适配器连接至内部企业网络，另一个连接至外部网络（Internet 或专用网络）。  
   
@@ -107,10 +107,10 @@ ms.locfileid: "67283603"
   
 -   客户端的要求：  
   
-    -   客户端计算机必须运行 Windows 10、 Windows 8 或 Windows 7。  
+    -   客户端计算机必须运行 Windows 10、Windows 8 或 Windows 7。  
   
         > [!NOTE]  
-        > 在以下操作系统用作 DirectAccess 客户端：Windows 10、 Windows Server 2012 R2、 Windows Server 2012 中，Windows 8 企业版、 Windows 7 企业版或 Windows 7 旗舰版。  
+        > 以下操作系统可用作 DirectAccess 客户端：Windows 10、Windows Server 2012 R2、Windows Server 2012、Windows 8 企业版、Windows 7 企业版或 Windows 7 旗舰版。  
   
 -   基础机构和管理服务器要求：  
   
@@ -141,14 +141,14 @@ ms.locfileid: "67283603"
         > 建议你为包含 DirectAccess 客户端计算机的每个域创建安全组。  
   
         > [!IMPORTANT]  
-        > 如果在 DirectAccess 部署中，启用了 Teredo，并且你想要提供对 Windows 7 客户端访问权限，请确保客户端将升级到 Windows 7 SP1。 使用 Windows 7 RTM 的客户端将无法再通过 Teredo 进行连接。 但是，这些客户端仍将能够通过 IP-HTTPS 连接到企业网络。  
+        > 如果你在 DirectAccess 部署中启用了 Teredo，并且希望提供对 Windows 7 客户端的访问权限，请确保将客户端升级到带 SP1 的 Windows 7。 使用 Windows 7 RTM 的客户端将无法通过 Teredo 进行连接。 但是，这些客户端仍将能够通过 IP-HTTPS 连接到企业网络。  
   
 ## <a name="BKMK_LINKS"></a>另请参阅  
 下表提供其他资源的链接。  
   
-|内容类型|参考|  
+|内容类型|参考资料|  
 |--------|-------|  
-|**部署**|[Windows Server 中的 DirectAccess 部署路径](../../../remote-access/directaccess/DirectAccess-Deployment-Paths-in-Windows-Server.md)<br /><br />[部署单个 DirectAccess 服务器使用开始的向导](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)|  
+|**部署**|[Windows Server 中的 DirectAccess 部署路径](../../../remote-access/directaccess/DirectAccess-Deployment-Paths-in-Windows-Server.md)<br /><br />[使用入门向导部署单个 DirectAccess 服务器](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)|  
 |**工具和设置**|[远程访问 PowerShell cmdlet](https://technet.microsoft.com/library/hh918399.aspx)|  
 |**社区资源**|[DirectAccess 生存指南](https://social.technet.microsoft.com/wiki/contents/articles/23210.directaccess-survival-guide.aspx)<br /><br />[DirectAccess Wiki 条目](https://go.microsoft.com/fwlink/?LinkId=236871)|  
 |**相关技术**|[IPv6 的工作原理](https://technet.microsoft.com/library/cc781672(v=WS.10).aspx)|  

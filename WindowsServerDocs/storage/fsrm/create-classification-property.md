@@ -2,22 +2,22 @@
 title: 创建分类属性
 description: 本文介绍用于为指定文件夹或卷中的文件分配值的分类属性。
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: aa1f1a2ab4422f4bb36a737e47894b22b60160e1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d330f896c71cced8e97701af2c1008b3531e065d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880648"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394221"
 ---
 # <a name="create-a-classification-property"></a>创建分类属性
 
-> 适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
+> 适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2
 
 分类属性用于为指定文件夹或卷中的文件分配值。 有多种属性类型可选，具体取决于你的需求。 下表定义了可选的属性类型。
 
@@ -47,7 +47,7 @@ ms.locfileid: "59880648"
 
 5.  从**属性类型**下拉菜单的列表中选择属性类型。
 
-6.  单击 **“确定”**。
+6.  单击 **“确定”** 。
 
 ## <a name="see-also"></a>请参阅
 

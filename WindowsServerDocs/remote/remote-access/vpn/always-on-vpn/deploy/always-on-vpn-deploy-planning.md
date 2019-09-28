@@ -1,7 +1,7 @@
 ---
 title: 规划始终启用 VPN 部署
 description: 本主题提供有关在 Windows Server 2016 中部署 Always On VPN 的规划说明。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: 3c9de3ec-4bbd-4db0-b47a-03507a315383
@@ -9,12 +9,12 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.date: 11/05/2018
-ms.openlocfilehash: 7b194bc2eefbe28b75b66ef644c199f3416c14fb
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f92cfdbe13633dd4c59012f566c6888fdc7fc7a1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871372"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388158"
 ---
 # <a name="step-1-plan-the-always-on-vpn-deployment"></a>步骤 1： 规划 Always On VPN 部署
 

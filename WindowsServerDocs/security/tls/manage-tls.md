@@ -2,7 +2,7 @@
 title: 管理传输层安全性（TLS）
 description: Windows Server 安全
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-tls-ssl
@@ -12,12 +12,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 05/16/2018
-ms.openlocfilehash: f691775d5ab24de8b23df048c13ec3d7c572833f
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a4ac1ea5b0648dbb80f103c146ad3df23fc04ab7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870295"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402351"
 ---
 # <a name="manage-transport-layer-security-tls"></a>管理传输层安全性（TLS）
 
@@ -124,7 +124,7 @@ Certutil.exe –deleteEccCurve curveName
 1.  在 Windows 10 和 Windows Server 2016 上，使用**certutil**将新的已注册命名曲线添加到 windows。
 2.  在同一台计算机上，打开组策略管理控制台（GPMC），创建新的组策略对象，并对其进行编辑。
 3.  导航到 "**计算机配置" |首选项 |Windows 设置 |注册表**。  右键单击 "**注册表**"。 悬停在 "**新建**" 上并选择 "**收集项**"。 重命名收集项以匹配曲线的名称。 你将在*HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters*下为每个注册表项创建一个注册表项。
-4.  通过为 *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters\[curveName 下列出的每个注册表值添加新的注册表项，来配置新创建的组策略首选项注册表集合。]* .
+4.  通过为*HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters @ no__t-2curveName]* 下列出的每个注册表值添加新的**注册表项**，来配置新创建的组策略首选项注册表集合.
 5.  将包含组策略注册表收集项的组策略对象部署到应接收新命名曲线的 Windows 10 和 Windows Server 2016 计算机。
 
     ![GPP 分布曲线](../media/Transport-Layer-Security-protocol/gpp-distribute-curves.png)

@@ -1,6 +1,6 @@
 ---
-title: 存储空间直通的内存中读取缓存
-ms.prod: windows-server-threshold
+title: 存储空间直通内存中读取缓存
+ms.prod: windows-server
 ms.author: eldenc
 ms.manager: siroy
 ms.technology: storage-spaces
@@ -8,58 +8,58 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 02/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 7ed5894a569d4c42a3a4b0e018de5171f2c84a62
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 83fc923f505531f955fc0131d7dcc1ce98974daa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850548"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394087"
 ---
-# <a name="using-storage-spaces-direct-with-the-csv-in-memory-read-cache"></a>使用存储空间直通中内存 CSV 读取缓存
-> 适用于：Windows Server 2016 中，Windows Server 2019
+# <a name="using-storage-spaces-direct-with-the-csv-in-memory-read-cache"></a>将存储空间直通与 CSV 内存中读取缓存一起使用
+> 适用于：Windows Server 2016、Windows Server 2019
 
-本主题介绍如何使用系统内存来提高的性能[存储空间直通](storage-spaces-direct-overview.md)。
+本主题介绍如何使用系统内存来提高[存储空间直通](storage-spaces-direct-overview.md)性能。
 
-存储空间直通适用于群集共享卷 (CSV) 的内存中读取缓存。 使用系统内存缓存读取到可以提高应用程序，如 HYPER-V，使用访问 VHD 或 VHDX 文件的形式无缓冲的 I/O 的性能。 （无缓冲的 IOs 是不会缓存由 Windows 缓存管理器的任何操作。）
+存储空间直通与群集共享卷（CSV）内存中读取缓存兼容。 使用系统内存来缓存读取可以提高应用程序的性能，例如 Hyper-v，它使用无缓冲 i/o 来访问 VHD 或 VHDX 文件。 （未缓冲 Io 是 Windows 缓存管理器未缓存的任何操作。）
 
-由于内存中缓存是服务器本地，它提高了超聚合存储空间直通部署的数据局部性： 最新的读取进行缓存，在其中运行虚拟机在同一主机上的内存，减少了何种频率读取绕过网络。 这会导致较低的延迟和提高存储性能。
+由于内存中缓存是服务器本地的，因此它会提高超聚合存储空间直通部署的数据位置：最近的读取缓存在虚拟机运行的同一主机上的内存中，从而降低了读取网络的频率。 这会降低延迟和更好的存储性能。
 
 ## <a name="planning-considerations"></a>规划注意事项
 
-在内存中读取缓存是最有效的是读取密集型工作负荷，例如虚拟桌面基础结构 (VDI)。 相反，如果工作负荷非常大量写入操作，则缓存将可能会带来更多的开销比值，应禁用。
+内存中读取缓存最适用于读取密集型工作负荷，如虚拟桌面基础结构（VDI）。 相反，如果工作负荷非常耗费写入，则缓存可能会引入比值更多的开销，因此应将其禁用。
 
-您可以使用最多 80%的总物理内存中内存 CSV 读取缓存。
+对于 CSV 内存中读取缓存，最多可以使用 80% 的总物理内存。
 
   > [!TIP]
-  > 对于超聚合部署，其中计算并存储在同一服务器上运行仔细地保留足够的内存用于虚拟机。 对于聚合的横向扩展文件服务器 (SoFS) 部署，使用内存，减少争用，这不适用于。
+  > 对于超聚合部署（其中计算和存储在相同的服务器上运行），请注意为虚拟机留出足够的内存。 对于聚合横向扩展文件服务器（SoFS）部署（内存争夺更少），这不适用。
 
   > [!NOTE]
-  > 等 DISKSPD 某些 microbenchmarking 工具和[VM Fleet](https://github.com/Microsoft/diskspd/tree/master/Frameworks/VMFleet)可能会产生更糟糕的结果与 CSV 内存中已启用读缓存比没有它。 默认情况下 VM Fleet 将创建一个 10 GiB 每个虚拟机 – 大约 1 TiB 的 VHDX 总计为 100 Vm，然后执行*均匀随机*读取和写入到它们。 与不同的实际工作负荷，读取操作不遵循任何可预测性或重复的模式，因此内存中缓存不有效，就可能会产生开销。
+  > 某些 microbenchmarking 工具（如 DISKSPD 和[VM 汽油](https://github.com/Microsoft/diskspd/tree/master/Frameworks/VMFleet)）可能会产生更糟糕的结果，其中启用了 CSV 内存中读取缓存。 默认情况下，VM 汽油每个虚拟机创建 1 10 GiB VHDX – 100 Vm 约有 1 TiB 的总数，然后对它们执行*统一的随机*读取和写入。 与实际工作负载不同，读取不遵循任何可预测或重复的模式，因此内存中缓存不起作用，且只会造成开销。
 
-## <a name="configuring-the-in-memory-read-cache"></a>配置中内存的读取缓存
+## <a name="configuring-the-in-memory-read-cache"></a>配置内存中读取缓存
 
-在内存 CSV 读取缓存已在 Windows Server 2016 和 Windows Server 2019 具有相同的功能。 在 Windows Server 2016 中，它默认处于关闭状态。 在 Windows Server 2019，它是默认情况下分配 1 gb。
+CSV 内存中读取缓存在 Windows Server 2016 和 Windows Server 2019 中提供，具有相同的功能。 在 Windows Server 2016 中，它在默认情况下处于关闭状态。 在 Windows Server 2019 中，默认情况下，它默认为 1 GB。
 
 | 操作系统版本          | 默认 CSV 缓存大小 |
 |---------------------|------------------------|
-| Windows Server 2016 | 0 （禁用）           |
+| Windows Server 2016 | 0（已禁用）           |
 | Windows Server 2019 | 1 GiB                   |
 
-若要查看使用 PowerShell 分配内存量，请运行：
+若要查看使用 PowerShell 分配的内存量，请运行：
 
 ```PowerShell
 (Get-Cluster).BlockCacheSize
 ```
 
-返回的值是在每个服务器 mebibytes (MiB)。 例如，`1024`表示 1 gibibyte (GiB)。
+返回的值在每个服务器的 mebibytes （MiB）中。 例如，`1024` 表示 1 gibibyte （GiB）。
 
-若要更改分配的内存量，请修改此值使用 PowerShell。 例如，若要分配 2 GiB 每台服务器，请运行：
+若要更改分配的内存量，请使用 PowerShell 修改此值。 例如，若要为每台服务器分配2个 GiB，请运行：
 
 ```PowerShell
 (Get-Cluster).BlockCacheSize = 2048
 ```
 
-更改会立即生效，暂停然后恢复你的 CSV 卷，或服务器之间移动它们。 例如，使用此 PowerShell 代码段将每个 CSV 移到另一个服务器节点，然后再返回：
+要使更改立即生效，请暂停并恢复 CSV 卷，或在服务器之间移动它们。 例如，使用此 PowerShell 片段将每个 CSV 移到另一个服务器节点，并再次返回：
 
 ```PowerShell
 Get-ClusterSharedVolume | ForEach {

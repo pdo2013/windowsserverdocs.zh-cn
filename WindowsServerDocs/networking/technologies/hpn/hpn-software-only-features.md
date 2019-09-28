@@ -1,7 +1,7 @@
 ---
 title: 仅软件 (SO) 功能和技术
 description: 这些功能是作为操作系统的一部分实现的，并且与基础 NIC 无关。 有时，这些功能需要对 NIC 进行某种优化才能实现最佳操作。 其中的示例包括 Hyper-v 功能，如虚拟机服务质量（vmQoS）、访问控制列表（Acl）和非 Hyper-v 功能，如 NIC 组合。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 0cafb1cc-5798-42f5-89b6-3ffe7ac024ba
@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/20/2018
-ms.openlocfilehash: 27fbbcc5eedb1bc8ee37a85356542335c2eac77a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8c354d53db983d0437749de918b2d5f12ede0f5b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871929"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405701"
 ---
 # <a name="software-only-so-features-and-technologies"></a>仅软件 (SO) 功能和技术
 仅限软件的功能是作为操作系统的一部分实现的，并且与基础 NIC 无关。 有时，这些功能需要对 NIC 进行某种优化才能实现最佳操作。 其中的示例包括 Hyper-v 功能，如虚拟机服务质量（vmQoS）、访问控制列表（Acl）和非 Hyper-v 功能，如 NIC 组合。

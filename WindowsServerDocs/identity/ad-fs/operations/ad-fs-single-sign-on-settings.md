@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 08/17/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 1a2e70251837c88c3220c3d7593108eba5afb1ca
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 311789fdec160faeeeba0ecf26491d1e0cd6105d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869425"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407399"
 ---
 # <a name="ad-fs-single-sign-on-settings"></a>AD FS 单一登录设置
 

@@ -1,8 +1,8 @@
 ---
 title: recover
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d6b9b5544394bfc69a2dc9f7be26ed8355a3f690
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 415efe2d1e60ca70d68059b5702108440da735f3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441967"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371768"
 ---
 # <a name="recover"></a>recover
 
 
 
-从损坏的磁盘恢复可读信息。
+从错误或有缺陷的磁盘恢复可读的信息。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -38,19 +38,19 @@ recover [<Drive>:][<Path>]<FileName>
 
 |           参数           |                                          描述                                          |
 |-------------------------------|-----------------------------------------------------------------------------------------------|
-| [\<Drive>:][<Path>]<FileName> | 指定的位置和你想要恢复的文件的名称。 *文件名*是必需的。 |
+| [@no__t >：][<Path>] <FileName> | 指定要恢复的文件的位置和名称。 *FileName*是必需的。 |
 |              /?               |                             在命令提示符下显示帮助。                              |
 
 ## <a name="remarks"></a>备注
 
--   **恢复**命令读取文件，扇区的区域，并很好的扇区从恢复数据。 坏扇区中的数据都将丢失。
--   坏扇区报告**chkdsk**磁盘准备操作时被标记为"错误"。 它们不会造成危险，并**恢复**不会影响它们。
--   因为坏扇区中的所有数据丢失时恢复的文件时，应恢复一次只有一个文件。
--   不能使用通配符字符 ( **&#42;** 并 **？** ) 与**恢复**命令。 必须指定一个文件 （和如果它不是当前目录中的文件的位置）。
+-   **Recover**命令逐扇区读取文件，并从良好的扇区恢复数据。 坏扇区中的数据将丢失。
+-   为操作准备好磁盘时， **chkdsk**报告的坏扇区被标记为 "错误"。 它们不会带来任何风险，**恢复**不会对其造成影响。
+-   由于在您恢复文件时，坏扇区中的所有数据都将丢失，因此，一次只能恢复一个文件。
+-   不能将通配符（ **&#42;** 和 **？** ）与**recover**命令一起使用。 如果文件不在当前目录中，则必须指定文件（以及文件的位置）。
 
 ## <a name="BKMK_examples"></a>示例
 
-若要恢复 Story.txt 目录中的文件 \Fiction 驱动器 D 上，键入：
+若要在驱动器 D 上的 \Fiction 目录中恢复文件故事 .txt，请键入：
 ```
 recover d:\fiction\story.txt 
 ```

@@ -2,22 +2,22 @@
 title: 文件服务器资源管理器命令行工具
 description: 本文介绍 Windows Server 2016 的命令行工具
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 9b31c133b0ee4382b5b9aeded9b3852c7230d2d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 78c054c5b0c3de19d1f3acd825335eab2f140541
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858438"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394296"
 ---
 # <a name="file-server-resource-manager-command-line-tools"></a>文件服务器资源管理器命令行工具
 
-> 适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
+> 适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2
 
 文件服务器资源管理器安装[文件服务器资源管理器](https://technet.microsoft.com/itpro/powershell/windows/fileserverresourcemanager/fileserverresourcemanager) PowerShell cmdlet，及以下命令行工具：
 
@@ -27,9 +27,9 @@ ms.locfileid: "59858438"
 
 可以使用这些工具管理本地计算机或远程计算机上的存储资源。 有关这些命令行工具的详细信息，请参阅下列参考资料：
 
--   **Dirquota**: <https://go.microsoft.com/fwlink/?LinkId=92741>
--   **Filescrn**: <https://go.microsoft.com/fwlink/?LinkId=92742>
--   **Storrept**: <https://go.microsoft.com/fwlink/?LinkId=92743>
+-   **Dirquota**： <https://go.microsoft.com/fwlink/?LinkId=92741>
+-   **Filescrn**： <https://go.microsoft.com/fwlink/?LinkId=92742>
+-   **Storrept.exe**： <https://go.microsoft.com/fwlink/?LinkId=92743>
 
 
 > [!Note]

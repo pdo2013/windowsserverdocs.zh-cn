@@ -1,8 +1,8 @@
 ---
 title: ren
-description: 了解如何重命名文件或使用 ren 命令的目录。
+description: 了解如何使用 ren 命令重命名文件或目录。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 34c761cb08916d277f8f7f1c58d57a05ed2c8daf
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2ba3f6a13dc03c0b6a5561be9f0f692546a25149
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441809"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384576"
 ---
 # <a name="ren"></a>ren
 
-重命名文件或目录。 此命令等同于**重命名**命令。
+重命名文件或目录。 此命令与 "**重命名**" 命令相同。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -37,27 +37,27 @@ rename [<Drive>:][<Path>]<FileName1> <FileName2>
 
 |参数|描述|
 |---------|-----------|
-|[\<Drive>:][\<Path>]\<FileName1>|指定的位置和文件的名称或一组你想要重命名的文件。 *FileName1*可以包含通配符 ( **&#42;** 并 **？** )。|
-|\<FileName2>|指定的文件的新名称。 可以使用通配符来指定多个文件的新名称。|
+|[@no__t >：][@no__t >] \<FileName1 >|指定要重命名的文件或文件集的位置和名称。 *FileName1*可以包含通配符（ **&#42;** 和 **？** ）。|
+|\<FileName2 >|指定文件的新名称。 您可以使用通配符来指定多个文件的新名称。|
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
 
-- 重命名文件时，不能指定新的驱动器或路径。
-- 不能使用**ren**命令以在驱动器重命名文件或将文件移到不同的目录。
-- 可以使用通配符 ( **&#42;** 并 **？** ) 中任意一种*FileName*参数。 表示通过中的通配符字符的字符*FileName2*中的相应字符相同*FileName1*。
-- *FileName2*必须是唯一的文件名。 如果*FileName2*匹配现有的文件名称， **ren**会显示以下消息：  
+- 在重命名文件时，不能指定新的驱动器或路径。
+- 不能使用**ren**命令在驱动器之间重命名文件，或将文件移动到不同的目录。
+- 可以在 FileName 参数中使用 **&#42;** 通配符（和 **？** ） 。 *FileName2*中由通配符表示的字符将与*FileName1*中的相应字符相同。
+- *FileName2*必须是唯一的文件名。 如果*FileName2*与现有文件名相匹配，则**ren**会显示以下消息：  
   ```
   Duplicate file name or file not found
   ```
 
 ## <a name="BKMK_examples"></a>示例
 
-若要更改当前目录中的所有.txt 文件名称扩展为.doc 扩展，请键入：
+若要将当前目录中的所有 .txt 文件扩展名更改为 .doc 扩展名，请键入：
 ```
 ren *.txt *.doc 
 ```
-若要更改从 Chap10 Part10 到目录的名称，请键入：
+若要将目录的名称从 Chap10 更改为 Part10，请键入：
 ```
 ren chap10 part10 
 ```

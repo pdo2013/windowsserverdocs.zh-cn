@@ -1,9 +1,9 @@
 ---
 title: MultiPoint 服务
-description: 了解如何使用 MultiPoint Services 中，一种解决方案，允许多个用户访问相同的系统
+description: 了解如何使用 MultiPoint 服务，这是允许多个用户访问同一系统的解决方案
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,17 +13,17 @@ ms.assetid: 426005e1-03af-4595-9418-964b0962b905
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 4ae58e672095d568fddc504ae0de19c8877a9dff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b5900039dc241acb0da75a680b52088a6a6f3c2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885378"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405045"
 ---
 # <a name="multipoint-services"></a>MultiPoint 服务
-MultiPoint 服务是一种解决方案，允许多个用户，每个都有其自己的独立和熟悉的 Windows 体验，同时共享一台计算机。
+MultiPoint 服务是一种解决方案，它允许多个用户，每个用户都有自己的独立且熟悉的 Windows 体验，同时共享一台计算机。
 
-用户工作站由显示器、键盘和鼠标构成，可通过 USB 或视频电缆直接连接到主计算机。 由于 MultiPoint Services 是正版 Microsoft 已发布的软件产品时正确授权，你有资格获得由 Microsoft 或授权的合作伙伴的支持。 这使你的 Windows，访问所有最新的更新和置信度您获得了预期的体验的所有功能。
+用户工作站由显示器、键盘和鼠标构成，可通过 USB 或视频电缆直接连接到主计算机。 由于 MultiPoint 服务是正版 Microsoft 发布的软件产品，因此在获得适当许可后，你有资格获得 Microsoft 或授权合作伙伴的支持。 这为你提供了 Windows 的全部功能，可以访问所有最新的更新，并自信地确保你获得所需的体验。
 
-由于 MultiPoint 服务使多个用户共享一台计算机，它可以提供其中每个用户具有其自己的计算机的传统计算方案的低成本替代方法。 MultiPoint 服务还提供方便的管理解决方案为 MultiPoint 服务系统管理 MultiPoint 管理器和一个简单的管理解决方案，称为一天\-到\-天内，称为 MultiPoint仪表板。  
+因为 MultiPoint 服务允许多个用户共享一台计算机，所以它可以为每个用户都有自己的计算机的传统计算方案提供一种低成本的替代方案。 MultiPoint 服务还为多点服务系统管理提供了一个简单的管理解决方案，称为 MultiPoint 管理器和一天 @ no__t-0to @ no__t-timeraised>now-1day administration （称为 MultiPoint 仪表板）的简单管理解决方案。  
   

@@ -6,14 +6,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 02/21/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: cee87ce864e333b98e92fa64e939f2ead7edc156
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: fdadbefc138562246c72f7707b303d966bff0989
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869186"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407197"
 ---
 # <a name="ad-fs-troubleshooting---certificates"></a>AD FS 故障排除-证书
 AD FS 需要以下证书才能正常工作。  如果未正确设置或配置任何这些设置，则可能会出现问题。  

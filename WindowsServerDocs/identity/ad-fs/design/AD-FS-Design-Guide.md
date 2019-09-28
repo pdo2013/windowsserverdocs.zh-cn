@@ -7,20 +7,20 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 8cd7f6179d6747c995bf8d13c310280b4842d3da
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 1c080cef1211a059acf00afb15e6e904eb4fdcd5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191707"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408173"
 ---
 # <a name="ad-fs-2016-design-guide"></a>AD FS 2016 设计指南
 
 
 
-AD FS 设计指南是一个综合指南设计 AD FS 部署。  本指南由以下值：
+AD FS 设计指南是设计 AD FS 部署的综合性指南。  本指南由以下内容组成：
 
 -   [Windows Server 2012 R2 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)
 -   [Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)
@@ -28,6 +28,6 @@ AD FS 设计指南是一个综合指南设计 AD FS 部署。  本指南由以�
 
   
 ## <a name="see-also"></a>请参阅  
-有关 Windows Server 2016 中的 AD FS，请参阅规划容量[AD FS 容量规划工作表。](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx)  
+有关 Windows Server 2016 中的 AD FS 容量规划，请参阅[AD FS 容量规划工作表。](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx)  
   
 [Active Directory 联合身份验证服务概述](../../Active-Directory-Federation-Services.md)

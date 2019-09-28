@@ -7,30 +7,30 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: fe27b61abe196a2148ced18806be904ebd555fcc
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d79f31572bc30d0f4fa3af45671c58b799e40f02
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442890"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390025"
 ---
 # <a name="directory-services-component-updates"></a>目录服务组件更新
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
-**作者**:与 Windows 组的 Justin Turner，高级支持呈报工程师  
+**作者**：Justin Turner，具有 Windows 组的高级支持升级工程师  
   
 > [!NOTE]  
 > 本内容由 Microsoft 客户支持工程师编写，适用于正在查找比 TechNet 主题通常提供的内容更深入的有关 Windows Server 2012 R2 中的功能和解决方案的技术说明的有经验管理员和系统架构师。 但是，它未经过相同的编辑审批，因此某些语言可能看起来不如通常在 TechNet 上找到的内容那么精练。  
   
-本课程介绍了 Windows Server 2012 R2 中的目录服务组件更新。  
+本课介绍了 Windows Server 2012 R2 中的目录服务组件更新。  
   
 ## <a name="what-you-will-learn"></a>你将学习的内容  
-介绍了以下新的目录服务组件更新：  
+说明以下新的目录服务组件更新：  
   
--   介绍了以下新的目录服务组件更新：  
+-   说明以下新的目录服务组件更新：  
   
     -   [域和林功能级别](../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_FL)  
   
@@ -45,77 +45,77 @@ ms.locfileid: "66442890"
 ## <a name="BKMK_FL"></a>域和林功能级别  
   
 ### <a name="overview"></a>概述  
-部分提供了简要介绍了域和林功能级别的更改。  
+本部分简要介绍域和林功能级别的更改。  
   
-### <a name="new-dfl-and-ffl"></a>新 DFL 和 FFL  
-版本中，有新的域和林功能级别：  
+### <a name="new-dfl-and-ffl"></a>New DFL 和 FFL  
+在此版本中，有新的域和林功能级别：  
   
 -   林功能级别：Windows Server 2012 R2  
   
 -   域功能级别：Windows Server 2012 R2  
   
-### <a name="the-windows-server-2012-r2-domain-functional-level-enables-support-for-the-following"></a>Windows Server 2012 R2 域功能级别启用了以下支持：  
+### <a name="the-windows-server-2012-r2-domain-functional-level-enables-support-for-the-following"></a>Windows Server 2012 R2 域功能级别支持以下各项：  
   
-1.  为 DC 端保护*受保护的用户*  
+1.  *受保护用户*的 DC 端保护  
   
-    *受保护的用户*对 Windows Server 2012 R2 域进行身份验证可以**不再**:  
+    对 Windows Server 2012 R2 域进行身份验证的*受保护用户*将无法**再**执行以下操作：  
   
-    -   使用 NTLM 身份验证进行身份验证  
+    -   通过 NTLM 身份验证进行身份验证  
   
     -   在 Kerberos 预身份验证中使用 DES 或 RC4 密码套件  
   
-    -   使用不受约束或约束委派进行委派  
+    -   通过不受约束或约束委派进行委派  
   
-    -   超出初始 4 小时生存期后续订用户票证 (Tgt)  
+    -   续订超过初始4小时生存期的用户票证（Tgt）  
   
 2.  身份验证策略  
   
-    基于新林的 Active Directory 策略可应用于 Windows Server 2012 R2 域来控制哪些主机中的帐户的一个帐户可以从登录和身份验证的访问控制条件应用到运行的帐户服务  
+    可应用于 Windows Server 2012 R2 域中的帐户的新的基于林的 Active Directory 策略，以控制帐户可以登录的主机，并将身份验证的访问控制条件应用到作为帐户运行的服务  
   
 3.  身份验证策略接收器  
   
-    基于新林的 Active Directory 对象可以创建用户、 托管的服务和计算机帐户，用于将分类的身份验证策略或进行身份验证隔离帐户之间的关系。  
+    新的基于林的 Active Directory 对象，它可以在用户、托管服务和计算机帐户之间创建关系，以用于对身份验证策略的帐户进行分类或用于身份验证隔离。  
   
-请参阅如何配置受保护的帐户的详细信息。  
+有关详细信息，请参阅如何配置受保护的帐户。  
   
-除了上述功能，Windows Server 2012 R2 域功能级别可确保域中的所有域控制器都运行 Windows Server 2012 R2。  
-Windows Server 2012 R2 林功能级别不提供任何新功能，但它可以确保在林中创建的任何新域将自动运行在 Windows Server 2012 R2 域功能级别。  
+除了上述功能，Windows Server 2012 R2 域功能级别还确保域中的任何域控制器都运行 Windows Server 2012 R2。  
+Windows Server 2012 R2 林功能级别不提供任何新功能，但可确保在林中创建的任何新域都自动在 Windows Server 2012 R2 域功能级别运行。  
   
-### <a name="minimum-dfl-enforced-on-new-domain-creation"></a>创建新的域上强制执行的最小 DFL  
-Windows Server 2008 dfl 上是在创建新的域上受支持的最低功能级别。  
+### <a name="minimum-dfl-enforced-on-new-domain-creation"></a>在创建新域时强制实施的最小 DFL  
+Windows Server 2008 DFL 是创建新域时支持的最低功能级别。  
   
 > [!NOTE]  
-> 不推荐使用的 FRS 通过删除功能具有域功能级别低于 Windows Server 2008 使用服务器管理器或通过 Windows PowerShell 安装新的域。  
+> 通过删除使用低于 Windows Server 2008 的域功能级别安装新域的功能，通过服务器管理器或通过 Windows PowerShell 来实现 FRS 的弃用。  
   
 ### <a name="lowering-the-forest-and-domain-functional-levels"></a>降低林和域功能级别  
-林和域功能级别设置为 Windows Server 2012 R2 上创建新的域和新林的默认情况下，但可以使用 Windows PowerShell 已降低。  
+默认情况下，林和域功能级别设置为 Windows Server 2012 R2，在新域和新林创建时设置为，但可以使用 Windows PowerShell 降低。  
   
-若要提高或降低林功能级别使用 Windows PowerShell，请使用**Set-adforestmode** cmdlet。  
+若要使用 Windows PowerShell 提升或降低林功能级别，请使用**set-adforestmode** cmdlet。  
   
-**若要将 contoso.com FFL 设置为 Windows Server 2008 模式：**  
+**将 contoso.com FFL 设置为 Windows Server 2008 模式：**  
   
 ```sql  
 Set-ADForestMode -ForestMode Windows2008Forest -Identity contoso.com  
 ```  
   
-若要提高或降低域功能级别使用 Windows PowerShell，使用 Set-addomainmode cmdlet。  
+若要使用 Windows PowerShell 提升或降低域功能级别，请使用 Set-addomainmode cmdlet。  
   
-**若要将 contoso.com dfl 上设置为 Windows Server 2008 模式：**  
+**将 contoso.com DFL 设置为 Windows Server 2008 模式：**  
   
 ```powershell  
 Set-ADDomainMode -DomainMode Windows2008Domain -Identity contoso.com  
 ```  
   
-升级到运行 2003 dfl 上的现有域中运行 Windows Server 2012 R2 作为其他副本的 DC 的工作原理。  
+将运行 Windows Server 2012 R2 的 DC 作为附加副本升级到运行 2003 DFL 的现有域。  
   
-在现有林中创建新的域  
+在现有林中创建新域  
   
 ![目录服务更新](media/Directory-Services-component-updates/GTR_ADDS_FFL.gif)  
   
-### <a name="adprep"></a>ADPREP  
-没有任何新的林或域操作在此版本中。  
+### <a name="adprep"></a>ADPREP.LOG  
+此版本中没有新的林或域操作。  
   
-这些.ldf 文件包含的架构更改**设备注册服务**。  
+这些 .ldf 文件包含**设备注册服务**的架构更改。  
   
 1.  Sch59  
   
@@ -135,7 +135,7 @@ Set-ADDomainMode -DomainMode Windows2008Domain -Identity contoso.com
   
 1.  Sch66  
   
-**MSODS:**  
+**MSODS**  
   
 1.  Sch60  
   
@@ -145,12 +145,12 @@ Set-ADDomainMode -DomainMode Windows2008Domain -Identity contoso.com
   
 2.  Sch69  
   
-## <a name="BKMK_NTFRS"></a>弃用 NTFRS  
+## <a name="BKMK_NTFRS"></a>弃用了 NTFRS  
   
 ### <a name="overview"></a>概述  
-FRS 是 Windows Server 2012 R2 中不推荐使用。  不推荐使用的 FRS 通过强制执行 Windows Server 2008 的最小域功能级别 (DFL)。  仅当使用服务器管理器或 Windows PowerShell 创建新的域存在这种强制措施。  
+FRS 在 Windows Server 2012 R2 中已弃用。  FRS 的弃用是通过强制实施 Windows Server 2008 的最小域功能级别（DFL）来实现的。  仅当使用服务器管理器或 Windows PowerShell 创建新域时，才会执行此强制。  
   
-与 Install-addsforest 或 Install-addsdomain cmdlet 使用的域模式参数来指定域功能级别。  支持此参数的值可以是一个有效的整数或相应的枚举的字符串值。 例如，若要将域模式级别设置为 Windows Server 2008 R2 中，可以指定的值为 4 或"Win2008R2"。  从 Server 2012 R2 有效执行这些 cmdlet 时的值包括与 Windows Server 2008 (3，Win2008) Windows Server 2008 R2 (4，Win2008R2) Windows Server 2012 (5，Win2012) 和 Windows Server 2012 R2 (6，Win2012R2)。 域功能级别不能低于林控制级别，但可以高于林控制级别。  由于 FRS 已弃用在此版本中，Windows Server 2003 (2，Win2003) 不是使用这些 cmdlet 执行从 Windows Server 2012 R2 时识别的参数。  
+将-DomainMode 参数与 Install-addsforest 或 Install-addsdomain cmdlet 结合使用，以指定域功能级别。  此参数的支持值可以是有效的整数或相应的枚举字符串值。 例如，若要将域模式级别设置为 Windows Server 2008 R2，可以指定值4或 "Win2008R2"。  从服务器 2012 R2 中执行这些 cmdlet 时，有效值包括 Windows Server 2008 （3，Win2008） Windows Server 2008 R2 （4，Win2008R2） Windows Server 2012 （5，Win2012）和 Windows Server 2012 R2 （6，Win2012R2）。 域功能级别不能低于林控制级别，但可以高于林控制级别。  由于此版本中已弃用 FRS，因此从 Windows Server 2012 R2 执行时，Windows Server 2003 （2，Win2003）不是具有这些 cmdlet 的已识别参数。  
   
 ![目录服务更新](media/Directory-Services-component-updates/GTR_ADDS_PS_Install2003DFL.gif)  
   
@@ -159,45 +159,45 @@ FRS 是 Windows Server 2012 R2 中不推荐使用。  不推荐使用的 FRS 通
 ## <a name="BKMK_LDAPQuery"></a>LDAP 查询优化器更改  
   
 ### <a name="overview"></a>概述  
-LDAP 查询优化器算法已重新计算，并进一步优化。  结果是 LDAP 搜索效率和 LDAP 搜索时间的复杂查询的性能改进。  
+LDAP 查询优化器算法已重新评估并经过进一步优化。  结果是在 LDAP 搜索效率和复杂查询的 LDAP 搜索时间方面的性能改进。  
   
 > [!NOTE]
-> <strong>从开发人员：</strong>ESE 查询到查询中通过 LDAP 从映射中的改进搜索性能的改进。  一定程度的复杂性之外的 LDAP 筛选器阻止经过优化的索引选择，从而导致性能显著降低 （1000 x 或以上）。 此更改会改变在其中我们选择索引 LDAP 查询，以避免此问题的方法。  
+> <strong>从开发人员：</strong>在从 LDAP 查询到 ESE 查询的映射中，对改进的搜索性能进行了改进。  超出特定级别的复杂性的 LDAP 筛选器会阻止优化索引选择，导致性能大幅降低（1000倍或更多）。 此更改将改变为 LDAP 查询选择索引的方式，以避免此问题。  
 > 
 > [!NOTE]
-> LDAP 查询优化器算法，从而导致了彻底的革新：  
+> 完全彻底降低 LDAP 查询优化器算法，导致：  
 > 
-> -   缩短搜索时间  
-> -   效率提升允许域控制器来执行更多操作  
-> -   有关 AD 性能问题更少电话支持  
-> -   后移植到 Windows Server 2008 R2 (KB 2862304)  
+> -   更快搜索时间  
+> -   提高了效率，使 Dc 可以执行更多操作  
+> -   对 AD 性能问题的更少支持调用  
+> -   返回到 Windows Server 2008 R2 （KB 2862304）  
   
 ### <a name="background"></a>后台  
-搜索 Active Directory 的功能为核心服务提供的域控制器。  其他服务和业务线应用程序依赖于 Active Directory 搜索。  未提供此功能时，可以停止的业务操作。  作为核心和常用的服务，它是命令性，域控制器将有效地处理 LDAP 搜索流量。  LDAP 查询优化器算法尝试通过将 LDAP 搜索筛选器映射到可以满足通过记录在数据库中已编制索引的结果集，使 LDAP 搜索尽可能高效。  此算法已重新计算，并进一步优化。  结果是 LDAP 搜索效率和 LDAP 搜索时间的复杂查询的性能改进。  
+搜索 Active Directory 功能是由域控制器提供的核心服务。  其他服务和业务线应用程序依赖于 Active Directory 搜索。  如果此功能不可用，业务操作可能会停止停止。  作为核心和使用频繁的服务，域控制器必须有效地处理 LDAP 搜索流量。  LDAP 查询优化器算法尝试通过将 LDAP 搜索筛选器映射到可通过数据库中已建立索引的记录来满足的结果集，从而使 LDAP 搜索尽可能高效。  此算法已重新评估并经过进一步优化。  结果是在 LDAP 搜索效率和复杂查询的 LDAP 搜索时间方面的性能改进。  
   
-### <a name="details-of-change"></a>更改的详细信息  
+### <a name="details-of-change"></a>更改详细信息  
 LDAP 搜索包含：  
   
--   若要开始搜索的层次结构内的位置 （NC 头，OU，对象）  
+-   在层次结构中开始搜索的位置（NC 头、OU、对象）  
   
 -   搜索筛选器  
   
--   要返回的特性列表  
+-   要返回的属性的列表  
   
 搜索过程可总结如下：  
   
 1.  尽可能简化搜索筛选器。  
   
-2.  选择将返回的最小的集已覆盖的索引键的一组。  
+2.  选择一组将返回最小涵盖集的索引键。  
   
-3.  执行索引键，以减少涵盖的集的交集的一个或多个。  
+3.  执行索引键的一个或多个交集，以减少涵盖的集。  
   
-4.  对于在涵盖的集中每个记录，评估筛选器表达式，以及安全性。 如果筛选器的计算结果为 TRUE，并且授予访问权限，然后返回此记录到客户端。  
+4.  对于涵盖的集中的每个记录，请评估筛选器表达式以及安全性。 如果筛选器的计算结果为 TRUE 并且已授予访问权限，则将此记录返回到客户端。  
   
-LDAP 查询优化工作修改步骤 2 和 3，以减少涵盖集的大小。 具体而言，当前实现选择重复的索引键，并执行冗余的交集。  
+LDAP 查询优化工作会修改步骤2和步骤3，以减小覆盖集的大小。 更具体地说，当前实现选择重复的索引键并执行冗余的交集。  
   
-### <a name="comparison-between-old-and-new-algorithm"></a>旧的和新算法之间的比较  
-在此示例中效率低下的 LDAP 搜索的目标是 Windows Server 2012 域控制器。  由于找不到更高效的索引大约 44 秒钟即可完成搜索。  
+### <a name="comparison-between-old-and-new-algorithm"></a>旧算法与新算法之间的比较  
+在此示例中，低效 LDAP 搜索的目标是 Windows Server 2012 域控制器。  由于找不到更有效的索引，搜索完成时间大约为44秒。  
   
 ```  
 adfind -b dc=blue,dc=contoso,dc=com -f "(| (& (|(cn=justintu) (postalcode=80304) (userprincipalname=justintu@blue.contoso.com)) (|(objectclass=person) (cn=justintu)) ) (&(cn=justintu)(objectclass=person)))" -stats >>adfind.txt  
@@ -227,7 +227,7 @@ Log Record Bytes Generated: 0
 ```  
   
 ### <a name="sample-results-using-the-new-algorithm"></a>使用新算法的示例结果  
-此示例与上面完全相同的搜索将重复，但面向 Windows Server 2012 R2 域控制器。  由于 LDAP 查询优化器算法中的改进小于一秒内完成相同的搜索。  
+此示例重复相同的搜索，但目标为 Windows Server 2012 R2 域控制器。  由于 LDAP 查询优化器算法中的改进，同一搜索将在不到一秒内完成。  
   
 ```  
 adfind -b dc=blue,dc=contoso,dc=com -f "(| (& (|(cn=justintu) (postalcode=80304) (userprincipalname=dhunt@blue.contoso.com)) (|(objectclass=person) (cn=justintu)) ) (&(cn=justintu)(objectclass=person)))" -stats >>adfindBLUE.txt  
@@ -260,71 +260,71 @@ Log Record Bytes Generated: 0
   
 -   如果无法优化树：  
   
-    -   例如： 在树中的表达式是通过未编制索引的列  
+    -   例如：树中的表达式在未建立索引的列上  
   
-    -   记录阻止优化的索引的列表  
+    -   记录阻止优化的索引列表  
   
     -   通过 ETW 跟踪和事件 ID 1644 公开  
   
         ![目录服务更新](media/Directory-Services-component-updates/GTR_ADDS_Event1644.gif)  
   
-### <a name="BKMK_EnableStats"></a>若要启用在 LDP 中的统计信息控件  
+### <a name="BKMK_EnableStats"></a>启用 LDP 中的统计信息控件  
   
-1.  打开 LDP.exe，并连接并绑定到域控制器。  
+1.  打开 LDP.EXE，然后连接并绑定到域控制器。  
   
-2.  上**选项**菜单上，单击**控件**。  
+2.  在 "**选项**" 菜单上，单击 "**控件**"。  
   
-3.  在控件对话框中，展开**预定义的负载**下拉菜单，单击**搜索 Stats** ，然后单击**确定**。  
+3.  在 "控件" 对话框中，展开 "**加载预定义**的" 下拉菜单，单击 "**搜索统计**信息"，然后单击 **"确定"** 。  
   
     ![目录服务更新](media/Directory-Services-component-updates/GTR_ADDS_Controls.gif)  
   
-4.  上**浏览**菜单上，单击**搜索**  
+4.  在 "**浏览**" 菜单上，单击 "**搜索**"  
   
-5.  在搜索对话框中，选择**选项**按钮。  
+5.  在 "搜索" 对话框中，选择 "**选项**" 按钮。  
   
-6.  请确保**扩展**复选框被选中的搜索选项对话框并选择**确定**。  
+6.  确保在 "搜索选项" 对话框中选中了 "**扩展**" 复选框，然后选择 **"确定"** 。  
   
     ![目录服务更新](media/Directory-Services-component-updates/GTR_ADDS_SearchOptions.gif)  
   
-### <a name="try-this-use-ldp-to-return-query-statistics"></a>请尝试此操作：使用 LDP 返回查询统计信息  
-在域控制器上，或从已加入域的客户端或安装了 AD DS 工具的服务器，请执行以下步骤。  重复以下面向 Windows Server 2012 DC 和 Windows Server 2012 R2 DC。  
+### <a name="try-this-use-ldp-to-return-query-statistics"></a>请尝试执行以下操作：使用 LDP 返回查询统计信息  
+在域控制器上或在已加入域的客户端或安装了 AD DS 工具的服务器上执行以下。  对 Windows Server 2012 DC 和 Windows Server 2012 R2 DC 执行以下操作。  
   
-1.  审阅["创建更高效 Microsoft AD 启用应用程序"](https://msdn.microsoft.com/library/ms808539.aspx)一文，根据需要回头参考它。  
+1.  查看["创建更有效的 MICROSOFT AD 应用程序"](https://msdn.microsoft.com/library/ms808539.aspx)一文，并根据需要向后参考。  
   
-2.  使用 LDP 启用搜索的统计信息 (请参阅[若要启用在 LDP 中的统计信息控件](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_EnableStats))  
+2.  使用 LDP，启用搜索统计信息（请参阅[以在 LDP 中启用统计信息控件](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_EnableStats)）  
   
-3.  执行多个 LDAP 搜索，并观察结果顶部的统计信息。  将重复相同的搜索中其他活动因此将它们记录在记事本文本文件中。  
+3.  执行多个 LDAP 搜索，并观察结果顶部的统计信息。  你将在其他活动中重复相同的搜索，以便将其记录在记事本文本文件中。  
   
-4.  执行 LDAP 搜索的查询优化器应该能够优化由于属性索引  
+4.  执行 LDAP 搜索，因为属性索引，查询优化器应该能够优化该搜索  
   
-5.  尝试构造搜索需要很长时间才能完成 (可能需要增加**时间限制**选项，使搜索不会超时)。  
+5.  尝试构造一个需要很长时间才能完成的搜索（你可能想要增加**时间限制**选项，使搜索不会超时）。  
   
 ### <a name="additional-resources"></a>其他资源  
-[Active Directory 搜索有哪些？](https://technet.microsoft.com/library/cc783845(v=ws.10).aspx)  
+[什么是 Active Directory 搜索？](https://technet.microsoft.com/library/cc783845(v=ws.10).aspx)  
   
 [Active Directory 搜索的工作方式](https://technet.microsoft.com/library/cc755809(v=WS.10).aspx)  
   
-[创建更高效的 Microsoft Active Directory 启用应用程序](https://msdn.microsoft.com/library/ms808539.aspx)  
+[创建更有效的 Microsoft Active Directory 应用程序](https://msdn.microsoft.com/library/ms808539.aspx)  
   
-[951581](https://support.microsoft.com/kb/951581)速度低于预期在 AD 中执行 LDAP 查询，或可能记录 LDS/ADAM 目录服务和事件 ID 1644  
+[951581](https://support.microsoft.com/kb/951581) LDAP 查询执行速度比 AD 或 LDS/ADAM 目录服务中的预期慢，并且可能会记录事件 ID 1644  
   
-## <a name="BKMK_1644"></a>1644 事件改进  
+## <a name="BKMK_1644"></a>1644事件改进  
   
 ### <a name="overview"></a>概述  
-此更新将附加的 LDAP 搜索结果统计信息添加到事件 ID 1644 以帮助进行故障排除。  此外，没有可用于基于时间的阈值上启用日志记录的新注册表值。  这些改进了可在 Windows Server 2012 和 Windows Server 2008 R2 SP1 通过 KB [2800945](https://support.microsoft.com/kb/2800945)和将可供 Windows Server 2008 SP2。  
+此更新向事件 ID 1644 添加了更多 LDAP 搜索结果统计信息，以帮助进行故障排除。  此外，还有一个新的注册表值，可用于根据基于时间的阈值启用日志记录。  这些改进已在 Windows Server 2012 和 Windows Server 2008 R2 SP1 中通过 KB [2800945](https://support.microsoft.com/kb/2800945)提供，并可用于 windows SERVER 2008 SP2。  
   
 > [!NOTE]  
-> -   附加的 LDAP 搜索统计信息添加到事件 ID 1644 以帮助解决效率降低或昂贵的 LDAP 搜索  
-> -   现在，您可以指定搜索时间阈值 （例如。 搜索时间超过 100 毫秒的日志事件 1644年） 而不是指定的昂贵和 Inefficient 的搜索结果的阈值  
+> -   向事件 ID 1644 添加了其他 LDAP 搜索统计信息，以帮助排查低效或昂贵的 LDAP 搜索问题  
+> -   你现在可以指定搜索时间阈值（例如 日志事件1644，搜索花费的时间超过100ms，而不是指定成本昂贵且低效的搜索结果阈值  
   
 ### <a name="background"></a>后台  
-Active Directory 性能问题进行故障排除，时变得明显，LDAP 搜索活动可能会帮助解决问题。  您决定启用日志记录，以便您可以看到由域控制器处理的成本高昂或效率低下 LDAP 查询。  若要启用日志记录，必须设置现场工程诊断值并可以选择指定昂贵 / 效率低下的搜索结果的阈值。  启用现场工程的值为 5 到日志记录级别，时满足这些条件的任何搜索记录事件 ID 1644 在目录服务事件日志中。  
+当对 Active Directory 性能问题进行故障排除时，LDAP 搜索活动可能导致问题。  您决定启用日志记录，以便您可以看到由域控制器处理的昂贵或低效的 LDAP 查询。  若要启用日志记录，必须设置 "字段工程诊断" 值，还可以选择指定昂贵/低效的搜索结果阈值。  启用字段工程日志记录级别为5后，满足这些条件的任何搜索都将记录在包含事件 ID 1644 的目录服务事件日志中。  
   
-该事件包含：  
+事件包含：  
   
 -   客户端 IP 和端口  
   
--   起始节点  
+-   正在启动节点  
   
 -   Filter  
   
@@ -334,32 +334,32 @@ Active Directory 性能问题进行故障排除，时变得明显，LDAP 搜索�
   
 -   服务器控件  
   
--   访问过的条目  
+-   已访问条目  
   
--   返回的条目  
+-   返回的项  
   
-但是，关键数据缺少事件等 （如果有），在搜索操作和上花费的时间量已使用索引。  
+不过，事件中缺少关键数据，如搜索操作所用的时间和使用的索引（如果有）。  
   
-#### <a name="additional-search-statistics-added-to-event-1644"></a>其他搜索统计信息添加到的事件 1644  
+#### <a name="additional-search-statistics-added-to-event-1644"></a>添加到事件1644的其他搜索统计信息  
   
--   使用的索引  
+-   已用索引  
   
--   页引用  
+-   引用的页  
   
--   从磁盘读取页  
+-   从磁盘读取的页面  
   
--   从磁盘 preread 页  
+-   从磁盘 preread 页面  
   
--   修改的干净页  
+-   清理页面已修改  
   
--   修改的脏页  
+-   已修改脏页  
   
 -   搜索时间  
   
--   属性阻止优化  
+-   禁止优化的属性  
   
-#### <a name="new-time-based-threshold-registry-value-for-event-1644-logging"></a>新的基于时间的阈值注册表值，用于日志记录的事件 1644  
-而不是指定的昂贵和 Inefficient 的搜索结果的阈值，可以指定搜索时间阈值。  如果您想花费 50 毫秒的所有搜索结果都记录或更高版本，则会指定十进制 50 / 32 十六进制 （除了设置现场工程值）。  
+#### <a name="new-time-based-threshold-registry-value-for-event-1644-logging"></a>事件1644日志记录的新的基于时间的阈值注册表值  
+你可以指定搜索时间阈值，而不是指定成本高昂且效率低下的搜索结果阈值。  如果你想要记录占用 50 ms 或更长时间的所有搜索结果，则应指定 50 decimal/32 十六进制（除了设置字段工程值外）。  
   
 ```  
 Windows Registry Editor Version 5.00  
@@ -368,7 +368,7 @@ Windows Registry Editor Version 5.00
 ```  
   
 #### <a name="comparison-of-the-old-and-new-event-id-1644"></a>旧的和新的事件 ID 1644 的比较  
-旧  
+原来  
   
 ![目录服务更新](media/Directory-Services-component-updates/GTR_ADDS_Event1644_2012.gif)  
   
@@ -376,34 +376,34 @@ Windows Registry Editor Version 5.00
   
 ![目录服务更新](media/Directory-Services-component-updates/GTR_ADDS_Event1644_2012R2.gif)  
   
-#### <a name="try-this-use-the-event-log-to-return-query-statistics"></a>请尝试此操作：使用事件日志以返回查询统计信息  
+#### <a name="try-this-use-the-event-log-to-return-query-statistics"></a>请尝试执行以下操作：使用事件日志返回查询统计信息  
   
-1.  重复以下面向 Windows Server 2012 DC 和 Windows Server 2012 R2 DC。 每个搜索后观察两个域控制器上的事件 ID 1644s。  
+1.  对 Windows Server 2012 DC 和 Windows Server 2012 R2 DC 执行以下操作。 每次搜索后，在这两个 Dc 上观察事件 ID 1644s。  
   
-2.  使用注册表编辑器，启用的事件 ID 1644 日志记录在 Windows Server 2012 R2 DC 和 Windows Server 2012 DC 上的旧方法上使用基于时间的阈值。  
+2.  使用 regedit，在 Windows Server 2012 R2 DC 上使用基于时间的阈值启用事件 ID 1644 日志记录，并在 Windows Server 2012 DC 上使用旧方法启用事件 ID 日志记录。  
   
-3.  执行多个 LDAP 搜索，超过阈值，并且观察结果顶部的统计信息。  使用前面所述的 LDAP 查询并重复相同的搜索。  
+3.  执行若干超出阈值的 LDAP 搜索，并观察结果顶部的统计信息。  使用之前记录的 LDAP 查询，并重复相同的搜索。  
   
-4.  执行 LDAP 搜索的查询优化器不能优化因为一个或多个属性未编制索引。  
+4.  执行 LDAP 搜索，因为没有为一个或多个属性建立索引，查询优化器无法优化。  
   
 ## <a name="BKMK_ADRepl"></a>Active Directory 复制吞吐量改进  
   
 ### <a name="overview"></a>概述  
-AD 复制进行复制传输使用 RPC。 默认情况下，RPC 使用的 8k 的传输缓冲区和 5 个 K 数据包大小。 这具有其中发送实例将传输三个数据包 (大约 15 K 值得的数据），然后必须在等待网络往返行程发送更多的净效果。 假设 3 毫秒往返时间 40mbps 调整，甚至在 1Gbps 或 10 Gbps 网络上大约是最高的吞吐量。  
+AD 复制使用 RPC 进行复制传输。 默认情况下，RPC 使用8K 传输缓冲区和大量的数据包大小。 这将产生净效果，其中发送实例将传输三个数据包（大约为15K 的数据），然后必须等待网络往返，然后再发送更多数据包。 假设3ms 往返时间，最高吞吐量将绕40Mbps 调整，即使是在1Gbps 或 10 Gbps 网络上也是如此。  
   
 > [!NOTE]  
-> -   此更新调整最大 AD 复制吞吐量从 40mbps 调整到 600 Mbps 左右。  
+> -   此更新将最大 AD 复制吞吐量从40Mbps 调整调整到 600 Mbps。  
 >   
->     -   它会增加 RPC 的发送缓冲区大小，它可以减少网络往返行程  
-> -   因此效果将显著上高速度、 高延迟网络。  
+>     -   它增加了 RPC 发送缓冲区大小，从而减少了网络往返次数  
+> -   这种效果最明显，最明显的是高速度、高延迟的网络。  
   
-此更新通过从 8 K 的 RPC 发送缓冲区大小更改为 256 KB 增加到 600 Mbps 左右的最大吞吐量。  此更改允许 TCP 窗口大小以增加到超出 8 K、 减少网络往返。  
+此更新通过将 RPC 发送缓冲区大小从8K 改为256，将最大吞吐量增加到 600 Mbps。  此更改允许 TCP 窗口大小增长到8K 以上，从而减少了网络往返次数。  
   
 > [!NOTE]  
-> 没有可配置设置来修改此行为。  
+> 没有可配置的设置来修改此行为。  
   
 ### <a name="additional-resources"></a>其他资源  
-[Active Directory 复制模型的工作原理](https://technet.microsoft.com/library/cc772726(v=WS.10).aspx)  
+[Active Directory 复制模型的工作方式](https://technet.microsoft.com/library/cc772726(v=WS.10).aspx)  
   
 
 

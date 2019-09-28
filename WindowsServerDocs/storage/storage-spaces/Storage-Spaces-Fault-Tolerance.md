@@ -1,6 +1,6 @@
 ---
 title: 存储空间直通中的容错和存储效率
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: cosmosdarwin
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -10,12 +10,12 @@ ms.date: 10/11/2017
 ms.assetid: 5e1d7ecc-e22e-467f-8142-bad6d82fc5d0
 description: 存储空间直通中的复原选项（包括镜像和奇偶校验）的讨论。
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e6a29e82a85ec9570cda827060dfe1cdf192c53
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d2220584c0021352110b27c3107d1113eb17ef59
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849568"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393806"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-storage-spaces-direct"></a>存储空间直通中的容错和存储效率
 
@@ -102,7 +102,7 @@ Windows Server 2016 中的存储空间引入了 Microsoft Research 开发的名�
 > [!IMPORTANT]
 > 我们建议对大多数性能敏感的工作负载使用镜像。 若要了解有关根据工作负荷平衡性能和容量的详细信息，请参阅[计划卷](plan-volumes.md#choosing-the-resiliency-type)。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>小结
 
 本部分总结了存储空间直通可用的复原类型、使用每种类型的最低范围要求、每种类型可容忍的失败数以及相应的存储效率。
 
@@ -179,18 +179,18 @@ Windows Server 2016 中的存储空间引入了 Microsoft Research 开发的名�
 
 这六个示例显示三向镜像和/或双奇偶校验**可以**容忍的失败。
 
-- **1.**  丢失的一个驱动器 （包括缓存驱动器）
-- **2.**  丢失的一台服务器
+- **1.**  一个驱动器丢失（包括缓存驱动器）
+- **2.**  一台服务器丢失
 
 ![容错示例 1 和 2](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-12.png)
 
-- **3.**  一台服务器和一个驱动器丢失
-- **4.**  在不同的服务器中的两个驱动器丢失
+- **三维空间.**  一个服务器和一个驱动器丢失
+- **4.**  不同服务器中的两个驱动器丢失
 
 ![容错示例 3 和 4](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-34.png)
 
-- **5.**  两个以上的驱动器丢失，只要两个服务器最多会受到影响
-- **6.**  丢失的两个服务器
+- **5.**  如果两个以上的服务器受到影响，则会丢失两个以上的驱动器
+- **共.**  两台服务器丢失
 
 ![容错示例 5 和 6](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-56.png)
 
@@ -200,8 +200,8 @@ Windows Server 2016 中的存储空间引入了 Microsoft Research 开发的名�
 
 在生命周期内，存储空间可容忍任何数量的失败，因为如果时间充足，在每个失败后，它都可以还原到完整复原。 但是，在任何指定时刻，失败可安全影响最多两个容错域。 因此，以下是三向和/或双奇偶校验**无法**容忍的失败示例。
 
-- **7.** 驱动器在三个或多个服务器中次丢失
-- **8.** 三个或多个服务器同时丢失
+- **全天候.** 三个或更多服务器一次丢失驱动器
+- **8.** 一次丢失三个或多个服务器
 
 ![容错示例 7 和 8](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-78.png)
 
@@ -215,8 +215,8 @@ Windows Server 2016 中的存储空间引入了 Microsoft Research 开发的名�
 
 - [Windows Server 2016 中的存储空间直通](storage-spaces-direct-overview.md)
 - [Windows Server 2016 中的容错域感知](../../failover-clustering/fault-domains.md)
-- [擦除编码在由 Microsoft Research 的 Azure 中](https://www.microsoft.com/en-us/research/publication/erasure-coding-in-windows-azure-storage/)
+- [Azure 中由 Microsoft Research 进行的擦除编码](https://www.microsoft.com/en-us/research/publication/erasure-coding-in-windows-azure-storage/)
 - [本地重建代码和加速奇偶校验卷](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)
 - [存储管理 API 中的卷](https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/)
-- [存储效率演示在 Microsoft Ignite 2016](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
-- [容量计算器 PREVIEW 存储空间直通](http://aka.ms/s2dcalc)
+- [Microsoft Ignite 2016 的存储效率演示](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
+- [存储空间直通的容量计算器预览版](http://aka.ms/s2dcalc)

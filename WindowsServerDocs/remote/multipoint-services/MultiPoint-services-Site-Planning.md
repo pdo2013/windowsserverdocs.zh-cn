@@ -3,7 +3,7 @@ title: MultiPoint Services 站点规划
 description: Windows Server 2016 中的 MultiPoint Services 部署的规划信息
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: 063783cd-d748-489e-b175-46eadc993f7a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 3d49b2861d81a938fb20544c3edeb0976ac6d327
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 744e49f47f7144dac82dbe68c885060b0c08490d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871640"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389603"
 ---
 # <a name="multipoint-services-site-planning"></a>MultiPoint Services 站点规划
 你应该考虑将在其中部署一个或多个运行 MultiPoint 服务的计算机的位置。  

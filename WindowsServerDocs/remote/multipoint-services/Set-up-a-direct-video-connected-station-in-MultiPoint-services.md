@@ -3,7 +3,7 @@ title: 在 MultiPoint 服务中设置直接连接视频的工作站
 description: 了解如何在 MultiPoint Services 中创建直接连接视频的工作站
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: 82ba3517-9743-4cde-8eea-63a17edb016f
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: eda8d5eee0635370873adec5b1fde2d65fc9fd9c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ab57f3d996cfe9196fd256a76516a44dc146043b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871602"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389360"
 ---
 # <a name="set-up-a-direct-video-connected-station-in-multipoint-services"></a>在 MultiPoint 服务中设置直接连接视频的工作站
 在直接连接到视频的工作站上，监视器直接连接到 MultiPoint 服务器计算机上的视频端口。 然后，将键盘和鼠标连接到 USB 集线器，并将其与监视器相关联。  

@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 151118c51904b50df8e63f705b0870dbb1053609
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 956d026edf5de87a2c20d058f9be5cfec186191b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867772"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408000"
 ---
 # <a name="planning-for-ad-fs-server-capacity"></a>AD FS 服务器容量规划
 

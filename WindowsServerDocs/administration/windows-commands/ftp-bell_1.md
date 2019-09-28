@@ -2,7 +2,7 @@
 title: ftp bell_1
 description: Ftp bell_1 的 Windows 命令主题
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f93c7a5f11b88b06c04d1525c5edc2953cafe700
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eb47bc8eb4dff06596a332a4d5875e7442e8df96
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882848"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376611"
 ---
-# <a name="ftp-bell1"></a>ftp: bell_1
+# <a name="ftp-bell_1"></a>ftp： bell_1
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-切换可听到的声音文件传输的每个命令完成后发生。   
+在每个文件传输命令完成后，将声音切换到声音。   
 ## <a name="syntax"></a>语法  
 ```  
 bell  
@@ -32,11 +32,11 @@ bell
 ### <a name="parameters"></a>Parameters  
 无  
 ## <a name="remarks"></a>备注  
-默认情况下，bell 处于关闭状态。  
+默认情况下，电铃处于关闭状态。  
 ## <a name="BKMK_Examples"></a>示例  
-切换可听到的声音文件传输的每个命令完成后发生。  
+切换每个文件传输命令完成后发出的声音。  
 ```  
 bell  
 ```  
 ## <a name="additional-references"></a>其他参考  
--   [命令行语法解答](command-line-syntax-key.md)  
+-   [命令行语法项](command-line-syntax-key.md)  

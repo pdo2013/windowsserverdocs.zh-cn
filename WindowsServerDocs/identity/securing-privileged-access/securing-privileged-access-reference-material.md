@@ -1,7 +1,7 @@
 ---
 title: 保护特权访问参考资料
-description: 为 Windows Server Active Directory 域的操作的安全控制
-ms.prod: windows-server-threshold
+description: Windows Server Active Directory 域的操作安全控制
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 22ee9a77-4872-4c54-82d9-98fc73a378c0
 ms.date: 02/14/2019
@@ -9,18 +9,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: bcc06a3ccc4e95fa43a7f8f0ef7d110fd427f5a0
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 56e1c028a9b18db7b23e8f04e943e4113837b66b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501654"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407228"
 ---
 # <a name="active-directory-administrative-tier-model"></a>Active Directory 管理层模型
 
 >适用于：Windows Server
 
-此层模型的目的是保护标识系统使用一系列环境 （第 0 层） 的完全控制和攻击者经常破坏的高风险工作站资产之间的缓冲区区域。
+此层模型的目的是在完全控制环境（第0层）和攻击者经常泄露的高风险工作站资产之间使用一组缓冲区域来保护标识系统。
 
 ![层模型的三个层图示](../media/securing-privileged-access-reference-material/PAW_RM_Fig1.JPG)
 
@@ -111,7 +111,7 @@ ms.locfileid: "66501654"
 - 软件从 Internet 获取，并使用供应商提供的文件哈希得到验证。
 - 软件从 Internet 获取，并通过下载和比较两个独立副本得到验证：
    - 下载到没有安全关系的两个主机（不在同一个域中，且不受相同工具管理），最好是从单独的 Internet 连接下载。
-   - 比较使用 certutil 之类的实用程序将下载的文件：  `certutil -hashfile <filename>`
+   - 使用类似 certutil 的实用工具比较下载的文件： `certutil -hashfile <filename>`
 
 如果可能，应用程序安装程序和工具等所有应用程序软件应将 Windows Authenticode 与 [Windows Sysinternals](https://www.microsoft.com/sysinternals) 工具、*sigcheck.exe* 和吊销检查结合使用以进行数字签名和验证。 如果供应商无法提供此类数字签名，则可能需要一些软件。
 
@@ -189,12 +189,12 @@ ms.locfileid: "66501654"
 
 ![给定层级别标准图示](../media/securing-privileged-access-reference-material/PAW_RM_Fig12.JPG)
 
-强制项 （用红色八边形或本文档中的橙色三角形标记） 的所有异常都被都视为是临时的并且它们需要由 CAB 批准。 准则包括：
+强制项（在本文档中标记为红色八边形或橙色三角形）的所有异常都被视为是临时的，需要由 CAB 批准。 准则包括：
 
 - 初始请求需要相关人员的直属上司签名接受理由正当的风险，并且在六个月后过期。
 - 续订需要提供正当理由并由业务部门主管签名接受风险，并且在六个月后过期。
 
-建议项 （与本文档中的黄色圆圈标记） 的所有异常都被视为是临时的且需由 CAB 批准。 准则包括：
+建议项目的所有例外（在本文档中用黄色圆圈标记）都被视为是临时的，需要由 CAB 批准。 准则包括：
 
 - 初始请求需要相关人员的直属上司签名接受理由正当的风险，并且在 12 个月后过期。
 - 续订需要提供正当理由并由业务部门主管签名接受风险，并且在 12 个月后过期。
@@ -350,11 +350,11 @@ ms.locfileid: "66501654"
    - **主要（交互式）** - 通过使用从特权访问管理解决方案实时获取的权限的域帐户从管理工作站使用 RDP RestrictedAdmin。
    - **次要** - 通过使用由 LAPS 从管理工作站设置的本地帐户密码登录到服务器。
    - **禁止** - 标准 RDP 可能不能用于域帐户。
-   - **禁止** - 在会话中使用域帐户凭据（例如，使用 *RunAs* 或对共享进行身份验证）。 这会公开到被盗的风险的登录凭据。
+   - **禁止** - 在会话中使用域帐户凭据（例如，使用 *RunAs* 或对共享进行身份验证）。 这会向被盗风险公开登录凭据。
 - **物理服务器支持** - 当以物理方式出现在服务器控制台或虚拟机控制台（HYPER-V 或 VMWare 工具）上时，在访问服务器之前第 1 层管理员必须从 LAPS 检索本地帐户密码。
    - **主要** - 登录到服务器之前，从管理工作站检索由 LAPS 设置的本地帐户密码。
    - **禁止** - 在此情形中不允许使用域帐户登录。
-   - **禁止** - 在会话中使用域帐户凭据（例如，RunAs 或对共享进行身份验证）。 这会公开到被盗的风险的登录凭据。
+   - **禁止** - 在会话中使用域帐户凭据（例如，RunAs 或对共享进行身份验证）。 这会向被盗风险公开登录凭据。
 
 ###### <a name="tier-2-help-desk-and-user-support"></a>第 2 层技术支持和用户支持
 
@@ -379,7 +379,7 @@ ms.locfileid: "66501654"
 
 ###### <a name="no-browsing-the-public-internet-with-admin-accounts-or-from-admin-workstations"></a>请勿使用管理帐户或从管理工作站浏览开放 Internet
 
-使用管理帐户登录时或登录到管理工作站时，管理人员不能浏览开放 Internet。 唯一的授权的例外是使用 web 浏览器来管理基于云的服务。
+使用管理帐户登录时或登录到管理工作站时，管理人员不能浏览开放 Internet。 唯一经授权的例外是使用 web 浏览器来管理基于云的服务。
 
 ###### <a name="no-accessing-email-with-admin-accounts-or-from-admin-workstations"></a>请勿使用管理帐户或从管理工作站访问电子邮件
 
@@ -439,10 +439,10 @@ ms.locfileid: "66501654"
   - 执行故障排除和更正导致无法使用正确管理帐户的技术问题。
   - 执行极少数的任务，例如：
     - 架构管理
-    - 需要企业管理员权限的全林性任务
+    - 需要企业管理权限的全林性任务
 
       > [!NOTE]
-      > 拓扑管理，包括 Active Directory 站点和子网管理委派以限制这些权限的使用。
+      > 拓扑管理（包括 Active Directory 站点和子网管理）被委派，以限制这些权限的使用。
 
 - 在任何情况下使用任一此类帐户时，均应具有安全组领导的书面授权
 - 每个紧急访问帐户的跟踪表上的过程要求在每次使用时都需更改密码。 安全团队成员应确保正确做到这一点。
@@ -481,7 +481,7 @@ ms.locfileid: "66501654"
    - 使用此组来授予权限的一个注意点是，默认情况下，它们对新的组策略对象不具有管理访问权限。 根据“[此知识库文章](https://support.microsoft.com/kb/321476)”中的过程来更改架构默认权限可以实现此更改。
    - 管理林中用于管理生产环境的帐户不应被授予对管理林、其中的域或工作站的管理权限。
    - 高于管理林的管理权限应由离线进程进行严格控制，以降低攻击者或恶意内部人员清除审核日志的可能性。 这还有助于确保具有生产管理员帐户的人员无法放宽对其帐户的限制，从而避免增大组织的风险。
-   - 管理林应遵循的域，包括强身份验证协议配置的 Microsoft 安全符合性基线 (SCB) 配置。
+   - 管理林应遵循域的 Microsoft 安全符合性基线（SCB）配置，包括身份验证协议的强配置。
    - 所有管理林主机均应使用安全更新自动更新。 虽然这可能产生中断域控制器维护操作的风险，但它仍极大地缓解了未安装修补程序的漏洞带来的安全风险。
 
       > [!NOTE]
@@ -499,7 +499,7 @@ ms.locfileid: "66501654"
    - “安全基线”应作为起始配置。
 
       > [!NOTE]
-      > 在管理主机上配置基线，客户可以使用 Microsoft 安全合规性工具集 (SCT)。
+      > 客户可以使用 Microsoft 安全符合性工具包（SCT）来配置管理主机上的基线。
 
    - “安全引导”可防止攻击者或恶意软件试图将未经签名的代码加载到引导过程中。
 
@@ -539,7 +539,7 @@ ms.locfileid: "66501654"
 
 ## <a name="tier-0-equivalency"></a>第 0 层等效性
 
-大多数组织都会对功能强大的第 0 层 Active Directory 组的成员身份进行控制，如管理员、域管理员和企业管理员。  在典型的 Active Directory 环境中，许多组织都会忽视具有同等有效权限的其他组可能带来的风险。 这些组为攻击者能够使用各种不同的攻击方法相同的显式第 0 层权限提供的相对简单的升级路径。
+大多数组织都会对功能强大的第 0 层 Active Directory 组的成员身份进行控制，如管理员、域管理员和企业管理员。  在典型的 Active Directory 环境中，许多组织都会忽视具有同等有效权限的其他组可能带来的风险。 这些组使用各种不同的攻击方法为攻击者提供与相同的显式层0权限相对简单的升级途径。
 
 例如，服务器操作员可以获取域控制器备份介质的访问权限并从此介质的文件中提取所有凭据，然后使用这些凭据提升权限。
 
@@ -558,7 +558,7 @@ ms.locfileid: "66501654"
 - Group Policy Creator Owners
 - Cryptographic Operators
 - Distributed COM Users
-- 其他委派组中的可能由你的组织来管理目录操作还可能具有有效第 0 层访问权限创建的自定义组。
+- 其他委派组-你的组织可能会创建的自定义组，用于管理可能也具有有效第0层访问权限的目录操作。
 
 ## <a name="administrative-tools-and-logon-types"></a>管理工具和登录类型
 
@@ -577,10 +577,10 @@ ms.locfileid: "66501654"
 |远程桌面（失败 - 登录类型被拒绝）|RemoteInteractive|-|默认情况下，如果 RDP 登录失败，凭据只会存储很短的时间。 如果计算机受到破坏，则可能并非如此。|
 |Net use * \\\SERVER|网络|-||
 |Net use * \\\SERVER /u:user|网络|-||
-|MMC 管理单元到远程计算机|网络|-|例如：计算机管理、 事件查看器中，设备管理器服务|
-|PowerShell WinRM|网络|-|例如：Enter-pssession 服务器|
+|MMC 管理单元到远程计算机|网络|-|例如：计算机管理、事件查看器、设备管理器、服务|
+|PowerShell WinRM|网络|-|例如：Enter-PSSession 服务器|
 |PowerShell WinRM（具有 CredSSP）|NetworkClearText|v|New-PSSession 服务器<br />-Authentication Credssp<br />-Credential cred|
-|PsExec 而无需显式凭据|网络|-|例如：PsExec \\\server cmd|
+|没有显式凭据的 PsExec|网络|-|例如：PsExec \\ \ 服务器 cmd|
 |PsExec（有显式凭据）|网络 + 交互|v|PsExec \\\server -u user -p pwd cmd<br />创建多个登录会话。|
 |远程注册表|网络|-||
 |远程桌面网关|网络|-|对远程桌面网关进行身份验证。|
@@ -615,7 +615,7 @@ ms.locfileid: "66501654"
 |登录类型|#|接受的身份验证程序|LSA 会话中可重复使用的凭据|示例|
 |-------|---|--------------|--------------------|------|
 |交互（也称为本地登录）|2|密码、智能卡、<br />其他|是|控制台登录；<br />RUNAS；<br />硬件远程控制解决方案（如网络 KVM 或远程访问/服务器中的无人照看卡）<br />IIS 基本身份验证（低于 IIS 6.0）|
-|网络|3|密码，<br />NT 哈希、<br />Kerberos 票证|否（例外情况，如果已启用委派，则 Kerberos 票证存在）|NET USE；<br />RPC 调用；<br />远程注册表；<br />IIS 集成 Windows 身份验证；<br />SQL Windows 身份验证；|
+|网络|3|权限<br />NT 哈希、<br />Kerberos 票证|否（例外情况，如果已启用委派，则 Kerberos 票证存在）|NET USE；<br />RPC 调用；<br />远程注册表；<br />IIS 集成 Windows 身份验证；<br />SQL Windows 身份验证；|
 |Batch|4|密码（通常存储为 LSA 机密）|是|计划任务|
 |服务|5|密码（通常存储为 LSA 机密）|是|Windows 服务|
 |NetworkCleartext|8|密码|是|IIS 基本身份验证（IIS 6.0 和更高版本）；<br />Windows PowerShell（具有 CredSSP）|
@@ -625,7 +625,7 @@ ms.locfileid: "66501654"
 列定义：
 
 - **登录类型**是请求的登录类型。
-- **#** 是安全事件日志中的审核事件中报告的登录类型的数值标识符。
+- **#** 是在安全事件日志中的审核事件中报告的登录类型的数值标识符。
 - **接受的身份验证程序**指示哪些类型的身份验证程序能够启动此类型登录。
 - LSA 会话中的**可重复使用的凭据**指示登录类型是否会导致 LSA 会话保存凭据，如可用于对其他网络资源进行身份验证的纯文本密码、NT 哈希或 Kerberos 票证。
 - **示例**列出登录类型使用的常见情形。

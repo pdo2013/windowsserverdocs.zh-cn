@@ -1,8 +1,8 @@
 ---
 title: 选择
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4c3723dd414adca68c22011ef3f6be02eb6531d5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7dc3bc8775f971968f096ba4344348e77c112cfa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889898"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384107"
 ---
 # <a name="select"></a>选择
 
 
 
-将焦点移到磁盘、 分区、 卷或虚拟硬盘 (VHD)。
+将焦点移到磁盘、分区、卷或虚拟硬盘（VHD）。
 
 ## <a name="syntax"></a>语法
 
@@ -41,15 +41,15 @@ select vdisk
 |---------|-----------|
 |[选择磁盘](select-disk.md)|将焦点移到磁盘。|
 |[选择分区](select-partition.md)|将焦点移到分区。|
-|[选择卷](select-volume.md)|将焦点转移到的卷。|
-|[选择的虚拟磁盘](select-vdisk.md)|将焦点转移到的 VHD。|
+|[选择卷](select-volume.md)|将焦点移至卷。|
+|[选择 vdisk](select-vdisk.md)|将焦点移动到 VHD。|
 
 ## <a name="remarks"></a>备注
 
--   如果具有一个对应的分区选择卷，则将自动选择该分区。
--   如果使用相应的卷选择分区，则将自动选择该卷。
+-   如果选择了包含相应分区的卷，则会自动选择该分区。
+-   如果使用相应的卷选择了分区，则会自动选择该卷。
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)
 

@@ -7,20 +7,20 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 00172e9d6770910019e1935ac6fe8afc944e83aa
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: dbce0a37fee7278386cf564365661b459dd35033
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192456"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408479"
 ---
 # <a name="azure-active-directory-connect"></a>Azure Active Directory Connect
 
 
-Azure AD Connect 将与 Azure Active Directory 集成的本地目录。 这使您可以为您的 Office 365 和 SaaS 应用程序与 Azure AD 集成的用户提供一个通用标识。 .  
+Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样，你便可以为你的用户提供与 Azure AD 集成的 Office 365、Azure 和 SaaS 应用程序的通用标识。 .  
   
-有关详细信息请参阅[将你的本地标识与 Azure Active Directory 集成](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect/)。  
+有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect/)。  
   
 

@@ -1,9 +1,9 @@
 ---
-title: 限制用户访问服务器
-description: 了解如何允许或拒绝访问的 MultiPoint 服务的用户和组
+title: 限制用户对服务器的访问
+description: 了解如何为用户和组授予或拒绝对 MultiPoint 服务的访问权限
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,26 +13,26 @@ ms.assetid: 4cabd4f1-a764-4be6-bc6e-0a5f5566390c
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 1466e19152847a6c7d88f77162c50ec73a5a7d27
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 62f2a3f9b94ac3f0474636c34e8ec1f81c568cad
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830808"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389065"
 ---
-# <a name="limit-users-access-to-the-multipoint-server"></a>限制对 Multipoint server 的用户的访问
-是否将多点服务器加入到 Active Directory 域或使用本地用户帐户，所有用户默认情况下都有权访问多点服务器。 允许用户登录到 MultiPoint Services 环境中的工作站上之前，应限制对服务器的访问权限。  
+# <a name="limit-users-access-to-the-multipoint-server"></a>限制用户对 Multipoint 服务器的访问
+无论是将 MultiPoint server 联接到 Active Directory 域还是使用本地用户帐户，默认情况下，所有用户都有权访问 MultiPoint server。 在你允许用户登录到你的 MultiPoint 服务环境中的工作站之前，你应限制对服务器的访问。  
   
-Remote Desktop Users 组中的任何用户可以登录到 MultiPoint server。 默认情况下用户组每个人都是 Remote Desktop Users 组的成员，因此每个本地用户和域用户可以登录到 MultiPoint Server。 若要限制对 MultiPoint Server 的访问权限，请删除 Everyone 用户 Remote Desktop Users 组中，从组，然后将特定用户或组添加到 Remote Desktop Users 组。  
+远程桌面用户组中的任何用户都可以登录到 MultiPoint server。 默认情况下，用户组是 "远程桌面用户" 组的成员，因此每个本地用户和域用户都可以登录到 MultiPoint 服务器。 若要限制对 MultiPoint 服务器的访问，请从 "远程桌面用户" 组中删除 "Everyone" 用户组，然后将特定用户或组添加到 "远程桌面用户" 组。  
   
-## <a name="add-or-remove-users-or-groups-to-the-remote-desktop-users-group"></a>添加或删除用户或组添加到 Remote Desktop Users 组  
+## <a name="add-or-remove-users-or-groups-to-the-remote-desktop-users-group"></a>在远程桌面用户组中添加或删除用户或组  
   
-1.  从**启动**屏幕上，打开**计算机管理**。  
+1.  从 "**开始**" 屏幕打开 "**计算机管理**"。  
   
-2.  在控制台树中下,**本地用户和组**，单击**组**。  
+2.  在控制台树中的 "**本地用户和组**" 下，单击 "**组**"。  
   
-3.  双击**Remote Desktop Users**，然后按照说明进行添加或删除用户。  
+3.  双击 "**远程桌面用户**"，然后按照说明添加或删除用户。  
   
-    -   若要限制对服务器的常规访问权限，删除 Everyone 组。  
+    -   若要限制对服务器的一般访问权限，请删除 Everyone 组。  
   
-    -   若要使工作站 MultiPoint server 的用户访问，添加到 Remote Desktop Users 组的每个本地帐户或每个域用户或组帐户。  
+    -   若要为 MultiPoint server 用户授予访问工作站的权限，请将每个本地帐户或每个域用户或组帐户添加到远程桌面用户组中。  

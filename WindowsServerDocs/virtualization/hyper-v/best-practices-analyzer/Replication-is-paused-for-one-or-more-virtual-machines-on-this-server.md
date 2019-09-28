@@ -1,7 +1,7 @@
 ---
-title: 此服务器上，复制已暂停的一个或多个虚拟机
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+title: 此服务器上的一个或多个虚拟机的复制已暂停
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: e1119a40-eda3-4058-8648-7df81cbc6c29
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 248b5fbdbfb54380e441d14cde6beaa9146ce800
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 17d50f116c6cee488367c924bfbce3791a8d879f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827768"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393541"
 ---
-# <a name="replication-is-paused-for-one-or-more-virtual-machines-on-this-server"></a>此服务器上，复制已暂停的一个或多个虚拟机
+# <a name="replication-is-paused-for-one-or-more-virtual-machines-on-this-server"></a>此服务器上的一个或多个虚拟机的复制已暂停
 
 >适用于：Windows Server 2016
 
@@ -30,18 +30,18 @@ ms.locfileid: "59827768"
 |**Severity**|警告|  
 |**类别**|操作|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。  
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。  
   
 ## <a name="issue"></a>问题  
-*复制已暂停为一个或多个虚拟机。在主虚拟机暂停时，会发生任何更改将累积和后恢复复制发送到副本虚拟机。*  
+对于一个或多个虚拟机，@no__t 已暂停0Replication。在主虚拟机暂停的情况下，发生的任何更改都将累积，并将在恢复复制后发送到副本虚拟机。 *  
   
 ## <a name="impact"></a>影响  
-*只要复制已暂停，累积的更改发生在主虚拟机中将使用主服务器上的可用磁盘空间。恢复复制后，可能有大型突然增加为副本服务器的网络流量。这会影响以下虚拟机：*  
+*As 长，因为复制已暂停，在主虚拟机中发生的累积更改将消耗主服务器上的可用磁盘空间。在恢复复制后，可能会向副本服务器突发大量的网络流量。这会影响以下虚拟机：*  
   
-\<虚拟机的列表 >  
+@no__t-虚拟机的 0list >  
   
 ## <a name="resolution"></a>分辨率  
-*确认暂停复制的初衷。如果复制已暂停到地址低磁盘空间或网络连接，这些问题都得到解决时，就立即恢复复制。*  
+正在暂停复制的 0Confirm @no__t。如果复制已暂停，无法处理磁盘空间不足或网络连接问题，请在解决这些问题后立即恢复复制。 *  
   
 
 

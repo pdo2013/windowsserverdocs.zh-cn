@@ -1,19 +1,19 @@
 ---
 title: 部署漫游用户配置文件
 TOCTitle: Deploying Roaming User Profiles
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.date: 06/07/2019
 ms.author: jgerend
-ms.openlocfilehash: 3442ad46590add695fb3fed607c6f728e2bc5ee1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b7a89ce8d72cf4f060e83b3653b3b2d93eed5cfd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867288"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402032"
 ---
 # <a name="deploying-roaming-user-profiles"></a>部署漫游用户配置文件
 
@@ -67,7 +67,7 @@ ms.locfileid: "70867288"
 - 通知用户，在一个操作系统版本上进行的更改将不会漫游到另一个操作系统版本。
 - 将你的环境移到使用不同配置文件版本的 windows 版本（例如，从 windows 10 到 windows 10，版本1607）时， [请参阅附录 B：配置文件的版本](#appendix-b-profile-version-reference-information)引用信息），用户将收到一个新的空漫游用户配置文件。 你可以通过使用文件夹重定向重定向常用文件夹来最大程度地减少获取新配置文件所造成的影响。 不支持将漫游用户配置文件从一个配置文件版本迁移到另一个版本的方法。
 
-## <a name="step-1-enable-the-use-of-separate-profile-versions"></a>步骤 1：支持使用单独的配置文件版本
+## <a name="step-1-enable-the-use-of-separate-profile-versions"></a>第 1 步：支持使用单独的配置文件版本
 
 如果你在运行 Windows 8.1、Windows 8、Windows Server 2012 R2 或 Windows Server 2012 的计算机上部署漫游用户配置文件，我们建议你在部署之前对 Windows 环境进行一些更改。 这些更改有助于确保将来的操作系统升级顺利进行，并且有助于同时运行多个版本带有漫游用户配置文件的 Windows。
 
@@ -109,7 +109,7 @@ ms.locfileid: "70867288"
 6. 如果要将计算机帐户包括在安全组中，请选择 "**对象类型**"，选中 "**计算机**" 复选框，然后选择 **"确定"** 。
 7. 键入要向其部署漫游用户配置文件的用户、组和/或计算机的名称，选择 **"确定**"，然后再次选择 **"确定"** 。
 
-## <a name="step-3-create-a-file-share-for-roaming-user-profiles"></a>步骤 3：创建用于漫游用户配置文件的文件共享
+## <a name="step-3-create-a-file-share-for-roaming-user-profiles"></a>步骤 3:创建用于漫游用户配置文件的文件共享
 
 如果对于漫游用户配置文件（独立于任何用于重定向文件夹的共享，以防止意外缓存漫游配置文件文件夹），请使用以下过程在运行 Windows 的服务器上创建文件共享。服务.
 
@@ -238,7 +238,7 @@ ms.locfileid: "70867288"
 | 值名称   | **SpecialRoamingOverrideAllowed** |
 | 值类型   | **REG_DWORD**               |
 | “数值数据”   | **1** （或**0**以禁用） |
-| Base         | **式**                 |
+| Base         | **小数**                 |
 
 5. 可有可无启用首次登录优化，使用户能够更快地登录。 为此，请参阅[应用策略以改进登录时间](https://docs.microsoft.com/windows/client-management/mandatory-user-profile#apply-policies-to-improve-sign-in-time)。
 6. 可有可无通过从用于部署客户端电脑的 Windows 10 基本映像删除不必要的应用，进一步缩短登录时间。 Windows Server 2019 和 Windows Server 2016 没有预配的应用程序，因此你可以跳过此步骤对服务器映像。

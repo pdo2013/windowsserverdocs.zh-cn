@@ -1,9 +1,9 @@
 ---
-title: 步骤 1 配置高级的 DirectAccess 基础结构
-description: 本主题是指南部署单个 DirectAccess 服务器使用高级设置的 Windows Server 2016 的一部分
+title: 步骤1配置高级 DirectAccess 基础结构
+description: 本主题是 "使用 Windows Server 2016 的高级设置部署单个 DirectAccess 服务器" 指南的一部分
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,18 +12,18 @@ ms.topic: article
 ms.assetid: 43abc30a-300d-4752-b845-10a6b9f32244
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 42cec0d2e6ded443d24d787191bcb72a17a92306
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 30705a9aa55cdc652280c27c327cf865a47c5a11
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283533"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404934"
 ---
-# <a name="step-1-configure-advanced-directaccess-infrastructure"></a>步骤 1 配置高级的 DirectAccess 基础结构
+# <a name="step-1-configure-advanced-directaccess-infrastructure"></a>步骤1配置高级 DirectAccess 基础结构
 
->适用于：Windows Server 2012 R2, Windows Server 2012
+>适用于：Windows Server 2012 R2、Windows Server 2012
 
-本主题介绍了如何在混合的 IPv4 和 IPv6 环境中配置高级远程访问部署所需的基础结构，该部署使用单个 DirectAccess 服务器。 开始执行部署步骤之前，请确保已完成中所述的规划步骤[规划高级 DirectAccess 部署](../../../remote-access/directaccess/single-server-advanced/Plan-an-Advanced-DirectAccess-Deployment.md)。  
+本主题介绍了如何在混合的 IPv4 和 IPv6 环境中配置高级远程访问部署所需的基础结构，该部署使用单个 DirectAccess 服务器。 在开始执行部署步骤之前，请确保已完成规划[高级 DirectAccess 部署](../../../remote-access/directaccess/single-server-advanced/Plan-an-Advanced-DirectAccess-Deployment.md)中所述的规划步骤。  
   
 |任务|描述|  
 |----|--------|  
@@ -42,7 +42,7 @@ ms.locfileid: "67283533"
 > 此主题将介绍一些 Windows PowerShell cmdlet 示例，你可以使用它们来自动执行所述的一些步骤。 有关详细信息，请参阅 [使用 cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693)。  
   
 ## <a name="ConfigNetworkSettings"></a>1.1 配置服务器网络设置  
-在使用 IPv4 和 IPv6 的环境中，部署单个服务器需要下面的网络接口设置。 可使用  “Windows 网络和共享中心”中的  “更改适配器设置”配置所有 IP 地址。  
+在使用 IPv4 和 IPv6 的环境中，部署单个服务器需要下面的网络接口设置。 可使用“Windows 网络和共享中心”中的“更改适配器设置”配置所有 IP 地址。  
   
 **边缘拓扑**  
   
@@ -53,13 +53,13 @@ ms.locfileid: "67283533"
   
 -   单个内部静态 IPv4 或 IPv6 地址  
   
-**NAT 在设备后面 （具有两个网络适配器）**  
+**在 NAT 设备后面（具有两个网络适配器）**  
   
 -   单个面向 Internet 的静态 IPv4 或 IPv6 地址  
   
 -   单个面向内部网络的静态 IPv4 或 IPv6 地址  
   
-**（使用一个网络适配器） 的 NAT 设备后面**  
+**在 NAT 设备后面（具有一个网络适配器）**  
   
 -   单个面向内部网络的静态 IPv4 或 IPv6 地址  
   
@@ -67,7 +67,7 @@ ms.locfileid: "67283533"
 > 如果使用单个网络适配器拓扑配置具有两个或多个网络适配器（一个在域配置文件中进行分类，另一个在公用或专用配置文件中进行分类）的 DirectAccess 服务器，我们的建议如下：  
 >   
 > -   确保第二个网络适配器和任何其他网络适配器在域配置文件中进行分类。  
-> -   如果第二个网络适配器不能配置为域配置文件，将 DirectAccess IPsec 策略必须的范围手动扩展至所有配置文件配置 DirectAccess 后，使用以下 Windows PowerShell 命令：  
+> -   如果无法为域配置文件配置第二个网络适配器，则在配置 DirectAccess 后，必须使用以下 Windows PowerShell 命令手动将 DirectAccess IPsec 策略的作用域设置为所有配置文件：  
 >   
 >     ```  
 >     $gposession = Open-NetGPO "PolicyStore <Name of the server GPO>  
@@ -98,21 +98,21 @@ Set-DAClientDNSConfiguration "DNSSuffix "." "ProxyServer <Name of the proxy serv
 > [!NOTE]  
 > 如果组织要使用 DirectAccess 客户端的 Web 代理访问 Internet 资源，并且企业代理不能够处理内部网络资源，则位于 Intranet 之外的 DirectAccess 客户端将无法访问内部资源。 在这种情况下，若要使 DirectAccess 客户端能够访问内部资源，请通过基础结构向导的 DNS 页手动为内部网络后缀创建 NRPT 条目。 请勿在这些 NRPT 后缀上应用代理设置。 应使用默认 DNS 服务器条目填充这些后缀。  
   
-## <a name="ConfigRouting"></a>1.3 配置企业网络中的路由  
+## <a name="ConfigRouting"></a>1.3 在企业网络中配置路由  
 在企业网络中配置路由，如下所示：  
   
 -   在组织中部署本机 IPv6 时，添加一个路由，以便内部网络上的路由器通过 DirectAccess 服务器将 IPv6 通信路由回来。  
   
--   手动配置的组织"s IPv4 和 IPv6 路由在 DirectAccess 服务器上。 添加已发布的路由，以便将所有具有组织 (/48) IPv6 前缀的通信都转发到内部网络。 对于 IPv4 通信，请添加显式路由，以便将 IPv4 通信转发到内部网络。  
+-   在 DirectAccess 服务器上手动配置组织的 IPv4 和 IPv6 路由。 添加已发布的路由，以便将所有具有组织 (/48) IPv6 前缀的通信都转发到内部网络。 对于 IPv4 通信，请添加显式路由，以便将 IPv4 通信转发到内部网络。  
   
 ## <a name="ConfigFirewalls"></a>1.4 配置防火墙  
 在部署中使用其他防火墙的情况下，当 DirectAccess 服务器位于 IPv4 Internet 上时，为远程访问通信应用以下面向 Internet 的防火墙例外：  
   
--   Teredo 通信"用户数据报协议 (UDP) 目标端口 3544 入站，以及 UDP 源端口 3544 出站。  
+-   Teredo 流量 "用户数据报协议（UDP）目标端口3544入站，UDP 源端口3544出站。  
   
--   6to4 通信"IP 协议 41 入站和出站。  
+-   6to4 流量 "IP 协议41入站和出站。  
   
--   IP HTTPS"传输控制协议 (TCP) 目标端口 443，以及 TCP 源端口 443 出站。 当 DirectAccess 服务器配有单一网络适配器，且网络位置服务器位于 DirectAccess 服务器上时，还需要 TCP 端口 62000。  
+-   IP-HTTPS "传输控制协议（TCP）目标端口443和 TCP 源端口443出站。 当 DirectAccess 服务器配有单一网络适配器，且网络位置服务器位于 DirectAccess 服务器上时，还需要 TCP 端口 62000。  
   
     > [!NOTE]  
     > 必须在 DirectAccess 服务器上配置此例外，并且必须在边缘防火墙上配置所有其他例外。  
@@ -126,18 +126,18 @@ Set-DAClientDNSConfiguration "DNSSuffix "." "ProxyServer <Name of the proxy serv
   
 -   UDP 目标端口 500 入站，以及 UDP 源端口 500 出站。  
   
--   IPv6 的 Internet 控制消息协议 (ICMPv6) 流量入站和出站"适用于仅 Teredo 实施。  
+-   Internet 控制消息协议，适用于 IPv6 （ICMPv6）流量入站和出站 "，仅适用于 Teredo 实现。  
   
 当使用其它防火墙时，应用远程访问通信的以下内部网络防火墙例外情况：  
   
--   ISATAP"协议 41 入站和出站  
+-   ISATAP "协议41入站和出站  
   
 -   所有 IPv4/IPv6 通信的 TCP/UDP  
   
 -   所有 IPv4/IPv6 通信的 ICMP  
   
 ## <a name="ConfigCAs"></a>1.5 配置 Ca 和证书  
-Windows Server 2012 中的远程访问允许你使用证书进行计算机身份验证或使用的内置 Kerberos 代理服务器使用用户名和密码进行身份验证之间进行选择。 你还必须在 DirectAccess 服务器上配置 IP-HTTPS 证书。  
+Windows Server 2012 中的远程访问允许你选择是使用证书进行计算机身份验证，还是使用通过用户名和密码进行身份验证的内置 Kerberos 代理。 你还必须在 DirectAccess 服务器上配置 IP-HTTPS 证书。  
   
 有关详细信息，请参阅 [Active Directory 证书服务](https://technet.microsoft.com/library/cc770357.aspx)。  
   
@@ -146,7 +146,7 @@ DirectAccess 服务器以及所有要使用 IPsec 身份验证的 DirectAccess �
   
 ##### <a name="to-configure-ipsec-authentication"></a>配置 IPsec 身份验证  
   
-1.  在内部 CA 中，确定你将使用**计算机**证书模板，或如果您将创建新的证书模板中所述[创建证书模板](https://technet.microsoft.com/library/cc731705.aspx)。  
+1.  在内部 CA 中，确定你将使用 "**计算机**" 证书模板，还是根据[创建证书模板](https://technet.microsoft.com/library/cc731705.aspx)中所述创建新的证书模板。  
   
     > [!NOTE]  
     > 如果你创建一个新的模板，则必须将其配置为可以进行客户端身份验证。  
@@ -175,11 +175,11 @@ DirectAccess 服务器以及所有要使用 IPsec 身份验证的 DirectAccess �
   
 在你使用专用证书时，以下内容是必需的（如果它们尚不存在）：  
   
--   用于进行 IP-HTTPS 身份验证的网站证书。 证书使用者应该是可从 Internet 访问的、可在外部解析的 FQDN。 1\.5.2 中的说明创建的证书模板上基于证书配置证书模板。  
+-   用于进行 IP-HTTPS 身份验证的网站证书。 证书使用者应该是可从 Internet 访问的、可在外部解析的 FQDN。 此证书基于你按照1.5.2 配置证书模板中的说明创建的证书模板。  
   
 -   能够从可公开解析的 FQDN 访问的证书吊销列表 (CRL) 分发点。  
   
-**自签名的证书**  
+**自签名证书**  
   
 使用自签名证书时，以下内容是必需的（如果它们尚不存在）：  
   
@@ -194,11 +194,11 @@ DirectAccess 服务器以及所有要使用 IPsec 身份验证的 DirectAccess �
   
 -   该证书的公用名应与 IP-HTTPS 站点的名称相匹配。  
   
--   在中**使用者**字段中，指定 IP-HTTPS URL 的 FQDN。  
+-   在 "**使用者**" 字段中，指定 ip-https URL 的 FQDN。  
   
--   对于  “增强型密钥使用”字段，请使用服务器身份验证对象标识符 (OID)。  
+-   对于“增强型密钥使用”字段，请使用服务器身份验证对象标识符 (OID)。  
   
--   对于“CRL 分发点”  字段，请指定已连接到 Internet 的 DirectAccess 客户端可访问的 CRL 分发点。  
+-   对于“CRL 分发点”字段，请指定已连接到 Internet 的 DirectAccess 客户端可访问的 CRL 分发点。  
   
 -   IP-HTTPS 证书必须包含私钥。  
   
@@ -208,62 +208,62 @@ DirectAccess 服务器以及所有要使用 IPsec 身份验证的 DirectAccess �
   
 ##### <a name="to-install-the-ip-https-certificate-from-an-internal-ca"></a>安装内部 CA 颁发的 IP-HTTPS 证书  
   
-1.  在 DirectAccess 服务器上：上**启动**屏幕上，键入**mmc.exe**，然后按 ENTER。  
+1.  在 DirectAccess 服务器上：在 "**开始**" 屏幕上，键入**mmc.exe**，然后按 enter。  
   
-2.  在 MMC 控制台中的“文件”  菜单上，单击“添加/删除管理单元”  。  
+2.  在 MMC 控制台中的“文件”菜单上，单击“添加/删除管理单元”。  
   
-3.  在  “添加或删除管理单元”对话框中，依次单击  “证书”、  “添加”、  “计算机帐户”、  “下一步”、  “本地计算机”和  “完成”，然后单击  “确定”。  
+3.  在“添加或删除管理单元”对话框中，依次单击“证书”、“添加”、“计算机帐户”、“下一步”、“本地计算机”和“完成”，然后单击“确定”。  
   
-4.  在证书管理单元的控制台树中，依次打开  “证书(本地计算机)\个人\证书”。  
+4.  在证书管理单元的控制台树中，依次打开“证书(本地计算机)\个人\证书”。  
   
-5.  右键单击  “证书”，指向  “所有任务”，然后单击  “申请新证书”。  
+5.  右键单击“证书”，指向“所有任务”，然后单击“申请新证书”。  
   
-6.  单击“下一步”  两次。  
+6.  单击“下一步” 两次。  
   
-7.  上**申请证书**页上，选中之前创建 （有关详细信息，请参阅 1.5.2 配置证书模板） 的证书模板的复选框。 如有必要，单击  “注册此证书需要详细信息”。  
+7.  在 "**申请证书**" 页上，选中之前创建的证书模板的复选框（有关详细信息，请参阅1.5.2 配置证书模板）。 如有必要，单击“注册此证书需要详细信息”。  
   
-8.  在  “证书属性”对话框的  “使用者”选项卡上，在  “使用者名称”区域的  “类型”中选择  “公用名”。  
+8.  在“证书属性”对话框的“使用者”选项卡上，在“使用者名称”区域的“类型”中选择“公用名”。  
   
-9. 在  “值”中，指定 DirectAccess 服务器面向外部的适配器的 IPv4 地址，或者 IP-HTTPS URL 的 FQDN，然后单击  “添加”。  
+9. 在“值”中，指定 DirectAccess 服务器面向外部的适配器的 IPv4 地址，或者 IP-HTTPS URL 的 FQDN，然后单击“添加”。  
   
-10. 在  “备用名称”区域的  “类型”中，选择  “DNS”。  
+10. 在“备用名称”区域的“类型”中，选择“DNS”。  
   
-11. 在  “值”中，指定 DirectAccess 服务器面向外部的适配器的 IPv4 地址，或者 IP-HTTPS URL 的 FQDN，然后单击  “添加”。  
+11. 在“值”中，指定 DirectAccess 服务器面向外部的适配器的 IPv4 地址，或者 IP-HTTPS URL 的 FQDN，然后单击“添加”。  
   
-12. 在  “常规”选项卡的  “友好名称”中，输入一个有助于标识证书的名称。  
+12. 在“常规”选项卡的“友好名称”中，输入一个有助于标识证书的名称。  
   
-13. 在  “扩展”选项卡上，单击“扩展密钥用法”  旁边的箭头，并确保  “服务器身份验证”出现在“选定的选项”  列表中。  
+13. 在“扩展”选项卡上，单击“扩展密钥用法”旁边的箭头，并确保“服务器身份验证”出现在“选定的选项”列表中。  
   
-14. 依次单击  “确定”、  “注册”和  “完成”。  
+14. 依次单击“确定”、“注册”和“完成”。  
   
 15. 在证书管理单元的详细信息窗格中，通过“服务器身份验证的预期目的”验证是否注册了新证书。  
   
 ## <a name="ConfigDNS"></a>1.6 配置 DNS 服务器  
 你必须为部署中的内部网络手动配置用于网络位置服务器网站的 DNS 条目。  
   
-### <a name="NLS_DNS"></a>若要创建网络位置服务器  
+### <a name="NLS_DNS"></a>创建网络位置服务器  
   
-1.  在内部网络 DNS 服务器上：上**启动**屏幕上，键入**dnsmgmt.msc**，然后按 ENTER。  
+1.  在内部网络 DNS 服务器上：在 "**开始**" 屏幕上，键入 "**dnsmgmt.msc**"，然后按 enter。  
   
-2.  在  “DNS 管理器”控制台的左窗格中，展开域的前向查找区域。 右键单击该域，然后单击  “新建主机(A 或 AAAA)”。  
+2.  在“DNS 管理器”控制台的左窗格中，展开域的前向查找区域。 右键单击该域，然后单击“新建主机(A 或 AAAA)”。  
   
-3.  在  “新建主机”对话框的  “IP 地址”框中：  
+3.  在“新建主机”对话框的“IP 地址”框中：  
   
-    -   在  “名称(如果为空则使用父域名称)”框中，输入网络位置服务器网站的 DNS 名称（这是 DirectAccess 客户端用于连接到网络位置服务器的名称）。  
+    -   在“名称(如果为空则使用父域名称)”框中，输入网络位置服务器网站的 DNS 名称（这是 DirectAccess 客户端用于连接到网络位置服务器的名称）。  
   
-    -   输入网络位置服务器的 IPv4 或 IPv6 地址，然后依次单击  “添加主机”和  “确定”。  
+    -   输入网络位置服务器的 IPv4 或 IPv6 地址，然后依次单击“添加主机”和“确定”。  
   
-4.  在  “新建主机”对话框中：  
+4.  在“新建主机”对话框中：  
   
-    -   在“名称(如果为空则使用父域名称)”  框中，输入用于 Web 探测的 DNS 名称（用于默认 Web 探测的名称为 **directaccess-webprobehost**）。  
+    -   在“名称(如果为空则使用父域名称)”框中，输入用于 Web 探测的 DNS 名称（用于默认 Web 探测的名称为 **directaccess-webprobehost**）。  
   
-    -   在  “IP 地址框”中，输入 Web 探测的 IPv4 或 IPv6 地址，然后单击  “添加主机”。  
+    -   在“IP 地址框”中，输入 Web 探测的 IPv4 或 IPv6 地址，然后单击“添加主机”。  
   
     -   为 **directaccess-corpconnectivityhost** 和任何手动创建的连接性验证程序重复此过程。  
   
-5.  在  “DNS”对话框中，单击“确定”  ，然后单击“完成”  。  
+5.  在“DNS”对话框中，单击“确定”，然后单击“完成”。  
   
-![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
+@no__t 0Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>Windows powershell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -274,7 +274,7 @@ Add-DnsServerResourceRecordAAAA -Name <network_location_server_name> -ZoneName <
   
 还必须为以下内容配置 DNS 条目：  
   
--   **IP-HTTPS 服务器**  
+-   **Ip-https 服务器**  
   
     DirectAccess 客户端必须能够解析来自 Internet 的 DirectAccess 服务器的 DNS 名称。  
   
@@ -297,50 +297,50 @@ DirectAccess 服务器和所有 DirectAccess 客户端计算机都必须加入 A
   
 #### <a name="to-join-the-directaccess-server-to-a-domain"></a>将 DirectAccess 服务器加入域  
   
-1.  在服务器管理器中，单击 **“本地服务器”** 。 在详细信息窗格中，单击“计算机名”旁边的链接  。  
+1.  在服务器管理器中，单击 **“本地服务器”** 。 在详细信息窗格中，单击“计算机名”旁边的链接。  
   
-2.  在“系统属性”  对话框中，单击“计算机名”  选项卡，然后单击“更改”  。  
+2.  在“系统属性” 对话框中，单击“计算机名” 选项卡，然后单击“更改”。  
   
-3.  如果在将服务器加入域时还要更改计算机名，请在“计算机名”中键入计算机的名称  。 在“隶属于”  下面单击“域”  ，键入服务器要加入到的域的名称（例如 corp.contoso.com），然后单击“确定”  。  
+3.  如果在将服务器加入域时还要更改计算机名，请在“计算机名”中键入计算机的名称。 在“隶属于”下面单击“域”，键入服务器要加入到的域的名称（例如 corp.contoso.com），然后单击“确定”。  
   
-4.  当系统提示你输入用户名和密码时，请输入有权将计算机加入域的用户的用户名和密码，然后单击“确定”  。  
+4.  当系统提示你输入用户名和密码时，请输入有权将计算机加入域的用户的用户名和密码，然后单击“确定”。  
   
-5.  在出现欢迎使用域的对话框时，单击  “确定”。  
+5.  在出现欢迎使用域的对话框时，单击“确定”。  
   
-6.  当系统提示你必须重新启动计算机时，请单击“确定”  。  
+6.  当系统提示你必须重新启动计算机时，请单击“确定”。  
   
 7.  在 **“系统属性”** 对话框中，单击 **“关闭”** 。  
   
-8.  当系统提示你重新启动计算机时，请单击“立即重新启动”  。  
+8.  当系统提示你重新启动计算机时，请单击“立即重新启动”。  
   
 #### <a name="to-join-client-computers-to-the-domain"></a>将客户端计算机加入域  
   
-1.  上**启动**屏幕上，键入**explorer.exe**，然后按 ENTER。  
+1.  在 "**开始**" 屏幕上，键入 "**资源管理器**"，然后按 enter。  
   
-2.  右键单击计算机图标，然后单击“属性”  。  
+2.  右键单击计算机图标，然后单击“属性”。  
   
-3.  在  “系统”页上，单击  “高级系统设置”。  
+3.  在“系统”页上，单击“高级系统设置”。  
   
 4.  在 **“系统属性”** 对话框中的 **“计算机名”** 选项卡上，单击 **“更改”** 。  
   
-5.  如果在将服务器加入域时还要更改计算机名，请在“计算机名”中键入计算机的名称  。 在“隶属于”  下面单击“域”  ，键入服务器要加入到的域的名称（例如 corp.contoso.com），然后单击“确定”  。  
+5.  如果在将服务器加入域时还要更改计算机名，请在“计算机名”中键入计算机的名称。 在“隶属于”下面单击“域”，键入服务器要加入到的域的名称（例如 corp.contoso.com），然后单击“确定”。  
   
-6.  当系统提示你输入用户名和密码时，请输入有权将计算机加入域的用户的用户名和密码，然后单击“确定”  。  
+6.  当系统提示你输入用户名和密码时，请输入有权将计算机加入域的用户的用户名和密码，然后单击“确定”。  
   
-7.  在出现欢迎使用域的对话框时，单击  “确定”。  
+7.  在出现欢迎使用域的对话框时，单击“确定”。  
   
-8.  当系统提示你必须重新启动计算机时，请单击“确定”  。  
+8.  当系统提示你必须重新启动计算机时，请单击“确定”。  
   
 9. 在 **“系统属性”** 对话框中，单击 **“关闭”** 。  
   
-10. 当系统提示你重新启动计算机时，请单击“立即重新启动”  。  
+10. 当系统提示你重新启动计算机时，请单击“立即重新启动”。  
   
-![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
+@no__t 0Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>Windows powershell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
 > [!NOTE]  
-> 在输入以下  “Add-computer”命令时，必须提供域凭据。  
+> 在输入以下“Add-computer”命令时，必须提供域凭据。  
   
 ```  
 Add-Computer -DomainName <domain_name>  
@@ -354,25 +354,25 @@ Restart-Computer
   
 -   一个包含用于 DirectAccess 客户端计算机的设置  
   
-在配置远程访问时，该向导将自动创建所需的组策略对象。 但是，如果你的组织强制使用命名约定，你可以在远程访问管理控制台的 GPO 对话框中键入一个名称。 有关详细信息，请参阅 2.7。 配置摘要和备用 Gpo。 如果你已创建权限，则将创建 GPO。 如果你不具有创建 GPO 所需的权限，则必须在配置远程访问之前创建它们。  
+配置远程访问时，向导将自动创建所需的组策略对象。 但是，如果你的组织强制使用命名约定，你可以在远程访问管理控制台的 GPO 对话框中键入一个名称。 有关详细信息，请参阅2.7。 配置摘要和备用 Gpo。 如果你已创建权限，则将创建 GPO。 如果你不具有创建 GPO 所需的权限，则必须在配置远程访问之前创建它们。  
   
 若要创建组策略对象，请参阅[创建和编辑组策略对象](https://technet.microsoft.com/library/cc754740.aspx)。  
   
 > [!IMPORTANT]  
-> 管理员可以手动 DirectAccess 组策略对象链接到组织单位 (OU) 通过执行以下步骤：  
+> 管理员可以通过以下步骤手动将 DirectAccess 组策略对象链接到组织单位（OU）：  
 >   
 > 1.  在配置 DirectAccess 之前，请将已创建的 GPO 链接到各自的 OU。  
 > 2.  在你配置 DirectAccess 时，请为客户端计算机指定安全组。  
-> 3.  远程访问管理员可能或可能不具有组策略对象链接到域的权限。 在任一情况下，都将自动配置组策略对象。 如果已将 GPO 链接到 OU，则将不会删除这些链接，并且不会将 GPO 链接到域。 对于服务器 GPO，OU 必须包含该服务器计算机对象，否则该 GPO 将链接到域的根。  
-> 4.  如果你尚未链接到 OU，则配置完成后运行 DirectAccess 向导之前，域管理员可以将 DirectAccess 组策略对象链接到所需的 Ou。 可以删除指向域的链接。 有关详细信息，请参阅[链接组策略对象](https://technet.microsoft.com/library/cc732979.aspx)。  
+> 3.  远程访问管理员不一定具有将组策略对象链接到域的权限。 在任一情况下，都将自动配置组策略对象。 如果已将 GPO 链接到 OU，则将不会删除这些链接，并且不会将 GPO 链接到域。 对于服务器 GPO，OU 必须包含该服务器计算机对象，否则该 GPO 将链接到域的根。  
+> 4.  如果在运行 DirectAccess 向导之前尚未链接到 OU，则在配置完成后，域管理员可以将 DirectAccess 组策略对象链接到所需的 Ou。 可以删除指向域的链接。 有关详细信息，请参阅[链接组策略对象](https://technet.microsoft.com/library/cc732979.aspx)。  
   
 > [!NOTE]  
-> 如果手动创建组策略对象，则可能的组策略对象将不在可用在 DirectAccess 配置过程。 组策略对象可能不复制到最接近管理计算机的域控制器。 在这种情况下，管理员可以等待复制完成，或者强制进行复制。  
+> 如果组策略对象手动创建，则在 DirectAccess 配置过程中可能无法使用组策略对象。 可能没有将组策略对象复制到最接近管理计算机的域控制器。 在这种情况下，管理员可以等待复制完成，或者强制进行复制。  
   
 ### <a name="181-configure-remote-access-gpos-with-limited-permissions"></a>1.8.1 配置具有有限权限的远程访问 GPO  
 在使用过渡和生产 GPO 的部署中，域管理员应该执行以下操作：  
   
-1.  从远程访问管理员处获取远程访问部署所需的 GPO 的列表。 有关详细信息，请参阅 1.8 规划组策略对象。  
+1.  从远程访问管理员处获取远程访问部署所需的 GPO 的列表。 有关详细信息，请参阅1.8 计划组策略的对象。  
   
 2.  对于远程访问管理员所请求的每个 GPO，请使用不同的名称创建一对 GPO。 第一个 GPO 将用作过渡 GPO，第二个 GPO 将用作生产 GPO。  
   
@@ -380,9 +380,9 @@ Restart-Computer
   
 3.  若要链接生产 GPO，请参阅[链接组策略对象](https://technet.microsoft.com/library/cc732979)。  
   
-4.  授予远程访问管理员对所有过渡 GPO 的  “编辑设置、删除和修改安全性”权限。 有关详细信息，请参阅[为组或用户委派对组策略对象的权限](https://technet.microsoft.com/library/cc754542)。  
+4.  授予远程访问管理员对所有过渡 GPO 的“编辑设置、删除和修改安全性”权限。 有关详细信息，请参阅[为组或用户委派对组策略对象的权限](https://technet.microsoft.com/library/cc754542)。  
   
-5.  拒绝所有域中的 Gpo 链接的远程访问管理员权限 (或验证远程访问管理员不是"t 具有此类权限)。 有关详细信息，请参阅[委派链接组策略对象的权限](https://technet.microsoft.com/library/cc755086)。  
+5.  拒绝远程访问管理员权限来链接所有域中的 Gpo （或验证远程访问管理员是否没有此类权限）。 有关详细信息，请参阅[委派链接组策略对象的权限](https://technet.microsoft.com/library/cc755086)。  
   
 当远程访问管理员配置远程访问时，他们应该始终仅指定过渡 GPO（非生产 GPO）。 在远程访问的初始配置中，以及在需要其他 GPO 的位置执行其他配置操作时（例如，在多站点部署中添加入口点，或在其他域中启用客户端计算机），该规则都适用。  
   
@@ -395,81 +395,81 @@ Restart-Computer
   
 1.  验证是否已将远程访问部署中的所有过渡 GPO 复制到域中的所有域控制器中。 为了确保已将最新的配置导入到生产 GPO 中，这一步骤是必需的。 有关详细信息，请参阅检查组策略基础结构状态。  
   
-2.  通过备份远程访问部署中的所有过渡 GPO 来导出这些设置。 有关详细信息，请参阅重新启动组策略对象。  
+2.  通过备份远程访问部署中的所有过渡 GPO 来导出这些设置。 有关详细信息，请参阅备份组策略对象。  
   
-3.  对于每个生产 GPO，更改安全筛选器以与相应的过渡 GPO 的安全筛选器相匹配。 有关详细信息，请参阅使用安全组筛选。  
+3.  对于每个生产 GPO，更改安全筛选器以与相应的过渡 GPO 的安全筛选器相匹配。 有关详细信息，请参阅使用安全组进行筛选。  
   
     > [!NOTE]  
-    > 因为  “导入设置”不会复制源 GPO 的安全筛选器，所以这一步骤是必需的。  
+    > 因为“导入设置”不会复制源 GPO 的安全筛选器，所以这一步骤是必需的。  
   
 4.  对于每个生产 GPO，从相应过渡 GPO 的备份中导入设置，如下所示：  
   
-    1.  在组策略管理控制台 (GPMC)，展开林和域包含的设置将导入到其中的生产组策略对象中的组策略对象节点。  
+    1.  在组策略管理控制台（GPMC）中，展开包含要导入设置的生产组策略对象的林和域中的 "组策略对象" 节点。  
   
-    2.  右键单击该 GPO，然后单击  “导入设置”。  
+    2.  右键单击该 GPO，然后单击“导入设置”。  
   
-    3.  在  “导入设置向导”中的  “欢迎”页面上，单击“下一步”  。  
+    3.  在“导入设置向导”中的“欢迎”页面上，单击“下一步”。  
   
-    4.  在上  “备份 GPO”页面上，单击  “备份”。  
+    4.  在上“备份 GPO”页面上，单击“备份”。  
   
-    5.  在  “备份组策略对象”对话框的  “位置”框中，输入要存储 GPO 备份的位置所在的路径，或单击“浏览”  查找文件夹。  
+    5.  在“备份组策略对象”对话框的“位置”框中，输入要存储 GPO 备份的位置所在的路径，或单击“浏览”查找文件夹。  
   
-    6.  在  “描述”框中，键入该生产 GPO 的描述，然后单击  “备份”。  
+    6.  在“描述”框中，键入该生产 GPO 的描述，然后单击“备份”。  
   
-    7.  备份完成后，单击  “确定”，然后在  “备份 GPO”页面上，单击  “下一步”。  
+    7.  备份完成后，单击“确定”，然后在“备份 GPO”页面上，单击“下一步”。  
   
-    8.  在上  “备份位置”页面上的  “备份文件夹”框中，输入步骤 2 中相应过渡 GPO 备份所存储的位置的路径，或单击  “浏览”查找文件夹，然后单击  “下一步”。  
+    8.  在上“备份位置”页面上的“备份文件夹”框中，输入步骤 2 中相应过渡 GPO 备份所存储的位置的路径，或单击“浏览”查找文件夹，然后单击“下一步”。  
   
-    9. 在  “源 GPO”页面上，选中  “仅显示每个 GPO 的最新版本”复选框以隐藏较早的备份，然后选择相应的过渡 GPO。 在将远程访问设置应用到生产 GPO 之前，单击  “视图设置”对其进行查看，然后单击  “下一步”。  
+    9. 在“源 GPO”页面上，选中“仅显示每个 GPO 的最新版本”复选框以隐藏较早的备份，然后选择相应的过渡 GPO。 在将远程访问设置应用到生产 GPO 之前，单击“视图设置”对其进行查看，然后单击“下一步”。  
   
-    10. 在“扫描备份”  页面上，单击“下一步”  ，然后单击“完成”  。  
+    10. 在“扫描备份”页面上，单击“下一步”，然后单击“完成”。  
   
-![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>Windows PowerShell 等效命令</em>***  
+@no__t 0Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>Windows powershell 等效命令</em>***  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
--   若要暂存的客户端 GPO"DirectAccess Client Settings-Staging"域"corp.contoso.com"中到备份文件夹"C:\Backups\":  
+-   若要将域 "corp.contoso.com" 中的过渡客户端 GPO "DirectAccess 客户端设置-过渡" 备份到备份文件夹 "C:\Backups @ no__t-0：  
   
     ```  
     $backup = Backup-GPO "Name 'DirectAccess Client Settings - Staging' "Domain 'corp.contoso.com' "Path 'C:\Backups\'  
     ```  
   
--   若要查看过渡客户端 GPO"DirectAccess Client Settings-Staging"域"corp.contoso.com"中的安全筛选：  
+-   若要查看域 "corp.contoso.com" 中的暂存客户端 GPO "DirectAccess 客户端设置-过渡" 的安全筛选：  
   
     ```  
     Get-GPPermission "Name 'DirectAccess Client Settings - Staging' "Domain 'corp.contoso.com' "All | ?{ $_.Permission "eq 'GpoApply'}  
     ```  
   
--   若要将安全组"corp.contoso.com\DirectAccess clients"添加到生产客户端 GPO 的安全筛选器"DirectAccess 客户端设置"生产"域"corp.contoso.com"中：  
+-   若要将安全组 "com\DirectAccess 客户端" 添加到域 "corp.contoso.com" 中生产客户端 GPO "DirectAccess 客户端设置" 生产 "的安全筛选器：  
   
     ```  
     Set-GPPermission "Name 'DirectAccess Client Settings - Production' "Domain 'corp.contoso.com' "PermissionLevel GpoApply "TargetName 'corp.contoso.com\DirectAccess clients' "TargetType Group  
     ```  
   
--   若要从备份的设置导入到生产客户端 GPO"DirectAccess 客户端设置"生产"域"corp.contoso.com"中：  
+-   将备份中的设置导入到域 "corp.contoso.com" 中的生产客户端 GPO "DirectAccess 客户端设置" 生产 "：  
   
     ```  
     Import-GPO "BackupId $backup.Id "Path $backup.BackupDirectory "TargetName 'DirectAccess Client Settings - Production' "Domain 'corp.contoso.com'  
     ```  
   
 ## <a name="ConfigSGs"></a>1.9 配置安全组  
-客户端计算机的组策略对象中包含的 DirectAccess 设置仅应用于计算机是在配置远程访问时指定的安全组的成员。 此外，如果要使用安全组管理应用程序服务器，则为这些服务器创建安全组。  
+客户端计算机组策略对象中包含的 DirectAccess 设置仅应用于配置远程访问时指定的安全组成员的计算机。 此外，如果要使用安全组管理应用程序服务器，则为这些服务器创建安全组。  
   
-### <a name="Sec_Group"></a>若要为 DirectAccess 客户端创建安全组  
+### <a name="Sec_Group"></a>为 DirectAccess 客户端创建安全组  
   
-1.  上**启动**屏幕上，键入**dsa.msc**，然后按 ENTER。 在  “Active Directory 用户和计算机”控制台的左窗格中，展开将包含安全组的域，右键单击  “用户”，指向  “新建”，然后单击  “组”。  
+1.  在 "**开始**" 屏幕上，键入**dsa.msc**，然后按 enter。 在“Active Directory 用户和计算机”控制台的左窗格中，展开将包含安全组的域，右键单击“用户”，指向“新建”，然后单击“组”。  
   
-2.  在  “新建对象 – 组”对话框中的  “组名”下，输入该安全组的名称。  
+2.  在“新建对象 – 组”对话框中的“组名”下，输入该安全组的名称。  
   
-3.  在  “组范围”下单击  “全局”，并在  “组类型”下单击“安全”  ，然后单击“确定”  。  
+3.  在“组范围”下单击“全局”，并在“组类型”下单击“安全”，然后单击“确定”。  
   
-4.  双击 DirectAccess 客户端计算机安全组，然后在属性对话框中，单击  “成员”选项卡。  
+4.  双击 DirectAccess 客户端计算机安全组，然后在属性对话框中，单击“成员”选项卡。  
   
-5.  在“成员”  选项卡上，单击“添加”  。  
+5.  在“成员” 选项卡上，单击“添加”。  
   
-6.  在  “选择用户、联系人、计算机或服务帐户”对话框中，选择你希望为 DirectAccess 启用的客户端计算机，然后单击  “确定”。  
+6.  在“选择用户、联系人、计算机或服务帐户”对话框中，选择你希望为 DirectAccess 启用的客户端计算机，然后单击“确定”。  
   
-![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**Windows PowerShell 等效命令**  
+@no__t 0Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**Windows powershell 等效命令**  
   
 下面一个或多个 Windows PowerShell cmdlet 执行的功能与前面的过程相同。 在同一行输入每个 cmdlet（即使此处可能因格式限制而出现多行换行）。  
   
@@ -479,13 +479,13 @@ Add-ADGroupMember -Identity DirectAccess_clients_group_name -Members <computer_n
 ```  
   
 ## <a name="ConfigNLS"></a>1.10 配置网络位置服务器  
-网络位置服务器应该是一个具有高可用性的服务器，它应具有 DirectAccess 客户端信任的有效 SSL 证书。 有两个网络位置服务器证书的证书选项：  
+网络位置服务器应该是一个具有高可用性的服务器，它应具有 DirectAccess 客户端信任的有效 SSL 证书。 网络位置服务器证书有两个证书选项：  
   
 -   **私有证书**  
   
-    此证书基于证书模板中的说明创建[1.5.2 配置证书模板](#ConfigCertTemp)。  
+    此证书基于你按照[1.5.2 配置证书模板](#ConfigCertTemp)中的说明创建的证书模板。  
   
--   **自签名的证书**  
+-   **自签名证书**  
   
     > [!NOTE]  
     > 无法在多站点部署中使用自签名证书。  
@@ -501,31 +501,31 @@ Add-ADGroupMember -Identity DirectAccess_clients_group_name -Members <computer_n
   
 #### <a name="to-install-the-network-location-server-certificate-from-an-internal-ca"></a>安装内部 CA 颁发的网络位置服务器证书  
   
-1.  在将托管网络位置服务器网站的服务器上：上**启动**屏幕上，键入**mmc.exe**，然后按 ENTER。  
+1.  在将托管网络位置服务器网站的服务器上：在 "**开始**" 屏幕上，键入**mmc.exe**，然后按 enter。  
   
-2.  在 MMC 控制台中的“文件”  菜单上，单击“添加/删除管理单元”  。  
+2.  在 MMC 控制台中的“文件”菜单上，单击“添加/删除管理单元”。  
   
-3.  在  “添加或删除管理单元”对话框中，依次单击  “证书”、  “添加”、  “计算机帐户”、  “下一步”、  “本地计算机”和  “完成”，然后单击  “确定”。  
+3.  在“添加或删除管理单元”对话框中，依次单击“证书”、“添加”、“计算机帐户”、“下一步”、“本地计算机”和“完成”，然后单击“确定”。  
   
-4.  在证书管理单元的控制台树中，依次打开  “证书(本地计算机)\个人\证书”。  
+4.  在证书管理单元的控制台树中，依次打开“证书(本地计算机)\个人\证书”。  
   
-5.  右键单击  “证书”，指向  “所有任务”，然后单击  “申请新证书”。  
+5.  右键单击“证书”，指向“所有任务”，然后单击“申请新证书”。  
   
-6.  单击“下一步”  两次。  
+6.  单击“下一步” 两次。  
   
-7.  上**申请证书**页上，选择个 1.5.2 中的说明创建的证书模板的复选框配置证书模板。 如有必要，单击  “注册此证书需要详细信息”。  
+7.  在 "**申请证书**" 页上，选中您按照1.5.2 配置证书模板中的说明创建的证书模板的复选框。 如有必要，单击“注册此证书需要详细信息”。  
   
-8.  在  “证书属性”对话框的  “使用者”选项卡上，在  “使用者名称”区域的  “类型”中选择  “公用名”。  
+8.  在“证书属性”对话框的“使用者”选项卡上，在“使用者名称”区域的“类型”中选择“公用名”。  
   
-9. 在  “值”中，输入网络位置服务器网站的 FQDN，然后单击  “添加”。  
+9. 在“值”中，输入网络位置服务器网站的 FQDN，然后单击“添加”。  
   
-10. 在  “备用名称”区域的  “类型”中，选择  “DNS”。  
+10. 在“备用名称”区域的“类型”中，选择“DNS”。  
   
-11. 在  “值”中，输入网络位置服务器网站的 FQDN，然后单击  “添加”。  
+11. 在“值”中，输入网络位置服务器网站的 FQDN，然后单击“添加”。  
   
-12. 在  “常规”选项卡的  “友好名称”中，输入一个有助于标识证书的名称。  
+12. 在“常规”选项卡的“友好名称”中，输入一个有助于标识证书的名称。  
   
-13. 依次单击  “确定”、  “注册”和  “完成”。  
+13. 依次单击“确定”、“注册”和“完成”。  
   
 14. 在证书管理单元的详细信息窗格中，通过“服务器身份验证的预期目的”验证是否注册了新证书。  
   
@@ -545,9 +545,9 @@ Add-ADGroupMember -Identity DirectAccess_clients_group_name -Members <computer_n
   
     可以通过以下服务器访问 CRL 分发点：  
   
-    -   通过使用基于 HTTP 的 URL，如 web 服务器： https://crl.corp.contoso.com/crld/corp-APP1-CA.crl  
+    -   使用基于 HTTP 的 URL 的 Web 服务器，例如： https://crl.corp.contoso.com/crld/corp-APP1-CA.crl  
   
-    -   文件服务器，如通过通用命名约定 (UNC) 路径访问\\\crl.corp.contoso.com\crld\corp-APP1-CA.crl  
+    -   通过通用命名约定（UNC）路径（例如 \\ \ com\crld\corp-APP1-CA.crl）访问的文件服务器。  
   
     如果仅可通过 IPv6 访问内部的 CRL 分发点，则必须配置高级安全 Windows 防火墙连接安全规则，以免除从 Intranet 的 IPv6 地址到 CRL 分发点的 IPv6 地址的 IPsec 保护。  
   

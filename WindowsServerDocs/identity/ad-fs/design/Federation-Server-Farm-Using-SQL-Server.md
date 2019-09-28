@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c6c37b6f98b3ac80179b0ae3b7e2a0c1e34a4975
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0ab150a5070f076db70941bb106b42c3fb15411e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867880"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408093"
 ---
 # <a name="federation-server-farm-using-sql-server"></a>使用 SQL Server 的联合服务器场
 

@@ -2,7 +2,7 @@
 title: 控制用户会话
 description: 了解如何在 MultiPoint Services 中访问和控制其他用户的工作站
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: fbf50d2a30bdae1665fed2ed4f1b223c6505c699
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 702c6c08647869825d6a46208ee261b6f3843717
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871540"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389232"
 ---
 # <a name="take-control-of-a-user-session"></a>控制用户会话
 作为 MultiPoint 仪表板用户，你可以使用“控制”功能通过远程访问其他用户的桌面，从而帮助帮助他们。  

@@ -2,7 +2,7 @@
 title: 数据报传输层安全协议
 description: Windows Server 安全
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-tls-ssl
@@ -13,25 +13,25 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/16/2018
-ms.openlocfilehash: 6f8d7d10ccaace0f75bb470647e3f4571940d9c0
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: f603dc0c5616619088537ffcbd06f64baece0e23
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284324"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402296"
 ---
 # <a name="datagram-transport-layer-security-protocol"></a>数据报传输层安全协议
 
-Windows Server （半年频道），Windows Server 2016 中，Windows 10
+Windows Server （半年频道），Windows Server 2016，Windows 10
 
-本参考主题面向 IT 专业人员介绍数据报传输层安全性 (DTLS) 协议，它是 Schannel 安全支持提供程序 (SSP) 的一部分。
+本参考主题面向 IT 专业人员，介绍了数据报传输层安全性（DTLS）协议，该协议是 Schannel 安全支持提供程序（SSP）的一部分。
 
 ## <a name="BKMK_DTLS"></a>
-DTLS 协议在 Schannel SSP 在 Windows Server 2012 和 Windows 8 中引入，提供有关数据报协议的通信隐私。 有关哪些 DTLS 版本支持 Windows 版本中的信息，请参阅[TLS/SSL (Schannel SSP) 中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159(v=vs.85).aspx)。 此协议让客户端和服务器应用程序可采用旨在防止窃听、篡改或消息伪造的方式进行通信。 DTLS 协议基于传输层安全 (TLS) 协议并提供等效的安全保证，从而减少使用 IPsec 或设计自定义应用程序层安全协议的需求。
+DTLS 协议是在 Windows Server 2012 和 Windows 8 中的 Schannel SSP 中引入的，它为数据报协议提供通信隐私。 有关 Windows 版本中受支持的 DTLS 版本的信息，请参阅[TLS/SSL （SCHANNEL SSP）中的协议](https://msdn.microsoft.com/library/windows/desktop/mt808159(v=vs.85).aspx)。 此协议让客户端和服务器应用程序可采用旨在防止窃听、篡改或消息伪造的方式进行通信。 DTLS 协议基于传输层安全 (TLS) 协议并提供等效的安全保证，从而减少使用 IPsec 或设计自定义应用程序层安全协议的需求。
 
-数据报是常见的流媒体，如游戏或受保护视频会议。 开发人员可以开发应用程序可以使用 Windows 身份验证安全支持提供程序接口 (SSPI) 模型的上下文中的 DTLS 协议，保护客户端和服务器之间的通信。 DTLS 协议是构建的基于用户数据报协议 (UDP)。 DTLS 旨在尽可能新安全发明降至最低并最大限度地重用代码和基础结构量是类似于 TLS。
+数据报在流媒体（如游戏或安全视频会议）中很常见。 开发人员可以开发应用程序，以便在 Windows 身份验证安全支持提供程序接口（SSPI）模型的上下文中使用 DTLS 协议来保护客户端和服务器之间的通信。 DTLS 协议是基于用户数据报协议（UDP）构建的。 DTLS 旨在尽可能与 TLS 类似，以最大程度地减少新的安全性发明，并最大程度地减少代码和基础结构的重复使用。
 
-可用于配置的密码套件可以实现模式化后的可以为 TLS 配置。 不允许使用 RC4。 Schannel 继续使用 Cryptography Next Generation (CNG)。 这可利用的在 Windows Vista 中引入的 FIPS 140 认证。
+可用于配置的密码套件会在可配置 TLS 的密码套件之后进行配置。 不允许使用 RC4。 Schannel 继续使用下一代加密技术（CNG）。 这将利用 Windows Vista 中引入的 FIPS 140 证书。
 
 ## <a name="see-also"></a>请参阅
 

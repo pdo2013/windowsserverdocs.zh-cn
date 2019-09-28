@@ -1,18 +1,18 @@
 ---
 title: 适用于托管商的受保护的构造和受防护 VM 规划指南
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 392af37f-a02d-4d40-a25d-384211cbbfdd
 manager: dongill
 author: nirb-ms
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: d361dfee0cbb06c4b7908b80145c09327dac3956
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: c439a53abea07041e69e50d5d5148dae95243265
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870426"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386428"
 ---
 # <a name="guarded-fabric-and-shielded-vm-planning-guide-for-tenants"></a>租户的受保护的构造和受防护 VM 规划指南
 

@@ -1,7 +1,7 @@
 ---
-title: 启用虚拟机配置的所有虚拟网络适配器
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+title: 启用为虚拟机配置的所有虚拟网络适配器
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: fcd350b7-4240-4359-aadd-93e7ac4d314e
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: fbb1ef5283f6ccf8dfa355a09a86040be80f53e9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: bdca25be4af41d0f6ddfafe885f8c2b1301b71fb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844228"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393645"
 ---
-# <a name="enable-all-virtual-network-adapters-configured-for-a-virtual-machine"></a>启用虚拟机配置的所有虚拟网络适配器
+# <a name="enable-all-virtual-network-adapters-configured-for-a-virtual-machine"></a>启用为虚拟机配置的所有虚拟网络适配器
 
 >适用于：Windows Server 2016
 
@@ -30,21 +30,21 @@ ms.locfileid: "59844228"
 |**Severity**|警告|  
 |**类别**|配置|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。  
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。  
   
 ## <a name="issue"></a>问题  
   
-*一个或多个网络适配器可能会禁用虚拟机中。*  
+*可能在虚拟机中禁用了一个或多个网络适配器。*  
   
 ## <a name="impact"></a>影响  
   
 *以下虚拟机可能不具有网络连接：*  
   
-\<虚拟机名称的列表 >  
+@no__t-虚拟机名称的 0list >  
   
 ## <a name="resolution"></a>分辨率  
   
-*使用设备管理器在来宾操作系统中启用所有虚拟网络适配器。如果不需要该适配器，则使用 Hyper-v 管理器删除从虚拟机。*  
+*Use 设备管理器在来宾操作系统中启用所有虚拟网络适配器。如果适配器不是必需的，请使用 Hyper-v 管理器从虚拟机中删除它。*  
   
 
 

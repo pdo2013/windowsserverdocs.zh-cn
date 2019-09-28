@@ -1,28 +1,28 @@
 ---
 title: Windows Internet 名称服务 (WINS)
-description: 本主题提供有关停用 WINS 和使用 DNS 进行名称解析服务在网络上的信息。
+description: 本主题提供有关使 WINS 退役并在网络上使用 DNS 进行名称解析服务的信息。
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 32eabe7d-1130-4001-a79a-8ddb31993e5b
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bbc1871d29021aa3c99f14368a4711dac63f4cee
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 219c313dfeb26319cd5f537df417724de7044648
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843628"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405250"
 ---
 #  <a name="windows-internet-name-service-wins"></a>Windows Internet 名称服务 (WINS)
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
 Windows Internet 名称服务 (WINS) 是传统的计算机名称注册和解析访问服务，该服务将计算机 NetBIOS 名称映射到 IP 地址。
 
-如果你还没有在网络上部署 WINS，不部署 WINS-而是，部署域名系统\(DNS\)。 DNS 还提供了计算机名称注册和解析服务，并通过 WINS，包括其他许多好处，例如，与 Active Directory 域服务集成。
+如果你尚未在网络上部署 WINS，请不要部署 WINS，而应部署域名系统 \(DNS @ no__t-1。 DNS 还提供计算机名称注册和解析服务，并在 WINS 上包含许多其他权益，如与 Active Directory 域服务的集成。
 
-有关详细信息，请参阅[域名系统 (DNS)](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
+有关详细信息，请参阅[域名系统（DNS）](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
 
-如果你已在网络上部署 WINS，建议部署 DNS，然后停止使用 WINS。
+如果已在网络上部署了 WINS，则建议部署 DNS，并使 WINS 停止。

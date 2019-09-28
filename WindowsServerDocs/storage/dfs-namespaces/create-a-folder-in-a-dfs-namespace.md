@@ -2,22 +2,22 @@
 title: 在 DFS 命名空间中创建文件夹
 description: 本文介绍如何在 DFS 命名空间中创建文件夹。
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 47bb13aa404cdf4fef86b7250425a92cc208ba9d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7389b825afe5ccae3059f50ffdedac72ecd5ac9a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856848"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402245"
 ---
 # <a name="create-a-folder-in-a-dfs-namespace"></a>在 DFS 命名空间中创建文件夹
 
-> 适用于：Windows Server 2019，Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2、 Windows Server 2008
+> 适用于：Windows Server 2019，Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2，Windows Server 2008
 
 你可以使用文件夹在命名空间中创建其他级别的层次结构。 你也可以创建包含文件夹目标的文件夹，以将共享文件夹添加到命名空间。 包含文件夹目标的 DFS 文件夹不能包含其他 DFS 文件夹，因此，如果你要向命名空间添加层次结构级别，请不要将文件夹目标添加到文件夹。
 
@@ -41,6 +41,6 @@ ms.locfileid: "59856848"
 ## <a name="see-also"></a>请参阅
 
 -   [部署 DFS 命名空间](deploying-dfs-namespaces.md)
--   [为 DFS 命名空间委派管理权限](delegate-management-permissions-for-dfs-namespaces.md)
+-   [委派 DFS 命名空间的管理权限](delegate-management-permissions-for-dfs-namespaces.md)
 
 

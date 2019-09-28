@@ -1,34 +1,34 @@
 ---
-title: Windows Admin Center SDK 案例研究-Fujitsu
-description: Windows Admin Center SDK 案例研究-Fujitsu
+title: Windows 管理中心 SDK 案例研究-Fujitsu
+description: Windows 管理中心 SDK 案例研究-Fujitsu
 ms.technology: extend
 ms.topic: article
 author: daniellee-msft
 ms.author: jol
 ms.date: 05/23/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 6d916920b187dd3c637644a0f40ae9f9cca72b66
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.prod: windows-server
+ms.openlocfilehash: 9acfa873e4ce7d3e91a23abff726836f0e11ce59
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814988"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357216"
 ---
-# <a name="fujitsu-serverview-health-and-raid-extensions"></a>Fujitsu ServerView 运行状况和 RAID 扩展
+# <a name="fujitsu-serverview-health-and-raid-extensions"></a>Fujitsu ServerView Health and RAID extension
 
-## <a name="bringing-end-to-end-visibility-from-operating-system-to-hardware-into-windows-admin-center"></a>从操作系统到硬件，将端到端可见性添加到 Windows Admin Center
+## <a name="bringing-end-to-end-visibility-from-operating-system-to-hardware-into-windows-admin-center"></a>将从操作系统到硬件的端到端可见性引入 Windows 管理中心
 
-Fujitsu 是一家领先日语信息和通信技术公司和的制造商[PRIMERGY](http://www.fujitsu.com/fts/products/computing/servers/primergy/)并[PRIMEQUEST](http://www.fujitsu.com/fts/products/computing/servers/mission-critical/)服务器产品。 [Fujitsu ServerView 管理套件](http://www.fujitsu.com/fts/products/computing/servers/primergy/management/)服务器包括为硬件管理提供了 CIM 和 PowerShell 接口的服务器端代理的生命周期管理提供全面的工具集。
+Fujitsu 是一家领先的日语信息和通信技术公司，以及[PRIMERGY](http://www.fujitsu.com/fts/products/computing/servers/primergy/)和[PRIMEQUEST](http://www.fujitsu.com/fts/products/computing/servers/mission-critical/)服务器产品的制造商。 [Fujitsu ServerView 管理套件](http://www.fujitsu.com/fts/products/computing/servers/primergy/management/)为服务器生命周期管理提供了一个综合的工具集，其中包括一个服务器端代理，该代理提供用于硬件管理的 CIM 和 PowerShell 接口。
 
-Fujitsu 发现了一个机会，因为无法进行通信的 CIM 和 PowerShell 接口提供与服务器端代理，与 Windows Admin Center 轻松地集成。 Fujitsu 的开发团队就能够轻松地实现他们已熟悉到代理的 CIM 调用和可视化内 Windows Admin Center 使用的可用 UI 组件的信息。
+Fujitsu 看到了一种与 Windows 管理中心的集成机会，因为它提供了可与服务器端代理通信的 CIM 和 PowerShell 接口。 Fujitsu 的开发团队能够轻松地实现他们熟悉代理的 CIM 调用，并使用可用的 UI 组件在 Windows 管理中心内可视化信息。
 
-![Fujitsu 扩展的运行状况树视图](../../media/extend-case-study-fujitsu/health-tree.png)
+![Fujitsu 扩展-运行状况树视图](../../media/extend-case-study-fujitsu/health-tree.png)
 
-一旦该小组已熟悉 Windows Admin Center SDK，添加 UI，以显示额外的硬件信息通常是只需几行的 HTML 代码，他们就快速能够通过单个工具扩展到显示的硬件组件的摘要视图运行状况，对于系统事件日志，驱动程序监视器的详细视图分隔处理器、 内存、 风扇、 电源、 温度和电压，视图和 RAID 管理甚至一个额外的工具。 使用 UI 控件树如 SDK 中提供，启用团队以便快速构建用户界面并实现非常类似于 Windows Admin Center 的其余部分的视觉和交互设计网格和详细信息窗格控件。
+一旦团队熟悉 Windows 管理中心 SDK，添加 UI 以公开额外的硬件信息通常只需几行 HTML 代码，就能迅速从单个工具进行扩展以显示硬件组件的摘要视图运行状况、系统事件日志的详细视图、驱动程序监视器、处理器、内存、风扇、电源、温度和电压的单独视图，甚至用于 RAID 管理的其他工具。 使用 SDK 中提供的 UI 控件（如 "树"、"网格" 和 "详细信息" 窗格控件），团队可以快速生成 UI，还可以实现与 Windows 管理中心的其余部分类似的可视化和交互设计。
 
 ![Fujitsu 扩展-RAID 树视图](../../media/extend-case-study-fujitsu/raid-tree.png)
 
-![Fujitsu 扩展-RAID 卷查看](../../media/extend-case-study-fujitsu/raid-volumes.png)
+![Fujitsu 扩展-RAID 卷视图](../../media/extend-case-study-fujitsu/raid-volumes.png)
 
-Fujitsu Windows Admin Center 团队之间的合作关系清楚地显示的值的集成 Windows Admin Center 内使客户能够以具有端到端了解服务器角色和服务，对操作系统和硬件管理.
+Fujitsu 与 Windows 管理中心团队之间的合作关系清晰地显示了 Windows 管理中心中的集成价值，使客户能够通过端到端深入了解服务器角色和服务、操作系统和硬件管理.

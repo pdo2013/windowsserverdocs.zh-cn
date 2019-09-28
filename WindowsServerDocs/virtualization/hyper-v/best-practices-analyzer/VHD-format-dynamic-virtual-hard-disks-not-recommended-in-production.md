@@ -1,7 +1,7 @@
 ---
-title: 不建议在生产环境中运行服务器工作负荷的虚拟机的 VHD 格式动态虚拟硬盘
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+title: 对于在生产环境中运行服务器工作负荷的虚拟机，不建议使用 VHD 格式的动态虚拟硬盘
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 324a60a0-1d15-4ef2-9f17-23cbd2eb42ce
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 6acd27fa0efa27ba74c28e290c789edca599f66f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bf5464208fc145a31571f01822bb5ba54efe89c4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849878"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364588"
 ---
-# <a name="vhd-format-dynamic-virtual-hard-disks-are-not-recommended-for-virtual-machines-that-run-server-workloads-in-a-production-environment"></a>不建议在生产环境中运行服务器工作负荷的虚拟机的 VHD 格式动态虚拟硬盘
+# <a name="vhd-format-dynamic-virtual-hard-disks-are-not-recommended-for-virtual-machines-that-run-server-workloads-in-a-production-environment"></a>对于在生产环境中运行服务器工作负荷的虚拟机，不建议使用 VHD 格式的动态虚拟硬盘
 
 >适用于：Windows Server 2016
 
@@ -30,18 +30,18 @@ ms.locfileid: "59849878"
 |**Severity**|警告|  
 |**类别**|配置|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。
   
 ## <a name="issue"></a>**问题**  
-*一个或多个虚拟机使用动态扩展虚拟硬盘 VHD 格式。*  
+*一台或多台虚拟机使用 VHD 格式动态扩展虚拟硬盘。*  
   
-## <a name="impact"></a>**影响**  
-*如果发生电源故障，VHD 格式动态虚拟硬盘可能遇到一致性问题。如果物理磁盘的.vhd 文件中，当发生电源故障时正在修改执行到某个扇区不完整或不正确更新，则可能发生的一致性问题。这会影响以下虚拟机：*  
+## <a name="impact"></a>**对**  
+如果出现电源故障，@no__t 0VHD 格式的动态虚拟硬盘可能会出现一致性问题。如果物理磁盘在发生电源故障时要修改的 .vhd 文件中的扇区执行不完整或不正确的更新，则会发生一致性问题。这会影响以下虚拟机： *  
   
-\<虚拟机的列表 >  
+@no__t-虚拟机的 0list >  
   
 ## <a name="resolution"></a>**解决方法**  
-*关闭虚拟机并将 VHD 格式动态磁盘的虚拟硬盘转换为 VHDX 格式的虚拟硬盘或固定的虚拟硬盘。（VHDX 格式具有可靠性机制，可帮助防止系统电源故障导致损坏的磁盘。）但是，如果附加到早期版本的 Windows 在某些时候可能会不转换虚拟硬盘。Windows 版本低于 Windows Server 2012 不支持 VHDX 格式。*  
+@no__t 0Shut 虚拟机，并将 VHD 格式的动态虚拟硬盘转换为 VHDX 格式的虚拟硬盘或固定的虚拟硬盘。（VHDX 格式具有可靠性机制，可帮助防止磁盘因系统电源故障而损坏。）但是，如果在某个时间点可能会将虚拟硬盘附加到早期版本的 Windows，请不要转换虚拟硬盘。Windows Server 2012 之前的 windows 版本不支持 VHDX 格式。 *  
   
 
 

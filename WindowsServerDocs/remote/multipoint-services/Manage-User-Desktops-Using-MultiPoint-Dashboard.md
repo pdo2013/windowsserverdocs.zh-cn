@@ -1,8 +1,8 @@
 ---
 title: 使用 MultiPoint 仪表板管理用户桌面
-description: 提供 MultiPoint 仪表板的概述
+description: 提供 MultiPoint 仪表板概述
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,17 +13,17 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 049910029f0ed2623ae34131d3755964d3499d0e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b250d820e7086054d18d62eebe8ce9d3686f8d5d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837338"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405097"
 ---
 # <a name="manage-user-desktops-using-multipoint-dashboard"></a>使用 MultiPoint 仪表板管理用户桌面
-在 MultiPoint 服务系统中，桌面是为每个用户工作站显示在显示器上的软件用户界面。 MultiPoint 仪表板是一个工具可帮助您管理这些桌面。   
+在 MultiPoint 服务系统中，桌面是为每个用户工作站显示在显示器上的软件用户界面。 MultiPoint 仪表板是一种工具，可帮助你管理这些桌面。   
   
-在 MultiPoint 仪表板上**主页**选项卡上，您可以执行以下操作：  
+在 MultiPoint 仪表板中的 "**主页**" 选项卡上，可以执行以下操作：  
   
 - 查看桌面  
 你可以查看每个活动桌面的缩略图。 有关查看缩略图的信息，请参[查看会话缩略图选项](View-Options-for-Session-Thumbnails-in-MultiPoint-Dashboard.md)主题。  
@@ -40,7 +40,7 @@ ms.locfileid: "59837338"
 - 使用即时消息  
 可以与所选用户进行聊天。 聊天消息仅对仪表板用户和所选会话的用户可见。 有关详细信息，请参阅[使用 IM](Use-IM.md)。  
 - 更改缩略图图像的大小  
-你可以在 MultiPoint 仪表板中显示的缩略图的大小。 有关更改缩略图大小的详细信息，请参阅[查看会话缩略图选项](View-Options-for-Session-Thumbnails-in-MultiPoint-Dashboard.md)。
+你可以更改在 MultiPoint 仪表板中显示的缩略图的大小。 有关更改缩略图大小的详细信息，请参阅[查看会话缩略图选项](View-Options-for-Session-Thumbnails-in-MultiPoint-Dashboard.md)。
 - 显示所有工作站  
 可以查看所有连接到你的系统的工作站，包括未处于活动状态的工作站。 有关查看所有工作站的详细信息，请参阅[显示所有工作站](Show-All-Stations.md)主题。  
 - 搜索和排序缩略图  

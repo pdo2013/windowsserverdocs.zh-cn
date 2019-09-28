@@ -7,32 +7,32 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 343a9a7aedf22e9c021249f00fb628f871a2ce1f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c902f9a438afd226dfb58dbde9f3c00d57b0ed58
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835748"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408595"
 ---
 # <a name="audit-policy-recommendations"></a>审核策略建议
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012、 Windows 10，Windows 8.1，Windows 7
+>适用于：Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows 10，Windows 8.1，Windows 7
 
-本部分讲述 Windows 默认审核策略设置，推荐的基线审核策略设置和加强对建议从 Microsoft、 工作站和服务器产品。  
+本部分介绍了 Windows 默认审核策略设置、基线建议的审核策略设置，以及 Microsoft 提供的更积极的建议，适用于工作站和服务器产品。  
 
-以及我们建议以帮助检测泄漏，设置如下所示的 SCM 基线建议仅旨在作为管理员的起始基线指南。 每个组织必须作出有关他们所面临的威胁，其可接受的风险容差和哪些审核策略类别或子类别应该启用自己决定。 有关威胁的详细信息，请参阅[威胁和对策指南](https://technet.microsoft.com/library/hh125921(v=ws.10).aspx)。 而无需考虑周全的审核策略后的管理员是鼓励开始在这里，推荐的设置，然后修改和测试，请在其生产环境中实施前。  
+此处所示的 SCM 基线建议，以及建议用于帮助检测折衷的设置，旨在仅成为管理员的入门基线指南。 每个组织都必须自行决定他们所面临的威胁、可接受的风险容差，以及他们应该启用哪些审核策略类别或子类别。 有关威胁的详细信息，请参阅[威胁和对策指南](https://technet.microsoft.com/library/hh125921(v=ws.10).aspx)。 建议先使用此处建议的设置，然后在生产环境中实施之前修改和测试，而无需进行周密审核策略的管理员。  
 
-建议适用于 Microsoft 定义为具有平均的安全要求，并且要求高的操作功能的计算机的企业级的计算机。 实体需要更高版本要求应考虑更主动的安全审核策略。  
+建议适用于企业级计算机，Microsoft 将其定义为具有平均安全要求并且需要高级操作功能的计算机。 需要更高安全要求的实体应考虑更严格的审核策略。  
 
 > [!NOTE]  
-> 默认设置是 Microsoft Windows，基线建议取自[Microsoft Security Compliance Manager 工具](https://technet.microsoft.com/library/cc677002.aspx)。  
+> Microsoft Windows 默认值和基线建议是从[Microsoft 安全合规管理器工具](https://technet.microsoft.com/library/cc677002.aspx)获取的。  
 
-对于不知道可以在处于活动状态，成功攻击的顽固或恶意软件的常规安全计算机建议使用以下基线审核策略设置。  
+以下基线审核策略设置适用于未知的安全计算机，这些计算机被确定为攻击者或恶意软件，这些计算机处于非活动状态、成功的攻击。  
 
-## <a name="recommended-audit-policies-by-operating-system"></a>建议的操作系统的审核策略  
-本部分包含表，其中列出的审核设置，则建议适用于以下操作系统：  
+## <a name="recommended-audit-policies-by-operating-system"></a>操作系统推荐的审核策略  
+本部分包含的表列出了适用于以下操作系统的审核设置建议：  
 
 -   Windows Server 2016 
 
@@ -48,24 +48,24 @@ ms.locfileid: "59835748"
 
 -   Windows 7  
 
-这些表包含 Windows 默认设置、 基线建议，并针对这些操作系统的更强的建议。  
+这些表包含 Windows 默认设置、基线建议以及这些操作系统的更强建议。  
 
 **审核策略表图例**  
 
 |||  
 |-|-|  
-|**表示法**|**建议**|  
-|是|一般情况下启用的方案|  
-|否|不要**不**一般情况下启用的方案|  
-|IF|如果所需的特定方案中，或者某个角色或功能为其审核所需安装在计算机上启用|  
+|**图解**|**建议**|  
+|是|在一般情况下启用|  
+|否|在一般情况下**不**启用|  
+|如果|对于特定方案，或在计算机上安装了所需审核的角色或功能时启用|  
 |DC|在域控制器上启用|  
-|[空]|无建议|  
+|空字符|无建议|  
 
-**Windows 10、 Windows 8 和 Windows 7 的审核设置建议**  
+**Windows 10、Windows 8 和 Windows 7 审核设置建议**  
 
 **审核策略**  
 
-|审核策略类别或子类别|Windows 默认<br /><br />成功失败|基线建议<br /><br />成功失败|更强的建议<br /><br />成功失败|  
+|审核策略类别或子类别|Windows 默认值<br /><br />成功失败|基线建议<br /><br />成功失败|更强建议<br /><br />成功失败|  
 |----------------------------------------|------------------------------------------|--------------------------------------------------|--------------------------------------------------|  
 |**帐户登录**||||  
 |审核凭据验证|不 不|是否|是的|  
@@ -79,7 +79,7 @@ ms.locfileid: "59835748"
 |审核其他帐户管理事件||是否|是的|  
 |审核安全组管理||是否|是的|  
 |审核用户帐户管理|是否|是否|是的|  
-|**详细的跟踪**||||  
+|**详细跟踪**||||  
 |审核 DPAPI 活动|||是的|  
 |审核进程创建||是否|是的|  
 |审核进程终止||||  
@@ -93,7 +93,7 @@ ms.locfileid: "59835748"
 |审核帐户锁定|是否||是否|  
 |审核用户/设备声明||||  
 |审核 IPsec 扩展模式||||  
-|审核 IPsec 主模式|||IF     IF|  
+|审核 IPsec 主模式|||如果|  
 |审核 IPsec 快速模式||||  
 |审核注销|是否|是否|是否|  
 |审核登录<sup>1</sup>|是的|是的|是的|  
@@ -126,7 +126,7 @@ ms.locfileid: "59835748"
 |审核非敏感权限使用||||  
 |审核其他权限使用事件||||  
 |审核敏感权限使用||||  
-|**System**||||  
+|**主板**||||  
 |审核 IPsec 驱动程序||是的|是的|  
 |审核其他系统事件|是的|||  
 |审核安全状态更改|是否|是的|是的|  
@@ -139,11 +139,11 @@ ms.locfileid: "59835748"
 |审核安全系统扩展||||  
 |审核系统完整性||||  
 
-<sup>1</sup>从 Windows 10 版本 1809年开始，审核登录默认情况下启用的成功和失败。 在以前版本的 Windows，默认情况下启用仅成功。
+<sup>1</sup>从 Windows 10 版本1809开始，默认情况下为成功和失败启用了审核登录。 在以前版本的 Windows 中，默认情况下仅启用成功。
 
-**Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2 和 Windows Server 2008 审核设置建议**  
+**Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2，Windows Server 2008 审核设置建议**  
 
-|审核策略类别或子类别|Windows 默认<br /><br />成功失败|基线建议<br /><br />成功失败|更强的建议<br /><br />成功失败|  
+|审核策略类别或子类别|Windows 默认值<br /><br />成功失败|基线建议<br /><br />成功失败|更强建议<br /><br />成功失败|  
 |----------------------------------------|------------------------------------------|--------------------------------------------------|--------------------------------------------------|  
 |**帐户登录**||||  
 |审核凭据验证|不 不|是的|是的|  
@@ -152,26 +152,26 @@ ms.locfileid: "59835748"
 |审核其他帐户登录事件|||是的|  
 |**帐户管理**||||  
 |审核应用程序组管理||||  
-|审核计算机帐户管理||是的 DC|是的|  
+|审核计算机帐户管理||是 DC|是的|  
 |审核通讯组管理||||  
 |审核其他帐户管理事件||是的|是的|  
 |审核安全组管理||是的|是的|  
 |审核用户帐户管理|是否|是的|是的|  
-|**详细的跟踪**||||  
+|**详细跟踪**||||  
 |审核 DPAPI 活动|||是的|  
 |审核进程创建||是否|是的|  
 |审核进程终止||||  
 |审核 RPC 事件||||  
 |**DS 访问**||||  
 |审核详细的目录服务复制||||  
-|审核目录服务访问||DC    DC|DC    DC|  
-|审核目录服务更改||DC    DC|DC    DC|  
+|审核目录服务访问||DC DC|DC DC|  
+|审核目录服务更改||DC DC|DC DC|  
 |审核目录服务复制||||  
 |**登录和注销**||||  
 |审核帐户锁定|是否||是否|  
 |审核用户/设备声明||||  
 |审核 IPsec 扩展模式||||  
-|审核 IPsec 主模式|||IF     IF|  
+|审核 IPsec 主模式|||如果|  
 |审核 IPsec 快速模式||||  
 |审核注销|是否|是否|是否|  
 |审核登录|是的|是的|是的|  
@@ -204,7 +204,7 @@ ms.locfileid: "59835748"
 |审核非敏感权限使用||||  
 |审核其他权限使用事件||||  
 |审核敏感权限使用||||  
-|**System**||||  
+|**主板**||||  
 |审核 IPsec 驱动程序||是的|是的|  
 |审核其他系统事件|是的|||  
 |审核安全状态更改|是否|是的|是的|  
@@ -218,92 +218,92 @@ ms.locfileid: "59835748"
 |审核系统完整性||||  
 
 ## <a name="set-audit-policy-on-workstations-and-servers"></a>在工作站和服务器上设置审核策略  
-工作站和服务器，应监视事件日志管理的所有计划。 一个常见错误是仅监视服务器或域控制器。 由于恶意黑客经常最初发生在工作站上，因此未在监视工作站正在忽略信息的最佳和最早的源。  
+所有事件日志管理计划都应该监视工作站和服务器。 常见的错误是仅监视服务器或域控制器。 由于恶意黑客最初常常发生在工作站上，因此不监视工作站会忽视最早和最早的信息源。  
 
-管理员应经过深思熟虑查看，并在其生产环境中测试任何审核策略，然后才能实现。  
+在生产环境中实施之前，管理员应周全审核并测试任何审核策略。  
 
 ## <a name="events-to-monitor"></a>要监视的事件  
-若要生成安全警报的绝佳的事件 ID 应包含以下属性：  
+用于生成安全警报的理想事件 ID 应该包含以下属性：  
 
--   很可能存在该事件指示未经授权的活动  
+-   出现的可能性很大，指示未经授权的活动  
 
 -   误报较少  
 
--   匹配项应导致调查/取证响应  
+-   出现情况应会导致调查/取证响应  
 
-两种类型的事件应监视并向你发出警报：  
+应监视和通知两种类型的事件：  
 
-1.  这些事件在其中甚至单个匹配项指示未经授权的活动  
+1.  甚至出现一次的事件指示未经授权的活动  
 
 2.  高于预期和接受的基线的事件的累积  
 
 第一个事件的一个示例是：  
 
-如果域管理员 (DAs) 不能登录到不是域控制器的计算机，登录到最终用户工作站上的数据成员的单一匹配项应生成警报，进行调查。 此类警报很容易生成通过使用审核特殊登录事件 4964 （特殊组已分配给新的登录名）。 单个实例警报的其他示例包括：  
+如果禁止域管理员（DAs）登录到不是域控制器的计算机，则在登录到最终用户工作站的情况下出现的一次 DA 成员应会生成警报并进行调查。 使用 "审核特殊登录事件 4964" （特殊组已分配给新的登录），可以轻松生成此类警报。 单实例警报的其他示例包括：  
 
--   如果服务器 A 应永远不会连接到服务器 B，当它们连接到对方时的警报。  
+-   如果服务器 A 不应连接到服务器 B，请在它们相互连接时发出警报。  
 
--   如果一个正常的最终用户帐户意外添加到敏感的安全组发出警报。  
+-   如果将正常的最终用户帐户意外添加到敏感安全组，则发出警报。  
 
--   如果员工在工厂位置一个永远无法在夜间，警报用户在登录时在午夜运行。  
+-   如果工厂位置 A 中的员工在晚上不起作用，则在用户午夜登录时发出警报。  
 
--   如果域控制器上安装未经授权的服务发出警报。  
+-   如果域控制器上安装了未经授权的服务，则发出警报。  
 
--   如果正则最终用户尝试直接登录到他们具有不明确的理由进行此操作的 SQL Server 的，调查。  
+-   调查定期最终用户是否尝试直接登录到其没有明确原因的 SQL Server 中。  
 
--   如果在 DA 组中，没有任何成员，并且有人那里添加本身，请立即进行检查。  
+-   如果你没有 DA 组中的成员，并且某人将其添加到了那里，请立即进行检查。  
 
 第二个事件的一个示例是：  
 
-登录失败的异常数可能指示密码猜测攻击。 有关企业中提供的登录失败次数过多警报，它们必须先了解正常水平的恶意安全事件之前其环境中的登录失败。  
+Aberrant 失败的登录次数可能表明存在密码猜测攻击。 为了使企业能够为发生异常大量失败的登录提供警报，在出现恶意安全事件之前，他们必须首先了解其环境中的失败登录的正常级别。  
 
-有关监视遭到破坏的迹象时应包含的事件的完整列表，请参阅[附录 l:监视的事件](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md)。  
+有关监视泄露迹象时应包括的事件的完整列表，请参阅 [Appendix L：监视 @ no__t 的事件。  
 
-## <a name="active-directory-objects-and-attributes-to-monitor"></a>Active Directory 对象和属性到监视器  
-以下是帐户、 组和属性，以帮助您检测尝试侵入您的 Active Directory 域服务安装，则应该监视。  
+## <a name="active-directory-objects-and-attributes-to-monitor"></a>要监视的 Active Directory 对象和属性  
+下面是你应该监视的帐户、组和属性，以帮助检测对 Active Directory 域服务安装的破坏尝试。  
 
--   用于禁用或删除防病毒和反恶意软件软件 （手动禁用时，会自动重新启动保护） 的系统  
+-   用于禁用或删除防病毒软件和反恶意软件的系统（手动禁用保护时自动重启保护）  
 
--   未经授权的更改的管理员帐户  
+-   管理员帐户进行未经授权的更改  
 
--   使用特权的帐户 （自动删除帐户的可疑活动均完成或分配时间时已过期） 执行的活动  
+-   使用特权帐户执行的活动（在完成可疑活动或分配的时间已过期时自动删除帐户）  
 
--   特权和 VIP 帐户在 AD DS 中。 监视的更改，尤其是在帐户选项卡上，（例如，cn、 名称、 sAMAccountName、 userPrincipalName 或 userAccountControl） 属性的更改。 除了监视帐户，限制可以修改用户到尽可能小的帐户的一组作为可能的管理用户。  
+-   AD DS 中的特权和 VIP 帐户。 监视更改，尤其是对 "帐户" 选项卡上的属性的更改（例如，cn、name、sAMAccountName、userPrincipalName 或 userAccountControl）。 除了监视帐户之外，还可以将帐户的修改权限限制为尽可能少的一组管理用户。  
 
-请参阅[附录 l:监视的事件](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md)有关的建议事件到监视器、 其严重程度等级和事件消息摘要列表。  
+请参阅 [Appendix L：监视 @ no__t 的事件-0 表示要监视的建议事件的列表、其重要级别和事件消息摘要。  
 
--   通过分类其工作负荷，这使您可以快速确定应该是最受监视或最严格地配置的服务器组服务器  
+-   按服务器的工作负荷分类对服务器进行分组，这使你能够快速确定应该最密切监视的服务器和最得到配置的服务器  
 
--   对属性和的以下 AD DS 组成员身份的更改：Enterprise Admins (EA)、 域管理员 (DA)、 管理员 (BA) 和架构管理员 (SA)  
+-   更改以下 AD DS 组的属性和成员身份：Enterprise Admins （EA）、Domain Admins （DA）、Administrators （BA）和 Schema Admins （SA）  
 
--   已禁用的特权的帐户 （例如内置管理员帐户在 Active Directory 和成员系统上） 用于启用帐户  
+-   禁用的特权帐户（如 Active Directory 和成员系统中的内置管理员帐户），用于启用帐户  
 
--   若要记录所有写入到该帐户的管理帐户  
+-   用于将所有写入记录到帐户的管理帐户  
 
--   内置安全配置向导来配置服务、 注册表、 审核和防火墙设置，以减少服务器的受攻击面。 如果跳转服务器实现为管理的主机策略的一部分，请使用此向导。  
+-   内置安全配置向导，用于配置服务、注册表、审核和防火墙设置，以减少服务器的受攻击面。 如果将跳转服务器作为管理主机策略的一部分实现，请使用此向导。  
 
-## <a name="additional-information-for-monitoring-active-directory-domain-services"></a>监视 Active Directory 域服务的其他信息  
-请查看以下链接了解有关监视 AD DS 的其他信息：  
+## <a name="additional-information-for-monitoring-active-directory-domain-services"></a>用于监视 Active Directory 域服务的其他信息  
+查看以下链接，了解有关监视 AD DS 的其他信息：  
   
--   [全局对象访问审核是 Magic](http://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) -提供有关配置和使用高级审核策略配置已添加到 Windows 7 和 Windows Server 2008 R2 的信息。  
+-   [全局对象访问审核非常神奇](http://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx)-提供有关配置和使用添加到 windows 7 和 windows Server 2008 R2 的高级审核策略配置的信息。  
 
--   [介绍 Windows 2008 中的审核更改](http://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx)-引入了在 Windows 2008 中的审核的更改。  
+-   [Windows 2008 中的审核更改简介](http://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx)-介绍了在 windows 2008 中进行的审核更改。  
 
--   [太棒了 Vista 和 2008年中的审核技巧](http://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx)-介绍了在 Windows Vista 和 Windows Server 2008 的可用于故障排除问题或查看您的环境中发生审核的有趣的新功能。  
+-   [Vista 和2008中的冷审核技巧](http://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx)-介绍了 windows Vista 和 windows Server 2008 中的有趣的新功能，这些功能可用于排查问题或查看环境中发生的情况。  
 
--   [针对 Windows Server 2008 和 Windows Vista 中的审核的一站式](http://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx)-包含编译的审核功能和 Windows Server 2008 和 Windows Vista 中包含的信息。  
+-   [Windows server 2008 和 Windows vista 中的一站式审核](http://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx)-包含对 windows server 2008 和 windows vista 中包含的审核功能和信息的编译。  
 
--   [AD DS 审核分步指南](https://technet.microsoft.com/library/a9c25483-89e2-4202-881c-ea8e02b4b2a5.aspx)-介绍 Windows Server 2008 中新的 Active Directory 域服务 (AD DS) 审核功能。 它还提供实施这一新功能的步骤。  
+-   [AD DS 审核循序渐进指南](https://technet.microsoft.com/library/a9c25483-89e2-4202-881c-ea8e02b4b2a5.aspx)-介绍了 Windows Server 2008 中的新 Active Directory 域服务（AD DS）审核功能。 它还提供了实现此新功能的过程。  
 
-## <a name="general-list-of-security-event-id-recommendation-criticalities"></a>安全事件 ID 建议 Criticalities 的常规列表  
-事件 ID 的所有建议都伴随严重程度级别，如下所示：  
+## <a name="general-list-of-security-event-id-recommendation-criticalities"></a>安全事件 ID 建议重要性的常规列表  
+所有事件 ID 建议均伴随着严重级别，如下所示：  
 
-**高：** 具有高重要性级别的事件 Id 应始终并立即将向你发出警报和调查。  
+**严重**具有高严重性级别的事件 Id 应始终和立即发出警报并进行调查。  
 
-**中：** 事件 ID 具有中等严重程度级别可能表示恶意活动，但它必须附带由某些其他到异常情况 (例如，特定时间段、 意外的匹配项或在计算机上的匹配项中出现了异常数量的通常情况下不应在记录事件。）。 中等严重程度事件也可能以指标形式收集并随着时间的推移比较 r。  
+**Medium**具有中等重要性级别的事件 ID 可能表示恶意活动，但它必须附带一些其他异常情况（例如，在特定时间段内发生的异常数字、意外的出现次数或计算机上出现的错误通常不会记录该事件。） 在一段时间内，也可以将 r 作为一个指标收集，并进行比较。  
 
-**低：** 和与严重性较低事件的事件 ID 不应获得关注或导致警报，除非与中等或高严重程度事件相关联。  
+**低级**具有低关键性事件的事件 ID 不应 garner 关注或导致警报，除非与中型或高严重性事件相关。  
 
-这些建议旨在为管理员提供一个基线的指南。 所有建议在生产环境中实施之前，应全面都查看。  
+这些建议旨在为管理员提供基线指南。 在生产环境中实现之前，应仔细检查所有建议。  
 
-请参阅[附录 l:监视的事件](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md)有关的建议事件到监视器、 其严重程度等级和事件消息摘要列表。  
+请参阅 [Appendix L：监视 @ no__t 的事件-0 表示要监视的建议事件的列表、其重要级别和事件消息摘要。  

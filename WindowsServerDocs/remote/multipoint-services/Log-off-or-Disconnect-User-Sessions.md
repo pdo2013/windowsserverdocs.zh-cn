@@ -2,7 +2,7 @@
 title: 注销或断开用户会话
 description: 了解如何手动注销用户
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 0e516a617341ffebadbdeb571a39f50369446f11
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: c636af35a78eab76d69c68b6f506b64dcb555f81
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871654"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395267"
 ---
 # <a name="log-off-or-disconnect-user-sessions"></a>注销或断开用户会话
 MultiPoint 服务用户可以像处理任何 Windows 会话一样登录和注销其桌面会话。 用户还可以断开或挂起其会话，以便不使用 MultiPoint 服务工作站，但其会话在 MultiPoint 服务系统的计算机内存中保持活动状态。  

@@ -1,8 +1,8 @@
 ---
 title: 阻止或取消阻止 USB 存储
 ms.custom: na
-description: 了解如何阻止用户在 MultiPoint 工作站上使用 USB 存储
-ms.prod: windows-server-threshold
+description: 了解如何防止用户在 MultiPoint 工作站上使用 USB 存储
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 4f2d5a20ee3245834ff11294514f9c5c08385429
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2740d68841f1250d9ba50ad6b4728098c72678a5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888158"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405115"
 ---
 # <a name="block-or-unblock-usb-storage"></a>阻止或取消阻止 USB 存储
 你可以阻止用户在其用户工作站上使用 USB 存储。  

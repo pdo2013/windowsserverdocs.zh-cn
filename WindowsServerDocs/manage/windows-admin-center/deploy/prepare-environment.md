@@ -7,13 +7,13 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 19013c3f132b7486647ade2c9c4950b65c21b8e7
-ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
+ms.prod: windows-server
+ms.openlocfilehash: 72e71ce2d1427f392aa02d32597f92d031f9a5c9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975320"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407008"
 ---
 # <a name="prepare-your-environment-for-windows-admin-center"></a>为 Windows Admin Center 准备环境
 
@@ -108,7 +108,7 @@ Microsoft Hyper-V Server 2016 现在可以使用 Windows Admin Center 进行管�
 3. 启用文件服务器角色
 4. 启用 PowerShell 的 Hyper-V 模块
 
-### <a name="step-1-install-windows-management-framework-51"></a>步骤 1：安装 Windows Management Framework 5。1
+### <a name="step-1-install-windows-management-framework-51"></a>第 1 步：安装 Windows Management Framework 5。1
 
 默认情况下，Microsoft Hyper-V Server 2012 R2 中未包含 Windows Admin Center 需要的 PowerShell 功能。 要使用 Windows Admin Center 管理 Microsoft Hyper-V Server 2012 R2，你将需要安装 WMF 5.1 或更高版本。
 
@@ -125,7 +125,7 @@ Microsoft Hyper-V Server 2016 现在可以使用 Windows Admin Center 进行管�
 3. 键入 **1** 以启用远程管理。
 4. 键入 **4** 以返回到主菜单。
 
-### <a name="step-3-enable-file-server-role"></a>步骤 3：启用文件服务器角色
+### <a name="step-3-enable-file-server-role"></a>步骤 3:启用文件服务器角色
 
 要启用文件服务器角色以进行基本的文件共享和远程管理，请执行以下操作：
 

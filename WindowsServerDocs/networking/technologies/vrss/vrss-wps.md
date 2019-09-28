@@ -1,7 +1,7 @@
 ---
-title: Windows PowerShell 命令适用于 RSS 和 vRSS
-description: 在本主题中，您将学习如何快速查找有关 Windows PowerShell 命令用于接收方缩放 (RSS) 和虚拟 RSS (vRSS) 的技术参考信息。
-ms.prod: windows-server-threshold
+title: 用于 RSS 和 vRSS 的 Windows PowerShell 命令
+description: 本主题介绍如何快速查找有关接收方缩放（RSS）和虚拟 RSS （vRSS）的 Windows PowerShell 命令的技术参考信息。
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 49e93b9f-46d9-4cee-bcda-1c4634893ddd
@@ -10,47 +10,47 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/05/2018
-ms.openlocfilehash: 10039388009e32c10d71067b835bad65db5607ef
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bb915f72e53d28c73a9c2e405b3b0edd656953db
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833258"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405280"
 ---
-# <a name="windows-powershell-commands-for-rss-and-vrss"></a>Windows PowerShell 命令适用于 RSS 和 vRSS
+# <a name="windows-powershell-commands-for-rss-and-vrss"></a>用于 RSS 和 vRSS 的 Windows PowerShell 命令
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-在本主题中，学习如何快速查找有关 Windows PowerShell 命令用于接收方缩放的技术参考信息\(RSS\)和虚拟 RSS \(vRSS\)。
+在本主题中，你将了解如何快速查找有关接收方缩放的 Windows PowerShell 命令的技术参考信息 \(RSS @ no__t 和虚拟 RSS \(vRSS @ no__t。
 
-以下的 RSS 命令用于在具有多个处理器或多个内核的物理计算机上配置 RSS。 可以使用相同的命令的虚拟机上配置 vRSS \(VM\)运行受支持的操作系统。 有关详细信息，请参阅[Windows PowerShell 中的网络适配器 Cmdlet](https://docs.microsoft.com/powershell/module/netadapter/?view=win10-ps)。
+使用以下 RSS 命令在具有多个处理器或多个内核的物理计算机上配置 RSS。 你可以使用相同的命令在运行受支持操作系统的虚拟机 \(VM @ no__t-1 上配置 vRSS。 有关详细信息，请参阅[Windows PowerShell 中的网络适配器 cmdlet](https://docs.microsoft.com/powershell/module/netadapter/?view=win10-ps)。
 
 ## <a name="configure-vmq"></a>配置 VMQ
 
-vRSS 需要启用并配置 VMQ。 可以使用以下 Windows PowerShell 命令来管理 VMQ 设置。
+vRSS 需要启用并配置 VMQ。 你可以使用以下 Windows PowerShell 命令来管理 VMQ 设置。
 
-- [Disable-NetAdapterVmq](https://docs.microsoft.com/powershell/module/netadapter/disable-netadaptervmq?view=win10-ps)
-- [Enable-NetAdapterVmq](https://docs.microsoft.com/powershell/module/netadapter/enable-netadaptervmq?view=win10-ps)
-- [Get-NetAdapterVmq](https://docs.microsoft.com/powershell/module/netadapter/get-netadaptervmq?view=win10-ps)
-- [Set-NetAdapterVmq](https://docs.microsoft.com/powershell/module/netadapter/set-netadaptervmq?view=win10-ps)
+- [Get-netadaptervmq](https://docs.microsoft.com/powershell/module/netadapter/disable-netadaptervmq?view=win10-ps)
+- [Get-netadaptervmq](https://docs.microsoft.com/powershell/module/netadapter/enable-netadaptervmq?view=win10-ps)
+- [Get-netadaptervmq](https://docs.microsoft.com/powershell/module/netadapter/get-netadaptervmq?view=win10-ps)
+- [Get-netadaptervmq](https://docs.microsoft.com/powershell/module/netadapter/set-netadaptervmq?view=win10-ps)
 
-## <a name="enable-and-configure-rss-on-a-native-host"></a>启用和配置本地主机上的 RSS
+## <a name="enable-and-configure-rss-on-a-native-host"></a>在本机主机上启用并配置 RSS
 
-使用以下 PowerShell 命令在本地主机上配置 RSS，以及管理 RSS 在 VM 中或在主机上虚拟 NIC (vNIC)。 这些命令的参数的一些可能会影响虚拟机队列\(VMQ\)中的 HYPER-V 主机。  
+使用以下 PowerShell 命令在本机主机上配置 RSS，并在 VM 或主机虚拟 NIC （vNIC）上管理 RSS。 这些命令的某些参数可能还会影响 Hyper-v 主机中虚拟机队列 \(VMQ @ no__t。  
 
 >[!IMPORTANT]
->启用 RSS 在 VM 中或主机 vNIC 上是启用和使用 vRSS 的先决条件。
+>若要启用和使用 vRSS，请在 VM 或主机 vNIC 上启用 RSS。
 
-- [Disable-NetAdapterRss](https://docs.microsoft.com/powershell/module/netadapter/disable-netadapterrss?view=win10-ps)
-- [Enable-NetAdapterRss](https://docs.microsoft.com/powershell/module/netadapter/enable-netadapterrss?view=win10-ps)
-- [Get-NetAdapterRss](https://docs.microsoft.com/powershell/module/netadapter/get-netadapterrss?view=win10-ps)
-- [Set-NetAdapterRss](https://docs.microsoft.com/powershell/module/netadapter/Set-NetAdapterRss?view=win10-ps)
+- [Get-netadapterrss](https://docs.microsoft.com/powershell/module/netadapter/disable-netadapterrss?view=win10-ps)
+- [Get-netadapterrss](https://docs.microsoft.com/powershell/module/netadapter/enable-netadapterrss?view=win10-ps)
+- [Get-netadapterrss](https://docs.microsoft.com/powershell/module/netadapter/get-netadapterrss?view=win10-ps)
+- [Get-netadapterrss](https://docs.microsoft.com/powershell/module/netadapter/Set-NetAdapterRss?view=win10-ps)
 
-## <a name="enable-vrss-on-the-hyper-v-virtual-switch-port"></a>启用 vRSS 上超\-V 虚拟交换机端口
+## <a name="enable-vrss-on-the-hyper-v-virtual-switch-port"></a>在超级 @ no__t-0V 虚拟交换机端口上启用 vRSS
 
-除了启用 RSS 在 VM 中的，vRSS 要求启用 vRSS 上超\-V 虚拟交换机端口。 
+除了可在 VM 中启用 RSS，vRSS 还需要在超级 @ no__t-0V 虚拟交换机端口上启用 vRSS。 
 
-确定 vRSS 存在设置和启用或禁用该功能的 vm。
+确定 vRSS 的当前设置，并启用或禁用 VM 的功能。
 
    **查看当前设置：** 
 
@@ -58,15 +58,15 @@ vRSS 需要启用并配置 VMQ。 可以使用以下 Windows PowerShell 命令�
    Get-VMNetworkAdapter <vm-name> | fl
    ```
 
-   **启用该功能：**
+   **已启用此功能：**
    
    ```PowerShell
    Set-VMNetworkAdapter <vm-name> -VrssEnabled [$True|$False]
    ```
 
-## <a name="enable-or-disable-vrss-on-a-host-vnic"></a>启用或禁用主机 vNIC 上 vRSS
+## <a name="enable-or-disable-vrss-on-a-host-vnic"></a>在主机上启用或禁用 vRSS vNIC
 
-确定 vRSS，存在设置和启用或禁用主机 vNIC 的功能。
+确定 vRSS 的当前设置，并为主机 vNIC 启用或禁用该功能。
 
    **查看当前设置：** 
 
@@ -74,18 +74,18 @@ vRSS 需要启用并配置 VMQ。 可以使用以下 Windows PowerShell 命令�
    Get-VMNetworkAdapter -ManagementOS | fl
    ```
 
-   **启用或禁用该功能：** 
+   **启用或禁用此功能：** 
 
    ```PowerShell
    Set-VMNetworkAdapter -ManagementOS -VrssEnabled [$True|$False]
    ```
 
-## <a name="configure-the-scheduling-mode-on-the-hyper-v-virtual-switch-port"></a>在 HYPER-V 虚拟交换机端口上配置的计划模式 
+## <a name="configure-the-scheduling-mode-on-the-hyper-v-virtual-switch-port"></a>在 Hyper-v 虚拟交换机端口上配置计划模式 
 >适用于：Windows Server 2019
 
-在 Windows Server 2019 vRSS 可以更新用于动态处理网络流量的逻辑处理器。  支持的驱动程序的设备已启用默认情况下此计划模式。 
+在 Windows Server 2019 中，vRSS 可以更新用于动态处理网络流量的逻辑处理器。  具有受支持的驱动程序的设备在默认情况下启用此计划模式。 
 
-确定存在计划模式在系统上，或修改计划模式下的 VM。
+确定系统上的当前计划模式，或修改 VM 的计划模式。
 
    **查看当前设置：** 
 
@@ -99,10 +99,10 @@ vRSS 需要启用并配置 VMQ。 可以使用以下 Windows PowerShell 命令�
    Set-VMNetworkAdapter <vm-name> -VrssQueueSchedulingMode [Dynamic|$StaticVrss|StaticVMQ]
    ```
 
-## <a name="configure-the-scheduling-mode-on-a-host-vnic"></a>在主机 vNIC 上配置计划模式
+## <a name="configure-the-scheduling-mode-on-a-host-vnic"></a>在主机上配置计划模式 vNIC
 >适用于：Windows Server 2019
 
-若要确定存在计划模式或修改主机 vNIC 的计划模式，请使用以下 Windows PowerShell 命令：
+若要确定当前的计划模式或为主机 vNIC 修改计划模式，请使用以下 Windows PowerShell 命令：
 
    **查看当前设置：** 
 
@@ -120,7 +120,7 @@ vRSS 需要启用并配置 VMQ。 可以使用以下 Windows PowerShell 命令�
 ## <a name="related-topics"></a>相关主题 
 有关详细信息，请参阅以下参考主题。
 
-- [Get-VMNetworkAdapter](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/get-vmnetworkadapter)
-- [Set-VMNetworkAdapter](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/set-vmnetworkadapter)
+- [VMNetworkAdapter](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/get-vmnetworkadapter)
+- [VMNetworkAdapter](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/set-vmnetworkadapter)
 
-有关详细信息，请参阅[虚拟接收方缩放 (vRSS)](vrss-top.md)。
+有关详细信息，请参阅[虚拟接收方缩放（vRSS）](vrss-top.md)。

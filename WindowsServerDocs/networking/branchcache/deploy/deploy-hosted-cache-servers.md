@@ -1,52 +1,52 @@
 ---
 title: 部署托管的缓存服务器（可选）
-description: 本主题是 BranchCache 部署指南为 Windows Server 2016 中，该示例演示了如何部署 BranchCache 在分布式和托管缓存模式下以优化分支机构中的 WAN 带宽使用情况的一部分
+description: 本主题是适用于 Windows Server 2016 的 BranchCache 部署指南的一部分，它演示了如何在分布式和托管缓存模式下部署 BranchCache，以优化分支机构中的 WAN 带宽使用情况
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 96d03b42-6cd9-4905-b6a2-dc36130dd24f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b19680e933e7a33871816578b63c5a141db0ce00
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 69dc525a093c86d57b665e26ff5acaf2679c81a5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826208"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356443"
 ---
 # <a name="deploy-hosted-cache-servers-optional"></a>部署托管的缓存服务器（可选）
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-此过程可用于安装和配置要部署 BranchCache 托管缓存模式的分支机构中的 BranchCache 托管缓存服务器。 使用 Windows Server 2016 中的 BranchCache，你可部署一个分支机构中的多个托管的缓存服务器。  
+你可以使用此过程来安装和配置 BranchCache 托管缓存服务器，这些服务器位于要在其中部署 BranchCache 托管缓存模式的分支机构。 借助 Windows Server 2016 中的 BranchCache，你可以在一个分支机构中部署多个托管缓存服务器。  
   
 > [!IMPORTANT]  
-> 此步骤是可选的因为分布式的缓存模式下不需要在分支机构中的托管的缓存服务器计算机。 如果您不打算部署托管缓存模式在所有分支机构中的，不需要部署托管的缓存服务器，并不需要执行此过程中的步骤。  
+> 此步骤是可选的，因为分布式缓存模式不需要在分支机构中托管缓存服务器计算机。 如果不打算在任何分支机构中部署托管缓存模式，则无需部署托管缓存服务器，并且无需执行此过程中的步骤。  
   
-您必须是属于**管理员**，或相当于执行此过程。  
+你必须是**管理员**的成员或等效于执行此过程。  
   
-### <a name="to-install-and-configure-a-hosted-cache-server"></a>若要安装和配置托管的缓存服务器  
+### <a name="to-install-and-configure-a-hosted-cache-server"></a>安装和配置托管缓存服务器  
   
-1.  在你想要将配置为托管的缓存服务器的计算机，安装 BranchCache 功能的 Windows PowerShell 提示符处运行以下命令。  
+1.  在要配置为托管缓存服务器的计算机上，在 Windows PowerShell 提示符下运行以下命令以安装 BranchCache 功能。  
   
     `Install-WindowsFeature BranchCache -IncludeManagementTools`  
   
-2.  使用以下命令之一，将计算机配置为托管的缓存服务器：  
+2.  使用以下命令之一将计算机配置为托管缓存服务器：  
   
-    -   若要将非域加入的计算机配置为托管的缓存服务器，在 Windows PowerShell 提示符下键入以下命令，然后按 ENTER。  
+    -   若要将未加入域的计算机配置为托管缓存服务器，请在 Windows PowerShell 提示符下键入以下命令，然后按 ENTER。  
   
         `Enable-BCHostedServer`  
   
-    -   若要加入的域的计算机配置为托管的缓存服务器，并注册服务连接点在 Active Directory 中自动托管的缓存服务器发现的客户端计算机，在 Windows PowerShell 提示符下键入以下命令，然后按 ENTER。  
+    -   若要将已加入域的计算机配置为托管缓存服务器，并在 Active Directory 中注册客户端计算机自动托管缓存服务器发现的服务连接点，请在 Windows PowerShell 提示符下键入以下命令，然后按 ENTER。  
   
         `Enable-BCHostedServer -RegisterSCP`  
   
-3.  若要验证托管的缓存服务器的正确配置，在 Windows PowerShell 提示符下键入以下命令，然后按 ENTER。  
+3.  若要验证托管缓存服务器的配置是否正确，请在 Windows PowerShell 提示符下键入以下命令，然后按 ENTER。  
   
     `Get-BCStatus`  
   
     > [!NOTE]  
-    > 部分中运行此命令后**HostedCacheServerConfiguration**，为值**HostedCacheServerIsEnabled**是**True**。 如果在 Active Directory 中的值为注册服务连接点 (SCP) 域已加入托管的缓存服务器配置**HostedCacheScpRegistrationEnabled**是**True**。  
+    > 运行此命令后，在**HostedCacheServerConfiguration**节中， **HostedCacheServerIsEnabled**的值为**True**。 如果在 Active Directory 中配置了已加入域的托管缓存服务器来注册服务连接点（SCP），则**HostedCacheScpRegistrationEnabled**的值为**True**。  
   
 

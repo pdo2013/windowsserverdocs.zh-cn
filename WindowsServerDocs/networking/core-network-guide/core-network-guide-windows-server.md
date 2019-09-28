@@ -1,30 +1,30 @@
 ---
 title: 适用于 Windows Server 的核心网络指南
-description: 本主题提供了核心网络指南，可用于规划和部署完全正常运行的网络和新的 Active Directory 域中具有 Windows Server 2016 的新林所需的核心组件的概述
+description: 本主题提供了核心网络指南的概述，使你可以使用 Windows Server 2016 在新林中规划和部署完全正常运行的网络和新的 Active Directory 域所需的核心组件。
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.date: ''
 ms.assetid: 9b3ef3eb-4246-4e0e-8bf1-53224ca5f2f9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a905fd0c11237edd3a408998f8f71aa25a054328
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 52f8b9e1446b5b3f3b1e7060cc737204771d1eae
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847898"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356073"
 ---
 # <a name="core-network-guidance-for-windows-server"></a>适用于 Windows Server 的核心网络指南
 
->适用于：Windows Server、 Windows Server 2016
+>适用于：Windows Server、Windows Server 2016
 
-本主题概述了适用于 Windows Server 核心网络指南&reg;2016，并包含以下各节。  
+本主题概述了 Windows Server @ no__t 2016 的核心网络指南，其中包含以下各节。  
   
 -   [Windows Server 核心网络简介](#bkmk_intro)  
   
--   [适用于 Windows Server 核心网络指南](#bkmk_core)  
+-   [Windows Server 核心网络指南](#bkmk_core)  
   
 ## <a name="bkmk_intro"></a>Windows Server 核心网络简介
 
@@ -32,7 +32,7 @@ ms.locfileid: "59847898"
 
 Windows Server 核心网络提供了包括以下各项在内的多个优点。
 
-- 用于计算机和其他与传输控制协议/Internet 协议 (TCP/IP) 兼容设备之间进行网络连接的核心协议。 TCP/IP 是一套用于连接计算机和构建网络的标准协议。 TCP/IP 是随 Microsoft 提供的网络协议软件&reg;Windows&reg;操作系统的实现，并支持 TCP/IP 协议套件。
+- 用于计算机和其他与传输控制协议/Internet 协议 (TCP/IP) 兼容设备之间进行网络连接的核心协议。 TCP/IP 是一套用于连接计算机和构建网络的标准协议。 TCP/IP 是随 Microsoft @ no__t 提供的网络协议软件，该软件可实现和支持 TCP/IP 协议套件。
 
 - 动态主机配置协议 (DHCP) 服务器自动 IP 寻址。 与从 DHCP 服务器为计算机和其他设备动态提供 IP 地址租约相比，在网络上的所有计算机上手动配置 IP 地址非常耗时且不太灵活。
 
@@ -44,11 +44,11 @@ Windows Server 核心网络提供了包括以下各项在内的多个优点。
 
 - 用户和计算机帐户数据库。 目录服务提供了集中的用户帐户数据库，它允许你为被授权连接到网络并访问网络资源（例如应用程序、数据库、共享的文件和文件夹以及打印机）的人员和计算机创建用户和计算机帐户。
 
-核心网络还允许随着组织的发展和 IT 需要的变化缩放网络。 例如，通过核心网络可以添加域、 IP 子网、 远程访问服务、 无线服务和其他功能和提供的 Windows Server 2016 的服务器角色。
+核心网络还允许随着组织的发展和 IT 需要的变化缩放网络。 例如，通过核心网络，可以添加域、IP 子网、远程访问服务、无线服务以及 Windows Server 2016 提供的其他功能和服务器角色。
 
-## <a name="bkmk_core"></a>适用于 Windows Server 核心网络指南
+## <a name="bkmk_core"></a>Windows Server 核心网络指南
 
-Windows Server 2016 核心网络指南说明了如何规划和部署完全正常运行的网络和新的 Active Directory 所需的核心组件&reg;在新林中的域。 使用此指南，可以部署使用以下 Windows 服务器组件配置的计算机：
+Windows Server 2016 Core 网络指南提供了有关如何在新林中规划和部署完全正常运行的网络和新的 Active Directory @ no__t-0 域所需的核心组件的说明。 使用此指南，可以部署使用以下 Windows 服务器组件配置的计算机：
 
 - Active Directory 域服务 (AD DS) 服务器角色
 
@@ -62,9 +62,9 @@ Windows Server 2016 核心网络指南说明了如何规划和部署完全正常
 
 - 单个服务器上的传输控制协议/Internet 协议版本 4 (TCP/IP) 连接
 
-本指南则可以从以下位置。
+本指南可在以下位置找到。
 
-- [核心网络指南](../core-network-guide/Core-Network-Guide.md)Windows Server 2016 技术库中。
+- Windows Server 2016 技术库中的[核心网络指南](../core-network-guide/Core-Network-Guide.md)。
   
 
 

@@ -1,19 +1,19 @@
 ---
 title: What's New in Kerberos Authentication
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 7bd17803-6e42-4a3b-803f-e47c74725813
 manager: alanth
 author: justinha
 ms.technology: security-authentication
 ms.date: 11/09/2016
-ms.openlocfilehash: 35274147dcee9d31751d8ca61033244bd37a1759
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a0916abf1076b5f791a856f0c85f54ad17f6d64c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870273"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403479"
 ---
 # <a name="whats-new-in-kerberos-authentication"></a>What's New in Kerberos Authentication
 
@@ -60,7 +60,7 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Paramete
 - 0需要显式映射。 然后必须存在以下两种情况之一：
     - 密钥信任（Windows Server 2016 中的新）
     - ExplicitAltSecID
-- 1:允许隐式映射（默认值）：
+- 1：允许隐式映射（默认值）：
     1. 如果为帐户配置了密钥信任，则将它用于映射（使用 Windows Server 2016 的新）。
     2. 如果 SAN 中没有 UPN，则尝试映射 AltSecID。
     3. 如果 SAN 中有 UPN，则会尝试 UPN 进行映射。

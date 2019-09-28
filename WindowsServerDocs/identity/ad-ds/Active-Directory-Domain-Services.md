@@ -7,24 +7,24 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 7b35eee77b69714580a859402a8942621efdc180
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 52f77e2cb60be66d8be2e3927fe0f97c2c945994
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821878"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391020"
 ---
 # <a name="active-directory-domain-services"></a>Active Directory 域服务
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
   
-此页上，将找到 Active Directory 域服务内容的链接。   
+你将在此页上找到指向 Active Directory 域 services 内容的链接。   
 
 
-* [什么是 Active Directory 域服务中的新增功能](../whats-new-active-directory-domain-services.md)  
+* [Active Directory 域服务中的新增功能](../whats-new-active-directory-domain-services.md)  
 * [AD DS 入门](../ad-ds/AD-DS-Getting-Started.md)   
 * [AD DS 设计和规划](../ad-ds/plan/AD-DS-Design-and-Planning.md)  
 * [AD DS 部署](../ad-ds/deploy/AD-DS-Deployment.md)  

@@ -1,9 +1,9 @@
 ---
-title: 步骤 3 的安装和配置客户端 2
-description: 本主题是测试实验室指南的一部分-演示 DirectAccess 多站点部署的 Windows Server 2016
+title: 步骤3安装和配置 CLIENT2
+description: 本主题是测试实验室指南-演示适用于 Windows Server 2016 的 DirectAccess 多站点部署的一部分
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,58 +12,58 @@ ms.topic: article
 ms.assetid: f009fdd1-94e6-4ccb-8c6e-609a5394db53
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2c7ff4953fd4369340f55f40f93cfc01d4240b26
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 4b2d8cb1538de35a97ae83888d26abd7ad7bc8b3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281460"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388316"
 ---
-# <a name="step-3-install-and-configure-client2"></a>步骤 3 的安装和配置客户端 2
+# <a name="step-3-install-and-configure-client2"></a>步骤3安装和配置 CLIENT2
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-CLIENT2 是 Windows 7&reg;用于演示的计算机向后兼容性的 Windows Server 2016 的服务器上运行的远程访问。  
+CLIENT2 是一个 Windows 7 @ no__t 0 计算机，用于演示在 Windows Server 2016 服务器上运行的远程访问的向后兼容性。  
   
-1. 在 CLIENT2 上安装操作系统。 安装 Windows&reg; 7 企业版或 Windows&reg;对 CLIENT2 7 旗舰版。  
+1. 在 CLIENT2 上安装操作系统。 在 CLIENT2 上安装 Windows @ no__t 7 Enterprise 或 Windows @ no__t-1 7 旗舰版。  
   
-2. 若要将客户端 2 加入到 CORP 域。 将客户端 2 加入到 corp.contoso.com 域中。  
+2. 将 CLIENT2 加入 CORP 域。 将 CLIENT2 加入到 corp.contoso.com 域。  
   
 ## <a name="to-install-the-operating-system-on-client2"></a>在 CLIENT2 上安装操作系统  
   
-1.  启动 Windows 7 安装。  
+1.  开始安装 Windows 7。  
   
-2.  时系统会提示输入用户名称，键入**User1**。 当系统提示您输入计算机名称时，键入**CLIENT2**。  
+2.  当系统提示输入用户名时，请键入**User1**。 当系统提示你输入计算机名称时，请键入**CLIENT2**。  
   
-3.  当系统提示输入密码的值时，键入强密码两次。  
+3.  当系统提示输入密码时，请键入强密码两次。  
   
-4.  当系统提示输入保护设置的值时，单击**使用推荐设置**。  
+4.  如果系统提示你输入保护设置，请单击 "**使用推荐设置**"。  
   
-5.  系统提示输入计算机的当前的位置，单击**工作网络**。  
+5.  当系统提示你输入计算机的当前位置时，单击 "**工作网络**"。  
   
-6.  连接到具有 Internet 访问的网络的客户端 2 并运行 Windows 更新安装的 Windows 7 中，最新的更新，然后从 Internet 断开连接。  
+6.  将 CLIENT2 连接到具有 Internet 访问权限的网络，并运行 Windows 更新以安装最新的 Windows 7 更新，然后断开与 Internet 的连接。  
   
-7.  连接到公司网络子网的客户端 2。  
+7.  将 CLIENT2 连接到公司网络子网。  
   
 ## <a name="user-account-control"></a>用户帐户控制  
-在配置 Windows 7 操作系统时，需要单击**继续**上**用户帐户控制**(UAC) 对话框中，对于某些任务。 某些配置任务需要 UAC 审批。 系统提示后，将始终单击**继续**授权这些更改。  
+配置 Windows 7 操作系统时，需要在 "**用户帐户控制**（UAC）" 对话框中单击某些任务的 "**继续**"。 几个配置任务需要 UAC 批准。 出现提示时，请始终单击 "**继续**" 以授权这些更改。  
   
-## <a name="to-join-client2-to-the-corp-domain"></a>若要将客户端 2 加入到 CORP 域  
+## <a name="to-join-client2-to-the-corp-domain"></a>将 CLIENT2 加入 CORP 域  
   
-1.  单击“开始”  、右键单击“计算机”  ，然后单击“属性”  。  
+1.  单击“开始”、右键单击“计算机”，然后单击“属性”。  
   
-2.  上**系统**页上，在**计算机名称、 域和工作组设置**区域中，单击**更改设置**。  
+2.  在 "**系统**" 页上的 "**计算机名称、域和工作组设置**" 区域中，单击 "**更改设置**"。  
   
 3.  在 **“系统属性”** 对话框上的 **“计算机名称”** 选项卡上，单击 **“更改”** 。  
   
-4.  上**计算机名/域更改**对话框中，单击**域**，类型**corp.contoso.com**，然后单击**确定**。  
+4.  在 "**计算机名/域更改**" 对话框中，单击 "**域**"，键入 " **Corp.contoso.com**"，然后单击 **"确定"** 。  
   
-5.  当系统提示输入用户名和密码的值时，键入用户名称和 User1 域帐户的密码，然后单击**确定**。  
+5.  当系统提示你输入用户名和密码时，请键入 User1 域帐户的用户名和密码，然后单击 **"确定"** 。  
   
 6.  在出现欢迎使用 corp.contoso.com 域的对话框时，单击 **“确定”** 。  
   
-7.  当看到一个对话框，框，提示您重新启动计算机，单击**确定**。  
+7.  当你看到提示你重新启动计算机的对话框时，请单击 **"确定"** 。  
   
-8.  上**系统属性**对话框中，单击**关闭**，并看到一个对话框，提示您重新启动计算机，请单击**立即重新启动**。  
+8.  在 "**系统属性**" 对话框中，单击 "**关闭**"，当你看到提示你重新启动计算机的对话框时，请单击 "**立即重新启动**"。  
   
-9. 在计算机重新启动后，请以 corp\user1 身份登录。
+9. 计算机重启后，以 Corp\user1 身份登录。

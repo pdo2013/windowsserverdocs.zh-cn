@@ -1,79 +1,79 @@
 ---
 ms.assetid: 5a64e790-6725-4099-aa08-8067d57c3168
-title: 生成服务器端应用程序使用 OAuth 机密客户端与 AD FS 2016 或更高版本
+title: 使用 AD FS 2016 或更高版本的 OAuth 机密客户端生成服务器端应用程序
 description: ''
 author: billmath
 ms.author: billmath
 manager: mtillman
 ms.date: 02/22/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 167f74522172790d8f5b3fc1dea46d0b7059cd20
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 5b2bf036de1de8300e36c3413c551e51d408a4d2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501683"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407868"
 ---
-# <a name="build-a-server-side-application-using-oauth-confidential-clients-with-ad-fs-2016-or-later"></a>生成服务器端应用程序使用 OAuth 机密客户端与 AD FS 2016 或更高版本
+# <a name="build-a-server-side-application-using-oauth-confidential-clients-with-ad-fs-2016-or-later"></a>使用 AD FS 2016 或更高版本的 OAuth 机密客户端生成服务器端应用程序
 
 
-AD FS 2016 和更高版本的客户端能够保持其自己的机密，如应用或 web 服务器上运行的服务提供支持。  这些客户端称为机密客户端。
-下面是 web 服务器上运行并充当机密客户端到 AD FS 的 web 应用程序的示意图：  
+AD FS 2016 及更高版本为能够维护自己的机密的客户端（例如，在 web 服务器上运行的应用程序或服务）提供支持。  这些客户端称为机密客户端。
+下面是在 web 服务器上运行的 web 应用程序的示意图，作为 AD FS 的机密客户端：  
 
 ## <a name="pre-requisites"></a>先决条件  
-以下是完成本文档之前所需的系统必备组件的列表。 本文档假定已安装 AD FS。  
+下面列出了在完成本文档之前需要满足的先决条件。 本文档假定已安装 AD FS。  
 
 -   GitHub 客户端工具  
 
--   在 Windows Server 2016 TP4 或更高版本的 AD FS  
+-   Windows Server 2016 TP4 或更高版本中的 AD FS  
 
 -   Visual Studio 2013 或更高版本。  
 
-## <a name="create-an-application-group-in-ad-fs-2016-or-later"></a>在 AD FS 中创建应用程序组 2016年或更高版本
-以下部分介绍如何配置应用程序组中 AD FS 2016 或更高版本。  
+## <a name="create-an-application-group-in-ad-fs-2016-or-later"></a>在 AD FS 2016 或更高版本中创建应用程序组
+以下部分介绍如何配置 AD FS 2016 或更高版本中的应用程序组。  
 
 #### <a name="create-the-application-group"></a>创建应用程序组  
 
-1.  在 AD FS 管理中，右键单击应用程序组，然后选择**添加应用程序组**。  
+1.  在 AD FS 管理 "中，右键单击" 应用程序组 "，然后选择"**添加应用程序组**"。  
 
-2.  在应用程序组向导中，对于**名称**输入**ADFSOAUTHCC**并在**客户端-服务器应用程序**选择**服务器应用程序访问 Web API**模板。  单击“下一步”  。  
+2.  在应用程序组向导上，为 **"** 输入**ADFSOAUTHCC** "，在 "**客户端-服务器应用程序**" 下选择用于**访问 Web API 模板的服务器应用程序**。  单击“下一步”。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_2.PNG)  
 
-3.  复制**客户端标识符**值。  它将在稍后的值作为**ida: ClientId**应用程序 web.config 文件中。  
+3.  复制 "**客户端标识符**" 值。  稍后将在应用程序的 web.config 文件中将其用作**ida： ClientId**的值。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_3.PNG)  
 
-4.  输入的以下**重定向 URI:**  -  **https://localhost:44323** 。  单击**添加**。 单击“下一步”  。  
+4.  对于 "**重定向 URI** - "，请输入以下内容： **https://localhost:44323** 。  单击**添加**。 单击“下一步”。  
 
-5.  上**配置应用程序凭据**屏幕上，选中**生成一个共享的机密**和复制的密码。  这将在稍后的值作为**ida: ClientSecret**应用程序 web.config 文件中。  单击“下一步”  。  
+5.  在 "**配置应用程序凭据**" 屏幕上，选中 "**生成共享机密**并复制机密"。  稍后将在应用程序的 web.config 文件中将其用作**ida： ClientSecret**的值。  单击“下一步”。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_4.PNG)   
 
-6. 上**配置 Web API**屏幕中，输入以下**标识符** -  **https://contoso.com/WebApp** 。  单击**添加**。 单击“下一步”  。  此值将用于更高版本**ida: GraphResourceId**应用程序 web.config 文件中。  
+6. 在 "**配置 WEB API** " 屏幕上，输入以下**标识符作为标识符** - 。 **https://contoso.com/WebApp**  单击**添加**。 单击“下一步”。  稍后将在应用程序的 web.config 文件中将此值用于**ida： GraphResourceId** 。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_9.PNG)  
 
-7. 上**应用访问控制策略**屏幕上，选择**授权所有人**然后单击**下一步**。  
+7. 在 "**应用访问控制策略**" 屏幕上，选择 "**允许每个人**" 并单击 "**下一步**"  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_7.PNG)  
 
-8. 上**配置应用程序权限**屏幕上，请确保**openid**并**user_impersonation**未选中，单击**下一步**。  
+8. 在 "**配置应用程序权限**" 屏幕上，确保已选中 " **openid** and **user_impersonation** "，然后单击 "**下一步**"。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_8.PNG)  
 
-9. 上**摘要**屏幕上，单击**下一步**。  
+9. 在 "**摘要**" 屏幕上，单击 "**下一步**"。  
 
-10. 上**完成**屏幕上，单击**关闭**。  
+10. 在 "**完成**" 屏幕上，单击 "**关闭**"。  
 
 ## <a name="upgrade-the-database"></a>升级数据库  
-创建本演练中使用的 visual Studio 2015。   为了获得使用 Visual Studio 2015 的示例需要更新数据库文件。  请使用下面的过程执行此操作。  
+此演练中使用了 Visual Studio 2015。   为了使示例使用 Visual Studio 2015，需要更新数据库文件。  请使用下面的过程执行此操作。  
 
-本部分讨论如何下载示例 Web API 和升级 Visual Studio 2015 中的数据库。   我们将使用 Azure AD 的示例，则[此处](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity)。  
+本部分介绍如何在 Visual Studio 2015 中下载示例 Web API 并升级数据库。   我们将使用[此处](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity)的 Azure AD 示例。  
 
-若要下载示例项目，请使用 Git Bash，并键入以下命令：  
+若要下载示例项目，请使用 Git Bash，并键入以下内容：  
 
 ```  
 git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity.git  
@@ -81,79 +81,79 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
 ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_10.PNG)  
 
-#### <a name="to-upgrade-the-database-file"></a>若要升级的数据库文件  
+#### <a name="to-upgrade-the-database-file"></a>升级数据库文件  
 
-1.  在 Visual Studio 中打开项目、 将弹出窗口，指出应用程序需要 SQL Server 2012 Express 或你将需要升级数据库。  单击确定。  
+1.  在 Visual Studio 中打开项目，将出现一个弹出窗口，告诉你该应用需要 SQL Server 2012 Express，或者需要升级数据库。  单击 "确定"。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_12.PNG)  
 
-2.  下一步编译通过选择生成应用程序顶部-> 生成解决方案。  这将还原所有 NuGet 包。  
+2.  接下来，通过选择顶部的 "生成 > 生成解决方案" 来编译该应用程序。  这会还原所有 NuGet 包。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_13.PNG)  
 
-3.  现在在顶部，选择**视图** -> **服务器资源管理器**。  打开后下,**数据连接**，右键单击**DefaultConnection** ，然后选择**修改连接**。  
+3.  现在，选择 "**查看** -> **服务器资源管理器**"。  打开后，在 "**数据连接**" 下，右键单击**DefaultConnection** ，然后选择 "**修改连接**"。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_14.PNG)  
 
-4.  上**修改连接**下 **（新的或现有的数据库文件名**，选择**浏览**，并提供**path\filename.mdf**。 单击**是**对话框的上。
+4.  在 "**修改连接**" 下的 "**数据库文件名（新建或现有）** " 下，选择 "**浏览**"，并提供**path\filename.mdf**。 单击对话框中的 **"是"** 。
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_6.PNG)
 
-5.  上**修改连接**，选择**高级**。  
+5.  在 "**修改连接**" 上，选择 "**高级**"。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_15.PNG)  
 
-6.  在高级属性中，找到数据源，并使用下拉列表从其进行更改 **(localdb \ V11.0)** 到 **(LocalDB) \MSSQLLocalDB**。  
+6.  在 "高级属性" 上，找到 "数据源" 并使用下拉箭头将其从 **（LocalDb\v11.0）** 更改为 **（LocalDb） \MSSQLLocalDB**。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_16.PNG)  
 
-7.  单击确定。 单击确定。  单击是将数据库升级。  
+7.  单击 "确定"。 单击 "确定"。  单击 "是" 升级数据库。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_17.PNG)  
 
-8.  完成后，通过在右侧的复制值中的下一步**连接字符串。**  
+8.  完成此过程后，请在右侧的 "**连接字符串**" 旁边的框中复制值。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_18.PNG)  
 
-9.  现在，打开 Web.config 文件并替换为前面复制的值的连接字符串中的值。  保存 Web.config 文件。  
+9.  现在，打开 web.config 文件并将 connectionString 中的值替换为你在上面复制的值。  保存 web.config 文件。  
 
     > [!NOTE]  
-    > 上面的步骤是必需的以便我们可以获取的新的连接字符串。  否则，当我们运行以下更新数据库时它就会出错。  
+    > 以上步骤是必需的，以便我们可以获取新的 connectionString。  否则，当我们运行下面的更新数据库时，将会出现错误。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_19.PNG)  
 
-10. 在 Visual Studio 的顶部，选择**视图** -> **其他 Windows** -> **程序包管理器控制台**。  
+10. 在 Visual Studio 的顶部，选择 "**查看** -> **其他 Windows**@no__t"**包管理器控制台**"。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_20.PNG)  
 
-11. 在底部，在包管理器控制台输入：`Enable-Migrations`并按 enter。  
+11. 在底部的 "包管理器控制台" 中，输入： `Enable-Migrations` 并按 enter。  
 
     > [!NOTE]  
-    > 如果收到错误，指出 Enable-migrations 未被识别为 cmdlet 中，输入 Install-package EntityFramework 更新 entity Framework。  
+    > 如果收到一条错误消息，指出 "启用-迁移未被识别为 cmdlet"，请输入安装包 EntityFramework 以更新 EntityFramework。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_21.PNG)  
 
-12. 在底部，在包管理器控制台输入：`Add-Migration <anynamehere>`并按 enter。  
+12. 在底部的 "包管理器控制台" 中，输入： `Add-Migration <anynamehere>` 并按 enter。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_22.PNG)  
 
-13. 在底部，在包管理器控制台输入：`Update-Database`并按 enter。  
+13. 在底部的 "包管理器控制台" 中，输入： `Update-Database` 并按 enter。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_23.PNG)  
 
-## <a name="modify-the-webapi-in-visual-studio"></a>修改 Visual Studio 中 WebApi  
+## <a name="modify-the-webapi-in-visual-studio"></a>在 Visual Studio 中修改 WebApi  
 
-#### <a name="to-modify-the-sample-web-api"></a>若要修改示例 Web API  
+#### <a name="to-modify-the-sample-web-api"></a>修改示例 Web API  
 
-1.  打开使用 Visual Studio 的示例。  
+1.  使用 Visual Studio 打开示例。  
 
 2.  打开 web.config 文件。  修改以下值：  
 
-    -   ida: ClientId 的输入创建上面的应用程序组部分中的 #3 中的值。  
+    -   ida： ClientId-输入上面 "创建应用程序组" 部分中 #3 的值。  
 
-    -   ida: ClientSecret-输入在创建上面的应用程序组部分中的 #5 中的值。  
+    -   ida： ClientSecret-输入上面 "创建应用程序组" 部分中 #5 的值。  
 
-    -   ida: GraphResourceId-输入在创建上面的应用程序组部分中的 #6 中的值。  
+    -   ida： GraphResourceId-输入上面 "创建应用程序组" 部分中 #6 的值。  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_24.PNG)  
 
@@ -167,25 +167,25 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
         //public static readonly string Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);  
         ```  
 
-    -   在它的位置中添加以下代码：  
+    -   在此处添加以下内容：  
 
         ```  
         public static readonly string Authority = "https://<your_fsname>/adfs";  
         ```  
 
-        其中 < your_fsname > 将替换联合身份验证服务 url，例如 adfs.contoso.com 的 DNS 部分  
+        其中 < your_fsname > 替换为联合身份验证服务 url 的 DNS 部分，例如 adfs.contoso.com  
 
         ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_25.PNG)  
 
 4.  打开 UserProfileController.cs 文件并进行以下更改：  
 
-    -   注释掉以下：  
+    -   注释掉以下内容：  
 
         ```  
         //authContext = new AuthenticationContext(Startup.Authority, new TokenDbCache(userObjectID));  
         ```  
 
-    -   这两个匹配项替换为以下：  
+    -   将两个匹配项替换为以下内容：  
 
         ```  
         authContext = new AuthenticationContext(Startup.Authority, false, new TokenDbCache(userObjectID));  
@@ -193,13 +193,13 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
         ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_27.PNG)  
 
-    -   注释掉以下：  
+    -   注释掉以下内容：  
 
         ```  
         //authContext = new AuthenticationContext(Startup.Authority);  
         ```  
 
-    -   这两个匹配项替换为以下：  
+    -   将两个匹配项替换为以下内容：  
 
         ```  
         authContext = new AuthenticationContext(Startup.Authority, false);  
@@ -207,13 +207,13 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
         ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_28.PNG)  
 
-    -   现在注释掉以下的所有实例：  
+    -   现在，注释掉以下所有实例：  
 
         ```  
         Uri redirectUri = new Uri(Request.Url.GetLeftPart(UriPartial.Authority).ToString() + "/OAuth");  
         ```  
 
-    -   使用以下内容替换所有匹配项：  
+    -   将出现的所有项替换为以下内容：  
 
         ```  
         Uri redirectUri = new Uri(Request.Url.GetLeftPart(UriPartial.Authority).ToString());  
@@ -226,23 +226,23 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
 #### <a name="testing-the-confidential-client-solution"></a>测试机密客户端解决方案  
 
-1. 在 Visual Studio 的顶部，请确保选择 Internet Explorer 并单击绿色箭头。  
+1. 在 Visual Studio 顶部，请确保已选择 "Internet Explorer"，并单击绿色箭头。  
 
    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_36.png)  
 
-2. 一旦 ASP.Net 页出现，则单击**注册**上页面的右上方。  输入用户名和密码，然后单击**注册**按钮。  这将在 SQL 数据库中创建本地帐户。  
+2. ASP.Net 页面出现后，单击页面右上方的 "**注册**"。  输入用户名和密码，然后单击 "**注册**" 按钮。  这会在 SQL 数据库中创建一个本地帐户。  
 
    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_31.PNG)  
 
-3. 请注意，现在，ASP.NET 站点显示 Hello abby@contoso.com！。  单击**配置文件**。  
+3. 请注意，ASP.NET 站点显示 Hello abby@contoso.com！。  单击 "**配置文件**"。  
 
    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_32.PNG)  
 
-4. 这将显示不包含任何信息页面，并说，我们必须单击此处登录。  单击**此处**。  
+4. 这会显示一个没有任何信息的页面，并且说我们必须单击此处登录。  单击**此处**。  
 
    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_33.PNG)  
 
-5. 您现在将提示登录到的 AD FS。  
+5. 此时，系统将提示你登录到 AD FS。  
 
    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_35.PNG)  
 

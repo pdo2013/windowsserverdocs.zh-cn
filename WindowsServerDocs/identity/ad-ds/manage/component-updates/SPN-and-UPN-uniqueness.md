@@ -7,98 +7,98 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 13259f7f12a37c4ceb8bdd2e35ae2fe131ec35cf
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ded707276471fccd28f0ec17afef0a24015ff32f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442812"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390026"
 ---
 # <a name="spn-and-upn-uniqueness"></a>SPN 和 UPN 唯一性
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
-**作者**:与 Windows 组的 Justin Turner，高级支持呈报工程师  
+**作者**：Justin Turner，具有 Windows 组的高级支持升级工程师  
   
 > [!NOTE]  
 > 本内容由 Microsoft 客户支持工程师编写，适用于正在查找比 TechNet 主题通常提供的内容更深入的有关 Windows Server 2012 R2 中的功能和解决方案的技术说明的有经验管理员和系统架构师。 但是，它未经过相同的编辑审批，因此某些语言可能看起来不如通常在 TechNet 上找到的内容那么精练。  
   
 ## <a name="overview"></a>概述  
-域控制器运行 Windows Server 2012 R2 块创建重复的服务主体名称 (SPN) 和用户主体名称 (UPN)。 这包括如果还原或恢复已删除的对象的重命名会导致重复。  
+运行 Windows Server 2012 R2 的域控制器阻止创建重复的服务主体名称（SPN）和用户主体名称（UPN）。 这包括还原或恢复已删除的对象或重命名对象是否会导致重复。  
   
 ### <a name="background"></a>后台  
-重复服务主体名称 (SPN) 通常会出现并导致身份验证失败和 LSASS CPU 使用率过高可能导致。 没有内置方法来阻止添加重复的 SPN 或 UPN。 *  
+通常会出现重复的服务主体名称（SPN），并会导致身份验证失败，并可能导致过多的 LSASS CPU 使用率。 没有用于阻止添加重复 SPN 或 UPN 的内置方法。 *  
   
-重复 UPN 值中断同步之间的本地 AD 和 Office 365。  
+重复的 UPN 值中断本地 AD 与 Office 365 之间的同步。  
   
-*Setspn.exe 通常用于创建新 Spn 和功能上内置于随还会检查有重复项的 Windows Server 2008 一起发布的版本。  
+\* Setspn 通常用于创建新的 Spn，而功能已内置于随 Windows Server 2008 一起发布的版本中，用于添加对重复项的检查。  
   
-**表 SEQ 表\\ \* ARABIC 1:UPN 和 SPN 唯一性**  
+**Table SEQ Table \\ @ no__t-2 阿拉伯1：UPN 和 SPN 的唯一性 @ no__t-0  
   
-|功能|备注|  
+|功能|注释|  
 |-----------|-----------|  
-|UPN 唯一性|重复 Upn 中断同步本地 AD 帐户与 Windows Azure 基于 AD 的 Office 365 等服务。|  
-|SPN 唯一性|Kerberos 相互身份验证需要 Spn。  重复的 Spn 导致身份验证失败。|  
+|UPN 唯一性|与基于 Windows Azure AD 的服务（如 Office 365）进行的本地 AD 帐户重复 Upn 中断同步。|  
+|SPN 唯一性|Kerberos 需要用于相互身份验证的 Spn。  重复 Spn 导致身份验证失败。|  
   
-关于 Upn 和 Spn 的唯一性要求的详细信息，请参阅[唯一性约束](https://msdn.microsoft.com/library/dn392337.aspx)。  
+有关 Upn 和 Spn 的唯一性要求的详细信息，请参阅[唯一性约束](https://msdn.microsoft.com/library/dn392337.aspx)。  
   
 ## <a name="symptoms"></a>症状  
-错误代码 8467 或 8468 或其十六进制表示符号或等效的字符串记录在各种屏幕上经过和在目录服务事件日志中的事件 ID 2974 中。 只有在以下情况下，尝试创建重复的 UPN 或 SPN 将被阻止：  
+错误代码8467或8468，或者其十六进制、符号或字符串等效项记录在目录服务事件日志中的各种屏幕上，事件 ID 为2974。 仅在以下情况下，才会阻止创建重复 UPN 或 SPN 的尝试：  
   
--   写入处理的 Windows Server 2012 R2 DC  
+-   写入由 Windows Server 2012 R2 DC 处理  
   
-**表 SEQ 表\\ \* ARABIC 2:UPN 和 SPN 唯一性错误代码**  
+**Table SEQ Table \\ @ no__t-2 阿拉伯2：UPN 和 SPN 唯一错误代码 @ no__t-0  
   
 |Decimal|Hex|符号|字符串|  
 |-----------|-------|------------|----------|  
-|8467|21C7|ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST|操作失败，因为添加/修改为提供的 SPN 值不是唯一的全林性。|  
-|8648|21C8|ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST|操作失败，因为添加/修改为提供的 UPN 值不是唯一的全林性。|  
+|8467|21C7|ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST|操作失败，因为提供的用于添加/修改的 SPN 值在林范围内不唯一。|  
+|8648|21C8|ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST|操作失败，因为提供的用于添加/修改的 UPN 值在林范围内不唯一。|  
   
-## <a name="new-user-creation-fails-if-upn-is-not-unique"></a>如果 UPN 不是唯一的新用户创建失败  
+## <a name="new-user-creation-fails-if-upn-is-not-unique"></a>如果 UPN 不唯一，则新用户创建失败  
   
-### <a name="dsamsc"></a>DSA.msc  
-您已选择的用户登录名已在该企业中使用。 请选择另一个登录名，并再试一次。  
+### <a name="dsamsc"></a>DSA.MSC  
+你选择的用户登录名已在此企业中使用。 请选择另一个登录名，然后重试。  
   
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig01_DupUPN.gif)  
   
-修改现有的帐户：  
+修改现有帐户：  
   
-在企业中已存在指定的用户登录名。 指定一个新的活动，通过更改的前缀或从列表中选择不同的后缀。  
+企业中已存在指定的用户登录名。 可以通过更改前缀或从列表中选择其他后缀来指定一个新的后缀。  
   
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig02_DupUPNMod.gif)  
   
-### <a name="active-directory-administrative-center-dsacexe"></a>Active Directory 管理中心 (DSAC.exe)  
-尝试在已存在的 UPN 与 Active Directory 管理中心中创建新用户会产生以下错误。  
+### <a name="active-directory-administrative-center-dsacexe"></a>Active Directory 管理中心（DSAC.EXE）  
+尝试使用已存在的 UPN 在 Active Directory 管理中心中创建新用户将产生以下错误。  
   
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig03_DupUPNADAC.gif)  
   
-**图 SEQ Figure \\ \* ARABIC 1 当由于重复 UPN 的新用户创建失败时显示在 AD 管理中心中的错误**  
+**图 SEQ 图 \\ @ no__t-2 阿拉伯语1当新用户创建因 UPN 而失败时，AD 管理中心中显示错误**  
   
-### <a name="event-2974-source-activedirectorydomainservice"></a>事件 2974年源：ActiveDirectory_DomainService  
+### <a name="event-2974-source-activedirectory_domainservice"></a>事件2974源：ActiveDirectory_DomainService  
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig04_Event2974.gif)  
   
-**图 SEQ Figure \\ \* ARABIC 2 事件 ID 2974 错误 8648**  
+**图 SEQ 图 \\ @ no__t-2 阿拉伯2事件 ID 2974，出现错误8648**  
   
-事件 2974年列出了已被阻止的值和一个或多个对象 （最多 10 个） 已包含此值的列表。  在下图中，您可以看到该 UPN 属性值 **<em>dhunt@blue.contoso.com</em>** 上四个其他对象已存在。  由于这是 Windows Server 2012 R2 中的新功能，在混合环境中的重复 UPN 和 Spn 意外创建仍将发生时向下级别 Dc 处理写入尝试。  
+事件2974列出了已阻止的值以及一个或多个对象（最多10个）已包含该值的列表。  在下图中，可以看到 UPN 属性值 **<em>dhunt@blue.contoso.com</em>** 在其他四个对象上已存在。  由于这是 Windows Server 2012 R2 中的一项新功能，因此当下层 Dc 处理写入尝试时，在混合环境中意外创建重复的 UPN 和 Spn 仍会发生。  
   
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig05_Event2974ShowAllDups.gif)  
   
-**图 SEQ Figure \\ \* ARABIC 3 事件 2974 显示所有对象包含重复 UPN**  
+**图 SEQ 图 \\ @ no__t-2 阿拉伯3事件2974显示包含重复 UPN 的所有对象**  
   
 > [!TIP]  
-> 为定期查看事件 ID 2974s:  
+> 定期查看事件 ID 2974s：  
 >   
-> -   识别以下企图创建重复 UPN 或 Spn  
-> -   确定已包含重复项的对象  
+> -   标识尝试创建重复的 UPN 或 Spn  
+> -   标识已经包含重复项的对象  
   
-8648 ="操作失败，因为添加/修改为提供的 UPN 值不是唯一的全林性。"  
+8648 = "操作失败，因为提供的用于添加/修改的 UPN 值不是唯一的全林性。"  
   
-### <a name="setspn"></a>SetSPN:  
-Setspn.exe 已时使用了重复的 SPN 检测内置到 Windows Server 2008 发布以来 **"-S"** 选项。  可以通过使用重复的 SPN 检测绕过 **"-A"** 但是选项。  面向使用 SetSPN-A 选项使用 Windows Server 2012 R2 DC，则会阻止创建重复的 SPN。  显示的错误消息是一个使用-S 选项时显示相同的："重复的 SPN 发现，正在中止操作 ！"  
+### <a name="setspn"></a>SetSPN  
+由于在 Windows Server 2008 版本中使用 **"-S"** 选项，Setspn 已内置了重复的 SPN 检测。  不过，您可以使用 **"-A"** 选项跳过重复的 SPN 检测。  在将 Windows Server 2012 R2 DC 与-A 选项一起使用时，将阻止创建重复的 SPN。  显示的错误消息与使用-S 选项时显示的错误消息相同："发现了重复的 SPN，正在中止操作！"  
   
-### <a name="adsiedit"></a>ADSIEDIT:  
+### <a name="adsiedit"></a>ADSIEDIT  
   
 ```  
 Operation failed. Error code: 0x21c8  
@@ -108,43 +108,43 @@ The operation failed because UPN value provided for addition/modification is not
   
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig06_ADSI21c8.gif)  
   
-**图 SEQ Figure \\ \*添加重复 UPN 被阻止时显示在 ADSIEdit ARABIC 4 错误消息**  
+**图 SEQ 图 @no__t 在添加重复 UPN 时，ADSIEdit 中显示的-1 @ no__t-2 阿拉伯4错误消息**  
   
 ### <a name="windows-powershell"></a>Windows PowerShell  
 Windows Server 2012 R2：  
   
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig07_SetADUser2012.gif)  
   
-从面向 Windows Server 2012 R2 DC Server 2012 PS 运行：  
+从面向 Windows Server 2012 R2 DC 的服务器2012运行的 PS：  
   
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig08_SetADUser2012R2.gif)  
   
-DSAC.exe 面向 Windows Server 2012 R2 DC 的 Windows Server 2012 上运行：  
+在 Windows Server 2012 上运行的 DSAC.EXE，面向 Windows Server 2012 R2 DC：  
   
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig09_UserCreateError.gif)  
   
-**图 SEQ Figure \\ \* ARABIC 5 DSAC 用户创建错误上非-Windows Server 2012 R2 同时面向 Windows Server 2012 R2 DC**  
+**图 SEQ 图 \\ @ no__t-2 阿拉伯 5 DSAC.EXE 用户在非 Windows Server 2012 R2 上创建错误，同时面向 Windows Server 2012 R2 DC**  
   
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig10_UserModError.gif)  
   
-**图 SEQ Figure \\ \* ARABIC 6 DSAC 用户修改错误上非-Windows Server 2012 R2 同时面向 Windows Server 2012 R2 DC**  
+**图 SEQ 图 \\ @ no__t-2 阿拉伯 6 DSAC.EXE 用户修改在非 Windows Server 2012 R2 上，同时面向 Windows Server 2012 R2 DC**  
   
-### <a name="restore-of-an-object-that-would-result-in-a-duplicate-upn-fails"></a>一个对象，将导致重复 UPN 还原失败：  
+### <a name="restore-of-an-object-that-would-result-in-a-duplicate-upn-fails"></a>还原会导致重复 UPN 的对象失败：  
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig11_RestoreDupUPN.gif)  
   
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig12_RestoreDupUPNError.gif)  
   
-会记录任何事件，如果对象无法还原由于重复 UPN / SPN。  
+由于 UPN/SPN 重复而无法还原对象时，不会记录任何事件。  
   
-对象的 UPN 必须唯一，使其还原。  
+对象的 UPN 必须是唯一的，才能还原。  
   
-1.  标识存在于回收站中的对象的 UPN  
+1.  标识回收站中对象上存在的 UPN  
   
-2.  确定具有相同的值的所有对象  
+2.  标识具有相同值的所有对象  
   
-3.  删除重复 UPN(s)  
+3.  删除重复的 UPN  
   
-### <a name="identify-the-conflicting-upn-on-the-deleted-objectusing-repadminexe"></a>标识已删除的 objectUsing repadmin.exe 上冲突的 UPN  
+### <a name="identify-the-conflicting-upn-on-the-deleted-objectusing-repadminexe"></a>标识已删除的 objectUsing repadmin 上的冲突 UPN  
   
 ```  
 Repadmin /showattr DCName "DN of deleted objects container" /subtree /filter:"(msDS-LastKnownRDN=<NAME>)" /deleted /atts:userprincipalname  
@@ -159,7 +159,7 @@ s,DC=blue,DC=contoso,DC=com
     1> userPrincipalName: dhunt@blue.contoso.com  
 ```  
   
-### <a name="to-identify-all-objects-with-the-same-upnusing-repadminexe"></a>若要使用相同的 UPN 标识的所有对象： 使用 Repadmin.exe  
+### <a name="to-identify-all-objects-with-the-same-upnusing-repadminexe"></a>标识具有相同 UPN 的所有对象：使用 Repadmin  
   
 ```  
 repadmin /showattr WinBlueDC1 "DC=blue,DC=contoso,DC=com" /subtree /filter:"(userPrincipalName=dhunt@blue.contoso.com)" /deleted /atts:DN  
@@ -174,17 +174,17 @@ DN: CN=Dianne Hunt2\0ADEL:dd3ab8a4-3005-4f2f-814f-d6fc54a1a1c0,CN=Deleted Object
 ```  
   
 > [!TIP]  
-> 先前未记录 **/ 删除**在 repadmin.exe 中的参数用于在结果集中包含删除的对象  
+> Repadmin 中以前未记录的 **/deleted**参数用于在结果集中包含已删除的对象  
   
 ### <a name="using-global-search"></a>使用全局搜索  
   
--   打开 Active Directory 管理中心内，并导航到**全局搜索**  
+-   打开 Active Directory 管理中心并导航到 "**全局搜索**"  
   
--   选择**转换为 LDAP**单选按钮  
+-   选择 "**转换为 LDAP** " 单选按钮  
   
--   Type **(userPrincipalName=*ConflictingUPN*)**  
+-   类型 **（userPrincipalName =*ConflictingUPN*）**  
   
-    -   替换***ConflictingUPN***与实际发生冲突的 UPN  
+    -   将***ConflictingUPN***替换为发生冲突的实际 UPN  
   
 -   选择**应用**  
   
@@ -198,21 +198,21 @@ Get-ADObject -LdapFilter "(userPrincipalName=dhunt@blue.contoso.com)" -IncludeDe
   
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig13_GlobalSearchPS.gif)  
   
-如果需要还原该对象，则将需要从其他对象中删除了重复 Upn。  对于只有一个对象，它非常简单，可以使用 ADSIEdit 来删除重复项。  如果有多个重复项的对象，Windows PowerShell 可能是更好的工具使用。  
+如果需要还原对象，则需要从其他对象中删除重复的 Upn。  对于一个对象，只需使用 ADSIEdit 即可删除重复项。  如果有多个对象具有重复项，则 Windows PowerShell 可能是更好的工具。  
   
-为 null 出使用 Windows PowerShell 的 UserPrincipalName 属性：  
+使用 Windows PowerShell 为 "UserPrincipalName" 属性 null：  
   
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig15_NullUPN.gif)  
   
 > [!NOTE]  
 > UserPrincipalName 属性是单值属性，因此此过程只会删除重复的 UPN。  
   
-### <a name="duplicate-spn"></a>重复的 SPN  
+### <a name="duplicate-spn"></a>重复 SPN  
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig16_DupSPN.gif)  
   
-**图 SEQ Figure \\ \*添加重复的 SPN 被阻止时显示在 ADSIEdit 阿拉伯语 8 错误消息**  
+**图 SEQ 图 @no__t 在添加重复 SPN 时，ADSIEdit 中显示的-1 @ no__t-2 阿拉伯8错误消息**  
   
-在目录服务事件日志中记录**ActiveDirectory_DomainService**事件 ID **2974年**。  
+记录在目录服务事件日志中是**ActiveDirectory_DomainService**事件 ID **2974**。  
   
 ```  
 Operation failed. Error code: 0x21c7  
@@ -224,89 +224,89 @@ servicePrincipalName Value=<SPN>
   
 ![SPN 和 UPN 唯一性](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig17_DupSPN2974.gif)  
   
-**图 SEQ Figure \\ \*阿拉伯语 9 错误记录时已阻止创建重复的 SPN**  
+**图 SEQ 图 \\ @ no__t-2 阿拉伯9在创建重复 SPN 时记录的错误**  
   
 ### <a name="workflow"></a>工作流  
   
--   **If DC == GC**  
+-   **如果 DC = = GC**  
   
-    -   没有 offbox 调用需要，可以本地满足查询  
+    -   不需要 offbox 调用，可以在本地满足查询  
   
-    -   ***UPN 用例***  
+    -   ***UPN 大小写***  
   
-        -   查询本地全林性 UPN 索引，用于提供 UPN (*userPrincipalName; 全局索引*)  
+        -   查询所提供 UPN 的本地林范围 UPN 索引（*userPrincipalName; 全局索引*）  
   
-            -   如果返回项 = = 0-> 将继续写入  
+            -   如果返回的条目 = = 0，则 > 写入继续  
   
-            -   如果返回项 ！ = 0-> 写入失败  
+            -   如果返回的条目！ = 0-> 写入失败  
   
-                -   记录事件  
+                -   记录的事件  
   
-                -   此外返回扩展的错误：  
+                -   还会返回扩展错误：  
   
-                    -   **8648:**  
+                    -   **8648：**  
   
                         *ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST*  
   
-    -   ***SPN 用例***  
+    -   ***SPN 大小写***  
   
-        -   查询本地全林性 SPN 索引，提供 spn (*servicePrincipalName; 全局索引*)  
+        -   查询提供的 SPN 的本地林范围 SPN 索引（*servicePrincipalName; 全局索引*）  
   
-            -   如果返回项 = = 0-> 将继续写入  
+            -   如果返回的条目 = = 0，则 > 写入继续  
   
-            -   如果返回项 ！ = 0-> 写入失败  
+            -   如果返回的条目！ = 0-> 写入失败  
   
-                -   记录事件  
+                -   记录的事件  
   
-                -   此外返回扩展的错误：  
+                -   还会返回扩展错误：  
   
-                    -   **8647:**  
+                    -   **8647：**  
   
                         **ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST**  
   
--   **If DC != GC**  
+-   **如果 DC！ = GC**  
   
-    -   Offbox 调用**理想**但不是那么重要，即这是最大努力唯一性检查  
+    -   Offbox 调用**需要**但并不重要，也就是说，这是一项尽力的唯一性检查  
   
-        -   检查才会继续针对本地 DIT 仅当 GC 找不到  
+        -   仅当找不到 GC 时，才检查本地 DIT  
   
-        -   记录用于指示此类事件  
+        -   记录的事件，以指示  
   
-    -   ***UPN 用例***  
+    -   ***UPN 大小写***  
   
-        -   提交对最接近的 GC 的 LDAP 查询？ 查询 GC 的全林性 UPN 索引提供的 UPN (*userPrincipalName; 全局索引*)  
+        -   针对最近的 GC 提交 LDAP 查询？ 查询 GC 的林范围 UPN 索引，提供 UPN （*userPrincipalName; 全局索引*）  
   
-            -   如果返回项 = = 0-> 将继续写入  
+            -   如果返回的条目 = = 0，则 > 写入继续  
   
-            -   如果返回项 ！ = 0-> 写入失败  
+            -   如果返回的条目！ = 0-> 写入失败  
   
-                -   记录事件  
+                -   记录的事件  
   
-                -   此外返回扩展的错误：  
+                -   还会返回扩展错误：  
   
-                    -   **8648:**  
+                    -   **8648：**  
   
                         *ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST*  
   
-    -   ***SPN 用例***  
+    -   ***SPN 大小写***  
   
-        -   提交对最接近的 GC 的 LDAP 查询？ 提供的 spn 查询 GC 的全林性 SPN 索引 (*servicePrincipalName; 全局索引*)  
+        -   针对最近的 GC 提交 LDAP 查询？ 查询 GC 的林范围 SPN 索引，用于提供的 SPN （*servicePrincipalName; 全局索引*）  
   
-            -   如果返回项 = = 0-> 将继续写入  
+            -   如果返回的条目 = = 0，则 > 写入继续  
   
-            -   如果返回项 ！ = 0-> 写入失败  
+            -   如果返回的条目！ = 0-> 写入失败  
   
-                -   记录事件  
+                -   记录的事件  
   
-                -   此外返回扩展的错误：  
+                -   还会返回扩展错误：  
   
-                    -   **8647:**  
+                    -   **8647：**  
   
                         *ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST*  
   
-重新激活已删除的对象时，存在的 SPN 或 UPN 值检查的唯一性。 如果发现重复项时，则请求将失败。  
+如果删除了已删除的对象，则将检查 SPN 或 UPN 值的唯一性。 如果找到重复的，则请求失败。  
   
--   对于 DNS 主机名，SAM 帐户名称等，如某些属性的更改时进行修改，Spn 都会相应更新。 在过程中，会删除已过时的 Spn，新 Spn 了构造和添加到数据库。 是对其触发此路径的必要属性修改：  
+-   对于某些属性更改，如 DNS 主机名、SAM 帐户名等，进行修改后，会相应地更新 Spn。 在此过程中，将删除过时的 Spn，并构造新的 Spn 并将其添加到数据库中。 触发此路径所需的必要属性修改如下：  
   
     -   ATT_DNS_HOST_NAME  
   
@@ -320,49 +320,49 @@ servicePrincipalName Value=<SPN>
   
     -   ATT_USER_ACCOUNT_CONTROL  
   
-如果任何新的 SPN 值重复，我们使修改失败。 上述列表中的重要属性是 ATT_DNS_HOST_NAME （计算机名称） 和 ATT_SAM_ACCOUNT_NAME （SAM 帐户名）。  
+如果有任何新的 SPN 值为重复值，我们将无法进行修改。 在上面的列表中，重要属性是 ATT_DNS_HOST_NAME （计算机名称）和 ATT_SAM_ACCOUNT_NAME （SAM 帐户名）。  
   
-### <a name="try-this-exploring-spn-and-upn-uniqueness"></a>请尝试此操作：探索 SPN 和 UPN 唯一性  
-这是多个第一个"**尝试此**"模块中的活动。  不是此模块的单独的实验室指南。  **尝试此**活动是实质上是允许你浏览在实验室环境中的课程材料的自由的活动。  可以选择以下提示，还是要关闭脚本，并附带自己的活动。  
+### <a name="try-this-exploring-spn-and-upn-uniqueness"></a>请尝试执行以下操作：探索 SPN 和 UPN 唯一性  
+这是模块中的几个 "**尝试此**" 活动的第一项。  此模块没有单独的实验室指南。  **试用此**活动本质上是自由格式的活动，可用于浏览实验室环境中的课程资料。  您可以选择执行提示或退出脚本，并提供您自己的活动。  
   
 > [!NOTE]  
-> -   这是多个第一个"**尝试此**"活动。  
-> -   不是此模块的单独的实验室指南。  
-> -   **尝试此**活动是实质上是允许你浏览在实验室环境中的课程材料的自由的活动。  
-> -   可以选择以下提示，还是要关闭脚本，并附带自己的活动。  
-> -   而不是所有的部分介绍了**尝试此**提示符下，您是仍然鼓励浏览课程内容在实验室中的，在适当的位置。  
+> -   这是多个 "**尝试此**" 活动中的第一个。  
+> -   此模块没有单独的实验室指南。  
+> -   **试用此**活动本质上是自由格式的活动，可用于浏览实验室环境中的课程资料。  
+> -   您可以选择执行提示或退出脚本，并提供您自己的活动。  
+> -   虽然并非所有部分都有**尝试使用此**提示，但仍建议您在实验室中浏览相应的课程内容。  
   
-尝试使用 SPN 和 UPN 唯一性。  遵循这些提示，或你自己完成。  
+试验 SPN 和 UPN 的唯一性。  按照这些提示操作，或完成自己的提示。  
   
-1.  使用 UPN 创建新用户  
+1.  用 UPN 创建新用户  
   
-2.  创建帐户并 Spn  
+2.  创建具有 Spn 的帐户  
   
-3.  使用以前已定义的 UPN 中创建新用户，或者更改现有帐户的 UPN。  执行该操作在另一个帐户的 SPN  
+3.  使用之前定义的 UPN 创建新用户或更改现有帐户的 UPN。  为其他帐户上的 SPN 执行相同操作  
   
-    1.  填充具有 UPN 已在使用现有的用户帐户  
+    1.  使用已在使用中的 UPN 填充现有用户帐户  
   
-        1.  使用 PowerShell、 ADSIEDIT 或 Active Directory 管理中心 (DSAC.exe)  
+        1.  使用 PowerShell、ADSIEDIT 或 Active Directory 管理中心（DSAC.EXE）  
   
-    2.  填充将现有帐户与已在使用 SPN  
+    2.  使用已在使用中的 SPN 填充现有帐户  
   
-        1.  使用 Windows PowerShell、 ADSIEDIT 或 SetSPN  
+        1.  使用 Windows PowerShell、ADSIEDIT 或 SetSPN  
   
 4.  观察错误  
   
-**（可选)**  
+**同时**  
   
-1.  验证与课堂讲师，它是确定以启用 *[AD 回收站](https://technet.microsoft.com/library/jj574144.aspx#BKMK_EnableRecycleBin)* 在 Active Directory 管理中心内。  如果是这样，移动到下一步。  
+1.  向教室讲师验证是否可以在 Active Directory 管理中心中启用 *[AD 回收站](https://technet.microsoft.com/library/jj574144.aspx#BKMK_EnableRecycleBin)* 。  如果是这样，请转到下一步。  
   
-2.  填充用户帐户的 UPN  
+2.  在用户帐户上填充 UPN  
   
 3.  删除帐户  
   
-4.  填充使用相同的 UPN 为已删除的帐户不同的帐户  
+4.  使用与已删除帐户相同的 UPN 填充不同的帐户  
   
-5.  尝试使用回收 Bin GUI 来恢复此帐户  
+5.  尝试使用回收站 GUI 还原帐户  
   
-6.  假设您只需提供与您在上一步中看到的错误。  （和没有刚执行的步骤的历史记录）你的目标是完成还原的帐户。  请参阅该工作簿例如步骤。  
+6.  假设您刚刚显示了上一步中显示的错误。  （并且没有您刚刚执行的步骤的历史记录）你的目标是完成帐户的还原。  有关示例步骤，请参阅工作簿。  
   
 
 

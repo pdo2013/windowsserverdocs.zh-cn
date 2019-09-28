@@ -1,8 +1,8 @@
 ---
 title: 管理虚拟桌面
-description: 了解如何管理 MultiPoint Services 中的虚拟桌面 (VDI)
+description: 了解如何在 MultiPoint Services 中管理虚拟桌面（VDI）
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 7afc6d2a65cd5cd3b116db5d65fd97e4cc770690
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 45bb3e98779bc27913c7e675a9c9db7e575d9d72
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861438"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389587"
 ---
 # <a name="manage-virtual-desktops"></a>管理虚拟桌面
-单个计算机 VDI 允许你配置每个*本地*MultiPoint Services 工作站的 MultiPoint 服务计算机上要连接到 HYPER-V 虚拟机 (VM) 中运行 Windows 10 企业版来宾操作系统工作站。 可以使用无法安装在 Windows Server 版本中的应用程序自定义这些虚拟桌面工作站。  
+使用单机 VDI，你可以将每个*本地*MultiPoint services 工作站配置为连接到与工作站位于同一 MultiPoint 服务计算机上的 hyper-v 虚拟机（VM）中运行的 Windows 10 企业来宾操作系统。 可以使用无法安装在 Windows Server 版本中的应用程序自定义这些虚拟桌面工作站。  
   
 ## <a name="enable-the-virtual-desktop-feature"></a>启用虚拟桌面功能  
   
@@ -76,18 +76,18 @@ ms.locfileid: "59861438"
     > [!NOTE]  
     > 如果 MultiPoint Services 系统未以工作站模式运行，则重启系统，然后完成此过程。  
   
-2.  在左侧选择虚拟桌面模板\-窗格。 其名称为 <prefix –t>。  
+2.  选择左侧 @ no__t-0hand 窗格中的 "虚拟桌面" 模板。 其名称为 <prefix –t>。  
   
 3.  在“模板任务”下，单击“创建虚拟桌面工作站”，然后单击“确定”。  
   
     虚拟桌面工作站创建过程需要几分钟时间才能完成。  
   
     > [!NOTE]  
-    > 如果任意本地工作站当前连接到会话\-基于虚拟桌面，你必须注销这些工作站，以便将它们连接到一个新创建的虚拟桌面工作站。  
+    > 如果任何本地工作站当前已连接到会话 @ no__t-0based 虚拟桌面，则必须注销这些工作站，才能将其连接到新创建的虚拟桌面工作站之一。  
   
 ### <a name="validate-the-newly-created-customized-virtual-station-desktops"></a>验证新建的自定义虚拟工作站桌面  
   
-可以通过登录到一个或多个虚拟桌面工作站使用本地管理员帐户或域帐户，验证你的自定义虚拟工作站桌面，然后验证新的虚拟机\-基于虚拟桌面是否工作正确。  
+你可以使用本地管理员帐户或域帐户登录到一个或多个虚拟桌面工作站，验证你的自定义虚拟工作站桌面，然后验证新的 VM @ no__t 0based 虚拟桌面是否正常工作。  
   
 ## <a name="disable-virtual-desktops"></a>禁用虚拟桌面  
   

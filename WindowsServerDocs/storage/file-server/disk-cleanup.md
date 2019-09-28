@@ -1,19 +1,19 @@
 ---
 title: 在 Windows Server 上使用磁盘清理
 description: 了解如何使用命令行选项来配置磁盘清理工具（Cleanmgr.exe）以自动清除某些文件。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: cosmosdarwin
 author: iangpgh
 ms.author: jgerend
 manager: daveba
 ms.technology: storage-spaces
 ms.date: 06/20/2019
-ms.openlocfilehash: 4bf32520dc6fa2be36d44fbd66a7efc885a8f5d7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 2de3452a3528122beb26f403fb0c73d7ff13efd7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867408"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402119"
 ---
 # <a name="using-disk-cleanup-on-windows-server"></a>在 Windows Server 上使用磁盘清理
 

@@ -7,14 +7,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 11/14/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 586f2d7b73c6017f8b69103a09f6b38bb31f542d
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 12c47f98af24331b25355178370cc4cd28c0aa10
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865803"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358051"
 ---
 # <a name="configuring-alternate-login-id"></a>配置备用登录 ID
 
@@ -139,7 +139,7 @@ Office 应用程序依赖于目录管理员推送的信息来标识备用 id 环
 |-----|-----|-----|-----|-----|
 |HKEY_CURRENT_USER\Software\Microsoft\AuthN|DomainHint</br>REG_SZ</br>contoso.com|必需|必需|此 regkey 的值是组织的租户中已验证的自定义域名。 例如，如果 Contoso.com 是租户 Contoso.onmicrosoft.com 中某个已验证的自定义域名，则 Contoso corp 可以在此 regkey 中提供值 Contoso.com。|
 HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Common\Identity|EnableAlternateIdSupport</br>REG_DWORD</br>1|对于 Outlook 2016 ProPlus 是必需的|对于 Outlook 2016 ProPlus 是必需的|此 regkey 的值可以为 1/0，以指示 Outlook 应用程序是否应参与改进后的备用 id 身份验证逻辑。|
-HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\contoso.com\sts|&#42;</br>REG_DWORD</br>1|必需|必填|此 regkey 可用于将 STS 设置为 internet 设置中的受信任区域。 标准 ADFS 部署建议将 ADFS 命名空间添加到 Internet Explorer 的本地 Intranet 区域|
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\contoso.com\sts|&#42;</br>REG_DWORD</br>1|必需|必需|此 regkey 可用于将 STS 设置为 internet 设置中的受信任区域。 标准 ADFS 部署建议将 ADFS 命名空间添加到 Internet Explorer 的本地 Intranet 区域|
 
 ## <a name="new-authentication-flow-after-additional-configuration"></a>其他配置之后的新身份验证流
 
@@ -212,7 +212,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 
 
 
-|                       **错误事例**                        | **对登录体验的影响** |                                                              **引发**                                                              |
+|                       **错误事例**                        | **对登录体验的影响** |                                                              **Event**                                                              |
 |--------------------------------------------------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | 无法获取 user 对象的 SAMAccountName 值 |          登录失败           |                  事件 ID 364，出现异常消息 MSIS8012：找不到用户 "{0}" 的 samAccountName。                   |
 |        CanonicalName 属性不可访问         |          登录失败           |               事件 ID 364，出现异常消息 MSIS8013：CanonicalName：用户{0}{1}"" 的 "" 的格式不正确。                |

@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 06/05/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 43a42c211557a41400fada17baaab6a0d5ab822a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 517582661374c388d44362538da6933a916b0039
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866102"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407755"
 ---
 # <a name="access-control-policies-in-windows-server-2012-r2-and-windows-server-2012-ad-fs"></a>Windows Server 2012 R2 和 Windows Server 2012 中的访问控制策略 AD FS
 
@@ -259,7 +259,7 @@ AD FS Windows 10 域加入和登录所需的终结点
 
   因此，只匹配两个地址（如192.168.1.1 或10.0.0.1）的示例为： \b192\\. 168\\.1\\.1 \ b&#124;\b10\\.0 .0\\\\  
 
-  这为你提供了可用于输入任意数量的地址的方法。 如果需要允许的地址范围（例如192.168.1.1 –192.168.1.25），则匹配必须按字符： \b192\\. 168\\.1\\进行。（[1-9]&#124;1 [0-9]&#124;2 [0-5]） \b  
+  这为你提供了可用于输入任意数量的地址的方法。 需要允许的地址范围，例如192.168.1.1 –192.168.1.25，匹配必须是字符： \b192 @ no__t-0.168 @ no__t-1.1 @ no__t-2。（[1-9]&#124;1 [0-9]&#124;2 [0-5]） \b  
 
   请注意以下事项：  
 
@@ -279,9 +279,9 @@ AD FS Windows 10 域加入和登录所需的终结点
 
 - 请注意，括号必须正确定位，以便不会开始匹配 IP 地址的其他部分。  
 
-- 使用匹配的192块，我们可以为10块编写类似的表达式： \b10\\.0\\.0\\。（[1-9]&#124;1 [0-4]） \b  
+- 使用匹配的192块，我们可以为10块编写类似的表达式： \b10 @ no__t-0.0 @ no__t-1.0 @ no__t。（[1-9]&#124;1 [0-4]） \b  
 
-- 将其放在一起，以下表达式应匹配 "192.168.1.1 ~ 25" 和 "10.0.0.1 ~ 14"： 168\\\\\b192 .1\\的所有地址。（[1-9]&#124;1 [0-9]&#124;2 [0-5]） \b&#124;\b10\\.0\\.0\\（[1-9]&#124;1 [0-4]） \b  
+- 将其放在一起，以下表达式应匹配 "192.168.1.1 ~ 25" 和 "10.0.0.1 ~ 14"： \b192 @ no__t-0.168 @ no__t-1.1 @ no__t-2 的所有地址。（[1-9]&#124;1 [0-9]&#124;2 [0-5]） \b&#124;\b10 @ no__t-6.0 @ no__t-7.0 @ no__t-8。（[1-9]&#124;1 [0-4]） \b  
 
 ### <a name="testing-the-expression"></a>测试表达式  
  正则表达式表达式可能会变得相当复杂，因此强烈建议使用 regex 验证工具。 如果您在 internet 上搜索 "联机 regex 表达式生成器"，您将看到多个有效的联机实用程序，您可以使用这些实用程序来尝试使用示例数据。  

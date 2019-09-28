@@ -1,8 +1,8 @@
 ---
 title: 使用 USB 设备
-description: 了解如何与 MultiPoint 服务一起使用 USB 设备
+description: 了解 USB 设备如何使用 MultiPoint 服务
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: f961f9270183b17855151f11ce222e3a5cc8df7d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ce4338eccc5640f8743093649685054718f9ed2a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883768"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394784"
 ---
 # <a name="work-with-usb-devices"></a>使用 USB 设备
-可以将设备连接到 MultiPoint 服务系统中的任何一台计算机或 MultiPoint 工作站集线器。 设备连接到的位置和设备的类型会影响设备是对系统上的所有用户可用，还是仅对单个用户可用，还是对任何用户都不可用。 不同连接类型的示例如下：  
+你可以将设备连接到 MultiPoint 服务系统中的计算机或连接到 MultiPoint 工作站集线器。 设备连接到的位置和设备的类型会影响设备是对系统上的所有用户可用，还是仅对单个用户可用，还是对任何用户都不可用。 不同连接类型的示例如下：  
   
 -   如果将设备（例如打印机或 USB 大容量存储设备）直接连接到计算机，则 MultiPoint 服务系统上的所有会话用户都可以访问该设备。 虚拟桌面工作站用户将无法访问直接连接到计算机的设备。  
   
@@ -29,22 +29,22 @@ ms.locfileid: "59883768"
   
 -   如果将特定类型的设备（例如键盘或鼠标）连接到计算机，则此设备对系统上的任何用户都不可用。  
   
-下表显示了设备列表以及这些设备的行为方式，具体取决于他们连接到系统的位置。 有关如何连接工作站集线器的信息中所述[使用工作站集线器](#working-with-station-hubs)。 有关如何将视频显示器连接到工作站的详细信息所述[使用视频设备](Work-with-Video-Devices.md)。  
+下表显示了设备列表以及这些设备的行为方式，具体取决于他们连接到系统的位置。 有关如何连接工作站集线器的信息，请参阅使用[工作站集线器](#working-with-station-hubs)。 有关如何将视频监视器连接到工作站的详细信息，请参阅[使用视频设备](Work-with-Video-Devices.md)。  
   
 |||||  
 |-|-|-|-|  
-|**设备**|**直接与计算机连接时的行为**|**连接到工作站时的行为**|**注意**|  
-|键盘|我们不建议将键盘直接连接到计算机。|仅允许工作站用户访问。|如果键盘包含 USB 端口，则键盘内部的 USB 集线器可能是工作站集线器。 附加到该端口的其他 USB 设备仅对使用该键盘的用户可用。<br /><br />有些工作站集线器配备有一个 PS\/转换为 USB 连接在集线器内部的 2 个鼠标端口。|  
-|鼠标|我们不建议将鼠标直接连接到计算机。|仅允许工作站用户访问。|有些工作站集线器配备有一个 PS\/转换为 USB 连接在集线器内部的 2 个鼠标端口。|  
-|USB 集线器|请参阅[使用工作站集线器](#working-with-station-hubs)。|请参阅[使用工作站集线器](#working-with-station-hubs)。||  
-|视频显示器|请参阅[MultiPoint 服务视频设备](work-with-video-devices.md)。|请参阅[MultiPoint 服务视频设备](work-with-video-devices.md)。||  
+|**设备**|**直接连接到计算机时的行为**|**连接到工作站时的行为**|**说明**|  
+|键盘|我们不建议将键盘直接连接到计算机。|仅允许工作站用户访问。|如果键盘包含 USB 端口，则键盘内部的 USB 集线器可能是工作站集线器。 附加到该端口的其他 USB 设备仅对使用该键盘的用户可用。<br /><br />有些工作站集线器配备有 PS @ no__t-02 鼠标端口，该端口转换为集线器内的 USB 连接。|  
+|鼠标|我们不建议将鼠标直接连接到计算机。|仅允许工作站用户访问。|有些工作站集线器配备有 PS @ no__t-02 鼠标端口，该端口转换为集线器内的 USB 连接。|  
+|USB 集线器|请参阅使用[工作站中心](#working-with-station-hubs)。|请参阅使用[工作站中心](#working-with-station-hubs)。||  
+|视频显示器|请参阅[MultiPoint Services 视频设备](work-with-video-devices.md)。|请参阅[MultiPoint Services 视频设备](work-with-video-devices.md)。||  
 |音频输出设备（例如耳机）|我们不建议将音频输出设备直接连接到计算机。|仅允许工作站用户访问。|有些工作站集线器配备有模拟音频端口，该端口在集线器内部转换为 USB 音频连接。|  
 |音频输入设备（例如麦克风）|我们不建议将音频输入设备直接连接到计算机。|仅允许工作站用户访问。|有些工作站集线器配备有模拟音频端口，该端口在集线器内部转换为 USB 音频连接。|  
-|打印机|在 system.* 的所有用户访问|仅允许工作站用户访问。||  
-|USB 大容量存储设备|在系统上的所有用户的访问。\*|仅允许工作站用户访问。|这些设备包括 USB 闪存驱动器、外部硬盘驱动器和数码相机。|  
-|网络摄像机|在 system.* 的所有用户访问|仅允许工作站用户访问。|一次只能有一位用户可以连接到摄像机。|  
+|打印机|可供系统上的所有用户访问 *|仅允许工作站用户访问。||  
+|USB 大容量存储设备|可供系统上的所有用户访问。 \*|仅允许工作站用户访问。|这些设备包括 USB 闪存驱动器、外部硬盘驱动器和数码相机。|  
+|网络摄像机|可供系统上的所有用户访问 *|仅允许工作站用户访问。|一次只能有一位用户可以连接到摄像机。|  
   
-* 设备连接到主计算机不是对在登录到虚拟桌面工作站的用户可见的。  
+\* 连接到主机计算机的设备对登录到虚拟桌面工作站的用户不可见。  
   
 有关如何设置工作站的详细信息，请参阅[设置工作站](Set-Up-a-Station.md)。  
   

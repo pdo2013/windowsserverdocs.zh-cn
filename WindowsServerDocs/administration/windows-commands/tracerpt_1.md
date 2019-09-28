@@ -2,7 +2,7 @@
 title: tracerpt
 description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 25014d23c797f37dcc488b5fea20c73907eb6f4c
-ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
+ms.openlocfilehash: 1c8e85acc59383d0a027c8d5ec51e68942a76b85
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975296"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385683"
 ---
 # <a name="tracerpt"></a>tracerpt
 
@@ -57,7 +57,7 @@ tracerpt <[-l] <value [value [...]]>|-rt <session_name [session_name [...]]>> [o
 |           -report [filename]           |                                  生成文本输出报表文件。 如果未指定，则为 Filename。                                   |
 |                  -lr                   |                        指定 "限制较少"。 这对与事件架构不匹配的事件使用最佳做法。                         |
 |           -export [文件名]           |                                  生成事件架构导出文件。 如果未指定，则为 "架构"。                                   |
-|       [-l]\<值 [值 [...]]>        |                                                   指定要处理的事件跟踪日志文件。                                                    |
+|       [-l] \<value [value [...]]>        |                                                   指定要处理的事件跟踪日志文件。                                                    |
 | -rt \<session_name [session_name [...]]> |                                                指定实时事件跟踪会话数据源。                                                |
 
 ## <a name="BKMK_EXAMPLES"></a>示例

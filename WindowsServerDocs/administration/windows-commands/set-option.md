@@ -1,8 +1,8 @@
 ---
 title: Set 选项
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1c4756627d19d296d02fa11ac67ef80080ddf318
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9b9174f219654e99eb9441abe3342c31b5089ef5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441365"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384046"
 ---
 # <a name="set-option"></a>Set 选项
 
 
 
-设置创建卷影副本的选项。 如果使用不带参数，**设置选项**在命令提示符下显示的帮助。
+设置创建卷影副本的选项。 如果不使用参数， **set 选项将**在命令提示符下显示帮助。
 
 ## <a name="syntax"></a>语法
 
@@ -36,11 +36,11 @@ set option {[differential | plex] [transportable] [[rollbackrecover] [txfrecover
 
 |     参数     |                                                                                                  描述                                                                                                  |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   [差异   |                                                                                                     plex]                                                                                                     |
-|  [transportable]  |                       指定的卷影副本并不是尚未导入。 更高版本可以使用元数据的.cab 文件导入到相同或不同的计算机的卷影副本。                       |
-| [rollbackrecover] |                     指示编写器使用*自动恢复*期间**PostSnapshot**事件。 这是卷影副本将用于回滚 （例如，使用数据挖掘） 的情况下很有用。                      |
-|   [txfrecover]    |                                                               请求 VSS 在创建期间进行卷影副本的事务上一致。                                                                |
-|  [noautorecover]  | 停止编写器和文件系统中执行事务一致的状态将卷影副本的任何恢复更改。 **Noautorecover**不能用于**txfrecover**或**rollbackrecover**。 |
+|   [差异   |                                                                                                     丛                                                                                                     |
+|  便携  |                       指定还不导入卷影副本。 稍后可以使用元数据 .cab 文件将卷影副本导入到相同或不同的计算机。                       |
+| [rollbackrecover] |                     向编写器发出在**PostSnapshot**事件期间使用*自动恢复*的信号。 如果卷影副本将用于回滚（例如，使用数据挖掘），这会很有用。                      |
+|   [txfrecover]    |                                                               请求 VSS 使卷影副本在创建过程中处于事务一致状态。                                                                |
+|  [noautorecover]  | 使写入程序和文件系统不会将卷影副本的任何恢复更改执行到事务一致状态。 **Noautorecover**不能与**txfrecover**或**rollbackrecover**一起使用。 |
 
 #### <a name="additional-references"></a>其他参考
 

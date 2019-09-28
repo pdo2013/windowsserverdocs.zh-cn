@@ -7,13 +7,13 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 09/18/2018
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 08634e05d6b7450035324e8d925f2bb9df3b007e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: 2aff8c0e43c6813c543511e643471c9cd9bcc292
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869577"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357044"
 ---
 # <a name="prepare-your-development-environment"></a>准备开发环境
 

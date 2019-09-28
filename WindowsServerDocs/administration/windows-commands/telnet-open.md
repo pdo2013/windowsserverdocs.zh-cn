@@ -1,8 +1,8 @@
 ---
-title: 打开 telnet
-description: 'Windows 命令主题 * * *- '
+title: telnet 打开
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 186664a75978f589a9a26047c72b9db74dd2dc4d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4528b728c89bbdfc99de94c7fefebb18c8e1ad97
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441127"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383655"
 ---
-# <a name="telnet-open"></a>telnet： 打开
+# <a name="telnet-open"></a>telnet：打开
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
 连接到 telnet 服务器。    
 ## <a name="syntax"></a>语法  
@@ -33,11 +33,11 @@ o[pen] <hostname> [<Port>]
 
 | 参数  |                                        描述                                         |
 |------------|--------------------------------------------------------------------------------------------|
-| <hostname> |                         指定的计算机名称或 IP 地址。                         |
-|  [<Port>]  | 指定 telnet 服务器正在侦听的 TCP 端口。 默认端口为 TCP 端口 23。 |
+| <hostname> |                         指定计算机名称或 IP 地址。                         |
+|  [<Port>]  | 指定 telnet 服务器正在侦听的 TCP 端口。 默认值为 TCP 端口23。 |
 
 ## <a name="BKMK_Examples"></a>示例  
-连接到 telnet 服务器在 telnet.microsoft.com。  
+在 telnet.microsoft.com 连接到 telnet 服务器。  
 ```  
 o telnet.microsoft.com  
 ```  

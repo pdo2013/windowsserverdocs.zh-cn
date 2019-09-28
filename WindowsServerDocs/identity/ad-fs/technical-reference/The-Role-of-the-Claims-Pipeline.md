@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: cd5ca15a9e098f60c6c82980e3148ebcf9ee9932
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 6aafa37b06599f4114cf076e87415fece128fb05
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869343"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407339"
 ---
 # <a name="the-role-of-the-claims-pipeline"></a>声明管道的角色
 Active Directory 联合身份验证服务\(ADFS\)中的声明管道表示声明在发出之前必须遵循联合身份验证服务的路径。 该联合身份验证服务管理通过声明管道\-的\-各个阶段（也包括声明规则引擎处理声明规则）对声明进行流动的整个端到端过程。  

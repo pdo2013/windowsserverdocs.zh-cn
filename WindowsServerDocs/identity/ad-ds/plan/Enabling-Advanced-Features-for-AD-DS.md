@@ -7,22 +7,22 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: f03b6ca417f491d6638241c8ad4daadd25c76c77
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 733bb56351c134446c9406b825619f3c26d6ff76
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885498"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402593"
 ---
 # <a name="enabling-advanced-features-for-ad-ds"></a>为 AD DS 启用高级功能
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
-Active Directory 域服务 (AD DS) 使您可以提升域或林功能级别高级的功能引入你的环境。 若要使用高级的 AD DS 功能，必须标识你的环境中的域控制器运行的操作系统。   
+Active Directory 域服务（AD DS），通过提高域或林功能级别，可以将高级功能引入环境中。 若要使用高级 AD DS 功能，你必须确定在你的环境中的域控制器上运行的操作系统。   
   
-必须也为你基于现有的基础结构的组织确定最佳的功能级别，然后引发适当的域或林功能级别。 在域或林中的所有域控制器都运行 Windows 的适当版本时，您可以提升功能级别。 尽管提升功能级别可以使您可以启用新功能，它也会限制你可以在域控制器上将环境中运行的 Windows 操作系统的版本。  
+还必须根据你的现有基础结构确定你的组织的最佳功能级别，然后根据需要提升域或林功能级别。 如果域或林中的所有域控制器运行的都是适当版本的 Windows，则可以提升功能级别。 尽管提高功能级别使你能够启用新功能，但它还限制了你可以在你的环境中的域控制器上运行的 Windows 操作系统的版本。  
         
   
 

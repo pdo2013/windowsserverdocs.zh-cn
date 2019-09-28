@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: fd25927a11f12deb9cf23866dcad447f397d3173
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 49061aaab2f46d7d3abe80d4fade98c10654fc37
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869307"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407290"
 ---
 # <a name="when-to-use-a-pass-through-or-filter-claim-rule"></a>何时使用传递或筛选声明规则
 如果需要采用特定的传入声明\(类型\) ，则可以在 Active Directory 联合身份验证服务 AD FS 中使用此规则，然后应用一项操作，该操作将根据传入声明中的值确定应发生的输出。 使用此规则时，将根据你在此规则中配置的任一选项传递或筛选与下表中的规则逻辑匹配的任何声明。  

@@ -1,24 +1,24 @@
 ---
 title: Active Directory 域服务组件更新
-description: 本文档讨论为 Windows Server 2012 R2 的 AD DS 组件更新
+description: 本文档介绍 Windows Server 2012 R2 的 AD DS 组件更新
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
 ms.date: 09/08/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: a3a91034-a4da-4ad7-93f8-0cd2ec3e7824
 ms.technology: identity-adds
-ms.openlocfilehash: b0bd021863e1e25bd222baf9a633438153fe820b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e7bacf4f238144fca26776a729a5e4d5bf3444ab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442758"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389946"
 ---
 # <a name="active-directory-domain-services-component-updates"></a>Active Directory 域服务组件更新
 
->适用于：Windows Server 2016, Windows Server 2012 R2
+>适用于：Windows Server 2016、Windows Server 2012 R2
 
 本模块介绍在“目录服务和标识”空间中收到较少更新的组件。  
 

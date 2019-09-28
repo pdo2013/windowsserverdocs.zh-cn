@@ -1,90 +1,90 @@
 ---
-title: 捕获所需的 HGS 的 TPM 模式信息
+title: 捕获 HGS 需要的 TPM 模式信息
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 915b1338-5085-481b-8904-75d29e609e93
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 04/01/2019
-ms.openlocfilehash: 24d81e3d2c31b3493563f3f3e2ab3f92afff2c06
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: ba67cb80a405cd1c6d368a52798e3dec4d9861cb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284129"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403517"
 ---
-# <a name="authorize-guarded-hosts-using-tpm-based-attestation"></a>授权受保护的主机使用基于 TPM 的认证
+# <a name="authorize-guarded-hosts-using-tpm-based-attestation"></a>使用基于 TPM 的证明授权受保护的主机
 
 >适用于：Windows Server 2019，Windows Server （半年频道），Windows Server 2016
 
-TPM 模式下使用 TPM 标识符 (也称为平台标识符或认可密钥\[EKpub\]) 开始确定特定主机是否被授权为"受保护"。 证明该模式使用安全启动和代码完整性度量值以确保给定的 HYPER-V 主机处于正常状态并正在运行受信任的代码。 为了使证明以了解什么是和不正常，必须捕获以下项目：
+TPM 模式使用 TPM 标识符（也称为 "平台标识符" 或 "认可密钥" \[EKpub @ no__t）开始确定某个特定主机是否授权为 "受保护"。 此证明模式使用安全启动和代码完整性度量，以确保给定的 Hyper-v 主机处于正常状态，并且仅运行受信任的代码。 为了证明证明哪些内容不正常，必须捕获以下项目：
 
-1.  TPM 标识符 (EKpub)
+1.  TPM 标识符（EKpub）
 
-    -  此信息仅适用于每个 HYPER-V 主机
+    -  此信息对于每个 Hyper-v 主机都是唯一的
 
-2.  TPM 基线 （启动量化指标）
+2.  TPM 基线（启动度量）
 
-    -  这是硬件的适用于相同的类运行的所有 HYPER-V 主机
+    -  这适用于在同一硬件类上运行的所有 Hyper-v 主机
 
-3.  代码完整性策略 （允许二进制文件的允许列表）
+3.  代码完整性策略（允许的二进制文件允许列表）
 
-    -  这是适用于共享通用硬件和软件的所有 HYPER-V 主机
+    -  这适用于共享公用硬件和软件的所有 Hyper-v 主机
 
-我们建议您捕获的基线和 CI 策略从"引用主机"，它是代表你的数据中心内的 HYPER-V 硬件配置的每个唯一的类。 从 Windows Server 1709 版开始，示例 CI 策略是包括在 C:\Windows\schemas\CodeIntegrity\ExamplePolicies。 
+建议从 "引用主机" 捕获基线和 CI 策略，该 "引用主机" 代表数据中心内的每个独特的 Hyper-v 硬件配置类。 从 Windows Server 版本1709开始，C:\Windows\schemas\CodeIntegrity\ExamplePolicies. 中包含了示例 CI 策略 
 
 ## <a name="versioned-attestation-policies"></a>版本控制证明策略
 
-Windows Server 2019 中引入新方法进行证明，称为*v2 证明*，TPM 证书必须存在才能添加到 HGS EKPub。 使用 Windows Server 2016 中的 v1 证明方法允许你重写此安全检查通过指定-Force 标志添加 HgsAttestationTpmHost 或 TPM 证明的其他 cmdlet 用来捕获项目运行时。 从 Windows Server 2019 开始，默认情况下使用 v2 证明，需要指定-PolicyVersion v1 标志，当你运行添加 HgsAttestationTpmHost，如果你需要注册 TPM 而无需证书。 -Force 标志并不适用于 v2 证明。 
+Windows Server 2019 引入了一种新的证明方法，称为*v2 证明*，其中必须存在 TPM 证书才能将 EKPub 添加到 HGS。 Windows Server 2016 中使用的 v1 证明方法允许您通过在运行 HgsAttestationTpmHost 或其他 TPM 证明 cmdlet 来捕获项目时指定-Force 标志来覆盖此安全检查。 从 Windows Server 2019 开始，默认情况下使用 v2 证明，如果你需要在不使用证书的情况下注册 TPM，则在运行 HgsAttestationTpmHost 时需要指定-PolicyVersion v1 标志。 -Force 标志不适用于 v2 证明。 
 
-主机仅可证明，如果所有项目 (EKPub + TPM 基线 + CI 策略) 使用相同版本的证明。 首先，尝试 V2 证明，如果该操作失败，则使用 v1 证明。 这意味着如果你需要使用 v1 证明注册 TPM 标识符，您需要同时指定-PolicyVersion v1 标志来捕获 TPM 基线并创建 CI 策略时使用 v1 证明。 如果 TPM 基线和 CI 策略创建的使用 v2 证明，则更高版本需要添加受保护的主机，如果没有 TPM 的证书时，需要重新创建每个项目-PolicyVersion v1 标志。 
+仅当所有项目（EKPub + TPM 基线 + CI 策略）使用同一版本的证明时，主机才能证明这一点。 首先尝试 V2 证明，如果失败，则使用 v1 证明。 这意味着，如果需要使用 v1 证明注册 TPM 标识符，则在捕获 TPM 基线并创建 CI 策略时，还需要指定-PolicyVersion v1 标志来使用 v1 证明。 如果 TPM 基线和 CI 策略是使用 v2 证明创建的，稍后需要添加不包含 TPM 证书的受保护主机，则需要使用-PolicyVersion v1 标志重新创建每个项目。 
 
-## <a name="capture-the-tpm-identifier-platform-identifier-or-ekpub-for-each-host"></a>捕获每个主机的 TPM 标识符 （平台标识符或 EKpub）
+## <a name="capture-the-tpm-identifier-platform-identifier-or-ekpub-for-each-host"></a>捕获每个主机的 TPM 标识符（平台标识符或 EKpub）
 
-1.  在构造域中，确保每个主机上的 TPM 准备好用于-即，对 TPM 进行初始化并获取所有权。 您可以通过打开 TPM 管理控制台 (tpm.msc) 或通过运行检查 TPM 状态**Get Tpm**提升的 Windows PowerShell 窗口中。 如果你的 TPM 不处于**准备**状态中时，将需要对其进行初始化并设置其所有权。 这可以在 TPM 管理控制台或通过运行**初始化 Tpm**。
+1.  在 fabric 域中，确保每个主机上的 TPM 可供使用，即 TPM 已初始化并获得所有权。 你可以通过打开 TPM 管理控制台（tpm）或在提升的 Windows PowerShell 窗口中运行**Get tpm**来检查 tpm 的状态。 如果你的 TPM 未处于 "**就绪**" 状态，你将需要对其进行初始化并设置其所有权。 此操作可在 TPM 管理控制台中或通过运行 "**初始化-TPM**" 完成。
 
-2.  每个受保护的主机，若要获取其 EKpub 提升的 Windows PowerShell 控制台中运行以下命令。 有关`<HostName>`，替换内容适合此主机标识唯一的主机名称-这可以是其主机名或使用 fabric 清单服务 （如果可用） 的名称。 为方便起见，使用主机的名称将输出文件的名称。
+2.  在每个受保护的主机上，在提升的 Windows PowerShell 控制台中运行以下命令以获取其 EKpub。 对于 `<HostName>`，请将唯一主机名替换为适合标识此主机的名称-这可以是其主机名，也可以是构造清单服务（如果可用）使用的名称。 为方便起见，请使用主机的名称命名输出文件。
 
     ```powershell
     (Get-PlatformIdentifier -Name '<HostName>').InnerXml | Out-file <Path><HostName>.xml -Encoding UTF8
     ```
-3.  每个主机将成为受保护的主机，确保为每个 XML 文件指定唯一名称的重复上述步骤。
+3.  对于将成为受保护主机的每个主机，请重复上述步骤，确保为每个 XML 文件指定一个唯一名称。
 
 4.  向 HGS 管理员提供生成的 XML 文件。
 
-5.  HGS 域中打开 HGS 服务器上提升的 Windows PowerShell 控制台并运行以下命令。 每个 XML 文件重复该命令。
+5.  在 HGS 域中，打开已提升权限的 Windows PowerShell 控制台，并运行以下命令。 为每个 XML 文件重复此命令。
 
     ```powershell
     Add-HgsAttestationTpmHost -Path <Path><Filename>.xml -Name <HostName>
     ```
 
     > [!NOTE]
-    > 如果添加不受信任的认可密钥证书 (EKCert) 有关的 TPM 标识符时遇到错误，请确保[受信任的 TPM 根证书已添加](guarded-fabric-install-trusted-tpm-root-certificates.md)到 HGS 节点。
+    > 如果在添加有关不受信任的认可密钥证书（EKCert）的 TPM 标识符时遇到错误，请确保已将[受信任的 TPM 根证书添加](guarded-fabric-install-trusted-tpm-root-certificates.md)到了 HGS 节点。
     > 此外，某些 TPM 供应商不使用 EKCerts。
-    > 您可以检查是否 EKCert 缺少通过如记事本编辑器中打开 XML 文件，检查错误消息指示没有 EKCert 未找到。
-    > 如果这种情况，并且在你的计算机 TPM 是否可信，则可以使用信任`-Force`参数添加到 HGS 主机标识符。 需要在 Windows Server 2019 也使用`-PolicyVersion v1`参数时使用`-Force`。 这将创建一个策略与 Windows Server 2016 行为一致，将要求你使用`-PolicyVersion v1`注册 CI 策略和在的 TPM 基线时。
+    > 可以通过在记事本（如记事本）中打开 XML 文件来检查是否缺少 EKCert，并检查错误消息，指出找不到任何 EKCert。
+    > 如果是这种情况，并且你相信计算机中的 TPM 是可信的，则可以使用 `-Force` 参数将主机标识符添加到 HGS。 在 Windows Server 2019 中，使用 `-Force` 时，还需要使用 @no__t 参数。 这会创建与 Windows Server 2016 行为一致的策略，并将要求你在注册 CI 策略和 TPM 基线时使用 `-PolicyVersion v1`。
 
 ## <a name="create-and-apply-a-code-integrity-policy"></a>创建并应用代码完整性策略
 
-代码完整性策略可帮助确保允许您信任的主机上运行的可执行文件的运行。 阻止运行的恶意软件和其他可执行文件外部受信任的可执行文件。
+代码完整性策略可帮助确保只允许运行你信任的可在主机上运行的可执行文件。 受信任的可执行文件外部的恶意软件和其他可执行文件将被阻止运行。
 
-每个受保护的主机必须具有代码完整性策略应用以便在 TPM 模式下运行受防护的 Vm。 指定通过将它们添加到 HGS 信任的确切代码完整性策略。 可以配置代码完整性策略强制实施该策略，阻止不符合策略，或只是审核的任何软件 （日志事件时执行的策略中未定义的软件）。 
+每个受保护的主机必须应用代码完整性策略，才能在 TPM 模式下运行受防护的 Vm。 你可以通过将其添加到 HGS 来指定你信任的确切代码完整性策略。 可以配置代码完整性策略，以强制实施策略、阻止任何不符合策略的软件，或仅审核（在执行策略中未定义的软件时记录事件）。 
 
-从 Windows Server 1709 版开始，示例代码完整性策略还包括在 C:\Windows\schemas\CodeIntegrity\ExamplePolicies Windows。 两个策略是针对 Windows Server 建议：
+从 Windows Server 版本1709开始，C:\Windows\schemas\CodeIntegrity\ExamplePolicies. 中的 Windows 提供了示例代码完整性策略 建议为 Windows Server 使用两个策略：
 
-- **AllowMicrosoft**:允许由 Microsoft 签名的所有文件。 为服务器应用程序，如 SQL 或 Exchange，建议使用此策略，或者如果由 Microsoft 发布的代理服务器进行监视。
-- **DefaultWindows_Enforced**:允许在 Windows 中提供，并且不允许发布的 Microsoft Office 等其他应用程序的文件。 建议运行只有内置服务器角色和功能，例如 HYPER-V 的服务器使用此策略。 
+- **AllowMicrosoft**：允许由 Microsoft 签署的所有文件。 建议将此策略用于 SQL 或 Exchange 等服务器应用程序，或者如果服务器由 Microsoft 发布的代理进行监视，则建议使用此策略。
+- **DefaultWindows_Enforced**：仅允许 Windows 中附带的文件，而不允许由 Microsoft 发布的其他应用程序，如 Office。 对于仅运行内置服务器角色和功能（例如 Hyper-v）的服务器，建议使用此策略。 
 
-建议您首先创建 CI 策略在审核 （日志记录） 模式下，若要查看是否该文件没有任何内容，然后强制实施该策略用于托管生产工作负荷。 
+建议你首先在审核（日志）模式下创建 CI 策略，以查看它是否缺少任何内容，然后为主机生产工作负荷强制实施策略。 
 
-如果您使用[新建 CIPolicy](https://docs.microsoft.com/powershell/module/configci/new-cipolicy?view=win10-ps) cmdlet 以生成您自己的代码完整性策略，你将需要决定要使用的规则级别。 我们建议了主别的**发布服务器**退而求其次**哈希**，这样最进行数字签名的软件更新而无需更改的 CI 策略。
-编写相同的发布者的新软件可以也安装在服务器上而无需更改的 CI 策略。
-未进行数字签名的可执行文件将进行哈希处理--这些文件的更新将要求您创建新的 CI 策略。
-有关可用的 CI 策略规则级别的详细信息，请参阅[部署代码完整性策略： 策略规则和文件规则](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/select-types-of-rules-to-create#windows-defender-application-control-policy-rules)和 cmdlet 的帮助。
+如果使用[CIPolicy](https://docs.microsoft.com/powershell/module/configci/new-cipolicy?view=win10-ps) cmdlet 来生成自己的代码完整性策略，则需要确定要使用的规则级别。 建议使用回退到**哈希**的主**发布服务器**级别，这样就可以在不更改 CI 策略的情况下更新已进行数字签名的大多数软件。
+同一发行者编写的新软件也可以安装在服务器上，而无需更改 CI 策略。
+未进行数字签名的可执行文件将进行哈希处理-更新这些文件将需要你创建新的 CI 策略。
+有关可用 CI 策略规则级别的详细信息，请参阅[部署代码完整性策略：策略规则和文件规则](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/select-types-of-rules-to-create#windows-defender-application-control-policy-rules)和 cmdlet 帮助。
 
-1.  在引用主机上生成新的代码完整性策略。 下面的命令创建的策略**发布服务器**退而求其次级**哈希**。 然后，它将 XML 文件转换为 Windows 和 HGS 需采用并分别测量 CI 策略的二进制文件格式。
+1.  在引用主机上，生成新的代码完整性策略。 以下命令在**发布服务器**级别上创建策略，并回退到**哈希**。 然后，它会将 XML 文件转换为二进制文件格式，Windows 和 HGS 需要分别应用和度量 CI 策略。
 
     ```powershell
     New-CIPolicy -Level Publisher -Fallback Hash -FilePath 'C:\temp\HW1CodeIntegrity.xml' -UserPEs
@@ -93,23 +93,23 @@ Windows Server 2019 中引入新方法进行证明，称为*v2 证明*，TPM 证
     ```
 
     >[!NOTE]
-    >上面的命令在审核模式下创建的 CI 策略。 它不会阻止未经授权的二进制文件在主机上运行。 只应在生产环境中使用已实施的策略。
+    >上述命令仅在审核模式下创建 CI 策略。 它不会阻止未授权的二进制文件在主机上运行。 只应在生产中使用强制执行的策略。
 
-2.  保持在哪里，您可以轻松地找到该代码完整性策略文件 （XML 文件）。 您需要编辑此文件更高版本以强制实施的 CI 策略或在对系统所做的将来更新中更改的合并。
+2.  保留您的代码完整性策略文件（XML 文件），您可以在其中轻松找到该文件。 稍后你将需要编辑此文件，以强制执行 CI 策略或合并以后对系统进行的更新。
 
-3.  将 CI 策略应用于引用主机：
+3.  将 CI 策略应用到引用主机：
 
-    1.  运行以下命令以配置要使用你的 CI 策略的计算机。 您还可以部署具有的 CI 策略[组策略](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/deploy-windows-defender-application-control-policies-using-group-policy)或[System Center Virtual Machine Manager](https://docs.microsoft.com/system-center/vmm/guarded-deploy-host?view=sc-vmm-2019#manage-and-deploy-code-integrity-policies-with-vmm)。
+    1.  运行以下命令，将计算机配置为使用 CI 策略。 你还可以将 CI 策略部署[组策略](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/deploy-windows-defender-application-control-policies-using-group-policy)或[System Center Virtual Machine Manager](https://docs.microsoft.com/system-center/vmm/guarded-deploy-host?view=sc-vmm-2019#manage-and-deploy-code-integrity-policies-with-vmm)。
 
         ```powershell
         Invoke-CimMethod -Namespace root/Microsoft/Windows/CI -ClassName PS_UpdateAndCompareCIPolicy -MethodName Update -Arguments @{ FilePath = "C:\temp\HW1CodeIntegrity.p7b" }
         ```
 
-    2.  重新启动主机来应用策略。
+    2.  重新启动主机以应用该策略。
 
-3.  通过运行典型工作负荷来测试代码完整性策略。 这可能包括正在运行的 Vm，任何 fabric 管理代理、 备份代理，或故障排除工具在计算机上。 检查是否有任何代码完整性冲突并更新你的 CI 策略如有必要。
+3.  通过运行典型的工作负荷来测试代码完整性策略。 这可能包括正在运行的 Vm、任何构造管理代理、备份代理或计算机上的故障排除工具。 检查是否存在任何代码完整性冲突，并在必要时更新 CI 策略。
 
-4.  通过对更新后的 CI 策略 XML 文件中运行以下命令更改为已强制实施模式的 CI 策略。
+4.  通过对更新的 CI 策略 XML 文件运行以下命令，将 CI 策略更改为强制模式。
 
     ```powershell
     Set-RuleOption -FilePath 'C:\temp\HW1CodeIntegrity.xml' -Option 3 -Delete
@@ -117,7 +117,7 @@ Windows Server 2019 中引入新方法进行证明，称为*v2 证明*，TPM 证
     ConvertFrom-CIPolicy -XmlFilePath 'C:\temp\HW1CodeIntegrity.xml' -BinaryFilePath 'C:\temp\HW1CodeIntegrity_enforced.p7b'
     ```
 
-5.  CI 将策略应用到所有主机 （使用相同的硬件和软件配置） 使用以下命令：
+5.  使用以下命令将 CI 策略应用到所有主机（使用相同的硬件和软件配置）：
 
     ```powershell
     Invoke-CimMethod -Namespace root/Microsoft/Windows/CI -ClassName PS_UpdateAndCompareCIPolicy -MethodName Update -Arguments @{ FilePath = "C:\temp\HW1CodeIntegrity.p7b" }
@@ -126,43 +126,43 @@ Windows Server 2019 中引入新方法进行证明，称为*v2 证明*，TPM 证
     ```
 
     >[!NOTE]
-    >将 CI 策略应用到主机时，更新在这些计算机上的任何软件时要小心。 使用 CI 策略不符合任何内核模式驱动程序可能会阻止计算机启动。 
+    >将 CI 策略应用到主机和更新这些计算机上的任何软件时，请小心。 任何不符合 CI 策略的内核模式驱动程序都可能会阻止计算机启动。 
 
-6.  提供的二进制文件 (在此示例中，HW1CodeIntegrity\_enforced.p7b) 向 HGS 管理员。
+6.  向 HGS 管理员提供二进制文件（在本示例中为 HW1CodeIntegrity @ no__t-0enforced）。
 
-7.  HGS 域中将代码完整性策略复制到一个 HGS 服务器并运行以下命令。
+7.  在 HGS 域中，将代码完整性策略复制到 HGS 服务器，并运行以下命令。
 
-    有关`<PolicyName>`，指定描述适用于主机的类型的 CI 策略的名称。 最佳做法是在你的计算机和在其上运行的任何特殊软件配置的制造商/型号后将其命名。<br>有关`<Path>`，指定的路径和文件名的代码完整性策略。
+    对于 `<PolicyName>`，请指定 CI 策略的名称，该名称描述应用于的主机类型。 最佳做法是在您的计算机的品牌/型号以及在其上运行的任何特殊软件配置后将其命名为。<br>对于 `<Path>`，指定代码完整性策略的路径和文件名。
 
     ```powershell
     Add-HgsAttestationCIPolicy -Path <Path> -Name '<PolicyName>'
     ```
 
-## <a name="capture-the-tpm-baseline-for-each-unique-class-of-hardware"></a>捕获每个唯一的类的硬件的 TPM 基线
+## <a name="capture-the-tpm-baseline-for-each-unique-class-of-hardware"></a>捕获每个独特硬件类的 TPM 基线
 
-需要为每个唯一的类的数据中心结构中的硬件的 TPM 基线。 再次使用"引用主机"。 
+你的数据中心结构中的每个独特硬件类都需要一个 TPM 基线。 再次使用 "引用主机"。 
 
-1. 在引用主机上，确保安装 HYPER-V 角色和主机保护者 HYPER-V 支持功能。
+1. 在引用主机上，请确保安装了 Hyper-v 角色和主机保护者 Hyper-v 支持功能。
 
     >[!WARNING]
-    >主机保护者 HYPER-V 支持功能，可能与某些设备不兼容的代码完整性的基于虚拟化的保护。 我们强烈建议启用此功能前在实验室中测试此配置。 如果不这样做，可能会导致意外故障，其中包括数据丢失或蓝屏错误（也称为停止错误）。
+    >主机保护者 Hyper-v 支持功能可为可能与某些设备不兼容的代码完整性启用基于虚拟化的保护。 在启用此功能之前，强烈建议在实验室中测试此配置。 如果不这样做，可能会导致意外故障，其中包括数据丢失或蓝屏错误（也称为停止错误）。
 
     ```powershell
     Install-WindowsFeature Hyper-V, HostGuardian -IncludeManagementTools -Restart
     ```
         
-2. 若要捕获的基线策略，请在提升的 Windows PowerShell 控制台中运行以下命令。
+2. 若要捕获基线策略，请在提升的 Windows PowerShell 控制台中运行以下命令。
         
     ```powershell
     Get-HgsAttestationBaselinePolicy -Path 'HWConfig1.tcglog'
     ```
 
     >[!NOTE]
-    >将需要使用 **-SkipValidation**启用标志，如果引用主机不具有安全引导，存在 IOMMU、 基于已启用安全性的虚拟化和运行或应用代码完整性策略。 这些验证旨在让你知道的最低要求的主机上运行受防护的 VM。 使用-SkipValidation 标志不会更改 cmdlet; 的输出它只是静默处理这些错误。
+    >如果引用主机未启用安全启动、有一个 IOMMU、启用和运行基于虚拟化的安全或已应用代码完整性策略，你将需要使用 **-SkipValidation**标志。 这些验证旨在让你了解在主机上运行受防护的 VM 的最低要求。 使用-SkipValidation 标志不会更改 cmdlet 的输出;它仅静默处理错误。
 
-3.  向 HGS 管理员提供的 TPM 基线 （TCGlog 文件）。
+3.  向 HGS 管理员提供 TPM 基线（TCGlog 文件）。
 
-4.  HGS 域中将 TCGlog 文件复制到一个 HGS 服务器并运行以下命令。 通常情况下，将 （例如，"制造商模型修订版本"） 的硬件，它表示类进行仿造命名策略。
+4.  在 HGS 域中，将 TCGlog 文件复制到 HGS 服务器，并运行以下命令。 通常情况下，将策略命名为它所表示的硬件的类（例如，"制造商型号版本"）。
 
     ```powershell
     Add-HgsAttestationTpmPolicy -Path <Filename>.tcglog -Name '<PolicyName>'

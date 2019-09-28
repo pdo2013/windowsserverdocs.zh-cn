@@ -1,6 +1,6 @@
 ---
 title: 群集到群集存储复制
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: siroy
 ms.author: nedpyle
 ms.technology: storage-replica
@@ -8,24 +8,24 @@ ms.topic: get-started-article
 ms.assetid: 834e8542-a67a-4ba0-9841-8a57727ef876
 author: nedpyle
 ms.date: 04/26/2019
-description: 如何使用存储副本复制到运行 Windows Server 的另一个群集的一个群集中的卷。
-ms.openlocfilehash: 9d4b7eb05576095abd5d8c905211b2a5e88555bd
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+description: 如何使用存储副本将一个群集中的卷复制到另一个运行 Windows Server 的群集。
+ms.openlocfilehash: 81c1357ba3d37fcecc0aeb59a92472044bb9ce3b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447630"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393788"
 ---
 # <a name="cluster-to-cluster-storage-replication"></a>群集到群集存储复制
 
-> 适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
+> 适用于：Windows Server 2019、Windows Server 2016、Windows Server（半年频道）
 
-存储副本可以复制群集，包括使用存储空间直通群集复制的卷。 管理和配置与服务器到服务器复制类似。  
+存储副本可以在群集之间复制卷，包括使用存储空间直通复制群集。 管理和配置与服务器到服务器复制类似。  
 
 将在群集到群集配置中配置这些计算机和存储，其中一个群集使用另一群集及其存储组来复制其自身的存储组。 这些节点及其存储应位于单独的物理站点（尽管这不是必需的）。  
 
 > [!IMPORTANT]
-> 在此测试中，四台服务器是示例。 可以使用任意数量的每个群集，这是当前 8 存储空间直通群集和共享的存储群集 64 在受 Microsoft 的服务器。  
+> 在此测试中，四台服务器是示例。 你可以在每个群集中使用 Microsoft 支持的任意数量的服务器，该群集目前为8个存储空间直通群集，64用于共享存储群集。  
 >   
 > 本指南不涉及配置存储空间直通。 有关配置存储空间直通的信息，请参阅[存储空间直通概述](../storage-spaces/storage-spaces-direct-overview.md)。  
 
@@ -39,25 +39,25 @@ ms.locfileid: "66447630"
 
 ![通过使用 Redmond 站点中的群集复制 Bellevue 站点中的群集显示示例环境的关系图](./media/Cluster-to-Cluster-Storage-Replication/SR_ClustertoCluster.png)  
 
-**图 1:群集到群集复制**  
+@NO__T 0FIGURE 1：群集到群集复制 @ no__t-0  
 
 ## <a name="prerequisites"></a>先决条件  
 
 * Active Directory 域服务林（无需运行 Windows Server 2016）。  
-* 4-128 服务器 （2-64 服务器的两个群集） 运行 Windows Server 2019 或 Windows Server 2016 Datacenter Edition。 如果您在运行 Windows Server 2019，则可以如果确定要复制单个卷使用 Standard Edition 最多 2 TB 的大小。  
+* 4-128 台运行 Windows Server 2019 或 Windows Server 2016，Datacenter Edition 的服务器（2-64 服务器的两个群集）。 如果你运行的是 Windows Server 2019，则可以改为使用标准版，如果你只是复制一个最大为 2 TB 的卷。  
 * 两组共享存储，使用 SAS JBOD、光纤通道 SAN、共享 VHDX、存储空间直通或 iSCSI 目标。 存储需包含 HDD 和 SSD 媒体的组合。 将每个存储组设置为仅对每个群集可用（群集间没有共享访问）。  
 * 每个存储集必须允许至少创建两个虚拟磁盘，一个用于复制的数据，另一个用于日志。 物理存储在所有数据磁盘上的扇区大小必须相同。 物理存储在所有日志磁盘上的扇区大小必须相同。  
 * 每个服务器上必须具有至少一个用于同步复制的以太网/TCP 连接，但最好是 RDMA。   
 * 合适的防火墙和路由器规则，以允许所有节点之间的 ICMP、SMB（端口 445 以及用于 SMB 直通的 5445）和 WS-MAN（端口 5985）双向通信。  
 * 服务器间的网络具有足够的带宽，以包含 IO 写入工作负载和平均值为 5 毫秒的往返行程延迟（对于同步复制）。 异步复制没有延迟建议。  
 * 复制的存储不能位于包含 Windows 操作系统文件夹的驱动器上。
-* 有重要的注意事项和限制的存储空间直通复制-请查看下面的详细的信息。
+* 存储空间直通复制 & 限制存在重要的注意事项-请查看以下详细信息。
 
 许多这些要求都可通过使用 `Test-SRTopology` cmdlet 来确定。 如果将存储副本或存储副本管理工具功能安装在至少一台服务器上，则会获取此工具的访问权限。 无需将存储副本配置为使用此工具，只需安装 cmdlet。 以下步骤中包含更多信息。  
 
 ## <a name="step-1-provision-operating-system-features-roles-storage-and-network"></a>第 1 步：设置操作系统、功能、角色、存储和网络
 
-1.  Windows Server 的安装类型的所有四个服务器节点上安装 Windows Server **（桌面体验）** 。 
+1.  使用 Windows Server **（桌面体验）** 的安装类型在所有四个服务器节点上安装 Windows server。 
 
 2.  添加网络信息并将其添加到域，然后对其重启。  
 
@@ -106,16 +106,16 @@ ms.locfileid: "66447630"
     > -   所有日志磁盘的扇区大小必须相同。  
     > -   日志卷应使用基于闪存的存储，如 SSD。  Microsoft 建议日志存储应比数据存储速度快。 日志卷不得用于其他工作负荷。
     > -   数据磁盘可使用 HDD、SSD 或分层组合，并可使用镜像或奇偶校验空间或 RAID 1 或 10，或者使用 RAID 5 或 RAID 50。  
-    > -   日志卷必须至少为 8 GB 默认情况下，并且可能是更大或较小根据日志需求。
-    > -   当使用存储空间直通 （存储空间直通） 使用 NVME 或 SSD 缓存，您看到一个大于比预期配置存储空间直通群集之间的存储副本复制时的延迟增大。 延迟中的更改是按比例高得多不是在性能 + 容量配置并且没有 HDD 层和容量层中使用 NVME 和 SSD 时，将显示。
+    > -   日志卷的默认值必须至少为8GB，并且根据日志要求可能更大或更小。
+    > -   使用带有 NVME 或 SSD 缓存的存储空间直通（存储空间直通）时，在存储空间直通群集之间配置存储副本复制时，延迟时间会比预期的延迟增加。 延迟的变化比在性能 + 容量配置中使用 NVME 和 SSD 时看到的要高得多，并且没有 HDD 层和容量层。
 
-    由于 SR 的日志机制结合 NVME 相比速度较慢的媒体时的极低延迟中的体系结构限制而出现此问题。 使用存储空间直通存储空间直通缓存时，所有 IO 的 SR 日志，以及所有最近读/写 IO 的应用程序，将都发生在缓存中，永远不会对性能或容量层。 这意味着所有 SR 活动都发生在同一速度介质上-此配置不支持不建议这样做 (请参阅 https://aka.ms/srfaq日志建议)。 
+    之所以出现此问题，是因为在比较速度较慢的媒体时，SR 日志机制内的体系结构限制与 NVME 的延迟极低。 使用存储空间直通存储空间直通缓存时，所有 SR 日志的 IO 以及应用程序的所有最新读/写 IO 都将出现在缓存中，而从不会出现在性能层或容量层上。 这意味着所有 SR 活动都在同一速度介质上进行-不建议使用此配置（有关日志建议，请参阅 https://aka.ms/srfaq ）。 
 
-    当 Hdd 使用存储空间直通，则不能禁用或避免缓存。 解决方法是，如果只使用 SSD 和 NVME，可以配置只是性能和容量层。 如果使用的该配置，并通过将 SR 日志放在仅使用他们所服务的容量层上的数据卷的性能层上，将避免上面所述的高延迟问题。 可以使用更快、 速度较慢的 Ssd 和 NVME 没有混合实现相同。
+    将存储空间直通与 Hdd 一起使用时，不能禁用或避免缓存。 一种解决方法是，如果仅使用 SSD 和 NVME，则可以仅配置性能层和容量层。 如果使用该配置，并且只通过将 SR 日志放在性能层上，只使用其服务在容量层上的数据卷，则可以避免上述高延迟问题。 同样，也可以通过混合速度更快、速度更慢的 Ssd，而不是 NVME。
 
-    此解决方法当然不是理想之选，某些客户可能无法能够使用它。 SR 团队正致力于优化和减少发生这些人工瓶颈在将来的更新的日志机制。 为此，没有 ETA 但时可用于测试点击客户，将更新此常见问题解答。 
+    此解决方法当然并不理想，一些客户可能无法利用它。 SR 团队正在致力于优化和更新日志机制，以便在将来减少发生的这些类瓶颈。 此功能没有 ETA，但当可用于点击客户进行测试时，将会更新此 FAQ。 
 
--   **对于 jbod 存储设备：**  
+-   **对于 JBOD 机箱：**  
 
 1. 确保每个群集只能看到该站点的存储机箱，且 SAS 连接已正确配置。  
 
@@ -133,7 +133,7 @@ ms.locfileid: "66447630"
 
 2. 使用供应商文档预配存储。  
 
--   **为存储空间直接：**  
+-   **对于存储空间直通：**  
 
 1. 通过部署存储空间直通，确保每个群集只能看到该站点的存储机箱。 (https://docs.microsoft.com/windows-server/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct) 
 
@@ -157,7 +157,7 @@ ms.locfileid: "66447630"
    ![显示复制拓扑报告结果的屏幕](./media/Cluster-to-Cluster-Storage-Replication/SRTestSRTopologyReport.png)      
 
 ## <a name="step-2-configure-two-scale-out-file-server-failover-clusters"></a>步骤 2：配置两个横向扩展文件服务器故障转移群集  
-现在可以创建两个常规故障转移群集。 配置、验证和测试完成后，将使用存储副本对其复制。 直接在群集节点上或从包含 Windows Server 的远程服务器管理工具的远程管理计算机，您可以执行所有以下步骤。  
+现在可以创建两个常规故障转移群集。 配置、验证和测试完成后，将使用存储副本对其复制。 你可以直接在群集节点上或从包含 Windows Server 远程服务器管理工具的远程管理计算机执行以下所有步骤。  
 
 ### <a name="graphical-method"></a>图形方法  
 
@@ -170,10 +170,10 @@ ms.locfileid: "66447630"
 4.  配置文件共享见证或云见证。  
 
     > [!NOTE]  
-    > WIndows Server 现在针对云 (Azure) 中包含一个选项-基于见证服务器。 你可以选择此仲裁选项来替代文件共享见证。  
+    > WIndows Server 现在包含基于云（Azure）的见证的选项。 你可以选择此仲裁选项来替代文件共享见证。  
 
     > [!WARNING]  
-    > 有关仲裁配置的详细信息，请参阅**见证配置**主题中[配置和管理仲裁](../../failover-clustering/manage-cluster-quorum.md)。 有关 `Set-ClusterQuorum` cmdlet 上的详细信息，请参阅 [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum)。  
+    > 有关仲裁配置的详细信息，请参阅[配置和管理仲裁](../../failover-clustering/manage-cluster-quorum.md)中的**见证服务器配置**部分。 有关 `Set-ClusterQuorum` cmdlet 上的详细信息，请参阅 [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum)。  
 
 5.  将 **Redmond** 站点中的一个磁盘添加到群集 CSV。 若要执行此操作，右键单击“**存储**”部分的“**磁盘**”节点中的一个源磁盘，然后单击“**添加到群集共享卷**”。  
 
@@ -202,23 +202,23 @@ ms.locfileid: "66447630"
     ```  
 
     > [!NOTE]  
-    > WIndows Server 现在针对云 (Azure) 中包含一个选项-基于见证服务器。 你可以选择此仲裁选项来替代文件共享见证。  
+    > WIndows Server 现在包含基于云（Azure）的见证的选项。 你可以选择此仲裁选项来替代文件共享见证。  
 
     > [!WARNING]  
-    > 有关仲裁配置的详细信息，请参阅**见证配置**主题中[配置和管理仲裁](../../failover-clustering/manage-cluster-quorum.md)。 有关 `Set-ClusterQuorum` cmdlet 上的详细信息，请参阅 [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum)。  
+    > 有关仲裁配置的详细信息，请参阅[配置和管理仲裁](../../failover-clustering/manage-cluster-quorum.md)中的**见证服务器配置**部分。 有关 `Set-ClusterQuorum` cmdlet 上的详细信息，请参阅 [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum)。  
 
 4.  使用[配置横向扩展文件服务器](https://technet.microsoft.com/library/hh831718.aspx)中的说明在两个群集上均创建群集横向扩展文件服务器  
 
-## <a name="step-3-set-up-cluster-to-cluster-replication-using-windows-powershell"></a>步骤 3:设置使用 Windows PowerShell 的群集到群集复制  
-现在使用 Windows PowerShell 设置群集到群集复制。 您可以直接在节点上或从包含 Windows Server 的远程服务器管理工具的远程管理计算机执行所有以下步骤  
+## <a name="step-3-set-up-cluster-to-cluster-replication-using-windows-powershell"></a>步骤 3:使用 Windows PowerShell 设置群集以进行群集复制  
+现在使用 Windows PowerShell 设置群集到群集复制。 你可以直接在节点上或从包含 Windows Server 的远程管理计算机执行以下所有步骤远程服务器管理工具  
 
-1. 通过运行授予对另一个群集的第一个群集完全访问**授予 SRAccess** cmdlet 上的第一个群集中的任何节点或远程。  Windows Server 远程服务器管理工具
+1. 通过在第一个群集中的任何节点上运行**SRAccess** cmdlet，或以远程方式向第一个群集授予对其他群集的完全访问权限。  Windows Server 远程服务器管理工具
 
    ```PowerShell
    Grant-SRAccess -ComputerName SR-SRV01 -Cluster SR-SRVCLUSB  
    ```  
 
-2. 通过运行授予对另一个群集的第二个群集完全访问**授予 SRAccess** cmdlet 在第二个群集中的任何节点上或远程。  
+2. 通过在第二个群集中的任何节点上运行**SRAccess** cmdlet，或以远程方式向第二个群集授予对其他群集的完全访问权限。  
 
    ```PowerShell
    Grant-SRAccess -ComputerName SR-SRV03 -Cluster SR-SRVCLUSA  
@@ -298,7 +298,7 @@ ms.locfileid: "66447630"
 
 ## <a name="step-4-manage-replication"></a>步骤 4：管理复制
 
-现在将管理并操作群集到群集复制。 直接在群集节点上或从包含 Windows Server 的远程服务器管理工具的远程管理计算机，您可以执行所有以下步骤。  
+现在将管理并操作群集到群集复制。 你可以直接在群集节点上或从包含 Windows Server 远程服务器管理工具的远程管理计算机执行以下所有步骤。  
 
 1.  使用 **Get-ClusterGroup** 或**故障转移群集管理器**确定复制的当前源和目标及其状态。  Windows Server 远程服务器管理工具
 
@@ -365,14 +365,14 @@ ms.locfileid: "66447630"
     ```  
 
     > [!NOTE]  
-    > Windows Server 会阻止角色切换初始同步进行时，它可能会导致数据丢失，如果在尝试进行切换在允许初始复制完成之前。 在初始同步完成前不要强制切换方向。
+    > Windows Server 在初始同步正在进行时阻止角色切换，因为如果在允许初始复制完成前尝试进行切换，则会导致数据丢失。 在初始同步完成前不要强制切换方向。
 
     检查事件日志以查看复制方向的更改和恢复恢复模式发生，然后进行协调。 写入 IO 然后可以写入到新的源服务器所拥有的存储。 更改复制方向将阻止在以前的源计算机上写入 IO。  
 
     > [!NOTE]  
     > 在复制时，目标群集磁盘将始终显示为**联机（无访问权限）** 。  
 
-4.  若要更改默认的 8 GB 日志大小，请使用**Set-srgroup**源和目标存储副本组上。  
+4.  若要更改默认的 8 GB 日志大小，请在源和目标存储副本组上使用**get-srgroup** 。  
 
     > [!IMPORTANT]  
     > 默认日志大小为 8 GB。 根据 **Test-SRTopology** cmdlet 的结果，可以决定使用具有较高值或较低值的 LogSizeInBytes。  
@@ -390,8 +390,8 @@ ms.locfileid: "66447630"
 ## <a name="see-also"></a>请参阅
 
 -   [存储副本概述](storage-replica-overview.md) 
--   [使用共享的存储拉伸群集复制](stretch-cluster-replication-using-shared-storage.md)  
+-   [使用共享存储拉伸群集复制](stretch-cluster-replication-using-shared-storage.md)  
 -   [服务器到服务器存储复制](server-to-server-storage-replication.md)  
--   [存储副本：已知的问题](storage-replica-known-issues.md)  
+-   [存储副本：已知问题](storage-replica-known-issues.md)  
 -   [存储副本：常见问题解答](storage-replica-frequently-asked-questions.md)  
 -   [Windows Server 2016 中的存储空间直通](../storage-spaces/storage-spaces-direct-overview.md)  

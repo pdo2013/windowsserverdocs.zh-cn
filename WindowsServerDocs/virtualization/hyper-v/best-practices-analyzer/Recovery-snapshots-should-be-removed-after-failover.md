@@ -1,7 +1,7 @@
 ---
 title: 故障转移后，应删除恢复快照
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 922115fa-e8dd-4055-aaf1-4a4437c5cf28
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 4663320df91019fc7dc1d8ca7ffdb2fcc3e0de42
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b8574956fb1b46ca0cf9678187fffcd68c2d261
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837678"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393526"
 ---
 # <a name="recovery-snapshots-should-be-removed-after-failover"></a>故障转移后，应删除恢复快照
 
@@ -30,18 +30,18 @@ ms.locfileid: "59837678"
 |**Severity**|警告|  
 |**类别**|操作|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。  
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。  
   
 ## <a name="issue"></a>**问题**  
-*一个故障转移虚拟机具有一个或多个恢复快照。*  
+*故障转移虚拟机有一个或多个恢复快照。*  
   
-## <a name="impact"></a>**影响**  
-*可用空间可能在存储快照文件的物理磁盘上运行。如果发生这种情况，可以在物理存储上不执行任何额外的磁盘操作。可能会影响任何依赖于物理存储的虚拟机。这会影响以下虚拟机：*  
+## <a name="impact"></a>**对**  
+@no__t 0Available 的空间可能在存储快照文件的物理磁盘上运行。如果发生这种情况，则不能在物理存储上执行其他磁盘操作。依赖于物理存储的任何虚拟机都可能会受到影响。这会影响以下虚拟机： *  
   
-\<虚拟机的列表 >  
+@no__t-虚拟机的 0list >  
   
 ## <a name="resolution"></a>**解决方法**  
-*对于每个故障转移虚拟机，使用 Complete-vmfailover cmdlet 在 Windows PowerShell 中可删除恢复快照，并指示故障转移完成。*  
+*对于每个故障转移的虚拟机，请使用 Windows PowerShell 中的 Start-vmfailover cmdlet 来删除恢复快照并指示故障转移完成。*  
   
 
 

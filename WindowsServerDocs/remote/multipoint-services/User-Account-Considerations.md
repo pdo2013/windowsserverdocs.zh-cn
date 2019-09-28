@@ -2,7 +2,7 @@
 title: 用户帐户注意事项
 description: 提供 MultiPoint Services 的用户帐户、用户名和密码注意事项
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: c4a0355b5e081e0673447fb86f1475d0b34c3792
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: c81d14d46e96d39676e1fb6fa31892e0d5e1b683
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871498"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389261"
 ---
 # <a name="user-account-considerations"></a>用户帐户注意事项
 本主题介绍你作为管理用户在创建和管理用户帐户时应考虑的问题。 可在 MultiPoint 管理器的 "用户" 选项卡中管理用户帐户。 有关详细信息，请参阅[管理用户帐户](Manage-User-Accounts.md)主题。  

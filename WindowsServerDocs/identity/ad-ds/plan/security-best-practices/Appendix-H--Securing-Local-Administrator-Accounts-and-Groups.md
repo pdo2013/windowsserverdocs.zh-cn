@@ -7,30 +7,30 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 71eea3f623968172076708dbea34d5bbf4a07684
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7e0cff62851250009d8af6ec7d87ec8191dcaec0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858688"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408634"
 ---
-# <a name="appendix-h-securing-local-administrator-accounts-and-groups"></a>附录 h:保护本地管理员帐户和组
+# <a name="appendix-h-securing-local-administrator-accounts-and-groups"></a>附录 H：保护本地管理员帐户和组
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
 
-## <a name="appendix-h-securing-local-administrator-accounts-and-groups"></a>附录 h:保护本地管理员帐户和组  
-在所有版本的当前处于主流支持的 Windows，默认情况下，这使得该帐户无法用于传递哈希和其他凭据盗窃攻击禁用本地管理员帐户。 但是，在环境中包含的旧操作系统或在其中启用本地管理员帐户，这些帐户可以使用如前面所述在成员服务器和工作站之间传播泄漏。 每个本地管理员帐户和组应遵循的分步说明中所述进行保护。  
+## <a name="appendix-h-securing-local-administrator-accounts-and-groups"></a>附录 H：保护本地管理员帐户和组  
+在目前处于主流支持的所有 Windows 版本中，本地管理员帐户在默认情况下处于禁用状态，这将使该帐户无法用于传递哈希和其他凭据被盗攻击。 但是，在包含旧版操作系统的环境中或在其中启用了本地管理员帐户的环境中，可以使用这些帐户，如前面所述，在成员服务器和工作站之间传播安全漏洞。 应按照下面的分步说明中所述，保护每个本地管理员帐户和组。  
 
-有关保护内置管理员 (BA) 组中的注意事项的详细信息，请参阅[实现最小特权的管理模型](../../../ad-ds/plan/security-best-practices/Implementing-Least-Privilege-Administrative-Models.md)。  
+有关保护内置管理员（BA）组的注意事项的详细信息，请参阅[实施最少特权管理模型](../../../ad-ds/plan/security-best-practices/Implementing-Least-Privilege-Administrative-Models.md)。  
 
-#### <a name="controls-for-local-administrator-accounts"></a>控件的本地管理员帐户  
-在您的林中每个域中的本地管理员帐户，应配置下列设置：  
+#### <a name="controls-for-local-administrator-accounts"></a>本地管理员帐户的控件  
+对于林中每个域中的本地管理员帐户，应配置下列设置：  
 
--   配置 Gpo 以限制在已加入域的系统上的域的管理员帐户的使用  
-    -   在创建并链接到 Ou 中的每个域的工作站和成员服务器的一个或多个 Gpo，将管理员帐户添加到中的以下用户权限**计算机配置 \ 策略 \windows 设置 \ 安全设置 \ 本地策略 \ Policies\用户权限分配**:  
+-   配置 Gpo 以限制域的管理员帐户在加入域的系统上的使用  
+    -   在你创建的一个或多个 Gpo 中，并链接到每个域中的工作站和成员服务器 Ou，将管理员帐户添加到 "**计算机配置 \windows 设置 \ 本地策略 \ 本地策略 \ 用户" 权限中的以下用户权限分配**：  
 
         -   拒绝从网络访问这台计算机  
 
@@ -42,225 +42,225 @@ ms.locfileid: "59858688"
 
 #### <a name="step-by-step-instructions-to-secure-local-administrators-groups"></a>保护本地管理员组的分步说明  
 
-###### <a name="configuring-gpos-to-restrict-administrator-account-on-domain-joined-systems"></a>配置 Gpo 以限制在已加入域的系统上的管理员帐户  
+###### <a name="configuring-gpos-to-restrict-administrator-account-on-domain-joined-systems"></a>在已加入域的系统上配置 Gpo 以限制管理员帐户  
 
-1.  在中**服务器管理器**，单击**工具**，然后单击**组策略管理**。  
+1.  在**服务器管理器**中，单击 "**工具**"，然后单击 "**组策略管理**"。  
 
-2.  在控制台树中，展开<Forest>\Domains\\<Domain>，然后**组策略对象**(其中<Forest>是林的名称和<Domain>是，您希望对域的名称设置组策略）。  
+2.  在控制台树中，展开 "<Forest> \ 域 @ no__t"，然后**组策略对象**（其中，@no__t 为林的名称，<Domain> 是要设置组策略的域的名称）。  
 
-3.  在控制台树中，右键单击**组策略对象**，然后单击**新建**。  
+3.  在控制台树中，右键单击**组策略对象**"，然后单击"**新建**"。  
 
-    ![安全的本地管理员帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_101.png)  
+    ![保护本地管理帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_101.png)  
 
-4.  在中**新的 GPO**对话框中，键入**<GPO Name>**，然后单击**确定**(其中<GPO Name>是此 GPO 的名称)。  
+4.  在 "**新建 GPO** " 对话框中，键入 **<GPO Name>** ，然后单击 **"确定"** （其中 <GPO Name> 是此 GPO 的名称）。  
 
-    ![安全的本地管理员帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_102.png)  
+    ![保护本地管理帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_102.png)  
 
-5.  在细节窗格中，右键单击**<GPO Name>**，然后单击**编辑**。  
+5.  在详细信息窗格中，右键单击 **<GPO Name>** ，然后单击 "**编辑**"。  
 
-6.  导航到**计算机配置 \ 策略 \windows 设置 \ 安全设置 \ 本地策略**，然后单击**用户权限分配**。  
+6.  导航到 "**计算机配置 \windows 设置 \ 安全设置 \ 本地策略**"，然后单击 "**用户权限分配**"。  
 
-    ![安全的本地管理员帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_103.png)  
+    ![保护本地管理帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_103.png)  
 
-7.  配置用户权限来防止本地管理员帐户通过网络访问成员服务器和工作站通过执行以下操作：  
+7.  通过执行以下操作，配置用户权限以阻止本地管理员帐户通过网络访问成员服务器和工作站：  
 
-    1.  双击**拒绝从网络访问这台计算机**，然后选择**定义这些策略设置**。  
+    1.  双击 **"拒绝从网络访问此计算机"** ，并选择 "**定义这些策略设置**"。  
 
-    2.  单击**添加用户或组**，键入本地 Administrator 帐户的用户名，然后单击**确定**。 此用户名将是**管理员**，安装 Windows 时的默认行为。  
+    2.  单击 "**添加用户或组**"，键入本地管理员帐户的用户名，然后单击 **"确定"** 。 此用户名将是 "**管理员**"，默认情况下安装 Windows 时。  
 
-        ![安全的本地管理员帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_104.png)  
+        ![保护本地管理帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_104.png)  
 
     3.  单击“确定”。  
 
         > [!IMPORTANT]  
-        > 将管理员帐户添加到这些设置，当您指定是否要配置的本地管理员帐户或域管理员帐户的帐户的标签。 例如，若要添加到这些 TAILSPINTOYS 域管理员帐户拒绝权限，您应浏览到 TAILSPINTOYS 域的管理员帐户中，这将显示为 TAILSPINTOYS\Administrator。 如果键入**管理员**在这些用户权限设置组策略对象编辑器中，您将限制 GPO 应用于每台计算机上的本地管理员帐户，如前面所述。  
+        > 将管理员帐户添加到这些设置时，你可以指定是要配置本地管理员帐户还是域管理员帐户。 例如，若要将 AZURE-TAILSPINTOYS 域的管理员帐户添加到这些拒绝权限，请浏览到 AZURE-TAILSPINTOYS 域的管理员帐户，该帐户将显示为 TAILSPINTOYS\Administrator。 如果在组策略对象编辑器中的 "用户权限" 设置中键入**管理员**，则会限制应用 GPO 的每台计算机上的本地管理员帐户，如前文所述。  
 
-8.  配置用户权限以防止本地管理员帐户作为批处理作业登录通过执行以下操作：  
+8.  通过执行以下操作，配置用户权限以阻止本地管理员帐户作为批处理作业登录：  
 
-    1.  双击**拒绝作为批处理作业登录**，然后选择**定义这些策略设置**。  
+    1.  双击 "**拒绝作为批处理作业登录"** ，然后选择 "**定义这些策略设置**"。  
 
-    2.  单击**添加用户或组**，键入本地 Administrator 帐户的用户名，然后单击**确定**。 此用户名将是**管理员**，安装 Windows 时的默认行为。  
+    2.  单击 "**添加用户或组**"，键入本地管理员帐户的用户名，然后单击 **"确定"** 。 此用户名将是 "**管理员**"，默认情况下安装 Windows 时。  
 
-        ![安全的本地管理员帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_105.png)  
+        ![保护本地管理帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_105.png)  
 
-    3.  单击 **“确定”**。  
-
-        > [!IMPORTANT]  
-        > 将管理员帐户添加到这些设置，您可以指定是否要配置本地 Administrator 帐户或域管理员帐户的帐户的标签。 例如，若要添加到这些 TAILSPINTOYS 域管理员帐户拒绝权限，您应浏览到 TAILSPINTOYS 域的管理员帐户中，这将显示为 TAILSPINTOYS\Administrator。 如果键入**管理员**在这些用户权限设置组策略对象编辑器中，您将限制 GPO 应用于每台计算机上的本地管理员帐户，如前面所述。  
-
-9. 配置用户权限以防止本地管理员帐户作为服务登录通过执行以下操作：  
-
-    1.  双击**拒绝作为服务登录**，然后选择**定义这些策略设置**。  
-
-    2.  单击**添加用户或组**，键入本地 Administrator 帐户的用户名，然后单击**确定**。 此用户名将是**管理员**，安装 Windows 时的默认行为。  
-
-        ![安全的本地管理员帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_106.png)  
-
-    3.  单击 **“确定”**。  
+    3.  单击 **“确定”** 。  
 
         > [!IMPORTANT]  
-        > 将管理员帐户添加到这些设置，您可以指定是否要配置本地 Administrator 帐户或域管理员帐户的帐户的标签。 例如，若要添加到这些 TAILSPINTOYS 域管理员帐户拒绝权限，您应浏览到 TAILSPINTOYS 域的管理员帐户中，这将显示为 TAILSPINTOYS\Administrator。 如果键入**管理员**在这些用户权限设置组策略对象编辑器中，您将限制 GPO 应用于每台计算机上的本地管理员帐户，如前面所述。  
+        > 当你将管理员帐户添加到这些设置时，你将指定你是通过标记帐户的方式配置本地管理员帐户还是域管理员帐户。 例如，若要将 AZURE-TAILSPINTOYS 域的管理员帐户添加到这些拒绝权限，请浏览到 AZURE-TAILSPINTOYS 域的管理员帐户，该帐户将显示为 TAILSPINTOYS\Administrator。 如果在组策略对象编辑器中的 "用户权限" 设置中键入**管理员**，则会限制应用 GPO 的每台计算机上的本地管理员帐户，如前文所述。  
 
-10. 配置用户权限来防止本地管理员帐户访问成员服务器和工作站通过远程桌面服务通过执行以下操作：  
+9. 通过执行以下操作，配置用户权限以阻止本地管理员帐户作为服务登录：  
 
-    1.  双击**拒绝通过远程桌面服务登录**，然后选择**定义这些策略设置**。  
+    1.  双击 "**拒绝作为服务登录"** ，然后选择 "**定义这些策略设置**"。  
 
-    2.  单击**添加用户或组**，键入本地 Administrator 帐户的用户名，然后单击**确定**。 此用户名将是**管理员**，安装 Windows 时的默认行为。  
+    2.  单击 "**添加用户或组**"，键入本地管理员帐户的用户名，然后单击 **"确定"** 。 此用户名将是 "**管理员**"，默认情况下安装 Windows 时。  
 
-        ![安全的本地管理员帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_107.png)  
+        ![保护本地管理帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_106.png)  
 
-    3.  单击 **“确定”**。  
+    3.  单击 **“确定”** 。  
 
         > [!IMPORTANT]  
-        > 将管理员帐户添加到这些设置，您可以指定是否要配置本地 Administrator 帐户或域管理员帐户的帐户的标签。 例如，若要添加到这些 TAILSPINTOYS 域管理员帐户拒绝权限，您应浏览到 TAILSPINTOYS 域的管理员帐户中，这将显示为 TAILSPINTOYS\Administrator。 如果键入**管理员**在这些用户权限设置组策略对象编辑器中，您将限制 GPO 应用于每台计算机上的本地管理员帐户，如前面所述。  
+        > 当你将管理员帐户添加到这些设置时，你将指定你是通过标记帐户的方式配置本地管理员帐户还是域管理员帐户。 例如，若要将 AZURE-TAILSPINTOYS 域的管理员帐户添加到这些拒绝权限，请浏览到 AZURE-TAILSPINTOYS 域的管理员帐户，该帐户将显示为 TAILSPINTOYS\Administrator。 如果在组策略对象编辑器中的 "用户权限" 设置中键入**管理员**，则会限制应用 GPO 的每台计算机上的本地管理员帐户，如前文所述。  
 
-11. 若要退出**组策略管理编辑器**，单击**文件**，然后单击**退出**。  
+10. 通过执行以下操作，配置用户权限以阻止本地管理员帐户通过远程桌面服务访问成员服务器和工作站：  
 
-12. 在中**组策略管理**，将 GPO 链接到的成员服务器和工作站的 Ou，执行以下操作：  
+    1.  双击 "**拒绝通过远程桌面服务登录"** ，然后选择 "**定义这些策略设置**"。  
 
-    1.  导航到<Forest>\Domains\\ <Domain> (其中<Forest>是林的名称和<Domain>是你想要将组策略设置的域的名称)。  
+    2.  单击 "**添加用户或组**"，键入本地管理员帐户的用户名，然后单击 **"确定"** 。 此用户名将是 "**管理员**"，默认情况下安装 Windows 时。  
 
-    2.  右键单击该 GPO 将应用于和单击的 OU**链接现有 GPO**。  
+        ![保护本地管理帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_107.png)  
 
-        ![安全的本地管理员帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_108.png)  
+    3.  单击 **“确定”** 。  
 
-    3.  选择你创建的 GPO，然后单击**确定**。  
+        > [!IMPORTANT]  
+        > 当你将管理员帐户添加到这些设置时，你将指定你是通过标记帐户的方式配置本地管理员帐户还是域管理员帐户。 例如，若要将 AZURE-TAILSPINTOYS 域的管理员帐户添加到这些拒绝权限，请浏览到 AZURE-TAILSPINTOYS 域的管理员帐户，该帐户将显示为 TAILSPINTOYS\Administrator。 如果在组策略对象编辑器中的 "用户权限" 设置中键入**管理员**，则会限制应用 GPO 的每台计算机上的本地管理员帐户，如前文所述。  
 
-        ![安全的本地管理员帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_109.png)  
+11. 若要退出**组策略管理编辑器**，请单击 "**文件**"，然后单击 "**退出**"。  
 
-    4.  创建链接到包含工作站的所有其他 Ou。  
+12. 在**组策略管理**中，通过执行以下操作将 GPO 链接到成员服务器和工作站 ou：  
 
-    5.  创建链接到包含成员服务器的所有其他 Ou。  
+    1.  导航到 <Forest> 域 @ no__t @ no__t-2 （其中，<Forest> 是林的名称，<Domain> 是要在其中设置组策略的域的名称）。  
+
+    2.  右键单击 GPO 将应用到的 OU，然后单击 "**链接现有 GPO**"。  
+
+        ![保护本地管理帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_108.png)  
+
+    3.  选择已创建的 GPO，然后单击 **"确定"** 。  
+
+        ![保护本地管理帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_109.png)  
+
+    4.  创建指向包含工作站的所有其他 Ou 的链接。  
+
+    5.  创建指向包含成员服务器的所有其他 Ou 的链接。  
 
 #### <a name="verification-steps"></a>验证步骤  
 
-##### <a name="verify-deny-access-to-this-computer-from-the-network-gpo-settings"></a>验证"拒绝从网络访问这台计算机"GPO 设置  
+##### <a name="verify-deny-access-to-this-computer-from-the-network-gpo-settings"></a>验证 "拒绝从网络访问此计算机" GPO 设置  
 
-从任何成员服务器或不受 GPO 更改 （例如跳转服务器） 的工作站，尝试通过 GPO 更改的会影响网络访问的成员服务器或工作站。 若要验证的 GPO 设置，请尝试通过使用系统驱动器映射**NET USE**命令。  
+在不受 GPO 更改（如跳转服务器）影响的任何成员服务器或工作站上，尝试通过受 GPO 更改影响的网络访问成员服务器或工作站。 若要验证 GPO 设置，请尝试使用**NET USE**命令映射系统驱动器。  
 
-1.  在本地登录到任何成员服务器或工作站的不受 GPO 更改。  
+1.  本地登录到不受 GPO 更改影响的任何成员服务器或工作站。  
 
-2.  使用鼠标，将指针移动到屏幕的右上角或右下角。 当**超级按钮**栏出现后，单击**搜索**。  
+2.  用鼠标将指针移到屏幕的右上角或右下角。 出现**超级按钮**栏时，单击 "**搜索**"。  
 
-3.  在**搜索**框中，键入**命令提示符**，右键单击**命令提示符下**，然后单击**以管理员身份运行**若要打开提升命令提示符。  
+3.  在**搜索**框中，键入 "**命令提示符**"，右键单击 "**命令提示符**"，然后单击 "以**管理员身份运行**" 以打开提升的命令提示符。  
 
-4.  当系统提示您批准提升，请单击**是**。  
+4.  当提示批准提升时，单击 **"是"** 。  
 
-    ![安全的本地管理员帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_110.png)  
+    ![保护本地管理帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_110.png)  
 
-5.  在中**命令提示符**窗口中，键入**net 使用\\ \\ <Server Name>\c$ /user:<Server Name>\Administrator**，其中<Server Name>是成员名称服务器或工作站尝试通过网络访问。  
-
-    > [!NOTE]  
-    > 要在网络上访问同一个系统必须为本地管理员凭据。  
-
-6.  以下屏幕截图显示了应出现的错误消息。  
-
-    ![安全的本地管理员帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_111.png)  
-
-##### <a name="verify-deny-log-on-as-a-batch-job-gpo-settings"></a>验证"拒绝登录作为批处理作业"GPO 设置  
-从任何成员服务器或工作站的 GPO 更改影响，在本地登录。  
-
-###### <a name="create-a-batch-file"></a>创建一个批处理文件  
-
-1.  使用鼠标，将指针移动到屏幕的右上角或右下角。 当**超级按钮**栏出现后，单击**搜索**。  
-
-2.  在中**搜索**框中，键入**记事本**，然后单击**记事本**。  
-
-3.  在中**记事本**，类型**dir c:**。  
-
-4.  单击**文件**，然后单击**另存为**。  
-
-5.  在中**文件名**框中，键入 **<Filename>.bat** (其中<Filename>是新的批处理文件的名称)。  
-
-###### <a name="schedule-a-task"></a>计划的任务  
-
-1.  使用鼠标，将指针移动到屏幕的右上角或右下角。 当**超级按钮**栏出现后，单击**搜索**。  
-
-2.  在中**搜索**框中，键入任务计划程序，然后单击**任务计划程序**。  
+5.  在 "**命令提示符**" 窗口中，键入**net use \\ @ no__t-3 @ no__t-4\c $/user： <Server Name> \ 管理员**，其中 <Server Name> 是你尝试通过网络访问的成员服务器或工作站的名称。  
 
     > [!NOTE]  
-    > 在计算机上运行 Windows 8 中，在**搜索**框中，键入**计划任务**，然后单击**计划任务**。  
+    > 本地管理员凭据必须来自你尝试通过网络访问的同一系统。  
 
-3.  单击**操作**，然后单击**创建任务**。  
+6.  以下屏幕截图显示应显示的错误消息。  
 
-4.  在中**创建任务**对话框中，键入**<Task Name>** (其中<Task Name>是新的任务的名称)。  
+    ![保护本地管理帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_111.png)  
 
-5.  单击**操作**选项卡，然后单击**新建**。  
+##### <a name="verify-deny-log-on-as-a-batch-job-gpo-settings"></a>验证 "拒绝作为批处理作业登录" GPO 设置  
+在受 GPO 影响的任何成员服务器或工作站上，本地登录。  
 
-6.  在中**操作**字段中，单击**启动程序**。  
+###### <a name="create-a-batch-file"></a>创建批处理文件  
 
-7.  在中**程序/脚本**字段中，单击**浏览**，找到并选择中创建的批处理文件**创建一个批处理文件**部分，然后单击**打开**.  
+1.  用鼠标将指针移到屏幕的右上角或右下角。 出现**超级按钮**栏时，单击 "**搜索**"。  
 
-8.  单击 **“确定”**。  
+2.  在**搜索**框中，键入**notepad**，然后单击 "**记事本**"。  
+
+3.  在**记事本**中，键入**dir c：** 。  
+
+4.  单击 "**文件**"，然后单击 "**另存为**"。  
+
+5.  在 "**文件名" 框中**，键入 **<Filename>** （其中，<Filename> 是新批处理文件的名称）。  
+
+###### <a name="schedule-a-task"></a>计划任务  
+
+1.  用鼠标将指针移到屏幕的右上角或右下角。 出现**超级按钮**栏时，单击 "**搜索**"。  
+
+2.  在**搜索**框中，键入 "任务计划程序"，然后单击 "**任务计划程序**"。  
+
+    > [!NOTE]  
+    > 在运行 Windows 8 的计算机上的 "**搜索**" 框中，键入 "**计划任务**"，然后单击 "**计划任务**"。  
+
+3.  单击 "**操作**"，然后单击 "**创建任务**"。  
+
+4.  在 "**创建任务**" 对话框中，键入 **<Task Name>** （其中 @no__t 为新任务的名称）。  
+
+5.  单击 "**操作**" 选项卡，然后单击 "**新建**"。  
+
+6.  在 "**操作**" 字段中，单击 "**启动程序**"。  
+
+7.  在 "**程序/脚本**" 字段中，单击 "**浏览**"，找到并选择 "**创建批处理文件**" 部分中创建的批处理文件，然后单击 "**打开**"。  
+
+8.  单击 **“确定”** 。  
 
 9. 单击“常规”选项卡。  
 
-10. 在中**安全选项**字段中，单击**更改用户或组**。  
+10. 在 "**安全选项**" 字段中，单击 "**更改用户或组**"。  
 
-11. 类型系统的本地管理员帐户的名称，请单击**检查名称**，然后单击**确定**。  
+11. 键入系统本地管理员帐户的名称，单击 "**检查名称**"，然后单击 **"确定"** 。  
 
-12. 选择**运行或不用户是否登录**并**不存储密码**。 任务将仅具有本地计算机资源的访问权限。  
+12. 选择 **"运行用户是否登录"，或者 "** 不**存储密码**"。 该任务将仅有权访问本地计算机资源。  
 
-13. 单击 **“确定”**。  
+13. 单击 **“确定”** 。  
 
-14. 应出现一个对话框，请求的用户帐户凭据运行任务。  
+14. 应显示一个对话框，请求用户帐户凭据以运行任务。  
 
-15. 输入凭据后，单击**确定**。  
+15. 输入凭据后，单击 **"确定"** 。  
 
-16. 应显示类似于以下的对话框。  
+16. 应出现如下所示的对话框。  
 
-    ![安全的本地管理员帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_112.png)  
+    ![保护本地管理帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_112.png)  
 
-###### <a name="verify-deny-log-on-as-a-service-gpo-settings"></a>验证"拒绝作为登录服务"GPO 设置  
+###### <a name="verify-deny-log-on-as-a-service-gpo-settings"></a>验证 "拒绝作为服务登录" GPO 设置  
 
-1.  从任何成员服务器或工作站的 GPO 更改影响，在本地登录。  
+1.  在受 GPO 影响的任何成员服务器或工作站上，本地登录。  
 
-2.  使用鼠标，将指针移动到屏幕的右上角或右下角。 当**超级按钮**栏出现后，单击**搜索**。  
+2.  用鼠标将指针移到屏幕的右上角或右下角。 出现**超级按钮**栏时，单击 "**搜索**"。  
 
-3.  在中**搜索**框中，键入**services**，然后单击**Services**。  
+3.  在**搜索**框中，键入 " **services**"，然后单击 "**服务**"。  
 
-4.  找到并双击**打印后台处理程序**。  
-
-5.  单击 **“登录”** 选项卡。  
-
-6.  在中**作为登录**字段中，单击**此帐户**。  
-
-7.  单击**浏览**，键入系统的本地管理员帐户，单击**检查名称**，然后单击**确定**。  
-
-8.  在中**密码**并**确认密码**字段中，键入所选的帐户的密码，然后单击**确定**。  
-
-9. 单击**确定**三次。  
-
-10. 右键单击**打印后台处理程序**然后单击**重新启动**。  
-
-11. 重新启动该服务时，应显示类似于以下的对话框。  
-
-    ![安全的本地管理员帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_113.png)  
-
-###### <a name="revert-changes-to-the-printer-spooler-service"></a>还原到的打印机后台处理程序服务所做的更改  
-
-1.  从任何成员服务器或工作站的 GPO 更改影响，在本地登录。  
-
-2.  使用鼠标，将指针移动到屏幕的右上角或右下角。 当**超级按钮**栏出现后，单击**搜索**。  
-
-3.  在中**搜索**框中，键入**services**，然后单击**Services**。  
-
-4.  找到并双击**打印后台处理程序**。  
+4.  找到并双击 "**打印后台处理程序**"。  
 
 5.  单击 **“登录”** 选项卡。  
 
-6.  在中**作为登录**： 字段中，选择**本地 Systemaccount**，然后单击**确定**。  
+6.  在 "**登录为**" 字段中，单击 "**此帐户**"。  
 
-###### <a name="verify-deny-log-on-through-remote-desktop-services-gpo-settings"></a>验证"拒绝通过登录远程桌面服务"GPO 设置  
+7.  单击 "**浏览**"，键入系统的本地管理员帐户，单击 "**检查名称**"，然后单击 **"确定"** 。  
 
-1.  使用鼠标，将指针移动到屏幕的右上角或右下角。 当**超级按钮**栏出现后，单击**搜索**。  
+8.  在 "**密码**" 和 "**确认密码**" 字段中，键入所选帐户的密码，然后单击 **"确定"** 。  
 
-2.  在中**搜索**框中，键入**远程桌面连接**，然后单击**远程桌面连接**。  
+9. 再单击 **"确定"** 三次。  
 
-3.  在中**计算机**字段中，键入你想要连接到，然后单击的计算机的名称**Connect**。 （也可以键入而不是计算机名称的 IP 地址）。  
+10. 右键单击 "**打印后台处理程序**"，然后单击 "**重新启动**"。  
 
-4.  出现提示时，提供凭据，为系统的本地**管理员**帐户。  
+11. 重新启动该服务时，应显示类似于以下内容的对话框。  
 
-5.  应显示类似于以下的对话框。  
+    ![保护本地管理帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_113.png)  
 
-    ![安全的本地管理员帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_114.png)  
+###### <a name="revert-changes-to-the-printer-spooler-service"></a>还原对打印机后台处理程序服务所做的更改  
+
+1.  在受 GPO 影响的任何成员服务器或工作站上，本地登录。  
+
+2.  用鼠标将指针移到屏幕的右上角或右下角。 出现**超级按钮**栏时，单击 "**搜索**"。  
+
+3.  在**搜索**框中，键入 " **services**"，然后单击 "**服务**"。  
+
+4.  找到并双击 "**打印后台处理程序**"。  
+
+5.  单击 **“登录”** 选项卡。  
+
+6.  在 "**登录身份**：" 字段中，选择 " **Local Systemaccount**"，然后单击 **"确定"** 。  
+
+###### <a name="verify-deny-log-on-through-remote-desktop-services-gpo-settings"></a>验证 "拒绝通过远程桌面服务登录" GPO 设置  
+
+1.  用鼠标将指针移到屏幕的右上角或右下角。 出现**超级按钮**栏时，单击 "**搜索**"。  
+
+2.  在**搜索**框中，键入 "**远程桌面连接**"，然后单击 "**远程桌面连接**"。  
+
+3.  在 "**计算机**" 字段中，键入要连接到的计算机的名称，然后单击 "**连接**"。 （还可以键入 IP 地址而不是计算机名。）  
+
+4.  出现提示时，提供系统本地**管理员**帐户的凭据。  
+
+5.  应出现如下所示的对话框。  
+
+    ![保护本地管理帐户和组](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_114.png)  

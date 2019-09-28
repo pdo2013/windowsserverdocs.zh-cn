@@ -1,7 +1,7 @@
 ---
 title: Windows Server 软件定义数据中心
 description: Windows Server SDDC 概述
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: SDDC
@@ -12,12 +12,12 @@ ms.author: coreyp
 manager: dongill
 ms.date: 06/04/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 02b425d81eda22bf7608b44bef0212cf4462e42f
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 75a565eb9e26e03c1aad221059b327943485c81c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501692"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403899"
 ---
 # <a name="windows-server-software-defined-datacenter"></a>Windows Server 软件定义数据中心
 
@@ -25,29 +25,29 @@ ms.locfileid: "66501692"
 
 ![](media/sddc/heading.png)
 
-## <a name="what-is-windows-server-software-defined-datacenter"></a>什么是 Windows Server 软件定义数据中心？
+## <a name="what-is-windows-server-software-defined-datacenter"></a>什么是 Windows Server 软件定义的数据中心？
 
-软件定义数据中心 (SDDC) 是一个常见的行业术语，通常是指数据中心虚拟化的所有基础结构的。 虚拟化是关键，它只意味着数据中心内硬件和软件的扩展超出了传统的一对一比例。 利用模拟硬件的软件虚拟机监控程序，操作系统和应用程序可以抽象自物理硬件并进行倍增，以形成处理器、内存、I/O 和网络的弹性资源池。
+软件定义数据中心（SDDC）是一个常见的行业术语，通常是指虚拟化所有基础结构的数据中心。 虚拟化是关键，它只意味着数据中心内硬件和软件的扩展超出了传统的一对一比例。 利用模拟硬件的软件虚拟机监控程序，操作系统和应用程序可以抽象自物理硬件并进行倍增，以形成处理器、内存、I/O 和网络的弹性资源池。
  
 Microsoft 的 SDDC 实现包含本文重点介绍的 Windows Server 技术。 它从提供虚拟化平台来构建网络和存储的 Hyper-V 虚拟机监控程序开始。 针对虚拟化基础结构的独特挑战而开发的安全技术可减轻内部和外部威胁。 通过使用内置于 Windows Server 的 PowerShell 并添加 [System Center](https://docs.microsoft.com/system-center/) 和/或 [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)，你可以编程并自动执行预配、部署、配置和管理。
 
-内置于 Windows Server 和 System Center 的技术是 Windows Server SDDC 体验的主要构建基块。 但是，即使是虚拟化的平台，也仍然需要合适的基础硬件。 Microsoft 合作伙伴参与**Windows Server Software-Defined (WSSD) 解决方案**并**Azure Stack HCI 解决方案**程序可以帮助企业获得正确的硬件并对其进行上一天零和运行。
+内置于 Windows Server 和 System Center 的技术是 Windows Server SDDC 体验的主要构建基块。 但是，即使是虚拟化的平台，也仍然需要合适的基础硬件。 参与**Windows Server 软件定义（WSSD）解决方案**和**Azure Stack HCI 解决方案**计划的 Microsoft 合作伙伴可帮助企业获取适当的硬件，并使其在第零天启动并运行。
 
-![](media/sddc/video.png) **[观看视频，详细了解 Microsoft 的 SDDC](https://mva.microsoft.com/en-US/training-courses/whats-new-in-windows-server-2016-16457?l=YcsJR6sXC_1006218965)**
+![](media/sddc/video.png) **[观看视频，了解有关 Microsoft SDDC 的详细信息](https://mva.microsoft.com/en-US/training-courses/whats-new-in-windows-server-2016-16457?l=YcsJR6sXC_1006218965)**
 
-![](media/sddc/poster-ico.png) **[下载海报大小.pdf 文件的此页](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs/media/sddc/sddc_poster_0801417_ANSI-E.pdf)**
+![](media/sddc/poster-ico.png) **[下载此页面的海报大小 .pdf 文件](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs/media/sddc/sddc_poster_0801417_ANSI-E.pdf)**
 
 ![](media/sddc/spacer1.png)<a href="https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs//media/sddc/sddc_poster_0801417_ANSI-E.pdf"><img src="media/sddc/poster.png"></a>
 
 ## <a name="azure-stack-hci-solutions"></a>Azure Stack HCI 解决方案
 
-在合适的硬件基础结构上构建你的 Windows Server 软件定义数据中心是对成功至关重要的第一步。 这就是为什么我们已经创建 Microsoft 验证 SDDC 设计和部署的最佳做法的 15 合作伙伴与合作。
+在正确的硬件基础结构上构建 Windows Server 软件定义的数据中心是成功的关键第一步。 这就是我们与15个合作伙伴合作来创建 Microsoft 验证的 SDDC 设计和部署的最佳实践的原因。
 
-Microsoft 合作伙伴提供了一系列使用窗口服务器 2019年通过 Azure Stack HCI 程序和 Windows Server 2016 通过 Windows Server 软件定义 (WSSD) 计划提供高性能的超聚合存储和网络的解决方案基础结构。 超聚合解决方案在行业标准服务器和组件上将计算、存储和网络功能汇集在一起，以改善数据中心智能和控制。
+Microsoft 合作伙伴提供一系列解决方案，这些解决方案通过 Azure Stack HCI 计划和 Windows Server 2016 通过 Windows Server 软件定义（WSSD）程序与 Window Server 2019 一起提供，以提供高性能、超聚合、存储和网络实现. 超聚合解决方案在行业标准服务器和组件上将计算、存储和网络功能汇集在一起，以改善数据中心智能和控制。
 
-![](media/sddc/learn.png) **[详细了解 Azure Stack HCI 解决方案](https://azure.microsoft.com/overview/azure-stack/hci)**
+![](media/sddc/learn.png) **[了解有关 Azure Stack HCI 解决方案的详细信息](https://azure.microsoft.com/overview/azure-stack/hci)**
 
-![](media/sddc/learn.png) **[了解有关 WSSD 解决方案的详细信息](https://www.microsoft.com/en-us/cloud-platform/software-defined-datacenter)**
+![](media/sddc/learn.png) **[了解 WSSD 解决方案的详细信息](https://www.microsoft.com/en-us/cloud-platform/software-defined-datacenter)**
 
 ## <a name="windows-server-virtualized-technologies"></a>Windows Server 虚拟化技术 ##
 
@@ -57,23 +57,23 @@ Microsoft 合作伙伴提供了一系列使用窗口服务器 2019年通过 Azur
 
 ![](media/sddc/virtualize.png)
 
-### <a name="windows-server-hyper-converged"></a>Windows Server、 超聚合
+### <a name="windows-server-hyper-converged"></a>Windows Server，超聚合
 
 Windows Server 虚拟化技术对 Hyper-V、Hyper-V 虚拟交换机以及受保护的结构和受防护的虚拟机 (VM) 进行了更新，从而改善了安全性、可扩展性和可靠性。 与 Hyper-V 配合使用时，对故障转移群集、网络和存储的更新会使这些技术的部署和管理更加轻松。
 
 ![](media/sddc/spacer1.png)![](media/sddc/hyper-converged.png)
 
-![](media/sddc/learn.png) **[了解有关 Windows Server、 超聚合的详细信息](https://docs.microsoft.com/windows-server/get-started/what-s-new-in-windows-server-2016#computevirtualizationvirtualizationmd)**
+![](media/sddc/learn.png) **[了解有关 Windows Server、超聚合的详细信息](https://docs.microsoft.com/windows-server/get-started/what-s-new-in-windows-server-2016#computevirtualizationvirtualizationmd)**
 
-### <a name="hyper-v-hypervisor"></a>HYPER-V 虚拟机监控程序
+### <a name="hyper-v-hypervisor"></a>Hyper-v 虚拟机监控程序
 
 Hyper-V 是基于虚拟机监控程序的虚拟化技术，适用于 Windows。 虚拟机监控程序是虚拟化的核心。 它是特定于处理器的虚拟化平台，允许多个独立的操作系统共享单个硬件平台。
 
 ![](media/sddc/spacer1.png)![](media/sddc/hypervisor.png)
 
-![](media/sddc/learn.png) **[了解有关 HYPER-V 虚拟机监控程序的详细信息](https://www.microsoft.com/en-us/cloud-platform/server-virtualization)**
+![](media/sddc/learn.png) **[了解有关 Hyper-v 虚拟机监控程序的详细信息](https://www.microsoft.com/en-us/cloud-platform/server-virtualization)**
 
-### <a name="guest-clustering-with-shared-vhdx"></a>来宾群集使用共享的 VHDX
+### <a name="guest-clustering-with-shared-vhdx"></a>具有共享 VHDX 的来宾群集
 
 ![](media/sddc/virtualize-line.png)
 
@@ -82,9 +82,9 @@ Hyper-V 是基于虚拟机监控程序的虚拟化技术，适用于 Windows。 
 ![](media/sddc/spacer1.png)![](media/sddc/cluster.png)
 
 - 共享 VHDX 可位于块存储或基于文件的 SMB 存储中的群集共享卷 (CSV) 上。
-- 受保护:共享的 VHDX 支持 HYPER-V 副本和主机级备份。
+- 避免共享 VHDX 支持 Hyper-v 副本和主机级备份。
 
-![](media/sddc/learn.png) **[了解有关使用共享 VHDX 来宾群集的详细信息](https://technet.microsoft.com/library/dn281956(v=ws.11).aspx)**
+![](media/sddc/learn.png) **[了解有关具有共享 VHDX 的来宾群集的详细信息](https://technet.microsoft.com/library/dn281956(v=ws.11).aspx)**
 
 ### <a name="hyper-v-replica"></a>Hyper-V 副本
 
@@ -98,7 +98,7 @@ Hyper-V 是基于虚拟机监控程序的虚拟化技术，适用于 Windows。 
 - 自动处理实时迁移。
 - 配置和管理十分简单 - 通过 Hyper-V 管理器、PowerShell 或使用 Azure 站点恢复。
 
-![](media/sddc/learn.png) **[了解有关 HYPER-V 副本的详细信息](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica)**
+![](media/sddc/learn.png) **[了解有关 hyper-v 副本的详细信息](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica)**
 
 ![](media/sddc/networking.png)
 
@@ -134,7 +134,7 @@ SET 是一款替代 NIC 组合解决方案，可用于包含 Hyper-V 和[软件�
 
 ![](media/sddc/spacer1.png)![](media/sddc/teaming.png)
 
-![](media/sddc/learn.png) **[了解有关交换机嵌入式组合的详细信息](https://docs.microsoft.com/windows-server/networking/sdn/technologies/set-for-sdn)**
+![](media/sddc/learn.png) **[了解有关交换机嵌入组合的详细信息](https://docs.microsoft.com/windows-server/networking/sdn/technologies/set-for-sdn)**
 
 ### <a name="software-load-balancing"></a>软件负载平衡
 
@@ -155,7 +155,7 @@ SLB 允许多台服务器承载相同的工作负荷，具有较高的可用性�
 
 存储空间直通使用具有本地连接驱动器的行业标准服务器来提供高度可用、高度可扩展的软件定义存储，其成本仅占传统 SAN 或 NAS 阵列的一小部分。 其体系结构大大简化了采购和部署。
 
-![每个节点具有本地附加存储空间直通由 Vm 通过 Csv 然后访问共用在群集级别的驱动器](media/sddc/spacer1.png)![](media/sddc/ssd.png)
+@no__t 0Each 节点通过 Csv @ no__t 将本地附加驱动器汇集在群集存储空间直通级别，并由 Vm 访问
 
 存储空间直通引入了新的软件存储总线，并利用 Windows Server 中当前已知的许多功能，如故障转移群集、群集共享卷 (CSV)、服务器消息块 (SMB) 3 以及存储空间。
 
@@ -190,7 +190,7 @@ SLB 允许多台服务器承载相同的工作负荷，具有较高的可用性�
 4. 从远程站点确认
 5. 确认应用程序写入
 
-t & t1:数据刷新到该卷，始终写入日志
+t & t1：刷新到卷的数据，日志始终通过
 
 ![](media/sddc/learn.png) **[了解有关存储副本的详细信息](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview)**
 
@@ -218,7 +218,7 @@ t & t1:数据刷新到该卷，始终写入日志
 - 受防护的 VM 通过 BitLocker 或其他方式进行加密，以便只有指定的所有者才能运行它们。
 - 运行中的 VM 可转换为受防护的 VM。
 
-![](media/sddc/learn.png) **[了解有关受防护的 Vm 的详细信息](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms)**
+![](media/sddc/learn.png) **[了解有关受防护 vm 的详细信息](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms)**
 
 ### <a name="host-guardian-service"></a>主机保护者服务
 
@@ -272,12 +272,12 @@ Virtual Machine Manager 是 System Center 套件的一部分，用于配置、�
 
 ![](media/sddc/spacer1.png)![](media/sddc/vmm.png)
 
-- 数据中心：配置和管理数据中心组件作为单一构造在 VMM 中。 
-- 虚拟化主机：VMM 可以添加、 设置和管理的 HYPER-V 和 VMware 虚拟化主机和群集。
-- 网络：VMM 提供网络虚拟化，包括支持创建和管理虚拟网络和网关。 
-- 存储：VMM 可以发现、 分类、 设置、 分配和分配本地和远程存储。
+- 版在 VMM 中将数据中心组件作为单一构造进行配置和管理。 
+- 虚拟化主机：VMM 可以添加、设置和管理 Hyper-v 和 VMware 虚拟化主机和群集。
+- 上网VMM 提供网络虚拟化，包括支持创建和管理虚拟网络和网络网关。 
+- 存储：VMM 可以发现、分类、预配、分配和分配本地和远程存储。
 
-![](media/sddc/learn.png) **[了解有关 System Center VMM 的详细信息](https://docs.microsoft.com/system-center/vmm/)**
+![](media/sddc/learn.png) **[了解有关 SYSTEM Center VMM 的详细信息](https://docs.microsoft.com/system-center/vmm/)**
 
 ### <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -289,4 +289,4 @@ Windows Admin Center 是一个在本地部署的基于浏览器的管理工具�
 
 通过将 Web 服务器发布到 DNS 并设置公司防火墙，你可以从公共 Internet 访问 Windows Admin Center，并且能够利用 Microsoft Edge 或 Google Chrome 从任何位置连接和管理你的服务器。
 
-![](media/sddc/learn.png) **[了解有关 Windows Admin Center 的详细信息](manage/windows-admin-center/overview.md)**
+![](media/sddc/learn.png) **[了解有关 Windows 管理中心的详细信息](manage/windows-admin-center/overview.md)**

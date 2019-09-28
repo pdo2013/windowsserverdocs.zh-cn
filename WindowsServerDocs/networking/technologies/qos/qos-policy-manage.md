@@ -1,19 +1,19 @@
 ---
 title: 管理 QoS 策略
 description: 本主题提供有关如何创建和管理 Windows Server 2016 中的服务质量（QoS）策略的说明。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 04fdfa54-6600-43d4-8945-35f75e15275a
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3cff51b3cf76d3224832bf99ff966bf473d6ff6c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ac717555d1ab751600527e294d32f10d1f05bfa5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871846"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395881"
 ---
 # <a name="manage-qos-policy"></a>管理 QoS 策略
 
@@ -280,7 +280,7 @@ DSCP 标记替代可限制应用程序指定的功能（或 "标记"） DSCP 值
 
 ##### <a name="wireless-multimedia-and-dscp-values"></a>无线多媒体和 DSCP 值
 
-[Wi-fi 联盟](https://go.microsoft.com/fwlink/?LinkId=160769)已\(为无线多媒体 WMM\)建立了认证，定义了四个访问类别\(WMM_AC\) ，用于确定在 wi-fi\-上传输的网络流量的优先级Wlan 无线网络。 访问类别包括\(从最高到最低的优先级\)：语音、视频、最佳操作和背景; 分别缩写为 VO、VI、as 和 BK。 WMM 规范定义哪些 DSCP 值与四个访问类别中的每一个相对应：
+[Wi-fi 联盟](https://go.microsoft.com/fwlink/?LinkId=160769)已为无线多媒体 \(WMM @ no__t-2 建立了一个证书，该证书定义了四个访问类别 \(WMM_AC @ no__t-4 用于确定在 Wi @ No__t-5Fi 无线网络上传输的网络流量的优先级。 访问类别包括\(从最高到最低的优先级\)：语音、视频、最佳操作和背景; 分别缩写为 VO、VI、as 和 BK。 WMM 规范定义哪些 DSCP 值与四个访问类别中的每一个相对应：
   
 |DSCP 值|WMM 访问类别|
 |----------|-------------------|
@@ -312,7 +312,7 @@ DSCP 标记替代可限制应用程序指定的功能（或 "标记"） DSCP 值
 
 或者，通过指定非重叠条件，可以将多个 QoS 策略应用于相同的流量。 在应用程序和网络五元组的条件之间，指定应用程序的策略会被视为更为具体，并应用。 
 
-例如，policy_A 仅指定应用程序名称（app.config），而 policy_B 指定目标 IP 地址 192.168.1.0/24。 如果这些 QoS 策略冲突\(，则 app.config 会将流量发送到 192.168.4.0/24\)范围内的 IP 地址，并应用 policy_A。
+例如，policy_A 仅指定应用程序名称（app.config），而 policy_B 指定目标 IP 地址 192.168.1.0/24。 如果这些 QoS 策略冲突 \(app 会将流量发送到 192.168.4.0/24 @ no__t 范围内的 IP 地址，policy_A 会被应用。
 
  **更多的更高优先级在网络五元组**
 

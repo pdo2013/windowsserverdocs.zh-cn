@@ -1,7 +1,7 @@
 ---
-title: dfsutil 诊断工具
+title: dfsutil 诊断
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,17 +13,17 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e0d44dbc795684b96f2ba7cc58801ebd39bece50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5b0d19192395b5d283b7557088bff837a24b6223
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871048"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378245"
 ---
-# <a name="dfsutil-diag"></a>dfsutil 诊断工具
+# <a name="dfsutil-diag"></a>dfsutil 诊断
 
 
 
 ## <a name="this-topic-is-no-longer-available"></a>本主题不再可用
 
-很抱歉-您请求的主题不再可用。
+很抱歉，你请求的主题不再可用。

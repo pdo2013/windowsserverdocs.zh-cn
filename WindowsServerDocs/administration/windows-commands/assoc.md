@@ -1,8 +1,8 @@
 ---
 title: assoc
-description: Windows 命令主题**assoc** -显示或修改文件扩展名关联。
+description: 相关的 Windows 命令**主题-显示**或修改文件扩展名关联。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d893167081b66c81366b59613c52182a4ddba370
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e4a6fd700cbe66897a24f01f66387e76e07b568b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816638"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382666"
 ---
 # <a name="assoc"></a>assoc
 
 
 
-显示或修改文件扩展名关联。 如果使用不带参数， **assoc**显示所有当前文件扩展名关联的列表。
+显示或修改文件扩展名关联。 如果在没有参数的情况下使用， **assoc**将显示所有当前文件扩展名关联的列表。
 
 > [!NOTE]
-> 此命令仅支持在 cmd。EXE 和 PowerShell 中不可用。
+> 只有 CMD 中支持此命令。EXE 和无法从 PowerShell 中获取。
 >
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
@@ -42,39 +42,39 @@ assoc [<.ext>[=[<FileType>]]]
 
 |参数|描述|
 |---------|-----------|
-|<.ext>|指定的文件扩展名。|
-|\<FileType>|指定要与指定的文件扩展名相关联的文件类型。|
+|< ext >|指定文件扩展名。|
+|\<FileType >|指定与指定的文件扩展名关联的文件类型。|
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
 
--   若要删除的文件扩展名的文件类型关联，请按空格键在等号后添加空格。
--   若要查看当前已定义的打开命令字符串的文件类型，请使用**ftype**命令。
--   若要将输出重定向**assoc**到文本文件，请使用**>** 重定向运算符。
+-   若要删除文件扩展名的文件类型关联，请按空格键，在等号后面添加一个空格。
+-   若要查看已定义打开的命令字符串的当前文件类型，请使用**ftype**命令。
+-   若要将**assoc**的输出重定向到文本文件，请使用 **@no__t**重定向运算符。
 
 ## <a name="BKMK_examples"></a>示例
 
-若要查看文件扩展名为.txt 的当前文件类型关联，请键入：
+若要查看文件扩展名为 .txt 的当前文件类型关联，请键入：
 ```
 assoc .txt
 ```
-若要删除文件扩展名为.bak 文件类型关联，请键入：
+若要删除文件扩展名 .bak 的文件类型关联，请键入：
 ```
 assoc .bak= 
 ```
 
 > [!NOTE]
-> 请务必在等号后添加一个空格。
+> 请确保在等号后面添加一个空格。
 
-若要查看的输出**assoc**一个屏幕时，类型：
+若要查看每次**显示一个屏幕的输出**，请键入：
 ```
 assoc | more
 ```
-若要发送的输出**assoc**文件 assoc.txt 中，键入：
+若要将**assoc**的输出发送到文件 assoc，请键入：
 ```
 assoc>assoc.txt
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

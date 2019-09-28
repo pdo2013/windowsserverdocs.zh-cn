@@ -1,8 +1,8 @@
 ---
 title: convert basic
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: df1f999499154366304d59e0573ba921ab1af83d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c4b81126f4a623d841bb5868f786678d7b093581
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434238"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379128"
 ---
 # <a name="convert-basic"></a>convert basic
 
@@ -26,7 +26,7 @@ ms.locfileid: "66434238"
 
 将空的动态磁盘转换为基本磁盘。
 
-有关如何使用此命令的说明，请参阅[改为基本磁盘的动态磁盘重新](https://go.microsoft.com/fwlink/?LinkId=207048)(https://go.microsoft.com/fwlink/?LinkId=207048)。
+有关如何使用此命令的说明，请参阅[将动态磁盘改回为基本磁盘](https://go.microsoft.com/fwlink/?LinkId=207048)（ https://go.microsoft.com/fwlink/?LinkId=207048) 。
 
 ## <a name="syntax"></a>语法
 
@@ -38,17 +38,17 @@ convert basic [noerr]
 
 |参数|描述|
 |---------|-----------|
-|noerr|仅用于脚本。 当遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，错误会导致 DiskPart 退出，错误代码。|
+|noerr|仅用于脚本编写。 遇到错误时，DiskPart 继续处理命令，就像未发生错误一样。 如果没有此参数，则错误会导致 DiskPart 退出并出现错误代码。|
 
 ## <a name="remarks"></a>备注
 
 > [!IMPORTANT]
-> 磁盘必须为空，将其转换为基本磁盘。 备份你的数据，并在转换磁盘之前删除所有分区或卷。
-> -   若要成功执行此操作，必须选择动态磁盘。 使用**选择的磁盘**命令选择动态磁盘，并将焦点移到它。
+> 磁盘必须为空，才能将其转换为基本磁盘。 在转换磁盘之前，请备份数据，然后删除所有分区或卷。
+> -   若要成功执行此操作，必须选择一个动态磁盘。 使用 "**选择磁盘**" 命令选择动态磁盘并将焦点移动到该磁盘。
 
 ## <a name="BKMK_examples"></a>示例
 
-若要将所选的动态磁盘转换为 basic，请键入：
+若要将所选的动态磁盘转换为基本磁盘，请键入：
 ```
 convert basic
 ```

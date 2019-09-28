@@ -2,7 +2,7 @@
 title: 启用或禁用磁盘保护
 description: 了解如何对 MultiPoint 服务使用磁盘保护
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -12,12 +12,12 @@ ms.assetid: 00aba4c4-0244-4b39-8c85-c46fd96e1d6a
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: d037b0843f5ba50c98e0d6e7cb10836c8d6fa23a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ad5f12a3901a3faf3559abae76e0ba924dce2eb9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871747"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389748"
 ---
 # <a name="enable-or-disable-disk-protection"></a>启用或禁用磁盘保护
 磁盘保护功能允许你在每次重启系统时将你的 MultiPoint Services 系统重置为指定状态。 使用磁盘保护，用户可以临时对 MultiPoint Services 系统进行更改，然后在重启服务器时，这些更改将被丢弃。 服务器重新启动时将放弃的更改的示例包括个性化用户的配置文件、保存文件、更改设置或安装应用程序。  

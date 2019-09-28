@@ -7,14 +7,14 @@ author: billmath
 manager: mtillman
 ms.date: 01/28/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6a5ee03e649ae570849c4a17aabb5761774dd2c1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: d00092ee2cd4e6cc74d48e08ad5c316c2b309ab4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865618"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357869"
 ---
 # <a name="configure-azure-mfa-as-authentication-provider-with-ad-fs"></a>将 Azure MFA 配置为具有 AD FS 的身份验证提供程序
 
@@ -87,7 +87,7 @@ Set-AdfsClaimsProviderTrust -AnchorClaimType "http://schemas.xmlsoap.org/ws/2005
 >[!NOTE]
 >确保在场中的**所有**AD FS 服务器上执行这些步骤。 如果场中有多个 AD FS 服务器，则可以使用 Azure AD PowerShell 远程执行所需的配置。  
 
-### <a name="step-1-generate-a-certificate-for-azure-mfa-on-each-ad-fs-server-using-the-new-adfsazuremfatenantcertificate-cmdlet"></a>步骤 1：使用`New-AdfsAzureMfaTenantCertificate` cmdlet 为每台 AD FS 服务器上的 Azure MFA 生成证书
+### <a name="step-1-generate-a-certificate-for-azure-mfa-on-each-ad-fs-server-using-the-new-adfsazuremfatenantcertificate-cmdlet"></a>第 1 步：使用`New-AdfsAzureMfaTenantCertificate` cmdlet 为每台 AD FS 服务器上的 Azure MFA 生成证书
 
 你需要做的第一件事就是生成一个用于 Azure MFA 的证书。  可以使用 PowerShell 完成此操作。  可以在 "本地计算机" 证书存储中找到生成的证书，并将其标记为 "使用者名称"，其中包含用于 Azure AD 目录的 TenantID。
 

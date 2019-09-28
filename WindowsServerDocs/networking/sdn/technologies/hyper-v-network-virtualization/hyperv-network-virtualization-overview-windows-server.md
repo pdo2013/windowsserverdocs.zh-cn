@@ -1,9 +1,9 @@
 ---
-title: Windows Server 2016 中的 HYPER-V 网络虚拟化概述
-description: 本主题提供 Windows Server 2016 中的 HYPER-V 网络虚拟化的概述
+title: Windows Server 2016 中的 hyper-v 网络虚拟化概述
+description: 本主题概述了 Windows Server 2016 中的 Hyper-v 网络虚拟化
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -12,62 +12,62 @@ ms.topic: article
 ms.assetid: 0115b7ad-d229-4c69-9d7e-a3f5fbaa3b2f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 40ebd62d66c5a1d1a985a35a9adf179f07a75b3c
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 0eda30b0980f2080f1603eb906fd308440316248
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284060"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405943"
 ---
-# <a name="hyper-v-network-virtualization-overview-in-windows-server-2016"></a>Windows Server 2016 中的 HYPER-V 网络虚拟化概述
+# <a name="hyper-v-network-virtualization-overview-in-windows-server-2016"></a>Windows Server 2016 中的 hyper-v 网络虚拟化概述
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-在 Windows Server 2016 和 Virtual Machine Manager 中，Microsoft 提供了端到端网络虚拟化解决方案。  有五个主要组件构成 Microsoft 的网络虚拟化解决方案：  
+在 Windows Server 2016 和 Virtual Machine Manager 中，Microsoft 提供了端到端网络虚拟化解决方案。  有五个主要组件构成了 Microsoft 的网络虚拟化解决方案：  
 
--   **Windows Azure Pack for Windows Server**提供面向门户创建虚拟网络和一个管理门户，用于管理虚拟网络租户。  
+-   **Windows Server Windows Azure Pack**提供面向租户的门户来创建虚拟网络，以及使用管理门户来管理虚拟网络。  
 
--   **Virtual Machine Manager** (VMM) 提供集中的管理网络构造。  
+-   **Virtual Machine Manager** （VMM）提供网络构造的集中管理。  
 
--   **Microsoft 网络控制器**提供集中的可编程点，可用于管理、 配置、 监视和故障排除你的数据中心中的虚拟和物理网络基础结构自动。  
+-   **Microsoft 网络控制器**提供集中的可编程点，可用于管理、配置、监视数据中心中的虚拟和物理网络基础结构，并对其进行故障排除。  
 
 -   **Hyper-V 网络虚拟化**提供虚拟化网络流量所需的基础结构。  
 
--   **HYPER-V 网络虚拟化网关**提供虚拟和物理网络之间的连接。  
+-   **Hyper-v 网络虚拟化网关**提供虚拟网络与物理网络之间的连接。  
 
-本主题介绍概念并说明关键优势和功能的 HYPER-V 网络虚拟化 （总体网络虚拟化解决方案的一个组成部分） Windows Server 2016 中。 本主题还将说明网络虚拟化如何使寻求公司工作负荷整合的私有云以及基础结构即服务 (IaaS) 的公有云服务提供商受益。  
+本主题介绍了一些概念，并说明了 Windows Server 2016 中 Hyper-v 网络虚拟化（总体网络虚拟化解决方案的一个组成部分）的主要优势和功能。 本主题还将说明网络虚拟化如何使寻求公司工作负荷整合的私有云以及基础结构即服务 (IaaS) 的公有云服务提供商受益。  
 
-有关 Windows Server 2016 中的网络虚拟化的更多技术详细信息，请参阅[Windows Server 2016 中的 HYPER-V 网络虚拟化技术细节](../../../sdn/technologies/hyper-v-network-virtualization/hyperv-network-virtualization-technical-details-windows-server.md)。  
+有关 Windows Server 2016 中的网络虚拟化的更多技术详细信息，请参阅[Windows server 2016 中的 Hyper-v 网络虚拟化技术详细信息](../../../sdn/technologies/hyper-v-network-virtualization/hyperv-network-virtualization-technical-details-windows-server.md)。  
 
-**你的意思吗**  
+**你是指**  
 
--   [HYPER-V 网络虚拟化概述](assetId:///bf1dba9d-1960-4dd2-a5e2-99466a02044b)(Windows Server 2012 R2)  
+-   [Hyper-v 网络虚拟化概述](assetId:///bf1dba9d-1960-4dd2-a5e2-99466a02044b)（Windows Server 2012 R2）  
 
--   [HYPER-V 概述](assetId:///5aad349f-ef06-464a-b36f-366fbb040143)  
+-   [Hyper-v 概述](assetId:///5aad349f-ef06-464a-b36f-366fbb040143)  
 
 -   [Hyper-V 虚拟交换机概述](assetId:///e6ec46af-6ef4-49b3-b1f1-5268dc03f05b)  
 
 ## <a name="BKMK_OVER"></a>功能说明  
-HYPER-V 网络虚拟化到类似于服务器虚拟化 (hypervisor) 如何提供对操作系统的"虚拟机"的虚拟机提供"虚拟网络"（称为 VM 网络）。 网络虚拟化将虚拟网络与物理网络基础结构脱耦，并摆脱了 VLAN 以及虚拟机配置的分等级 IP 地址分配的限制。 这种灵活性使客户容易移至 IaaS 云中，并且使主机和数据中心管理员更有效地管理其基础结构，同时能保持必要的多租户隔离、安全要求，还能支持重叠的虚拟机 IP 地址。  
+Hyper-v 网络虚拟化为虚拟机提供 "虚拟网络" （称为 VM 网络），这类似于服务器虚拟化（虚拟机监控程序）为操作系统提供 "虚拟机" 的方式。 网络虚拟化将虚拟网络与物理网络基础结构脱耦，并摆脱了 VLAN 以及虚拟机配置的分等级 IP 地址分配的限制。 这种灵活性使客户容易移至 IaaS 云中，并且使主机和数据中心管理员更有效地管理其基础结构，同时能保持必要的多租户隔离、安全要求，还能支持重叠的虚拟机 IP 地址。  
 
-客户想要将其数据中心无缝地延伸到云中。 当前，构建这种无缝混合云架构面临一些技术挑战。 客户面临的最大障碍之一是重复使用其现有网络拓扑 （子网、 IP 地址、 网络服务和等等。） 在云中和本地资源与云资源之间的桥接。  Hyper-V 网络虚拟化提供了一种独立于底层物理网络的 VM 网络的概念。 VM 网络由一个或多个虚拟子网组成，在这种概念下，连接到虚拟网络的虚拟机在物理网络中的确切位置与虚拟网络拓扑相互脱耦。 因此，客户可轻松地将其虚拟子网移至云中，同时在云中仍保持其现有 IP 地址和拓扑，这样现有的服务程序能继续运作，而不会察觉到子网的物理位置。 也就是说，Hyper-V 网络虚拟化可实现无缝混合云的建立。  
+客户想要将其数据中心无缝地延伸到云中。 当前，构建这种无缝混合云架构面临一些技术挑战。 客户面临的最大障碍之一是在云中重复使用其现有网络拓扑（子网、IP 地址、网络服务等），并在本地资源与云资源之间进行桥接。  Hyper-V 网络虚拟化提供了一种独立于底层物理网络的 VM 网络的概念。 VM 网络由一个或多个虚拟子网组成，在这种概念下，连接到虚拟网络的虚拟机在物理网络中的确切位置与虚拟网络拓扑相互脱耦。 因此，客户可轻松地将其虚拟子网移至云中，同时在云中仍保持其现有 IP 地址和拓扑，这样现有的服务程序能继续运作，而不会察觉到子网的物理位置。 也就是说，Hyper-V 网络虚拟化可实现无缝混合云的建立。  
 
-除了混合云，许多组织正在整合其数据中心，建立私有云，以享受云架构所带来的效率和扩展性。 HYPER-V 网络虚拟化可更好的灵活性和效率，实现通过分离业务单位的私有云 （通过使其成为虚拟） 网络拓扑与实际的物理网络拓扑。 这样的话，业务部门就能轻松共享一个内部私有云，同时又相互独立，并继续保持现有的网络拓扑。 数据中心操作小组能灵活地部署以及实时迁移工作负荷于数据中心的任何地方，而且不会出现服务器中断，能提高操作效率以及带来一个整体更加有效的数据中心。  
+除了混合云，许多组织正在整合其数据中心，建立私有云，以享受云架构所带来的效率和扩展性。 Hyper-v 网络虚拟化通过将业务部门的网络拓扑与实际的物理网络拓扑进行分离，使私有云的灵活性和效率更高。 这样的话，业务部门就能轻松共享一个内部私有云，同时又相互独立，并继续保持现有的网络拓扑。 数据中心操作小组能灵活地部署以及实时迁移工作负荷于数据中心的任何地方，而且不会出现服务器中断，能提高操作效率以及带来一个整体更加有效的数据中心。  
 
-对于工作负荷所有者的主要好处是，他们现在可以移动其工作负荷"拓扑"到云而不更改其 IP 地址或重写其应用程序。 例如，典型的三层 LOB 应用程序由前端层、业务逻辑层以及数据库层构成。 通过策略，Hyper-V 网络虚拟化能让客户将这三层的整体或者部分装载到云中，同时保持服务程序的路由选择拓扑以及 IP 地址（即虚拟机 IP 地址），而不需更改应用程序。  
+对于工作负荷所有者，主要优势在于，他们现在可以将其工作负荷 "拓扑" 移到云中，而无需更改其 IP 地址或重写其应用程序。 例如，典型的三层 LOB 应用程序由前端层、业务逻辑层以及数据库层构成。 通过策略，Hyper-V 网络虚拟化能让客户将这三层的整体或者部分装载到云中，同时保持服务程序的路由选择拓扑以及 IP 地址（即虚拟机 IP 地址），而不需更改应用程序。  
 
 对于基础结构拥有者，虚拟机布置的额外灵活性使其可以将工作负荷移至数据中心的任何地方，而不用改变虚拟机或者重新配置网络。 比如，通过 Hyper-V 网络虚拟化，可以实现跨子网实时迁移，这样虚拟机就能在数据中心实时迁移到任何地方，并且不会发生服务中断现象。 原本实时迁移只限于在同一子网中，这样就限制了虚拟机可处的位置。 跨子网实时迁移可让管理员在动态资源需求以及能源效率的基础上整合工作负荷，也可以在不干扰客户工作负荷正常操作的条件下适应基础结构维护。  
 
-## <a name="BKMK_APP"></a>实际应用程序  
-随着虚拟化数据中心的成功使用，IT 组织和托管提供商（提供主机代管或物理服务器出租的提供商）已经开始提供灵活的虚拟基础结构，从而可以轻松地根据客户需要向其提供服务器实例。 这种新的服务类别称为“基础结构即服务 (IaaS)”。 Windows Server 2016 提供所有所需的平台功能让公司客户建立私有云和作为服务操作模式实现 IT 的转变。 Windows Server 2016 2016年还能让托管商建立公有云以及向其客户提供 IaaS 解决方案。 与 Virtual Machine Manager 和 Windows Azure 包管理的 HYPER-V 网络虚拟化策略结合时，Microsoft 提供了强大的云解决方案。  
+## <a name="BKMK_APP"></a>实用应用程序  
+随着虚拟化数据中心的成功使用，IT 组织和托管提供商（提供主机代管或物理服务器出租的提供商）已经开始提供灵活的虚拟基础结构，从而可以轻松地根据客户需要向其提供服务器实例。 这种新的服务类别称为“基础结构即服务 (IaaS)”。 Windows Server 2016 提供了所有必需的平台功能，使企业客户能够构建私有云并过渡到 IT 即服务操作模型。 Windows Server 2016 2016 还支持托管商构建公有云，并为其客户提供 IaaS 解决方案。 与 Virtual Machine Manager 和 Windows Azure Pack 结合使用来管理 Hyper-v 网络虚拟化策略时，Microsoft 提供了强大的云解决方案。  
 
-Windows Server 2016 的 HYPER-V 网络虚拟化可提供软件控制的基于策略的网络虚拟化，从而减少面临的管理开销企业在扩大专用的 IaaS 云时，它提供了更好的云托管商灵活性和可伸缩性，用于管理虚拟机以实现更高资源利用率。  
+Windows Server 2016 Hyper-v 网络虚拟化可提供基于策略的、由软件控制的网络虚拟化，可减少企业在扩大专用 IaaS 云时面临的管理开销，并可更好地提供 cloud 托管商用于管理虚拟机的灵活性和可伸缩性，以实现更高的资源利用率。  
 
-包含来自不同组织部门（专用云）或不同客户（托管云）的虚拟机的 IaaS 方案需要安全隔离。 今天的解决方案中，虚拟局域网 (Vlan)，可以在此方案中呈现明显的劣势。  
+包含来自不同组织部门（专用云）或不同客户（托管云）的虚拟机的 IaaS 方案需要安全隔离。 如今的解决方案（虚拟局域网（Vlan））在此方案中可能会带来很大的缺点。  
 
-**VLANs**  
+**Vlan**  
 
-目前，Vlan 是大多数组织用于支持地址空间重复使用以及租户隔离的机制。 VLAN 在以太网框架报头中使用显式标记 (VLAN ID)，它依靠以太网交换机来强制实施隔离并限制有同一 VLAN ID 的网络节点的流量。 VLAN 的主要劣势如下：  
+目前，Vlan 是大多数组织用于支持地址空间重复使用和租户隔离的机制。 VLAN 在以太网框架报头中使用显式标记 (VLAN ID)，它依靠以太网交换机来强制实施隔离并限制有同一 VLAN ID 的网络节点的流量。 VLAN 的主要劣势如下：  
 
 -   无论何时将虚拟机或隔离边界移动到动态数据中心，由于生产交换机的重新配置比较复杂，因此会加大意外中断的风险。  
 
@@ -77,7 +77,7 @@ Windows Server 2016 的 HYPER-V 网络虚拟化可提供软件控制的基于策
 
 **IP 地址分配**  
 
-除 Vlan 呈现的劣势，虚拟机 IP 地址分配也会带来问题，包括：  
+除了 Vlan 提供的缺点外，虚拟机 IP 地址分配还会带来问题，其中包括：  
 
 -   在数据中心网络基础结构中的物理位置决定了虚拟机的 IP 地址。 因此，移至云中通常需要更改服务工作负荷的 IP 地址。  
 
@@ -91,57 +91,57 @@ Windows Server 2016 的 HYPER-V 网络虚拟化可提供软件控制的基于策
 
 Hyper-V 网络虚拟化将客户虚拟机的虚拟网络与物理网络基础结构脱耦。 因此，它能让客户虚拟机维持原有的 IP 地址，同时能让数据中心管理员将客户虚拟机布置在数据中心的任何地方，而不用重新配置物理 IP 地址或者 VLAN ID。 下一部分概述了其主要功能。  
 
-## <a name="BKMK_NEW"></a>重要的功能  
-以下是关键功能、 优势和 Windows Server 2016 中的 HYPER-V 网络虚拟化功能的列表：  
+## <a name="BKMK_NEW"></a>重要功能  
+下面列出了 Windows Server 2016 中的 Hyper-v 网络虚拟化的主要功能、优点和功能：  
 
--   **启用灵活的工作负载放置的网络隔离和 IP 地址重复使用而无需 Vlan**  
+-   **启用灵活的工作负荷放置-网络隔离和 IP 地址重复使用（无 Vlan）**  
 
-    HYPER-V 网络虚拟化将客户的虚拟网络中的数据中心内的工作负荷放置提供自由与主机的物理网络基础结构脱耦。 虚拟机工作负荷放置不再受限于 IP 地址分配或者物理网络的 VLAN 隔离要求，因为其是在 Hyper-V 主机内基于软件定义的多租户虚拟策略上执行。  
+    Hyper-v 网络虚拟化将客户虚拟网络与托管商物理网络基础结构相分离，为数据中心内的工作负荷放置提供自由。 虚拟机工作负荷放置不再受限于 IP 地址分配或者物理网络的 VLAN 隔离要求，因为其是在 Hyper-V 主机内基于软件定义的多租户虚拟策略上执行。  
 
     拥有重叠 IP 地址的不同客户的虚拟机现在可以部署在同一台主机服务器上，而不需繁琐的 VLAN 配置或者违反 IP 地址的层次结构。 这样可以简化客户工作负荷向共享 IaaS 托管提供商的移动，允许客户在不用更改的条件下移动这些工作负荷，如不用更改虚拟机 IP 地址。 对于托管提供商而言，支持大量想要将现有网络地址空间延伸到共享 IaaS 数据中心的客户是一项为每个客户配置和维持独立 VLAN 的复杂操作，以便确保可能重叠的地址空间的共存。 Hyper-V 网络虚拟化可使支持重叠地址更加简单，并可减少托管提供商进行网络重新配置的需要。  
 
     除此之外，也能在不造成客户工作负荷停滞的基础上，进行物理基础结构的维持和升级。 使用 Hyper-V 网络虚拟化，特定主机、机架、子网、VLAN 或者整个群集上的虚拟机可以进行迁移，而不需要更改物理 IP 地址或进行重大的重新配置。  
 
--   **启用更轻松将工作负荷移动到共享 IaaS 云**  
+-   **允许更轻松地将工作负荷移动到共享 IaaS 云**  
 
     使用 Hyper-V 网络虚拟化，IP 地址和虚拟机配置可保持不变。 这可使 IT 组织更简单地将工作负荷从其数据中心移至共享的 IaaS 托管提供商，而只需最少的工作负荷或者其基础结构工具以及策略的重新配置。 在两个数据中心相连的情况下，IT 管理员可继续使用其工具而不用对其进行重新配置。  
 
--   **启用跨子网实时迁移**  
+-   **启用跨子网的实时迁移**  
 
-    实时迁移虚拟机工作负荷的传统上已被限制为同一 IP 子网或 VLAN 因为跨子网所需的虚拟机的来宾操作系统更改其 IP 地址。 地址更改会中断现有通信，干扰在虚拟机运行的服务。 使用 HYPER-V 网络虚拟化工作负荷可实时迁移从一个子网中运行 Windows Server 2016，而无需更改工作负荷的 IP 地址不同的子网中运行 Windows Server 2016 的服务器到服务器。 Hyper-V 网络虚拟化可保证因实时迁移而带来的虚拟机位置变化在与被转移的虚拟机有持续通信的主机中得到更新并且同步。  
+    由于跨子网需要虚拟机的来宾操作系统来更改其 IP 地址，因此传统的虚拟机工作负荷实时迁移被限制为同一 IP 子网或 VLAN。 地址更改会中断现有通信，干扰在虚拟机运行的服务。 使用 Hyper-v 网络虚拟化，工作负荷可从运行 Windows Server 2016 的子网中的服务器实时迁移到不同子网中运行 Windows Server 2016 的服务器，而无需更改工作负荷的 IP 地址。 Hyper-V 网络虚拟化可保证因实时迁移而带来的虚拟机位置变化在与被转移的虚拟机有持续通信的主机中得到更新并且同步。  
 
--   **使您能够更轻松管理分离服务器和网络管理**  
+-   **允许更轻松地管理分离的服务器和网络管理**  
 
     服务器工作负荷安排得到简化，原因是工作负荷的迁移和安排独立于底层物理网络配置。 服务器管理员可以侧重于管理服务和服务器，网络管理员则可以侧重于整体网络基础结构和流量管理。 这样，数据中心服务器管理员便可以部署和迁移虚拟机，而无需更改虚拟机的 IP 地址。 能减少开销，因为 Hyper-V 网络虚拟化能让虚拟机放置与网络拓扑独立进行，减少网络管理员参与到可能改变隔离边界的放置过程的需要。  
 
--   **简化网络并提高了服务器/网络资源利用率**  
+-   **简化网络，提高服务器/网络资源利用率**  
 
     VLAN 的僵化以及虚拟机放置对物理网络基础结构的依赖会导致过度配置以及利用不足。 通过打破这种依存关系，虚拟机工作负荷安排灵活性的提高可以简化网络管理并提高服务器和网络资源利用率。 注意：Hyper-V 网络虚拟化支持物理数据中心背景下的 VLAN。 例如，某一数据中心可能想要所有 Hyper-V 网络虚拟化流量在一个特定的 VLAN 内进行。  
 
 -   **与现有基础结构和新兴技术兼容**  
 
-    可以在当前的数据中心中部署的 HYPER-V 网络虚拟化，但与新兴的数据中心"扁平网络"技术兼容。  
+    Hyper-v 网络虚拟化可部署在当前的数据中心中，但它与新兴的数据中心 "平面网络" 技术兼容。  
 
-    例如，Windows Server 2016 中的 HNV 支持 VXLAN 封装格式和打开 vSwitch 数据库管理协议 (OVSDB) 作为 SouthBound 接口 (SBI)...  
+    例如，Windows Server 2016 中的 HNV 支持 VXLAN 封装格式和开放 vSwitch 数据库管理协议（OVSDB）作为 SouthBound 接口（SBI）。  
 
--   **提供的互操作性和生态系统准备情况**  
+-   **提供互操作性和生态系统准备**  
 
     Hyper-V 网络虚拟化支持与现有资源进行通信的多个配置，如跨组织连接、存储区域网 (SAN) 以及非虚拟化资源访问等。 微软致力于与生态体系合作伙伴一道共同在性能、扩展性以及管理性方面支持和改进 Hyper-V 网络虚拟化。  
 
 -   **基于策略的配置**  
 
-    通过 Microsoft 网络控制器配置 Windows Server 2016 中的网络虚拟化策略。 网络控制器具有 RESTful northbound API 和 Windows PowerShell 界面来配置策略。 有关 Microsoft 网络控制器的详细信息，请参阅[网络控制器](../../../sdn/technologies/network-controller/../../../sdn/technologies/network-controller/Network-Controller.md)。  
+    Windows Server 2016 中的网络虚拟化策略是通过 Microsoft 网络控制器配置的。 网络控制器具有 RESTful northbound API 和 Windows PowerShell 接口，可用于配置策略。 有关 Microsoft 网络控制器的详细信息，请参阅[网络控制器](../../../sdn/technologies/network-controller/../../../sdn/technologies/network-controller/Network-Controller.md)。  
 
 ## <a name="BKMK_SOFT"></a>软件要求  
-使用 Microsoft 网络控制器的 HYPER-V 网络虚拟化需要 Windows Server 2016 和 HYPER-V 角色。  
+使用 Microsoft 网络控制器的 hyper-v 网络虚拟化需要 Windows Server 2016 和 Hyper-v 角色。  
 
 ## <a name="BKMK_LINKS"></a>另请参阅  
-若要了解有关 Windows Server 2016 中的 HYPER-V 网络虚拟化的详细信息请参阅以下链接：  
+若要了解有关 Windows Server 2016 中的 Hyper-v 网络虚拟化的详细信息，请参阅以下链接：  
 
 
-|       内容类型       |                                                                                                                                参考                                                                                                                                |
+|       内容类型       |                                                                                                                                参考资料                                                                                                                                |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **社区资源**  |     -   [私有云体系结构博客](https://blogs.technet.com/b/privatecloud/archive/2012/03/19/cloud-datacenter-network-architecture-in-the-windows-server-8-era.aspx)<br />-提出问题： [cloudnetfb@microsoft.com](mailto:%20cloudnetfb@microsoft.com)     |
-|         **RFC**          |                                                                                                     -   VXLAN - [RFC 7348](https://www.rfc-editor.org/info/rfc7348)                                                                                                      |
-| **相关的技术** | -   [网络控制器](../../../sdn/technologies/network-controller/../../../sdn/technologies/network-controller/Network-Controller.md)<br />-   [HYPER-V 网络虚拟化概述](assetId:///bf1dba9d-1960-4dd2-a5e2-99466a02044b)(Windows Server 2012 R2) |
+|         **RFC**          |                                                                                                     -VXLAN- [RFC 7348](https://www.rfc-editor.org/info/rfc7348)                                                                                                      |
+| **相关技术** | -   [网络控制器](../../../sdn/technologies/network-controller/../../../sdn/technologies/network-controller/Network-Controller.md)<br />-   [Hyper-v 网络虚拟化概述](assetId:///bf1dba9d-1960-4dd2-a5e2-99466a02044b)（Windows Server 2012 R2） |
 

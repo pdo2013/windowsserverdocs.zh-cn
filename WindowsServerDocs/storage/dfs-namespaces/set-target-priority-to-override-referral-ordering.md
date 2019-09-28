@@ -2,22 +2,22 @@
 title: 设置目标优先级以替代引用排序
 description: 本文介绍如何设置目标优先级以替代引用排序
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 59db08d5ef46b696f550a5fa0738c5c1f9375fda
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f0a6496802d2be16e84ef62c41fea6f0ae9f6438
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826358"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386118"
 ---
 # <a name="set-target-priority-to-override-referral-ordering"></a>设置目标优先级以替代引用排序
 
-> 适用于：Windows Server 2019，Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2、 Windows Server 2008
+> 适用于：Windows Server 2019，Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2，Windows Server 2008
 
 引用是在用户访问命名空间中包含目标的命名空间根路径或文件夹时，客户端计算机从域控制器或命名空间服务器接收的目标的排序列表。 引用中每个目标根据命名空间根路径或文件夹的排序方法进行排序。 
 
@@ -57,5 +57,5 @@ ms.locfileid: "59826358"
 
 ## <a name="see-also"></a>请参阅
 
--   [调试 DFS 命名空间](tuning-dfs-namespaces.md)
--   [为 DFS 命名空间委派管理权限](delegate-management-permissions-for-dfs-namespaces.md)
+-   [调整 DFS 命名空间](tuning-dfs-namespaces.md)
+-   [委派 DFS 命名空间的管理权限](delegate-management-permissions-for-dfs-namespaces.md)

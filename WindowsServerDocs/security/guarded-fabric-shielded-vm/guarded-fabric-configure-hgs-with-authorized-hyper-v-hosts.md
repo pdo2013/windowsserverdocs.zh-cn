@@ -1,43 +1,43 @@
 ---
 title: 部署受保护的主机
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 2379ca26-b32d-4055-8b4b-99d1f2df37e1
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 3b20a7eb2b5097d8ddb7381fd0304581ca4e6722
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bc79d13b4dda96cd3e760958a6310276d2c45bae
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845348"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386751"
 ---
 # <a name="deploy-guarded-hosts"></a>部署受保护的主机
 
 >适用于：Windows Server 2019，Windows Server （半年频道），Windows Server 2016
 
-在本部分中的主题介绍构造管理员配置的 HYPER-V 主机能够使用主机保护者服务 (HGS) 所需的步骤。 在开始这些步骤中中的至少一个节点之前[HGS 群集必须设置](guarded-fabric-setting-up-the-host-guardian-service-hgs.md)。
+本节中的主题描述了构造管理员配置 Hyper-v 主机以使用主机保护者服务（HGS）的步骤。 [必须先设置 HGS 群集](guarded-fabric-setting-up-the-host-guardian-service-hgs.md)中的至少一个节点，然后才能开始这些步骤。
 
-**为受信任的 TPM 证明**:
-1. [配置结构 DNS](guarded-fabric-configuring-fabric-dns.md):介绍如何设置 DNS 转发器从 fabric 域到 HGS 域。
-2. [捕获所需的 HGS 信息](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md):指示如何捕获 TPM 标识符 （也称为平台标识符）、 创建代码完整性策略，并创建 TPM 基线。 然后您将向 HGS 管理员若要配置证明提供此信息。
+**对于受 TPM 信任的证明**：
+1. [配置构造 DNS](guarded-fabric-configuring-fabric-dns.md)：说明如何设置从 fabric 域到 HGS 域的 DNS 转发器。
+2. [捕获 HGS 所需的信息](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md)：说明如何捕获 TPM 标识符（也称为平台标识符）、创建代码完整性策略，以及创建 TPM 基线。 然后，你将向 HGS 管理员提供此信息以配置证明。
 3. [确认受保护的主机可以证明](guarded-fabric-confirm-hosts-can-attest-successfully.md)
 
-**对主机密钥证明**:
-1. [创建主机密钥](guarded-fabric-create-host-key.md#create-a-host-key):介绍如何设置 DNS 转发器从 fabric 域到 HGS 域。
-2. [将主机密钥添加到证明服务](guarded-fabric-create-host-key.md#add-the-host-key-to-the-attestation-service):介绍如何在构造域中，设置 Active Directory 安全组将受保护的主机添加为该组的成员并向 HGS 管理员提供的组标识符。 
+**对于主机密钥证明**：
+1. [创建主机密钥](guarded-fabric-create-host-key.md#create-a-host-key)：说明如何设置从 fabric 域到 HGS 域的 DNS 转发器。
+2. [向证明服务添加主机密钥](guarded-fabric-create-host-key.md#add-the-host-key-to-the-attestation-service)：说明如何在 fabric 域中设置一个 Active Directory 安全组，将受保护的主机添加为该组的成员，并向 HGS 管理员提供该组标识符。 
 3. [确认受保护的主机可以证明](guarded-fabric-confirm-hosts-can-attest-successfully.md)
 
 
-**为受信任的管理员证明**:
-1. [配置结构 DNS](guarded-fabric-configuring-fabric-dns.md):介绍如何设置 DNS 转发器从 fabric 域到 HGS 域。
-2. [创建安全组](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md):介绍如何在构造域中，设置 Active Directory 安全组将受保护的主机添加为该组的成员并向 HGS 管理员提供的组标识符。 
+**对于管理员信任的证明**：
+1. [配置构造 DNS](guarded-fabric-configuring-fabric-dns.md)：说明如何设置从 fabric 域到 HGS 域的 DNS 转发器。
+2. [创建安全组](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md)：说明如何在 fabric 域中设置一个 Active Directory 安全组，将受保护的主机添加为该组的成员，并向 HGS 管理员提供该组标识符。 
 3. [确认受保护的主机可以证明](guarded-fabric-confirm-hosts-can-attest-successfully.md)
 
 
 ## <a name="see-also"></a>请参阅
 
-- [部署任务的受保护的构造和受防护的 Vm](guarded-fabric-deploying-hgs-overview.md#deployment-tasks-for-guarded-fabrics-and-shielded-vms)
+- [受保护的构造和受防护的 Vm 的部署任务](guarded-fabric-deploying-hgs-overview.md#deployment-tasks-for-guarded-fabrics-and-shielded-vms)

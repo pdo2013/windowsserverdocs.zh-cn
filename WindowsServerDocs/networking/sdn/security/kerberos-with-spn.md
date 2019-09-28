@@ -2,19 +2,19 @@
 title: 包含服务主体名称 (SPN) 的 Kerberos
 description: 网络控制器支持多种身份验证方法与管理客户端通信。 您可以使用基于 Kerberos 的身份验证和基于 X509 证书的身份验证。 你还可以选择对测试部署不使用身份验证。
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: bc625de9-ee31-40a4-9ad2-7448bfbfb6e6
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 8c8c5367eeda576f87ac5de20b7885a1a29aeb4d
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 78d5d2144e0def8e69a2a4ae5fdc2d7718936710
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869911"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355766"
 ---
 # <a name="kerberos-with-service-principal-name-spn"></a>包含服务主体名称 (SPN) 的 Kerberos
 

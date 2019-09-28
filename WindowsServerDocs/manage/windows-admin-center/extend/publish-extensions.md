@@ -7,13 +7,13 @@ author: daniellee-msft
 ms.author: jol
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: d2bb97fb65e3fbf5c7809317a8565ff7051d0447
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: 24beb287aa35757e1f8057920e8fd95828baf83b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869696"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385200"
 ---
 # <a name="publishing-extensions"></a>发布扩展
 
@@ -110,16 +110,16 @@ Windows 管理中心使用 NuGet 包和源来分发和下载扩展。  为了使
 
 | 属性名 | 必需/建议 | 描述 |
 | ---- | ---- | ---- |
-| PackageType | 必填 | 使用 "WindowsAdminCenterExtension"，它是为 Windows 管理中心扩展定义的 NuGet 包类型。 |
+| PackageType | 必需 | 使用 "WindowsAdminCenterExtension"，它是为 Windows 管理中心扩展定义的 NuGet 包类型。 |
 | id | 必需 | 源中唯一的包标识符。 此值需要与项目的清单 json 文件中的 "名称" 值匹配。  有关指南, 请参阅[选择唯一的包标识符](https://docs.microsoft.com/nuget/create-packages/creating-a-package#choosing-a-unique-package-identifier-and-setting-the-version-number)。 |
 | title | 需要将其发布到 Windows 管理中心源 | Windows 管理中心扩展管理器中显示的包的友好名称。 |
-| version | 必填 | 扩展版本。 建议使用[语义版本控制（SemVer 约定）](http://semver.org/spec/v1.0.0.html) ，但这不是必需的。 |
-| 人员 | 必填 | 如果代表你的公司发布，请使用你的公司名称。 |
-| description | 必填 | 提供扩展功能的说明。 |
+| version | 必需 | 扩展版本。 建议使用[语义版本控制（SemVer 约定）](http://semver.org/spec/v1.0.0.html) ，但这不是必需的。 |
+| 人员 | 必需 | 如果代表你的公司发布，请使用你的公司名称。 |
+| description | 必需 | 提供扩展功能的说明。 |
 | iconUrl | 在发布到 Windows 管理中心源时建议 | 要在扩展管理器中显示的图标的 URL。 |
 | projectUrl | 需要将其发布到 Windows 管理中心源 | 指向扩展网站的 URL。 如果没有单独的网站，请使用 NuGet 源上包网页的 URL。 |
 | licenseUrl | 需要将其发布到 Windows 管理中心源 | 指向扩展的最终用户许可协议的 URL。 |
-| files | 必填 | 这两个设置设置 Windows 管理中心需要用于 UI 扩展和网关插件的文件夹结构。 |
+| files | 必需 | 这两个设置设置 Windows 管理中心需要用于 UI 扩展和网关插件的文件夹结构。 |
 
 ### <a name="3-build-the-extension-nuget-package"></a>3.构建扩展 NuGet 包
 

@@ -7,34 +7,34 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: b14ded98c4f1a340349119bd9f5f42e3a1bf9434
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ecbaa33d83d7b37f376a426571c0d2df89c7695d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445742"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407113"
 ---
 # <a name="deploy-security-auditing-with-central-audit-policies-demonstration-steps"></a>使用中心审核策略部署安全审核（示范步骤）
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
-在此方案中，你将使用你在中创建 Finance 策略审核对财务文档文件夹中的文件的访问[部署中心访问策略&#40;演示步骤&#41;](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md)。 如果未授权访问该文件夹的用户尝试访问它，那么将事件查看器中捕获这一活动。   
+在这种情况下，你将使用在 "[部署中心访问&#40;策略"&#41;演示步骤](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md)中创建的 "财务策略"，对 "财务文档" 文件夹中的文件进行审核访问。 如果未授权访问该文件夹的用户尝试访问它，那么将事件查看器中捕获这一活动。   
  下列步骤是测试本应用场景所必需的。  
   
 |任务|描述|  
 |--------|---------------|  
 |[配置全局对象访问](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_1)|在这一步中，你在域控制器上配置全局对象访问策略。|  
 |[更新组策略设置](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_2)|登录到文件服务器并应用“组策略”更新。|  
-|[验证已应用全局对象访问策略](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_3)|在事件查看器中查看相关事件。 这些事件应包括国家和文档类型的元数据。|  
+|[验证是否已应用全局对象访问策略](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_3)|在事件查看器中查看相关事件。 这些事件应包括国家和文档类型的元数据。|  
   
 ## <a name="BKMK_1"></a>配置全局对象访问策略  
 在这一步中，你在域控制器上配置全局对象访问策略。  
   
 #### <a name="to-configure-a-global-object-access-policy"></a>配置全局对象访问策略的步骤  
   
-1. 以 contoso\administrator 的身份使用密码登录到域控制器 DC1 <strong>pass@word1</strong>。  
+1. 以 contoso\administrator 的形式登录域控制器 DC1 作为 "密码<strong>pass@word1</strong>"。  
   
 2. 在“服务器管理器”中，指向 **“工具”** ，然后单击 **“组策略管理器”** 。  
   
@@ -58,7 +58,7 @@ ms.locfileid: "66445742"
   
 12. 在 **“全局文件 SACL 的审核项”** 框中，选择 **“权限”** 框中的**完全控制**。  
   
-13. 在“添加条件：”  部分，单击“添加条件”  并在下拉列表中选择   
+13. 在“添加条件：”部分，单击“添加条件”并在下拉列表中选择   
     [**资源**] [**部门**] [**任何**] [**值**] [**财务**]。  
   
 14. 单击 **“确定”** 三次，完成全局对象访问审核策略设置的配置。  
@@ -70,21 +70,21 @@ ms.locfileid: "66445742"
   
 #### <a name="to-update-group-policy-settings"></a>更新组策略设置的步骤  
   
-1. 登录到文件服务器，以 contoso\administrator 的身份使用密码 FILE1 <strong>pass@word1</strong>。  
+1. 以 contoso\Administrator 的身份登录到文件服务器，其中 "密码<strong>pass@word1</strong>"。  
   
 2. 按下 Windows 键+R，然后键入 **cmd** 打开“命令提示符”窗口。  
   
    > [!NOTE]  
-   > 如果出现了“用户帐户控制”  对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”  。  
+   > 如果出现了“用户帐户控制”对话框，请确认其所显示的操作是你要采取的操作，然后单击“是”。  
   
 3. 键入 **gpupdate /force**，然后按回车。  
   
-## <a name="BKMK_3"></a>验证已应用全局对象访问策略  
+## <a name="BKMK_3"></a>验证是否已应用全局对象访问策略  
 应用组策略设置之后，你可以验证是否正确应用审核策略设置。  
   
 #### <a name="to-verify-that-the-global-object-access-policy-has-been-applied"></a>验证是否应用全局对象访问策略的步骤  
   
-1.  以 Contoso\MReid 身份登录到客户端计算机 CLIENT1。 浏览到文件夹超链接"file:///\\\\\\\ID_AD_FILE1\\\Finance" \\\ FILE1\Finance Documents，并修改 Word Document 2。  
+1.  以 Contoso\MReid 身份登录到客户端计算机 CLIENT1。 浏览到文件夹 HYPERLINK "file:///\\ @ no__t-1 @ no__t-2\ID_AD_FILE1 @ no__t-3\Finance" \\ \ FILE1\Finance Documents，并修改 Word Document 2。  
   
 2.  以 contoso\administrator 的身份，登录到文件服务器 FILE1。 打开“事件查看器”，浏览到 **“Windows 日志”** ，选择 **“安全性”** ，并确认你的活动导致审核事件 **4656** 和 **4663** （虽然你没有在创建、修改和删除的文件或文件夹上设置显示审核 SACL）。  
   

@@ -1,9 +1,9 @@
 ---
 title: 设置日期、时间和时区
-description: 了解如何设置 MultiPoint Services 中的日期、 时间和时区
+description: 了解如何在 MultiPoint Services 中设置日期、时间和时区
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,22 +13,22 @@ ms.assetid: 22a87c5f-3bfc-4da1-9905-24f768ede959
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 9d60a62d38149e1ceed1c05e013c41f7bdb819be
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ab8b65cc9890a66c602f1e4b4eb102ac068ba8d3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877668"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394609"
 ---
 # <a name="set-the-date-time-and-time-zone"></a>设置日期、时间和时区
-完成安装设备驱动程序后，多点服务器上设置日期、 时间和时区。  
+在完成设备驱动程序的安装后，在 MultiPoint 服务器上设置日期、时间和时区。  
   
-1.  从**启动**多点服务器，打开屏幕**控制面板**。  
+1.  在 MultiPoint 服务器的 "**开始**" 屏幕中，打开 **"控制面板"** 。  
   
-2.  下**时钟、 语言和区域**，单击**设置的时间和日期**。  
+2.  在 "**时钟、语言和区域**" 下，单击 "**设置时间和日期"** 。  
   
-3.  上**日期和时间**选项卡上，验证的日期和时间。 如果它们不正确，请单击**更改日期和时间**，更新的日期和时间，并单击**确定**。  
+3.  在 "**日期和时间**" 选项卡上，验证日期和时间。 如果它们不正确，请单击 "**更改日期和时间**"，更新日期和时间，然后单击 **"确定"** 。  
   
-4.  下**时区**，验证时间区域。 如果不正确，请单击**更改时区**，选择正确的时区，然后单击**确定**。  
+4.  在 **"时区"** 下，验证时区。 如果不正确，请单击 "**更改时区**"，选择正确的时区，然后单击 **"确定"** 。  
   
-5.  单击**确定**再次以保存设置并关闭对话框。
+5.  再次单击 **"确定"** 以保存设置并关闭对话框。

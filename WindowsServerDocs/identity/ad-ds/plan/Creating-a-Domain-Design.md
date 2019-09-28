@@ -7,32 +7,32 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5b592f791245312d43fd2edc7b6d1e85deccc75d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0e263014d49d488e0c1e52395025e21b84d7107f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868228"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402758"
 ---
 # <a name="creating-a-domain-design"></a>创建域设计
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
-林所有者负责创建在林中的域设计。 创建域设计涉及到函数中检查复制要求和的现有网络基础结构，然后构建一个域结构，使 Active Directory 域服务 (AD DS) 的容量，以最高效的方式。 域用于将目录分区，以便可以分发并有效地管理在整个企业目录中的信息。 为您的域设计目标是网络的效率最大化的 Active directory 复制拓扑，同时确保复制不使用太多可用的网络带宽，并且不会不会影响你的每日运行。  
+林所有者负责为林创建域设计。 创建域设计涉及到检查复制需求和网络基础结构的现有容量，然后生成一个域结构，使 Active Directory 域服务（AD DS）能够以最有效的方式运行。 域用于对目录进行分区，以便在整个企业中可以有效地分发和管理目录中的信息。 域设计的目标是最大程度地提高 Active Directory 复制拓扑的效率，同时确保复制不会使用过多的可用网络带宽，并且不会影响网络的日常操作。  
   
 ## <a name="in-this-section"></a>本节内容  
   
 -   [查看域模型](../../ad-ds/plan/Reviewing-the-Domain-Models.md)  
   
--   [确定所需的域数](../../ad-ds/plan/Determining-the-Number-of-Domains-Required.md)  
+-   [确定所需的域数量](../../ad-ds/plan/Determining-the-Number-of-Domains-Required.md)  
   
--   [确定是否要升级现有域或部署新域](../../ad-ds/plan/Determining-Whether-to-Upgrade-Existing-Domains-or-Deploy-New-Domains.md)  
+-   [确定是升级现有域还是部署新域](../../ad-ds/plan/Determining-Whether-to-Upgrade-Existing-Domains-or-Deploy-New-Domains.md)  
   
 -   [分配域名](../../ad-ds/plan/Assigning-Domain-Names.md)  
   
--   [选择林根级域](../../ad-ds/plan/Selecting-the-Forest-Root-Domain.md)  
+-   [选择目录林根级域](../../ad-ds/plan/Selecting-the-Forest-Root-Domain.md)  
   
 
 

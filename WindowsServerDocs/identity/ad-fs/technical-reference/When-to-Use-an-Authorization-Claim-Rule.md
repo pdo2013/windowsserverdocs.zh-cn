@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 3189056de8feff65d37b1846059d871c99ee9ede
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 49246d9df294b966f0ba38b1d3c1f361ce5f1d5f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869218"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407269"
 ---
 # <a name="when-to-use-an-authorization-claim-rule"></a>何时使用授权声明规则
 如果需要采用传入声明类型， \(则\)可以在 Active Directory 联合身份验证服务 AD FS 中使用此规则，然后应用一项操作，该操作将根据你在规则中指定。 使用此规则时，将根据你在此规则中配置的任一选项传递或转换与以下规则逻辑匹配的声明：  

@@ -6,16 +6,16 @@ ms.author: billmath
 manager: daveba
 ms.date: 08/09/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2ab6141b84d03102c5dedd1ede0ba99e5adf3e4a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 106262b63b5aad0eddb08618eb808d2d9ff5b425
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867753"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407808"
 ---
-# <a name="scenario-web-api-calling-web-api-on-behalf-of-scenario"></a>方案：用于调用 Web API 的 web API （代表方案） 
+# <a name="scenario-web-api-calling-web-api-on-behalf-of-scenario"></a>场景：用于调用 Web API 的 web API （代表方案） 
 > 适用于：AD FS 2019 及更高版本 
  
 了解如何生成代表用户调用另一个 Web API 的 Web API。  
@@ -178,14 +178,14 @@ ms.locfileid: "70867753"
        - ida： ClientId-在上 AD FS 部分的 "应用注册 #12 中输入客户端标识符值。 
        - IdaClientSecret-在上述 AD FS 部分中输入从应用注册 #13 复制的共享机密。
        - ida： RedirectUri-在上面 AD FS 部分的 "应用注册 #12 中输入 RedirectUri 值。 
-       - idaAdfsMetadataEndpoint-输入 https：//[你的 AD FS 主机名]/federationmetadata/2007-06/federationmetadata.xml 
+       - IdaAdfsMetadataEndpoint-输入 https：//[你的 AD FS 主机名]/federationmetadata/2007-06/federationmetadata.xml 
        - ida： OBOWebAPIBase-在上面 AD FS 部分的 "应用注册 #19 中输入标识符值。 
        - ida：颁发机构-输入 https：//[你的 AD FS 主机名]/adfs 
   
           ![应用注册](media/adfs-msal-web-api-web-api/webapi26.png) 
 
  5. 在 WebAPIOBO 下打开 web.config 文件。 修改以下内容： 
-       - idaAdfsMetadataEndpoint-输入 https：//[你的 AD FS 主机名]/federationmetadata/2007-06/federationmetadata.xml 
+       - IdaAdfsMetadataEndpoint-输入 https：//[你的 AD FS 主机名]/federationmetadata/2007-06/federationmetadata.xml 
        - ida：受众-在上 AD FS 部分的应用注册中输入客户端标识符值 #12 
  
           ![应用注册](media/adfs-msal-web-api-web-api/webapi27.png)

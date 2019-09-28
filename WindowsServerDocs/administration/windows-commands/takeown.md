@@ -1,8 +1,8 @@
 ---
 title: takeown
-description: 了解如何通过成为文件的所有者获取对文件的访问。
+description: 了解如何通过成为文件所有者来获取对文件的访问权限。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4b5a4874edf9fa4406d4643e686fed2b725699dd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 08804db36357c3d1d1efa7243b338bd85d5c48e2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854358"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383759"
 ---
 # <a name="takeown"></a>takeown
 
@@ -36,21 +36,21 @@ takeown [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <File n
 
 |参数|描述|
 |---------|-----------|
-|/s\<计算机 >|指定的名称或远程计算机的 IP 地址 （不使用反斜杠）。 默认值为本地计算机。 此参数适用于的所有文件和命令中指定的文件夹。|
-|/u [\<域 >\]<User name>|指定的用户帐户的权限来运行脚本。 默认值为系统权限。|
-|/p [\<Password>]|指定在指定的用户帐户的密码 **/u**参数。|
-|/f\<文件名称 >|指定的文件名或目录名称模式。 可以使用通配符 * 指定模式时。 此外可以使用语法*ShareName*\*文件名 *。|
-|/a|对而不是当前用户的管理员组授予所有权。|
-|/r|中指定的目录和子目录执行递归操作上的所有文件。|
-|/d {Y \| N}|取消当前用户指定的目录上没有"列出文件夹"权限，而是使用指定的默认值时，将显示确认提示。 有效值 **/d**选项如下所示：</br>-Y:获取目录的所有权。</br>-N:跳过该目录。</br>请注意，必须结合使用此选项 **/r**选项。|
+|/s \<Computer >|指定远程计算机的名称或 IP 地址（不使用反斜杠）。 默认值为本地计算机。 此参数适用于命令中指定的所有文件和文件夹。|
+|/u [@no__t > \] @ no__t-2|用指定用户帐户的权限运行脚本。 默认值为 "系统权限"。|
+|/p [\<Password >]|指定在 **/u**参数中指定的用户帐户的密码。|
+|/f \<File name >|指定文件名或目录名称模式。 指定模式时，可以使用通配符 *。 还可以使用语法*共享名*\*FileName *。|
+|/a|向管理员组而不是当前用户提供所有权。|
+|/r|对指定目录和子目录中的所有文件执行递归操作。|
+|/d {Y \| N}|取消当当前用户对指定目录没有 "列出文件夹" 权限时显示的确认提示，而是使用指定的默认值。 **/D**选项的有效值如下所示：</br>误差取得目录的所有权。</br>北跳过目录。</br>请注意，必须将此选项与 **/r**选项一起使用。|
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
 
--   在批处理文件中通常使用此命令。
--   如果 **/a**参数未指定，则文件所有权授予当前登录到计算机的用户。
--   使用混合的模式 (**？** 并 **&#42;**) 不受**takeown**命令。
--   删除与该锁后**takeown**，你可能必须使用 Windows 资源管理器或**cacls**命令来指定您自己的完全权限对文件和目录，才能删除它们。 有关详细信息**cacls**，请参阅本主题末尾的"其他参考"。
+-   通常在批处理文件中使用此命令。
+-   如果未指定 **/a**参数，则会为当前登录到计算机的用户提供文件所有权。
+-   混合模式使用（ **？** takeown **&#42;** 命令不支持和） 。
+-   删除**takeown**的锁定后，你可能需要使用 Windows 资源管理器或**cacls**命令向自己授予对文件和目录的完全权限，然后才能删除它们。 有关**cacls**的详细信息，请参阅本主题末尾的 "其他参考"。
 
 ## <a name="BKMK_examples"></a>示例
 
@@ -61,4 +61,4 @@ takeown /f lostfile
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

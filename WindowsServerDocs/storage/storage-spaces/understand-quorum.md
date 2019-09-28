@@ -2,7 +2,7 @@
 title: 了解群集和池仲裁
 description: 了解群集和池仲裁，并提供特定的示例来接管复杂性。
 keywords: 存储空间直通、仲裁、见证、S2D、群集仲裁、池仲裁、群集、池
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: adagashe
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -10,12 +10,12 @@ ms.topic: article
 author: adagashe
 ms.date: 01/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 962a4edc1a171167a6af336d4fb32188a526f455
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8950e9d09e3bd07dc02228c295ab223ead969ea6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872130"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366009"
 ---
 # <a name="understanding-cluster-and-pool-quorum"></a>了解群集和池仲裁
 

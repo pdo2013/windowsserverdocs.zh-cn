@@ -1,35 +1,35 @@
 ---
 title: 在 vSwitch 中接收段合并 (RSC)
-description: 接收段合并 (RSC) vSwitch 中是 Windows Server 2019 中的功能和 Windows 10 2018 年 10 月更新可帮助减少主机 CPU 使用率和虚拟工作负载的增加吞吐量，由合并到更少，但更大的多个 TCP 段段。 处理更少、 较大的段 （合并） 是处理比效率更高很多，小的段。
+description: VSwitch 中的接收段合并（RSC）是 Windows Server 2019 和 Windows 10 2018 10 月版更新中的一项功能，可帮助降低主机 CPU 利用率，并通过将多个 TCP 段合并为较少但更大边. 处理较少，较大的段（合并）比处理很多小型段更为有效。
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: ''
 ms.author: dacuo
 author: shortpatti
 ms.date: 09/07/2018
-ms.openlocfilehash: 667e795e398443cadd4c966cc31e65eeee4962f7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dce890d5ae542789c49bf08b5e7f25e62ea2e8c2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827778"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355298"
 ---
-# <a name="rsc-in-the-vswitch"></a>RSC vSwitch 中
+# <a name="rsc-in-the-vswitch"></a>VSwitch 中的 RSC
 >适用于：Windows Server 2019
 
-接收段合并 (RSC) vSwitch 中是 Windows Server 2019 中的功能和 Windows 10 2018 年 10 月更新可帮助减少主机 CPU 使用率和虚拟工作负载的增加吞吐量，由合并到更少，但更大的多个 TCP 段段。 处理更少、 较大的段 （合并） 是处理比效率更高很多，小的段。
+VSwitch 中的接收段合并（RSC）是 Windows Server 2019 和 Windows 10 2018 10 月版更新中的一项功能，可帮助降低主机 CPU 利用率，并通过将多个 TCP 段合并为较少但更大边. 处理较少，较大的段（合并）比处理很多小型段更为有效。
 
-Windows Server 2012 及更高版本包括仅限硬件的卸载版本的技术也称为接收段合并 （在物理网络适配器中实现）。 RSC 此卸载的版本是在更高版本的 Windows 中仍然可用。 但是，它与虚拟工作负载不兼容，并且一旦将物理网络适配器附加到 vSwitch 已被禁用。 RSC 的仅限硬件的版本的详细信息，请参阅[接收段合并 (RSC)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh997024(v=ws.11))。
+Windows Server 2012 和更高版本包含一种仅限硬件的卸载版本（在物理网络适配器中实现），该版本也称为接收段合并。 此卸载版本的 RSC 仍可用于更高版本的 Windows。 但是，它与虚拟工作负载不兼容，一旦将物理网络适配器连接到 vSwitch，就会被禁用。 有关 RSC 仅限硬件版本的详细信息，请参阅[接收段合并（RSC）](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh997024(v=ws.11))。
 
-## <a name="scenarios-that-benefit-from-rsc-in-the-vswitch"></a>VSwitch 中受益于 RSC 的方案
+## <a name="scenarios-that-benefit-from-rsc-in-the-vswitch"></a>从 vSwitch 中的 RSC 受益的方案
 
-其数据路径遍历虚拟交换机的工作负荷可以利用此功能。
+其数据路径遍历虚拟交换机的工作负荷从此功能获益。
 
 例如：
 
--   包括主机虚拟 Nic:
+-   承载虚拟 Nic，包括：
 
     -   软件定义的网络
 
@@ -37,15 +37,15 @@ Windows Server 2012 及更高版本包括仅限硬件的卸载版本的技术也
 
     -   存储空间直通
 
--   HYPER-V 来宾虚拟 Nic
+-   Hyper-v 来宾虚拟 Nic
 
--   软件定义网络 GRE 网关
+-   软件定义的网络 GRE 网关
 
 -   容器
 
-与此功能不兼容的工作负载包括：
+不兼容此功能的工作负荷包括：
 
--   软件定义网络 IPSEC 网关
+-   软件定义的网络 IPSEC 网关
 
 -   启用 SR-IOV 的虚拟 Nic
 
@@ -54,7 +54,7 @@ Windows Server 2012 及更高版本包括仅限硬件的卸载版本的技术也
 ## <a name="configure-rsc-in-the-vswitch"></a>在 vSwitch 中配置 RSC
 
 
-默认情况下，在外部 Vswitch，设施，RSC 被启用。
+默认情况下，在外部 Vswitch 上启用 RSC。
 
 **查看当前设置：**
 
@@ -62,22 +62,22 @@ Windows Server 2012 及更高版本包括仅限硬件的卸载版本的技术也
 Get-VMSwitch -Name vSwitchName | Select-Object *RSC*
 ```
 
-**启用或禁用 RSC vSwitch 中**
+**在 vSwitch 中启用或禁用 RSC**
 
 
 >[!IMPORTANT]
->重要提示：可以启用和禁用与现有连接不会影响动态 RSC vSwitch 中。
+>重要提示：可以在不影响现有连接的情况下，在 vSwitch 中启用和禁用 RSC。
 
 
-**VSwitch 中禁用 RSC**
+**在 vSwitch 中禁用 RSC**
 
 ```PowerShell
 Set-VMSwitch -Name vSwitchName -EnableSoftwareRsc $false
 ```
 
-**重新启用 RSC vSwitch 中**
+**在 vSwitch 中重新启用 RSC**
 
 ```PowerShell
 Set-VMSwitch -Name vSwitchName -EnableSoftwareRsc $True
 ```
-有关详细信息，请参阅[Set-vmswitch](https://docs.microsoft.com/powershell/module/hyper-v/set-vmswitch?view=win10-ps)。
+有关详细信息，请参阅[集-VMSwitch](https://docs.microsoft.com/powershell/module/hyper-v/set-vmswitch?view=win10-ps)。

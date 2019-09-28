@@ -1,7 +1,7 @@
 ---
 title: 虚拟化
 description: 提供虚拟化技术（如容器、Hyper-V 和 Hyper-V 虚拟交换机）概述；以及指向 Windows Server 2016 和更高版本操作系统的其他内容的链接。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: dougkim
 ms.technology: compute
 ms.topic: article
@@ -9,23 +9,23 @@ author: shortpatti
 ms.author: pashort
 ms.localizationpriority: medium
 ms.date: 03/16/2018
-ms.openlocfilehash: e6dbb5be6d836462c9a24078dbec3700b09b08fc
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bbbd8ea812a25b0d538dcb87a380184412235b99
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446056"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364044"
 ---
 # <a name="virtualization"></a>虚拟化
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 
+>适用于：Windows Server（半年频道）、Windows Server 2016 
 
 >[!TIP]
 > 要查找有关较旧版 Windows Server 的信息？ 在 docs.microsoft.com 上查看我们的其他 [Windows Server 库](/previous-versions/windows/)。 也可以[搜索此站点](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions)了解具体信息。
 
 <img src="../media/landing-icons/virtualization.png" style='float:left; padding:.5em;' alt="Icon showing a box with spokes"> Windows Server 2016 中的虚拟化是创建软件定义的基础结构所需的基础技术之一。 除网络和存储外，虚拟化功能还可以提供支持客户工作负载所需的灵活性。
 
-Windows Server 虚拟化技术包括 HYPER-V、 HYPER-V 虚拟交换机和受保护的构造和受防护的虚拟机的最新更新\(Vm\)，来提高安全性、 可伸缩性和可靠性。 与 Hyper-V 配合使用时，对故障转移群集、网络和存储的更新会使这些技术的部署和管理更加轻松。 
+Windows Server 虚拟化技术包括对 Hyper-v、Hyper-v 虚拟交换机以及受保护的构造和受防护的虚拟机的更新 \(VMs @ no__t-1，从而提高了安全性、可伸缩性和可靠性。 与 Hyper-V 配合使用时，对故障转移群集、网络和存储的更新会使这些技术的部署和管理更加轻松。 
 
 
 <ul class="cardsI panelContent">
@@ -41,7 +41,7 @@ Windows Server 虚拟化技术包括 HYPER-V、 HYPER-V 虚拟交换机和受保
                     </div>
                     <div class="cardText">
                         <h3>受保护的构造和受防护的 VM</h3>
-                        <p>作为云服务商或企业私有云管理员，你可以使用受保护的构造为 VM 提供更安全的环境。 受保护的构造包含一个主机保护者服务 (HGS)-通常情况下，有三个节点群集-再加上一个或多个受保护的主机和一组受防护的 Vm。</p>
+                        <p>作为云服务商或企业私有云管理员，你可以使用受保护的构造为 VM 提供更安全的环境。 受保护的构造包括一项主机保护者服务 (HGS)（通常是由三个节点组成的群集）外加一个或多个受保护的主机以及一组受防护的 VM。</p>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@ Windows Server 虚拟化技术包括 HYPER-V、 HYPER-V 虚拟交换机和受保
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>适用于企业的 Windows 10:使用设备的工作方式</h3>
+                        <h3>企业版 Windows 10：使用设备工作的方式</h3>
                         <p>Hyper-V 技术可通过硬件虚拟化提供计算资源。 Hyper-V 可创建软件版本的计算机（称为虚拟机），可以用于运行操作系统和应用程序。 你可以同时运行多个虚拟机，也可以按需要创建和删除虚拟机。 </p>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ Windows Server 虚拟化技术包括 HYPER-V、 HYPER-V 虚拟交换机和受保
                     </div>
                     <div class="cardText">
                         <h3>Microsoft Hyper-V Server</h3>
-                        <p>Hyper-V 技术可通过硬件虚拟化提供计算资源。 Hyper-V 可创建软件版本的计算机（称为虚拟机），可以用于运行操作系统和应用程序。 你可以同时运行多个虚拟机，也可以按需要创建和删除虚拟机。 </p>
+                        <p>Hyper-V 技术可通过硬件虚拟化提供计算资源。 Hyper-V 可创建软件版本的计算机（称为虚拟机），可以用于运行操作系统和应用程序。 可以同时运行多个虚拟机，也可以按需要创建和删除虚拟机。 </p>
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@ Windows Server 虚拟化技术包括 HYPER-V、 HYPER-V 虚拟交换机和受保
                     </div>
                     <div class="cardText">
                         <h3>Windows 容器</h3>
-                        <p>Windows 容器提供操作系统级别虚拟化，允许多个独立的应用程序在单个系统上运行。 该功能附带两种不同类型的容器运行时，每个都有不同程度的应用程序隔离。</p>
+                        <p>Windows 容器提供操作系统级别的虚拟化，允许多个独立的应用程序在单个系统上运行。 该功能附带两种不同类型的容器运行时，每个都有不同程度的应用程序隔离。</p>
                     </div>
                 </div>
             </div>

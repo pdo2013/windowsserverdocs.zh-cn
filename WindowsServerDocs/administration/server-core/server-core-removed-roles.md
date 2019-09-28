@@ -1,18 +1,18 @@
 ---
 title: 不在 Windows Server 中的角色、角色服务和功能-Server Core
 description: 了解 Windows Server 服务器核心安装选项中未包含的角色和功能。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 02/23/2018
-ms.openlocfilehash: 882410792c7b8df8a8275c357d64fc17c9f3479e
-ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
+ms.openlocfilehash: ce8fd0edc426b673f873717a27e6045e3476170f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975264"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383364"
 ---
 # <a name="roles-role-services-and-features-not-in-windows-server---server-core"></a>不在 Windows Server 中的角色、角色服务和功能-Server Core
 

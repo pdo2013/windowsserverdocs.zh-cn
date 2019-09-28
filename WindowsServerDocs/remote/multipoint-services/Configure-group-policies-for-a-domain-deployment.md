@@ -3,7 +3,7 @@ title: 为域部署配置组策略
 description: 了解如何在 MultiPoint Services 中设置组策略
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: 13e5fa90-d330-4155-a6b8-78eb650cbbfa
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 5c9d8efc1ed4a2f498ffce6c69d443ae819dced9
-ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
+ms.openlocfilehash: 5ac6524289d231d152e366d2ba750a59d27ce14f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314323"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395519"
 ---
 # <a name="configure-group-policies-for-a-domain-deployment"></a>为域部署配置组策略
 若要确保 MultiPoint 服务的域部署正常工作, 请对 MultiPoint 服务系统上的 WMSshell 用户帐户应用以下组策略设置。  
@@ -63,7 +63,7 @@ WMSshell 用户帐户是 MultiPoint 服务用来登录到控制台的系统帐�
   
 2.  在左窗格中, 找到并选择以下注册表子项:  
   
-    HKEY_USERS\<SIDofWMSshell > \Software\Policies\Microsoft\Windows\Control Panel\Desktop  
+    HKEY_USERS @ no__t-0SIDofWMSshell > \Software\Policies\Microsoft\Windows\Control Panel\Desktop  
   
     其中 "<SIDofWMSshell>" 是 WMSshell 帐户的安全标识符 (SID)。 若要了解如何识别 SID, 请参阅[如何将用户名与安全标识符 (SID) 相关联](https://support.microsoft.com/kb/154599)。  
   

@@ -7,18 +7,18 @@ ms.author: gawatu
 manager: gawatu
 ms.date: 10/17/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-file-systems
-ms.openlocfilehash: 54165700209320eee50fc63d98d78cbf4a92d053
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 81186624e19f9235cbdf8c7f0d44bd2927a68099
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838108"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394019"
 ---
 # <a name="block-cloning-on-refs"></a>ReFS 上的块克隆
 
->适用于：Windows Server 2019，Windows Server 2016 中，Windows Server （半年频道）
+>适用于：Windows Server 2019、Windows Server 2016、Windows Server（半年频道）
 
 块克隆指示文件系统代表应用程序复制某个范围的文件字节，其中，目标文件可与源文件相同或不同。 遗憾的是，复制操作的系统成本较高，因为它们会触发很耗费资源的对基础物理数据的读取和写入。 
 
@@ -65,7 +65,7 @@ ReFS 上的块克隆将文件数据操作转换为元数据操作。 为了实�
 ## <a name="see-also"></a>请参阅
 
 -   [ReFS 概述](refs-overview.md)
--   [ReFS 的完整性流](integrity-streams.md)
+-   [ReFS 完整性流](integrity-streams.md)
 -   [存储空间直通概述](../storage-spaces/storage-spaces-direct-overview.md)
 -   [DUPLICATE_EXTENTS_DATA](https://msdn.microsoft.com/library/windows/desktop/mt590821(v=vs.85).aspx)
 -   [FSCTL_DUPLICATE_EXTENTS_TO_FILE](https://msdn.microsoft.com/library/windows/desktop/mt590823(v=vs.85).aspx)

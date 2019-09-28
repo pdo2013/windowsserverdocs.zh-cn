@@ -1,8 +1,8 @@
 ---
 title: bitsadmin 对等缓存和 getconfigurationflags
-description: Windows 命令主题**bitsadmin 对等缓存和 getconfigurationflags** -获取确定计算机是否为对等端提供服务内容的配置标志并可以从对等方下载内容。
+description: 用于 bitsadmin 对等互连**和 getconfigurationflags**的 Windows 命令主题-获取确定计算机是否向对等机提供内容以及能否从对等方下载内容的配置标志。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6afa39993cf90b2d71b6b681680c3b4e1fd9b56b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 94c7eb1a115fe9152b149b8cf65765b179080cc3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826348"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381087"
 ---
 # <a name="bitsadmin-peercaching-and-getconfigurationflags"></a>bitsadmin 对等缓存和 getconfigurationflags
 
 
 
-获取确定计算机提供到对等节点的内容以及可以从对等方下载内容的配置标志。
+获取用于确定计算机是否向对等方提供内容以及能否从对等方下载内容的配置标志。
 
 ## <a name="syntax"></a>语法
 
@@ -40,11 +40,11 @@ bitsadmin /PeerCaching /GetConfigurationFlags <Job>
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例获取名为的作业的配置标志*myJob*。
+下面的示例获取名为*myJob*的作业的配置标志。
 ```
 C:\> Bitsadmin /PeerCaching /GetConfigurationFlags myJob
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

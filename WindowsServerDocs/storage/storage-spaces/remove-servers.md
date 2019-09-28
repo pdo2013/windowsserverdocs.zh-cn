@@ -1,7 +1,7 @@
 ---
 title: 删除存储空间直通中的服务器
 ms.assetid: 9d8499a7-1307-473d-9f00-8a051164fad2
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: cosdar
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -10,12 +10,12 @@ author: cosmosdarwin
 description: 如何在 Windows Server 中删除存储空间直通群集中的服务器。
 ms.date: 2/5/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 9fcb67b3c5fbcff0ca2a48ee9a1d2e109af3e9a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ce8caef2b51279c97cc012045750b7a73d97a4ba
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890778"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402810"
 ---
 # <a name="removing-servers-in-storage-spaces-direct"></a>删除存储空间直通中的服务器
 
@@ -58,7 +58,7 @@ Remove-ClusterNode <Name> -CleanUpDisks
 
 #### <a name="enough-capacity"></a>足够的容量
 
-首先，您必须具有足够的存储容量中剩余的服务器，以满足你的所有卷。
+首先，剩余服务器中必须有足够的存储容量，才能容纳所有卷。
 
 例如，如果你安装了四个服务器，每个服务器都有 10 个 1 TB 的驱动器，那么你拥有 40 TB 的总物理存储容量。 删除一个服务器及其所有驱动器后，你将剩下 30 TB 的容量。 如果卷的占用空间合计超过了 30 TB，则其余服务器将无法容纳它们，因此 cmdlet 将返回错误，并且不会移动任何数据。
 

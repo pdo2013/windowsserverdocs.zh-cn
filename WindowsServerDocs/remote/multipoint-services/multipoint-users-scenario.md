@@ -2,7 +2,7 @@
 title: MultiPoint 服务用户帐户
 description: 了解 MultiPoint Services 中的用户帐户，尤其是在不同方案中使用的类型
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 67aa84244aa9ebfcd8375bd82f9d6ae431fc5eac
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ff81af2a0aa8da7f801ec14c27dc00c9bae6e8aa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871425"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388965"
 ---
 # <a name="example-scenarios-multipoint-services-user-accounts"></a>示例方案：MultiPoint 服务用户帐户
 要实现为 MultiPoint 服务环境选择的用户帐户方案，需要执行哪些操作？ 下表描述了为在独立的 MultiPoint 计算机上或在工作组或 Active Directory 域中的网络服务器上配置用户帐户以及为共享或个人用户帐户准备工作站所要执行的每个任务。 选择适用于您的环境的方案。 然后，按照表中的链接来完成每个必需的配置任务。  

@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setmaxdownloadtime
-description: Windows 命令主题**bitsadmin setmaxdownloadtime** -设置下载超时 （秒）。
+description: '**Bitsadmin setmaxdownloadtime**的 Windows 命令主题-设置下载超时（以秒为单位）。'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f13b44429bec2718af1a648f273fead18d4e9e08
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 985453de5bd2f4a06b5635ae5b0a9794d30175b0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830988"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380557"
 ---
 # <a name="bitsadmin-setmaxdownloadtime"></a>bitsadmin setmaxdownloadtime
 
 
 
-设置下载超时 （秒）。
+设置下载超时（以秒为单位）。
 
 ## <a name="syntax"></a>语法
 
@@ -37,7 +37,7 @@ bitsadmin /SetMaxDownloadTime <Job> <Timeout>
 |参数|描述|
 |---------|-----------|
 |作业|该作业的显示名称或 GUID|
-|Timeout|超时 （秒）|
+|Timeout|超时（秒）|
 
 ## <a name="remarks"></a>备注
 
@@ -45,11 +45,11 @@ bitsadmin /SetMaxDownloadTime <Job> <Timeout>
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例设置名为的作业超时*myDownloadJob*为 10 秒。
+下面的示例将名为*myDownloadJob*的作业的超时值设置为10秒。
 ```
 C:\>bitsadmin /SetMaxDownloadTime myDownloadJob 10
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

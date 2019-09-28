@@ -1,97 +1,97 @@
 ---
-title: 故障排除-Fiddler-WS-联合身份验证的 AD FS
-description: 本文演示了使用 AD FS 的 WS 联合身份验证交换的详细跟踪
+title: AD FS 疑难解答-Fiddler-ws-federation
+description: 本文档显示了 WS 联合身份验证交换与 AD FS
 author: billmath
 ms.author: billmath
 manager: mtillman
 ms.date: 01/18/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: be1c9f466ec13272d10f0fb9ca31cf326a1ec29a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d263f48aadff7c77cba44a2328d472ebbe5dfbbf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846898"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407215"
 ---
-# <a name="ad-fs-troubleshooting---fiddler---ws-federation"></a>故障排除-Fiddler-WS-联合身份验证的 AD FS
+# <a name="ad-fs-troubleshooting---fiddler---ws-federation"></a>AD FS 疑难解答-Fiddler-ws-federation
 ![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler9.png)
 
-## <a name="step-1-and-2"></a>步骤 1 和 2
-这是我们跟踪的开始。  在此范围内将看到以下信息： ![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler1.png)
+## <a name="step-1-and-2"></a>步骤1和2
+这是跟踪开始。  在此框架中，将看到以下内容： ![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler1.png)
 
-请求：
+需要
 
-- HTTP GET 为我们信赖方 （ http://sql1.contoso.com/SampApp)
+- HTTP 获取我们的信赖方（ http://sql1.contoso.com/SampApp)
 
-响应：
+回复
 
-- 响应是 HTTP 302 （重定向）。  响应标头中的传输数据显示为 （重定向的位置 https://sts.contoso.com/adfs/ls)
-- 重定向 URL 包含 wa = wsignin 1.0 我们信赖方应用程序已为我们生成 WS 联合身份验证登录请求和发送到 AD FS /adfs/ls/终结点这告诉我们。  此即为绑定重定向。
+- 响应是 HTTP 302 （重定向）。  响应标头中的传输数据显示重定向到的位置（ https://sts.contoso.com/adfs/ls)
+- 重定向 URL 包含 wa = wsignin1.0 1.0，告诉我们 RP 应用程序已生成 WS 联合身份验证登录请求，并将其发送到 AD FS 的/adfs/ls/终结点。  这称为 "重定向绑定"。
 ![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler2.png)
 
-## <a name="step-3-and-4"></a>步骤 3 和 4
+## <a name="step-3-and-4"></a>步骤3和4
 
 ![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler3.png)
 
-请求：
+需要
 
-- HTTP GET 到我们的 AD FS server(sts.contoso.com)
+- HTTP 获取我们的 AD FS 服务器（sts .com）
 
-响应：
+回复
 
-- 响应是提示输入凭据。  这表示，我们将使用窗体的身份验证机制
-- 通过单击响应的 web 视图上可以看到提示的凭据。
+- 响应会提示输入凭据。  这表示我们使用的是窗体 authnetication
+- 单击响应的 Web 视图可查看凭据提示。
 ![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler6.png)
 
-## <a name="step-5-and-6"></a>步骤 5 和 6
+## <a name="step-5-and-6"></a>步骤5和6
 
 ![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler4.png)
 
-请求：
+需要
 
-- 使用我们的用户名和密码的 HTTP POST。  
-- 我们将介绍我们的凭据。  通过查看在请求中的原始数据，我们可以查看这些凭据
+- HTTP POST，其中包含用户名和密码。  
+- 我们提供凭据。  通过查看请求中的原始数据，我们可以看到凭据
 
-响应：
+回复
 
-- 响应是找到和 MSIAuth 创建并返回已加密的 cookie。  这用于验证由我们的客户端生成的 SAML 断言。  这是也称为"身份验证 cookie"，才会显示 AD FS 时 Idp。
+- 找到响应并创建并返回 MSIAuth 加密的 cookie。  这用于验证客户端生成的 SAML 断言。  这也称为 "身份验证 cookie"，仅当 AD FS 是 Idp 时才会出现这种情况。
 
 
-## <a name="step-7-and-8"></a>步骤 7 和 8
+## <a name="step-7-and-8"></a>步骤7和8
 ![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler5.png)
 
-请求：
+需要
 
-- 现在，我们已通过身份验证我们在 AD FS 服务器的另一个 HTTP GET 并提供我们身份验证令牌
+- 现在我们已经过身份验证，接下来对 AD FS 服务器进行另一个 HTTP 访问，并提供身份验证令牌
 
-响应：
+回复
 
-- 响应是 HTTP 确定，这意味着 AD FS 的内容具有基于提供的凭据对用户进行身份验证
-- 此外，我们设置了 3 条 cookie 返回给客户端
-    - MSISAuthenticated 包含客户端进行身份验证时的 base64 编码的时间戳值。
-    - MSISLoopDetectionCookie 可供具有无限重定向循环到联合身份验证服务器中的最后的停止客户端的 AD FS 无限循环检测机制。 Cookie 数据是时间戳，采用 base64 编码。
-    - MSISSignout 用于跟踪的 IdP，所有 RPs 都访问了 SSO 会话。 调用 WS-联合注销时，利用此 cookie。 可以看到使用 base64 解码器此 cookie 的内容。
+- 响应是 HTTP OK，这意味着 AD FS 根据提供的凭据对用户进行了身份验证
+- 同时，我们将3个 cookie 设置回客户端
+    - MSISAuthenticated 包含对客户端进行身份验证时的 base64 编码的时间戳值。
+    - AD FS 无限循环检测机制使用 MSISLoopDetectionCookie 来停止对联合服务器的无限重定向循环中的客户端。 Cookie 数据是 base64 编码的时间戳。
+    - MSISSignout 用于跟踪为 SSO 会话访问的 IdP 和所有 RPs。 调用 WS 联合身份验证注销时，将使用此 cookie。 可以使用 base64 解码器查看此 cookie 的内容。
     
-## <a name="step-9-and-10"></a>步骤 9 和 10
+## <a name="step-9-and-10"></a>步骤9和10
 ![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler7.png) 请求：
 
 - HTTP POST
 
-响应：
+回复
 
-- 响应是找到
+- 响应为找到
 
-## <a name="step-11-and-12"></a>步骤 11 和 12
+## <a name="step-11-and-12"></a>步骤11和12
 ![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler8.png) 请求：
 
 - HTTP GET
 
-响应：
+回复
 
-- 响应是确定
+- 响应正常
 
 ## <a name="next-steps"></a>后续步骤
 
-- [AD FS 进行故障排除](ad-fs-tshoot-overview.md)
+- [AD FS 疑难解答](ad-fs-tshoot-overview.md)

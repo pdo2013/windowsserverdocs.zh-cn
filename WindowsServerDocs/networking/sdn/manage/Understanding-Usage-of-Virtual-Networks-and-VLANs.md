@@ -1,9 +1,9 @@
 ---
 title: 了解虚拟网络和 Vlan 的使用情况
-description: 在本主题中，您了解有关 HYPER-V 网络虚拟化的虚拟网络以及从虚拟局域网 (Vlan) 之间的区别。 使用 HYPER-V 网络虚拟化，您可以创建覆盖层的虚拟网络，也称为虚拟网络。
+description: 在本主题中，你将了解 Hyper-v 网络虚拟化虚拟网络及其与虚拟局域网（Vlan）的不同之处。 通过 Hyper-v 网络虚拟化，你可以创建覆盖虚拟网络（也称为虚拟网络）。
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,32 +13,32 @@ ms.assetid: 84ac2458-3fcf-4c4f-acfe-6105443dd83f
 ms.author: pashort
 author: shortpatti
 ms.date: 08/26/2018
-ms.openlocfilehash: d126e97a91e4c61ecff00cc2b5a527618b2d4d0f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 854adf0e7bb2a8715e3d447c04e2f09c3470a781
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875528"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355834"
 ---
 # <a name="understand-the-usage-of-virtual-networks-and-vlans"></a>了解虚拟网络和 Vlan 的使用情况
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-在本主题中，您了解有关 HYPER-V 网络虚拟化的虚拟网络以及从虚拟局域网 (Vlan) 之间的区别。 使用 HYPER-V 网络虚拟化，您可以创建覆盖层的虚拟网络，也称为虚拟网络。
+在本主题中，你将了解 Hyper-v 网络虚拟化虚拟网络及其与虚拟局域网（Vlan）的不同之处。 通过 Hyper-v 网络虚拟化，你可以创建覆盖虚拟网络（也称为虚拟网络）。
 
 
 
   
-软件定义网络 (SDN) Windows Server 2016 中基于编程策略覆盖内的虚拟网络的 HYPER-V 虚拟交换机。 可以创建覆盖层的虚拟网络，也称为虚拟网络，使用 HYPER-V 网络虚拟化。 
+Windows Server 2016 中的软件定义网络（SDN）基于在 Hyper-v 虚拟交换机内覆盖虚拟网络的编程策略。 可以通过 Hyper-v 网络虚拟化创建覆盖虚拟网络（也称为虚拟网络）。 
   
-当您部署的 HYPER-V 网络虚拟化时，通过封装与一个覆盖-或隧道-标头，（例如，VXLAN 或 NVGRE） 和第 3 层 ip 地址和第 2 层以太网的原始租户虚拟机的第 2 层以太网帧创建覆盖网络标头下衬 （或物理） 的网络。 覆盖虚拟网络标识由 24 位虚拟网络标识符 (VNI) 来维护租户通信隔离并允许重叠的 IP 地址。 VNI 组成虚拟子网 ID (VSID)、 逻辑交换机 ID 和隧道 id。  
+部署 Hyper-v 网络虚拟化时，会通过将原始租户虚拟机的第2层以太网帧封装为覆盖或隧道标头（例如，VXLAN 或 NVGRE）和第3层 IP 和第2层以太网来创建覆盖网络是（或物理）网络中的标头。 覆盖虚拟网络由24位虚拟网络标识符（VNI）标识，用于维护租户通信隔离和允许重叠的 IP 地址。 VNI 由虚拟子网 ID （VSID）、逻辑交换机 ID 和隧道 ID 组成。  
   
-此外，每个租户分配给路由域 （类似于虚拟路由和转发的 VRF），以便多个虚拟子网前缀 （每个表示 VNI） 可以直接转到每个其他。 跨租户 （或跨路由域） 而无需通过网关不支持路由。   
+此外，每个租户都分配有一个路由域（类似于虚拟路由和转发-VRF），以便可以直接相互路由多个虚拟子网前缀（每个前缀由 VNI 表示）。 不支持跨租户（或交叉路由域）路由，而不通过网关。   
   
-由名为提供程序逻辑网络的逻辑网络表示物理网络的每个租户的封装的流量进行隧道传输。 此提供程序逻辑网络由一个或多个的子网组成，每个表示 IP 前缀和 （可选） VLAN 802.1q 标记。  
+每个租户的封装流量在其上进行隧道传输的物理网络由名为提供程序逻辑网络的逻辑网络表示。 此提供程序逻辑网络包含一个或多个子网，每个子网由一个 IP 前缀和一个 VLAN 802.1 q 标记（可选）表示。  
   
-可以创建其他逻辑网络和子网用于基础结构以执行管理流量，存储流量实时迁移流量，等等。  
+出于基础结构目的，你可以创建其他逻辑网络和子网来携带管理流量、存储流量、实时迁移流量等。  
   
-Microsoft SDN 不支持使用 Vlan 的隔离租户网络。 租户隔离仅通过使用 HYPER-V 网络虚拟化覆盖区上的虚拟网络并封装。 
+Microsoft SDN 不支持通过使用 Vlan 隔离租户网络。 租户隔离仅通过使用 Hyper-v 网络虚拟化覆盖虚拟网络和封装来完成。 
 
 

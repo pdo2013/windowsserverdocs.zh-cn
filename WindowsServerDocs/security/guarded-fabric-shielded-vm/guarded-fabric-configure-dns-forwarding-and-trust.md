@@ -1,37 +1,37 @@
 ---
 title: 配置 DNS 转发和域信任
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 3f9083d749ba9251ba47ecb64b7cb3d7c6290f1d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5d8ffe82065caeee27c5d13f5243f13addc6c325
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66443773"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386736"
 ---
-# <a name="configure-dns-forwarding-in-the-hgs-domain-and-a-one-way-trust-with-the-fabric-domain"></a>HGS 域和单向信任关系的 fabric 域中配置 DNS 转发
+# <a name="configure-dns-forwarding-in-the-hgs-domain-and-a-one-way-trust-with-the-fabric-domain"></a>使用 fabric 域在 HGS 域和单向信任中配置 DNS 转发
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
 >[!IMPORTANT]
->AD 模式与 Windows Server 2019 从开始已弃用。 对于 TPM 证明不可能的环境，配置[托管密钥证明](guarded-fabric-initialize-hgs-key-mode.md)。 主机密钥证明提供了类似保障为 AD 模式，并且易于设置。 
+>从 Windows Server 2019 开始，AD 模式已弃用。 对于不可能进行 TPM 证明的环境，请配置[主机密钥证明](guarded-fabric-initialize-hgs-key-mode.md)。 主机密钥证明向 AD 模式提供类似的保障，并更易于设置。 
 
-使用以下步骤来设置 DNS 转发和建立与 fabric 域之间的单向信任。 这些步骤允许域控制器的 HGS 来查找在构造，并验证组成员身份的 HYPER-V 主机。
+使用以下步骤设置 DNS 转发并与 fabric 域建立单向信任。 这些步骤允许 HGS 查找构造域控制器并验证 Hyper-v 主机的组成员身份。
 
-1.  在配置 DNS 转发权限提升的 PowerShell 会话中运行以下命令。 替换构造域的名称为 fabrikam.com 和键入 fabric 域中的 DNS 服务器的 IP 地址。 为了提高可用性，指向多个 DNS 服务器。
+1.  在已提升权限的 PowerShell 会话中运行以下命令，配置 DNS 转发。 将 fabrikam.com 替换为 fabric 域的名称，并键入 fabric 域中 DNS 服务器的 IP 地址。 若要获得更高的可用性，请指向多个 DNS 服务器。
 
     ```powershell
     Add-DnsServerConditionalForwarderZone -Name "fabrikam.com" -ReplicationScope "Forest" -MasterServers <DNSserverAddress1>, <DNSserverAddress2>
     ```
 
-2.  若要创建单向林信任，请在提升的命令提示符中运行以下命令：
+2.  若要创建单向林信任，请在提升的命令提示符下运行以下命令：
 
-    替换`bastion.local`HGS 域的名称和`fabrikam.com`fabric 域的名称。 提供的 fabric 域管理员的密码。
+    将 `bastion.local` 替换为 HGS 域的名称，并将 `fabrikam.com` 替换为构造域的名称。 为 fabric 域的管理员提供密码。
 
         netdom trust bastion.local /domain:fabrikam.com /userD:fabrikam.com\Administrator /passwordD:<password> /add
 

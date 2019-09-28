@@ -1,7 +1,7 @@
 ---
-title: 请至少使用用于存储虚拟机文件的文件共享的 SMB 协议版本 3.0。
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+title: 为虚拟机存储文件的文件共享至少使用 SMB 协议版本3.0。
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 4bb832b8-f1aa-4c1f-a0f2-324dd53553ea
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 28e0f3769fd4fc993710d0a0b800dfad7c9ab157
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af23c3c860a47d0dd9096bc3f5ff466aca7836b6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834338"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393320"
 ---
-# <a name="use-at-least-smb-protocol-version-30-for-file-shares-that-store-files-for-virtual-machines"></a>请至少使用用于存储虚拟机文件的文件共享的 SMB 协议版本 3.0。
+# <a name="use-at-least-smb-protocol-version-30-for-file-shares-that-store-files-for-virtual-machines"></a>为虚拟机存储文件的文件共享至少使用 SMB 协议版本3.0。
 
 >适用于：Windows Server 2016
 
@@ -27,21 +27,21 @@ ms.locfileid: "59834338"
 |-|-|  
 |**操作系统**|Windows Server 2016|  
 |**产品/功能**|Hyper-V|  
-|**Severity**|错误|  
+|**Severity**|Error|  
 |**类别**|配置|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。  
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。  
   
 ## <a name="issue"></a>**问题**  
-*虚拟机文件或虚拟硬盘文件存储在文件共享至少不支持 SMB 协议版本 3.0。*  
+*虚拟机文件或虚拟硬盘文件存储在不支持 SMB 协议版本3.0 的文件共享上。*  
   
-## <a name="impact"></a>**影响**  
+## <a name="impact"></a>**对**  
 *Microsoft 不支持此配置。这会影响以下虚拟机：*  
   
-\<虚拟机的列表 >  
+@no__t-虚拟机的 0list >  
   
 ## <a name="resolution"></a>**解决方法**  
-*将文件移到的文件共享，至少使用 SMB 协议版本 3.0。*  
+*将文件移动到至少使用 SMB 协议版本3.0 的文件共享中。*  
   
 
 

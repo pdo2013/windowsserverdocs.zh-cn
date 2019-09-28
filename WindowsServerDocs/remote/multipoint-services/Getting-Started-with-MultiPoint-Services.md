@@ -2,7 +2,7 @@
 title: 带 MultiPoint 服务的入门
 description: 介绍 MultiPoint 服务并使你开始使用它。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 2ed2084038236dc8914eefe6bdafc133817b7b41
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: cf31e62345b006ef9572a2ea97a23e3e0bf41b64
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871678"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395368"
 ---
 # <a name="getting-started-with-multipoint-services"></a>带 MultiPoint 服务的入门
 你的 MultiPoint 服务系统允许许多用户使用只使用工作站中心连接的多个工作站，只使用一台计算机。 每个工作站通常由工作站集线器、鼠标、键盘和视频显示器组成。 MultiPoint 服务工作站上的每个用户都有一个唯一的 Windows 计算会话，你可以使用 MultiPoint 管理器进行管理。  
