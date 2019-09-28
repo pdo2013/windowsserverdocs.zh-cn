@@ -2,19 +2,19 @@
 title: 管理软件定义的网络的证书
 description: 当你在 Windows Server 2016 Datacenter 中部署软件定义的网络（SDN）时，你可以使用本主题来了解如何管理网络控制器 Northbound 和 Southbound 通信的证书。
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: c4e2f6c7-0364-4bf8-bb66-9af59c0bbd74
 ms.author: pashort
 author: shortpatti
 ms.date: 08/22/2018
-ms.openlocfilehash: 8e2feba8232ae87d59478d3522c4e6f02baf27b8
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b1cff080630c68ee8c4b7f0904f8fd0978330edc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870100"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405984"
 ---
 # <a name="manage-certificates-for-software-defined-networking"></a>管理软件定义的网络的证书
 
@@ -135,7 +135,7 @@ Windows Server 2016 Datacenter 中的 SDN 支持自\-签名证书和证书\(\)�
 6. 展开 "**详细信息**" 部分，然后配置以下各项。
    1. 请确保**密钥用法**同时包含<strong>数字签名 * * 和 * * 密钥加密</strong>。
    2. 确保**应用程序策略**包括**服务器身份验证** \(1.3.6.1.5.5.7.3.1\)和**客户端身份验证** \(1.3.6.1.5.5.7.3.2。\)
-7. 单击**属性**。
+7. 单击“属性”。
 8. 在 "**使用者**" 选项卡上的 "**使用者名称** **" 中，选择 "** **公用名**"。 在 "值" 中，指定**网络控制器 REST 终结点**。
 9. 单击“应用”，然后单击“确定”。
 10. 单击**注册**。

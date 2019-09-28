@@ -1,8 +1,8 @@
 ---
 title: 使用 MultiPoint 管理器管理系统任务
-description: MultiPoint 管理器中的管理任务的概述
+description: MultiPoint 管理器中的管理任务概述
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 52400b5ed74e4dcc9350e74ac8bc31182fdbbccc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 185f4c88286138af61f92f3f349efd8f584ed73c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845108"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405054"
 ---
 # <a name="manage-system-tasks-using-multipoint-manager"></a>使用 MultiPoint 管理器管理系统任务
-在 MultiPoint 管理器中，你可以使用**主页**选项卡执行 MultiPoint 服务任务和检查系统的状态。 可在“开始”选项卡上执行的任务包括：  
+在 MultiPoint 管理器中，你可以使用 "**开始**" 选项卡执行 MultiPoint 服务任务并检查系统的状态。 可在“开始”选项卡上执行的任务包括：  
   
 -   编辑安装 MultiPoint 服务时所选的设置，如[编辑服务器设置](Edit-Server-Settings.md)主题中所述。  
   
@@ -37,8 +37,8 @@ ms.locfileid: "59845108"
 
 ## <a name="see-also"></a>请参阅  
 [编辑服务器设置](Edit-Server-Settings.md)  
-[重新启动或关闭](Restart-or-Shut-Down.md)  
-[切换模式](Switch-Between-Modes.md)  
+[重启或关闭](Restart-or-Shut-Down.md)  
+[在模式间切换](Switch-Between-Modes.md)  
 [启用或禁用磁盘保护](Enable-or-Disable-Disk-Protection.md)  
 [重新映射所有工作站](Remap-All-Stations.md)  
 [添加或删除计算机](Add-or-Remove-Computers.md)

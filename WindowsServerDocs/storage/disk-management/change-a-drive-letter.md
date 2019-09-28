@@ -2,18 +2,18 @@
 title: 更改驱动器号
 description: 如何使用磁盘管理在 Windows 中更改或分配驱动器号。
 ms.date: 10/24/2018
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: b972ab05c192dca9a9a0a2bda4f083d2906acadb
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 3e18092a71e12cadb86052204738fafc8a149ff4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66812480"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386021"
 ---
 # <a name="change-a-drive-letter"></a>更改驱动器号
 
@@ -27,7 +27,7 @@ ms.locfileid: "66812480"
 下面介绍如何更改驱动器号（若要在空文件夹中装载驱动器，使其看上去像是另一个文件夹，请参阅[分配驱动器的装入点文件夹路径](assign-a-mount-point-folder-path-to-a-drive.md)）。
 
 1. 使用管理员权限打开磁盘管理。 
-    为此，请在任务栏上的搜索框中键入“磁盘管理”，选择并按住（或右键单击）“磁盘管理”，然后选择“以管理员身份运行” > “是”。     如果无法以管理员身份打开它，请键入“计算机管理”，然后转到“存储” > “磁盘管理”。   
+    为此，请在任务栏上的搜索框中键入“磁盘管理”  ，选择并按住（或右键单击）“磁盘管理”  ，然后选择“以管理员身份运行”   > “是”  。 如果无法以管理员身份打开它，请键入“计算机管理”，然后转到“存储” > “磁盘管理”。   
 1. 在磁盘管理，右键单击要更改或添加驱动器号的驱动器，然后选择“更改驱动器号和路径”。 
 
     ![显示了驱动器的磁盘管理](media/change-drive-letter.png)

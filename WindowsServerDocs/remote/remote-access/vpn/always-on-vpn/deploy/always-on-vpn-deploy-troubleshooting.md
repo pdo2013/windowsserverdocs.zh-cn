@@ -1,7 +1,7 @@
 ---
 title: 始终启用 VPN 疑难解答
 description: 本主题提供有关在 Windows Server 2016 中验证和排查 Always On VPN 部署问题的说明。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: 4d08164e-3cc8-44e5-a319-9671e1ac294a
@@ -9,12 +9,12 @@ ms.localizationpriority: medium
 ms.date: 06/11/2018
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 60873c8bbf71ad5afa58bd9e19b1a3fd650bc65f
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 649fbc16e3dfef2ed1061d0ba6a5c22a8712b186
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871349"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404374"
 ---
 # <a name="troubleshoot-always-on-vpn"></a>始终启用 VPN 疑难解答 
 
@@ -118,7 +118,7 @@ ms.locfileid: "70871349"
 
 ## <a name="nps-logs"></a>NPS 日志
 
-NPS 创建并存储 NPS 记帐日志。 默认情况下，这些文件存储在名为\\的\\文件\\中的% SYSTEMROOT%System32 日志文件中，其中*xxxx*是创建文件的日期。
+NPS 创建并存储 NPS 记帐日志。 默认情况下，这些文件存储在% SYSTEMROOT% 中，\\System32 @ no__t-1Logfiles @ no__t 在名*为的文件中，* 其中*xxxx*是创建文件的日期。
 
 默认情况下，这些日志采用逗号分隔值格式，但不包括标题行。 标题行为：
 

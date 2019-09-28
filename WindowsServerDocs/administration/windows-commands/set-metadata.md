@@ -1,8 +1,8 @@
 ---
 title: 设置元数据
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 82d2cd9ba447a0ea261f91dc01c11e45dfc0aa9b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ac73a4131d3f4065cd1aeae873734b079ad664e2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835988"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370952"
 ---
 # <a name="set-metadata"></a>设置元数据
 
 
 
-设置名称和用于从一台计算机的卷影副本传输到另一个卷影创建元数据文件的位置。 如果使用不带参数，**设置元数据**在命令提示符下显示的帮助。
+设置用于将卷影副本从一台计算机传输到另一台计算机的卷影创建元数据文件的名称和位置。 如果在没有参数的情况下使用，则**设置元数据将**在命令提示符下显示帮助。
 
 ## <a name="syntax"></a>语法
 
@@ -36,9 +36,9 @@ set metadata [<Drive>:][<Path>]<MetaData.cab>
 
 |参数|描述|
 |---------|-----------|
-|[\<Drive>:][<Path>]|指定要创建的元数据文件的位置。|
-|\<MetaData.cab>|指定要存储卷影创建元数据的 cab 文件的名称。|
+|[@no__t >：][<Path>]|指定元数据文件的创建位置。|
+|\<MetaData >|指定用于存储卷影创建元数据的 cab 文件的名称。|
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

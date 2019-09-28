@@ -7,26 +7,26 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d69ccfd15004619f890c6f5c1cb630c62e16256b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e8673b9e66a0aa3b6bea89b91ae5022efb26c65c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889188"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390511"
 ---
 # <a name="virtualized-domain-controller-architecture"></a>虚拟化域控制器体系结构
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
 本主题介绍虚拟化域控制器克隆和安全还原的体系结构。 它将使用流程图显示克隆和安全还原的过程，然后提供过程中每个步骤的详细说明。  
   
--   [虚拟化的域控制器克隆体系结构](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneArch)  
+-   [虚拟化域控制器克隆体系结构](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneArch)  
   
--   [虚拟化的域控制器安全还原体系结构](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_SafeRestoreArch)  
+-   [虚拟化域控制器安全还原体系结构](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_SafeRestoreArch)  
   
-## <a name="BKMK_CloneArch"></a>虚拟化的域控制器克隆体系结构  
+## <a name="BKMK_CloneArch"></a>虚拟化域控制器克隆体系结构  
   
 ### <a name="overview"></a>概述  
 虚拟化域控制器克隆依赖于虚拟机监控程序平台以显示名为 **VM 生成 ID** 的标识符，用于检测虚拟机的创建。 在域控制器升级期间，AD DS 最初将此标识符的值存储在其数据库 (NTDS.DIT) 中。 虚拟机启动时，将比较虚拟机中 VM 生成 ID 的当前值和数据库中的值。 如果两个值不同，则域控制器重置调用 ID 并弃用 RID 池，从而阻止重复使用 USN 或消除创建重复安全主体的可能性。 然后，域控制器将在 [Cloning Detailed Processing](../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneProcessDetails)的步骤 3 中标注的位置上查找 DCCloneConfig.xml 文件。 如果找到 DCCloneConfig.xml 文件，则可以确定正将其部署为克隆，因此它通过使用从源媒体复制过来的现有 NTDS.DIT 和 SYSVOL 内容进行重新升级，从而启动克隆以将其本身设置为额外的域控制器。  
@@ -35,16 +35,16 @@ ms.locfileid: "59889188"
   
 如果在支持 VM 生成 ID 的虚拟机监控程序上部署克隆媒体，但未提供 DCCloneConfig.xml 文件，则当 DC 检测到其 DIT 和新 VM 的 DIT 之间的 VM 生成 ID 发生更改时，它将触发安全措施，以阻止重复使用 USN 并避免重复 SID。 但是，将不会启动克隆，因此辅助 DC 将在与源域控制器相同的标识下继续运行。 为了避免环境中出现任何不一致，应及早从网络中删除此辅助 DC。 有关如何在确保更新获取已复制出站的同时回收此辅助 DC 的详细信息，请参阅 Microsoft 知识库文章 [2742970](https://support.microsoft.com/kb/2742970)。  
   
-### <a name="BKMK_CloneProcessDetails"></a>克隆详细的处理  
+### <a name="BKMK_CloneProcessDetails"></a>克隆详细处理  
 下图显示了初始克隆操作和克隆重试操作的体系结构。 稍后，本主题将对这些过程进行详细说明。  
   
 **初始克隆操作**  
   
-![虚拟化的 DC 体系结构](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_InitialCloningProcess.png)  
+![虚拟化 DC 体系结构](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_InitialCloningProcess.png)  
   
 **克隆重试操作**  
   
-![虚拟化的 DC 体系结构](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_CloningRetryProcess.png)  
+![虚拟化 DC 体系结构](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_CloningRetryProcess.png)  
   
 以下步骤详细介绍了该过程：  
   
@@ -94,7 +94,7 @@ ms.locfileid: "59889188"
   
 10. 如果由于空白 DCCloneConfig.xml 网络设置将使用自动 IP 寻址，则来宾在将网络适配器上启用 DHCP，以获得 IP 地址租用、网络路由和名称解析信息。  
   
-11. 来宾定位并联系运行 PDC 模拟器 FSMO 角色的域控制器。 这将使用 DNS 和 DCLocator 协议。 它建立 RPC 连接并调用 IDL_DRSAddCloneDC 方法，以克隆域控制器计算机对象。  
+11. 来宾定位并联系运行 PDC 模拟器 FSMO 角色的域控制器。 这将使用 DNS 和 DCLocator 协议。 它将建立 RPC 连接并调用方法 IDL_DRSAddCloneDC 以克隆域控制器计算机对象。  
   
     1.  如果来宾的源计算机对象保留“允许 DC 创建其自身的克隆”的域标头扩展权限，则克隆将继续。  
   
@@ -102,7 +102,7 @@ ms.locfileid: "59889188"
   
 12. 将 AD DS 计算机对象名称设置为与 DCCloneConfig.xml 中指定的名称（如果有的话）相匹配，否则将在 PDCE 上自动生成名称。 NTDS 为相应的 Active Directory 逻辑站点创建正确的 NTDS 设置对象。  
   
-    1.  如果这是 PDC 克隆，则来宾将重命名本地计算机并重新启动。 重新启动后，它将再次经历步骤 1-10，然后转到步骤 13。  
+    1.  如果这是 PDC 克隆，则来宾将重命名本地计算机并重新启动。 重新启动后，它将再次经历步骤 1-10，然后转到步骤13。  
   
     2.  如果这是副本 DC 克隆，则在此阶段无需重新启动。  
   
@@ -112,7 +112,7 @@ ms.locfileid: "59889188"
   
 15. 来宾强制与另一个域控制器进行 NT5DS (Windows NTP) 时间同步（在默认 Windows 时间服务层次结构中，这意味着使用 PDCE）。 来宾与 PDCE 取得联系。 刷新所有现有 Kerberos 票证。  
   
-16. 来宾将 DFSR 或 NTFRS 服务配置为自动运行。 来宾将删除所有现有 DFSR 和 NTFRS 数据库文件 (默认： c:\windows\ntfrs 和 c:\system 卷 information\dfsr\\ *< database_GUID >*)，以便强制执行的非权威同步接下来启动该服务时的 SYSVOL。 来宾将不会删除 SYSVOL 的文件内容，以便在稍后同步启动时预植入 SYSVOL。  
+16. 来宾将 DFSR 或 NTFRS 服务配置为自动运行。 来宾将删除所有现有的 DFSR 和 NTFRS 数据库文件（默认值： c:\windows\ntfrs 和 c:\system volume information\dfsr @ no__t-0 *< database_GUID >* ），以便在下次服务时强制执行 SYSVOL 的非权威同步首先. 来宾将不会删除 SYSVOL 的文件内容，以便在稍后同步启动时预植入 SYSVOL。  
   
 17. 已重命名来宾。 来宾上的 DS 角色服务器服务开始进行 AD DS 配置（升级），将现有的 NTDS.DIT 数据库文件用作源，而不是同普通升级一样使用 c:\windows\system32 中包含的模板数据库作为源。  
   
@@ -142,7 +142,7 @@ ms.locfileid: "59889188"
   
 26. 来宾将重新启动。 现在这是一个正常的、正在进行播发的域控制器。  
   
-## <a name="BKMK_SafeRestoreArch"></a>虚拟化的域控制器安全还原体系结构  
+## <a name="BKMK_SafeRestoreArch"></a>虚拟化域控制器安全还原体系结构  
   
 ### <a name="overview"></a>概述  
 AD DS 依赖于虚拟机监控程序平台以显示名为 **VM 生成 ID** 的标识符，来检测虚拟机的快照还原。 在域控制器升级期间，AD DS 最初将此标识符的值存储在其数据库 (NTDS.DIT) 中。 当管理员从之前的快照还原虚拟机时，将比较虚拟机中 VM 生成 ID 的当前值和数据库中的值。 如果两个值不同，则域控制器重置调用 ID 并弃用 RID 池，从而阻止重复使用 USN 或消除创建重复安全主体的可能性。 安全还原可能在以下两种应用场景中发生：  
@@ -158,7 +158,7 @@ AD DS 依赖于虚拟机监控程序平台以显示名为 **VM 生成 ID** 的�
 ### <a name="safe-restore-detailed-processing"></a>安全还原详细处理  
 以下流程图显示了在关闭虚拟域控制器时，在还原快照后启动虚拟域控制器的情况下如何发生安全还原。  
   
-![虚拟化的 DC 体系结构](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_VirtualizationSafeguardsDuringNormalBoot.png)  
+![虚拟化 DC 体系结构](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_VirtualizationSafeguardsDuringNormalBoot.png)  
   
 1.  当虚拟机在快照还原后启动时，由于快照还原，它将具有由虚拟机监控程序主机提供的新 VM 生成 ID。  
   
@@ -175,24 +175,24 @@ AD DS 依赖于虚拟机监控程序平台以显示名为 **VM 生成 ID** 的�
   
 下图显示了当快照在正在运行的虚拟域控制器上还原时，虚拟化安全措施如何阻止由 USN 回滚引起的分歧。  
   
-![虚拟化的 DC 体系结构](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_VirtualizationSafeguardsDuringSnapShotRestore.png)  
+![虚拟化 DC 体系结构](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_VirtualizationSafeguardsDuringSnapShotRestore.png)  
   
 > [!NOTE]  
 > 简化了之前的插图以解释这些概念。  
   
 1.  在时间 T1，虚拟机监控程序管理员拍摄虚拟 DC1 的快照。 此时 DC1 的 USN 值（实际上为 **highestCommittedUsn**）为 100，InvocationId（在之前的图中表示为 ID）值为 A（实际上它是 GUID）。 SavedVMGID 值是 DC 的 DIT 文件中的 VM 生成 ID（根据 DC 的计算机对象存储在名为 **msDS-GenerationId**的属性中）。 VMGID 是虚拟机驱动程序中可用的 VM 生成 ID 的当前值。 该值由虚拟机监控程序提供。  
   
-2.  在稍后的时间 T2，100 位用户将添加到此 DC（将用户视为可能会在时间 T1 和 T2 之间在此 DC 上执行的更新的示例；实际上，这些更新可能是用户创建、组创建、密码更新、属性更新等的组合）。 在此示例中，每个更新使用一个唯一的 USN（但在实际中一个用户创建可能会使用多个 USN）。 在提交这些更新之前，DC1 将检查其数据库中的 VM 生成 ID 值 （savedVMGID） 是否与驱动程序中可用的当前值 (VMGID) 相同。 因为还没有发生回滚，所以它们是相同的，因此将提交更新且 USN 将上移至 200，这指示下一个更新可以使用 USN 201。 InvocationId、savedVMGID 和 VMGID 中没有发生任何更改。 在下一个复制周期，这些更新将复制到 DC2。 DC2 对其进行更新高水印 (和**UptoDatenessVector**) 表示只需为 DC1(A) 此处@USN= 200。 也就是说，通过 USN 200，DC2 可感知来自 InvocationId A 上下文中的 DC1 的所有更新。  
+2.  在稍后的时间 T2，100 位用户将添加到此 DC（将用户视为可能会在时间 T1 和 T2 之间在此 DC 上执行的更新的示例；实际上，这些更新可能是用户创建、组创建、密码更新、属性更新等的组合）。 在此示例中，每个更新使用一个唯一的 USN（但在实际中一个用户创建可能会使用多个 USN）。 在提交这些更新之前，DC1 将检查其数据库中的 VM 生成 ID 值 （savedVMGID） 是否与驱动程序中可用的当前值 (VMGID) 相同。 因为还没有发生回滚，所以它们是相同的，因此将提交更新且 USN 将上移至 200，这指示下一个更新可以使用 USN 201。 InvocationId、savedVMGID 和 VMGID 中没有发生任何更改。 在下一个复制周期，这些更新将复制到 DC2。 DC2 将此处所述的高水印（和**UptoDatenessVector**）更新为 DC1 （A） @USN = 200。 也就是说，通过 USN 200，DC2 可感知来自 InvocationId A 上下文中的 DC1 的所有更新。  
   
 3.  在时间 T3，在时间 T1 拍摄的快照将应用到 DC1。 DC1 已回滚，因此其 USN 回滚到 100，这指示它可从 101 起使用 USN 以与后续更新相关联。 但是，在这种情况下，支持 VM 生成 ID 的虚拟机监控程序上的 VMGID 值将会不同。  
   
-4.  随后，当 DC1 执行任何更新时，它会检查其数据库中 VM 生成 ID 的值 （savedVMGID） 与虚拟机驱动程序中的值 (VMGID) 是否相同。 在该案例中，它不相同，因此 DC1 将此推断为回滚的指示，而且它将触发虚拟化安全措施；换言之，它将重置其 InvocationId (ID = B) 并弃用 RID 池（未显示在之前的图中）。 然后，它将 VMGID 的新值保存在其数据库中并在新 InvocationId b。 上下文中提交这些更新 (USN 101 – 250)在下一个复制周期，DC2 知道执行任何操作从 DC1 无法感知 InvocationId B 上下文中以便它请求从 DC1 以 InvocationID B 相关联的所有内容因此，在 DC1 上应用快照之后执行的更新将安全地聚合。 此外，T2 时在 DC1 上执行的更新集（它们已在快照还原后在 DC1 上丢失）将在下一次计划复制时复制回 DC1 中，因为它们已复制到 DC2（如返回 DC1 的虚线表示）。  
+4.  随后，当 DC1 执行任何更新时，它会检查其数据库中 VM 生成 ID 的值 （savedVMGID） 与虚拟机驱动程序中的值 (VMGID) 是否相同。 在该案例中，它不相同，因此 DC1 将此推断为回滚的指示，而且它将触发虚拟化安全措施；换言之，它将重置其 InvocationId (ID = B) 并弃用 RID 池（未显示在之前的图中）。 然后，它将 VMGID 的新值保存在其数据库中，并在新 InvocationId B 的上下文中提交这些更新（USN 101-250）。在下一个复制周期，DC2 在 InvocationId B 的上下文中没有从 DC1 了解到任何内容，因此它将请求从 DC1 关联的 InvocationID B 的所有内容。因此，在 DC1 上执行的快照应用程序的更新将安全地聚合。 此外，T2 时在 DC1 上执行的更新集（它们已在快照还原后在 DC1 上丢失）将在下一次计划复制时复制回 DC1 中，因为它们已复制到 DC2（如返回 DC1 的虚线表示）。  
   
 来宾使用虚拟化安全措施后，NTDS 将从伙伴域控制器非权威地复制 Active Directory 对象差异入站。 将相应地更新目标目录服务的最新程度矢量。 然后，来宾将同步 SYSVOL：  
   
 -   如果使用 FRS，则来宾将停止 NTFRS 服务并设置 D2 BURFLAGS 注册表值。 然后，它将启动 NTFRS 服务（该服务非权威地复制入站），并尽可能重新使用现有未改变的 SYSVOL 数据。  
   
--   如果使用 DFSR，来宾将停止 DFSR 服务并删除 DFSR 数据库文件 (默认位置： %systemroot%\system 卷 information\dfsr\\*<database GUID>*)。 然后，它将启动 DFSR 服务（该服务非权威地复制入站），并尽可能重新使用现有未改变的 SYSVOL 数据。  
+-   如果使用 DFSR，来宾将停止 DFSR 服务并删除 DFSR 数据库文件（默认位置：%systemroot%\system volume information\dfsr @ no__t-0 *<database GUID>* ）。 然后，它将启动 DFSR 服务（该服务非权威地复制入站），并尽可能重新使用现有未改变的 SYSVOL 数据。  
   
 > [!NOTE]  
 > -   如果虚拟机监控程序未提供用于比较的 VM 生成 ID，则虚拟机监控程序将无法支持虚拟化安全措施，而且来宾将如同运行 Windows Server 2008 R2 或更早版本的虚拟化域控制器一样运行。 如果存在使用 USN 开始复制的尝试（这些 USN 未超过伙伴 DC 见到的最后一个最高 USN），则来宾将实现 USN 回滚隔离保护。 有关 USN 回滚隔离保护的详细信息，请参阅 [USN 和 USN 回滚](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(WS.10).aspx)  

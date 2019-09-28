@@ -1,8 +1,8 @@
 ---
-title: Dfsdiag TestDFSConfig
-description: 'Windows 命令主题 * * *- '
+title: dfsdiag TestDFSConfig
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,30 +13,30 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 922b78b87f3bb66765b87348a3bf136e14c9e837
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8008e02d588edaa6fe7700a331c43f9680d89431
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436131"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378417"
 ---
-# <a name="dfsdiag-testdfsconfig"></a>Dfsdiag TestDFSConfig
+# <a name="dfsdiag-testdfsconfig"></a>dfsdiag TestDFSConfig
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-检查配置分布式文件系统\(DFS\)命名空间通过执行以下操作：  
+通过执行以下操作，检查分布式文件系统 \(DFS @ no__t 命名空间的配置：  
   
--   验证正在运行 DFS Namespace 服务和命名空间的所有服务器上其启动类型设置为自动。  
+-   验证 DFS 命名空间服务是否正在运行，并且其启动类型在所有命名空间服务器上是否设置为自动。  
   
--   验证 DFS 注册表配置在命名空间服务器之间保持一致。  
+-   验证 DFS 注册表配置在命名空间服务器之间是否一致。  
   
--   验证在运行 Windows Server 2008 或更高版本的群集命名空间服务器上的以下依赖项：  
+-   验证运行 Windows Server 2008 或更高版本的群集命名空间服务器上的以下依赖项：  
   
-    -   Namespace 根资源依赖于网络名称资源。  
+    -   与网络名称资源的命名空间根资源相关。  
   
-    -   网络名称资源依赖于 IP 地址资源。  
+    -   IP 地址资源依赖于网络名称资源。  
   
-    -   Namespace 根资源依赖于物理磁盘资源。  
+    -   命名空间根资源依赖于物理磁盘资源。  
   
   
   
@@ -50,10 +50,10 @@ dfsdiag /TestDFSConfig /DFSRoot:<namespace>
   
 |       参数       |               描述               |
 |-----------------------|-----------------------------------------|
-| \/DFSRoot:<namespace> | 命名空间\(DFS 根目录\)诊断。 |
+| \/DFSRoot： <namespace> | 命名空间 \(DFS root @ no__t-1 进行诊断。 |
   
 ## <a name="BKMK_Examples"></a>示例  
-若要 TBD，键入：  
+若要待定，请键入：  
   
 ```  
 dfsdiag /TestDFSConfig /DFSRoot:\\Contoso.com\MyNamespace  

@@ -2,7 +2,7 @@
 title: 托管服务帐户入门
 description: Windows Server 安全
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-gmsa
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 3d07f137aa40b26b4f4fd69c050415b82608ed7e
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: 8086ce329c532e07363fd22fe424a9a1dda04250
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546364"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386895"
 ---
 # <a name="getting-started-with-group-managed-service-accounts"></a>托管服务帐户入门
 
@@ -67,7 +67,7 @@ ms.locfileid: "69546364"
 
 Windows 计算机帐户或 Windows 7 独立托管服务帐户 (sMSA) 或虚拟帐户无法在多个系统之间进行共享。 如果你为服务器场上的服务配置一个帐户以进行共享，则除了 Windows 系统以外，还必须选择一个用户帐户或计算机帐户。 无论哪种方式，这些帐户不具有单点控制密码管理功能。 这样做会带来麻烦，因为每个组织需要创建一个昂贵的解决方案，以便更新 Active Directory 中服务的密钥，然后将密钥分发给这些服务的所有实例。
 
-使用 Windows Server 2012, 在使用组托管服务帐户 (gMSA) 时, 服务或服务管理员不需要管理服务实例之间的密码同步。 在 AD 中设置 gMSA，然后配置支持托管服务帐户的服务。 可以使用作为 Active Directory 模块一部分的 *-ADServiceAccount cmdlet 来设置 gMSA。 主机上的服务标识配置受以下内容的支持：
+使用 Windows Server 2012，在使用组托管服务帐户（gMSA）时，服务或服务管理员不需要管理服务实例之间的密码同步。 在 AD 中设置 gMSA，然后配置支持托管服务帐户的服务。 可以使用作为 Active Directory 模块一部分的 *-ADServiceAccount cmdlet 来设置 gMSA。 主机上的服务标识配置受以下内容的支持：
 
 -   与 sMSA 相同的 API，以便支持 sMSA 的产品将支持 gMSA
 
@@ -90,14 +90,14 @@ Windows 计算机帐户或 Windows 7 独立托管服务帐户 (sMSA) 或虚拟�
 |用户帐户的域 Dc|符合 RFC 的 KDC|Windows Server 2003 及更高版本|
 |共享的服务成员主机|| Windows Server 2012 |
 |成员主机的域 Dc|符合 RFC 的 KDC|Windows Server 2003 及更高版本|
-|gMSA 帐户的域 Dc| Windows Server 2012 Dc 可供主机用来检索密码|Windows Server 2012 域, windows server 2012 之前可能有一些系统 |
+|gMSA 帐户的域 Dc| Windows Server 2012 Dc 可供主机用来检索密码|Windows Server 2012 域，windows server 2012 之前可能有一些系统 |
 |后端服务主机|符合 RFC 的 Kerberos 应用程序服务器|Windows Server 2003 及更高版本|
 |后端服务帐户的域 Dc|符合 RFC 的 KDC|Windows Server 2003 及更高版本|
 |Active Directory 的 Windows PowerShell|Active Directory 的 Windows PowerShell 安装在本地支持 64 位体系结构的计算机上或安装在你的远程管理计算机上（例如，使用远程服务器管理工具包）| Windows Server 2012 |
 
 **Active Directory 域服务要求**
 
--   GMSA 域的林中的 Active Directory 架构需要更新为 Windows Server 2012, 以创建 gMSA。
+-   GMSA 域的林中的 Active Directory 架构需要更新为 Windows Server 2012，以创建 gMSA。
 
     你可以通过安装运行 Windows Server 2012 的域控制器或从运行 Windows Server 2012 的计算机运行 adprep.log 版本来更新架构。 对象“CN=Schema”、“CN=Configuration”、“DC=Contoso”、“DC=Com”的对象版本属性值必须为 52。
 
@@ -109,7 +109,7 @@ Windows 计算机帐户或 Windows 7 独立托管服务帐户 (sMSA) 或虚拟�
 
 -   如果 Active Directory 的第一个主根密钥未在域中部署，或者尚未创建，则创建它。 可以在 KdsSvc 运行日志的事件 ID 4004 中验证其创建结果。
 
-有关如何创建密钥的说明, 请参阅[创建密钥分发服务 KDS 根密钥](create-the-key-distribution-services-kds-root-key.md)。 Microsoft 密钥分发服务 (kdssvc.dll) AD 的根密钥。
+有关如何创建密钥的说明，请参阅[创建密钥分发服务 KDS 根密钥](create-the-key-distribution-services-kds-root-key.md)。 Microsoft 密钥分发服务 (kdssvc.dll) AD 的根密钥。
 
 **内**
 
@@ -142,18 +142,18 @@ Windows 计算机帐户或 Windows 7 独立托管服务帐户 (sMSA) 或虚拟�
 
 -   密码更改间隔（默认值为 30 天）。
 
-### <a name="BKMK_Step1"></a>步骤 1:设置组托管服务帐户
-只有在林架构已更新到 Windows Server 2012、已部署 Active Directory 的主根密钥, 以及在其中创建 gMSA 的域中至少有一个 Windows Server 2012 DC 的情况下, 才可以创建 gMSA。
+### <a name="BKMK_Step1"></a>步骤1：设置组托管服务帐户
+只有在林架构已更新到 Windows Server 2012、已部署 Active Directory 的主根密钥，以及在其中创建 gMSA 的域中至少有一个 Windows Server 2012 DC 的情况下，才可以创建 gMSA。
 
 必须至少具有“域管理员”、“帐户操作员” 中的成员身份或能够创建 msDS-GroupManagedServiceAccount 对象才能完成下列过程。
 
 #### <a name="BKMK_CreateGMSA"></a>使用 Uninstall-adserviceaccount cmdlet 创建 gMSA
 
-1.  在 Windows Server 2012 域控制器上, 从任务栏中运行 Windows PowerShell。
+1.  在 Windows Server 2012 域控制器上，从任务栏中运行 Windows PowerShell。
 
 2.  在 Windows PowerShell 命令提示符下键入以下命令，然后按 ENTER。 （Active Directory 模块将自动加载。）
 
-    **Uninstall-adserviceaccount [-Name] <string> -DNSHostName <string> [-KerberosEncryptionType <ADKerberosEncryptionType>] [-ManagedPasswordIntervalInDays < 可以为 null [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < p a l []>]-SamAccountName <string> -ServicePrincipalNames < string [] >**
+    **Uninstall-adserviceaccount [-Name] <string>-DNSHostName <string> [-KerberosEncryptionType <ADKerberosEncryptionType>] [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < P a l [] >]-SamAccountName@no__t < string [] >**
 
     |参数|字符串|示例|
     |-------|-----|------|
@@ -181,13 +181,13 @@ Windows 计算机帐户或 Windows 7 独立托管服务帐户 (sMSA) 或虚拟�
 
 ##### <a name="to-create-a-gmsa-for-outbound-authentication-only-using-the-new-adserviceaccount-cmdlet"></a>仅使用 New-ADServiceAccount cmdlet 创建出站身份验证的 gMSA
 
-1.  在 Windows Server 2012 域控制器上, 从任务栏中运行 Windows PowerShell。
+1.  在 Windows Server 2012 域控制器上，从任务栏中运行 Windows PowerShell。
 
 2.  在 Windows PowerShell Active Directory 模块的命令提示符下键入以下命令，然后按 ENTER：
 
-    **Uninstall-adserviceaccount [-Name] <string> -RestrictToOutboundAuthenticationOnly [-ManagedPasswordIntervalInDays < 可以为 null [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < p a l [] >]**
+    **Uninstall-adserviceaccount [-Name] <string>-RestrictToOutboundAuthenticationOnly [-ManagedPasswordIntervalInDays < 可以为 Null [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < P a l [] >]**
 
-    |参数|String|示例|
+    |参数|字符串|示例|
     |-------|-----|------|
     |名称|命名帐户|ITFarm1|
     |ManagedPasswordIntervalInDays|密码更改时间间隔，以天为单位（如果不提供，则默认值为 30 天）|75|
@@ -203,8 +203,8 @@ New-ADServiceAccount ITFarm1 -RestrictToOutboundAuthenticationOnly - PrincipalsA
 
 ```
 
-### <a name="BKMK_ConfigureServiceIdentity"></a>步骤 2:配置服务标识应用程序服务
-若要配置 Windows Server 2012 中的服务, 请参阅以下功能文档:
+### <a name="BKMK_ConfigureServiceIdentity"></a>步骤2：配置服务标识应用程序服务
+若要配置 Windows Server 2012 中的服务，请参阅以下功能文档：
 
 -   IIS 应用程序池
 
@@ -221,7 +221,7 @@ New-ADServiceAccount ITFarm1 -RestrictToOutboundAuthenticationOnly - PrincipalsA
 其他服务可以支持 gMSA。 请参阅相应的产品文档以了解有关如何配置这些服务的详细信息。
 
 ## <a name="BKMK_AddMemberHosts"></a>将成员主机添加到现有服务器场
-如果使用安全组来管理成员主机, 请使用下列方法之一将新成员主机的计算机帐户添加到安全组 (gMSA 的成员主机是其成员)。
+如果使用安全组来管理成员主机，请使用下列方法之一将新成员主机的计算机帐户添加到安全组（gMSA 的成员主机是其成员）。
 
 必须至少具有“域管理员”中的成员身份或能够将成员添加到安全组对象才能完成这些过程。
 
@@ -243,15 +243,15 @@ New-ADServiceAccount ITFarm1 -RestrictToOutboundAuthenticationOnly - PrincipalsA
 
 #### <a name="to-add-member-hosts-using-the-set-adserviceaccount-cmdlet"></a>使用 Set-ADServiceAccount cmdlet 添加成员主机
 
-1.  在 Windows Server 2012 域控制器上, 从任务栏中运行 Windows PowerShell。
+1.  在 Windows Server 2012 域控制器上，从任务栏中运行 Windows PowerShell。
 
 2.  在 Windows PowerShell Active Directory 模块的命令提示符下键入以下命令，然后按 ENTER：
 
-    **Uninstall-adserviceaccount [-Name] <string> -PrincipalsAllowedToRetrieveManagedPassword**
+    **Uninstall-adserviceaccount [-Name] <string>-PrincipalsAllowedToRetrieveManagedPassword**
 
 3.  在 Windows PowerShell Active Directory 模块的命令提示符下键入以下命令，然后按 ENTER：
 
-    **Uninstall-adserviceaccount [-Name] <string> -PrincipalsAllowedToRetrieveManagedPassword < p a l [] >**
+    **Uninstall-adserviceaccount [-Name] <string>-PrincipalsAllowedToRetrieveManagedPassword < P a l [] >**
 
 |参数|字符串|示例|
 |-------|-----|------|
@@ -282,8 +282,8 @@ Set-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword
 ## <a name="BKMK_DecommMemberHosts"></a>从现有服务器场解除成员主机的授权
 必须至少具有“域管理员”中的成员身份或能够将成员从安全组对象删除才能完成这些过程。
 
-### <a name="step-1-remove-member-host-from-gmsa"></a>步骤 1：从 gMSA 删除成员主机
-如果使用安全组来管理成员主机, 请使用以下方法之一从 gMSA 的成员主机所属的安全组中删除已解除授权成员主机的计算机帐户。
+### <a name="step-1-remove-member-host-from-gmsa"></a>第 1 步：从 gMSA 删除成员主机
+如果使用安全组来管理成员主机，请使用以下方法之一从 gMSA 的成员主机所属的安全组中删除已解除授权成员主机的计算机帐户。
 
 -   方法 1：Active Directory 用户和计算机
 
@@ -303,17 +303,17 @@ Set-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword
 
 ##### <a name="to-remove-member-hosts-using-the-set-adserviceaccount-cmdlet"></a>使用 Set-ADServiceAccount cmdlet 删除成员主机
 
-1.  在 Windows Server 2012 域控制器上, 从任务栏中运行 Windows PowerShell。
+1.  在 Windows Server 2012 域控制器上，从任务栏中运行 Windows PowerShell。
 
 2.  在 Windows PowerShell Active Directory 模块的命令提示符下键入以下命令，然后按 ENTER：
 
-    **Uninstall-adserviceaccount [-Name] <string> -PrincipalsAllowedToRetrieveManagedPassword**
+    **Uninstall-adserviceaccount [-Name] <string>-PrincipalsAllowedToRetrieveManagedPassword**
 
 3.  在 Windows PowerShell Active Directory 模块的命令提示符下键入以下命令，然后按 ENTER：
 
-    **Uninstall-adserviceaccount [-Name] <string> -PrincipalsAllowedToRetrieveManagedPassword < p a l [] >**
+    **Uninstall-adserviceaccount [-Name] <string>-PrincipalsAllowedToRetrieveManagedPassword < P a l [] >**
 
-|参数|String|示例|
+|参数|字符串|示例|
 |-------|-----|------|
 |名称|命名帐户|ITFarm1|
 |PrincipalsAllowedToRetrieveManagedPassword|成员主机或成员主机是其成员的安全组的计算机帐户|Host1、Host3|
@@ -332,14 +332,14 @@ Set-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword
 
 ```
 
-### <a name="BKMK_RemoveGMSA"></a>步骤 2:从系统中删除组托管服务帐户
+### <a name="BKMK_RemoveGMSA"></a>步骤2：从系统中删除组托管服务帐户
 在主机系统上使用 Uninstall-ADServiceAccount 或 NetRemoveServiceAccount API 从成员主机删除缓存的 gMSA 凭据。
 
 必须至少具有“管理员”的成员身份或同等身份才能完成这些过程。
 
 ##### <a name="to-remove-a-gmsa-using-the-uninstall-adserviceaccount-cmdlet"></a>使用 Uninstall-ADServiceAccount cmdlet 删除 gMSA
 
-1.  在 Windows Server 2012 域控制器上, 从任务栏中运行 Windows PowerShell。
+1.  在 Windows Server 2012 域控制器上，从任务栏中运行 Windows PowerShell。
 
 2.  在 Windows PowerShell Active Directory 模块的命令提示符下键入以下命令，然后按 ENTER：
 

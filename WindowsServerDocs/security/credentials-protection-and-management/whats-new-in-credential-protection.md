@@ -1,8 +1,8 @@
 ---
-title: 什么是凭据保护中的新增功能
+title: 凭据保护的新增功能
 description: Windows Server 安全
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-credential-protection
@@ -13,77 +13,77 @@ author: gitmichiko
 ms.author: michikos
 manager: dongill
 ms.date: 03/06/2017
-ms.openlocfilehash: 475b6a0b24b811008ee213c1604d98d9aa9eb092
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2351be82ad1d8b9af17715ce363836f57c71ea66
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447032"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386921"
 ---
-# <a name="whats-new-in-credential-protection"></a>什么是凭据保护中的新增功能
+# <a name="whats-new-in-credential-protection"></a>凭据保护的新增功能
 
 ## <a name="credential-guard-for-signed-in-user"></a>已登录用户的 Credential Guard
 
-从 Windows 10 版本 1507 但开始 Kerberos 和 NTLM 使用基于虚拟化的安全保护 Kerberos 和 NTLM 机密登录的用户登录会话。 
+从 Windows 10 版本1507开始，Kerberos 和 NTLM 使用基于虚拟化的安全性来保护已登录用户登录会话的 Kerberos & NTLM 机密。 
 
-从 Windows 10 版本 1511，开始凭据管理器使用基于虚拟化的安全性来保护域凭据类型的已保存的凭据。 登录的凭据和已保存的域凭据不能传递到远程主机使用远程桌面。 可以无 UEFI 锁启用 Credential Guard。
+从 Windows 10 版本1511开始，凭据管理器使用基于虚拟化的安全性来保护域凭据类型的已保存凭据。 使用远程桌面时，登录凭据和保存的域凭据不会传递到远程主机。 无需 UEFI 锁定即可启用 Credential Guard。
 
-从 Windows 10，版本 1607 中，开始隔离用户模式是附带的 HYPER-V 使它不再单独安装 Credential Guard 部署。
+从 Windows 10 开始，版本1607，独立用户模式包含在 Hyper-v 中，因此不会再为 Credential Guard 部署单独安装它。
 
-[了解有关 Credential Guard](https://technet.microsoft.com/itpro/windows/keep-secure/credential-guard)。
+[详细了解 Credential Guard](https://technet.microsoft.com/itpro/windows/keep-secure/credential-guard)。
 
 
-## <a name="remote-credential-guard-for-signed-in-user"></a>有关已登录用户的远程 Credential Guard
+## <a name="remote-credential-guard-for-signed-in-user"></a>已登录用户的远程 Credential Guard
 
-使用远程桌面来保护客户端设备上的 Kerberos 和 NTLM 机密时，从 Windows 10，版本 1607 中，开始远程 Credential Guard 保护已登录用户凭据。 远程主机作为用户进行评估网络资源，身份验证请求需要客户端设备能够使用机密。
+从 Windows 10 版本1607开始，在使用远程桌面时，可通过保护客户端设备上的 Kerberos 和 NTLM 机密来保护已登录的用户凭据。 为了使远程主机能够作为用户评估网络资源，身份验证请求要求客户端设备使用机密。
 
-使用远程桌面时，从 Windows 10，版本 1703，开始远程 Credential Guard 保护提供的用户凭据。
+从 Windows 10 版本1703开始，使用远程桌面时，远程 Credential Guard 会保护提供的用户凭据。
 
-[要详细了解远程 credential guard](https://technet.microsoft.com/itpro/windows/keep-secure/remote-credential-guard)。
+[详细了解远程 credential guard](https://technet.microsoft.com/itpro/windows/keep-secure/remote-credential-guard)。
 
 ## <a name="domain-protections"></a>域保护
 
 域保护需要 Active Directory 域。
 
-### <a name="domain-joined-device-support-for-authentication-using-public-key"></a>使用公钥身份验证的已加入域的设备支持
+### <a name="domain-joined-device-support-for-authentication-using-public-key"></a>已加入域的设备支持使用公钥进行身份验证
 
-如果已加入域的设备能够注册其绑定的公钥和 Windows Server 2016 的域控制器 (DC) 从 Windows 10 版本 1507年和 Windows Server 2016，然后设备使用进行身份验证使用 Kerberos PKINIT 的公钥对 Windows Server 2016 DC 身份验证。
+从 Windows 10 版本1507和 Windows Server 2016 开始，如果已加入域的设备能够向 Windows Server 2016 域控制器（DC）注册其绑定的公钥，则设备可以使用 Kerberos PKINIT 通过公钥进行身份验证Windows Server 2016 DC 的身份验证。
 
-从 Windows Server 2016 开始，Kdc 支持使用 Kerberos 密钥信任身份验证。  
+从 Windows Server 2016 开始，Kdc 支持使用 Kerberos 密钥信任进行身份验证。  
 
-[要详细了解有关已加入域的设备和 Kerberos 密钥信任的公共密钥支持](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication)。
+若[要详细了解 & Kerberos 密钥信任，已加入域的设备的公钥支持](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication)。
 
 ### <a name="pkinit-freshness-extension-support"></a>PKINIT 新鲜度扩展支持
 
-从 Windows 10，版本 1507年和 Windows Server 2016 开始，Kerberos 客户端将尝试适用于公共密钥基于登录的 PKInit 新鲜度扩展。 
+从 Windows 10 版本1507和 Windows Server 2016 开始，Kerberos 客户端将为基于公钥的登录尝试 PKInit 新鲜度扩展。 
 
-从 Windows Server 2016 开始，Kdc 可支持 PKInit 新鲜度扩展。  默认情况下，Kdc 将不提供对 PKInit 新鲜度扩展。 
+从 Windows Server 2016 开始，Kdc 可以支持 PKInit 新鲜度扩展。  默认情况下，Kdc 将不提供 PKInit 新鲜度扩展。 
 
-[要详细了解 PKINIT 新鲜度扩展支持](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication)。
+[详细了解 PKINIT 新鲜度 extension 支持](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication)。
 
-### <a name="rolling-public-key-only-users-ntlm-secrets"></a>滚动公共密钥唯一用户的 NTLM 机密
+### <a name="rolling-public-key-only-users-ntlm-secrets"></a>仅滚动公钥用户的 NTLM 机密
 
-从 Windows Server 2016 域功能级别 (DFL) 开始，Dc 可以支持滚动公共密钥唯一用户的 NTLM 机密。 此功能是在较低 DFLs 不可。
+从 Windows Server 2016 域功能级别（DFL）开始，Dc 可支持仅滚动使用公钥的用户 NTLM 机密。 此功能在 DFLs 较低的 unavailble。
 
 > [!WARNING] 
-> 将域控制器添加到域，并具有滚动 DC 已将更新为至少 8 2016 年 11 月服务运行之前启用 NTLM 机密的 DC 发生故障的风险。 
+> 使用至少11月8日2016服务将域控制器添加到已启用滚动的 NTLM 密钥的域后，将会运行 DC 崩溃的风险。 
 
-配置：对于新的域，默认情况下启用此功能。 对于现有的域，它必须配置 Active Directory 管理的中心： 
+配置：对于新域，默认情况下启用此功能。 对于现有域，必须在 Active Directory 管理中心进行配置： 
 
-1. 从 Active Directory Administrative center 中，右键单击左窗格上的域，然后选择**属性**。
+1. 在 Active Directory 管理中心，右键单击左窗格中的域，然后选择 "**属性**"。
 
     ![域属性](../media/Credentials-Protection-And-Management/domain-properties.png)
 
-2. 选择**启用滚动的即将到期的 NTLM 机密在登录过程，需要使用 Microsoft Passport 或智能卡进行交互式登录的用户的**。
+2. **对于需要使用 Microsoft Passport 或智能卡进行交互式登录的用户，请选择 "在登录期间启用过期的 NTLM 机密"** 。
 
-    ![Autoroll 即将到期的 NTLM 机密](../media/Credentials-Protection-And-Management/autoroll-ntlm.png)
+    ![Autoroll 过期 NTLM 机密](../media/Credentials-Protection-And-Management/autoroll-ntlm.png)
 
 3. 单击 **“确定”** 。 
 
-### <a name="allowing-network-ntlm-when-user-is-restricted-to-specific-domain-joined-devices"></a>用户限制到特定的已加入域的设备时允许网络 NTLM
+### <a name="allowing-network-ntlm-when-user-is-restricted-to-specific-domain-joined-devices"></a>当用户仅限于特定的已加入域的设备时允许网络 NTLM
 
-如果某个用户是限于特定的已加入域的设备，开头的 Windows Server 2016 域功能级别 (DFL) Dc 可以支持允许网络 NTLM。 此功能是在较低 DFLs 中不可用。
+从 Windows Server 2016 域功能级别（DFL）开始，如果用户仅限于特定的已加入域的设备，DCs 就可以支持允许网络 NTLM。 此功能在较低的 DFLs 中不可用。
 
-配置：在身份验证策略中，单击**允许 NTLM 网络身份验证时用户仅限于所选设备**。 
+配置：在 "身份验证策略" 上，单击 **"允许将 NTLM 网络身份验证限制为所选设备"** 。 
 
-[了解有关身份验证策略的详细信息](https://technet.microsoft.com/windows-server-docs/security/credentials-protection-and-management/authentication-policies-and-authentication-policy-silos)。
+[详细了解身份验证策略](https://technet.microsoft.com/windows-server-docs/security/credentials-protection-and-management/authentication-policies-and-authentication-policy-silos)。

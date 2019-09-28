@@ -1,8 +1,8 @@
 ---
 title: 允许一个帐户具有多个会话
-description: 允许用户在同时访问多个系统。
+description: 让用户同时访问多个系统。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,21 +13,21 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 69a8bc9080e13c3062bc287300620e24457265ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dbc3f3b5a01f86cd1376cd4ecca59fd2951559e4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863788"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395613"
 ---
 # <a name="allow-one-account-to-have-multiple-sessions"></a>允许一个帐户具有多个会话
-若要启用的用户使用一组在同一时间多个工作站上的共享的帐户，请配置多点服务器以允许一个帐户，用于将同时登录到多个工作站。 默认情况下，如果用户登录到使用共享的用户帐户，第二个工作站的用户帐户记录关闭第一个工作站。  
+若要允许一组用户同时在多个工作站上使用共享帐户，请将 MultiPoint 服务器配置为允许一个帐户同时登录到多个工作站。 默认情况下，如果用户使用共享用户帐户登录到第二个工作站，则将从第一个工作站中注销该用户帐户。  
   
-1.  从**启动**屏幕上，打开**MultiPoint 管理器**。  
+1.  从 "**开始**" 屏幕中，打开 " **MultiPoint 管理器**"。  
   
-2.  单击**主页**选项卡。  
+2.  单击 "**主页**" 选项卡。  
   
-3.  在中**计算机**列中，单击 MultiPoint Server 计算机的名称，然后在右窗格中，单击**编辑服务器设置**。  
+3.  在 "**计算机**" 列中，单击 MultiPoint 服务器计算机的名称，然后在右窗格中单击 "**编辑服务器设置**"。  
   
-4.  选择**允许一个帐户进行了多个会话**复选框，然后依次**确定**。  
+4.  选中 "**允许一个帐户具有多个会话**" 复选框，然后单击 **"确定"** 。  
   

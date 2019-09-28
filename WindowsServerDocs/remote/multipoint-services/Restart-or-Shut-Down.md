@@ -2,7 +2,7 @@
 title: 重启或关闭
 description: 了解如何在 MultiPoint Services 中重新启动或完全关闭系统
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: d2ef7185dc660e50dfde1816ed843b9c2586e930
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 76155fa5f8baf877999bdc3eb0753d7805087a72
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871575"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389419"
 ---
 # <a name="restart-or-shut-down"></a>重启或关闭
 如果硬件、软件和软件更新安装完毕后出现指示，则你需要重启主计算机以及 MultiPoint 服务系统中的所有工作站。 如果已添加了新的硬件设备到某工作站，你可能还想要将该硬件设备关联到该工作站。 了解有关如何关联工作站的详细信息，请参阅[切换模式](Switch-Between-Modes.md)主题。  

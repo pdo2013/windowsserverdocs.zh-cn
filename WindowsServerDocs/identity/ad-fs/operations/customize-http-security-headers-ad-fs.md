@@ -7,14 +7,14 @@ manager: daveba
 ms.reviewer: akgoel23
 ms.date: 02/19/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4fd1e62e67f66a217a1d4f3a26933723a4645a31
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: e1042ad4dae0b023c9816dff798c25b05b60eccf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865573"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407444"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>自定义 AD FS 2019 的 HTTP 安全响应标头 
  
@@ -194,7 +194,7 @@ Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue
 frame-src 'self'; manifest-src 'self'; media-src 'self';" 
 ```
 
-如果显式列出指令，则指定的值将覆盖为默认值 src 提供的值。在下面的示例中，img-src 将值作为 "*" （允许从任何源加载图像），而其他-src 指令将值作为 "self" （限制为与网页相同的源）。  
+如果显式列出指令，则指定的值将覆盖为默认值 src 提供的值。 在下面的示例中，img-src 将值作为 "*" （允许从任何源加载图像），而其他-src 指令将值作为 "self" （限制为与网页相同的源）。  
 
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue "default-src ‘self'; img-src *" 

@@ -2,7 +2,7 @@
 title: 系统要求
 description: 每个安装选项的干净安装中存储、CPU、网络、内存、RAM 的最低要求是什么。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.date: 10/17/2017
@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: d089af3562467aa1c222b17d9a1ad69d9c1b5008
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 155e828c77670c7c489b334ec3e7c49aa0809d4d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810586"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391624"
 ---
 # <a name="system-requirements"></a>系统要求
 

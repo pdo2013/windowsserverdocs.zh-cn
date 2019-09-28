@@ -1,40 +1,40 @@
 ---
 title: 扩展存储空间直通中的卷
-description: 如何调整存储空间直通使用 Windows Admin Center 和 PowerShell 中的卷的大小。
-ms.prod: windows-server-threshold
+description: 如何使用 Windows 管理中心和 PowerShell 在存储空间直通中调整卷的大小。
+ms.prod: windows-server
 ms.reviewer: cosmosdarwin
 author: cosmosdarwin
 ms.author: cosdar
 manager: eldenc
 ms.technology: storage-spaces
 ms.date: 05/07/2019
-ms.openlocfilehash: 3be6a4cda20f4d7d7d881ad8a272dc38fd787bba
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.openlocfilehash: 20482fe1728b12d4fe56dcfa397352fbb4b4f981
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613225"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366095"
 ---
 # <a name="extending-volumes-in-storage-spaces-direct"></a>扩展存储空间直通中的卷
 > 适用于：Windows Server 2019、Windows Server 2016
 
-本主题提供有关调整卷大小上的说明[存储空间直通](storage-spaces-direct-overview.md)通过使用 Windows Admin Center 的群集。
+本主题提供使用 Windows 管理中心调整[存储空间直通](storage-spaces-direct-overview.md)群集上的卷大小的说明。
 
-观看有关如何调整卷的快速视频。
+观看有关如何调整卷大小的快速视频。
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/hqyBzipBoTI]
 
-## <a name="extending-volumes-using-windows-admin-center"></a>扩展卷使用 Windows Admin Center
+## <a name="extending-volumes-using-windows-admin-center"></a>使用 Windows 管理中心扩展卷
 
-1. 在 Windows Admin Center 连接到的存储空间直通群集，然后选择**卷**从**工具**窗格。
-2. 在卷页上，选择**清单**卡，并选择要重设大小的卷。
+1. 在 Windows 管理中心，连接到存储空间直通群集，然后从 "**工具**" 窗格中选择 "**卷**"。
+2. 在 "卷" 页上，选择 "**清单**" 选项卡，然后选择要调整大小的卷。
 
-    卷详细信息页上，指示该卷的存储容量。 此外可以直接从仪表板打开的卷的详细信息页。 在仪表板中，在警报窗格中，选择警报，如果卷上存储容量运行较低，会通知你，，然后选择**转到卷**。
+    在 "卷详细信息" 页上，指出了卷的存储容量。 还可以直接从仪表板打开 "卷详细信息" 页。 在仪表板上的 "警报" 窗格中，选择警报，该警报将通知你卷的存储容量是否不足，然后选择 "**转向卷**"。
 
-4. 卷详细信息页的顶部，选择**调整大小**。
-5. 输入新的较大大小，并选择**调整大小**。
+4. 在卷详细信息页的顶部，选择 "**调整大小**"。
+5. 输入新的大小，然后选择 "**调整**大小"。
 
-    卷详细信息页上，指示该卷的更大存储容量，并清除警报在仪表板上。
+    在 "卷详细信息" 页上，指出了卷的较大存储容量，并清除了仪表板上的警报。
 
 ## <a name="extending-volumes-using-powershell"></a>使用 PowerShell 扩展卷
 
@@ -142,6 +142,6 @@ $Partition | Resize-Partition -Size ($Partition | Get-PartitionSupportedSize).Si
 ## <a name="see-also"></a>请参阅
 
 - [Windows Server 2016 中的存储空间直通](storage-spaces-direct-overview.md)
-- [存储空间直通中规划卷](plan-volumes.md)
+- [规划存储空间直通中的卷](plan-volumes.md)
 - [在存储空间直通中创建卷](create-volumes.md)
-- [删除卷中存储空间直通](delete-volumes.md)
+- [删除存储空间直通中的卷](delete-volumes.md)

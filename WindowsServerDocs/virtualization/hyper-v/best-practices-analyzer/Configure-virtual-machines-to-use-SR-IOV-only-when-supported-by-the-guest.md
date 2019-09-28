@@ -1,7 +1,7 @@
 ---
-title: 虚拟机配置为使用 SR-IOV 仅支持的来宾操作系统时
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+title: 将虚拟机配置为仅在来宾操作系统支持时使用 SR-IOV
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 33cf5b68-e43e-47ef-adbc-6b266c1d4dce
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: e5c2acb21fe8b11e8f020c6d2ab1742116c23b28
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8c43e06806f66ce0faae255f0f34d80a653fbe10
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833358"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366265"
 ---
-# <a name="configure-virtual-machines-to-use-sr-iov-only-when-supported-by-the-guest-operating-system"></a>虚拟机配置为使用 SR-IOV 仅支持的来宾操作系统时
+# <a name="configure-virtual-machines-to-use-sr-iov-only-when-supported-by-the-guest-operating-system"></a>将虚拟机配置为仅在来宾操作系统支持时使用 SR-IOV
 
 >适用于：Windows Server 2016
 
@@ -30,20 +30,20 @@ ms.locfileid: "59833358"
 |**Severity**|警告|  
 |**类别**|配置|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。  
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。  
   
 ## <a name="issue"></a>问题  
-*一个或多个虚拟机已配置为使用单根 I/O 虚拟化 (SR-IOV)，但来宾操作系统不支持 SR-IOV*  
+*一台或多台虚拟机配置为使用单根 i/o 虚拟化（SR-IOV），但来宾操作系统不支持 SR-IOV*  
   
 ## <a name="impact"></a>影响  
-*SR-IOV 虚拟功能不会分配给以下虚拟机：*  
+*SR-IOV 虚拟函数将不会分配到以下虚拟机：*  
   
-\<虚拟机的列表 >  
+@no__t-虚拟机的 0list >  
   
 ## <a name="resolution"></a>分辨率  
-*所有运行的来宾操作系统不支持 SR-IOV 的虚拟机上禁用 SR-IOV。*  
+*在运行不支持 SR-IOV 的来宾操作系统的所有虚拟机上禁用 SR-IOV。*  
   
-SR-IOV 仅支持某些 64 位 Windows 来宾。 有关详细信息，请参阅[通过生成和来宾的 HYPER-V 功能兼容性](../Hyper-V-feature-compatibility-by-generation-and-guest.md)。  
+只有有些64位 Windows 来宾支持 SR-IOV。 有关详细信息，请参阅[hyper-v 功能与生成和来宾的兼容性](../Hyper-V-feature-compatibility-by-generation-and-guest.md)。  
   
 
 

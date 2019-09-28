@@ -1,20 +1,20 @@
 ---
-title: 初始化 HGS 群集中的新的专用林 （默认值） 使用 TPM 模式
+title: 在新的专用林中使用 TPM 模式初始化 HGS 群集（默认值）
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: f2fb970cdc215df06dd9dee2e20b5466d7e42dcb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 56971f029dc8caa3b0d399230b75285396551390
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447411"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403625"
 ---
-# <a name="initialize-the-hgs-cluster-using-tpm-mode-in-a-new-dedicated-forest-default"></a>初始化 HGS 群集中的新的专用林 （默认值） 使用 TPM 模式
+# <a name="initialize-the-hgs-cluster-using-tpm-mode-in-a-new-dedicated-forest-default"></a>在新的专用林中使用 TPM 模式初始化 HGS 群集（默认值）
 
 >适用于：Windows Server 2019，Windows Server （半年频道），Windows Server 2016
 
@@ -22,9 +22,9 @@ ms.locfileid: "66447411"
 
 2.  [!INCLUDE [Obtain certificates for HGS](../../../includes/guarded-fabric-initialize-hgs-default-step-two.md)]
 
-3.  运行[Initialize HgsServer](https://technet.microsoft.com/library/mt652185.aspx)中第一个 HGS 节点上提升的 PowerShell 窗口。 此 cmdlet 的语法支持许多不同的输入，但 2 个最常见的调用如下：
+3.  在已提升权限的 PowerShell 窗口中，在第一个 HGS 节点上运行[HgsServer](https://technet.microsoft.com/library/mt652185.aspx) 。 此 cmdlet 的语法支持多种不同的输入，但最常见的两个调用如下：
 
-    -   如果使用的签名和加密证书的 PFX 文件，运行以下命令：
+    -   如果使用 PFX 文件进行签名和加密证书，请运行以下命令：
 
         ```powershell
         $signingCertPass = Read-Host -AsSecureString -Prompt "Signing certificate password"
@@ -33,7 +33,7 @@ ms.locfileid: "66447411"
         Initialize-HgsServer -HgsServiceName 'MyHgsDNN' -SigningCertificatePath '.\signCert.pfx' -SigningCertificatePassword $signingCertPass -EncryptionCertificatePath '.\encCert.pfx' -EncryptionCertificatePassword $encryptionCertPass -TrustTpm
         ```
 
-    -   如果使用不可导出的证书安装在本地证书存储区中，运行以下命令。 如果不知道您的证书的指纹，则可以通过运行列出可用证书`Get-ChildItem Cert:\LocalMachine\My`。
+    -   如果你使用的是本地证书存储中安装的不可导出的证书，请运行以下命令。 如果你不知道证书的指纹，则可通过运行 `Get-ChildItem Cert:\LocalMachine\My` 列出可用证书。
 
         ```powershell
         Initialize-HgsServer -HgsServiceName 'MyHgsDNN' -SigningCertificateThumbprint '1A2B3C4D5E6F...' -EncryptionCertificateThumbprint '0F9E8D7C6B5A...' -TrustTpm

@@ -1,42 +1,42 @@
 ---
-title: 准备迁移独立 AD FS 联合身份验证服务器
-description: 正在准备将独立 AD FS 服务器迁移到 Windows Server 2012 上提供的信息。
+title: 准备迁移独立的 AD FS 联合服务器
+description: 提供有关准备将独立 AD FS 服务器迁移到 Windows Server 2012 的信息。
 author: billmath
 ms.author: billmath
 manager: femila
 ms.date: 06/28/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4d2b8a9c35b106a237b47d1bd062026469af59a0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 09b8cbd9097a95cd00b1413ce9e32ff9bf2f44c3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444478"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359325"
 ---
 #  <a name="prepare-to-migrate-a-stand-alone-ad-fs-federation-server-or-a-single-node-ad-fs-farm"></a>准备迁移独立 AD FS 联合服务器或单节点 AD FS 场  
  
-若要准备迁移 （相同服务器迁移） 独立的 AD FS 2.0 联合服务器或单节点 AD FS 场到 Windows Server 2012，您必须导出并备份 AD FS 配置数据从该服务器。  
+若要准备将独立 AD FS 2.0 联合服务器或单节点 AD FS 场迁移到 Windows Server 2012，则必须从该服务器导出并备份 AD FS 配置数据。  
   
 若要导出 AD FS 配置数据，请执行以下任务：  
   
--   [步骤 1：导出服务设置](#step-1-export-service-settings)  
+-   [步骤 1：导出服务设置 @ no__t-0  
   
--   [步骤 2：导出声明提供方信任](#step-2-export-claims-provider-trusts)  
+-   [步骤 2：导出声明提供方信任 @ no__t-0  
   
--   [步骤 3：导出信赖方信任](#step-3-export-relying-party-trusts)  
+-   [步骤 3：导出信赖方信任 @ no__t-0  
   
--   [步骤 4：备份自定义属性存储](#step-4-back-up-custom-attribute-stores)  
+-   [步骤 4：备份自定义属性存储 @ no__t-0  
   
--   [步骤 5：备份网页自定义项](#step-5-back-up-webpage-customizations)  
+-   [步骤 5：备份网页自定义项 @ no__t-0  
   
 ## <a name="step-1-export-service-settings"></a>第 1 步：导出服务设置  
  若要导出服务设置，请执行以下过程：  
   
 ### <a name="to-export-service-settings"></a>导出服务设置  
   
-1.  记录由联合身份验证服务使用的 SSL 证书的证书使用者名称和指纹值。 若要查找 SSL 证书，请打开 Internet 信息服务 (IIS) 管理控制台中，选择**Default Web Site**的左窗格中单击**绑定...** 在中**操作**窗格中，找到并选择 https 绑定中，单击**编辑**，然后单击**视图**。  
+1.  记录由联合身份验证服务使用的 SSL 证书的证书使用者名称和指纹值。 若要查找 SSL 证书，请打开 Internet Information Services （IIS）管理控制台，在左窗格中选择 "**默认**网站"，然后单击 "**绑定 ...** " 在 "**操作**" 窗格中，查找并选择 https 绑定，单击 "**编辑**"，然后单击 "**查看**"。  
   
 > [!NOTE]
 >  或者，你也可以将联合身份验证服务使用的 SSL 证书及其私钥导出到 .pfx 文件。 有关详细信息，请参阅 [导出服务器身份验证证书的私钥部分](Export-the-Private-Key-Portion-of-a-Server-Authentication-Certificate.md)。  
@@ -57,7 +57,7 @@ ms.locfileid: "66444478"
 输出文件将包含以下重要配置值：  
   
     
-|**Get-adfsproperties 报告的联合身份验证服务属性名称**|**AD FS 管理控制台中的联合身份验证服务属性名称**|
+|**Set-adfsproperties 报告的联合身份验证服务属性名称**|**AD FS 管理控制台中联合身份验证服务属性名称**|
 |------|------|
 |HostName|联合身份验证服务名称|  
 |标识符|联合身份验证服务标识符|  
@@ -74,7 +74,7 @@ ms.locfileid: "66444478"
   
 5. 记录 AD FS 2.0 联合身份验证服务帐户的标识以及此帐户的密码。  
   
-若要查找标识值，请在“服务”  控制台中查看“AD FS 2.0 Windows 服务”  的“登录为”  列并手动记录此值。  
+若要查找标识值，请在“服务” 控制台中查看“AD FS 2.0 Windows 服务” 的“登录为” 列并手动记录此值。  
   
 > [!NOTE]
 >  对于独立的联合身份验证服务，将使用内置的 NETWORK SERVICE 帐户。  在此情况下，你不需要使用密码。  
@@ -108,8 +108,8 @@ ms.locfileid: "66444478"
  若要备份任何网页自定义项，请从映射到 IIS 中的虚拟路径 **“/adfs/ls”** 的目录复制 AD FS 网页和 **web.config** 文件。 默认情况下，它位于 **%systemdrive%\inetpub\adfs\ls** 目录中。  
 
 ## <a name="next-steps"></a>后续步骤
- [准备迁移 AD FS 2.0 联合服务器](prepare-to-migrate-ad-fs-fed-server.md)   
+ [准备将 AD FS 2.0 联合服务器迁移](prepare-to-migrate-ad-fs-fed-server.md)   
  [准备迁移 AD FS 2.0 联合服务器代理](prepare-to-migrate-ad-fs-fed-proxy.md)   
- [迁移 AD FS 2.0 联合服务器](migrate-the-ad-fs-fed-server.md)   
+ [将 AD FS 2.0 联合服务器迁移](migrate-the-ad-fs-fed-server.md)   
  [迁移 AD FS 2.0 联合服务器代理](migrate-the-ad-fs-2-fed-server-proxy.md)   
  [迁移 AD FS 1.1 Web 代理](migrate-the-ad-fs-web-agent.md)

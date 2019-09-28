@@ -3,7 +3,7 @@ title: 将虚拟网关添加到租户虚拟网络
 description: 了解如何使用 Windows PowerShell cmdlet 和脚本为租户的虚拟网络提供站点到站点连接。
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,12 +13,12 @@ ms.assetid: b9552054-4eb9-48db-a6ce-f36ae55addcd
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 39199a96b1f3cd5a62e60f676e8ab47ad4acb4a8
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: deeb226d81c48e0e389ea4d2619c43aca01e25c2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869949"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355885"
 ---
 # <a name="add-a-virtual-gateway-to-a-tenant-virtual-network"></a>将虚拟网关添加到租户虚拟网络 
 

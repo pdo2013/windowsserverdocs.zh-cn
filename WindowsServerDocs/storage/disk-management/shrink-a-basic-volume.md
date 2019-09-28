@@ -2,18 +2,18 @@
 title: 压缩基本卷
 description: 本文介绍如何压缩基本卷
 ms.date: 06/07/2019
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 9073632a656f512bdb49ebe4eeefd4cd5f4eaadf
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 2baf24ed656ef06d44dff93180701d25e6852500
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66812527"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385858"
 ---
 # <a name="shrink-a-basic-volume"></a>压缩基本卷
 
@@ -56,7 +56,7 @@ ms.locfileid: "66812527"
 | 值             | 描述 |
 | ---               | ----------- |
 | **list volume** | 显示所有磁盘上的基本卷和动态卷的列表。 |
-| **select volume** | 选择指定的卷（其中 <em>volumenumber</em> 是卷编号），并赋予其焦点。 如果未指定卷，则 select  命令会列出具有焦点的当前卷。 可以通过编号、驱动器号或装入点路径指定卷。 在基本磁盘上，如果选择卷，则还会赋予相应的分区焦点。 |
+| **select volume** | 选择指定的卷（其中 <em>volumenumber</em> 是卷编号），并赋予其焦点。 如果未指定卷，则 **select** 命令会列出具有焦点的当前卷。 可以通过编号、驱动器号或装入点路径指定卷。 在基本磁盘上，如果选择卷，则还会赋予相应的分区焦点。 |
 | **shrink** | 压缩具有焦点的卷以创建未分配空间。 不会丢失任何数据。 如果分区包含不可移动的文件（如页面文件或影子副本存储区域），则卷将压缩到不可移动的文件所在位置。 |
 | **desired=** <em>desiredsize</em> | 要恢复到当前分区中的兆字节空间量。 |
 | **minimum=** <em>minimumsize</em> | 要恢复到当前分区中的最小兆字节空间量。 如果未指定所需大小或最小大小，则该命令将回收可能的最大空间。 |

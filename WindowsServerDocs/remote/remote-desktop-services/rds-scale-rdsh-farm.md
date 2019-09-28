@@ -2,7 +2,7 @@
 title: 通过添加 RD 会话主机场横向扩展 RDS 部署
 description: 将第二个 RD 会话主机添加到 RDS 环境。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 0e3852b4ea5f1080a3798c0806e5c87ca808c3be
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: da0dbd4332cd05d580c2b1f4dc5eb0734b36b13e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66446519"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403884"
 ---
 # <a name="scale-out-your-remote-desktop-services-deployment-by-adding-an-rd-session-host-farm"></a>通过添加 RD 会话主机场横向扩展远程桌面服务部署
 
@@ -35,7 +35,7 @@ ms.locfileid: "66446519"
    3. 可选：可以暂时将 Windows 更新设置为不自动下载和安装更新。 这有助于在部署 RDSH 服务器时防止更改和系统重启。 在“服务器管理器”中，单击“本地服务器”>“Windows 更新当前设置”  。 单击“高级选项”>“延迟升级”  。 
 3. 将服务器或 VM 添加到域：
    1. 在“服务器管理器”中，单击“本地服务器”>“工作组当前设置”  。 
-   2. 单击“更改”>“域”  ，然后输入域名（例如 Contoso.com）。 
+   2. 单击“更改”>“域”，然后输入域名（例如，Contoso.com）  。 
    3. 输入域管理员凭据。 
    4. 重启服务器或 VM。
 4. 将新的 RD 会话主机添加到场：
@@ -45,9 +45,9 @@ ms.locfileid: "66446519"
    1. 为运行远程桌面管理服务 (RDMS) 的虚拟机创建公共 IP 地址。 RDMS 虚拟机通常是运行 RD 连接代理角色的第一个实例的虚拟机。  
        1. 在 Azure 门户中，单击“浏览”>“资源组”  ，单击部署的资源组，然后单击 RDMS 虚拟机（例如 Contoso-Cb1）。  
        2. 单击“设置”>“网络接口”  ，然后单击相应的网络接口。   
-       3. 单击“设置”>“IP 地址”  。
-       4. 对于“公共 IP 地址”  ，选择“已启用”  ，然后单击“IP 地址”  。   
-       5. 如果要使用现有的公共 IP 地址，请从列表中选择它。 否则，单击“新建”  ，输入名称，然后单击“确定”  ，最后单击“保存”  。   
+       3. 单击“设置”>“IP 地址”。 
+       4. 对于“公共 IP 地址”，请选择“已启用”，然后单击“IP 地址”。      
+       5. 若要使用现有的公共 IP 地址，请从列表中选择它。 否则，单击“新建”  ，输入名称，然后单击“确定”  ，最后单击“保存”  。   
    2. 登录到 RDMS。
    3. 将新的 RDSH 服务器添加到服务器管理器：   
        1. 启动“服务器管理器”，单击“管理”>“添加服务器”  。   

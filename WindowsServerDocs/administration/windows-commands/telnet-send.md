@@ -1,8 +1,8 @@
 ---
 title: telnet 发送
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 36dc7f861e88cf991af57dda2f150107c6870f0f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 958e0e507e5a0ae836da98de8d677a116dbb38bd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441038"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383631"
 ---
-# <a name="telnet-send"></a>telnet： 发送
+# <a name="telnet-send"></a>telnet：发送
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-将 telnet 命令发送到 telnet 服务器。   
+向 telnet 服务器发送 telnet 命令。   
 ## <a name="syntax"></a>语法  
 ```  
 sen[d] {ao | ayt | brk | esc | ip | synch | <string>} [?]  
@@ -34,16 +34,16 @@ sen[d] {ao | ayt | brk | esc | ip | synch | <string>} [?]
 | 参数 |                     描述                      |
 |-----------|------------------------------------------------------|
 |    ao     |       发送 telnet 命令中止输出。        |
-|    ayt    |       将 telnet 命令那里是您发送。       |
+|    ayt    |       发送 telnet 命令。       |
 |    brk    |            发送 telnet 命令 brk。            |
-|    esc    |      将发送当前 telnet 转义符。      |
-|    ip     |     发送 telnet 命令中断进程。     |
-|   同步   |           发送 telnet 命令同步。           |
-| <string>  | 将你键入的任何字符串发送到 telnet 服务器。 |
-|     ?     |     使用此命令相关联的显示帮助。      |
+|    Ecs    |      发送当前的 telnet 转义符。      |
+|    lip     |     发送 telnet 命令中断进程。     |
+|   保持   |           发送 telnet 命令同步。           |
+| <string>  | 将键入的任何字符串发送到 telnet 服务器。 |
+|     ?     |     显示与此命令相关联的帮助。      |
 
 ## <a name="BKMK_Examples"></a>示例  
-发送存在到 telnet 服务器。  
+发送到 telnet 服务器。  
 ```  
 sen ayt  
 ```  

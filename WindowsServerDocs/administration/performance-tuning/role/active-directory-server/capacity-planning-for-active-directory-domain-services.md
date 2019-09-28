@@ -1,18 +1,18 @@
 ---
 title: Active Directory 域服务的容量规划
 description: AD DS 的容量规划过程中要考虑的因素的详细讨论。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: v-tea; kenbrunf
 author: Teresa-Motiv
 ms.date: 7/3/2019
-ms.openlocfilehash: dac13ac94e38cf671239d35507e07d7ac3a0c1ab
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8b17d7f5c7774c1c332d49962b14fe31128f1a27
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866726"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370429"
 ---
 # <a name="capacity-planning-for-active-directory-domain-services"></a>Active Directory 域服务的容量规划
 
@@ -114,7 +114,7 @@ AD DS 的基本存储要求以及编写良好的客户端软件的常规行为�
 |存储/数据库性能|<ul><li>"逻辑磁盘（ *\<ntds 数据库驱动器\>* ） \Avg disk sec/Read，" "逻辑磁盘（ *\<ntds 数据库驱动器\>* ） \Avg Disk sec/Write，" "逻辑磁盘（ *\<NTDS 数据库驱动器）\>* \Avg Disk sec/Transfer</li><li>"逻辑磁盘（ *\<ntds 数据库驱动器\>* ） \ 读取/秒"、"逻辑磁盘（ *\<NTDS 数据库驱动器\>* ） \ 写入数/秒"、"" 逻辑磁盘（ *\<ntds 数据库驱动器\>* ） \ 传输/秒 "</li></ul>|<ul><li>存储有两个需要解决的问题<ul><li>可用空间，其大小为基于心轴和 SSD 的存储，这与大多数 AD 环境无关。</li> <li>可用的输入/输出（IO）操作–在许多环境中，这通常是被忽略的。 但是，只需评估没有足够 RAM 来将整个 NTDS 数据库加载到内存中的环境，这一点非常重要。</li></ul><li>存储可能是一个复杂的主题，应涉及到适当大小的硬件供应商专业知识。 特别是对于更复杂的方案，例如 SAN、NAS 和 iSCSI 方案。 但是，一般情况下，每 Gb 存储的成本通常会直接反对派每个 IO 的成本：<ul><li>RAID 5 的每个千兆比 Raid 1 的成本更低，但 Raid 1 的每 IO 成本更低</li><li>基于纺锤的硬盘驱动器的每个千兆字节成本较低，但每个 IO 的 Ssd 成本更低</li></ul><li>重新启动计算机或 Active Directory 域服务服务后，可扩展存储引擎（ESE）缓存为空，并且在缓存得到预热时性能将受磁盘限制。</li><li>在大多数环境中，AD 是一种随机模式到磁盘的读取密集型 i/o，取消了缓存和读取优化策略的诸多好处。  此外，在内存中，AD 比大多数存储系统缓存具有更大的缓存方式。</li></ul>
 |RAM|<ul><li>数据库大小</li><li>基本操作系统建议</li><li>第三方应用程序</li></ul>|<ul><li>存储是计算机中速度最慢的组件。 RAM 中的内存越多，就越少需要再到磁盘。</li><li>确保分配了足够的 RAM 来存储操作系统、代理（防病毒、备份、监视）、NTDS 数据库和随着时间推移的增长。</li><li>对于最大程度地降低 RAM 数量的环境（如卫星位置）或不可行（DIT 太大），请参考存储部分以确保存储大小正确。</li></ul>|
 |网络|<ul><li>"Network Interface （\*） \ Received/sec"</li><li>"Network Interface （\*） \ Sent/sec"|<ul><li>通常，从 DC 发送的流量远远超过发送到 DC 的流量。</li><li>交换以太网连接是全双工的，需要单独调整入站和出站网络流量。</li><li>合并 Dc 的数量将增加用于将响应发送回每个 DC 的客户端请求的带宽量，但对于整个站点而言，这将接近于线性。</li><li>如果删除卫星位置 Dc，请不要忘记将附属 DC 的带宽添加到中心 Dc，并使用它来评估有多少 WAN 流量。</li></ul>|
-|CPU|<ul><li>"逻辑磁盘（ *\<NTDS 数据库驱动器\>* ） \Avg Disk sec/Read"</li><li>"Process （lsass）\\处理器时间百分比"</li></ul>|<ul><li>消除存储作为瓶颈后，请解决所需的计算能力。</li><li>虽然不是完全线性的，但在特定范围（如站点）内的所有服务器上使用的处理器内核数量可用于确定支持客户端总负载所需的处理器数。 添加在范围内的所有系统中维护当前服务级别所需的最小值。</li><li>处理器速度的变化，包括与电源管理相关的更改、从当前环境派生的影响数值。 通常情况下，不可能精确评估从 2.5 GHz 处理器到 3 GHz 处理器的速度，从而减少了所需的 Cpu 数量。</li></ul>|
+|CPU|<ul><li>"逻辑磁盘（ *\<NTDS 数据库驱动器\>* ） \Avg Disk sec/Read"</li><li>"Process （lsass） \\% Processor Time"</li></ul>|<ul><li>消除存储作为瓶颈后，请解决所需的计算能力。</li><li>虽然不是完全线性的，但在特定范围（如站点）内的所有服务器上使用的处理器内核数量可用于确定支持客户端总负载所需的处理器数。 添加在范围内的所有系统中维护当前服务级别所需的最小值。</li><li>处理器速度的变化，包括与电源管理相关的更改、从当前环境派生的影响数值。 通常情况下，不可能精确评估从 2.5 GHz 处理器到 3 GHz 处理器的速度，从而减少了所需的 Cpu 数量。</li></ul>|
 |NetLogon|<ul><li>"Netlogon （\*） \Semaphore 获取"</li><li>"Netlogon （\*） \Semaphore 超时"</li><li>"Netlogon （\*） \Average 信号灯 Time"</li></ul>|<ul><li>Net Logon Secure 通道/MaxConcurrentAPI 仅影响具有 NTLM 身份验证和/或 PAC 验证的环境。 默认情况下，在 Windows Server 2008 之前的操作系统版本中启用 PAC 验证。 这是一种客户端设置，因此，在所有客户端系统上关闭此功能之前，Dc 将受到影响。</li><li>如果未正确调整大小，则具有大量交叉信任身份验证（包括林内信任）的环境具有更大的风险。</li><li>服务器合并将增加跨信任身份验证的并发性。</li><li>需要对电涌进行调整，例如群集故障转移，因为用户重新向新群集节点重新进行身份验证。</li><li>单个客户端系统（如群集）可能需要进行优化。</li></ul>|
 
 ## <a name="planning"></a>计划
@@ -232,7 +232,7 @@ DC 2|6.25 MB/秒|
 |DC 5|4.75 MB/秒|
 |总计|28.5 MB/秒|
 
-**您72 mb/秒** （28.5 mb/秒除以 40%）
+**您72 MB/秒 @ no__t-0 （28.5 MB/秒除以 40%）
 
 |目标系统计数|总带宽（从上到）|
 |-|-|
@@ -398,9 +398,9 @@ DC 2|6.25 MB/秒|
   在较大的环境中，这一点很重要，这一点很重要，那就是编码不良的应用程序可能会降低 CPU 负载的波动、从其他应用程序中 "盗取" 大量 CPU 时间、有人为的驱动器容量需求，以及针对Dc。  
 - 由于 AD DS 是一种分布式环境，其中包含大量的潜在客户端，因此估算 "单一客户端" 的费用是环保的，因为使用模式以及利用 AD DS 的应用程序的类型或数量。 简而言之，与网络部分相似，对于广泛的适用性，从评估环境中所需的总容量角度来看，这是更好的做法。
 
-对于现有环境，由于前面讨论过存储大小，因此假设存储现在已正确调整大小，因此与处理器负载相关的数据是有效的。 重申一遍，确保系统中的瓶颈不是存储的性能至关重要。 当瓶颈存在并且处理器正在等待时，一旦删除瓶颈，就会出现空闲状态。  随着处理器等待状态的定义，按定义增加 CPU 使用率，因为它不再需要等待数据。 因此，收集性能计数器 "逻辑磁盘（ *\<NTDS 数据库驱动器\>* ） \Avg Disk sec/Read" 和 "Process （lsass）\\% Processor Time"。 如果 "逻辑磁盘（\\ *\<NTDS 数据库驱动器\>* ） \Avg Disk sec/Read" 超过10到 15 ms （这是 Microsoft 支持使用的一般阈值），则 "Process （lsass）% Processor Time" 中的数据会导致人为低用于解决与存储相关的性能问题。 与之前一样，建议采样间隔为15、30或60分钟。 对于良好的度量，通常情况下还会过于不稳定;任何更大的内容将在每日的每日平滑。
+对于现有环境，由于前面讨论过存储大小，因此假设存储现在已正确调整大小，因此与处理器负载相关的数据是有效的。 重申一遍，确保系统中的瓶颈不是存储的性能至关重要。 当瓶颈存在并且处理器正在等待时，一旦删除瓶颈，就会出现空闲状态。  随着处理器等待状态的定义，按定义增加 CPU 使用率，因为它不再需要等待数据。 因此，将 "逻辑磁盘 *@no__t （1NTDS 数据库驱动器 @ no__t-2*） \Avg Disk Sec/Read" 和 "Process （lsass） \\% Processor Time" 收集到性能计数器。 如果 "逻辑磁盘 *@no__t （2NTDS Database Drive @ no__t*） \Avg Disk Sec/Read" 超过10到 15 ms，则 "Process （lsass） \\% Processor Time" 中的数据会导致人为低，这是 Microsoft 支持人员进行故障排除时的一般阈值与存储相关的性能问题。 与之前一样，建议采样间隔为15、30或60分钟。 对于良好的度量，通常情况下还会过于不稳定;任何更大的内容将在每日的每日平滑。
 
-### <a name="introduction"></a>简介
+### <a name="introduction"></a>介绍
 
 为了规划域控制器的容量规划，处理能力需要最大的关注和理解。 当调整系统大小以确保最高性能时，始终有一个组件是瓶颈，而在适当大小的域控制器中，这将是处理器。
 
@@ -421,7 +421,7 @@ DC 2|6.25 MB/秒|
 
 ![CPU 使用情况图表](media/capacity-planning-considerations-cpu-chart.png)
 
-分析每个 dc 的图表中的数据（处理器信息\% （_total）处理器实用程序）：
+分析每个 Dc 的图表中的数据（处理器信息（_Total） \% 处理器实用程序）：
 
 - 在大多数情况下，负载会相对均匀地分布，这就是客户端使用 DC 定位符并具有正确编写的搜索时应执行的操作。 
 - 5分钟峰值为 10%，一些大小为 20%。 通常，除非它们会导致超出容量计划目标，否则调查这些并不值得。  
@@ -436,7 +436,7 @@ DC 2|6.25 MB/秒|
 
 ### <a name="calculating-cpu-demands"></a>计算 CPU 需求
 
-"进程\\% Processor Time" 性能对象计数器汇总了应用程序的所有线程在 CPU 上所花费的总时间，并除以系统时间的总时间。 这样做的结果是多 cpu 系统上的多线程应用程序可能超过 100% 的 CPU 时间，并将其解释为与 "处理器信息\\% processor Utility" 的解释不同。 在实践中，可将 "进程\\（lsass）% Processor Time" 视为在支持进程需求所需的 100% 的 cpu 计数。 值 200% 表示需要2个 Cpu，每个 Cpu 均为 100%，以支持完全 AD DS 负载。 尽管在 100% 的容量下运行的 CPU 对于 Cpu 和能耗和能耗等方面的成本最高，但对于附录 A 中详细说明的多线程系统，当系统未在 100% 运行。
+"Process @ no__t-0% Processor Time" 性能对象计数器合计应用程序的所有线程在 CPU 上所花费的总时间，并除以系统时间过去的总时间。 这样做的结果是多 CPU 系统上的多线程应用程序可能超过 100% 的 CPU 时间，并将其解释为与 "Processor Information @ no__t-0% Processor Utility" 的解释方式有所不同。 在实践中，可将 "Process （lsass） \\% Processor Time" 视为在支持进程需求所需的 100% 的 Cpu 计数。 值 200% 表示需要2个 Cpu，每个 Cpu 均为 100%，以支持完全 AD DS 负载。 尽管在 100% 的容量下运行的 CPU 对于 Cpu 和能耗和能耗等方面的成本最高，但对于附录 A 中详细说明的多线程系统，当系统未在 100% 运行。
 
 为了适应客户端负载中的暂时性高峰，建议以 40% 和 60% 的系统容量的高峰期为目标。 使用上述示例，这意味着 AD DS （lsass 进程）负载需要3.33 （60% 目标）和5（40% 目标） Cpu 之间的任何一个。 根据基本操作系统和所需的其他代理（如防病毒、备份、监视等）的需求，应增加额外容量。 尽管需要根据每个环境来评估代理的影响，但可以在一个 CPU 的 5% 到 10% 之间进行估计。 在当前的示例中，这会在高峰期要求3.43 （60% 目标）和5.1 （40% 目标） Cpu 之间的情况。
 
@@ -448,7 +448,7 @@ DC 2|6.25 MB/秒|
 
 ![Lsass 进程的处理器时间图表（所有处理器上）](media/capacity-planning-considerations-proc-time-chart.png)
 
-从图表中的数据获取的知识（进程（lsass）\\% Processor Time）：
+从图表中的数据（Process （lsass） \\% 处理器时间）获得的知识：
 
 - 营业日开始增加大约7:00，并在 5:00 PM 下降。
 - 最繁忙高峰期为 9:30 AM 到 11:00 AM。 
@@ -486,7 +486,7 @@ DC 2|6.25 MB/秒|
 
 #### <a name="example-2---differing-cpu-counts"></a>示例 2-不同 CPU 计数
 
-| |处理器信息\\ %处理器实用程序（_total&nbsp;）<br />使用默认值|新 LdapSrvWeight|估计的新利用率|
+| |处理器信息 @ no__t-0 @ no__t-1 @ no__t-Query-store-process-2processor Utility （_Total）<br />使用默认值|新 LdapSrvWeight|估计的新利用率|
 |-|-|-|-|
 |4-CPU DC 1|40|100|为期|
 |4-CPU DC 2|40|100|为期|
@@ -521,7 +521,7 @@ DC 2|6.25 MB/秒|
 |-|-|
 |40% 目标需要的 Cpu|4.85 &divide; 。 4 = 12.25|
 
-由于这一点的重要性，请*记住计划增长*，这是重复的。 在今后三年中，假设 50% 的增长，此环境将需要三年&times;的 18.375 cpu （12.25 1.5）。 备用计划将在第一年之后查看，并根据需要增加额外容量。
+由于这一点的重要性，请*记住计划增长*，这是重复的。 在今后三年中，假设 50% 的增长，此环境将需要三年的 18.375 Cpu （12.25 &times; 1.5）。 备用计划将在第一年之后查看，并根据需要增加额外容量。
 
 ### <a name="cross-trust-client-authentication-load-for-ntlm"></a>NTLM 的交叉信任客户端身份验证负载
 
@@ -548,7 +548,7 @@ DC 2|6.25 MB/秒|
 
 对于现有服务器上的优化**MaxConcurrentAPI** ，公式为：
 
-> *New_MaxConcurrentApi_setting* *（semaphore_acquires* semaphore_time） average_semaphore_hold_time&times; time_collection_length +  &ge; &divide;
+> *New_MaxConcurrentApi_setting* &ge; （*semaphore_acquires* + *semaphore_time*） &times; *average_semaphore_hold_time* &divide; *time_collection_length*
 
 有关详细信息，请[参阅知识库文章2688798：如何使用 MaxConcurrentApi 设置](http://support.microsoft.com/kb/2688798)对 NTLM 身份验证执行性能优化。
 
@@ -576,7 +576,7 @@ DC 2|6.25 MB/秒|
 
 |类别|性能计数器|间隔/采样|目标|警告|
 |-|-|-|-|-|
-|处理器|处理器信息（_total）\\% processor Utility|60分钟|40%|60%|
+|处理器|处理器信息（_Total） \\% 处理器实用程序|60分钟|40%|60%|
 |RAM （Windows Server 2008 R2 或更早版本）|Memory\Available MB|< 100 MB|不可用|< 100 MB|
 |RAM （Windows Server 2012）|Memory\Long-Term 平均备用缓存生存期（秒）|30分钟|必须测试|必须测试|
 |网络|每秒发送\*的网络接口（）<br /><br />网络接口（\*）Received/sec|30分钟|40%|60%|
@@ -655,7 +655,7 @@ DC 2|6.25 MB/秒|
 - 解决数学问题：
   - *U* k = 1 –处理器时间百分比
   - 处理器时间百分比 = 1 – *U* k
-  - 处理器时间百分比 = 1 – *B* / *T*
+  - 处理器时间百分比 = 1 – *B* / *t*
   - % Processor Time = 1 – *X1* – *X0* / *Y1* – *Y0*
 
 ### <a name="applying-the-concepts-to-capacity-planning"></a>将概念应用于容量规划
@@ -667,7 +667,7 @@ DC 2|6.25 MB/秒|
 - 将更多处理器添加到运行 90% 的系统，该系统可能不会显著提高性能。 对系统进行更深入的分析可能会发现，有很多线程甚至无法在处理器上获得，因为它们正在等待 i/o 完成。
 - 解决磁盘绑定问题可能意味着以前在等待状态中花费大量时间的线程将不再处于 i/o 的等待状态，因此，对于 CPU 时间，会有更多的争用，这90意味着在以前的示例将到 100% （因为它无法更高）。 这两个组件需要同时进行优化。
   > [!NOTE]
-  > 对于具有 "Turbo"\\模式的系统，处理器信息（*）% processor Utility 可以超过 100%。  在这种情况下，CPU 会在短时间内超过额定的处理器速度。  参考 CPU 制造商文档和计数器说明了解更多见解。  
+  > 对于具有 "Turbo" 模式的系统，处理器信息（*） \\% 处理器实用程序可能超过 100%。  在这种情况下，CPU 会在短时间内超过额定的处理器速度。  参考 CPU 制造商文档和计数器说明了解更多见解。  
 
 讨论整个系统使用注意事项还会将会话域控制器作为虚拟化来宾。 [响应时间/系统 busyness 对性能的影响](#response-timehow-the-system-busyness-impacts-performance)，适用于虚拟化方案中的主机和来宾。 这就是在只有一台来宾的主机中，域控制器（通常是任何系统）与在物理硬件上的性能几乎相同的原因。 向主机添加其他来宾会提高底层主机的利用率，从而增加等待时间以获取对处理器的访问权限（如前文所述）。 简而言之，需要在主机和来宾级别管理逻辑处理器利用率。
 
@@ -820,15 +820,15 @@ DC 2|6.25 MB/秒|
 
 如果读取数与写入数的比率已知，则可以从上述等式中派生出以下公式，以确定数组可支持的最大 i/o 数：  
 
-> *每个心轴的最大 IOPS*&times;  +  &divide; &times;2 个轴 [（% 读取% 写入百分比）（% 读取 + 2% 写入）] = 总 IOPS &times;
+> *每个主轴*&times; 2 轴的最大 IOPS &times; [（ *% 读取* +  *% 写入*） &divide; （ *% 读取*+ 2 &times; *% 写入*）] =*总 IOPS*
 
 RAID 1 + 0 与 RAID 1 的行为完全相同，与读取和写入有关的费用相同。 但是，i/o 现在跨每个镜像集条带化。 如果  
 
-> *每个心轴的最大 IOPS*&times;  +  &divide; &times;2 个轴 [（% 读取% 写入百分比）（% 读取 + 2% 写入）] = 总 i/o 数&times;  
+> *每个主轴*&times; 2 轴的最大 IOPS &times; [（ *% 读取* +  *% 写入*） &divide; （ *% 读取*+ 2 &times; *% 写入*）] =*总 i/o*数  
 
 在 raid 1 集中，当 raid 1 集的重数（*N*）为条带化时，可处理的总 i/o 将成为每个&times; RAID 1 集的 N 个 i/o：  
 
-> *N* &times; &times; &times; &divide;  +  {每个主轴2轴的最大 IOPS [（% 读取% 写入百分比）（% 读取 + 2% 写入）]} = &times; *总 IOPS*
+> *N* &times; {*每个心轴*&times; 2 轴的最大 IOPS &times; [（ *% 读取* +  *% 写入*） &divide; （ *% 读取*+ 2 0 *% 写入*）]} =*总 IOPS*
 
 在 RAID 5 中，有时称为*n* + 1 RAID，数据跨*n*个轴条带化，奇偶校验信息写入 "+ 1" 主轴。 但是，与 RAID 1 或 1 + 0 相比，RAID 5 的开销要高得多。 每次向数组提交写入 i/o 时，RAID 5 都会执行以下操作：
 
@@ -843,7 +843,7 @@ RAID 1 + 0 与 RAID 1 的行为完全相同，与读取和写入有关的费用�
 
 同样，在 RAID 1 集中，当读取次数和磁盘轴数目已知时，可以从上述等式中派生出以下公式，以识别阵列可支持的最大 i/o （请注意，主轴总数不包括在内）。e "驱动器" 的奇偶校验丢失：  
 
-> *每纺锤的 IOPS* +  &times; &divide; &times;（主轴–1） [（% 读取% 写入百分比）（% 读取 + 4% 写入）] = 总 IOPS &times;
+> *每个心轴*&times; *（轴*–1） &times; [ *（% 读取* +  *% 写入*） &divide; （ *% 读取*+ 4 &times; *% 写入*）] =*总 IOPS*
 
 ### <a name="introducing-sans"></a>San 简介
 

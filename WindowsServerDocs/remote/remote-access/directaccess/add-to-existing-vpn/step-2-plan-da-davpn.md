@@ -1,9 +1,9 @@
 ---
-title: 步骤 2 规划 DirectAccess 部署
-description: 本主题是指南的 Windows Server 2016 的现有远程访问 (VPN) 部署添加 DirectAccess 的一部分
+title: 步骤2规划 DirectAccess 部署
+description: 本主题是将 DirectAccess 添加到 Windows Server 2016 现有远程访问（VPN）部署的指南的一部分
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 72b5b2af-6925-41e0-a3f9-b8809ed711d1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6fd33926f4c3d86d5947bffdd5b212db0ae91f47
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: cd42d00d8bddc786ea8a13faf10703361bf8da7b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283599"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404967"
 ---
-# <a name="step-2-plan-the-directaccess-deployment"></a>步骤 2 规划 DirectAccess 部署
+# <a name="step-2-plan-the-directaccess-deployment"></a>步骤2规划 DirectAccess 部署
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
 在规划远程访问基础结构之后，启用 DirectAccess 的下一步是规划启用 DirectAccesss 向导的设置。  
   
@@ -44,26 +44,26 @@ ms.locfileid: "67283599"
 ## <a name="bkmk_2_2_server"></a>规划远程访问服务器部署  
 在规划部署远程访问服务器时，需要作出许多决策：  
   
--   **网络拓扑**-有两种拓扑可用部署远程访问服务器时：  
+-   **网络拓扑**-部署远程访问服务器时，有两种可用的拓扑：  
   
-    -   **两个适配器**-通过两个网络适配器，可以使用一个网络适配器连接到 Internet，直接配置远程访问和其他已连接到内部网络。 或者将该服务器安装在边缘设备（如防火墙或路由器）的后面。 在此配置中，将一个网络适配器连接到外围网络，另一个连接到内部网络。  
+    -   **两个适配器**-包含两个网络适配器，可以使用一个直接连接到 Internet 的网络适配器配置远程访问，另一个网络适配器连接到内部网络。 或者将该服务器安装在边缘设备（如防火墙或路由器）的后面。 在此配置中，将一个网络适配器连接到外围网络，另一个连接到内部网络。  
   
-    -   **单个网络适配器**-在此配置远程访问服务器安装在边缘设备，例如防火墙或路由器后面。 网络适配器连接到内部网络。  
+    -   **单网络适配器**-在此配置中，远程访问服务器安装在边缘设备（如防火墙或路由器）的后面。 网络适配器连接到内部网络。  
   
--   **网络适配器**-启用 DirectAccess 向导会自动检测远程访问服务器，根据使用的 VPN 接口上配置的网络适配器。 必须确保已选择正确的适配器。  
+-   **网络适配器**-启用 DirectAccess 向导会根据 VPN 使用的接口自动检测在远程访问服务器上配置的网络适配器。 必须确保已选择正确的适配器。  
   
--   **ConnectTo 地址**-客户端计算机使用 ConnectTo 地址才能连接到远程访问服务器。 你选择的地址必须与你为 IP-HTTPS 连接部署的 IP-HTTPS 证书的使用者名称相匹配，并且必须在公用 DNS 中可用。 请参阅“规划 IP-HTTPS 的网站证书”。  
+-   **ConnectTo 地址**-客户端计算机使用 ConnectTo 地址连接到远程访问服务器。 你选择的地址必须与你为 IP-HTTPS 连接部署的 IP-HTTPS 证书的使用者名称相匹配，并且必须在公用 DNS 中可用。 请参阅“规划 IP-HTTPS 的网站证书”。  
   
--   **IP-HTTPS 证书**-如果 SSTP VPN 配置，启用 DirectAccess 向导选取的 SSTP 用于 IP-HTTPS 的证书。 如果未配置 SSTP VPN，则该向导将尝试检查是否已配置 IP-HTTPS 的证书。 如果未配置，它将为 IP-HTTPS 自动设置自签名证书。该向导将自动启用 Kerberos 身份验证。 该向导还将为仅 IPv4 环境中的协议转换启用 NAT64 和 DNS64。  
+-   Ip-https**证书**-如果配置了 sstp VPN，则启用 DirectAccess 向导将选取 SSTP 用于 ip-https 的证书。 如果未配置 SSTP VPN，则该向导将尝试检查是否已配置 IP-HTTPS 的证书。 如果未配置，它将为 IP-HTTPS 自动设置自签名证书。该向导将自动启用 Kerberos 身份验证。 该向导还将为仅 IPv4 环境中的协议转换启用 NAT64 和 DNS64。  
   
--   **IPv6 前缀**-如果向导检测到已在网络适配器上部署 IPv6，它会自动创建内部网络的 IPv6 前缀、 要分配到 DirectAccess 客户端计算机的 IPv6 前缀和要分配到 VPN 的 IPv6 前缀客户端计算机。 如果为本机 IPv6 或 ISATAP 基础结构自动生成的前缀不正确，你必须手动更改它们。 请参阅 1.1 规划网络和服务器拓扑和设置。  
+-   **IPv6 前缀**-如果向导检测到已在网络适配器上部署 ipv6，则它会自动创建内部网络的 ipv6 前缀、要分配到 DirectAccess 客户端计算机的 ipv6 前缀，以及要分配给 VPN 客户端的 ipv6 前缀计算机. 如果为本机 IPv6 或 ISATAP 基础结构自动生成的前缀不正确，你必须手动更改它们。 请参阅1.1 规划网络和服务器拓扑以及设置。  
   
--   **Windows 7 客户端**-默认情况下，Windows 7 客户端计算机无法连接到 Windows Server 2012 远程访问部署。 如果需要远程访问内部资源的 Windows 7 客户端计算机在组织中，可以允许它们进行连接。 任何你要允许访问内部资源的客户端计算机都必须是启用 DirectAccess 向导中指定的安全组的成员。  
+-   **Windows 7 客户**端-默认情况下，windows 7 客户端计算机无法连接到 windows Server 2012 远程访问部署。 如果你的组织中的 Windows 7 客户端计算机需要远程访问内部资源，你可以允许它们进行连接。 任何你要允许访问内部资源的客户端计算机都必须是启用 DirectAccess 向导中指定的安全组的成员。  
   
     > [!NOTE]
-    > 使 Windows 7 客户端计算机使用 DirectAccess 进行连接，需要使用计算机证书身份验证。
+    > 允许 Windows 7 客户端计算机使用 DirectAccess 进行连接需要你使用计算机证书身份验证。
   
--   **身份验证**-启用 DirectAccess 向导使用 Active Directory 进行身份验证的用户凭据。 若要部署双重身份验证，请参阅[部署带有 OTP 身份验证的远程访问](../../ras/otp/Deploy-RA-OTP.md)。  
+-   **身份验证**-启用 DirectAccess 向导使用 Active Directory 对用户凭据进行身份验证。 若要部署双重身份验证，请参阅[部署带有 OTP 身份验证的远程访问](../../ras/otp/Deploy-RA-OTP.md)。  
   
 
   

@@ -1,8 +1,8 @@
 ---
 title: rem
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d78bbfe4434170078beb1fd3b3526b017a03e0be
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 56534f75baf514d1c1760edfd41f6f94ab4ae1ab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857018"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371597"
 ---
 # <a name="rem"></a>rem
 
 
 
-提供了一种方法来将注释添加到脚本。
+提供将注释添加到脚本的方法。
 
 ## <a name="syntax"></a>语法
 
@@ -34,7 +34,7 @@ rem
 
 ## <a name="BKMK_examples"></a>示例
 
-在此示例脚本中， **rem**用于提供有关该脚本所做的注释：
+在此示例脚本中， **rem**用于提供有关脚本功能的注释：
 ```
 rem The commands in this script set up 3 drives.
 rem The first drive is a primary partition and is
@@ -52,5 +52,5 @@ assign f:
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)
 

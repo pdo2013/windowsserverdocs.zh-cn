@@ -1,7 +1,7 @@
 ---
 title: Nano Server 快速入门
 description: 快速在物理计算机或虚拟机上部署基本 Nano Server 的步骤
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: DonGill
 ms.technology: server-nano
@@ -11,12 +11,12 @@ ms.topic: get-started-article
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 7c1623e365be71cac2fd58da5444ce4358d75309
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 5de589d9da1c7d4fc9eb116e6ea1f6a326d1ad7c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66443567"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391719"
 ---
 # <a name="nano-server-quick-start"></a>Nano Server 快速入门
 

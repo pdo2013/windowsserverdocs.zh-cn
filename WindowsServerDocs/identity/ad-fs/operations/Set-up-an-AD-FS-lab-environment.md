@@ -6,15 +6,15 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 5c91cb97a1b8371d1e3f8e496f026727681e2304
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 921cf4b4b5629df735b20ba59f239abfd6b0d6d6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865596"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407501"
 ---
 # <a name="set-up-an-ad-fs-lab-environment"></a>设置 AD FS 实验室环境
 
@@ -172,7 +172,7 @@ ms.locfileid: "70865596"
 ### <a name="add-host-a-and-alias-cname-resource-records-to-dns"></a>将主机 (A) 和别名 (CNAME) 资源记录添加到 DNS  
 在 DC1 上，你必须确保为设备注册服务创建以下域名系统 (DNS)。  
   
-|条目|type|地址|  
+|条目|类型|地址|  
 |---------|--------|-----------|  
 |adfs1|主机 (A)|AD FS 服务器的 IP 地址|  
 |enterpriseregistration|别名 (CNAME)|adfs1.contoso.com|  

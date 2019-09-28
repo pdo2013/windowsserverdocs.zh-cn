@@ -8,14 +8,14 @@ manager: mtillman
 ms.reviewer: cahick
 ms.date: 08/20/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 56f485491340b3974d8bf5ba697c6cf01f3e56ac
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 53626c4cfac17cb11402ada9ce3397c487cd0720
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868206"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389850"
 ---
 # <a name="winlogon-automatic-restart-sign-on-arso"></a>Winlogon 自动重新启动登录（ARSO）
 
@@ -114,7 +114,7 @@ ARSO 以不同的方式对待非托管和托管设备。 对于非托管设备�
 
 **注册表编辑器**
 
-| 值名称 | type | Data |
+| 值名称 | 类型 | Data |
 | --- | --- | --- |
 | AutomaticRestartSignOnConfig | DWORD | 0（启用 ARSO，如果安全） |
 |   |   | 1（启用 ARSO always） |

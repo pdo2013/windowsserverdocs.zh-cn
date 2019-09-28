@@ -1,8 +1,8 @@
 ---
-title: 创建
-description: 'Windows 命令主题 * * *- '
+title: create
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8cccf47a38fc61cdb225a44c08ba7d68d21b4fc3
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 25c3b87ef4d7d929185481c79156c754466b788b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433962"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378836"
 ---
-# <a name="create"></a>创建
+# <a name="create"></a>create
 
 
 
-在磁盘上，一个或多个磁盘或虚拟硬盘 (VHD) 上的卷创建分区。
+在磁盘上创建分区，在一个或多个磁盘上创建卷，或在虚拟硬盘（VHD）上创建分区。
 
 ## <a name="syntax"></a>语法
 

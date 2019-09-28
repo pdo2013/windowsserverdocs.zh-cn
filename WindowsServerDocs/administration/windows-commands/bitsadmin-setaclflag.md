@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setaclflag
-description: Windows 命令主题**bitsadmin setaclflag** -设置访问控制列表传播标志。
+description: 适用于**bitsadmin setaclflag**的 Windows 命令主题-设置访问控制列表传播标志。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 89d825a4bc4512022fed98a3188537d3977fa3c3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fbdb12c29af7b4db8b25846d43ee1c93b2454ff2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867398"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380764"
 ---
 # <a name="bitsadmin-setaclflag"></a>bitsadmin setaclflag
 
-设置访问控制列表 (ACL) 为的作业的传播标志。 标志指示你想要保持与所下载的文件的所有者和 ACL 的信息。 例如，若要保持与该文件的所有者和组，设置 **标志** 到`OG`。
+为作业设置访问控制列表（ACL）传播标志。 标志指示你希望在要下载的文件中维护所有者和 ACL 信息。 例如，若要通过文件维护所有者和组，请将 **Flags** to @no__t。
 
 ## <a name="syntax"></a>语法
 
@@ -35,19 +35,19 @@ bitsadmin /SetAclFlags <Job> <Flags>
 |参数|描述|
 |---------|-----------|
 |作业|该作业的显示名称或 GUID|
-|Flags|指定一个或多个以下的标志值：</br>-O:与文件复制所有者信息。</br>-G:与文件复制组信息。</br>-D:与文件复制 DACL 信息。</br>-S： 复制 SACL 信息与文件。|
+|Flags|指定以下一个或多个标志值：</br>I/O将所有者信息复制到文件。</br>G用文件复制组信息。</br>2-D复制 DACL 信息和文件。</br>-S：复制具有文件的 SACL 信息。|
 
 ## <a name="remarks"></a>备注
 
-SetAclFlags 开关用于作业从 Windows (SMB) 共享下载数据时维护所有者和访问控制列表信息。
+当作业从 Windows （SMB）共享下载数据时，SetAclFlags 开关用于维护所有者和访问控制列表信息。
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例设置的访问控制列表传播标志名为的作业*myDownloadJob*为了保持与下载的文件的所有者和组信息。
+下面的示例设置名为*myDownloadJob*的作业的访问控制列表传播标志，以使用下载的文件维护所有者和组信息。
 ```
 C:\>bitsadmin /setaclflags myDownloadJob OG
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

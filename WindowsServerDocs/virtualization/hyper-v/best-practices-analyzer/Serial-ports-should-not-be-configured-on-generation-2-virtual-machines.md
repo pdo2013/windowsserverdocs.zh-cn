@@ -1,7 +1,7 @@
 ---
-title: 不应在第 2 代虚拟机上配置的串行端口
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+title: 不应在第2代虚拟机上配置串行端口
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 87061193-dd3f-4398-aa5d-4cee83cadfa3
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 58c3fc5f975b85ce17ac5f7cca4930ec9e851e07
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8a8c15076921efa0e1e791a18c6a45ea1bf27b0e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877378"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364735"
 ---
-# <a name="serial-ports-should-not-be-configured-on-generation-2-virtual-machines"></a>不应在第 2 代虚拟机上配置的串行端口
+# <a name="serial-ports-should-not-be-configured-on-generation-2-virtual-machines"></a>不应在第2代虚拟机上配置串行端口
 
 >适用于：Windows Server 2016
 
@@ -30,18 +30,18 @@ ms.locfileid: "59877378"
 |**Severity**|警告|  
 |**类别**|配置|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。  
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。  
   
 ## <a name="issue"></a>**问题**  
-*一个或多个生成 2 个虚拟机已配置的串行端口。*  
+*一个或多个第2代虚拟机配置了串行端口。*  
   
-## <a name="impact"></a>**影响**  
-*对以下虚拟机可能会影响性能：*  
+## <a name="impact"></a>**对**  
+*对于下列虚拟机，性能可能会受到影响：*  
   
-\<虚拟机的列表 >  
+@no__t-虚拟机的 0list >  
   
 ## <a name="resolution"></a>**解决方法**  
-*如果这是有意为之，不不需要任何进一步的操作。否则，请考虑使用 HYPER-V 管理器或 Windows PowerShell 删除虚拟机上的串行端口的连接字符串。*  
+@no__t 0If，这是有意的，无需执行其他操作。否则，请考虑使用 Hyper-v 管理器或 Windows PowerShell 从虚拟机上的串行端口中删除连接字符串。 *  
   
 
 

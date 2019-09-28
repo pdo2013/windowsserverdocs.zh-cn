@@ -7,44 +7,44 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 9e3a5cc2c71455bb040f1311bdbfed1ac7e213fb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e1018d5bbff5922df5a696e5c4fad12dc9f6ec3d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832228"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408570"
 ---
 # <a name="virtualized-domain-controller-technical-reference-appendix"></a>虚拟化域控制器技术参考附录
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
 本主题讲解：  
   
 -   [术语](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_Terms)  
   
--   [FixVDCPermissions.ps1](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_FixPDCPerms)  
+-   [Fixvdcpermissions.ps1](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_FixPDCPerms)  
   
-## <a name="BKMK_Terms"></a>术语  
+## <a name="BKMK_Terms"></a>规范  
   
--   **快照**-位于某个特定时间点的虚拟机的状态。 它是依赖于链前面拍摄的快照，在硬件上及虚拟化平台。  
+-   **Snapshot** -虚拟机在特定时间点的状态。 它依赖于以前拍摄的快照、硬件上和虚拟化平台上的快照链。  
   
--   **克隆**-完成和单独的虚拟机的副本。 它所依赖的虚拟硬件 （虚拟机监控程序）。  
+-   **Clone** -虚拟机的完整且独立的副本。 它依赖于虚拟硬件（虚拟机监控程序）。  
   
--   **完全克隆**-完整克隆是克隆操作完成后不共享任何资源与父虚拟机的虚拟机的独立副本。 正在进行的操作的完整克隆是完全独立于父虚拟机。  
+-   **完全克隆**-完整克隆是虚拟机的独立副本，在克隆操作后与父虚拟机共享任何资源。 完全克隆的正在进行的操作完全独立于父虚拟机。  
   
--   **差异磁盘**-实时的方式与父虚拟机共享的虚拟磁盘的虚拟机的副本。 这通常可以节省磁盘空间，并允许多个虚拟机要使用相同的软件安装。  
+-   **差异磁盘**-虚拟机的副本，该副本与父虚拟机共享虚拟磁盘。 这通常会节省磁盘空间，并允许多个虚拟机使用相同的软件安装。  
   
--   **VM 复制**-文件系统复制的所有相关文件和文件夹的虚拟机。  
+-   **VM 副本**-虚拟机的所有相关文件和文件夹的文件系统副本。  
   
--   **将 VHD 文件复制**-虚拟机的 VHD 的副本  
+-   **Vhd 文件复制**-虚拟机 VHD 的副本  
   
--   **VM 生成 ID** -提供给虚拟机的虚拟机监控程序的 128 位整数。 此 ID 是存储在内存中，每次应用快照重置。 设计使用不限的虚拟机监控程序的机制，用于公开虚拟机中的 VM 生成 ID。 HYPER-V 实现公开虚拟机的 ACPI 表中的 ID。  
+-   **VM 生成 ID** -虚拟机监控程序为虚拟机提供的128位整数。 此 ID 存储在内存中，并在每次应用快照时重置。 该设计使用与虚拟机监控程序无关的机制，在虚拟机中呈现 VM 生成 ID。 Hyper-v 实现在虚拟机的 ACPI 表中公开 ID。  
   
--   **导入/导出**-允许用户保存整个虚拟机 （VM 文件、 VHD 和计算机配置） 的 HYPER-V 功能。 然后允许用户使用该集的文件重新打开同一个 VM （还原） 的同一台计算机将在计算机上另一台计算机作为同一个 VM （移动） 或新的 VM （复制）  
+-   **导入/导出**-一项 hyper-v 功能，该功能允许用户保存整个虚拟机（VM 文件、VHD 和计算机配置）。 然后，它允许用户使用一组文件将计算机重新置于同一 VM （还原）的同一台计算机上，并在不同的计算机上作为同一 VM （移动）或新的 VM （复制）  
   
-## <a name="BKMK_FixPDCPerms"></a>FixVDCPermissions.ps1  
+## <a name="BKMK_FixPDCPerms"></a>Fixvdcpermissions.ps1  
   
 ```  
 # Unsigned script, requires use of set-executionpolicy remotesigned -force  

@@ -3,7 +3,7 @@ title: 部署 MultiPoint 服务
 description: MultiPoint 服务部署过程概述
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: 594bc09e-5d2d-4984-a9de-79d40b1308d6
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: 19e1b52c79e0d87804a76ec8963662b96c82b41b
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 842b7b743624aa1e4b168b1be8e94f6d405d07e3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871722"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395685"
 ---
 # <a name="deploying-multipoint-services"></a>部署 MultiPoint 服务
 本指南介绍了如何部署运行 MultiPoint 服务的服务器和设置 MultiPoint 工作站、安装和配置系统、设置用户帐户，以及执行一些基本的管理任务，例如打开磁盘保护和设置备份。开始使用系统之前。  

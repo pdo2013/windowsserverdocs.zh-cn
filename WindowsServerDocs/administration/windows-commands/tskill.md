@@ -1,8 +1,8 @@
 ---
 title: tskill
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,22 +13,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b582334d7b79b2badbb86818be1093b6a5f55080
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 697363c91837ff675a14099fd212f4f0753b739b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440813"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392334"
 ---
 # <a name="tskill"></a>tskill
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-结束远程桌面会话主机 (rd 会话主机) 服务器上的会话中运行的进程。
+结束在远程桌面会话主机（rd 会话主机）服务器上的会话中运行的进程。
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
 > [!NOTE]
-> 在 Windows Server 2008 R2 中，终端服务被重命名为远程桌面服务。 若要了解什么是最新版本中的新增功能，请参阅[的新增功能新增 Windows Server 2012 中的远程桌面服务中](https://technet.microsoft.com/library/hh831527)Windows Server TechNet 库中。
+> 在 Windows Server 2008 R2 中，终端服务被重命名为远程桌面服务。 若要了解最新版本中的新增功能，请参阅 Windows server TechNet 库中的[Windows server 2012 远程桌面服务中的新增功能](https://technet.microsoft.com/library/hh831527)。
 
 ## <a name="syntax"></a>语法
 ```
@@ -39,28 +39,28 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
 
 |参数|描述|
 |-------|--------|
-|\<ProcessID>|指定你想要结束的进程 ID。|
-|\<ProcessName>|指定你想要结束的进程的名称。 此参数可以包含通配符字符。|
-|/server:\<服务器名 >|指定包含要结束的进程的终端服务器。 如果 **/server**未指定，则使用当前的 RD 会话主机服务器。|
-|/id:\<SessionID >|结束在指定的会话中运行的进程。|
-|/a|结束所有会话中运行的进程。|
-|/v|显示有关正在执行的操作的信息。|
+|\<ProcessID >|指定要结束的进程的 ID。|
+|\<ProcessName >|指定要结束的进程的名称。 此参数可以包含通配符。|
+|/server： \<ServerName >|指定包含要结束的进程的终端服务器。 如果未指定 **/server** ，则使用当前 RD 会话主机服务器。|
+|/id： \<SessionID >|结束在指定的会话中运行的进程。|
+|/a|结束所有会话中正在运行的进程。|
+|/v|显示要执行的操作的相关信息。|
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
-- 可以使用**tskill**结束仅属于你，这些进程，除非你是管理员。 管理员可以完全访问所有**tskill**函数，而可以结束其他用户会话中运行的进程。
-- 当在会话中运行的所有进程都结束时，会话也将结束。
-- 如果您使用*ProcessName*并 **/server:** <em>ServerName</em>参数，您还必须指定 **/id:** <em>SessionID</em>或 **/a**参数。
+- 除非你是管理员，否则可以使用**tskill**仅结束属于你的进程。 管理员对所有**tskill**函数具有完全访问权限，并且可以结束其他用户会话中运行的进程。
+- 当在会话中运行的所有进程结束时，该会话也将结束。
+- 如果使用*ProcessName*和 **/server：** <em>ServerName</em>参数，则还必须指定 **/id：** <em>SessionID</em>或 **/a**参数。
 
 ## <a name="BKMK_examples"></a>示例
-- 若要结束进程 6543，请键入：
+- 若要结束进程6543，请键入：
   ```
   tskill 6543
   ```
-- 若要结束进程"explorer"会话 5 上运行，请键入：
+- 若要结束会话5上运行的 "资源管理器" 进程，请键入：
   ```
   tskill explorer /id:5
   ```
   #### <a name="additional-references"></a>其他参考
   [命令行语法解答](command-line-syntax-key.md)
-  [远程桌面服务 & #40;终端服务和 #41;命令参考](remote-desktop-services-terminal-services-command-reference.md)
+  [远程桌面服务&#40;终端服务和&#41;命令参考](remote-desktop-services-terminal-services-command-reference.md)

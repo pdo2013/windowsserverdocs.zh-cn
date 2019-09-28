@@ -1,8 +1,8 @@
 ---
-title: 详细信息的虚拟磁盘
-description: 'Windows 命令主题 * * *- '
+title: 详细信息 vdisk
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e3401eaeb9afb452b6e7e36abdcba69f00e59ce
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1e507c496aa053d6345a383b2867976fc1550e09
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886318"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378558"
 ---
-# <a name="detail-vdisk"></a>详细信息的虚拟磁盘
+# <a name="detail-vdisk"></a>详细信息 vdisk
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-显示所选的虚拟硬盘的属性\(VHD\)。  
+显示所选虚拟硬盘的属性 \(VHD @ no__t-1。  
   
 ## <a name="syntax"></a>语法  
   
@@ -34,10 +34,10 @@ detail vdisk
   
 ## <a name="remarks"></a>备注  
   
--   VHD 必须选择此操作才会成功。 使用**选择的虚拟磁盘**命令选择虚拟磁盘，并将焦点移到它。  
+-   必须选择 VHD 才能使此操作成功。 使用**select vdisk**命令选择 vdisk，并将焦点移动到该。  
   
 ## <a name="BKMK_examples"></a>示例  
-若要查看有关所选的 VHD 的详细信息，请键入：  
+若要查看有关所选 VHD 的详细信息，请键入：  
   
 ```  
 detail vdisk  
@@ -45,21 +45,21 @@ detail vdisk
   
 #### <a name="additional-references"></a>其他参考  
   
--   [命令行语法解答](command-line-syntax-key.md)  
+-   [命令行语法项](command-line-syntax-key.md)  
   
--   [attach vdisk](attach-vdisk.md)  
+-   [附加 vdisk](attach-vdisk.md)  
   
--   [压缩的虚拟磁盘](compact-vdisk.md)  
+-   [compact vdisk](compact-vdisk.md)  
   
   
   
--   [分离的虚拟磁盘](detach-vdisk.md)  
+-   [分离 vdisk](detach-vdisk.md)  
   
--   [展开的虚拟磁盘](expand-vdisk.md)  
+-   [展开 vdisk](expand-vdisk.md)  
   
--   [合并的虚拟磁盘](merge-vdisk.md)  
+-   [Merge vdisk](merge-vdisk.md)  
   
--   [选择的虚拟磁盘](select-vdisk.md)  
+-   [选择 vdisk](select-vdisk.md)  
   
 -   [list_1](list_1.md)  
   

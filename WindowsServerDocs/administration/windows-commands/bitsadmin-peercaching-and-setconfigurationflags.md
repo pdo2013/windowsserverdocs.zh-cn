@@ -1,8 +1,8 @@
 ---
 title: bitsadmin 对等缓存和 setconfigurationflags
-description: Windows 命令主题**bitsadmin 对等缓存和 setconfigurationflags** -设置确定是否计算机可以提供到对等节点的内容，并可以从对等方下载内容配置标志。
+description: 用于 bitsadmin 对等互连**和 setconfigurationflags**的 Windows 命令主题：设置用于确定计算机是否可以向对等机提供内容以及能否从对等方下载内容的配置标志。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 22408d4aab7f5ea374511bc16751d911a84644f2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a65d54bcaa2bce26eb2b7c98250837ab09c7a423
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813328"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381115"
 ---
 # <a name="bitsadmin-peercaching-and-setconfigurationflags"></a>bitsadmin 对等缓存和 setconfigurationflags
 
 
 
-设置配置标志，以确定是否计算机可以提供到对等节点的内容和可以从对等方下载内容。
+设置配置标志，这些标志确定计算机是否可以向对等方提供内容以及是否可以从对等方下载内容。
 
 ## <a name="syntax"></a>语法
 
@@ -37,15 +37,15 @@ bitsadmin /PeerCaching /SetConfigurationFlags <Job> <Value>
 |参数|描述|
 |---------|-----------|
 |作业|该作业的显示名称或 GUID|
-|ReplTest1|值为无符号的整数，位组中的二进制表示形式的以下解释：</br>-允许来自对等方下载作业的数据：设置最低有效位</br>-允许作业的数据提供给对等方：从右侧设置第 2 个字节。|
+|ReplTest1|该值是一个无符号整数，它对二进制表示形式中的位进行了以下解释：</br>-允许从对等方下载作业的数据：设置最小有效位</br>-允许将作业的数据提供给对等方：从右侧设置第二个位。|
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例指定要下载来自对等名为的作业的作业的数据*myJob*。
+下面的示例指定要从对等方为名为*myJob*的作业下载的作业数据。
 ```
 C:\> Bitsadmin /PeerCaching /SetConfigurationFlags myJob 1
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)
