@@ -1,25 +1,25 @@
 ---
 title: Vssadmin 删除阴影
-description: Vssadmin 删除阴影命令的说明。
-ms.prod: windows-server-threshold
+description: Vssadmin 删除 shadows 命令的说明。
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 83074017e4ae412cf0aec654f6ab5901ad8039e2
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 9779da98ecb43245fe206390d9b70471f15d706e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63706619"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362612"
 ---
 # <a name="vssadmin-delete-shadows"></a>Vssadmin 删除阴影
 
->适用于：Windows 10 中，Windows 8.1，Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2、 Windows Server 2008
+>适用于：Windows 10，Windows 8.1，Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2，Windows Server 2008
 
-删除指定的卷的卷影副本。
+删除指定卷的卷影副本。
 
 ## <a name="syntax"></a>语法
 
@@ -31,19 +31,19 @@ vssadmin delete shadows /for=<ForVolumeSpec> [/oldest | /all | /shadow=<ShadowID
 
 |参数|描述|
 |---|---|
-|/for=\<ForVolumeSpec>|指定将删除的卷的卷影副本。|
-|/oldest|删除仅最旧的卷影副本。|
-|/all|将删除所有指定的卷的卷影副本。|
-|/shadow=\<ShadowID>|删除指定的 ShadowID 卷影副本。 若要获取卷影副本 ID，请使用**list shadows**命令。 当您输入的卷影副本 ID 时，使用以下格式，其中每个*X*表示十六进制字符：<br><br>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX|
-|/quiet|指定该命令将不显示运行时的消息。|
+|/for = \<ForVolumeSpec >|指定将删除的卷影副本。|
+|/oldest|仅删除最旧的卷影副本。|
+|/all|删除指定卷的所有卷影副本。|
+|/shadow = \<ShadowID >|删除由 ShadowID 指定的卷影副本。 若要获取卷影副本 ID，请使用**vssadmin list shadows**命令。 输入卷影副本 ID 时，请使用以下格式，其中每个*X*表示十六进制字符：<br><br>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX （XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX）|
+|/quiet|指定命令在运行时不显示消息。|
 
 ## <a name="remarks"></a>备注
 
-与客户端可以访问的类型，可以仅删除卷影副本。
+只能删除具有客户端可访问的类型的卷影副本。
 
 ## <a name="examples"></a>示例
 
-若要删除最旧的卷影副本的卷 C，输入以下命令：
+若要删除最旧的卷影副本，请输入以下命令：
 
 ```PowerShell
 vssadmin delete shadows /for=c: /oldest
@@ -51,6 +51,6 @@ vssadmin delete shadows /for=c: /oldest
 
 ## <a name="additional-references"></a>其他参考
 
-* [命令行语法解答](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771080(v%3dws.11))
-* [vssadmin](vssadmin.md)
-* [List shadows](vssadmin-list-shadows.md)
+* [命令行语法关键字](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771080(v%3dws.11))
+* [List](vssadmin.md)
+* [Vssadmin list shadows](vssadmin-list-shadows.md)

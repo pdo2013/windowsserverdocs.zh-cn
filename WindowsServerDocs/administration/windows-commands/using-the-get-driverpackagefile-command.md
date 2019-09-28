@@ -1,8 +1,8 @@
 ---
-title: 使用 get DriverPackageFile 命令
-description: 'Windows 命令主题 * * *- '
+title: 使用 DriverPackageFile 命令
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 264bdb6d51622e6323be00b44014b86cd9662e61
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 21bbe17e56177da5cd2c1bf83c712d256cc794c8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440500"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363146"
 ---
-# <a name="using-the-get-driverpackagefile-command"></a>使用 get DriverPackageFile 命令
+# <a name="using-the-get-driverpackagefile-command"></a>使用 DriverPackageFile 命令
 
 
 
-显示有关驱动程序包，包括驱动程序和其包含的文件的信息。
+显示有关驱动程序包的信息，包括其包含的驱动程序和文件。
 
 ## <a name="syntax"></a>语法
 
@@ -36,9 +36,9 @@ WDSUTIL /Get-DriverPackageFile /InfFile:<Inf File path> [/Architecture:{x86 | ia
 
 |         参数         |                              描述                               |
 |---------------------------|------------------------------------------------------------------------|
-| / InfFile:\<Inf 文件路径 > | 指定驱动程序包.inf 文件的完整路径和文件名。 |
-|    [/ 体系结构: {x86    |                                  ia64                                  |
-|     [/ 显示: {驱动程序      |                                 文件                                  |
+| /InfFile： \<Inf 文件路径 > | 指定驱动程序包 .inf 文件的完整路径和文件名。 |
+|    [/Architecture： {x86    |                                  ia64                                  |
+|     [/Show： {驱动程序      |                                 文件                                  |
 
 ## <a name="BKMK_examples"></a>示例
 

@@ -1,8 +1,8 @@
 ---
 title: wecutil
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -12,18 +12,18 @@ ms.assetid: 0c82a6cb-d652-429c-9c3d-0f568c78d54b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dansimps
-ms.openlocfilehash: 04fb86d813049dc5f0aa6d4fba51e45dccbd1b80
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 78005a715a0dbd20124bfb24be27586a8e153310
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440178"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362188"
 ---
 # <a name="wecutil"></a>wecutil
 
 
 
-可以创建和管理来自远程计算机的转发的事件的订阅。 在远程计算机必须支持 WS 管理协议。 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
+使你能够创建和管理从远程计算机转发的事件的订阅。 远程计算机必须支持 WS-MANAGEMENT 协议。 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
 
 ## <a name="syntax"></a>语法
@@ -43,58 +43,58 @@ wecutil  [{es | enum-subscription}]
 
 |参数|描述|
 |---------|-----------|
-|{es\|枚举订阅}|显示所有存在的远程事件订阅的名称。|
-|{gs\|获取订阅} \<Subid > [/ f:\<格式 >] [/ 单元：\<Unicode >]|显示远程订阅配置信息。 \<Subid > 是一个字符串，唯一标识订阅。 \<Subid > 中指定的字符串相同\<SubscriptionId > 标记的 XML 配置文件用于创建订阅。|
-|{gr \| get subscriptionruntimestatus} \<Subid > [\<Eventsource >...]|显示订阅的运行时状态。 \<Subid > 是一个字符串，唯一标识订阅。 \<Subid > 中指定的字符串相同\<SubscriptionId > 标记的 XML 配置文件用于创建订阅。 \<Eventsource > 是一个字符串，标识用作事件的源的计算机。 \<Eventsource > 应为完全限定的域名、 NetBIOS 名称或 IP 地址。|
-|{ss\|设置订阅} \<Subid > [/ e: [\<Subenabled >]] [/ esa:\<地址 >] [/ ese: [\<Srcenabled >]] [/aes] [/res] [/ 运行：\<用户名 >] [/ 最多：\<密码 >] [/ d:\<Desc >] [/ uri:\<Uri >] [/ cm:\<Configmode >] [/ ex:\<Expires >] [/ 问：\<查询 >] [/ dia:\<方言 >] [/ tn:\<Transportname >] [/ tp:\<Transportport >] [/ 数据挖掘：\<Deliverymode >] [/ dmi:\<Deliverymax >] [/ dmlt:\<Deliverytime >] [/ 大家好：\<检测信号 >] [/ cf:\<内容 >] [/ l:\<区域设置 >] [/ ree: [\<Readexist >]] [/ lf:\<日志文件 >] [/ pn:\<Publishername >] [/ essp:\<Enableport >] [/ hn:\<主机名 >] [/ ct:\<类型 >]</br>或</br>{ss\|设置订阅无\<Configfile > [/ cun:\<Comusername >/茶杯：\<Compassword >]|订阅配置更改。 你可以指定订阅 ID 和相应的选项来更改订阅的参数，也可以指定要更改订阅参数的 XML 配置文件。|
-|{cs\|创建订阅} \<Configfile > [/ cun:\<用户名 >/茶杯：\<密码 >]|创建远程订阅。 \<Configfile > 指定包含订阅配置的 XML 文件的路径。 路径可以是绝对或相对于当前目录。|
-|{ds\|删除订阅} \<Subid >|删除的订阅并从所有事件源将事件传递到事件日志中的订阅取消订阅。 不会删除已收到并记录任何事件。 \<Subid > 是一个字符串，唯一标识订阅。 \<Subid > 中指定的字符串相同\<SubscriptionId > 标记的 XML 配置文件用于创建订阅。|
-|{rs\|重试订阅} \<Subid > [\<Eventsource >...]|重新尝试建立连接，并将远程订阅请求发送到非活动订阅。 指定事件源或尝试重新激活的所有事件源。 已禁用的源不会重试。 \<Subid > 是一个字符串，唯一标识订阅。 \<Subid > 中指定的字符串相同\<SubscriptionId > 标记的 XML 配置文件用于创建订阅。 \<Eventsource > 是一个字符串，标识用作事件的源的计算机。 \<Eventsource > 应为完全限定的域名、 NetBIOS 名称或 IP 地址。|
-|{qc \| quick-config} [/q:[\<Quiet>]]|配置 Windows 事件收集器服务，以确保可以创建订阅，并将其重新启动后可持续。 这包括以下步骤：</br>1.如果它处于禁用状态，请启用 ForwardedEvents 通道。</br>2.设置要推迟启动的 Windows 事件收集器服务。</br>3.如果未运行，请启动 Windows 事件收集器服务。|
+|{es \| 枚举-订阅}|显示存在的所有远程事件订阅的名称。|
+|{gs \| 获取-订阅} \<Subid > [/f： \<Format >] [/uni： \<Unicode >]|显示远程订阅配置信息。 \<Subid > 是唯一标识订阅的字符串。 \<Subid > 与用于创建订阅的 XML 配置文件的 \<SubscriptionId > 标记中指定的字符串相同。|
+|{gr \| subscriptionruntimestatus} \<Subid > [\<Eventsource > ...]|显示订阅的运行时状态。 \<Subid > 是唯一标识订阅的字符串。 \<Subid > 与用于创建订阅的 XML 配置文件的 \<SubscriptionId > 标记中指定的字符串相同。 \<Eventsource > 是一个字符串，用于标识用作事件源的计算机。 \<Eventsource > 应为完全限定的域名、NetBIOS 名称或 IP 地址。|
+|{ss \| 集-订阅} \<Subid > [/e： [\<Subenabled >]] [/esa： \<Address >] [/ese] [4Srcenabled] [/aes：/res] [/un] [5Username： @no__t-/up >] [6Password： 7Desc @no__t] [/uri： >__t-8Uri >] [/cm： @no__t 9Configmode >] [/ex： 0Expires >] [/q： 1Query >] [/dia： 2Dialect >] [/tn： 3Transportname >] [14Transportport：/dm @no__t] [15Deliverymode： >16Deliverymax >] [/dmlt： 7Deliverytime >] [/hi： 8Heartbeat >] [/cf： 19Content @no__t] [/l： >-20Locale @no__t] [/ree： [>-21Readexist @no__t]] [/lf： >-22Logfile @no__t] [/essp： 4Enableport >] [/hn： 5Hostname >] [/ct： 26Type @no__t]</br>或</br>{ss \| 集-订阅/c： \<Configfile > [/cun： \<Comusername >/cup： \<Compassword >]|更改订阅配置。 您可以指定订阅 ID 以及用于更改订阅参数的适当选项，也可以指定一个 XML 配置文件来更改订阅参数。|
+|{cs \| create-订阅} \<Configfile > [/cun： \<Username >/cup： \<Password >]|创建远程订阅。 \<Configfile > 指定包含订阅配置的 XML 文件的路径。 路径可以是相对于当前目录的绝对路径或相对路径。|
+|{ds \| 删除-订阅} \<Subid >|删除订阅并从将事件传递给订阅的事件日志的所有事件源取消订阅。 已收到并记录的任何事件都不会被删除。 \<Subid > 是唯一标识订阅的字符串。 \<Subid > 与用于创建订阅的 XML 配置文件的 \<SubscriptionId > 标记中指定的字符串相同。|
+|{rs \| retry} \<Subid > [\<Eventsource > ...]|重试建立连接并向非活动订阅发送远程订阅请求。 尝试重新激活所有事件源或指定的事件源。 不会重试禁用的源。 \<Subid > 是唯一标识订阅的字符串。 \<Subid > 与用于创建订阅的 XML 配置文件的 \<SubscriptionId > 标记中指定的字符串相同。 \<Eventsource > 是一个字符串，用于标识用作事件源的计算机。 \<Eventsource > 应为完全限定的域名、NetBIOS 名称或 IP 地址。|
+|{qc \| 快速配置}[/q： [\<Quiet >]]|配置 Windows 事件收集器服务，以确保可以通过重新启动来创建和保持订阅的持续时间。 这包括以下步骤：</br>1.如果 ForwardedEvents 通道处于禁用状态，则启用它。</br>2.将 Windows 事件收集器服务设置为 "延迟启动"。</br>3.如果 Windows 事件收集器服务未运行，则启动该服务。|
 
 ## <a name="options"></a>选项
 
 |Option|描述|
 |------|-----------|
-|/f:\<格式 >|指定的格式显示的信息。 \<格式 > 可以是 XML 或 Terse。 如果<Format>为 XML，以 XML 格式显示输出。 如果\<格式 > 是 Terse，输出会显示在名称 / 值对。 默认值为 Terse。|
-|无\<Configfile >|指定包含订阅配置的 XML 文件的路径。 路径可以是绝对或相对于当前目录。 此选项仅可用于 **/cun**并 **/茶杯**选项并与所有其他选项互斥。|
-|/e:[\<Subenabled>]|启用或禁用订阅。 \<Subenabled > 可以是 true 或 false。 此选项的默认值为 true。|
-|/esa:\<地址 >|指定事件源的地址。 \<地址 > 是一个字符串，包含完全限定的域名、 NetBIOS 名称或 IP 地址，它标识用作事件的源的计算机。 应使用此选项与 **/ese**， **/aes**， **/res**，或者 **/un**并 **/up**选项。|
-|/ese:[\<Srcenabled>]|启用或禁用事件源。 \<Srcenabled > 可以是 true 或 false。 允许使用此选项仅当 **/esa**指定选项。 此选项的默认值为 true。|
-|/aes|添加指定的事件源 **/esa**选项如果它已不是订阅的一部分。 如果指定的地址 **/esa**选项已订阅的一部分，会报告错误。 如果此选项仅允许 **/esa**指定选项。|
-|/res|删除由指定的事件源 **/esa**选项如果它已是订阅的一部分。 如果指定的地址 **/esa**选项不订阅的一部分，会报告错误。 如果此选项仅允许 **/esa**指定选项。|
-|/un:\<用户名 >|指定要使用指定的事件源的用户凭据 **/esa**选项。 如果此选项仅允许 **/esa**指定选项。|
-|/ 向上：\<密码 >|指定对应于用户凭据的密码。 如果此选项仅允许 **/un**指定选项。|
-|/d:\<Desc >|提供的订阅的说明。|
-|/uri:\<Uri >|指定供订阅的事件的类型。 \<Uri > 包含结合要唯一标识事件源的事件源计算机的地址的 URI 字符串。 URI 字符串用于在订阅中的所有事件源地址。|
-|/cm:\<Configmode>|将配置模式设置。 \<Configmode > 可以是下列字符串之一：Normal、 自定义、 MinLatency 或 MinBandwidth。 Normal、 MinLatency 和 MinBandwidth 模式设置传递模式、 交付最大项、 检测信号间隔和传递最大延迟时间。 **/Dm**， **/dmi**， **/hi**或者 **/dmlt**选项只能指定是否配置模式设置为自定义。|
-|/ ex:\<过期 >|设置订阅的过期的时间。 \<过期 > 应定义采用标准的 XML 或 ISO8601 日期时间格式： yyyy-MM-ddThh:mm:ss [.sss] [Z]，其中 T 是时间分隔符，Z 表示 UTC 时间。|
-|/q:\<查询 >|指定订阅的查询字符串。 格式\<查询 > 可能会因不同的 URI 值并将应用于订阅中的所有源。|
-|/dia:\<方言 >|定义查询字符串使用的方言。|
-|/tn:\<Transportname >|指定用于连接到远程事件源的传输的名称。|
-|/tp:\<Transportport >|设置传输到远程事件源连接时使用的端口号。|
-|/dm:\<Deliverymode >|指定传递模式。 \<Deliverymode > 可以是请求或推送。 此选项才有效如果 **/cm**选项设置为自定义。|
-|/dmi:\<Deliverymax >|设置为批处理传递的项的最大数目。 此选项才有效如果 **/cm**设置为自定义。|
-|/dmlt:\<Deliverytime >|在提供一批的事件设置的最大延迟。 \<Deliverytime > 是的毫秒数。 此选项才有效如果 **/cm**设置为自定义。|
-|/ 大家好：\<检测信号 >|定义的检测信号间隔。 \<检测信号 > 是的毫秒数。 此选项才有效如果 **/cm**设置为自定义。|
-|/cf:\<内容 >|指定返回的事件的格式。 \<内容 > 可以是事件或 RenderedText。 RenderedText 的值时，事件将返回具有附加到事件 （如事件描述中） 的本地化字符串。 默认值为 RenderedText。|
-|/l:\<区域设置 >|RenderedText 格式指定的已本地化的字符串传递的区域设置。 \<区域设置 > 是一个语言和国家/地区的标识符，例如，"EN-我们"。 此选项才有效如果 **/cf**选项设置为 RenderedText。|
-|/ree:[\<Readexist>]|标识的订阅传递的事件。 \<Readexist > 可以，则返回 true 或 false。 当<Readexist>为 true，从订阅事件源读取所有现有的事件。 当<Readexist>是仅将来 （到达） 的事件传递为 false。 默认值为 true 的 **/ree**没有值的选项。 如果没有 **/ree**指定选项，默认值为 false。|
-|/lf:\<日志文件 >|指定用于存储从事件源接收的事件在本地事件日志。|
-|/pn:\<Publishername>|指定发布者名称。 它必须是发布者拥有或导入指定的日志 **/lf**选项。|
-|/essp:\<Enableport >|指定的端口号必须附有远程服务的服务主体名称。 \<Enableport > 可以是 true 或 false。 追加端口号时<Enableport>为 true。 追加端口号，可能需要一些配置以防止从要拒绝对事件源的访问。|
-|/hn:\<主机名 >|指定本地计算机的 DNS 名称。 此名称将用作远程事件源要推送回事件，且必须仅用于推送订阅。|
-|/ct:\<类型 >|设置远程源访问权限的凭据类型。 \<类型 > 应为以下值之一： 默认、 协商、 摘要式、 basic 或 localmachine。 默认值是默认值。|
-|/cun:\<Comusername >|设置要用于不具有其自己的用户凭据的事件源的共享的用户凭据。 如果此选项指定与 **/c**选项用户名和用户密码设置的配置文件中的单个事件源将被忽略。 如果你想要为特定事件源使用其他凭据，则应通过指定覆盖此值 **/un**并 **/up**特定事件源选项在命令行上的另一个**ss**命令。|
-|/ 茶杯：\<Compassword >|设置共享的用户凭据的用户密码。 当\<Compassword > 设置为 * （星号），从控制台读取密码。 此选项才有效 **/cun**指定选项。|
-|/q:[\<Quiet>]|指定是否配置过程会提示进行确认。 \<静默 > 可以是 true 或 false。 如果<Quiet>为 true，配置过程不会提示进行确认。 此选项的默认值为 false。|
+|/f： \<Format >|指定显示的信息的格式。 \<Format > 可以是 XML 或简要。 如果 @no__t 为 XML，则输出以 XML 格式显示。 如果 \<Format > 为简要，则输出将以名称/值对显示。 默认值为简要。|
+|/c： \<Configfile >|指定包含订阅配置的 XML 文件的路径。 路径可以是相对于当前目录的绝对路径或相对路径。 此选项只能与 **/cun**和 **/cup**选项一起使用，并且与所有其他选项互相排斥。|
+|/e： [\<Subenabled >]|启用或禁用订阅。 \<Subenabled > 可以为 true 或 false。 此选项的默认值为 true。|
+|/esa： \<Address >|指定事件源的地址。 \<Address > 是包含完全限定的域名、NetBIOS 名称或 IP 地址的字符串，用于标识用作事件源的计算机。 应将此选项与 **/ese**、 **/aes**、 **/res**、 **/un**和 **/up**选项一起使用。|
+|/ese： [\<Srcenabled >]|启用或禁用事件源。 \<Srcenabled > 可以为 true 或 false。 仅当指定了 **/esa**选项时，才允许使用此选项。 此选项的默认值为 true。|
+|/aes|如果 **/esa**选项不是订阅的一部分，则添加由该选项指定的事件源。 如果 **/esa**选项指定的地址已是订阅的一部分，则会报告错误。 仅当指定了 **/esa**选项时，才允许使用此选项。|
+|/res|如果 **/esa**选项已是订阅的一部分，则删除由该选项指定的事件源。 如果 **/esa**选项指定的地址不是订阅的一部分，则会报告错误。 仅当指定了 **/esa**选项时，才允许使用此选项。|
+|/un： \<Username >|指定与 **/esa**选项指定的事件源一起使用的用户凭据。 仅当指定了 **/esa**选项时，才允许使用此选项。|
+|/up： \<Password >|指定对应于用户凭据的密码。 仅当指定了 **/un**选项时，才允许使用此选项。|
+|/d： \<Desc >|提供订阅的说明。|
+|/uri： \<Uri >|指定订阅使用的事件类型。 \<Uri > 包含一个 URI 字符串，该字符串与事件源计算机的地址相结合，用于唯一标识事件的源。 URI 字符串用于订阅中的所有事件源地址。|
+|/cm： \<Configmode >|设置配置模式。 \<Configmode > 可以为以下字符串之一：Normal、Custom、MinLatency 或 MinBandwidth。 Normal、MinLatency 和 MinBandwidth 模式设置传递模式、传递最大项、检测信号间隔和最大传输延迟时间。 仅当配置模式设置为 "自定义" 时，才能指定 **/dm**、 **/dmi**、 **/hi**或 **/dmlt**选项。|
+|/ex： \<Expires >|设置订阅的过期时间。 \<Expires > 应采用标准 XML 格式或 ISO8601 日期-时间格式定义： yyyy-mm-dd： Yyyy-mm-ddthh： MM： ss [. sss] [Z]，其中 T 为时间分隔符，Z 指示 UTC 时间。|
+|/q： \<Query >|指定订阅的查询字符串。 不同的 URI 值 \<Query > 的格式可能不同，并适用于订阅中的所有源。|
+|/dia： \<Dialect >|定义查询字符串使用的方言。|
+|/tn： \<Transportname >|指定用于连接到远程事件源的传输的名称。|
+|/tp： \<Transportport >|设置连接到远程事件源时传输使用的端口号。|
+|/dm： \<Deliverymode >|指定传送模式。 \<Deliverymode > 可以是请求或推送。 仅当 **/cm**选项设置为 "自定义" 时，此选项才有效。|
+|/dmi： \<Deliverymax >|设置批处理传递的最大项数。 仅当 **/cm**设置为 Custom 时，此选项才有效。|
+|/dmlt： \<Deliverytime >|设置提供一批事件时的最大延迟。 \<Deliverytime > 是毫秒数。 仅当 **/cm**设置为 Custom 时，此选项才有效。|
+|/hi： \<Heartbeat >|定义检测信号间隔。 \<Heartbeat > 是毫秒数。 仅当 **/cm**设置为 Custom 时，此选项才有效。|
+|/cf： \<Content >|指定返回的事件的格式。 \<Content > 可以是事件或 RenderedText。 如果值为 RenderedText，则会返回附加到事件的已本地化字符串（例如事件描述）的事件。 默认值为 RenderedText。|
+|/l： \<Locale >|指定以 RenderedText 格式传递本地化字符串的区域设置。 \<Locale > 是语言和国家/地区标识符，例如 "EN-US"。 仅当 **/cf**选项设置为 RenderedText 时，此选项才有效。|
+|/ree： [\<Readexist >]|标识为订阅传递的事件。 \<Readexist > 为 true 或 false。 如果 @no__t 为 true，则会从订阅事件源中读取所有现有事件。 如果 @no__t 为 false，则只传递未来的（到达的）事件。 对于没有值的 **/ree**选项，默认值为 true。 如果未指定 **/ree**选项，则默认值为 false。|
+|/lf： \<Logfile >|指定用于存储从事件源接收的事件的本地事件日志。|
+|/pn： \<Publishername >|指定发布服务器名称。 它必须是拥有或导入 **/lf**选项指定的日志的发布者。|
+|/essp： \<Enableport >|指定必须将端口号附加到远程服务的服务主体名称。 \<Enableport > 可以为 true 或 false。 如果 @no__t 为 true，则会追加端口号。 如果附加了端口号，则可能需要某些配置以防止拒绝对事件源的访问。|
+|/hn： \<Hostname >|指定本地计算机的 DNS 名称。 此名称由远程事件源用来推送回事件，并且必须仅用于推送订阅。|
+|/ct： \<Type >|设置远程源访问的凭据类型。 \<Type > 应为以下值之一： default、negotiate、digest、basic 或 localmachine。 默认值为 "默认值"。|
+|/cun： \<Comusername >|设置要用于没有自己的用户凭据的事件源的共享用户凭据。 如果此选项与 **/c**选项一起指定，则将忽略配置文件中各个事件源的用户名和 UserPassword 设置。 如果要将不同的凭据用于特定事件源，则应通过在另一个**ss**命令的命令行上指定特定事件源的 **/un**和 **/up**选项来重写此值。|
+|/cup： \<Compassword >|设置共享用户凭据的用户密码。 如果 \<Compassword > 设置为 * （星号），则从控制台读取密码。 仅当指定了 **/cun**选项时，此选项才有效。|
+|/q： [\<Quiet >]|指定配置过程是否提示确认。 \<Quiet > 可以为 true 或 false。 如果 @no__t 为 true，则配置过程不会提示进行确认。 此选项的默认值为 false。|
 
 ## <a name="remarks"></a>备注
 
 > [!IMPORTANT]
-> 如果你收到的消息，"RPC 服务器不可用？当你尝试运行 wecutil，您需要启动 Windows 事件收集器服务 (wecsvc)。 若要启动 wecsvc，请在提升的命令提示符，键入 net 启动 wecsvc。
+> 如果收到消息 "RPC 服务器不可用？尝试运行 wecutil 时，需要启动 Windows 事件收集器服务（wecsvc）。 若要启动 wecsvc，请在提升的命令提示符下键入 net start wecsvc。
 
-- 下面的示例演示配置文件的内容：  
+- 下面的示例显示了配置文件的内容：  
   ```
   <Subscription xmlns="https://schemas.microsoft.com/2006/03/windows/events/subscription">
   <Uri>https://schemas.microsoft.com/wbem/wsman/1/windows/EventLog</Uri>
@@ -143,23 +143,23 @@ Locale:
 ContentFormat: renderedtext
 LogFile: HardwareEvents
 ```
-显示一个名为 sub1 订阅的运行时状态：
+显示名为 sub1 的订阅的运行时状态：
 ```
 wecutil gr sub1
 ```
-更新名为从新的 XML 文件调用 WsSelRg2.xml sub1 订阅配置：
+从名为 WsSelRg2 的新 XML 文件中更新名为 sub1 的订阅配置：
 ```
 wecutil ss sub1 /c:%Windir%\system32\WsSelRg2.xml
 ```
-更新订阅配置名为 sub2 报表具有多个参数：
+用多个参数更新名为 sub2 的订阅配置：
 ```
 wecutil ss sub2 /esa:myComputer /ese /un:uname /up:* /cm:Normal
 ```
-创建订阅以将事件从 mySource.myDomain.com 在远程计算机的 Windows Vista 应用程序事件日志转发到 ForwardedEvents 日志 （请参阅备注有关的配置文件示例）：
+创建一个订阅，用于将事件从远程计算机的 Windows Vista 应用程序事件日志转发到 ForwardedEvents 日志（有关配置文件的示例，请参阅备注）：
 ```
 wecutil cs subscription.xml
 ```
-删除 sub1 名为的订阅：
+删除名为 sub1 的订阅：
 ```
 wecutil ds sub1
 ```

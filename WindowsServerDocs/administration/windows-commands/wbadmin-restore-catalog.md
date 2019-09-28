@@ -1,8 +1,8 @@
 ---
-title: Wbadmin 还原目录
-description: 'Windows 命令主题 * * *- '
+title: wbadmin restore catalog
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5876a44b178025baac7ee5901cdc32c1b5d33dad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b0d646440ca9b30f9fa30fb1ac3ff08458b8e44d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851708"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362335"
 ---
-# <a name="wbadmin-restore-catalog"></a>Wbadmin 还原目录
+# <a name="wbadmin-restore-catalog"></a>wbadmin restore catalog
 
 
 
 从指定的存储位置恢复本地计算机的备份目录。
 
-若要恢复备份编录与此子命令，您必须**Backup Operators**组或**管理员**组，或者您必须被委派了适当的权限。 此外，您必须运行**wbadmin**从提升的命令提示符。 (若要打开提升的命令提示符右键单击**命令提示符**，然后单击**以管理员身份运行**。)
+若要使用此子命令恢复备份目录，您必须是**Backup Operators**组或**Administrators**组的成员，或者您必须被委派了适当的权限。 此外，必须在提升的命令提示符下运行**wbadmin** 。 （若要打开提升的命令提示符，右键单击 "**命令提示符**"，然后单击 "以**管理员身份运行**"。）
 
 有关如何使用此子命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -43,27 +43,27 @@ wbadmin restore catalog
 
 |参数|描述|
 |---------|-----------|
-|-backupTarget|当时点处创建备份后，请指定系统备份目录的位置。|
-|-计算机|指定你想要恢复的备份目录的计算机的名称。 当多个计算机的备份存储在同一位置时使用。 应何时 **-backupTarget**指定。|
-|-quiet|向用户使用无提示运行子命令。|
+|-backupTarget|指定在创建备份后的时间点的系统备份目录的位置。|
+|-计算机|指定要恢复其备份目录的计算机的名称。 当多台计算机的备份存储在同一位置时使用。 当指定 **-backupTarget**时，应使用。|
+|-quiet|对用户运行无提示的子命令。|
 
 ## <a name="remarks"></a>备注
 
-如果你在其中存储你的备份的位置 （磁盘、 DVD 或远程共享的文件夹） 损坏或丢失，不能用于还原备份的目录，请使用**wbadmin 删除目录**删除损坏的目录。 在这种情况下，应创建新的备份后删除备份目录。
+如果存储备份的位置（磁盘、DVD 或远程共享文件夹）已损坏或丢失，并且无法用于还原备份目录，请使用**wbadmin delete catalog**删除损坏的目录。 在这种情况下，你应在删除备份目录后创建新备份。
 
 ## <a name="BKMK_examples"></a>示例
 
-若要从存储在 d： 磁盘上的备份还原目录，请键入：
+若要从磁盘 d：上存储的备份还原目录，请键入：
 ```
 wbadmin restore catalog -backupTarget:d
 ```
-若要从共享文件夹中存储的备份还原目录\\ \\servername\share server01，类型：
+若要从共享文件夹中存储的备份还原目录 \\ @ no__t-1servername\share of server01，请键入：
 ```
 wbadmin restore catalog -backupTarget:\\servername\share -machine:server01
 ```
 
 #### <a name="additional-references"></a>其他参考
 
--   [命令行语法解答](command-line-syntax-key.md)
--   [Wbadmin](wbadmin.md)
--   [还原 WBCatalog](https://technet.microsoft.com/library/jj902437.aspx) cmdlet
+-   [命令行语法项](command-line-syntax-key.md)
+-   [Backup](wbadmin.md)
+-   [WBCatalog](https://technet.microsoft.com/library/jj902437.aspx) cmdlet

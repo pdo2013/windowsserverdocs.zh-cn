@@ -1,8 +1,8 @@
 ---
-title: 使用 get Namespace 命令
-description: 'Windows 命令主题 * * *- '
+title: 使用获取命名空间命令
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8c30f9ef375bdf368f81f5a69961746851a2aac8
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 607fb758db64cfc938a08b070b520fe2950aa482
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440432"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363078"
 ---
-# <a name="using-the-get-namespace-command"></a>使用 get Namespace 命令
+# <a name="using-the-get-namespace-command"></a>使用获取命名空间命令
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-显示自定义的命名空间的信息。
+显示有关自定义命名空间的信息。
 ## <a name="syntax"></a>语法
 Windows Server 2008 R2
 ```
@@ -38,21 +38,20 @@ wdsutil /Get-Namespace /Namespace:<Namespace name> [/Server:<Server name>] [/det
 
 |               参数               |                                                                                                                                                                                         描述                                                                                                                                                                                          |
 |---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      / Namespace:<Namespace name>      | 指定的命名空间名称。 请注意，这不是友好名称，并且它必须是唯一。<br /><br />部署服务器：命名空间名称的语法是 /Namspace:WDS:<ImageGroup>/<ImageName>/<Index>。 例如：**WDS:ImageGroup1/install.wim/1**<br />-传输服务器：此值应与在服务器上创建时提供给命名空间的名称匹配。 |
-|        [/ 服务器：<Server name>]        |                                                                                                             指定的服务器的名称。 这可以是 NetBIOS 名称或完全限定的域名 (FQDN)。 如果指定没有服务器名称，则使用本地服务器。                                                                                                              |
-| [/ Show： 客户端] 或 [/ 详细信息： 客户端] |                                                                                                                                                  显示有关客户端计算机连接到指定的命名空间的信息。                                                                                                                                                  |
+|      /Namespace： <Namespace name>      | 指定命名空间的名称。 请注意，这不是友好名称，并且必须是唯一的。<br /><br />-部署服务器：命名空间名称的语法为/Namspace： WDS： <ImageGroup> @ no__t @ no__t-2 @ no__t-3 @ no__t-4。 例如：**WDS： ImageGroup1/install/1**<br />-传输服务器：当在服务器上创建命名空间时，此值应与命名空间所提供的名称匹配。 |
+|        [/Server： @no__t]        |                                                                                                             指定服务器的名称。 此名称可以是 NetBIOS 名称或完全限定的域名（FQDN）。 如果未指定服务器名称，则使用本地服务器。                                                                                                              |
+| [/Show： Clients] 或 [/details： Clients] |                                                                                                                                                  显示有关连接到指定命名空间的客户端计算机的信息。                                                                                                                                                  |
 
 ## <a name="BKMK_examples"></a>示例
-若要查看命名空间的信息，请键入：
+若要查看有关命名空间的信息，请键入：
 ```
 wdsutil /Get-Namespace /Namespace:"Custom Auto 1"
 ```
-若要查看有关命名空间和已连接的客户端的信息，请键入以下项之一：
-- Windows Server 2008: `wdsutil /Get-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /Show:Clients`
-- Windows Server 2008 R2: `wdsutil /Get-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /details:Clients`
+若要查看有关命名空间和连接的客户端的信息，请键入下列内容之一：
+- Windows Server 2008： `wdsutil /Get-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /Show:Clients`
+- Windows Server 2008 R2： `wdsutil /Get-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /details:Clients`
   #### <a name="additional-references"></a>其他参考
-  [命令行语法解答](command-line-syntax-key.md)
-  [使用 get AllNamespaces 命令](using-the-get-allnamespaces-command.md)
-  [使用新 Namespace 命令](using-the-new-namespace-command.md)
-  [使用删除 Namespace 命令](using-the-remove-namespace-command.md)
-  [子命令： 开始 Namespace](subcommand-start-namespace.md)
+  [命令行语法键](command-line-syntax-key.md)
+   使用[AllNamespaces 命令](using-the-get-allnamespaces-command.md)
+   使用[新的命名空间](using-the-new-namespace-command.md)命令 
+   使用[删除命名空间](using-the-remove-namespace-command.md)命令 @no__t 7[子命令：启动-命名空间](subcommand-start-namespace.md)
