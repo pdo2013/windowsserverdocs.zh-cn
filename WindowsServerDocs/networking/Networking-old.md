@@ -1,7 +1,7 @@
 ---
 title: 网络
 description: 本主题概述了 Windows Server 2016 中提供的软件定义的网络和网络平台技术。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.date: 05/08/2018
@@ -10,12 +10,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: cf0aa1d752167962c11171ad98ae26591a740221
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 1cc30f239f1c4c9107ce0afcfb70647d43384949
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868990"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356781"
 ---
 # <a name="networking"></a>网络
 

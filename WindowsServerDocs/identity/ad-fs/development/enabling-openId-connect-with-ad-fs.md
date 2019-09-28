@@ -1,59 +1,59 @@
 ---
 ms.assetid: d282bb4e-38a0-4c7c-83d8-f6ea89278057
-title: 构建 web 应用程序使用 OpenID Connect 与 AD FS 2016 和更高版本
+title: 使用 OpenID Connect 和 AD FS 2016 及更高版本构建 web 应用程序
 description: ''
 author: billmath
 ms.author: billmath
 manager: mtillman
 ms.date: 02/22/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: dbd42941f8952fc7f649636d2f3645f941240d49
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 9b3d64558c27e7b4bda20b6af27e02d55431c94d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190423"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358793"
 ---
-# <a name="build-a-web-application-using-openid-connect-with-ad-fs-2016-and-later"></a>构建 web 应用程序使用 OpenID Connect 与 AD FS 2016 和更高版本
+# <a name="build-a-web-application-using-openid-connect-with-ad-fs-2016-and-later"></a>使用 OpenID Connect 和 AD FS 2016 及更高版本构建 web 应用程序
 
 ## <a name="pre-requisites"></a>先决条件  
-以下是完成本文档之前所需的系统必备组件的列表。 本文档假定已安装 AD FS，并且已创建的 AD FS 场。  
+下面列出了在完成本文档之前需要满足的先决条件。 本文档假定已安装 AD FS 并且已创建 AD FS 场。  
 
 -   GitHub 客户端工具  
 
--   在 Windows Server 2016 TP4 或更高版本的 AD FS  
+-   Windows Server 2016 TP4 或更高版本中的 AD FS  
 
 -   Visual Studio 2013 或更高版本。  
 
-## <a name="create-an-application-group-in-ad-fs-2016-and-later"></a>在 AD FS 中创建应用程序组 2016年及更高版本
-以下部分介绍如何配置应用程序组中 AD FS 2016 和更高版本。  
+## <a name="create-an-application-group-in-ad-fs-2016-and-later"></a>在 AD FS 2016 及更高版本中创建应用程序组
+以下部分介绍如何配置 AD FS 2016 及更高版本中的应用程序组。  
 
 #### <a name="create-application-group"></a>创建应用程序组  
 
-1.  在 AD FS 管理中，右键单击应用程序组，然后选择**添加应用程序组**。  
+1.  在 AD FS 管理 "中，右键单击" 应用程序组 "，然后选择"**添加应用程序组**"。  
 
-2.  在应用程序组向导中，为名称输入**ADFSSSO**并在**客户端-服务器应用程序**选择**Web 浏览器访问 web 应用程序**模板。  单击“下一步”  。
+2.  在应用程序组向导上，为 "输入**ADFSSSO** "，在 "**客户端-服务器应用程序**" 下，选择 " **web 浏览器访问 web 应用程序**" 模板。  单击“下一步”。
 
     ![AD FS OpenID](media/Enabling-OpenId-Connect-with-AD-FS-2016/AD_FS_OpenID_1.PNG)  
 
-3.  复制**客户端标识符**值。  它将用作更高版本作为值 ida： 应用程序 web.config 文件中的 ClientId。  
+3.  复制 "**客户端标识符**" 值。  稍后将在应用程序的 web.config 文件中将其用作 ida： ClientId 的值。  
 
-4.  输入的以下**重定向 URI:**  -  **https://localhost:44320/** 。  单击**添加**。 单击“下一步”  。  
+4.  对于 "**重定向 URI** - "，请输入以下内容： **https://localhost:44320/** 。  单击**添加**。 单击“下一步”。  
 
     ![AD FS OpenID](media/Enabling-OpenId-Connect-with-AD-FS-2016/AD_FS_OpenID_2.PNG)  
 
-5.  上**摘要**屏幕上，单击**下一步**。  
+5.  在 "**摘要**" 屏幕上，单击 "**下一步**"。  
 
     ![AD FS OpenID](media/Enabling-OpenId-Connect-with-AD-FS-2016/AD_FS_OpenID_3.PNG)
 
-6.  上**完成**屏幕上，单击**关闭**。  
+6.  在 "**完成**" 屏幕上，单击 "**关闭**"。  
 
-## <a name="download-and-modify-sample-application-to-authenticate-via-openid-connect-and-ad-fs"></a>下载并修改示例应用程序通过 OpenID Connect 和 AD FS 进行身份验证  
-本部分讨论如何下载示例 Web 应用并在 Visual Studio 中对其进行修改。   我们将使用 Azure AD 的示例，则[此处](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect)。  
+## <a name="download-and-modify-sample-application-to-authenticate-via-openid-connect-and-ad-fs"></a>下载并修改示例应用程序，通过 OpenID Connect 和 AD FS 进行身份验证  
+本部分介绍如何在 Visual Studio 中下载示例 Web 应用并对其进行修改。   我们将使用[此处](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect)的 Azure AD 示例。  
 
-若要下载示例项目，请使用 Git Bash，并键入以下命令：  
+若要下载示例项目，请使用 Git Bash，并键入以下内容：  
 
 ```  
 git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect  
@@ -61,13 +61,13 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-openid
 
 ![AD FS OpenID](media/Enabling-OpenId-Connect-with-AD-FS-2016/AD_FS_OpenID_8.PNG)  
 
-#### <a name="to-modify-the-app"></a>若要修改应用程序  
+#### <a name="to-modify-the-app"></a>修改应用程序  
 
-1.  打开使用 Visual Studio 的示例。  
+1.  使用 Visual Studio 打开示例。  
 
-2.  重新生成应用，以便所有缺少的 Nuget 还原。  
+2.  重新生成应用，以便还原所有缺少的 Nuget。  
 
-3.  打开 web.config 文件。  修改以下值，以使外观如下所示：  
+3.  打开 web.config 文件。  修改以下值，使其类似于以下内容：  
 
     ```  
     <add key="ida:ClientId" value="[Replace this Client Id from #3 in above section]" />  
@@ -81,13 +81,13 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-openid
 
 4.  打开 Startup.Auth.cs 文件并进行以下更改：  
 
-    -   注释掉以下：  
+    -   注释掉以下内容：  
 
         ```  
         //string Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);  
         ```  
 
-    -   调整 OpenId Connect 中间件的初始化逻辑发生了以下变化：  
+    -   调整 OpenId Connect 中间件初始化逻辑，并进行以下更改：  
 
         ```  
         private static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];  
@@ -99,7 +99,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-openid
 
         ![AD FS OpenID](media/Enabling-OpenId-Connect-with-AD-FS-2016/AD_FS_OpenID_10.PNG)  
 
-    -   进一步向下，修改以下所示的 OpenId Connect 中间件的选项：  
+    -   再往下修改 OpenId Connect 中间件选项，如下所示：  
 
         ```  
         app.UseOpenIdConnectAuthentication(  
@@ -114,22 +114,22 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-openid
 
         ![AD FS OpenID](media/Enabling-OpenId-Connect-with-AD-FS-2016/AD_FS_OpenID_11.PNG)  
 
-        通过更改上述我们将执行以下操作：  
+        通过更改以上步骤，我们将执行以下操作：  
 
-        -   而不是使用颁发机构进行通信的受信任的颁发者有关的数据，我们指定直接通过 MetadataAddress 的发现文档位置  
+        -   我们不是使用授权来传达有关受信任颁发者的数据，而是通过 MetadataAddress 直接指定发现文档位置  
 
-        -   Azure AD 不强制实施的 redirect_uri 在请求中存在但 ADFS。 因此，我们需要在此处进行添加  
+        -   Azure AD 不会强制在请求中存在 redirect_uri，但 ADFS 会执行此项。 那么，我们需要在此添加  
 
-## <a name="verify-the-app-is-working"></a>验证应用程序正常工作  
-一旦进行了上述更改，按 F5。  此时会弹出示例页面。  单击登录。  
+## <a name="verify-the-app-is-working"></a>验证应用是否正在运行  
+进行上述更改后，按 F5。  这将显示示例页。  单击 "登录"。  
 
 ![AD FS OpenID](media/Enabling-OpenId-Connect-with-AD-FS-2016/AD_FS_OpenID_12.PNG)  
 
-你将重定向到 AD FS 登录页。  请继续并登录。  
+你将被重定向到 AD FS 登录页。  继续登录。  
 
 ![AD FS OpenID](media/Enabling-OpenId-Connect-with-AD-FS-2016/AD_FS_OpenID_13.PNG)  
 
-成功完成之后可以看到现在登录。  
+成功后，你应该会看到你现在已登录。  
 
 ![AD FS OpenID](media/Enabling-OpenId-Connect-with-AD-FS-2016/AD_FS_OpenID_14.PNG)  
 

@@ -6,14 +6,14 @@ ms.author: billmath
 manager: daveba
 ms.date: 08/09/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6a0a1da3dd5c92dff885478c1669bbda5ae07fe5
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0e680e07ce1ee27a73791e310a71b85ad76d6318
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867474"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358760"
 ---
 # <a name="ad-fs-openid-connectoauth-concepts"></a>AD FS OpenID Connect/OAuth 概念
 适用于 AD FS 2016 及更高版本
@@ -55,7 +55,7 @@ ms.locfileid: "70867474"
  
 在 AD FS 中注册资源时，可以将作用域配置为允许 AD FS 执行特定操作。 除了配置范围之外，还需要在请求中发送范围值，以便 AD FS 执行该操作。 例如，管理员需要在资源注册过程中将范围配置为 openid，应用程序（客户端）需要将范围 = openid 发送到身份验证请求中的 AD FS 颁发 ID 令牌。 下面提供了 AD FS 中可用范围的详细信息 
  
-- aza-如果 对 [代理客户端使用 OAuth 2.0 协议扩展](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706)，并且 scope 参数包含作用域 "aza"，则服务器将发出新的主刷新令牌并在响应的 refresh_token 字段中设置该令牌，并将如果强制执行，则为新的主刷新令牌的生存期的 refresh_token_expires_in 字段。 
+- aza-如果对 [代理客户端使用 OAuth 2.0 协议扩展](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) and 如果 scope 参数包含作用域 "aza"，则服务器将发出新的主刷新令牌并在响应的 refresh_token 字段中设置该令牌，并设置 refresh_如果强制执行，则为新的主刷新令牌的生存期的 token_expires_in 字段。 
 - openid-允许应用程序请求使用 OpenID Connect 授权协议。 
 - logon_cert-logon_cert 范围允许应用程序请求登录证书，这些证书可用于以交互方式登录经过身份验证的用户。 AD FS 服务器忽略响应中的 access_token 参数，而是提供 base64 编码的 CMS 证书链或 CMC 完整 PKI 响应。  [此处](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e)提供了更多详细信息。
 - user_impersonation-必须使用 user_impersonation 范围，才能成功地从 AD FS 请求代表访问令牌。 有关如何使用此作用域的详细信息，请参阅使用[OAuth 作为 AD FS 2016 的代表构建多层应用程序（OBO）](ad-fs-on-behalf-of-authentication-in-windows-server.md)。 

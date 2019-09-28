@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b73baacc1115359b1d3d8b494cc285b5edd7c5fc
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b0d6133a6fb43b8624dc1329db632fb5dd4aa070
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866026"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358451"
 ---
 # <a name="client-access-control-policies-in-ad-fs-20"></a>AD FS 2.0 中的客户端访问控制策略
 Active Directory 联合身份验证服务2.0 中的客户端访问策略允许你限制或授予用户对资源的访问权限。  本文档介绍如何在 AD FS 2.0 中启用客户端访问策略以及如何配置最常见的方案。
@@ -23,7 +23,7 @@ Active Directory 联合身份验证服务2.0 中的客户端访问策略允许�
 
 若要启用客户端访问策略，请执行以下步骤。
 
-### <a name="step-1-install-the-update-rollup-2-for-ad-fs-20-package-on-your-ad-fs-servers"></a>步骤 1：在 AD FS 服务器上安装 AD FS 2.0 包的更新汇总2
+### <a name="step-1-install-the-update-rollup-2-for-ad-fs-20-package-on-your-ad-fs-servers"></a>第 1 步：在 AD FS 服务器上安装 AD FS 2.0 包的更新汇总2
 
 下载[Active Directory 联合身份验证服务（AD FS）2.0 包的更新汇总 2](https://support.microsoft.com/en-us/help/2681584/description-of-update-rollup-2-for-active-directory-federation-services-ad-fs-2.0) ，并将其安装在所有联合服务器和联合服务器代理上。
 
@@ -60,7 +60,7 @@ Active Directory 联合身份验证服务2.0 中的客户端访问策略允许�
 `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`
 ~~~
 
-### <a name="step-3-update-the-microsoft-office-365-identity-platform-relying-party-trust"></a>步骤 3：更新 Microsoft Office 365 标识平台信赖方信任
+### <a name="step-3-update-the-microsoft-office-365-identity-platform-relying-party-trust"></a>步骤 3:更新 Microsoft Office 365 标识平台信赖方信任
 
 选择以下示例方案之一，以配置最符合组织需求的 Microsoft Office 365 标识平台信赖方信任上的声明规则。
 
@@ -168,8 +168,8 @@ Active Directory 联合身份验证服务2.0 中的客户端访问策略允许�
 |                               如果将此子句添加到新的自定义规则，则指定请求来自联合服务器代理（即，它具有 x ms proxy 标头）                                |                                                                                                                                                                    |
 |                                                                                 建议所有规则都包含此。                                                                                  |                                    exists （[Type = = "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy>"]）                                    |
 |                                                         用于确定请求来自具有定义的可接受范围内的 IP 的客户端。                                                         | 不存在（[Type = = "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip>"，值 = ~ "客户提供的公共 ip 地址正则表达式"]） |
-|                                    此子句用于指定如果访问的应用程序不是 Microsoft，则应拒绝该请求。                                     |       不存在（[Type = = "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application>"，值 = = "        |
-|                                                      此规则允许你确定调用是否是通过 Web 浏览器进行的，并且不会被拒绝。                                                      |              不存在（[Type = = "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path>"，值 = = "/adfs/ls/"]）               |
+|                                    此子句用于指定如果访问的应用程序不是 Microsoft，则应拒绝该请求。                                     |       不存在（[Type = = "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application>"，Value = = "        |
+|                                                      此规则允许你确定调用是否是通过 Web 浏览器进行的，并且不会被拒绝。                                                      |              不存在（[Type = = "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path>"，Value = = "/adfs/ls/"]）               |
 | 此规则指出特定 Active Directory 组中的唯一用户（基于 SID 值）应被拒绝。 如果将 NOT 添加到此语句，则表示将允许一组用户，而不考虑位置。 |             exists （[Type = = "<https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid>"，值 = ~ "{组 SID 允许的 AD 组的值}"]）              |
 |                                                                这是在满足前面所有条件时发出拒绝的必需子句。                                                                 |                                   = > 问题（类型 = "<https://schemas.microsoft.com/authorization/claims/deny>"，值 = "true"）;                                    |
 
@@ -209,7 +209,7 @@ Active Directory 联合身份验证服务2.0 中的客户端访问策略允许�
 
 因此，只匹配两个地址（如192.168.1.1 或10.0.0.1）的示例为： \b192\.168\.1\.1 \ b | \b10\.0\.0\.1 \ b
 
-这为你提供了可用于输入任意数量的地址的方法。 如果需要允许的地址范围（例如192.168.1.1 –192.168.1.25），则匹配必须是 by 字符： \b192\.168\.1\.（[1-9] | 1 [0-9] | 2 [0-5]） \b
+这为你提供了可用于输入任意数量的地址的方法。 如果需要允许的地址范围（例如192.168.1.1 –192.168.1.25），则匹配必须是 by 字符： \b192 @ no__t-0168 @ no__t-11 @ no__t-2 （[1-9] | 1 [0-9] | 2 [0-5]） \b
 
 >[!Note] 
 >IP 地址被视为字符串而不是数字。
@@ -229,9 +229,9 @@ Active Directory 联合身份验证服务2.0 中的客户端访问策略允许�
 >[!Note]
 >必须正确定位括号，以便不会开始匹配 IP 地址的其他部分。
 
-使用匹配的192块，我们可以为10块编写类似的表达式： \b10\.0\.0\.（[1-9] | 1 [0-4]） \b
+使用匹配的192块，我们可以为10块编写类似的表达式： \b10 @ no__t-00 @ no__t-10 @ no__t （[1-9] | 1 [0-4]） \b
 
-将其放在一起，以下表达式应匹配 "192.168.1.1 ~ 25" 和 "10.0.0.1 ~ 14" 的所有地址： \b192\.168\.1\.（[1-9] | 1 [0-9] | 2 [0-5]） \b | \b10\.0\.0\.（[1-9] | 1 [0-4]） \b
+将其放在一起，以下表达式应匹配 "192.168.1.1 ~ 25" 和 "10.0.0.1 ~ 14" 的所有地址： \b192 @ no__t-0168 @ no__t-11 @ no__t-2 （[1-9] | 1 [0-9] | 2 [0-5]） \b | \b10 @ no__t-30 @ no__t-40 @ no__t-5 （[1-9] | 1 [0-4]） \b
 
 #### <a name="testing-the-expression"></a>测试表达式
 

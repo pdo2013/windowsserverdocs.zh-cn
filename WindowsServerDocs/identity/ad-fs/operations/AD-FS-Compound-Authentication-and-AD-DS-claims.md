@@ -6,14 +6,14 @@ ms.author: billmath
 manager: femila
 ms.date: 09/07/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b67177c8bf0ce9869aa51c3012d57f3208ac02f5
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 78db6f8b6961cecea55b8d371e9abf952cafdab3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866289"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358674"
 ---
 # <a name="compound-authentication-and-ad-ds-claims-in-ad-fs"></a>复合身份验证和 AD FS 中的 AD DS 声明
 Windows Server 2012 引入了复合身份验证，从而增强了 Kerberos 身份验证。  复合身份验证使 Kerberos 票证授予服务（TGS）请求包含两个标识： 
@@ -40,7 +40,7 @@ AD FS 2012 及更高版本允许 AD DS 颁发的用户或传入 Kerberos 身份�
 ## <a name="steps-for-configuring-ad-fs-in-windows-server-2012-r2"></a>在 Windows Server 2012 R2 中配置 AD FS 的步骤
 使用以下步骤来配置复合身份验证和声明 
 
-### <a name="step-1--enable-kdc-support-for-claims-compound-authentication-and-kerberos-armoring-on-the-default-domain-controller-policy"></a>步骤 1：在默认域控制器策略上启用 KDC 支持声明、复合身份验证和 Kerberos 保护
+### <a name="step-1--enable-kdc-support-for-claims-compound-authentication-and-kerberos-armoring-on-the-default-domain-controller-policy"></a>第 1 步：在默认域控制器策略上启用 KDC 支持声明、复合身份验证和 Kerberos 保护
 1.  在服务器管理器中，选择 "工具"、"**组策略管理**"。
 2.  向下导航到 "**默认域控制器策略**"，右键单击并选择 "**编辑**"。
 ![组策略管理](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc1.png)
@@ -59,7 +59,7 @@ AD FS 2012 及更高版本允许 AD DS 颁发的用户或传入 Kerberos 身份�
 ![组策略管理](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc4.png)
 4.  关闭“组策略管理编辑器”。
 
-### <a name="step-3-ensure-the-ad-fs-servers-have-been-updated"></a>步骤 3：确保已更新 AD FS 服务器。
+### <a name="step-3-ensure-the-ad-fs-servers-have-been-updated"></a>步骤 3:确保已更新 AD FS 服务器。
 你需要确保在 AD FS 服务器上安装下列更新。
 
 |Update|描述|
@@ -148,7 +148,7 @@ Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySuppo
 ## <a name="steps-for-configuring-ad-fs-in-windows-server-2016"></a>在 Windows Server 2016 中配置 AD FS 的步骤
 下面将详细说明在 Windows Server 2016 AD FS 上配置复合身份验证的步骤。
 
-### <a name="step-1--enable-kdc-support-for-claims-compound-authentication-and-kerberos-armoring-on-the-default-domain-controller-policy"></a>步骤 1：在默认域控制器策略上启用 KDC 支持声明、复合身份验证和 Kerberos 保护
+### <a name="step-1--enable-kdc-support-for-claims-compound-authentication-and-kerberos-armoring-on-the-default-domain-controller-policy"></a>第 1 步：在默认域控制器策略上启用 KDC 支持声明、复合身份验证和 Kerberos 保护
 1.  在服务器管理器中，选择 "工具"、"**组策略管理**"。
 2.  向下导航到 "**默认域控制器策略**"，右键单击并选择 "**编辑**"。
 3.  在**组策略管理编辑器**上的 "**计算机配置**" 下，展开 "**策略**"，展开 "**管理模板**"，展开 "**系统**"，然后选择 " **KDC**"。
@@ -164,7 +164,7 @@ Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySuppo
 3.  在 "新建" 对话框窗口中，将 "Kerberos 客户端支持" 设置为 "**已启用**"，然后单击 "**应用** **"**
 4.  关闭“组策略管理编辑器”。
 
-### <a name="step-3-configure-the-primary-authentication-provider"></a>步骤 3：配置主身份验证提供程序
+### <a name="step-3-configure-the-primary-authentication-provider"></a>步骤 3:配置主身份验证提供程序
 
 1. 将主身份验证提供程序设置为**Windows 身份验证**AD FS Intranet 设置。
 2. 在 AD FS 管理 "下的"**身份验证策略**"下，选择"**主要身份验证**"，然后**在"** **全局设置**"下
@@ -218,7 +218,7 @@ Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySuppo
 若要验证 "WindowsDeviceGroup" 声明的版本，请使用 .Net 4.6 创建测试声明感知应用程序。 With WIF SDK 4.0。
 在 ADFS 中将应用程序配置为信赖方，并使用上述步骤中指定的声明规则对其进行更新。
 使用 ADFS 的 Windows 集成身份验证提供程序对应用程序进行身份验证时，以下声明为强制转换。
-![验证](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc9.png)
+![检查](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc9.png)
 
 现在可以使用计算机/设备的声明进行更丰富的访问控制。
 

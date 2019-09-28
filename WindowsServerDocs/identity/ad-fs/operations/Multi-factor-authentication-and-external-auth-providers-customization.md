@@ -6,15 +6,15 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: 08724d45-9be4-4c56-a5f1-2cf40864e136
 ms.technology: identity-adfs
-ms.openlocfilehash: 23ec5acbe442527b4eb44c4b857e183b5e0c37ea
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8271e65e05a8da1d397f087242308f04a51a6249
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865717"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357930"
 ---
 # <a name="multi-factor-authentication-and-external-authentication-providers-customization"></a>多重身份验证和外部身份验证提供程序自定义 
 

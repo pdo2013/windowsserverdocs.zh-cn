@@ -7,20 +7,20 @@ ms.author: billmath
 manager: femila
 ms.date: 12/05/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e9d6161666be89673cff6ef1a975d3205fa4b5c9
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 05a8b8bb5685c31ece29ed8eb38d37a424e478b8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189089"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357939"
 ---
 # <a name="join-to-workplace-from-any-device-for-sso-and-seamless-second-factor-authentication-across-company-applications"></a>跨公司应用程序从任一设备加入工作区以实现 SSO 和无缝第二重身份验证
 
 
 
-消费型电子设备和无处不在的信息访问量的快速增长正在改变人们看待技术的方式。 全天对信息技术的不断使用以及容易获取的信息正在模糊工作与家庭生活之间的传统界限。 这些转变的界限都伴随相信该个人技术选择、 自定义以满足用户的个性、 活动和计划-应延伸到工作区。 为了满足不断增长的个人消费型电子设备连接到企业网络的需求，我们引入了以下价值主张：
+消费型电子设备和无处不在的信息访问量的快速增长正在改变人们看待技术的方式。 全天对信息技术的不断使用以及容易获取的信息正在模糊工作与家庭生活之间的传统界限。 这些变化的边界伴随着个人技术-选择和自定义以适合用户的个性、活动和计划-应扩展到工作区。 为了满足不断增长的个人消费型电子设备连接到企业网络的需求，我们引入了以下价值主张：
 
 -   管理员可以控制谁有权访问公司资源，而这些资源基于应用程序、用户、设备和位置。
 
@@ -61,7 +61,7 @@ Azure Active Directory 设备注册服务使“工作区加入”成为可能。
 3.  [演练：使用 Android 设备加入工作区](../../ad-fs/operations/walkthrough--workplace-join-to-an-android-device.md)
 
 ## <a name="see-also"></a>请参阅
-[使用设备注册服务配置联合身份验证服务器](../deployment/configure-a-federation-server-with-device-registration-service.md)
+[使用设备注册服务配置联合服务器](../deployment/configure-a-federation-server-with-device-registration-service.md)
 
 
 

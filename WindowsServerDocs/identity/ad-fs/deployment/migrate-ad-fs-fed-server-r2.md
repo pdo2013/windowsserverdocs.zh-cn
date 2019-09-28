@@ -6,14 +6,14 @@ ms.author: billmath
 manager: femila
 ms.date: 07/10/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d72217d9e8dc3b0f47382e08346dca977ac14b67
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9e947f1894516de232a0db50bcbb56c7452098cd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867932"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359419"
 ---
 # <a name="migrate-the-ad-fs-20-federation-server-to-ad-fs-on-windows-server-2012-r2"></a>将 AD FS 2.0 联合服务器迁移到 Windows Server 2012 R2 上的 AD FS
 
@@ -108,9 +108,9 @@ Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.
 > [!IMPORTANT]
 >  导出脚本使用以下参数：  
 > 
-> - Export-federationconfiguration.ps1-\> Path < string [-ComputerName < string\>] [-Credential < pscredential\>] [-Force] [-CertificatePassword < securestring\>]  
->   -   Export-federationconfiguration.ps1-\> Path < string [-ComputerName < string\>] [-Credential < pscredential\>] [-Force] [-< CertificatePassword securestring\>] [-RelyingPartyTrustIdentifier < string [] >] [-ClaimsProviderTrustIdentifier < string [] >]  
->   -   Export-federationconfiguration.ps1-\> Path < string [-ComputerName < string\>] [-Credential < pscredential\>] [-Force] [-< CertificatePassword securestring\>] [-RelyingPartyTrustName < string [] >] [-ClaimsProviderTrustName < string [] >]  
+> - Export-federationconfiguration.ps1-Path < string @ no__t-0 [-ComputerName < string @ no__t-1] [-Credential < pscredential @ no__t] [-Force] [-CertificatePassword < securestring @ no__t]  
+>   -   Export-federationconfiguration.ps1-Path < string @ no__t-0 [-ComputerName < string @ no__t-1] [-Credential < pscredential @ no__t-2] [-Force] [-CertificatePassword < securestring @ no__t-3] [-RelyingPartyTrustIdentifier < string []>] [-ClaimsProviderTrustIdentifier < string [] >]  
+>   -   Export-federationconfiguration.ps1-Path < string @ no__t-0 [-ComputerName < string @ no__t-1] [-Credential < pscredential @ no__t-2] [-Force] [-CertificatePassword < securestring @ no__t-3] [-RelyingPartyTrustName < string [] >] [-ClaimsProviderTrustName < string [] >]  
 > 
 >   **-RelyingPartyTrustIdentifier <string[]>** — cmdlet 只会导出字符串数组中已指定了标识符的信赖方信任。 默认设置为不导出任何信赖方信任。 如果 RelyingPartyTrustIdentifier、ClaimsProviderTrustIdentifier、RelyingPartyTrustName 和 ClaimsProviderTrustName 都未指定，则脚本将导出所有信赖方信任和声明提供程序信任。  
 > 
@@ -193,9 +193,9 @@ import-federationconfiguration.ps1
 > [!IMPORTANT]
 >  导入脚本使用以下参数：  
 > 
-> - Import-federationconfiguration.ps1-\> Path < string [-ComputerName < string\>] [-Credential < pscredential\>] [-Force] [-LogPath < string\>] [-CertificatePassword < securestring\>]  
->   -   Import-federationconfiguration.ps1-\> Path < string [-ComputerName < string\>] [-Credential < pscredential\>] [-Force] [-LogPath < string\>] [-CertificatePassword < securestring\>] [-RelyingPartyTrustIdentifier < string [] >] [-ClaimsProviderTrustIdentifier < string [] >  
->   -   Import-federationconfiguration.ps1-\> Path < string [-ComputerName < string\>] [-Credential < pscredential\>] [-Force] [-LogPath < string\>] [-CertificatePassword < securestring\>] [-RelyingPartyTrustName < string [] >] [-ClaimsProviderTrustName < string [] >]  
+> - Import-federationconfiguration.ps1-Path < string @ no__t-0 [-ComputerName < string @ no__t-1] [-Credential < pscredential @ no__t-2] [-Force] [-LogPath < string @ no__t-3] [-CertificatePassword < securestring @ no__t-4]  
+>   -   Import-federationconfiguration.ps1-Path < string @ no__t-0 [-ComputerName < string @ no__t-1] [-Credential < pscredential @ no__t-2] [-Force] [-LogPath < string @ no__t-3] [-CertificatePassword < securestring @ no__t-4] [-RelyingPartyTrustIdentifier < string [] >] [-ClaimsProviderTrustIdentifier < string [] >  
+>   -   Import-federationconfiguration.ps1-Path < string @ no__t-0 [-ComputerName < string @ no__t-1] [-Credential < pscredential @ no__t-2] [-Force] [-LogPath < string @ no__t-3] [-CertificatePassword < securestring @ no__t-4] [-RelyingPartyTrustName < string [] >] [-ClaimsProviderTrustName < string [] >]  
 > 
 >   **-RelyingPartyTrustIdentifier <string[]>** — cmdlet 只会导入字符串数组中已指定了标识符的信赖方信任。 默认设置为不导入任何信赖方信任。 如果 RelyingPartyTrustIdentifier、ClaimsProviderTrustIdentifier、RelyingPartyTrustName 和 ClaimsProviderTrustName 都未指定，则脚本将导入所有信赖方信任和声明提供程序信任。  
 > 

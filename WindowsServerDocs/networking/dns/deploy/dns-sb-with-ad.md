@@ -1,76 +1,76 @@
 ---
 title: 在 Active Directory 中使用针对拆分式 DNS 的 DNS 策略
-description: 你可以使用本主题以利用流量的裂脑部署与 Active Directory 的 DNS 策略的管理功能集成的 Windows Server 2016 中的 DNS 区域。
+description: 你可以使用本主题通过 Windows Server 2016 中的 Active Directory 集成的 DNS 区域，利用适用于裂脑部署的 DNS 策略的流量管理功能。
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: f9533204-ad7e-4e49-81c1-559324a16aeb
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 66931d2196b741e469cb726929f7b58985b8d0cd
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 1a05bdcbf6205b8be7044c92e3dcf71a6e62bed6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812147"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356024"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-in-active-directory"></a>在 Active Directory 中使用针对拆分式 DNS 的 DNS 策略
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
-你可以使用本主题以利用拆分的 DNS 策略的流量管理功能\-大脑部署与 Active Directory 集成的 Windows Server 2016 中的 DNS 区域。
+你可以使用本主题通过 Windows Server 2016 中的 Active Directory 集成 DNS 区域，利用用于 split @ no__t-0brain 部署的 DNS 策略的流量管理功能。
 
-Windows Server 2016 中 DNS 的策略支持已扩展到 Active Directory 集成的 DNS 区域。 Active Directory 集成提供了多\-主 DNS 服务器的高可用性功能。 
+在 Windows Server 2016 中，DNS 策略支持扩展到 Active Directory 集成的 DNS 区域。 Active Directory 集成为 DNS 服务器提供了多个 @ no__t 0master 的高可用性功能。 
 
-以前，此方案所需的 DNS 管理员维护两个不同的 DNS 服务器，每个提供服务添加到每个用户，内部和外部集。 如果只在该区域内的几个记录已拆分\-brained 或区域 （内部和外部） 的两个实例已委派到同一个父域，这已经成为管理难题。
+以前，此方案要求 DNS 管理员维护两个不同的 DNS 服务器，每个服务器为内部和外部用户提供服务。 如果区域中只有几条记录被拆分 @ no__t-0brained，或同时向同一个父域委派了区域的两个实例（内部和外部），这就成为了管理难题。
 
 > [!NOTE]
-> - DNS 部署拆分\-澍时有一个区域的两个版本，适用于内部用户的组织 intranet 上的一个版本，对于外部用户 – 而言，通常情况下，Internet 上的用户的一个版本。
-> - 本主题[Split-Brain DNS 部署为使用 DNS 策略](split-brain-DNS-deployment.md)介绍了如何使用 DNS 策略和区域作用域部署拆分\-澍单个 Windows Server 2016 DNS 服务器上的 DNS 系统。
+> - 当存在两个版本的单一区域、组织 intranet 上的内部用户的一个版本，以及一个适用于外部用户的版本（通常是 Internet 上的用户）时，DNS 部署将被拆分 @ no__t。
+> - 本主题[将 Dns 策略用于 Split 大脑 Dns 部署](split-brain-DNS-deployment.md)说明了如何使用 dns 策略和区域作用域在单个 Windows SERVER 2016 dns 服务器上部署 Split @ no__t-1brain dns 系统。
 
 
 
-##  <a name="example-split-brain-dns-in-active-directory"></a>示例拆分\-澍 Active Directory 中的 DNS
+##  <a name="example-split-brain-dns-in-active-directory"></a>示例 Split @ no__t-0Brain DNS in Active Directory
 
-此示例使用一个虚构公司 Contoso，维护 www.career.contoso.com 在职业网站。
+此示例使用一家虚构公司 Contoso，该公司在 www.career.contoso.com 维护一个职业网站。
 
-站点具有两个版本，另一个用于提供内部招聘的内部用户。 此内部站点是本地 IP 地址 10.0.0.39 上可用。 
+站点有两个版本，一个用于内部工作投递可用的内部用户。 此内部站点可在本地 IP 地址10.0.0.39 上找到。 
 
-第二个版本是站点的相同，可在公共 IP 地址 65.55.39.10 的公共版本。
+第二个版本是同一站点的公共版本，可在公共 IP 地址65.55.39.10 获取。
 
-缺少的 DNS 策略的情况下，需要管理员来托管这些单独的 Windows Server DNS 服务器上的两个区域，并单独管理它们。 
+在缺少 DNS 策略的情况下，管理员需要在单独的 Windows Server DNS 服务器上托管这两个区域，并单独对其进行管理。 
 
-使用 DNS 策略这些区域可以现在驻留在相同的 DNS 服务器。
+使用 DNS 策略，现在可以在同一台 DNS 服务器上托管这些区域。
 
-如果 contoso.com 的 DNS 服务器是 Active Directory 集成，并且在两个网络接口上侦听，Contoso DNS 管理员可以按照本主题来实现拆分中的步骤\-澍部署。
+如果 contoso.com 的 DNS 服务器 Active Directory 集成，并且正在侦听两个网络接口，Contoso DNS 管理员可以按照本主题中的步骤来实现 split @ no__t-0brain 部署。
 
-使用以下 IP 地址，DNS 管理员配置的 DNS 服务器接口。
+DNS 管理员配置具有以下 IP 地址的 DNS 服务器接口。
 
-- 面向 Internet 的网络适配器配置具有 208.84.0.53 外部查询的公共 IP 地址。
-- Intranet 面向网络适配器配置具有内部查询 10.0.0.56 专用 IP 地址。
+- 面向 Internet 的网络适配器使用公共 IP 地址208.84.0.53 为外部查询配置。
+- 面向 Intranet 的网络适配器配置了专用 IP 地址10.0.0.56 用于内部查询。
 
-下图描绘了此方案。
+下图描述了此方案。
 
-![裂脑 AD 集成的 DNS 部署](../../media/DNS-SB-AD/DNS-SB-AD.jpg)
+![裂脑广告集成的 DNS 部署](../../media/DNS-SB-AD/DNS-SB-AD.jpg)
 
-## <a name="how-dns-policy-for-split-brain-dns-in-active-directory-works"></a>DNS 策略如何拆分\-澍 DNS 在 Active Directory 的工作原理
+## <a name="how-dns-policy-for-split-brain-dns-in-active-directory-works"></a>在 Active Directory 中，如何使用 DNS 策略来拆分 @ no__t-0Brain DNS
 
-与所需的 DNS 策略配置 DNS 服务器，会针对 DNS 服务器上的策略评估每个名称解析请求。
+当 DNS 服务器配置了所需的 DNS 策略时，将针对 DNS 服务器上的策略评估每个名称解析请求。
 
-服务器接口使用在此示例中用作条件的内部和外部客户端之间进行区分。
+在此示例中，使用服务器接口来区分内部和外部客户端。
 
-如果在其接收查询的服务器接口与匹配任何策略，关联的区域作用域用于对查询做出响应。 
+如果接收查询的服务器接口与任何策略匹配，则将使用关联的区域范围来响应查询。 
 
-因此，在本例中为专用 IP (10.0.0.56) 收到的 DNS 查询的 www.career.contoso.com 接收 DNS 响应，其中包含内部 IP 地址;和公共网络接口接收的 DNS 查询收到包含 （这是正常的查询解析相同） 的默认区域作用域中的公共 IP 地址的 DNS 响应。  
+因此，在我们的示例中，对专用 IP （10.0.0.56）上收到的 www.career.contoso.com 的 DNS 查询接收包含内部 IP 地址的 DNS 响应;在公共网络接口上接收的 DNS 查询接收包含默认区域作用域中的公共 IP 地址的 DNS 响应（这与正常的查询解决方法相同）。  
 
-对动态 DNS 的支持\(DDNS\)更新和清理仅支持默认区域作用域。 由于内部客户端提供服务的默认区域作用域，因此 Contoso DNS 管理员可以继续使用现有机制 （动态 DNS 或静态） 以更新在 contoso.com 中的记录。 对于非\-默认区域作用域\(例如，在此示例中的外部作用域\)，DDNS 或清理支持不可用。
+仅在默认区域作用域上支持动态 DNS \(DDNS @ no__t 更新和清理。 由于内部客户端由默认区域作用域提供服务，Contoso DNS 管理员可以继续使用现有机制（动态 DNS 或静态）来更新 contoso.com 中的记录。 对于非 @ no__t-0default 区域范围 \(such 为此示例 @ no__t-2 中的外部范围，DDNS 或清理支持不可用。
 
-### <a name="high-availability-of-policies"></a>高可用性的策略
+### <a name="high-availability-of-policies"></a>策略的高可用性
 
-DNS 策略不是 Active Directory 集成。 正因为如此，DNS 策略不会复制到其他托管相同的 Active Directory 集成的区域的 DNS 服务器。 
+DNS 策略不 Active Directory 集成。 因此，DNS 策略不会复制到托管相同 Active Directory 集成区域的其他 DNS 服务器。 
 
-DNS 策略存储在本地 DNS 服务器上。 您可以轻松地导出 DNS 策略从一台服务器到另一个通过使用下面的示例 Windows PowerShell 命令。
+DNS 策略存储在本地 DNS 服务器上。 使用以下示例 Windows PowerShell 命令，可以轻松地将 DNS 策略从一台服务器导出到另一台服务器。
 
     $policies = Get-DnsServerQueryResolutionPolicy -ZoneName "contoso.com" -ComputerName Server01
     
@@ -78,76 +78,76 @@ DNS 策略存储在本地 DNS 服务器上。 您可以轻松地导出 DNS 策�
 
 有关详细信息，请参阅以下 Windows PowerShell 参考主题。
 
-- [Get-DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/get-dnsserverqueryresolutionpolicy?view=win10-ps)
-- [Add-DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps)
+- [DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/get-dnsserverqueryresolutionpolicy?view=win10-ps)
+- [DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps)
 
 
-## <a name="how-to-configure-dns-policy-for-split-brain-dns-in-active-directory"></a>如何配置拆分的 DNS 策略\-澍 Active Directory 中的 DNS
+## <a name="how-to-configure-dns-policy-for-split-brain-dns-in-active-directory"></a>如何在 Active Directory 中配置用于 Split @ no__t-0Brain DNS 的 DNS 策略
 
-若要使用 DNS 策略配置 DNS Split-Brain 部署，必须使用以下部分中，提供详细的配置说明。
+若要使用 DNS 策略配置 DNS 拆分的部署，必须使用以下部分，其中提供了详细的配置说明。
 
-### <a name="add-the-active-directory-integrated-zone"></a>添加 Active Directory 集成的区域步骤
+### <a name="add-the-active-directory-integrated-zone"></a>添加 Active Directory 集成区域
 
-可以使用下面的示例命令将 Active Directory 集成的 contoso.com 区域添加到 DNS 服务器。
+你可以使用以下示例命令将 Active Directory 集成的 contoso.com 区域添加到 DNS 服务器。
 
     Add-DnsServerPrimaryZone -Name "contoso.com" -ReplicationScope "Domain" -PassThru
 
-有关详细信息，请参阅[Add-dnsserverprimaryzone](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverprimaryzone?view=win10-ps)。
+有关详细信息，请参阅[add-dnsserverprimaryzone](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverprimaryzone?view=win10-ps)。
 
 ### <a name="create-the-scopes-of-the-zone"></a>创建区域的作用域
 
-可以使用本部分中进行分区来创建外部区域作用域的区域 contoso.com。
+您可以使用此部分对区域 contoso.com 进行分区，以创建外部区域作用域。
 
-区域作用域是该区域的唯一实例。 DNS 区域可以有多个区域作用域，包含其自己的 DNS 记录集的每个区域作用域。 同一条记录可出现在多个作用域，使用不同的 IP 地址或相同的 IP 地址。 
+区域作用域是区域的唯一实例。 DNS 区域可以有多个区域作用域，每个区域作用域包含其自己的一组 DNS 记录。 同一条记录可以出现在多个作用域中，具有不同的 IP 地址或相同的 IP 地址。 
 
-要在 Active Directory 集成区域中添加此新的区域作用域，因为区域作用域和在其中记录将通过 Active Directory 复制到域中其他副本的服务器。
+因为你要将此新区域作用域添加到 Active Directory 集成区域中，所以区域范围和其中的记录将通过域中的其他副本服务器 Active Directory 进行复制。
 
-默认情况下，区域作用域中每个 DNS 区域存在。 此区域作用域为该区域具有相同的名称和旧的 DNS 操作适用于此作用域。 此默认区域作用域将承载 www.career.contoso.com 的内部版本。
+默认情况下，区域作用域存在于每个 DNS 区域中。 此区域作用域具有与区域相同的名称，并且旧式 DNS 操作在此作用域上起作用。 此默认区域作用域将托管 www.career.contoso.com 的内部版本。
 
-以下示例命令可用于在 DNS 服务器上创建区域作用域。
+你可以使用以下示例命令在 DNS 服务器上创建区域作用域。
 
     Add-DnsServerZoneScope -ZoneName "contoso.com" -Name "external"
 
-有关详细信息，请参阅[添加 DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)。
+有关详细信息，请参阅[DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)。
 
 ### <a name="add-records-to-the-zone-scopes"></a>将记录添加到区域作用域
 
-下一步是添加到两个表示 web 服务器主机的记录区域作用域外部，默认\(内部客户端\)。 
+下一步是将代表 web 服务器主机的记录添加到这两个区域作用域中-外部和默认 \(for internal clients @ no__t-1。 
 
-在默认内部区域范围内，记录 www.career.contoso.com 添加 IP 地址 10.0.0.39，这是专用的 IP 地址;和在外部区域范围内，同一记录\(www.career.contoso.com\)具有公共 IP 地址 65.55.39.10 添加。 
+在默认的内部区域范围内，将使用 IP 地址10.0.0.39 （即专用 IP 地址）添加记录 www.career.contoso.com;在外部区域作用域内，与公共 IP 地址65.55.39.10 一起添加了相同的记录 \(www @ no__t-1。 
 
-记录\(在默认的内部区域范围和外部区域范围\)跨域使用其相应的区域作用域都将自动复制。
+默认内部区域作用域和外部区域作用域 @ no__t 中 @no__t 0both 的记录将在域中自动复制其各自的区域作用域。
 
-以下示例命令可用于将记录添加到 DNS 服务器上的区域作用域。
+你可以使用以下示例命令将记录添加到 DNS 服务器上的区域作用域。
 
     Add-DnsServerResourceRecord -ZoneName "contoso.com" -A -Name "www.career" -IPv4Address "65.55.39.10" -ZoneScope "external"
     
     Add-DnsServerResourceRecord -ZoneName "contoso.com" -A -Name "www.career" -IPv4Address "10.0.0.39”
 
 > [!NOTE]
-> **– 区域范围区域**记录添加到默认区域作用域时不包括参数。 此操作是与将记录添加到正常的区域相同。
+> 将记录添加到默认区域作用域时，不包括 **– ZoneScope**参数。 此操作与将记录添加到普通区域相同。
 
-有关详细信息，请参阅[添加 DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps)。
+有关详细信息，请参阅[DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps)。
 
 ### <a name="create-the-dns-policies"></a>创建 DNS 策略
 
-您确定了外部网络和内部网络的服务器接口，并且已创建的区域作用域后，必须创建连接的内部和外部区域作用域的 DNS 策略。
+确定外部网络和内部网络的服务器接口并创建了区域作用域后，必须创建连接内部和外部区域作用域的 DNS 策略。
 
 > [!NOTE]
-> 此示例使用的服务器界面\(在以下示例命令中的-ServerInterface 参数\)用作条件的内部和外部客户端之间进行区分。 外部和内部客户端之间进行区分的另一种方法是通过将用作条件的客户端子网。 如果可以识别为内部客户端属于的子网，你可以配置 DNS 策略来区分根据客户端子网。 有关如何配置流量管理使用客户端子网条件的信息，请参阅[地理位置基于流量管理和主服务器的使用 DNS 策略](primary-geo-location.md)。
+> 此示例在 @ no__t-1 下面的示例命令中使用 server interface @no__t-ServerInterface 参数来区分内部和外部客户端。 区分外部和内部客户端的另一种方法是使用客户端子网作为条件。 如果可以识别内部客户端所属的子网，则可以将 DNS 策略配置为基于客户端子网来区分。 有关如何使用客户端子网标准配置流量管理的信息，请参阅[将 DNS 策略用于基于地理位置的流量管理和主服务器](primary-geo-location.md)。
 
-公用接口上接收到的 DNS 查询时，配置策略后，从该区域的外部作用域返回答案。 
+配置策略后，在公共接口上收到 DNS 查询时，会从区域的外部作用域返回答案。 
 
 > [!NOTE]
-> 没有策略所需的映射的默认内部区域作用域。 
+> 不需要任何策略即可映射默认的内部区域作用域。 
 
     Add-DnsServerQueryResolutionPolicy -Name "SplitBrainZonePolicy" -Action ALLOW -ServerInterface "eq,208.84.0.53" -ZoneScope "external,1" -ZoneName contoso.com
 
 > [!NOTE]
 > 208.84.0.53 是公共网络接口上的 IP 地址。
 
-有关详细信息，请参阅[添加 DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps)。
+有关详细信息，请参阅[DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps)。
 
-现在，DNS 服务器配置与所需的 DNS 策略为裂脑名称服务器与 Active Directory 集成 DNS 区域。
+现在 DNS 服务器使用 Active Directory 集成 DNS 区域的 split 大脑名称服务器的所需 DNS 策略进行配置。
 
-您可以管理要求，根据你的流量中创建数千个 DNS 策略且无需重新启动 DNS 服务器-在传入的查询上动态-应用所有新策略。 
+你可以根据流量管理要求创建数千个 DNS 策略，并动态应用所有新策略，而无需重新启动 DNS 服务器的传入查询。 

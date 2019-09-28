@@ -1,28 +1,28 @@
 ---
 title: 迁移 AD FS 2.0 联合代理服务器
-description: 提供有关迁移到 Windows Server 2012 R2 AD FS 代理服务器信息。
+description: 提供有关将 AD FS 代理服务器迁移到 Windows Server 2012 R2 的信息。
 author: billmath
 ms.author: billmath
 manager: femila
 ms.date: 07/10/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a2eb6c670e704564bed49486b8950dab96da8a80
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 57367cadd3c7ce3d031c6eb3a53c333422543dae
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444573"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359368"
 ---
 # <a name="migrate-the-active-directory-federation-services-proxy-server-to-windows-server-2012-r2"></a>将 Active Directory 联合身份验证服务代理服务器迁移到 Windows Server 2012 R2
 
-在 Windows Server 2012 R2 中 Active Directory 联合身份验证服务 (AD FS)，由一个称为 Web 应用程序代理的新远程访问角色服务处理的联合服务器代理角色。 在 Windows Server 2012 R2 中，若要启用从企业网络外部进行访问的 AD FS 可以部署一个或多个 Web 应用程序代理。 但是，不能迁移到 Windows Server 2012 R2 上运行的 Web 应用程序代理运行在 Windows Server 2008 R2 或 Windows Server 2012 上的联合身份验证服务器代理。  
+在 Windows Server 2012 R2 的 Active Directory 联合身份验证服务（AD FS）中，联合服务器代理的角色由称为 Web 应用程序代理的新远程访问角色服务处理。 在 Windows Server 2012 R2 中，若要使您的 AD FS 可以从企业网络外部进行访问，您可以部署一个或多个 Web 应用程序代理。 但是，不能将在 Windows Server 2008 R2 或 Windows Server 2012 上运行的联合服务器代理迁移到在 Windows Server 2012 R2 上运行的 Web 应用程序代理。  
   
 > [!IMPORTANT]
->  不支持在 Windows Server 2008、 Windows Server 2008 R2 或 Windows Server 2012 上运行 Windows Server 2012 R2 上运行的 Web 应用程序代理的联合身份验证服务器代理迁移。  
+>  不支持将在 Windows Server 2008、Windows Server 2008 R2 或 Windows Server 2012 上运行的联合服务器代理迁移到在 Windows 2012 Server 上运行的 Web 应用程序代理。  
   
-如果你想要配置 AD FS 进行 extranet 访问已迁移 Windows Server 2012 R2 场中，则必须执行部署全新的一个或多个 Web 应用程序代理计算机作为 AD FS 基础结构的一部分。  
+如果要在 Windows Server 2012 R2 迁移场中配置 AD FS 以进行 extranet 访问，则必须在 AD FS 基础结构中执行一个或多个 Web 应用程序代理计算机的全新部署。  
   
 若要规划 Web 应用程序代理部署，可以查看以下主题中的信息：  
   
@@ -38,7 +38,7 @@ ms.locfileid: "66444573"
   
 ## <a name="next-steps"></a>后续步骤
  [将 Active Directory 联合身份验证服务角色服务迁移到 Windows Server 2012 R2](migrate-ad-fs-service-role-to-windows-server-r2.md)   
- [准备迁移 AD FS 联合身份验证服务器](prepare-migrate-ad-fs-server-r2.md)   
- [迁移 AD FS 联合身份验证服务器](migrate-ad-fs-fed-server-r2.md)    
+ [正在准备迁移 AD FS 联合服务器](prepare-migrate-ad-fs-server-r2.md)   
+ [迁移 AD FS 联合服务器](migrate-ad-fs-fed-server-r2.md)    
  [验证 AD FS 迁移到 Windows Server 2012 R2](verify-ad-fs-migration.md)
 

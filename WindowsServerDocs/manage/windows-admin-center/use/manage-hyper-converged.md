@@ -7,13 +7,13 @@ author: daniellee-msft
 ms.author: jol
 ms.date: 03/01/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 5df035b448b80aa147067004c6a2f14aa03a9684
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: d692251e1ba0fef43e4eeee6f259f26f4347f3c0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869085"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356882"
 ---
 # <a name="manage-hyper-converged-infrastructure-with-windows-admin-center"></a>通过 Windows 管理中心管理超聚合基础结构
 
@@ -157,7 +157,7 @@ Microsoft 正在积极开发超聚合基础结构的 Windows 管理中心。 它
 
 Windows Admin Center 不会在 Windows 以外产生额外费用。
 
-你可以使用 windows 管理中心（可单独下载），其中包含 Windows Server 或 Windows 10 的有效许可证，无需额外付费，它在 Windows 补充 EULA 下获得许可。
+你可以通过有效的 Windows Server 或 Windows 10 许可证使用 Windows Admin Center（可单独下载），无额外费用 - 它已经过 Windows Supplemental EULA 许可。
 
 ### <a name="does-windows-admin-center-require-system-center"></a>Windows Admin Center 是否需要 System Center？
 

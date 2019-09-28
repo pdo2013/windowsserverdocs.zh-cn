@@ -1,8 +1,8 @@
 ---
 title: 使用 Windows Server Update Services 更新管理
-description: Windows Server Update Service (WSUS) 主题-其中包含指向相关主题的更新管理概述
+description: Windows Server Update Service （WSUS）主题-概述更新管理，其中包含指向相关主题的链接
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-wsus
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5675d74411407930022281f92717237115f7cecd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e80f6763d7b1aa11603cbd2bb8756a426d685092
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814858"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361498"
 ---
 # <a name="update-management-with-windows-server-update-services"></a>使用 Windows Server Update Services 更新管理
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
 你应定期检查 WSUS 管理控制台主页以查看总体更新合规性和网络运行状况。 如果怀疑存在问题（如下载失败，或客户端计算机未能向 WSUS 服务器进行报告），请经常检查应用程序日志。 本指南提供信息以帮助你管理 Windows Server 更新服务。  
   
@@ -41,6 +41,6 @@ ms.locfileid: "59814858"
   
 -   [服务器清理向导](the-server-cleanup-wizard.md)  
   
--   [正在运行的 WSUS 副本模式](running-wsus-replica-mode.md)  
+-   [运行 WSUS 副本模式](running-wsus-replica-mode.md)  
   
--   [WSUS 消息和故障排除提示](wsus-messages-and-troubleshooting-tips.md)  
+-   [WSUS 消息和疑难解答提示](wsus-messages-and-troubleshooting-tips.md)  

@@ -1,6 +1,6 @@
 ---
 title: 运行状况服务设置
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
@@ -8,21 +8,21 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 08/14/2017
-ms.openlocfilehash: 569cf7ba30fd3f993394efd3735a56d116c067e0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1b10d7c5432b10262e8df85d427f17f402d4f64a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858328"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361038"
 ---
 # <a name="health-service-settings"></a>运行状况服务设置
-> 适用于 Windows Server 2016
+> 适用于：Windows Server 2019、Windows Server 2016
 
-运行状况服务是一项新功能在 Windows Server 2016，可提高日常监视和运行存储空间直通的群集的操作体验。
+运行状况服务是 Windows Server 2016 中的一项新功能，可改进运行存储空间直通的群集的日常监视和操作体验。
 
-许多参数控制运行状况服务的行为方式被称为设置。 您可以修改这些文件以优化入侵的错误或操作，请打开/关闭某些行为和的详细信息。
+许多控制运行状况服务行为的参数都公开为设置。 您可以修改这些功能，以优化错误或操作的入侵，打开/关闭某些行为，等等。
 
-使用以下 PowerShell cmdlet 设置或修改设置。
+使用以下 PowerShell cmdlet 来设置或修改设置。
 
 ### <a name="usage"></a>用法
 
@@ -38,7 +38,7 @@ Get-StorageSubSystem Cluster* | Set-StorageHealthSetting -Name "System.Storage.V
 
 ### <a name="common-settings"></a>通用设置
 
-以及其默认值，下面列出了一些通常修改的设置。
+下面列出了一些经常修改的设置及其默认值。
 
 #### <a name="volume-capacity-threshold"></a>卷容量阈值
 
@@ -80,7 +80,7 @@ Get-StorageSubSystem Cluster* | Set-StorageHealthSetting -Name "System.Storage.V
 "System.Storage.PhysicalDisk.AutoFirmwareUpdate.RollOut.FailureTolerance"  = 3
 ```
 
-#### <a name="platform--quiescence"></a>平台 / 静默
+#### <a name="platform--quiescence"></a>平台/静默
 
 ```
 "Platform.Quiescence.MinDelaySeconds" = 120 (i.e. 2 minutes)

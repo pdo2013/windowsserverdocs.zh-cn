@@ -1,7 +1,7 @@
 ---
 title: 成组 NIC 配置（数据中心）中的汇聚 NIC
 description: 在本主题中，我们将向你提供有关使用交换机嵌入组合（SET）在成组的 NIC 配置中部署汇聚 NIC 的说明。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: f01546f8-c495-4055-8492-8806eee99862
@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/17/2018
-ms.openlocfilehash: 8229b72d69968d3690ece87d5116b215bdf78a08
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: e4c305a7c8c4c4618b0df1e1b2a646356d8f821f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869869"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356118"
 ---
 # <a name="converged-nic-in-a-teamed-nic-configuration-datacenter"></a>成组 NIC 配置（数据中心）中的汇聚 NIC
 
@@ -405,7 +405,7 @@ ms.locfileid: "70869869"
    _**后果**_
 
 
-   | Priority | Enabled | PolicySet | IfIndex | IfAlias |
+   | Priority | Enabled | PolicySet | ifIndex | IfAlias |
    |----------|---------|-----------|---------|---------|
    |    0     |  False  |  全局   | &nbsp;  | &nbsp;  |
    |    1     |  False  |  全局   | &nbsp;  | &nbsp;  |
@@ -524,7 +524,7 @@ ms.locfileid: "70869869"
    _**后果**_  
 
 
-   | 名称 | 算法 | 带宽（%） | Priority | PolicySet | IfIndex | IfAlias |
+   | 名称 | 算法 | 带宽（%） | Priority | PolicySet | ifIndex | IfAlias |
    |------|-----------|--------------|----------|-----------|---------|---------|
    | SMB  |    ETS    |      50      |    3     |  全局   | &nbsp;  | &nbsp;  |
 
@@ -539,7 +539,7 @@ ms.locfileid: "70869869"
    _**后果**_  
 
 
-   |   名称    | 算法 | 带宽（%） | Priority | PolicySet | IfIndex | IfAlias |
+   |   名称    | 算法 | 带宽（%） | Priority | PolicySet | ifIndex | IfAlias |
    |-----------|-----------|--------------|----------|-----------|---------|---------|
    | 缺省值 |    ETS    |      50      | 0-2，4-7  |  全局   | &nbsp;  | &nbsp;  |
    |    SMB    |    ETS    |      50      |    3     |  全局   | &nbsp;  | &nbsp;  |
@@ -558,7 +558,7 @@ ms.locfileid: "70869869"
    _**后果**_
 
 
-   | 名称 | 算法 | 带宽（%） | Priority | PolicySet | IfIndex | IfAlias |
+   | 名称 | 算法 | 带宽（%） | Priority | PolicySet | ifIndex | IfAlias |
    |------|-----------|--------------|----------|-----------|---------|---------|
    | IP1  |    ETS    |      10      |    1     |  全局   | &nbsp;  | &nbsp;  |
 
@@ -571,7 +571,7 @@ ms.locfileid: "70869869"
    _**后果**_
 
 
-   | 名称 | 算法 | 带宽（%） | Priority | PolicySet | IfIndex | IfAlias |
+   | 名称 | 算法 | 带宽（%） | Priority | PolicySet | ifIndex | IfAlias |
    |------|-----------|--------------|----------|-----------|---------|---------|
    | IP2  |    ETS    |      10      |    2     |  全局   | &nbsp;  | &nbsp;  |
 
@@ -586,7 +586,7 @@ ms.locfileid: "70869869"
     _**后果**_
 
 
-    |   名称    | 算法 | 带宽（%） | Priority | PolicySet | IfIndex | IfAlias |
+    |   名称    | 算法 | 带宽（%） | Priority | PolicySet | ifIndex | IfAlias |
     |-----------|-----------|--------------|----------|-----------|---------|---------|
     | 缺省值 |    ETS    |      30      |  0、4-7   |  全局   | &nbsp;  | &nbsp;  |
     |    SMB    |    ETS    |      50      |    3     |  全局   | &nbsp;  | &nbsp;  |

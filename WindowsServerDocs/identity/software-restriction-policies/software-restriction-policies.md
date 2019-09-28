@@ -2,7 +2,7 @@
 title: 软件限制策略
 description: Windows Server 安全
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-software-restriction-policies
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: ab44013b947d33adc12c54b527415bf16c46a4c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b06d038e919e2f4904d60b88ad223493c4f818eb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875818"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357674"
 ---
 # <a name="software-restriction-policies"></a>软件限制策略
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
-面向 IT 专业人员的本主题介绍在 Windows Server 2012 和 Windows 8 中的软件限制策略 (SRP)，并提供了有关从开始 Windows Server 2003 的 SRP 的技术信息的链接。
+适用于 IT 专业人员的本主题介绍 Windows Server 2012 和 Windows 8 中的软件限制策略（SRP），并提供有关从 Windows Server 2003 开始的 SRP 的技术信息的链接。
 
-过程和故障排除提示，请参阅[管理软件限制策略](administer-software-restriction-policies.md)并[解决软件限制策略](troubleshoot-software-restriction-policies.md)。
+有关过程和故障排除提示，请参阅[管理软件限制策略](administer-software-restriction-policies.md)和[排查软件限制策略问题](troubleshoot-software-restriction-policies.md)。
 
 ## <a name="BKMK_OVER"></a>软件限制策略描述
 软件限制策略 (SRP) 是基于组策略的功能，用于标识在域中的计算机上运行的软件程序，以及控制这些程序的运行能力。 软件限制策略属于 Microsoft 安全和管理战略，旨在帮助企业提高计算机的可靠性、完整性和可管理性。
@@ -37,7 +37,7 @@ ms.locfileid: "59875818"
 
 有关 SRP 的详细信息，请参阅 [Software Restriction Policies Technical Overview](software-restriction-policies-technical-overview.md)。
 
-## <a name="BKMK_APP"></a>实际应用程序
+## <a name="BKMK_APP"></a>实用应用程序
 管理员可以将软件限制策略用于以下任务：
 
 -   定义什么是受信任代码
@@ -58,10 +58,10 @@ ms.locfileid: "59875818"
 
 -   防止可执行文件在本地计算机、组织单位 (OU)、网站或域中运行。 这适用于未使用软件限制策略解决恶意用户的潜在问题的情况。
 
-## <a name="BKMK_NEW"></a>新的和更改功能
+## <a name="BKMK_NEW"></a>新增功能和更改的功能
 软件限制策略无功能更改。
 
-## <a name="BKMK_DEP"></a>已删除或弃用的功能
+## <a name="BKMK_DEP"></a>删除或弃用的功能
 软件限制策略无删除或弃用的功能。
 
 ## <a name="BKMK_SOFT"></a>软件要求
@@ -87,13 +87,13 @@ ms.locfileid: "59875818"
 ## <a name="BKMK_LINKS"></a>另请参阅
 下表提供了有关了解和使用 SRP 的相关资源的链接。
 
-|内容类型|参考|
+|内容类型|参考资料|
 |--------|-------|
 |**产品评估**|[软件限制策略的应用程序锁定](https://technet.microsoft.com/magazine/2008.06.srp.aspx?pr=blog)|
-|**规划**|[软件限制策略技术概述](software-restriction-policies-technical-overview.md)(Windows Server 2012)<br /><br />[软件限制策略技术参考](https://technet.microsoft.com/library/cc728085(v=WS.10).aspx) (Windows Server 2003)|
+|**规划**|[软件限制策略技术概述](software-restriction-policies-technical-overview.md)（Windows Server 2012）<br /><br />[软件限制策略技术参考](https://technet.microsoft.com/library/cc728085(v=WS.10).aspx) (Windows Server 2003)|
 |**部署**|无资源可用。|
-|**操作**|[管理软件限制策略](administer-software-restriction-policies.md)(Windows Server 2012)<br /><br />[软件限制策略产品帮助](https://technet.microsoft.com/library/cc779607(v=WS.10).aspx) (Windows Server 2003)|
-|**疑难解答**|[软件限制策略疑难解答](troubleshoot-software-restriction-policies.md)(Windows Server 2012)<br /><br />[解决软件限制策略问题](https://technet.microsoft.com/library/cc737011(v=WS.10).aspx) (Windows  Server 2003)|
+|**操作**|[管理软件限制策略](administer-software-restriction-policies.md)（Windows Server 2012）<br /><br />[软件限制策略产品帮助](https://technet.microsoft.com/library/cc779607(v=WS.10).aspx) (Windows Server 2003)|
+|**疑难解答**|[排查软件限制策略问题](troubleshoot-software-restriction-policies.md)（Windows Server 2012）<br /><br />[解决软件限制策略问题](https://technet.microsoft.com/library/cc737011(v=WS.10).aspx) (Windows  Server 2003)|
 |**安全性**|[软件限制策略的威胁和对策](https://technet.microsoft.com/library/dd349795(v=WS.10).aspx) (Windows  Server 2008)<br /><br />[软件限制策略的威胁和对策](https://technet.microsoft.com/library/hh125926(v=WS.10).aspx) (Windows Server 2008 R2)|
 |**工具和设置**|[软件限制策略工具和设置](https://technet.microsoft.com/library/cc782454(v=WS.10).aspx) (Windows Server 2003)|
 |**社区资源**|[软件限制策略的应用程序锁定](https://technet.microsoft.com/magazine/2008.06.srp.aspx?pr=blog)|

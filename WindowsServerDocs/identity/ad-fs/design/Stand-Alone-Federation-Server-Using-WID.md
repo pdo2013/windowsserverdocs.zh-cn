@@ -7,39 +7,39 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 31e2e1b04383adc8bec12e7290a7acec80e0402f
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 5fa89a4a57c618fd711234b8770a35750f3099bd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190787"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358963"
 ---
 # <a name="stand-alone-federation-server-using-wid"></a>使用 WID 的独立联合服务器
 
-独立\-Active Directory 联合身份验证服务中的单独的联合身份验证服务器\(AD FS\)由单个服务器承载联合身份验证服务配置为使用 Windows 内部数据库组成\(WID\). 此 AD FS 拓扑适用于测试实验室。 我们不建议这样做用于生产环境因为它的限制为只有一个联合身份验证服务器，它不能用于扩展到更多的服务器。  
+Active Directory 联合身份验证服务 \(AD FS @ no__t-2 中的备用 @ no__t-0alone 联合服务器包含一个联合身份验证服务配置为使用 Windows 内部数据库 \(WID @ no__t-4 的单一服务器。 此 AD FS 拓扑适用于测试实验室。 对于生产环境，我们不建议使用它，因为它限制仅有一个联合服务器，并且不能用于扩展到更多服务器。  
   
-如果你想要将其他联合服务器添加到测试实验室，必须部署任何更高版本在本部分中提到的其他拓扑重新生成从零开始的联合身份验证服务。 因此，我们建议你使用此拓扑的测试实验室或概念证明\-的\-中你在其中单一联合服务器是否合适，如下图中所示的专用测试网络环境。  
+如果要将其他联合服务器添加到测试实验室，则必须部署此部分后面所述的任何其他拓扑，从头开始重新生成联合身份验证服务。 因此，我们建议你将此拓扑用于专用测试网络中的测试实验室或证明 @ no__t-0of @ no__t-1concept 环境，其中一台联合服务器就已足够，如下图所示。  
   
-![使用 WID 服务器](media/FedServerWID.gif)  
+![使用 WID 的服务器](media/FedServerWID.gif)  
   
 ## <a name="test-lab-considerations"></a>测试实验室注意事项  
-本部分介绍有关目标的受众、 权益和限制与此拓扑用于测试的实验室环境关联的各种注意事项。  
+本部分介绍有关在测试实验室环境中与此拓扑关联的目标受众、权益和限制的各种注意事项。  
   
-### <a name="who-should-use-this-topology"></a>应使用此拓扑的用户？  
+### <a name="who-should-use-this-topology"></a>谁应该使用此拓扑？  
   
--   信息技术\(IT\)专业人员或 IT 架构师想要评估或开发此技术的概念证明  
+-   信息技术 \(IT @ no__t 专业人员或 IT 架构师，他们想要评估或开发这项技术的概念证明  
   
 ### <a name="what-are-the-benefits-of-using-this-topology"></a>使用此拓扑的好处是什么？  
   
--   轻松地在测试实验室环境中进行设置  
+-   在测试实验室环境中易于设置  
   
 ### <a name="what-are-the-limitations-of-using-this-topology"></a>使用此拓扑的限制是什么？  
   
--   每个联合身份验证服务只有一个联合身份验证服务器\(没有任何功能，若要纵向扩展到服务器场\)  
+-   每个联合身份验证服务只有一个联合服务器 @no__t 0no 功能，可向场 @ no__t 扩展  
   
--   没有重复\(单个实例的 AD FS 配置数据库存在\)  
+-   非冗余 \(only AD FS 配置数据库的单个实例存在 @ no__t-1  
   
 
 ## <a name="see-also"></a>请参阅

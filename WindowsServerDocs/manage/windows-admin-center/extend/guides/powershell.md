@@ -7,13 +7,13 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 05/09/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: c30f8a9b856db8250a16210931e6f8dd73c07aa7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: 6e99fc43d4acb7a70dfd3a8ba19dae6492c41b2b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869605"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357049"
 ---
 # <a name="using-powershell-in-your-extension"></a>在扩展中使用 PowerShell #
 
@@ -92,7 +92,7 @@ this.getNodeName().subscribe(
 ### <a name="key-options"></a>密钥选项 ###
 在调用 PowerShell API 时，有几个选项可用。 每次创建会话时，都可以使用或不使用密钥来创建会话。 
 
-**按键**这将创建一个可在多个组件上进行查找和重复使用的键控会话（也就是说，Component1 可以创建一个具有密钥 "ROCKS" 的会话，而 Component2 可以使用相同的会话）。如果提供了密钥，则必须通过调用 dispose （）来释放创建的会话，就像上面的示例中所做的那样。 不应将会话保留的时间超过5分钟。 
+**键:** 这将创建一个可在多个组件上进行查找和重复使用的键控会话（也就是说，Component1 可以创建一个具有密钥 "ROCKS" 的会话，而 Component2 可以使用相同的会话）。如果提供了密钥，则必须通过调用 dispose （）来释放创建的会话，就像上面的示例中所做的那样。 不应将会话保留的时间超过5分钟。 
 ```ts
   const session = this.appContextService.powerShell.createSession('{!TargetNode}', '{!Key}');
 ```
