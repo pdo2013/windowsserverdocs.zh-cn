@@ -1,8 +1,8 @@
 ---
-title: 自动装载
-description: Windows 命令主题**自动装载**-启用或禁用自动装载功能。
+title: 装载
+description: Windows 命令的自动**装载**功能-启用或禁用自动装载功能。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 957f75173390ff628c8b52c645742d83216ebf56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bcddad3713bc61101f03e4e60ea0497aac751761
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886348"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382276"
 ---
-# <a name="automount"></a>自动装载
+# <a name="automount"></a>装载
 
 
 
-启用或禁用自动装载功能。 启用 （默认值），Windows 会自动装载一个新的基本或动态卷的文件系统添加到系统，且然后将驱动器号分配给卷时。
+启用或禁用自动装载功能。 如果启用（默认设置），则在将新的基本卷或动态卷添加到系统中时，Windows 会自动为其安装文件系统，然后将驱动器号分配给该卷。
 

@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getfilestotal
-description: Windows 命令主题**bitsadmin getfilestotal** -检索文件中指定的作业数。
+description: 适用于**bitsadmin getfilestotal**的 Windows 命令主题-检索指定作业中的文件数。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b5f6d32b3410b182c510cf40b9def5370efafdc4
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 27cf04e8745aeab5cd1f2ce379c8506be642fea2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435120"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381615"
 ---
 # <a name="bitsadmin-getfilestotal"></a>bitsadmin getfilestotal
 
@@ -47,4 +47,4 @@ C:\>bitsadmin /GetFilesTotal myDownloadJob
 
 # #
 
-[命令行语法解答](command-line-syntax-key.md)另请参阅
+[命令行语法关键字](command-line-syntax-key.md)另请参阅

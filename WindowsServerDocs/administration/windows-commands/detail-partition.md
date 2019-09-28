@@ -1,8 +1,8 @@
 ---
 title: 详细信息分区
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3a955303a5f06c64dcdb64de110686be570ef149
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9ead078217804def619998b1d31e55744f2e1c6b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846638"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378521"
 ---
 # <a name="detail-partition"></a>详细信息分区
 
@@ -34,7 +34,7 @@ detail partition
 
 ## <a name="remarks"></a>备注
 
--   若要成功执行此操作，必须选择分区。 使用**选择分区**命令选择分区，并将焦点移到它。
+-   必须选择分区，此操作才能成功。 使用 "**选择分区**" 命令可选择分区，并将焦点移动到该分区。
 
 ## <a name="BKMK_examples"></a>示例
 
@@ -45,5 +45,5 @@ detail partition
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)
 

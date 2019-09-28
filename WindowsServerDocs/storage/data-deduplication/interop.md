@@ -2,27 +2,27 @@
 ms.assetid: 60fca6b2-f1c0-451f-858f-2f6ab350d220
 title: 重复数据删除互操作性
 ms.technology: storage-deduplication
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/16/2016
-ms.openlocfilehash: b82e02b7896c3795ae7470ca03bb8d19a8d5e403
-ms.sourcegitcommit: fe621b72d45d0259bac1d5b9031deed3dcbed29d
+ms.openlocfilehash: fb3c9842f1d698151bffebbe5f77618c8b19b366
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455423"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403195"
 ---
 # <a name="data-deduplication-interoperability"></a>重复数据删除互操作性
 
-> 适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2019
+> 适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2019
 
 ## <a name="supported"></a>支持
 
 ### <a name="refs"></a>ReFS
-自 Windows Server 2019 起，支持重复数据删除。 
+Windows Server 2019 支持重复数据删除。 
 
 ### <a name="failover-clustering"></a>故障转移群集
 
@@ -64,14 +64,14 @@ Windows Server 备份能够“按原样”备份优化卷（即不删除已删�
     wbadmin get versions
     ```
 
-    此输出版本 ID 将是日期和时间字符串，例如：08/18/2016-06:22.
+    此输出版本 ID 将为日期和时间字符串，例如：08/18/2016-06:22。
 
 4. 还原整个卷。
     ```PowerShell
     wbadmin start recovery –version:02/16/2012-06:22 -itemtype:Volume  -items:E: -recoveryTarget:E:
     ```
 
-    **--OR--**  
+    **--或--**  
 
     还原特定文件夹（在此情况下为 E:\Docs 文件夹）：
     ```PowerShell

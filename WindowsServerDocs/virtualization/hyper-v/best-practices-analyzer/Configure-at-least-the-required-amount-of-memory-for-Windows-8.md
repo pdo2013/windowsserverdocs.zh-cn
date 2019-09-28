@@ -1,7 +1,7 @@
 ---
-title: 配置至少运行 Windows 8 并启用了动态内存的虚拟机的内存所需的数量
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+title: 至少为运行 Windows 8 且启用了动态内存的虚拟机配置所需的内存量
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 1dab6af6-852f-4243-9600-afe541a0f4cd
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 2c3bfa9c5c365bec89b7dbe7b00704ae2384e896
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 167eb189506b1efff0444ae5dd15b3b23a99eca5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886208"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366384"
 ---
-# <a name="configure-at-least-the-required-amount-of-memory-for-a-virtual-machine-running-windows-8-and-enabled-for-dynamic-memory"></a>配置至少运行 Windows 8 并启用了动态内存的虚拟机的内存所需的数量
+# <a name="configure-at-least-the-required-amount-of-memory-for-a-virtual-machine-running-windows-8-and-enabled-for-dynamic-memory"></a>至少为运行 Windows 8 且启用了动态内存的虚拟机配置所需的内存量
 
 >适用于：Windows Server 2016
 
@@ -27,43 +27,43 @@ ms.locfileid: "59886208"
 |-|-|  
 |**操作系统**|Windows Server 2016|  
 |**产品/功能**|Hyper-V|  
-|**Severity**|错误|  
+|**Severity**|Error|  
 |**类别**|配置|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。  
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。  
   
 ## <a name="issue"></a>**问题**  
-*一个或多个虚拟机配置为使用所需的 Windows 8 的内存量小于使用动态内存。*  
+*一台或多台虚拟机配置为使用小于 Windows 8 所需的内存量的动态内存。*  
   
-## <a name="impact"></a>**影响**  
-*在以下虚拟机来宾操作系统可能无法运行，或可能 unreliably 运行：*  
+## <a name="impact"></a>**对**  
+*以下虚拟机上的来宾操作系统可能无法运行或可能运行 unreliably：*  
   
-\<虚拟机的列表 >  
+@no__t-虚拟机的 0list >  
   
 ## <a name="resolution"></a>**解决方法**  
-*使用 Hyper-v 管理器增加为至少 256 MB，最小内存的启动内存和最大内存为此虚拟机至少 512 MB。*  
+*使用 Hyper-v 管理器将此虚拟机的最小内存增加到至少 256 MB，将启动内存和最大内存增加到至少 512 MB。*  
   
-### <a name="increase-memory-using-hyper-v-manager"></a>增加内存使用 Hyper-v 管理器  
+### <a name="increase-memory-using-hyper-v-manager"></a>使用 Hyper-v 管理器增加内存  
   
-1.  打开 Hyper-V 管理器。 (从服务器管理器中，单击**工具** > **Hyper-v 管理器**。)  
+1.  打开 Hyper-V 管理器。 （从服务器管理器中，单击 "**工具**"  >  "**hyper-v 管理器**"。）  
   
-2.  从虚拟机的列表中，右键单击的一个，然后单击**设置**。  
+2.  在虚拟机列表中，右键单击所需的虚拟机，然后单击 "**设置**"。  
   
-3.  在导航窗格中，单击**内存**。  
+3.  在导航窗格中，单击 "**内存**"。  
   
-4.  更改**RAM**为至少 512 MB。  
+4.  将**RAM**改为至少 512 MB。  
   
-5.  下**动态内存**，更改**最小 RAM**为至少 256 MB 并**最大 RAM**为 512 MB。  
+5.  在 "**动态内存**" 下，将**最小 ram**至少更改为 256 Mb，将**最大 ram**更改为 512 mb。  
   
-6.  单击 **“确定”**。  
+6.  单击 **“确定”** 。  
   
-### <a name="increase-memory-using-windows-powershell"></a>增加内存使用 Windows PowerShell  
+### <a name="increase-memory-using-windows-powershell"></a>使用 Windows PowerShell 增加内存  
   
-1.  打开 Windows PowerShell。 (从桌面上，单击**启动**，然后开始键入**Windows PowerShell**。)  
+1.  打开 Windows PowerShell。 （在桌面上，单击 "**开始**"，然后开始键入**Windows PowerShell**。）  
   
-2.  右键单击**Windows PowerShell**然后单击**以管理员身份运行**。  
+2.  右键单击 " **Windows PowerShell** "，然后单击 "**以管理员身份运行**"。  
   
-3.  运行类似以下的命令，MyVM 替换为你的虚拟机和内存的名称值与至少如下所示的值。  
+3.  运行与下面类似的命令，将 MyVM 替换为虚拟机的名称，将替换为至少包含下面所示值的内存值。  
   
 ```  
 Get-VM MyVM | Set-VMMemory -DynamicMemoryEnabled $True -MaximumBytes 512 GB -MinimumBytes 256MB -StartupBytes 512MB  

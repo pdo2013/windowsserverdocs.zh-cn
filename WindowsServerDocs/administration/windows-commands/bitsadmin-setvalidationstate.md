@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setvalidationstate
-description: Windows 命令主题**bitsadmin setvalidationstate** -设置在作业中的给定文件的内容验证状态。
+description: 适用于**bitsadmin setvalidationstate**的 Windows 命令主题-设置作业中给定文件的内容验证状态。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a832e8f3d21681f67a4486df33c387e5a8456718
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 37d7fa3a8a91abf1e7b6ac5a51b6cebd78984a91
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434870"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380397"
 ---
 # <a name="bitsadmin-setvalidationstate"></a>bitsadmin setvalidationstate
 
 
 
-设置作业中的给定文件的内容验证状态。
+设置作业中给定文件的内容验证状态。
 
 ## <a name="syntax"></a>语法
 
@@ -37,12 +37,12 @@ bitsadmin /SetValidationState <Job> <file index> <true|false>
 | 参数  |          描述           |
 |------------|--------------------------------|
 |    作业     | 该作业的显示名称或 GUID |
-| 文件索引 |         从 0 开始          |
+| 文件索引 |         从0开始          |
 |    True    |             False              |
 
 ## <a name="BKMK_examples"></a>示例
 
-下面的示例将文件 2 的内容验证状态设置为 TRUE 名为的作业*myJob*。
+下面的示例将名为*myJob*的作业的文件2的内容验证状态设置为 TRUE。
 ```
 C:\>bitsadmin /SetValidationState myJob 2 TRUE 
 ```

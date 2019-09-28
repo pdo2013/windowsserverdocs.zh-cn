@@ -1,7 +1,7 @@
 ---
 title: Use local resources on Hyper-V virtual machine with VMConnect
-description: 介绍有关与 VMConnect 使用本地资源的要求
-ms.prod: windows-server-threshold
+description: 描述在 VMConnect 中使用本地资源的要求
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,85 +11,85 @@ ms.assetid: 18eface5-7518-4c6b-9282-93e2e3e87492
 author: KBDAzure
 ms.author: kathyDav
 ms.date: 12/06/2016
-ms.openlocfilehash: a7e465313c68ee793715aba045cc56a2ca5fd1de
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 70bf72ec2277679820d985c9f78f10a4ea6e04df
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222843"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392895"
 ---
 # <a name="use-local-resources-on-hyper-v-virtual-machine-with-vmconnect"></a>Use local resources on Hyper-V virtual machine with VMConnect
 
->适用于：Windows 10 中，Windows 8.1 和 Windows Server 2016，Windows Server 2012 R2
+>适用于：Windows 10、Windows 8.1、Windows Server 2016、Windows Server 2012 R2
 
-虚拟机连接 (VMConnect) 允许您在虚拟机中，使用计算机的本地资源，类似于可移动的 USB 闪存驱动器或打印机。 增强的会话模式还允许您调整 VMConnect 窗口的大小。 本文介绍如何配置主机，然后将虚拟机访问提供给本地资源。
+虚拟机连接（VMConnect）允许你在虚拟机中使用计算机的本地资源，如可移动的 USB 闪存驱动器或打印机。 增强会话模式还允许调整 VMConnect 窗口的大小。 本文介绍如何配置主机，并向虚拟机授予对本地资源的访问权限。
 
-增强的会话模式和类型剪贴板文本只能用于运行最新的 Windows 操作系统的虚拟机。 \(请参阅[使用本地资源的要求](#requirements-for-using-local-resources)下文。\) 
+增强会话模式和类型剪贴板文本仅适用于运行最近的 Windows 操作系统的虚拟机。 @no__t[使用本地资源的0See 要求](#requirements-for-using-local-resources)，请见下。 \) 
 
-对于运行 Ubuntu 的虚拟机，请参阅[中的 HYPER-V VM 更改 Ubuntu 屏幕分辨率](https://blogs.msdn.microsoft.com/virtual_pc_guy/2014/09/19/changing-ubuntu-screen-resolution-in-a-hyper-v-vm/)。 
+有关运行 Ubuntu 的虚拟机，请参阅[在 HYPER-V VM 中更改 Ubuntu 屏幕分辨率](https://blogs.msdn.microsoft.com/virtual_pc_guy/2014/09/19/changing-ubuntu-screen-resolution-in-a-hyper-v-vm/)。 
   
-## <a name="turn-on-enhanced-session-mode-on-a-hyper-v-host"></a>打开增强的会话模式的 HYPER-V 主机上  
-如果 HYPER-V 主机运行 Windows 10 或 Windows 8.1，增强的会话模式是在默认情况下，因此您可以跳过此并移动到下一节。 但是，如果主机运行 Windows Server 2016 或 Windows Server 2012 R2，先执行此操作。 
+## <a name="turn-on-enhanced-session-mode-on-a-hyper-v-host"></a>在 Hyper-v 主机上打开增强会话模式  
+如果 Hyper-v 主机运行的是 Windows 10 或 Windows 8.1，则默认情况下，"增强会话模式" 处于打开状态，因此您可以跳过此操作并转到下一节。 但是，如果主机运行的是 Windows Server 2016 或 Windows Server 2012 R2，请先执行此操作。 
   
-开启增强的会话模式：
+启用增强会话模式：
 
 1.  请连接到承载虚拟机的计算机。  
   
-2.  在 HYPER-V 管理器中，选择主机的计算机名。  
+2.  在 "Hyper-v 管理器" 中，选择主机的计算机名。  
   
-    ![显示计算机名称的主机的屏幕截图列出的 HYPER-V 管理器下的左窗格中。](media/Hyper-V-HyperVManager-HostNameSelected.png)  
+    ![屏幕截图，显示在左窗格的 "Hyper-v 管理器" 下列出的主机名。](media/Hyper-V-HyperVManager-HostNameSelected.png)  
   
-3.  选择“Hyper-V 设置”  。  
+3.  选择“Hyper-V 设置”。  
   
-    ![在右窗格中显示操作下的 HYPER-V 设置选项的屏幕截图。](media/HyperV-ActionsHyperVSettings.png)  
+    ![屏幕截图，显示右窗格中 "操作" 下的 "Hyper-v 设置" 选项。](media/HyperV-ActionsHyperVSettings.png)  
   
-4.  在“服务器”  下，选择“增强会话模式策略”  。  
+4.  在“服务器”下，选择“增强会话模式策略”。  
   
-    ![在安全性部分下显示增强会话模式策略选项的屏幕截图。](media/Hyper-V-Settings-ServerEnhancedSessionModePolicy.png)  
+    ![显示 "安全性" 部分下的 "增强会话模式" 策略选项的屏幕截图。](media/Hyper-V-Settings-ServerEnhancedSessionModePolicy.png)  
   
-5.  选中“允许增强会话模式”  复选框。  
+5.  选中“允许增强会话模式”复选框。  
   
-    ![屏幕快照，显示允许增强会话模式的增强会话模式策略的复选框。](media/Hyper-V-Settings-EnhancedSessionModePolicyCheckBox.png)  
+    ![屏幕截图，显示 "允许增强会话模式" 复选框以获取增强会话模式策略。](media/Hyper-V-Settings-EnhancedSessionModePolicyCheckBox.png)  
   
-6.  在“用户”  下，选择“增强会话模式”  。  
+6.  在“用户”下，选择“增强会话模式”。  
   
-    ![在用户部分下显示增强会话模式选项的屏幕截图。 ](media/Hyper-V-Settings-UserEnhancedSessionMode.png)  
+    ![屏幕截图，显示 "用户" 部分下的 "增强会话模式" 选项。 ](media/Hyper-V-Settings-UserEnhancedSessionMode.png)  
   
-7.  选中“允许增强会话模式”  复选框。  
+7.  选中“允许增强会话模式”复选框。  
   
-8.  单击“确定”  。  
+8.  单击“确定”。  
   
 ## <a name="choose-a-local-resource"></a>选择本地资源
 
-本地资源包括打印机、 剪贴板和正在运行 VMConnect 的计算机上的本地驱动器。 有关更多详细信息，请参阅[使用本地资源的要求](#requirements-for-using-local-resources)下文。  
+本地资源包括打印机、剪贴板，以及运行 VMConnect 的计算机上的本地驱动器。 有关更多详细信息，请参阅下面[的使用本地资源的要求](#requirements-for-using-local-resources)。  
   
-若要选择的本地资源：
+选择本地资源：
   
 1.  打开 VMConnect。  
   
 2.  选择要连接到的虚拟机。  
   
-3.  单击“显示选项”  。  
+3.  单击“显示选项”。  
   
-    ![调用左下角的对话框中的显示选项的屏幕截图。](media/HyperV-VMConnect-DisplayConfig.png)  
+    ![调用显示对话框左下角的选项的屏幕截图。](media/HyperV-VMConnect-DisplayConfig.png)  
   
-4.  选择“本地资源”  。  
+4.  选择“本地资源”。  
   
-    ![明确了本地资源选项卡的屏幕截图。](media/HyperV-VMConnect-DisplayConfig-LocalResources.png)  
+    ![调用 "本地资源" 选项卡的屏幕截图。](media/HyperV-VMConnect-DisplayConfig-LocalResources.png)  
   
-5.  单击“更多”  。  
+5.  单击“更多”。  
   
-    ![还指出其他按钮的屏幕截图。](media/HyperV-VMConnect-DisplayConfig-LocalResourcesMore.png)  
+    ![调用 "更多" 按钮的屏幕截图。](media/HyperV-VMConnect-DisplayConfig-LocalResourcesMore.png)  
   
-6.  选择要在虚拟机上使用的驱动器，然后单击“确定”  。  
+6.  选择要在虚拟机上使用的驱动器，然后单击“确定”。  
   
-    ![显示本地资源和你可以选择的驱动器的屏幕截图。](media/HyperV-VMConnect-Settings-LocalResourcesDrives.png)  
+    ![屏幕截图，显示你可以选择的本地资源和驱动器。](media/HyperV-VMConnect-Settings-LocalResourcesDrives.png)  
   
-7.  选择“保存我的设置以便在将来连接到此虚拟机”  。  
+7.  选择“保存我的设置以便在将来连接到此虚拟机”。  
   
-    ![明确了该复选框以选择此选项的屏幕截图。](media/HyperV-VMConnect-SaveSettings.png)  
+    ![用于调用复选框以选择此选项的屏幕截图。](media/HyperV-VMConnect-SaveSettings.png)  
   
-8.  单击“连接”  。  
+8.  单击“连接”。  
   
 ## <a name="edit-vmconnect-settings"></a>编辑 VMConnect 设置
 
@@ -99,15 +99,15 @@ ms.locfileid: "66222843"
   
 ## <a name="requirements-for-using-local-resources"></a>使用本地资源的要求
 
-若要能够使用虚拟机上的计算机的本地资源：  
+若要能够在虚拟机上使用计算机的本地资源，请执行以下操作：  
   
--   HYPER-V 主机必须具有**增强会话模式策略**并**增强会话模式**在打开设置。  
+-   Hyper-v 主机必须打开 "**增强会话模式策略**" 和 "**增强会话模式**" 设置。  
   
--   在其使用 VMConnect 的计算机必须运行 Windows 10、 Windows 8.1、 Windows Server 2016 或 Windows Server 2012 R2。  
+-   使用 VMConnect 的计算机必须运行 Windows 10、Windows 8.1、Windows Server 2016 或 Windows Server 2012 R2。  
   
--   虚拟机必须具有远程桌面服务启用，并且运行 Windows 10、 Windows 8.1、 Windows Server 2016 或 Windows Server 2012 R2 作为来宾操作系统。  
+-   虚拟机必须启用远程桌面服务，并运行 Windows 10、Windows 8.1、Windows Server 2016 或 Windows Server 2012 R2 作为来宾操作系统。  
   
-如果运行 VMConnect 和虚拟机的计算机都满足要求，如果它们可用时才可以使用任何以下本地资源：  
+如果运行 VMConnect 的计算机和虚拟机均满足要求，则可以使用以下任何本地资源（如果可用）：  
   
 -   显示器配置  
   
@@ -126,7 +126,7 @@ ms.locfileid: "66222843"
 -   支持的即插即用设备  
   
 ## <a name="why-use-a-computers-local-resources"></a>为什么使用计算机的本地资源？
-你可能想使用到的计算机的本地资源：  
+你可能想要使用计算机的本地资源来执行以下操作：  
   
 -   在虚拟机没有网络连接的情况下对虚拟机进行疑难解答。  
   
@@ -140,7 +140,7 @@ ms.locfileid: "66222843"
   
 ## <a name="see-also"></a>请参阅  
 [连接到虚拟机](https://technet.microsoft.com/library/cc742407.aspx)  
-[应在 HYPER-V 中创建第 1 或 2 代虚拟机？](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)
+[是否应在 Hyper-v 中创建第1代或第2代虚拟机？](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)
 
 
 

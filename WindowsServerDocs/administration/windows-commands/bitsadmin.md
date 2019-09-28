@@ -1,8 +1,8 @@
 ---
 title: bitsadmin
-description: Windows 命令主题**bitsadmin** -bitsadmin 是一个命令行工具，可用于创建、 下载或上载作业并监视其进度。
+description: '**Bitsadmin** -bitsadmin 的 Windows 命令主题是一个命令行工具，可用于创建、下载或上传作业并监视其进度。'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,36 +13,36 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: da0f05ec716cffb7d7532ebac50a091729a6bb18
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b53293b28a83ecced34d248741996c958531d517
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821068"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380104"
 ---
 # <a name="bitsadmin"></a>bitsadmin
 
-> **适用于**:Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows 10
+> **适用**于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows 10
 
-bitsadmin 是一个命令行工具，可用于创建下载或上载作业并监视其进度。 Bitsadmin 工具使用开关来标识要执行的工作。  您可以调用`bitsadmin /?`或`bitsadmin /HELP`获取交换机的列表。
+bitsadmin 是一个命令行工具，可用于创建下载或上载作业并监视其进度。 Bitsadmin 工具使用开关来确定要执行的工作。  可以调用 `bitsadmin /?` 或 `bitsadmin /HELP` 获取开关列表。
 
-大多数交换机需要\<作业\>参数设置为作业的显示名称或 GUID。 请注意，作业的显示名称可能不是唯一的。 **/Create**并 **/list**开关返回作业的 GUID。
+大多数交换机都需要设置为作业的显示名称或 GUID 的 \<Job @ no__t 参数。 请注意，作业的显示名称可能不唯一。 **/Create**和 **/list**开关返回作业的 GUID。
 
-默认情况下，可以访问信息，有关您自己的作业。 若要访问其他用户的作业的信息，必须具有管理员权限。 如果在提升的权限状态中创建作业，则必须运行 bitsadmin 从提升的窗口;否则，将具有只读访问作业。
+默认情况下，你可以访问你自己的作业的信息。 若要访问其他用户的作业信息，你必须拥有管理员权限。 如果作业是在提升的状态下创建的，则必须从提升的窗口中运行 bitsadmin;否则，你将拥有该作业的只读访问权限。
 
-中的方法对应的许多开关[BITS 接口](/windows/desktop/bits/bits-interfaces)。 可能使用交换机与相关的其他详细信息，请参阅相应的方法。
+许多开关对应于[BITS 接口](/windows/desktop/bits/bits-interfaces)中的方法。 有关可能与使用开关相关的其他详细信息，请参阅相应的方法。
 
-使用下列开关来创建作业、 设置和检索作业的属性和监视作业的状态。 有关演示如何使用某些这些开关来执行任务的示例，请参阅[bitsadmin 示例](bitsadmin-examples.md)。
+使用以下开关创建作业、设置和检索作业的属性，以及监视作业的状态。 有关演示如何使用其中一些开关执行任务的示例，请参阅[bitsadmin 示例](bitsadmin-examples.md)。
 
-## <a name="switches"></a>开关
+## <a name="switches"></a>交换器
 
 [bitsadmin addfile](bitsadmin-addfile.md)  
 [bitsadmin addfileset](bitsadmin-addfileset.md)  
 [bitsadmin addfilewithranges](bitsadmin-addfilewithranges.md)  
-[bitsadmin 缓存](bitsadmin-cache.md)  
-[bitsadmin 取消按钮](bitsadmin-cancel.md)  
-[bitsadmin 完成](bitsadmin-complete.md)  
-[bitsadmin 创建](bitsadmin-create.md)  
+[bitsadmin cache](bitsadmin-cache.md)  
+[bitsadmin cancel](bitsadmin-cancel.md)  
+[bitsadmin complete](bitsadmin-complete.md)  
+[bitsadmin create](bitsadmin-create.md)  
 [bitsadmin getaclflags](bitsadmin-getaclflags.md)  
 [bitsadmin getbytestotal](bitsadmin-getbytestotal.md)  
 [bitsadmin getbytestransferred](bitsadmin-getbytestransferred.md)  
@@ -80,21 +80,21 @@ bitsadmin 是一个命令行工具，可用于创建下载或上载作业并监�
 [bitsadmin gettemporaryname](bitsadmin-gettemporaryname.md)  
 [bitsadmin gettype](bitsadmin-gettype.md)  
 [bitsadmin getvalidationstate](bitsadmin-getvalidationstate.md)  
-[bitsadmin 帮助](bitsadmin-help.md)  
-[bitsadmin 信息](bitsadmin-info.md)  
-[bitsadmin 列表](bitsadmin-list.md)  
+[bitsadmin help](bitsadmin-help.md)  
+[bitsadmin info](bitsadmin-info.md)  
+[bitsadmin list](bitsadmin-list.md)  
 [bitsadmin listfiles](bitsadmin-listfiles.md)  
 [bitsadmin makecustomheaderswriteonly](bitsadmin-makecustomheaderswriteonly.md)
 [bitsadmin 监视器](bitsadmin-monitor.md)  
 [bitsadmin nowrap](bitsadmin-nowrap.md)  
-[bitsadmin 对等缓存](bitsadmin-peercaching.md)  
-[bitsadmin 对等方](bitsadmin-peers.md)  
+[bitsadmin peercaching](bitsadmin-peercaching.md)  
+[bitsadmin peers](bitsadmin-peers.md)  
 [bitsadmin rawreturn](bitsadmin-rawreturn.md)  
 [bitsadmin removeclientcertificate](bitsadmin-removeclientcertificate.md)  
 [bitsadmin removecredentials](bitsadmin-removecredentials.md)  
 [bitsadmin replaceremoteprefix](bitsadmin-replaceremoteprefix.md)  
 [bitsadmin reset](bitsadmin-reset.md)  
-[bitsadmin 恢复](bitsadmin-resume.md)  
+[bitsadmin resume](bitsadmin-resume.md)  
 [bitsadmin setaclflag](bitsadmin-setaclflag.md)  
 [bitsadmin setclientcertificatebyid](bitsadmin-setclientcertificatebyid.md)  
 [bitsadmin setclientcertificatebyname](bitsadmin-setclientcertificatebyname.md)  
@@ -116,8 +116,8 @@ bitsadmin 是一个命令行工具，可用于创建下载或上载作业并监�
 [bitsadmin setreplyfilename](bitsadmin-setreplyfilename.md)  
 [bitsadmin setsecurityflags](bitsadmin-setsecurityflags.md)  
 [bitsadmin setvalidationstate](bitsadmin-setvalidationstate.md)  
-[bitsadmin 挂起](bitsadmin-suspend.md)  
+[bitsadmin suspend](bitsadmin-suspend.md)  
 [bitsadmin takeownership](bitsadmin-takeownership.md)  
-[bitsadmin 传输](bitsadmin-transfer.md)  
+[bitsadmin transfer](bitsadmin-transfer.md)  
 [bitsadmin util](bitsadmin-util.md)  
 [bitsadmin wrap](bitsadmin-wrap.md)  

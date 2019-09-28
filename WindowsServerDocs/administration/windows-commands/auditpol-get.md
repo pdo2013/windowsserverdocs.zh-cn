@@ -1,8 +1,8 @@
 ---
-title: auditpol get
-description: Windows 命令主题**auditpol 获取**-检索系统策略，每个用户策略，审核选项和审核安全描述符对象。
+title: auditpol 获取
+description: 适用于 auditpol 的 Windows 命令主题**获取**系统策略、每用户策略、审核选项和审核安全描述符对象。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 03ba59b19af42ab2d3fdd1dd52d976d381779640
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 296fc5afb540411d76b563faca42fc045b8df3b3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435144"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382486"
 ---
-# <a name="auditpol-get"></a>auditpol get
+# <a name="auditpol-get"></a>auditpol 获取
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-检索系统策略，每个用户策略，审核选项和审核安全描述符对象。
+检索系统策略、每个用户的策略、审核选项和审核安全描述符对象。
 
 ## <a name="syntax"></a>语法
 ```
@@ -40,54 +40,54 @@ auditpol /get
 
 |  参数   |                                                                                                                                         描述                                                                                                                                          |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /user     | 显示为其查询按用户审核策略的安全主体。 必须指定 /category 或 /subcategory 参数。 用户可能会指定为安全标识符 (SID) 或名称。 如果指定没有用户帐户，则查询系统审核策略。 |
-|  /category   |                                                          指定由全局唯一标识符 (GUID) 或名称的一个或多个审核类别。 一个星号 (\*) 可用于指示应查询所有审核类别。                                                          |
-| /subcategory |                                                                                                                  一个或多个审核子类别指定的 GUID 或名称。                                                                                                                  |
-|     /sd      |                                                                                                        检索用于委派对审核策略访问权限的安全描述符。                                                                                                        |
-|   /option    |                                                                              检索 CrashOnAuditFail、 了、 AuditBaseObjects 或 AuditBasedirectories 选项的现有策略。                                                                               |
-|      /r      |                                                                                                              在报表格式，以逗号分隔值 (CSV) 中显示输出。                                                                                                              |
+|    /user     | 显示要为其查询每用户审核策略的安全主体。 必须指定/category 或/subcategory 参数。 用户可以指定为安全标识符（SID）或名称。 如果未指定用户帐户，则查询系统审核策略。 |
+|  /category   |                                                          由全局唯一标识符（GUID）或名称指定的一个或多个审核类别。 可以使用星号（\*）指示应查询所有审核类别。                                                          |
+| /subcategory |                                                                                                                  GUID 或名称指定的一个或多个审核子类别。                                                                                                                  |
+|     /sd      |                                                                                                        检索用于委派审核策略访问权限的安全描述符。                                                                                                        |
+|   /option    |                                                                              检索 CrashOnAuditFail、FullprivilegeAuditing、AuditBaseObjects 或 AuditBasedirectories 选项的现有策略。                                                                               |
+|      /r      |                                                                                                              以逗号分隔值（CSV）格式显示输出。                                                                                                              |
 |      /?      |                                                                                                                             在命令提示符下显示帮助。                                                                                                                             |
 
 ## <a name="remarks"></a>备注
-按 GUID 或名称用引号引起来，可以指定所有类别和子类别。 用户可以通过 SID 或名称指定。
-对于每个用户策略和系统策略的所有 get 操作，您必须具有读取安全描述符中设置该对象的权限。 此外可以通过拥有执行 get 操作**管理审核和安全日志**(SeSecurityPrivilege) 用户权限。 但是，此权限允许其他不需要执行的 get 操作的访问。
+所有类别和子类别都可以通过用引号引起来的 GUID 或名称来指定。 可以通过 SID 或名称指定用户。
+对于 "每用户策略" 和 "系统策略" 的所有 "获取" 操作，你必须对安全描述符中的该对象集具有 "读取" 权限。 还可以通过拥有 "**管理审核和安全日志**（SeSecurityPrivilege）" 用户权限来执行 get 操作。 但是，此权限允许执行 get 操作所不需要的其他访问权限。
 ## <a name="BKMK_examples"></a>示例
-### <a name="examples-for-the-per-user-audit-policy"></a>每个用户审核策略的示例
-若要检索按用户审核策略为来宾帐户和系统，显示的输出详细跟踪，和对象访问类别中，键入：
+### <a name="examples-for-the-per-user-audit-policy"></a>每用户审核策略的示例
+若要检索来宾帐户的每用户审核策略并显示系统、详细跟踪和对象访问类别的输出，请键入：
 ```
 auditpol /get /user:{S-1-5-21-1443922412-3030960370-963420232-51} /category:"System","detailed Tracking","Object Access"
 ```
 > [!NOTE]
-> 此命令将两个方案中非常有用。 监视可疑活动的特定用户帐户，可以使用 /get 命令来使用包含策略以启用其他审核检索特定类别中的结果。 或者，如果登录的帐户上的审核设置大量但多余的事件，可以使用 /get 命令来筛选出排除策略使用该帐户无关的事件。 对于所有类别的列表，使用 auditpol /list /category 命令。
-> 若要检索按用户审核策略类别和特定子类别，报告该来宾帐户的系统类别下的子类别的非独占和独占设置，请键入：
+> 此命令在两种情况下很有用。 监视特定用户帐户是否有可疑活动时，可以使用/get 命令，通过使用包含策略启用其他审核来检索特定类别中的结果。 或者，如果某个帐户的审核设置记录了大量但多余的事件，则可以使用/get 命令筛选出该帐户的无关事件，其中包含排除策略。 若要查看所有类别的列表，请使用 auditpol/list/category 命令。
+> 若要检索类别和特定子类别的每用户审核策略，以在来宾帐户的系统类别下报告该子类别的非独占和独占设置，请键入：
 > ```
 > auditpol /get /user:guest /category:"System" /subcategory:{0ccee921a-69ae-11d9-bed3-505054503030}
 > ```
-> 若要在报表格式中显示的输出并包括计算机名称、 策略目标、 子类别、 子类别 GUID，包含设置和排除设置，请键入：
+> 若要以报表格式显示输出，并包括计算机名称、策略目标、子类别、子类别 GUID、包含设置和排除设置，请键入：
 > ```
 > auditpol /get /user:guest /category:detailed Tracking" /r
 > ```
-> ### <a name="examples-for-the-system-audit-policy"></a>系统审核策略的示例
-> 若要检索的策略的系统类别和子类别，将报告系统审核策略的类别和子类别策略设置，请键入：
+> ### <a name="examples-for-the-system-audit-policy"></a>系统审核策略示例
+> 若要检索用于报告系统审核策略的类别和子类别策略设置的系统类别和子类别的策略，请键入：
 > ```
 > auditpol /get /category:"System" /subcategory:{0ccee921a-69ae-11d9-bed3-505054503030}
 > ```
-> 若要检索的策略的详细的跟踪类别和子类别中的报表格式，包括计算机名、 策略目标、 子类别、 子类别的 GUID、 包含设置和排除设置类型：
+> 若要检索报表格式中详细跟踪类别和子类别的策略，并包括计算机名称、策略目标、子类别、子类别 GUID、包含设置和排除设置，请键入：
 > ```
 > auditpol /get /category:"detailed Tracking" /r
 > ```
-> 若要检索包含类别的两个类别的策略指定为 Guid，它报告的所有子类别的所有审核策略设置在以下两种类别，类型：
+> 若要检索具有指定为 Guid 的类别的两个类别的策略（报告以下两个类别的所有子类别的所有审核策略设置），请键入：
 > ```
 > auditpol /get /category:{69979849-797a-11d9-bed3-505054503030},{69997984a-797a-11d9-bed3-505054503030} subcategory:{0ccee921a-69ae-11d9-bed3-505054503030}
 > ```
-> ### <a name="examples-for-auditing-options"></a>审核选项的示例
-> 若要检索的状态，启用或禁用的 AuditBaseObjects 选项中，键入：
+> ### <a name="examples-for-auditing-options"></a>审核选项示例
+> 若要检索 AuditBaseObjects 选项的 "已启用" 或 "已禁用" 状态，请键入：
 > ```
 > auditpol /get /option:AuditBaseObjects
 > ```
 > [!NOTE]
-> 可用选项包括 AuditBaseObjects、 AuditBaseOperations 和了。
-> 若要检索已启用的状态，已禁用或 2 的 CrashOnAuditFail 选项中，键入：
+> 可用选项包括 AuditBaseObjects、AuditBaseOperations 和 FullprivilegeAuditing。
+> 若要检索已启用、已禁用或2个 CrashOnAuditFail 选项的状态，请键入：
 > ```
 > auditpol /get /option:CrashOnAuditFail /r
 > ```

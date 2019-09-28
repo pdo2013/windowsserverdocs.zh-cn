@@ -1,7 +1,7 @@
 ---
 ms.assetid: 1368bc83-9121-477a-af09-4ae73ac16789
 title: 选择存储空间直通驱动器
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: cosdar
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -9,12 +9,12 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 10/08/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: eb19e7ecf89f02200d3393dc1a4a9e5cd85cf598
-ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
+ms.openlocfilehash: b02d26e8a2f2cd699d8e1eda95cf72fe71396a21
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314987"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402894"
 ---
 # <a name="choosing-drives-for-storage-spaces-direct"></a>选择存储空间直通驱动器
 
@@ -110,7 +110,7 @@ ms.locfileid: "68314987"
 
 每个服务器都必须具有至少两个缓存驱动器（针对冗余的最低要求）。 我们建议容量驱动器数量是缓存驱动器数量的倍数。 例如，如果你有 4 个缓存驱动器，则使用 8 个容量驱动器（1:2 的比率），这样一来，你所能体验到的性能将比使用 7 个或 9 个容量驱动器更一致。
 
-应该调整缓存的大小, 以适应应用程序和工作负荷的工作集, 即, 在任何给定时间, 它们正在主动读取和写入的所有数据。 没有除此之外的缓存大小要求。 对于使用 Hdd 的部署, 一个合理的起点是容量的 10% –例如, 如果每个服务器具有 4 x 4 TB HDD = 16 TB 的容量, 则 2 x 800 GB SSD = 1.6 TB 的缓存每个服务器。 对于所有闪存部署, 尤其是对于非常[高](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)的 ssd, 尤其是在容量非常高的情况下 (例如, 如果每台服务器具有 24 x 1.2 TB SSD = 28.8 TB 的容量), 则 2 x 750 GB NVMe = 每个服务器的缓存 1.5 tb。 你始终可以在以后添加或移除缓存驱动器来进行调整。
+应该调整缓存的大小, 以适应应用程序和工作负荷的工作集, 即, 在任何给定时间, 它们正在主动读取和写入的所有数据。 没有除此之外的缓存大小要求。 对于使用 Hdd 的部署，一个合理的起点是容量的 10% –例如，如果每个服务器具有 4 x 4 TB HDD = 16 TB 的容量，则 2 x 800 GB SSD = 1.6 TB 的缓存每个服务器。 对于所有闪存部署，尤其是对于非常[高](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)的 ssd，尤其是在容量非常高的情况下（例如，如果每台服务器具有 24 x 1.2 TB SSD = 28.8 TB 的容量），则 2 x 750 GB NVMe = 每个服务器的缓存 1.5 tb。 你始终可以在以后添加或移除缓存驱动器来进行调整。
 
 ### <a name="general"></a>常规
 

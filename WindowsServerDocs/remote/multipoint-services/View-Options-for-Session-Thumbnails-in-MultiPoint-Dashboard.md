@@ -2,7 +2,7 @@
 title: 查看 MultiPoint 仪表板中会话缩略图的选项
 description: 了解如何自定义 MultiPoint Services 的视图选项
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: a11f2f2bbafe4d21e1cd5d56d66a97e08cf35b11
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9b6fa08a6f3215140a528dab0fb55bac23c60ccc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871467"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394796"
 ---
 # <a name="view-options-for-session-thumbnails-in-multipoint-dashboard"></a>查看 MultiPoint 仪表板中会话缩略图的选项
 在 MultiPoint 服务系统上查看每个活动桌面的缩略图图像可以轻松监视个人桌面上的用户活动。 默认情况下，桌面的图像显示在 "**主**文件夹" 选项卡上的 "MultiPoint 仪表板" 中。  

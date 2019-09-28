@@ -1,7 +1,7 @@
 ---
 ms.assetid: b198d8ca-a5b7-430f-8911-5cbb9f50484c
 title: Fsutil 资源
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: ea97f7f71d1b484c7ac63c7c429f291fba607bba
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 10f2847fd05658a481a10dfb5a1920a998559962
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867067"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376816"
 ---
 # <a name="fsutil-resource"></a>Fsutil 资源
 >适用于：Windows Server （半年频道），Windows Server 2016，Windows 10，Windows Server 2012 R2，Windows 8.1，Windows Server 2012，Windows 8，Windows Server 2008 R2，Windows 7，Windows 2008，Windows Vista
@@ -48,9 +48,9 @@ fsutil resource [stop] <RmRootPathname>
 
 |        参数        |                                                                                                                                                                                                                                        描述                                                                                                                                                                                                                                         |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         创建          |                                                                                                                                                                                                                    创建辅助事务资源管理器。                                                                                                                                                                                                                     |
+|         create          |                                                                                                                                                                                                                    创建辅助事务资源管理器。                                                                                                                                                                                                                     |
 |    <RmRootPathname>     |                                                                                                                                                                                                        指定事务资源管理器根目录的完整路径。                                                                                                                                                                                                         |
-|          信息           |                                                                                                                                                                                                            显示指定的事务性资源管理器的信息。                                                                                                                                                                                                            |
+|          info           |                                                                                                                                                                                                            显示指定的事务性资源管理器的信息。                                                                                                                                                                                                            |
 |      setautoreset       | 指定默认的事务资源管理器是否将在下一次装入时清除事务元数据。<br /><br />-将**setautoreset**参数设置为**true** ，以指定事务资源管理器在默认情况下将在下一次装入时清除事务元数据。<br />-将**setautoreset**参数设置为**false** ，以指定事务资源管理器默认情况下不会清除下一次装入时的事务元数据。 |
 | <DefaultRmRootPathname> |                                                                                                                                                                                                                       指定驱动器名称后跟一个冒号。                                                                                                                                                                                                                        |
 |      setavailable       |                                                                                                                                                                                                 指定事务资源管理器优先于可用性。                                                                                                                                                                                                 |

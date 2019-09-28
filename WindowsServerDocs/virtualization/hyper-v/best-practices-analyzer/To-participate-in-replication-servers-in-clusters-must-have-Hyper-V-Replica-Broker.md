@@ -1,7 +1,7 @@
 ---
-title: 若要参与复制，故障转移群集中的服务器必须具有配置的 HYPER-V 副本代理
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+title: 若要参与复制，故障转移群集中的服务器必须配置 Hyper-v 副本代理
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 5ec88ce5-a8b2-4ece-9062-366523c8b17f
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: d4966396af955f9c8bad34b5b2892115e93c3b85
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2e15d2c4a467807397ef4712d2df1730b40d8024
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887968"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364604"
 ---
-# <a name="to-participate-in-replication-servers-in-failover-clusters-must-have-a-hyper-v-replica-broker-configured"></a>若要参与复制，故障转移群集中的服务器必须具有配置的 HYPER-V 副本代理
+# <a name="to-participate-in-replication-servers-in-failover-clusters-must-have-a-hyper-v-replica-broker-configured"></a>若要参与复制，故障转移群集中的服务器必须配置 Hyper-v 副本代理
 
 >适用于：Windows Server 2016
 
@@ -27,19 +27,19 @@ ms.locfileid: "59887968"
 |-|-|  
 |**操作系统**|Windows Server 2016|  
 |**产品/功能**|Hyper-V|  
-|**Severity**|错误|  
+|**Severity**|Error|  
 |**类别**|配置|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。  
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。  
   
 ## <a name="issue"></a>问题  
-*用于故障转移群集的 HYPER-V 副本需要使用 HYPER-V 副本代理名称而不是单独的服务器名称。*  
+*对于故障转移群集，Hyper-v 副本需要使用 Hyper-v 副本代理名称，而不是单独的服务器名称。*  
   
 ## <a name="impact"></a>影响  
-*如果虚拟机移到不同的故障转移群集节点，无法继续复制。*  
+*如果将虚拟机移动到其他故障转移群集节点，复制将无法继续。*  
   
 ## <a name="resolution"></a>分辨率  
-*使用故障转移群集管理器配置 HYPER-V 副本代理。在 HYPER-V 管理器中，请确保复制配置与服务器的名称使用 HYPER-V 副本代理名称。*  
+*Use 故障转移群集管理器配置 Hyper-v 副本代理。在 "Hyper-v 管理器" 中，确保复制配置使用 Hyper-v 副本代理名称作为服务器名称。*  
   
 
 

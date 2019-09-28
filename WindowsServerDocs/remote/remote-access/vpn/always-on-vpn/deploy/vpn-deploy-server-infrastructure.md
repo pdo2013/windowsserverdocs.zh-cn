@@ -1,7 +1,7 @@
 ---
 title: 配置服务器基础结构
 description: 在此步骤中，将安装和配置支持 VPN 所需的服务器端组件。 服务器端组件包括配置 PKI 以分发用户、VPN 服务器和 NPS 服务器使用的证书。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
@@ -10,12 +10,12 @@ ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: 260d5c6273d877386dc1cd8833b2f226533127c3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: c7e2c4172621416048fa9e82bbd12f5b1717d490
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871305"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404297"
 ---
 # <a name="step-2-configure-the-server-infrastructure"></a>步骤 2： 配置服务器基础结构
 
@@ -116,7 +116,7 @@ ms.locfileid: "70871305"
 
     - **预期目的：** 服务器身份验证，IP 安全 IKE 中间 
 
-    - **证书模板：** [_Customer_]VPN 服务器
+    - **证书模板：** [_Customer_] VPN 服务器
 
 #### <a name="example-vpngatewayinf-script"></a>例如：VPNGateway 脚本
 

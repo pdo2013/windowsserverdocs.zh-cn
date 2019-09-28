@@ -1,8 +1,8 @@
 ---
 title: nslookup set timeout
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f6c8863d0a9330fd3a8499b0e6dbc802bd95022
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 32fcfcaeccb6599e9aaca21f9c085bb00857479c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436517"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372763"
 ---
 # <a name="nslookup-set-timeout"></a>nslookup set timeout
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-更改初始的查找请求的答复到等待秒的数。
+更改等待查找请求回复的初始秒数。
 ## <a name="syntax"></a>语法
 ```
 set timeout=<Number>
@@ -33,16 +33,16 @@ set timeout=<Number>
 
 |    参数    |                                           描述                                            |
 |-----------------|--------------------------------------------------------------------------------------------------|
-|    <Number>     | 指定要等待回复的秒数。 等待的秒的默认数目为 5。 |
-| {help &#124; ?} |                      显示的短摘要**nslookup**子命令。                       |
+|    <Number>     | 指定等待答复的秒数。 默认等待的秒数为5。 |
+| {help &#124; ？} |                      显示**nslookup**子命令的简短摘要。                       |
 
 ## <a name="remarks"></a>备注
-- 在指定的时间段内未收到对请求的回复，超时值加倍，然后再次发送该请求。 可以使用**集重试**命令来控制重试次数。
+- 如果在指定的时间段内未收到对请求的答复，则超时将加倍，并再次发送请求。 你可以使用 "**设置重试**" 命令来控制重试的次数。
   ## <a name="BKMK_examples"></a>示例
-  下面的示例设置用于获取对 2 秒的响应的超时值：
+  下面的示例将获取响应的超时时间设置为2秒：
   ```
   set timeout=2
   ```
   ## <a name="additional-references"></a>其他参考
-  [命令行语法解答](command-line-syntax-key.md)
+  [命令行语法关键字](command-line-syntax-key.md)
   [nslookup 设置重试](nslookup-set-retry.md)

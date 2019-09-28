@@ -1,6 +1,6 @@
 ---
 title: 使用 AD FS 和 Web 应用程序代理部署工作文件夹 - 步骤 3，设置工作文件夹
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 manager: klaasl
@@ -8,31 +8,31 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: 5a43b104-4d02-4d73-a385-da1cfb67e341
-ms.openlocfilehash: d6b21579fb1dedc777733317e7222debd8d944a1
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: ef76b87928e696586356c499367051ff0d0e9ab4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812664"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365769"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>部署工作文件夹使用 AD FS 和 Web 应用程序代理：第 3 步： 设置工作文件夹
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤3、设置工作文件夹
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
 本主题介绍使用 Active Directory 联合身份验证服务 (AD FS) 和 Web 应用程序代理部署工作文件夹的第三个步骤。 你可以在这些主题中查找这一过程的其他步骤：  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：概述](deploy-work-folders-adfs-overview.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：叙述](deploy-work-folders-adfs-overview.md)  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：第 1 步： 设置 AD FS](deploy-work-folders-adfs-step1.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤1，设置 AD FS @ no__t-0  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 2 中，AD FS 配置后工作](deploy-work-folders-adfs-step2.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤 2 AD FS 配置后工作 @ no__t-0  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 4 中，设置 Web 应用程序代理](deploy-work-folders-adfs-step4.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤4，设置 Web 应用程序代理 @ no__t-0  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 5 中，设置客户端](deploy-work-folders-adfs-step5.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤5，设置客户端 @ no__t-0  
   
 > [!NOTE]
->   在本部分中介绍的说明适用于 Windows Server 2019 或 Windows Server 2016 环境。 如果你使用的是 Windows Server 2012 R2，请遵循 [Windows Server 2012 R2 说明](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx)。
+>   本部分中所述的说明适用于 Windows Server 2019 或 Windows Server 2016 环境。 如果你使用的是 Windows Server 2012 R2，请遵循 [Windows Server 2012 R2 说明](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx)。
 
 若要设置工作文件夹，请使用以下步骤。  
   
@@ -42,7 +42,7 @@ ms.locfileid: "66812664"
 对于测试示例，将运行工作文件夹的计算机加入到 Contoso 域，并按以下各节的描述设置网络接口。 
 
 ### <a name="set-the-server-ip-address"></a>设置服务器的 IP 地址  
-将服务器的 IP 地址更改为静态 IP 地址。 测试示例中，使用 IP 类，该类是 192.168.0.170 / 子网掩码：255.255.0.0/默认网关：192.168.0.1/首选 DNS:192.168.0.150 （你的域控制器的 IP 地址）。 
+将服务器的 IP 地址更改为静态 IP 地址。 对于测试示例，请使用 IP 类 A，它是 192.168.0.170/子网掩码：255.255.0.0/默认网关：192.168.0.1/首选 DNS：192.168.0.150 （域控制器的 IP 地址）。 
   
 ### <a name="create-the-cname-record-for-work-folders"></a>为工作文件夹创建 CNAME 记录  
 要为工作文件夹创建 CNAME 记录，请遵循下列步骤：  
@@ -72,11 +72,11 @@ Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name workfolders -CName  -
   
 2.  键入 **MMC**。  
   
-3.  在“文件”  菜单上，单击“添加/删除管理单元”  。  
+3.  在“文件” 菜单上，单击“添加/删除管理单元”。  
   
 4.  在**可用的管理单元**列表中，单击**证书**，然后单击**添加**。 证书管理单元向导启动。  
   
-5.  选择“计算机帐户”  ，然后单击“下一步”  。  
+5.  选择“计算机帐户”，然后单击“下一步”。  
   
 6.  选择**本地计算机：（运行此控制台的计算机）** ，然后单击**完成**。  
   
@@ -152,7 +152,7 @@ Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name workfolders -CName  -
   
 6.  在**功能**页上，单击**下一步**。  
   
-7.  在“确认”  页上，单击“安装”  。  
+7.  在“确认”页上，单击“安装”。  
   
 ## <a name="configure-work-folders"></a>配置工作文件夹  
 要配置工作文件夹，请遵循下列步骤：  
@@ -169,11 +169,11 @@ Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name workfolders -CName  -
   
 5.  在**用户文件夹结构**页上，选择**用户别名**，然后单击**下一步**。  
   
-6.  在**同步共享名称**页中，输入同步共享的名称。 对于测试示例，名称为 **WorkFolders**。 单击“下一步”  。  
+6.  在**同步共享名称**页中，输入同步共享的名称。 对于测试示例，名称为 **WorkFolders**。 单击“下一步”。  
   
-7.  在**同步访问权限**页上，添加可以访问新同步共享的用户或组。 对于测试示例，授予对所有域用户的访问权限。 单击“下一步”  。  
+7.  在**同步访问权限**页上，添加可以访问新同步共享的用户或组。 对于测试示例，授予对所有域用户的访问权限。 单击“下一步”。  
   
-8.  在**电脑的安全策略**页上，选择**加密工作文件夹**和**自动锁定页面并需要密码**。 单击“下一步”  。  
+8.  在**电脑的安全策略**页上，选择**加密工作文件夹**和**自动锁定页面并需要密码**。 单击“下一步”。  
   
 9. 在**确认**页上，单击**创建**以完成配置过程。  
   
@@ -189,7 +189,7 @@ Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name workfolders -CName  -
 ### <a name="bind-the-certificate"></a>绑定证书  
 工作文件夹仅通过 SSL 进行通信，并且必须将先前创建的自签名证书（或你的证书颁发机构颁发的证书）绑定到端口。  
   
-有两种方法可用于将证书绑定到通过 Windows PowerShell 的端口：IIS cmdlet 和 netsh。  
+可以使用两种方法通过 Windows PowerShell 将证书绑定到端口：IIS cmdlet 和 netsh。  
   
 #### <a name="bind-the-certificate-by-using-netsh"></a>使用 netsh 绑定证书  
 要在 Windows PowerShell 中使用 netsh 命令行脚本实用工具，必须通过管道将此命令传递给 netsh。 以下示例脚本查找具有 **workfolders.contoso.com** 主题的证书，并使用 netsh 将其绑定到端口 443：  
@@ -250,7 +250,7 @@ Exit
   
 4.  在**工作文件夹设置**窗口中，选择**Active Directory 联合身份验证服务**，然后键入联合身份验证服务 URL。 单击 **“应用”** 。  
   
-    在测试的示例中，URL 是 **https://blueadfs.contoso.com** 。  
+    在测试示例中，URL @no__t 为 **-1**。  
   
 通过 Windows PowerShell 完成相同任务的 cmdlet 是：  
   
@@ -271,9 +271,9 @@ Set-SyncServerSetting -ADFSUrl "https://blueadfs.contoso.com"
   
 -   未加入域的 Windows 客户端  
   
-若要导出的证书，请按照用于导出 AD FS 证书更早版本，如中所述的相同步骤[使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤 2 中，AD FS 配置后工作](deploy-work-folders-adfs-step2.md)，导出 AD FS 证书。  
+若要导出证书，请按照之前用于导出 AD FS 证书的相同步骤进行操作，如使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹中所述：步骤2： AD FS 配置后工作 @ no__t-0，导出 AD FS 证书。  
   
-下一步：[部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 4 中，设置 Web 应用程序代理](deploy-work-folders-adfs-step4.md)  
+下一步：使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤4，设置 Web 应用程序代理 @ no__t-0  
   
 ## <a name="see-also"></a>请参阅  
 [工作文件夹概述](Work-Folders-Overview.md)  

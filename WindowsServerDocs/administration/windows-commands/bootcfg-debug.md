@@ -1,8 +1,8 @@
 ---
 title: bootcfg debug
-description: Windows 命令主题**bootcfg 调试**-添加或更改指定的操作系统条目的调试设置。
+description: 用于**bootcfg 调试**的 Windows 命令主题-添加或更改指定操作系统项的调试设置。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 44a1145384a62d30f055cb48fd7ed6adccd2c69b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f6659cf2bfdf83b1b2fe6f6c811365775526768a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434820"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380050"
 ---
 # <a name="bootcfg-debug"></a>bootcfg debug
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-添加或更改指定的操作系统条目的调试设置。
+添加或更改指定操作系统项的调试设置。
 
 ## <a name="syntax"></a>语法
 ```
@@ -34,19 +34,19 @@ bootcfg /debug {ON | OFF | edit}[/s <computer> [/u <Domain>\<User> /p <Password>
 
 |                           参数                           |                                                                                                                                                                                                                    描述                                                                                                                                                                                                                    |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                  {ON &#124; OFF&#124; edit}                   | 指定用于调试的值。<br /><br />**ON** -通过添加到指定 /debug 选项可提供远程调试支持<OSEntryLineNum>。<br /><br />**关闭**-通过删除从指定 /debug 选项来禁用远程调试支持<OSEntryLineNum>。<br /><br />**编辑**-允许通过更改与指定 /debug 选项相关联的值将对端口和波特率更改率设置<OSEntryLineNum>。 |
-|                         /s <computer>                         |                                                                                                                                                                指定的名称或远程计算机的 IP 地址 （不使用反斜杠）。 默认值为本地计算机。                                                                                                                                                                 |
-|                      /u <Domain>\\<User>                      |                                                                                                                       使用指定的用户帐户权限运行命令<User>或<Domain> \\ <User>。 默认值为当前登录的用户发出命令的计算机上的权限。                                                                                                                        |
-|                         /p <Password>                         |                                                                                                                                                                               指定在指定的用户帐户的密码 **/u**参数。                                                                                                                                                                               |
-|       /port {COM1 &#124; COM2 &#124; COM3 &#124; COM4}        |                                                                                                                                                                指定要用于调试的 COM 端口。 不要使用 **/端口**参数如果调试被禁用。                                                                                                                                                                |
-| /baud {9600&#124; 19200&#124; 38400&#124; 57600&#124; 115200} |                                                                                                                                                               指定要用于调试的波特率。 不要使用 **/baud**参数如果调试被禁用。                                                                                                                                                                |
-|                     /id <OSEntryLineNum>                      |                                                                                                               调试选项会添加到其中的 Boot.ini 文件的 [操作系统] 部分中指定的操作系统条目行号。 [操作系统] 部分标头后的第一行是 1。                                                                                                                |
+|                  {ON &#124; OFF&#124;编辑}                   | 指定调试的值。<br /><br />**启用-通过**将/debug 选项添加到指定 <OSEntryLineNum> 来启用远程调试支持。<br /><br />**OFF** -通过删除指定 <OSEntryLineNum> 中的/debug 选项来禁用远程调试支持。<br /><br />**编辑**-通过更改与指定 <OSEntryLineNum> 的/debug 选项关联的值，允许更改端口和波特率设置。 |
+|                         /s <computer>                         |                                                                                                                                                                指定远程计算机的名称或 IP 地址（不使用反斜杠）。 默认值为本地计算机。                                                                                                                                                                 |
+|                      /u <Domain> @ no__t-1 @ no__t-2                      |                                                                                                                       使用 <User> 或 <Domain> @ no__t-2 @ no__t）指定的用户的帐户权限运行命令。 默认为发出命令的计算机上当前登录用户的权限。                                                                                                                        |
+|                         /p <Password>                         |                                                                                                                                                                               指定在 **/u**参数中指定的用户帐户的密码。                                                                                                                                                                               |
+|       /port {COM1 &#124; COM2 &#124; COM3 &#124; COM4}        |                                                                                                                                                                指定用于调试的 COM 端口。 如果正在禁用调试，请不要使用 **/port**参数。                                                                                                                                                                |
+| /baud {9600&#124; 19200&#124; 38400&#124; 57600&#124; 115200} |                                                                                                                                                               指定用于调试的波特率。 如果正在禁用调试，请不要使用 **/baud**参数。                                                                                                                                                                |
+|                     /id <OSEntryLineNum>                      |                                                                                                               指定 Boot.ini 文件的 [操作系统] 部分中的操作系统条目行号，调试选项添加到该文件中。 [操作系统] 部分标题后面的第一行是1。                                                                                                                |
 |                              /?                               |                                                                                                                                                                                                       在命令提示符下显示帮助。                                                                                                                                                                                                        |
 
 ##### <a name="remarks"></a>备注
-- 如果调试 1394年端口是必需的使用[bootcfg dbg1394](bootcfg-dbg1394.md)。
+- 如果需要1394端口调试，请使用[bootcfg dbg1394](bootcfg-dbg1394.md)。
   ## <a name="BKMK_examples"></a>示例
-  下面的示例演示如何使用**bootcfg /debug**命令：
+  下面的示例演示如何使用**bootcfg/debug**命令：
   ```
   bootcfg /debug on /port com1 /id 2 
   bootcfg /debug edit /port com2 /baud 19200 /id 2 

@@ -1,9 +1,9 @@
 ---
 title: 计划多林部署
-description: 本主题是指南的 Windows Server 2016 中的多林环境中部署远程访问的一部分。
+description: 本主题是在 Windows Server 2016 的多林环境中部署远程访问指南的一部分。
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 8acc260f-d6d1-4d32-9e3a-1fd0b2a71586
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a2f14fdb2fd3ab6f0a89c8d8c1a8853041dcba94
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 2a0f04a3ff7797d18f7647416dc99319860c7030
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281013"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404520"
 ---
 # <a name="plan-a-multi-forest-deployment"></a>计划多林部署
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
 本主题介绍在多林部署中配置远程访问所需的计划步骤。  
   
@@ -38,19 +38,19 @@ ms.locfileid: "67281013"
   
 此外，远程访问管理员必须是所有远程访问服务器（包括新林中被添加作为原远程访问部署的入口点的远程访问服务器）的本地管理员。  
   
-## <a name="ClientSG"></a>计划客户端安全组  
+## <a name="ClientSG"></a>规划客户端安全组  
 你至少必须在新林中为该林的 DirectAccess 客户端计算机创建一个安全组。 这是因为一个安全组不能包含多个林的帐户。  
   
 > [!NOTE]  
-> -   DirectAccess 需要至少一个 Windows 10&reg;或 Windows&reg; 8 客户端安全组的每个林。 但是，建议使用一个 Windows 10 或 Windows 8 客户端安全组为包含 Windows 10 或 Windows 8 客户端的每个域。  
-> -   DirectAccess 多站点时，需要至少一个 Windows 7&reg;每个支持的 Windows 7 客户端计算机每个 DirectAccess 入口点的林的客户端安全组。 但是，建议要有为包含 Windows 7 客户端的每个域的每个入口点的单独 Windows 7 客户端安全组。  
+> -   DirectAccess 至少需要为每个林提供一个 Windows 10 @ no__t-0 或 Windows @ no__t-1 个客户端安全组。 但是，建议每个包含 Windows 10 或 Windows 8 客户端的域都有一个 Windows 10 或 Windows 8 客户端安全组。  
+> -   当启用了多站点时，DirectAccess 至少需要为 Windows 7 客户端计算机支持的每个 DirectAccess 入口点的每个林至少有一个 Windows 7 @ no__t-0 个客户端安全组。 但是，建议为每个包含 Windows 7 客户端的域的每个入口点使用单独的 Windows 7 客户端安全组。  
 >   
 > 如果要在添加的域中的客户端计算机上应用 DirectAccess，则必须在这些域中创建客户端 GPO。 添加安全组会导致为新域写入新的客户端 GPO；因此，如果你将新域中的新安全组添加到 DirectAccess 客户端安全组列表中，客户端 GPO 会自动在新域上生成，并且新域的客户端计算机将通过该客户端 GPO 获取 DirectAccess 设置。  
 >   
 > 请注意，如果你将新域的客户端添加到已经是 DirectAccess 客户端安全组的现有安全组中，DirectAccess 将不会自动在新域上创建客户端 GPO。 新域中的客户端将不会接收 DirectAccess 设置，并且无法使用 DirectAcecss 进行连接。  
   
 ## <a name="plan-certification-authorities"></a>计划证书颁发机构  
-如果 DirectAccess 部署配置为使用一次性密码 (OTP) 身份验证，则各个林具有相同的签名证书模板，但这些模板的 Oid 值不同。 这导致无法将林配置为一个单一配置单元。 若要解决此问题，并在多林环境中配置 OTP，请参阅主题中的"配置在多林部署中的 OTP"一节[配置多林部署](Configure-a-Multi-Forest-Deployment.md)。  
+如果 DirectAccess 部署配置为使用一次性密码 (OTP) 身份验证，则各个林具有相同的签名证书模板，但这些模板的 Oid 值不同。 这导致无法将林配置为一个单一配置单元。 若要解决此问题并在多林环境中配置 OTP，请参阅[配置多林部署](Configure-a-Multi-Forest-Deployment.md)主题中的 "在多林部署中配置 otp" 部分。  
   
 当使用 IPsec 计算机证书身份验证时，不管客户端和服务器计算机属于哪个林，它们都必须拥有同一根或中间证书颁发机构颁发的计算机证书。  
   

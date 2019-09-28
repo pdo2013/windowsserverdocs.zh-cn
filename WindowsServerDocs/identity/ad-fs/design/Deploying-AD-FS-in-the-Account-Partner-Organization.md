@@ -7,24 +7,24 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 93f61bc7fd147b2e0220178bcd163b6ca56279cf
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 63c080904482814f9f62451e8e7cfa4862d19927
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191568"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359252"
 ---
 # <a name="deploying-ad-fs-in-the-account-partner-organization"></a>在帐户伙伴组织中部署 AD FS
 
-在 Active Directory 联合身份验证服务帐户伙伴\(AD FS\)表示组织中受支持的属性存储中以物理方式存储用户帐户的联合身份验证信任关系。 有关支持的属性存储的详细信息，请参阅[The Role of Attribute Stores](../../ad-fs/technical-reference/The-Role-of-Attribute-Stores.md)。  
+Active Directory 联合身份验证服务 \(AD FS @ no__t 中的帐户伙伴表示联合身份验证信任关系中以物理方式将用户帐户存储在受支持的属性存储中的组织。 有关支持的属性存储的详细信息，请参阅[属性存储的角色](../../ad-fs/technical-reference/The-Role-of-Attribute-Stores.md)。  
   
-帐户伙伴组织中的联合身份验证服务器进行身份验证本地用户，并创建由资源伙伴在做出授权决定时使用的安全令牌。 例如网站和 Web 服务的信赖方就能轻松地向联合身份验证服务器进行自行注册和使用颁发的令牌进行身份验证和访问控制。  
+帐户伙伴组织中的联合服务器对本地用户进行身份验证，并创建由资源伙伴在进行授权决策时使用的安全令牌。 然后，信赖方（如网站和 Web 服务）可以轻松地向联合服务器注册自己，并使用颁发的令牌进行身份验证和访问控制。  
   
-情况，需要为用户提供有权访问多个联合应用程序或服务中-当每个应用程序或服务由不同组织承载 — 你可以配置帐户伙伴联合身份验证服务器，以便可以部署多个信赖方。  
+在需要向用户提供对多个联合应用程序或服务的访问权限的情况下（当每个应用程序或服务由不同组织承载时），可以配置帐户伙伴联合服务器，以便可以部署多个信赖方。  
   
-有关如何设置和配置帐户伙伴组织的详细信息，请参阅[核对清单：配置帐户伙伴组织](../../ad-fs/deployment/Checklist--Configuring-the-Account-Partner-Organization.md)。  
+有关如何设置和配置帐户伙伴组织的详细信息，请参阅 [Checklist：配置帐户伙伴组织 @ no__t。  
   
 ## <a name="in-this-section"></a>本节内容  
   
@@ -32,7 +32,7 @@ ms.locfileid: "66191568"
   
 -   [查看联合服务器代理在帐户伙伴中的角色](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Account-Partner.md)  
   
--   [准备帐户伙伴中的客户端计算机](Prepare-Client-Computers-in-the-Account-Partner.md)  
+-   [在帐户伙伴中准备客户端计算机](Prepare-Client-Computers-in-the-Account-Partner.md)  
   
 ## <a name="see-also"></a>请参阅
 [Windows Server 2012 中的 AD FS 设计指南](AD-FS-Design-Guide-in-Windows-Server-2012.md)

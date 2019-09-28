@@ -1,7 +1,7 @@
 ---
 ms.assetid: 898d72f1-01e7-4b87-8eb3-a8e0e2e6e6da
 title: 向存储空间直通添加服务器或驱动器
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: cosdar
 ms.manager: dongill
 ms.technology: storage-spaces
@@ -10,12 +10,12 @@ author: cosmosdarwin
 ms.date: 11/06/2017
 description: 如何将服务器或驱动器添加到存储空间直通群集
 ms.localizationpriority: medium
-ms.openlocfilehash: ae639b920788911dbc16952d7b61aab85b0a391b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3d5949b8fce7253371ee7ecea5118596f713f037
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833448"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393779"
 ---
 # <a name="adding-servers-or-drives-to-storage-spaces-direct"></a>向存储空间直通添加服务器或驱动器
 
@@ -23,15 +23,15 @@ ms.locfileid: "59833448"
 
 本主题介绍如何向存储空间直通添加服务器或驱动器。
 
-## <a name="adding-servers"></a> 添加服务器
+## <a name="adding-servers"></a>添加服务器
 
 添加服务器（通常称作横向扩展）可增加存储容量、提高存储性能并实现更高的存储效率。 如果你的部署是超聚合的，则添加服务器还可为你的工作负载提供更多计算资源。
 
-![将服务器添加到四个节点群集的动画](media/add-nodes/Scaling-Out.gif)
+![将服务器添加到四节点群集的动画](media/add-nodes/Scaling-Out.gif)
 
 通过添加服务器，典型的部署很容易实现横向扩展。 只需两个步骤：
 
-1. 使用故障转移群集管理单元或者在 PowerShell 中使用 **Test-Cluster** cmdlet，运行 [群集验证向导](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx)（以管理员身份运行）。 包括你要添加的新服务器 *\<NewNode>*。
+1. 使用故障转移群集管理单元或者在 PowerShell 中使用 **Test-Cluster** cmdlet，运行 [群集验证向导](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx)（以管理员身份运行）。 包括你要添加的新服务器 *\<NewNode>* 。
 
    ```PowerShell
    Test-Cluster -Node <Node>, <Node>, <Node>, <NewNode> -Include "Storage Spaces Direct", Inventory, Network, "System Configuration"
@@ -53,7 +53,7 @@ Add-ClusterNode -Name NewNode
 
 ### <a name="from-2-to-3-servers-unlocking-three-way-mirroring"></a>从 2 个服务器横向扩展到 3 个服务器：解锁三向镜像
 
-![将第三个服务器添加到两个节点群集](media/add-nodes/Scaling-2-to-3.png)
+![将第三个服务器添加到双节点群集](media/add-nodes/Scaling-2-to-3.png)
 
 通过两个服务器仅可创建双向镜像卷（相较于分布式 RAID-1）。 通过三个服务器可以创建三向镜像卷，以便提供更好的容错能力。 建议尽可能使用三向镜像。
 
@@ -91,7 +91,7 @@ New-Volume -FriendlyName <Name> -FileSystem CSVFS_ReFS -StoragePoolFriendlyName 
 
 ### <a name="from-3-to-4-servers-unlocking-dual-parity"></a>从 3 个服务器横向扩展到 4 个服务器：解锁双奇偶校验
 
-![将第四个服务器添加到一个三节点群集](media/add-nodes/Scaling-3-to-4.png)
+![将第四个服务器添加到三节点群集](media/add-nodes/Scaling-3-to-4.png)
 
 通过四个服务器可以使用双奇偶校验，通常也称为“删除编码”（相较于分布式 RAID-6）。 这提供了与三向镜像相同的默认容错，但存储效率更好。 要了解详细信息，请参阅 [容错和存储效率](storage-spaces-fault-tolerance.md)。
 
@@ -166,14 +166,14 @@ New-Volume -FriendlyName "Sir-Mix-A-Lot" -FileSystem CSVFS_ReFS -StoragePoolFrie
 
 3. 如 [添加服务器](#adding-servers) 中所述将服务器添加到群集。 当新服务器加入群集时，它会自动（使用其名称）与占位符容错域相关联。
 
-## <a name="adding-drives"></a> 添加驱动器
+## <a name="adding-drives"></a>添加驱动器
 
 添加驱动器（也称为纵向扩展）将增加存储容量并提高性能。 如果你有可用插槽，则无需添加服务器便可将驱动器添加到每个服务器，从而扩展你的存储容量。 你随时可以独立添加缓存驱动器或容量驱动器。
 
    >[!IMPORTANT]
    > 强烈建议所有服务器都具有相同的存储配置。
 
-![动画显示添加到系统驱动器](media/add-nodes/Scale-Up.gif)
+![显示将驱动器添加到系统的动画](media/add-nodes/Scale-Up.gif)
 
 若要纵向扩展，请连接驱动器并验证 Windows 是否能够发现它们。 它们应该出现在 PowerShell 的 **Get-PhysicalDisk** cmdlet 输出中，其 **CanPool** 属性设置为 **True**。 如果它们显示为 **CanPool = False**，则你可以通过查看其 **CannotPoolReason** 属性来了解原因。
 
@@ -188,19 +188,19 @@ Get-PhysicalDisk | Select SerialNumber, CanPool, CannotPoolReason
    >[!NOTE]
    > 自动池取决于你只有一个池。 如果你已避开标准配置来创建多个池，则将需要使用 **Add-PhysicalDisk** 自行将新驱动器添加到首选池。
 
-## <a name="optimizing-drive-usage-after-adding-drives-or-servers"></a>添加驱动器或服务器后优化驱动器使用情况
+## <a name="optimizing-drive-usage-after-adding-drives-or-servers"></a>在添加驱动器或服务器之后优化驱动器使用情况
 
-随着时间推移，驱动器在添加或删除，在池中的驱动器间的数据分布可以变得不均匀。 在某些情况下，这可能导致某些变满，而在池中其他驱动器有使用量低很多的驱动器。
+随着时间的推移，添加或删除驱动器时，池中驱动器之间的数据分布可能会变得不稳定。 在某些情况下，这可能会导致某些驱动器变满，而池中的其他驱动器的消耗更少。
 
-为了帮助保持甚至跨池中的驱动器分配，存储空间直通自动优化了驱动器使用情况后将驱动器或服务器添加到池 （这是一个手动过程对于使用共享 SAS 存储设备的存储空间系统）。 优化开始之后将新驱动器添加到池的 15 分钟。 池优化运行为低优先级后台操作，因此可能需要花费数小时或数天才能完成，特别是如果您使用大型的硬盘驱动器。
+若要帮助保留驱动器的分配，即使是在池中，存储空间直通在将驱动器或服务器添加到池之后，自动优化驱动器的使用（这是使用共享 SAS 机箱的存储空间系统的手动过程）。 在将新驱动器添加到池之后，优化开始15分钟。 池优化作为低优先级后台操作运行，因此可能需要几个小时或几天才能完成，特别是在使用大硬盘时。
 
-优化使用两个作业的另一个名为*优化*另一个名为*重新平衡*-，你可以监视其进度，使用以下命令：
+优化使用两个作业-一个名为 "*优化*"，另一个称为 "重新*平衡*"，可以使用以下命令监视其进度：
 
 ```powershell
 Get-StorageJob
 ```
 
-您可以手动优化的存储池[Optimize-storagepool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) cmdlet。 以下是一个示例：
+可以使用[StoragePool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) cmdlet 手动优化存储池。 以下是一个示例：
 
 ```powershell
 Get-StoragePool <PoolName> | Optimize-StoragePool

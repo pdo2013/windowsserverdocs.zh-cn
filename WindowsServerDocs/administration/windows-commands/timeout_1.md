@@ -1,8 +1,8 @@
 ---
 title: timeout
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3997399b732c494050797c83a0a52938574986bd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 09f294eb78a8868b4e3962557a36199b69fae0c9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830168"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385771"
 ---
 # <a name="timeout"></a>timeout
 
 
 
-暂停指定的秒数的命令处理器。
+在指定的秒数内暂停命令处理器。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -38,31 +38,31 @@ timeout /t <TimeoutInSeconds> [/nobreak]
 
 |参数|描述|
 |---------|-----------|
-|/t \<TimeoutInSeconds>|指定十进制 （-1 到 99999） 之间的秒数后的命令处理器将继续进行处理之前要等待。 值-1 将导致无限期地等待键击计算机。|
-|/nobreak|指定要忽略用户键击。|
+|/t \<TimeoutInSeconds >|指定命令处理器继续处理之前要等待的秒数（-1 到99999）。 值-1 会使计算机无限期等待击键。|
+|/nobreak|指定忽略用户密钥笔划。|
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
 
--   **超时**命令通常用于在批处理文件中。
--   用户击键恢复命令处理器执行立即，即使未过期的超时期限。
--   当结合使用时**睡眠**命令，**超时**类似于**暂停**命令。
+-   **Timeout**命令通常在批处理文件中使用。
+-   即使超时期限未过期，用户按键也会立即继续执行命令处理器。
+-   与 "**睡眠**" 命令结合使用时，"**超时**" 类似于 "**暂停**" 命令。
 
 ## <a name="BKMK_examples"></a>示例
 
-若要为十秒暂停命令处理器，请键入：
+若要将命令处理器暂停10秒，请键入：
 ```
 timeout /t 10
 ```
-若要暂停 100 秒命令处理器并忽略任何击键，键入：
+若要将命令处理器暂停100秒并忽略任何击键，请键入：
 ```
 timeout /t 100 /nobreak
 ```
-若要无限期地直到按下某个键暂停命令处理器，请键入：
+若要在按下某个键之前无限期暂停命令处理器，请键入：
 ```
 timeout /t -1
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

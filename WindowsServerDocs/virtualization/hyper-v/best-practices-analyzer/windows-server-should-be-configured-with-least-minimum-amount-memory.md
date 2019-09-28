@@ -1,7 +1,7 @@
 ---
-title: Windows Server 2016 应为配置了至少最小内存量
-description: 提供说明来解决此最佳实践分析程序规则所报告的问题。
-ms.prod: windows-server-threshold
+title: 应至少为 Windows Server 2016 配置最小内存量
+description: 提供有关如何解决此最佳做法分析器规则报告的问题的说明。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: d324af73-af73-40b0-bd5b-8003ba3e921b
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 687c36ee8b3dea1d67ad35155650e77a9cf7f0a4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b3e4b29c11e2c501b9e9df6b1089a297dcced125
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873878"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364366"
 ---
-# <a name="windows-server-2016-should-be-configured-with-at-least-the-minimum-amount-of-memory"></a>Windows Server 2016 应为配置了至少最小内存量
+# <a name="windows-server-2016-should-be-configured-with-at-least-the-minimum-amount-of-memory"></a>应至少为 Windows Server 2016 配置最小内存量
 
 >适用于：Windows Server 2016
 
@@ -27,48 +27,48 @@ ms.locfileid: "59873878"
 |-|-|  
 |**操作系统**|Windows Server 2016|  
 |**产品/功能**|Hyper-V|  
-|**Severity**|错误|  
+|**Severity**|Error|  
 |**类别**|配置|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。
   
 ## <a name="issue"></a>**问题**  
-*运行 Windows Server 2016 的虚拟机的最小为 512 MB 的 RAM 量低于配置。*  
+*为运行 Windows Server 2016 的虚拟机配置的 RAM 小于最小 RAM 量，即 512 MB。*  
   
-## <a name="impact"></a>**影响**  
-*在以下虚拟机来宾操作系统可能无法运行，或可能 unreliably 运行：*  
+## <a name="impact"></a>**对**  
+*以下虚拟机上的来宾操作系统可能无法运行或可能运行 unreliably：*  
   
-\<虚拟机的列表 >  
+@no__t-虚拟机的 0list >  
   
 ## <a name="resolution"></a>**解决方法**  
-*使用 HYPER-V 管理器，以增加分配给此虚拟机为至少 512 MB 的内存。*  
+*使用 Hyper-v 管理器将分配给此虚拟机的内存增加到至少 512 MB。*  
   
-#### <a name="increase-the-memory-using-hyper-v-manager"></a>增加内存使用 Hyper-v 管理器  
+#### <a name="increase-the-memory-using-hyper-v-manager"></a>使用 Hyper-v 管理器增加内存  
   
-1.  打开 Hyper-V 管理器。 单击 **“开始”**，指向 **“管理工具”**，然后单击 **“Hyper-V 管理器”**。  
+1.  打开 Hyper-V 管理器。 单击 **“开始”** ，指向 **“管理工具”** ，然后单击 **“Hyper-V 管理器”** 。  
   
-2.  在结果窗格中下,**虚拟机**，选择你想要配置的虚拟机。 虚拟机的状态都已列为**关闭**。 如果不是，右键单击虚拟机，然后单击**关机**。  
+2.  在结果窗格中的 "**虚拟机**" 下，选择要配置的虚拟机。 虚拟机的状态应列为 "**关**"。 如果不是，请右键单击该虚拟机，然后单击 "**关闭**"。  
   
-3.  在 **“操作”** 窗格中的虚拟机名称下，单击 **“设置”**。  
+3.  在 **“操作”** 窗格中的虚拟机名称下，单击 **“设置”** 。  
   
-4.  在导航窗格中，单击**内存**。  
+4.  在导航窗格中，单击 "**内存**"。  
   
-5.  上**内存**页上，将**启动 RAM**为至少 512MB，然后单击**确定**。  
+5.  在 "**内存**" 页上，将 "**启动 RAM** " 设置为至少 512 MB，然后单击 **"确定"** 。  
   
-### <a name="increase-the-memory-using-windows-powershell"></a>增加内存使用 Windows PowerShell  
+### <a name="increase-the-memory-using-windows-powershell"></a>使用 Windows PowerShell 增加内存  
   
-1.  打开 Windows PowerShell。 (从桌面上，单击**启动**，然后开始键入**Windows PowerShell**。)  
+1.  打开 Windows PowerShell。 （在桌面上，单击 "**开始**"，然后开始键入**Windows PowerShell**。）  
   
-2.  右键单击**Windows PowerShell**然后单击**以管理员身份运行**。  
+2.  右键单击 " **Windows PowerShell** "，然后单击 "**以管理员身份运行**"。  
   
-3.  替换后运行此命令\<MyVM > 你的虚拟机的名称：  
+3.  将 \<MyVM > 替换为虚拟机的名称后，请运行此命令：  
   
 ```  
 Set-VMMemory <MyVM> -StartupBytes 512MB  
 ```  
   
 ## <a name="see-also"></a>请参阅  
-[Set-VMMemory](https://technet.microsoft.com/library/hh848572.aspx)  
+[Set-vmmemory](https://technet.microsoft.com/library/hh848572.aspx)  
   
 
 

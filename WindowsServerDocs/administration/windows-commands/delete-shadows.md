@@ -1,8 +1,8 @@
 ---
 title: 删除阴影
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1a0945477bc4fce907b5ec4a697c7a2ec2f59557
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c965af8b045c5ab3a110542d148b255f382a95c3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436116"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378626"
 ---
 # <a name="delete-shadows"></a>删除阴影
 
@@ -37,11 +37,11 @@ delete shadows [all | volume <Volume> | oldest <Volume> | set <SetID> | id <Shad
 |     参数     |                                                                             描述                                                                              |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |        全部        |                                                                      删除所有卷影副本。                                                                      |
-| 卷\<卷 >  |                                                            删除给定卷的所有卷影副本。                                                            |
-| 最早\<卷 >  |                                                         删除给定卷的最旧的卷影副本。                                                          |
-|   set \<SetID>    | 删除卷影副本中的卷影副本集的给定的 id。 您可以通过使用指定了别名 **%** 符号如果别名存在于当前环境中。 |
-|  id \<ShadowID >   |              删除卷影副本的给定的 id。 您可以通过使用指定了别名 **%** 符号如果别名存在于当前环境中。               |
-| 公开 {\<驱动器 > |                                                                            <MountPoint>}                                                                             |
+| 卷 \<Volume >  |                                                            删除给定卷的所有卷影副本。                                                            |
+| 最早 \<Volume >  |                                                         删除给定卷的最旧的卷影副本。                                                          |
+|   设置 \<SetID >    | 删除具有给定 ID 的卷影副本集中的卷影副本。 如果当前环境中存在别名，则可以通过使用 **%** 符号指定别名。 |
+|  id \<ShadowID >   |              删除给定 ID 的卷影副本。 如果当前环境中存在别名，则可以通过使用 **%** 符号指定别名。               |
+| 公开 {@no__t 0Drive > |                                                                            <MountPoint>}                                                                             |
 
 #### <a name="additional-references"></a>其他参考
 

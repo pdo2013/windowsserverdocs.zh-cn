@@ -3,7 +3,7 @@ title: 用于部署 MultiPoint 服务的任务
 description: 列出部署 MultiPoint 服务时涉及的所有任务，以及指向说明的链接
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: e08c5784-5b3e-4028-86c1-96deaee41f09
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 9f0b69da06fb783ac7cccc2dc5bc7337dae59d66
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9d50cfc3ed48f77281af400e9e80fb8b4895bac5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871455"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394755"
 ---
 # <a name="task-lists-multipoint-services"></a>任务列表：MultiPoint 服务
 使用本主题中的任务列表来帮助你部署 MultiPoint 服务系统，并跟踪已完成的任务。 并非所有任务都适用于每个环境。 例如，某些任务仅在 Active Directory 域上部署了 MultiPoint 服务器时执行。 其他某些工具（例如创建拆分屏幕工作站或为工作站部署虚拟机）是可选的。 有关说明如何执行这些任务的过程，请参阅[部署 MultiPoint 服务](deploying-multipoint-services.md)。  
