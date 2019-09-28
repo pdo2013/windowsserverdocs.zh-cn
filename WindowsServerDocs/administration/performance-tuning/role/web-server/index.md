@@ -1,18 +1,18 @@
 ---
 title: 性能优化 Web 服务器
 description: 针对 Windows Server 16 上的Web 服务器的性能优化建议
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: landing-page
 ms.author: DavSo; Ericam; YaShi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 72a7a8c2bc7e90a24e8c47c9296aa6670010cd0a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9587eb5215d2920a0146e8a697c6f36c50f19f27
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891818"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370051"
 ---
 # <a name="performance-tuning-web-servers"></a>性能优化 Web 服务器
 

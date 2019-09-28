@@ -1,18 +1,18 @@
 ---
 title: 针对缓存和内存管理器子系统的性能优化
 description: 针对缓存和内存管理器子系统的性能优化
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: landing-page
 ms.author: Pavel; ATales
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 628a73f66e15940f184a076ad72fc24ad75b0e6c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: c914768378303b8a36cb2e3ec468e853296249a3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866419"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370017"
 ---
 # <a name="performance-tuning-cache-and-memory-manager"></a>性能优化缓存和内存管理器
 

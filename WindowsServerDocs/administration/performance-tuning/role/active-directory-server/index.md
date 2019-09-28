@@ -1,18 +1,18 @@
 ---
 title: Active Directory 服务器的性能优化
 description: Active Directory 服务器的性能优化
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: landing-page
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab; v-tea
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9fa01e7336953c4b2817535d1e50c0200b93e4fd
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: c4d14cfb4bfc8a6919683a360ec171de8250799a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866637"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370318"
 ---
 # <a name="performance-tuning-active-directory-servers"></a>Active Directory 服务器的性能优化
 
