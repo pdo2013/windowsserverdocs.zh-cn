@@ -6,17 +6,17 @@ manager: mtillman
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: ''
 ms.date: 05/01/2018
-ms.openlocfilehash: cd145402ed70aa52da7188dee9dd64ce17fea155
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: d393ad4af81ee1c24fa5f28b8a3b05217e7b34dd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871876"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71396298"
 ---
 # <a name="network-policy-server-user-data-collection"></a>网络策略服务器用户数据收集
 
@@ -41,7 +41,7 @@ ms.locfileid: "70871876"
 
 如果启用并配置了记帐数据，则可以从 SQL Server 或日志文件中获取用户的 NPS 身份验证尝试记录，具体取决于配置。 
 
-如果为 SQL Server 配置了记帐数据，则查询所有记录，其中用户名`'<username>'`=。
+如果为 SQL Server 配置了记帐数据，则查询用户名 = `'<username>'` 的所有记录。
 
 如果为日志文件配置了记帐数据，则在`<username>`日志文件中搜索以查找所有日志条目。
 

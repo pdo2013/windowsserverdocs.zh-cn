@@ -1,7 +1,7 @@
 ---
 title: 为始终启用 VPN 配置远程访问服务器
 description: RRAS 旨在同时作为路由器和远程访问服务器执行;因此，它支持多种功能。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
@@ -10,12 +10,12 @@ ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: 8ed7dd9b8b02ab58cfb6dacf031576004c8d0290
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: c04074338cf4ba0189eb1e9bc45a80b948fdbfbf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871307"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388042"
 ---
 # <a name="step-3-configure-the-remote-access-server-for-always-on-vpn"></a>步骤 3： 为始终启用 VPN 配置远程访问服务器
 

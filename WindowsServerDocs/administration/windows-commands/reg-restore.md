@@ -1,8 +1,8 @@
 ---
-title: reg 还原
-description: 'Windows 命令主题 * * *- '
+title: reg restore
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0025a37ed8ca50b47e7750501a7362659b500537
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6c121256cecaebc26e2c402d9b9ced8890eddc2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858768"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384670"
 ---
-# <a name="reg-restore"></a>reg 还原
+# <a name="reg-restore"></a>reg restore
 
 
 
-将保存子项和项备份到注册表。
+将保存的子项和项写入注册表。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -38,14 +38,14 @@ Reg restore <KeyName> <FileName>
 
 |参数|描述|
 |---------|-----------|
-|\<KeyName>|指定要还原的子项的完整路径。 还原操作仅适用于本地计算机。 KeyName 必须包含有效的根键。 有效的根键包括：HKLM、 HKCU、 HKCR、 hku 开头和 HKCC。|
-|\<FileName>|使用内容写入到注册表中指定的名称和文件的路径。 此文件必须使用预先创建**reg 保存**使用.hiv 扩展的操作。|
-|/?|显示的帮助**reg 还原**在命令提示符处。|
+|\<KeyName >|指定要还原的子项的完整路径。 还原操作仅适用于本地计算机。 KeyName 必须包含有效的根密钥。 有效的根密钥为：HKLM、HKCU、HKCR、HKU 开头和 HKCC。|
+|\<文件名 >|指定包含要写入注册表的内容的文件的名称和路径。 必须事先使用 **.reg save**操作来创建此文件，并使用 hiv 扩展名。|
+|/?|在命令提示符下显示**reg restore**的帮助。|
 
 ## <a name="remarks"></a>备注
 
--   在编辑任何注册表项，保存与父子项**reg 保存**操作。 如果编辑失败，还原与原始的子项**reg 还原**操作。
--   下表列出的返回值**reg 还原**操作。
+-   在编辑任何注册表项之前，请用**reg save**操作保存父子项。 如果编辑失败，请将原始子项还原为**reg restore**操作。
+-   下表列出了**reg restore**操作的返回值。
 
 |ReplTest1|Description|
 |-----|-----------|
@@ -54,11 +54,11 @@ Reg restore <KeyName> <FileName>
 
 ## <a name="BKMK_examples"></a>示例
 
-若要还原到密钥 HKLM\Software\Microsoft\ResKit，名为 NTRKBkUp.hiv 的文件并覆盖现有项的内容，请键入：
+若要将名为 NTRKBkUp. hiv 的文件还原到密钥 HKLM\Software\Microsoft\ResKit，并覆盖该项的现有内容，请键入：
 ```
 REG RESTORE HKLM\Software\Microsoft\ResKit NTRKBkUp.hiv
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

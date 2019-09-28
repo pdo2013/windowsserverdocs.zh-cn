@@ -1,9 +1,9 @@
 ---
 title: DirectAccess 的已知问题
-description: 本主题提供指向 Microsoft 技术支持文档的 Windows Server 2016 中的 DirectAccess。
+description: 本主题提供了有关 Windows Server 2016 中 DirectAccess 的 Microsoft 技术支持文档的链接。
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,22 +12,22 @@ ms.topic: article
 ms.assetid: 3511a91f-1d5d-45a0-97f2-3fc0d6f079b4
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6cc7e7ddbeb93e125aa2636c5f0dc26d3fef283d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: a80fdd391f9cc1ba5a928f29131921b98d39274c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281958"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394589"
 ---
 # <a name="directaccess-known-issues"></a>DirectAccess 的已知问题
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
 
-## <a name="recommended-hotfixes-and-updates-for-windows-server-2012-directaccess"></a>建议的修补程序和更新 Windows Server 2012 DirectAccess  
-以下链接列出了 DirectAccess，您应查看并应用之前在开始部署以避免不可用的配置的 Microsoft 技术支持文档。  
+## <a name="recommended-hotfixes-and-updates-for-windows-server-2012-directaccess"></a>Windows Server 2012 DirectAccess 的推荐修补程序和更新  
+以下链接列出了 DirectAccess 的 Microsoft 技术支持文档，你应该在开始部署之前查看并应用这些文档以避免无法使用的配置。  
   
--   [建议的修补程序和更新 Windows Server 2012 DirectAccess](https://support.microsoft.com/kb/2883952)  
+-   [Windows Server 2012 DirectAccess 的推荐修补程序和更新](https://support.microsoft.com/kb/2883952)  
   
   
 

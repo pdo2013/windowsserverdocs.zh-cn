@@ -1,7 +1,7 @@
 ---
-title: 请确保虚拟机使用差异虚拟硬盘时提供足够的物理磁盘空间
-description: 此最佳实践分析工具规则的文本的联机版本。
-ms.prod: windows-server-threshold
+title: 当虚拟机使用差异虚拟硬盘时，请确保有足够的物理磁盘空间可用
+description: 此最佳做法分析器规则文本的联机版本。
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 71f99aab-f994-4022-9da0-d661965b95ac
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 6d4d219402cdc321a75cc27d75ea7749eb6127e0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3827d149d2d691b4ecd7fe6ae8f6d7255c85a31c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855568"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364870"
 ---
-# <a name="ensure-sufficient-physical-disk-space-is-available-when-virtual-machines-use-differencing-virtual-hard-disks"></a>请确保虚拟机使用差异虚拟硬盘时提供足够的物理磁盘空间
+# <a name="ensure-sufficient-physical-disk-space-is-available-when-virtual-machines-use-differencing-virtual-hard-disks"></a>当虚拟机使用差异虚拟硬盘时，请确保有足够的物理磁盘空间可用
 
 >适用于：Windows Server 2016
 
@@ -30,18 +30,18 @@ ms.locfileid: "59855568"
 |**Severity**|警告|  
 |**类别**|配置|  
   
-在以下部分中，斜体指示在此问题的最佳做法分析器工具中显示的 UI 文本。  
+在以下部分中，"斜体" 指示在此问题的最佳做法分析器工具中出现的 UI 文本。  
   
 ## <a name="issue"></a>问题  
-*一个或多个虚拟机使用差异虚拟硬盘。*  
+*一个或多个虚拟机正在使用差异虚拟硬盘。*  
   
 ## <a name="impact"></a>影响  
-*差异虚拟硬盘需要托管的卷上的可用空间，以便为虚拟硬盘的写入操作发生时，可以分配空间。如果可用空间已用尽，可能会影响任何依赖于物理存储的虚拟机。这会影响以下虚拟机：*  
+@no__t 0Differencing 虚拟硬盘需要主机卷上的可用空间，以便在写入虚拟硬盘时可以分配空间。如果可用空间已用完，则任何依赖于物理存储的虚拟机都可能会受到影响。这会影响以下虚拟机： *  
   
-\<虚拟机的列表 >  
+@no__t-虚拟机的 0list >  
   
 ## <a name="resolution"></a>分辨率  
-*监视可用磁盘空间，以确保有足够的空间是适用于虚拟硬盘扩展。请考虑合并到其父差异虚拟硬盘。在 HYPER-V 管理器中检查来确定父虚拟硬盘，差异磁盘。如果你合并到共享的其他差异磁盘的父磁盘的差异磁盘，该操作将损坏之间其他差异磁盘和父磁盘，使其不可用的关系。在验证不共享父虚拟硬盘后，可以使用编辑磁盘向导要合并到父虚拟硬盘，差异磁盘。*  
+@no__t 0Monitor 可用磁盘空间，以确保有足够的空间可用于虚拟硬盘扩展。请考虑将差异虚拟硬盘合并到其父磁盘。在 Hyper-v 管理器中，检查差异磁盘以确定父虚拟硬盘。如果将差异磁盘合并到其他差异磁盘共享的父磁盘，则该操作将损坏其他差异磁盘和父磁盘之间的关系，使其不可用。验证父虚拟硬盘是否已共享后，可以使用 "编辑磁盘" 向导将差异磁盘合并到父虚拟硬盘。 *  
   
 
 

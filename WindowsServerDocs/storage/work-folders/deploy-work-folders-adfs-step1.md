@@ -1,6 +1,6 @@
 ---
 title: 使用 AD FS 和 Web 应用程序代理部署工作文件夹 - 步骤 1，设置 AD FS
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 manager: klaasl
@@ -8,31 +8,31 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 10/18/2018
 ms.assetid: 938cdda2-f17e-4964-9218-f5868fd96735
-ms.openlocfilehash: 4f4119e893b215bd9f6d713bc5a17218b751c3d3
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 0920d091d6e8b5f3db9bf945a966fdd577918179
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812691"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365795"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-1-set-up-ad-fs"></a>部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 1，安装 AD FS
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-1-set-up-ad-fs"></a>使用 AD FS 和 Web 应用程序代理部署工作文件夹：步骤1、设置 AD FS
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016
+>适用于：Windows Server（半年频道）、Windows Server 2016
 
 本主题介绍了使用 Active Directory 联合身份验证服务 (AD FS) 和 Web 应用程序代理部署工作文件夹的第一步。 你可以在这些主题中查找这一过程的其他步骤：  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：概述](deploy-work-folders-adfs-overview.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：叙述](deploy-work-folders-adfs-overview.md)  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 2 中，AD FS 配置后工作](deploy-work-folders-adfs-step2.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤 2 AD FS 配置后工作 @ no__t-0  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 3，设置了工作文件夹](deploy-work-folders-adfs-step3.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤3，设置工作文件夹 @ no__t-0  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 4 中，设置 Web 应用程序代理](deploy-work-folders-adfs-step4.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤4，设置 Web 应用程序代理 @ no__t-0  
   
--   [部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 5 中，设置客户端](deploy-work-folders-adfs-step5.md)  
+-   使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤5，设置客户端 @ no__t-0  
   
 > [!NOTE]
->   在本部分中介绍的说明适用于 Windows Server 2019 或 Windows Server 2016 环境。 如果你使用的是 Windows Server 2012 R2，请遵循 [Windows Server 2012 R2 说明](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx)。
+>   本部分中所述的说明适用于 Windows Server 2019 或 Windows Server 2016 环境。 如果你使用的是 Windows Server 2012 R2，请遵循 [Windows Server 2012 R2 说明](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx)。
 
 若要设置 AD FS 以用于工作文件夹，请使用以下过程。  
   
@@ -104,7 +104,7 @@ AD FS 证书必须为使用下列值的 SAN 证书：
 Workplace Join 需要 enterpriseregistration SAN。  
   
 ### <a name="set-the-server-ip-address"></a>设置服务器的 IP 地址  
-将服务器的 IP 地址更改为静态 IP 地址。 测试示例中，使用 IP 类，该类是 192.168.0.160 / 子网掩码：255.255.0.0/默认网关：192.168.0.1/首选 DNS:192.168.0.150 (你的域控制器的 IP 地址\)。  
+将服务器的 IP 地址更改为静态 IP 地址。 对于测试示例，请使用 IP 类 A，它是 192.168.0.160/子网掩码：255.255.0.0/默认网关：192.168.0.1/首选 DNS：192.168.0.150 （域控制器 @ no__t 的 IP 地址。  
   
 ## <a name="install-the-ad-fs-role-service"></a>安装 AD FS 角色服务  
 按照下列步骤安装 AD FS：  
@@ -113,7 +113,7 @@ Workplace Join 需要 enterpriseregistration SAN。
   
 2.  在**服务器角色**页面上，选择 **Active Directory 联合身份验证服务**角色，然后单击**下一步**。  
   
-3.  在 **Active Directory 联合身份验证服务 (AD FS)** 页面上，你将看到一条消息，这条消息指出无法在同一台计算机上将 Web 应用程序代理角色作为 AD FS 安装。 单击“下一步”  。  
+3.  在 **Active Directory 联合身份验证服务 (AD FS)** 页面上，你将看到一条消息，这条消息指出无法在同一台计算机上将 Web 应用程序代理角色作为 AD FS 安装。 单击“下一步”。  
   
 4.  在“确认”页上，单击**安装**。  
   
@@ -138,16 +138,16 @@ Add-WindowsFeature ADFS-Federation –IncludeManagementTools
   
 4.  在**指定服务属性**页面上，输入用于 AD FS 通信的 SSL 证书使用者名称。 在测试示例中，此为 **blueadfs.contoso.com**。  
   
-5.  输入联合身份验证服务名称。 在测试示例中，此为 **blueadfs.contoso.com**。 单击“下一步”  。  
+5.  输入联合身份验证服务名称。 在测试示例中，此为 **blueadfs.contoso.com**。 单击“下一步”。  
   
     > [!NOTE]  
     > 联合身份验证服务名称不得使用环境中现有服务器的名称。 一旦使用现有服务器的名称，AD FS 安装将失败，并且必须重启。  
   
-6.  在**指定服务帐户**页面上，输入你想要用于托管服务帐户的名称。 对于测试示例，请选择**创建组托管服务帐户**，并在**帐户名称**中输入 **ADFSService**。 单击“下一步”  。  
+6.  在**指定服务帐户**页面上，输入你想要用于托管服务帐户的名称。 对于测试示例，请选择**创建组托管服务帐户**，并在**帐户名称**中输入 **ADFSService**。 单击“下一步”。  
   
 7.  在**指定配置数据库**页面上，选择**使用 Windows 内部数据库在此服务器上创建数据库**，然后单击**下一步**。  
   
-8.  **查看选项**页面会显示所选选项的概述。 单击“下一步”  。  
+8.  **查看选项**页面会显示所选选项的概述。 单击“下一步”。  
   
 9. **先决条件检查**页面会指示所有先决条件是否都成功通过检查。 如果没有任何问题，请单击**配置**。  
   
@@ -182,7 +182,7 @@ $thumbprint = $cert.Thumbprint
 Install-ADFSFarm -CertificateThumbprint $thumbprint -FederationServiceDisplayName "Contoso Corporation" –FederationServiceName blueadfs.contoso.com -GroupServiceAccountIdentifier contoso\ADFSService$ -OverwriteConfiguration -ErrorAction Stop  
 ```  
   
-下一步：[部署工作文件夹使用 AD FS 和 Web 应用程序代理：步骤 2 中，AD FS 配置后工作](deploy-work-folders-adfs-step2.md)  
+下一步：使用 AD FS 和 Web 应用程序代理 @no__t 0Deploy 工作文件夹：步骤 2 AD FS 配置后工作 @ no__t-0  
   
 ## <a name="see-also"></a>请参阅  
 [工作文件夹概述](Work-Folders-Overview.md)  

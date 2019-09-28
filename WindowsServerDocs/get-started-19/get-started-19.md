@@ -1,7 +1,7 @@
 ---
 title: 入门
 description: 详细介绍 Windows Server 2019 以及如何做好部署、升级或迁移准备。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: jasgroce
 ms.technology: get-started
 layout: LandingPage
@@ -9,16 +9,16 @@ ms.topic: landing-page
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
-ms.openlocfilehash: 8e75f4262ea3e1d20b399b3fa1214f0ede33e1e0
-ms.sourcegitcommit: b17ccf7f81e58e8f4dd844be8acf784debbb20ae
+ms.openlocfilehash: acc18e9b960473098f59d8980b4b85e63f209b82
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69023912"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71360799"
 ---
 # <a name="get-started-with-windows-server-2019"></a>Windows Server 2019 入门
 
-> 适用于：Windows Server 2019
+> 适用于：Windows Server Standard 2012 R2
 
 此集合包含详细的信息，可帮助你确定是否已做好转到 Windows Server 2019 的准备。 一旦检查了转到 Windows Server 2019 的系统要求、升级选项和其他信息，即可安装符合需求的最佳版本和安装选项。 若要下载 Windows Server 2019，请参阅 [Windows Server 评估](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019)。
 

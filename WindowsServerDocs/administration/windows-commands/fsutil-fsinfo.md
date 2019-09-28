@@ -1,7 +1,7 @@
 ---
 ms.assetid: 7787a72e-a26b-415f-b700-a32806803478
-title: fsutil fsinfo
-ms.prod: windows-server-threshold
+title: Fsutil fsinfo
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,17 +9,17 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 434dfde2286538367fb96d168b06983cb4357067
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 472c3b91285810ac1ff528da24de50533bae526d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873038"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376940"
 ---
-# <a name="fsutil-fsinfo"></a>fsutil fsinfo
->适用于：Windows Server （半年频道）、 Windows Server 2016 中，Windows 10、 Windows Server 2012 R2、 Windows 8.1、 Windows Server 2012 中，Windows 8、 Windows Server 2008 R2、 Windows 7
+# <a name="fsutil-fsinfo"></a>Fsutil fsinfo
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows 10，Windows Server 2012 R2，Windows 8.1，Windows Server 2012，Windows 8，Windows Server 2008 R2，Windows 7
 
-列出所有驱动器、 查询驱动器类型、 查询卷信息、 查询特定于 NTFS 的卷信息，或查询文件系统统计数据。
+列出所有驱动器、查询驱动器类型、查询卷信息、查询特定于 NTFS 的卷信息或查询文件系统统计信息。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -37,35 +37,35 @@ fsutil fsinfo [volumeinfo] <RootPath>
 
 |参数|描述|
 |-------------|---------------|
-|驱动器|列出计算机中的所有驱动器。|
-|drivetype|查询一个驱动器，并列出其类型，例如 CD-ROM 驱动器。|
-|ntfsinfo|列出指定的卷，如的扇区、 总群集、 免费的群集，以及开始和 MFT 区的最终数量的 NTFS 特定卷信息。|
-|sectorinfo|列出有关的硬件扇区大小和对齐方式的信息。|
-|统计信息|列出文件系统指定的卷，如元数据、 日志文件和 MFT 读取和写入操作的统计信息。|
-|volumeinfo|列出指定的卷，如文件系统的信息以及是否卷支持区分大小写的文件名称和文件名称中的 unicode 磁盘配额，或 DirectAccess (DAX) 卷。|
-|<"VolumePath">|指定 （后跟一个冒号） 的驱动器号。|
-|<"RootPathname">|指定根驱动器的驱动器号 （后跟一个冒号）。|
+|着|列出计算机中的所有驱动器。|
+|drivetype|查询驱动器并列出其类型，如 cd-rom 驱动器。|
+|ntfsinfo|列出指定卷的 NTFS 特定卷信息，如扇区数、群集总数、可用群集以及 MFT 区的开头和结尾。|
+|sectorinfo|列出有关硬件的扇区大小和对齐方式的信息。|
+|标识|列出指定卷的文件系统统计信息，如元数据、日志文件和 MFT 读取和写入。|
+|volumeinfo|列出指定卷的信息，例如文件系统、卷是否支持区分大小写的文件名、文件名中的 unicode 或磁盘配额，或是 DirectAccess （DAX）卷。|
+|< "VolumePath" >|指定驱动器号（后跟冒号）。|
+|< "RootPathname" >|指定根驱动器的驱动器号（后跟冒号）。|
 
 ## <a name="BKMK_examples"></a>示例
-若要列出所有计算机中的驱动器，请键入：
+若要列出计算机中的所有驱动器，请键入：
 
 ```
 fsutil fsinfo drives
 ```
 
-类似于显示以下输出：
+类似于以下内容的输出：
 
 ```
 Drives: A:\ C:\ D:\ E:\       
 ```
 
-若要查询的驱动器 C 的驱动器类型，请键入：
+若要查询驱动器 C 的驱动器类型，请键入：
 
 ```
 fsutil fsinfo drivetype c:
 ```
 
-查询结果可能包括：
+查询的可能结果包括：
 
 ```
 Unknown Drive
@@ -77,13 +77,13 @@ CD-ROM Drive
 Ram Disk
 ```
 
-若要查询卷 E 的卷信息，请键入：
+若要查询 volume E 的卷信息，请键入：
 
 ```
 fsinfo volumeinfo e:\
 ```
 
-类似于显示以下输出：
+类似于以下内容的输出：
 
 ```
 Volume Name :Volume
@@ -97,13 +97,13 @@ Supports Named Streams
 Is DAX Volume
 ```
 
-若要为特定于 NTFS 的卷信息的查询驱动器 F，键入：
+若要在驱动器 F 中查询特定于 NTFS 的卷信息，请键入：
 
 ```
 fsutil fsinfo ntfsinfo f:
 ```
 
-类似于显示以下输出：
+类似于以下内容的输出：
 
 ```
 NTFS Volume Serial Number : 0xe660d46a60d442cb
@@ -115,13 +115,13 @@ Total Clusters :            0x000000000021d409
 Mft Zone End   :            0x0000000000004700       
 ```
 
-若要查询文件系统的基础硬件扇区的信息，请键入：
+若要查询文件系统的基本硬件以获取扇区信息，请键入：
 
 ```
 fsinfo sectorinfo d:
 ```
 
-类似于显示以下输出：
+类似于以下内容的输出：
 
 ```
 D:\>fsutil fsinfo sectorinfo d:
@@ -140,7 +140,7 @@ DAX capable
 fsinfo statistics e:
 ```
 
-类似于显示以下输出：
+类似于以下内容的输出：
 
 ```
 File System Type :     NTFS
@@ -154,7 +154,7 @@ LogFileWriteBytes :    180936704
 ```
 
 #### <a name="additional-references"></a>其他参考
-[命令行语法解答](Command-Line-Syntax-Key.md)
+[命令行语法关键字](Command-Line-Syntax-Key.md)
 [Fsutil](Fsutil.md)
 
 

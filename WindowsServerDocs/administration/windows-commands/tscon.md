@@ -1,8 +1,8 @@
 ---
 title: tscon
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,22 +13,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d8cac59b2f5524df5a82e9c83424fd781f0ef7c8
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6e53ea2888b66b9e4fbf026f752acf9803270fc2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440936"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392367"
 ---
 # <a name="tscon"></a>tscon
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-连接到远程桌面会话主机 (rd 会话主机) 服务器上的另一个会话。  
+连接到远程桌面会话主机（rd 会话主机）服务器上的另一个会话。  
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。  
 
 > [!NOTE]  
-> 在 Windows Server 2008 R2 中，终端服务被重命名为远程桌面服务。 若要了解什么是最新版本中的新增功能，请参阅[的新增功能新增 Windows Server 2012 中的远程桌面服务中](https://technet.microsoft.com/library/hh831527)Windows Server TechNet 库中。  
+> 在 Windows Server 2008 R2 中，终端服务被重命名为远程桌面服务。 若要了解最新版本中的新增功能，请参阅 Windows server TechNet 库中的[Windows server 2012 远程桌面服务中的新增功能](https://technet.microsoft.com/library/hh831527)。  
 
 ## <a name="syntax"></a>语法  
 ```  
@@ -38,30 +38,30 @@ tscon {<SessionID> | <SessionName>} [/dest:<SessionName>] [/password:<pw> | /pas
 
 |参数|描述|  
 |-------|--------|  
-|\<SessionID>|指定你想要连接的会话的 ID。 如果使用可选 **/dest:** <*SessionName*> 参数，这是你想要连接的会话的 ID。|  
-|\<SessionName>|指定你想要连接的会话的名称。|  
-|/dest:\<SessionName>|指定当前会话的名称。 连接到新的会话时，此会话将断开连接。|  
-|/password:\<pw >|指定拥有你想要连接的会话的用户的密码。 连接的用户不拥有会话时，此密码是必需的。|  
-|/password:*|拥有你想要连接的会话的用户的密码的提示。|  
-|/v|显示有关正在执行的操作的信息。|  
+|\<SessionID >|指定要连接到的会话的 ID。 如果使用可选的 **/dest：** <*SessionName*> 参数，则这是要连接到的会话的 ID。|  
+|\<SessionName >|指定要连接到的会话的名称。|  
+|/dest： \<SessionName >|指定当前会话的名称。 当你连接到新的会话时，此会话将断开连接。|  
+|/password： \<pw >|指定拥有要连接到的会话的用户的密码。 当连接用户不拥有会话时，此密码是必需的。|  
+|/password： *|提示输入拥有要连接到的会话的用户的密码。|  
+|/v|显示要执行的操作的相关信息。|  
 |/?|在命令提示符下显示帮助。|  
 
 ## <a name="remarks"></a>备注  
--   必须将完全控制访问权限，或连接到另一个会话连接的特殊访问权限。  
--   **/Dest:** <*SessionName*> 参数，可将其他用户的会话连接到另一个会话。  
--   如果未指定密码中的 <*密码*> 参数，并且目标会话属于用户而不是当前**tscon**失败。  
--   无法连接到控制台会话。  
+-   您必须具有 "完全控制" 访问权限或 "连接" 特殊访问权限才能连接到另一个会话。  
+-   **/Dest：** <*SessionName*> 参数使你可以将另一个用户的会话连接到不同的会话。  
+-   如果未在 <*password*> 参数中指定密码，并且目标会话所属的用户不是当前用户，则**tscon**会失败。  
+-   你无法连接到控制台会话。  
 
 ## <a name="BKMK_examples"></a>示例  
-- 若要连接到当前的 rd 会话主机服务器上的会话 12 并断开当前会话的连接，请键入：  
+- 若要连接到当前 rd 会话主机服务器上的会话12并断开当前会话的连接，请键入：  
   ```  
   tscon 12  
   ```  
-- 若要使用密码 mypas 当前 rd 会话主机服务器上的会话 23 连接和断开当前会话的连接，请键入：  
+- 若要通过使用密码 mypass 连接到当前 rd 会话主机服务器上的会话23并断开当前会话的连接，请键入：  
   ```  
   tscon 23 /password:mypass  
   ```  
-- 若要连接到名为 TERM05 会话名为 TERM03 的会话，然后断开会话 TERM05，如果它已连接，请键入：  
+- 若要将名为 TERM03 的会话连接到名为 TERM05 的会话，然后断开连接会话 TERM05 （如果已连接），请键入：  
   ```  
   tscon TERM03 /v /dest:TERM05  
   ```  

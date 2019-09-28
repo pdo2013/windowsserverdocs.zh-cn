@@ -7,22 +7,22 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 863e5352253d53941e64b52d1ca58d565a3aa8b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4f12b1e88414a17c8fb82a707bd4399505df4c6c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890588"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369446"
 ---
 # <a name="ad-ds-simplified-administration"></a>AD DS 简化管理
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
-本主题介绍了功能和优势的 Windows Server 2012 域控制器部署和管理和以前的操作系统 DC 部署和新的 Windows Server 2012 实现之间的差异。  
+本主题介绍 Windows Server 2012 域控制器部署和管理的功能和优势，以及以前的操作系统 DC 部署和新的 Windows Server 2012 实现之间的差异。  
   
-Windows Server 2012 引入了下一代 Active Directory 域服务简化管理，并已在最彻底域重新构想自 Windows 2000 Server。 AD DS 简化管理吸取 Active Directory 十二年的经验，为架构师和管理员创造更加可支持、更灵活、更直观的管理体验。 这意味着创建现有技术的新版本以及扩展在 Windows Server 2008 R2 中发布的组件的功能。  
+Windows Server 2012 引进了下一代 Active Directory 域服务简化的管理，并且是自 Windows 2000 服务器以来最根式的域重新构想。 AD DS 简化管理吸取 Active Directory 十二年的经验，为架构师和管理员创造更加可支持、更灵活、更直观的管理体验。 这意味着创建现有技术的新版本以及扩展在 Windows Server 2008 R2 中发布的组件的功能。  
   
 AD DS 简化管理是对域部署的重构。  
   
@@ -33,7 +33,7 @@ AD DS 简化管理是对域部署的重构。
 - Windows PowerShell 的 Active Directory 模块现在包括用于复制拓扑管理、动态访问控制以及其他操作的 cmdlet  
 - Windows Server 2012 林功能级别不实现新功能，只有一部分新 Kerberos 功能需要域功能级别，这使管理员无需频繁地需要相似的域控制器环境  
 - 添加对虚拟化域控制器的完全支持，以包括自动化部署和回滚保护  
-   - 有关虚拟化的域控制器的详细信息，请参阅[Active Directory 域服务简介&#40;AD DS&#41;虚拟化&#40;Level 100&#41;](../../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md)。
+   - 有关虚拟化域控制器的详细信息，请参阅[虚拟&#40;化&#41; &#40;级别 100&#41;Active Directory 域服务简介 AD DS](../../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md)。
 
 此外，还有很多管理和维护方面的改进：  
 
@@ -42,7 +42,7 @@ AD DS 简化管理是对域部署的重构。
 - 组托管服务帐户支持使用相同安全主体的多台计算机  
 - 在相对标识符 (RID) 颁发和监视方面的改进，可用于提高成熟 Active Directory 域中的可管理性  
 
-AD DS 从 Windows Server 2012 中添加如其他新功能获益：  
+AD DS Windows Server 2012 中包含的其他新功能的利润，如：  
 
 - NIC 组合和数据中心桥接  
 - 启动后的 DNS 安全性和更快的 AD 集成区域可用性  
@@ -64,7 +64,7 @@ Adprep.exe 保留在 DVD 上以用于单独林和域准备。 Windows Server 201
   
 服务器管理器可充当服务器管理任务的中心。 它仪表板样式的外观会定期刷新已安装角色和远程服务器组的视图。 服务器管理器提供本地和远程服务器的集中式管理，而无需访问控制台。  
   
-Active Directory 域服务是这些中心角色;通过在域控制器或远程服务器管理工具在 Windows 8 上运行服务器管理器，在您的林中的域控制器上查看最新的重要问题。  
+Active Directory 域服务是这些中心角色之一;通过在域控制器上运行服务器管理器或在 Windows 8 上运行远程服务器管理工具，你将看到林中域控制器上的重要最近问题。  
   
 这些视图包括：  
   
@@ -191,7 +191,7 @@ Adprep 不再要求在架构主机上运行。 它可从运行 Windows Server 20
 
 通常无需运行这些 cmdlet；它们已默认使用部署 cmdlet 自动执行。  
 
-#### <a name="BKMK_ADDSInstallPrerequisiteTests"></a>必备项测试
+#### <a name="BKMK_ADDSInstallPrerequisiteTests"></a>先决条件测试
 
 ||||  
 |-|-|-|  
@@ -205,7 +205,7 @@ Adprep 不再要求在架构主机上运行。 它可从运行 Windows Server 20
 |CheckRODCPrep<br /><br />GroupMembership|LDAP、<br /><br />RPC over SMB (LSARPC)|验证用户是 Enterprise Admins 组的成员并且在现有域控制器上有管理审核和安全事件日志 (SesScurityPrivilege) 权限|  
 |VerifyInitSync<br /><br />AfterReboot|LDAP|通过在 rootDSE 属性 becomeSchemaMaster 上设置一个虚拟值，验证架构主机已在其重新启动后至少复制一次|  
 |VerifySFUHotFix<br /><br />已应用|LDAP|验证现有林架构不包含具有 OID 1.2.840.113556.1.4.7000.187.102 的 UID 属性的已知问题 SFU2 扩展<br /><br />([https://support.microsoft.com/kb/821732](https://support.microsoft.com/kb/821732))|  
-|VerifyExchange<br /><br />SchemaFixed|LDAP、WMI、DCOM、RPC|验证现有林架构没有继续包含问题 Exchange 2000 扩展-Exch-助手的名称，ms-Exch-LabeledURI，和 ms Exch 房屋标识符 ([https://support.microsoft.com/kb/314649](https://support.microsoft.com/kb/314649))|  
+|VerifyExchange<br /><br />SchemaFixed|LDAP、WMI、DCOM、RPC|验证现有林架构是否仍未包含问题 Exchange 2000 扩展 Ms-exch-labeleduri，Ms-exch-labeleduri-Ms-exch-labeleduri，ms-Ms-exch-labeleduri 内部标识符（[https://support.microsoft.com/kb/314649](https://support.microsoft.com/kb/314649)）|  
 |VerifyWin2KSchema<br /><br />一致性|LDAP|验证现有林架构具有一致的（未由第三方错误修改）核心属性和类。|  
 |DCPromo|DRSR over RPC、<br /><br />LDAP、<br /><br />DNS<br /><br />RPC over SMB (SAMR)|验证命令行语法已传递到升级代码和测试升级。 在新建时，验证林或域尚不存在。|  
 |VerifyOutbound<br /><br />ReplicationEnabled|LDAP、DRSR over SMB、RPC over SMB (LSARPC)|通过针对 NTDS 设置对象的选项属性检查 NTDSDSA_OPT_DISABLE_OUTBOUND_REPL (0x00000004) 来验证指定为复制伙伴的现有域控制器已启用出站复制。|  

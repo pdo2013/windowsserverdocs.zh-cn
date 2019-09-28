@@ -1,101 +1,101 @@
 ---
 ms.assetid: 6a852428-c1ec-4703-b3b3-a4bfdf8cbb9d
-title: 什么&#39;s Windows Server 2016 中的 Active Directory 域服务中的新增功能
+title: Windows&#39;Server 2016 中 Active Directory 域服务的新增功能
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ffdeedfc2d818fe223c033aeecfe29d18365db7a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f62692a420bbc6cdae08fa56ec12b8a2fd357ac8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865538"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406979"
 ---
-# <a name="whats-new-in-active-directory-domain-services-for-windows-server-2016"></a>Active Directory 域服务的 Windows Server 2016 中的新增功能
+# <a name="whats-new-in-active-directory-domain-services-for-windows-server-2016"></a>Windows Server 2016 Active Directory 域服务的新增项
 
 >适用于：Windows Server 2016
 
-Active Directory 域服务 (AD DS) 中的以下新功能改进组织保护 Active Directory 环境并帮助他们迁移到仅限云的部署和混合部署，则一些应用程序和服务的功能托管在云中和其他的则托管在本地。 这些改进包括：  
+Active Directory 域服务（AD DS）中的以下新功能可提高组织保护 Active Directory 环境的能力，并帮助他们迁移到仅限云的部署和混合部署，其中某些应用程序和服务都是托管在云中，其他托管在本地。 改进包括：  
   
-- [特权的访问管理](https://docs.microsoft.com/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services)  
+- [特权访问管理](https://docs.microsoft.com/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services)  
   
-- [将云功能扩展到 Windows 10 设备通过 Azure Active Directory Join](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)
+- [通过 Azure Active Directory 联接将云功能扩展到 Windows 10 设备](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)
   
-- [连接到 Azure AD 适用于 Windows 10 的已加入域的设备体验](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)
+- [将已加入域的设备连接到 Windows 10 体验 Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)
   
 - [在组织中启用 Microsoft Passport for Work](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport-deployment/)
   
-- [不推荐使用的文件复制服务 (FRS) 和 Windows Server 2003 功能级别](ad-ds/active-directory-functional-levels.md)  
+- [文件复制服务（FRS）和 Windows Server 2003 功能级别弃用](ad-ds/active-directory-functional-levels.md)  
   
-## <a name="privileged-access-management"></a>特权的访问管理
+## <a name="privileged-access-management"></a>特权访问管理
 
-Privileged access management (PAM) 可帮助缓解安全问题而引起的 Active Directory 环境的凭据盗窃技术，这种传递哈希、 鱼叉式网络钓鱼和类似类型的攻击。 它提供了一个新的管理访问权限解决方案，通过使用 Microsoft Identity Manager (MIM) 配置。 PAM 引入了：  
+特权访问管理（PAM）有助于缓解由凭据盗窃技术（例如传递哈希、鱼叉式的网络钓鱼和类似类型的攻击）引起的 Active Directory 环境的安全问题。 它提供新的管理访问解决方案，该解决方案是使用 Microsoft Identity Manager （MIM）配置的。 PAM 引入：  
   
-- 新的堡垒 Active Directory 林中，由 MIM 预配。 堡垒林之间具有特殊的 PAM 信任的现有林。 它提供了新的 Active Directory 环境已知的任何恶意活动，并从现有林使用特权帐户的隔离免费的。  
+- 由 MIM 预配的新堡垒 Active Directory 林。 堡垒林与现有林有特殊的 PAM 信任。 它提供了一个新的 Active Directory 环境，该环境已知不会有任何恶意活动，并与现有林隔离以使用特权帐户。  
   
-- 在 MIM 中请求管理权限，以及基于请求的批准的新工作流的新进程。  
+- MIM 中的新进程，用于请求管理权限，以及基于请求批准的新工作流。  
   
-- 新卷影安全主体 （组） 中预配在堡垒林中由 MIM 管理权限请求的响应。 卷影安全主体具有的属性的引用是管理组在现有林中的 SID。 这允许在现有林中访问资源的卷影组而无需更改任何访问控制列表 (Acl)。  
+- 在堡垒林中由 MIM 在管理权限请求中预配的新卷影安全主体（组）。 影子安全主体有一个属性，该属性引用现有林中管理组的 SID。 这允许卷影组访问现有林中的资源，而无需更改任何访问控制列表（Acl）。  
   
-- 到期的链接功能，它使卷影组中的限时成员身份。 用户可以添加到组中，执行管理任务所需的足够时间中。 通过一个生存时间 (TTL) 值，该值将传播到 Kerberos 票证生存期来表示时限的成员身份。  
+- 过期链接功能，可在影子组中启用时间绑定成员身份。 用户可以添加到组中，只需足够的时间来执行管理任务。 时间绑定成员身份由传播到 Kerberos 票证生存期的生存时间（TTL）值表示。  
   
     > [!NOTE]  
-    > 链接的所有属性上提供了即将到期的链接。 但成员/memberOf 链接的属性组和用户之间的关系是唯一的示例，如 PAM 完整的解决方案预配置为使用即将到期的链接功能。  
+    > 过期链接适用于所有链接的属性。 但组和用户之间的成员/成员链接属性关系是唯一的示例，其中的一个完整解决方案（例如 PAM）已预先配置为使用过期链接功能。  
   
-- 若要将 Kerberos 票证生存期限制为最小可能生存时间 (TTL) 值在用户在其中具有多个时限的成员身份的管理组中的情况下的 Active Directory 域控制器内置了 KDC 增强功能。 例如，如果您添加到的限时组 A，则当你登录，Kerberos 票证授予票证 (TGT) 生存期是等于时间必须保留在组 a。如果你还有另一个限时组具有较低的 TTL 比组 A，B 的成员则等于具有组 B 中的剩余的时间的 TGT 生存期  
+- KDC 增强功能内置 Active Directory 于中，在用户在管理组中具有多个时间绑定成员身份的情况下，将 Kerberos 票证生存期限制为可能的最低生存时间（TTL）值。 例如，如果将添加到时间绑定组 A，则当你登录时，Kerberos 票证授予票证（TGT）生存期等于在组 A 中剩余的时间。如果你也是另一个受时间限制的组 B 的成员，而该组的 TTL 低于组 A，则 TGT 生存期等于您在组 B 中剩余的时间。  
   
-- 新的监视功能，帮助你轻松识别人员请求访问权限、 哪些访问权限授予，以及已执行的活动。  
+- 新的监视功能可帮助您轻松识别请求访问的人员、授予的访问权限以及执行的活动。  
 
-### <a name="requirements-for-privileged-access-management"></a>要求适用于特权访问管理
+### <a name="requirements-for-privileged-access-management"></a>特权访问管理的要求
   
 - Microsoft 标识管理器  
   
-- Active Directory 林功能级别的 Windows Server 2012 R2 或更高版本。  
+- Windows Server 2012 R2 或更高版本的 Active Directory 林功能级别。  
   
 ## <a name="azure-ad-join"></a>加入 Azure AD
 
-Azure Active Directory Join 增强了对 enterprise、 business 和 EDU 客户-使用适用于公司和个人设备的改进功能的标识体验。  
+Azure Active Directory 联接增强了企业、商业和 EDU 客户的标识体验-改进了企业和个人设备的功能。  
   
 优势：  
   
-- **现代设置可用性**公司拥有的 Windows 设备上。 氧气服务无需再使用个人 Microsoft 帐户： 它们现在运行关闭用户的现有工作帐户，以确保符合性。 氧气服务将适用于加入到的本地 Windows 域，电脑和 Pc 和"联接"到 Azure AD 租户 （"云域"） 的设备。 这些设置包括：  
+- 公司拥有的 Windows 设备上**的新式设置的可用性**。 氧气服务不再需要个人 Microsoft 帐户：它们现在会关闭用户的现有工作帐户以确保合规性。 氧气 Services 将在加入本地 Windows 域的 Pc 上工作，以及 "加入" 到 Azure AD 租户（"云域"）的电脑和设备。 这些设置包括：  
 
-   - 漫游或个性化设置、 辅助功能设置和凭据  
+   - 漫游或个性化，辅助功能设置和凭据  
    - 备份和还原  
    - 使用工作帐户访问 Microsoft Store  
    - 动态磁贴和通知  
   
-- **访问组织资源**BYOD 或无法加入 Windows 域中，无论它们是公司拥有的移动设备 （手机、 平板手机） 上  
-- **单一登录**对 Office 365 和其他组织的应用、 网站和资源。  
-- **BYOD 设备上**、 工作帐户 （从本地域或 Azure AD） 将添加到个人拥有的设备和享受 SSO 以资源、 通过应用和 web 上的工作方式有助于确保符合性等条件的帐户的新功能控制和设备运行状况证明。  
-- **MDM 集成**可以自动注册到 MDM （Intune 或第三方） 的设备  
-- **设置"展台"模式和共享设备**为你的组织中的多个用户  
-- **开发人员体验**允许您生成应用，它们适用于企业和个人上下文具有共享的编程堆栈。  
-- **图像处理**选项允许您选择映像，并允许你的用户之间直接在首次运行体验过程中配置公司拥有的设备。  
+- 访问无法加入 Windows 域的移动设备（手机、phablets）上的**组织资源**，无论它们是企业拥有还是 BYOD  
+- **单一登录**到 Office 365 和其他组织应用、网站和资源。  
+- 在**BYOD 设备上**，将工作帐户（从本地域或 Azure AD）添加到个人拥有的设备，并通过应用和 WEB 使用 SSO 来处理资源，从而帮助确保符合新功能，如条件帐户控制和设备健康状况证明。  
+- 通过**mdm 集成**，你可以自动将设备注册到 MDM （Intune 或第三方）  
+- 为组织中的多个用户**设置 "展台" 模式和共享设备**  
+- **开发人员体验**使你能够使用共享编程堆栈来构建满足企业和个人上下文需求的应用。  
+- **映像**选项可让你在首次运行体验期间，选择映像并允许用户直接配置公司拥有的设备。  
   
 有关详细信息，请参阅[Azure Active Directory 中的设备管理简介](https://docs.microsoft.com/azure/active-directory/devices/overview)。  
   
 ## <a name="windows-hello-for-business"></a>Windows Hello 企业版
 
-Windows hello 企业版是基于密钥的身份验证方法组织和消费者而言，，超越了密码。 这种形式的身份验证依赖于漏洞、 盗窃和网络钓鱼诈骗抵御凭据。  
+Windows Hello 企业版是一种基于密钥的身份验证方法，组织和消费者超出了密码。 这种形式的身份验证依赖于安全漏洞、盗窃和诈骗网络的凭据。  
   
-在用户登录到该设备使用生物识别或 PIN 登录链接到证书或非对称密钥对的信息。 标识提供者 (Idp) 通过将用户的公钥映射到 IDLocker 验证用户，并提供有关通过一次性密码 (OTP)、 电话或不同的通知机制的信息的日志。  
+用户使用已链接到证书或非对称密钥对的信息，在设备上登录到带有生物识别或 PIN 的日志。 标识提供者（Idp）通过将用户的公钥映射到 IDLocker 来验证用户，并通过一次性密码（OTP）、电话或不同的通知机制提供登录信息。  
   
-有关详细信息，请参阅[Windows hello 企业版](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)  
+有关详细信息，请参阅[Windows Hello 企业版](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)  
   
-## <a name="deprecation-of-file-replication-service-frs-and-windows-server-2003-functional-levels"></a>不推荐使用的文件复制服务 (FRS) 和 Windows Server 2003 功能级别
+## <a name="deprecation-of-file-replication-service-frs-and-windows-server-2003-functional-levels"></a>文件复制服务（FRS）和 Windows Server 2003 功能级别弃用
 
-尽管在以前版本的 Windows Server 中已弃用文件复制服务 (FRS) 和 Windows Server 2003 功能级别，但还是要重复提醒不再支持 Windows Server 2003 操作系统。 因此，应从域中删除任何运行 Windows Server 2003 的域控制器。 应至少幂域和林功能级别 Windows Server 2008，以防止从添加到环境中运行 Windows Server 的早期版本的域控制器。
+尽管在以前的 Windows Server 版本中不推荐使用文件复制服务（FRS）和 Windows Server 2003 功能级别，但这会导致不再支持 Windows Server 2003 操作系统。 因此，任何运行 Windows Server 2003 的域控制器都应该从域中删除。 应将域和林功能级别至少提升到 Windows Server 2008，以防止将运行早期版本 Windows Server 的域控制器添加到环境中。
 
-在 Windows Server 2008 和更高版本的域功能级别，分布式文件服务 (DFS) 复制用于域控制器之间复制 SYSVOL 文件夹的内容。 如果在 Windows Server 2008 域功能级别或更高版本创建一个新的域，自动使用 DFS 复制来复制 SYSVOL。 如果在较低功能级别创建域，您将需要使用 FRS 的 SYSVOL 的 DFS 复制进行迁移。 有关迁移的步骤，你可以按照[这些步骤](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019\(v=ws.10\))也可以引用[简化组的 Cab 文件的存储团队博客上的步骤](http://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx)。  
+在 Windows Server 2008 和更高版本的域功能级别，使用分布式文件服务（DFS）复制来复制域控制器之间的 SYSVOL 文件夹内容。 如果在 Windows Server 2008 域功能级别或更高级别创建新域，则会自动使用 DFS 复制来复制 SYSVOL。 如果在较低的功能级别创建了域，则需要从使用 FRS 迁移到 SYSVOL 的 DFS 复制。 对于迁移步骤，你可以执行[以下步骤](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019\(v=ws.10\))，也可以参考[存储团队文件 Cabinet 博客上的一组简化的步骤](http://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx)。  
   
-Windows Server 2003 域和林功能级别继续受到支持，但组织应提升功能级别为 Windows Server 2008 （或更高，如果可能） 以确保 SYSVOL 复制的兼容性和将来支持。 此外，有许多其他权益和功能在更高版本的功能级别更高版本。 有关详细信息，请参阅以下资源：  
+仍支持 Windows Server 2003 域和林功能级别，但组织应将功能级别提升到 Windows Server 2008 （或更高版本，如有可能），以确保 SYSVOL 复制兼容性和将来支持。 此外，更高的功能级别还提供了许多其他的优势和功能。 有关详细信息，请参阅以下资源：  
 
-- [了解 Active Directory 域服务 (AD DS) 功能级别](ad-ds/active-directory-functional-levels.md)  
+- [了解 Active Directory 域服务（AD DS）功能级别](ad-ds/active-directory-functional-levels.md)  
 - [提升域功能级别](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753104\(v=ws.11\))  
 - [提升林功能级别](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730985\(v=ws.11\))  

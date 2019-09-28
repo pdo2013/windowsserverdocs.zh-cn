@@ -2,18 +2,18 @@
 title: 将主启动记录 (MBR) 磁盘更改为 GUID 分区表 (GPT) 磁盘
 description: 介绍如何将主启动记录 (MBR) 磁盘更改为 GUID 分区表 (GPT) 磁盘
 ms.date: 06/07/2019
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 902a845bbe6a7e2a4d811aac0ea2990fb3557832
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 6bd97802fbef342520e92a857a1a53acf3e8d7a3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66812460"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385940"
 ---
 # <a name="convert-an-mbr-disk-into-a-gpt-disk"></a>将 MBR 磁盘转换为 GPT 磁盘
 
@@ -27,7 +27,7 @@ ms.locfileid: "66812460"
 > 在转换某个磁盘之前，请备份其上的所有数据，并关闭任何正在访问该磁盘的程序。
 
 > [!NOTE]
-> 至少必须是“备份操作员”或“管理员”组的成员才能完成这些步骤   。
+> 至少必须是“备份操作员”  或“管理员”  组的成员才能完成这些步骤。
 
 ## <a name="converting-using-the-windows-interface"></a>使用 Windows 界面转换
 
@@ -51,17 +51,17 @@ ms.locfileid: "66812460"
 
 5.  在 **DISKPART** 提示符下，键入 `select disk <disknumber>`。
 
-6.  在 **DISKPART** 提示符下，键入 `clean`。
+6.  在 DISKPART  提示符下，键入 `clean`。
 
     > [!NOTE]
-    > 运行 **clean** 命令将删除磁盘上的所有分区或卷。
+    > 运行 clean  命令将删除磁盘上的所有分区或卷。
 
-7.  在 **DISKPART** 提示符下，键入 `convert gpt`。
+7.  在 DISKPART  提示符下，键入 `convert gpt`。
 
 | 值  | 描述  |
 | ----- | ---- |
 | **list disk** | 显示磁盘列表和有关磁盘的信息，例如磁盘大小、可用空间量、磁盘是基本磁盘还是动态磁盘，以及磁盘是使用主启动记录 (MBR) 还是 GUID 分区表 (GPT) 分区样式。 用星号 (*) 标记的磁盘具有焦点。 |
-| **select disk** *disknumber* | 选择指定的磁盘（其中 *disknumber* 是磁盘编号），并赋予其焦点。 |
+| select disk  *disknumber* | 选择指定的磁盘（其中 *disknumber* 是磁盘编号），并赋予其焦点。 |
 | **clean** | 从具有焦点的磁盘中删除所有分区或卷。  |
 | **convert gpt**| 将具有主启动记录 (MBR) 分区样式的空基本磁盘转换为具有 GUID 分区表 (GPT) 分区样式的基本磁盘。 |
 

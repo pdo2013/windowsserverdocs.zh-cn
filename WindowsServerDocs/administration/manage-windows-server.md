@@ -1,19 +1,19 @@
 ---
 title: Management
 description: 了解关于 Windows Server 管理的工具、建议和指南
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 layout: LandingPage
 ms.technology: manage
 ms.topic: landing-page
 author: lizap
 ms.author: elizapo
 ms.localizationpriority: high
-ms.openlocfilehash: e6a5357e3e33b3d3318a3e281bbb5c80be842155
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 4166d4e8d2819946cdc859ef643cf53315e7290a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63721368"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370417"
 ---
 # <a name="management"></a>Management
 

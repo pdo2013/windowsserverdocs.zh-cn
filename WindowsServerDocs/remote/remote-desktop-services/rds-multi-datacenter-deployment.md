@@ -2,7 +2,7 @@
 title: Azure 中的异地冗余 RDS 数据中心
 description: 了解如何创建使用多个数据中心的 RDS 部署，以跨多个地理位置提供高可用性。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ author: haley-rowland
 ms.author: elizapo
 ms.date: 06/14/2017
 manager: dongill
-ms.openlocfilehash: 39a0d00e64ecab93fe1826726b14969e5e034738
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 55b96c112dd7f7294ff674ee4675501af4287da4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871040"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403958"
 ---
 # <a name="create-a-geo-redundant-multi-data-center-rds-deployment-for-disaster-recovery"></a>为灾难恢复创建异地冗余、多数据中心的 RDS 部署
 

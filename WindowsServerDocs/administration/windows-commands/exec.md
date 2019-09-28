@@ -1,8 +1,8 @@
 ---
 title: exec
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ecdfd05b8abefb35946b783daaa3220a6713a38d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 514503e4920e16ba6778185af32f925541805223
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882918"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377431"
 ---
 # <a name="exec"></a>exec
 
 
 
-执行本地计算机上的文件。 该文件可以是**cmd**脚本。
+在本地计算机上执行文件。 该文件可以是**cmd**脚本。
 
 ## <a name="syntax"></a>语法
 
@@ -36,13 +36,13 @@ exec <ScriptFile.cmd>
 
 |参数|描述|
 |---------|-----------|
-|\<ScriptFile.cmd>|指定要执行的脚本文件。|
+|\<ScriptFile >|指定要执行的脚本文件。|
 
 ## <a name="remarks"></a>备注
 
--   此命令用于复制或还原的备份一部分的数据或还原顺序。
--   如果脚本失败，返回错误，DiskShadow 退出。
+-   此命令用于在备份或还原顺序中复制或还原数据。
+-   如果脚本失败，将返回错误，并且 DiskShadow 将退出。
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

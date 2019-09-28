@@ -1,8 +1,8 @@
 ---
-title: 掩码
-description: 'Windows 命令主题 * * *- '
+title: 掩盖
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 353e6080d1f6c548bc907b58655f31d0bce6de8b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2f0dc83d7d9f7204f56e95c62b7cfad991f539ef
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858018"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373711"
 ---
-# <a name="mask"></a>掩码
+# <a name="mask"></a>掩盖
 
 
 
-删除已导入使用的硬件卷影副本**导入**命令。
+删除使用**import**命令导入的硬件卷影副本。
 
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
 
@@ -38,19 +38,19 @@ mask <ShadowSetID>
 
 |参数|描述|
 |---------|-----------|
-|ShadowSetID|删除卷影副本属于指定的卷影副本设置的 id。|
+|ShadowSetID|删除属于指定卷影副本集 ID 的卷影副本。|
 
 ## <a name="remarks"></a>备注
 
--   可以使用现有别名或环境变量来代替*ShadowSetID*。 使用**添加**不带参数，以查看现有别名。
+-   您可以使用现有的别名或环境变量来代替*ShadowSetID*。 使用**add**而不使用参数查看现有别名。
 
 ## <a name="BKMK_examples"></a>示例
 
-若要删除导入的卷影副本 %import_1%，请键入：
+若要删除导入的卷影副本% Import_1%，请键入：
 ```
 mask %Import_1%
 ```
 
 #### <a name="additional-references"></a>其他参考
 
-[命令行语法解答](command-line-syntax-key.md)
+[命令行语法项](command-line-syntax-key.md)

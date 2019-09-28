@@ -1,8 +1,8 @@
 ---
 title: makecab
-description: 'Windows 命令主题 * * *- '
+description: '适用于 * * * * 的 Windows 命令主题 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7b120cf990abe2024fd6c96ca2f1ef11fa2350ae
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: b0231b6f1ddd3e81caa7544587f764e2308015b8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437528"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374155"
 ---
 # <a name="makecab"></a>makecab
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-现有文件打包为 cab (.cab) 文件。
+将现有文件打包到 cab （.cab）文件中。
 ## <a name="syntax"></a>语法
 ```
 makecab [/v[n]] [/d var=<value> ...] [/l <dir>] <source> [<destination>]
@@ -34,16 +34,16 @@ makecab [/v[<n>]] [/d var=<value> ...] /f <directives_file> [...]
 
 |      参数       |                                                                        描述                                                                        |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-|       <source>       |                                                                     若要压缩的文件。                                                                     |
-|    <destination>     | 若要为压缩的文件的文件名。 如果省略，则源文件名的最后一个字符是替换为下划线 (_)，用作目标。 |
-| /f <directives_file> |                                                   包含的文件**makecab**指令 （可能重复）。                                                   |
-|    /d var=<value>    |                                                          定义变量，使用指定的值。                                                           |
-|       /l <dir>       |                                               放置目标位置 （默认值为当前目录）。                                               |
-|       /v[<n>]        |                                                    设置调试详细级别 (0 = 无，...，3 = full)。                                                     |
+|       <source>       |                                                                     要压缩的文件。                                                                     |
+|    <destination>     | 用于指定压缩文件的文件名。 如果省略，则使用下划线（_）替换源文件名称的最后一个字符，并将其用作目标。 |
+| /f < directives_file > |                                                   具有**makecab**指令的文件（可以重复）。                                                   |
+|    /d var =<value>    |                                                          定义带有指定值的变量。                                                           |
+|       /l <dir>       |                                               目标位置（默认为当前目录）。                                               |
+|       /v [@no__t]        |                                                    设置调试详细级别（0 = 无,..., 3 = 完全）。                                                     |
 |          /?          |                                                           在命令提示符下显示帮助。                                                            |
 
 ## <a name="remarks"></a>备注
--   请参阅[Microsoft cab 文件格式](https://go.microsoft.com/fwlink/?LinkId=226852)directive_file 信息的 MSDN 上。
+-   有关 directive_file 的信息，请参阅 MSDN 上的[Microsoft Cabinet 格式](https://go.microsoft.com/fwlink/?LinkId=226852)。
 
 ## <a name="additional-references"></a>其他参考
 -   [命令行语法项](command-line-syntax-key.md)

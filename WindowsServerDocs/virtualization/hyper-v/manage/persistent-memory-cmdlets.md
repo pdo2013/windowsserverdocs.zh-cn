@@ -1,7 +1,7 @@
 ---
-title: 用于配置的 HYPER-V Vm 的永久性内存设备 Cmdlet
-description: 如何为 HYPER-V Vm 配置永久性内存设备
-ms.prod: windows-server-threshold
+title: 用于为 Hyper-v Vm 配置永久性内存设备的 cmdlet
+description: 如何为 Hyper-v Vm 配置永久性内存设备
+ms.prod: windows-server
 ms.service: na
 manager: jasgroce
 ms.technology: compute-hyper-v
@@ -10,30 +10,30 @@ ms.topic: article
 ms.assetid: b5715c02-a90f-4de9-a71e-0fc08039ba1d
 author: coreyp-at-msft
 ms.author: coreyp
-ms.openlocfilehash: fd1b04ce74f0b8d490529d2a7f65091f5847d0f4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ecae1fe96bc5088fa840c6e2e24a75bb72a9e8f3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878178"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392540"
 ---
-# <a name="cmdlets-for-configuring-persistent-memory-devices-for-hyper-v-vms"></a>用于配置的 HYPER-V Vm 的永久性内存设备 Cmdlet
+# <a name="cmdlets-for-configuring-persistent-memory-devices-for-hyper-v-vms"></a>用于为 Hyper-v Vm 配置永久性内存设备的 cmdlet
 
 >适用于：Windows Server 2019
 
-本文提供有关使用永久内存 （也称为存储类内存或 NVDIMM） 配置的 HYPER-V Vm 的信息与系统管理员和 IT 专业人员。 JDEC 符合 NVDIMM N 永久性内存设备支持 Windows Server 2016 和 Windows 10 中，并提供对延迟非常低的非易失性设备字节级访问权限。 在 Windows Server 2019 支持 VM 的永久内存设备。 
+本文为系统管理员和 IT 专业人员提供有关配置具有永久性内存（亦即存储类内存或 NVDIMM）的 Hyper-v Vm 的信息。 Windows Server 2016 和 Windows 10 支持 JDEC 兼容的 NVDIMM-N 永久性内存设备，并提供对非常低延迟非易失性设备的字节级别访问。 Windows Server 2019 支持 VM 永久性内存设备。 
 
-## <a name="create-a-persistent-memory-device-for-a-vm"></a>为 VM 创建的永久性内存设备
+## <a name="create-a-persistent-memory-device-for-a-vm"></a>为 VM 创建永久性内存设备
 
-使用**[新建 VHD](https://docs.microsoft.com/powershell/module/hyper-v/new-vhd?view=win10-ps)**  cmdlet 为 VM 创建的永久性内存设备。 设备必须在现有的 NTFS DAX 卷上创建。  新的文件扩展名 (.vhdpmem) 用于指定设备为永久性内存设备。 支持仅固定的 VHD 文件格式。
+使用 **[新的 VHD](https://docs.microsoft.com/powershell/module/hyper-v/new-vhd?view=win10-ps)** CMDLET 为 VM 创建永久性内存设备。 设备必须在现有 NTFS DAX 卷上创建。  新的文件扩展名（. vhdpmem）用于指定设备是永久性内存设备。 仅支持固定 VHD 文件格式。
 
-**示例：** `New-VHD d:\VMPMEMDevice1.vhdpmem -Fixed -SizeBytes 4GB`
+示例：`New-VHD d:\VMPMEMDevice1.vhdpmem -Fixed -SizeBytes 4GB`
 
-## <a name="create-a-vm-with-a-persistent-memory-controller"></a>创建具有永久性内存控制器的 VM
+## <a name="create-a-vm-with-a-persistent-memory-controller"></a>使用持久性内存控制器创建 VM
 
 
 
-使用**NEW-VM cmdlet**以创建具有指定的内存大小和 VHDX 映像路径的第 2 代 VM。 然后，使用**添加 VMPmemController**将永久性内存控制器添加到 VM。
+使用**新的 VM cmdlet**创建具有指定内存大小和 VHDX 映像路径的第2代 VM。 然后，使用**VMPmemController**将永久性内存控制器添加到 VM。
 
 **示例：** 
     
@@ -41,13 +41,13 @@ ms.locfileid: "59878178"
 
     Add-VMPmemController ProductionVM1x
 
-## <a name="attach-a-persistent-memory-device-to-a-vm"></a>附加到 VM 的永久性内存设备
+## <a name="attach-a-persistent-memory-device-to-a-vm"></a>将永久性内存设备附加到 VM
 
-使用**[Add-vmharddiskdrive](https://docs.microsoft.com/powershell/module/hyper-v/add-vmharddiskdrive?view=win10-ps)** 将附加到 VM 的永久性内存设备
+使用 **[add-vmharddiskdrive](https://docs.microsoft.com/powershell/module/hyper-v/add-vmharddiskdrive?view=win10-ps)** 将永久性内存设备附加到 VM
 
-**示例：** `Add-VMHardDiskDrive ProductionVM1 PMEM -ControllerLocation 1 -Path D:\VPMEMDevice1.vhdpmem`
+示例：`Add-VMHardDiskDrive ProductionVM1 PMEM -ControllerLocation 1 -Path D:\VPMEMDevice1.vhdpmem`
 
-中的 HYPER-V VM 的永久性内存设备显示为永久性内存设备来使用和管理的来宾操作系统。 来宾操作系统可用作将块或 DAX 卷的设备。 时作为 DAX 卷使用的虚拟机内的永久性内存设备，它们可以受益的主机设备 （没有 I/O 虚拟化的代码路径上） 的低延迟字节级地址的能力。 
+Hyper-v VM 中的持久性内存设备显示为永久性内存设备，由来宾操作系统使用和管理。 来宾操作系统可以将设备用作块或 DAX 卷。 当 VM 中的永久性内存设备用作 DAX 卷时，它们将受益于主机设备的低延迟字节级别地址（在代码路径上没有 i/o 虚拟化）。 
 
 >[!NOTE] 
->HYPER-V 第 2 代 Vm 仅支持持久的内存。 实时迁移和存储迁移不支持的 Vm 使用永久内存。 生产检查点的 Vm 不包括持久的内存状态。 
+>永久性内存仅支持 Hyper-v Gen2 Vm。 对于具有永久性内存的 Vm，不支持实时迁移和存储迁移。 Vm 的生产检查点不包括永久性内存状态。 

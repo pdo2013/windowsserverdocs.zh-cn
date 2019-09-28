@@ -2,7 +2,7 @@
 title: Windows 应用商店客户端入门
 description: 适用于 Windows 应用商店的远程桌面客户端的基本设置步骤。
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 14df478c681074f8081190048fb5579d7fa9f653
-ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
+ms.openlocfilehash: 13fbe22ef33ea7861ae4c8677792b5758f37ad0f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70987327"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387614"
 ---
 # <a name="get-started-with-the-windows-store-client"></a>Windows 应用商店客户端入门
 

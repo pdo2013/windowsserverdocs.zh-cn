@@ -2,7 +2,7 @@
 title: 管理软件清单日志记录
 description: 描述如何管理软件清单日志记录
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage-software-inventory-logging
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 686bb61426e49f00597c423bcf4f52d949a358ab
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: bd8a26d158f53121074881ac8ff204287f9a19ad
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866377"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382973"
 ---
 # <a name="manage-software-inventory-logging"></a>管理软件清单日志记录
 
@@ -221,7 +221,7 @@ SystemManufacturer        : Microsoft Corporation
 > 如果出于任何原因而需要进行操作系统的修复安装或升级，则本地存储的所有日志文件都会丢失。  如果此数据对于操作至关重要，则建议在进行新操作系统安装之前进行备份。 修复或升级之后，只需还原到相同位置。  
   
 > [!NOTE]  
-> 如果出于任何原因管理 SIL 在本地记录的数据的保留期很重要，可通过更改此处的注册表值进行配置： \HKEY_LOCAL_MACHINE\\SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging。 默认值为30天。  
+> 如果出于任何原因管理 SIL 在本地记录的数据的保留期变得很重要，则可以通过更改此处的注册表值进行配置： \HKEY_LOCAL_MACHINE @ no__t-0SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging。 默认值为30天。  
   
 ## <a name="BKMK_Step6"></a>读取软件清单日志记录所记录和发布的数据  
 由 SIL 记录、但在本地存储（如果对目标 URI 进行的转发失败）的数据，或成功转发到目标聚合服务器的数据存储在二进制文件中（对于每天的数据）。 若要在 PowerShell 中显示此数据，请使用 [Import-BinaryMiLog](https://technet.microsoft.com/library/dn262592.aspx) cmdlet。  
@@ -244,15 +244,15 @@ SystemManufacturer        : Microsoft Corporation
 ## <a name="BKMK_Step10"></a>在装载的虚拟硬盘中启用和配置软件清单日志记录  
 软件清单日志记录还支持脱机虚拟机上的配置和启用。 这种情况的实际用途旨在涵盖跨数据中心的广泛部署的 "黄金映像" 设置，以及配置从本地到云部署的最终用户映像。  
   
-为了支持这些用途，软件清单日志记录具有与每个可配置选项相关联的注册表项。  可在 \HKEY_LOCAL_MACHINE\\SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging. 下找到这些注册表值。  
+为了支持这些用途，软件清单日志记录具有与每个可配置选项相关联的注册表项。  可在 \HKEY_LOCAL_MACHINE @ no__t-0SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging. 下找到这些注册表值。  
   
 |||||  
 |-|-|-|-|  
-|**才能**|**值名称**|**数据**|**对应的 Cmdlet （仅在正在运行的操作系统中可用）**|  
+|**Function**|**值名称**|**数据**|**对应的 Cmdlet （仅在正在运行的操作系统中可用）**|  
 |启动/停止功能|CollectionState|1 或 0|[Start-SilLogging](https://technet.microsoft.com/library/dn283391.aspx)、 [Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)|  
 |指定网络上的目标聚合点|TargetUri|string|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TargetURI|  
 |为目标 Web 服务器指定用于 SSL 身份验证的证书的证书指纹或哈希|CertificateThumbprint|string|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -CertificateThumbprint|  
-|指定功能应启动的日期和时间（如果设置的值根据本地系统时间是将来时间）|CollectionTime|默认：2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
+|指定功能应启动的日期和时间（如果设置的值根据本地系统时间是将来时间）|CollectionTime|Default：2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
   
 若要在脱机 VHD（未运行虚拟机操作系统）上修改这些值，必须首先装载 VHD，然后可以使用以下命令进行更改：  
   

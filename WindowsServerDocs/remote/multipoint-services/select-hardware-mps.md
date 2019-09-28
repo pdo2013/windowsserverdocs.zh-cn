@@ -3,7 +3,7 @@ title: 为 MultiPoint Services 系统选择硬件
 description: MultiPoint Services 的硬件注意事项
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: e74961a2-bd38-48ae-b1c0-4b3eff761b4a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 697ab9a1f97eab399dafac4e0c5fa5b641ed841c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9cfd6572c82bf5c3754165420e61054ec12b9617
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871400"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389000"
 ---
 # <a name="selecting-hardware-for-your-multipoint-services-system"></a>为 MultiPoint Services 系统选择硬件
 生成 MultiPoint 服务系统时，应选择满足 Windows Server 2016 系统要求的计算机。 如果要确定要选择的组件，请考虑以下事项：  

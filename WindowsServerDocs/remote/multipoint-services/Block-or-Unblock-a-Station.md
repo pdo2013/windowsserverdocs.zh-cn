@@ -2,7 +2,7 @@
 title: 阻止或取消阻止工作站
 ms.custom: na
 description: 了解如何阻止用户或组访问 MultiPoint 服务系统。
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 5972d7e596f4a35d323832cad68349bcc0fe99ed
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 06e47d8eb203007a20d24aa9d187bb1374d0a4d2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871770"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395528"
 ---
 # <a name="block-or-unblock-a-station"></a>阻止或取消阻止工作站
 如果需要引起用户注意，则可以阻止一位或多位用户访问 MultiPoint 服务系统。 阻止用户时，用户的会话将在 MultiPoint 服务系统的计算机内存中保持活动状态，直到阻止工作站被阻止。 你可以自定义要向已阻止的用户显示的消息。  

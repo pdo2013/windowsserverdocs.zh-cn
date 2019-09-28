@@ -2,19 +2,19 @@
 title: 配置网络策略服务器记帐
 description: 本主题提供有关 Windows Server 2016 中的网络策略服务器的文本文件和 SQL Server 日志记录的信息。
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: dfde2e21-f3d5-41e8-8492-cb3f0d028afb
 ms.author: pashort
 author: shortpatti
 ms.date: 05/25/2018
-ms.openlocfilehash: f16e4093ed58f2a2fadc4b9faa1fa42c0c157ca3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0c154d4d4534f4c343107eecd158974b92903e39
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871901"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405565"
 ---
 # <a name="configure-network-policy-server-accounting"></a>配置网络策略服务器记帐
 
@@ -55,7 +55,7 @@ ms.locfileid: "70871901"
 
 - 若要为另一进程发送日志文件数据进行收集，可以将 NPS 配置为写入命名管道。 若要使用命名管道，请将日志文件文件夹\\设置为\\.\pipe 或 ComputerName\pipe。 命名管道服务器程序创建名为\\.\pipe\iaslog.log 的命名管道，以接受数据。 使用命名管道时，请在 "本地文件属性" 对话框的 "创建新的日志文件" 中选择 "从不（文件大小无限制）"。
 
-- 可以使用系统环境变量（而不是用户变量）来创建日志文件目录，例如% systemdrive%、% systemroot% 和% windir%。 例如，下面的路径（使用环境变量% windir%）在子文件夹 \System32\Logs （即%windir%\System32\Logs\)）的系统目录中查找日志文件。
+- 可以使用系统环境变量（而不是用户变量）来创建日志文件目录，例如% systemdrive%、% systemroot% 和% windir%。 例如，下面的路径（使用环境变量% windir%）在子文件夹 \System32\Logs （即%windir%\System32\Logs @ no__t-0 中的系统目录下）查找日志文件。
 
 - 切换日志文件格式不会导致创建新的日志。 如果更改了日志文件格式，则在更改时处于活动状态的文件将包含这两种格式的混合（日志开头的记录将具有以前的格式，日志结尾处的记录将具有新格式）。
 

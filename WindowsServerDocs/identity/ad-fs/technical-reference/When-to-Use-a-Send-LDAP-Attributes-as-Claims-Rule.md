@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a1210918067bbb71ea26dff4db11561bbeb09dbd
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 08382a8eccaafac257165587fe7b6c18a8ecfbbc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869253"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407274"
 ---
 # <a name="when-to-use-a-send-ldap-attributes-as-claims-rule"></a>何时使用“以声明方式发送 LDAP 属性”规则
 如果要颁发包含实际轻型目录\(访问\)协议\(LDAP\)属性值的传出声明，则可以在 Active Directory 联合身份验证服务 AD FS 中使用此规则。属性存储，然后将声明类型与每个 LDAP 属性相关联。 有关属性存储的详细信息，请参阅[属性存储的角色](The-Role-of-Attribute-Stores.md)。  

@@ -2,22 +2,22 @@
 title: 创建文件屏蔽模板
 description: 本文介绍如何创建文件屏蔽模板
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: b06597bce0b88ed5a2e98ad45d0cbc355d1b13fc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 63824f016180ce5a92d9a16b9ee0d26a46e5db72
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858348"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394207"
 ---
 # <a name="create-a-file-screen-template"></a>创建文件屏蔽模板
 
-> 适用于：Windows Server （半年频道）、 Windows Server 2016、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2
+> 适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012，Windows Server 2008 R2
 
 *文件屏蔽模板*定义要屏蔽的一组文件组、要执行的屏蔽类型（主动或被动）以及在用户保存或尝试保存未授权文件时将自动生成的一组通知（可选）。
 
@@ -46,7 +46,7 @@ ms.locfileid: "59858348"
 
     在**文件组**下，选择要包括的所有文件组。 （若要选中文件组复选框，请双击文件组标签。）
 
-    如果你想要查看文件组包括和排除的文件类型，单击文件组标签，然后单击 **编辑**。 若要创建新的文件组，请单击 **创建**。
+    若要查看文件组包含和排除的文件类型，请单击 "文件组" 标签，然后单击 " **编辑**"。 若要创建新的文件组，请单击 " **创建**"。
 
     此外，可以设置**电子邮件消息**、**事件日志**、**命令**和**报告**选项卡上的以下选项，从而将文件服务器资源管理器配置为生成一个或多个通知。
 
@@ -56,7 +56,7 @@ ms.locfileid: "59858348"
 
     -   若要在用户或应用程序尝试保存未授权文件时通知管理员，请选中**将电子邮件发送至下列管理员**复选框，然后输入将收到通知的管理帐户名称。 请使用 *account*@*domain* 格式，并使用分号隔开多个帐户。
     -   若要发送电子邮件至尝试保存文件的用户，请选中**将电子邮件发送至尝试保存未经授权文件的用户**复选框。
-    -   若要配置邮件，请编辑所提供的默认主题行和邮件正文。 方括号中的文本会插入关于导致通知的文件屏蔽事件的变量信息。 例如， \[ **Source Io Owner** \]变量插入试图保存未经授权的文件的用户的名称。 若要在文本中插入其他变量，请单击**插入变量**。
+    -   若要配置邮件，请编辑所提供的默认主题行和邮件正文。 方括号中的文本会插入关于导致通知的文件屏蔽事件的变量信息。 例如，@no__t 0**源 Io 所有者**\] 变量插入试图保存未经授权的文件的用户的名称。 若要在文本中插入其他变量，请单击**插入变量**。
     -   若要配置其他标题（包括发件人、抄送、密件抄送和回复），请单击**其他电子邮件标题**。
 
 8.  若要在用户尝试保存未授权文件时将错误记录到事件日志中：
