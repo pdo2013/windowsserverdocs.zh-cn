@@ -6,13 +6,13 @@ ms.topic: article
 author: haley-rowland
 ms.author: harowl
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: f7bf0e32b1156fe361c79ac4ccd0e3536df767e2
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.prod: windows-server
+ms.openlocfilehash: d681e5007cd3ae3c14de774df0bc85abc23b51d7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63742127"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406834"
 ---
 # <a name="windows-admin-center-and-related-management-solutions-from-microsoft"></a>Windows Admin Center 和相关的 Microsoft 管理解决方案
 
