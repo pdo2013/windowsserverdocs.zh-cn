@@ -7,24 +7,24 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ec3b87eb7960853dabaad67d792ab6383268629e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b1c296de3b701d8a7eb8728c28a4997fd47d4fcb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828028"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71409071"
 ---
 # <a name="active-directory-replication-and-topology-management-using-windows-powershell"></a>使用 Windows PowerShell 的 Active Directory 复制和拓扑管理
 
->适用于：Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
-Active Directory 的 Windows PowerShell 现在包括对复制和拓扑管理的支持。 以下主题提供了简介和其他详细信息：  
+Windows PowerShell for Active Directory 现在包含对复制和拓扑管理的支持。 以下主题提供了简介和其他详细信息：  
   
--   [Active Directory 复制和拓扑管理使用 Windows PowerShell 简介&#40;级别 100&#41;](../../../ad-ds/manage/powershell/Introduction-to-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-100-.md)  
+-   [使用 Windows PowerShell &#40;的 Active Directory 复制和拓扑管理简介100&#41;](../../../ad-ds/manage/powershell/Introduction-to-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-100-.md)  
   
--   [高级 Active Directory 复制和拓扑管理使用 Windows PowerShell&#40;级别 200&#41;](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md)  
+-   [使用 Windows PowerShell &#40;Level 200 的高级 Active Directory 复制和拓扑管理&#41;](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md)  
   
 
 

@@ -1,8 +1,8 @@
 ---
 title: 设置更新同步
-description: Windows Server Update Service (WSUS) 主题-如何设置和配置更新同步
+description: Windows Server Update Service （WSUS）主题-如何设置和配置更新同步
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-wsus
@@ -13,110 +13,110 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5fdfaaf1af2b74fe15530095700005a422b64986
-ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.openlocfilehash: 4559016388f9b0d765c8e4d76f76fa7ef0a7f0f0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66719623"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361597"
 ---
 # <a name="setting-up-update-synchronizations"></a>设置更新同步
 
->适用于：Windows 服务器 （半年频道），Windows Server 2016 中，Windows Server 2012 R2、 Windows Server 2012
+>适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
 
-在同步期间，WSUS 服务器将从更新源下载的更新 （更新元数据和文件）。 它还下载新的产品分类和类别，如果有的话。 你的 WSUS 服务器同步时第一次，它将下载的所有更新的配置同步选项时指定。 第一个同步后，你的 WSUS 服务器仅下载更新从更新源，以及现有的更新和过期时间的元数据中的修订更新。
+在同步期间，WSUS 服务器将从更新源下载更新（更新元数据和文件）。 它还会下载新的产品分类和类别（如果有）。 当 WSUS 服务器首次同步时，它将下载你在配置同步选项时指定的所有更新。 第一次同步后，WSUS 服务器仅下载更新源中的更新，以及现有更新的元数据中的修订和更新过期。
 
-第一次的 WSUS 服务器下载更新可能需要长时间。 如果您设置了多个 WSUS 服务器，你可以加快该过程的在某种程度上通过下载一台 WSUS 服务器上的所有更新，然后将更新复制到其他 WSUS 服务器的内容目录。
+当 WSUS 服务器首次下载更新时，可能需要较长时间。 如果要设置多台 WSUS 服务器，可以通过下载一个 WSUS 服务器上的所有更新，然后将更新复制到其他 WSUS 服务器的内容目录中，加速到一定范围的过程。
 
-可以将内容从一台 WSUS 服务器的内容目录复制到另一个。 在运行 WSUS post 安装过程时指定的内容目录的位置。 Wsusutil.exe 工具可用于从一台 WSUS 服务器的更新元数据导出到文件。 然后，可以将该文件导入其他 WSUS 服务器中。
+可以将内容从一个 WSUS 服务器的内容目录复制到另一个 WSUS 服务器的内容目录。 内容目录的位置是在运行 WSUS 后安装过程时指定的。 可以使用 wsusutil.exe 工具将更新元数据从一个 WSUS 服务器导出到一个文件中。 然后，可以将该文件导入到其他 WSUS 服务器。
 
 ## <a name="setting-up-update-synchronizations"></a>设置更新同步
-**选项**页是在 WSUS 管理控制台中自定义你的 WSUS 服务器将更新的同步的中心访问点。 您可以指定哪些更新自动同步你的服务器位置获取更新、 连接设置和同步计划。 您还可以使用从配置向导**选项**页后，可以配置或随时重新配置你的 WSUS 服务器。
+"**选项**" 页是 Wsus 管理控制台中的中心访问点，用于自定义 wsus 服务器同步更新的方式。 你可以指定自动同步哪些更新、服务器获取更新的位置、连接设置和同步计划。 你还可以使用 "**选项**" 页中的配置向导随时配置或重新配置 WSUS 服务器。
 
-### <a name="synchronizing-update-by-product-and-classification"></a>同步更新按产品和分类
-WSUS 服务器下载更新基于产品或产品系列 （例如，Windows 或 Windows Server 2008 中，数据中心版） 和你指定的分类 （例如，关键更新或安全更新）。 在首次同步 WSUS 服务器下载所有具有指定的类别，在可用的更新。 在后续同步中，在 WSUS 服务器下载仅最新的更新 （或对你的 WSUS 服务器上已经可用的更新的更改） 类别的您指定。
+### <a name="synchronizing-update-by-product-and-classification"></a>按产品和分类同步更新
+WSUS 服务器根据你指定的产品或产品系列（例如，Windows 或 Windows Server 2008 Datacenter edition）和分类（例如，关键更新或安全更新）来下载更新。 第一次同步时，WSUS 服务器将下载您指定的类别中的所有可用更新。 在后续同步中，WSUS 服务器仅下载最新的更新（或对 WSUS 服务器上已有的更新的更新）。
 
-您可以在指定更新产品和分类**选项**页**产品和分类**。 层次结构中，按产品系列分组列出了产品。 如果选择 Windows，则自动选择归入该产品层次结构每个产品。 通过选择父复选框来选择在其下的所有项以及所有将来的版本。 选择子复选框将选择父复选框。 默认设置为产品是所有的 Windows 产品和分类的默认设置是关键和安全更新。
+可以在 "**产品和分类**" 下的 "**选项**" 页上指定更新产品和分类。 产品在层次结构中列出，按产品系列分组。 如果选择 "Windows"，则会自动选择属于该产品层次结构的每个产品。 通过选中 "父项" 复选框，可以选择其下的所有项以及所有将来的版本。 选中子复选框不会选中父复选框。 "产品" 的默认设置为 "所有 Windows 产品"，分类的默认设置为 "关键" 和 "安全更新"。
 
-如果在副本模式下运行的 WSUS 服务器，你将不能执行此任务。 有关副本模式的详细信息，请参阅[运行 WSUS 副本模式](running-wsus-replica-mode.md)，和[步骤 1:为 WSUS 部署做好准备](../plan/plan-your-wsus-deployment.md)。
+如果 WSUS 服务器在副本模式下运行，则将无法执行此任务。 有关副本模式的详细信息，请参阅[运行 WSUS 副本模式](running-wsus-replica-mode.md)和 [Step 1：准备 WSUS 部署 @ no__t-0。
 
-##### <a name="to-specify-update-products-and-classifications-for-synchronization"></a>若要指定更新产品和分类进行同步
+##### <a name="to-specify-update-products-and-classifications-for-synchronization"></a>为同步指定更新产品和分类
 
-1.  在 WSUS 管理控制台中，单击**选项**节点。
+1.  在 WSUS 管理控制台中，单击 "**选项**" 节点。
 
-2.  单击**产品和分类**，然后单击**产品**选项卡。
+2.  单击 "**产品和分类**"，然后单击 "**产品**" 选项卡。
 
-3.  选择的产品或产品系列你想要使用 WSUS，更新，然后单击复选框**确定**。
+3.  选中要用 WSUS 更新的产品或产品系列的复选框，然后单击 **"确定"** 。
 
-4.  上**分类**选项卡上，选中你想要同步，然后单击你的 WSUS 服务器的更新分类的复选框**确定**。
+4.  在 "**分类**" 选项卡上，选中你希望 WSUS 服务器同步的更新分类的复选框，然后单击 **"确定"** 。
 
 > [!NOTE]
-> 可以相同方式删除产品或分类。 你的 WSUS 服务器将停止同步已清除的产品的新更新。 但是之前你清除了, 已同步对这些产品的更新将保留在你的 WSUS 服务器上，并且会列出为可用。
+> 可以采用相同的方式删除产品或分类。 WSUS 服务器将停止为已清除的产品同步新更新。 但是，在清除之前为这些产品同步的更新将保留在 WSUS 服务器上，并将列为 "可用"。
 > 
-> 若要删除的那些产品，拒绝更新，如中所述[更新操作](updates-operations.md)，然后使用[服务器清理向导](the-server-cleanup-wizard.md)将其删除。
+> 要删除这些产品，请拒绝更新，如[更新操作](updates-operations.md)中所述，然后使用["服务器清理向导](the-server-cleanup-wizard.md)" 删除它们。
 
-### <a name="synchronizing-updates-by-language"></a>同步的语言的更新
-你的 WSUS 服务器下载基于你指定的语言的更新。 在同步更新中的所有语言的可用，也可以指定语言的子集。 如果有层次结构的 WSUS 服务器，并且您需要下载不同语言的更新，请确保在上游服务器上指定了所有需要的语言。 在下游服务器可以指定上游服务器指定的语言的子集。
+### <a name="synchronizing-updates-by-language"></a>按语言同步更新
+WSUS 服务器将根据你指定的语言下载更新。 你可以同步其可用的所有语言的更新，也可以指定一小部分语言。 如果你有 WSUS 服务器的层次结构，并且需要下载不同语言的更新，请确保已在上游服务器上指定了所有必需的语言。 在下游服务器上，可以指定在上游服务器上指定的语言子集。
 
-### <a name="synchronizing-updates-from-the-microsoft-update-catalog"></a>将更新从 Microsoft Update 目录同步
-有关同步来自 Microsoft Update 目录网站的更新的详细信息，请参阅：[WSUS 和目录站点](wsus-and-the-catalog-site.md)。
+### <a name="synchronizing-updates-from-the-microsoft-update-catalog"></a>正在从 Microsoft 更新目录同步更新
+有关从 Microsoft 更新目录站点同步更新的详细信息，请参阅：[WSUS 和目录站点](wsus-and-the-catalog-site.md)。
 
 ## <a name="configuring-proxy-server-settings"></a>配置代理服务器设置
-可以配置你的 WSUS 服务器与上游服务器或 Microsoft Update 的同步期间使用代理服务器。 仅当你的 WSUS 服务器运行同步时，将应用此设置。 默认情况下你的 WSUS 服务器将尝试直接连接到上游服务器或 Microsoft Update。
+你可以将 WSUS 服务器配置为在与上游服务器或 Microsoft 更新同步期间使用代理服务器。 仅当 WSUS 服务器运行同步时，此设置才适用。 默认情况下，WSUS 服务器将尝试直接连接到上游服务器或 Microsoft 更新。
 
-#### <a name="to-specify-a-proxy-server-for-synchronization"></a>若要指定代理服务器进行同步
+#### <a name="to-specify-a-proxy-server-for-synchronization"></a>指定代理服务器进行同步
 
-1.  在 WSUS 管理控制台中，单击**选项**，然后单击**更新源和代理服务器**。
+1.  在 WSUS 管理控制台中，单击 "**选项**"，然后单击 "**更新源和代理服务器**"。
 
-2.  上**代理服务器**选项卡上，选择**同步时使用代理服务器**复选框，然后键入服务器名称和端口号的代理服务器。
+2.  在 "**代理服务器**" 选项卡上，选中 "**同步时使用代理服务器**" 复选框，然后键入代理服务器的服务器名称和端口号。
 
     > [!NOTE]
-    > 使用代理服务器配置为相同的端口号配置 WSUS 使用。
+    > 使用代理服务器配置为使用的相同端口号配置 WSUS。
 
-    -   如果你想要连接到特定用户凭据的代理服务器，请选择**使用用户凭据来连接到代理服务器**复选框，，然后在对应的框中输入用户名、 域和用户的密码.
+    -   如果要使用特定用户凭据连接到代理服务器，请选中 "**使用用户凭据连接到代理服务器"** 复选框，然后在对应的框中输入用户的用户名、域和密码。
 
-    -   如果你想要启用基本身份验证连接到代理服务器，选择的用户**允许基本身份验证 （密码以明文形式发送）** 复选框。
+    -   如果要为连接到代理服务器的用户启用基本身份验证，请选中 "**允许基本身份验证（以明文形式发送密码）** " 复选框。
 
 3.  单击 **“确定”** 。
 
     > [!NOTE]
-    > 由于 WSUS 启动所有其网络流量，没有必要在直接连接到 Microsoft 更新的 WSUS 服务器上配置 Windows 防火墙。
+    > 由于 WSUS 会启动其所有网络流量，因此不需要在直接连接到 Microsoft update 的 WSUS 服务器上配置 Windows 防火墙。
 
 ## <a name="configuring-the-update-source"></a>配置更新源
-更新源是你的 WSUS 服务器从其获取其更新的位置和更新元数据。 您可以指定更新源应为 Microsoft 更新或另一台 WSUS 服务器 （充当更新源是上游服务器，并且你的服务器是下游服务器的 WSUS 服务器）。
+更新源是 WSUS 服务器从中获取更新和更新元数据的位置。 你可以指定更新源应为 Microsoft 更新或其他 WSUS 服务器（充当更新源的 WSUS 服务器是上游服务器，并且你的服务器是下游服务器）。
 
-用于自定义如何将你的 WSUS 服务器同步的更新源的选项包括：
+用于自定义 WSUS 服务器如何与更新源同步的选项包括：
 
--   可以指定自定义端口进行同步。 有关配置的端口的信息，请参阅[步骤 3:将 WSUS 配置](../deploy/2-configure-wsus.md)WSUS 部署指南中。
+-   可以指定用于同步的自定义端口。 有关配置端口的信息，请参阅 [Step 3：在 WSUS 部署指南中配置 WSUS @ no__t。
 
--   您可以使用安全套接字层 (SSL) 安全同步的 WSUS 服务器之间的更新信息。 有关使用 SSL 的详细信息，请参阅部分"3.5。 安全 WSUS 使用安全套接字层协议"的[步骤 3:将 WSUS 配置](../deploy/2-configure-wsus.md)WSUS 部署指南中。
+-   可以使用安全套接字层（SSL）来保护 WSUS 服务器之间更新信息的同步。 有关使用 SSL 的详细信息，请参阅 "3.5" 部分。 安全套接字层协议 "为 @no__t 的安全 WSUS-0Step 3：在 WSUS 部署指南中配置 WSUS @ no__t。
 
 ## <a name="synchronizing-manually-or-automatically"></a>手动或自动同步
-可以手动同步你的 WSUS 服务器，也可以指定为其自动同步的时间。
+你可以手动同步 WSUS 服务器或指定它自动同步的时间。
 
-#### <a name="to-manually-synchronize-the-wsus-server"></a>若要手动同步 WSUS 服务器
+#### <a name="to-manually-synchronize-the-wsus-server"></a>手动同步 WSUS 服务器
 
-1.  在 WSUS 管理控制台中，单击**选项**，然后单击**同步计划**。
+1.  在 WSUS 管理控制台中，单击 "**选项**"，然后单击 "**同步计划**"。
 
-2.  单击**手动同步**，然后单击**确定**。
+2.  单击 "**手动同步**"，然后单击 **"确定"** 。
 
-#### <a name="to-set-up-an-automatic-synchronization-schedule"></a>若要设置自动同步计划
+#### <a name="to-set-up-an-automatic-synchronization-schedule"></a>设置自动同步计划
 
-1.  在 WSUS 管理控制台中，单击**选项**，然后单击**同步计划**。
+1.  在 WSUS 管理控制台中，单击 "**选项**"，然后单击 "**同步计划**"。
 
-2.  单击**自动同步**。
+2.  单击 "**自动同步**"。
 
-3.  有关**第一次同步**，选择要开始每日同步的时间。
+3.  对于 "**第一次同步**"，请选择每天要开始同步的时间。
 
-4.  有关**每天同步次数**，选择想要执行每日同步数。 例如，如果您想同步四次在凌晨 3:00 天开始，则同步会发生在凌晨 3:00、 上午 9:00，下午 3:00 和下午 9:00 每一天。 （请注意，随机的时间偏移量将添加到计划的同步时间以隔开服务器连接到 Microsoft 更新。）
+4.  对于 "**每天同步**次数"，请选择每天要执行的同步次数。 例如，如果想要从凌晨3:00 开始进行四次同步，则同步将在上午3:00、9:00 A.M.、下午 3:00 9:00 和下午进行。 每天。 （请注意，会将随机时间偏移量添加到计划的同步时间，以将服务器连接的空间排除在 Microsoft 更新。）
 
 5.  单击 **“确定”** 。
 
-#### <a name="to-synchronize-your-wsus-server-immediately"></a>若要立即同步你的 WSUS 服务器
+#### <a name="to-synchronize-your-wsus-server-immediately"></a>立即同步 WSUS 服务器
 
-1.  在 WSUS 管理控制台中，选择上的服务器节点。
+1.  在 WSUS 管理控制台中，选择 "顶层服务器" 节点。
 
-2.  在中**概述**窗格下**同步状态**，单击**立即同步**。
+2.  在**概述**窗格中的 "**同步状态**" 下，单击 "**立即同步**"。
 
 > [!NOTE]
-> 下游服务器启动同步。
+> 同步由下游服务器启动。
