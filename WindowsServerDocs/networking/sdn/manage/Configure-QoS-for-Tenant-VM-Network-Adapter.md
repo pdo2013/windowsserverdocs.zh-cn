@@ -1,9 +1,9 @@
 ---
 title: 为租户 VM 网络适配器配置服务质量（QoS）
-description: 为租户 VM 网络适配器配置 QoS 时，可在数据中心桥接 DCB或软件定义的网络SDN QoS 之间做出选择。
+description: 为租户 VM 网络适配器配置 QoS 时，可在数据中心桥接 DCB 或软件定义的网络 SDN QoS 之间做出选择。
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,12 +13,12 @@ ms.assetid: 6d783ff6-7dd5-496c-9ed9-5c36612c6859
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 99ef286b91bec4bcb008bfd9f62003e75a5a5921
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 1074525abe375e78ab0d2065ce8e98f894f50c61
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870018"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355853"
 ---
 # <a name="configure-quality-of-service-qos-for-a-tenant-vm-network-adapter"></a>为租户 VM 网络适配器配置服务质量（QoS）
 
