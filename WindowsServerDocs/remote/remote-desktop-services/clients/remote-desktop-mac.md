@@ -2,7 +2,7 @@
 title: macOS 客户端入门
 description: 了解如何为 Mac 设置远程桌面客户端
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 8836ab500e97b68efbcdd0cd1ca5bcbe39d79334
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 1512589315489f5bc351ff105a56694e0947463b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150927"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404135"
 ---
 # <a name="get-started-with-the-macos-client"></a>macOS 客户端入门
 
@@ -159,7 +159,7 @@ Mac 键盘布局与 Windows 键盘布局不同。
 - 可以通过额外按 FN 键在会话中激活功能键（例如：FN + F1）。
 - Mac 键盘上空格键右侧的 Alt 键等于 Windows 中的 Alt Gr/右 Alt 键。
 
-默认情况下，远程会话会使用与客户端运行的操作系统相同的键盘区域设置。 （如果 Mac 运行美国英语操作系统，则也会对远程会话使用该操作系统。 如果未使用操作系统键盘区域设置，请检查远程电脑上的键盘设置并手动更改该设置。 有关键盘和区域设置的更多信息，请参阅[远程桌面客户端常见问题解答](remote-desktop-client-faq.md)。
+默认情况下，远程会话会使用与客户端运行的操作系统相同的键盘区域设置。 （如果 Mac 运行美国英语操作系统，则也会对远程会话使用该操作系统。）如果未使用操作系统键盘区域设置，请检查远程电脑上的键盘设置并手动更改该设置。 有关键盘和区域设置的更多信息，请参阅[远程桌面客户端常见问题解答](remote-desktop-client-faq.md)。
 
 
 ## <a name="support-for-remote-desktop-gateway-pluggable-authentication-and-authorization"></a>对远程桌面网关可插入身份验证和授权的支持

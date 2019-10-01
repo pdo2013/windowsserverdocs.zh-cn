@@ -1,7 +1,7 @@
 ---
 title: 部署远程桌面环境
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 description: 部署远程桌面环境的基本步骤。
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b9ce1bb87a7a2ad8819235edc412fd095bc2985
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: e00be471b2607ad4bc8cc8e11652d428419b4fd6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805128"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404016"
 ---
 # <a name="deploy-your-remote-desktop-environment"></a>部署远程桌面环境
 
@@ -46,7 +46,7 @@ ms.locfileid: "66805128"
 4.  激活 RD 许可证服务器并将其添加到“许可证服务器”组：  
     1.  在服务器管理器中，单击“工具”>“终端服务”>“远程桌面许可管理器”  。  
     2.  在 RD 许可管理器中，选择服务器，然后单击“操作”>“激活服务器”  。  
-    3.  接受“激活服务器”向导中的默认值，直至到达“公司信息”页  。 然后，输入公司信息。  
+    3.  接受“激活服务器”向导中的默认值。 继续接受默认值，直至到达**公司信息**页。 然后，输入公司信息。  
     4.  接受剩余页面的默认值，直至最后一页。 清除“立即启动许可证安装向导”复选框，然后单击“完成”   。  
     5.  单击“操作”>“查看配置”>“添加到组”>“确定”  。 在 AAD DC 管理员组中输入用户的凭据，并注册为 SCP。 如果使用 Azure AD 域服务，则此步骤可能不起作用，但可以忽略任何警告或错误。  
 5.  添加 RD 网关服务器和证书名称：  
