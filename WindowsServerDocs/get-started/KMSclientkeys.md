@@ -68,7 +68,7 @@ ms.locfileid: "71391775"
 
 ## <a name="windows-server-ltscltsb-versions"></a>Windows Server LTSC/LTSB 版本
 
-### <a name="windows-server-2019"></a>Windows Server Standard 2012 R2
+### <a name="windows-server-2019"></a>Windows Server 2019
 | 操作系统版本       | KMS 客户端安装程序密钥          |
 |--------------------------------|-------------------------------|
 | Windows Server 2019 Datacenter | WMDGN-G9PQG-XVVXX-R3X43-63DFG  | 
