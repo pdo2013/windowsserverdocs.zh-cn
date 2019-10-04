@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 12410d619245153f759b54e7a8aff257888f04dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 92fe505c3ae7d76f7a8d5bd9d2ed0ce845159fde
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386071"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940751"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>DFS 复制：常见问题 (FAQ)
 
@@ -217,7 +217,7 @@ Windows 和 DFS 复制最多支持32000个字符的文件夹路径。 DFS 复制
 
 ### <a name="what-are-the-supported-limits-of-dfs-replication"></a>DFS 复制支持的限制是什么？
 
-以下列表提供了一组在 Windows Server 2012 R2 上经过 Microsoft 测试的可伸缩性指导原则：
+以下列表提供了一组可由 Microsoft 测试并适用于 Windows Server 2012 R2、Windows Server 2016 和 Windows Server 2019 的可伸缩性指南
 
   - 服务器上所有复制文件的大小：100 tb。  
       
@@ -228,7 +228,7 @@ Windows 和 DFS 复制最多支持32000个字符的文件夹路径。 DFS 复制
 
 
 > [!IMPORTANT]
-> 创建包含大量文件的复制组时，我们建议导出数据库克隆，并使用预种子设定技术来最大程度地缩短初始复制的持续时间。 有关详细信息，请<A href="http://blogs.technet.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx">参阅 Windows Server 2012 R2 中的 DFS 复制初始同步：克隆</A>的攻击。 
+> 创建包含大量文件的复制组时，我们建议导出数据库克隆，并使用预种子设定技术来最大程度地缩短初始复制的持续时间。 有关详细信息，请[参阅 Windows Server 2012 R2 中的 DFS 复制初始同步：克隆](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/DFS-Replication-Initial-Sync-in-Windows-Server-2012-R2-Attack-of/ba-p/424877)的攻击。 
 <br>
 
 

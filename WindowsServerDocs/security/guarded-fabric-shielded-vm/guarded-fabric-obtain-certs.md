@@ -7,13 +7,13 @@ ms.assetid: f4b4d1a8-bf6d-4881-9150-ddeca8b48038
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 08/29/2018
-ms.openlocfilehash: b3e6aadbcbf2f2b826ca97d4ebb58c3736528b59
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 09/25/2019
+ms.openlocfilehash: e8f4a3696ec5096281ba1ffd130aa97004530cc1
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386517"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940737"
 ---
 # <a name="obtain-certificates-for-hgs"></a>获取 HGS 证书
 
@@ -81,7 +81,7 @@ Hyper-v 主机和 HGS 节点都需要信任你提供的 SSL 证书，因此建�
 
 SSL 证书属性 | 必需的值
 -------------------------|---------------
-使用者名称             | HGS 群集的名称（分布式网络名称）。 这将是提供给 `Initialize-HgsServer` 和你的 HGS 域名的 HGS 服务名称的串联。
+使用者名称             | HGS 群集的名称（称为分布式网络名称或虚拟计算机对象 FQDN）。 这将是提供给 `Initialize-HgsServer` 和你的 HGS 域名的 HGS 服务名称的串联。
 使用者可选名称 | 如果要使用不同的 DNS 名称来访问 HGS 群集（例如，如果它位于负载均衡器后面），请确保在证书请求的 SAN 字段中包含这些 DNS 名称。
 
 在[配置第一个 hgs 节点](guarded-fabric-initialize-hgs.md)时，会介绍用于指定此证书的选项。

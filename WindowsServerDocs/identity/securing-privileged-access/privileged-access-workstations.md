@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 29e3785d1c004d669e0060854acb6af1d2953644
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fb91ca583fd71a7fbe38369606d2dcc4a816d8aa
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357925"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935009"
 ---
 # <a name="privileged-access-workstations"></a>特权访问工作站
 
@@ -511,66 +511,136 @@ Microsoft 建议使用 PAW 访问特权管理解决方案。 应仅向 PAW 授�
 在本部分中，我们将配置组策略以防止有特权的管理帐户登录较低层主机。
 
 1. 创建新的**限制工作站登录** GPO - 此设置将限制第 0 层和第 1 层管理员帐户登录到标准工作站。  此 GPO 应链接到 "工作站" 顶级 OU，并具有以下设置：
-   * 在 "计算机配置 \windows 设置 \ 安全设置 \ 本地策略 \ 用户权限分配登录登录为批处理作业" 中，选择 "**定义这些策略设置**" 并添加第0层和第1层组：   企业管理员域管理员架构管理员域 \ 管理员帐户操作员备份操作员打印操作员 Server 操作员域控制器只读域控制器组策略创建者所有者加密操作系统ators
+   * 在 "计算机配置 \windows 设置 \ 安全设置 \ 本地策略 \ 用户权限分配登录登录为批处理作业" 中，选择 "**定义这些策略设置**" 并添加第0层和第1层组：
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
 
-         > [!NOTE]
-         > Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > 内置第0层组，有关更多详细信息，请参阅第0层。
 
          Other Delegated Groups
 
-         > [!NOTE]
-         > Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > 任何具有有效第0层访问权限的自定义创建的组，有关详细信息，请参阅第0层。
 
          Tier 1 Admins
 
-         > [!NOTE]
-         > This Group was created earlier in Phase 1.
+     > [!NOTE]
+     > 此组是之前在阶段1中创建的。
 
-   * 在 "计算机配置 \windows 设置 \ 安全设置 \ 本地策略 \ 用户权限分配登录登录为服务" 中，选择 "**定义这些策略设置**" 并添加第0层和第1层组：   企业管理员域管理员架构管理员域 \ 管理员帐户操作员备份操作员打印操作员 Server 操作员域控制器只读域控制器组策略创建者所有者加密操作系统ators
+   * 在 "计算机配置 \windows 设置 \ 安全设置 \ 本地策略 \ 用户权限分配登录登录为服务" 中，选择 "**定义这些策略设置**" 并添加第0层和第1层组：
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
 
-         > [!NOTE]
-         > Note: Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > 注意:内置第0层组，有关更多详细信息，请参阅第0层。
 
          Other Delegated Groups
 
-         > [!NOTE]
-         > Note: Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > 注意:任何具有有效第0层访问权限的自定义创建的组，有关详细信息，请参阅第0层。
 
          Tier 1 Admins
 
-         > [!NOTE]
-         > Note: This Group was created earlier in Phase 1
+     > [!NOTE]
+     > 注意:此组是之前在阶段1中创建的
 
 2. 创建新的**限制服务器登录**GPO-此设置将限制第0层管理员帐户登录到第1层服务器。  此 GPO 应链接到 "第1层服务器" 顶级 OU，并具有以下设置：
-   * 在 "计算机配置 \windows 设置 \ 安全设置 \ 本地策略 \ 用户权限分配登录登录为批处理作业" 中，选择 "**定义这些策略设置**" 并添加第0层组：   企业管理员域管理员架构管理员域 \ 管理员帐户操作员备份操作员打印操作员 Server 操作员域控制器只读域控制器组策略创建者所有者加密操作系统ators
+   * 在 "计算机配置 \windows 设置 \ 安全设置 \ 本地策略 \ 用户权限分配登录登录为批处理作业" 中，选择 "**定义这些策略设置**" 并添加第0层组：
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
 
-         > [!NOTE]
-         > Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
-
-         Other Delegated Groups
-
-         > [!NOTE]
-         > Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
-
-   * 在 "计算机配置 \windows 设置 \ 安全设置 \ 本地策略 \ 用户权限分配登录登录为服务" 中，选择 "**定义这些策略设置**" 并添加第0层组：   企业管理员域管理员架构管理员域 \ 管理员帐户操作员备份操作员打印操作员 Server 操作员域控制器只读域控制器组策略创建者所有者加密操作系统ators
-
-         > [!NOTE]
-         > Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
-
-         Other Delegated Groups
-
-         > [!NOTE]
-         > Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
-
-   * 在 "计算机配置 \windows 设置 \ 安全设置 \ 本地策略 \ 用户权限分配登录本地登录" 中，选择 "**定义这些策略设置**" 并添加第0层组：   企业管理员域管理员架构管理员帐户操作员备份操作员打印操作员 Server 操作员域控制器只读域控制器组策略创建者所有者加密操作员
-
-         > [!NOTE]
-         > Note: Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > 内置第0层组，有关更多详细信息，请参阅第0层。
 
          Other Delegated Groups
 
-         > [!NOTE]
-         > Note: Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > 任何具有有效第0层访问权限的自定义创建的组，有关详细信息，请参阅第0层。
+
+   * 在 "计算机配置 \windows 设置 \ 安全设置 \ 本地策略 \ 用户权限分配登录登录为服务" 中，选择 "**定义这些策略设置**" 并添加第0层组：
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
+
+     > [!NOTE]
+     > 内置第0层组，有关更多详细信息，请参阅第0层。
+
+         Other Delegated Groups
+
+     > [!NOTE]
+     > 任何具有有效第0层访问权限的自定义创建的组，有关详细信息，请参阅第0层。
+
+   * 在 "计算机配置 \windows 设置 \ 安全设置 \ 本地策略 \ 用户权限分配登录本地登录" 中，选择 "**定义这些策略设置**" 并添加第0层组：
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
+
+     > [!NOTE]
+     > 注意:内置第0层组，有关更多详细信息，请参阅第0层。
+
+         Other Delegated Groups
+
+     > [!NOTE]
+     > 注意:任何具有有效第0层访问权限的自定义创建的组，有关详细信息，请参阅第0层。
 
 #### <a name="deploy-your-paws"></a>部署 PAW
 

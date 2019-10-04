@@ -6,14 +6,14 @@ ms.author: dacuo
 manager: dougkim
 ms.date: 10/17/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 2b8c6148af21e94e4a56661402f36dcb2e636461
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 73922a07d8d5396aa9ced377bfc3c9be97a9950d
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871826"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935103"
 ---
 ## <a name="windows-server-2016-improvements"></a>Windows Server 2016 改进
 
@@ -191,7 +191,7 @@ TIMESERV 是另一个相关的域服务标志，它指示计算机当前是否�
 
 如果要将 DC 配置为 GTIMESERV，可以使用以下命令手动配置它。  在这种情况下，DC 使用其他计算机作为主时钟。  这可以是一个设备或专用的计算机。
 
-    w32tm /config /manualpeerlist:”master_clock1,0x8 master_clock2,0x8” /syncfromflags:manual /reliable:yes /update
+    w32tm /config /manualpeerlist:"master_clock1,0x8 master_clock2,0x8" /syncfromflags:manual /reliable:yes /update
 
 > [!NOTE]
 > 有关详细信息，请参阅[配置 Windows 时间服务](https://technet.microsoft.com/library/cc731191.aspx)

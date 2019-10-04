@@ -2,13 +2,13 @@
 author: shortpatti
 ms.author: pashort
 ms.date: 10/02/2018
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms:topic: include
-ms.openlocfilehash: 59f77e5d59d69e6fed38ef938f0dd4eef689ad18
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 478080c896f390c28dba4561a2973a81e5a3551b
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841478"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935085"
 ---
-地址哈希与此模式下创建基于地址组件的数据包，然后获取分配给一个可用的适配器的哈希。 通常情况下，仅仅这个机制本身就足以在可用的适配器创建合理的平衡。
+使用地址哈希，此模式根据数据包的地址组件创建哈希，然后将其分配给可用适配器之一。 通常，这种机制只是足以在可用适配器间创建合理的平衡。

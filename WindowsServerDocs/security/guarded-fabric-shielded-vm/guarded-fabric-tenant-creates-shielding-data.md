@@ -7,13 +7,13 @@ ms.assetid: 49f4e84d-c1f7-45e5-9143-e7ebbb2ef052
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 01/30/2019
-ms.openlocfilehash: 86047420cb4b1095d5715739d76daa3dba3ff5d0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 09/25/2019
+ms.openlocfilehash: 1ae6f881e1bd4b9b317e5622f18958f25f692eec
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403456"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940794"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>租户的受防护的 Vm-创建屏蔽数据来定义受防护的 VM
 
@@ -24,11 +24,11 @@ ms.locfileid: "71403456"
 有关防护数据文件内容的列表和关系图，请参阅[什么是防护数据？什么是必需的？](guarded-fabric-and-shielded-vms.md#what-is-shielding-data-and-why-is-it-necessary)。
 
 > [!IMPORTANT]
-> 本部分中的步骤应在运行 Windows Server 2016 的租户计算机上完成。 该计算机不得是受保护的构造的一部分（即，不应将其配置为使用 HGS 群集）。
+> 本部分中的步骤应在受保护的构造之外的单独、受信任的计算机上完成。 通常，VM 所有者（租户）会为其 Vm 而不是构造管理员创建防护数据。
 
 若要准备创建防护数据文件，请执行以下步骤：
 
-- [获取远程桌面连接的证书](#obtain-a-certificate-for-remote-desktop-connection)
+- [获取远程桌面连接的证书](#optional-obtain-a-certificate-for-remote-desktop-connection)
 - [创建应答文件](#create-an-answer-file)
 - [获取卷签名目录文件](#get-the-volume-signature-catalog-file)
 - [选择受信任的构造](#select-trusted-fabrics)
@@ -37,23 +37,20 @@ ms.locfileid: "71403456"
 
 - [创建防护数据文件并添加监护人](#create-a-shielding-data-file-and-add-guardians-using-the-shielding-data-file-wizard)
 
-
-## <a name="obtain-a-certificate-for-remote-desktop-connection"></a>获取远程桌面连接的证书
+## <a name="optional-obtain-a-certificate-for-remote-desktop-connection"></a>可有可无获取远程桌面连接的证书
 
 由于租户只能使用远程桌面连接或其他远程管理工具连接到受防护的 Vm，因此请务必确保租户可以验证它们是否连接到正确的终结点（即，没有 "中间人"截获连接）。
 
 验证连接到目标服务器的一种方法是安装和配置一个证书，以便在启动连接时提供远程桌面服务。 连接到服务器的客户端计算机将检查其是否信任证书，并在不显示警告的情况。 通常，若要确保连接客户端信任证书，则会从租户的 PKI 颁发 RDP 证书。 有关[在远程桌面服务中使用证书的](https://technet.microsoft.com/library/dn781533.aspx)详细信息，请参阅 TechNet。
 
-> [!NOTE]
+ 为了帮助你决定是否需要获取自定义 RDP 证书，请考虑以下事项：
+
+- 如果只是在实验室环境中测试受防护的 Vm，则**无**需使用自定义 RDP 证书。
+- 如果 VM 已配置为加入 Active Directory 域，则计算机证书通常由组织的证书颁发机构自动颁发，并用于在 RDP 连接期间标识计算机。 **不**需要自定义 RDP 证书。
+- 如果你的 VM 未加入域，但你希望在使用远程桌面时能够验证是否正在连接到正确的计算机，则**应考虑**使用自定义 RDP 证书。
+
+> [!TIP]
 > 选择要包含在防护数据文件中的 RDP 证书时，请确保使用通配符证书。 一个防护数据文件可用于创建不限数量的 Vm。 由于每个 VM 共享同一个证书，因此无论 VM 的主机名如何，通配符证书都可确保证书有效。
-
-如果你正在评估受防护的 Vm，但尚未准备好从证书颁发机构请求证书，则可以通过运行以下 Windows PowerShell 命令在租户计算机上创建自签名证书（其中， *contoso.com*是租户的域）：
-
-``` powershell
-$rdpCertificate = New-SelfSignedCertificate -DnsName '\*.contoso.com'
-$password = ConvertTo-SecureString -AsPlainText 'Password1' -Force
-Export-PfxCertificate -Cert $RdpCertificate -FilePath .\rdpCert.pfx -Password $password
-```
 
 ## <a name="create-an-answer-file"></a>创建应答文件
 
@@ -64,40 +61,50 @@ Export-PfxCertificate -Cert $RdpCertificate -FilePath .\rdpCert.pfx -Password $p
 - 在初始化过程结束时，VM 是否应加入域？
 - 是否会对每个 VM 使用批量许可或特定的产品密钥？
 - 你使用的是 DHCP 还是静态 IP？
-- 是否会使用远程桌面协议（RDP）证书来证明 VM 属于你的组织？
+- 是否会使用自定义远程桌面协议（RDP）证书来证明 VM 属于你的组织？
 - 是否要在初始化结束时运行脚本？
-- 是否使用了所需状态配置（DSC）服务器进行进一步配置？
 
 屏蔽数据文件中使用的应答文件将在使用该防护数据文件创建的每个 VM 上使用。 因此，应确保不会将任何特定于 VM 的信息硬编码到答案文件中。 VMM 在无人参与文件中支持一些替代字符串（请参阅下表），以处理可能会从 VM 更改为 VM 的专用化值。 不需要使用这些值;但是，如果它们存在，VMM 将利用它们。
 
 为受防护的 Vm 创建 unattend.xml 文件时，请记住以下限制：
 
--   无人参与文件必须导致 VM 在配置后关闭。 这是为了让 VMM 知道何时应向租户报告 VM 完成预配并可供使用的时间。 当 VM 检测到它在预配期间已关闭时，它将自动开机。
+- 如果你使用 VMM 来管理你的数据中心，则无人参与文件必须在配置后将 VM 关闭。 这是为了让 VMM 知道何时应向租户报告 VM 完成预配并可供使用的时间。 当 VM 检测到它在预配期间已关闭时，它将自动开机。
 
--   强烈建议配置 RDP 证书，确保连接到正确的 VM，而不是配置为中间人攻击的另一台计算机。
+- 确保启用 RDP 和相应的防火墙规则，以便可以在配置 VM 后对其进行访问。 你不能使用 VMM 控制台来访问受防护的 Vm，因此你将需要 RDP 来连接到 VM。 如果希望使用 Windows PowerShell 远程处理来管理系统，请确保还启用了 WinRM。
 
--   确保启用 RDP 和相应的防火墙规则，以便可以在配置 VM 后对其进行访问。 你不能使用 VMM 控制台来访问受防护的 Vm，因此你将需要 RDP 来连接到 VM。 如果希望使用 Windows PowerShell 远程处理来管理系统，请确保还启用了 WinRM。
+- 受防护的 VM 无人参与文件中支持的唯一替换字符串如下：
 
--   受防护的 VM 无人参与文件中支持的唯一替换字符串如下：
+    | 可替换元素 | 替换字符串 |
+    |-----------|-----------|
+    | ComputerName        | @ComputerName@      |
+    | TimeZone            | @TimeZone@          |
+    | ProductKey          | @ProductKey@        |
+    | IPAddr4-1           | @IP4Addr-1@         |
+    | IPAddr6-1           | @IP6Addr-1@         |
+    | MACAddr-1           | @MACAddr-1@         |
+    | 前缀-1-1          | @Prefix-1-1@        |
+    | NextHop-1-1         | @NextHop-1-1@       |
+    | 前缀-1-2          | @Prefix-1-2@        |
+    | NextHop-1-2         | @NextHop-1-2@       |
 
-| 可替换元素 | 替换字符串 |
-|-----------|-----------|
-| ComputerName        | @ComputerName@      |
-| TimeZone            | @TimeZone@          |
-| ProductKey          | @ProductKey@        |
-| IPAddr4-1           | @IP4Addr-1@         |
-| IPAddr6-1           | @IP6Addr-1@         |
-| MACAddr-1           | @MACAddr-1@         |
-| 前缀-1-1          | @Prefix-1-1@        |
-| NextHop-1-1         | @NextHop-1-1@       |
-| 前缀-1-2          | @Prefix-1-2@        |
-| NextHop-1-2         | @NextHop-1-2@       |
+    如果有多个 NIC，则可以通过增加第一个数字来添加多个 IP 配置的替换字符串。 例如，若要为2个 Nic 设置 IPv4 地址、子网和网关，请使用以下替换字符串：
+
+    | 替换字符串 | 示例替换 |
+    |---------------------|----------------------|
+    | @IP4Addr-1@         | 192.168.1.10         |
+    | @MACAddr-1@         | Ethernet             |
+    | @Prefix-1-1@        | 192.168.1.0/24       |
+    | @NextHop-1-1@       | 192.168.1.254        |
+    | @IP4Addr-2@         | 10.0.20.30           |
+    | @MACAddr-2@         | 以太网2           |
+    | @Prefix-2-1@        | 10.0.20.0/24         |
+    | @NextHop-2-1@       | 10.0.20.1            |
 
 使用替换字符串时，务必确保在 VM 预配过程中填充字符串。 如果部署时未提供 @ProductKey @ 之类的字符串，则将无人参与文件中的 &lt;ProductKey @ no__t 节点保留为空白，则专用化过程将失败，并且你将无法连接到 VM。
 
 另请注意，仅当使用的是 VMM 静态 IP 地址池时，才使用与表末尾相关的网络相关的替换字符串。 托管服务提供商应能够告诉你是否需要这些替换字符串。 有关 VMM 模板中静态 IP 地址的详细信息，请参阅 VMM 文档中的以下内容：
 
-- [IP 地址池的准则](https://technet.microsoft.com/system-center-docs/vmm/plan/plan-network#guidelines-for-ip-address-pools) 
+- [IP 地址池的准则](https://technet.microsoft.com/system-center-docs/vmm/plan/plan-network#guidelines-for-ip-address-pools)
 - [在 VMM 构造中设置静态 IP 地址池](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-network-static-address-pools)
 
 最后，请务必注意，受防护的 VM 部署过程只会加密 OS 驱动器。 如果使用一个或多个数据驱动器部署受防护的 VM，强烈建议你在租户域中添加无人参与命令或组策略设置，以自动加密数据驱动器。
@@ -111,17 +118,21 @@ Export-PfxCertificate -Cert $RdpCertificate -FilePath .\rdpCert.pfx -Password $p
 
 可通过两种方式获取模板磁盘的 VSC：
 
--  宿主（或者租户，如果租户有权访问 VMM）使用 VMM PowerShell cmdlet 来保存 VSC，并将其提供给租户。 这可以在安装了 VMM 控制台的任何计算机上执行，并配置为管理托管构造的 VMM 环境。 用于保存 VSC 的 PowerShell cmdlet 是：
+1. 宿主（或者租户，如果租户有权访问 VMM）使用 VMM PowerShell cmdlet 来保存 VSC，并将其提供给租户。 这可以在安装了 VMM 控制台的任何计算机上执行，并配置为管理托管构造的 VMM 环境。 用于保存 VSC 的 PowerShell cmdlet 是：
 
-        $disk = Get-SCVirtualHardDisk -Name "templateDisk.vhdx"
-    
-        $vsc = Get-SCVolumeSignatureCatalog -VirtualHardDisk $disk
-    
-        $vsc.WriteToFile(".\templateDisk.vsc")
+    ```powershell
+    $disk = Get-SCVirtualHardDisk -Name "templateDisk.vhdx"
 
--  租户有权访问模板磁盘文件。 如果租户创建要上传到托管服务提供商的模板磁盘，或者如果租户可以下载宿主的模板磁盘，则可能会出现这种情况。 在这种情况下，如果没有 VMM，租户将运行以下 cmdlet （与受防护的 VM 工具功能一起安装，远程服务器管理工具中的一部分）：
+    $vsc = Get-SCVolumeSignatureCatalog -VirtualHardDisk $disk
 
-        Save-VolumeSignatureCatalog -TemplateDiskPath templateDisk.vhdx -VolumeSignatureCatalogPath templateDisk.vsc
+    $vsc.WriteToFile(".\templateDisk.vsc")
+    ```
+
+2. 租户有权访问模板磁盘文件。 如果租户创建要上传到托管服务提供商的模板磁盘，或者如果租户可以下载宿主的模板磁盘，则可能会出现这种情况。 在这种情况下，如果没有 VMM，租户将运行以下 cmdlet （与受防护的 VM 工具功能一起安装，远程服务器管理工具中的一部分）：
+
+    ```powershell
+    Save-VolumeSignatureCatalog -TemplateDiskPath templateDisk.vhdx -VolumeSignatureCatalogPath templateDisk.vsc
+    ```
 
 ## <a name="select-trusted-fabrics"></a>选择受信任的构造
 
@@ -131,15 +142,18 @@ Export-PfxCertificate -Cert $RdpCertificate -FilePath .\rdpCert.pfx -Password $p
 
 你或你的托管服务提供商可以通过执行下列操作之一，从 HGS 获取保护者元数据：
 
--  通过运行以下 Windows PowerShell 命令，或浏览到网站并保存显示的 XML 文件，直接从 HGS 获取保护者元数据：
+- 通过运行以下 Windows PowerShell 命令，或浏览到网站并保存显示的 XML 文件，直接从 HGS 获取保护者元数据：
 
-        Invoke-WebRequest 'http://hgs.bastion.local/KeyProtection/service/metadata/2014-07/metadata.xml' -OutFile .\RelecloudGuardian.xml
+    ```powershell
+    Invoke-WebRequest 'http://hgs.bastion.local/KeyProtection/service/metadata/2014-07/metadata.xml' -OutFile .\RelecloudGuardian.xml
+    ```
 
--  使用 VMM PowerShell cmdlet 从 VMM 中获取保护者元数据：
+- 使用 VMM PowerShell cmdlet 从 VMM 中获取保护者元数据：
 
-        $relecloudmetadata = Get-SCGuardianConfiguration
-
-        $relecloudmetadata.InnerXml | Out-File .\RelecloudGuardian.xml -Encoding UTF8
+    ```powershell
+    $relecloudmetadata = Get-SCGuardianConfiguration
+    $relecloudmetadata.InnerXml | Out-File .\RelecloudGuardian.xml -Encoding UTF8
+    ```
 
 在继续操作之前，为你希望授权受防护的 Vm 运行的每个受保护的构造获取保护者元数据文件。
 
@@ -147,13 +161,15 @@ Export-PfxCertificate -Cert $RdpCertificate -FilePath .\rdpCert.pfx -Password $p
 
 运行防护数据文件向导创建防护数据（PDK）文件。 在此，你将添加 RDP 证书、无人参与文件、卷签名目录、所有者保护者和在上一步骤中获取的下载的保护者元数据。
 
-1.  使用服务器管理器或以下 Windows PowerShell 命令，在计算机上安装**远程服务器管理工具 @no__t 功能管理工具 &gt; 受防护的 VM 工具**：
+1. 使用服务器管理器或以下 Windows PowerShell 命令，在计算机上安装**远程服务器管理工具 @no__t 功能管理工具 &gt; 受防护的 VM 工具**：
 
-        Install-WindowsFeature RSAT-Shielded-VM-Tools
+    ```powershell
+    Install-WindowsFeature RSAT-Shielded-VM-Tools
+    ```
 
-2.  从 "开始" 菜单上的 "管理员工具" 部分中打开 "防护数据文件向导"，或通过运行以下可执行文件**C： \\Windows @ no__t-2System32\\ShieldingDataFileWizard.exe**。
+2. 从 "开始" 菜单上的 "管理员工具" 部分中打开 "防护数据文件向导"，或通过运行以下可执行文件**C： \\Windows @ no__t-2System32\\ShieldingDataFileWizard.exe**。
 
-3.  在第一页上，使用第二个文件选择框为防护数据文件选择位置和文件名。 通常，在拥有任何使用该防护数据创建的 Vm （例如，HR、IT、财务）及其正在运行的工作负荷角色（例如，文件服务器、web 服务器或任何其他无人参与文件配置的其他内容）的实体之后，会将屏蔽数据文件命名为。 将单选按钮设置为**屏蔽模板的防护数据**。
+3. 在第一页上，使用第二个文件选择框为防护数据文件选择位置和文件名。 通常，在拥有任何使用该防护数据创建的 Vm （例如，HR、IT、财务）及其正在运行的工作负荷角色（例如，文件服务器、web 服务器或任何其他无人参与文件配置的其他内容）的实体之后，会将屏蔽数据文件命名为。 将单选按钮设置为**屏蔽模板的防护数据**。
 
     > [!NOTE]
     > 在防护数据文件向导中，你会注意到以下两个选项：
@@ -163,12 +179,12 @@ Export-PfxCertificate -Cert $RdpCertificate -FilePath .\rdpCert.pfx -Password $p
 
     ![屏蔽数据文件向导，文件选择](../media/Guarded-Fabric-Shielded-VM/guarded-host-shielding-data-wizard-01.png)
 
-       此外，还必须选择是使用此防护数据文件创建的 Vm 在 "受支持的加密" 模式下是否被真正屏蔽或配置。 有关这两个选项的详细信息，请参阅[受保护的构造可以运行哪些类型的虚拟机？](guarded-fabric-and-shielded-vms.md#what-are-the-types-of-virtual-machines-that-a-guarded-fabric-can-run)。
+    此外，还必须选择是使用此防护数据文件创建的 Vm 在 "受支持的加密" 模式下是否被真正屏蔽或配置。 有关这两个选项的详细信息，请参阅[受保护的构造可以运行哪些类型的虚拟机？](guarded-fabric-and-shielded-vms.md#what-are-the-types-of-virtual-machines-that-a-guarded-fabric-can-run)。
 
     > [!IMPORTANT]
     > 请注意下一步，因为它定义了受防护的 Vm 的所有者，以及受防护的 Vm 有权在其上运行的结构。<br>若要将现有受防护的 VM 从受**防护的防护**版本更改为**受支持的加密**，需要拥有**所有者保护者**，反之亦然。
-    
-4.  此步骤中的目标为两折：
+
+4. 此步骤中的目标为两折：
 
     - 创建或选择将你表示为 VM 所有者的所有者监护人
 
@@ -180,15 +196,15 @@ Export-PfxCertificate -Cert $RdpCertificate -FilePath .\rdpCert.pfx -Password $p
 
     ![防护数据文件向导，所有者和监护人](../media/Guarded-Fabric-Shielded-VM/guarded-host-shielding-data-wizard-02.png)
 
-5.  在 "卷 ID 限定符" 页上，单击 "**添加**" 以授权你的防护数据文件中的已签名模板磁盘。 当你在对话框中选择 VSC 时，它会向你显示该磁盘的名称、版本以及用于对其进行签名的证书的相关信息。 为要授权的每个模板磁盘重复此过程。
+5. 在 "卷 ID 限定符" 页上，单击 "**添加**" 以授权你的防护数据文件中的已签名模板磁盘。 当你在对话框中选择 VSC 时，它会向你显示该磁盘的名称、版本以及用于对其进行签名的证书的相关信息。 为要授权的每个模板磁盘重复此过程。
 
-6.  在 "**专用化值**" 页上，单击 "**浏览**" 以选择将用于专用化 vm 的 unattend.xml 文件。
+6. 在 "**专用化值**" 页上，单击 "**浏览**" 以选择将用于专用化 vm 的 unattend.xml 文件。
 
-    使用底部的 "**添加**" 按钮可将任何其他文件添加到专用化过程中所需的 PDK。 例如，如果无人参与文件正在将 RDP 证书安装到 VM 上（如[通过使用 ShieldingDataAnswerFile 函数生成答案文件](guarded-fabric-sample-unattend-xml-file.md)中所述），则应在此处添加无人参与文件中引用的 RDPCert 文件。 请注意，在此处指定的任何文件将自动复制到创建的 VM 上的 C @no__t： 0temp @ no__t-1。 在按路径引用文件时，无人参与文件应将这些文件放在该文件夹中。
+    使用底部的 "**添加**" 按钮可将任何其他文件添加到专用化过程中所需的 PDK。 例如，如果无人参与文件正在将 RDP 证书安装到 VM 上（如[使用 ShieldingDataAnswerFile 函数生成答案文件](guarded-fabric-sample-unattend-xml-file.md)中所述），则应添加 RDP 证书 PFX 文件和 RDPCertificateConfig在此处编写脚本。 请注意，在此处指定的任何文件将自动复制到创建的 VM 上的 C @no__t： 0temp @ no__t-1。 在按路径引用文件时，无人参与文件应将这些文件放在该文件夹中。
 
-7.  在下一页上查看您的选择，然后单击 "**生成**"。
+7. 在下一页上查看您的选择，然后单击 "**生成**"。
 
-8.  完成后关闭向导。
+8. 完成后关闭向导。
 
 ## <a name="create-a-shielding-data-file-and-add-guardians-using-powershell"></a>使用 PowerShell 创建防护数据文件并添加监护人
 
@@ -226,6 +242,9 @@ Import-HgsGuardian -Name 'EAST-US Datacenter' -Path '.\EastUSGuardian.xml'
 $viq = New-VolumeIDQualifier -VolumeSignatureCatalogFilePath 'C:\temp\marketing-ws2016.vsc' -VersionRule Equals
 New-ShieldingDataFile -ShieldingDataFilePath "C:\temp\Marketing-LBI.pdk" -Policy EncryptionSupported -Owner 'Owner' -Guardian 'EAST-US Datacenter' -VolumeIDQualifier $viq -AnswerFile 'C:\temp\marketing-ws2016-answerfile.xml'
 ```
+
+> [!TIP]
+> 如果你使用的是需要包含在防护数据文件中的自定义 RDP 证书、SSH 密钥或其他文件，请使用 `-OtherFile` 参数将其包含在内。 可以提供逗号分隔的文件路径列表，如 `-OtherFile "C:\source\myRDPCert.pfx", "C:\source\RDPCertificateConfig.ps1"`
 
 在上述命令中，名为 "Owner" 的监护人（从 HgsGuardian 获取）将能够在未来更改 VM 的安全配置，而 "美国 Datacenter" 则可以运行 VM，但不会更改其设置。
 如果有多个监护人，请用逗号分隔监护人的名称，如 `'EAST-US Datacenter', 'EMEA Datacenter'`。

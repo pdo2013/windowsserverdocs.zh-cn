@@ -2,13 +2,13 @@
 author: shortpatti
 ms.author: pashort
 ms.date: 10/02/2018
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms:topic: include
-ms.openlocfilehash: e96aedc7f45cbc4e812110ddc6dcbe737134a981
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ef22deaf9ae8631e16565a4b339f2a2f92b3e23a
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841448"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935048"
 ---
-相反，使用交换机独立模式、 开关或开关 NIC 团队成员都连接到的 NIC 组存在无法识别和不用于确定如何将网络流量分配到 NIC 组的成员-NIC 团队分发入站的网络在 NIC 团队成员之间的流量。 
+对于交换机独立模式，NIC 组连接到的交换机或交换机不知道 NIC 组是否存在，并且不确定如何将网络流量分发给 NIC 组成员-而 NIC 团队则分发入站网络跨 NIC 团队成员的流量。 

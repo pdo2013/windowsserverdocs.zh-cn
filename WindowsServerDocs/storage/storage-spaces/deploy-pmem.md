@@ -10,12 +10,12 @@ ms.topic: article
 author: adagashe
 ms.date: 3/26/2019
 ms.localizationpriority: ''
-ms.openlocfilehash: 497fa201c500919fc857d25166d37ce87613d0f0
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 549cc6dbeec3d414e886f6ebf32315ae13627812
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872009"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940807"
 ---
 ---
 # <a name="understand-and-deploy-persistent-memory"></a>了解和部署永久性内存
@@ -26,8 +26,7 @@ ms.locfileid: "70872009"
 
 ## <a name="background"></a>后台
 
-PMem 是一种非易失性 DRAM （NVDIMM），它的速度为 DRAM，但通过电源周期保留其内存内容（即使在出现意外断电、用户启动关机、系统崩溃、等等）。 因此，从停止的位置恢复的速度要快得多，因为无需重新加载 RAM 的内容。 另一种独特的特征是，PMem 是字节可寻址的，这意味着你还可以将其用作存储（这就是你可能会听到 PMem 称为存储类内存的原因）。
-
+PMem 是一种非易失性 RAM （NVDIMM），它通过电源周期保留其内容。 即使在出现意外断电、用户启动了关机、系统崩溃等事件时，仍会保留内存内容。这一独特的特征是，还可以使用 PMem 作为存储-这就是为什么你会听到将 PMem 称为 "存储类内存" 的原因。
 
 若要查看其中一些优点，请查看 Microsoft Ignite 2018 中的此演示：
 
@@ -57,13 +56,13 @@ PMem 是一种非易失性 DRAM （NVDIMM），它的速度为 DRAM，但通过�
 
 ### <a name="supported-hardware"></a>受支持的硬件
 
-下表显示了 Windows Server 2019 和 Windows Server 2016 支持的永久性内存硬件。 请注意，Intel Optane 专门支持内存模式和应用直接模式。 Windows Server 2019 支持混合模式操作。
+下表显示了 Windows Server 2019 和 Windows Server 2016 支持的永久性内存硬件。 请注意，Intel Optane 支持内存（即 volatile）和应用直接连接（即 持久性）模式。
 
 | 永久性内存技术                                      | Windows Server 2016 | Windows Server 2019 |
 |-------------------------------------------------------------------|--------------------------|--------------------------|
-| 应用中的**Nvdimm-n**模式                                       | 支持                | 支持                |
-| Intel Optane 在应用程序-直接模式下**™ DC 永久性内存**             | 不支持            | 支持                |
-| Intel Optane 在二级内存模式下**™ DC 永久性内存**（2LM） | 不支持            | 支持                |
+| 在持续模式下**的 nvdimm-n**                                  | 支持                | 支持                |
+| Intel Optane 在应用程序直接模式下**™ DC 永久性内存**             | 不支持            | 支持                |
+| **Intel Optane™ DC 永久性内存（** 内存模式） | 支持            | 支持                |
 
 现在，让我们深入了解如何配置永久性内存。
 
@@ -71,7 +70,7 @@ PMem 是一种非易失性 DRAM （NVDIMM），它的速度为 DRAM，但通过�
 
 ### <a name="understanding-interleave-sets"></a>了解交错集
 
-请记住，NVDIMM N 位于标准 DIMM （内存）槽中，将数据放置在靠近处理器的位置（从而降低延迟并获取更好的性能）。 若要构建这一点，有两个或更多 NVDIMMs 创建一个 N 向交叉交错集，以提供条带读/写操作来提高吞吐量。 最常见的设置是双向或四向交叉。
+回忆一下，NVDIMM 位于标准 DIMM （内存）槽，使数据离处理器更近（从而降低延迟并获取更好的性能）。 若要构建这一点，有两个或更多 NVDIMMs 创建一个 N 向交叉交错集，以提供条带读/写操作来提高吞吐量。 最常见的设置是双向或四向交叉。
 
 通常可以在平台的 BIOS 中创建交错集，使多个永久性内存设备显示为 Windows Server 的单个逻辑磁盘。 每个永久性内存逻辑磁盘都包含一组交错的物理设备，方法是运行：
 

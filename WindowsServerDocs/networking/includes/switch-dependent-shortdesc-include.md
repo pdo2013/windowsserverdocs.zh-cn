@@ -2,13 +2,13 @@
 author: shortpatti
 ms.author: pashort
 ms.date: 10/02/2018
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms:topic: include
-ms.openlocfilehash: cdd92fcb1e4caab18d12f276f8090ffe449d3623
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 616f61fbb82cdda6351e5f717d93d3a31a4e340f
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823938"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935067"
 ---
-切换从属模式下，切换到与 NIC 团队成员都连接用于确定如何分发的 NIC 团队成员之间的入站的网络流量。 交换机具有完整的独立性，以确定如何将网络流量分配到 NIC 组成员。
+对于交换机相关模式，NIC 组连接到的交换机决定了如何在 NIC 团队成员之间分发入站网络流量。 交换机完全独立于确定如何将网络流量分布到多个 NIC 组成员。

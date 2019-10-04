@@ -7,13 +7,13 @@ ms.assetid: 80ea38f4-4de6-4f85-8188-33a63bb1cf81
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 08/29/2018
-ms.openlocfilehash: e2685e33a215d0c5f97fe414b7458371930e862b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 09/25/2019
+ms.openlocfilehash: 0479309efe629d204bdc98fe11a7ccb4447a7369
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386359"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940729"
 ---
 # <a name="troubleshooting-guarded-hosts"></a>受保护主机的疑难解答
 
@@ -57,7 +57,6 @@ TpmError                  | 由于 TPM 错误，主机无法完成其上一次�
 UnauthorizedHost          | 主机未通过证明，因为无权运行受防护的 Vm。 确保主机属于 HGS 信任的安全组，以运行受防护的 Vm。
 Unknown                   | 宿主尚未尝试与 HGS 证明。
 
-
 当**AttestationStatus**报告为**InsecureHostConfiguration**时，将在**AttestationSubStatus**字段中填充一个或多个原因。
 下表说明了 AttestationSubStatus 的可能值，以及如何解决此问题的提示。
 
@@ -77,3 +76,20 @@ SecureBoot                 | 此主机上未启用安全启动，或者未使用
 SecureBootSettings         | 此主机上的 TPM 基线与 HGS 信任的任何一个基线不匹配。 如果通过安装新的硬件或软件更改了 UEFI 启动机构、.DBX 变量、调试标志或自定义安全启动策略，则会发生这种情况。 如果信任此计算机的当前硬件、固件和软件配置，则可以[捕获新的 TPM 基线](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md#capture-the-tpm-baseline-for-each-unique-class-of-hardware)，并[将其注册到 HGS](guarded-fabric-manage-hgs.md#authorizing-new-guarded-hosts)。
 TcgLogVerification         | 无法获取或验证 TCG 日志（TPM 基线）。 这可能表示主机的固件、TPM 或其他硬件组件有问题。 如果主机配置为在启动 Windows 之前尝试 PXE 启动，则过期的 Net Boot 程序（NBP）也可能导致此错误。 确保启用 PXE 启动时所有 Nbp 都是最新的。
 VirtualSecureMode          | 主机上未运行基于虚拟化的安全功能。 确保启用 VBS 并且系统满足配置的[平台安全功能](https://technet.microsoft.com/itpro/windows/keep-secure/deploy-device-guard-enable-virtualization-based-security#validate-enabled-device-guard-hardware-based-security-features)。 有关 VBS 要求的详细信息，请参阅[Device Guard 文档](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-deployment-guide)。
+
+## <a name="modern-tls"></a>新式 TLS
+
+如果你已部署了组策略或配置了 Hyper-v 主机以防使用 TLS 1.0，则在尝试启动受防护的 VM 时，可能会出现 "主机保护者服务客户端无法代表调用进程解除密钥保护程序的包装" 错误。
+这是因为 .NET 4.6 中的默认行为是：在与 HGS 服务器协商支持的 TLS 版本时，不考虑系统默认 TLS 版本。
+
+若要解决此问题，请运行以下两个命令，将 .NET 配置为对所有 .NET 应用使用系统默认 TLS 版本。
+
+```cmd
+reg add HKLM\SOFTWARE\Microsoft\.NETFramework\v4.0.30319 /v SystemDefaultTlsVersions /t REG_DWORD /d 1 /f /reg:64
+reg add HKLM\SOFTWARE\Microsoft\.NETFramework\v4.0.30319 /v SystemDefaultTlsVersions /t REG_DWORD /d 1 /f /reg:32
+```
+
+> [!WARNING]
+> 系统默认的 TLS 版本设置将影响计算机上的所有 .NET 应用。 在将注册表项部署到生产计算机之前，请务必在隔离的环境中对其进行测试。
+
+有关 .NET 4.6 和 TLS 1.0 的详细信息，请参阅[解决 TLS 1.0 问题第2版](https://docs.microsoft.com/security/solving-tls1-problem)。

@@ -7,16 +7,17 @@ ms.assetid: 424b8090-0692-49a6-9dc4-3c0e77d74b80
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: be817a2c06b13af254b80090b9a7488209d4df0a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 09/25/2019
+ms.openlocfilehash: d34bbeee1a980aba76b5bed994be8db7fc8c8acf
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403523"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940814"
 ---
 # <a name="troubleshooting-the-host-guardian-service"></a>主机保护者服务疑难解答
 
-> 适用于：Windows Server（半年频道）、Windows Server 2016
+> 适用于：Windows Server 2019，Windows Server （半年频道），Windows Server 2016
 
 本主题介绍在受保护的构造中部署或操作主机保护者服务（HGS）服务器时遇到的常见问题的解决方法。
 如果你不确定问题的性质，请首先尝试在 HGS 服务器和 Hyper-v 主机上运行[受保护的构造诊断](guarded-fabric-troubleshoot-diagnostics.md)，以缩小可能的原因。
@@ -80,6 +81,7 @@ $cert.Acl = $cert.Acl | Add-AccessRule $gMSA Read Allow
 
 如果证书的私钥由硬件安全模块（HSM）或自定义密钥存储提供程序（KSP）提供支持，则权限模型将取决于你的特定软件供应商。
 为了获得最佳结果，请查阅供应商的文档或支持网站，以获取有关如何为特定设备/软件处理私钥权限的信息。
+在所有情况下，HGS 使用的 gMSA 都需要对加密、签名和通信证书私钥的*读取*权限，以便能够执行签名和加密操作。
 
 某些硬件安全模块不支持向特定的用户帐户授予对私钥的访问权限;相反，它们允许计算机帐户访问特定密钥集中的所有密钥。
 对于此类设备，通常足以使计算机能够访问密钥，并且 HGS 将能够利用该连接。
@@ -93,7 +95,7 @@ $cert.Acl = $cert.Acl | Add-AccessRule $gMSA Read Allow
 HSM 品牌/系列      | 建议
 ----------------------|-------------
 Gemalto 身份 SafeNet       | 确保证书请求文件中的 "密钥用法" 属性设置为0xa0，允许使用证书进行签名和加密。 此外，还必须使用本地证书管理器工具授予 gMSA 帐户对私钥的*读取*访问权限（请参阅上述步骤）。
-nCipher nShield        | 确保每个 HGS 节点都有权访问包含签名和加密密钥的安全体系。 不需要配置 gMSA 特定的权限。
+nCipher nShield        | 确保每个 HGS 节点都有权访问包含签名和加密密钥的安全体系。 你可能还需要使用本地证书管理器授予 gMSA 对私钥的*读取*访问权限（请参阅上面的步骤）。
 Utimaco CryptoServers | 确保证书请求文件中的 "密钥用法" 属性设置为 "0x13"，以允许将证书用于加密、解密和签名。
 
 ### <a name="certificate-requests"></a>证书请求

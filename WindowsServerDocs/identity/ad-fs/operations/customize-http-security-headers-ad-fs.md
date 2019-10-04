@@ -9,12 +9,12 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e1042ad4dae0b023c9816dff798c25b05b60eccf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0685e0935a031b2f73474d59b025b70fc735902d
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407444"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935044"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>自定义 AD FS 2019 的 HTTP 安全响应标头 
  
@@ -53,7 +53,7 @@ Set-AdfsResponseHeaders -EnableResponseHeaders $false
 ### <a name="http-strict-transport-security-hsts"></a>HTTP 严格传输-安全性（HSTS） 
 HSTS 是一种 web 安全策略机制，有助于缓解同时具有 HTTP 和 HTTPS 终结点的服务的协议降级攻击和 cookie 劫持。 它允许 web 服务器声明 web 浏览器（或其他符合用户代理）只应使用 HTTPS 与其交互，从不通过 HTTP 协议进行交互。  
  
-Web 身份验证流量的所有 AD FS 终结点都是通过 HTTPS 以独占方式打开的。 因此，AD FS 会有效地缓解 HTTP 严格传输安全策略机制提供的威胁（默认情况下，由于 HTTP 中没有侦听器，因此不会降级到 HTTP）。 可以通过设置以下参数自定义标头 
+Web 身份验证流量的所有 AD FS 终结点都是通过 HTTPS 以独占方式打开的。 因此，AD FS 会有效地缓解 HTTP 严格传输安全策略机制提供的威胁（默认情况下，由于 HTTP 中没有侦听器，因此不会降级到 HTTP）。 可以通过设置以下参数自定义标头：
  
 - **最大期限 =&lt;过期时间&gt;**  –过期时间（以秒为单位）指定仅应使用 HTTPS 访问站点的时间长度。 默认值和推荐值为31536000秒（1年）。  
 - **includeSubDomains** –这是一个可选参数。 如果指定，则 HSTS 规则也适用于所有子域。  
@@ -107,7 +107,7 @@ Set-AdfsResponseHeaders -RemoveHeaders "X-Frame-Options"
 ```
 
 ### <a name="x-xss-protection"></a>X-XSS-Protection 
-当浏览器检测到跨站点脚本（XSS）攻击时，此 HTTP 安全响应标头用于阻止网页加载。 这称为 XSS 筛选。 标头可设置为以下值之一 
+当浏览器检测到跨站点脚本（XSS）攻击时，此 HTTP 安全响应标头用于阻止网页加载。 这称为 XSS 筛选。 标头可设置为以下值之一：
  
 - **0** –禁用 XSS 筛选。 不建议使用。  
 - **1** –启用 XSS 筛选。 如果检测到 XSS 攻击，浏览器将净化页面。   
@@ -138,7 +138,7 @@ Web 浏览器安全性可防止网页发出跨源请求，这些请求是从脚�
 为了更好地理解 CORS 请求，我们将演练一个方案，其中单页面应用程序（SPA）需要调用具有不同域的 web API。 接下来，让我们考虑到在 ADFS 2019 上配置了 SPA 和 API，并 AD FS 启用了 CORS，即 AD FS 可以标识 HTTP 请求中的 CORS 标头，验证标头值，并在响应中包含相应的 CORS 标头（有关如何启用和的详细信息，在下面的 "CORS 自定义" 一节中的 AD FS 2019 上配置 CORS。 示例流： 
 
 1. 用户通过客户端浏览器访问 SPA，并被重定向到 AD FS 身份验证终结点进行身份验证。 由于 SPA 是为隐式授权流配置的，因此在身份验证成功后，request 会向浏览器返回访问 + ID 令牌。  
-2. 进行用户身份验证后，SPA 中包含的前端 JavaScript 将请求访问 web API。 请求重定向到具有以下标头的 AD FS
+2. 进行用户身份验证后，SPA 中包含的前端 JavaScript 将请求访问 web API。 请求将重定向到具有以下标头的 AD FS：
     - 选项–描述目标资源的通信选项 
     - 源–包括 web API 的源
     - "访问控制-请求-方法" –标识发出实际请求时要使用的 HTTP 方法（例如删除）。 
@@ -146,11 +146,11 @@ Web 浏览器安全性可防止网页发出跨源请求，这些请求是从脚�
     
    >[!NOTE]
    >CORS 请求类似于标准 HTTP 请求，但源标头信号存在传入请求与 CORS 相关。 
-3. AD FS 验证标头中包含的 web API 来源是否列在 AD FS 中配置的受信任来源中（有关如何修改 CORS 自定义中的受信任来源的详细信息部分）。 然后 AD FS 会用以下标头进行响应。  
+3. AD FS 验证标头中包含的 web API 来源是否列在 AD FS 中配置的受信任来源中（有关如何修改 CORS 自定义中的受信任来源的详细信息部分）。 然后 AD FS 会用以下标头进行响应：  
     - 访问控制-允许源–与源标头中的值相同 
     - 访问控制-允许-方法-值与在访问控制请求方法头中的值相同 
     - 访问控制-允许-标头-值与访问控制-请求标头中的值相同 
-4. Browser 发送包含以下标头的实际请求 
+4. Browser 发送包含以下标头的实际请求：
     - HTTP 方法（如删除） 
     - 源–包括 web API 的源 
     - 访问控制-允许标头响应标头中包含的所有标头 
@@ -199,7 +199,7 @@ frame-src 'self'; manifest-src 'self'; media-src 'self';"
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue "default-src ‘self'; img-src *" 
 ```
-可以为默认的-src 策略定义以下源 
+可以为默认的-src 策略定义以下源：
  
 - "self" –指定此限制将内容源加载到网页的源 
 - "unsafe-inline" –在策略中指定此项可使用内联 JavaScript 和 CSS 
@@ -223,7 +223,7 @@ Set-AdfsResponseHeaders -SetHeaderName "TestHeader" -SetHeaderValue "TestHeaderV
  
 ![Fiddler](media/customize-http-security-headers-ad-fs/header2.png)
 
-## <a name="web-browswer-compatibility"></a>Web 浏览器兼容性
+## <a name="web-browser-compatibility"></a>Web 浏览器兼容性
 使用下表和链接来确定哪些 web 浏览器与每个安全响应标头兼容。
 
 |HTTP 安全响应标头|浏览器兼容性|
@@ -236,5 +236,5 @@ Set-AdfsResponseHeaders -SetHeaderName "TestHeader" -SetHeaderValue "TestHeaderV
 
 ## <a name="next"></a>Next
 
-- [使用 AD FS 帮助 troublehshooting 指南](https://aka.ms/adfshelp/troubleshooting )
+- [使用 AD FS 帮助故障排除指南](https://aka.ms/adfshelp/troubleshooting )
 - [AD FS 疑难解答](../../ad-fs/troubleshooting/ad-fs-tshoot-overview.md)
