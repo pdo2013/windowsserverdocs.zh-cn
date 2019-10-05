@@ -8,12 +8,12 @@ ms.date: 08/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: a776920caa85c3ee133070d52b020c8ad3c799e1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6895c4b5f74beb237378060f82135d6f578986b7
+ms.sourcegitcommit: e92a78f8d307200e64617431a701b9112a9b4e48
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402998"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973864"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>存储迁移服务常见问题（FAQ）
 
@@ -34,15 +34,15 @@ ms.locfileid: "71402998"
 
 ## <a name="are-clusters-supported-as-sources-or-destinations"></a>群集是否支持作为源或目标？
 
-存储迁移服务目前不在 Windows Server 2019 中的群集之间迁移。 我们计划在未来版本的存储迁移服务中添加群集支持。
+在安装累积更新[KB4513534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534)或后续更新后，存储迁移服务支持从和群集迁移到群集。 这包括从源群集迁移到目标群集以及从独立源服务器迁移到目标群集，以实现设备合并。 
 
 ## <a name="do-local-groups-and-local-users-migrate"></a>本地组和本地用户是否迁移？
 
-存储迁移服务当前不迁移 Windows Server 2019 中的本地用户或本地组。 我们计划在未来版本的存储迁移服务中添加本地用户和本地组迁移支持。
+在安装累积更新[KB4513534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534)或后续更新后，存储迁移服务支持迁移本地用户和组。 
 
 ## <a name="is-domain-controller-migration-supported"></a>是否支持域控制器迁移？
 
-存储迁移服务当前不迁移 Windows Server 2019 中的域控制器。 作为一种解决方法，只要 Active Directory 域中有多个域控制器，则在迁移域控制器之前将其降级，然后在剪切完成后将目标提升。 我们计划在未来版本的存储迁移服务中添加域控制器迁移支持。
+存储迁移服务当前不迁移 Windows Server 2019 中的域控制器。 作为一种解决方法，只要 Active Directory 域中有多个域控制器，则在迁移域控制器之前将其降级，然后在剪切完成后将目标提升。
 
 ## <a name="what-attributes-are-migrated-by-the-storage-migration-service"></a>存储迁移服务迁移哪些属性？
 
@@ -73,11 +73,11 @@ ms.locfileid: "71402998"
 
 ## <a name="can-i-consolidate-multiple-servers-into-one-server"></a>是否可以将多个服务器合并到一个服务器？
 
-Windows Server 2019 中随附的存储迁移服务版本不支持将多个服务器合并到一台服务器中。 合并的一个示例是将三个单独的源服务器（可能具有相同的共享名称和本地文件路径）迁移到单个新服务器上，该服务器虚拟化这些路径和共享，以防止任何重叠或冲突，然后回答所有三个以前的服务器名称和 IP 地址。 我们可以在未来版本的存储迁移服务中添加此功能。 
+Windows Server 2019 中随附的存储迁移服务版本不支持将多个服务器合并到一台服务器中。 合并的一个示例是将三个单独的源服务器（可能具有相同的共享名称和本地文件路径）迁移到单个新服务器上，该服务器虚拟化这些路径和共享，以防止任何重叠或冲突，然后回答所有三个以前的服务器名称和 IP 地址。 但是，可以将独立服务器迁移到单个群集上的多个文件服务器资源。 
 
 ## <a name="can-i-migrate-from-sources-other-than-windows-server"></a>能否从 Windows Server 之外的源进行迁移？
 
-Windows Server 2019 中随附的存储迁移服务版本支持从 Windows Server 2003 和更高版本的操作系统进行迁移。 你还可以从使用 Samba 的 Linux 服务器或设备迁移存储;为此，请在运行 Windows Server 1903 或更高版本的服务器上运行存储迁移服务。
+在安装累积更新[KB4513534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534)或后续更新后，存储迁移服务支持从 Samba Linux 服务器迁移。 请参阅要求，了解支持的 Samba 版本和 Linux 发行版的列表。
 
 ## <a name="can-i-migrate-previous-file-versions"></a>能否迁移以前的文件版本？
 
@@ -129,7 +129,7 @@ Windows Server 2019 中随附的存储迁移服务版本不支持从 NTFS 迁移
 存储迁移服务使用默认情况下在隐藏的 c:\programdata\microsoft\storagemigrationservice 文件夹中安装的可扩展存储引擎（ESE）数据库。 此数据库将在添加作业和传输完成时增长，并在迁移数百万个文件后，如果不删除作业，则会占用大量的驱动器空间。 如果数据库需要移动，请执行以下步骤：
 
 1. 停止 orchestrator 计算机上的 "存储迁移服务" 服务。
-2. 取得`%programdata%/Microsoft/StorageMigrationService`文件夹的所有权
+2. 取得 `%programdata%/Microsoft/StorageMigrationService` 文件夹的所有权
 3. 添加你的用户帐户，以便对该共享及其所有文件和子文件夹拥有完全控制权。
 4. 将文件夹移动到 orchestrator 计算机上的另一个驱动器。
 5. 设置以下注册表 REG_SZ 值：
@@ -145,7 +145,7 @@ Windows Server 2019 中随附的存储迁移服务版本不支持从 NTFS 迁移
 
 - 使用 Windows 10 中包含的反馈中心工具，单击 "建议功能"，然后指定 "Windows Server" 和 "存储迁移" 子类别的类别。
 - 使用[Windows Server UserVoice](https://windowsserver.uservoice.com)站点
-- 电子邮件smsfeed@microsoft.com
+- 电子邮件 smsfeed@microsoft.com
 
 文件错误：
 
