@@ -65,6 +65,7 @@
 #### [在工具扩展中使用自定义网关插件](extend/guides/use-custom-gateway-plugin.md)
 #### [创建连接提供程序](extend/guides/create-connection-provider.md)
 #### [修改根导航行为](extend/guides/modify-root-navigation.md)
+#### [Windows Admin Center v1909 中的群集连接类型更改](extend/guides/cluster-connection-change-wac-1909.md)
 #### [控制工具的可见性](extend/guides/dynamic-tool-display.md)
 #### [字符串和本地化](extend/guides/strings-localization.md)
 #### [UI 文本和设计风格指南](extend/guides/ui-text-style-guide.md)
