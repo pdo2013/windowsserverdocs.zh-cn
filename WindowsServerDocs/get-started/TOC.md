@@ -20,10 +20,20 @@
 ## [Windows Server 2016 中已删除或弃用的功能](Deprecated-Features.md)
 ## [Windows Server 2016 版本比较](2016-Edition-Comparison.md)
 ## [适用于 Windows Server 的 Azure 混合权益](azure-hybrid-benefit.md)
-## [Windows Server 2016 激活指南](Server-2016-activation.md)
+## Windows Server 2016 激活指南
+### [Windows Server 2016 激活指南](Server-2016-activation.md)
 ### [KMS 客户端安装密钥](KMSclientkeys.md)
-### [排查激活错误代码问题](activation-error-codes.md)
-####[KMS 和 DNS 问题的常见排查过程](common-troubleshooting-procedures-kms-dns.md)
+## 排查 Windows 批量激活问题
+### [排查 Windows 批量激活问题](activation-troubleshooting-guide.md)
+### [KMS 故障排除指南](activation-troubleshoot-kms-general.md)
+### [Slmgr.vbs 选项](activation-slmgr-vbs-options.md)
+### 常见激活问题的解决方案
+#### [根据 Windows 激活错误代码解决问题](activation-error-codes.md)
+#### [KMS 激活：已知问题](activation-troubleshoot-KMS-issues.md)
+#### [MAK 激活：已知问题](activation-troubleshoot-MAK-issues.md)
+#### [用于排查 DNS 相关激活问题的指南](common-troubleshooting-procedures-kms-dns.md)
+#### [重新生成 Tokens.dat 文件](activation-rebuild-tokens-dat-file.md)
+### [示例：排查无法激活 ADBA 客户端的问题](activation-troubleshoot-adba-clients.md)
 ## [安装 Nano Server](Getting-started-with-Nano-Server.md)
 ### [Windows Server 的下一个版本中对 Nano Server 进行的更改](nano-in-semi-annual-channel.md)
 ### [Nano Server 快速入门](Nano-Server-Quick-start.md)
