@@ -33,7 +33,7 @@ wdsutil [Options] /remove-ImageGroumediaGroup:<Image group name> [/Server:<Serve
 |参数|描述|
 |-------|--------|
 mediaGroup： <Image group name>|指定要删除的映像组的名称|
-|[/Server： @no__t]|指定服务器的名称。 此名称可以是 NetBIOS 名称或完全限定的域名（FQDN）。 如果未指定服务器名称，将使用本地服务器。|
+|[/Server： <Server name>]|指定服务器的名称。 此名称可以是 NetBIOS 名称或完全限定的域名（FQDN）。 如果未指定服务器名称，将使用本地服务器。|
 ## <a name="BKMK_examples"></a>示例
 若要删除映像组，请键入下列内容之一：
 ```
