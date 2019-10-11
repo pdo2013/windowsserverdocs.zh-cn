@@ -1,26 +1,26 @@
 ---
-title: KMS 和 DNS 问题的常见排查过程
+title: 用于排查 DNS 相关激活问题的指南
 description: ''
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 09/10/2019
 ms.technology: server-general
 ms.assetid: ''
 author: Teresa-Motiv
 ms.author: v-tea
 ms.localizationpriority: medium
-ms.openlocfilehash: 12e3c1fa82a567c43507df2f2ffd72595c3903ba
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: e2bd9c766f07591e0c643a6cea644b2db7a95364
+ms.sourcegitcommit: 9855d6b59b1f8722f39ae74ad373ce1530da0ccf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68664889"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960961"
 ---
-# <a name="common-troubleshooting-procedures-for-kms-and-dns-issues"></a>KMS 和 DNS 问题的常见排查过程
+# <a name="guidelines-for-troubleshooting-dns-related-activation-issues"></a>用于排查 DNS 相关激活问题的指南
 
 如果符合下面的一个或多个条件，则可能必须使用这其中的某些方法：
 
-- 使用批量许可介质和批量许可常规产品密钥安装下述操作系统之一：
-   - Windows Server 2019
+- 使用批量许可介质和批量许可常规产品密钥安装下述操作系统之一：&nbsp;
+   - Windows Server Standard 2012 R2
    - Windows Server 2016
    - Windows Server 2012 R2
    - Windows Server 2012
@@ -183,8 +183,8 @@ KMS 激活要求配置客户端激活时所使用的 KMS 主机。 如果环境�
 
 若要手动为使用兼容 BIND 9.x 的 DNS 服务器的 KMS 主机创建 SRV 记录，请按该 DNS 服务器的说明操作，并提供以下 SRV 记录信息：
 
-- 名称： **_vlmcs._TCP**
-- 类型：**SRV**
+- 名称： **_vlmcs._TCP**&nbsp;
+- 类型：**SRV**&nbsp;
 - 优先级：**0**
 - 权重：**0**
 - 端口：**1688**

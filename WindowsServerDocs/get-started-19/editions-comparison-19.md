@@ -1,46 +1,44 @@
 ---
 title: Windows Server 2019 Standard 和 Datacenter 版本的比较
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c5ca3bfe-7ced-49f6-2932-80cab33fe914
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: af9334159b4b2aef6c2880e44bbc4ee46d7821b7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 24ae0e11a3e8ca2b50bd6722f7bd7d18b8c1c532
+ms.sourcegitcommit: e92a78f8d307200e64617431a701b9112a9b4e48
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360866"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973877"
 ---
 # <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2019"></a>Windows Server 2019 Standard 和 Datacenter 版本的比较
 
 > 适用于：Windows Server Standard 2012 R2
   
 ## <a name="locks-and-limits"></a>锁定和限制
-|锁定和限制|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
-|-------------------|----------|---------------------------|  
-|最大用户数|基于 CAL|基于 CAL|
-|最大 SMB 连接数|16777216|16777216|
-|最大 RRAS 连接数|无限制|无限制|
-|最大 IAS 连接数|2147483647|2147483647|
-|最大 RDS 连接数|65535|65535|
-|最大 64 位套接字数|64|64|
-|最大核心数|无限制|无限制|
-|最大 RAM|24 TB|24 TB|
-|可用作虚拟化来宾|是；每个许可证允许运行 2 台虚拟机以及一台 Hyper-V 主机|是；每个许可证允许运行无限台虚拟机以及一台 Hyper-V 主机|
-|服务器可以加入域|是|是|
-|边缘网络保护/防火墙|否|否|
-|DirectAccess|是|是|
-|DLNA 解码器和 Web 媒体流|是，如果安装为具有桌面体验的服务器|是，如果安装为具有桌面体验的服务器|
+
+| 锁定和限制                 | Windows Server 2019 Standard | Windows Server 2019 Datacenter |  
+| -------------------              | ---------------------------  | --------------------------- |  
+| 最大用户数          | 基于 CAL                | 基于 CAL |
+| 最大 SMB 连接数          | 16,777,216                   | 16,777,216 |
+| 最大 RRAS 连接数         | 无限制                    | 无限制 |
+| 最大 IAS 连接数          | 2,147,483,647                | 2,147,483,647 |
+| 最大 RDS 连接数          | 65,535                       | 65,535 |
+| 最大 64 位套接字数 | 64                           | 64 |
+| 最大核心数          | 无限制                    | 无限制 |
+| 最大 RAM                      | 24 TB                        | 24 TB |
+| 可用作虚拟化来宾 | 是；每个许可证允许运行 2 台虚拟机以及一台 Hyper-V 主机|是；每个许可证允许运行无限台虚拟机以及一台 Hyper-V 主机 |
+| 服务器可以加入域        | 是                           | 是 |
+| 边缘网络保护/防火墙| 否                            | 否    |
+| DirectAccess                    | 是                           | 是 |
+| DLNA 解码器和 Web 媒体流 | 是，如果安装为具有桌面体验的服务器 | 是，如果安装为具有桌面体验的服务器 |
 
 ## <a name="server-roles"></a>服务器角色
+
 |可用的 Windows Server 角色|角色服务|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|----------|---------------------------|  
 |Active Directory 证书服务| |是|是|
@@ -66,7 +64,7 @@ ms.locfileid: "71360866"
 |文件和存储服务|存储服务|是|是|
 |主机保护者服务| |是|是|
 |Hyper-V| |是|是；包括受防护的虚拟机|
-|网络控制器| |否|是|
+|网络控制器| |否| <strong>是</strong> |
 |网络策略和访问服务| |是，在安装为具有桌面体验的服务器时|是，在安装为具有桌面体验的服务器时|
 |打印和文档服务| |是|是|
 |远程访问| |是|是|
@@ -74,7 +72,7 @@ ms.locfileid: "71360866"
 |批量激活服务| |是|是|
 |Web 服务 (IIS)| |是|是|
 |Windows 部署服务| |是*|是*|
-|Windows Server Essentials 体验| |是|是|
+|Windows Server Essentials 体验| |否 | 否 |
 |Windows Server 更新服务| |是|是|
 
 *WDS 传输服务器是 Windows Server 2019（还有从 Windows Server 版本 1803 开始的半年频道）中服务器核心安装的新功能
@@ -84,20 +82,20 @@ ms.locfileid: "71360866"
 
 |Windows Server 功能可以使用服务器管理器（或 PowerShell）安装|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
-|.NET Framework 3.5|是|是|
-|.NET Framework 4.6|是|是|
+|.NET Framework 3.5 |是|是|
+|.NET Framework 4.7 |是|是|
 |后台智能传输服务 (BITS)|是|是|
 |BitLocker 驱动器加密|是|是|
 |BitLocker 网络解锁|是，在安装为具有桌面体验的服务器时|是，在安装为具有桌面体验的服务器时|
 |BranchCache|是|是|
 |NFS 客户端|是|是|
-|容器|是（Windows 容器无限制；Hyper-V 容器最多为 2 个）|是（所有容器类型均无限制）|
+|容器|是（Windows 容器不受限制；Hyper-V 容器最多为 2 个）|是（Windows 容器和 Hyper-V 容器不受限制） |
 |数据中心桥接|是|是|
 |直接播放|是，在安装为具有桌面体验的服务器时|是，在安装为具有桌面体验的服务器时|
 |增强存储|是|是|
 |故障转移群集|是|是|
 |组策略管理|是|是|
-|主机保护者 Hyper-V 支持|否|是|
+|主机保护者 Hyper-V 支持|否| <strong>是</strong> |
 |I/O 服务质量|是|是|
 |IIS 可承载 Web 核心|是|是|
 |Internet 打印客户端|是，在安装为具有桌面体验的服务器时|是，在安装为具有桌面体验的服务器时|
@@ -149,7 +147,6 @@ ms.locfileid: "71360866"
 |通常可用的功能|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
 |最佳做法分析器|是|是|
-|受约束的存储副本|是（1 种合作关系和 1 个具有单个 2TB 卷的资源组）|是，无限制|
 |直接访问|是|是|
 |动态内存（虚拟化）|是|是|
 |热添加/替换 RAM|是|是|
@@ -161,15 +158,15 @@ ms.locfileid: "71360866"
 |Nano Server 安装选项|是|是|
 |服务器管理器|是|是|
 |SMB 直通和基于 RDMA 的 SMB|是|是|
-|软件定义的网络|否|是|
-|存储管理服务|是|是|
+|软件定义的网络|否| <strong>是</strong> |
+|存储迁移服务|是|是|
+| 存储副本         | 是（1 种合作关系和 1 个具有单个 2TB 卷的资源组）    | 是，无限制 |
 |存储空间|是|是|
-|存储空间直通|否|是|
+|存储空间直通|否| <strong>是</strong> |
 |批量激活服务|是|是|
 |VSS（卷影复制服务）集成|是|是|
 |Windows Server 更新服务|是|是|
 |Windows 系统资源管理器|是|是|
 |服务器许可证日志记录|是|是|
-|继承激活|托管于数据中心时作为来宾|可以是主机或来宾|
+|继承激活|托管于数据中心时作为来宾| 可以是主机，也可以是来宾 |
 |工作文件夹|是|是|
-

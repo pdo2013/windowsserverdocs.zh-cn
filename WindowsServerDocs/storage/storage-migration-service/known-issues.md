@@ -4,16 +4,16 @@ description: 有关存储迁移服务的已知问题和疑难解答支持，如�
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 07/09/2019
+ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 150c9f1e70df4f634886ea65efd9c61ef075f26a
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: e3ec7ee787fb6fd2e8e9f59249a6c4013a76b377
+ms.sourcegitcommit: e2964a803cba1b8037e10d065a076819d61e8dbe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940708"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72252366"
 ---
 # <a name="storage-migration-service-known-issues"></a>存储迁移服务的已知问题
 
@@ -48,7 +48,7 @@ Windows 管理中心存储迁移服务扩展受版本限制，只管理 Windows 
 
 在 Windows 管理中心使用0.57 版本的存储迁移服务扩展时，如果出现切换阶段，则无法为地址选择静态 IP。 系统会强制使用 DHCP。
 
-若要解决此问题，请在 Windows 管理中心的 "**设置** > **扩展**" 下查看一个警报，指出已更新版本存储迁移服务0.57.2 可供安装。 可能需要重新启动 Windows 管理中心的浏览器选项卡。
+若要解决此问题，请在 Windows 管理中心的 "**设置**" 下查看 " > **扩展**"，指出更新版本存储迁移服务0.57.2 可供安装。 可能需要重新启动 Windows 管理中心的浏览器选项卡。
 
 ## <a name="storage-migration-service-cutover-validation-fails-with-error-access-is-denied-for-the-token-filter-policy-on-destination-computer"></a>存储迁移服务转换验证失败，出现错误 "对目标计算机上的令牌筛选器策略的访问被拒绝"
 
@@ -225,7 +225,7 @@ DFSR 调试日志：
   用户：        网络服务计算机：    FS02.TailwindTraders.net 说明：无法清点计算机。
 作业： foo2 计算机：FS01.TailwindTraders.net 状态：失败错误：-2147463168 错误消息：指导检查详细的错误并确保满足清单要求。 清单无法确定指定源计算机的任何方面。 这可能是因为缺少对源或阻止的防火墙端口的权限或特权。
   
-当你以用户主体名称（UPN）的形式提供迁移凭据（例如 "meghan@contoso.com"）时，存储迁移服务中的代码缺陷会导致此错误。 存储迁移服务协调器服务无法正确分析此格式，这导致在域查找中为 KB4512534 和19H1 中的群集迁移支持添加了故障。
+当你以用户主体名称（UPN）的形式提供迁移凭据（如 "meghan@contoso.com"）时，存储迁移服务中的代码缺陷会导致此错误。 存储迁移服务协调器服务无法正确分析此格式，这导致在域查找中为 KB4512534 和19H1 中的群集迁移支持添加了故障。
 
 若要解决此问题，请以 "域 \ 用户" 格式提供凭据，如 "Contoso\Meghan"。
 
@@ -264,6 +264,28 @@ DFSR 调试日志：
     There are no more endpoints available from the endpoint mapper  
 
 若要解决此问题，请从存储迁移服务 orchestrator 计算机暂时卸载 KB4512534 累积更新（以及任何取代它的更新）。 迁移完成后，重新安装最新的累积更新。  
+
+请注意，在某些情况下，卸载 KB4512534 或其取代的更新可能会导致存储迁移服务不再启动。 若要解决此问题，你可以备份和删除存储迁移服务数据库：
+
+1.  打开提升的 cmd 提示符，你是存储迁移服务协调器服务器上的管理员成员，然后运行：
+
+     ```
+     MD c:\ProgramData\Microsoft\StorageMigrationService\backup
+
+     ICACLS c:\ProgramData\Microsoft\StorageMigrationService\* /grant Administrators:(GA)
+
+     XCOPY c:\ProgramData\Microsoft\StorageMigrationService\* .\backup\*
+
+     DEL c:\ProgramData\Microsoft\StorageMigrationService\* /q
+
+     ICACLS c:\ProgramData\Microsoft\StorageMigrationService  /GRANT networkservice:F /T /C
+
+     ICACLS c:\ProgramData\Microsoft\StorageMigrationService /GRANT networkservice:(GA)F /T /C
+     ```
+   
+2.  启动存储迁移服务服务，该服务将创建一个新数据库。
+
+
 
 ## <a name="see-also"></a>请参阅
 

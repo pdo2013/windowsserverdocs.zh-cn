@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b1dd3b728f941d9c3732abccf19363cf631284e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 54ed455955053ebb234864f827759385ecf3d3c5
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387750"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935028"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>有关远程桌面客户端的常见问题
 
@@ -166,7 +166,7 @@ Web 客户端支持 Windows、macOS、Linux 和 ChromeOS。 目前不支持移�
 2. 启用“使用所有监视器”和“全屏”   。
 
 ### <a name="is-bi-directional-sound-supported"></a>是否支持双向声音？
-远程桌面客户端不支持上游的声音（从客户端到服务器、麦克风）。
+可以在 Windows 客户端中，基于每个连接配置双向声音。 可以在“本地资源”选项卡的“远程音频”部分中访问相关设置   。
 
 ### <a name="what-can-i-do-if-the-sound-wont-play"></a>如果声音无法播放，我该怎么办？
 注销会话（不要仅断开连接，应完全注销），然后再次登录。

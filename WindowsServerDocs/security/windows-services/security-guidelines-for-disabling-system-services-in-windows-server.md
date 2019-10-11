@@ -10,12 +10,12 @@ ms.date: 11/26/2018
 ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: nirb
 ms.author: nirb
-ms.openlocfilehash: 35bb2d547c4af2b90d5ed68e32dfa214bee6b3a7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 175c4dbd23bac1822365ce80f05d69509d27321c
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403238"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935021"
 ---
 ## <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>有关在带有桌面体验的 Windows Server 2016 中禁用系统服务的指南
 
@@ -1729,9 +1729,20 @@ Microsoft 建议不要应用策略来禁用非默认安装的服务。
 |   **备注**    |   
 |||         
 
-<br /><br/>
-## <a name="sensor-servicebr--br------br---strongservice-descriptionstrong----a-service-for-sensors-that-manages-different-sensors39-functionality-manages-simple-device-orientation-sdo-and-history-for-sensors-loads-the-sdo-sensor-that-reports-device-orientation-changes--if-this-service-is-stopped-or-disabled-the-sdo-sensor-will-not-be-loaded-and-so-auto-rotation-will-not-occur-history-collection-from-sensors-will-also-be-stopped"></a>传感器服务<br/>| | |<br/>|---|---|<br/>|   <strong>服务说明</strong> |   用于管理不同传感器功能的传感器服务。 管理传感器的简单设备方向 (SDO) 和历史记录。 加载报告设备方向更改的 SDO 传感器。  如果此服务已停止或禁用，则不会加载 SDO 传感器，因此自动旋转不会发生。 此外还会停止从传感器收集历史记录。
-|   <strong>服务名称</strong>    |   SensorService |   <strong>安装</strong>    |   仅用于桌面体验 |   <strong>StartType</strong>   |   手动 |   <strong>建议</strong>  |   可以禁用 |   <strong>备注</strong>    |<br/>|||<br/>
+<br />
+
+## <a name="sensor-service"></a>传感器服务
+
+| | |
+|---|---|
+|   **服务说明** |   用于管理不同传感器功能的传感器服务。 管理传感器的简单设备方向 (SDO) 和历史记录。 加载报告设备方向更改的 SDO 传感器。  如果此服务已停止或禁用，则不会加载 SDO 传感器，因此自动旋转不会发生。 此外还会停止从传感器收集历史记录。
+|   **服务名称**    |   SensorService
+|   **安装**    |   仅用于桌面体验
+|   **StartType**   |   Manual
+|   **建议**  |   可以禁用
+|   **备注**    |
+|||
+  
 <br />          
 
 ## <a name="server"></a>Server           

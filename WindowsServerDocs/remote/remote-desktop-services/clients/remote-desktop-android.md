@@ -14,12 +14,12 @@ manager: daveba
 ms.author: helohr
 ms.date: 09/16/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: d11e8ad0cac1f9cf024097450e90d9be95d950b0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 829608ae1a4c6b78b3b191f248ed4a4195500669
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387756"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940715"
 ---
 # <a name="get-started-with-the-android-client"></a>Android 客户端入门
 

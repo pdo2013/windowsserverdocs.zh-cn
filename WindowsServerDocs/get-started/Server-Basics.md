@@ -10,12 +10,12 @@ ms.topic: article
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 70c3f3df4890717e2604e98e909ecacae956d3e7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4b8d346ceafb81b02ebbffc62e558800b77f0086
+ms.sourcegitcommit: 8fbd2d877612a9feb02d7d91ed0372d7cd441d5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391598"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678810"
 ---
 # <a name="get-started-with-windows-server-2016"></a>Windows Server 2016 入门
 
@@ -46,7 +46,7 @@ ms.locfileid: "71391598"
 从当前运行的任何版本直接移动到 Windows Server 2016 的说明。
 
 ## <a name="server-role-upgrade-and-migration-matrixserver-role-upgradeability-tablemd"></a>[服务器角色升级和迁移矩阵](Server-Role-Upgradeability-Table.md)
-有关将特殊服务器角色引入 Windows Server 2016 所需的其他步骤的信息
+有关将特殊服务器角色引入 Windows Server 2016 所需的其他步骤的信息。
 
 ## <a name="server-application-compatibility-tableserver-application-compatibilitymd"></a>[服务器应用程序兼容性表](Server-Application-Compatibility.md)
 SQL 是否可在 Windows Server 2016 上运行？ 运行 Exchange 需要哪些步骤？ 本主题介绍需要执行的操作。

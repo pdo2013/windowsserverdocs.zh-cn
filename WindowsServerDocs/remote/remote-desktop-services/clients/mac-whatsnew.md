@@ -13,12 +13,12 @@ manager: daveba
 ms.author: helohr
 ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 092804ea84ba2d0e68eede3a597cb354c53bb8bd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cc09a60882c481cea974508b0ef967aad0ed82fa
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404193"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940647"
 ---
 # <a name="whats-new-in-the-macos-client"></a>MacOS 客户端中的新增功能
 
@@ -189,7 +189,7 @@ ms.locfileid: "71404193"
 - 添加了对包含椭圆曲线非对称密钥的 RD 终结点证书的支持。
 - 修复了在某些情形中阻止下载托管资源的 bug。
 - 解决了与固定的连接中心有关的剪切问题。
-- 修复了显示属性表中的复选框以更好地在一起工作。
+- 修复了“添加桌面”窗口中“显示”选项卡上的复选框，使其更好地协同工作。
 - 动态显示更改生效时，现在已禁用纵横比锁定。
 - 解决了与 F5 基础结构有关的兼容性问题。
 - 更新了空白密码的处理，以确保在连接时显示正确的消息。

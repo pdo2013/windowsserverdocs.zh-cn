@@ -1,24 +1,20 @@
 ---
 title: chkdsk
-description: '适用于 * * * * 的 Windows 命令主题 '
-ms.custom: na
+description: 适用于 chkdsk 的 Windows 命令主题，用于检查卷的文件系统和文件系统元数据，以查找逻辑和物理错误。
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 62912a3c-d2cc-4ef6-9679-43709a286035
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 manager: lizapo
-ms.date: 10/16/2017
-ms.openlocfilehash: fac941a0ad5638fafa86d31a9af1cce1cc475823
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 10/09/2019
+ms.openlocfilehash: 130b51e472ebf3d900186d6d63e318c88a340579
+ms.sourcegitcommit: e2964a803cba1b8037e10d065a076819d61e8dbe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379437"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72252354"
 ---
 # <a name="chkdsk"></a>chkdsk
 
@@ -43,19 +39,27 @@ chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]
 
 ## <a name="parameters"></a>Parameters
 
-|      参数      |                                                                                                                      描述                                                                                                                       |
-|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      \<Volume >      |                                                                                     指定驱动器号（后跟冒号）、装入点或卷名。                                                                                     |
+|      参数       |                  描述                                    |
+| -------------------- | ------------------------------------------------------------------------ |
+|      \<Volume >      | 指定驱动器号（后跟冒号）、装入点或卷名。  |
 | [\<Path >] <FileName> | 仅用于文件分配表（FAT）和 FAT32。 指定您希望**chkdsk**检查碎片的文件或文件集的位置和名称。 您可以使用 **？** 和 **&#42;** 通配符来指定多个文件。 |
-|         /f          |                             修复磁盘上的错误。 必须锁定磁盘。 如果**chkdsk**无法锁定驱动器，则会出现一条消息，询问您是否要在下次重新启动计算机时检查驱动器。                             |
-|         /v          |                                                                                       检查磁盘时，显示每个目录中每个文件的名称。                                                                                        |
-|         /r          |                                   查找坏扇区并恢复可读的信息。 必须锁定磁盘。 **/r**包括 **/f**的功能，并对物理磁盘错误进行额外的分析。                                   |
-|         /x          |                                                  必要时强制首先卸除卷。 驱动器的所有打开的句柄都将失效。 **/x**还包括 **/f**的功能。                                                   |
-|         i          |                                                           仅适用于 NTFS。 对索引条目执行更少的经历检查，这会减少运行**chkdsk**所需的时间。                                                            |
-|         /c          |                                                          仅适用于 NTFS。 不检查文件夹结构内的循环，这会减少运行**chkdsk**所需的时间。                                                           |
-|    /l [： \<Size >]     |                                                         仅适用于 NTFS。 将日志文件大小更改为你键入的大小。 如果省略 size 参数，则 **/l**显示当前大小。                                                          |
-|         /b          |           仅 NTFS：清除卷上的坏簇列表，并重新扫描所有已分配和可用的群集以查找错误。 **/b**包括 **/r**的功能。 在将卷镜像到新硬盘驱动器之后，使用此参数。            |
-|         /?          |                                                                                                          在命令提示符下显示帮助。                                                                                                          |
+|         /f          | 修复磁盘上的错误。 必须锁定磁盘。 如果**chkdsk**无法锁定驱动器，则会出现一条消息，询问您是否要在下次重新启动计算机时检查驱动器。 |
+|         /v          | 检查磁盘时，显示每个目录中每个文件的名称。     |
+|         /r          | 查找坏扇区并恢复可读的信息。 必须锁定磁盘。 **/r**包括 **/f**的功能，并对物理磁盘错误进行额外的分析。                                   |
+|         /x          | 必要时强制首先卸除卷。 驱动器的所有打开的句柄都将失效。 **/x**还包括 **/f**的功能。  |
+|         i          | 仅适用于 NTFS。 对索引条目执行更少的经历检查，这会减少运行**chkdsk**所需的时间。  |
+|         /c          | 仅适用于 NTFS。 不检查文件夹结构内的循环，这会减少运行**chkdsk**所需的时间。  |
+|    /l [： \<Size >]     | 仅适用于 NTFS。 将日志文件大小更改为你键入的大小。 如果省略 size 参数，则 **/l**显示当前大小。 |
+|         /b          | 仅 NTFS：清除卷上的坏簇列表，并重新扫描所有已分配和可用的群集以查找错误。 **/b**包括 **/r**的功能。 在将卷镜像到新硬盘驱动器之后，使用此参数。            |
+| /scan               | 仅 NTFS：在卷上运行联机扫描。 |
+| /forceofflinefix    | 仅 NTFS：（必须与 "/scan" 一起使用）。 绕过所有联机修复;所有发现的缺陷都排队等候脱机修复（即 "chkdsk/spotfix"）。 |
+| /perf               | 仅 NTFS：（必须与 "/scan" 一起使用）。 使用更多系统资源，以 aspossible 的速度完成扫描。 这可能会对系统上运行的其他任务造成负面的性能影响。|
+| /spotfix            | 仅 NTFS：在卷上运行点修复。 |
+| /sdcleanup          | 仅 NTFS：垃圾收集不需要的安全描述符数据（隐含/F）。 |
+| /offlinescanandfix  | 在卷上运行脱机扫描并修复。 |
+| /freeorphanedchains | 仅限 FAT/FAT32/exFAT：释放任何孤立的群集链，而不是恢复其内容。 |
+| /markclean          | 仅限 FAT/FAT32/exFAT：如果未检测到损坏，则将卷标记为干净，即使未指定/F 也是如此。 |
+|         /?          | 在命令提示符下显示帮助。                       |
 
 ## <a name="remarks"></a>备注
 
@@ -137,6 +141,7 @@ chkdsk *.*
 ```
 
 **Chkdsk**显示状态报告，然后列出与具有非连续块的文件规范匹配的文件。
-#### <a name="additional-references"></a>其他参考
+
+## <a name="additional-references"></a>其他参考
 
 [命令行语法项](command-line-syntax-key.md)
