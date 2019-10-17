@@ -1432,7 +1432,7 @@ Microsoft 建议不要应用策略来禁用非默认安装的服务。
 |   **安装**    |   始终安装
 |   **StartType**   |   自动
 |   **建议**  |   如果不是打印服务器或 DC，则可以禁用
-|   **备注**    |   在域控制器上，安装 DC 角色会将一个线程添加到负责执行打印修剪（从 Active Directory 中删除过时的打印队列对象）的后台处理程序服务。  如果后台处理程序服务未在每个站点中的至少一个 DC 上运行，则 AD 无法删除不再存在的旧队列。 https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/
+|   **备注**    |   在域控制器上，安装 DC 角色会将一个线程添加到负责执行打印修剪（从 Active Directory 中删除过时的打印队列对象）的后台处理程序服务。  如果后台处理程序服务未在每个站点中的至少一个 DC 上运行，则 AD 无法删除不再存在的旧队列。 [https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/](https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/ )
 |||         
 
 <br />          
