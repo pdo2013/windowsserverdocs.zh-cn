@@ -7,16 +7,16 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: eacb80d89e7bcc95d6b5c12269d7587dc7d6870c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d670add6e4b4fc7369c48905bb297642ae07ff20
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383320"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588065"
 ---
 # <a name="patch-a-server-core-installation"></a>修补服务器核心安装
 
-> 适用于：Windows Server 2019、Windows Server 2016 和 Windows Server （半年频道）
+> 适用于： Windows Server 2019、Windows Server 2016 和 Windows Server （半年频道）
 
 可以通过以下方式修补运行服务器核心安装的服务器：
 
@@ -39,14 +39,14 @@ ms.locfileid: "71383320"
 
 1. 验证当前 Windows 更新设置：
    ```
-   %systemroot%\system32\Cscript scregedit.wsf /AU /v 
+   %systemroot%\system32\Cscript %systemroot%\system32\scregedit.wsf /AU /v 
    ```
 
 2. 若要启用自动更新：
 
    ```
    Net stop wuauserv 
-   %systemroot%\system32\Cscript scregedit.wsf /AU 4 
+   %systemroot%\system32\Cscript %systemroot%\system32\scregedit.wsf /AU 4 
    Net start wuauserv
    ```  
 
@@ -54,7 +54,7 @@ ms.locfileid: "71383320"
 
    ```
    Net stop wuauserv 
-   %systemroot%\system32\Cscript scregedit.wsf /AU 1 
+   %systemroot%\system32\Cscript %systemroot%\system32\scregedit.wsf /AU 1 
    Net start wuauserv 
    ```
 
@@ -75,7 +75,7 @@ Wuauclt /detectnow
 ## <a name="patch-the-server-manually"></a>手动修补服务器
 
 下载更新并使其可用于服务器核心安装。
-在命令提示符下, 运行以下命令:
+在命令提示符下，运行以下命令：
 
 ```
 Wusa <update>.msu /quiet 

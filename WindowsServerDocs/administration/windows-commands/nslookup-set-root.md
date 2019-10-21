@@ -13,23 +13,23 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 08cf41ec9b6ac30699013112216a538dcf625fd5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5a1737275bf6321525bbba56cd4d6a77ef973423
+ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372844"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72591025"
 ---
 # <a name="nslookup-set-root"></a>nslookup set root
 
->适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
+>适用于：Windows Server（半年频道）、Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
 更改用于查询的根服务器的名称。
 ## <a name="syntax"></a>语法
 ```
 set root=<RootServer>
 ```
-## <a name="parameters"></a>Parameters
+## <a name="parameters"></a>参数
 
 |    参数    |                                   描述                                    |
 |-----------------|----------------------------------------------------------------------------------|
@@ -39,5 +39,5 @@ set root=<RootServer>
 ## <a name="remarks"></a>备注
 - **Set root**子命令影响**root**子命令。
   ## <a name="additional-references"></a>其他参考
-  [命令行语法关键字](command-line-syntax-key.md)
+  [命令行语法键](command-line-syntax-key.md)
   [nslookup 根](nslookup-root.md)

@@ -8,12 +8,12 @@ ms.prod: windows-server
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 810f6f8ba9e33f1f26f49f542ad6d23819deb463
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2af3a621991627addb94238e84cceb357fb47731
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406282"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588090"
 ---
 # <a name="capolicyinf-syntax"></a>Capolicy.inf 语法
 >   适用于：Windows Server（半年频道）、Windows Server 2016
@@ -42,16 +42,16 @@ Capolicy.inf 是：
 
 -   _值_–参数，并显示在等号的右侧。
 
-在下面的示例中， **[Version]** 为部分，**签名**是密钥，而 **"\$Windows NT @ no__t-4"** 是值。
+在下面的示例中， **[Version]** 为部分，**签名**是密钥，而 **"\$Windows NT \$"** 是值。
 
-例如：
+示例：
 
 ```PowerShell
 [Version]                     #section
 Signature="$Windows NT$"      #key=value
 ```
 
-###  <a name="version"></a>Version
+###  <a name="version"></a>版本
 
 将文件标识为 .inf 文件。 Version 是唯一必需的部分，必须位于 Capolicy.inf 文件的开头。
 
@@ -116,7 +116,7 @@ URL=http://pki.wingtiptoys.com/cdp/WingtipToysRootCA.crl
 
 -   引号必须用空格将 Url 引起来。
 
--   如果未指定 Url （即，如果文件中存在 **[CRLDistributionPoint]** 部分但为空），则会从根 CA 证书中省略颁发机构信息访问扩展。 在设置根 CA 时，这通常更可取。 Windows 不对根 CA 证书执行吊销检查，因此 CDP 扩展在根 CA 证书中是多余的。
+-   如果未指定 Url （即，如果文件中存在 **[CRLDistributionPoint]** 部分但为空），则会从根 CA 证书中省略 CRL 分发点扩展。 在设置根 CA 时，这通常更可取。 Windows 不对根 CA 证书执行吊销检查，因此 CDP 扩展在根 CA 证书中是多余的。
 
 -    CA 可以发布到文件 UNC，例如，表示客户端通过 HTTP 检索到的网站文件夹的共享。
 
@@ -142,7 +142,7 @@ URL=http://pki.wingtiptoys.com/Public/myCA.crt
 
 -   带有空格的 Url 必须用引号括起来。
 
--   如果未指定 Url （即，如果文件中存在 **[AuthorityInformationAccess]** 部分但为空），则会从根 CA 证书中省略 CRL 分发点扩展。 同样，在根 CA 证书的情况下，这是首选的设置，因为没有颁发机构比需要通过指向其证书的链接引用的根 CA 更高。
+-   如果未指定 Url （即，如果文件中存在 **[AuthorityInformationAccess]** 部分但为空），则会从根 CA 证书中省略颁发机构信息访问扩展。 同样，在根 CA 证书的情况下，这是首选的设置，因为没有颁发机构比需要通过指向其证书的链接引用的根 CA 更高。
 
 ### <a name="certsrv_server"></a>certsrv_Server
 
@@ -193,18 +193,17 @@ Certutil -setreg CACRLDeltaPeriodUnits 1
 
 在安装 CA 后，你可能不希望立即颁发任何证书，因此你可以使用 LoadDefaultTemplates 设置来阻止将默认模板添加到企业 CA。 如果未在 CA 上配置模板，则它不会颁发证书。
 
-**内容: alternatesignaturealgorithm**将 ca 配置为支持 ca 证书\#和证书请求的 PKCS 1 v 2.1 签名格式。 当在根 CA 上设置为1时，CA 证书将包含 PKCS\#1 2.1 版签名格式。 如果在从属 CA 上设置，从属 CA 将创建包含 PKCS\#1 v 2.1 签名格式的证书请求。
+**内容: alternatesignaturealgorithm**将 ca 配置为支持 ca 证书和证书请求的 PKCS \#1 2.1 签名格式。 当在根 CA 上设置为1时，CA 证书将包含 PKCS \#1 2.1 签名格式。 如果在从属 CA 上设置，从属 CA 将创建包含 PKCS \#1 2.1 版签名格式的证书请求。
 
 **ForceUTF8**将 Subject 和颁发者可分辨名称中的相对可分辨名称（RDNs）的默认编码更改为 utf-8。 只有那些支持 UTF-8 的 RDNs （例如，由 RFC 定义为目录字符串类型的那些）受影响。 例如，域组件（DC）的 RDN 支持编码为 IA5 或 UTF-8，而国家 RDN （C）仅支持编码为可打印字符串。 因此，ForceUTF8 指令会影响 DC RDN，但不会影响 C RDN。
 
 **EnableKeyCounting**将 ca 配置为每次使用 ca 的签名密钥时递增计数器。 请勿启用此设置，除非你具有支持密钥计数的硬件安全模块（HSM）和关联的加密服务提供程序（CSP）。 Microsoft 强 CSP 和 Microsoft 软件密钥存储提供程序（KSP）都不支持密钥计数。
 
-
 ## <a name="create-the-capolicyinf-file"></a>创建 Capolicy.inf 文件
 
 在安装 AD CS 之前，请为你的部署配置具有特定设置的 Capolicy.inf 文件。
 
-**先决条件：** 您必须是 Administrators 组的成员。
+**必备组件：** 您必须是 Administrators 组的成员。
 
 1. 在计划安装 AD CS 的计算机上，打开 Windows PowerShell，键入**notepad c:\CAPolicy.inf** ，然后按 enter。
 
@@ -243,7 +242,7 @@ Certutil -setreg CACRLDeltaPeriodUnits 1
 
    -   **编码**是 **ANSI**
 
-7. 单击“保存”。
+7. 单击 **“保存”** 。
 
 8. 提示你覆盖文件时，单击 **“是”** 。
 

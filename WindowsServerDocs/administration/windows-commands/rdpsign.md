@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: aa1f8f8f31abd85a1ad106a3c4764fc4ccf74258
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 406563a07d3760c2846c201410f3a7b8f1c2829b
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384766"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588058"
 ---
 # <a name="rdpsign"></a>rdpsign
 
->适用于：Windows Server （半年频道），Windows Server 2016，Windows Server 2012 R2，Windows Server 2012
+>适用于：Windows Server（半年频道）、Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
 使您能够对远程桌面协议（.rdp）文件进行数字签名。
 有关如何使用此命令的示例，请参阅[示例](#BKMK_examples)。
@@ -35,18 +35,19 @@ ms.locfileid: "71384766"
 rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 ```
 
-## <a name="parameters"></a>Parameters
+## <a name="parameters"></a>参数
 
 |参数|描述|
 |-------|--------|
-|/sha1 \<hash >|指定指纹，该指纹是证书存储中包含的签名证书的安全哈希算法1（SHA1）哈希。|
+|/sha1 \<hash >|指定指纹，该指纹是证书存储中包含的签名证书的安全哈希算法1（SHA1）哈希。 在 Windows Server 2012 R2 及更早版本中使用。|
+|/sha256 \<hash >|指定指纹，该指纹是证书存储中包含的签名证书的安全哈希算法256（SHA256）哈希。 替换 Windows Server 2016 和更高版本中的/sha1。|
 |/q|安静模式。 如果命令成功，则没有输出，如果该命令失败，则输出最小。|
 |/v|详细模式。 显示所有警告、消息和状态。|
 |/l|测试签名和输出结果，而不实际替换任何输入文件。|
 |/?|在命令提示符下显示帮助。|
 
 ## <a name="remarks"></a>备注
--   SHA1 证书指纹应表示受信任的 .rdp 文件发布者。 若要获取证书指纹，请打开 "证书" 管理单元，双击要使用的证书（无论是在本地计算机的证书存储区中还是在个人证书存储区中），单击 "**详细信息**" 选项卡，然后在**字段**列表中，单击 "**指纹**"。
+-   SHA1 或 SHA256 证书指纹应表示受信任的 .rdp 文件发布者。 若要获取证书指纹，请打开 "证书" 管理单元，双击要使用的证书（无论是在本地计算机的证书存储区中还是在个人证书存储区中），单击 "**详细信息**" 选项卡，然后在**字段**列表中，单击 "**指纹**"。
 
     > [!NOTE]
     > 复制指纹以用于 rdpsign 工具时，必须删除任何空格。
@@ -70,6 +71,6 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
   ```
   rdpsign /sha1 hash file1.rdp file2.rdp file3.rdp
   ```
-  ## <a name="see-also"></a>请参阅
+  ## <a name="see-also"></a>另请参阅
   [命令行语法解答](command-line-syntax-key.md)
-  [远程桌面服务&#40;终端服务和&#41;命令参考](remote-desktop-services-terminal-services-command-reference.md)
+  [远程桌面服务 & #40;终端服务和 #41;命令参考](remote-desktop-services-terminal-services-command-reference.md)

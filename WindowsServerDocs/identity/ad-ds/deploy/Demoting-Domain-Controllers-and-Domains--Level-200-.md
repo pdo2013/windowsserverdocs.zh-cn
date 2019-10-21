@@ -9,12 +9,12 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 00f3851ce74a496bd530c8ea682ea312f8b06a0a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e3f320b67196a2400ebedbaeaf0a5b59969400e8
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390930"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588095"
 ---
 # <a name="demoting-domain-controllers-and-domains"></a>降级域控制器和域
 
@@ -36,7 +36,7 @@ ms.locfileid: "71390930"
 |||  
 |-|-|  
 |**ADDSDeployment 和 ServerManager Cmdlet**|参数（需要**加粗**参数。 *斜体*参数可以通过使用 Windows PowerShell 或 AD DS 配置向导来指定。）|  
-|Uninstall-AddsDomainController|-Skipprechecks 不可<br /><br />*-LocalAdministratorPassword*<br /><br />-Confirm<br /><br />***-Credential***<br /><br />-DemoteOperationMasterRole<br /><br />*-DNSDelegationRemovalCredential*<br /><br />-Force<br /><br />*-ForceRemoval*<br /><br />*-IgnoreLastDCInDomainMismatch*<br /><br />*-IgnoreLastDNSServerForZone*<br /><br />*-LastDomainControllerInDomain*<br /><br />-Norebootoncompletion<br /><br />*-RemoveApplicationPartitions*<br /><br />*-RemoveDNSDelegation*<br /><br />-RetainDCMetadata|  
+|卸载-Install-addsdomaincontroller|-Skipprechecks 不可<br /><br />*-LocalAdministratorPassword*<br /><br />-Confirm<br /><br />***-Credential***<br /><br />-DemoteOperationMasterRole<br /><br />*-DNSDelegationRemovalCredential*<br /><br />-Force<br /><br />*-ForceRemoval*<br /><br />*-IgnoreLastDCInDomainMismatch*<br /><br />*-IgnoreLastDNSServerForZone*<br /><br />*-LastDomainControllerInDomain*<br /><br />-Norebootoncompletion<br /><br />*-RemoveApplicationPartitions*<br /><br />*-RemoveDNSDelegation*<br /><br />-RetainDCMetadata|  
 |Uninstall-WindowsFeature/Remove-WindowsFeature|***-Name***<br /><br />***-IncludeManagementTools***<br /><br />*-重新启动*<br /><br />-Remove<br /><br />-Force<br /><br />-ComputerName<br /><br />-Credential<br /><br />-LogPath<br /><br />-Vhd|  
   
 > [!NOTE]  
@@ -104,7 +104,7 @@ Uninstall-windowsfeature
    > [!WARNING]  
    > 如果域控制器可以联系其他域控制器，则不要选择此选项，而且*还没有任何合理的方法*可解决这种网络问题。 强制降级会将 Active Directory 中已丢弃的元数据保留在林中的其余域控制器上。 此外，该域控制器上所有未复制的更改（如密码或新用户帐户）都将永久丢失。 已丢弃的元数据是 AD DS、Exchange、SQL 和其他软件的大部分 Microsoft 客户支持案例的根本原因。  
    >
-   > 如果强制降级域控制器，*必须*立即手动执行元数据清理。 有关步骤，请查看 [清理服务器元数据](https://technet.microsoft.com/library/cc816907(WS.10).aspx)。  
+   > 如果强制降级域控制器，*必须*立即手动执行元数据清理。 有关步骤，请查看 [清理服务器元数据](ad-ds-metadata-cleanup.md)。  
 
    ![Active Directory 域服务配置向导-凭据强制删除](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ForceDemote.png)  
   
@@ -188,7 +188,7 @@ Uninstall-windowsfeature
 单击“降级”以运行以下 AD DS 部署 cmdlet：
 
 ```
-Uninstall-DomainController
+Uninstall-ADDSDomainController
 ```
 
 将可选 **Whatif** 参数与 **Uninstall-ADDSDomainController** 和 cmdlet 一起使用以查看配置信息。 这使你可以查看 cmdlet 的参数的显式值和隐式值。
@@ -208,7 +208,7 @@ Uninstall-DomainController
 * %systemroot%\debug\dcpromo.log
 * %systemroot%\debug\dcpromoui.log
 
-由于 **Uninstall-AddsDomainController** 和 **Uninstall-WindowsFeature** 仅各有一个操作，因此在确认阶段中它们会在此处显示并带有最少的所需参数。 按 ENTER 将启动不可撤销的降级过程，并重新启动计算机。
+由于**install-addsdomaincontroller**和**uninstall**只包含一个操作各，因此，它们会在确认阶段中显示，并带有最少的所需参数。 按 ENTER 将启动不可撤销的降级过程，并重新启动计算机。
 
 ![PowerShell 卸载-Install-addsdomaincontroller 示例](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallConfirm.png)
 

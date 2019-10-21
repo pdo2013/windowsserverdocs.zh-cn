@@ -7,12 +7,12 @@ ms.topic: upgrade
 author: RobHindman
 ms.author: robhind
 ms.date: 09/16/2019
-ms.openlocfilehash: 99133f2c582b180f240740fc2f39e99527bc0cf8
-ms.sourcegitcommit: 27f0caf74e88781054250455c3c1adf06deb6234
+ms.openlocfilehash: 62fe4f00cef121e6241a403ee339047cda9488b5
+ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124817"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72591081"
 ---
 # <a name="upgrade-windows-server-2016-to-windows-server-2019"></a>将 Windows Server 2016 升级到 Windows Server 2019
 
@@ -24,13 +24,13 @@ ms.locfileid: "71124817"
 
 ### <a name="to-collect-your-info"></a>收集信息
 
-1. 打开命令提示符，中转到`c:\Windows\system32`，然后键入**systeminfo.exe**。
+1. 打开命令提示符，中转到 "`c:\Windows\system32`"，然后键入**systeminfo.exe**。
 
 2. 将生成的系统信息复制、粘贴并存储在设备之外的某个位置。
 
 3. 在命令提示符下键入**ipconfig/all** ，然后将生成的配置信息复制并粘贴到上述位置。
 
-4. 打开注册表编辑器，中转到 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion hive，然后将 Windows Server **BuildLabEx** （版本）和**EditionID** （edition）复制并粘贴到上述位置。
+4. 打开注册表编辑器，中转到 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion` 项，然后将 Windows Server **BuildLabEx** （版本）和**EditionID** （edition）复制并粘贴到上述位置。
 
 收集了所有与 Windows Server 相关的信息后，我们强烈建议你备份操作系统、应用程序和虚拟机。 你还必须**关闭**、**快速迁移**或**实时迁移**当前正在服务器上运行的所有虚拟机。 在就地升级过程中，不能运行任何虚拟机。
 
@@ -80,11 +80,11 @@ ms.locfileid: "71124817"
 
 ### <a name="to-make-sure-your-upgrade-was-successful"></a>确保升级成功
 
-1. 打开注册表编辑器，中转到 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion hive，查看**产品名称**。 应会看到 windows Server 2019 的版本，例如**Windows server 2019 Datacenter**。
+1. 打开注册表编辑器，中转到 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion` 项，然后查看**产品名称**。 应会看到 windows Server 2019 的版本，例如**Windows server 2019 Datacenter**。
 
 2. 请确保所有应用程序都正在运行，并且客户端与应用程序的连接已成功。
 
-如果你认为在升级过程中出现问题，请复制并压缩（通常`%SystemRoot%\Panther` `C:\Windows\Panther`为）目录，并与 Microsoft 支持部门联系。
+如果你认为在升级过程中出现问题，请复制并压缩 `%SystemRoot%\Panther` （通常 `C:\Windows\Panther`）目录，并与 Microsoft 支持部门联系。
 
 ## <a name="related-articles"></a>相关文章
 

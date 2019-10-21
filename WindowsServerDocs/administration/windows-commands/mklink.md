@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9d930cbf7acbfceab16f2fa619aaaac6e789c131
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b7a5f9b819f16d058feb1dee74a8408ed174e04c
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373638"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588044"
 ---
 # <a name="mklink"></a>mklink
 创建符号链接。
@@ -31,7 +31,7 @@ ms.locfileid: "71373638"
 mklink [[/d] | [/h] | [/j]] <Link> <Target>
 ```
 
-## <a name="parameters"></a>Parameters
+## <a name="parameters"></a>参数
 
 |参数|描述|
 |---------|-----------|
@@ -44,7 +44,7 @@ mklink [[/d] | [/h] | [/j]] <Link> <Target>
 
 ## <a name="BKMK_examples"></a>示例
 
-以下示例演示了如何在目录中创建一个名为 MyFolder 和 Myfile.txt 的符号链接，并将其从根目录中删除到 \Users\User1\Documents 目录和一个示例文件中：
+下面的示例演示了如何在目录中创建和删除名为 MyFolder 和 Myfile.txt 的符号链接，并从根目录到 \Users\User1\Documents 目录和一个示例文件：
 ```
 mklink /d \MyFolder \Users\User1\Documents
 mklink /h \MyFile.file \User1\Documents\example.file
