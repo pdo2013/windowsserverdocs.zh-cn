@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/11/2019
+ms.date: 10/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: d233708c6d206569f42f2a883bd342e90813f6a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bcbd3292bcd4653a4568492a996d53c17f465aa8
+ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404092"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72591044"
 ---
 # <a name="whats-new-in-the-web-client"></a>Web 客户端中的新增功能
 
@@ -27,12 +27,22 @@ ms.locfileid: "71404092"
 > [!NOTE]
 > 我们为 Web 客户端更改了版本控制系统。 从版本 1.0.18.0 开始，所有 Web 客户端发行版本都会包含编号（采用“W.X.Y.Z”的格式）。 远程桌面 Web 客户端的发行版号会始终以 0 结尾（例如 W.X.Y.0）。 每个 Windows 虚拟桌面 Web 客户端发行版都会更改最后一个数字，直到下一个远程桌面 Web 客户端发行版（例如 1.0.18.1）。
 
+## <a name="updates-for-version-10200"></a>针对版本 1.0.20.0 的更新
+*发布日期：2019/10/18*
+
+- 添加了对连接到 Windows 7 和 Windows Server 2008 R2 主机的支持。
+- 解决了某些应用图标显示为透明磁贴的问题。
+- 解决了 Windows 7 上 Internet Explorer 浏览器的连接问题。
+- 解决了调整浏览器大小时发生的意外断开连接问题。
+- 辅助功能改进。
+- 更新了第三方库。
+
 ## <a name="updates-for-version-10180"></a>针对版本 1.0.18.0 的更新
 *发布日期：* 2019/5/14
 
 - 在“设置”选项卡中添加了资源启动方法配置，使用户可以在浏览器中打开资源，或下载 .rdp 文件，以处理另一个客户端。 此设置可能由管理员进行配置。有关适用于此功能的管理员配置的详细信息可以在 [Web 客户端设置文档](remote-desktop-web-client-admin.md)中找到。
 - 修复了颜色呈现问题，使远程会话中的颜色更鲜艳。
-- 修订了与远程资源源错误相关的错误消息。 
+- 修订了与远程资源源错误相关的错误消息。
 - 添加了对更多 office 快捷方式的支持，如选择性粘贴 (Ctrl+Alt+V)。
 - 添加了供用户在远程会话中调用 Windows 键的键盘快捷方式 (Alt+F3)
 - 更新了针对尝试使用已过期密码进行身份验证的用户的错误消息。
@@ -105,4 +115,3 @@ ms.locfileid: "71404092"
 - 使用 CTRL+C  和 CTRL+V  ，通过剪贴板复制/粘贴文本。
 - 打印到 PDF 文件。
 - 采用 18 种语言进行了本地化。
- 

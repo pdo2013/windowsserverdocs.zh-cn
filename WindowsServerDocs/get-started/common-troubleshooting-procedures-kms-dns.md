@@ -8,12 +8,12 @@ ms.assetid: ''
 author: Teresa-Motiv
 ms.author: v-tea
 ms.localizationpriority: medium
-ms.openlocfilehash: e2bd9c766f07591e0c643a6cea644b2db7a95364
-ms.sourcegitcommit: 9855d6b59b1f8722f39ae74ad373ce1530da0ccf
+ms.openlocfilehash: 3165c926c50c2f91544895e0d328f1dae7424b4a
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960961"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588031"
 ---
 # <a name="guidelines-for-troubleshooting-dns-related-activation-issues"></a>用于排查 DNS 相关激活问题的指南
 
@@ -66,7 +66,7 @@ ms.locfileid: "71960961"
 
 KMS 激活要求配置客户端激活时所使用的 KMS 主机。 如果环境中没有配置的 KMS 主机，请使用适当的 KMS 主机密钥安装并激活一个。 在网络上配置用于托管 KMS 软件的计算机以后，请发布域名系统 (DNS) 设置。
 
-若要了解 KMS 主机配置过程，请参阅[使用密钥管理服务进行激活](https://docs.microsoft.com/windows/deployment/volume-activation/activate-using-key-management-service-vamt)和[安装和配置 VMAT](https://docs.microsoft.com/windows/deployment/volume-activation/install-configure-vamt)。
+若要了解 KMS 主机配置过程，请参阅[使用密钥管理服务进行激活](https://docs.microsoft.com/windows/deployment/volume-activation/activate-using-key-management-service-vamt)和[安装和配置 VAMT](https://docs.microsoft.com/windows/deployment/volume-activation/install-configure-vamt)。
 
 [返回到过程列表。](#list)
 
