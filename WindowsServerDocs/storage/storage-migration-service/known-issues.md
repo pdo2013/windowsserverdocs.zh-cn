@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: e3ec7ee787fb6fd2e8e9f59249a6c4013a76b377
-ms.sourcegitcommit: e2964a803cba1b8037e10d065a076819d61e8dbe
+ms.openlocfilehash: 830a2d99443938c25625211f590984819a20d566
+ms.sourcegitcommit: 40e4ba214954d198936341c4d6ce1916dc891169
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72252366"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690444"
 ---
 # <a name="storage-migration-service-known-issues"></a>存储迁移服务的已知问题
 
@@ -48,11 +48,11 @@ Windows 管理中心存储迁移服务扩展受版本限制，只管理 Windows 
 
 在 Windows 管理中心使用0.57 版本的存储迁移服务扩展时，如果出现切换阶段，则无法为地址选择静态 IP。 系统会强制使用 DHCP。
 
-若要解决此问题，请在 Windows 管理中心的 "**设置**" 下查看 " > **扩展**"，指出更新版本存储迁移服务0.57.2 可供安装。 可能需要重新启动 Windows 管理中心的浏览器选项卡。
+若要解决此问题，请在 Windows 管理中心的 " > **设置**" 下查看一个警报，指出已更新版本存储迁移服务**0.57.2 可供**安装。 可能需要重新启动 Windows 管理中心的浏览器选项卡。
 
 ## <a name="storage-migration-service-cutover-validation-fails-with-error-access-is-denied-for-the-token-filter-policy-on-destination-computer"></a>存储迁移服务转换验证失败，出现错误 "对目标计算机上的令牌筛选器策略的访问被拒绝"
 
-运行切换验证时，收到错误 "失败：对于目标计算机上的令牌筛选器策略，拒绝访问。 即使您为源计算机和目标计算机提供了正确的本地管理员凭据，也会出现这种情况。
+运行切换验证时，收到错误 "失败：目标计算机上的令牌筛选器策略访问被拒绝"。 即使您为源计算机和目标计算机提供了正确的本地管理员凭据，也会出现这种情况。
 
 此问题是由 Windows Server 2019 中的代码缺陷导致的。 当你使用目标计算机作为存储迁移服务 Orchestrator 时，将出现此问题。
 
@@ -120,7 +120,7 @@ Windows 管理中心存储迁移服务扩展受版本限制，只管理 Windows 
 验证传输作业时，将看到以下警告：
 
  > **凭据具有管理权限。**
- > 警告：操作不能远程使用。
+ > 警告：操作无法远程使用。
  > **目标代理已注册。**
  > 警告：找不到目标代理。
 
@@ -130,10 +130,10 @@ Windows 管理中心存储迁移服务扩展受版本限制，只管理 Windows 
 
 当在源计算机和目标计算机上清点或传输文件时，用户已删除管理员组权限的文件将无法迁移。 检查存储迁移服务-代理调试显示：
 
-  日志名称：    Microsoft StorageMigrationService-代理/调试源：      Microsoft StorageMigrationService-代理日期：        2/26/2019 9:00:04 AM 事件 ID：    10000任务类别：无级别：       错误关键字：      
-  用户：        网络服务计算机： srv1.contoso.com 说明：
+  日志名称： StorageMigrationService/调试源： Microsoft-StorageMigrationService-Proxy Date： 2/26/2019 9:00:04 AM 事件 ID：10000任务类别：无级别：错误关键字：      
+  用户：网络服务计算机： srv1.contoso.com 说明：
 
-  对于 \\srv1 com\public\indy.png，为 02/26/2019-09：00： 04.860 [错误] 传输错误：（5）访问被拒绝。
+  02/26/2019-09：00： 04.860 [Error] 传输 \\srv1 错误。 com\public\indy.png：（5）访问被拒绝。
 Stack 跟踪：在 StorageMigration （String fileName、DesiredAccess desiredAccess、ShareMode shareMode、CreationDisposition creationDisposition、FlagsAndAttributes flagsAndAttributes）处，StorageMigration （FileDirUtils）上的 GetTargetFile （字符串路径），网址为，网址为，（FileDirUtils 文件），网址为StorageMigration （），网址为 FileTransfer. InitializeSourceFileInfo （），网址为，，网址为，，网址为StorageMigration FileTransfer. TryTransfer （） [d:\os\src\base\dms\proxy\transfer\transferproxy\FileTransfer.cs：： TryTransfer：： 55]
 
 
@@ -199,14 +199,14 @@ DFSR 调试日志：
 
    无法传输存储。
 
-   任务Job1 ID：  
+   作业： Job1 ID：  
    状态：失败错误：36931错误消息： 
 
-   指导检查详细的错误并确保满足传输要求。 传输作业无法传输任何源和目标计算机。 这可能是因为 orchestrator 计算机无法访问任何源计算机或目标计算机，可能是因为防火墙规则或缺少权限。
+   指南：检查详细错误，并确保满足传输要求。 传输作业无法传输任何源和目标计算机。 这可能是因为 orchestrator 计算机无法访问任何源计算机或目标计算机，可能是因为防火墙规则或缺少权限。
 
 检查 StorageMigrationService/Debug 日志显示：
 
-   07/02/2019-13：35： 57.231 [错误] 传输验证失败。 错误40961，源终结点无法访问或不存在，或源凭据无效，或经过身份验证的用户没有足够的权限访问它。
+   07/02/2019-13：35： 57.231 [错误] 传输验证失败。 错误代码：40961，源终结点无法访问或不存在，或源凭据无效，或经过身份验证的用户没有足够的权限访问它。
 在 StorageMigration （）中的 TransferOperation （），在 StorageMigration （ProcessRequest fileTransferRequest，Guid operationId）上进行验证（& e）   [d:\os\src\base\dms\proxy\transfer\transferproxy\TransferRequestHandler.cs::
 
 如果迁移帐户没有对 SMB 共享的 "读取" 访问权限，则会出现此错误。 若要解决此错误，请将包含源迁移帐户的安全组添加到源计算机上的 SMB 共享，并向其授予 "读取"、"更改" 或 "完全控制" 权限。 迁移完成后，可以删除此组。
@@ -217,13 +217,13 @@ DFSR 调试日志：
 
   HRESULT 中的异常：0x80005000
   
-  日志名称：    Microsoft StorageMigrationService/Admin 源：      Microsoft StorageMigrationService Date：        9/9/2019 5:21:42 PM 事件 ID：    2503任务类别：无级别：       错误关键字：      
-  用户：        网络服务计算机：    FS02.TailwindTraders.net 说明：无法清点计算机。
-作业： foo2 ID：20ac3f75-4945-41d1-9a79-d11dbb57798b 状态：失败错误：36934错误消息：所有设备的清单失败指南：检查详细的错误并确保满足清单要求。 作业无法清点任何指定的源计算机。 这可能是因为 orchestrator 计算机无法通过网络访问它，这可能是由于防火墙规则或缺少权限造成的。
+  日志名称： Microsoft StorageMigrationService/Admin 源： Microsoft-StorageMigrationService Date： 9/9/2019 5:21:42 PM 事件 ID：2503任务类别：无级别：错误关键字：      
+  用户：网络服务计算机： FS02。TailwindTraders.net 说明：无法清点计算机。
+作业： foo2 ID：20ac3f75-4945-41d1-9a79-d11dbb57798b 状态： Failed 错误：36934错误消息：所有设备的清单失败指南：检查详细错误并确保满足清单要求。 作业无法清点任何指定的源计算机。 这可能是因为 orchestrator 计算机无法通过网络访问它，这可能是由于防火墙规则或缺少权限造成的。
   
-  日志名称：    Microsoft StorageMigrationService/Admin 源：      Microsoft StorageMigrationService Date：        9/9/2019 5:21:42 PM 事件 ID：    2509任务类别：无级别：       错误关键字：      
-  用户：        网络服务计算机：    FS02.TailwindTraders.net 说明：无法清点计算机。
-作业： foo2 计算机：FS01.TailwindTraders.net 状态：失败错误：-2147463168 错误消息：指导检查详细的错误并确保满足清单要求。 清单无法确定指定源计算机的任何方面。 这可能是因为缺少对源或阻止的防火墙端口的权限或特权。
+  日志名称： Microsoft StorageMigrationService/Admin 源： Microsoft-StorageMigrationService Date： 9/9/2019 5:21:42 PM 事件 ID：2509任务类别：无级别：错误关键字：      
+  用户：网络服务计算机： FS02。TailwindTraders.net 说明：无法清点计算机。
+作业： foo2 计算机： FS01。TailwindTraders.net 状态： Failed 错误：-2147463168 错误消息：指南：检查详细的错误并确保满足清单要求。 清单无法确定指定源计算机的任何方面。 这可能是因为缺少对源或阻止的防火墙端口的权限或特权。
   
 当你以用户主体名称（UPN）的形式提供迁移凭据（如 "meghan@contoso.com"）时，存储迁移服务中的代码缺陷会导致此错误。 存储迁移服务协调器服务无法正确分析此格式，这导致在域查找中为 KB4512534 和19H1 中的群集迁移支持添加了故障。
 
@@ -270,6 +270,8 @@ DFSR 调试日志：
 1.  打开提升的 cmd 提示符，你是存储迁移服务协调器服务器上的管理员成员，然后运行：
 
      ```
+     TAKEOWN /d /a /r /f c:\ProgramData\Microsoft\StorageMigrationService
+     
      MD c:\ProgramData\Microsoft\StorageMigrationService\backup
 
      ICACLS c:\ProgramData\Microsoft\StorageMigrationService\* /grant Administrators:(GA)
@@ -280,13 +282,13 @@ DFSR 调试日志：
 
      ICACLS c:\ProgramData\Microsoft\StorageMigrationService  /GRANT networkservice:F /T /C
 
-     ICACLS c:\ProgramData\Microsoft\StorageMigrationService /GRANT networkservice:(GA)F /T /C
+     ICACLS c:\ProgramData\Microsoft\StorageMigrationService /GRANT networkservice:(GA) /T /C
      ```
    
 2.  启动存储迁移服务服务，该服务将创建一个新数据库。
 
 
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - [存储迁移服务概述](overview.md)
