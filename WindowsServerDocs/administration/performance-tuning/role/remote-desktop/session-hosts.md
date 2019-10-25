@@ -4,15 +4,15 @@ description: 远程桌面会话主机的性能优化指南
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: HammadBu; VladmiS
+ms.author: HammadBu; VladmiS; DenisGun
 author: phstee
-ms.date: 10/16/2017
-ms.openlocfilehash: c50c0c981362bd96ed3bf1c603cde6bfeec289f4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 10/22/2019
+ms.openlocfilehash: b439b0cbab66f98a1f74faeb7bff996b30a188d5
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385017"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812331"
 ---
 # <a name="performance-tuning-remote-desktop-session-hosts"></a>性能优化远程桌面会话主机
 
@@ -40,7 +40,7 @@ CPU 配置在概念上是通过将所需的 CPU 与系统预期支持的会话�
 
 ### <a name="memory-configuration"></a>内存配置
 
-内存配置依赖于用户使用的应用程序;但是，可以使用以下公式估计所需的内存量：TotalMem = OSMem + SessionMem \* NS
+内存配置依赖于用户使用的应用程序;但是，可以使用以下公式估计所需的内存量： TotalMem = OSMem + SessionMem \* NS
 
 OSMem 是操作系统运行所需的内存量（例如系统二进制文件、数据结构等），SessionMem 是一个会话中运行的内存进程数，NS 是活动会话的目标数。 会话所需的内存量主要由会话内运行的应用程序和系统进程的专用内存引用集决定。 共享代码或数据页没有任何影响，因为系统上只有一个副本。
 
@@ -130,9 +130,9 @@ RD 会话主机服务器上的大多数 CPU 使用率由应用驱动。 桌面�
 
 桌面上的通知图标可以具有相当昂贵的刷新机制。 你应禁用任何通知，方法是从启动列表中删除注册它们的组件，或更改应用程序和系统组件上的配置以禁用这些通知。 你可以使用**自定义通知图标**来检查服务器上可用的通知的列表。
 
-### <a name="remotefx-data-compression"></a>RemoteFX 数据压缩
+### <a name="remote-desktop-protocol-data-compression"></a>远程桌面协议数据压缩
 
-Microsoft RemoteFX 可以使用组策略在 "**计算机配置" &gt; 管理模板 @no__t Windows 组件 &gt; 远程桌面服务 @no__t 远程桌面会话主机会话环境 &gt; 配置 RemoteFX 数据的压缩**。 可能有三个值：
+远程桌面协议可以使用组策略在 "**计算机配置**" &gt;**管理模板** **&gt; &gt;** **Windows 组件**"远程桌面服务 &gt; 来配置压缩**远程桌面会话主机**&gt;**远程会话环境**&gt;**为 RemoteFX 数据配置压缩**。 可能有三个值：
 
 -   **经过优化，可使用更少内存**每个会话使用的内存量最少，但压缩率最低，因此带宽消耗最大。
 
@@ -140,11 +140,11 @@ Microsoft RemoteFX 可以使用组策略在 "**计算机配置" &gt; 管理模�
 
 -   **经过优化，可使用更少的网络带宽**进一步降低网络带宽使用率，成本大约为每个会话 2 MB。 如果要使用此设置，应在将服务器放入生产环境之前，使用此设置来评估会话的最大数量并进行测试。
 
-你还可以选择不使用 RemoteFX 压缩算法。 选择不使用 RemoteFX 压缩算法将会使用更多网络带宽，并且仅当使用的硬件设备设计用于优化网络流量时，才建议使用该算法。 即使您选择不使用 RemoteFX 压缩算法，也会压缩某些图形数据。
+你还可以选择不使用远程桌面协议压缩算法，因此我们仅建议将其用于用于优化网络流量的硬件设备。 即使您选择不使用压缩算法，也会压缩某些图形数据。
 
 ### <a name="device-redirection"></a>设备重定向
 
-可以通过使用组策略 "**计算机配置" &gt; 管理模板 &gt; Windows 组件 &gt; 远程桌面服务 @no__t 远程桌面会话主机重定向**或使用服务器管理器中的 "**会话集合**属性" 框。
+可以使用 "**计算机配置**" &gt;**管理模板**&gt; **Windows 组件**"下的" 组策略配置设备重**定向 &gt; 远程桌面服务**&gt;**远程桌面会话主机**&gt;**设备和资源重定向，** 或使用服务器管理器中的 "**会话集合**属性" 框。
 
 通常，设备重定向会增加 RD 会话主机服务器连接所使用的网络带宽量，因为数据在客户端计算机上的设备与服务器会话中运行的进程之间进行交换。 增加的程度是指在服务器上运行的应用程序针对重定向的设备执行的操作频率的函数。
 

@@ -4,31 +4,23 @@ description: 远程桌面虚拟化主机的性能优化
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: HammadBu; VladmiS
+ms.author: HammadBu; VladmiS; denisgun
 author: phstee
-ms.date: 10/16/2017
-ms.openlocfilehash: 6aad1560fa9f9429af94426487d9a33369137ded
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 10/22/2019
+ms.openlocfilehash: dbdf211138ddcd553171f3c8ce9c2e915ccf0057
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370028"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812269"
 ---
 # <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>性能优化远程桌面虚拟化主机
 
+远程桌面虚拟化主机（RD 虚拟化主机）是一项角色服务，支持虚拟桌面基础结构（VDI）方案，使多个用户能够在运行 Windows Server 的服务器上托管的虚拟机中运行基于 Windows 的应用程序，以及Hyper-v。
 
-远程桌面虚拟化主机（RD 虚拟化主机）是一项角色服务，它支持虚拟桌面基础结构（VDI）方案，并允许多个并发用户在运行的服务器上托管的虚拟机中运行基于 Windows 的应用程序。Windows Server 2016 和 Hyper-v。
-
-Windows Server 2016 支持两种类型的虚拟机：个人虚拟机和共用虚拟机。
-
-**本主题内容：**
-
--   [一般注意事项](#general-considerations)
-
--   [性能优化](#performance-optimizations)
+Windows Server 支持两种类型的虚拟桌面：个人虚拟机和共用虚拟机。
 
 ## <a name="general-considerations"></a>一般注意事项
-
 
 ### <a name="storage"></a>存储
 
@@ -40,7 +32,7 @@ Windows Server 2016 支持两种类型的虚拟机：个人虚拟机和共用虚
 
 重复数据删除功能在 Windows Server 2012 R2 中引入，支持优化打开的文件。 为了使用在删除了重复数据的卷上运行的虚拟机，需要将虚拟机文件存储在与 Hyper-v 主机不同的主机上。 如果 Hyper-v 和重复数据删除在同一台计算机上运行，这两项功能将争用系统资源并对总体性能产生负面影响。
 
-还必须将卷配置为使用 "虚拟桌面基础结构（VDI）" 重复数据删除优化类型。 可以通过使用服务器管理器（**文件和存储服务** - &gt; **卷** - &gt; **重复数据删除设置**）或使用以下 Windows PowerShell 命令来配置此项：
+还必须将卷配置为使用 "虚拟桌面基础结构（VDI）" 重复数据删除优化类型。 你可以使用服务器管理器（**文件和存储服务** -&gt;**卷** -&gt;**重复数据删除设置**）或使用以下 Windows PowerShell 命令来配置此项：
 
 ``` syntax
 Enable-DedupVolume <volume> -UsageType HyperV
@@ -53,11 +45,11 @@ Enable-DedupVolume <volume> -UsageType HyperV
 
 服务器内存使用情况由三个主要因素驱动：
 
--   操作系统开销
+- 操作系统开销
 
--   Hyper-v 服务每个虚拟机的开销
+- Hyper-v 服务每个虚拟机的开销
 
--   分配给每个虚拟机的内存
+- 分配给每个虚拟机的内存
 
 对于典型的知识工作者工作负荷，应将运行 x86 Window 8 或 Windows 8.1 的来宾虚拟机指定为大约 512 MB 的内存作为基线。 但是，动态内存可能会将来宾虚拟机的内存增加到约 800 MB，具体取决于工作负荷。 对于 x64，我们会看到大约 800 MB 开始，增加到 1024 MB。
 
@@ -68,112 +60,6 @@ Enable-DedupVolume <volume> -UsageType HyperV
 为 RD 虚拟化主机服务器规划服务器容量时，每个物理内核的虚拟机数量将取决于工作负荷的性质。 作为起点，合理的做法是计划每个物理核心12个虚拟机，然后运行相应的方案来验证性能和密度。 根据工作负荷的具体情况，可以实现更高的密度。
 
 建议启用超线程，但要确保基于物理内核数而不是逻辑处理器数来计算超额订阅比率。 这可确保每个 CPU 的预期性能级别。
-
-### <a name="virtual-gpu"></a>虚拟 GPU
-
-RD 虚拟化主机 Microsoft RemoteFX 为虚拟桌面基础结构（VDI）提供丰富的图形体验，通过主机端远程处理、呈现捕获编码管道、基于 GPU 的高效编码、基于客户端的限制活动和启用了 DirectX 的虚拟 GPU。 RD 虚拟化主机 RemoteFX 将虚拟 GPU 从 DirectX9 升级到 DirectX11。 它还通过支持更高分辨率的监视器来改善用户体验。
-
-通过软件模拟驱动程序，可以使用不带硬件 GPU 的 RemoteFX DirectX11 体验。 尽管此软件 GPU 提供了很好的体验，但 RemoteFX 虚拟图形处理单元（VGPU）向虚拟桌面添加了硬件加速体验。
-
-若要在运行 Windows Server 2016 的服务器上利用 RemoteFX VGPU 体验，主机服务器上需要有 GPU 驱动程序（如 DirectX 11.1 或 WDDM 1.2）。 有关用于 RD 虚拟化主机 RemoteFX 的 GPU 产品的详细信息，请与你的 GPU 提供商联系。
-
-如果在 VDI 部署中使用 RemoteFX 虚拟 GPU，部署容量将根据使用方案和硬件配置而有所不同。 规划部署时，请考虑以下事项：
-
--   系统上的 Gpu 数
-
--   Gpu 上的视频内存容量
-
--   系统上的处理器和硬件资源
-
-### <a name="remotefx-server-system-memory"></a>RemoteFX 服务器系统内存
-
-对于通过虚拟 GPU 启用的每个虚拟桌面，RemoteFX 将在来宾操作系统和启用 RemoteFX 的服务器中使用系统内存。 虚拟机监控程序保证来宾操作系统的系统内存可用性。 在服务器上，每个启用了虚拟 GPU 的虚拟桌面都需要将其系统内存要求播发到虚拟机监控程序。 当启用虚拟 GPU 的虚拟机启动时，虚拟机监控程序会在启用了 VGPU 的虚拟桌面的启用 RemoteFX 的服务器中保留额外的系统内存。
-
-启用 RemoteFX 的服务器的内存要求是动态的，因为启用了 RemoteFX 的服务器上使用的内存量取决于与启用了 VGPU 的虚拟桌面关联的监视器数量和最大分辨率这些监视器。
-
-### <a name="remotefx-server-gpu-video-memory"></a>RemoteFX 服务器 GPU 视频内存
-
-每个启用虚拟 GPU 的虚拟桌面使用主机服务器上的 GPU 硬件中的视频内存来呈现桌面。 除了呈现外，编解码器还使用视频内存来压缩呈现的屏幕。 所需的内存量直接基于预配到虚拟机的监视器数量。
-
-保留的视频内存因监视器数量和系统屏幕分辨率而异。 某些用户可能需要较高的屏幕分辨率来执行特定任务。 如果所有其他设置保持不变，则更高的分辨率设置具有更高的可伸缩性。
-
-### <a name="remotefx-processor"></a>RemoteFX 处理器
-
-虚拟机监控程序在 CPU 上计划启用了 RemoteFX 的服务器和启用了虚拟 GPU 的虚拟机。 与系统内存不同，与 RemoteFX 需要与虚拟机监控程序共享的其他资源没有相关的信息。 RemoteFX 引入虚拟 GPU 启用虚拟桌面的额外 CPU 开销与运行虚拟 GPU 驱动程序和用户模式远程桌面协议堆栈相关。
-
-在启用 RemoteFX 的服务器上，开销会增加，因为系统会对每个虚拟 GPU 启用虚拟桌面运行附加进程（rdvgm）。 此过程使用图形设备驱动程序在 GPU 上运行命令。 编解码器还使用 Cpu 压缩需要发送回客户端的屏幕数据。
-
-更多虚拟处理器意味着更好的用户体验。 建议为每个虚拟 GPU 启用虚拟桌面至少分配两个虚拟 Cpu。 我们还建议为启用虚拟 GPU 的虚拟桌面使用 x64 体系结构，因为与 x86 虚拟机相比，x64 虚拟机上的性能更好。
-
-### <a name="remotefx-gpu-processing-power"></a>RemoteFX GPU 处理能力
-
-对于启用了虚拟 GPU 的每个虚拟桌面，都有一个在启用 RemoteFX 的服务器上运行的相应 DirectX 进程。 此过程会将它从 RemoteFX 虚拟桌面接收的所有图形命令重播到物理 GPU 上。 对于物理 GPU，它等效于同时运行多个 DirectX 应用程序。
-
-通常，图形设备和驱动程序经过优化，可在桌面上运行几个应用程序。 RemoteFX 会拉伸 Gpu 以独特方式使用。 为了衡量 GPU 在 RemoteFX 服务器上的执行情况，添加了性能计数器来度量 RemoteFX 请求的 GPU 响应。
-
-通常，当 GPU 资源资源不足时，对 GPU 的读取和写入操作需要很长时间才能完成。 通过使用性能计数器，管理员可以采取预防措施，消除其最终用户的停机时间。
-
-RemoteFX 服务器上提供以下性能计数器，用于测量虚拟 GPU 性能：
-
-**RemoteFX 图形**
-
--   **跳过的帧数/秒-客户端资源不足**由于客户端资源不足而每秒跳过的帧数
-
--   **图形压缩率**编码为输入的字节数的字节数的比率
-
-**RemoteFX 根 GPU 管理**
-
--   **中心服务器 gpu**中的 tdr TDR 在服务器的 GPU 中超时的总次数
-
--   **中心运行 remotefx**的虚拟机安装了 remotefx 3d 视频适配器的虚拟机总数
-
--   **VRAM对于未使用的**专用视频内存量，每个 GPU 可用 MB
-
--   **VRAM每个 GPU 保留% @ no__t-为 RemoteFX 保留的专用视频内存百分比
-
-**RemoteFX 软件**
-
--   **监视器的捕获速率**\[1-4\]显示监视器的 RemoteFX 捕获速率1-4
-
--   **压缩率**在 Windows 8 中已弃用，并已替换为**图形压缩率**
-
--   **延迟帧数/秒**在特定时间内未发送图形数据的每秒帧数
-
--   **捕获的 GPU 响应时间**用于完成 GPU 操作的 RemoteFX 捕获内测量的延迟（微秒）
-
--   **从呈现的 GPU 响应时间**用于完成 GPU 操作的 RemoteFX 呈现范围内的延迟（以微秒为单位）
-
--   **输出字节数**RemoteFX 输出字节总数
-
--   **正在等待客户端计数/秒**在 Windows 8 中已弃用，并被**跳过的帧数/秒-客户端资源不足**
-
-**RemoteFX vGPU 管理**
-
--   **中心Tdr 本地到虚拟机**已在此虚拟机中发生的 tdr 总数（tdr，未包括服务器传播到虚拟机的）
-
--   **中心Tdr 按服务器传播**的服务器总数已在服务器上发生，并且已传播到虚拟机
-
-**RemoteFX 虚拟机 vGPU 性能**
-
--   **数据所调用的每秒呈现的当前操作的总次数（以秒为单位）**
-
--   **数据**传出总数为虚拟机每秒发送到服务器 GPU 的总显示操作总数
-
--   **数据每秒**读取的已启用 RemoteFX 的服务器的读取字节总数
-
--   **数据每秒发送到**启用 RemoteFX 的服务器 GPU 的发送字节数/秒总数
-
--   **DMA通信缓冲区平均延迟（秒）** 通信缓冲区所用的平均时间（秒）
-
--   **DMADma 缓冲区延迟**时间（秒），从该时间开始向 dma 提交 dma 到完成的时间（以秒为单位）
-
--   **DMARemoteFX 3d**视频适配器的队列长度 DMA 队列长度
-
--   **中心每个** gpu 在虚拟机上发生的 TDR 超时的 TDR 超时
-
--   **中心每个 gpu 引擎**每个 gpu 引擎在虚拟机上发生的 TDR 超时的 TDR 超时
-
-除了 RemoteFX 虚拟 GPU 性能计数器以外，还可以使用进程资源管理器来度量 GPU 利用率，其中显示了视频内存使用情况和 GPU 利用率。
 
 ## <a name="performance-optimizations"></a>性能优化
 
@@ -222,8 +108,6 @@ Windows Server 2012 和更高版本中的故障转移群集提供群集共享卷
 > [!NOTE]
 > 此列表并不是完整列表，因为任何更改都将影响目标和方案。 有关详细信息，请参阅[热关闭按下、立即获取 Windows 8 VDI 优化脚本、/pfe！](http://blogs.technet.com/b/jeff_stokes/archive/2013/04/09/hot-off-the-presses-get-it-now-the-windows-8-vdi-optimization-script-courtesy-of-pfe.aspx)。
 
- 
+
 > [!NOTE]
 > 默认情况下，Windows 8 中的 SuperFetch 处于启用状态。 它可识别 VDI，不应禁用。 SuperFetch 可以通过内存页共享进一步减少内存消耗，这对于 VDI 非常有利。 运行 Windows 7 的共用虚拟桌面应该被禁用，但对于运行 Windows 7 的个人虚拟桌面，应保持打开状态。
-
- 
