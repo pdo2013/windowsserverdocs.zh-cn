@@ -8,22 +8,22 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
-ms.date: 02/06/2018
-ms.openlocfilehash: 7084f4951ebe1d1203f4c9e45bc5f73cc6487a84
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 08/21/2019
+ms.openlocfilehash: 114dd87b86bfffd1070229af57ae65deea2c2db0
+ms.sourcegitcommit: 81198fbf9e46830b7f77dcd345b02abb71ae0ac2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364195"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72923863"
 ---
 # <a name="plan-for-deploying-devices-using-discrete-device-assignment"></a>使用离散设备分配计划部署设备
->适用于：Microsoft Hyper-V Server 2016、Windows Server 2016、Microsoft Hyper-V Server 2019、Windows Server 2019
+>适用于： Microsoft Hyper-V Server 2016、Windows Server 2016、Microsoft Hyper-V Server 2019、Windows Server 2019
 
 离散设备分配允许从虚拟机中直接访问物理 PCIe 硬件。  本指南将讨论可使用离散设备分配、主机系统要求、对虚拟机施加的限制以及离散设备分配的安全影响的设备类型。
 
-对于离散设备分配的初始版本，我们将重点放在 Microsoft 正式支持的两个设备类上：图形适配器和 NVMe 存储设备。  其他设备可能工作，硬件供应商能够为这些设备提供支持声明。  对于这些其他设备，请与这些硬件供应商联系以获得支持。
+对于离散设备分配的初始版本，我们将重点放在 Microsoft 正式支持的两个设备类：图形适配器和 NVMe 存储设备。  其他设备可能工作，硬件供应商能够为这些设备提供支持声明。  对于这些其他设备，请与这些硬件供应商联系以获得支持。
 
-如果你已准备好尝试使用离散设备分配，则可以跳转到[使用离散设备分配来部署图形设备](../deploy/Deploying-graphics-devices-using-dda.md)，或[使用离散设备分配部署存储设备](../deploy/Deploying-storage-devices-using-dda.md)开始使用！
+若要了解有关 GPU 虚拟化的其他方法，请参阅[在 Windows Server 中规划 GPU 加速](plan-for-gpu-acceleration-in-windows-server.md)。 如果你已准备好尝试使用离散设备分配，则可以跳转到[使用离散设备分配部署图形设备](../deploy/Deploying-graphics-devices-using-dda.md)，或[使用离散设备分配部署存储设备](../deploy/Deploying-storage-devices-using-dda.md)开始使用。
 
 ## <a name="supported-virtual-machines-and-guest-operating-systems"></a>支持的虚拟机和来宾操作系统
 第1代或第2代 Vm 支持离散设备分配。  此外，支持的来宾包括 Windows 10、Windows Server 2019、Windows Server 2016、应用了[KB 3133690](https://support.microsoft.com/kb/3133690)的 windows server 2012R2 和[Linux 操作系统](../supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows.md)的各种分发。
@@ -52,18 +52,18 @@ ms.locfileid: "71364195"
 - 使用动态内存
 - 将 VM 添加到高可用性（HA）群集
 
-## <a name="security"></a>安全性
+## <a name="security"></a>安全
 离散设备分配将整个设备传递到 VM 中。  这意味着可以从来宾操作系统访问该设备的所有功能。 某些功能（如固件更新）可能会对系统的稳定性产生不利影响。 因此，在从主机中卸载设备时，会向管理员显示许多警告。 我们强烈建议仅在 Vm 的租户受信任的情况下使用离散设备分配。  
 
 如果管理员想要将设备与不受信任的租户一起使用，我们提供了设备制造商，可以创建可在主机上安装的设备缓解驱动程序。  有关是否提供设备缓解驱动程序的详细信息，请与设备制造商联系。
 
-如果要跳过对没有设备缓解驱动程序的设备进行安全检查，则必须将 `-Force` 参数传递到 @no__t cmdlet。  请注意，通过这样做，你已更改了该系统的安全配置文件，这只是建议在原型设计环境或受信任环境中使用。
+如果要跳过对没有设备缓解驱动程序的设备进行安全检查，则必须将 `-Force` 参数传递到 `Dismount-VMHostAssignableDevice` cmdlet。  请注意，通过这样做，你已更改了该系统的安全配置文件，这只是建议在原型设计环境或受信任环境中使用。
 
 ## <a name="pcie-location-path"></a>PCIe 位置路径
 需要通过 PCIe 位置路径从主机中卸载并装载设备。  示例位置路径如下所示： `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`。   [计算机配置文件脚本](#machine-profile-script)还会返回 PCIe 设备的位置路径。
 
 ### <a name="getting-the-location-path-by-using-device-manager"></a>使用设备管理器获取位置路径
-![设备管理器](../deploy/media/dda-devicemanager.png)
+![“设备管理器”](../deploy/media/dda-devicemanager.png)
 - 打开设备管理器并找到设备。  
 - 右键单击该设备，然后选择 "属性"。
 - 导航到 "详细信息" 选项卡，然后选择属性下拉的 "位置路径"。  
@@ -104,7 +104,7 @@ Express Endpoint -- more secure.
 若要深入了解 MMIO 空间，请参阅 TechCommunity 博客上的[离散设备分配-gpu](https://techcommunity.microsoft.com/t5/Virtualization/Discrete-Device-Assignment-GPUs/ba-p/382266) 。
 
 ## <a name="machine-profile-script"></a>计算机配置文件脚本
-为了简化确定服务器的配置是否正确以及哪些设备可通过使用离散设备分配进行传递，我们的一位工程师将以下 PowerShell 脚本组合在一起：[SurveyDDA。](https://github.com/Microsoft/Virtualization-Documentation/blob/live/hyperv-tools/DiscreteDeviceAssignment/SurveyDDA.ps1)
+为了简化确定服务器的配置是否正确以及哪些设备可通过使用离散设备分配进行传递，我们的一位工程师将以下 PowerShell 脚本组合在一起： [SurveyDDA。](https://github.com/Microsoft/Virtualization-Documentation/blob/live/hyperv-tools/DiscreteDeviceAssignment/SurveyDDA.ps1)
 
 使用脚本之前，请确保安装了 Hyper-v 角色，并从具有管理员权限的 PowerShell 命令窗口中运行该脚本。
 
@@ -113,42 +113,3 @@ Express Endpoint -- more secure.
 对于它找到的每个设备，该工具都将显示它是否能够与离散设备分配一起使用。 如果将设备标识为与离散设备分配兼容，则该脚本将提供原因。  如果设备成功标识为兼容，则会显示设备的位置路径。  此外，如果该设备需要[MMIO 空间](#mmio-space)，则也会显示它。
 
 ![SurveyDDA](./images/hyper-v-surveydda-ps1.png)
-
-## <a name="frequently-asked-questions"></a>常见问题
-
-### <a name="how-does-remote-desktops-remotefx-vgpu-technology-relate-to-discrete-device-assignment"></a>远程桌面的 RemoteFX vGPU 技术如何与离散设备分配相关联？
-它们是完全不同的技术。 不需要安装 RemoteFX vGPU 即可使用离散设备分配。 此外，不需要安装其他角色。 RemoteFX vGPU 需要安装 RDVH 角色才能使 RemoteFX vGPU 驱动程序在 VM 中存在。 对于离散设备分配，由于将硬件供应商的驱动程序安装到虚拟机中，因此不需要提供其他角色。  
-
-### <a name="ive-passed-a-gpu-into-a-vm-but-remote-desktop-or-an-application-isnt-recognizing-the-gpu"></a>我已将 GPU 传递到 VM，但远程桌面或应用程序未识别 GPU
-出现这种情况的原因有很多，但下面列出了几个常见问题。
-- 请确保安装了最新的 GPU 供应商的驱动程序，并通过检查设备管理器中的设备状态来报告错误。
-- 确保在 VM 内为设备分配足够的[MMIO 空间](#mmio-space)。
-- 确保使用的是供应商支持在此配置中使用的 GPU。 例如，某些供应商在传递到 VM 后，阻止其使用者卡工作。
-- 确保运行的应用程序支持在 VM 内运行，并且该应用程序支持 GPU 及其相关的驱动程序。 某些应用程序具有 Gpu 和环境的白名单。
-- 如果要在来宾上使用远程桌面会话主机角色或 Windows Multipoint 服务，则需要确保将特定组策略条目设置为允许使用默认 GPU。 使用应用于来宾的组策略对象（或来宾上的本地组策略编辑器），导航到以下组策略项：
-   - “计算机配置”
-   - 管理员模板
-   - Windows 组件
-   - 远程桌面服务
-   - 远程桌面会话主机
-   - 远程会话环境
-   - 对所有远程桌面服务会话使用硬件默认图形适配器
-
-    将此值设置为 "已启用"，然后在应用策略后重新启动 VM。
-
-### <a name="can-discrete-device-assignment-take-advantage-of-remote-desktops-avc444-codec"></a>离散设备分配是否可以利用远程桌面的 AVC444 编解码器？
-是的，请访问此博客文章了解详细信息：[Windows 10 和 Windows Server 2016 Technical Preview 中的远程桌面协议（RDP） 10 AVC/H-p 改进。](https://blogs.technet.microsoft.com/enterprisemobility/2016/01/11/remote-desktop-protocol-rdp-10-avch-264-improvements-in-windows-10-and-windows-server-2016-technical-preview/)
-
-### <a name="can-i-use-powershell-to-get-the-location-path"></a>是否可以使用 PowerShell 获取位置路径？
-是的，有多种方法可以实现此目的。 下面是一个示例：
-```
-#Enumerate all PNP Devices on the system
-$pnpdevs = Get-PnpDevice -presentOnly
-#Select only those devices that are Display devices manufactured by NVIDIA
-$gpudevs = $pnpdevs |where-object {$_.Class -like "Display" -and $_.Manufacturer -like "NVIDIA"}
-#Select the location path of the first device that's available to be dismounted by the host.
-$locationPath = ($gpudevs | Get-PnpDeviceProperty DEVPKEY_Device_LocationPaths).data[0]
-```
-
-### <a name="can-discrete-device-assignment-be-used-to-pass-a-usb-device-into-a-vm"></a>是否可以使用离散设备分配将 USB 设备传递到 VM？
-尽管不是正式支持的，但我们的客户已通过将整个 USB3 控制器传递到 VM 来使用离散设备分配来完成此操作。  在传入整个控制器的同时，插入到该控制器中的每个 USB 设备也可以在 VM 中访问。  请注意，只有某些 USB3 控制器可以正常工作，并且 USB2 控制器不能用于离散设备分配。
