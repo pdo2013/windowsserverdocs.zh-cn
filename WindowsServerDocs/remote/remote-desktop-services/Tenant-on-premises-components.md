@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: b3eebb38-a835-4fa6-9e41-1966014bf2cb
 author: lizap
 manager: dongill
-ms.openlocfilehash: a9ff1382d2a2e7e2acf0247fa2ba4ae8e9642162
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5ae0a711d146de5b7eff272916cc7f06568848e6
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387841"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812265"
 ---
 # <a name="tenant-on-premises-components"></a>租户本地组件
 
@@ -30,7 +30,6 @@ ms.locfileid: "71387841"
 若要访问托管桌面和应用程序，用户必须使用支持远程桌面协议 (RDP) 7.1 或更高版本的远程桌面客户端。 具体而言，客户端必须支持远程桌面网关和远程桌面连接代理。 若要将应用程序传送到本地桌面，客户端还必须支持 RemoteApp 功能。 若要实现最高网关规模，客户端必须支持指向 RD 网关的纯 HTTP 传输连接。  
   
 其他信息：  
-[启用了 RemoteFX 的设备](https://social.technet.microsoft.com/wiki/contents/articles/14534.remotefx-enabled-devices.aspx)  
 [Windows Server 2012 R2 远程桌面网关的新增功能](https://blogs.technet.microsoft.com/enterprisemobility/2013/03/14/whats-new-in-windows-server-2012-remote-desktop-gateway/#transport)  
 [Microsoft 远程桌面客户端](https://technet.microsoft.com/library/dn473009.aspx)  
 [Microsoft Store 中的 Windows 版远程桌面应用](https://apps.microsoft.com/windows/app/remote-desktop/051f560e-5e9b-4dad-8b2e-fa5e0b05a480)  

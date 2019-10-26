@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 ms.author: elizapo
-ms.date: 09/16/2016
+ms.date: 10/22/2019
 manager: dongill
-ms.openlocfilehash: 7429cd9cb87db310a716136c171de47cfe0892f2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9386733911ca81ad60d038854bd68e5603aae4cf
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387359"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812282"
 ---
 # <a name="use-personal-session-desktops-with-remote-desktop-services"></a>通过远程桌面服务使用个人会话桌面
 
@@ -100,6 +100,3 @@ Export-RDPersonalPersonalDesktopAssignment  cmdlet 将用户与个人虚拟桌�
 
 
 所有新的 cmdlet 都支持通用参数：-Verbose、-Debug、-ErrorAction、-ErrorVariable、-OutBuffer 和 -OutVariable。 有关详细信息，请参阅 [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216)。
-
-## <a name="hardware-accelerated-graphics"></a>硬件加速的图形
-Windows Server 2016 扩展了 RemoteFX 3D 图形适配器 (vGPU) 技术，支持 OpenGL 和单用户 Windows Server 2016 来宾 VM。 可将个人会话桌面与新的 vGPU 功能相结合，为需要加速图形的托管应用程序提供支持。 或者，也可以将个人会话桌面与新的离散设备分配 (DDA) 功能相结合，为需要加速图形的托管应用程序提供支持。

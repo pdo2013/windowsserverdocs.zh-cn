@@ -8,16 +8,16 @@ author: jasongerend
 ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: 24ae0e11a3e8ca2b50bd6722f7bd7d18b8c1c532
-ms.sourcegitcommit: e92a78f8d307200e64617431a701b9112a9b4e48
+ms.openlocfilehash: 2cb368b5ff4723c1afb53c5a9e787d9f8a39bef3
+ms.sourcegitcommit: 40e4ba214954d198936341c4d6ce1916dc891169
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973877"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690457"
 ---
 # <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2019"></a>Windows Server 2019 Standard 和 Datacenter 版本的比较
 
-> 适用于：Windows Server Standard 2012 R2
+> 适用于：Windows Server 2019
   
 ## <a name="locks-and-limits"></a>锁定和限制
 
@@ -155,7 +155,6 @@ ms.locfileid: "71973877"
 |网络负载平衡|是|是|
 |Windows PowerShell|是|是|
 |服务器核心安装选项|是|是|
-|Nano Server 安装选项|是|是|
 |服务器管理器|是|是|
 |SMB 直通和基于 RDMA 的 SMB|是|是|
 |软件定义的网络|否| <strong>是</strong> |
