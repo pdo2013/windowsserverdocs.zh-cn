@@ -13,18 +13,37 @@ author: spatnaik
 ms.author: spatnaik
 ms.date: 09/23/2016
 manager: scottman
-ms.openlocfilehash: eaf242309dbdbd4716ea8f39e7ebcb1d9225b53a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c04909e9e0cfbf71b6632c154ac8b9b20b5bac10
+ms.sourcegitcommit: b4b0e73ce35f8b594eb467a2bb2aa91bd6d86369
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387331"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893080"
 ---
 # <a name="remote-desktop-services---cater-to-different-kinds-of-users"></a>远程桌面服务 - 适应不同类型的用户
 
 >适用于：Windows Server（半年频道）、Windows Server 2019、Windows Server 2016
 
-根据每类用户的预期需求缩放部署。
-例如，用户可能会在轻型应用中输入数据，使用 Office 等生产力应用处理大型数据集，或者使用重负荷的工程或图形设计应用。
+远程桌面服务支持不同类型的工作负载。 根据每类用户的预期需求缩放部署。
 
-建议使用压力测试和实际用法模拟对部署进行负载测试。 改变负载大小以避免意外情况！ 确保响应能力满足用户需求，并确保整个系统可复原。 使用 LoginVSI 等模拟工具创建负载测试，以检查部署能否满足用户需求。 
+## <a name="types-of-users"></a>用户类型
+
+### <a name="knowledge-user"></a>知识用户
+
+知识用户使用 Microsoft Word、Excel、Outlook 和 Microsoft Edge 浏览器等轻量级生产力应用程序。
+
+### <a name="professional-user"></a>专业用户
+
+除了支持软件开发和多媒体内容创建等操作更频繁的工作负载，专业用户还使用 Internet 浏览器和生产力应用程序。
+
+### <a name="power-user"></a>超级用户
+
+超级用户使用计算机辅助设计 (CAD) 和 Adobe Photoshop 等工程和图形应用程序。 对于经常使用常用图形的程序进行视频呈现、3D 设计和模拟的用户来说，GPU 通常是一个不错的选择。
+
+要详细了解图形加速，请查看[选择你的图形呈现技术](rds-graphics-virtualization.md)。
+
+Azure 具有其他图形加速部署选项和多种可用的 GPU VM 大小。 相关信息，请查看 [GPU 优化虚拟机大小](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu)。
+
+## <a name="test-workload"></a>测试工作负载
+
+建议同时使用压力测试和实际使用情况模拟来加载测试部署。 可使用 LoginVSI 等模拟工具来加载测试你的部署。 请确保系统具有足以满足用户需求的响应能力和复原能力，并记得更改负载大小以避免意外情况。

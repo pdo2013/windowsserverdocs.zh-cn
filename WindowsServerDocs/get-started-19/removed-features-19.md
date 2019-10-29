@@ -11,18 +11,18 @@ ms.topic: article
 author: jasongerend
 ms.author: jgerend
 manager: jasgro
-ms.date: 08/22/2019
+ms.date: 10/22/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 261023223b56e235320b7ad414fa91206420b1ed
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a2d3a871165812ac3a27e65b5f52cc56a05c9efe
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360837"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812290"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-windows-server-2019"></a>从 Windows Server 2019 开始已删除或计划取代的功能
 
->适用于：Windows Server Standard 2012 R2
+>适用于：Windows Server 2019
 
 Windows Server 的每一次发布都增加了新的特性和功能；我们偶尔也会删除特性和功能，通常是因为我们增加了更好的选项。 以下是有关 Windows Server 2019 中已删除的功能的详细信息。
 
@@ -41,6 +41,7 @@ Windows Server 的每一次发布都增加了新的特性和功能；我们偶�
 | 业务扫描，也称为分布式扫描管理 (DSM)|我们即将删除此安全扫描和扫描程序管理功能 - 没有任何设备支持此功能。 |
 | 打印组件 - 现在为 Server Core 安装提供可选的组件|在以前 Windows Server 版本中，打印组件默认已在 Server Core 安装选项中禁用  。 我们已在 Windows Server 2016 中更改此设置，默认会启用打印组件。 在 Windows Server 2019 中，Server Core 安装再一次默认禁用这些打印组件。 如果需要启用打印组件，可以运行 **Install-WindowsFeature Print-Server** cmdlet。 |
 | Server Core 安装中的[远程桌面连接代理和远程桌面虚拟化主机](../remote/remote-desktop-services/desktop-hosting-service.md)|大多数远程桌面服务部署通过远程桌面会话主机 (RDSH) 归置这些角色，这需要具有桌面体验的服务器；若要与我们将这些角色更改到其中的 RDSH 保持一致，也需要具有桌面体验的服务器。 不再提供可在 [Server Core 安装](../administration/server-core/what-is-server-core.md)中使用的这些 RDS 角色。 如果你需要[作为远程桌面基础结构的一部分部署这些角色](../remote/remote-desktop-services/rds-deploy-infrastructure.md)，可以[在 Windows Server 桌面体验上进行安装](../get-started/getting-started-with-server-with-desktop-experience.md)。 <br/><br/>这些角色还包含在 Windows Server 2019 的桌面体验安装选项中。 |
+| [RemoteFX 3D 显示适配器 (vGPU)](../remote/remote-desktop-services/rds-remotefx-vgpu.md)|我们正在开发用于虚拟化环境的新图形加速选项。 还可以使用[离散设备分配 (DDA)](../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md) 作为备选。 |
 
 ## <a name="features-were-no-longer-developing"></a>不再开发的功能
 

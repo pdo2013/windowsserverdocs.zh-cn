@@ -7,13 +7,13 @@ ms.localizationpriority: medium
 ms.sitesec: library
 author: jasongerend
 ms.author: jgerend
-ms.date: 08/22/2019
-ms.openlocfilehash: 482897b31bfaf3c4fe1f6b44a184463e88c5ae65
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 10/22/2019
+ms.openlocfilehash: 68edc1f0aaa857d0342f963e19964f5c9e389ed0
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391311"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812326"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1803"></a>从 Windows Server 版本 1803 开始已删除或计划取代的功能
 
@@ -52,7 +52,7 @@ Windows Server 的每一次发布都增加了新的特性和功能；我们偶�
 | [MultiPoint Services](../remote/multipoint-services/multipoint-services.md)|我们不再作为 Windows Server 的一部分开发 MultiPoint 服务角色。 MultiPoint Connector 服务通过[按需功能](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities)为 Windows Server 和 Windows 10 提供。 可以使用[远程桌面服务](../remote/remote-desktop-services/welcome-to-rds.md)（尤其是远程桌面服务会话主机）提供 RDP 连接。 |
 | [脱机符号程序包](https://docs.microsoft.com/windows-hardware/drivers/debugger/debugger-download-symbols)（调试符号 MSI）|我们不再以可下载的 MSI 形式提供符号程序包。 [Microsoft 符号服务器正在转变为一个基于 Azure 的符号存储区](https://blogs.msdn.microsoft.com/windbg/2017/10/18/update-on-microsofts-symbol-server/)。 如果需要 Windows 符号，请连接到 Microsoft 符号服务器在本地缓存符号，或在有 Internet 连接的计算机上通过 SymChk.exe 使用清单文件。 |
 | Server Core 安装中的[远程桌面连接代理和远程桌面虚拟化主机](../remote/remote-desktop-services/desktop-hosting-service.md)|大多数远程桌面服务部署通过远程桌面会话主机 (RDSH) 归置这些角色，这需要具有桌面体验的服务器；若要与我们将这些角色更改到其中的 RDSH 保持一致，也需要具有桌面体验的服务器。 我们不再开发这些在 [Server Core 安装](../administration/server-core/what-is-server-core.md)中使用的 RDS 角色。 如果需要[作为远程桌面基础结构的一部分部署这些角色](../remote/remote-desktop-services/rds-deploy-infrastructure.md)，可以[在 Windows Server 2016 桌面体验上进行安装](getting-started-with-server-with-desktop-experience.md)。 <br/><br/>这些角色还包含在 Windows Server 2019 的桌面体验安装选项中。 可以在 [Windows Server 2019 的 Windows 预览体验成员版本](https://docs.microsoft.com/windows-insider/at-work/)中测试它们 - 只需确保选择 LTSC 映像。 |
-| [RemoteFX vGPU](../remote/remote-desktop-services/rds-remotefx-vgpu.md)|我们正在开发用于虚拟化环境的新图形加速选项。 还可以使用[离散设备分配 (DDA)](../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md) 作为备选。 |
+| [RemoteFX 3D 显示适配器 (vGPU)](../remote/remote-desktop-services/rds-remotefx-vgpu.md)|我们正在开发用于虚拟化环境的新图形加速选项。 还可以使用[离散设备分配 (DDA)](../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md) 作为备选。 |
 | 组策略中的[软件限制策略](../identity/software-restriction-policies/software-restriction-policies.md)|可以使用 [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/applocker/applocker-overview) 或 [Windows Defender 应用程序控制](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control)来控制哪些应用用户可以访问内核，以及哪个代码可以在内核中运行，而不是通过组策略使用软件限制策略。 |
 | 使用 SAS 结构的共享配置的存储空间|改为部署[存储空间直通](../storage/storage-spaces/storage-spaces-direct-overview.md)。 存储空间直通支持使用 HLK 认证的 SAS 机箱，但是在非共享配置中，如[存储空间直通的硬件要求](../storage/storage-spaces/storage-spaces-direct-hardware-requirements.md)中所述。 |
 | Windows Server Essentials 体验|我们不再为 Windows Server Standard 或 Windows Server Datacenter SKU 开发 Essentials 体验角色。 如果需要面向中小型企业的易于使用的服务器解决方案，请查看我们的新 [Microsoft 365 商业版](https://www.microsoft.com/microsoft-365/business)解决方案，或使用 [Windows Server 2016 Essentials](https://docs.microsoft.com/windows-server-essentials/get-started/get-started)。 |

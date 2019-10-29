@@ -8,16 +8,17 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/29/2019
-ms.openlocfilehash: 686fd2ed5969d191240bbd726f1d759e9974f08a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 70014c04bbb4425fe3c3fd0379f10cf00abe00ee
+ms.sourcegitcommit: 4b4ff8d9e18b2ddcd1916ffa2cd58fffbed8e7ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386678"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72986437"
 ---
 # <a name="create-a-windows-shielded-vm-template-disk"></a>创建受防护的 Windows VM 模板磁盘
 
->适用于：Windows Server 2019，Windows Server （半年频道），Windows Server 2016
+>适用于： Windows Server （半年频道）、Windows Server 2016、Windows Server 2019
+
 
 与常规 Vm 一样，你可以[在 Virtual Machine Manager （VMM）中](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-library-add-vm-templates)创建 vm 模板（例如，vm 模板），使租户和管理员可以轻松地使用模板磁盘在构造上部署新 vm。 由于受防护的 Vm 是安全敏感资产，因此还需要执行其他步骤来创建支持防护的 VM 模板。 本主题介绍在 VMM 中创建受防护的模板磁盘和 VM 模板的步骤。
 
@@ -27,13 +28,13 @@ ms.locfileid: "71386678"
 
 首先准备要通过受防护的模板磁盘创建向导运行的 OS 磁盘。 此磁盘将用作租户的 Vm 中的 OS 磁盘。 你可以使用任何现有工具创建此磁盘（如 Microsoft Desktop Image Service Manager （DISM）），或者使用空白 VHDX 手动设置 VM，并将操作系统安装到该磁盘上。 设置磁盘时，必须遵守特定于第2代和/或受防护 Vm 的以下要求： 
 
-| VHDX 的要求 | Reason |
+| VHDX 的要求 | 原因 |
 |-----------|----|
 |必须是 GUID 分区表（GPT）磁盘 | 需要用于第2代虚拟机以支持 UEFI|
-|磁盘类型必须是**基本**磁盘，而不是**动态**磁盘。 <br>注意:这是指逻辑磁盘类型，而不是 Hyper-v 支持的 "动态扩展" VHDX 功能。 | BitLocker 不支持动态磁盘。|
+|磁盘类型必须是**基本**磁盘，而不是**动态**磁盘。 <br>注意：这是指逻辑磁盘类型，而不是 Hyper-v 支持的 "动态扩展" VHDX 功能。 | BitLocker 不支持动态磁盘。|
 |磁盘至少有两个分区。 一个分区必须包含安装 Windows 的驱动器。 这是 BitLocker 将加密的驱动器。 其他分区是活动分区，其中包含引导程序并保持未加密状态，以便可以启动计算机。|BitLocker 需要|
 |文件系统为 NTFS | BitLocker 需要|
-|在 VHDX 上安装的操作系统是以下项之一：<br>-Windows Server 2016、Windows Server 2012 R2 或 Windows Server 2012 <br>-Windows 10、Windows 8.1、Windows 8| 需要支持第2代虚拟机和 Microsoft 安全启动模板|
+|在 VHDX 上安装的操作系统是以下项之一：<br>-Windows Server 2019、Windows Server 2016、Windows Server 2012 R2 或 Windows Server 2012 <br>-Windows 10、Windows 8.1、Windows 8| 需要支持第2代虚拟机和 Microsoft 安全启动模板|
 |操作系统必须通用化（运行 sysprep.inf） | 模板预配涉及特定租户工作负荷的专用 Vm| 
 
 > [!NOTE]
@@ -50,7 +51,7 @@ ms.locfileid: "71386678"
 > [!NOTE]
 > 模板磁盘向导将修改就地指定的模板磁盘。 在运行该向导之前，您可能希望复制不受保护的 VHDX，以便以后更新该磁盘。 你将不能修改使用模板磁盘向导保护的磁盘。
 
-在运行 Windows Server 2016 的计算机（不需要是受保护的主机或 VMM 服务器）上执行以下步骤：
+在运行 Windows Server 2016、Windows 10 （安装了远程服务器管理工具、安装了 RSAT）或更高版本的计算机（不需要是受保护的主机或 VMM 服务器）上执行以下步骤：
 
 1. 将在[准备操作系统 VHDX](#prepare-an-operating-system-vhdx)中创建的通用 VHDX 复制到服务器（如果尚未存在）。
 
@@ -92,7 +93,7 @@ ms.locfileid: "71386678"
 
 如果使用 VMM，则在创建模板磁盘后，需要将其复制到 VMM 库共享中，以便主机可以在预配新 Vm 时下载并使用该磁盘。 使用以下过程将模板磁盘复制到 VMM 库中，然后刷新库。
 
-1. 将 VHDX 文件复制到 VMM 库共享文件夹。 如果使用了默认的 VMM 配置，请将模板磁盘复制到 _\\ @ no__t-2\MSSCVMMLibrary\VHDs_。
+1. 将 VHDX 文件复制到 VMM 库共享文件夹。 如果使用了默认的 VMM 配置，请将模板磁盘复制到 _\\<vmmserver>\MSSCVMMLibrary\VHDs_。
 
 2. 刷新库服务器。 打开 "**库**" 工作区，展开 "**库服务器**"，右键单击要刷新的库服务器，然后单击 "**刷新**"。
 
@@ -135,9 +136,10 @@ ms.locfileid: "71386678"
 
 ## <a name="prepare-and-protect-the-vhdx-using-powershell"></a>使用 PowerShell 准备和保护 VHDX
 
-作为运行模板磁盘向导的替代方法，可以将模板磁盘和证书复制到运行 RSAT 的计算机，并 @no__t 运行 0Protect-TemplateDisk @ no__t 来启动签名过程。
+作为运行模板磁盘向导的替代方法，可以将模板磁盘和证书复制到运行 RSAT 的计算机，然后运行[TemplateDisk](https://docs.microsoft.com/powershell/module/shieldedvmtemplate/protect-templatedisk?view=win10-ps
+)以启动签名过程。
 下面的示例使用_TemplateName_和_version_参数指定的名称和版本信息。
-你向 `-Path` 参数提供的 VHDX 会被更新的模板磁盘覆盖，因此请确保在运行该命令之前进行复制。
+你向 `-Path` 参数提供的 VHDX 将被更新的模板磁盘覆盖，因此请确保在运行该命令之前进行复制。
 
 ```powershell
 # Replace "THUMBPRINT" with the thumbprint of your template disk signing certificate in the line below
@@ -165,7 +167,7 @@ Save-VolumeSignatureCatalog -TemplateDiskPath 'C:\temp\MyLinuxTemplate.vhdx' -Vo
 > [!div class="nextstepaction"]
 > [创建防护数据文件](guarded-fabric-tenant-creates-shielding-data.md)
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - [受保护的主机和受防护的 Vm 的托管服务提供商配置步骤](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [受保护的结构和受防护的 VM](guarded-fabric-and-shielded-vms-top-node.md)

@@ -1,25 +1,25 @@
 ---
 title: 存储迁移服务概述
-description: 使用存储迁移服务可以更轻松地将服务器迁移到更高版本的 Windows Server。 它提供一个图形工具用于盘点服务器上的数据，然后将数据和配置传输到更新的服务器 — 在此过程中，应用或用户无需更改任何设置。
+description: 利用存储迁移服务，可以更轻松地将存储迁移到 Windows Server 或 Azure。 它提供了一个图形工具，该工具在 Windows 和 Linux 服务器上对数据进行清点，然后将数据传输到较新的服务器或 Azure 虚拟机。 存储迁移服务还提供了将服务器标识传输到目标服务器的选项，以便应用和用户可以在不更改链接或路径的情况下访问其数据。
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 08/16/2019
+ms.date: 10/25/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 022b0c3445c007960c490159f6580a702233ee41
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 712befacaf1d5bddd4f9bd993ce0d423b15cba36
+ms.sourcegitcommit: 4b4ff8d9e18b2ddcd1916ffa2cd58fffbed8e7ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402972"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72986449"
 ---
 # <a name="storage-migration-service-overview"></a>存储迁移服务概述
 
->适用于：Windows Server 2019，Windows Server 2016，Windows Server 2012 R2，Windows Server （半年频道）
+>适用于： Windows Server 2019，Windows Server 2016，Windows Server 2012 R2，Windows Server （半年频道）
 
-使用存储迁移服务可以更轻松地将服务器迁移到更高版本的 Windows Server。 它提供一个图形工具用于盘点服务器上的数据，然后将数据和配置传输到更新的服务器 — 在此过程中，应用或用户无需更改任何设置。
+利用存储迁移服务，可以更轻松地将存储迁移到 Windows Server 或 Azure。 它提供了一个图形工具，该工具在 Windows 和 Linux 服务器上对数据进行清点，然后将数据传输到较新的服务器或 Azure 虚拟机。 存储迁移服务还提供了将服务器标识传输到目标服务器的选项，以便应用和用户可以在不更改链接或路径的情况下访问其数据。
 
 本主题讨论为何要使用存储迁移服务、迁移过程的工作方式，以及源和目标服务器的要求。
 
@@ -34,7 +34,7 @@ ms.locfileid: "71402972"
 
 ![显示存储迁移服务将文件从源服务器迁移到目标服务器、Azure Vm 或 Azure 文件同步 & 配置的示意图。](media/overview/storage-migration-service-diagram.png)
 
-**图 1：存储迁移服务源和目标**
+**图1：存储迁移服务源和目标**
 
 ## <a name="how-the-migration-process-works"></a>迁移过程的工作方式
 
@@ -44,15 +44,15 @@ ms.locfileid: "71402972"
 2. 将数据从源服务器**传输（复制）** 到目标服务器。
 3. **剪切到新服务器**（可选）。<br>目标服务器采用源服务器以前的标识，以便应用和用户无需更改任何内容。 <br>源服务器进入维护状态，其中仍包含它们始终包含的相同文件（我们永远不会从源服务器中删除文件），但对用户和应用不可用。 然后，你可以在方便的时候停止服务器。
 
-![显示准备扫描](media/migrate/inventory.png)
-**的服务器的屏幕截图图2：存储迁移服务清点服务器**
+![屏幕截图，显示可以扫描的服务器](media/migrate/inventory.png)
+**图2：存储迁移服务清点服务器**
 
 ## <a name="requirements"></a>要求
 
 若要使用存储迁移服务，需要以下各项：
 
 - 要从其迁移文件和数据的**源服务器**或**故障转移群集**
-- 运行 Windows Server 2019 （群集或独立版）以迁移到的**目标服务器**。 Windows Server 2016 和 Windows Server 2012 R2 也工作正常，但速度低于 50%
+- 运行 Windows Server 2019 （群集或独立版）以迁移到的**目标服务器**。 Windows Server 2016 和 Windows Server 2012 R2 也工作正常，但速度低于50%
 - 运行 Windows Server 2019 以管理迁移的**orchestrator 服务器**  <br>如果要仅迁移几个服务器，并且其中一个服务器正在运行 Windows Server 2019，则可以将其用作 orchestrator。 如果要迁移多个服务器，我们建议使用单独的 orchestrator 服务器。
 - **运行[Windows 管理中心](../../manage/windows-admin-center/understand/windows-admin-center.md)的 PC 或服务器**运行存储迁移服务用户界面，除非您更愿意使用 PowerShell 来管理迁移。 Windows 管理中心和 Windows Server 2019 版本必须至少为版本1809。
 
@@ -80,10 +80,10 @@ ms.locfileid: "71402972"
 源服务器必须运行以下操作系统之一：
 
 - Windows Server 半年频道
-- Windows Server 2019
-- Windows Server 2016
+- Windows Server Standard 2012 R2
+- WIN ENT LTSB 2016 Finnish 64 Bits
 - Windows Server 2012 R2
-- Windows Server 2012
+- Windows Server 2012
 - Windows Server 2008 R2
 - Windows Server 2008
 - Windows Server 2003 R2
@@ -92,11 +92,11 @@ ms.locfileid: "71402972"
 - Windows Small Business Server 2008
 - Windows Small Business Server 2011
 - Windows Server 2012 Essentials
-- Windows Server 2012 R2 Essentials
+- Windows Server 2012 R2 Essentials
 - Windows Server 2016 Essentials
 - Windows Server 2019 Essentials
 
-注意:Windows Small Business Server 和 Windows Server Essentials 是域控制器。 存储迁移服务目前无法从域控制器中剪切，但可以列出和传输文件。   
+注意： Windows Small Business Server 和 Windows Server Essentials 是域控制器。 存储迁移服务目前无法从域控制器中剪切，但可以列出和传输文件。   
 
 如果 orchestrator 正在运行 Windows Server 1903 或更高版本，或者协调器运行的 Windows Server 的早期版本安装了[KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) ，则可以迁移以下附加源类型：
 
@@ -114,8 +114,8 @@ ms.locfileid: "71402972"
 目标服务器必须运行以下操作系统之一：
 
 - Windows Server 半年频道
-- Windows Server 2019
-- Windows Server 2016
+- Windows Server Standard 2012 R2
+- WIN ENT LTSB 2016 Finnish 64 Bits
 - Windows Server 2012 R2
 
 > [!TIP]
@@ -131,7 +131,7 @@ ms.locfileid: "71402972"
 - 使用 Azure 文件同步更轻松地将已迁移的共享同步到 Azure 中
 - 迁移到 Azure 等新网络
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - [使用存储迁移服务迁移文件服务器](migrate-data.md)
 - [存储迁移服务常见问题（FAQ）](faq.md)

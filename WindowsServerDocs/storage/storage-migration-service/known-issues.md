@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 830a2d99443938c25625211f590984819a20d566
-ms.sourcegitcommit: 40e4ba214954d198936341c4d6ce1916dc891169
+ms.openlocfilehash: 597bcbe647bca3595dc8251ce4d6bf52265d8731
+ms.sourcegitcommit: 4b4ff8d9e18b2ddcd1916ffa2cd58fffbed8e7ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690444"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72986436"
 ---
 # <a name="storage-migration-service-known-issues"></a>存储迁移服务的已知问题
 
@@ -133,7 +133,7 @@ Windows 管理中心存储迁移服务扩展受版本限制，只管理 Windows 
   日志名称： StorageMigrationService/调试源： Microsoft-StorageMigrationService-Proxy Date： 2/26/2019 9:00:04 AM 事件 ID：10000任务类别：无级别：错误关键字：      
   用户：网络服务计算机： srv1.contoso.com 说明：
 
-  02/26/2019-09：00： 04.860 [Error] 传输 \\srv1 错误。 com\public\indy.png：（5）访问被拒绝。
+  02/26/2019-09：00： 04.860 [Error] 传输 \\错误。 com\public\indy.png：（5）访问被拒绝。
 Stack 跟踪：在 StorageMigration （String fileName、DesiredAccess desiredAccess、ShareMode shareMode、CreationDisposition creationDisposition、FlagsAndAttributes flagsAndAttributes）处，StorageMigration （FileDirUtils）上的 GetTargetFile （字符串路径），网址为，网址为，（FileDirUtils 文件），网址为StorageMigration （），网址为 FileTransfer. InitializeSourceFileInfo （），网址为，，网址为，，网址为StorageMigration FileTransfer. TryTransfer （） [d:\os\src\base\dms\proxy\transfer\transferproxy\FileTransfer.cs：： TryTransfer：： 55]
 
 
@@ -287,7 +287,25 @@ DFSR 调试日志：
    
 2.  启动存储迁移服务服务，该服务将创建一个新数据库。
 
+## <a name="error-clusctl_resource_netname_repair_vco-failed-against-netname-resource-and-windows-server-2008-r2-cluster-cutover-fails"></a>错误 "CLUSCTL_RESOURCE_NETNAME_REPAIR_VCO 无法应对网络名称资源"，Windows Server 2008 R2 群集切换失败
 
+当尝试对 Windows Server 2008 R2 群集源运行 cut 时，该剪切卡会停滞在 "重命名源计算机 ..." 阶段你会收到以下错误：
+
+    Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Debug
+    Source:        Microsoft-Windows-StorageMigrationService-Proxy
+    Date:          10/17/2019 6:44:48 PM
+    Event ID:      10000
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      WIN-RNS0D0PMPJH.contoso.com
+    Description:
+    10/17/2019-18:44:48.727 [Erro] Exception error: 0x1. Message: Control code CLUSCTL_RESOURCE_NETNAME_REPAIR_VCO failed against netName resource 2008r2FS., stackTrace:    at Microsoft.FailoverClusters.Framework.ClusterUtils.NetnameRepairVCO(SafeClusterResourceHandle netNameResourceHandle, String netName)
+       at Microsoft.FailoverClusters.Framework.ClusterUtils.RenameFSNetName(SafeClusterHandle ClusterHandle, String clusterName, String FsResourceId, String NetNameResourceId, String newDnsName, CancellationToken ct)
+       at Microsoft.StorageMigration.Proxy.Cutover.CutoverUtils.RenameFSNetName(NetworkCredential networkCredential, Boolean isLocal, String clusterName, String fsResourceId, String nnResourceId, String newDnsName, CancellationToken ct)    [d:\os\src\base\dms\proxy\cutover\cutoverproxy\CutoverUtils.cs::RenameFSNetName::1510]
+
+此问题是由较早版本的 Windows Server 中缺少的 API 导致的。 目前没有办法迁移 Windows Server 2008 和 Windows Server 2003 群集。 在 Windows Server 2008 R2 群集上，你可以执行清单和传输，而不是在 Windows Server R2 群集上进行，然后手动执行转换，方法是手动更改群集的源文件服务器资源网络名称和 IP 地址，然后更改目标群集网络名称和 IP与原始源相匹配的地址。 
 
 ## <a name="see-also"></a>另请参阅
 

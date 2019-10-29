@@ -7,18 +7,18 @@ ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
-ms.date: 11/08/2016
+ms.date: 10/22/2019
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ae9767e3-864a-4eb2-96c0-626759ce6d60
 author: lizap
 manager: dongill
-ms.openlocfilehash: cec1ae43b51b17da5617f95e13b839d4ecfbb40c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 92af2b4e9fb174f1aa815256148ee8d5c7c7181a
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404006"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812257"
 ---
 # <a name="create-a-remote-desktop-services-collection-for-desktops-and-apps-to-run"></a>创建供桌面和应用运行的远程桌面服务集合
 
@@ -33,7 +33,7 @@ ms.locfileid: "71404006"
  
 使用共用会话时，多个用户访问共享的资源池，而使用个人桌面会话时，将从池中向用户分配其自己的桌面。 共用会话提供较低的总成本，而个人会话使用户能够自定义其桌面体验。
 
-如果需要共享图形密集型托管应用程序，可以将个人会话桌面与为图形加速配置的 RemoteFX vGPU 组合起来。 或者，也可以将个人会话桌面与新的离散设备分配 (DDA) 功能相结合，为需要加速图形的托管应用程序提供支持。 有关详细信息，请参阅[哪种图形虚拟化技术适合你](rds-graphics-virtualization.md)。
+如果需要共享常用图形的托管应用程序，则可将个人会话桌面与新的离散设备分配 (DDA) 相结合，这也可为需要加速图形的托管应用程序提供支持。 有关详细信息，请参阅[哪种图形虚拟化技术适合你](rds-graphics-virtualization.md)。
 
 
 无论选择哪种类型的集合，都将使用 RemoteApps 填充这些集合 - 用户可以从任何受支持的设备访问这些程序和资源，并且像在本地运行程序那样使用它们。
