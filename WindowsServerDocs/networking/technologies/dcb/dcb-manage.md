@@ -99,7 +99,7 @@ DCB 配置包括以下步骤。
 
 ### <a name="create-a-traffic-class"></a>创建流量类
 
-可以使用**get-netqostrafficclass**命令创建流量类。
+可以使用**New-NetQosTrafficClass**命令创建流量类。
 
     
     New-NetQosTrafficClass -Name SMB -Priority 4 -BandwidthPercentage 30 -Algorithm ETS
